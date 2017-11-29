@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "child_process": "1.0.2"
+  },
+  "scripts": {
+    "build": "echo hallo"
+  }
+}

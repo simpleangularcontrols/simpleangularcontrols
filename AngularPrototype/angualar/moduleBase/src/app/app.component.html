@@ -1,8 +1,13 @@
-<div class="form-horizontal">
-  <ngInput name="testname1" label="Eingabe 1"></ngInput>
-  <ngInput name="testname2" label="Eingabe 2"></ngInput>
-  <ngInput name="testname3" label="Eingabe 3"></ngInput>
-  <ngInput name="testname4" label="Eingabe 4" value="Wert 1"></ngInput>
-  <ngInput name="testname5" label="Eingabe 5" labelsize="5"></ngInput>
-  <nbButton name="save" text="Speichern"></nbButton>
+<div ngForm #form="ngForm">
+  <div class="form-horizontal">
+    <ngInput name="testname1" label="Eingabe 1" ngModel [isrequired]="testrequired"></ngInput>
+    <ngInput name="testname2" label="Eingabe 2" ngModel isrequired="true"></ngInput>
+    <ngInput name="testname3" label="Eingabe 3" ngModel></ngInput>
+    <ngInput name="testname4" label="Eingabe 4" value="Wert 1"></ngInput>
+    <ngInput name="testname5" label="Eingabe 5" labelsize="4" ngModel></ngInput>
+    <ngButton name="save" text="Speichern" enabled=""></ngButton>
+    <button type="Submit" [disabled]="!myForm.form.valid">Submit</button>
+    <button (click)="onSubmit()">Submit</button>
+    <a (click)="changeRequired()">Change Required</a>
+  </div>
 </div>

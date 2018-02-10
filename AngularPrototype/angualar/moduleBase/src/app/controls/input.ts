@@ -1,68 +1,69 @@
-import { Component, Input, forwardRef } from '@angular/core';
-import { ControlValueAccessor, Validator, FormControl, NG_VALUE_ACCESSOR, NG_VALIDATORS, ValidationErrors } from '@angular/forms';
+import { Component, Input } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, NgForm, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'ngInput',
   templateUrl: './input.html',
+  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => NgInput),
-      multi: true
-    },
-    {
-      provide: NG_VALIDATORS,
-      useExisting: forwardRef(() => NgInput),
       multi: true,
-    }   
-  ]
+      useExisting: NgInput
+    }
+  ],
+  // View Provider, damit das Formular an das Control gebunden werden kann
+  viewProviders: [{ provide: ControlContainer, useExisting: NgForm }]
 })
-export class NgInput
-  implements ControlValueAccessor, Validator {
+export class NgInput implements ControlValueAccessor {
 
-  
-  hasError = false;
+  // Implementation ControlValueAccessor
+  // Leere Implementation von "propagateChange". Muss gemacht werden, damit kein Fehler entsteht
+  propagateChange = (_: any) => { };
 
-  @Input() required: boolean = false;
-  @Input() label: string = '';
+  // Methode, damit andere Controls änderungen im Control mitbekommen können
+  // Zur Änderungsinfo die Methode propagateChange aufrufen.
+  registerOnChange(fn: any): void {
+    this.propagateChange = fn;
+  }
+
+  // Methode, damit andere Controls änderungen mitbekommen, wenn das Control aktiviert (Focus) wird.
+  registerOnTouched(fn: any): void {
+  }
+
+  // Methode zum schreiben von Werten aus dem Model in das Control
+  writeValue(value: string) {
+    if (value) {
+      console.debug('Write Value ' + value);
+      this._value = value;
+      this.propagateChange(this._value);
+    }
+  }
+
+  // Interne Variable, die den Wert des Controls hält
+  private _value: string = '';
+
+  // @Input wird verwendet, um das Property von aussen Sichtbar zu machen.
+  @Input("isrequired") _isrequired: boolean = false;
+  @Input("label") _label: string = '';
   @Input() name: string = '';
   @Input() labelsize: number = 2;
-  @Input() value: string = '';
 
   get inputsize(): number {
     return 12 - this.labelsize;
   }
 
-
-
-  private propagateChange = (_: any) => { };
-
-  writeValue(obj: any): void {
-    if (obj) {
-      this.value = obj;
-    }
-  }
-  registerOnChange(fn: any): void {
-    this.propagateChange = fn;
-  }
-  registerOnTouched(fn: any): void {
-    throw new Error("Method not implemented.");
-  }
-  setDisabledState(isDisabled: boolean): void {
-    throw new Error("Method not implemented.");
+  // Get Methode für NgModel Binding in Html Markup
+  get value(): string {
+    return this._value;
   }
 
-  // change events from the textarea
-  private onChange(event) {
-    // update the form
-    this.propagateChange(this.value);
+  // Set Methode für NgModel Binding in Html Markup
+  // Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.
+  @Input("value")
+  set value(v: string) {
+    this._value = v;
+    this.propagateChange(this._value);
   }
-
-  validate(c: FormControl): ValidationErrors {
-    throw new Error("Method not implemented.");
-  }
-  registerOnValidatorChange(fn: () => void): void {
-    throw new Error("Method not implemented.");
-  }
-  
 }
+

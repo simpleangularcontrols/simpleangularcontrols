@@ -135,13 +135,13 @@
     <Content Include="angualar\moduleBase\dist\inline.bundle.js" />
     <Content Include="angualar\moduleBase\dist\main.bundle.js" />
     <Content Include="angualar\moduleBase\dist\polyfills.bundle.js" />
-    <Content Include="angualar\moduleBase\dist\styles.bundle.css" />
     <Content Include="angualar\moduleBase\karma.conf.js" />
     <Content Include="angualar\moduleBase\protractor.conf.js" />
     <Content Include="angualar\moduleBase\src\app\app.component.css" />
     <Content Include="angualar\moduleBase\src\app\app.component.html" />
+    <Content Include="angualar\moduleBase\src\app\controls\button.html" />
+    <Content Include="angualar\moduleBase\src\app\controls\input.html" />
     <Content Include="angualar\moduleBase\src\index.html" />
-    <Content Include="angualar\moduleBase\src\styles.css" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -276,6 +276,8 @@
     <TypeScriptCompile Include="angualar\moduleBase\src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\app.component.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\app.module.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\button.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\input.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\environments\environment.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\main.ts" />

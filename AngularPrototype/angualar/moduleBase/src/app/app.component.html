@@ -16,9 +16,10 @@
 </ngFormular>
 
 <div>Example Form</div>
-<ngFormular #form2="ngFormular">
-  <ngInput name="field1" label="Feld 1" isrequired="true" ngModel></ngInput>
+<ngFormular #form2="ngFormular" labelsize="3">
+  <ngInput name="field1" label="Feld 1" labelsize="2" isrequired="true" ngModel></ngInput>
   <ngInput name="field2" disablelabel="true" ngModel></ngInput>
-  <ngInput name="field3" label="Feld 2" labelsize="4" ngModel></ngInput>
+  <ngInput name="field3" label="Feld 3" labelsize="4" ngModel></ngInput>
+  <ngInput name="field4" label="Feld 4" ngModel></ngInput>
   <ngButton name="button1" text="Speichern" [isenabled]="form2.valid" (onclick)="t3Save()"></ngButton>
 </ngFormular>

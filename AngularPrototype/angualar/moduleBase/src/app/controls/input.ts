@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Host, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl } from '@angular/forms';
 import { NgFormular } from './form';
 
@@ -16,7 +16,24 @@ import { NgFormular } from './form';
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
 })
-export class NgInput implements ControlValueAccessor {
+export class NgInput implements ControlValueAccessor, OnInit {
+
+  private parent: NgFormular;
+
+  constructor( @Host() parent: NgFormular) {
+    this.parent = parent;
+  }
+
+  ngOnInit() {
+    // Label Size von Formular lesen
+    if (this._labelsize === undefined) {
+      if (this.parent.labelsize !== undefined) {
+        this._labelsize = this.parent.labelsize;
+      } else {
+        this._labelsize = 2;
+      }
+    }
+  }
 
   // Implementation ControlValueAccessor
   // Leere Implementation von "propagateChange". Muss gemacht werden, damit kein Fehler entsteht
@@ -53,7 +70,7 @@ export class NgInput implements ControlValueAccessor {
   // Definiert den Label Text
   @Input("label") _label: string = '';
   // Definiert die Labelgröse
-  @Input("labelsize") _labelsize: number = 2;
+  @Input("labelsize") _labelsize: number = undefined;
   // Deaktiviert das Label im Template
   @Input("disablelabel") _disablelabel: boolean = false;
 

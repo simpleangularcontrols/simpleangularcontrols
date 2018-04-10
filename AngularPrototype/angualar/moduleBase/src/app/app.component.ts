@@ -42,4 +42,12 @@ export class AppComponent {
       }
     });
   }
+
+
+  // Form Example 2
+  field1: string = '';
+
+  t3Save() {
+    alert('Save Form 2');
+  }
 }

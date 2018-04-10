@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'ngButton',
@@ -10,5 +10,20 @@ export class NgButton {
 
   @Input() name: string = '';
   @Input() text: string = '';
+
+  @Input("isenabled") _isenabled: boolean = true;
+
+  get _isdisabled(): boolean {
+    return this._isenabled == false;
+  }
+
+
+  @Output()
+  onclick = new EventEmitter();
+
+
+  buttonClick() {
+    this.onclick.emit();
+  };
 
 }

@@ -1,3 +1,5 @@
+<div>Template 1</div>
+
 <div ngForm #form="ngForm">
   <div class="form-horizontal">
     <ngInput name="testname1" label="Eingabe 1" ngModel [isrequired]="testrequired"></ngInput>
@@ -9,5 +11,12 @@
     <button type="Submit" [disabled]="!myForm.form.valid">Submit</button>
     <button (click)="onSubmit()">Submit</button>
     <a (click)="changeRequired()">Change Required</a>
+
   </div>
 </div>
+
+<div>Example Form</div>
+<ngForm #form2="ngForm">
+  <ngInput name="field1" label="Feld 1" isrequired="true" ngModel></ngInput>
+  <ngButton name="button1" text="Speichern" [isenabled]="form2.valid" (onclick)="t3Save()"></ngButton>
+</ngForm>

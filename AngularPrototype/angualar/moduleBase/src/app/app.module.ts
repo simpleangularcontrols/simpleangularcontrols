@@ -18,7 +18,8 @@ const NgDirectives = [
   ],
   imports: [
     BrowserModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

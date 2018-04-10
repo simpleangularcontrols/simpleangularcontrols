@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, NgForm, FormControl } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl } from '@angular/forms';
+import { NgFormular } from './form';
 
 @Component({
   selector: 'ngInput',
@@ -13,7 +14,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, NgForm, Form
     }
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgForm }]
+  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
 })
 export class NgInput implements ControlValueAccessor {
 
@@ -44,13 +45,20 @@ export class NgInput implements ControlValueAccessor {
   private _value: string = '';
 
   // @Input wird verwendet, um das Property von aussen Sichtbar zu machen.
-  @Input("isrequired") _isrequired: boolean = false;
-  @Input("label") _label: string = '';
-  @Input() name: string = '';
-  @Input() labelsize: number = 2;
 
-  get inputsize(): number {
-    return 12 - this.labelsize;
+  // Name des Controls
+  @Input("name") _name: string = '';
+  // Definiert das Control als Required
+  @Input("isrequired") _isrequired: boolean = false;
+  // Definiert den Label Text
+  @Input("label") _label: string = '';
+  // Definiert die Labelgröse
+  @Input("labelsize") _labelsize: number = 2;
+  // Deaktiviert das Label im Template
+  @Input("disablelabel") _disablelabel: boolean = false;
+
+  get _inputsize(): number {
+    return 12 - this._labelsize;
   }
 
   // Get Methode für NgModel Binding in Html Markup

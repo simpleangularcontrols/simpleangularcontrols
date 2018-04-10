@@ -277,6 +277,7 @@
     <TypeScriptCompile Include="angualar\moduleBase\src\app\app.component.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\app.module.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\button.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\form.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\input.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\environments\environment.ts" />

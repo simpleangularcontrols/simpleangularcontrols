@@ -46,6 +46,8 @@ export class AppComponent {
 
   // Form Example 2
   field1: string = '';
+  field2: string = '';
+  field3: string = '';
 
   t3Save() {
     alert('Save Form 2');

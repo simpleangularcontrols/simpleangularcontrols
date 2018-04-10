@@ -1,6 +1,6 @@
 <div class="form-group" [ngClass]="{'has-error': control.invalid && (control.dirty || control.touched) }">
-  <label for="{{name}}" class="col-sm-{{labelsize}} control-label">{{_label}}</label>
-  <div class="col-sm-{{inputsize}}">
-    <input id="{{name}}" name="{{name}}" class="form-control" [(ngModel)]="value" [required]="_isrequired" #control="ngModel" />
+  <label for="{{_name}}" class="control-label" [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]">{{_label}}</label>
+  <div [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
+    <input id="{{_name}}" name="{{_name}}" class="form-control" [(ngModel)]="value" [required]="_isrequired" #control="ngModel" />
   </div>
 </div>

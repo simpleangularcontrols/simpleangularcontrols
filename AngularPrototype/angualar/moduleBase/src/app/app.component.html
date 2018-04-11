@@ -4,7 +4,7 @@
   <div class="form-horizontal">
     <ngInput name="testname1" label="Eingabe 1" ngModel [isrequired]="testrequired"></ngInput>
     <ngInput name="testname2" label="Eingabe 2" ngModel isrequired="true"></ngInput>
-    <ngInput name="testname3" label="Eingabe 3" ngModel></ngInput>
+    <ngInput name="testname3" label="Eingabe 3" ngModel="testname3"></ngInput>
     <ngInput name="testname4" label="Eingabe 4" value="Wert 1"></ngInput>
     <ngInput name="testname5" label="Eingabe 5" labelsize="4" ngModel></ngInput>
     <ngButton name="save" text="Speichern" enabled=""></ngButton>
@@ -19,8 +19,11 @@
 <ngFormular #form2="ngFormular" labelsize="3">
   <ngInput name="field1" label="Feld 1" labelsize="2" isrequired="true" ngModel></ngInput>
   <ngInput name="field2" disablelabel="true" ngModel></ngInput>
-  <ngInput name="field3" label="Feld 3" labelsize="4" ngModel></ngInput>
+  <ngInput name="field3" label="Feld 3" labelsize="4" [ngModel]="field3"></ngInput>
   <ngInput name="field4" label="Feld 4" ngModel></ngInput>
   <ngInput name="field5" label="Feld 5" placeholder="Feld 5" ngModel></ngInput>
-  <ngButton name="button1" text="Speichern" [isenabled]="form2.valid" (onclick)="t3Save()"></ngButton>
+  <ngCheckbox name="checkbox1" label="Checkbox 1" ngModel></ngCheckbox>
+  <ngCheckbox name="checkbox2" label="Checkbox 2" labelsize="2" [ngModel]="checkbox2"></ngCheckbox>
+  <ngCheckbox name="checkbox3" label="Checkbox 3" disablelabel="true" ngModel></ngCheckbox>
+  <ngButton name="button1" text="Speichern" [isenabled]="form2.valid" (onclick)="t3Save(form2)"></ngButton>
 </ngFormular>

@@ -47,9 +47,13 @@ export class AppComponent {
   // Form Example 2
   field1: string = '';
   field2: string = '';
-  field3: string = '';
+  field3: string = 'Test';
+  checkbox2: boolean = true;
 
-  t3Save() {
+  t3Save(data: NgForm) {
     alert('Save Form 2');
+
+    alert(JSON.stringify(data.value));
+
   }
 }

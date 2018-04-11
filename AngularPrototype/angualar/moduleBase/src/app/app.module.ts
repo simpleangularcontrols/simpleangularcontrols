@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { NgFormular } from './controls/form';
 import { NgInput } from './controls/input';
 import { NgButton } from './controls/button';
+import { NgCheckbox } from './controls/checkbox';
 
 const NgDirectives = [
   AppComponent,
-  NgInput, NgButton, NgFormular
+  NgInput, NgButton, NgFormular, NgCheckbox
 ]
 
 

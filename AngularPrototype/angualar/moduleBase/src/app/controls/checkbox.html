@@ -1,0 +1,10 @@
+<div class="form-group">
+  <label for="{{_name}}" class="control-label" [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]">{{_label}}</label>
+  <div [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
+    <div class="checkbox">
+      <label>
+        <input id="{{_name}}" name="{{_name}}" type="checkbox" [(ngModel)]="value" #control="ngModel" />
+      </label>
+    </div>
+  </div>
+</div>

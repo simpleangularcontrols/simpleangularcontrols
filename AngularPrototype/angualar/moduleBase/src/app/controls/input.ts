@@ -18,12 +18,26 @@ import { NgFormular } from './form';
 })
 export class NgInput implements ControlValueAccessor, OnInit {
 
+  // #region Private Variables
+
+  // Parent Formular
   private parent: NgFormular;
 
+  // #endregion
+
+  // #region Constructor
+
+  // Konstruktor
+  // Inject des Formulars
   constructor( @Host() parent: NgFormular) {
     this.parent = parent;
   }
 
+  // #endregion
+
+  // #region Control Events
+
+  // Init Event
   ngOnInit() {
     // Label Size von Formular lesen
     if (this._labelsize === undefined) {
@@ -35,7 +49,10 @@ export class NgInput implements ControlValueAccessor, OnInit {
     }
   }
 
-  // Implementation ControlValueAccessor
+  // #endregion
+
+  // #region Implementation ControlValueAccessor
+
   // Leere Implementation von "propagateChange". Muss gemacht werden, damit kein Fehler entsteht
   propagateChange = (_: any) => { };
 
@@ -52,16 +69,14 @@ export class NgInput implements ControlValueAccessor, OnInit {
   // Methode zum schreiben von Werten aus dem Model in das Control
   writeValue(value: string) {
     if (value) {
-      console.debug('Write Value ' + value);
       this._value = value;
       this.propagateChange(this._value);
     }
   }
-
-  // Interne Variable, die den Wert des Controls hält
-  private _value: string = '';
-
-  // @Input wird verwendet, um das Property von aussen Sichtbar zu machen.
+  
+  // #endregion
+  
+  // #region Properties
 
   // Name des Controls
   @Input("name") _name: string = '';
@@ -74,14 +89,21 @@ export class NgInput implements ControlValueAccessor, OnInit {
   // Deaktiviert das Label im Template
   @Input("disablelabel") _disablelabel: boolean = false;
 
+  // #endregion
+
+  // #region Internal Properties
+
+  // Berechnet die Breite des Labels
   get _inputsize(): number {
     return 12 - this._labelsize;
   }
 
-  // Get Methode für NgModel Binding in Html Markup
-  get value(): string {
-    return this._value;
-  }
+  // #endregion
+
+  // #region Control Value
+
+  // Interne Variable, die den Wert des Controls hält
+  private _value: string = '';
 
   // Set Methode für NgModel Binding in Html Markup
   // Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.
@@ -90,5 +112,13 @@ export class NgInput implements ControlValueAccessor, OnInit {
     this._value = v;
     this.propagateChange(this._value);
   }
+
+  // Get Methode für NgModel Binding in Html Markup
+  get value(): string {
+    return this._value;
+  }
+
+  // #endregion
+
 }
 

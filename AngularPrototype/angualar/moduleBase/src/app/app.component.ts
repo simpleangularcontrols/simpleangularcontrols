@@ -1,6 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm, FormGroup, FormControl } from '@angular/forms';
 
+interface KeyValue {
+  label: string,
+  value: string,
+  text: string
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -49,6 +55,11 @@ export class AppComponent {
   field2: string = '';
   field3: string = 'Test';
   checkbox2: boolean = true;
+  dropdown1: string = '';
+  dropdown2: string = 'v3';
+  dropdown3: string = 'v3';
+
+  dropdownitems: KeyValue[] = [{ label: 'Wert 1', value: 'v1', text: 'Text 1' }, { label: 'Wert 2', value: 'v2', text: 'Text 2' }, { label: 'Wert 3', value: 'v3', text: 'Text 3' }];
 
   t3Save(data: NgForm) {
     alert('Save Form 2');

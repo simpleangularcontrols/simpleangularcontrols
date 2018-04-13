@@ -7,10 +7,11 @@ import { NgFormular } from './controls/form';
 import { NgInput } from './controls/input';
 import { NgButton } from './controls/button';
 import { NgCheckbox } from './controls/checkbox';
+import { NgDropdown } from './controls/dropdown';
 
 const NgDirectives = [
   AppComponent,
-  NgInput, NgButton, NgFormular, NgCheckbox
+  NgInput, NgButton, NgFormular, NgCheckbox, NgDropdown 
 ]
 
 

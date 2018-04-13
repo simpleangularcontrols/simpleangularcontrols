@@ -1,0 +1,9 @@
+<div class="form-group">
+  <label for="{{_name}}" class="control-label" [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]">{{_label}}</label>
+  <div [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
+    <select id="{{_name}}" name="{{_name}}" class="form-control" [(ngModel)]="value">
+      <ng-content></ng-content>
+      <option *ngFor="let option of options" [value]="option[_fieldValue]" [selected]="_selectedOption == option">{{option[_fieldLabel]}}</option>
+    </select>
+  </div>
+</div>

@@ -141,6 +141,7 @@
     <Content Include="angualar\moduleBase\src\app\app.component.html" />
     <Content Include="angualar\moduleBase\src\app\controls\button.html" />
     <Content Include="angualar\moduleBase\src\app\controls\checkbox.html" />
+    <Content Include="angualar\moduleBase\src\app\controls\dropdown.html" />
     <Content Include="angualar\moduleBase\src\app\controls\input.html" />
     <Content Include="angualar\moduleBase\src\index.html" />
     <Content Include="Contact.aspx" />
@@ -280,6 +281,7 @@
     <TypeScriptCompile Include="angualar\moduleBase\src\app\base\basemodelcontrol.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\button.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\checkbox.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\dropdown.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\form.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\input.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\environments\environment.prod.ts" />

@@ -25,5 +25,10 @@
   <ngCheckbox name="checkbox1" label="Checkbox 1" ngModel></ngCheckbox>
   <ngCheckbox name="checkbox2" label="Checkbox 2" labelsize="2" [ngModel]="checkbox2"></ngCheckbox>
   <ngCheckbox name="checkbox3" label="Checkbox 3" disablelabel="true" ngModel></ngCheckbox>
+  <ngDropdown name="dropdown1" label="Dropdown 1" [ngModel]="dropdown1" [options]="dropdownitems"></ngDropdown>
+  <ngDropdown name="dropdown2" label="Dropdown 2" [ngModel]="dropdown2" [options]="dropdownitems" optionlabel="text"></ngDropdown>
+  <ngDropdown name="dropdown3" label="Dropdown 3" [ngModel]="dropdown3" [options]="dropdownitems">
+    <option value="x4">Inject Value</option>
+  </ngDropdown>
   <ngButton name="button1" text="Speichern" [isenabled]="form2.valid" (onclick)="t3Save(form2)"></ngButton>
 </ngFormular>

@@ -30,5 +30,13 @@
   <ngDropdown name="dropdown3" label="Dropdown 3" [ngModel]="dropdown3" [options]="dropdownitems">
     <option value="x4">Inject Value</option>
   </ngDropdown>
+  <ngDropdown name="dropdown4" label="Dropdown 4" [ngModel]="dropdown4" [options]="dropdownitems2" optionlabel="text" optionenabled="enabled"></ngDropdown>
+  <ngDropdown name="dropdown5" label="Dropdown 5" [ngModel]="dropdown5" [options]="dropdownitems2" optionlabel="text"></ngDropdown>
+  <ngDropdown name="dropdown6" label="Dropdown 6" [ngModel]="dropdown6" [options]="groupitems" groupitems="items"></ngDropdown>
+  <ngDropdown name="dropdown7" label="Dropdown 7" [ngModel]="dropdown7" [options]="dropdownitems" isrequired="true">
+    <option value="">Select Value</option>
+  </ngDropdown>
+  <ngDropdown name="dropdown8" label="Dropdown 8" [ngModel]="dropdown8" [options]="dropdownitems" isrequired="true"></ngDropdown>
+  <ngDropdown name="dropdown9" label="Dropdown 9" [ngModel]="dropdown9" [options]="dropdownitems" emptylabel="Please select item"></ngDropdown>
   <ngButton name="button1" text="Speichern" [isenabled]="form2.valid" (onclick)="t3Save(form2)"></ngButton>
 </ngFormular>

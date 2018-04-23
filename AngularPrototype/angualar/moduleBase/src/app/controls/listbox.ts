@@ -5,24 +5,19 @@ import { NgFormular } from './form';
 
 
 @Component({
-  selector: 'ngDropdown',
-  templateUrl: './dropdown.html',
+  selector: 'ngListbox',
+  templateUrl: './listbox.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NgDropdown
+      useExisting: NgListbox
     }
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
 })
-export class NgDropdown extends NgBaseSelectControl {
-
-  // Label Text für Empty Item
-  @Input("emptylabel") _emptylabel: string = '';
-  // Option Value für Empty Item
-  private _emptyoptionvalue: object = null;
-
+export class NgListbox extends NgBaseSelectControl {
+  @Input("rowsize") _rowsize: number = 5;
 }

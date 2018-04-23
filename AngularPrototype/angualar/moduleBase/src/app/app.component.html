@@ -38,5 +38,11 @@
   </ngDropdown>
   <ngDropdown name="dropdown8" label="Dropdown 8" [ngModel]="dropdown8" [options]="dropdownitems" isrequired="true"></ngDropdown>
   <ngDropdown name="dropdown9" label="Dropdown 9" [ngModel]="dropdown9" [options]="dropdownitems" emptylabel="Please select item"></ngDropdown>
+
+  <ngListbox name="listbox1" label="Listbox 1" [ngModel]="listbox1" [options]="dropdownitems"></ngListbox>
+  <ngListbox name="listbox2" label="Listbox 2" [ngModel]="listbox2" [options]="dropdownitems"></ngListbox>
+  <ngListbox name="listbox3" label="Listbox 3" [ngModel]="listbox3" [options]="dropdownitems" isrequired="true" labelsize="6" rowsize="6"></ngListbox>
+  <ngListbox name="listbox4" label="Listbox 4" [ngModel]="listbox4" [options]="dropdownitems" isrequired="true"></ngListbox>
+
   <ngButton name="button1" text="Speichern" [isenabled]="form2.valid" (onclick)="t3Save(form2)"></ngButton>
 </ngFormular>

@@ -1,0 +1,16 @@
+<div class="form-group">
+  <label for="{{_name}}" class="control-label" [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]">{{_label}}</label>
+  <div [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
+    <select multiple id="{{_name}}" name="{{_name}}" class="form-control" [(ngModel)]="value" [required]="_isrequired" [size]="_rowsize">
+      <ng-content></ng-content>
+      <ng-container *ngIf="_fieldGroupItems === ''">
+        <option *ngFor="let option of options" [value]="option[_fieldValue]" [disabled]="_fieldEnabled !== '' && option[_fieldEnabled] === false">{{option[_fieldLabel]}}</option>
+      </ng-container>
+      <ng-container *ngIf="_fieldGroupItems !== ''">
+        <optgroup *ngFor="let option of options" [attr.label]="option[_fieldGroupLabel]">
+          <option *ngFor="let item of option[_fieldGroupItems]" [value]="item[_fieldValue]" [disabled]="_fieldEnabled !== '' && item[_fieldEnabled] === false">{{item[_fieldLabel]}}</option>
+        </optgroup>
+      </ng-container>
+    </select>
+  </div>
+</div>

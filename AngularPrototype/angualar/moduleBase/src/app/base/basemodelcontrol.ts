@@ -1,4 +1,4 @@
-import { Component, Input, Host, OnInit } from '@angular/core';
+import { Component, Input, Host, OnInit, Injectable } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl } from '@angular/forms';
 import { NgFormular } from '../controls/form';
 
@@ -15,7 +15,7 @@ export class NgBaseModelControl implements ControlValueAccessor, OnInit {
 
   // Konstruktor
   // Inject des Formulars
-  constructor( @Host() parent: NgFormular) {
+  constructor(@Host() parent: NgFormular) {
     this.parent = parent;
   }
 

@@ -2,7 +2,7 @@ import { Component, Input, Host, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl } from '@angular/forms';
 import { NgBaseSelectControl } from '../base/baseselectcontrol';
 import { NgFormular } from './form';
-
+import { NgRequiredListbox } from '../validation/required';
 
 @Component({
   selector: 'ngListbox',

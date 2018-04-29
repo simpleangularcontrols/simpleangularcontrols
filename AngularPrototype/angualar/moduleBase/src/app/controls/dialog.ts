@@ -1,7 +1,6 @@
 import { Component, Input, ElementRef, AfterViewInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl } from '@angular/forms';
 import * as $ from "jquery";
-// declare var jQuery: any;
 
 @Component({
   selector: 'ngDialog',
@@ -11,6 +10,13 @@ export class NgDialog implements AfterViewInit {
 
   private baseElement: ElementRef;
   private modal: any;
+  private _show: boolean = false;
+
+  // Get Methode für NgModel Binding in Html Markup
+  get isVisible(): boolean {
+    return this._show;
+  }
+
   // #region Constructor
 
   // Konstruktor
@@ -19,9 +25,9 @@ export class NgDialog implements AfterViewInit {
     this.baseElement = el;
   }
 
-  // $carousel: JQuery | any;
-
   // #endregion
+
+  // #region Control initialisieren
 
   ngAfterViewInit() {
     this.modal = jQuery(this.baseElement.nativeElement.firstChild);
@@ -36,7 +42,9 @@ export class NgDialog implements AfterViewInit {
     })
   }
 
-  private _show: boolean = false;
+  // #endregion
+
+  // #region Properties
 
   @Input("title")
   public _title: string = "Dialog";
@@ -66,10 +74,9 @@ export class NgDialog implements AfterViewInit {
   @Input("animation")
   public _animation: boolean = false;
 
-  // Get Methode für NgModel Binding in Html Markup
-  get isVisible(): boolean {
-    return this._show;
-  }
+  // #endregion
+
+  // #region Properties
 
   public show(): void {
     this.isVisible = true;
@@ -78,5 +85,7 @@ export class NgDialog implements AfterViewInit {
   public hide(): void {
     this.isVisible = false;
   }
+
+  // #endregion
 }
 

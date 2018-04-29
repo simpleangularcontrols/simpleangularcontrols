@@ -93,4 +93,18 @@ export class AppComponent {
     alert(JSON.stringify(data.value));
 
   }
+
+
+  modal1: boolean = false;
+
+  modal1Open() {
+    alert(this.modal1);
+    this.modal1 = true;
+    alert(this.modal1);
+  }
+  modal1Close() {
+    alert(this.modal1);
+    this.modal1 = false;
+    alert(this.modal1);
+  }
 }

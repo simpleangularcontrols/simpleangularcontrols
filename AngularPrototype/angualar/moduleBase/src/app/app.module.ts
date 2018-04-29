@@ -11,10 +11,11 @@ import { NgDropdown } from './controls/dropdown';
 import { NgListbox } from './controls/listbox';
 import { NgValidationSummary } from './controls/validationsummary';
 import { NgRequiredInput, NgRequiredDropdown, NgRequiredListbox } from './validation/required';
+import { NgDialog } from './controls/dialog';
 
 const NgDirectives = [
   AppComponent,
-  NgInput, NgButton, NgFormular, NgCheckbox, NgDropdown, NgListbox, NgValidationSummary, NgRequiredInput, NgRequiredDropdown, NgRequiredListbox
+  NgInput, NgButton, NgFormular, NgCheckbox, NgDropdown, NgListbox, NgValidationSummary, NgRequiredInput, NgRequiredDropdown, NgRequiredListbox, NgDialog
 ]
 
 

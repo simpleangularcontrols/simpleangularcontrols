@@ -46,4 +46,12 @@
   <ngListbox name="listbox4" label="Listbox 4" [ngModel]="listbox4" [options]="dropdownitems" isrequired="true"></ngListbox>
 
   <ngButton name="button1" text="Speichern" [isenabled]="form2.valid" (onclick)="t3Save(form2)"></ngButton>
+
+  <ngButton name="modalOpen1" text="Modal öffnen" (onclick)="modal1dialog.show()"></ngButton>
+  <ngDialog #modal1dialog [allowesc]="false" [backdrop]="false">
+    <div dialogbody>      <p>Hello World</p></div>
+    <div dialogfooter>
+      <ngButton name="modalClose1" text="Schliessen" (onclick)="modal1dialog.hide()"></ngButton>
+    </div>
+  </ngDialog>
 </ngFormular>

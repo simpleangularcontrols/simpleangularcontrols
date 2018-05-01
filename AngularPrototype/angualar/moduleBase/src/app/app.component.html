@@ -54,4 +54,21 @@
       <ngButton name="modalClose1" text="Schliessen" (onclick)="modal1dialog.hide()"></ngButton>
     </div>
   </ngDialog>
+
+
+  <ngTab>
+    <ngTabItem id="home" label="Home">
+      <p>Tab 1</p>
+    </ngTabItem>
+    <ngTabItem id="profile" label="Profile">
+      <p>Tab 2</p>
+    </ngTabItem>
+    <ngTabItem id="messages" label="Messages">
+      <p>Tab 3</p>
+    </ngTabItem>
+    <ngTabItem id="messages" label="Messages" [disabled]="true">
+      <p>Disabled Tab</p>
+    </ngTabItem>
+  </ngTab>
+
 </ngFormular>

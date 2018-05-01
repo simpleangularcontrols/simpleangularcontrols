@@ -1,0 +1,16 @@
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li *ngFor="let item of tabItems" [ngClass]="{ 'active': item.active, 'disabled': item._disabled }">
+      <a *ngIf="item._disabled === false" [href]="'#' + item._id" [attr.aria-controls]="item._id" role="tab" data-toggle="tab">{{item._label}}</a>
+      <a *ngIf="item._disabled === true">{{item._label}}</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <ng-content></ng-content>
+  </div>
+
+</div>

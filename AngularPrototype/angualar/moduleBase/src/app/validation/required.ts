@@ -4,17 +4,18 @@ import { NgBaseModelControl } from '../base/basemodelcontrol';
 import { NgInput } from '../controls/input';
 import { NgDropdown } from '../controls/dropdown';
 import { NgListbox } from '../controls/listbox';
+import { NgInputDecimal } from '../controls/inputdecimal';
 
 
-class NgRequiredBase extends RequiredValidator {
+class NgRequiredBase<VALUE> extends RequiredValidator {
 
-  private controlItem: NgBaseModelControl;
+  private controlItem: NgBaseModelControl<VALUE>;
 
   // #region Constructor
 
   // Konstruktor
   // Inject des Formulars
-  constructor(controlItem: NgBaseModelControl) {
+  constructor(controlItem: NgBaseModelControl<VALUE>) {
     super();
     this.controlItem = controlItem;
   }
@@ -35,16 +36,15 @@ class NgRequiredBase extends RequiredValidator {
 
 }
 
-
 @Directive({
   selector: 'input[ngRequired][ngModel]',
   providers: [
-    { provide: NG_VALIDATORS, useExisting: forwardRef(() => NgRequiredInput), multi: true, },
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => NgRequiredInput), multi: true },
     { provide: NgBaseModelControl, useExisting: NgInput, multi: true }
   ]
 })
-export class NgRequiredInput extends NgRequiredBase {
-  constructor(controlItem: NgBaseModelControl) {
+export class NgRequiredInput extends NgRequiredBase<string> {
+  constructor(controlItem: NgBaseModelControl<string>) {
     super(controlItem);
   }
 
@@ -55,14 +55,33 @@ export class NgRequiredInput extends NgRequiredBase {
 }
 
 @Directive({
+  selector: 'input[ngRequiredDecimal][ngModel]',
+  providers: [
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => NgRequiredInputDecimal), multi: true },
+    { provide: NgBaseModelControl, useExisting: NgInputDecimal, multi: true }
+  ]
+})
+export class NgRequiredInputDecimal extends NgRequiredBase<number> {
+  constructor(controlItem: NgBaseModelControl<number>) {
+    super(controlItem);
+  }
+
+  @Input("ngRequiredDecimal")
+  set isRequired(v: boolean | string) {
+    this.required = v;
+  }
+}
+
+
+@Directive({
   selector: 'select:not([multiple])[ngRequired][ngModel]',
   providers: [
     { provide: NG_VALIDATORS, useExisting: forwardRef(() => NgRequiredDropdown), multi: true, },
     { provide: NgBaseModelControl, useExisting: NgDropdown, multi: true }
   ]
 })
-export class NgRequiredDropdown extends NgRequiredBase {
-  constructor(controlItem: NgBaseModelControl) {
+export class NgRequiredDropdown extends NgRequiredBase<string> {
+  constructor(controlItem: NgBaseModelControl<string>) {
     super(controlItem);
   }
 
@@ -79,8 +98,8 @@ export class NgRequiredDropdown extends NgRequiredBase {
     { provide: NgBaseModelControl, useExisting: NgListbox, multi: true }
   ]
 })
-export class NgRequiredListbox extends NgRequiredBase {
-  constructor(controlItem: NgBaseModelControl) {
+export class NgRequiredListbox extends NgRequiredBase<string> {
+  constructor(controlItem: NgBaseModelControl<string>) {
     super(controlItem);
   }
 

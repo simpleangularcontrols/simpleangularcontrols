@@ -23,6 +23,11 @@
   <ngInput name="field3" label="Feld 3" labelsize="4" [ngModel]="field3"></ngInput>
   <ngInput name="field4" label="Feld 4" ngModel></ngInput>
   <ngInput name="field5" label="Feld 5" placeholder="Feld 5" ngModel></ngInput>
+
+  <ngInputDecimal name="fieldn1" label="Feld 1 (Numeric)" [ngModel]="fieldn1"></ngInputDecimal>
+
+  <ngInputDecimal name="fieldd1" label="Feld 1 (Decimal)" [ngModel]="fieldd1"></ngInputDecimal>
+
   <ngCheckbox name="checkbox1" label="Checkbox 1" ngModel></ngCheckbox>
   <ngCheckbox name="checkbox2" label="Checkbox 2" labelsize="2" [ngModel]="checkbox2"></ngCheckbox>
   <ngCheckbox name="checkbox3" label="Checkbox 3" disablelabel="true" ngModel></ngCheckbox>
@@ -54,7 +59,6 @@
       <ngButton name="modalClose1" text="Schliessen" (onclick)="modal1dialog.hide()"></ngButton>
     </div>
   </ngDialog>
-
 
   <ngTab>
     <ngTabItem id="home" label="Home">

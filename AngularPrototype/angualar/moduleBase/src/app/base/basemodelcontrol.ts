@@ -1,8 +1,11 @@
-import { Component, Input, Host, OnInit, Injectable } from '@angular/core';
+import { Component, Input, Host, OnInit, Injectable, LOCALE_ID, Inject } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl } from '@angular/forms';
 import { NgFormular } from '../controls/form';
+import { NumberSymbol, getLocaleNumberSymbol, registerLocaleData } from '@angular/common';
 
-export class NgBaseModelControl implements ControlValueAccessor, OnInit {
+import localeDeCh from '@angular/common/locales/de-CH';
+
+export class NgBaseModelControl<VALUE> implements ControlValueAccessor, OnInit {
 
   // #region Private Variables
 
@@ -15,7 +18,7 @@ export class NgBaseModelControl implements ControlValueAccessor, OnInit {
 
   // Konstruktor
   // Inject des Formulars
-  constructor(@Host() parent: NgFormular) {
+  constructor( @Host() parent: NgFormular) {
     this.parent = parent;
   }
 
@@ -33,6 +36,8 @@ export class NgBaseModelControl implements ControlValueAccessor, OnInit {
         this._labelsize = 2;
       }
     }
+
+    this.OnClassInit();
   }
 
   // #endregion
@@ -53,7 +58,7 @@ export class NgBaseModelControl implements ControlValueAccessor, OnInit {
   }
 
   // Methode zum schreiben von Werten aus dem Model in das Control
-  writeValue(value: object) {
+  writeValue(value: VALUE) {
     if (value) {
       this._value = value;
       this.propagateChange(this._value);
@@ -65,18 +70,18 @@ export class NgBaseModelControl implements ControlValueAccessor, OnInit {
   // #region Control Value
 
   // Interne Variable, die den Wert des Controls hält
-  protected _value: object = null;
+  protected _value: VALUE = null;
 
   // Set Methode für NgModel Binding in Html Markup
   // Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.
   @Input("value")
-  set value(v: object) {
-    this._value = v;
+  set value(v: VALUE) {
+    this._value = this.ConvertInputValue(v);
     this.propagateChange(this._value);
   }
 
   // Get Methode für NgModel Binding in Html Markup
-  get value(): object {
+  get value(): VALUE {
     return this._value;
   }
 
@@ -103,4 +108,22 @@ export class NgBaseModelControl implements ControlValueAccessor, OnInit {
   }
 
   // #endregion
+
+  // #region Protected Helper Methods
+
+  protected OnClassInit(): void {
+    // Method can be used to Set Properties at Class Init
+  }
+
+  protected GetDecimalSymbol(): string {
+    return ".";
+  }
+
+  protected ConvertInputValue(value: VALUE): VALUE {
+    return value;
+    // Method can Overwriten in Parent Classes
+  }
+
+  // #endregion
+
 }

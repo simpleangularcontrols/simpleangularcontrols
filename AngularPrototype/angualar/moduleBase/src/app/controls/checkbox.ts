@@ -18,7 +18,7 @@ import { NgFormular } from './form';
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
 })
-export class NgCheckbox extends NgBaseModelControl {
+export class NgCheckbox extends NgBaseModelControl<boolean> {
 
 }
 

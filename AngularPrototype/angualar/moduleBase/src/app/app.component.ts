@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm, FormGroup, FormControl } from '@angular/forms';
+import { DeprecatedCurrencyPipe } from '@angular/common/src/pipes/deprecated/number_pipe';
 
 interface KeyValue {
   label: string,
@@ -64,6 +65,8 @@ export class AppComponent {
   field1: string = '';
   field2: string = '';
   field3: string = 'Test';
+  fieldn1: number = 1.0;
+  fieldd1: number = 1;
   checkbox2: boolean = true;
   dropdown1: string = '';
   dropdown2: string = 'v1';

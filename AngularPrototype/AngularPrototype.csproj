@@ -297,7 +297,9 @@
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\listbox.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\tabs.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\validationsummary.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\maxvalue.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\required.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\minvalue.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\environments\environment.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\main.ts" />

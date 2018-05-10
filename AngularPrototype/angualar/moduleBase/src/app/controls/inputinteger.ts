@@ -22,6 +22,8 @@ export class NgInputInteger extends NgInputBase<number> {
 
   // Definiert das Negative Werte erlaubt sind
   @Input("allownegativ") _allownegativ: boolean = false;
+  @Input("minvalue") _minvalue: number = undefined;
+  @Input("maxvalue") _maxvalue: number = undefined;
 
   protected OnClassInit(): void {
     super.OnClassInit();

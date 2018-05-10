@@ -15,13 +15,15 @@ import { NgValidationSummary } from './controls/validationsummary';
 import { NgRequiredInputDecimal, NgRequiredInput, NgRequiredDropdown, NgRequiredListbox, NgRequiredInputInteger } from './validation/required';
 import { NgDialog } from './controls/dialog';
 import { NgTab, NgTabItem } from './controls/tabs';
+import { NgMinValueDecimal, NgMinValueInteger } from './validation/minvalue';
+import { NgMaxValueDecimal, NgMaxValueInteger } from './validation/maxvalue';
 
 // import localeDeCh from '@angular/common/locales/de-CH';
 
 const NgDirectives = [
   AppComponent,
   NgInput, NgInputDecimal, NgButton, NgFormular, NgCheckbox, NgDropdown, NgListbox, NgValidationSummary, NgRequiredInput, NgRequiredDropdown, NgRequiredListbox, NgDialog, NgTab,
-  NgTabItem, NgRequiredInputDecimal, NgInputInteger, NgRequiredInputInteger
+  NgTabItem, NgRequiredInputDecimal, NgInputInteger, NgRequiredInputInteger, NgMinValueDecimal, NgMinValueInteger, NgMaxValueDecimal, NgMaxValueInteger
 ]
 
 

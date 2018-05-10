@@ -3,10 +3,6 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl,
 import { NgBaseModelControl } from '../base/basemodelcontrol';
 import { NgFormular } from './form';
 import { NgInputBase } from './input';
-import { NumberSymbol, getLocaleNumberSymbol, registerLocaleData } from '@angular/common';
-import localeDeCh from '@angular/common/locales/de-CH';
-import localeDe from '@angular/common/locales/de';
-import { tryParse } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'ngInputDecimal',
@@ -26,6 +22,8 @@ export class NgInputDecimal extends NgInputBase<number> {
 
   // Definiert das Negative Werte erlaubt sind
   @Input("allownegativ") _allownegativ: boolean = false;
+  @Input("minvalue") _minvalue: number = undefined;
+  @Input("maxvalue") _maxvalue: number = undefined;
 
   protected OnClassInit(): void {
     super.OnClassInit();

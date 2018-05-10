@@ -65,8 +65,15 @@ export class AppComponent {
   field1: string = '';
   field2: string = '';
   field3: string = 'Test';
-  fieldn1: number = 1.0;
-  fieldd1: number = 1;
+
+  fieldd1: number = 1.24;
+  fieldd2: number = 4.24;
+  fieldd3: number = -2.24;
+
+  fieldi1: number = 1;
+  fieldi2: number = 32;
+  fieldi3: number = -4;
+
   checkbox2: boolean = true;
   dropdown1: string = '';
   dropdown2: string = 'v1';

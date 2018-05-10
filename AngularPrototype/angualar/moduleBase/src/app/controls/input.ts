@@ -31,7 +31,9 @@ export class NgInputBase<VALUE> extends NgBaseModelControl<VALUE> {
     if (this._allowedchars.indexOf(character) < 0)
       event.preventDefault();
 
-    if (!this.OnKeyPressValidation(character))
+    var inputControl = event.srcElement as HTMLInputElement;
+
+    if (!this.OnKeyPressValidation(inputControl.selectionStart, character))
       event.preventDefault();
   }
 
@@ -39,7 +41,7 @@ export class NgInputBase<VALUE> extends NgBaseModelControl<VALUE> {
 
   // #region Protected Virtual Methods
 
-  protected OnKeyPressValidation(character: string): boolean {
+  protected OnKeyPressValidation(position: number, character: string): boolean {
     return true;
   }
 

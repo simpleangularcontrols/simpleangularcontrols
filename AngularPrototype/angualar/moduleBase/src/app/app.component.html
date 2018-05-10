@@ -24,9 +24,13 @@
   <ngInput name="field4" label="Feld 4" ngModel></ngInput>
   <ngInput name="field5" label="Feld 5" placeholder="Feld 5" ngModel></ngInput>
 
-  <ngInputDecimal name="fieldn1" label="Feld 1 (Numeric)" [ngModel]="fieldn1"></ngInputDecimal>
+  <ngInputDecimal name="fieldd1" label="Decimal 1 (Decimal)" [ngModel]="fieldd1"></ngInputDecimal>
+  <ngInputDecimal name="fieldd2" label="Decimal 2 (Decimal with Negativ)" [ngModel]="fieldd2" [allownegativ]="true"></ngInputDecimal>
+  <ngInputDecimal name="fieldd3" label="Decimal 3 (Decimal with Negativ)" [ngModel]="fieldd3" [allownegativ]="true" isrequired="true"></ngInputDecimal>
 
-  <ngInputDecimal name="fieldd1" label="Feld 1 (Decimal)" [ngModel]="fieldd1"></ngInputDecimal>
+  <ngInputInteger name="fieldi1" label="Integer 1 (Integer)" [ngModel]="fieldi1"></ngInputInteger>
+  <ngInputInteger name="fieldi2" label="Integer 2 (Integer with Negativ)" [ngModel]="fieldi2" [allownegativ]="true"></ngInputInteger>
+  <ngInputInteger name="fieldi3" label="Integer 3 (Integer with Negativ)" [ngModel]="fieldi3" [allownegativ]="true" isrequired="true"></ngInputInteger>
 
   <ngCheckbox name="checkbox1" label="Checkbox 1" ngModel></ngCheckbox>
   <ngCheckbox name="checkbox2" label="Checkbox 2" labelsize="2" [ngModel]="checkbox2"></ngCheckbox>

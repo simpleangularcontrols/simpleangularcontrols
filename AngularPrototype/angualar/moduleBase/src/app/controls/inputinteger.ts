@@ -3,26 +3,22 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl,
 import { NgBaseModelControl } from '../base/basemodelcontrol';
 import { NgFormular } from './form';
 import { NgInputBase } from './input';
-import { NumberSymbol, getLocaleNumberSymbol, registerLocaleData } from '@angular/common';
-import localeDeCh from '@angular/common/locales/de-CH';
-import localeDe from '@angular/common/locales/de';
-import { tryParse } from 'selenium-webdriver/http';
 
 @Component({
-  selector: 'ngInputDecimal',
-  templateUrl: './inputdecimal.html',
+  selector: 'ngInputInteger',
+  templateUrl: './inputinteger.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NgInputDecimal
+      useExisting: NgInputInteger
     }
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
 })
-export class NgInputDecimal extends NgInputBase<number> {
+export class NgInputInteger extends NgInputBase<number> {
 
   // Definiert das Negative Werte erlaubt sind
   @Input("allownegativ") _allownegativ: boolean = false;
@@ -30,7 +26,7 @@ export class NgInputDecimal extends NgInputBase<number> {
   protected OnClassInit(): void {
     super.OnClassInit();
 
-    this._allowedchars = "0123456789" + this.GetDecimalSymbol();
+    this._allowedchars = "0123456789";
 
     if (this._allownegativ)
       this._allowedchars = this._allowedchars + "-";
@@ -43,7 +39,7 @@ export class NgInputDecimal extends NgInputBase<number> {
       if (this._allownegativ === true && value === '-') {
         return '-';
       } else {
-        return parseFloat(value);
+        return parseInt(value);
       }
     }
   }
@@ -52,10 +48,6 @@ export class NgInputDecimal extends NgInputBase<number> {
     if (this._allownegativ === false && character === "-" || this._allownegativ === true && position > 0 && character === '-')
       return false;
 
-    if (character === this.GetDecimalSymbol() && this._value.toString().indexOf(this.GetDecimalSymbol()) >= 0) {
-      return false;
-    } else {
-      return true;
-    }
+    return true;
   }
 }

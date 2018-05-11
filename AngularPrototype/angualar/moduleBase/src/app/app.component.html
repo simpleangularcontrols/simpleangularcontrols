@@ -23,6 +23,7 @@
   <ngInput name="field3" label="Feld 3" labelsize="4" [ngModel]="field3"></ngInput>
   <ngInput name="field4" label="Feld 4" ngModel></ngInput>
   <ngInput name="field5" label="Feld 5" placeholder="Feld 5" ngModel></ngInput>
+  <ngInput name="field6" label="Feld 6 (Max 10)" [ngModel]="field6" [maxlength]="10"></ngInput>
 
   <ngInputDecimal name="fieldd1" label="Decimal 1 (Decimal)" [ngModel]="fieldd1"></ngInputDecimal>
   <ngInputDecimal name="fieldd2" label="Decimal 2 (Decimal with Negativ)" [ngModel]="fieldd2" [allownegativ]="true"></ngInputDecimal>
@@ -34,10 +35,12 @@
 
   <ngInputCurrency name="fieldcurrency1" label="Preis" [ngModel]="fieldcurrency1"></ngInputCurrency>
 
-  <ngInputEmail name="fieldemail1" label="E-Mail" [ngModel]="fieldemail1"></ngInputEmail>
+  <ngInputEmail name="fieldemail1" label="E-Mail 1" [ngModel]="fieldemail1"></ngInputEmail>
+  <ngInputEmail name="fieldemail2" label="E-Mail 2 (Max 10)" [ngModel]="fieldemail2" [maxlength]="10"></ngInputEmail>
 
   <ngInputPassword name="fieldpassword1" label="Passwort 1" [ngModel]="fieldpassword1"></ngInputPassword>
   <ngInputPassword name="fieldpassword2" label="Passwort 2" [ngModel]="fieldpassword2"></ngInputPassword>
+  <ngInputPassword name="fieldpassword3" label="Passwort 2 (Max 10)" [ngModel]="fieldpassword3" [maxlength]="10"></ngInputPassword>
 
   <ngCheckbox name="checkbox1" label="Checkbox 1" ngModel></ngCheckbox>
   <ngCheckbox name="checkbox2" label="Checkbox 2" labelsize="2" [ngModel]="checkbox2"></ngCheckbox>

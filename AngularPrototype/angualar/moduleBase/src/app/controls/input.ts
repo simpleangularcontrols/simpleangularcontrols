@@ -65,4 +65,6 @@ export class NgInputBase<VALUE> extends NgBaseModelControl<VALUE> {
 })
 
 export class NgInput extends NgInputBase<string> {
+  // TextBox Placeholder
+  @Input("maxlength") _maxlength: number = null;
 }

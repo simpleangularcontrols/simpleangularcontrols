@@ -3,7 +3,8 @@
   <div [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
     <div class="input-group">
       <span class="input-group-addon">@</span>
-      <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [(ngModel)]="value" [ngRequiredEmail]="_isrequired" [attr.placeholder]="_placeholder" ngEmailValidator #control="ngModel" />
+      <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [(ngModel)]="value" [ngRequiredEmail]="_isrequired" [attr.placeholder]="_placeholder"
+             ngEmailValidator #control="ngModel" [attr.maxlength]="_maxlength" />
     </div>
   </div>
 </div>

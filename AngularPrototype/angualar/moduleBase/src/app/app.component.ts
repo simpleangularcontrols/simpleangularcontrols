@@ -65,6 +65,7 @@ export class AppComponent {
   field1: string = '';
   field2: string = '';
   field3: string = 'Test';
+  field6: string = '';
 
   fieldd1: number = 1.24;
   fieldd2: number = 4.24;
@@ -77,9 +78,11 @@ export class AppComponent {
   fieldcurrency1: number = 20.5;
 
   fieldemail1: string = '';
+  fieldemail2: string = '';
 
   fieldpassword1: string = '';
   fieldpassword2: string = 'testpassword';
+  fieldpassword3: string = '';
 
   checkbox2: boolean = true;
   dropdown1: string = '';

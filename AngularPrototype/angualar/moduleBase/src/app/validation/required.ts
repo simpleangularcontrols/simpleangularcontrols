@@ -9,6 +9,7 @@ import { NgInputInteger } from '../controls/inputinteger';
 import { NgInputCurrency } from '../controls/inputcurrency';
 import { NgInputEmail } from '../controls/inputemail';
 import { NgInputPassword } from '../controls/inputpassword';
+import { NgInputArea } from '../controls/inputarea';
 
 
 class NgRequiredBase<VALUE> extends RequiredValidator {
@@ -167,6 +168,24 @@ export class NgRequiredInputPassword extends NgRequiredBase<number> {
   }
 
   @Input("ngRequiredPassword")
+  set isRequired(v: boolean | string) {
+    this.required = v;
+  }
+}
+
+@Directive({
+  selector: 'textarea[ngRequiredArea][ngModel]',
+  providers: [
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => NgRequiredInputArea), multi: true },
+    { provide: NgBaseModelControl, useExisting: NgInputArea, multi: true }
+  ]
+})
+export class NgRequiredInputArea extends NgRequiredBase<number> {
+  constructor(controlItem: NgBaseModelControl<number>) {
+    super(controlItem);
+  }
+
+  @Input("ngRequiredArea")
   set isRequired(v: boolean | string) {
     this.required = v;
   }

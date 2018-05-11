@@ -42,6 +42,10 @@
   <ngInputPassword name="fieldpassword2" label="Passwort 2" [ngModel]="fieldpassword2"></ngInputPassword>
   <ngInputPassword name="fieldpassword3" label="Passwort 2 (Max 10)" [ngModel]="fieldpassword3" [maxlength]="10"></ngInputPassword>
 
+  <ngInputArea name="fieldarea1" label="Area 1" [ngModel]="fieldarea1"></ngInputArea>
+  <ngInputArea name="fieldarea2" label="Area 2" [ngModel]="fieldarea2" isrequired="true" rows="10"></ngInputArea>
+  <ngInputArea name="fieldarea3" label="Area 3 (Max 50)" [ngModel]="fieldarea3" maxlength="50"></ngInputArea>
+
   <ngCheckbox name="checkbox1" label="Checkbox 1" ngModel></ngCheckbox>
   <ngCheckbox name="checkbox2" label="Checkbox 2" labelsize="2" [ngModel]="checkbox2"></ngCheckbox>
   <ngCheckbox name="checkbox3" label="Checkbox 3" disablelabel="true" ngModel></ngCheckbox>

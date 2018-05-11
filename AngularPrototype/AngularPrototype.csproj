@@ -144,6 +144,7 @@
     <Content Include="angualar\moduleBase\src\app\controls\dialog.html" />
     <Content Include="angualar\moduleBase\src\app\controls\dropdown.html" />
     <Content Include="angualar\moduleBase\src\app\controls\input.html" />
+    <Content Include="angualar\moduleBase\src\app\controls\inputarea.html" />
     <Content Include="angualar\moduleBase\src\app\controls\inputcurrency.html" />
     <Content Include="angualar\moduleBase\src\app\controls\inputdecimal.html" />
     <Content Include="angualar\moduleBase\src\app\controls\inputemail.html" />
@@ -295,6 +296,7 @@
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\dropdown.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\form.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\input.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\inputarea.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\inputcurrency.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\inputdecimal.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\inputemail.ts" />

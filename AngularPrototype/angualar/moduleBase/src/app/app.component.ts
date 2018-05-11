@@ -78,6 +78,9 @@ export class AppComponent {
 
   fieldemail1: string = '';
 
+  fieldpassword1: string = '';
+  fieldpassword2: string = 'testpassword';
+
   checkbox2: boolean = true;
   dropdown1: string = '';
   dropdown2: string = 'v1';

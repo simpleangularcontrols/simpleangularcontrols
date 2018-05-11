@@ -12,7 +12,7 @@ import { NgCheckbox } from './controls/checkbox';
 import { NgDropdown } from './controls/dropdown';
 import { NgListbox } from './controls/listbox';
 import { NgValidationSummary } from './controls/validationsummary';
-import { NgRequiredInputDecimal, NgRequiredInput, NgRequiredDropdown, NgRequiredListbox, NgRequiredInputInteger, NgRequiredInputCurrency, NgRequiredInputEmail } from './validation/required';
+import { NgRequiredInputDecimal, NgRequiredInput, NgRequiredDropdown, NgRequiredListbox, NgRequiredInputInteger, NgRequiredInputCurrency, NgRequiredInputEmail, NgRequiredInputPassword } from './validation/required';
 import { NgDialog } from './controls/dialog';
 import { NgTab, NgTabItem } from './controls/tabs';
 import { NgMinValueDecimal, NgMinValueInteger, NgMinValueCurrency } from './validation/minvalue';
@@ -20,6 +20,8 @@ import { NgMaxValueDecimal, NgMaxValueInteger, NgMaxValueCurrency } from './vali
 import { NgInputCurrency } from './controls/inputcurrency';
 import { NgInputEmail } from './controls/inputemail';
 import { NgEmailValidator } from './validation/email';
+import { NgInputPassword } from './controls/inputpassword';
+import { NgMinLengthValidator } from './validation/length';
 
 // import localeDeCh from '@angular/common/locales/de-CH';
 
@@ -27,7 +29,7 @@ const NgDirectives = [
   AppComponent,
   NgInput, NgInputDecimal, NgButton, NgFormular, NgCheckbox, NgDropdown, NgListbox, NgValidationSummary, NgRequiredInput, NgRequiredDropdown, NgRequiredListbox, NgDialog, NgTab,
   NgTabItem, NgRequiredInputDecimal, NgInputInteger, NgRequiredInputInteger, NgMinValueDecimal, NgMinValueInteger, NgMaxValueDecimal, NgMaxValueInteger, NgInputCurrency, NgMaxValueCurrency, NgMinValueCurrency, NgRequiredInputCurrency,
-  NgInputEmail, NgRequiredInputEmail, NgEmailValidator 
+  NgInputEmail, NgRequiredInputEmail, NgEmailValidator, NgInputPassword, NgRequiredInputPassword, NgMinLengthValidator
 ]
 
 

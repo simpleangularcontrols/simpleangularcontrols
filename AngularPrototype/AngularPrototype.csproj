@@ -148,6 +148,7 @@
     <Content Include="angualar\moduleBase\src\app\controls\inputdecimal.html" />
     <Content Include="angualar\moduleBase\src\app\controls\inputemail.html" />
     <Content Include="angualar\moduleBase\src\app\controls\inputinteger.html" />
+    <Content Include="angualar\moduleBase\src\app\controls\inputpassword.html" />
     <Content Include="angualar\moduleBase\src\app\controls\listbox.html" />
     <Content Include="angualar\moduleBase\src\app\controls\tabs.html" />
     <Content Include="angualar\moduleBase\src\app\controls\validationsummary.html" />
@@ -298,10 +299,12 @@
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\inputdecimal.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\inputemail.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\inputinteger.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\inputpassword.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\listbox.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\tabs.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\validationsummary.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\email.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\length.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\maxvalue.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\required.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\minvalue.ts" />

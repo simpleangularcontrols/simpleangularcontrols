@@ -8,6 +8,7 @@ import { NgInputDecimal } from '../controls/inputdecimal';
 import { NgInputInteger } from '../controls/inputinteger';
 import { NgInputCurrency } from '../controls/inputcurrency';
 import { NgInputEmail } from '../controls/inputemail';
+import { NgInputPassword } from '../controls/inputpassword';
 
 
 class NgRequiredBase<VALUE> extends RequiredValidator {
@@ -152,6 +153,26 @@ export class NgRequiredInputEmail extends NgRequiredBase<number> {
     this.required = v;
   }
 }
+
+@Directive({
+  selector: 'input[ngRequiredPassword][ngModel]',
+  providers: [
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => NgRequiredInputPassword), multi: true },
+    { provide: NgBaseModelControl, useExisting: NgInputPassword, multi: true }
+  ]
+})
+export class NgRequiredInputPassword extends NgRequiredBase<number> {
+  constructor(controlItem: NgBaseModelControl<number>) {
+    super(controlItem);
+  }
+
+  @Input("ngRequiredPassword")
+  set isRequired(v: boolean | string) {
+    this.required = v;
+  }
+}
+
+
 
 @Directive({
   selector: 'select:not([multiple])[ngRequired][ngModel]',

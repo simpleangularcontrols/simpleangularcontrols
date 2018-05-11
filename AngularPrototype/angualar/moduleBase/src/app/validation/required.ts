@@ -6,6 +6,8 @@ import { NgDropdown } from '../controls/dropdown';
 import { NgListbox } from '../controls/listbox';
 import { NgInputDecimal } from '../controls/inputdecimal';
 import { NgInputInteger } from '../controls/inputinteger';
+import { NgInputCurrency } from '../controls/inputcurrency';
+import { NgInputEmail } from '../controls/inputemail';
 
 
 class NgRequiredBase<VALUE> extends RequiredValidator {
@@ -104,6 +106,50 @@ export class NgRequiredInputInteger extends NgRequiredBase<number> {
     }
 
     return super.validate(c);
+  }
+}
+
+@Directive({
+  selector: 'input[ngRequiredCurrency][ngModel]',
+  providers: [
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => NgRequiredInputCurrency), multi: true },
+    { provide: NgBaseModelControl, useExisting: NgInputCurrency, multi: true }
+  ]
+})
+export class NgRequiredInputCurrency extends NgRequiredBase<number> {
+  constructor(controlItem: NgBaseModelControl<number>) {
+    super(controlItem);
+  }
+
+  @Input("ngRequiredCurrency")
+  set isRequired(v: boolean | string) {
+    this.required = v;
+  }
+
+  validate(c: AbstractControl): ValidationErrors | null {
+    if (c.value === '-') {
+      return { 'required': true, 'required_message': 'Feld "' + this.controlItem[0]._label + '" ist kein gültiger Wert' };
+    }
+
+    return super.validate(c);
+  }
+}
+
+@Directive({
+  selector: 'input[ngRequiredEmail][ngModel]',
+  providers: [
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => NgRequiredInputEmail), multi: true },
+    { provide: NgBaseModelControl, useExisting: NgInputEmail, multi: true }
+  ]
+})
+export class NgRequiredInputEmail extends NgRequiredBase<number> {
+  constructor(controlItem: NgBaseModelControl<number>) {
+    super(controlItem);
+  }
+
+  @Input("ngRequiredEmail")
+  set isRequired(v: boolean | string) {
+    this.required = v;
   }
 }
 

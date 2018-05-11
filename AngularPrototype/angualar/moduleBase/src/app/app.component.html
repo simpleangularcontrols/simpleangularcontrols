@@ -32,6 +32,10 @@
   <ngInputInteger name="fieldi2" label="Integer 2 (Integer with Negativ)" [ngModel]="fieldi2" [allownegativ]="true"></ngInputInteger>
   <ngInputInteger name="fieldi3" label="Integer 3 (Integer with Negativ (10-20))" [ngModel]="fieldi3" [allownegativ]="true" isrequired="true" [minvalue]="10" [maxvalue]="20"></ngInputInteger>
 
+  <ngInputCurrency name="fieldcurrency1" label="Preis" [ngModel]="fieldcurrency1"></ngInputCurrency>
+
+  <ngInputEmail name="fieldemail1" label="E-Mail" [ngModel]="fieldemail1"></ngInputEmail>
+
   <ngCheckbox name="checkbox1" label="Checkbox 1" ngModel></ngCheckbox>
   <ngCheckbox name="checkbox2" label="Checkbox 2" labelsize="2" [ngModel]="checkbox2"></ngCheckbox>
   <ngCheckbox name="checkbox3" label="Checkbox 3" disablelabel="true" ngModel></ngCheckbox>

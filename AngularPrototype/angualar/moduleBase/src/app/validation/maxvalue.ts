@@ -3,6 +3,7 @@ import { Directive, Input, forwardRef, SimpleChanges, OnChanges } from "@angular
 import { NgInputInteger } from "../controls/inputinteger";
 import { NgBaseModelControl } from "../base/basemodelcontrol";
 import { NgInputDecimal } from "../controls/inputdecimal";
+import { NgInputCurrency } from "../controls/inputcurrency";
 
 class NgMaxValueBase implements Validator, OnChanges {
   private _maxvalue: number;
@@ -66,7 +67,7 @@ class NgMaxValueBase implements Validator, OnChanges {
   ]
 })
 export class NgMaxValueDecimal extends NgMaxValueBase {
-  
+
   constructor(controlItem: NgBaseModelControl<number>) {
     super(controlItem);
   }
@@ -93,6 +94,25 @@ export class NgMaxValueInteger extends NgMaxValueBase {
 
   @Input("ngMaxValueInteger")
   set maxvalueInteger(value: number) {
+    this.maxvalue = value;
+  }
+}
+
+@Directive({
+  selector: 'input[ngMaxValueCurrency][ngModel]',
+  providers: [
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => NgMaxValueCurrency), multi: true },
+    { provide: NgBaseModelControl, useExisting: NgInputCurrency, multi: true }
+  ]
+})
+export class NgMaxValueCurrency extends NgMaxValueBase {
+
+  constructor(controlItem: NgBaseModelControl<number>) {
+    super(controlItem);
+  }
+
+  @Input("ngMaxValueCurrency")
+  set maxvalueCurrency(value: number) {
     this.maxvalue = value;
   }
 }

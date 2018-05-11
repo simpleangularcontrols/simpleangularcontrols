@@ -3,6 +3,7 @@ import { Directive, Input, forwardRef, SimpleChanges, OnChanges } from "@angular
 import { NgInputInteger } from "../controls/inputinteger";
 import { NgBaseModelControl } from "../base/basemodelcontrol";
 import { NgInputDecimal } from "../controls/inputdecimal";
+import { NgInputCurrency } from "../controls/inputcurrency";
 
 
 class NgMinValueBase implements Validator, OnChanges {
@@ -94,6 +95,26 @@ export class NgMinValueInteger extends NgMinValueBase {
 
   @Input("ngMinValueInteger")
   set minvalueInteger(value: number) {
+    this.minvalue = value;
+  }
+}
+
+
+@Directive({
+  selector: 'input[ngMinValueCurrency][ngModel]',
+  providers: [
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => NgMinValueCurrency), multi: true },
+    { provide: NgBaseModelControl, useExisting: NgInputCurrency, multi: true }
+  ]
+})
+export class NgMinValueCurrency extends NgMinValueBase {
+
+  constructor(controlItem: NgBaseModelControl<number>) {
+    super(controlItem);
+  }
+
+  @Input("ngMinValueCurrency")
+  set minvalueCurrency(value: number) {
     this.minvalue = value;
   }
 }

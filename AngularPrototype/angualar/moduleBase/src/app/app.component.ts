@@ -74,6 +74,10 @@ export class AppComponent {
   fieldi2: number = 32;
   fieldi3: number = -4;
 
+  fieldcurrency1: number = 20.5;
+
+  fieldemail1: string = '';
+
   checkbox2: boolean = true;
   dropdown1: string = '';
   dropdown2: string = 'v1';

@@ -295,6 +295,7 @@
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\dialog.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\dropdown.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\form.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\index.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\input.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\inputarea.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\inputcurrency.ts" />

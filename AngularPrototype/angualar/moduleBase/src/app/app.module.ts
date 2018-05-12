@@ -3,26 +3,13 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { NgFormular } from './controls/form';
-import { NgInput } from './controls/input';
-import { NgInputDecimal } from './controls/inputdecimal';
-import { NgInputInteger } from './controls/inputinteger';
-import { NgButton } from './controls/button';
-import { NgCheckbox } from './controls/checkbox';
-import { NgDropdown } from './controls/dropdown';
-import { NgListbox } from './controls/listbox';
-import { NgValidationSummary } from './controls/validationsummary';
-import { NgRequiredInputDecimal, NgRequiredInput, NgRequiredDropdown, NgRequiredListbox, NgRequiredInputInteger, NgRequiredInputCurrency, NgRequiredInputEmail, NgRequiredInputPassword, NgRequiredInputArea } from './validation/required';
-import { NgDialog } from './controls/dialog';
-import { NgTab, NgTabItem } from './controls/tabs';
-import { NgMinValueDecimal, NgMinValueInteger, NgMinValueCurrency } from './validation/minvalue';
-import { NgMaxValueDecimal, NgMaxValueInteger, NgMaxValueCurrency } from './validation/maxvalue';
-import { NgInputCurrency } from './controls/inputcurrency';
-import { NgInputEmail } from './controls/inputemail';
-import { NgEmailValidator } from './validation/email';
-import { NgInputPassword } from './controls/inputpassword';
-import { NgMinLengthValidator } from './validation/length';
-import { NgInputArea } from './controls/inputarea';
+import {
+  NgInput, NgInputDecimal, NgInputInteger, NgInputArea, NgInputCurrency, NgInputEmail, NgInputPassword, NgListbox, NgDropdown,
+  NgFormular, NgDialog, NgCheckbox, NgButton, NgTab, NgTabItem, NgValidationSummary,
+  NgEmailValidator, NgMaxValueCurrency, NgMaxValueDecimal, NgMaxValueInteger, NgMinLengthValidator, NgMinValueCurrency, NgMinValueDecimal,
+  NgMinValueInteger, NgRequiredDropdown, NgRequiredInput, NgRequiredInputArea, NgRequiredInputCurrency, NgRequiredInputDecimal,
+  NgRequiredInputEmail, NgRequiredInputInteger, NgRequiredInputPassword, NgRequiredListbox
+} from './controls';
 
 // import localeDeCh from '@angular/common/locales/de-CH';
 

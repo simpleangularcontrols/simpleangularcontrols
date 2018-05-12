@@ -1,10 +1,7 @@
 import { Validator, AbstractControl, ValidationErrors, Validators, NG_VALIDATORS, ValidatorFn } from "@angular/forms";
 import { Directive, Input, forwardRef, SimpleChanges, OnChanges } from "@angular/core";
-import { NgInputInteger } from "../controls/inputinteger";
+import { NgInputInteger, NgInputDecimal, NgInputCurrency } from "../controls";
 import { NgBaseModelControl } from "../base/basemodelcontrol";
-import { NgInputDecimal } from "../controls/inputdecimal";
-import { NgInputCurrency } from "../controls/inputcurrency";
-
 
 class NgMinValueBase implements Validator, OnChanges {
   protected _minvalue: number;

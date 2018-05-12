@@ -1,5 +1,5 @@
 import { ControlContainer, NG_VALUE_ACCESSOR } from "@angular/forms";
-import { NgFormular } from "./form";
+import { NgFormular } from "../form/form";
 import { Component, Input } from "@angular/core";
 import { NgInput } from "./input";
 

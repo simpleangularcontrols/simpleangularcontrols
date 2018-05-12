@@ -1,16 +1,10 @@
 import { NG_VALIDATORS, RequiredValidator, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Directive, Input, forwardRef, AfterViewInit, Inject, Injector } from '@angular/core';
 import { NgBaseModelControl } from '../base/basemodelcontrol';
-import { NgInput } from '../controls/input';
-import { NgDropdown } from '../controls/dropdown';
-import { NgListbox } from '../controls/listbox';
-import { NgInputDecimal } from '../controls/inputdecimal';
-import { NgInputInteger } from '../controls/inputinteger';
-import { NgInputCurrency } from '../controls/inputcurrency';
-import { NgInputEmail } from '../controls/inputemail';
-import { NgInputPassword } from '../controls/inputpassword';
-import { NgInputArea } from '../controls/inputarea';
-
+import {
+  NgInput, NgInputDecimal, NgInputInteger, NgInputCurrency, NgInputEmail, NgInputPassword, NgInputArea,
+  NgDropdown, NgListbox
+} from '../controls';
 
 class NgRequiredBase<VALUE> extends RequiredValidator {
 

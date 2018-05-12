@@ -5,11 +5,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import {
   NgInput, NgInputDecimal, NgInputInteger, NgInputArea, NgInputCurrency, NgInputEmail, NgInputPassword, NgListbox, NgDropdown,
-  NgFormular, NgDialog, NgCheckbox, NgButton, NgTab, NgTabItem, NgValidationSummary,
+  NgFormular, NgDialog, NgCheckbox, NgButton, NgTab, NgTabItem, NgValidationSummary
+} from './controls';
+import {
   NgEmailValidator, NgMaxValueCurrency, NgMaxValueDecimal, NgMaxValueInteger, NgMinLengthValidator, NgMinValueCurrency, NgMinValueDecimal,
   NgMinValueInteger, NgRequiredDropdown, NgRequiredInput, NgRequiredInputArea, NgRequiredInputCurrency, NgRequiredInputDecimal,
   NgRequiredInputEmail, NgRequiredInputInteger, NgRequiredInputPassword, NgRequiredListbox
-} from './controls';
+} from './validation';
 
 // import localeDeCh from '@angular/common/locales/de-CH';
 

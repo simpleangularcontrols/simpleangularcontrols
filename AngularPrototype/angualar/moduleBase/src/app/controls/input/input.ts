@@ -1,8 +1,8 @@
 import { Component, Input, Host, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl } from '@angular/forms';
-import { NgBaseModelControl } from '../base/basemodelcontrol';
-import { NgFormular } from './form';
-import { NgRequiredInput } from '../validation/required';
+import { NgBaseModelControl } from '../../base/basemodelcontrol';
+import { NgFormular } from '../form/form';
+import { NgRequiredInput } from '../../validation/required';
 
 export class NgInputBase<VALUE> extends NgBaseModelControl<VALUE> {
 

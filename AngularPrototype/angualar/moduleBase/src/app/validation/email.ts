@@ -1,6 +1,6 @@
 import { AbstractControl, ValidationErrors, NG_VALIDATORS, Validator, Validators } from "@angular/forms";
 import { NgBaseModelControl } from "../base/basemodelcontrol";
-import { NgInputEmail } from "../controls/inputemail";
+import { NgInputEmail } from "../controls";
 import { forwardRef, Directive, Input } from "@angular/core";
 
 @Directive({

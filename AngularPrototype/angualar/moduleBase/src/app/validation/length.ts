@@ -1,7 +1,7 @@
 import { Validators, ValidationErrors, AbstractControl, ValidatorFn, NG_VALIDATORS, Validator } from "@angular/forms";
 import { SimpleChanges, Input, Directive, forwardRef, OnChanges } from "@angular/core";
 import { NgBaseModelControl } from "../base/basemodelcontrol";
-import { NgInputPassword } from "../controls/inputpassword";
+import { NgInputPassword } from "../controls";
 
 @Directive({
   selector: 'input[ngMinLength][ngModel]',

@@ -1,7 +1,7 @@
 import { Component, Input, Host, OnInit, Directive, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl, NG_VALIDATORS } from '@angular/forms';
-import { NgBaseModelControl } from '../base/basemodelcontrol';
-import { NgFormular } from './form';
+import { NgBaseModelControl } from '../../base/basemodelcontrol';
+import { NgFormular } from '../form/form';
 import { NgInputBase } from './input';
 
 @Component({

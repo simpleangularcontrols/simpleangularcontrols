@@ -1,7 +1,7 @@
 import { Component, Input, Host, OnInit, Injectable, LOCALE_ID, Inject } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl } from '@angular/forms';
-import { NgFormular } from '../controls/form';
 import { NumberSymbol, getLocaleNumberSymbol, registerLocaleData } from '@angular/common';
+import { NgFormular } from '../controls/form/form';
 
 import localeDeCh from '@angular/common/locales/de-CH';
 

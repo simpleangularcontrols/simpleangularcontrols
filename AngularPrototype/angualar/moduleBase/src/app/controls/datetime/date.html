@@ -1,7 +1,7 @@
 <div class="form-group">
   <label for="{{_name}}" class="control-label" [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]">{{_label}}</label>
   <div [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
-    <input id="{{_name}}" name="{{_name}}" type="text" class="form-control"
+    <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [textMask]="_mask"
            [attr.placeholder]="_placeholder" [(ngModel)]="valuestring" ngDateFormat [ngRequiredDate]="_isrequired" [ngDateMin]="_mindate" [ngDateMax]="_maxdate" />
   </div>
 </div>

@@ -14,10 +14,14 @@ import {
   NgDateFormat, NgRequiredDate, NgDateMin, NgDateMax
 } from './validation';
 
+// Third Party Extensions
+import { TextMaskModule } from 'angular2-text-mask';
+
 // import localeDeCh from '@angular/common/locales/de-CH';
 
 const NgDirectives = [
   AppComponent,
+
   NgInput, NgInputDecimal, NgButton, NgFormular, NgCheckbox, NgDropdown, NgListbox, NgValidationSummary, NgRequiredInput, NgRequiredDropdown, NgRequiredListbox, NgDialog, NgTab, NgDate,
   NgTabItem, NgRequiredInputDecimal, NgInputInteger, NgRequiredInputInteger, NgMinValueDecimal, NgMinValueInteger, NgMaxValueDecimal, NgMaxValueInteger, NgInputCurrency, NgMaxValueCurrency, NgMinValueCurrency, NgRequiredInputCurrency,
   NgInputEmail, NgRequiredInputEmail, NgEmailValidator, NgInputPassword, NgRequiredInputPassword, NgMinLengthValidator, NgInputArea, NgRequiredInputArea, NgDateFormat, NgRequiredDate, NgDateMin,
@@ -32,7 +36,10 @@ const NgDirectives = [
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+    // Third Party Modules
+    TextMaskModule
   ],
   providers: [/*{ provide: LOCALE_ID, useValue: "de-CH" }*/],
   bootstrap: [AppComponent]

@@ -70,6 +70,8 @@ export class NgDate extends NgBaseModelControl<Date> {
     return this._isDateValid;
   }
 
+  _mask = { mask: [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/,], guide: true, placeholderChar: '_', keepCharPositions: true, showMask: true };
+
   // #endregion
 
   // Overwrite WriteValue to Set correct Date Object

@@ -3,8 +3,11 @@ import { Directive, Input, forwardRef, AfterViewInit, Inject, Injector } from '@
 import { NgBaseModelControl } from '../base/basemodelcontrol';
 import {
   NgInput, NgInputDecimal, NgInputInteger, NgInputCurrency, NgInputEmail, NgInputPassword, NgInputArea,
-  NgDropdown, NgListbox
+  NgDropdown, NgListbox, NgDate
 } from '../controls';
+
+// #region Base
+
 
 class NgRequiredBase<VALUE> extends RequiredValidator {
 
@@ -35,6 +38,10 @@ class NgRequiredBase<VALUE> extends RequiredValidator {
 
 }
 
+// #endregion
+
+// #region Input
+
 @Directive({
   selector: 'input[ngRequired][ngModel]',
   providers: [
@@ -52,6 +59,10 @@ export class NgRequiredInput extends NgRequiredBase<string> {
     this.required = v;
   }
 }
+
+// #endregion
+
+// #region Decimal
 
 @Directive({
   selector: 'input[ngRequiredDecimal][ngModel]',
@@ -79,6 +90,10 @@ export class NgRequiredInputDecimal extends NgRequiredBase<number> {
   }
 }
 
+// #endregion
+
+// #region Integer
+
 @Directive({
   selector: 'input[ngRequiredInteger][ngModel]',
   providers: [
@@ -104,6 +119,10 @@ export class NgRequiredInputInteger extends NgRequiredBase<number> {
     return super.validate(c);
   }
 }
+
+// #endregion
+
+// #region Currency
 
 @Directive({
   selector: 'input[ngRequiredCurrency][ngModel]',
@@ -131,6 +150,10 @@ export class NgRequiredInputCurrency extends NgRequiredBase<number> {
   }
 }
 
+// #endregion
+
+// #region Email
+
 @Directive({
   selector: 'input[ngRequiredEmail][ngModel]',
   providers: [
@@ -148,6 +171,10 @@ export class NgRequiredInputEmail extends NgRequiredBase<number> {
     this.required = v;
   }
 }
+
+// #endregion
+
+// #region Password
 
 @Directive({
   selector: 'input[ngRequiredPassword][ngModel]',
@@ -167,6 +194,10 @@ export class NgRequiredInputPassword extends NgRequiredBase<number> {
   }
 }
 
+// #endregion
+
+// #region InputArea
+
 @Directive({
   selector: 'textarea[ngRequiredArea][ngModel]',
   providers: [
@@ -185,7 +216,31 @@ export class NgRequiredInputArea extends NgRequiredBase<number> {
   }
 }
 
+// #endregion
 
+// #region Date
+
+@Directive({
+  selector: 'input[ngRequiredDate][ngModel]',
+  providers: [
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => NgRequiredDate), multi: true },
+    { provide: NgBaseModelControl, useExisting: NgDate, multi: true }
+  ]
+})
+export class NgRequiredDate extends NgRequiredBase<Date> {
+  constructor(controlItem: NgBaseModelControl<Date>) {
+    super(controlItem);
+  }
+
+  @Input("ngRequiredDate")
+  set isRequired(v: boolean | string) {
+    this.required = v;
+  }
+}
+
+// #endregion
+
+// #region Dropdown
 
 @Directive({
   selector: 'select:not([multiple])[ngRequired][ngModel]',
@@ -205,6 +260,10 @@ export class NgRequiredDropdown extends NgRequiredBase<string> {
   }
 }
 
+// #endregion
+
+// #region Listbox
+
 @Directive({
   selector: ':select[multiple][ngRequired][ngModel]',
   providers: [
@@ -223,5 +282,6 @@ export class NgRequiredListbox extends NgRequiredBase<string> {
   }
 }
 
+// #endregion
 
 

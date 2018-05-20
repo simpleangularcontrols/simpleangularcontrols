@@ -141,6 +141,7 @@
     <Content Include="angualar\moduleBase\src\app\app.component.html" />
     <Content Include="angualar\moduleBase\src\app\controls\buttons\button.html" />
     <Content Include="angualar\moduleBase\src\app\controls\checkbox\checkbox.html" />
+    <Content Include="angualar\moduleBase\src\app\controls\datetime\date.html" />
     <Content Include="angualar\moduleBase\src\app\controls\dialog\dialog.html" />
     <Content Include="angualar\moduleBase\src\app\controls\list\dropdown.html" />
     <Content Include="angualar\moduleBase\src\app\controls\input\input.html" />
@@ -292,6 +293,7 @@
     <TypeScriptCompile Include="angualar\moduleBase\src\app\base\baseselectcontrol.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\buttons\button.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\checkbox\checkbox.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\datetime\date.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\dialog\dialog.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\list\dropdown.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\form\form.ts" />
@@ -306,6 +308,7 @@
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\list\listbox.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\tabs\tabs.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\validation\validationsummary.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\date.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\email.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\index.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\length.ts" />

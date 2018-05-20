@@ -5,21 +5,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import {
   NgInput, NgInputDecimal, NgInputInteger, NgInputArea, NgInputCurrency, NgInputEmail, NgInputPassword, NgListbox, NgDropdown,
-  NgFormular, NgDialog, NgCheckbox, NgButton, NgTab, NgTabItem, NgValidationSummary
+  NgFormular, NgDialog, NgCheckbox, NgButton, NgTab, NgTabItem, NgValidationSummary, NgDate
 } from './controls';
 import {
   NgEmailValidator, NgMaxValueCurrency, NgMaxValueDecimal, NgMaxValueInteger, NgMinLengthValidator, NgMinValueCurrency, NgMinValueDecimal,
   NgMinValueInteger, NgRequiredDropdown, NgRequiredInput, NgRequiredInputArea, NgRequiredInputCurrency, NgRequiredInputDecimal,
-  NgRequiredInputEmail, NgRequiredInputInteger, NgRequiredInputPassword, NgRequiredListbox
+  NgRequiredInputEmail, NgRequiredInputInteger, NgRequiredInputPassword, NgRequiredListbox,
+  NgDateFormat, NgRequiredDate, NgDateMin, NgDateMax
 } from './validation';
 
 // import localeDeCh from '@angular/common/locales/de-CH';
 
 const NgDirectives = [
   AppComponent,
-  NgInput, NgInputDecimal, NgButton, NgFormular, NgCheckbox, NgDropdown, NgListbox, NgValidationSummary, NgRequiredInput, NgRequiredDropdown, NgRequiredListbox, NgDialog, NgTab,
+  NgInput, NgInputDecimal, NgButton, NgFormular, NgCheckbox, NgDropdown, NgListbox, NgValidationSummary, NgRequiredInput, NgRequiredDropdown, NgRequiredListbox, NgDialog, NgTab, NgDate,
   NgTabItem, NgRequiredInputDecimal, NgInputInteger, NgRequiredInputInteger, NgMinValueDecimal, NgMinValueInteger, NgMaxValueDecimal, NgMaxValueInteger, NgInputCurrency, NgMaxValueCurrency, NgMinValueCurrency, NgRequiredInputCurrency,
-  NgInputEmail, NgRequiredInputEmail, NgEmailValidator, NgInputPassword, NgRequiredInputPassword, NgMinLengthValidator, NgInputArea, NgRequiredInputArea
+  NgInputEmail, NgRequiredInputEmail, NgEmailValidator, NgInputPassword, NgRequiredInputPassword, NgMinLengthValidator, NgInputArea, NgRequiredInputArea, NgDateFormat, NgRequiredDate, NgDateMin,
+  NgDateMax
 ]
 
 

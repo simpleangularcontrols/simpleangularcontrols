@@ -17,55 +17,20 @@ interface GroupElement {
   items: KeyValue[]
 }
 
+class formdataDateTime {
+  datum1: Date = new Date(2018, 10, 22, null, null, null, null);
+  datum2: Date = new Date(2018, 8, 10, null, null, null, null);
+  datum3: Date = new Date(2018, 9, 12, null, null, null, null);
+  datum4: Date = new Date(2018, 2, 1, null, null, null, null);
+}
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-  title = 'app';
-
-  testname1: string = '';
-  testname2: string = '';
-  testname3: string = 'test';
-  testname4: string = '';
-  testname5: string = '';
-
-  testrequired: boolean = true;
-
-  @ViewChild("form") myForm: NgForm;
-
-  changeRequired() {
-    this.testrequired = !this.testrequired;
-    console.info('Required is:' + this.testrequired);
-  }
-
-  onSubmit() {
-    if (this.myForm.valid) {
-      alert(JSON.stringify(this.myForm.value));
-    } else {
-      this.validateAllFields(this.myForm.form);
-    }
-  }
-
-  validateAllFields(formGroup: FormGroup) {
-    Object.keys(formGroup.controls).forEach(field => {
-      const control = formGroup.get(field);
-      if (control instanceof FormControl) {
-        control.markAsTouched({ onlySelf: true });
-      } else if (control instanceof FormGroup) {
-        this.validateAllFields(control);
-      }
-    });
-  }
-
-
+class formdata {
   // Form Example 2
   field1: string = '';
   field2: string = '';
   field3: string = 'Test';
   field6: string = '';
+
 
   fieldd1: number = 1.24;
   fieldd2: number = 4.24;
@@ -111,11 +76,63 @@ export class AppComponent {
     label: 'Group 2', items: [{ label: 'Wert 3', value: 'v3', text: 'Text 3' }]
   }];
 
-  t3Save(data: NgForm) {
-    alert('Save Form 2');
+}
 
-    alert(JSON.stringify(data.value));
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'app';
 
+  testname1: string = '';
+  testname2: string = '';
+  testname3: string = 'test';
+  testname4: string = '';
+  testname5: string = '';
+
+  testrequired: boolean = true;
+
+  @ViewChild("form") myForm: NgForm;
+
+  changeRequired() {
+    this.testrequired = !this.testrequired;
+    console.info('Required is:' + this.testrequired);
+  }
+
+  onSubmit() {
+    if (this.myForm.valid) {
+      alert(JSON.stringify(this.myForm.value));
+    } else {
+      this.validateAllFields(this.myForm.form);
+    }
+  }
+
+  validateAllFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true });
+      } else if (control instanceof FormGroup) {
+        this.validateAllFields(control);
+      }
+    });
+  }
+
+  values: formdata = new formdata();
+
+  t3Save() {
+    //alert('Save Form 2');
+    alert(JSON.stringify(this.values));
+
+  }
+
+  valuesDateTime: formdataDateTime = new formdataDateTime();
+  mindatevalue: Date = new Date(2018, 1, 1);
+
+  dateTimeSave() {
+    alert(JSON.stringify(this.valuesDateTime));
   }
 
 
@@ -132,3 +149,5 @@ export class AppComponent {
     alert(this.modal1);
   }
 }
+
+

@@ -43,10 +43,23 @@ export class NgValidationSummary {
       if (control.errors === null || control.touched === false || control.valid == true) { return null; }
       if (control.errors.required) {
         return control.errors.required_message;
+
       } else if (control.errors.maxvalue) {
+
         return control.errors.maxvalue_message;
+
       } else if (control.errors.minvalue) {
         return control.errors.minvalue_message;
+
+      } else if (control.errors.datemin) {
+        return control.errors.message;
+
+      } else if (control.errors.datemax) {
+        return control.errors.message;
+
+      } else if (control.errors.dateformat) {
+        return control.errors.message;
+
       } else {
         return `${key} has an unknown error`;
       }

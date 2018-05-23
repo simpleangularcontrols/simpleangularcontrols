@@ -14,3 +14,4 @@ export { NgValidationSummary } from './validation/validationsummary';
 export { NgDialog } from './dialog/dialog';
 export { NgTab, NgTabItem } from './tabs/tabs';
 export { NgDate } from './datetime/date';
+export { NgDateSelector } from './datetime/dateselector';

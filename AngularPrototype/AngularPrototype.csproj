@@ -142,6 +142,7 @@
     <Content Include="angualar\moduleBase\src\app\controls\buttons\button.html" />
     <Content Include="angualar\moduleBase\src\app\controls\checkbox\checkbox.html" />
     <Content Include="angualar\moduleBase\src\app\controls\datetime\date.html" />
+    <Content Include="angualar\moduleBase\src\app\controls\datetime\dateselector.html" />
     <Content Include="angualar\moduleBase\src\app\controls\dialog\dialog.html" />
     <Content Include="angualar\moduleBase\src\app\controls\list\dropdown.html" />
     <Content Include="angualar\moduleBase\src\app\controls\input\input.html" />
@@ -294,6 +295,7 @@
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\buttons\button.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\checkbox\checkbox.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\datetime\date.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\datetime\dateselector.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\dialog\dialog.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\list\dropdown.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\form\form.ts" />

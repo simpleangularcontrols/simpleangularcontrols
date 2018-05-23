@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, forwardRef } from "@angular/core";
+import { Component, Input, Output, EventEmitter, forwardRef, ElementRef, HostListener } from "@angular/core";
 import { NG_VALUE_ACCESSOR, ControlContainer } from "@angular/forms";
 import { NgFormular } from "../form/form";
 import { NgBaseModelControl } from "../../base/basemodelcontrol";
@@ -28,6 +28,14 @@ export class NgDate extends NgBaseModelControl<Date> {
 
   // #endregion
 
+  // #region Constructor
+
+  constructor(parent: NgFormular, private _elementRef: ElementRef) {
+    super(parent);
+  }
+
+  // #endregion
+
   // #region Properties
 
   // Definiert das Control als Required
@@ -36,8 +44,6 @@ export class NgDate extends NgBaseModelControl<Date> {
   @Input("placeholder") _placeholder: string = null;
 
   // Min Date
-  _mindate: Date = null;
-
   @Input("mindate")
   set mindate(v: string | Date | null) {
     var date = moment.utc(v, [this.DATEFORMAT], true);
@@ -48,10 +54,9 @@ export class NgDate extends NgBaseModelControl<Date> {
       this._mindate = null;
     }
   }
+  _mindate: Date = null;
 
   // Max Date
-  _maxdate: Date = null;
-
   @Input("maxdate")
   set maxdate(v: string | Date | null) {
     var date = moment.utc(v, [this.DATEFORMAT], true);
@@ -62,6 +67,7 @@ export class NgDate extends NgBaseModelControl<Date> {
       this._maxdate = null;
     }
   }
+  _maxdate: Date = null;
 
   private _valueAsString = '';
   private _isDateValid: boolean = true;
@@ -71,6 +77,9 @@ export class NgDate extends NgBaseModelControl<Date> {
   }
 
   _mask = { mask: [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/,], guide: true, placeholderChar: '_', keepCharPositions: true };
+
+  // Definiert ob der Date Selector angezeigt wird
+  _showselector: boolean = false;
 
   // #endregion
 
@@ -109,6 +118,31 @@ export class NgDate extends NgBaseModelControl<Date> {
       var date = moment(this.value);
       return date.format("DD.MM.YYYY");
     }
+  }
+
+  // #endregion
+
+  // #region Date Selector
+
+  showDateSelector(): void {
+    if (this._showselector)
+      this._showselector = false;
+    else
+      this._showselector = true;
+  }
+
+  @HostListener('document:click', ['$event.target'])
+  public onClick(targetElement) {
+    const clickedInside = this._elementRef.nativeElement.contains(targetElement);
+    if (!clickedInside)
+      this._showselector = false;
+  }
+
+
+  dateselect(v: any) {
+    this.value = v.date;
+    this._isDateValid = true;
+    this._showselector = false;
   }
 
   // #endregion

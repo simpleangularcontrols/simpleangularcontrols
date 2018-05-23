@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-xs-4 text-left"><a (click)="monthBack()"><span class="glyphicon glyphicon-arrow-left"></span></a></div>
+  <div class="col-xs-4 text-center">{{_month+1}}/{{_year}}</div>
+  <div class="col-xs-4 text-right"><a (click)="monthNext()"><span class="glyphicon glyphicon-arrow-right"></span></a></div>
+</div>
+<div></div>
+<div class="row calendar">
+  <div *ngFor="let item of dates" class="col-xs-1 text-center" [style.background-color]="item.iscurrent ? 'red' : 'transparent'" [style.font-weight]="item.isselected ? 'bold' : 'normal'" (click)="selectDate(item.date)" >{{ item.displaytext }}</div>
+</div>

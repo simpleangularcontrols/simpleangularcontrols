@@ -1,7 +1,23 @@
 <div class="form-group">
   <label for="{{_name}}" class="control-label" [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]">{{_label}}</label>
   <div [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
-    <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [textMask]="_mask"
-           [attr.placeholder]="_placeholder" [(ngModel)]="valuestring" ngDateFormat [ngRequiredDate]="_isrequired" [ngDateMin]="_mindate" [ngDateMax]="_maxdate" />
+    <div class="input-group">
+      <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [textMask]="_mask" [attr.placeholder]="_placeholder" [(ngModel)]="valuestring" ngDateFormat
+             [ngRequiredDate]="_isrequired" [ngDateMin]="_mindate" [ngDateMax]="_maxdate" />
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" (click)="showDateSelector()">
+          <span class="glyphicon glyphicon-calendar"></span>&nbsp;
+        </button>
+      </span>
+    </div>
+    <div class="popover fade bottom in" role="tooltip" *ngIf="_showselector" style="display:block; left:unset; right: 0px; top: 34px;">
+      <div class="arrow" style="left: unset; right: 25px;"></div>
+      <h3 class="popover-title" style="display: none;"></h3>
+      <div class="popover-content">
+
+        <ngDateSelector [initialDate]="value" (onSelectDate)="dateselect($event)"></ngDateSelector>
+
+      </div>
+    </div>
   </div>
 </div>

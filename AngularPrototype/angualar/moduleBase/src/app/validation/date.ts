@@ -57,7 +57,7 @@ export class NgDateMin implements Validator {
     }
 
     if (this.minDate > this.controlItem.value) {
-      return { 'datemin': true, 'message': 'Feld "' + this.controlItem._label + '" muss neuer oder gleich ' + + moment(this.minDate).format(this.controlItem.DATEFORMAT) + ' sein' };
+      return { 'datemin': true, 'message': 'Feld "' + this.controlItem._label + '" muss neuer oder gleich ' + moment(this.minDate).format(this.controlItem.DATEFORMAT) + ' sein' };
     } else {
       return null;
     }

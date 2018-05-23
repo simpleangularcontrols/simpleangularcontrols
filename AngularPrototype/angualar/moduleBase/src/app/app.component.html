@@ -116,7 +116,11 @@
 
       <ngDate name="datum4" label="Datum 4 (Max 31.12.2018)" [(ngModel)]="valuesDateTime.datum4" maxdate="31.12.2018"></ngDate>
 
+      <ngDateSelector name="selector1"></ngDateSelector>
+
       <ngButton name="bDateTimeSave" text="Speichern" [isenabled]="formDateTime.valid" (onclick)="dateTimeSave()"></ngButton>
+
+
 
     </ngFormular>
   </ngTabItem>

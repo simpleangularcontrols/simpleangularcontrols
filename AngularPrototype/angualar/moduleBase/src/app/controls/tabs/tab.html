@@ -1,0 +1,15 @@
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li *ngFor="let item of tabItems" [ngClass]="{ 'active': item._active, 'disabled': item._disabled }" (click)="selectTab(item)">
+      <a href="#" role="tab" data-toggle="tab">{{item._label}}</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <ng-content></ng-content>
+  </div>
+
+</div>

@@ -153,7 +153,8 @@
     <Content Include="angualar\moduleBase\src\app\controls\input\inputinteger.html" />
     <Content Include="angualar\moduleBase\src\app\controls\input\inputpassword.html" />
     <Content Include="angualar\moduleBase\src\app\controls\list\listbox.html" />
-    <Content Include="angualar\moduleBase\src\app\controls\tabs\tabs.html" />
+    <Content Include="angualar\moduleBase\src\app\controls\tabs\tabitem.html" />
+    <Content Include="angualar\moduleBase\src\app\controls\tabs\tab.html" />
     <Content Include="angualar\moduleBase\src\app\controls\validation\validationsummary.html" />
     <Content Include="angualar\moduleBase\src\index.html" />
     <Content Include="Contact.aspx" />
@@ -308,7 +309,8 @@
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\input\inputinteger.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\input\inputpassword.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\list\listbox.ts" />
-    <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\tabs\tabs.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\tabs\tab.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\tabs\tabitem.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\validation\validationsummary.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\date.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\email.ts" />

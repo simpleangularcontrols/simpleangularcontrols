@@ -12,6 +12,7 @@ export { NgDropdown } from './list/dropdown';
 export { NgListbox } from './list/listbox';
 export { NgValidationSummary } from './validation/validationsummary';
 export { NgDialog } from './dialog/dialog';
-export { NgTab, NgTabItem } from './tabs/tabs';
+export { NgTab } from './tabs/tab';
+export { NgTabItem } from './tabs/tabitem';
 export { NgDate } from './datetime/date';
 export { NgDateSelector } from './datetime/dateselector';

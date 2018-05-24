@@ -34,9 +34,9 @@ gulp.task('buildAngularApp-1', function (cb) {
     console.log("Starting Build");
 
     // Release
-    // var output = shell.spawn(process.env.comspec, ['/c', 'ng build -prod --aot -sm false -vc false -cc false -oh none'], options);
+    var output = shell.spawn(process.env.comspec, ['/c', 'ng build -prod --aot -sm false -vc false -cc false -oh none'], options);
     // Debug
-    var output = shell.spawn(process.env.comspec, ['/c', 'ng build --aot -sm true -vc false -cc false -oh none'], options);
+    // var output = shell.spawn(process.env.comspec, ['/c', 'ng build --aot -sm true -vc false -cc false -oh none'], options);
 
     output.stdout.on('data', function (data) {
         console.log(data.toString());

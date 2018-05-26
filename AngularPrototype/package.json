@@ -4,7 +4,8 @@
   "private": true,
   "devDependencies": {
     "gulp": "3.9.1",
-    "child_process": "1.0.2"
+    "child_process": "1.0.2",
+    "gulp-sass": "4.0.1"
   },
   "scripts": {
     "build": "echo hallo"

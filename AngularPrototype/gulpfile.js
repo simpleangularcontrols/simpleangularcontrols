@@ -7,6 +7,10 @@ Click here to learn more. https://go.microsoft.com/fwlink/?LinkId=518007
 var gulp = require('gulp');
 var shell = require('child_process');
 
+var plugins = {
+    sass: require('gulp-sass')
+}
+
 gulp.task('default', function (cb) {
     const options = {
         encoding: 'utf8',
@@ -53,4 +57,14 @@ gulp.task('buildAngularApp-1', function (cb) {
     output.on('error', function (code) {
         console.log('error: ' + code.toString());
     });
+});
+
+gulp.task('sass-build', function () {
+    gulp.src('./Layout/scss/style.scss')
+        .pipe(plugins.sass())
+        .pipe(gulp.dest('./Layout/css/'))
+
+    gulp.src('./Layout/scss/bootstrap/bootstrap.scss')
+        .pipe(plugins.sass())
+        .pipe(gulp.dest('./Layout/css/'))
 });

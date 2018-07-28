@@ -1,8 +1,10 @@
-<div class="form-group" [ngClass]="{'has-error': control.invalid && (control.dirty || control.touched) }">
-  <label for="{{_name}}" class="control-label" [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]">{{_label}}</label>
-  <div [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
+<div class="form-group form-row" [ngClass]="{'has-error': control.invalid && (control.dirty || control.touched) }">
+  <div class="col" [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only' ]">
+    <label for="{{_name}}" class="form-control-label">{{_label}}</label>
+  </div>
+  <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <div class="input-group">
-      <span class="input-group-addon">@</span>
+      <div class="input-group-prepend"><span class="input-group-text">@</span></div>
       <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [(ngModel)]="value" [ngRequiredEmail]="_isrequired" [attr.placeholder]="_placeholder"
              ngEmailValidator #control="ngModel" [attr.maxlength]="_maxlength" autocomplete="email" />
     </div>

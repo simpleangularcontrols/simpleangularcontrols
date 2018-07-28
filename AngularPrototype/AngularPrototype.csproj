@@ -446,6 +446,7 @@
     <Content Include="Layout\scss\_switches.scss" />
     <Content Include="Layout\scss\_widgets.scss" />
     <Content Include="Admin.Master" />
+    <Content Include="Layout\scss\_custom.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="gulpfile.js" />
     <Content Include="Scripts\bootstrap.js" />

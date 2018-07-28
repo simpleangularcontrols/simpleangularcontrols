@@ -1,19 +1,22 @@
-<div class="form-group">
-  <label for="{{_name}}" class="control-label" [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]">{{_label}}</label>
-  <div [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
+<div class="input-group form-group">
+  <div class="col" [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only' ]">
+    <label for="{{_name}}" class="form-control-label">{{_label}}</label>
+  </div>
+  <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <div class="input-group">
       <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [textMask]="_mask" [attr.placeholder]="_placeholder" [(ngModel)]="valuestring" ngDateFormat
-             [ngRequiredDate]="_isrequired" [ngDateMin]="_mindate" [ngDateMax]="_maxdate" />
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button" (click)="showDateSelector()">
-          <span class="glyphicon glyphicon-calendar"></span>&nbsp;
+             [ngRequiredDate]="_isrequired" [ngDateMin]="_mindate" [ngDateMax]="_maxdate" #control="ngModel" [ngClass]="{'is-invalid': control.invalid && (control.dirty || control.touched) }" />
+      <div class="input-group-append">
+        <button class="btn btn-secondary" type="button" (click)="showDateSelector()">
+          <i class="fa fa-calendar"></i>
         </button>
-      </span>
+      </div>
     </div>
-    <div class="popover fade bottom in" role="tooltip" *ngIf="_showselector" style="display:block; left:unset; right: 0px; top: 34px;">
+    <div class="popover fade bs-popover-bottom show" role="tooltip" *ngIf="_showselector"
+         style="display:block; left:unset; right: 0px; top: 34px; max-width: 325px;">
       <div class="arrow" style="left: unset; right: 25px;"></div>
-      <h3 class="popover-title" style="display: none;"></h3>
-      <div class="popover-content">
+      <h3 class="popover-header" style="display: none;"></h3>
+      <div class="popover-body">
 
         <ngDateSelector [initialDate]="value" (onSelectDate)="dateselect($event)"></ngDateSelector>
 

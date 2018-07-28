@@ -56,6 +56,7 @@
       <ngCheckbox name="checkbox1" label="Checkbox 1" ngModel></ngCheckbox>
       <ngCheckbox name="checkbox2" label="Checkbox 2" labelsize="2" [ngModel]="values.checkbox2"></ngCheckbox>
       <ngCheckbox name="checkbox3" label="Checkbox 3" disablelabel="true" ngModel></ngCheckbox>
+
       <ngDropdown name="dropdown1" label="Dropdown 1" [ngModel]="values.dropdown1" [options]="values.dropdownitems"></ngDropdown>
       <ngDropdown name="dropdown2" label="Dropdown 2" [ngModel]="values.dropdown2" [options]="values.dropdownitems" optionlabel="text"></ngDropdown>
       <ngDropdown name="dropdown3" label="Dropdown 3" [ngModel]="values.dropdown3" [options]="values.dropdownitems">
@@ -69,6 +70,7 @@
       </ngDropdown>
       <ngDropdown name="dropdown8" label="Dropdown 8" [ngModel]="values.dropdown8" [options]="values.dropdownitems" isrequired="true"></ngDropdown>
       <ngDropdown name="dropdown9" label="Dropdown 9" [ngModel]="values.dropdown9" [options]="values.dropdownitems" emptylabel="Please select item"></ngDropdown>
+      <ngDropdown name="dropdown10" label="Dropdown 10" [ngModel]="values.dropdown10" [options]="values.groupitems" groupitems="items" disablelabel="true"></ngDropdown>
 
       <ngListbox name="listbox1" label="Listbox 1" [ngModel]="values.listbox1" [options]="values.dropdownitems"></ngListbox>
       <ngListbox name="listbox2" label="Listbox 2" [ngModel]="values.listbox2" [options]="values.dropdownitems"></ngListbox>

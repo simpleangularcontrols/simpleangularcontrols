@@ -11,11 +11,14 @@
 * Tags: html, themplate, Sufee-Admin
 --------------------------------------------------------- */
 
+/* https: //github.com/puikinsh/sufee-admin-dashboard */
+
 @import "variables";
 @import "gauge";
 @import "switches";
 @import "widgets";
 @import "../cssextensions/animate.css";
+@import "_custom.scss";
 
 .bg-flat-color-1 {background: #20a8d8};
 .bg-flat-color-2 {background: #63c2de};

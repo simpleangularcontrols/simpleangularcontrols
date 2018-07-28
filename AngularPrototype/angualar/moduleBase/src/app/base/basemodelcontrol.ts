@@ -33,7 +33,7 @@ export class NgBaseModelControl<VALUE> implements ControlValueAccessor, OnInit {
       if (this.parent.labelsize !== undefined) {
         this._labelsize = this.parent.labelsize;
       } else {
-        this._labelsize = 2;
+        this._labelsize = 4;
       }
     }
 

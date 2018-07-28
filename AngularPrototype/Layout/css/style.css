@@ -754,6 +754,13 @@
         margin: 2px 0 0;
         font-size: 18px; }
 
+.alert ul, .alert ol {
+  padding-left: 1rem; }
+
+.alert ul, .alert ol, .alert dl {
+  margin-top: 0;
+  margin-bottom: 0; }
+
 .bg-flat-color-1 {
   background: #20a8d8; }
 

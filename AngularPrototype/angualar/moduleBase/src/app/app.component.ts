@@ -63,6 +63,7 @@ class formdata {
   dropdown7: string = '';
   dropdown8: string = '';
   dropdown9: string = '';
+  dropdown10: string = '';
   listbox1: string[];
   listbox2: string[] = ["v2", "v3"];
   listbox3: string[];

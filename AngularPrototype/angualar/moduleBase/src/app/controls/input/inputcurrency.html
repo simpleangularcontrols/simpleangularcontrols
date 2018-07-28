@@ -1,10 +1,13 @@
-<div class="form-group" [ngClass]="{'has-error': control.invalid && (control.dirty || control.touched) }">
-  <label for="{{_name}}" class="control-label" [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]">{{_label}}</label>
-  <div [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
+<div class="form-group form-row">
+  <div class="col" [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only' ]">
+    <label for="{{_name}}" class="form-control-label">{{_label}}</label>
+  </div>
+  <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <div class="input-group">
-      <span class="input-group-addon">CHF</span>
       <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [(ngModel)]="value" [ngRequiredCurrency]="_isrequired"
-             [attr.placeholder]="_placeholder" #control="ngModel" (keypress)="onKeyPress($event)" [ngMinValueCurrency]="_minvalue" [ngMaxValueCurrency]="_maxvalue" />
+             [attr.placeholder]="_placeholder" #control="ngModel" (keypress)="onKeyPress($event)" [ngMinValueCurrency]="_minvalue" [ngMaxValueCurrency]="_maxvalue"
+             [ngClass]="{'is-invalid': control.invalid && (control.dirty || control.touched) }" />
+      <div class="input-group-append"><span class="input-group-text">CHF</span></div>
     </div>
   </div>
 </div>

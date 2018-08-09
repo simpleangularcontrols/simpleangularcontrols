@@ -1,9 +1,10 @@
-<div class="form-group form-row" [ngClass]="{'has-error': control.invalid && (control.dirty || control.touched) }">
+<div class="form-group form-row">
   <div class="col" [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only' ]">
     <label for="{{_name}}" class="form-control-label">{{_label}}</label>
   </div>
   <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [(ngModel)]="value" [ngRequiredInteger]="_isrequired"
-           [attr.placeholder]="_placeholder" #control="ngModel" (keypress)="onKeyPress($event)" [ngMinValueInteger]="_minvalue" [ngMaxValueInteger]="_maxvalue" />
+           [attr.placeholder]="_placeholder" #control="ngModel" (keypress)="onKeyPress($event)" [ngMinValueInteger]="_minvalue" [ngMaxValueInteger]="_maxvalue"
+           [ngClass]="{'is-invalid': control.invalid && (control.dirty || control.touched) }" />
   </div>
 </div>

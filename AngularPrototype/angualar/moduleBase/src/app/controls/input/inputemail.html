@@ -1,4 +1,4 @@
-<div class="form-group form-row" [ngClass]="{'has-error': control.invalid && (control.dirty || control.touched) }">
+<div class="form-group form-row">
   <div class="col" [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only' ]">
     <label for="{{_name}}" class="form-control-label">{{_label}}</label>
   </div>
@@ -6,7 +6,8 @@
     <div class="input-group">
       <div class="input-group-prepend"><span class="input-group-text">@</span></div>
       <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [(ngModel)]="value" [ngRequiredEmail]="_isrequired" [attr.placeholder]="_placeholder"
-             ngEmailValidator #control="ngModel" [attr.maxlength]="_maxlength" autocomplete="email" />
+             ngEmailValidator #control="ngModel" [attr.maxlength]="_maxlength" autocomplete="email"
+             [ngClass]="{'is-invalid': control.invalid && (control.dirty || control.touched) }" />
     </div>
   </div>
 </div>

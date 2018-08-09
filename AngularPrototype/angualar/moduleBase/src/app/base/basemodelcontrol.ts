@@ -45,12 +45,12 @@ export class NgBaseModelControl<VALUE> implements ControlValueAccessor, OnInit {
   // #region Implementation ControlValueAccessor
 
   // Leere Implementation von "propagateChange". Muss gemacht werden, damit kein Fehler entsteht
-  propagateChange = (_: any) => { };
+  propagateChange: any = () => { };
 
   // Methode, damit andere Controls änderungen im Control mitbekommen können
   // Zur Änderungsinfo die Methode propagateChange aufrufen.
   registerOnChange(fn: any): void {
-    this.propagateChange = fn;
+    this.propagateChange = (obj) => fn(obj);
   }
 
   // Methode, damit andere Controls änderungen mitbekommen, wenn das Control aktiviert (Focus) wird.
@@ -61,7 +61,6 @@ export class NgBaseModelControl<VALUE> implements ControlValueAccessor, OnInit {
   writeValue(value: VALUE) {
     if (value) {
       this._value = value;
-      this.propagateChange(this._value);
     }
   }
 

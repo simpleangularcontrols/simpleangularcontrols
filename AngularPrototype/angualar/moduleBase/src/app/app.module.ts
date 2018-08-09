@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import {
   NgInput, NgInputDecimal, NgInputInteger, NgInputArea, NgInputCurrency, NgInputEmail, NgInputPassword, NgListbox, NgDropdown,
-  NgFormular, NgDialog, NgCheckbox, NgButton, NgTab, NgTabItem, NgValidationSummary, NgDate, NgDateSelector
+  NgFormular, NgDialog, NgCheckbox, NgButton, NgTab, NgTabItem, NgValidationSummary, NgDate, NgDateSelector, NgRadiobutton, NgRadiobuttons
 } from './controls';
 import {
   NgEmailValidator, NgMaxValueCurrency, NgMaxValueDecimal, NgMaxValueInteger, NgMinLengthValidator, NgMinValueCurrency, NgMinValueDecimal,
@@ -22,7 +22,7 @@ import { TextMaskModule } from 'angular2-text-mask';
 const NgDirectives = [
   AppComponent,
 
-  NgInput, NgInputDecimal, NgButton, NgFormular, NgCheckbox, NgDropdown, NgListbox, NgValidationSummary, NgRequiredInput, NgRequiredDropdown, NgRequiredListbox, NgDialog, NgTab, NgDate,
+  NgInput, NgInputDecimal, NgButton, NgFormular, NgCheckbox, NgDropdown, NgListbox, NgValidationSummary, NgRequiredInput, NgRequiredDropdown, NgRequiredListbox, NgDialog, NgTab, NgDate, NgRadiobutton, NgRadiobuttons,
   NgTabItem, NgDateSelector,
   NgRequiredInputDecimal, NgInputInteger, NgRequiredInputInteger, NgMinValueDecimal, NgMinValueInteger, NgMaxValueDecimal, NgMaxValueInteger, NgInputCurrency, NgMaxValueCurrency, NgMinValueCurrency, NgRequiredInputCurrency,
   NgInputEmail, NgRequiredInputEmail, NgEmailValidator, NgInputPassword, NgRequiredInputPassword, NgMinLengthValidator, NgInputArea, NgRequiredInputArea, NgDateFormat, NgRequiredDate, NgDateMin,

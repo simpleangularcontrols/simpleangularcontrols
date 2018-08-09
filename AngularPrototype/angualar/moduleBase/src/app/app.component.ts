@@ -12,6 +12,10 @@ interface KeyValue2 extends KeyValue {
   enabled: boolean
 }
 
+interface KeyValue3 extends KeyValue2 {
+  checked: boolean
+}
+
 interface GroupElement {
   label: string,
   items: KeyValue[]
@@ -64,6 +68,12 @@ class formdata {
   dropdown8: string = '';
   dropdown9: string = '';
   dropdown10: string = '';
+
+  radiobuttons1: string = '3';
+  radiobuttons2: string = 'o1';
+  radiobuttons3: string = '';
+  radiobuttons4: string = '3';
+
   listbox1: string[];
   listbox2: string[] = ["v2", "v3"];
   listbox3: string[];
@@ -77,6 +87,19 @@ class formdata {
     label: 'Group 2', items: [{ label: 'Wert 3', value: 'v3', text: 'Text 3' }]
   }];
 
+  radiobuttonitems1: KeyValue3[] = [
+    { label: 'Option 1', value: 'o1', text: 'Text 1', checked: false, enabled: true },
+    { label: 'Option 2', value: 'o2', text: 'Text 2', checked: true, enabled: true },
+    { label: 'Option 3', value: 'o3', text: 'Text 3', checked: false, enabled: true },
+    { label: 'Option 4', value: 'o4', text: 'Text 4', checked: false, enabled: true }
+  ];
+
+  radiobuttonitems2: KeyValue3[] = [
+    { label: 'Option 1', value: 'o1', text: 'Text 1', checked: false, enabled: true },
+    { label: 'Option 2', value: 'o2', text: 'Text 2', checked: true, enabled: true },
+    { label: 'Option 3', value: 'o3', text: 'Text 3', checked: false, enabled: false },
+    { label: 'Option 4', value: 'o4', text: 'Text 4', checked: false, enabled: true }
+  ];
 }
 
 @Component({
@@ -136,6 +159,23 @@ export class AppComponent {
     alert(JSON.stringify(this.valuesDateTime));
   }
 
+  radio1Add(): void {
+    this.values.radiobuttonitems1.push(
+      { label: 'Option 5', value: 'o5', text: 'Text 5', checked: false, enabled: true }
+    );
+  }
+
+  radio1Remove(): void {
+    var option = this.values.radiobuttonitems1.find(itm => itm.value === 'o5');
+    if (option !== undefined)
+      this.values.radiobuttonitems1.splice(this.values.radiobuttonitems1.indexOf(option), 1);
+  }
+
+  radio1ChangeProperty(): void {
+    var option = this.values.radiobuttonitems1.find(itm => itm.value === 'o4');
+    if (option !== undefined)
+      option.label = "Property Change " + Date.now();
+  }
 
   modal1: boolean = false;
 

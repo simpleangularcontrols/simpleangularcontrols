@@ -141,6 +141,8 @@
     <Content Include="angualar\moduleBase\src\app\app.component.html" />
     <Content Include="angualar\moduleBase\src\app\controls\buttons\button.html" />
     <Content Include="angualar\moduleBase\src\app\controls\checkbox\checkbox.html" />
+    <Content Include="angualar\moduleBase\src\app\controls\checkbox\radiobutton.html" />
+    <Content Include="angualar\moduleBase\src\app\controls\checkbox\radiobuttons.html" />
     <Content Include="angualar\moduleBase\src\app\controls\datetime\date.html" />
     <Content Include="angualar\moduleBase\src\app\controls\datetime\dateselector.html" />
     <Content Include="angualar\moduleBase\src\app\controls\dialog\dialog.html" />
@@ -563,10 +565,13 @@
     <TypeScriptCompile Include="angualar\moduleBase\src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\app.component.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\app.module.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\base\baselistcontrol.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\base\basemodelcontrol.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\base\baseselectcontrol.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\buttons\button.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\checkbox\checkbox.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\checkbox\radiobutton.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\checkbox\radiobuttons.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\datetime\date.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\datetime\dateselector.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\dialog\dialog.ts" />

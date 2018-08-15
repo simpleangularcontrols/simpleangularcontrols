@@ -1,10 +1,14 @@
-import { Component, Input, Host, OnInit, AfterContentInit, QueryList, ContentChildren, IterableDiffers, KeyValueDiffers, IterableDiffer, KeyValueChanges, IterableChanges } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl } from '@angular/forms';
+import {
+  Component, Input, Host, OnInit, AfterContentInit, QueryList, ContentChildren, IterableDiffers, KeyValueDiffers, IterableDiffer,
+  KeyValueChanges, IterableChanges, forwardRef, AfterViewInit, DoCheck, KeyValueDiffer
+} from '@angular/core';
+import {
+  ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl, NG_VALIDATORS, AbstractControl, ValidationErrors,
+  Validator
+} from '@angular/forms';
 import { NgBaseListControl } from '../../base/baselistcontrol';
 import { NgFormular } from '../form/form';
 import { NgRadiobutton } from './radiobutton';
-import { AfterViewInit, OnChanges, DoCheck } from '@angular/core/src/metadata/lifecycle_hooks';
-import { KeyValueDiffer } from '@angular/core/src/change_detection/differs/keyvalue_differs';
 
 class RadiobuttonItem {
   public Name: string;
@@ -18,17 +22,13 @@ class RadiobuttonItem {
   templateUrl: './radiobuttons.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: NgRadiobuttons
-    }
+    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgRadiobuttons), multi: true },
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => NgRadiobuttons), multi: true }
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
 })
-export class NgRadiobuttons extends NgBaseListControl implements AfterViewInit, DoCheck {
-
+export class NgRadiobuttons extends NgBaseListControl implements AfterViewInit, DoCheck, Validator {
   private iterableDiffer: IterableDiffer<any[]>;
   private keyvalueDiffer: Map<any, KeyValueDiffer<any, any>> = new Map<any, any>();
 
@@ -58,7 +58,6 @@ export class NgRadiobuttons extends NgBaseListControl implements AfterViewInit, 
 
   ngDoCheck() {
     if (this.iterableDiffer) {
-      console.log('Check list changes');
       let listChanges: IterableChanges<any[]> = this.iterableDiffer.diff(this.options);
       if (listChanges) {
         listChanges.forEachAddedItem(itm => {
@@ -138,24 +137,40 @@ export class NgRadiobuttons extends NgBaseListControl implements AfterViewInit, 
     rbItem.Name = this._name;
     rbItem.Value = item[this._fieldValue];
     rbItem.Label = item[this._fieldLabel];
-    rbItem.Checked = rbItem.Value === this.value;
+    rbItem.Checked = this.value == item[this._fieldValue];
 
     this._item.push(rbItem);
+
+    this.propagateChange(this._value);
   }
 
   public RemoveItem(item: any) {
     let rbItem = this._item.find(itm => itm.Value === item[this._fieldValue]);
 
     if (rbItem) {
+      if (this._value == rbItem.Value)
+        this._value = null;
+
       this._item.splice(this._item.indexOf(rbItem), 1);
     }
+
+    this.propagateChange(this._value);
   }
 
   public SelectItem(item: string) {
     console.log("Item selected");
     // this.writeValue(item);
+
+    this._item.forEach(itm => {
+      itm.Checked = itm.Value === item;
+    });
+
     this._value = item;
     this.propagateChange(item);
+  }
+
+  public HasCheckedItem(): boolean {
+    return this._item.some(itm => itm.Checked);
   }
 
   private UpdateItem(key: string, property: string, value: any) {
@@ -174,5 +189,26 @@ export class NgRadiobuttons extends NgBaseListControl implements AfterViewInit, 
         }
       }
     });
+
+    this._onChange();
   }
+
+  // Validator
+  private _onChange: () => void;
+
+  validate(c: AbstractControl): ValidationErrors | null {
+    if (!this.HasCheckedItem()) {
+      console.log('Control' + this._name + ' has a Validation Error');
+      return {
+        'required': true, 'required_message': 'Feld "' + this._label + '" ist erforderlich'
+      }
+    }
+    else {
+      console.log('Control' + this._name + ' is valid');
+      return null;
+    }
+  }
+
+  registerOnValidatorChange(fn: () => void): void { this._onChange = fn; }
+
 }

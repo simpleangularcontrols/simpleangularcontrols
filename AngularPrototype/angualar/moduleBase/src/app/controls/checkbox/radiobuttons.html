@@ -3,6 +3,7 @@
     <label for="{{_name}}" class="form-control-label">{{_label}}</label>
   </div>
   <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
-    <ngRadiobutton *ngFor="let item of _item; let idx = index" [label]="item.Label" [name]="item.Name" [index]="idx" [value]="item.Value" [checked]="item.Checked" (onselectitem)="SelectItem(item.Value)"></ngRadiobutton>
+    <ngRadiobutton *ngFor="let item of _item; let idx = index" [label]="item.Label" [name]="item.Name"
+                   [index]="idx" [value]="item.Value" [checked]="item.Checked" (onselectitem)="SelectItem(item.Value)"></ngRadiobutton>
   </div>
 </div>

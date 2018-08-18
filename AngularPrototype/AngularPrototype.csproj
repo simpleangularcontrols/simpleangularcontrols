@@ -146,6 +146,7 @@
     <Content Include="angualar\moduleBase\src\app\controls\datetime\date.html" />
     <Content Include="angualar\moduleBase\src\app\controls\datetime\dateselector.html" />
     <Content Include="angualar\moduleBase\src\app\controls\dialog\dialog.html" />
+    <Content Include="angualar\moduleBase\src\app\controls\form\form.html" />
     <Content Include="angualar\moduleBase\src\app\controls\list\dropdown.html" />
     <Content Include="angualar\moduleBase\src\app\controls\input\input.html" />
     <Content Include="angualar\moduleBase\src\app\controls\input\inputarea.html" />
@@ -574,6 +575,7 @@
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\checkbox\radiobuttons.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\datetime\date.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\datetime\dateselector.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\datetime\interfaces.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\dialog\dialog.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\list\dropdown.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\form\form.ts" />
@@ -589,13 +591,8 @@
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\tabs\tab.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\tabs\tabitem.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\validation\validationsummary.ts" />
-    <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\date.ts" />
-    <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\email.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\index.ts" />
-    <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\length.ts" />
-    <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\maxvalue.ts" />
-    <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\required.ts" />
-    <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\minvalue.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\validators.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\environments\environment.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\main.ts" />

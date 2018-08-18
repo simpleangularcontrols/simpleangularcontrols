@@ -3,8 +3,8 @@
     <label for="{{_name}}" class="form-control-label">{{_label}}</label>
   </div>
   <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
-    <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [(ngModel)]="value" [ngRequiredDecimal]="_isrequired"
-           [attr.placeholder]="_placeholder" #control="ngModel" (keypress)="onKeyPress($event)" [ngMinValueDecimal]="_minvalue" [ngMaxValueDecimal]="_maxvalue"
-           [ngClass]="{'is-invalid': control.invalid && (control.dirty || control.touched) }" />
+    <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [value]="value" (blur)="onTouch()" (input)="setValue($event.target.value)"
+           [attr.placeholder]="_placeholder" (keypress)="onKeyPress($event)"
+           [ngClass]="{'is-invalid': invalid && (dirty || touched) }" />
   </div>
 </div>

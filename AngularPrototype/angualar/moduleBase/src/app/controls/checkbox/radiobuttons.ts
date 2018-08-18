@@ -28,7 +28,7 @@ class RadiobuttonItem {
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
 })
-export class NgRadiobuttons extends NgBaseListControl implements AfterViewInit, DoCheck, Validator {
+export class NgRadiobuttons extends NgBaseListControl<string> implements AfterViewInit, DoCheck, Validator {
   private iterableDiffer: IterableDiffer<any[]>;
   private keyvalueDiffer: Map<any, KeyValueDiffer<any, any>> = new Map<any, any>();
 
@@ -193,10 +193,7 @@ export class NgRadiobuttons extends NgBaseListControl implements AfterViewInit, 
     this._onChange();
   }
 
-  // Validator
-  private _onChange: () => void;
-
-  validate(c: AbstractControl): ValidationErrors | null {
+  validateData(c: AbstractControl): ValidationErrors {
     if (!this.HasCheckedItem()) {
       console.log('Control' + this._name + ' has a Validation Error');
       return {
@@ -208,7 +205,4 @@ export class NgRadiobuttons extends NgBaseListControl implements AfterViewInit, 
       return null;
     }
   }
-
-  registerOnValidatorChange(fn: () => void): void { this._onChange = fn; }
-
 }

@@ -1,11 +1,11 @@
 import { Component, Input, Host, OnInit, Injectable, LOCALE_ID, Inject } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl, Validator, AbstractControl, ValidationErrors } from '@angular/forms';
 import { NumberSymbol, getLocaleNumberSymbol, registerLocaleData } from '@angular/common';
 import { NgFormular } from '../controls/form/form';
 
 import localeDeCh from '@angular/common/locales/de-CH';
 
-export class NgBaseModelControl<VALUE> implements ControlValueAccessor, OnInit {
+export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor, Validator, OnInit {
 
   // #region Private Variables
 
@@ -46,6 +46,8 @@ export class NgBaseModelControl<VALUE> implements ControlValueAccessor, OnInit {
 
   // Leere Implementation von "propagateChange". Muss gemacht werden, damit kein Fehler entsteht
   propagateChange: any = () => { };
+  // Leere Implementation von "propagateTouch". Muss gemacht werden, damit kein Fehler entsteht
+  propagateTouch: any = () => { };
 
   // Methode, damit andere Controls änderungen im Control mitbekommen können
   // Zur Änderungsinfo die Methode propagateChange aufrufen.
@@ -55,6 +57,7 @@ export class NgBaseModelControl<VALUE> implements ControlValueAccessor, OnInit {
 
   // Methode, damit andere Controls änderungen mitbekommen, wenn das Control aktiviert (Focus) wird.
   registerOnTouched(fn: any): void {
+    this.propagateTouch = (obj) => fn(obj);
   }
 
   // Methode zum schreiben von Werten aus dem Model in das Control
@@ -76,12 +79,17 @@ export class NgBaseModelControl<VALUE> implements ControlValueAccessor, OnInit {
   @Input("value")
   set value(v: VALUE) {
     this._value = this.ConvertInputValue(v);
+    this._dirty = true;
     this.propagateChange(this._value);
   }
 
   // Get Methode für NgModel Binding in Html Markup
   get value(): VALUE {
     return this._value;
+  }
+
+  setValue(v: VALUE): void {
+    this.value = v;
   }
 
   // #endregion
@@ -124,5 +132,43 @@ export class NgBaseModelControl<VALUE> implements ControlValueAccessor, OnInit {
   }
 
   // #endregion
+
+  //#region Validation Base
+
+  // Validator
+  protected _onChange: () => void;
+
+  validate(c: AbstractControl): ValidationErrors | null {
+    let error: ValidationErrors | null = this.validateData(c);
+
+    // Invalid Status setzen
+    this._invalid = error !== null;
+
+    return error;
+  }
+
+  validateData(c: AbstractControl): ValidationErrors {
+    this._invalid = false;
+    return null;
+  }
+
+  registerOnValidatorChange(fn: () => void): void { this._onChange = fn; }
+
+  protected _dirty: boolean = false;
+  public get dirty(): boolean { return this._dirty; }
+
+  protected _touched: boolean = false;
+  public get touched(): boolean { return this._touched; }
+
+  protected _invalid: boolean = false;
+  public get invalid(): boolean { return this._invalid; }
+
+  onTouch(): void {
+    this._touched = true;
+    this.propagateTouch();
+  }
+
+  //#endregion
+
 
 }

@@ -2,7 +2,7 @@
   <label for="{{_name}}" class="col" [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only' ]">{{_label}}</label>
   <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <div class="form-check">
-      <input class="form-check-input" id="{{_name}}" name="{{_name}}" type="checkbox" [(ngModel)]="value" #control="ngModel" />
+      <input class="form-check-input" id="{{_name}}" name="{{_name}}" type="checkbox" [(ngModel)]="value" [ngModelOptions]="{standalone: true}" #control="ngModel" />
       <label class="form-check-label"></label>
     </div>
   </div>

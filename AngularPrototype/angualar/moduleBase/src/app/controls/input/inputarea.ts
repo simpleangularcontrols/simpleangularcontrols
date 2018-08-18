@@ -1,6 +1,6 @@
-import { ControlContainer, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { ControlContainer, NG_VALUE_ACCESSOR, NG_VALIDATORS } from "@angular/forms";
 import { NgFormular } from "../form/form";
-import { Component, Input } from "@angular/core";
+import { Component, Input, forwardRef } from "@angular/core";
 import { NgInput } from "./input";
 
 @Component({
@@ -8,11 +8,8 @@ import { NgInput } from "./input";
   templateUrl: './inputarea.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: NgInputArea
-    }
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgInputArea },
+    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgInputArea) }
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]

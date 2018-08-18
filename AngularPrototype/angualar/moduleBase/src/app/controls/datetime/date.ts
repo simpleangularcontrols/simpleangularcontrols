@@ -1,8 +1,9 @@
 import { Component, Input, Output, EventEmitter, forwardRef, ElementRef, HostListener } from "@angular/core";
-import { NG_VALUE_ACCESSOR, ControlContainer } from "@angular/forms";
+import { NG_VALUE_ACCESSOR, ControlContainer, AbstractControl, ValidationErrors, Validators, NG_VALIDATORS } from "@angular/forms";
 import { NgFormular } from "../form/form";
 import { NgBaseModelControl } from "../../base/basemodelcontrol";
 import * as moment from 'moment';
+import { Validation } from "../../validation";
 
 
 @Component({
@@ -10,17 +11,14 @@ import * as moment from 'moment';
   templateUrl: './date.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: forwardRef(() => NgDate)
-    }
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => NgDate) },
+    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgDate) }
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
 })
 
-export class NgDate extends NgBaseModelControl<Date> {
+export class NgDate extends NgBaseModelControl<Date> implements IDateTimeControl {
 
   // #region Constants
 
@@ -70,10 +68,14 @@ export class NgDate extends NgBaseModelControl<Date> {
   _maxdate: Date = null;
 
   private _valueAsString = '';
-  private _isDateValid: boolean = true;
 
-  get IsDateValid(): boolean {
-    return this._isDateValid;
+  IsDateValid(): boolean {
+    // NULL ist gültig
+    if (this._valueAsString === null || this._valueAsString === undefined || this._valueAsString === '')
+      return true;
+
+    var date = moment.utc(this.valuestring, [this.DATEFORMAT], true);
+    return date.isValid();
   }
 
   _mask = { mask: [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/,], guide: true, placeholderChar: '_', keepCharPositions: true };
@@ -103,11 +105,9 @@ export class NgDate extends NgBaseModelControl<Date> {
 
     if (date.isValid()) {
       this.value = date.toDate();
-      this._isDateValid = true;
     }
     else {
       this.value = null;
-      this._isDateValid = false;
     }
   }
 
@@ -116,8 +116,12 @@ export class NgDate extends NgBaseModelControl<Date> {
       return this._valueAsString;
     else {
       var date = moment(this.value);
-      return date.format("DD.MM.YYYY");
+      return date.format(this.DATEFORMAT);
     }
+  }
+
+  setValueString(v: string) {
+    this.valuestring = v;
   }
 
   // #endregion
@@ -141,9 +145,29 @@ export class NgDate extends NgBaseModelControl<Date> {
 
   dateselect(v: any) {
     this.value = v.date;
-    this._isDateValid = true;
     this._showselector = false;
   }
 
   // #endregion
+
+  validateData(c: AbstractControl): ValidationErrors | null {
+    let error: ValidationErrors | null = null;
+
+    error = Validation.isValidDate(this, this._label);
+
+    if (this._isrequired) {
+      error = Validation.required(c, this._label);
+    }
+
+    if (error === null && this._mindate !== undefined && this._mindate !== null) {
+      error = Validation.minDate(this, this._mindate, this._label);
+    }
+
+    if (error === null && this._maxdate !== undefined && this._maxdate !== null) {
+      error = Validation.maxDate(this, this._maxdate, this._label);
+    }
+
+    return error;
+  }
+
 }

@@ -1,7 +1,7 @@
 import { Input } from '@angular/core';
 import { NgBaseListControl } from '../base/baselistcontrol';
 
-export class NgBaseSelectControl extends NgBaseListControl {
+export class NgBaseSelectControl<VALUE> extends NgBaseListControl<VALUE> {
 
   // Definiert das Label für das Group Element
   @Input("grouplabel") _fieldGroupLabel: string = 'label';

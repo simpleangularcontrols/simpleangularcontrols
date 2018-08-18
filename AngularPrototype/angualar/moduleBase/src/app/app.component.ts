@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm, FormGroup, FormControl } from '@angular/forms';
 import { DeprecatedCurrencyPipe } from '@angular/common/src/pipes/deprecated/number_pipe';
+import { NgFormular } from './controls/form/form';
 
 interface KeyValue {
   label: string,
@@ -119,6 +120,9 @@ export class AppComponent {
   testrequired: boolean = true;
 
   @ViewChild("form") myForm: NgForm;
+  @ViewChild("form2") form2: NgFormular;
+  @ViewChild("formTemp") formTemp: NgForm;
+  @ViewChild("formDateTime") formDateTime: NgFormular;
 
   changeRequired() {
     this.testrequired = !this.testrequired;
@@ -126,8 +130,8 @@ export class AppComponent {
   }
 
   onSubmit() {
-    if (this.myForm.valid) {
-      alert(JSON.stringify(this.myForm.value));
+    if (this.myForm.form.valid) {
+      alert(JSON.stringify(this.myForm.form.value));
     } else {
       this.validateAllFields(this.myForm.form);
     }
@@ -150,6 +154,10 @@ export class AppComponent {
     //alert('Save Form 2');
     alert(JSON.stringify(this.values));
 
+  }
+
+  GetFormValues(): string {
+    return JSON.stringify(this.values) + '---' + JSON.stringify(this.valuesDateTime);
   }
 
   valuesDateTime: formdataDateTime = new formdataDateTime();

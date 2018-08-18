@@ -1,5 +1,5 @@
 import { Component, Input, Host, OnInit } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl, NgForm } from '@angular/forms';
 import { NgBaseModelControl } from '../../base/basemodelcontrol';
 import { NgFormular } from '../form/form';
 
@@ -14,9 +14,9 @@ import { NgFormular } from '../form/form';
       multi: true,
       useExisting: NgValidationSummary
     }
-  ],
+  ]//,
   // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
+  //viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
 })
 export class NgValidationSummary {
 
@@ -31,7 +31,7 @@ export class NgValidationSummary {
 
   // Konstruktor
   // Inject des Formulars
-  constructor( @Host() parent: NgFormular) {
+  constructor(parent: NgFormular) {
     this.parent = parent;
   }
 
@@ -59,6 +59,10 @@ export class NgValidationSummary {
 
       } else if (control.errors.dateformat) {
         return control.errors.message;
+
+      } else if (control.errors.email) {
+        return control.errors.message;
+
 
       } else {
         return `${key} has an unknown error`;

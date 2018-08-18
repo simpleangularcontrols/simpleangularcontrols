@@ -3,7 +3,7 @@
     <label for="{{_name}}" class="form-control-label">{{_label}}</label>
   </div>
   <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
-    <select id="{{_name}}" name="{{_name}}" class="form-control" [(ngModel)]="value" [ngRequired]="_isrequired" #control="ngModel" [ngClass]="{'is-invalid': control.invalid && (control.dirty || control.touched) }">
+    <select id="{{_name}}" name="{{_name}}" class="form-control" [value]="value" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()" (change)="setValue($event.target.value)">
       <option *ngIf="_emptylabel !== ''" [value]="_emptyoptionvalue">{{_emptylabel}}</option>
       <ng-content></ng-content>
       <ng-container *ngIf="_fieldGroupItems === ''">

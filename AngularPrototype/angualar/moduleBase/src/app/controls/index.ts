@@ -9,7 +9,7 @@ export { NgInputPassword } from './input/inputpassword';
 export { NgInputArea } from './input/inputarea';
 export { NgCheckbox } from './checkbox/checkbox';
 export { NgDropdown } from './list/dropdown';
-export { NgListbox } from './list/listbox';
+export { NgListbox, NgListboxOption } from './list/listbox';
 export { NgValidationSummary } from './validation/validationsummary';
 export { NgDialog } from './dialog/dialog';
 export { NgTab } from './tabs/tab';

@@ -4,9 +4,9 @@
   </div>
   <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <div class="input-group">
-      <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [(ngModel)]="value" [ngRequiredCurrency]="_isrequired"
-             [attr.placeholder]="_placeholder" #control="ngModel" (keypress)="onKeyPress($event)" [ngMinValueCurrency]="_minvalue" [ngMaxValueCurrency]="_maxvalue"
-             [ngClass]="{'is-invalid': control.invalid && (control.dirty || control.touched) }" />
+      <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [value]="value" (blur)="onTouch()" (input)="setValue($event.target.value)"
+             [attr.placeholder]="_placeholder" (keypress)="onKeyPress($event)"
+             [ngClass]="{'is-invalid': invalid && (dirty || touched) }" />
       <div class="input-group-append"><span class="input-group-text">CHF</span></div>
     </div>
   </div>

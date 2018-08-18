@@ -6,8 +6,7 @@
     <div class="input-group">
       <div class="input-group-prepend"><span class="input-group-text">@</span></div>
       <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [value]="value" (blur)="onTouch()" (input)="setValue($event.target.value)" [attr.placeholder]="_placeholder"
-             [attr.maxlength]="_maxlength" autocomplete="email"
-             [ngClass]="{'is-invalid': invalid && (dirty || touched) }" />
+             [attr.maxlength]="_maxlength" autocomplete="email" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" [disabled]="isdisabled" />
     </div>
   </div>
 </div>

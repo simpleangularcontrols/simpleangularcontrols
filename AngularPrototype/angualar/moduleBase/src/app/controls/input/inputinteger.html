@@ -4,7 +4,6 @@
   </div>
   <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [value]="value" (blur)="onTouch()" (input)="setValue($event.target.value)"
-           [attr.placeholder]="_placeholder" (keypress)="onKeyPress($event)" 
-           [ngClass]="{'is-invalid': invalid && (dirty || touched) }" />
+           [attr.placeholder]="_placeholder" (keypress)="onKeyPress($event)" [disabled]="isdisabled" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" />
   </div>
 </div>

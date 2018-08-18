@@ -11,6 +11,8 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
 
   // Parent Formular
   protected parent: NgFormular;
+  // NgModel Form ist disabled
+  protected _disabledForm: boolean = false;
 
   // #endregion
 
@@ -67,6 +69,11 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
     }
   }
 
+  // Setzt das Control auf Disabled
+  setDisabledState(isDisabled: boolean): void {
+    this._disabledForm = isDisabled;
+  }
+
   // #endregion
 
   // #region Control Value
@@ -104,6 +111,13 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
   @Input("labelsize") _labelsize: number = undefined;
   // Deaktiviert das Label im Template
   @Input("disablelabel") _disablelabel: boolean = false;
+  // Deaktiviert das Input Control
+  @Input("disabled") _disabledControl: boolean = false;
+
+  // Definiert ob das Control disabled ist
+  get isdisabled(): boolean {
+    return this._disabledForm || this._disabledControl;
+  }
 
   // #endregion
 
@@ -166,6 +180,5 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
   }
 
   //#endregion
-
 
 }

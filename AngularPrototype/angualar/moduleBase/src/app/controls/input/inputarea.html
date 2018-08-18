@@ -4,6 +4,6 @@
   </div>
   <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <textarea id="{{_name}}" name="{{_name}}" type="" class="form-control" [value]="value" [attr.placeholder]="_placeholder" (blur)="onTouch()" (input)="setValue($event.target.value)"
-              (keypress)="onKeyPress($event)" [attr.rows]="_rows" [ngClass]="{'is-invalid': invalid && (dirty || touched) }"></textarea>
+              (keypress)="onKeyPress($event)" [attr.rows]="_rows" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" [disabled]="isdisabled"></textarea>
   </div>
 </div>

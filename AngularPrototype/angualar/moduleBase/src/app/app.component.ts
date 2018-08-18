@@ -27,6 +27,7 @@ class formdataDateTime {
   datum2: Date = new Date(2018, 8, 10, null, null, null, null);
   datum3: Date = new Date(2018, 9, 12, null, null, null, null);
   datum4: Date = new Date(2018, 2, 1, null, null, null, null);
+  datum5: Date = new Date(2018, 2, 1, null, null, null, null);
 }
 
 class formdata {
@@ -34,31 +35,44 @@ class formdata {
   field1: string = '';
   field2: string = '';
   field3: string = 'Test';
+  field4: string = '';
+  field5: string = '';
   field6: string = '';
+  field7: string = '';
 
 
   fieldd1: number = 1.24;
   fieldd2: number = 4.24;
   fieldd3: number = -2.24;
+  fieldd4: number = 4.24;
 
   fieldi1: number = 1;
   fieldi2: number = 32;
   fieldi3: number = -4;
+  fieldi4: number = 0;
 
   fieldcurrency1: number = 20.5;
+  fieldcurrency2: number = 0;
 
   fieldemail1: string = '';
   fieldemail2: string = '';
+  fieldemail3: string = '';
 
   fieldpassword1: string = '';
   fieldpassword2: string = 'testpassword';
   fieldpassword3: string = '';
+  fieldpassword4: string = '';
 
   fieldarea1: string = '';
   fieldarea2: string = '';
   fieldarea3: string = '';
+  fieldarea4: string = '';
 
+  checkbox1: boolean;
   checkbox2: boolean = true;
+  checkbox3: boolean;
+  checkbox4: boolean;
+
   dropdown1: string = '';
   dropdown2: string = 'v1';
   dropdown3: string = 'v3';
@@ -69,6 +83,7 @@ class formdata {
   dropdown8: string = '';
   dropdown9: string = '';
   dropdown10: string = '';
+  dropdown11: string = '';
 
   radiobuttons1: string = '3';
   radiobuttons2: string = 'o1';
@@ -79,6 +94,7 @@ class formdata {
   listbox2: string[] = ["v2", "v3"];
   listbox3: string[];
   listbox4: string[] = ["v2", "v3"];
+  listbox5: string[] = [];
 
   dropdownitems: KeyValue[] = [{ label: 'Wert 1', value: 'v1', text: 'Text 1' }, { label: 'Wert 2', value: 'v2', text: 'Text 2' }, { label: 'Wert 3', value: 'v3', text: 'Text 3' }];
   dropdownitems2: KeyValue2[] = [{ label: 'Wert 1', value: 'v1', text: 'Text 1', enabled: true }, { label: 'Wert 2', value: 'v2', text: 'Text 2', enabled: false }, { label: 'Wert 3', value: 'v3', text: 'Text 3', enabled: true }];
@@ -119,9 +135,9 @@ export class AppComponent {
 
   testrequired: boolean = true;
 
-  @ViewChild("form") myForm: NgForm;
+  @ViewChild("form") myForm: NgFormular;
   @ViewChild("form2") form2: NgFormular;
-  @ViewChild("formTemp") formTemp: NgForm;
+  @ViewChild("formTemp") formTemp: NgFormular;
   @ViewChild("formDateTime") formDateTime: NgFormular;
 
   changeRequired() {
@@ -133,7 +149,7 @@ export class AppComponent {
     if (this.myForm.form.valid) {
       alert(JSON.stringify(this.myForm.form.value));
     } else {
-      this.validateAllFields(this.myForm.form);
+      this.validateAllFields(this.myForm.form.form);
     }
   }
 
@@ -153,7 +169,6 @@ export class AppComponent {
   t3Save() {
     //alert('Save Form 2');
     alert(JSON.stringify(this.values));
-
   }
 
   GetFormValues(): string {

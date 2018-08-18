@@ -21,6 +21,9 @@ export class NgRadiobutton {
   @Input("checked")
   public _checked: boolean;
 
+  @Input("disabled")
+  public _disabled: boolean;
+
   @Input("index")
   public _index: number;
 

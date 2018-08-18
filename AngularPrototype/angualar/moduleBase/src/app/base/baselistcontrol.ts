@@ -1,7 +1,7 @@
 import { Input } from '@angular/core';
 import { NgBaseModelControl } from '../base/basemodelcontrol';
 
-export class NgBaseListControl<VALUE> extends NgBaseModelControl<VALUE> {
+export abstract class NgBaseListControl<VALUE> extends NgBaseModelControl<VALUE> {
 
   _options: any[];
 

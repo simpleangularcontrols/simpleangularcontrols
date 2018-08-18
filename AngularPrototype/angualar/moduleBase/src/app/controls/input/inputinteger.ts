@@ -2,8 +2,8 @@ import { Component, Input, Host, OnInit, Directive, forwardRef } from '@angular/
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl, NG_VALIDATORS, AbstractControl, ValidationErrors } from '@angular/forms';
 import { NgBaseModelControl } from '../../base/basemodelcontrol';
 import { NgFormular } from '../form/form';
-import { NgInputBase } from './input';
 import { Validation } from '../../validation';
+import { NgInputBase } from '../../base/baseinputcontrol';
 
 @Component({
   selector: 'ngInputInteger',

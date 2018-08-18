@@ -147,10 +147,7 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
     return error;
   }
 
-  validateData(c: AbstractControl): ValidationErrors {
-    this._invalid = false;
-    return null;
-  }
+  abstract validateData(c: AbstractControl): ValidationErrors | null;
 
   registerOnValidatorChange(fn: () => void): void { this._onChange = fn; }
 

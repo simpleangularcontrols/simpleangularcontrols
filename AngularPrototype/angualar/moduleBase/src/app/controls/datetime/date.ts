@@ -129,6 +129,9 @@ export class NgDate extends NgBaseModelControl<Date> implements IDateTimeControl
   // #region Date Selector
 
   showDateSelector(): void {
+    // Touch Event auslösen
+    this.onTouch();
+
     if (this._showselector)
       this._showselector = false;
     else

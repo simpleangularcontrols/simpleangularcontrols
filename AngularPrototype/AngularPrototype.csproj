@@ -566,6 +566,7 @@
     <TypeScriptCompile Include="angualar\moduleBase\src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\app.component.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\app.module.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\base\baseinputcontrol.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\base\baselistcontrol.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\base\basemodelcontrol.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\base\baseselectcontrol.ts" />

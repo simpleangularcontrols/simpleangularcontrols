@@ -184,6 +184,16 @@
 
       <ngTime name="time5" label="Zeit 5 (Disabled)" [(ngModel)]="valuesDateTime.time5" disabled="true"></ngTime>
 
+      <ngDateTime name="datetime1" label="Datum & Zeit 1" [(ngModel)]="valuesDateTime.datumzeit1"></ngDateTime>
+
+      <ngDateTime name="datetime2" label="Datum & Zeit 2 (Min. 19.08.2018 14:00)" [(ngModel)]="valuesDateTime.datumzeit2" mindate="19.08.2018 14:00"></ngDateTime>
+
+      <ngDateTime name="datetime3" label="Datum & Zeit 3 (Max. 19.08.2018 17:00)" [(ngModel)]="valuesDateTime.datumzeit3" maxdate="19.08.2018 17:00"></ngDateTime>
+
+      <ngDateTime name="datetime4" label="Datum & Zeit 4 (Required)" [(ngModel)]="valuesDateTime.datumzeit4" [isrequired]="true"></ngDateTime>
+
+      <ngDateTime name="datetime5" label="Datum & Zeit 5 (Disabled)" [(ngModel)]="valuesDateTime.datumzeit5" disabled="true"></ngDateTime>
+
       <ngDateSelector name="selector1" dateselection="true" timeselection="true"></ngDateSelector>
 
       <ngButton name="bDateTimeSave" text="Speichern" [isenabled]="formDateTime.form.valid" (onclick)="dateTimeSave()"></ngButton>

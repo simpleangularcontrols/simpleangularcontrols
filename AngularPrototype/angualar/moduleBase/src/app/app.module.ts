@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import {
   NgInput, NgInputDecimal, NgInputInteger, NgInputArea, NgInputCurrency, NgInputEmail, NgInputPassword, NgListbox, NgDropdown,
-  NgFormular, NgDialog, NgCheckbox, NgButton, NgTab, NgTabItem, NgValidationSummary, NgDate, NgTime, NgDateSelector, NgRadiobutton, NgRadiobuttons, NgListboxOption
+  NgFormular, NgDialog, NgCheckbox, NgButton, NgTab, NgTabItem, NgValidationSummary, NgDate, NgTime, NgDateTime, NgDateSelector, NgRadiobutton, NgRadiobuttons, NgListboxOption
 } from './controls';
 
 
@@ -17,7 +17,7 @@ import { TextMaskModule } from 'angular2-text-mask';
 const NgDirectives = [
   AppComponent,
 
-  NgInput, NgInputDecimal, NgButton, NgFormular, NgCheckbox, NgDropdown, NgListbox, NgValidationSummary, NgDialog, NgTab, NgDate, NgTime, NgRadiobutton, NgRadiobuttons,
+  NgInput, NgInputDecimal, NgButton, NgFormular, NgCheckbox, NgDropdown, NgListbox, NgValidationSummary, NgDialog, NgTab, NgDate, NgTime, NgDateTime, NgRadiobutton, NgRadiobuttons,
   NgTabItem, NgDateSelector, NgInputInteger, NgInputCurrency, NgInputEmail, NgInputPassword, NgInputArea, NgListboxOption
 ]
 

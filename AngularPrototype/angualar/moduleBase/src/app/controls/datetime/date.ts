@@ -94,7 +94,7 @@ export class NgDate extends NgBaseDateTimeControl {
 
   dateselect(v: any) {
     if (v.date === null) {
-      this.value = null;
+      this.setValueString("");
     } else {
       this.value = moment(v.date).utc().toDate();
     }
@@ -109,11 +109,11 @@ export class NgDate extends NgBaseDateTimeControl {
 
     error = super.validateData(c);
 
-    if (error === null && this._mindate !== undefined && this._mindate !== null) {
+    if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._mindate !== undefined && this._mindate !== null) {
       error = Validation.minDate(this, this._mindate, this._label);
     }
 
-    if (error === null && this._maxdate !== undefined && this._maxdate !== null) {
+    if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._maxdate !== undefined && this._maxdate !== null) {
       error = Validation.maxDate(this, this._maxdate, this._label);
     }
 

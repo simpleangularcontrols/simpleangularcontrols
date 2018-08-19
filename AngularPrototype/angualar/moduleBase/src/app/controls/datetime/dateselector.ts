@@ -198,7 +198,25 @@ export class NgDateSelector implements OnInit {
     if (v.isenabled) {
       this.dates.filter(itm => itm.isnew).forEach(itm => itm.isnew = false);
       v.isnew = true;
-      this._selectedValue = moment(v.date);
+
+      let dateValue: Moment = moment(v.date);
+
+      // Übernehmen der Zeit aus dem bestehenden Wert
+      if (this._selectedValue === null) {
+        if (this._initialValue !== null) {
+          dateValue.hour(this._initialValue.hour());
+          dateValue.minute(this._initialValue.minute());
+        }
+      } else {
+        dateValue.hour(this._selectedValue.hour());
+        dateValue.minute(this._selectedValue.minute());
+      }
+
+      // Sekunden un Milisekunden Clean
+      dateValue.second(0);
+      dateValue.millisecond(0);
+
+      this._selectedValue = dateValue;
     }
   }
 
@@ -266,12 +284,15 @@ export class NgDateSelector implements OnInit {
 
   //#endregion
 
-
   //#region Button Actions
 
   // Auswahl auf aktuelle Zeit stellen
   setToday(): void {
     this._selectedValue = moment();
+
+    // Sekunden un Milisekunden Clean
+    this._selectedValue.second(0);
+    this._selectedValue.millisecond(0);
 
     // Kalender Daten initialisieren falls Kalender angezeigt
     if (this._dateselection)

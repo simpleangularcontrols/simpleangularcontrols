@@ -7,81 +7,74 @@ import { NgBaseDateTimeControl } from "../../base/basedatetimecontrol";
 
 
 @Component({
-  selector: 'ngTime',
-  templateUrl: './time.html',
+  selector: 'ngDateTime',
+  templateUrl: './datetime.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => NgTime) },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgTime) }
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => NgDateTime) },
+    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgDateTime) }
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
 })
 
-export class NgTime extends NgBaseDateTimeControl {
+export class NgDateTime extends NgBaseDateTimeControl {
 
   // #region Constants
 
-  readonly TIMEFORMAT: string = "HH:mm";
-  readonly _mask = { mask: [/[0-2]/, /\d/, ':', /[0-5]/, /\d/], guide: true, placeholderChar: '_', keepCharPositions: true };
+  readonly DATEFORMAT: string = "DD.MM.YYYY HH:mm";
+  readonly _mask = { mask: [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/, ' ', /[0-2]/, /\d/, ':', /[0-5]/, /\d/], guide: true, placeholderChar: '_', keepCharPositions: true };
 
   // #endregion
 
   // #region Abstract Methods
 
   GetDateTimeFormatString(): string {
-    return this.TIMEFORMAT;
+    return this.DATEFORMAT;
   }
 
   ModifyParsedDateTimeValue(v: moment.Moment): moment.Moment {
-    v.date(1);
-    v.month(0);
-    v.year(1900);
     return v;
   }
 
   // #endregion
-  
+
   // #region Properties
 
-  // Min Time
-  @Input("mintime")
-  set mintime(v: string | Date | null) {
-    var time = moment(v, [this.TIMEFORMAT], true);
+  // Min Date
+  @Input("mindate")
+  set mindate(v: string | Date | null) {
+    var date = moment(v, [this.DATEFORMAT], true);
 
-    time = this.ModifyParsedDateTimeValue(time);
-
-    if (time.isValid()) {
-      this._mintime = time.utc().toDate();
+    if (date.isValid()) {
+      this._mindate = date.utc().toDate();
     } else {
-      this._mintime = null;
+      this._mindate = null;
     }
   }
-  _mintime: Date = null;
+  _mindate: Date = null;
 
-  // Max Time
-  @Input("maxtime")
-  set maxtime(v: string | Date | null) {
-    var time = moment(v, [this.TIMEFORMAT], true);
+  // Max Date
+  @Input("maxdate")
+  set maxdate(v: string | Date | null) {
+    var date = moment(v, [this.DATEFORMAT], true);
 
-    time = this.ModifyParsedDateTimeValue(time);
-
-    if (time.isValid()) {
-      this._maxtime = time.utc().toDate();
+    if (date.isValid()) {
+      this._maxdate = date.utc().toDate();
     } else {
-      this._maxtime = null;
+      this._maxdate = null;
     }
   }
-  _maxtime: Date = null;
+  _maxdate: Date = null;
 
   // Definiert ob der Date Selector angezeigt wird
   _showselector: boolean = false;
 
   // #endregion
-   
-  // #region Time Selector
 
-  showTimeSelector(): void {
+  // #region Date Selector
+
+  showDateSelector(): void {
     // Touch Event auslösen
     this.onTouch();
 
@@ -99,7 +92,7 @@ export class NgTime extends NgBaseDateTimeControl {
   }
 
 
-  timeselect(v: any) {
+  dateselect(v: any) {
     if (v.date === null) {
       this.setValueString("");
     } else {
@@ -116,12 +109,12 @@ export class NgTime extends NgBaseDateTimeControl {
 
     error = super.validateData(c);
 
-    if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._mintime !== undefined && this._mintime !== null) {
-      error = Validation.minTime(this, this._mintime, this._label);
+    if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._mindate !== undefined && this._mindate !== null) {
+      error = Validation.minDate(this, this._mindate, this._label);
     }
 
-    if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._maxtime !== undefined && this._maxtime !== null) {
-      error = Validation.maxTime(this, this._maxtime, this._label);
+    if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._maxdate !== undefined && this._maxdate !== null) {
+      error = Validation.maxDate(this, this._maxdate, this._label);
     }
 
     return error;

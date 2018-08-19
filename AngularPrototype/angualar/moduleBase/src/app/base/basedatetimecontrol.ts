@@ -67,11 +67,9 @@ export abstract class NgBaseDateTimeControl extends NgBaseModelControl<Date> imp
     date = this.ModifyParsedDateTimeValue(date).utc();
 
     if (date.isValid()) {
-      this._invalid = false;
       this.value = date.toDate();
     }
     else {
-      this._invalid = true;
       this.value = null;
     }
   }

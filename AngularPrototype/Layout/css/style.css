@@ -762,6 +762,16 @@
   margin-top: 0;
   margin-bottom: 0; }
 
+.calendar-selector .day-selected {
+  font-weight: bold; }
+
+.calendar-selector .day-new {
+  background-color: blue;
+  color: white; }
+
+.calendar-selector .day-current {
+  border: 1px solid red; }
+
 .bg-flat-color-1 {
   background: #20a8d8; }
 

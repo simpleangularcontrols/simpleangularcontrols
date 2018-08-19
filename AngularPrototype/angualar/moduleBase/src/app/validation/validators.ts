@@ -54,12 +54,12 @@ export class Validation {
 
   static minDate(control: IDateTimeControl, minDate: Date, fieldName: string): ValidationErrors | null {
     // Check abbrechen, wenn kein gültiges Datum
-    if (!control.IsDateValid() || this.minDate === null) {
+    if (!control.IsDateValid() || minDate === null) {
       return null;
     }
 
     if (minDate > control.value) {
-      return { 'datemin': true, 'message': 'Feld "' + fieldName + '" muss neuer oder gleich ' + moment(minDate).format(control.DATEFORMAT) + ' sein' };
+      return { 'datemin': true, 'message': 'Feld "' + fieldName + '" muss neuer oder gleich ' + moment(minDate).format(control.GetDateTimeFormatString()) + ' sein' };
     } else {
       return null;
     }
@@ -67,20 +67,46 @@ export class Validation {
 
   static maxDate(control: IDateTimeControl, maxDate: Date, fieldName: string): ValidationErrors | null {
     // Check abbrechen, wenn kein gültiges Datum
-    if (!control.IsDateValid() || this.minDate === null) {
+    if (!control.IsDateValid() || maxDate === null) {
       return null;
     }
 
     if (maxDate < control.value) {
-      return { 'datemax': true, 'message': 'Feld "' + fieldName + '" muss älter oder gleich ' + moment(maxDate).format(control.DATEFORMAT) + ' sein' };
+      return { 'datemax': true, 'message': 'Feld "' + fieldName + '" muss älter oder gleich ' + moment(maxDate).format(control.GetDateTimeFormatString()) + ' sein' };
+    } else {
+      return null;
+    }
+  }
+
+  static minTime(control: IDateTimeControl, minTime: Date, fieldName: string): ValidationErrors | null {
+    // Check abbrechen, wenn kein gültiges Datum
+    if (!control.IsDateValid() || minTime === null) {
+      return null;
+    }
+
+    if (control.value !== null && minTime > control.value) {
+      return { 'datemin': true, 'message': 'Feld "' + fieldName + '" muss neuer oder gleich ' + moment(minTime).format(control.GetDateTimeFormatString()) + ' sein' };
     } else {
       return null;
     }
   }
 
 
+  static maxTime(control: IDateTimeControl, maxTime: Date, fieldName: string): ValidationErrors | null {
+    // Check abbrechen, wenn kein gültiges Datum
+    if (!control.IsDateValid() || maxTime === null) {
+      return null;
+    }
+
+    if (control.value !== null && maxTime < control.value) {
+      return { 'datemax': true, 'message': 'Feld "' + fieldName + '" muss älter oder gleich ' + moment(maxTime).format(control.GetDateTimeFormatString()) + ' sein' };
+    } else {
+      return null;
+    }
+  }
+
   static isValidDate(control: IDateTimeControl, fieldName: string): ValidationErrors | null {
-    if (control.value !== '' && control.value !== undefined && control.value !== null && !control.IsDateValid()) {
+    if (!control.IsDateValid()) {
       return { 'dateformat': true, 'message': 'Feld "' + fieldName + '" ist kein gültiges Datum' };
     } else {
       return null;

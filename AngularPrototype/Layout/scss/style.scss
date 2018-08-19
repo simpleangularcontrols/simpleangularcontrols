@@ -18,7 +18,8 @@
 @import "switches";
 @import "widgets";
 @import "../cssextensions/animate.css";
-@import "_custom.scss";
+@import "_custom";
+@import "_extensions";
 
 .bg-flat-color-1 {background: #20a8d8};
 .bg-flat-color-2 {background: #63c2de};

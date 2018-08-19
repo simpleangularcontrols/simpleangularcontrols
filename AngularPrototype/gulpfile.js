@@ -60,11 +60,19 @@ gulp.task('buildAngularApp-1', function (cb) {
 });
 
 gulp.task('sass-build', function () {
+    gulp.src('./Layout/scss/bootstrap/nativestyles.scss')
+        .pipe(plugins.sass())
+        .pipe(gulp.dest('./Layout/css/'));
+
     gulp.src('./Layout/scss/style.scss')
         .pipe(plugins.sass())
-        .pipe(gulp.dest('./Layout/css/'))
+        .pipe(gulp.dest('./Layout/css/'));
 
     gulp.src('./Layout/scss/bootstrap/bootstrap.scss')
         .pipe(plugins.sass())
-        .pipe(gulp.dest('./Layout/css/'))
+        .pipe(gulp.dest('./Layout/css/'));
+
+    gulp.src('./Layout/scss/nativestyles.scss')
+        .pipe(plugins.sass())
+        .pipe(gulp.dest('./Layout/css/'));
 });

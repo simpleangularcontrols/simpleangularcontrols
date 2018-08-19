@@ -145,6 +145,7 @@
     <Content Include="angualar\moduleBase\src\app\controls\checkbox\radiobuttons.html" />
     <Content Include="angualar\moduleBase\src\app\controls\datetime\date.html" />
     <Content Include="angualar\moduleBase\src\app\controls\datetime\dateselector.html" />
+    <Content Include="angualar\moduleBase\src\app\controls\datetime\time.html" />
     <Content Include="angualar\moduleBase\src\app\controls\dialog\dialog.html" />
     <Content Include="angualar\moduleBase\src\app\controls\form\form.html" />
     <Content Include="angualar\moduleBase\src\app\controls\list\dropdown.html" />
@@ -186,7 +187,10 @@
     <Content Include="angualar\moduleBase\src\tsconfig.spec.json" />
     <Content Include="angualar\moduleBase\src\assets\.gitkeep" />
     <Content Include="Layout\css\bootstrap.css" />
+    <Content Include="Layout\css\font-awesome.min.css" />
+    <Content Include="Layout\css\nativestyles.css" />
     <Content Include="Layout\css\style.css" />
+    <Content Include="Layout\fonts\fontawesome-webfont.svg" />
     <Content Include="package.json" />
     <Content Include="Layout\scss\.sass-cache\0c2f4e7e3ce607a0f7f238a71122520ed74aaa15\style.scssc" />
     <Content Include="Layout\scss\.sass-cache\0c2f4e7e3ce607a0f7f238a71122520ed74aaa15\variables.scssc" />
@@ -450,6 +454,12 @@
     <Content Include="Layout\scss\_widgets.scss" />
     <Content Include="Admin.Master" />
     <Content Include="Layout\scss\_custom.scss" />
+    <Content Include="Layout\fonts\fontawesome-webfont.eot" />
+    <Content Include="Layout\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Layout\fonts\fontawesome-webfont.woff" />
+    <Content Include="Layout\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Layout\scss\_extensions.scss" />
+    <Content Include="Layout\scss\nativestyles.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="gulpfile.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -566,6 +576,7 @@
     <TypeScriptCompile Include="angualar\moduleBase\src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\app.component.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\app.module.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\base\basedatetimecontrol.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\base\baseinputcontrol.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\base\baselistcontrol.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\base\basemodelcontrol.ts" />
@@ -577,6 +588,7 @@
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\datetime\date.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\datetime\dateselector.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\datetime\interfaces.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\datetime\time.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\dialog\dialog.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\list\dropdown.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\form\form.ts" />

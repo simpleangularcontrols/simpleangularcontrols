@@ -15,6 +15,7 @@ export { NgDialog } from './dialog/dialog';
 export { NgTab } from './tabs/tab';
 export { NgTabItem } from './tabs/tabitem';
 export { NgDate } from './datetime/date';
+export { NgTime } from './datetime/time';
 export { NgDateSelector } from './datetime/dateselector';
 export { NgRadiobutton } from './checkbox/radiobutton';
 export { NgRadiobuttons } from './checkbox/radiobuttons';

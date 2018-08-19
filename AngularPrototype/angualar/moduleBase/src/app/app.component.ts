@@ -28,6 +28,12 @@ class formdataDateTime {
   datum3: Date = new Date(2018, 9, 12, null, null, null, null);
   datum4: Date = new Date(2018, 2, 1, null, null, null, null);
   datum5: Date = new Date(2018, 2, 1, null, null, null, null);
+  
+  time1: Date = new Date(1900, 0, 1, 14, 51, null, null);
+  time2: Date = new Date(1900, 0, 1, 18, 5, null, null);
+  time3: Date = new Date(1900, 0, 1, 8, 32, null, null);
+  time4: Date = new Date(1900, 0, 1, 14, 35, null, null);
+  time5: Date = new Date(1900, 0, 1, 10, 15, null, null);
 }
 
 class formdata {

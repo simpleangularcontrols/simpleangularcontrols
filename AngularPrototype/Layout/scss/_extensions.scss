@@ -1,0 +1,14 @@
+﻿.calendar-selector {
+    .day-selected {
+        font-weight: bold;
+    }
+
+    .day-new {
+        background-color: blue;
+        color: white;
+    }
+
+    .day-current {
+        border: 1px solid red;
+    }
+}

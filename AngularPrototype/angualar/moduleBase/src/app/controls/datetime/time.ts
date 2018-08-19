@@ -7,74 +7,81 @@ import { NgBaseDateTimeControl } from "../../base/basedatetimecontrol";
 
 
 @Component({
-  selector: 'ngDate',
-  templateUrl: './date.html',
+  selector: 'ngTime',
+  templateUrl: './time.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => NgDate) },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgDate) }
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => NgTime) },
+    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgTime) }
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
 })
 
-export class NgDate extends NgBaseDateTimeControl {
+export class NgTime extends NgBaseDateTimeControl {
 
   // #region Constants
 
-  readonly DATEFORMAT: string = "DD.MM.YYYY";
-  readonly _mask = { mask: [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/,], guide: true, placeholderChar: '_', keepCharPositions: true };
+  readonly TIMEFORMAT: string = "HH:mm";
+  readonly _mask = { mask: [/[0-2]/, /\d/, ':', /[0-5]/, /\d/], guide: true, placeholderChar: '_', keepCharPositions: true };
 
   // #endregion
 
   // #region Abstract Methods
 
   GetDateTimeFormatString(): string {
-    return this.DATEFORMAT;
+    return this.TIMEFORMAT;
   }
 
   ModifyParsedDateTimeValue(v: moment.Moment): moment.Moment {
+    v.date(1);
+    v.month(0);
+    v.year(1900);
     return v;
   }
 
   // #endregion
-
+  
   // #region Properties
 
-  // Min Date
-  @Input("mindate")
-  set mindate(v: string | Date | null) {
-    var date = moment(v, [this.DATEFORMAT], true);
+  // Min Time
+  @Input("mintime")
+  set mintime(v: string | Date | null) {
+    var time = moment(v, [this.TIMEFORMAT], true);
 
-    if (date.isValid()) {
-      this._mindate = date.utc().toDate();
+    time = this.ModifyParsedDateTimeValue(time);
+
+    if (time.isValid()) {
+      this._mintime = time.utc().toDate();
     } else {
-      this._mindate = null;
+      this._mintime = null;
     }
   }
-  _mindate: Date = null;
+  _mintime: Date = null;
 
-  // Max Date
-  @Input("maxdate")
-  set maxdate(v: string | Date | null) {
-    var date = moment(v, [this.DATEFORMAT], true);
+  // Max Time
+  @Input("maxtime")
+  set maxtime(v: string | Date | null) {
+    var time = moment(v, [this.TIMEFORMAT], true);
 
-    if (date.isValid()) {
-      this._maxdate = date.utc().toDate();
+    time = this.ModifyParsedDateTimeValue(time);
+
+    if (time.isValid()) {
+      this._maxtime = time.utc().toDate();
     } else {
-      this._maxdate = null;
+      this._maxtime = null;
     }
   }
-  _maxdate: Date = null;
+  _maxtime: Date = null;
 
   // Definiert ob der Date Selector angezeigt wird
   _showselector: boolean = false;
 
   // #endregion
+   
+  // #region Time Selector
 
-  // #region Date Selector
-
-  showDateSelector(): void {
+  showTimeSelector(): void {
     // Touch Event auslösen
     this.onTouch();
 
@@ -92,7 +99,7 @@ export class NgDate extends NgBaseDateTimeControl {
   }
 
 
-  dateselect(v: any) {
+  timeselect(v: any) {
     if (v.date === null) {
       this.value = null;
     } else {
@@ -109,12 +116,12 @@ export class NgDate extends NgBaseDateTimeControl {
 
     error = super.validateData(c);
 
-    if (error === null && this._mindate !== undefined && this._mindate !== null) {
-      error = Validation.minDate(this, this._mindate, this._label);
+    if (error === null && this._mintime !== undefined && this._mintime !== null) {
+      error = Validation.minTime(this, this._mintime, this._label);
     }
 
-    if (error === null && this._maxdate !== undefined && this._maxdate !== null) {
-      error = Validation.maxDate(this, this._maxdate, this._label);
+    if (error === null && this._maxtime !== undefined && this._maxtime !== null) {
+      error = Validation.maxTime(this, this._maxtime, this._label);
     }
 
     return error;

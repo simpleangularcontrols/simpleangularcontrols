@@ -7,8 +7,8 @@
       <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [textMask]="_mask" [attr.placeholder]="_placeholder" [value]="valuestring" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()"
              (input)="setValueString($event.target.value)" [disabled]="isdisabled" />
       <div class="input-group-append">
-        <button class="btn btn-secondary" type="button" (click)="showDateSelector()" [disabled]="isdisabled">
-          <i class="fa fa-calendar"></i>
+        <button class="btn btn-secondary" type="button" (click)="showTimeSelector()" [disabled]="isdisabled">
+          <i class="fa fa-clock-o"></i>
         </button>
       </div>
     </div>
@@ -18,7 +18,7 @@
       <h3 class="popover-header" style="display: none;"></h3>
       <div class="popover-body">
 
-        <ngDateSelector [initialValue]="value" (onSelect)="dateselect($event)" dateselection="true"></ngDateSelector>
+        <ngDateSelector [initialValue]="value" (onSelect)="timeselect($event)" timeselection="true"></ngDateSelector>
 
       </div>
     </div>

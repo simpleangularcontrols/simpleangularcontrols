@@ -30,7 +30,7 @@ gulp.task('default', function (cb) {
 });
 
 
-gulp.task('buildAngularApp-1', function (cb) {
+gulp.task('buildAngularApp-Dev', function (cb) {
     const options = {
         cwd: 'angualar/moduleBase',
         env: process.env
@@ -58,6 +58,37 @@ gulp.task('buildAngularApp-1', function (cb) {
         console.log('error: ' + code.toString());
     });
 });
+
+
+gulp.task('buildAngularApp-Prod', function (cb) {
+    const options = {
+        cwd: 'angualar/moduleBase',
+        env: process.env
+    };
+    console.log("Starting Build");
+
+    // Release
+    var output = shell.spawn(process.env.comspec, ['/c', 'ng build -prod --aot -sm false -vc false -cc false -oh none'], options);
+    // Debug
+    // var output = shell.spawn(process.env.comspec, ['/c', 'ng build --aot -sm true -vc false -cc false -oh none'], options);
+
+    output.stdout.on('data', function (data) {
+        console.log(data.toString());
+    });
+
+    output.stderr.on('data', function (data) {
+        console.log(data.toString());
+    });
+
+    output.on('exit', function (code) {
+        console.log('child process exited with code ' + code.toString());
+    });
+
+    output.on('error', function (code) {
+        console.log('error: ' + code.toString());
+    });
+});
+
 
 gulp.task('sass-build', function () {
     gulp.src('./Layout/scss/bootstrap/nativestyles.scss')

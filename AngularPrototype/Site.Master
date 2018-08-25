@@ -54,8 +54,8 @@
 
     </form>
 
-    <script type="text/javascript" src="/angualar/moduleBase/dist/inline.bundle.js"></script>
-    <script type="text/javascript" src="/angualar/moduleBase/dist/polyfills.bundle.js"></script>
-    <script type="text/javascript" src="/angualar/moduleBase/dist/main.bundle.js"></script>
+    <script type="text/javascript" src="/angualar/moduleBase/dist/runtime.js"></script>
+    <script type="text/javascript" src="/angualar/moduleBase/dist/polyfills.js"></script>
+    <script type="text/javascript" src="/angualar/moduleBase/dist/main.js"></script>
 </body>
 </html>

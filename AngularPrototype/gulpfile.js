@@ -38,9 +38,9 @@ gulp.task('buildAngularApp-Dev', function (cb) {
     console.log("Starting Build");
 
     // Release
-    // var output = shell.spawn(process.env.comspec, ['/c', 'ng build -prod --aot -sm false -vc false -cc false -oh none'], options);
+    // var output = shell.spawn(process.env.comspec, ['/c', 'ng build --prod --aot --build-optimizer --source-map false --vendor-chunk false --common-chunk false --output-hashing none'], options);
     // Debug
-    var output = shell.spawn(process.env.comspec, ['/c', 'ng build --aot -sm true -vc false -cc false -oh none'], options);
+    var output = shell.spawn(process.env.comspec, ['/c', 'ng build --aot --source-map true --vendor-chunk false --common-chunk false --output-hashing none'], options);
 
     output.stdout.on('data', function (data) {
         console.log(data.toString());
@@ -68,7 +68,7 @@ gulp.task('buildAngularApp-Prod', function (cb) {
     console.log("Starting Build");
 
     // Release
-    var output = shell.spawn(process.env.comspec, ['/c', 'ng build -prod --aot -sm false -vc false -cc false -oh none'], options);
+    var output = shell.spawn(process.env.comspec, ['/c', 'ng build --prod --aot --build-optimizer --source-map false --vendor-chunk false --common-chunk false --output-hashing none'], options);
     // Debug
     // var output = shell.spawn(process.env.comspec, ['/c', 'ng build --aot -sm true -vc false -cc false -oh none'], options);
 

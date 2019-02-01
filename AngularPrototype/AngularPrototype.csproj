@@ -159,6 +159,7 @@
     <Content Include="angualar\moduleBase\src\app\controls\tabs\tabitem.html" />
     <Content Include="angualar\moduleBase\src\app\controls\tabs\tab.html" />
     <Content Include="angualar\moduleBase\src\app\controls\validation\validationsummary.html" />
+    <Content Include="angualar\moduleBase\src\app\modules\UserComponent.html" />
     <Content Include="angualar\moduleBase\src\index.html" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -462,6 +463,7 @@
     <Content Include="angualar\moduleBase\dist\main.js.map" />
     <Content Include="angualar\moduleBase\dist\polyfills.js.map" />
     <Content Include="angualar\moduleBase\dist\runtime.js.map" />
+    <Content Include="Layout\scss\_toastr-bs4-alert.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="gulpfile.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -607,6 +609,10 @@
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\tabs\tab.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\tabs\tabitem.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\controls\validation\validationsummary.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\modules\UserComponent.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\services\AuthenticationService.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\services\TokenInterceptor.ts" />
+    <TypeScriptCompile Include="angualar\moduleBase\src\app\services\UserService.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\index.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\app\validation\validators.ts" />
     <TypeScriptCompile Include="angualar\moduleBase\src\environments\environment.prod.ts" />

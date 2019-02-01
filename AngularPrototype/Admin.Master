@@ -298,8 +298,9 @@
     <script src="/Layout/js/main.js"></script>
 
     <!-- Application -->
-    <script type="text/javascript" src="/angualar/moduleBase/dist/runtime.js"></script>
-    <script type="text/javascript" src="/angualar/moduleBase/dist/polyfills.js"></script>
-    <script type="text/javascript" src="/angualar/moduleBase/dist/main.js"></script>
+    <script type="text/javascript" src="http://localhost:4200/runtime.js"></script>
+    <script type="text/javascript" src="http://localhost:4200/polyfills.js"></script>
+    <script type="text/javascript" src="http://localhost:4200/main.js"></script>
+    <script type="text/javascript" src="http://localhost:4200/vendor.js"></script>
 </body>
 </html>

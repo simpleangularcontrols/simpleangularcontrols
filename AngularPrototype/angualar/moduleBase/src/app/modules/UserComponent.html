@@ -1,0 +1,9 @@
+<ngButton name="login" text="Login" (click)="login()"></ngButton>
+<ngButton name="logout" text="Logout"></ngButton>
+<ngButton name="load" text="Load Users" (click)="loadusers()"></ngButton>
+<div>
+  <div>Benutzerliste 1</div>
+  <div *ngFor="let user of users">{{user}}</div>
+  <div>Benutzerliste 2</div>
+  <div *ngFor="let user of users2">{{user}}</div>
+</div>

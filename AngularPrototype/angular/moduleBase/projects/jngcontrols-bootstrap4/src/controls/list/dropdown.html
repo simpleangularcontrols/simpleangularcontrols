@@ -1,0 +1,30 @@
+<div class="form-row form-group">
+  <div class="col" [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only' ]">
+    <label for="{{_name}}" class="form-control-label">{{_label}}</label>
+  </div>
+  <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
+    <select #dropdownitem id="{{_name}}" name="{{_name}}" class="form-control" [value]="value"
+            [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()" (change)="setValue(dropdownitem.value)"
+            [disabled]="isdisabled">
+
+      <option *ngIf="_emptylabel !== ''" [ngValue]="_emptyoptionvalue">{{_emptylabel}}</option>
+
+      <ng-content></ng-content>
+
+      <ng-container *ngIf="_fieldGroupItems === ''">
+        <option *ngFor="let item of options" [ngValue]="_fieldValue ? item[_fieldValue] : item"
+                [disabled]="_fieldEnabled !== '' && item[_fieldEnabled] === false">
+          {{item[_fieldLabel]}}
+        </option>
+      </ng-container>
+
+      <ng-container *ngIf="_fieldGroupItems !== ''">
+        <optgroup *ngFor="let option of options" [attr.label]="option[_fieldGroupLabel]">
+          <option *ngFor="let item of option[_fieldGroupItems]" [ngValue]="_fieldValue ? item[_fieldValue] : item"
+                  [disabled]="_fieldEnabled !== '' && item[_fieldEnabled] === false">{{item[_fieldLabel]}}</option>
+        </optgroup>
+      </ng-container>
+
+    </select>
+  </div>
+</div>

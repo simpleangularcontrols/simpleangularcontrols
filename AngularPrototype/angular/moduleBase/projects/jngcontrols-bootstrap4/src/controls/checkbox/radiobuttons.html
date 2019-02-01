@@ -1,0 +1,8 @@
+<div class="form-row form-group">
+  <div class="col" [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only' ]">
+    <label for="{{_name}}" class="form-control-label">{{_label}}</label>
+  </div>
+  <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
+    <ng-content></ng-content>
+  </div>
+</div>

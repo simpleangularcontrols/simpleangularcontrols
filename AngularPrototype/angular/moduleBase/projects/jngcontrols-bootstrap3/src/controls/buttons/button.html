@@ -1,0 +1,5 @@
+<a [id]="name" class="btn" [ngClass]="{'btn-default': role ==='default', 'btn-primary': role ==='primary', 'disabled': _isdisabled }" [attr.disabled]="_isdisabled ? 'disabled' : null"
+   (click)="buttonClick()">
+  <i *ngIf="icon !== ''" [ngClass]="icon"></i>
+  {{text}}
+</a>

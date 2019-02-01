@@ -1,0 +1,19 @@
+<div [id]="_name" class="modal-scrollable" *ngIf="_show" [ngStyle]="{'z-index': zindex}">
+  <div class="modal in" style="display: block;" [style.margin-top.px]="dialogMarginTop" tabindex="-1" role="dialog" #dialog>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="hide()"><span aria-hidden="true">&times;</span></button>
+          <span class="modal-title">{{_title}}</span>
+        </div>
+        <div class="modal-body">
+          <ng-content select="[dialogbody]"></ng-content>
+        </div>
+        <div class="modal-footer">
+          <ng-content select="[dialogfooter]"></ng-content>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+</div>
+<div class="modal-backdrop in" *ngIf="_show && _backdrop" #backdrop></div>

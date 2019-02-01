@@ -1,0 +1,47 @@
+<div class="form-group">
+  <label for="{{_name}}" class="col-left control-label" [ngClass]="{ 'required': _isrequired }" *ngIf="!_isadaptivelabel">{{_label}}</label>
+  <div class="col-right">
+    <label class="ddl-default dropdown-list">
+      <select #dropdownitem id="{{_name}}" name="{{_name}}" class="form-control"
+              [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
+              (blur)="onTouch()" (change)="setValue(dropdownitem.value)" [disabled]="isdisabled">
+
+        <option *ngIf="_emptylabel !== ''" [ngValue]="_emptyoptionvalue">{{_emptylabel}}</option>
+
+        <ng-content></ng-content>
+
+        <ng-container *ngIf="_fieldGroupItems === ''">
+          <option *ngFor="let item of options" [ngValue]="_fieldValue ? item[_fieldValue] : item"
+                  [disabled]="_fieldEnabled !== '' && item[_fieldEnabled] === false">
+
+            <ng-template *ngTemplateOutlet="displayValueTemplate || defaultItemLabelTemplate;context:{ label: item[_fieldLabel], item: item }">
+            </ng-template>
+
+          </option>
+        </ng-container>
+
+        <ng-container *ngIf="_fieldGroupItems !== ''">
+          <optgroup *ngFor="let group of options" [attr.label]="group[_fieldGroupLabel]">
+            <option *ngFor="let item of group[_fieldGroupItems]" [ngValue]="_fieldValue ? item[_fieldValue] : item"
+                    [disabled]="_fieldEnabled !== '' && item[_fieldEnabled] === false">
+
+              <ng-template *ngTemplateOutlet="displayValueTemplate || defaultItemLabelTemplate;context:{ label: item[_fieldLabel], item: item }">
+              </ng-template>
+
+            </option>
+          </optgroup>
+        </ng-container>
+
+
+      </select>
+
+
+      <label for="{{_name}}" class="form-label-adaptive form-label-fixed" [ngClass]="{ 'required': _isrequired }" *ngIf="_isadaptivelabel">{{_label}}</label>
+
+    </label>
+  </div>
+</div>
+
+<ng-template #defaultItemLabelTemplate let-label="label">
+  {{label}}
+</ng-template>

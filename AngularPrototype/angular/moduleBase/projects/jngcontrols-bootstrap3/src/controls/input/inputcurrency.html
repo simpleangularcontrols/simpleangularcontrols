@@ -1,0 +1,11 @@
+<div  class="form-group">
+  <label for="{{_name}}" class="col-left control-label" [ngClass]="{ 'required': _isrequired }"  *ngIf="!_isadaptivelabel">{{_label}}</label>
+  <div class="col-right">
+        <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" style="width:100%;"
+        [value]="value" [attr.placeholder]="_placeholder" (blur)="onTouch()" (input)="setValue($event.target.value)"
+        (keypress)="onKeyPress($event)"
+        [ngClass]="{'validation-error': invalid && (dirty || touched) }" [disabled]="isdisabled" />
+      <label for="{{_name}}" class="form-label-adaptive form-label-fixed" [ngClass]="{ 'required': _isrequired }" *ngIf="_isadaptivelabel" >{{_label}}</label>
+      <span class="form-unit">CHF</span>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="form-row form-group">
+  <div class="col" [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only' ]">
+    <label for="{{_name}}" class="form-control-label">{{_label}}</label>
+  </div>
+  <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
+    <div class="input-group">
+      <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [textMask]="_mask" [attr.placeholder]="_placeholder" [value]="valuestring" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()"
+             (input)="setValueString($event.target.value)" [disabled]="isdisabled" />
+      <div class="input-group-append">
+        <button class="btn btn-secondary" type="button" (click)="showTimeSelector()" [disabled]="isdisabled">
+          <i class="fa fa-clock-o"></i>
+        </button>
+      </div>
+    </div>
+    <div class="popover fade bs-popover-bottom show" role="tooltip" *ngIf="_showselector"
+         style="display:block; left:unset; right: 0px; top: 34px; max-width: 325px;">
+      <div class="arrow" style="left: unset; right: 12px;"></div>
+      <h3 class="popover-header" style="display: none;"></h3>
+      <div class="popover-body">
+
+        <ngDateSelector [initialValue]="value" (onSelect)="timeselect($event)" timeselection="true"></ngDateSelector>
+
+      </div>
+    </div>
+  </div>
+</div>

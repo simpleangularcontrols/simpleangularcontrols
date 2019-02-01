@@ -1,0 +1,40 @@
+<div class="datepicker-wrapper open">
+  <div class="datepicker datepicker-inline datepicker-dropdown dropdown-menu">
+    <div class="datepicker-days" style="display: block;">
+      <table class=" table-condensed">
+        <thead>
+          <tr>
+            <th class="prev" style="visibility: visible;" (click)="monthBack()"> <i class="glyphicon glyphicon-arrow-left"></i>
+            </th>
+            <th colspan="5" class="switch">{{_month+1}}/{{_year}}</th>
+            <th class="next" style="visibility: visible;" (click)="monthNext()"> <i class="glyphicon glyphicon-arrow-right"></i>
+            </th>
+          </tr>
+          <tr>
+            <th class="dow">Mo</th>
+            <th class="dow">Di</th>
+            <th class="dow">Mi</th>
+            <th class="dow">Do</th>
+            <th class="dow">Fr</th>
+            <th class="dow">Sa</th>
+            <th class="dow">So</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let week of dates; let i=index">
+            <tr>
+              <td *ngFor="let item of week" [ngStyle]="{'cursor': item.isenabled ? 'pointer' : null}" 
+              [ngClass]="{'active': item.isselected, 'day':true, 'old': !item.isenabled}"
+                (click)="selectDate(item)">{{ item.displaytext }} </td>
+            </tr>
+          </ng-container>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="7" class="today" (click)="setToday()">Heute</th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>

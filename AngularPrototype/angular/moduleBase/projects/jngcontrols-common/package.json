@@ -1,0 +1,16 @@
+{
+  "name": "@jnetwork/jngcontrols-common",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0",
+    "moment": "2.22.2",
+    "angular2-text-mask": "9.0.0"
+  },
+  "author": {
+    "name": "jNetwork GmbH",
+    "email": "info@jnetwork.ch",
+    "url": "https://www.jnetwork.ch"
+  },
+  "description": "Core Library für Angular Controls"
+}

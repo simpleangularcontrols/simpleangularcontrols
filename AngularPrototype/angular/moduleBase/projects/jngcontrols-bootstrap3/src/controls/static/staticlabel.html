@@ -1,0 +1,8 @@
+<div class="form-group">
+  <label for="{{_name}}" class="col-left control-label" *ngIf="!_isadaptivelabel">{{_label}}</label>
+  <div class="col-right">
+    <div class="form-control-static" [innerHTML]="value">
+    </div>
+    <label for="{{_name}}" class="col-left control-label" *ngIf="_isadaptivelabel">{{_label}}</label>
+  </div>
+</div>

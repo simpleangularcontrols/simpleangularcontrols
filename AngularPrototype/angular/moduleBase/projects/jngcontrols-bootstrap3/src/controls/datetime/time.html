@@ -1,0 +1,15 @@
+<div class="form-group">
+  <label for="{{_name}}" id="{{_name}}_label" class="col-left control-label" *ngIf="!_isadaptivelabel">{{_label}}</label>
+  <div class="col-right">
+    <div class="timepicker-wrapper">
+      <input id="{{_name}}" name="{{_name}}" type="text" [value]="valuestring" maxlength="6" [textMask]="_mask" size="6"
+        class="form-control" [attr.placeholder]="_placeholder" style="width:60px;" data-error-msg="ctl00_cphContent_ctl00_ucPublicationDetail_dtpValidFrom_timeTextBoxTypeValidator"
+        [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()" (input)="setValueString($event.target.value)"
+        [disabled]="isdisabled">
+      <span id="{{_name}}" style="visibility:hidden;" class="DESVALErrorText">
+        <span id="{{_name}}_Txt">Ungültige Uhrzeit.</span>
+      </span>
+    </div>
+  </div>
+
+</div>

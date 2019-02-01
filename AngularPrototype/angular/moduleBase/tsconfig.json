@@ -17,6 +17,26 @@
       "dom"
     ],
     "module": "es2015",
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "paths": {
+      "@jnetwork/jngcontrols-common": [
+        "dist/jngcontrols-common"
+      ],
+      "@jnetwork/jngcontrols-common/*": [
+        "dist/jngcontrols-common/*"
+      ],
+      "@jnetwork/jngcontrols-bootstrap4": [
+        "dist/jngcontrols-bootstrap4"
+      ],
+      "@jnetwork/jngcontrols-bootstrap4/*": [
+        "dist/jngcontrols-bootstrap4/*"
+      ],
+      "@jnetwork/jngcontrols-bootstrap3": [
+        "dist/jngcontrols-bootstrap3"
+      ],
+      "@jnetwork/jngcontrols-bootstrap3/*": [
+        "dist/jngcontrols-bootstrap3/*"
+      ]
+    }
   }
 }

@@ -1,0 +1,17 @@
+<div class="datetime-textbox">
+  <div class="form-group">
+    <label for="{{_name}}" id="{{_name}}_label" class="col-left control-label" *ngIf="!_isadaptivelabel">{{_label}}</label>
+    <div class="col-right">
+      <div id="{{_name}}" class="datetime-textbox input-group">
+        <!-- this class comes in the div above when disabled [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']" -->
+        <input name="{{_name}}" type="text" class="form-control date-control" [textMask]="_mask" placeholder="dd.mm.yyyy"
+          [attr.placeholder]="_placeholder" [value]="valuestring" maxlength="10" size="10" style="width:100px;"
+          [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()" (input)="setValueString($event.target.value)"
+          [disabled]="isdisabled" (click)="showDateSelector()" />
+        <span id="{{_name}}" style="visibility:hidden;" class="DESVALErrorText"><span id="{{_name}}_Txt">Ungültiges
+            Datum.</span></span>
+      </div>
+      <ngDateSelector *ngIf="_showselector" [initialValue]="value" (onSelect)="dateselect($event)" autoapplyselection="true" dateselection="true"></ngDateSelector>
+    </div>
+  </div>
+</div>

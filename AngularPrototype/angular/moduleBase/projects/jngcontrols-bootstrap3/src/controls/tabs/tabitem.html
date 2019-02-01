@@ -1,0 +1,12 @@
+<ng-container *ngIf="_unloadwhenhidden===false">
+  <div [id]="_id" [hidden]="!_active" class="tab-pane">
+    <ng-content></ng-content>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="_unloadwhenhidden===true">
+  <div [id]="_id" *ngIf="_active" class="tab-pane">
+    <ng-content></ng-content>
+  </div>
+</ng-container>
+

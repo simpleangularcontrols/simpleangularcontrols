@@ -20,6 +20,10 @@ import { NgBaseDateTimeControl } from "../../base/basedatetimecontrol";
 
 export class NgDate extends NgBaseDateTimeControl {
 
+  constructor(parent: NgFormular, protected _elementRef: ElementRef) {
+    super(parent, _elementRef);
+  }
+
   // #region Constants
 
   readonly DATEFORMAT: string = "DD.MM.YYYY";

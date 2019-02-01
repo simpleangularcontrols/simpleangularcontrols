@@ -2,7 +2,6 @@ import { Component } from "@angular/core";
 import { UserService } from "../services/UserService";
 import { AuthenticationService } from "../services/AuthenticationService";
 import { OnInit } from "@angular/core";
-import { reserveSlots } from "@angular/core/src/render3/instructions";
 import { ToastrService } from "ngx-toastr";
 
 @Component({

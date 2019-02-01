@@ -18,4 +18,4 @@ import { CommonModule } from "@angular/common";
   ],
   exports: [NgInput, NgInputArea, NgInputCurrency, NgInputDecimal, NgInputEmail, NgInputInteger, NgInputPassword]
 })
-export class ExanicBootstrap3InputModule { }
+export class jNetworkBootstrap3InputModule { }

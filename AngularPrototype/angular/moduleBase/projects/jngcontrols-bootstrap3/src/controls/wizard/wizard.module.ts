@@ -10,4 +10,4 @@ import { NgWizardItem } from "./wizarditem";
   ],
   exports: [NgWizard, NgWizardItem]
 })
-export class ExanicBootstrap3WizardModule { }
+export class jNetworkBootstrap3WizardModule { }

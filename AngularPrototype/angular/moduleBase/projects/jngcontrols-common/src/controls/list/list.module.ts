@@ -8,4 +8,4 @@ import { NgListboxOption } from "./listbox";
   ],
   exports: [NgListboxOption]
 })
-export class ExanicCommonListboxOptionModule { }
+export class jNetworkCommonListboxOptionModule { }

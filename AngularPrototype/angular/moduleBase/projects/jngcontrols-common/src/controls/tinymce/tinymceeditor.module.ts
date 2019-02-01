@@ -8,4 +8,4 @@ import { NgTinyMceEditorComponent } from "./tinymceeditor";
   ],
   exports: [NgTinyMceEditorComponent]
 })
-export class ExanicTinyMceEditorModule { }
+export class jNetworkTinyMceEditorModule { }

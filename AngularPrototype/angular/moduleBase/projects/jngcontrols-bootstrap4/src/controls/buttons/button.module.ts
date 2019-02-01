@@ -8,4 +8,4 @@ import { NgButton } from "./button";
   ],
   exports: [NgButton]
 })
-export class ExanicBootstrap4ButtonModule { }
+export class jNetworkBootstrap4ButtonModule { }

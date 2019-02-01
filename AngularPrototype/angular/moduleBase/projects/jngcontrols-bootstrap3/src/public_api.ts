@@ -1,5 +1,5 @@
 /*
- * Public API Surface of exanic-controls-bootstrap3
+ * Public API Surface of jngcontrols-bootstrap3
  */
 
 export * from './controls/buttons/button.module';

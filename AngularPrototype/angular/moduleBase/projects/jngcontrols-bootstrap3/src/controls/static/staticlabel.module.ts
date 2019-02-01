@@ -9,4 +9,4 @@ import { NgStaticLabel } from "./staticlabel";
   ],
   exports: [NgStaticLabel]
 })
-export class ExanicBootstrap3StaticLabelModule { }
+export class jNetworkBootstrap3StaticLabelModule { }

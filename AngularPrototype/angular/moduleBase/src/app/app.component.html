@@ -13,7 +13,7 @@
   <ngTabItem id="form1" label="Form 1">
 
     <ngFormular #form>
-      <ngInput name="testname1" label="Eingabe 1" [(ngModel)]="testname1" [isrequired]="testrequired"></ngInput>
+      <ngInput name="testname1a" label="Eingabe 1" [(ngModel)]="testname1" [isrequired]="testrequired"></ngInput>
     </ngFormular>
 
     <ngFormular #form>
@@ -38,7 +38,7 @@
     <ngFormular #formTemp labelsize="3">
       <ngValidationSummary></ngValidationSummary>
 
-      <ngButton name="fButton1" text="Speichern" [isenabled]="formTemp.form.valid" (onclick)="t3Save()"></ngButton>
+      <ngButton name="fButton1" text="Speichern" [isdisabled]="formTemp.form.invalid" (onclick)="t3Save()"></ngButton>
 
     </ngFormular>
 
@@ -146,16 +146,10 @@
         <ngRadiobutton name="rb3" value="3" label="Wert 3"></ngRadiobutton>
       </ngRadiobuttons>
 
-      <ngRadiobuttons name="radiobuttons2" label="Radiobuttons 2" [(ngModel)]="values.radiobuttons2" [options]="values.radiobuttonitems1">
+      <ngRadiobuttons name="radiobuttons2" label="Radiobuttons 2" [(ngModel)]="values.radiobuttons2">
         <ngRadiobutton name="rb1" value="1" label="Wert 1"></ngRadiobutton>
         <ngRadiobutton name="rb2" value="2" label="Wert 2"></ngRadiobutton>
         <ngRadiobutton name="rb3" value="3" label="Wert 3"></ngRadiobutton>
-      </ngRadiobuttons>
-
-      <ngRadiobuttons name="radiobuttons3" label="Radiobuttons 3" [(ngModel)]="values.radiobuttons3" [options]="values.radiobuttonitems1">
-      </ngRadiobuttons>
-
-      <ngRadiobuttons name="radiobuttons4" label="Radiobuttons 4" [(ngModel)]="values.radiobuttons4" [options]="values.radiobuttonitems1" disabled="true">
       </ngRadiobuttons>
 
 
@@ -188,7 +182,7 @@
       <ngListbox name="listbox4" label="Listbox 4" [(ngModel)]="values.listbox4" [options]="values.dropdownitems" isrequired="true"></ngListbox>
       <ngListbox name="listbox5" label="Listbox 5" [(ngModel)]="values.listbox5" [options]="values.dropdownitems" disabled="true"></ngListbox>
 
-      <ngButton name="button1" text="Speichern" [isenabled]="form2.form.valid" (onclick)="t3Save()"></ngButton>
+      <ngButton name="button1" text="Speichern" [isdisabled]="form2.form.invalid" (onclick)="t3Save()"></ngButton>
       <ngButton name="setDisabledState" text="Set Disabled" (onclick)="form2.form.form.disabled ? form2.form.form.enable() : form2.form.form.disable()"></ngButton>
 
       <ngTab>
@@ -246,7 +240,7 @@
 
       <ngDateSelector name="selector1" dateselection="true" timeselection="true"></ngDateSelector>
 
-      <ngButton name="bDateTimeSave" text="Speichern" [isenabled]="formDateTime.form.valid" (onclick)="dateTimeSave()"></ngButton>
+      <ngButton name="bDateTimeSave" text="Speichern" [isdisabled]="formDateTime.form.invalid" (onclick)="dateTimeSave()"></ngButton>
 
     </ngFormular>
   </ngTabItem>

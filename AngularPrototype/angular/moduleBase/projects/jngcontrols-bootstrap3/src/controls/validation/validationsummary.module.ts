@@ -9,4 +9,4 @@ import { BrowserModule } from "@angular/platform-browser";
   ],
   exports: [NgValidationSummary]
 })
-export class ExanicBootstrap3ValidationSummaryModule { }
+export class jNetworkBootstrap3ValidationSummaryModule { }

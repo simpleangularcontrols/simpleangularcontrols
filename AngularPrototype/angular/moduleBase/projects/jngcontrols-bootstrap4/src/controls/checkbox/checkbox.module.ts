@@ -11,4 +11,4 @@ import { NgRadiobuttons } from "./radiobuttons";
   ],
   exports: [NgCheckbox, NgRadiobutton, NgRadiobuttons]
 })
-export class ExanicBootstrap4CheckboxModule { }
+export class jNetworkBootstrap4CheckboxModule { }

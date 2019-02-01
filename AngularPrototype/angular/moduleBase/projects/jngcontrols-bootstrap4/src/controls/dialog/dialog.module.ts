@@ -9,4 +9,4 @@ import { NgDialog } from "./dialog";
   ],
   exports: [NgDialog]
 })
-export class ExanicBootstrap4DialogModule { }
+export class jNetworkBootstrap4DialogModule { }

@@ -10,4 +10,4 @@ import { NgTabItem } from "./tabitem";
   ],
   exports: [NgTab, NgTabItem]
 })
-export class ExanicBootstrap3TabsModule { }
+export class jNetworkBootstrap3TabsModule { }

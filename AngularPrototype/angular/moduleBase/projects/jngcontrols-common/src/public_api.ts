@@ -1,5 +1,5 @@
 /*
- * Public API Surface of exanic-controls-common
+ * Public API Surface of jngcontrols-common
  */
 
 export { NgButtonCommon } from './controls/buttons/button';
@@ -38,7 +38,7 @@ export { NgWizardItemCommon } from './controls/wizard/wizarditem';
 
 // TinyMCE
 export { NgTinyMceCommon } from './controls/tinymce/tinymce';
-export { ExanicTinyMceEditorModule } from './controls/tinymce/tinymceeditor.module'
+export { jNetworkTinyMceEditorModule } from './controls/tinymce/tinymceeditor.module'
 
 // Export of Modules
 export * from './controls/list/list.module'

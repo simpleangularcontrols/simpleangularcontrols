@@ -14,4 +14,4 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     NgFormular
   ]
 })
-export class ExanicBootstrap4FormModule { }
+export class jNetworkBootstrap4FormModule { }

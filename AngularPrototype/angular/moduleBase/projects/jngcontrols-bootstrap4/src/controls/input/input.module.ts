@@ -16,4 +16,4 @@ import { NgInputPassword } from "./inputpassword";
   ],
   exports: [NgInput, NgInputArea, NgInputCurrency, NgInputDecimal, NgInputEmail, NgInputInteger, NgInputPassword]
 })
-export class ExanicBootstrap4InputModule { }
+export class jNetworkBootstrap4InputModule { }

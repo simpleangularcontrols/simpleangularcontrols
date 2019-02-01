@@ -10,4 +10,4 @@ import { NgListbox } from "./listbox";
   ],
   exports: [NgDropdown, NgDropdownOption, NgListbox]
 })
-export class ExanicBootstrap4ListModule { }
+export class jNetworkBootstrap4ListModule { }

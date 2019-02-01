@@ -10,11 +10,13 @@
     <div></div>
     <div class="container">
       <div class="row">
-        <ng-container *ngFor="let item of dates; let i=index">
-          <div class="p-2 col text-center" [ngStyle]="{'cursor': item.isenabled ? 'pointer' : null}"
-               [ngClass]="{'day-current': item.iscurrent, 'day-selected': item.isselected, 'day-new': item.isnew}"
-               (click)="selectDate(item)">{{ item.displaytext }}</div>
-          <div class="w-100" *ngIf="i%7==6"></div>
+        <ng-container *ngFor="let week of dates; let i=index">
+          <ng-container *ngFor="let item of week">
+            <div class="p-2 col text-center" [ngStyle]="{'cursor': item.isenabled ? 'pointer' : null}"
+                 [ngClass]="{'day-current': item.iscurrent, 'day-selected': item.isselected, 'day-new': item.isnew}"
+                 (click)="selectDate(item)">{{ item.displaytext }}</div>
+          </ng-container>
+          <div class="w-100"></div>
         </ng-container>
       </div>
     </div>

@@ -13,4 +13,4 @@ import { TextMaskModule } from "angular2-text-mask";
   ],
   exports: [NgDate, NgDateTime, NgTime, NgDateSelector]
 })
-export class ExanicBootstrap4DateTimeModule { }
+export class jNetworkBootstrap4DateTimeModule { }

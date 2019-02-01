@@ -6,13 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
-
-import {
-  NgInput, NgInputDecimal, NgInputInteger, NgInputArea, NgInputCurrency, NgInputEmail, NgInputPassword, NgListbox, NgDropdown,
-  NgFormular, NgDialog, NgCheckbox, NgButton, NgTab, NgTabItem, NgValidationSummary, NgDate, NgTime, NgDateTime, NgDateSelector, NgRadiobutton, NgRadiobuttons, NgListboxOption
-} from './controls';
-
-
 // Third Party Extensions
 import { ToastrModule } from 'ngx-toastr';
 import { TextMaskModule } from 'angular2-text-mask';
@@ -27,11 +20,26 @@ import { TokenInterceptor } from './services/TokenInterceptor';
 // import localeDeCh from '@angular/common/locales/de-CH';
 
 const NgDirectives = [
-  AppComponent, UserComponent,
-
-  NgInput, NgInputDecimal, NgButton, NgFormular, NgCheckbox, NgDropdown, NgListbox, NgValidationSummary, NgDialog, NgTab, NgDate, NgTime, NgDateTime, NgRadiobutton, NgRadiobuttons,
-  NgTabItem, NgDateSelector, NgInputInteger, NgInputCurrency, NgInputEmail, NgInputPassword, NgInputArea, NgListboxOption
+  AppComponent, UserComponent
 ]
+
+import {
+  jNetworkBootstrap4FormModule,
+  jNetworkBootstrap4ButtonModule,
+  jNetworkBootstrap4DialogModule,
+  jNetworkBootstrap4CheckboxModule,
+  jNetworkBootstrap4ListModule,
+  jNetworkBootstrap4ValidationSummaryModule,
+  jNetworkBootstrap4TabsModule,
+  jNetworkBootstrap4InputModule,
+  jNetworkBootstrap4DateTimeModule,
+  jNetworkBootstrap4TinyMceModule,
+  // jNetworkBootstrap4StaticLabelModule,
+  jNetworkBootstrap4WizardModule
+} from '@jnetwork/jngcontrols-bootstrap4';
+
+
+
 
 
 @NgModule({
@@ -46,6 +54,21 @@ const NgDirectives = [
 
     HttpClientModule,
     ToastrModule.forRoot(),
+
+    // Exanic Controls
+    jNetworkBootstrap4FormModule,
+    jNetworkBootstrap4ButtonModule,
+    jNetworkBootstrap4DialogModule,
+    jNetworkBootstrap4CheckboxModule,
+    jNetworkBootstrap4ListModule,
+    jNetworkBootstrap4ValidationSummaryModule,
+    jNetworkBootstrap4TabsModule,
+    jNetworkBootstrap4InputModule,
+    jNetworkBootstrap4DateTimeModule,
+    jNetworkBootstrap4TinyMceModule,
+    // jNetworkBootstrap4StaticLabelModule,
+    jNetworkBootstrap4WizardModule,
+
 
     // Third Party Modules
     TextMaskModule

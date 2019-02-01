@@ -9,4 +9,4 @@ import { BrowserModule } from "@angular/platform-browser";
   ],
   exports: [NgButton]
 })
-export class ExanicBootstrap3ButtonModule { }
+export class jNetworkBootstrap3ButtonModule { }

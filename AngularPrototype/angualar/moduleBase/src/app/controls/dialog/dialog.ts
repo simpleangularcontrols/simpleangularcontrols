@@ -1,45 +1,24 @@
-import { Component, Input, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, Input, ElementRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl } from '@angular/forms';
-import * as $ from "jquery";
+import { HostListener } from '@angular/core';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'ngDialog',
   templateUrl: './dialog.html'
 })
-export class NgDialog implements AfterViewInit {
+export class NgDialog {
 
-  private baseElement: ElementRef;
-  private modal: any;
-  private _show: boolean = false;
+  @ViewChild('dialog')
+  private dialogElement: ElementRef;
 
-  // Get Methode für NgModel Binding in Html Markup
-  get isVisible(): boolean {
-    return this._show;
-  }
+  _show: boolean = false;
 
   // #region Constructor
 
   // Konstruktor
   // Inject des Formulars
-  constructor(private el: ElementRef) {
-    this.baseElement = el;
-  }
-
-  // #endregion
-
-  // #region Control initialisieren
-
-  ngAfterViewInit() {
-    this.modal = jQuery(this.baseElement.nativeElement.firstChild);
-    this.modal.modal({ show: this._show, backdrop: this._backdrop, keyboard: this._allowesc });
-
-    this.modal.on('shown.bs.modal', (e) => {
-      this._show = true;
-    })
-
-    this.modal.on('hidden.bs.modal', (e) => {
-      this._show = false;
-    })
+  constructor() {
   }
 
   // #endregion
@@ -58,21 +37,10 @@ export class NgDialog implements AfterViewInit {
   @Input("isvisible")
   set isVisible(v: boolean) {
     this._show = v;
-
-    // Abbrechen wenn Modal noch nicht initialisert
-    if (this.modal === undefined) {
-      return;
-    }
-
-    if (v === true) {
-      this.modal.modal('show');
-    } else {
-      this.modal.modal('hide');
-    }
   }
-
-  @Input("animation")
-  public _animation: boolean = false;
+  get isVisible(): boolean {
+    return this._show;
+  }
 
   // #endregion
 
@@ -84,6 +52,29 @@ export class NgDialog implements AfterViewInit {
 
   public hide(): void {
     this.isVisible = false;
+  }
+
+  // #endregion
+
+  // #region Host Actions
+
+  // Allow Close by Click outside Dialog
+  @HostListener('click', ['$event'])
+  onClick(event: any): void {
+    if (this._allowesc === false || (this.dialogElement !== null && this.dialogElement !== undefined && event.target !== this.dialogElement.nativeElement)) {
+      return;
+    }
+    this.hide();
+  }
+
+  // Allow Close by ESC
+  @HostListener('document:keydown', ['$event'])
+  onKeydownHandler(event: KeyboardEvent) {
+    const ESCAPE_KEYCODE = 27;
+
+    if (this._allowesc === true && event.keyCode === ESCAPE_KEYCODE) {
+      this.hide();
+    }
   }
 
   // #endregion

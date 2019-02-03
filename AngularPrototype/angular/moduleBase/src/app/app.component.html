@@ -16,7 +16,7 @@
       <ngInput name="testname1a" label="Eingabe 1" [(ngModel)]="testname1" [isrequired]="testrequired"></ngInput>
     </ngFormular>
 
-    <ngFormular #form>
+    <ngFormular #myform>
       <ngValidationSummary></ngValidationSummary>
 
       <ngInput name="testname1" label="Eingabe 1" [(ngModel)]="testname1" [isrequired]="testrequired"></ngInput>
@@ -24,10 +24,9 @@
       <ngInput name="testname3" label="Eingabe 3" [(ngModel)]="testname3"></ngInput>
       <ngInput name="testname4" label="Eingabe 4" value="Wert 1"></ngInput>
       <ngInput name="testname5" label="Eingabe 5" labelsize="4" ngModel></ngInput>
-      <ngButton name="save" text="Speichern" enabled=""></ngButton>
-      <button type="Submit" [disabled]="!myForm.form.valid">Submit</button>
-      <button (click)="onSubmit()">Submit</button>
-      <a (click)="changeRequired()">Change Required</a>
+      <ngButton name="saveform" text="Speichern"></ngButton>
+      <ngButton name="saveform2" text="Speichern" [isdisabled]="myform.form.invalid">Submit</ngButton>
+      <ngButton name="saveform3" text="Speichern" (click)="onSubmit()">Submit</ngButton>
     </ngFormular>
 
   </ngTabItem>

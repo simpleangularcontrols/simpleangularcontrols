@@ -38,7 +38,7 @@ export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> imple
     return this.radioButtonIndex;
   }
 
-  //#region nModel Implementation
+  //#region ngModel Implementation
 
   writeValue(value: any) {
     super.writeValue(value);
@@ -48,7 +48,7 @@ export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> imple
       });
     }
   }
-
+  
   //#endregion
 
   public SelectItem(value: any) {

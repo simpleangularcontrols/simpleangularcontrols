@@ -21,7 +21,7 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
   public _disabled: boolean;
 
   get isDisabled(): boolean {
-    return this._disabled || this.ngRadioButtons._disabledControl;
+    return this._disabled || this.ngRadioButtons.isdisabled;
   }
 
   private _hidden: boolean = false;
@@ -41,9 +41,7 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
   get hidden(): boolean | string {
     return this._hidden;
   }
-
-
-
+   
   // Unique Index für RadioButton
   _index: number = null;
   get getIndex(): number {

@@ -142,6 +142,10 @@
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\datetime\time.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\dialog\dialog.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\form\form.html" />
+    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\grid.html" />
+    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\gridcolumn.html" />
+    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\gridcolumnaction.html" />
+    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\paging.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\input\input.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\input\inputarea.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\input\inputcurrency.html" />
@@ -188,6 +192,7 @@
     <Content Include="angular\moduleBase\protractor.conf.js" />
     <Content Include="angular\moduleBase\src\app\app.component.css" />
     <Content Include="angular\moduleBase\src\app\app.component.html" />
+    <Content Include="angular\moduleBase\src\app\controls\grid.html" />
     <Content Include="angular\moduleBase\src\app\modules\UserComponent.html" />
     <Content Include="angular\moduleBase\src\index.html" />
     <Content Include="Contact.aspx" />
@@ -637,6 +642,11 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\dialog\dialog.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\form\form.module.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\form\form.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\grid.module.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\grid.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\gridcolumn.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\gridcolumnaction.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\paging.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\input\input.module.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\input\input.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\input\inputarea.ts" />
@@ -715,6 +725,12 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\datetime\time.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\dialog\dialog.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\form\form.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\grid\grid.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\grid\gridcolumn.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\grid\gridcolumnaction.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\grid\gridcolumnbase.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\grid\model.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\grid\paging.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\input\input.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\input\inputarea.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\input\inputcurrency.ts" />
@@ -746,6 +762,7 @@
     <TypeScriptCompile Include="angular\moduleBase\src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\app.component.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\app.module.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\src\app\controls\grid.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\modules\UserComponent.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\services\AuthenticationService.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\services\TokenInterceptor.ts" />

@@ -17,10 +17,13 @@ import { AuthenticationService } from './services/AuthenticationService';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './services/TokenInterceptor';
 
+// Example Controls
+import { ExampleGrid } from './controls/grid';
+
 // import localeDeCh from '@angular/common/locales/de-CH';
 
 const NgDirectives = [
-  AppComponent, UserComponent
+  AppComponent, UserComponent, ExampleGrid
 ]
 
 import {
@@ -34,6 +37,7 @@ import {
   jNetworkBootstrap3InputModule,
   jNetworkBootstrap3DateTimeModule,
   jNetworkBootstrap3TinyMceModule,
+  jNetworkBootstrap3GridModule,
   // jNetworkBootstrap4StaticLabelModule,
   jNetworkBootstrap3WizardModule
 } from '@jnetwork/jngcontrols-bootstrap3';
@@ -66,9 +70,9 @@ import {
     jNetworkBootstrap3InputModule,
     jNetworkBootstrap3DateTimeModule,
     jNetworkBootstrap3TinyMceModule,
+    jNetworkBootstrap3GridModule,
     // jNetworkBootstrap4StaticLabelModule,
     jNetworkBootstrap3WizardModule,
-
 
     // Third Party Modules
     TextMaskModule

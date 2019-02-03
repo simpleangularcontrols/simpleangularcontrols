@@ -23,6 +23,14 @@ export { NgInputEmailCommon } from './controls/input/inputemail';
 export { NgInputIntegerCommon } from './controls/input/inputinteger';
 export { NgInputPasswordCommon } from './controls/input/inputpassword';
 
+// Grid Classes
+export { NgGridCommon } from './controls/grid/grid';
+export { NgGridColumnCommon } from './controls/grid/gridcolumn';
+export { NgGridColumnActionCommon } from './controls/grid/gridcolumnaction';
+export { NgGridColumnBaseCommon } from './controls/grid/gridcolumnbase';
+export { NgPagingCommon } from './controls/grid/paging';
+export * from './controls/grid/model';
+
 // DateTime classes
 export { NgDateCommon } from './controls/datetime/date';
 export { NgDateSelectorCommon } from './controls/datetime/dateselector';

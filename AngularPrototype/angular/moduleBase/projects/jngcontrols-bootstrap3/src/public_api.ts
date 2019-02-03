@@ -13,6 +13,7 @@ export * from './controls/datetime/datetime.module';
 export * from './controls/tinymce/tinymce.module';
 export * from './controls/static/staticlabel.module';
 export * from './controls/wizard/wizard.module';
+export * from './controls/grid/grid.module';
 
 // Form Module and Classes
 export * from './controls/form/form.module';

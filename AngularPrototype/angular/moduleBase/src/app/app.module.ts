@@ -24,19 +24,19 @@ const NgDirectives = [
 ]
 
 import {
-  jNetworkBootstrap4FormModule,
-  jNetworkBootstrap4ButtonModule,
-  jNetworkBootstrap4DialogModule,
-  jNetworkBootstrap4CheckboxModule,
-  jNetworkBootstrap4ListModule,
-  jNetworkBootstrap4ValidationSummaryModule,
-  jNetworkBootstrap4TabsModule,
-  jNetworkBootstrap4InputModule,
-  jNetworkBootstrap4DateTimeModule,
-  jNetworkBootstrap4TinyMceModule,
+  jNetworkBootstrap3FormModule,
+  jNetworkBootstrap3ButtonModule,
+  jNetworkBootstrap3DialogModule,
+  jNetworkBootstrap3CheckboxModule,
+  jNetworkBootstrap3ListModule,
+  jNetworkBootstrap3ValidationSummaryModule,
+  jNetworkBootstrap3TabsModule,
+  jNetworkBootstrap3InputModule,
+  jNetworkBootstrap3DateTimeModule,
+  jNetworkBootstrap3TinyMceModule,
   // jNetworkBootstrap4StaticLabelModule,
-  jNetworkBootstrap4WizardModule
-} from '@jnetwork/jngcontrols-bootstrap4';
+  jNetworkBootstrap3WizardModule
+} from '@jnetwork/jngcontrols-bootstrap3';
 
 
 
@@ -56,18 +56,18 @@ import {
     ToastrModule.forRoot(),
 
     // Exanic Controls
-    jNetworkBootstrap4FormModule,
-    jNetworkBootstrap4ButtonModule,
-    jNetworkBootstrap4DialogModule,
-    jNetworkBootstrap4CheckboxModule,
-    jNetworkBootstrap4ListModule,
-    jNetworkBootstrap4ValidationSummaryModule,
-    jNetworkBootstrap4TabsModule,
-    jNetworkBootstrap4InputModule,
-    jNetworkBootstrap4DateTimeModule,
-    jNetworkBootstrap4TinyMceModule,
+    jNetworkBootstrap3FormModule,
+    jNetworkBootstrap3ButtonModule,
+    jNetworkBootstrap3DialogModule,
+    jNetworkBootstrap3CheckboxModule,
+    jNetworkBootstrap3ListModule,
+    jNetworkBootstrap3ValidationSummaryModule,
+    jNetworkBootstrap3TabsModule,
+    jNetworkBootstrap3InputModule,
+    jNetworkBootstrap3DateTimeModule,
+    jNetworkBootstrap3TinyMceModule,
     // jNetworkBootstrap4StaticLabelModule,
-    jNetworkBootstrap4WizardModule,
+    jNetworkBootstrap3WizardModule,
 
 
     // Third Party Modules

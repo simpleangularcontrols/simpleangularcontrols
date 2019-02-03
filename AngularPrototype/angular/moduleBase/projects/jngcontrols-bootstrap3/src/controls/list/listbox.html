@@ -1,8 +1,8 @@
-<div class="form-group">
-  <label for="{{_name}}" class="control-label col-left" [ngClass]="{ 'required': _isrequired }" *ngIf="!_isadaptivelabel">{{_label}}</label>
-  <div class="col-right">
+<div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
+  <label for="{{_name}}" class="control-label"  [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only']" [class.required]="_isrequired">{{_label}}</label>
+  <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <!-- <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"> -->
-    <select multiple id="{{_name}}" name="{{_name}}" class="form-control" [size]="_rowsize" [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
+    <select multiple id="{{_name}}" name="{{_name}}" class="form-control" [size]="_rowsize"
             (blur)="onTouch()" (change)="getSelectedItems($event.target)" [disabled]="isdisabled">
       <ng-content></ng-content>
       <ng-container *ngIf="_fieldGroupItems === ''">

@@ -1,10 +1,11 @@
-<div class="form-group">
-  <label for="{{_name}}" class="col-left control-label">{{_label}}</label>
-  <div class="col-right">
-      <input id="{{_name}}" name="{{_name}}" type="checkbox" class="visible-checkbox" [checked]="value" [disabled]="isdisabled"
-        (blur)="onTouch()" 
-        (change)="setValue($event.target.checked)" 
-        [ngClass]="{'validation-error': invalid && (dirty || touched) }"
-         />
+<div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
+  <label for="{{_name}}" class="control-label" [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only']">{{_label}}</label>
+  <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
+    <div class="checkbox">
+      <label>
+        <input id="{{_name}}" name="{{_name}}" type="checkbox" class="visible-checkbox" [checked]="value" [disabled]="isdisabled"
+               (blur)="onTouch()" (change)="setValue($event.target.checked)" />
+      </label>
+    </div>
   </div>
 </div>

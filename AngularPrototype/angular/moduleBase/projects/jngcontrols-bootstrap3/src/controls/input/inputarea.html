@@ -1,10 +1,10 @@
-<div class="form-group">
-  <label for="{{_name}}" class="col-left control-label" [ngClass]="{ 'required': _isrequired }" *ngIf="!_isadaptivelabel">{{_label}}</label>
-  <div class="col-right">
+<div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
+  <label for="{{_name}}" class="control-label" [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only']" [class.required]="_isrequired"  *ngIf="!_isadaptivelabel">{{_label}}</label>
+  <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <textarea id="{{_name}}" name="{{_name}}" type="" class="form-control" [value]="value" [attr.placeholder]="_placeholder"
               (blur)="onTouch()" (input)="setValue($event.target.value)"
               (keypress)="onKeyPress($event)" [attr.rows]="_rows"
-              [ngClass]="{'is-invalid validation-error': invalid && (dirty || touched), 'language-specific': _islanguagespecific, 'required': _isrequired }" [disabled]="isdisabled"></textarea>
+              [ngClass]="{'language-specific': _islanguagespecific }" [disabled]="isdisabled"></textarea>
     <label for="{{_name}}" class="form-label-adaptive form-label-fixed" *ngIf="_isadaptivelabel">{{_label}}</label>
   </div>
 </div>

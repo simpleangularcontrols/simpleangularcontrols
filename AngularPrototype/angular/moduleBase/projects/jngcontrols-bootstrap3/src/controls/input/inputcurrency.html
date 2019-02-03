@@ -1,11 +1,12 @@
-<div  class="form-group">
-  <label for="{{_name}}" class="col-left control-label" [ngClass]="{ 'required': _isrequired }"  *ngIf="!_isadaptivelabel">{{_label}}</label>
-  <div class="col-right">
-        <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" style="width:100%;"
-        [value]="value" [attr.placeholder]="_placeholder" (blur)="onTouch()" (input)="setValue($event.target.value)"
-        (keypress)="onKeyPress($event)"
-        [ngClass]="{'validation-error': invalid && (dirty || touched) }" [disabled]="isdisabled" />
-      <label for="{{_name}}" class="form-label-adaptive form-label-fixed" [ngClass]="{ 'required': _isrequired }" *ngIf="_isadaptivelabel" >{{_label}}</label>
-      <span class="form-unit">CHF</span>
+<div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
+  <label for="{{_name}}" class="control-label" [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only']" [class.required]="_isrequired" *ngIf="!_isadaptivelabel">{{_label}}</label>
+  <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
+    <div class="input-group">
+      <input id="{{_name}}" name="{{_name}}" type="text" class="form-control"
+             [value]="value" [attr.placeholder]="_placeholder" (blur)="onTouch()" (input)="setValue($event.target.value)"
+             (keypress)="onKeyPress($event)" [disabled]="isdisabled" />
+      <label for="{{_name}}" class="form-label-adaptive form-label-fixed" [ngClass]="{ 'required': _isrequired }" *ngIf="_isadaptivelabel">{{_label}}</label>
+      <div class="input-group-addon">CHF</div>
+    </div>
   </div>
 </div>

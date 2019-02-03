@@ -1,14 +1,28 @@
-<div class="datetime-textbox">
-  <div class="form-group">
-    <label for="{{_name}}" id="{{_name}}_label" class="col-left control-label" *ngIf="!_isadaptivelabel">{{_label}}</label>
-    <div class="col-right">
+<div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
+  <label for="{{_name}}" id="{{_name}}_label" class="control-label" [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only']" [class.required]="_isrequired" *ngIf="!_isadaptivelabel">{{_label}}</label>
+  <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
+    <div style="position: relative; width: 180px;">
+
       <div id="{{_name}}" class="datetime-textbox input-group">
         <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [textMask]="_mask" [attr.placeholder]="_placeholder"
-          [value]="valuestring" style="width:128px;" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()"
-          (input)="setValueString($event.target.value)" [disabled]="isdisabled" (click)="showDateSelector()" />
+               [value]="valuestring" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()"
+               (input)="setValueString($event.target.value)" [disabled]="isdisabled" (click)="showDateSelector()" />
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" (click)="showDateSelector()" [disabled]="isdisabled">
+            <i class="glyphicon glyphicon-calendar"></i>
+          </button>
+        </span>
       </div>
-      <ngDateSelector *ngIf="_showselector" [initialValue]="value" (onSelect)="dateselect($event)"
-      autoapplyselection="true" dateselection="true" timeselection="true"></ngDateSelector>
+
+      <div class="popover bottom in" role="tooltip" *ngIf="_showselector"
+           style="display:block; left:unset; right: 0px; top: 34px; max-width: 325px;">
+        <div class="arrow" style="left: unset; right: 10px;"></div>
+        <h3 class="popover-title" style="display: none;"></h3>
+        <div class="popover-content">
+          <ngDateSelector *ngIf="_showselector" [initialValue]="value" (onSelect)="dateselect($event)"
+                          autoapplyselection="true" dateselection="true" timeselection="true"></ngDateSelector>
+        </div>
+      </div>
 
     </div>
   </div>

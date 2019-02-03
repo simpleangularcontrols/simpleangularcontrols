@@ -1,15 +1,29 @@
-<div class="form-group">
-  <label for="{{_name}}" id="{{_name}}_label" class="col-left control-label" *ngIf="!_isadaptivelabel">{{_label}}</label>
-  <div class="col-right">
-    <div class="timepicker-wrapper">
-      <input id="{{_name}}" name="{{_name}}" type="text" [value]="valuestring" maxlength="6" [textMask]="_mask" size="6"
-        class="form-control" [attr.placeholder]="_placeholder" style="width:60px;" data-error-msg="ctl00_cphContent_ctl00_ucPublicationDetail_dtpValidFrom_timeTextBoxTypeValidator"
-        [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()" (input)="setValueString($event.target.value)"
-        [disabled]="isdisabled">
-      <span id="{{_name}}" style="visibility:hidden;" class="DESVALErrorText">
-        <span id="{{_name}}_Txt">Ungültige Uhrzeit.</span>
-      </span>
+<div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
+  <label for="{{_name}}" id="{{_name}}_label" class="control-label" [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only']" [class.required]="_isrequired" *ngIf="!_isadaptivelabel">{{_label}}</label>
+  <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
+    <div style="position: relative; width: 140px;">
+      
+      <div class="input-group">
+        <input id="{{_name}}" name="{{_name}}" type="text" [value]="valuestring" maxlength="6" [textMask]="_mask" size="6"
+               class="form-control" [attr.placeholder]="_placeholder" data-error-msg="ctl00_cphContent_ctl00_ucPublicationDetail_dtpValidFrom_timeTextBoxTypeValidator"
+               [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()" (input)="setValueString($event.target.value)"
+               [disabled]="isdisabled">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" (click)="showTimeSelector()" [disabled]="isdisabled">
+            <i class="glyphicon glyphicon-time"></i>
+          </button>
+        </span>
+      </div>
+
+      <div class="popover bottom in" role="tooltip" *ngIf="_showselector"
+           style="display:block; left:unset; right: 0px; top: 34px; max-width: 325px;">
+        <div class="arrow" style="left: unset; right: 10px;"></div>
+        <h3 class="popover-title" style="display: none;"></h3>
+        <div class="popover-content">
+          <ngDateSelector *ngIf="_showselector" [initialValue]="value" (onSelect)="timeselect($event)" autoapplyselection="true" timeselection="true"></ngDateSelector>
+        </div>
+      </div>
+
     </div>
   </div>
-
 </div>

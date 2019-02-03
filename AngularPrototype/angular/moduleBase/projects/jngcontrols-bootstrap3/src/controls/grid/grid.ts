@@ -1,8 +1,7 @@
-import { Component, Input, TemplateRef, Output, EventEmitter, HostListener, QueryList, ViewChildren, ContentChildren, Host, forwardRef, Injector } from '@angular/core';
-import { NgGridCommon, NgGridColumnCommon, PagerData } from '@jnetwork/jngcontrols-common';
+import { Component, QueryList, ContentChildren, forwardRef } from '@angular/core';
+import { NgGridCommon, NgGridColumnBaseCommon, PagerData } from '@jnetwork/jngcontrols-common';
 import { NgFormular } from '../form/form';
 import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/forms';
-import { NgGridColumn } from './gridcolumn';
 import { NgPaging } from './paging';
 
 
@@ -21,15 +20,12 @@ import { NgPaging } from './paging';
 
 export class NgGrid extends NgGridCommon {
 
-  @ContentChildren(NgGridColumn)
-  _columnItems: QueryList<NgGridColumn>;
+  @ContentChildren(NgGridColumnBaseCommon)
+  _columnItems: QueryList<NgGridColumnBaseCommon>;
 
-  contentGridColumns(): QueryList<NgGridColumnCommon> {
-    return this._columnItems as QueryList<NgGridColumnCommon>;
+  contentGridColumns(): QueryList<NgGridColumnBaseCommon> {
+    return this._columnItems as QueryList<NgGridColumnBaseCommon>;
   }
-
-  @ContentChildren(NgPaging)
-  _pagingData: PagerData
 
   ellipsis: boolean = false
 }

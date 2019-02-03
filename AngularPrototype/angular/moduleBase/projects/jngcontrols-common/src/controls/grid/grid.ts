@@ -1,6 +1,6 @@
 import { Component, Input, TemplateRef, Output, EventEmitter, HostListener, QueryList, ViewChildren, ContentChildren } from '@angular/core';
 import { PagerData } from './model';
-import { NgGridColumnCommon } from './gridcolumn';
+import { NgGridColumnBaseCommon } from './gridcolumnbase';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { NgBaseModelControl } from '../../common/basemodelcontrol';
 
@@ -15,7 +15,7 @@ export abstract class NgGridCommon {
   protected lastVisibleIndex;
   protected lastPageNumber: number;
 
-  protected abstract contentGridColumns(): QueryList<NgGridColumnCommon>;
+  protected abstract contentGridColumns(): QueryList<NgGridColumnBaseCommon>;
 
   //#region InputOutputs
 

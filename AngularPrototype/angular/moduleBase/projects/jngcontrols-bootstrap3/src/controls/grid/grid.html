@@ -3,18 +3,14 @@
 
     <tr>
       <th scope="col" [style.width]="obj.width" *ngFor="let obj of contentGridColumns()">
-        <span href="">{{obj.header }}</span>
+        <span>{{obj.header}}</span>
       </th>
     </tr>
 
     <tr *ngFor="let item of value; let i=index">
       <ng-container *ngFor="let obj of contentGridColumns(), let m = index">
-        <td *ngIf="ellipsis" class="ellipsis">
-          <span ngGridColumn title={{item[obj.field]}} [item]="item[obj.field]"></span>
-        </td>
-        <td *ngIf="!ellipsis">
-          <span ngGridColumn [item]="item[obj.field]"></span>
-        </td>
+        <td ngGridColumn [item]="item[obj.field]" *ngIf="obj.constructor.name==='NgGridColumn'"></td>
+        <td ngGridColumnAction [item]="obj.field !== undefined ? item[obj.field] : item" *ngIf="obj.constructor.name==='NgGridColumnAction'" (onclick)="obj.callaction($event)"></td>
       </ng-container>
     </tr>
     <tr *ngIf="value === undefined || value === null || value.length==0">

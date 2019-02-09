@@ -1,25 +1,26 @@
 <table class="table table-striped table-condensed table-hover" id={{name}}>
-  <tbody>
-
+  <thead>
     <tr>
-      <th scope="col" [style.width]="obj.width" *ngFor="let obj of contentGridColumns()">
-        <span>{{obj.header}}</span>
-      </th>
-    </tr>
-
-    <tr *ngFor="let item of value; let i=index">
-      <ng-container *ngFor="let obj of contentGridColumns(), let m = index">
-        <td ngGridColumn [item]="item[obj.field]" *ngIf="obj.constructor.name==='NgGridColumn'"></td>
-        <td ngGridColumnAction [item]="obj.field !== undefined ? item[obj.field] : item" *ngIf="obj.constructor.name==='NgGridColumnAction'" (onclick)="obj.callaction($event)"></td>
+      <ng-container *ngTemplateOutlet="template; context { row: {}, type: 'header'}">
       </ng-container>
     </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let item of value; let i=index">
+      <tr>
+        <ng-container *ngTemplateOutlet="template; context { row: item, type: 'body'}">
+        </ng-container>
+      </tr>
+    </ng-container>
     <tr *ngIf="value === undefined || value === null || value.length==0">
-      <td [attr.colspan]="contentGridColumns().length">Zur Zeit keine Daten vorhanden</td>
+      <td [attr.colspan]="GetColumnCount()">Zur Zeit keine Daten vorhanden</td>
     </tr>
     <tr>
-      <td [attr.colspan]="contentGridColumns().length">
+      <td [attr.colspan]="GetColumnCount()">
         <ngPaging name="{{name}}Paging" (onpaging)="pagingSkipGrid($event)" [pagerdata]="pagerdata"></ngPaging>
       </td>
     </tr>
   </tbody>
 </table>
+
+Page: {{pagerdata.CurrentPageIndex}}

@@ -1,3 +1,8 @@
-<span>
-  {{item}}
-</span>
+<th *ngIf="IsHeader()" [style.width]="width">
+  {{header}}
+</th>
+<td *ngIf="IsBody()">
+  <span>
+    {{value}}
+  </span>
+</td>

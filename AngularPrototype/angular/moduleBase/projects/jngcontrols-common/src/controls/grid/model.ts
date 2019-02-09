@@ -1,6 +1,5 @@
 export class PagerData {
     TotalRowCount: number = 0;
-    CurrentPageItemCount: number = 0;
     CurrentPageIndex: number = 0;
     PageSize: number = 0;
 }

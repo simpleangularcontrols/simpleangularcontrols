@@ -4,9 +4,9 @@ import { NgGridColumnBaseCommon } from './gridcolumnbase';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { NgBaseModelControl } from '../../common/basemodelcontrol';
 
-
-
 export abstract class NgGridCommon {
+
+  private gridColumnCount: number = 0;
 
   protected paginators: Array<any> = [];
   protected activePage: number = 1;
@@ -14,8 +14,6 @@ export abstract class NgGridCommon {
   protected firstVisibleIndex: number = 1;
   protected lastVisibleIndex;
   protected lastPageNumber: number;
-
-  protected abstract contentGridColumns(): QueryList<NgGridColumnBaseCommon>;
 
   //#region InputOutputs
 
@@ -40,4 +38,15 @@ export abstract class NgGridCommon {
     this._pagingEvent.emit(newStartIndex)
   }
 
+  public RegisterColumn() {
+    this.gridColumnCount++;
+  }
+
+  public UnregisterColumn() {
+    this.gridColumnCount--;
+  }
+
+  public GetColumnCount(): number {
+    return this.gridColumnCount;
+  }
 }

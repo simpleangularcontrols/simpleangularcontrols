@@ -1,8 +1,10 @@
 <ngGrid name='superGridName' [value]="TableData" placeholder="grid" label="imgrid" (onpaging)="pagingSkip($event)"
         [pagerdata]="pagerData">
-  <ngGridColumnAction name="editCol" field="id" (onclick)="action($event)"></ngGridColumnAction>
-  <ngGridColumnAction name="deleteCol" (onclick)="action($event)"></ngGridColumnAction>
-  <ngGridColumn name="someName14" header="Bild" field="title" width='30%'></ngGridColumn>
-  <ngGridColumn name="someName35" header="Benutzer" field="userid" width='40%'></ngGridColumn>
-  <ngGridColumn name="someName44" header="ID" field="id" width='50%'></ngGridColumn>
+  <ng-template let-row="row" let-type="type">
+    <ngGridColumnAction name="editCol" [type]="type" [value]="row" (onclick)="action($event)"></ngGridColumnAction>
+    <ngGridColumnAction name="deleteCol" [type]="type" [value]="row.id" (onclick)="action($event)"></ngGridColumnAction>
+    <ngGridColumn name="someName14" [type]="type" header="Bild" [value]="row.title" width='25%'></ngGridColumn>
+    <ngGridColumn name="someName35" [type]="type" header="Benutzer" [value]="row.userid" width='25%'></ngGridColumn>
+    <ngGridColumn name="someName44" [type]="type" header="ID" [value]="row.id"></ngGridColumn>
+  </ng-template>
 </ngGrid>

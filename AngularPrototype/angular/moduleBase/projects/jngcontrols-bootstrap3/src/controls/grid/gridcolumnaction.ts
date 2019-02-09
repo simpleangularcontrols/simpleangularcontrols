@@ -1,5 +1,6 @@
-import { Input, EventEmitter, Output, TemplateRef, Component, forwardRef } from '@angular/core';
+import { Input, EventEmitter, Output, TemplateRef, Component, forwardRef, ElementRef } from '@angular/core';
 import { NgGridColumnActionCommon, NgGridColumnBaseCommon } from '@jnetwork/jngcontrols-common';
+import { NgGrid } from './grid';
 
 @Component({
   selector: 'ngGridColumnAction,[ngGridColumnAction]',
@@ -8,8 +9,9 @@ import { NgGridColumnActionCommon, NgGridColumnBaseCommon } from '@jnetwork/jngc
 })
 export class NgGridColumnAction extends NgGridColumnActionCommon {
 
-  constructor() {
-    super();
+  constructor(grid: NgGrid, el: ElementRef) {
+    super(grid, el);
+
     this.width = "18px";
   }
 
@@ -20,6 +22,4 @@ export class NgGridColumnAction extends NgGridColumnActionCommon {
     console.log("NgGridColumnAction: callaction");
     this.clickaction.emit(parameter);
   }
-
-
 }

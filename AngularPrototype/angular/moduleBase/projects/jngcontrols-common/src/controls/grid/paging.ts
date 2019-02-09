@@ -11,6 +11,7 @@ export abstract class NgPagingCommon {
   protected totalRowCount: number = 0;
   protected pageSize: number = 25;
 
+  pagedata: PagerData;
   //#region Input and Outputs
 
   @Input("pagerdata")
@@ -19,6 +20,7 @@ export abstract class NgPagingCommon {
       this.totalRowCount = p.TotalRowCount;
       this.activePageIndex = p.CurrentPageIndex;
       this.pageSize = p.PageSize;
+      this.pagedata = p;
     }
 
     this.createPager();

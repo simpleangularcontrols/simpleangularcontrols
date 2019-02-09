@@ -6,8 +6,6 @@ import { NgGridColumn } from "./gridcolumn";
 import { NgPaging } from "./paging";
 import { NgGridColumnAction } from "./gridcolumnaction";
 
-// import { OrderService } from "./ObjektDetailService";
-
 @NgModule({
   declarations: [NgGrid, NgGridColumn, NgGridColumnAction, NgPaging],
   imports: [

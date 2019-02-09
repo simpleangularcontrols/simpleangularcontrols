@@ -1,9 +1,8 @@
-import { Component, QueryList, ContentChildren, forwardRef } from '@angular/core';
+import { Component, Directive, QueryList, ContentChildren, forwardRef, TemplateRef, ContentChild, ViewChildren, ElementRef } from '@angular/core';
 import { NgGridCommon, NgGridColumnBaseCommon, PagerData } from '@jnetwork/jngcontrols-common';
 import { NgFormular } from '../form/form';
 import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/forms';
 import { NgPaging } from './paging';
-
 
 @Component({
   selector: 'ngGrid',
@@ -16,16 +15,11 @@ import { NgPaging } from './paging';
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
 })
-
-
 export class NgGrid extends NgGridCommon {
 
-  @ContentChildren(NgGridColumnBaseCommon)
-  _columnItems: QueryList<NgGridColumnBaseCommon>;
-
-  contentGridColumns(): QueryList<NgGridColumnBaseCommon> {
-    return this._columnItems as QueryList<NgGridColumnBaseCommon>;
-  }
+  @ContentChild(TemplateRef)
+  template: TemplateRef<any>;
 
   ellipsis: boolean = false
+
 }

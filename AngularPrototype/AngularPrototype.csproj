@@ -757,6 +757,7 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\idatetimecontrol.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\public_api.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\test.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\utilities\Convertion.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\validation\index.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\validation\validators.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\app.component.spec.ts" />

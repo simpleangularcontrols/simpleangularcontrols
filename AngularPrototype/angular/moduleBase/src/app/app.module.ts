@@ -19,11 +19,14 @@ import { TokenInterceptor } from './services/TokenInterceptor';
 
 // Example Controls
 import { ExampleGrid } from './controls/grid';
+import { ExampleDialog } from './controls/dialog';
 
 // import localeDeCh from '@angular/common/locales/de-CH';
 
 const NgDirectives = [
-  AppComponent, UserComponent, ExampleGrid
+  AppComponent, UserComponent,
+
+  ExampleGrid, ExampleDialog
 ]
 
 import {
@@ -39,7 +42,8 @@ import {
   jNetworkBootstrap3TinyMceModule,
   jNetworkBootstrap3GridModule,
   // jNetworkBootstrap4StaticLabelModule,
-  jNetworkBootstrap3WizardModule
+  jNetworkBootstrap3WizardModule,
+  jNetworkBootstrap3ConfirmModule
 } from '@jnetwork/jngcontrols-bootstrap3';
 
 
@@ -73,6 +77,7 @@ import {
     jNetworkBootstrap3GridModule,
     // jNetworkBootstrap4StaticLabelModule,
     jNetworkBootstrap3WizardModule,
+    jNetworkBootstrap3ConfirmModule.forRoot(),
 
     // Third Party Modules
     TextMaskModule

@@ -48,5 +48,11 @@ export { NgWizardItemCommon } from './controls/wizard/wizarditem';
 export { NgTinyMceCommon } from './controls/tinymce/tinymce';
 export { jNetworkTinyMceEditorModule } from './controls/tinymce/tinymceeditor.module'
 
+// Confirm Service
+export * from './controls/confirm/confirm.service';
+export { NgConfirmCommon } from './controls/confirm/confirm';
+export { NgConfirmButton } from './controls/confirm/confirm.button';
+export * from './interfaces/iconfirmcomponent';
+
 // Export of Modules
 export * from './controls/list/list.module'

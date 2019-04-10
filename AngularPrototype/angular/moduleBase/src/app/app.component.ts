@@ -131,6 +131,12 @@ class formdata {
     { label: 'Option 3', value: 'o3', text: 'Text 3', checked: false, enabled: false },
     { label: 'Option 4', value: 'o4', text: 'Text 4', checked: false, enabled: true }
   ];
+
+  fieldupload1: string = null;
+  fieldupload2: string = null;
+  fieldupload3: string = null;
+  fieldupload4: string = null;
+  fieldupload5: string = null;
 }
 
 @Component({
@@ -153,6 +159,7 @@ export class AppComponent {
   @ViewChild("form2") form2: NgFormular;
   @ViewChild("formTemp") formTemp: NgFormular;
   @ViewChild("formDateTime") formDateTime: NgFormular;
+  @ViewChild("formExampleUpload") formUpload: NgFormular;
 
   changeRequired() {
     this.testrequired = !this.testrequired;
@@ -226,6 +233,12 @@ export class AppComponent {
     this.modal1 = false;
     alert(this.modal1);
   }
+
+
+  uploadFormState(): string {
+    return JSON.stringify(this.formUpload.form.errors);
+  }
+
 }
 
 

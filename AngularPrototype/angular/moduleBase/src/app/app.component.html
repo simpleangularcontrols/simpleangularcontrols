@@ -55,6 +55,20 @@
     <ngExampleDialog></ngExampleDialog>
   </ngTabItem>
 
+  <ngTabItem id="formUpload" label="Upload">
+    <ngFormular #formExampleUpload>
+      <ngValidationSummary></ngValidationSummary>
+      <ngExampleUpload name="uploader" label="Mein Bild" [(ngModel)]="values.fieldupload1" [isrequired]="true"></ngExampleUpload>
+      <ngExampleUpload name="uploader" label="Mein Bild 2" [(ngModel)]="values.fieldupload2" [isrequired]="true" [disablelabel]="true"></ngExampleUpload>
+    </ngFormular>
+    <p>
+      Model: {{ values.fieldupload1 }}
+    </p>
+    <p>
+      Valid: {{ formExampleUpload.form.valid }}
+    </p>
+  </ngTabItem>
+
   <ngTabItem id="form2" label="Input">
     <div>Example Form</div>
     <ngFormular #form2 labelsize="3">

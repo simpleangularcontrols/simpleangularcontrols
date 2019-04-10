@@ -20,13 +20,14 @@ import { TokenInterceptor } from './services/TokenInterceptor';
 // Example Controls
 import { ExampleGrid } from './controls/grid';
 import { ExampleDialog } from './controls/dialog';
+import { ExampleUpload } from './controls/upload';
 
 // import localeDeCh from '@angular/common/locales/de-CH';
 
 const NgDirectives = [
   AppComponent, UserComponent,
 
-  ExampleGrid, ExampleDialog
+  ExampleGrid, ExampleDialog, ExampleUpload
 ]
 
 import {
@@ -47,6 +48,7 @@ import {
 } from '@jnetwork/jngcontrols-bootstrap3';
 
 
+import { UploadxModule } from 'ngx-uploadx';
 
 
 
@@ -80,7 +82,8 @@ import {
     jNetworkBootstrap3ConfirmModule.forRoot(),
 
     // Third Party Modules
-    TextMaskModule
+    TextMaskModule,
+    UploadxModule
   ],
   providers: [UserService, AuthenticationService, {
     provide: HTTP_INTERCEPTORS,

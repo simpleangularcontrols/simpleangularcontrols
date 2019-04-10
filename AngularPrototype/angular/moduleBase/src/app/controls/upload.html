@@ -1,0 +1,68 @@
+<div class="form-group">
+  <label for="{{_name}}" class="control-label" [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only']" [class.required]="_isrequired">{{_label}}</label>
+  <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
+
+    <div class="input-group upload-component">
+      <div class="input-group-btn">
+        <!-- image-preview-input -->
+        <div class="btn btn-default upload-input" [class.disabled]="HasQueueItem()">
+          <i class="glyphicon glyphicon-folder-open"></i>
+          <span class="upload-browse">Browse</span>
+          <input type="file" class="custom-file-input" [uploadx]="options" #files (click)="files.value = ''" [uploadxAction]="control" (uploadxState)="onUpload($event)" multiple [disabled]="HasQueueItem()">
+        </div>
+      </div>
+      <div class="form-control upload-progress">
+        <div class="progress">
+          <div class="progress-bar" [class.progress-bar-success]="Progress()===100" role="progressbar" [attr.aria-valuenow]="Progress()"
+               aria-valuemin="0" aria-valuemax="100" [style.width.%]="Progress()">
+            <span>{{ Filename() }}</span>
+          </div>
+        </div>
+      </div>
+      <!-- <input type="textimage-preview-filename" class="form-control image-preview-filename" disabled="disabled"> --><!-- don't give a name === doesn't send on POST/GET -->
+      <div class="input-group-btn">
+        <!-- image-preview-clear button -->
+        <a class="btn btn-default" (click)="cancelAll()" [attr.disabled]="HasQueueItem() === false ? 'disabled' : null">
+          <span class="glyphicon glyphicon-remove"></span>
+        </a>
+        <a class="btn btn-default" (click)="pauseAll()" [attr.disabled]="IsUploading() === false ? 'disabled' : null">
+          <span class="glyphicon glyphicon-pause"></span>
+        </a>
+        <a class="btn btn-default" (click)="uploadAll()" [attr.disabled]="IsStateToUpload() === false ?  'disabled' : null">
+          <span class="glyphicon glyphicon-upload"></span> Upload
+        </a>
+      </div>
+    </div>
+
+    <!--
+    <span class="btn btn-default fileinput-button">
+      <i class="glyphicon glyphicon-plus"></i>
+      <span>Add Files ...</span>
+      <input type="file" class="custom-file-input" id="inputGroupFile01" [uploadx]="options" #files (click)="files.value = ''" [uploadxAction]="control" (uploadxState)="onUpload($event)" multiple style="display: none;">
+    </span>
+
+    <a class="btn btn-default" (click)="uploadAll()">Upload</a>
+    <a class="btn btn-default" (click)="cancelAll()">Cancel All</a>
+    <a class="btn btn-default" (click)="pauseAll()">Pause All</a>
+    -->
+  </div>
+</div>
+<!--
+  <div class="uploads-table">
+    <div class="row" *ngFor="let ufile of uploads">
+      <span class="col-1">{{ ufile.name }}</span>
+      <span class="col-2">{{ ufile.progress }}%</span>
+      <span class="col-2">{{ ufile.status }}</span>
+      <span class="col-3 btn-row">
+        <a class="btn btn-default" (click)="cancel(ufile.uploadId)">cancel</a>
+        <a class="btn btn-default" (click)="pause(ufile.uploadId)">pause</a>
+        <a class="btn btn-default" (click)="upload(ufile.uploadId)">upload</a>
+      </span>
+    </div>
+  </div>
+
+<h2>Debug</h2>
+<div class="json">
+  <pre>{{state | async | json}}</pre>
+</div>
+ -->

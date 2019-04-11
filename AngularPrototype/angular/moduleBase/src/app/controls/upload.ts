@@ -1,13 +1,12 @@
-import { Component, EventEmitter, Host, forwardRef, Injector } from '@angular/core';
-import { UploadxControlEvent, UploadxOptions, UploadState } from 'ngx-uploadx';
+import { Component, EventEmitter, Host, forwardRef, Injector, ViewChild, Input, Output } from '@angular/core';
+import { OnInit, OnDestroy, ElementRef, Renderer2, ContentChild } from '@angular/core';
+import { UploadxControlEvent, UploadxOptions, UploadState, UploadxService } from 'ngx-uploadx';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { NgUploadCommon } from '@jnetwork/jngcontrols-common';
 import { NgFormular } from '@jnetwork/jngcontrols-bootstrap3';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
-import { ValidationErrors } from '@angular/forms';
-import { AbstractControl } from '@angular/forms';
-import { Input } from '@angular/core';
+import { ValidationErrors, AbstractControl } from '@angular/forms';
 import { Validation } from '@jnetwork/jngcontrols-common';
 
 export class Ufile {
@@ -36,17 +35,48 @@ export class Ufile {
   viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
 
 })
-export class ExampleUpload extends NgUploadCommon {
-  control: UploadxControlEvent;
+export class ExampleUpload extends NgUploadCommon implements OnInit, OnDestroy {
   uploads: Ufile[];
-  options: UploadxOptions;
-  private ngUnsubscribe: Subject<any> = new Subject();
+  private options: UploadxOptions;
+  private uploadService: UploadxService;
+  private _allowedtypes: string = "*";
+  private _autoupload: boolean = false;
+
+  @Input("allowedtypes")
+  set allowedtypes(types: string) {
+    this._allowedtypes = types;
+    this.setAllowedTypes(types);
+  }
+  get allowedtypes(): string {
+    return this._allowedtypes;
+  }
+
+  @Input("autoupload")
+  set autoupload(v: boolean) {
+    this._autoupload = v;
+    this.options.autoUpload = v;
+    this.uploadService.connect(this.options);
+  }
+  get autoupload(): boolean {
+    return this._autoupload;
+  }
+
+  @Input("maxfilesize") maxfilesize: number = 0;
+
+  @Output("fileerror") onfileerror = new EventEmitter<string>();
+
+  // File Input Control
+  @ViewChild("files")
+  private uploadInput: ElementRef;
+  // Listener für Files
+  listenerFn: () => void;
 
   /**
    * Constructor
    */
-  constructor( @Host() parent: NgFormular, injector: Injector) {
+  constructor( @Host() parent: NgFormular, injector: Injector, private renderer: Renderer2) {
     super(parent, injector);
+
     this.uploads = [];
     this.options = {
       concurrency: 1,
@@ -55,18 +85,39 @@ export class ExampleUpload extends NgUploadCommon {
       allowedTypes: '*',
       url: '/services/api/upload/register',
       token: 'someToken',
-      autoUpload: false,
+      autoUpload: this._autoupload,
       withCredentials: true,
       chunkSize: 1024 * 16 * 8,
       headers: (f: File) => ({
         'Content-Disposition': `filename=${encodeURI(f.name)}`
       })
     };
+
+    // Init new Service Instance
+    this.uploadService = new UploadxService();
+    this.uploadService.init(this.options);
+
+    // Subscripe Event for State changes
+    this.uploadService.events.subscribe((ufile: UploadState) => this.onUpload(ufile));
   }
 
+  /**
+   * Initialisiert das Control
+   */
+  ngOnInit() {
+    super.ngOnInit();
+    // Init Event Listener for Input File Control and Handling Files
+    this.listenerFn = this.renderer.listen(this.uploadInput.nativeElement, 'change', this.fileListener);
+    this.setAllowedTypes(this._allowedtypes);
+  }
+
+  /**
+   * Destroy des Controls
+   */
   ngOnDestroy() {
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
+    if (this.listenerFn) {
+      this.listenerFn();
+    }
   }
 
   //#region Properties
@@ -83,7 +134,7 @@ export class ExampleUpload extends NgUploadCommon {
    */
   cancelAll() {
     if (this.HasQueueItem() === true)
-      this.control = { action: 'cancelAll' };
+      this.uploadService.control({ action: 'cancelAll' });
   }
 
   /**
@@ -91,7 +142,7 @@ export class ExampleUpload extends NgUploadCommon {
    */
   uploadAll() {
     if (this.IsStateToUpload() === true)
-      this.control = { action: 'uploadAll' };
+      this.uploadService.control({ action: 'uploadAll' });
   }
 
   /**
@@ -99,7 +150,7 @@ export class ExampleUpload extends NgUploadCommon {
    */
   pauseAll() {
     if (this.IsUploading() === true)
-      this.control = { action: 'pauseAll' };
+      this.uploadService.control({ action: 'pauseAll' });
   }
 
   //#endregion
@@ -111,7 +162,7 @@ export class ExampleUpload extends NgUploadCommon {
    * @param uploadId ID of File to cancel
    */
   cancel(uploadId) {
-    this.control = { action: 'cancel', uploadId };
+    this.uploadService.control({ action: 'cancel', uploadId: uploadId });
   }
 
 
@@ -120,7 +171,7 @@ export class ExampleUpload extends NgUploadCommon {
    * @param uploadId ID of File to Cancel
    */
   pause(uploadId) {
-    this.control = { action: 'pause', uploadId };
+    this.uploadService.control({ action: 'pause', uploadId });
   }
 
   /**
@@ -129,7 +180,7 @@ export class ExampleUpload extends NgUploadCommon {
    * @param uploadId ID of File to Upload
    */
   upload(uploadId) {
-    this.control = { action: 'upload', uploadId };
+    this.uploadService.control({ action: 'upload', uploadId });
   }
 
   //#endregion
@@ -146,6 +197,10 @@ export class ExampleUpload extends NgUploadCommon {
 
   IsUploading(): boolean {
     return this.uploads.filter(itm => itm.status == 'uploading').length > 0;
+  }
+
+  IsPaused(): boolean {
+    return this.uploads.filter(itm => itm.status == 'paused').length > 0;
   }
 
   Filename(): string {
@@ -190,33 +245,87 @@ export class ExampleUpload extends NgUploadCommon {
   //#endregion
 
   /**
+   * Setzt die erlaubten Datentypen für den Upload
+   * 
+   * @param types Erlaubte File Extensions
+   */
+  private setAllowedTypes(types: string) {
+    this.renderer.setAttribute(this.uploadInput.nativeElement, "accept", types);
+    this.options.allowedTypes = types;
+  }
+
+  /**
+   * Prüft ob die Dateierweiterung gültig ist
+   * 
+   * @param filename Dateiname
+   */
+  private isExtensionValid(filename: string): boolean {
+
+    if (this._allowedtypes === "*")
+      return true;
+
+    let isValid: boolean = false;
+    let extensions: string[] = this._allowedtypes.split('|');
+
+    extensions.forEach(itm => {
+      if (filename.endsWith(itm))
+        isValid = true;
+    });
+
+    return isValid;
+  }
+
+  /**
+   * Prüft ob das File nicht zu gross ist.
+   * 
+   * @param filesize Max File Size in Bytes
+   */
+  private isFileSizeValid(filesize: number): boolean {
+    if (this.maxfilesize === 0)
+      return true;
+
+    return this.maxfilesize >= filesize
+  }
+
+  /**
    * Upload Event
    * 
    * @param uploadsOutStream Upload Item
    */
-  onUpload(uploadsOutStream: Observable<UploadState>) {
+  onUpload(ufile: UploadState) {
+    const index = this.uploads.findIndex(f => f.uploadId === ufile.uploadId);
 
-    uploadsOutStream
-      .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe((ufile: UploadState) => {
+    if (ufile.status === 'added') {
+      if (this.isExtensionValid(ufile.name) && this.isFileSizeValid(ufile.size)) {
+        this.uploads.push(new Ufile(ufile));
+      } else {
+        this.cancel(ufile.uploadId);
 
-        const index = this.uploads.findIndex(f => f.uploadId === ufile.uploadId);
-
-        if (ufile.status === 'added') {
-          this.uploads.push(new Ufile(ufile));
-        } else if (ufile.status === 'cancelled') {
-          this.uploads.splice(index, 1);
-          super.setValue(null);
-        }
-        else if (ufile.status === 'complete') {
-          this.uploads[index].progress = ufile.progress;
-          this.uploads[index].status = ufile.status;
-          super.setValue(ufile.uploadId);
-        } else {
-          this.uploads[index].progress = ufile.progress;
-          this.uploads[index].status = ufile.status;
-        }
-      });
+        if (!this.isExtensionValid(ufile.name))
+          this.onfileerror.emit("INVALID_EXTENSION");
+        else if (!this.isFileSizeValid(ufile.size))
+          this.onfileerror.emit("INVALID_FILESIZE");
+      }
+    } else if (ufile.status === 'cancelled') {
+      this.uploads.splice(index, 1);
+      super.setValue(null);
+    }
+    else if (ufile.status === 'complete') {
+      this.uploads[index].progress = ufile.progress;
+      this.uploads[index].status = ufile.status;
+      super.setValue(ufile.uploadId);
+    } else {
+      this.uploads[index].progress = ufile.progress;
+      this.uploads[index].status = ufile.status;
+    }
   }
 
+  /**
+   * Handling von neuen Files im Input Control
+   */
+  fileListener = () => {
+    if (this.uploadInput.nativeElement.files) {
+      this.uploadService.handleFileList(this.uploadInput.nativeElement.files);
+    }
+  };
 }

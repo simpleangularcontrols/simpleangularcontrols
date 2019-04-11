@@ -58,8 +58,11 @@
   <ngTabItem id="formUpload" label="Upload">
     <ngFormular #formExampleUpload>
       <ngValidationSummary></ngValidationSummary>
-      <ngExampleUpload name="uploader" label="Mein Bild" [(ngModel)]="values.fieldupload1" [isrequired]="true"></ngExampleUpload>
-      <ngExampleUpload name="uploader" label="Mein Bild 2" [(ngModel)]="values.fieldupload2" [isrequired]="true" [disablelabel]="true"></ngExampleUpload>
+      <ngExampleUpload name="uploader" label="Mein Bild 1" [(ngModel)]="values.fieldupload1" [isrequired]="true"></ngExampleUpload>
+      <ngExampleUpload name="uploader" label="Mein Bild 2" [(ngModel)]="values.fieldupload2" [disablelabel]="true"></ngExampleUpload>
+      <ngExampleUpload name="uploader" label="Mein Bild 3" [(ngModel)]="values.fieldupload3" allowedtypes=".pdf"></ngExampleUpload>
+      <ngExampleUpload name="uploader" label="Mein Bild 4" [(ngModel)]="values.fieldupload4" maxfilesize="200000"></ngExampleUpload>
+      <ngExampleUpload name="uploader" label="Mein Bild 5" [(ngModel)]="values.fieldupload5" [autoupload]="true"></ngExampleUpload>
     </ngFormular>
     <p>
       Model: {{ values.fieldupload1 }}

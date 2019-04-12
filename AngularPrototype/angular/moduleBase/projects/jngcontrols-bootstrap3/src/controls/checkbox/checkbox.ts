@@ -1,8 +1,8 @@
-import { Component, Host,  forwardRef, Injector } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlContainer,  NG_VALIDATORS } from '@angular/forms';
+import { Component, Host, forwardRef, Injector } from '@angular/core';
+import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
 // import { NgBaseModelControl } from '../../common/basemodelcontrol';
 import { NgCheckboxCommon } from '@jnetwork/jngcontrols-common';
-import {  NgFormular } from '../form/form';
+import { NgFormular } from '../form/form';
 
 
 @Component({
@@ -17,7 +17,7 @@ import {  NgFormular } from '../form/form';
   viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
 })
 export class NgCheckbox extends NgCheckboxCommon {
-  constructor(@Host() parent: NgFormular, injector: Injector) {
+  constructor( @Host() parent: NgFormular, injector: Injector) {
     super(parent, injector);
   }
 }

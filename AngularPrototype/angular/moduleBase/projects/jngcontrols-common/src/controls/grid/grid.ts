@@ -22,9 +22,12 @@ export abstract class NgGridCommon {
 
   @Input('pagerdata')
   public pagerdata: any
-  
+
   @Input("name")
   public name: string
+
+  @Input("emptytext")
+  public _emptytext: string
 
   @Input("maxvisiblepagenumbers") _maxvisiblepagenumbers: number;
   @Input("headers") _headers: TemplateRef<any>;
@@ -32,7 +35,12 @@ export abstract class NgGridCommon {
 
   @Output("onpaging") _pagingEvent: EventEmitter<any> = new EventEmitter();
 
+  @Output("onsorting") _sortingevent: EventEmitter<any> = new EventEmitter()
+
   //#endregion
+
+  private sortingFlow: string = "ascending"
+  private oldChosenHeader: string
 
   pagingSkipGrid(newStartIndex) {
     this._pagingEvent.emit(newStartIndex)
@@ -48,5 +56,19 @@ export abstract class NgGridCommon {
 
   public GetColumnCount(): number {
     return this.gridColumnCount;
+  }
+
+  public sortBy(command) {
+    if (command == this.oldChosenHeader) {
+      if (this.sortingFlow == "ascending") {
+        this.sortingFlow = "descending"
+      } else {
+        this.sortingFlow = "ascending"
+      }
+    } else {
+      this.sortingFlow = "ascending"
+    }
+    this._sortingevent.emit({ command, flow: this.sortingFlow })
+    this.oldChosenHeader = command
   }
 }

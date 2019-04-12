@@ -12,6 +12,14 @@ export abstract class NgInputBase<VALUE> extends NgBaseModelControl<VALUE> {
   @Input("placeholder") _placeholder: string = null;
   // Erlaubte Zeichen bei der Eingabe
   @Input("allowedchars") _allowedchars: string = '';
+  // Macht das Input readonly
+  @Input("readonly") _readonly: boolean = false;
+  // Definiert das Feld als valid/invalid von eingegebenen regex-pattern
+  @Input("pattern") _pattern: string
+  /**
+   * Text welcher als Tooltip angezeigt wird.
+   */
+  @Input("tooltiptext") _tooltiptext: string = '';
 
 
   // #endregion

@@ -37,12 +37,6 @@ export class NgDialogCommon {
   @Input("backdrop")
   public _backdrop: boolean = true;
 
-  /**
-   * Steuert ob im Header des Dialogs ein Button angezeigt wird.
-   */
-  @Input("closebutton")
-  public closebutton: boolean = true;
-
   @Input("isvisible")
   set visible(v: boolean) {
     this._show = v;
@@ -50,7 +44,16 @@ export class NgDialogCommon {
 
   @Input("name")
   public _name: string = "";
-  
+
+  /**
+ * Steuert ob im Header des Dialogs ein Button angezeigt wird.
+ */
+  @Input("closebutton")
+  public closebutton: boolean = true;
+
+  @Input("width")
+  public width: string = null;
+
   @Output("isvisibleChange")
   isVisibleEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 

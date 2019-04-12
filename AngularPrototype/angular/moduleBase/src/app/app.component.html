@@ -6,226 +6,237 @@
 
 <ngTab>
   <ngTabItem id="login" label="Login">
-    <ngUserComponent></ngUserComponent>
+    <ng-template>
+      <ngUserComponent></ngUserComponent>
+    </ng-template>
   </ngTabItem>
 
 
   <ngTabItem id="form1" label="Form 1">
+    <ng-template>
+      <ngFormular #form>
+        <ngInput name="testname1a" label="Eingabe 1" [(ngModel)]="testname1" [isrequired]="testrequired"></ngInput>
+      </ngFormular>
 
-    <ngFormular #form>
-      <ngInput name="testname1a" label="Eingabe 1" [(ngModel)]="testname1" [isrequired]="testrequired"></ngInput>
-    </ngFormular>
+      <ngFormular #myform>
+        <ngValidationSummary></ngValidationSummary>
 
-    <ngFormular #myform>
-      <ngValidationSummary></ngValidationSummary>
-
-      <ngInput name="testname1" label="Eingabe 1" [(ngModel)]="testname1" [isrequired]="testrequired"></ngInput>
-      <ngInput name="testname2" label="Eingabe 2" [(ngModel)]="testname2" isrequired="true"></ngInput>
-      <ngInput name="testname3" label="Eingabe 3" [(ngModel)]="testname3"></ngInput>
-      <ngInput name="testname4" label="Eingabe 4" value="Wert 1"></ngInput>
-      <ngInput name="testname5" label="Eingabe 5" labelsize="4" ngModel></ngInput>
-      <ngButton name="saveform" text="Speichern"></ngButton>
-      <ngButton name="saveform2" text="Speichern" [isdisabled]="myform.form.invalid">Submit</ngButton>
-      <ngButton name="saveform3" text="Speichern" (click)="onSubmit()">Submit</ngButton>
-    </ngFormular>
-
+        <ngInput name="testname1" label="Eingabe 1" [(ngModel)]="testname1" [isrequired]="testrequired"></ngInput>
+        <ngInput name="testname2" label="Eingabe 2" [(ngModel)]="testname2" isrequired="true"></ngInput>
+        <ngInput name="testname3" label="Eingabe 3" [(ngModel)]="testname3"></ngInput>
+        <ngInput name="testname4" label="Eingabe 4" value="Wert 1"></ngInput>
+        <ngInput name="testname5" label="Eingabe 5" labelsize="4" ngModel></ngInput>
+        <ngButton name="saveform" text="Speichern"></ngButton>
+        <ngButton name="saveform2" text="Speichern" [isdisabled]="myform.form.invalid">Submit</ngButton>
+        <ngButton name="saveform3" text="Speichern" (click)="onSubmit()">Submit</ngButton>
+      </ngFormular>
+    </ng-template>
   </ngTabItem>
 
   <ngTabItem id="formTemp" label="Temp">
+    <ng-template>
+      <div>Example Form</div>
+      <ngFormular #formTemp labelsize="3">
+        <ngValidationSummary></ngValidationSummary>
 
-    <div>Example Form</div>
-    <ngFormular #formTemp labelsize="3">
-      <ngValidationSummary></ngValidationSummary>
+        <ngRadiobuttons name="radiobuttons3" label="Radiobuttons 1" [(ngModel)]="values.radiobuttons1">
+          <ngRadiobutton name="rb1" value="1" label="Wert 1"></ngRadiobutton>
+          <ngRadiobutton name="rb2" value="2" label="Wert 2"></ngRadiobutton>
+          <ngRadiobutton name="rb3" value="3" label="Wert 3"></ngRadiobutton>
+        </ngRadiobuttons>
 
-      <ngRadiobuttons name="radiobuttons3" label="Radiobuttons 1" [(ngModel)]="values.radiobuttons1">
-        <ngRadiobutton name="rb1" value="1" label="Wert 1"></ngRadiobutton>
-        <ngRadiobutton name="rb2" value="2" label="Wert 2"></ngRadiobutton>
-        <ngRadiobutton name="rb3" value="3" label="Wert 3"></ngRadiobutton>
-      </ngRadiobuttons>
+        <ngButton name="setDisabledState2" text="Set Disabled" (onclick)="formTemp.form.form.disabled ? formTemp.form.form.enable() : formTemp.form.form.disable()"></ngButton>
 
-      <ngButton name="setDisabledState2" text="Set Disabled" (onclick)="formTemp.form.form.disabled ? formTemp.form.form.enable() : formTemp.form.form.disable()"></ngButton>
+        <ngButton name="fButton1" text="Speichern" [isdisabled]="formTemp.form.invalid" (onclick)="t3Save()"></ngButton>
 
-      <ngButton name="fButton1" text="Speichern" [isdisabled]="formTemp.form.invalid" (onclick)="t3Save()"></ngButton>
-
-    </ngFormular>
-
+      </ngFormular>
+    </ng-template>
   </ngTabItem>
 
   <ngTabItem id="formDialog" label="Dialog">
-    <ngExampleDialog></ngExampleDialog>
+    <ng-template>
+      <ngExampleDialog></ngExampleDialog>
+    </ng-template>
   </ngTabItem>
 
   <ngTabItem id="formUpload" label="Upload">
-    <ngFormular #formExampleUpload>
-      <ngValidationSummary></ngValidationSummary>
-      <ngExampleUpload name="uploader" label="Mein Bild 1" [(ngModel)]="values.fieldupload1" [isrequired]="true"></ngExampleUpload>
-      <ngExampleUpload name="uploader" label="Mein Bild 2" [(ngModel)]="values.fieldupload2" [disablelabel]="true"></ngExampleUpload>
-      <ngExampleUpload name="uploader" label="Mein Bild 3" [(ngModel)]="values.fieldupload3" allowedtypes=".pdf"></ngExampleUpload>
-      <ngExampleUpload name="uploader" label="Mein Bild 4" [(ngModel)]="values.fieldupload4" maxfilesize="200000"></ngExampleUpload>
-      <ngExampleUpload name="uploader" label="Mein Bild 5" [(ngModel)]="values.fieldupload5" [autoupload]="true"></ngExampleUpload>
-    </ngFormular>
-    <p>
-      Model: {{ values.fieldupload1 }}
-    </p>
-    <p>
-      Valid: {{ formExampleUpload.form.valid }}
-    </p>
+    <ng-template>
+      <ngFormular #formExampleUpload>
+        <ngValidationSummary></ngValidationSummary>
+        <ngExampleUpload name="uploader" label="Mein Bild 1" [(ngModel)]="values.fieldupload1" [isrequired]="true"></ngExampleUpload>
+        <ngExampleUpload name="uploader" label="Mein Bild 2" [(ngModel)]="values.fieldupload2" [disablelabel]="true"></ngExampleUpload>
+        <ngExampleUpload name="uploader" label="Mein Bild 3" [(ngModel)]="values.fieldupload3" allowedtypes=".pdf"></ngExampleUpload>
+        <ngExampleUpload name="uploader" label="Mein Bild 4" [(ngModel)]="values.fieldupload4" maxfilesize="200000"></ngExampleUpload>
+        <ngExampleUpload name="uploader" label="Mein Bild 5" [(ngModel)]="values.fieldupload5" [autoupload]="true"></ngExampleUpload>
+      </ngFormular>
+      <p>
+        Model: {{ values.fieldupload1 }}
+      </p>
+      <p>
+        Valid: {{ formExampleUpload.form.valid }}
+      </p>
+    </ng-template>
   </ngTabItem>
 
   <ngTabItem id="form2" label="Input">
-    <div>Example Form</div>
-    <ngFormular #form2 labelsize="3">
-      <ngValidationSummary></ngValidationSummary>
+    <ng-template>
+      <div>Example Form</div>
+      <ngFormular #form2 labelsize="3">
+        <ngValidationSummary></ngValidationSummary>
 
-      <ngInput name="field1" label="Feld 1" labelsize="2" isrequired="true" [(ngModel)]="values.field1"></ngInput>
-      <ngInput name="field2" disablelabel="true" [(ngModel)]="values.field2"></ngInput>
-      <ngInput name="field3" label="Feld 3" labelsize="4" [(ngModel)]="values.field3"></ngInput>
-      <ngInput name="field4" label="Feld 4" [(ngModel)]="values.field4"></ngInput>
-      <ngInput name="field5" label="Feld 5" placeholder="Feld 5" [(ngModel)]="values.field5"></ngInput>
-      <ngInput name="field6" label="Feld 6 (Max 10)" [(ngModel)]="values.field6" [maxlength]="10"></ngInput>
-      <ngInput name="field7" label="Feld 7" [(ngModel)]="values.field7" disabled="true"></ngInput>
+        <ngInput name="field1" label="Feld 1" labelsize="2" isrequired="true" [(ngModel)]="values.field1"></ngInput>
+        <ngInput name="field2" disablelabel="true" [(ngModel)]="values.field2"></ngInput>
+        <ngInput name="field3" label="Feld 3" labelsize="4" [(ngModel)]="values.field3"></ngInput>
+        <ngInput name="field4" label="Feld 4" [(ngModel)]="values.field4"></ngInput>
+        <ngInput name="field5" label="Feld 5" placeholder="Feld 5" [(ngModel)]="values.field5"></ngInput>
+        <ngInput name="field6" label="Feld 6 (Max 10)" [(ngModel)]="values.field6" [maxlength]="10"></ngInput>
+        <ngInput name="field7" label="Feld 7" [(ngModel)]="values.field7" disabled="true"></ngInput>
 
-      <ngInputDecimal name="fieldd1" label="Decimal 1 (Decimal)" [(ngModel)]="values.fieldd1"></ngInputDecimal>
-      <ngInputDecimal name="fieldd2" label="Decimal 2 (Decimal with Negativ)" [(ngModel)]="values.fieldd2" [allownegativ]="true"></ngInputDecimal>
-      <ngInputDecimal name="fieldd3" label="Decimal 3 (Decimal with Negativ (10-20))" [(ngModel)]="values.fieldd3" [allownegativ]="true" isrequired="true" [minvalue]="10" [maxvalue]="20"></ngInputDecimal>
-      <ngInputDecimal name="fieldd4" label="Decimal 4 (Decimal)" [(ngModel)]="values.fieldd1" disabled="true"></ngInputDecimal>
+        <ngInputDecimal name="fieldd1" label="Decimal 1 (Decimal)" [(ngModel)]="values.fieldd1"></ngInputDecimal>
+        <ngInputDecimal name="fieldd2" label="Decimal 2 (Decimal with Negativ)" [(ngModel)]="values.fieldd2" [allownegativ]="true"></ngInputDecimal>
+        <ngInputDecimal name="fieldd3" label="Decimal 3 (Decimal with Negativ (10-20))" [(ngModel)]="values.fieldd3" [allownegativ]="true" isrequired="true" [minvalue]="10" [maxvalue]="20"></ngInputDecimal>
+        <ngInputDecimal name="fieldd4" label="Decimal 4 (Decimal)" [(ngModel)]="values.fieldd1" disabled="true"></ngInputDecimal>
 
-      <ngInputInteger name="fieldi1" label="Integer 1 (Integer)" [(ngModel)]="values.fieldi1"></ngInputInteger>
-      <ngInputInteger name="fieldi2" label="Integer 2 (Integer with Negativ)" [(ngModel)]="values.fieldi2" [allownegativ]="true"></ngInputInteger>
-      <ngInputInteger name="fieldi3" label="Integer 3 (Integer with Negativ (10-20))" [(ngModel)]="values.fieldi3" [allownegativ]="true" isrequired="true" [minvalue]="10" [maxvalue]="20"></ngInputInteger>
-      <ngInputInteger name="fieldi4" label="Integer 1 (Integer)" [(ngModel)]="values.fieldi1" disabled="true"></ngInputInteger>
-
-
-      <ngInputCurrency name="fieldcurrency1" label="Preis" [(ngModel)]="values.fieldcurrency1"></ngInputCurrency>
-      <ngInputCurrency name="fieldcurrency2" label="Preis" [(ngModel)]="values.fieldcurrency2" disabled="true"></ngInputCurrency>
-
-      <ngInputEmail name="fieldemail1" label="E-Mail 1" [(ngModel)]="values.fieldemail1"></ngInputEmail>
-      <ngInputEmail name="fieldemail2" label="E-Mail 2 (Max 10)" [(ngModel)]="values.fieldemail2" [maxlength]="10"></ngInputEmail>
-      <ngInputEmail name="fieldemail3" label="E-Mail 3" [(ngModel)]="values.fieldemail3" disabled="true"></ngInputEmail>
-
-      <ngInputPassword name="fieldpassword1" label="Passwort 1" [(ngModel)]="values.fieldpassword1"></ngInputPassword>
-      <ngInputPassword name="fieldpassword2" label="Passwort 2" [(ngModel)]="values.fieldpassword2"></ngInputPassword>
-      <ngInputPassword name="fieldpassword3" label="Passwort 3 (Max 10)" [(ngModel)]="values.fieldpassword3" [maxlength]="10"></ngInputPassword>
-      <ngInputPassword name="fieldpassword4" label="Passwort 4" [(ngModel)]="values.fieldpassword4" disabled="disabled"></ngInputPassword>
+        <ngInputInteger name="fieldi1" label="Integer 1 (Integer)" [(ngModel)]="values.fieldi1"></ngInputInteger>
+        <ngInputInteger name="fieldi2" label="Integer 2 (Integer with Negativ)" [(ngModel)]="values.fieldi2" [allownegativ]="true"></ngInputInteger>
+        <ngInputInteger name="fieldi3" label="Integer 3 (Integer with Negativ (10-20))" [(ngModel)]="values.fieldi3" [allownegativ]="true" isrequired="true" [minvalue]="10" [maxvalue]="20"></ngInputInteger>
+        <ngInputInteger name="fieldi4" label="Integer 1 (Integer)" [(ngModel)]="values.fieldi1" disabled="true"></ngInputInteger>
 
 
-      <ngInputArea name="fieldarea1" label="Area 1" [(ngModel)]="values.fieldarea1"></ngInputArea>
-      <ngInputArea name="fieldarea2" label="Area 2" [(ngModel)]="values.fieldarea2" isrequired="true" rows="10"></ngInputArea>
-      <ngInputArea name="fieldarea3" label="Area 3 (Max 50)" [(ngModel)]="values.fieldarea3" maxlength="50"></ngInputArea>
-      <ngInputArea name="fieldarea4" label="Area 4" [(ngModel)]="values.fieldarea4" disabled="true"></ngInputArea>
+        <ngInputCurrency name="fieldcurrency1" label="Preis" [(ngModel)]="values.fieldcurrency1"></ngInputCurrency>
+        <ngInputCurrency name="fieldcurrency2" label="Preis" [(ngModel)]="values.fieldcurrency2" disabled="true"></ngInputCurrency>
 
-      <ngCheckbox name="checkbox1" label="Checkbox 1" [(ngModel)]="values.checkbox1"></ngCheckbox>
-      <ngCheckbox name="checkbox2" label="Checkbox 2" labelsize="2" [(ngModel)]="values.checkbox2"></ngCheckbox>
-      <ngCheckbox name="checkbox3" label="Checkbox 3" disablelabel="true" [(ngModel)]="values.checkbox3"></ngCheckbox>
-      <ngCheckbox name="checkbox4" label="Checkbox 4" [(ngModel)]="values.checkbox4" disabled="true"></ngCheckbox>
+        <ngInputEmail name="fieldemail1" label="E-Mail 1" [(ngModel)]="values.fieldemail1"></ngInputEmail>
+        <ngInputEmail name="fieldemail2" label="E-Mail 2 (Max 10)" [(ngModel)]="values.fieldemail2" [maxlength]="10"></ngInputEmail>
+        <ngInputEmail name="fieldemail3" label="E-Mail 3" [(ngModel)]="values.fieldemail3" disabled="true"></ngInputEmail>
 
-      <ngRadiobuttons name="radiobuttons1" label="Radiobuttons 1" [(ngModel)]="values.radiobuttons1">
-        <ngRadiobutton name="rb1" value="1" label="Wert 1"></ngRadiobutton>
-        <ngRadiobutton name="rb2" value="2" label="Wert 2"></ngRadiobutton>
-        <ngRadiobutton name="rb3" value="3" label="Wert 3"></ngRadiobutton>
-      </ngRadiobuttons>
-
-      <ngRadiobuttons name="radiobuttons2" label="Radiobuttons 2" [(ngModel)]="values.radiobuttons2">
-        <ngRadiobutton name="rb1" value="1" label="Wert 1"></ngRadiobutton>
-        <ngRadiobutton name="rb2" value="2" label="Wert 2"></ngRadiobutton>
-        <ngRadiobutton name="rb3" value="3" label="Wert 3"></ngRadiobutton>
-      </ngRadiobuttons>
+        <ngInputPassword name="fieldpassword1" label="Passwort 1" [(ngModel)]="values.fieldpassword1"></ngInputPassword>
+        <ngInputPassword name="fieldpassword2" label="Passwort 2" [(ngModel)]="values.fieldpassword2"></ngInputPassword>
+        <ngInputPassword name="fieldpassword3" label="Passwort 3 (Max 10)" [(ngModel)]="values.fieldpassword3" [maxlength]="10"></ngInputPassword>
+        <ngInputPassword name="fieldpassword4" label="Passwort 4" [(ngModel)]="values.fieldpassword4" disabled="disabled"></ngInputPassword>
 
 
-      <div class="form-row form-group">
-        <ngButton name="radio1Add" text="Add Radiobutton" (onclick)="radio1Add()"></ngButton>
-        <ngButton name="radio1Remove" text="Remove Radiobutton" (onclick)="radio1Remove()"></ngButton>
-        <ngButton name="radio1ChangeProperty" text="Change Property" (onclick)="radio1ChangeProperty()"></ngButton>
-      </div>
+        <ngInputArea name="fieldarea1" label="Area 1" [(ngModel)]="values.fieldarea1"></ngInputArea>
+        <ngInputArea name="fieldarea2" label="Area 2" [(ngModel)]="values.fieldarea2" isrequired="true" rows="10"></ngInputArea>
+        <ngInputArea name="fieldarea3" label="Area 3 (Max 50)" [(ngModel)]="values.fieldarea3" maxlength="50"></ngInputArea>
+        <ngInputArea name="fieldarea4" label="Area 4" [(ngModel)]="values.fieldarea4" disabled="true"></ngInputArea>
+
+        <ngCheckbox name="checkbox1" label="Checkbox 1" [(ngModel)]="values.checkbox1"></ngCheckbox>
+        <ngCheckbox name="checkbox2" label="Checkbox 2" labelsize="2" [(ngModel)]="values.checkbox2"></ngCheckbox>
+        <ngCheckbox name="checkbox3" label="Checkbox 3" disablelabel="true" [(ngModel)]="values.checkbox3"></ngCheckbox>
+        <ngCheckbox name="checkbox4" label="Checkbox 4" [(ngModel)]="values.checkbox4" disabled="true"></ngCheckbox>
+
+        <ngRadiobuttons name="radiobuttons1" label="Radiobuttons 1" [(ngModel)]="values.radiobuttons1">
+          <ngRadiobutton name="rb1" value="1" label="Wert 1"></ngRadiobutton>
+          <ngRadiobutton name="rb2" value="2" label="Wert 2"></ngRadiobutton>
+          <ngRadiobutton name="rb3" value="3" label="Wert 3"></ngRadiobutton>
+        </ngRadiobuttons>
+
+        <ngRadiobuttons name="radiobuttons2" label="Radiobuttons 2" [(ngModel)]="values.radiobuttons2">
+          <ngRadiobutton name="rb1" value="1" label="Wert 1"></ngRadiobutton>
+          <ngRadiobutton name="rb2" value="2" label="Wert 2"></ngRadiobutton>
+          <ngRadiobutton name="rb3" value="3" label="Wert 3"></ngRadiobutton>
+        </ngRadiobuttons>
 
 
-      <ngDropdown name="dropdown1" label="Dropdown 1" [(ngModel)]="values.dropdown1" [options]="values.dropdownitems"></ngDropdown>
-      <ngDropdown name="dropdown2" label="Dropdown 2" [(ngModel)]="values.dropdown2" [options]="values.dropdownitems" optionlabel="text"></ngDropdown>
-      <ngDropdown name="dropdown3" label="Dropdown 3" [(ngModel)]="values.dropdown3" [options]="values.dropdownitems">
-        <option value="x4">Inject Value</option>
-      </ngDropdown>
-      <ngDropdown name="dropdown4" label="Dropdown 4" [(ngModel)]="values.dropdown4" [options]="values.dropdownitems2" optionlabel="text" optionenabled="enabled"></ngDropdown>
-      <ngDropdown name="dropdown5" label="Dropdown 5" [(ngModel)]="values.dropdown5" [options]="values.dropdownitems2" optionlabel="text"></ngDropdown>
-      <ngDropdown name="dropdown6" label="Dropdown 6" [(ngModel)]="values.dropdown6" [options]="values.groupitems" groupitems="items"></ngDropdown>
-      <ngDropdown name="dropdown7" label="Dropdown 7" [(ngModel)]="values.dropdown7" [options]="values.dropdownitems" isrequired="true">
-        <option value="">Select Value</option>
-      </ngDropdown>
-      <ngDropdown name="dropdown8" label="Dropdown 8" [(ngModel)]="values.dropdown8" [options]="values.dropdownitems" isrequired="true"></ngDropdown>
-      <ngDropdown name="dropdown9" label="Dropdown 9" [(ngModel)]="values.dropdown9" [options]="values.dropdownitems" emptylabel="Please select item"></ngDropdown>
-      <ngDropdown name="dropdown10" label="Dropdown 10" [(ngModel)]="values.dropdown10" [options]="values.groupitems" groupitems="items" disablelabel="true"></ngDropdown>
-      <ngDropdown name="dropdown11" label="Dropdown 11" [(ngModel)]="values.dropdown11" [options]="values.dropdownitems" disabled="true"></ngDropdown>
+        <div class="form-row form-group">
+          <ngButton name="radio1Add" text="Add Radiobutton" (onclick)="radio1Add()"></ngButton>
+          <ngButton name="radio1Remove" text="Remove Radiobutton" (onclick)="radio1Remove()"></ngButton>
+          <ngButton name="radio1ChangeProperty" text="Change Property" (onclick)="radio1ChangeProperty()"></ngButton>
+        </div>
 
-      <ngListbox name="listbox1" label="Listbox 1" [(ngModel)]="values.listbox1" [options]="values.dropdownitems"></ngListbox>
-      <ngListbox name="listbox2" label="Listbox 2" [(ngModel)]="values.listbox2" [options]="values.dropdownitems"></ngListbox>
-      <ngListbox name="listbox3" label="Listbox 3" [(ngModel)]="values.listbox3" [options]="values.dropdownitems" isrequired="true" labelsize="6" rowsize="6"></ngListbox>
-      <ngListbox name="listbox4" label="Listbox 4" [(ngModel)]="values.listbox4" [options]="values.dropdownitems" isrequired="true"></ngListbox>
-      <ngListbox name="listbox5" label="Listbox 5" [(ngModel)]="values.listbox5" [options]="values.dropdownitems" disabled="true"></ngListbox>
 
-      <ngButton name="button1" text="Speichern" [isdisabled]="form2.form.invalid" (onclick)="t3Save()"></ngButton>
-      <ngButton name="setDisabledState" text="Set Disabled" (onclick)="form2.form.form.disabled ? form2.form.form.enable() : form2.form.form.disable()"></ngButton>
+        <ngDropdown name="dropdown1" label="Dropdown 1" [(ngModel)]="values.dropdown1" [options]="values.dropdownitems"></ngDropdown>
+        <ngDropdown name="dropdown2" label="Dropdown 2" [(ngModel)]="values.dropdown2" [options]="values.dropdownitems" optionlabel="text"></ngDropdown>
+        <ngDropdown name="dropdown3" label="Dropdown 3" [(ngModel)]="values.dropdown3" [options]="values.dropdownitems">
+          <option value="x4">Inject Value</option>
+        </ngDropdown>
+        <ngDropdown name="dropdown4" label="Dropdown 4" [(ngModel)]="values.dropdown4" [options]="values.dropdownitems2" optionlabel="text" optionenabled="enabled"></ngDropdown>
+        <ngDropdown name="dropdown5" label="Dropdown 5" [(ngModel)]="values.dropdown5" [options]="values.dropdownitems2" optionlabel="text"></ngDropdown>
+        <ngDropdown name="dropdown6" label="Dropdown 6" [(ngModel)]="values.dropdown6" [options]="values.groupitems" groupitems="items"></ngDropdown>
+        <ngDropdown name="dropdown7" label="Dropdown 7" [(ngModel)]="values.dropdown7" [options]="values.dropdownitems" isrequired="true">
+          <option value="">Select Value</option>
+        </ngDropdown>
+        <ngDropdown name="dropdown8" label="Dropdown 8" [(ngModel)]="values.dropdown8" [options]="values.dropdownitems" isrequired="true"></ngDropdown>
+        <ngDropdown name="dropdown9" label="Dropdown 9" [(ngModel)]="values.dropdown9" [options]="values.dropdownitems" emptylabel="Please select item"></ngDropdown>
+        <ngDropdown name="dropdown10" label="Dropdown 10" [(ngModel)]="values.dropdown10" [options]="values.groupitems" groupitems="items" disablelabel="true"></ngDropdown>
+        <ngDropdown name="dropdown11" label="Dropdown 11" [(ngModel)]="values.dropdown11" [options]="values.dropdownitems" disabled="true"></ngDropdown>
 
-      <ngTab>
-        <ngTabItem id="home" label="Home">
-          <p>Tab 1</p>
-        </ngTabItem>
-        <ngTabItem id="profile" label="Profile">
-          <p>Tab 2</p>
-        </ngTabItem>
-        <ngTabItem id="messages" label="Messages">
-          <p>Tab 3</p>
-        </ngTabItem>
-        <ngTabItem id="messages" label="Messages" [disabled]="true">
-          <p>Disabled Tab</p>
-        </ngTabItem>
-      </ngTab>
+        <ngListbox name="listbox1" label="Listbox 1" [(ngModel)]="values.listbox1" [options]="values.dropdownitems"></ngListbox>
+        <ngListbox name="listbox2" label="Listbox 2" [(ngModel)]="values.listbox2" [options]="values.dropdownitems"></ngListbox>
+        <ngListbox name="listbox3" label="Listbox 3" [(ngModel)]="values.listbox3" [options]="values.dropdownitems" isrequired="true" labelsize="6" rowsize="6"></ngListbox>
+        <ngListbox name="listbox4" label="Listbox 4" [(ngModel)]="values.listbox4" [options]="values.dropdownitems" isrequired="true"></ngListbox>
+        <ngListbox name="listbox5" label="Listbox 5" [(ngModel)]="values.listbox5" [options]="values.dropdownitems" disabled="true"></ngListbox>
 
-    </ngFormular>
+        <ngButton name="button1" text="Speichern" [isdisabled]="form2.form.invalid" (onclick)="t3Save()"></ngButton>
+        <ngButton name="setDisabledState" text="Set Disabled" (onclick)="form2.form.form.disabled ? form2.form.form.enable() : form2.form.form.disable()"></ngButton>
 
+        <ngTab>
+          <ngTabItem id="home" label="Home">
+            <p>Tab 1</p>
+          </ngTabItem>
+          <ngTabItem id="profile" label="Profile">
+            <p>Tab 2</p>
+          </ngTabItem>
+          <ngTabItem id="messages" label="Messages">
+            <p>Tab 3</p>
+          </ngTabItem>
+          <ngTabItem id="messages" label="Messages" [disabled]="true">
+            <p>Disabled Tab</p>
+          </ngTabItem>
+        </ngTab>
+
+      </ngFormular>
+    </ng-template>
   </ngTabItem>
 
   <ngTabItem id="tabDate" label="Date & Time">
-    <ngFormular #formDateTime labelsize="3">
-      <ngValidationSummary></ngValidationSummary>
+    <ng-template>
+      <ngFormular #formDateTime labelsize="3">
+        <ngValidationSummary></ngValidationSummary>
 
-      <ngDate name="datum1" label="Datum 1" [(ngModel)]="valuesDateTime.datum1"></ngDate>
+        <ngDate name="datum1" label="Datum 1" [(ngModel)]="valuesDateTime.datum1"></ngDate>
 
-      <ngDate name="datum2" label="Datum 2" [(ngModel)]="valuesDateTime.datum2" [isrequired]="true"></ngDate>
+        <ngDate name="datum2" label="Datum 2" [(ngModel)]="valuesDateTime.datum2" [isrequired]="true"></ngDate>
 
-      <ngDate name="datum3" label="Datum 3 (Min 01.01.2018)" [(ngModel)]="valuesDateTime.datum3" mindate="01.01.2018"></ngDate>
+        <ngDate name="datum3" label="Datum 3 (Min 01.01.2018)" [(ngModel)]="valuesDateTime.datum3" mindate="01.01.2018"></ngDate>
 
-      <ngDate name="datum4" label="Datum 4 (Max 31.12.2018)" [(ngModel)]="valuesDateTime.datum4" maxdate="31.12.2018"></ngDate>
+        <ngDate name="datum4" label="Datum 4 (Max 31.12.2018)" [(ngModel)]="valuesDateTime.datum4" maxdate="31.12.2018"></ngDate>
 
-      <ngDate name="datum5" label="Datum 5" [(ngModel)]="valuesDateTime.datum5" disabled="true"></ngDate>
+        <ngDate name="datum5" label="Datum 5" [(ngModel)]="valuesDateTime.datum5" disabled="true"></ngDate>
 
-      <ngTime name="time1" label="Zeit 1" [(ngModel)]="valuesDateTime.time1"></ngTime>
+        <ngTime name="time1" label="Zeit 1" [(ngModel)]="valuesDateTime.time1"></ngTime>
 
-      <ngTime name="time2" label="Zeit 2 (Min. 10:00)" [(ngModel)]="valuesDateTime.time2" mintime="10:00"></ngTime>
+        <ngTime name="time2" label="Zeit 2 (Min. 10:00)" [(ngModel)]="valuesDateTime.time2" mintime="10:00"></ngTime>
 
-      <ngTime name="time3" label="Zeit 3 (Max. 18:00)" [(ngModel)]="valuesDateTime.time3" maxtime="18:00"></ngTime>
+        <ngTime name="time3" label="Zeit 3 (Max. 18:00)" [(ngModel)]="valuesDateTime.time3" maxtime="18:00"></ngTime>
 
-      <ngTime name="time4" label="Zeit 4 (10:00 - 18:00)" [(ngModel)]="valuesDateTime.time4" mintime="10:00" maxtime="18:00"></ngTime>
+        <ngTime name="time4" label="Zeit 4 (10:00 - 18:00)" [(ngModel)]="valuesDateTime.time4" mintime="10:00" maxtime="18:00"></ngTime>
 
-      <ngTime name="time5" label="Zeit 5 (Disabled)" [(ngModel)]="valuesDateTime.time5" disabled="true"></ngTime>
+        <ngTime name="time5" label="Zeit 5 (Disabled)" [(ngModel)]="valuesDateTime.time5" disabled="true"></ngTime>
 
-      <ngDateTime name="datetime1" label="Datum & Zeit 1" [(ngModel)]="valuesDateTime.datumzeit1"></ngDateTime>
+        <ngDateTime name="datetime1" label="Datum & Zeit 1" [(ngModel)]="valuesDateTime.datumzeit1"></ngDateTime>
 
-      <ngDateTime name="datetime2" label="Datum & Zeit 2 (Min. 19.08.2018 14:00)" [(ngModel)]="valuesDateTime.datumzeit2" mindate="19.08.2018 14:00"></ngDateTime>
+        <ngDateTime name="datetime2" label="Datum & Zeit 2 (Min. 19.08.2018 14:00)" [(ngModel)]="valuesDateTime.datumzeit2" mindate="19.08.2018 14:00"></ngDateTime>
 
-      <ngDateTime name="datetime3" label="Datum & Zeit 3 (Max. 19.08.2018 17:00)" [(ngModel)]="valuesDateTime.datumzeit3" maxdate="19.08.2018 17:00"></ngDateTime>
+        <ngDateTime name="datetime3" label="Datum & Zeit 3 (Max. 19.08.2018 17:00)" [(ngModel)]="valuesDateTime.datumzeit3" maxdate="19.08.2018 17:00"></ngDateTime>
 
-      <ngDateTime name="datetime4" label="Datum & Zeit 4 (Required)" [(ngModel)]="valuesDateTime.datumzeit4" [isrequired]="true"></ngDateTime>
+        <ngDateTime name="datetime4" label="Datum & Zeit 4 (Required)" [(ngModel)]="valuesDateTime.datumzeit4" [isrequired]="true"></ngDateTime>
 
-      <ngDateTime name="datetime5" label="Datum & Zeit 5 (Disabled)" [(ngModel)]="valuesDateTime.datumzeit5" disabled="true"></ngDateTime>
+        <ngDateTime name="datetime5" label="Datum & Zeit 5 (Disabled)" [(ngModel)]="valuesDateTime.datumzeit5" disabled="true"></ngDateTime>
 
-      <ngDateSelector name="selector1" dateselection="true" timeselection="true"></ngDateSelector>
+        <ngDateSelector name="selector1" dateselection="true" timeselection="true"></ngDateSelector>
 
-      <ngButton name="bDateTimeSave" text="Speichern" [isdisabled]="formDateTime.form.invalid" (onclick)="dateTimeSave()"></ngButton>
+        <ngButton name="bDateTimeSave" text="Speichern" [isdisabled]="formDateTime.form.invalid" (onclick)="dateTimeSave()"></ngButton>
 
-    </ngFormular>
+      </ngFormular>
+    </ng-template>
   </ngTabItem>
 
   <ngTabItem id="tabGrid" label="Grid">
-    <ngExampleGrid></ngExampleGrid>
+    <ng-template>
+      <ngExampleGrid></ngExampleGrid>
+    </ng-template>
   </ngTabItem>
 </ngTab>
 

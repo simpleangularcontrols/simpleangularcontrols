@@ -13,7 +13,7 @@
       </tr>
     </ng-container>
     <tr *ngIf="value === undefined || value === null || value.length==0">
-      <td [attr.colspan]="GetColumnCount()">Zur Zeit keine Daten vorhanden</td>
+      <td [attr.colspan]="GetColumnCount()">{{_emptytext}}</td>
     </tr>
     <tr>
       <td [attr.colspan]="GetColumnCount()">

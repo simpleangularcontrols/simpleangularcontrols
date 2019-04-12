@@ -1,4 +1,4 @@
-import { Input } from '@angular/core';
+import { Input, TemplateRef, ContentChild } from '@angular/core';
 
 export class NgTabItemCommon {
 
@@ -16,6 +16,9 @@ export class NgTabItemCommon {
 
   @Input("unloadwhenhidden")
   _unloadwhenhidden: boolean = true;
+
+  @ContentChild(TemplateRef)
+  templateRef: TemplateRef<any>;
 
 }
 

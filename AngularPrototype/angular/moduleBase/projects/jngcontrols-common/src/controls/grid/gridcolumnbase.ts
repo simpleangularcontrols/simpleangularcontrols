@@ -2,7 +2,7 @@ import { Input, ElementRef, OnInit, Directive, OnDestroy } from '@angular/core';
 import { NgGridCommon } from './grid';
 
 export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
- 
+
   constructor(private grid: NgGridCommon, private el: ElementRef) {
   }
 
@@ -62,6 +62,13 @@ export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
   }
 
   //#endregion
+
+  @Input("sortkey")
+  public SortKey: string
+
+  public SortByColumn() {
+    return this.grid.sortBy(this.SortKey)
+  }
 
 }
 

@@ -48,7 +48,7 @@ export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> imple
       });
     }
   }
-  
+
   //#endregion
 
   public SelectItem(value: any) {

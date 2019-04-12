@@ -1,9 +1,7 @@
-import { Component, Input, Host, OnInit, Injectable, LOCALE_ID, Inject, Injector } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, ControlContainer, FormControl, Validator, AbstractControl, ValidationErrors, NgControl } from '@angular/forms';
-import { NumberSymbol, getLocaleNumberSymbol, registerLocaleData } from '@angular/common';
+import { Input, Host, OnInit, Injector } from '@angular/core';
+import { ControlValueAccessor, Validator, AbstractControl, ValidationErrors, NgControl } from '@angular/forms';
 import { NgFormularCommon } from '../controls/form/form';
 
-import localeDeCh from '@angular/common/locales/de-CH';
 
 export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor, Validator, OnInit {
 
@@ -169,10 +167,6 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
 
   validate(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = this.validateData(c);
-
-    // Invalid Status setzen
-    this._invalid = error !== null;
-
     return error;
   }
 
@@ -191,9 +185,8 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
 
     return this._touched;
   }
-
-  protected _invalid: boolean = false;
-  public get invalid(): boolean { return this._invalid; }
+  
+  public get invalid(): boolean { return this.ngControl !== undefined && this.ngControl !== null && this.ngControl.invalid; }
 
   onTouch(): void {
     this._touched = true;
@@ -201,5 +194,4 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
   }
 
   //#endregion
-
 }

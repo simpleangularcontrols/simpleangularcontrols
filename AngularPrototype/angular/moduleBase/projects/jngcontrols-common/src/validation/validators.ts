@@ -12,12 +12,22 @@ export class Validation {
       return null;
     }
   }
-
+  
   static minValue(control: AbstractControl, minvalue: number, fieldName: string): ValidationErrors | null {
     let validator: ValidatorFn = Validators.min(minvalue);
 
     if (validator(control) !== null) {
       return { 'minvalue': true, 'minvalue_message': 'Feld "' + fieldName + '" erfordert einen Minimalwert von ' + minvalue };
+    } else {
+      return null;
+    }
+  }
+
+  static patternValidator(control: AbstractControl, pattern: string, fieldName: string): ValidationErrors | null {
+    let validator: ValidatorFn = Validators.pattern(pattern);
+
+    if (validator(control) !== null) {
+      return { 'pattern': true, 'pattern_message': 'Feld "' + fieldName + '" akzeptiert nur folgenden Pattern ' + pattern };
     } else {
       return null;
     }
@@ -90,7 +100,6 @@ export class Validation {
     }
   }
 
-
   static maxTime(control: IDateTimeControl, maxTime: Date, fieldName: string): ValidationErrors | null {
     // Check abbrechen, wenn kein gültiges Datum
     if (!control.IsDateValid() || maxTime === null) {
@@ -112,4 +121,33 @@ export class Validation {
     }
   }
 
+}
+
+/**
+ * Klasse für die Definition von Validierungsfehlern
+ */
+export class ValidationMessage {
+
+  /**
+   *  Konstruktor
+   *  @param type Typ der Validierungsmeldung
+   */
+  constructor(type: string = '') {
+    this.type = type;
+  }
+
+  /**
+   * Typ der Validerungsmeldung
+   */
+  public type: string;
+
+  /**
+   * Key der Fehlermeldung. Kann dazu verwendet werden, um die Fehlermeldung mehrsprachig zu halten.
+   */
+  public message_key: string;
+
+  /**
+   * Collection von Parametern
+   */
+  public parameters: Map<string, string> = new Map<string, string>();
 }

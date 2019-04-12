@@ -144,6 +144,7 @@
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\dialog\dialog.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\form\form.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\grid.html" />
+    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\gridbutton.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\gridcolumn.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\gridcolumnaction.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\paging.html" />
@@ -154,12 +155,17 @@
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\input\inputemail.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\input\inputinteger.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\input\inputpassword.html" />
+    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\input\inputsearch.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\list\dropdown.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\list\listbox.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\static\staticlabel.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\tabs\tab.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\tabs\tabitem.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\tinymce\tinymce.html" />
+    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\tooltip\tooltip.html" />
+    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\treeview\ngtreeitemaction.html" />
+    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\treeview\treeview.html" />
+    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\treeview\treeviewchild.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\validation\validationsummary.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\wizard\wizard.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\wizard\wizarditem.html" />
@@ -650,6 +656,7 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\form\form.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\grid.module.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\grid.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\gridbutton.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\gridcolumn.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\gridcolumnaction.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\paging.ts" />
@@ -661,6 +668,7 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\input\inputemail.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\input\inputinteger.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\input\inputpassword.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\input\inputsearch.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\list\dropdown.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\list\list.module.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\list\listbox.ts" />
@@ -671,6 +679,12 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\tabs\tabs.module.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\tinymce\tinymce.module.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\tinymce\tinymce.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\tooltip\tooltip.module.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\tooltip\tooltip.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\treeview\ngtreeitemaction.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\treeview\treeview.module.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\treeview\treeview.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\treeview\treeviewchild.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\validation\validationsummary.module.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\validation\validationsummary.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\wizard\wizard.module.ts" />
@@ -736,6 +750,7 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\dialog\dialog.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\form\form.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\grid\grid.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\grid\gridbutton.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\grid\gridcolumn.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\grid\gridcolumnaction.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\grid\gridcolumnbase.ts" />
@@ -761,6 +776,10 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\tinymce\tinymceeditor.module.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\tinymce\tinymceeditor.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\tinymce\utils.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\tooltip\tooltip.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\treeview\ngtreeitemaction.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\treeview\treeview.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\treeview\treeviewchild.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\upload\upload.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\validation\validationsummary.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\wizard\wizard.ts" />

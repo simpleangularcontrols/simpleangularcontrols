@@ -1,0 +1,56 @@
+<div class="structure panel panel-default" icon="Structure">
+  <div class="panel-heading">
+    <p class="panel-title"><span>{{ _name }}</span></p>
+  </div>
+  <div class="panel-body">
+    <div class="right">
+      <div class="form-submit form-inline" style="text-align: right;height:24px;">
+        <a class="btn-inline"><i class="icon icon-base-expand" (click)="collapseAllNode(false)"></i></a>
+        <a class="btn-inline"><i class="icon icon-base-collapse" (click)="collapseAllNode(true)"></i></a>
+      </div>
+    </div>
+    <div [id]="_name" class="structure-tree single-root jstree jstree-1 jstree-default">
+      <ul class="jstree-container-ul jstree-children jstree-no-dots jstree-striped jstree-wholerow-ul"
+        *ngIf="nodes && nodes.length">
+        <li *ngFor="let node of nodes; let last = last" 
+          class="jstree-node" 
+          [ngClass]="{
+      'jstree-open': !node[collapseAttr] && node[childrenAttr] && node[childrenAttr].length,
+      'jstree-closed': node[collapseAttr]  && node[childrenAttr] && node[childrenAttr].length,
+      'jstree-leaf': !node[childrenAttr].length,
+      'jstree-last': last
+    }" 
+    [id]="node[idAttr]" >
+
+      
+
+          <div unselectable="on" role="presentation" class="jstree-wholerow" (mouseover)="node.hover=true" (mouseout)="node.hover=false"
+            [ngClass]="{'jstree-wholerow-clicked': node == selectedNode, 'jstree-wholerow-hovered': node.hover}">&nbsp;
+          </div>
+
+
+          <i class="jstree-icon jstree-ocl" role="presentation" (click)="onCollapseClick(node)" (mouseover)="node.hover=true" (mouseout)="node.hover=false"></i>
+
+          <a class="jstree-anchor" (click)="onClick(node)"
+            [ngClass]="{'jstree-clicked': node == selectedNode, 'jstreehovered': node.hover}" (mouseover)="node.hover=true" (mouseout)="node.hover=false">
+
+            <ng-container *ngTemplateOutlet="treefileicon; context { item: node }"; content></ng-container>
+            
+           
+            <span>{{node[textAttr]}}</span>
+          </a>
+          
+          
+        <ng-container *ngTemplateOutlet="templateTree; context { item: node }"; content></ng-container>
+        
+
+
+          <ngTreeViewChild *ngIf="node[childrenAttr] && node[childrenAttr].length" [fileicontemplate]="fileicontemplate" [template]="templateTree" [collapseAll]="_collapseAll"
+            [ngClass]="(node[collapseAttr]==true)?'collapse':'show'" [data]="node[childrenAttr]" [idAttr]="idAttr"
+            [parentAttr]="parentAttr" [textAttr]="textAttr" [prepareData]="false" (onselecteditem)="sendMsgToParent($event)" [(selectedId)]="selectedId">
+          </ngTreeViewChild>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

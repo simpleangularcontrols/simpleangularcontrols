@@ -1,10 +1,22 @@
 import { Injectable, Type, ComponentFactoryResolver, ApplicationRef, Injector, Inject, ComponentFactory } from "@angular/core";
-import { ServiceConfirmCommon, NgConfirmButton } from "@jnetwork/jngcontrols-common";
+import { ServiceConfirmCommon, NgConfirmButton, isDefined } from "@jnetwork/jngcontrols-common";
 import { NgConfirm } from "./confirm";
 import { EventEmitter } from "@angular/core";
 
 /**
  * Service für Confirm Messages in TypeScript Code
+ *
+ * @example
+ * // Beispiel für ConfirmMessage mit Standard Buttons (Ja / Nein).
+ * confirmService.ConfirmMessage('titel', 'frage').subscribe(action => { // Action Code });
+ *
+ * @example
+ * // Beispiel für ConfirmMessage mit eigenen Buttons
+ * let buttons: NgConfirmButton[] = [];
+ * buttons.push(new NgConfirmButton('ActionKey','Text Primary'));
+ * buttons.push(new NgConfirmButton('ActionKey2','Text Button 2'));
+ * confirmService.ConfirmMessage('titel', 'frage', buttons).subscribe(action => { // Action Code });
+ * 
  */
 @Injectable()
 export class ServiceConfirm extends ServiceConfirmCommon {
@@ -58,12 +70,22 @@ export class ServiceConfirm extends ServiceConfirmCommon {
    * @param message Nachricht die angezeigt werden soll.
    * @returns EventEmitter mit Key des Buttons, welcher geklickt wurde.
    */
-  public ConfirmMessage(title: string, message: string): EventEmitter<string> {
+  public ConfirmMessage(title: string, message: string, buttons: NgConfirmButton[] = null): EventEmitter<string> {
     this.title = title;
     this.message = message;
-    this.buttons = [];
-    this.buttons.push(new NgConfirmButton('yes', 'Ja'));
-    this.buttons.push(new NgConfirmButton('no', 'Nein'));
+
+    // Default Buttons setzen, wenn keine Buttons angegeben sind
+    if (!isDefined(buttons)) {
+      // TODO: Text von Localisation Service beziehen
+      this.buttons = [];
+      this.buttons.push(new NgConfirmButton('yes', 'Ja'));
+      this.buttons.push(new NgConfirmButton('no', 'Nein'));
+    } else {
+      this.buttons = buttons;
+    }
     return super.Confirm();
   }
+
+
+
 }

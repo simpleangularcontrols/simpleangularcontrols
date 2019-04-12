@@ -19,6 +19,11 @@ export abstract class NgBaseListControl<VALUE> extends NgBaseModelControl<VALUE>
   // Definiert das Control als Required
   @Input("isrequired") _isrequired: boolean = false;
 
+  /**
+   * Style Breite für List Control Element
+   */
+  @Input("width") _width: string = null;
+
   @Input("options") get options(): any[] {
     return this._options;
   }

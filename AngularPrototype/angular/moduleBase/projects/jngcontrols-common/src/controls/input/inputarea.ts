@@ -3,7 +3,15 @@ import { NgInputCommon } from "./input";
 
 export class NgInputAreaCommon extends NgInputCommon {
 
+  /**
+   * Definiert die Höhe der TextArea Box.
+   */
   @Input("rows") _rows: number = 5;
+
+  /**
+   * Definiert die Höhe der TextArea Box. Ist normalfall leer, da Höhe auch über Rows gesetzt werden kann.
+   */
+  @Input("height") _height: string = null;
 
   get _currentLength(): number {
     if (this.value === null || this.value === undefined)

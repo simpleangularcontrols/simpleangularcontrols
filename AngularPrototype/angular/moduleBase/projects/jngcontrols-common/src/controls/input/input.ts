@@ -14,6 +14,10 @@ export class NgInputCommon extends NgInputBase<string> {
       error = Validation.required(c, this._label);
     }
 
+    if (error === null && this._pattern !== undefined && this._pattern !== null) {
+      error = Validation.patternValidator(c, this._pattern, this._label);
+    }
+    
     return error;
   }
 }

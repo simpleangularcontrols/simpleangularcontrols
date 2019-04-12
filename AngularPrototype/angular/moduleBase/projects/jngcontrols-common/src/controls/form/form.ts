@@ -1,5 +1,5 @@
 import { NgForm, NgModel } from '@angular/forms';
-import { Input, ViewChild, QueryList, ContentChildren, AfterViewInit, IterableDiffer, IterableDiffers, IterableChanges, Component } from '@angular/core';
+import { Input, ViewChild, QueryList, ContentChildren, AfterViewInit, IterableDiffer, IterableDiffers, IterableChanges } from '@angular/core';
 
 export class NgFormularCommon implements AfterViewInit {
 
@@ -33,7 +33,7 @@ export class NgFormularCommon implements AfterViewInit {
   @ViewChild(NgForm)
   public form: NgForm;
 
-  @ContentChildren(NgModel) public models: QueryList<NgModel>;
+  @ContentChildren(NgModel, { descendants: true }) public models: QueryList<NgModel>;
 
   constructor(private iterableDiffers: IterableDiffers) {
   }

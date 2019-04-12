@@ -1,4 +1,4 @@
-<th *ngIf="IsHeader()" [style.width]="width"></th>
-<td *ngIf="IsBody()">
-  <a (click)="callaction(value)"><span class="sprite icon-sprite-base-main_edit"></span></a>
+<th scope="col" *ngIf="IsHeader()" [style.width]="width"><span></span></th>
+<td scope="col" *ngIf="IsBody()">
+   <ng-content></ng-content>
 </td>

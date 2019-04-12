@@ -10,6 +10,11 @@ export class NgButtonCommon {
 
   private _isdisabledvalue: boolean = false;
 
+  /**
+   * Deaktivieren von Buttons
+   * @param v Deaktiviert den Button
+   * @return Definiert ob der Button deaktiviert ist
+   */
   @Input("isdisabled")
   set isdisabled(v: boolean | string) {
     if (v === null || v === undefined || typeof v === 'boolean')
@@ -24,6 +29,11 @@ export class NgButtonCommon {
   // Button Role
   private _role: string = 'default';
 
+  /**
+   * Definiert den Style des Buttons
+   * @param  v Definiert den Style des Buttons. Folgende Typen sind Supported: primary, default
+   * @returns  Type des Buttons
+   */
   @Input("role")
   set role(v: string) {
 

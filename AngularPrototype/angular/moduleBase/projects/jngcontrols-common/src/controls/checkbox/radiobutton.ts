@@ -41,7 +41,7 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
   get hidden(): boolean | string {
     return this._hidden;
   }
-   
+
   // Unique Index für RadioButton
   _index: number = null;
   get getIndex(): number {

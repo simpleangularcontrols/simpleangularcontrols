@@ -12,14 +12,6 @@ export class NgGridColumnAction extends NgGridColumnActionCommon {
   constructor(grid: NgGrid, el: ElementRef) {
     super(grid, el);
 
-    this.width = "18px";
-  }
-
-  @Output("onclick")
-  clickaction: EventEmitter<any> = new EventEmitter<any>();
-
-  public callaction(parameter: any) {
-    console.log("NgGridColumnAction: callaction");
-    this.clickaction.emit(parameter);
+    this.width = "52px";
   }
 }

@@ -41,6 +41,7 @@ export class ExampleUpload extends NgUploadCommon implements OnInit, OnDestroy {
   private uploadService: UploadxService;
   private _allowedtypes: string = "*";
   private _autoupload: boolean = false;
+  private _enablepause: boolean = true;
 
   @Input("allowedtypes")
   set allowedtypes(types: string) {
@@ -59,6 +60,14 @@ export class ExampleUpload extends NgUploadCommon implements OnInit, OnDestroy {
   }
   get autoupload(): boolean {
     return this._autoupload;
+  }
+
+  @Input("enablepause")
+  set enablepause(v: boolean) {
+    this._enablepause = v;
+  }
+  get enablepause(): boolean {
+    return this._enablepause;
   }
 
   @Input("maxfilesize") maxfilesize: number = 0;

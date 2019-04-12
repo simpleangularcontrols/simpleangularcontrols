@@ -137,6 +137,8 @@ class formdata {
   fieldupload3: string = null;
   fieldupload4: string = null;
   fieldupload5: string = null;
+  fieldupload6: string = null;
+  fieldupload7: string = null;
 }
 
 @Component({

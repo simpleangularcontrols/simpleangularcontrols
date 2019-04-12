@@ -14,6 +14,7 @@ export * from './controls/tinymce/tinymce.module';
 export * from './controls/static/staticlabel.module';
 export * from './controls/wizard/wizard.module';
 export * from './controls/tooltip/tooltip.module';
+export * from './controls/upload/upload.module';
 export { jNetworkBootstrap3ConfirmModule, ServiceConfirm } from './controls/confirm/confirm.module';
 
 // Form Module and Classes

@@ -42,36 +42,5 @@
         </a>
       </div>
     </div>
-
-    <!--
-    <span class="btn btn-default fileinput-button">
-      <i class="glyphicon glyphicon-plus"></i>
-      <span>Add Files ...</span>
-      <input type="file" class="custom-file-input" id="inputGroupFile01" [uploadx]="options" #files (click)="files.value = ''" [uploadxAction]="control" (uploadxState)="onUpload($event)" multiple style="display: none;">
-    </span>
-
-    <a class="btn btn-default" (click)="uploadAll()">Upload</a>
-    <a class="btn btn-default" (click)="cancelAll()">Cancel All</a>
-    <a class="btn btn-default" (click)="pauseAll()">Pause All</a>
-    -->
   </div>
 </div>
-<!--
-  <div class="uploads-table">
-    <div class="row" *ngFor="let ufile of uploads">
-      <span class="col-1">{{ ufile.name }}</span>
-      <span class="col-2">{{ ufile.progress }}%</span>
-      <span class="col-2">{{ ufile.status }}</span>
-      <span class="col-3 btn-row">
-        <a class="btn btn-default" (click)="cancel(ufile.uploadId)">cancel</a>
-        <a class="btn btn-default" (click)="pause(ufile.uploadId)">pause</a>
-        <a class="btn btn-default" (click)="upload(ufile.uploadId)">upload</a>
-      </span>
-    </div>
-  </div>
-
-<h2>Debug</h2>
-<div class="json">
-  <pre>{{state | async | json}}</pre>
-</div>
- -->

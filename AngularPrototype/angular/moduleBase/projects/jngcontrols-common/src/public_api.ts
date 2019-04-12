@@ -59,7 +59,7 @@ export { NgTreeItemActionCommon } from './controls/treeview/ngtreeitemaction'
 export { NgTooltipCommon } from './controls/tooltip/tooltip';
 
 // Upload
-export { NgUploadCommon } from './controls/upload/upload';
+export { NgUploadCommon, NgUploadFile } from './controls/upload/upload';
 
 // Confirm Service
 export * from './controls/confirm/confirm.service';
@@ -77,4 +77,3 @@ export * from './utilities/Convertion';
 export * from './utilities/enums';
 export * from './utilities/datatypes';
 export * from './utilities/interpolation';
-export * from './utilities/utilities.module';

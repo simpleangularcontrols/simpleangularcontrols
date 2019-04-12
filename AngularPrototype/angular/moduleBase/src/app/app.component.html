@@ -63,13 +63,13 @@
     <ng-template>
       <ngFormular #formExampleUpload>
         <ngValidationSummary></ngValidationSummary>
-        <ngExampleUpload name="uploader1" label="Mein Bild 1" [(ngModel)]="values.fieldupload1" [isrequired]="true"></ngExampleUpload>
-        <ngExampleUpload name="uploader2" label="Mein Bild 2" [(ngModel)]="values.fieldupload2" [disablelabel]="true"></ngExampleUpload>
-        <ngExampleUpload name="uploader3" label="Mein Bild 3" [(ngModel)]="values.fieldupload3" allowedtypes=".pdf"></ngExampleUpload>
-        <ngExampleUpload name="uploader4" label="Mein Bild 4" [(ngModel)]="values.fieldupload4" maxfilesize="200000"></ngExampleUpload>
-        <ngExampleUpload name="uploader5" label="Mein Bild 5" [(ngModel)]="values.fieldupload5" [autoupload]="true"></ngExampleUpload>
-        <ngExampleUpload name="uploader6" label="Mein Bild 6" [(ngModel)]="values.fieldupload6" [enablepause]="false"></ngExampleUpload>
-        <ngExampleUpload name="uploader7" label="Mein Bild 7" [(ngModel)]="values.fieldupload7" [enablepause]="false" [autoupload]="true"></ngExampleUpload>
+        <ngUpload name="uploader1" label="Mein Bild 1" [(ngModel)]="values.fieldupload1" [isrequired]="true"></ngUpload>
+        <ngUpload name="uploader2" label="Mein Bild 2" [(ngModel)]="values.fieldupload2" [disablelabel]="true"></ngUpload>
+        <ngUpload name="uploader3" label="Mein Bild 3" [(ngModel)]="values.fieldupload3" allowedtypes=".pdf"></ngUpload>
+        <ngUpload name="uploader4" label="Mein Bild 4" [(ngModel)]="values.fieldupload4" maxfilesize="200000"></ngUpload>
+        <ngUpload name="uploader5" label="Mein Bild 5" [(ngModel)]="values.fieldupload5" [autoupload]="true"></ngUpload>
+        <ngUpload name="uploader6" label="Mein Bild 6" [(ngModel)]="values.fieldupload6" [enablepause]="false"></ngUpload>
+        <ngUpload name="uploader7" label="Mein Bild 7" [(ngModel)]="values.fieldupload7" [enablepause]="false" [autoupload]="true"></ngUpload>
       </ngFormular>
       <p>
         Model: {{ values.fieldupload1 }}

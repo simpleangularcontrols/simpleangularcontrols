@@ -166,6 +166,7 @@
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\treeview\ngtreeitemaction.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\treeview\treeview.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\treeview\treeviewchild.html" />
+    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\upload\upload.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\validation\validationsummary.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\wizard\wizard.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\wizard\wizarditem.html" />
@@ -201,7 +202,6 @@
     <Content Include="angular\moduleBase\src\app\app.component.html" />
     <Content Include="angular\moduleBase\src\app\controls\dialog.html" />
     <Content Include="angular\moduleBase\src\app\controls\grid.html" />
-    <Content Include="angular\moduleBase\src\app\controls\upload.html" />
     <Content Include="angular\moduleBase\src\app\modules\UserComponent.html" />
     <Content Include="angular\moduleBase\src\index.html" />
     <Content Include="Contact.aspx" />
@@ -685,6 +685,8 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\treeview\treeview.module.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\treeview\treeview.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\treeview\treeviewchild.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\upload\upload.module.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\upload\upload.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\validation\validationsummary.module.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\validation\validationsummary.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\wizard\wizard.module.ts" />
@@ -790,6 +792,9 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\confirm\confirm.service.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\test.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\utilities\Convertion.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\utilities\datatypes.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\utilities\enums.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\utilities\interpolation.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\validation\index.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\validation\validators.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\app.component.spec.ts" />
@@ -797,7 +802,6 @@
     <TypeScriptCompile Include="angular\moduleBase\src\app\app.module.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\controls\dialog.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\controls\grid.ts" />
-    <TypeScriptCompile Include="angular\moduleBase\src\app\controls\upload.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\modules\UserComponent.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\services\AuthenticationService.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\services\TokenInterceptor.ts" />

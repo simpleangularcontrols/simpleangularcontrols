@@ -59,7 +59,9 @@ export { NgTreeItemActionCommon } from './controls/treeview/ngtreeitemaction'
 export { NgTooltipCommon } from './controls/tooltip/tooltip';
 
 // Upload
-export { NgUploadCommon, NgUploadFile } from './controls/upload/upload';
+export { NgUploadSingleCommon } from './controls/upload/uploadsingle';
+export { NgUploadMultipleCommon } from './controls/upload/uploadmultiple';
+export { NgUploadFile } from './common/baseuploadcontrol';
 
 // Confirm Service
 export * from './controls/confirm/confirm.service';

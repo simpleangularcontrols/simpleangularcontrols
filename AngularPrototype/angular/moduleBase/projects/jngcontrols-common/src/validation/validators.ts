@@ -1,5 +1,6 @@
 import { AbstractControl, ValidationErrors, Validators, ValidatorFn } from "@angular/forms";
 import { IDateTimeControl } from "../interfaces/idatetimecontrol";
+import { IUploadControl } from '../interfaces/iuploadcontrol';
 import * as moment_ from 'moment';
 const moment = moment_;
 
@@ -116,6 +117,19 @@ export class Validation {
   static isValidDate(control: IDateTimeControl, fieldName: string): ValidationErrors | null {
     if (!control.IsDateValid()) {
       return { 'dateformat': true, 'message': 'Feld "' + fieldName + '" ist kein gültiges Datum' };
+    } else {
+      return null;
+    }
+  }
+
+  static minFiles(control: IUploadControl, minFiles: number, fieldName: string): ValidationErrors | null {
+    // Check abbrechen, wenn Min Files nicht gesetzt oder 0
+    if ( minFiles === null || minFiles === 0) {
+      return null;
+    }
+
+    if (control.UploadedFileCount() !== null && minFiles > control.UploadedFileCount()) {
+      return { 'filemin': true, 'message': 'Feld "' + fieldName + '" muss min. ' + minFiles + ' hochgeladen haben.' };
     } else {
       return null;
     }

@@ -167,6 +167,7 @@
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\treeview\treeview.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\treeview\treeviewchild.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\upload\upload.html" />
+    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\upload\uploadmultiple.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\validation\validationsummary.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\wizard\wizard.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\wizard\wizarditem.html" />
@@ -567,6 +568,9 @@
     <Compile Include="Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\upload\uploadmultiple.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\upload\uploadsingle.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\iuploadcontrol.ts" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -687,6 +691,7 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\treeview\treeviewchild.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\upload\upload.module.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\upload\upload.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\upload\uploadmultiple.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\validation\validationsummary.module.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\validation\validationsummary.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\wizard\wizard.module.ts" />
@@ -782,7 +787,7 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\treeview\ngtreeitemaction.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\treeview\treeview.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\treeview\treeviewchild.ts" />
-    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\upload\upload.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\common\baseuploadcontrol.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\validation\validationsummary.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\wizard\wizard.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\wizard\wizarditem.ts" />

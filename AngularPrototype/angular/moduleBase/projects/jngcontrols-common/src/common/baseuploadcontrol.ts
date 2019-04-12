@@ -1,9 +1,9 @@
 import { EventEmitter, forwardRef, Injector, ViewChild, Input, Output, ElementRef, Renderer2, OnInit, OnDestroy } from '@angular/core';
 import { ValidationErrors, AbstractControl } from '@angular/forms';
-import { NgBaseModelControl } from '../../common/basemodelcontrol';
-import { NgFormularCommon } from '../form/form';
+import { NgBaseModelControl } from './basemodelcontrol';
+import { NgFormularCommon } from '../controls/form/form';
 import { UploadxControlEvent, UploadxOptions, UploadState, UploadxService } from 'ngx-uploadx';
-import { Validation } from '../../validation';
+import { Validation } from '../validation';
 
 export class NgUploadFile {
   name: string;
@@ -18,7 +18,7 @@ export class NgUploadFile {
   }
 }
 
-export class NgUploadCommon extends NgBaseModelControl<string> implements OnInit, OnDestroy {
+export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> implements OnInit, OnDestroy {
 
   uploads: NgUploadFile[];
   private options: UploadxOptions;
@@ -56,7 +56,7 @@ export class NgUploadCommon extends NgBaseModelControl<string> implements OnInit
 
   @Input("maxfilesize") maxfilesize: number = 0;
 
-  @Output("fileerror") onfileerror = new EventEmitter<string>();
+  @Output("onfileerror") onfileerror = new EventEmitter<string>();
 
   // File Input Control
   @ViewChild("files")
@@ -234,7 +234,6 @@ export class NgUploadCommon extends NgBaseModelControl<string> implements OnInit
     return error;
   }
 
-
   //#endregion
 
   /**
@@ -289,7 +288,7 @@ export class NgUploadCommon extends NgBaseModelControl<string> implements OnInit
     const index = this.uploads.findIndex(f => f.uploadId === ufile.uploadId);
 
     if (ufile.status === 'added') {
-      if (this.isExtensionValid(ufile.name) && this.isFileSizeValid(ufile.size)) {
+      if (this.isExtensionValid(ufile.name) && this.isFileSizeValid(ufile.size) && this.CustomAddValidation(ufile)) {
         this.uploads.push(new NgUploadFile(ufile));
       } else {
         this.cancel(ufile.uploadId);
@@ -300,16 +299,20 @@ export class NgUploadCommon extends NgBaseModelControl<string> implements OnInit
           this.onfileerror.emit("INVALID_FILESIZE");
       }
     } else if (ufile.status === 'cancelled') {
-      this.uploads.splice(index, 1);
-      super.setValue(null);
+      if (index >= 0)
+        this.uploads.splice(index, 1);
+
+      this.SetUploadValue(null);
     }
     else if (ufile.status === 'complete') {
       this.uploads[index].progress = ufile.progress;
       this.uploads[index].status = ufile.status;
-      super.setValue(ufile.uploadId);
+      this.SetUploadValue(ufile);
     } else {
-      this.uploads[index].progress = ufile.progress;
-      this.uploads[index].status = ufile.status;
+      if (index >= 0) {
+        this.uploads[index].progress = ufile.progress;
+        this.uploads[index].status = ufile.status;
+      }
     }
   }
 
@@ -321,4 +324,18 @@ export class NgUploadCommon extends NgBaseModelControl<string> implements OnInit
       this.uploadService.handleFileList(this.uploadInput.nativeElement.files);
     }
   };
+
+  /**
+   * Methode welche die Upload ID's in das Model setzt oder löscht
+   * 
+   * @param file Type von File ID's
+   */
+  abstract SetUploadValue(file: UploadState);
+
+  /**
+   * Methode kann für Controls verwendet werden, zusätzliche Validierungen bei hinzufügen der Files zu machen
+   * 
+   * @param file File das hinzugefügt wurde.
+   */
+  abstract CustomAddValidation(file: UploadState): boolean;
 }

@@ -1,12 +1,14 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgUpload } from "./upload";
+import { NgUploadMultiple } from "./uploadmultiple";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
-  declarations: [NgUpload],
+  declarations: [NgUpload, NgUploadMultiple],
   imports: [
-    BrowserModule
+    BrowserModule, FormsModule
   ],
-  exports: [NgUpload]
+  exports: [NgUpload, NgUploadMultiple]
 })
 export class jNetworkBootstrap3UploadModule { }

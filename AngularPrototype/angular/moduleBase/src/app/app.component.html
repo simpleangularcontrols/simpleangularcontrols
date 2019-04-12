@@ -70,6 +70,13 @@
         <ngUpload name="uploader5" label="Mein Bild 5" [(ngModel)]="values.fieldupload5" [autoupload]="true"></ngUpload>
         <ngUpload name="uploader6" label="Mein Bild 6" [(ngModel)]="values.fieldupload6" [enablepause]="false"></ngUpload>
         <ngUpload name="uploader7" label="Mein Bild 7" [(ngModel)]="values.fieldupload7" [enablepause]="false" [autoupload]="true"></ngUpload>
+
+        <ngUploadMultiple name="uploader8" label="Mein Fileliste 1" [(ngModel)]="values.fieldmultipleupload1" maxfiles="4" [isrequired]="true" (onfileerror)="showmessage($event)"></ngUploadMultiple>
+        <ngUploadMultiple name="uploader9" label="Mein Fileliste 2" [(ngModel)]="values.fieldmultipleupload2" maxfiles="4" [enablepause]="false" (onfileerror)="showmessage($event)"></ngUploadMultiple>
+        <ngUploadMultiple name="uploader10" label="Mein Fileliste 3" [(ngModel)]="values.fieldmultipleupload3" maxfiles="4" [enablepause]="false" [autoupload]="true" (onfileerror)="showmessage($event)"></ngUploadMultiple>
+        <ngUploadMultiple name="uploader11" label="Mein Fileliste 4" [(ngModel)]="values.fieldmultipleupload4" maxfiles="4" minfiles="2" allowedtypes=".pdf" maxfilesize="200000" (onfileerror)="showmessage($event)"></ngUploadMultiple>
+
+
       </ngFormular>
       <p>
         Model: {{ values.fieldupload1 }}

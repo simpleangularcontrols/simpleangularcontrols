@@ -139,6 +139,14 @@ class formdata {
   fieldupload5: string = null;
   fieldupload6: string = null;
   fieldupload7: string = null;
+  fieldupload8: string = null;
+  fieldupload9: string = null;
+
+  fieldmultipleupload1: string[] = null;
+  fieldmultipleupload2: string[] = null;
+  fieldmultipleupload3: string[] = null;
+  fieldmultipleupload4: string[] = null;
+  fieldmultipleupload5: string[] = null;
 }
 
 @Component({
@@ -239,6 +247,10 @@ export class AppComponent {
 
   uploadFormState(): string {
     return JSON.stringify(this.formUpload.form.errors);
+  }
+
+  showmessage(value: string) {
+    alert(value);
   }
 
 }

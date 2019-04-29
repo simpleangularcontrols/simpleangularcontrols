@@ -1,3 +1,9 @@
+# Create Documentation
+
+npm run-script compodoc-bs3
+npm run-script compodoc-bs4
+
+
 # ModuleBase
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.

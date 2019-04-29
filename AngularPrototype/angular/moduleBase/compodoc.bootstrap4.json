@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": [
+    "projects/jngcontrols-bootstrap3/**",
+    "src/**"
+  ]
+}

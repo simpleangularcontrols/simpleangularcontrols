@@ -1,19 +1,55 @@
-import { Component, Input, Output, EventEmitter, HostListener } from "@angular/core";
+import { Input, Output, EventEmitter } from "@angular/core";
 import { PagerData } from "./model";
 
+/**
+ * Basiskomponente für Paging
+ */
 export abstract class NgPagingCommon {
+
+  /**
+   * Konstruktor
+   */
   constructor() { }
 
+  /**
+   * Item für jedes Paging Element (Seitenzahl)
+   */
   public paginators: Array<any> = [];
+
+  /**
+   * Aktiver Seitenindex
+   */
   public activePageIndex: number = 0;
+
+  /**
+   * Erster Seitenindex
+   */
   public firstPageIndex: number = 0;
+
+  /**
+   * Letzter Seitenindex
+   */
   public lastPageIndex: number = 0;
+
+  /**
+   * Total Anzahl Rows
+   */
   protected totalRowCount: number = 0;
+
+  /**
+   * Anzahl Rows pro Seite
+   */
   protected pageSize: number = 25;
 
+  /**
+   * Pager Data Settings
+   */
   pagedata: PagerData;
   //#region Input and Outputs
 
+  /**
+   * Property für Pager Data
+   */
   @Input("pagerdata")
   set PagerData(p: PagerData) {
     if (p != null) {
@@ -26,9 +62,15 @@ export abstract class NgPagingCommon {
     this.createPager();
   }
 
+  /**
+   * Event wenn im Grid die Seite geändert wird. Als Parameter wird der neue PageIndex mitgegeben.
+   */
   @Output("onpaging")
-  _pagingEvent: EventEmitter<any> = new EventEmitter();
+  _pagingEvent: EventEmitter<number> = new EventEmitter();
 
+  /**
+   * Name des Grids. Wird für ID und Name Bezeichnungen verwendet
+   */
   @Input("name")
   public name: string
 
@@ -36,13 +78,21 @@ export abstract class NgPagingCommon {
 
   //#region Protected Methods
 
+  /**
+   * Erzeugt die Pager Daten
+   */
   protected createPager() {
     this.paginators = [];
 
     if (this.totalRowCount > 0) {
-      this.lastPageIndex = Math.floor(this.totalRowCount / this.pageSize);
-      let totalPageCount = Math.floor(((this.totalRowCount - 1) / this.pageSize) + 1);
+      let totalPageCount = Math.ceil(this.totalRowCount / this.pageSize);
 
+      // PageCount auf 1 stellen, wenn keine Records vorhanden sind.
+      if (totalPageCount === 0)
+        totalPageCount = 1;
+
+      // PageIndex berechnen
+      this.lastPageIndex = totalPageCount - 1;
       let startPageIndex = this.getStartPageIndex(totalPageCount);
       let endPageIndex = this.getEndPageIndex(totalPageCount);
 
@@ -55,11 +105,18 @@ export abstract class NgPagingCommon {
     }
   }
 
+  /**
+   * Methode löst den Event aus, dass ein Paging stattgefunden hat
+   */
   protected paged() {
-    let newStartIndex = this.activePageIndex + 1
-    this._pagingEvent.emit(newStartIndex);
+    this._pagingEvent.emit(this.activePageIndex);
   }
 
+  /**
+   * Gibt den Start Index zurück
+   * 
+   * @param totalPageCount Total Anzahl Seiten
+   */
   protected getStartPageIndex(totalPageCount: number): number {
 
     let startingPageToDisplay: number = 0;
@@ -74,6 +131,11 @@ export abstract class NgPagingCommon {
     return startingPageToDisplay;
   }
 
+  /**
+   * Gibt den letzten Seitenindex zurück.
+   * 
+   * @param totalPageCount Total Anzahl Seiten
+   */
   protected getEndPageIndex(totalPageCount: number): number {
     let endingPageToDisplay = this.activePageIndex + 2;
     let maxEndingPageIndex = (4 > (totalPageCount - 1)) ? (totalPageCount - 1) : 4;
@@ -91,6 +153,11 @@ export abstract class NgPagingCommon {
 
   //#region Public Methods
 
+  /**
+   * Andert die Seite auf den neuen Index
+   * 
+   * @param newPageIndex Seiten Index. Dies entspricht der Seitenzahl - 1.
+   */
   public changePage(newPageIndex: number) {
     if (this.activePageIndex !== newPageIndex) {
       console.log("NgPagingCommon: change page to index " + newPageIndex);
@@ -100,6 +167,9 @@ export abstract class NgPagingCommon {
     }
   }
 
+  /**
+   * Paging auf nächste Seite
+   */
   public nextPage() {
     if (this.activePageIndex != this.lastPageIndex) {
       console.log("NgPagingCommon: nextPage called");
@@ -109,6 +179,9 @@ export abstract class NgPagingCommon {
     }
   }
 
+  /**
+   * Paging eine Seite zurück
+   */
   public previousPage() {
     if (this.activePageIndex != this.firstPageIndex) {
       console.log("NgPagingCommon: previousPage called");
@@ -118,6 +191,9 @@ export abstract class NgPagingCommon {
     }
   }
 
+  /**
+   * Paging auf 1. Seite
+   */
   public firstPage() {
     if (this.activePageIndex != this.firstPageIndex) {
       console.log("NgPagingCommon: firstPage called");
@@ -127,6 +203,9 @@ export abstract class NgPagingCommon {
     }
   }
 
+  /**
+   * Paging auf letzter Seite
+   */
   public lastPage() {
     if (this.activePageIndex != this.lastPageIndex) {
       console.log("NgPagingCommon: lastPage called");
@@ -136,10 +215,16 @@ export abstract class NgPagingCommon {
     }
   }
 
+  /**
+   * Gibt die aktuelle Seitenzahl zurück
+   */
   public getCurrentPageNumber(): number {
     return this.activePageIndex + 1;
   }
 
+  /**
+   * Gibt die totale Anzahl Seiten zurück
+   */
   public getTotalPageNumber(): number {
     return this.lastPageIndex + 1;
   }

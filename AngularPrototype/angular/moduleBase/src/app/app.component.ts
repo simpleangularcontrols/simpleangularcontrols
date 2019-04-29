@@ -1,7 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, HostListener } from '@angular/core';
 import { NgForm, FormGroup, FormControl } from '@angular/forms';
 import { DeprecatedCurrencyPipe } from '@angular/common/src/pipes/deprecated/number_pipe';
 import { NgFormular } from '@jnetwork/jngcontrols-bootstrap3';
+
 
 interface KeyValue {
   label: string,
@@ -251,6 +252,16 @@ export class AppComponent {
 
   showmessage(value: string) {
     alert(value);
+  }
+
+  @HostListener('window:toolbarclicked', ['$event'])
+  myCustomEvent(ev: any): void {
+    alert('toolbar event: ' + ev.detail);
+  }
+
+  @HostListener('window:menubarclicked', ['$event'])
+  myCustomEvent2(ev: any): void {
+    alert('menu event: ' + ev.detail);
   }
 
 }

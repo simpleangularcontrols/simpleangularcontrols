@@ -524,6 +524,10 @@
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\tsconfig.lib.json" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\tsconfig.spec.json" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\tslint.json" />
+    <Content Include="angular\moduleBase\bootstrap3.compodocrc.json" />
+    <Content Include="angular\moduleBase\compodoc.bootstrap3.json" />
+    <Content Include="angular\moduleBase\compodoc.bootstrap4.json" />
+    <Content Include="angular\moduleBase\bootstrap4.compodocrc.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="gulpfile.js" />
     <Content Include="Scripts\bootstrap.js" />

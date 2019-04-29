@@ -1,0 +1,1493 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Bootstrap 3 Angular Controls</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>NgTreeView</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>projects/jngcontrols-bootstrap3/src/controls/treeview/treeview.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+    </p>
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ngTreeView</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>treeview.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_collapseAll">_collapseAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#collapseAttr">collapseAttr</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#inDeterminateAttr">inDeterminateAttr</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#nodes">nodes</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectAttr">selectAttr</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#collapseAllNode">collapseAllNode</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onClick">onClick</a>
+                            </li>
+                            <li>
+                                <a href="#onCollapseClick">onCollapseClick</a>
+                            </li>
+                            <li>
+                                <a href="#sendMsgToParent">sendMsgToParent</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#childrenAttr">childrenAttr</a>
+                            </li>
+                            <li>
+                                <a href="#collapseAll">collapseAll</a>
+                            </li>
+                            <li>
+                                <a href="#data">data</a>
+                            </li>
+                            <li>
+                                <a href="#fileicontemplate">fileicontemplate</a>
+                            </li>
+                            <li>
+                                <a href="#idAttr">idAttr</a>
+                            </li>
+                            <li>
+                                <a href="#name">name</a>
+                            </li>
+                            <li>
+                                <a href="#parentAttr">parentAttr</a>
+                            </li>
+                            <li>
+                                <a href="#prepareData">prepareData</a>
+                            </li>
+                            <li>
+                                <a href="#selectAll">selectAll</a>
+                            </li>
+                            <li>
+                                <a href="#selectedId">selectedId</a>
+                            </li>
+                            <li>
+                                <a href="#template">template</a>
+                            </li>
+                            <li>
+                                <a href="#textAttr">textAttr</a>
+                            </li>
+                            <li>
+                                <a href="#title">title</a>
+                            </li>
+                            <li>
+                                <a href="#titleAction">titleAction</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onselecteditem">onselecteditem</a>
+                            </li>
+                            <li>
+                                <a href="#selectedIdChange">selectedIdChange</a>
+                            </li>
+                            <li>
+                                <a href="#selectedTextChanged">selectedTextChanged</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="childrenAttr"></a>
+                        <b>childrenAttr</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;children&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:107</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Name of children list property in input data.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="collapseAll"></a>
+                        <b>collapseAll</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:115</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Collapse or expand all parent nodes.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="data"></a>
+                        <b>data</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:31</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fileicontemplate"></a>
+                        <b>fileicontemplate</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:66</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="idAttr"></a>
+                        <b>idAttr</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;id&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:97</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Name of ID property in input data.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="name"></a>
+                        <b>name</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:79</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="parentAttr"></a>
+                        <b>parentAttr</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;PARENT_ID&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:102</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Name of parent property in input data.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="prepareData"></a>
+                        <b>prepareData</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:87</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>A flag indicating data is flatten in array and prepare is required.(Default
+is false).</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectAll"></a>
+                        <b>selectAll</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:142</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Select or deselect all nodes.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedId"></a>
+                        <b>selectedId</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:150</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="template"></a>
+                        <b>template</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:53</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="textAttr"></a>
+                        <b>textAttr</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;data&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:92</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Attribute for Text in Tree</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="title"></a>
+                        <b>title</b>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:108</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="titleAction"></a>
+                        <b>titleAction</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:109</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onselecteditem"></a>
+                        <b>onselecteditem</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;string&gt;</code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:186</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedIdChange"></a>
+                        <b>selectedIdChange</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:179</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedTextChanged"></a>
+                        <b>selectedTextChanged</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;string&gt;</code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:183</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="collapseAllNode"></a>
+                    <span class="name">
+                        <b>
+                            collapseAllNode
+                        </b>
+                        <a href="#collapseAllNode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>collapseAllNode(command)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:244</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>command</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:190</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onClick"></a>
+                    <span class="name">
+                        <b>
+                            onClick
+                        </b>
+                        <a href="#onClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onClick(node)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:230</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>node</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCollapseClick"></a>
+                    <span class="name">
+                        <b>
+                            onCollapseClick
+                        </b>
+                        <a href="#onCollapseClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onCollapseClick(node)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:224</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>node</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sendMsgToParent"></a>
+                    <span class="name">
+                        <b>
+                            sendMsgToParent
+                        </b>
+                        <a href="#sendMsgToParent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>sendMsgToParent(msg)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:238</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>msg</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_collapseAll"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _collapseAll</b>
+                            <a href="#_collapseAll"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:6</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="collapseAttr"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            collapseAttr</b>
+                            <a href="#collapseAttr"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;isCollapsed&#x27;</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:11</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="inDeterminateAttr"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            inDeterminateAttr</b>
+                            <a href="#inDeterminateAttr"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;isIndeterminate&#x27;</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:13</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="nodes"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            nodes</b>
+                            <a href="#nodes"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>any[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:10</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectAttr"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            selectAttr</b>
+                            <a href="#selectAttr"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;isSelected&#x27;</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:12</a></code>
+</div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { NgTreeViewCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
+
+@Component({
+  selector: &#x27;ngTreeView&#x27;,
+  templateUrl: &#x27;treeview.html&#x27;,
+})
+
+export class NgTreeView extends NgTreeViewCommon {
+
+ 
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;structure panel panel-default&quot; icon&#x3D;&quot;Structure&quot;&gt;
+  &lt;div class&#x3D;&quot;panel-heading&quot;&gt;
+    &lt;p class&#x3D;&quot;panel-title&quot;&gt;&lt;span&gt;{{ _name }}&lt;/span&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;panel-body&quot;&gt;
+    &lt;div class&#x3D;&quot;right&quot;&gt;
+      &lt;div class&#x3D;&quot;form-submit form-inline&quot; style&#x3D;&quot;text-align: right;height:24px;&quot;&gt;
+        &lt;a class&#x3D;&quot;btn-inline&quot;&gt;&lt;i class&#x3D;&quot;icon icon-base-expand&quot; (click)&#x3D;&quot;collapseAllNode(false)&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+        &lt;a class&#x3D;&quot;btn-inline&quot;&gt;&lt;i class&#x3D;&quot;icon icon-base-collapse&quot; (click)&#x3D;&quot;collapseAllNode(true)&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div [id]&#x3D;&quot;_name&quot; class&#x3D;&quot;structure-tree single-root jstree jstree-1 jstree-default&quot;&gt;
+      &lt;ul class&#x3D;&quot;jstree-container-ul jstree-children jstree-no-dots jstree-striped jstree-wholerow-ul&quot;
+        *ngIf&#x3D;&quot;nodes &amp;&amp; nodes.length&quot;&gt;
+        &lt;li *ngFor&#x3D;&quot;let node of nodes; let last &#x3D; last&quot; 
+          class&#x3D;&quot;jstree-node&quot; 
+          [ngClass]&#x3D;&quot;{
+      &#x27;jstree-open&#x27;: !node[collapseAttr] &amp;&amp; node[childrenAttr] &amp;&amp; node[childrenAttr].length,
+      &#x27;jstree-closed&#x27;: node[collapseAttr]  &amp;&amp; node[childrenAttr] &amp;&amp; node[childrenAttr].length,
+      &#x27;jstree-leaf&#x27;: !node[childrenAttr].length,
+      &#x27;jstree-last&#x27;: last
+    }&quot; 
+    [id]&#x3D;&quot;node[idAttr]&quot; &gt;
+
+      
+
+          &lt;div unselectable&#x3D;&quot;on&quot; role&#x3D;&quot;presentation&quot; class&#x3D;&quot;jstree-wholerow&quot; (mouseover)&#x3D;&quot;node.hover&#x3D;true&quot; (mouseout)&#x3D;&quot;node.hover&#x3D;false&quot;
+            [ngClass]&#x3D;&quot;{&#x27;jstree-wholerow-clicked&#x27;: node &#x3D;&#x3D; selectedNode, &#x27;jstree-wholerow-hovered&#x27;: node.hover}&quot;&gt;&amp;nbsp;
+          &lt;/div&gt;
+
+
+          &lt;i class&#x3D;&quot;jstree-icon jstree-ocl&quot; role&#x3D;&quot;presentation&quot; (click)&#x3D;&quot;onCollapseClick(node)&quot; (mouseover)&#x3D;&quot;node.hover&#x3D;true&quot; (mouseout)&#x3D;&quot;node.hover&#x3D;false&quot;&gt;&lt;/i&gt;
+
+          &lt;a class&#x3D;&quot;jstree-anchor&quot; (click)&#x3D;&quot;onClick(node)&quot;
+            [ngClass]&#x3D;&quot;{&#x27;jstree-clicked&#x27;: node &#x3D;&#x3D; selectedNode, &#x27;jstreehovered&#x27;: node.hover}&quot; (mouseover)&#x3D;&quot;node.hover&#x3D;true&quot; (mouseout)&#x3D;&quot;node.hover&#x3D;false&quot;&gt;
+
+            &lt;ng-container *ngTemplateOutlet&#x3D;&quot;treefileicon; context { item: node }&quot;; content&gt;&lt;/ng-container&gt;
+            
+           
+            &lt;span&gt;{{node[textAttr]}}&lt;/span&gt;
+          &lt;/a&gt;
+          
+          
+        &lt;ng-container *ngTemplateOutlet&#x3D;&quot;templateTree; context { item: node }&quot;; content&gt;&lt;/ng-container&gt;
+        
+
+
+          &lt;ngTreeViewChild *ngIf&#x3D;&quot;node[childrenAttr] &amp;&amp; node[childrenAttr].length&quot; [fileicontemplate]&#x3D;&quot;fileicontemplate&quot; [template]&#x3D;&quot;templateTree&quot; [collapseAll]&#x3D;&quot;_collapseAll&quot;
+            [ngClass]&#x3D;&quot;(node[collapseAttr]&#x3D;&#x3D;true)?&#x27;collapse&#x27;:&#x27;show&#x27;&quot; [data]&#x3D;&quot;node[childrenAttr]&quot; [idAttr]&#x3D;&quot;idAttr&quot;
+            [parentAttr]&#x3D;&quot;parentAttr&quot; [textAttr]&#x3D;&quot;textAttr&quot; [prepareData]&#x3D;&quot;false&quot; (onselecteditem)&#x3D;&quot;sendMsgToParent($event)&quot; [(selectedId)]&#x3D;&quot;selectedId&quot;&gt;
+          &lt;/ngTreeViewChild&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="structure panel panel-default" icon="Structure">  <div class="panel-heading">    <p class="panel-title"><span>{{ _name }}</span></p>  </div>  <div class="panel-body">    <div class="right">      <div class="form-submit form-inline" style="text-align: right;height:24px;">        <a class="btn-inline"><i class="icon icon-base-expand" (click)="collapseAllNode(false)"></i></a>        <a class="btn-inline"><i class="icon icon-base-collapse" (click)="collapseAllNode(true)"></i></a>      </div>    </div>    <div [id]="_name" class="structure-tree single-root jstree jstree-1 jstree-default">      <ul class="jstree-container-ul jstree-children jstree-no-dots jstree-striped jstree-wholerow-ul"        *ngIf="nodes && nodes.length">        <li *ngFor="let node of nodes; let last = last"           class="jstree-node"           [ngClass]="{      \'jstree-open\': !node[collapseAttr] && node[childrenAttr] && node[childrenAttr].length,      \'jstree-closed\': node[collapseAttr]  && node[childrenAttr] && node[childrenAttr].length,      \'jstree-leaf\': !node[childrenAttr].length,      \'jstree-last\': last    }"     [id]="node[idAttr]" >                <div unselectable="on" role="presentation" class="jstree-wholerow" (mouseover)="node.hover=true" (mouseout)="node.hover=false"            [ngClass]="{\'jstree-wholerow-clicked\': node == selectedNode, \'jstree-wholerow-hovered\': node.hover}">&nbsp;          </div>          <i class="jstree-icon jstree-ocl" role="presentation" (click)="onCollapseClick(node)" (mouseover)="node.hover=true" (mouseout)="node.hover=false"></i>          <a class="jstree-anchor" (click)="onClick(node)"            [ngClass]="{\'jstree-clicked\': node == selectedNode, \'jstreehovered\': node.hover}" (mouseover)="node.hover=true" (mouseout)="node.hover=false">            <ng-container *ngTemplateOutlet="treefileicon; context { item: node }"; content></ng-container>                                   <span>{{node[textAttr]}}</span>          </a>                            <ng-container *ngTemplateOutlet="templateTree; context { item: node }"; content></ng-container>                  <ngTreeViewChild *ngIf="node[childrenAttr] && node[childrenAttr].length" [fileicontemplate]="fileicontemplate" [template]="templateTree" [collapseAll]="_collapseAll"            [ngClass]="(node[collapseAttr]==true)?\'collapse\':\'show\'" [data]="node[childrenAttr]" [idAttr]="idAttr"            [parentAttr]="parentAttr" [textAttr]="textAttr" [prepareData]="false" (onselecteditem)="sendMsgToParent($event)" [(selectedId)]="selectedId">          </ngTreeViewChild>        </li>      </ul>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'NgButton', 'selector': 'ngButton'},{'name': 'NgCheckbox', 'selector': 'ngCheckbox'},{'name': 'NgConfirm', 'selector': 'ngConfirm'},{'name': 'NgDate', 'selector': 'ngDate'},{'name': 'NgDateSelector', 'selector': 'ngDateSelector'},{'name': 'NgDateTime', 'selector': 'ngDateTime'},{'name': 'NgDialog', 'selector': 'ngDialog'},{'name': 'NgDropdown', 'selector': 'ngDropdown'},{'name': 'NgFormular', 'selector': 'ngFormular'},{'name': 'NgGrid', 'selector': 'ngGrid'},{'name': 'NgGridButton', 'selector': 'ngGridButton'},{'name': 'NgGridColumn', 'selector': 'ngGridColumn,[ngGridColumn]'},{'name': 'NgGridColumnAction', 'selector': 'ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgInput', 'selector': 'ngInput'},{'name': 'NgInputArea', 'selector': 'ngInputArea'},{'name': 'NgInputCurrency', 'selector': 'ngInputCurrency'},{'name': 'NgInputDecimal', 'selector': 'ngInputDecimal'},{'name': 'NgInputEmail', 'selector': 'ngInputEmail'},{'name': 'NgInputInteger', 'selector': 'ngInputInteger'},{'name': 'NgInputPassword', 'selector': 'ngInputPassword'},{'name': 'NgInputSearch', 'selector': 'ngInputSearch'},{'name': 'NgListbox', 'selector': 'ngListbox'},{'name': 'NgPaging', 'selector': 'ngPaging'},{'name': 'NgRadiobutton', 'selector': 'ngRadiobutton'},{'name': 'NgRadiobuttons', 'selector': 'ngRadiobuttons'},{'name': 'NgStaticLabel', 'selector': 'ngStaticLabel'},{'name': 'NgTab', 'selector': 'ngTab'},{'name': 'NgTabItem', 'selector': 'ngTabItem'},{'name': 'NgTime', 'selector': 'ngTime'},{'name': 'NgTinyMce', 'selector': 'ngTinymce'},{'name': 'NgTinyMceEditorComponent', 'selector': 'ngTinyMceEditor'},{'name': 'NgTooltip', 'selector': 'ngTooltip'},{'name': 'NgTreeItemAction', 'selector': 'ngTreeItemAction'},{'name': 'NgTreeView', 'selector': 'ngTreeView'},{'name': 'NgTreeViewChild', 'selector': 'ngTreeViewChild'},{'name': 'NgUpload', 'selector': 'ngUpload'},{'name': 'NgUploadMultiple', 'selector': 'ngUploadMultiple'},{'name': 'NgValidationSummary', 'selector': 'ngValidationSummary'},{'name': 'NgWizard', 'selector': 'ngWizard'},{'name': 'NgWizardItem', 'selector': 'ngWizardItem'}];
+    var DIRECTIVES = [{'name': 'NgDropdownOption', 'selector': 'option'},{'name': 'NgListboxOption', 'selector': 'option'}];
+    var ACTUAL_COMPONENT = {'name': 'NgTreeView'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'NgTreeView.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

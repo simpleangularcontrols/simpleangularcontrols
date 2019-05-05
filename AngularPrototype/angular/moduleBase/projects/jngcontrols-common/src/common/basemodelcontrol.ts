@@ -94,7 +94,6 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
   @Input("value")
   set value(v: VALUE) {
     this._value = this.ConvertInputValue(v);
-    this._dirty = true;
     this.propagateChange(this._value);
   }
 
@@ -175,7 +174,13 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
   registerOnValidatorChange(fn: () => void): void { this._onChange = fn; }
 
   protected _dirty: boolean = false;
-  public get dirty(): boolean { return this._dirty; }
+  public get dirty(): boolean {
+    if (this.ngControl !== null) {
+      this._dirty = this.ngControl.dirty;
+    }
+
+    return this._dirty;
+  }
 
   protected _touched: boolean = false;
   public get touched(): boolean {

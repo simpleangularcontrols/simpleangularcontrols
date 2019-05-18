@@ -64,7 +64,6 @@ export class NgFormularCommon implements AfterViewInit {
 
         // Controls von Form entfernen, die im Content nicht mehr verfügbar sind
         listChanges.forEachRemovedItem(itm => {
-          console.log("Remove Item to Form");
           this.form.removeControl(itm.item);
         });
       }

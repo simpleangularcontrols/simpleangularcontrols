@@ -11,9 +11,7 @@ import { NgInputEmailCommon } from '@jnetwork/jngcontrols-common';
   providers: [
     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgInputEmail },
     { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgInputEmail) }
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
+  ]
 })
 export class NgInputEmail extends NgInputEmailCommon {
   constructor(@Host() parent: NgFormular, injector: Injector) {

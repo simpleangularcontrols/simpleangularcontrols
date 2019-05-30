@@ -1,7 +1,7 @@
 import { Component, Host, forwardRef, Injector } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
-import { NgFormular } from '../form/form';
 import { NgRadiobuttonsCommon } from '@jnetwork/jngcontrols-common';
+import { NgFormular } from '../form/form';
 
 @Component({
   selector: 'ngRadiobuttons',
@@ -10,9 +10,7 @@ import { NgRadiobuttonsCommon } from '@jnetwork/jngcontrols-common';
   providers: [
     { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NgRadiobuttons), multi: true },
     { provide: NG_VALIDATORS, useExisting: forwardRef(() => NgRadiobuttons), multi: true }
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
+  ]
 })
 export class NgRadiobuttons extends NgRadiobuttonsCommon {
 

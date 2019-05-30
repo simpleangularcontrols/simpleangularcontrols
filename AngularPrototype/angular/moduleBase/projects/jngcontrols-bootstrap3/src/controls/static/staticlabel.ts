@@ -10,9 +10,7 @@ import { NgStaticLabelCommon } from '@jnetwork/jngcontrols-common';
   providers: [
     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgStaticLabel },
     { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgStaticLabel) }
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
+  ]
 })
 
 export class NgStaticLabel extends NgStaticLabelCommon {

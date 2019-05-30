@@ -13,9 +13,7 @@ import { NgListboxCommon } from '@jnetwork/jngcontrols-common';
   providers: [
     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgListbox },
     { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgListbox) }
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
+  ]
 })
 export class NgListbox extends NgListboxCommon{
   constructor(@Host() parent: NgFormular, injector: Injector) {

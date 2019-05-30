@@ -6,6 +6,7 @@ import { NgFormular } from '../form/form';
 // import { Validation } from '../../validation';
 // import { error } from 'util';
 import { NgInputCommon } from '@jnetwork/jngcontrols-common';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'ngInput',
@@ -14,14 +15,12 @@ import { NgInputCommon } from '@jnetwork/jngcontrols-common';
   providers: [
     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgInput },
     { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgInput) }
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
+  ]
 })
 
 export class NgInput extends NgInputCommon {
 
-  constructor(@Host() parent: NgFormular, injector: Injector) {
+  constructor( @Host() parent: NgFormular, injector: Injector) {
     super(parent, injector);
   }
 }

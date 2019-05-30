@@ -11,10 +11,7 @@ import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/for
   providers: [
     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgUploadMultiple },
     { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgUploadMultiple) }
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
-
+  ]
 })
 export class NgUploadMultiple extends NgUploadMultipleCommon {
 

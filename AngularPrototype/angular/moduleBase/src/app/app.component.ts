@@ -168,6 +168,7 @@ export class AppComponent {
 
   @ViewChild("form") myForm: NgFormular;
   @ViewChild("form2") form2: NgFormular;
+  @ViewChild("form3") form3: NgForm;
   @ViewChild("formTemp") formTemp: NgFormular;
   @ViewChild("formDateTime") formDateTime: NgFormular;
   @ViewChild("formExampleUpload") formUpload: NgFormular;
@@ -177,11 +178,15 @@ export class AppComponent {
     console.info('Required is:' + this.testrequired);
   }
 
+  debugAction() {
+    alert(this.form3);
+  }
+
   onSubmit() {
-    if (this.myForm.form.valid) {
-      alert(JSON.stringify(this.myForm.form.value));
+    if (this.myForm.getForm().valid) {
+      alert(JSON.stringify(this.myForm.getForm().value));
     } else {
-      this.validateAllFields(this.myForm.form.form);
+      this.validateAllFields(this.myForm.getForm().form);
     }
   }
 
@@ -247,7 +252,7 @@ export class AppComponent {
 
 
   uploadFormState(): string {
-    return JSON.stringify(this.formUpload.form.errors);
+    return JSON.stringify(this.formUpload.getForm().errors);
   }
 
   showmessage(value: string) {

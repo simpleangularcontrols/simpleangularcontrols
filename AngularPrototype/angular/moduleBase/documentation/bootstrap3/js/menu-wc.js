@@ -35,6 +35,26 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </a>
                         </li>
                         <li class="link">
+                            <a href="changelog.html"  data-type="chapter-link">
+                                <span class="icon ion-ios-paper"></span>CHANGELOG
+                            </a>
+                        </li>
+                        <li class="link">
+                            <a href="contributing.html"  data-type="chapter-link">
+                                <span class="icon ion-ios-paper"></span>CONTRIBUTING
+                            </a>
+                        </li>
+                        <li class="link">
+                            <a href="license.html"  data-type="chapter-link">
+                                <span class="icon ion-ios-paper"></span>LICENSE
+                            </a>
+                        </li>
+                        <li class="link">
+                            <a href="todo.html"  data-type="chapter-link">
+                                <span class="icon ion-ios-paper"></span>TODO
+                            </a>
+                        </li>
+                        <li class="link">
                             <a href="dependencies.html" data-type="chapter-link">
                                 <span class="icon ion-ios-list"></span>Dependencies
                             </a>
@@ -163,21 +183,21 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="modules/jNetworkBootstrap3FormModule.html" data-type="entity-link">jNetworkBootstrap3FormModule</a>
-                                    <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-jNetworkBootstrap3FormModule-37f4ff193e7274b0c25184e17f549bee"' : 'data-target="#xs-components-links-module-jNetworkBootstrap3FormModule-37f4ff193e7274b0c25184e17f549bee"' }>
-                                            <span class="icon ion-md-cog"></span>
-                                            <span>Components</span>
-                                            <span class="icon ion-ios-arrow-down"></span>
-                                        </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-jNetworkBootstrap3FormModule-37f4ff193e7274b0c25184e17f549bee"' :
-                                            'id="xs-components-links-module-jNetworkBootstrap3FormModule-37f4ff193e7274b0c25184e17f549bee"' }>
-                                            <li class="link">
-                                                <a href="components/NgFormular.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">NgFormular</a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#directives-links-module-jNetworkBootstrap3FormModule-ea5b82a43800c1542bc13a5c63cabfaa"' : 'data-target="#xs-directives-links-module-jNetworkBootstrap3FormModule-ea5b82a43800c1542bc13a5c63cabfaa"' }>
+                                        <span class="icon ion-md-code-working"></span>
+                                        <span>Directives</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-jNetworkBootstrap3FormModule-ea5b82a43800c1542bc13a5c63cabfaa"' :
+                                        'id="xs-directives-links-module-jNetworkBootstrap3FormModule-ea5b82a43800c1542bc13a5c63cabfaa"' }>
+                                        <li class="link">
+                                            <a href="directives/NgFormular.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">NgFormular</a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </li>
                             <li class="link">
                                 <a href="modules/jNetworkBootstrap3GridModule.html" data-type="entity-link">jNetworkBootstrap3GridModule</a>
@@ -483,19 +503,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                 </ul>
                 </li>
-                        <li class="chapter">
-                            <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#directives-links"' :
-                                'data-target="#xs-directives-links"' }>
-                                <span class="icon ion-md-code-working"></span>
-                                <span>Directives</span>
-                                <span class="icon ion-ios-arrow-down"></span>
-                            </div>
-                            <ul class="links collapse" ${ isNormalMode ? 'id="directives-links"' : 'id="xs-directives-links"' }>
-                                <li class="link">
-                                    <a href="directives/NgDropdownOption.html" data-type="entity-link">NgDropdownOption</a>
-                                </li>
-                            </ul>
-                        </li>
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#classes-links"' :
                             'data-target="#xs-classes-links"' }>

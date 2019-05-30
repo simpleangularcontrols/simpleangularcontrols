@@ -11,9 +11,7 @@ import { NgDateTimeCommon } from '@jnetwork/jngcontrols-common';
   providers: [
     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => NgDateTime) },
     { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgDateTime) }
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
+  ]
 })
 
 export class NgDateTime extends NgDateTimeCommon {

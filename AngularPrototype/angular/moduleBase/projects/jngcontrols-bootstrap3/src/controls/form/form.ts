@@ -1,15 +1,52 @@
-import { Component, IterableDiffers } from '@angular/core';
+import { HostBinding, Input } from '@angular/core';
 import { NgFormularCommon } from '@jnetwork/jngcontrols-common';
+import { ControlContainer, NgForm } from '@angular/forms';
+import { Directive } from '@angular/core';
 
-@Component({
-  selector: 'ngFormular',
-  templateUrl: './form.html'
+/**
+ * Erweiterung / Hooking für automatismen in Formular. Wird als Container für alle Controls benötigt.
+ *
+ * @example Beispiel über Div Container
+ *
+ * <div ngForm></div>
+ *
+ * @example Beispiel über Form Tag
+ * 
+ * <form></form>
+ * 
+ */
+@Directive({
+  selector: 'form:not([ngNoForm]):not([formGroup]),[ngForm]',
+  exportAs: 'NgFormular'
 })
 export class NgFormular extends NgFormularCommon {
 
-  // IterableDiffers via Konstrukor hier injecten damit kein Fehler beim Kompilieren aus der Applikation entsteht
-  constructor(iterableDiffers: IterableDiffers) {
-    super(iterableDiffers);
+  /**
+   * Konstruktor
+   * 
+   * @param form Instanz von NgForm für eigene automatische Formular Logik
+   */
+  constructor(form: NgForm) {
+    super(form);
   }
 
+  /**
+   * Setzt die Standard CSS Klasse für auf dem Form Container
+   */
+  @HostBinding('class.form')
+  cssClassForm: boolean = true;
+
+  /**
+   * Setzt die CSS Klasse 'form-horizontal' wenn die Orientation auf Horizontal eingestellt ist
+   */
+  @HostBinding('class.form-horizontal')
+  get orientientationHorizontal(): boolean { return this.getOrientation() === 'horizontal'; }
+
+  /**
+   *  Setzt die CSS Klasse 'form-vertical' wenn die Orientation auf Vertical eingestellt ist
+   */
+  @HostBinding('class.form-vertical')
+  get orientientationVertical(): boolean { return this.getOrientation() === 'vertical'; }
+
 }
+

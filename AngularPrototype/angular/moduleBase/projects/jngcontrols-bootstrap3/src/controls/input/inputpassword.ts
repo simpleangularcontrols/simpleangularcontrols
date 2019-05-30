@@ -11,9 +11,7 @@ import { NgInputPasswordCommon } from '@jnetwork/jngcontrols-common';
   providers: [
     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgInputPassword },
     { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgInputPassword) }
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
+  ]
 })
 export class NgInputPassword extends NgInputPasswordCommon {
   constructor(@Host() parent: NgFormular, injector: Injector) {

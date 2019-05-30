@@ -106,14 +106,6 @@
                 <td class="col-md-9"><code>./paging.html</code></td>
             </tr>
 
-            <tr>
-                <td class="col-md-3">viewProviders</td>
-                <td class="col-md-9">
-                    <code>
-                                <code><a href="../components/NgFormular.html" target="_self" >{ provide: ControlContainer, useExisting: NgFormular }</a></code>
-                    </code>
-                </td>
-            </tr>
 
 
 
@@ -1361,9 +1353,7 @@ import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from &quot;@angula
   providers: [
     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgPaging },
     { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgPaging) }
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
+  ]
 })
 export class NgPaging extends NgPagingCommon {
 
@@ -1426,8 +1416,8 @@ export class NgPaging extends NgPagingCommon {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="row">  <div class="pager-nav col-sm-9" id={{name}}>    <ul class="pagination">      <li [ngClass]="{\'aspNetDisabled disabled\': activePageIndex == firstPageIndex}">        <a (click)="firstPage()"><i class="glyphicon glyphicon-fast-backward"></i></a>      </li>      <li [ngClass]="{\'aspNetDisabled disabled\': activePageIndex == firstPageIndex}">        <a (click)="previousPage()"><i class="glyphicon glyphicon-step-backward"></i></a>      </li>      <li *ngFor="let page of paginators; let i = index" [ngClass]="{\'active\': page == activePageIndex}">        <a (click)="changePage(page)">{{page + 1 }}</a>      </li>      <li [ngClass]="{\'aspNetDisabled disabled\': activePageIndex == lastPageIndex}">        <a (click)="nextPage()"><i class="glyphicon glyphicon-step-forward"></i></a>      </li>      <li [ngClass]="{\'aspNetDisabled disabled\': activePageIndex == lastPageIndex}">        <a (click)="lastPage()"><i class="glyphicon glyphicon-fast-forward"></i></a>      </li>    </ul>  </div>  <div class="col-sm-3 text-right" style="margin: 10px 0;">    Seite {{getCurrentPageNumber()}} von {{getTotalPageNumber()}}  </div></div></div>'
-    var COMPONENTS = [{'name': 'NgButton', 'selector': 'ngButton'},{'name': 'NgCheckbox', 'selector': 'ngCheckbox'},{'name': 'NgConfirm', 'selector': 'ngConfirm'},{'name': 'NgDate', 'selector': 'ngDate'},{'name': 'NgDateSelector', 'selector': 'ngDateSelector'},{'name': 'NgDateTime', 'selector': 'ngDateTime'},{'name': 'NgDialog', 'selector': 'ngDialog'},{'name': 'NgDropdown', 'selector': 'ngDropdown'},{'name': 'NgFormular', 'selector': 'ngFormular'},{'name': 'NgGrid', 'selector': 'ngGrid'},{'name': 'NgGridButton', 'selector': 'ngGridButton'},{'name': 'NgGridColumn', 'selector': 'ngGridColumn,[ngGridColumn]'},{'name': 'NgGridColumnAction', 'selector': 'ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgInput', 'selector': 'ngInput'},{'name': 'NgInputArea', 'selector': 'ngInputArea'},{'name': 'NgInputCurrency', 'selector': 'ngInputCurrency'},{'name': 'NgInputDecimal', 'selector': 'ngInputDecimal'},{'name': 'NgInputEmail', 'selector': 'ngInputEmail'},{'name': 'NgInputInteger', 'selector': 'ngInputInteger'},{'name': 'NgInputPassword', 'selector': 'ngInputPassword'},{'name': 'NgInputSearch', 'selector': 'ngInputSearch'},{'name': 'NgListbox', 'selector': 'ngListbox'},{'name': 'NgPaging', 'selector': 'ngPaging'},{'name': 'NgRadiobutton', 'selector': 'ngRadiobutton'},{'name': 'NgRadiobuttons', 'selector': 'ngRadiobuttons'},{'name': 'NgStaticLabel', 'selector': 'ngStaticLabel'},{'name': 'NgTab', 'selector': 'ngTab'},{'name': 'NgTabItem', 'selector': 'ngTabItem'},{'name': 'NgTime', 'selector': 'ngTime'},{'name': 'NgTinyMce', 'selector': 'ngTinymce'},{'name': 'NgTinyMceEditorComponent', 'selector': 'ngTinyMceEditor'},{'name': 'NgTooltip', 'selector': 'ngTooltip'},{'name': 'NgTreeItemAction', 'selector': 'ngTreeItemAction'},{'name': 'NgTreeView', 'selector': 'ngTreeView'},{'name': 'NgTreeViewChild', 'selector': 'ngTreeViewChild'},{'name': 'NgUpload', 'selector': 'ngUpload'},{'name': 'NgUploadMultiple', 'selector': 'ngUploadMultiple'},{'name': 'NgValidationSummary', 'selector': 'ngValidationSummary'},{'name': 'NgWizard', 'selector': 'ngWizard'},{'name': 'NgWizardItem', 'selector': 'ngWizardItem'}];
-    var DIRECTIVES = [{'name': 'NgDropdownOption', 'selector': 'option'},{'name': 'NgListboxOption', 'selector': 'option'}];
+    var COMPONENTS = [{'name': 'NgButton', 'selector': 'ngButton'},{'name': 'NgCheckbox', 'selector': 'ngCheckbox'},{'name': 'NgConfirm', 'selector': 'ngConfirm'},{'name': 'NgDate', 'selector': 'ngDate'},{'name': 'NgDateSelector', 'selector': 'ngDateSelector'},{'name': 'NgDateTime', 'selector': 'ngDateTime'},{'name': 'NgDialog', 'selector': 'ngDialog'},{'name': 'NgDropdown', 'selector': 'ngDropdown'},{'name': 'NgGrid', 'selector': 'ngGrid'},{'name': 'NgGridButton', 'selector': 'ngGridButton'},{'name': 'NgGridColumn', 'selector': 'ngGridColumn,[ngGridColumn]'},{'name': 'NgGridColumnAction', 'selector': 'ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgInput', 'selector': 'ngInput'},{'name': 'NgInputArea', 'selector': 'ngInputArea'},{'name': 'NgInputCurrency', 'selector': 'ngInputCurrency'},{'name': 'NgInputDecimal', 'selector': 'ngInputDecimal'},{'name': 'NgInputEmail', 'selector': 'ngInputEmail'},{'name': 'NgInputInteger', 'selector': 'ngInputInteger'},{'name': 'NgInputPassword', 'selector': 'ngInputPassword'},{'name': 'NgInputSearch', 'selector': 'ngInputSearch'},{'name': 'NgListbox', 'selector': 'ngListbox'},{'name': 'NgPaging', 'selector': 'ngPaging'},{'name': 'NgRadiobutton', 'selector': 'ngRadiobutton'},{'name': 'NgRadiobuttons', 'selector': 'ngRadiobuttons'},{'name': 'NgStaticLabel', 'selector': 'ngStaticLabel'},{'name': 'NgTab', 'selector': 'ngTab'},{'name': 'NgTabItem', 'selector': 'ngTabItem'},{'name': 'NgTime', 'selector': 'ngTime'},{'name': 'NgTinyMce', 'selector': 'ngTinymce'},{'name': 'NgTinyMceEditorComponent', 'selector': 'ngTinyMceEditor'},{'name': 'NgTooltip', 'selector': 'ngTooltip'},{'name': 'NgTreeItemAction', 'selector': 'ngTreeItemAction'},{'name': 'NgTreeView', 'selector': 'ngTreeView'},{'name': 'NgTreeViewChild', 'selector': 'ngTreeViewChild'},{'name': 'NgUpload', 'selector': 'ngUpload'},{'name': 'NgUploadMultiple', 'selector': 'ngUploadMultiple'},{'name': 'NgValidationSummary', 'selector': 'ngValidationSummary'},{'name': 'NgWizard', 'selector': 'ngWizard'},{'name': 'NgWizardItem', 'selector': 'ngWizardItem'}];
+    var DIRECTIVES = [{'name': 'NgDropdownOption', 'selector': 'option'},{'name': 'NgFormular', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgListboxOption', 'selector': 'option'}];
     var ACTUAL_COMPONENT = {'name': 'NgPaging'};
 </script>
 <script src="../js/tree.js"></script>

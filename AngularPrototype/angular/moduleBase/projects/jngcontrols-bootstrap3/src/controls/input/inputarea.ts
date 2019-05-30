@@ -10,9 +10,7 @@ import { NgInputAreaCommon } from '@jnetwork/jngcontrols-common';
   providers: [
     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgInputArea },
     { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgInputArea) }
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
+  ]
 })
 
 export class NgInputArea extends NgInputAreaCommon {

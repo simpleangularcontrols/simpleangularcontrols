@@ -146,7 +146,7 @@
                             title="Official documentation about module declarations"><span class="icon ion-ios-information-circle-outline"></span></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="../components/NgFormular.html">NgFormular</a>
+                            <a href="../directives/NgFormular.html">NgFormular</a>
                         </li>
                     </ul>
                 </div>
@@ -155,7 +155,7 @@
                                 class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="../components/NgFormular.html">NgFormular</a>
+                            <a href="../directives/NgFormular.html">NgFormular</a>
                         </li>
                     </ul>
                 </div>
@@ -167,17 +167,16 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule, IterableDiffers } from &quot;@angular/core&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &quot;@angular/core&quot;;
 import { NgFormular } from &quot;./form&quot;;
 import { BrowserModule } from &quot;@angular/platform-browser&quot;;
-import { FormsModule, ReactiveFormsModule } from &quot;@angular/forms&quot;;
+import { FormsModule } from &quot;@angular/forms&quot;;
 
 @NgModule({
   declarations: [NgFormular],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule
+    FormsModule
   ],
   exports: [
     NgFormular

@@ -10,9 +10,7 @@ import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from "@angular/for
   providers: [
     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgTinyMce },
     { provide: NG_VALIDATORS, useExisting: forwardRef(() => NgTinyMce), multi: true }
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
+  ]
 })
 export class NgTinyMce extends NgTinyMceCommon {
   constructor(@Host() parent: NgFormular, injector: Injector) {

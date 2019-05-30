@@ -11,9 +11,7 @@ import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/for
   providers: [
     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgInputSearch },
     { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgInputSearch) }
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
+  ]
 })
 
 export class NgInputSearch extends NgInputSearchCommon {

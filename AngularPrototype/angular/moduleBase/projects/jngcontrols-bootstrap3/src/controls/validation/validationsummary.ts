@@ -16,9 +16,7 @@ import { NgFormular } from '../form/form';
       multi: true,
       useExisting: NgValidationSummary
     }
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
+  ]
 })
 export class NgValidationSummary extends NgValidationSummaryCommon {
 

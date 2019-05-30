@@ -528,6 +528,11 @@
     <Content Include="angular\moduleBase\compodoc.bootstrap3.json" />
     <Content Include="angular\moduleBase\compodoc.bootstrap4.json" />
     <Content Include="angular\moduleBase\bootstrap4.compodocrc.json" />
+    <Content Include="angular\moduleBase\build.compodoc.bat" />
+    <Content Include="angular\moduleBase\CHANGELOG.md" />
+    <Content Include="angular\moduleBase\CONTRIBUTING.md" />
+    <Content Include="angular\moduleBase\LICENSE.md" />
+    <Content Include="angular\moduleBase\TODO.md" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="gulpfile.js" />
     <Content Include="Scripts\bootstrap.js" />

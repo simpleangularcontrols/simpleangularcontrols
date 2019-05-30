@@ -11,9 +11,7 @@ import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from "@angular/for
   providers: [
     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgPaging },
     { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgPaging) }
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
+  ]
 })
 export class NgPaging extends NgPagingCommon {
 

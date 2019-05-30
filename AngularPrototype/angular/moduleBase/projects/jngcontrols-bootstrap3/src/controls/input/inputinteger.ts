@@ -10,9 +10,7 @@ import { NgInputIntegerCommon } from '@jnetwork/jngcontrols-common';
   providers: [
     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgInputInteger },
     { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgInputInteger) }
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
+  ]
 })
 export class NgInputInteger extends NgInputIntegerCommon {
   constructor(@Host() parent: NgFormular, injector: Injector) {

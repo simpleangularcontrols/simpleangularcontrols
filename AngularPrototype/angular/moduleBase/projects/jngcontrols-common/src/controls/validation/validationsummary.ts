@@ -24,8 +24,8 @@ export class NgValidationSummaryCommon {
   // #endregion
 
   get formErrors(): string[] {
-    var result: Array<string> = Object.keys(this.parent.form.controls).map(key => {
-      const control = this.parent.form.controls[key];
+    var result: Array<string> = Object.keys(this.parent.getForm().controls).map(key => {
+      const control = this.parent.getForm().controls[key];
       if (control.errors === null || control.touched === false || control.valid == true) { return null; }
       if (control.errors.required) {
         return control.errors.required_message;

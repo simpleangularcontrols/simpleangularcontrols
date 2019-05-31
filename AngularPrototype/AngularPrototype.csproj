@@ -142,7 +142,6 @@
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\datetime\time.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\confirm\confirm.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\dialog\dialog.html" />
-    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\form\form.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\grid.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\gridbutton.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\gridcolumn.html" />

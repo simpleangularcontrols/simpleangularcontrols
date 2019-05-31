@@ -1,8 +1,8 @@
 <div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
-  <label for="{{_name}}" id="{{_name}}_label" class="control-label" [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only']" [class.required]="_isrequired" *ngIf="!_isadaptivelabel">{{_label}}</label>
+  <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="control-label" [ngClass]="[_labelsize !== 12 ?  'col-md-' + _labelsize : 'sr-only']" [class.required]="_isrequired">{{_label}}</label>
   <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <div style="position: relative; width: 140px;">
-      
+
       <div class="input-group">
         <input id="{{_name}}" name="{{_name}}" type="text" [value]="valuestring" maxlength="6" [textMask]="_mask" size="6"
                class="form-control" [attr.placeholder]="_placeholder" data-error-msg="ctl00_cphContent_ctl00_ucPublicationDetail_dtpValidFrom_timeTextBoxTypeValidator"

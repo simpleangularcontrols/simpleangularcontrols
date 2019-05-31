@@ -1,5 +1,5 @@
 <div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
-  <label for="{{_name}}" class="control-label" [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only']" [class.required]="_isrequired" *ngIf="!_isadaptivelabel">{{_label}}</label>
+  <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="control-label" [ngClass]="[_labelsize !== 12 ?  'col-md-' + _labelsize : 'sr-only']" [class.required]="_isrequired">{{_label}}</label>
   <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <div class="input-group">
       <div class="input-group-addon">@</div>

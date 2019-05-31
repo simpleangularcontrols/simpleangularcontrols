@@ -3,7 +3,7 @@
   <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <input id="{{_name}}" name="{{_name}}" type="text" class="form-control"
            [value]="value" [attr.placeholder]="_placeholder" (blur)="onTouch()" (input)="setValue($event.target.value)"
-           [attr.maxlength]="_maxlength" [ngClass]="{'language-specific': _islanguagespecific }" [disabled]="isdisabled" />
-    <label for="{{_name}}" class="form-label-adaptive form-label-fixed" [ngClass]="{ 'required': _isrequired }" *ngIf="_isadaptivelabel">{{_label}}</label>
+           [attr.maxlength]="_maxlength" [ngClass]="{'language-specific': _islanguagespecific }" [disabled]="isdisabled" [readonly]="_readonly" />
+    <label for="{{_name}}" class="form-label-adaptive form-label-fixed" [ngClass]="{ 'required': _isrequired }" *ngIf="_isadaptivelabel && !_disablelabel">{{_label}}</label>
   </div>
 </div>

@@ -1,6 +1,17 @@
 export function convertToBoolean(value: any): boolean {
-  return value !== null && value !== undefined && '${value}'.toLowerCase() !== 'false';
+  if (value === null || value === undefined || typeof value === "boolean")
+    return value;
+
+  return value.toString() === "true";
 }
+
+export function convertToNumber(value: any): number {
+  if (value === null || value === undefined || typeof value === "number")
+    return value;
+
+  return parseFloat(value.toString());
+}
+
 
 /**
  * Erzeugt aus einer Map ein Objekt

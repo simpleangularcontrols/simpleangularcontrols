@@ -18,7 +18,7 @@
     <tr>
       <td [attr.colspan]="GetColumnCount()">
         <div class="container">
-          <ngPaging name="{{name}}Paging" (onpaging)="pagingSkipGrid($event)" [pagerdata]="pagerdata"></ngPaging>
+          <ngPaging name="{{name}}Paging" (onpaging)="pageChange($event)" (onpagesizechanged)="pageSizeChanged($event)" [pagerdata]="pagerdata" [pagingtext]="pagingText" [pagesizetext]="pageSizeText"></ngPaging>
         </div>
       </td>
     </tr>

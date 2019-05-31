@@ -10,12 +10,14 @@ import { NgInputPassword } from "./inputpassword";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { NgInputSearch } from "./inputsearch";
+import { NgTooltip } from "../tooltip/tooltip";
+import { jNetworkBootstrap3TooltipModule } from "../tooltip/tooltip.module";
 
 
 @NgModule({
   declarations: [NgInput, NgInputArea, NgInputCurrency, NgInputDecimal, NgInputEmail, NgInputInteger, NgInputPassword, NgInputSearch],
   imports: [
-    BrowserModule, CommonModule, FormsModule
+    BrowserModule, CommonModule, FormsModule, jNetworkBootstrap3TooltipModule
   ],
   exports: [NgInput, NgInputArea, NgInputCurrency, NgInputDecimal, NgInputEmail, NgInputInteger, NgInputPassword, NgInputSearch]
 })

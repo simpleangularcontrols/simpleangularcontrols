@@ -1,5 +1,6 @@
 import { Input, } from "@angular/core";
 import { NgInputCommon } from "./input";
+import { AbstractControl, ValidationErrors } from "@angular/forms";
 
 export class NgInputAreaCommon extends NgInputCommon {
 
@@ -12,6 +13,12 @@ export class NgInputAreaCommon extends NgInputCommon {
    * Definiert die Höhe der TextArea Box. Ist normalfall leer, da Höhe auch über Rows gesetzt werden kann.
    */
   @Input("height") _height: string = null;
+
+  /**
+   * Property mit dem Custom CSS Klassen auf dem Form-Control definiert werden können.
+   */
+  @Input("customCssClass")
+  _customClasses: string = '';
 
   get _currentLength(): number {
     if (this.value === null || this.value === undefined)

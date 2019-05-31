@@ -44,6 +44,11 @@ export class NgButtonCommon {
       case 'light':
       case 'dark':
       case 'link':
+      case 'success':
+      case 'secondary':
+      case 'danger':
+      case 'warning':
+      case 'info':
         // Empty Role is Default
         if (v === '')
           this._role = 'default';

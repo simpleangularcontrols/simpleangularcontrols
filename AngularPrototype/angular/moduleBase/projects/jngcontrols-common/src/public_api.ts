@@ -41,6 +41,7 @@ export { NgTimeCommon } from './controls/datetime/time';
 
 // StaticLabel
 export { NgStaticLabelCommon } from './controls/static/staticlabel';
+export { NgStaticFormContainerCommon } from './controls/static/formcontainer';
 
 // Wizard
 export { NgWizardCommon } from './controls/wizard/wizard';
@@ -69,8 +70,13 @@ export { NgConfirmCommon } from './controls/confirm/confirm';
 export { NgConfirmButton } from './controls/confirm/confirm.button';
 export * from './interfaces/iconfirmcomponent';
 
+// Services
+export * from './interfaces/ilanguageresource';
+export { LanguageResourceService, LANGUAGE_SERVICE } from './services';
+
 // Export Validators
 export * from './validation';
+
 // Export of Modules
 export * from './controls/list/list.module'
 
@@ -79,3 +85,4 @@ export * from './utilities/Convertion';
 export * from './utilities/enums';
 export * from './utilities/datatypes';
 export * from './utilities/interpolation';
+

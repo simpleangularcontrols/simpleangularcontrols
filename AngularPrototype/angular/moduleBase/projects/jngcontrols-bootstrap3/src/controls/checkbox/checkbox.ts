@@ -14,7 +14,7 @@ import { NgFormular } from '../form/form';
   ]
 })
 export class NgCheckbox extends NgCheckboxCommon {
-  constructor( @Host() parent: NgFormular, injector: Injector) {
+  constructor(@Host() parent: NgFormular, injector: Injector) {
     super(parent, injector);
   }
 }

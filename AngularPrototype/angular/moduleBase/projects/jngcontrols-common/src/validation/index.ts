@@ -1,1 +1,1 @@
-export { Validation } from './validators';
+export { Validation, ValidationErrorItem } from './validators';

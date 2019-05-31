@@ -17,33 +17,80 @@ export abstract class NgGridCommon {
 
   //#region InputOutputs
 
+  /**
+   * Grid Daten
+   */
   @Input("value")
   public value: any
 
+  /**
+   * Pager Settings
+   */
   @Input('pagerdata')
-  public pagerdata: any
+  public pagerdata: PagerData
 
   @Input("name")
   public name: string
 
+  /**
+   * Text welcher angezeigt wird, wenn keine Rows verfügbar sind.
+   */
   @Input("emptytext")
   public _emptytext: string
+
+
+  /**
+   * Text in Pager für "Seite x von y".
+   *
+   * Folgende Interpolation Texte sind vorhanden:
+   * {{CURRENTPAGE}}: Aktuelle Seite
+   * {{TOTALPAGES}}: Anzahl Seiten
+   * 
+   */
+  @Input("pagingtext")
+  public pagingText: string = "Seite {{CURRENTPAGE}} von {{TOTALPAGES}}";
+
+  /**
+   * Text in Page für Anzahl Seitenelemente pro Seite
+   *
+   * Folgende Interpolation Texte sind vorhanden:
+   * {{PAGESIZE}}: Anzahl Elemente pro Seite
+   * 
+   */
+  @Input("pagesizetext")
+  public pageSizeText: string = "Einträge pro Seite {{PAGESIZE}}";
 
   @Input("maxvisiblepagenumbers") _maxvisiblepagenumbers: number;
   @Input("headers") _headers: TemplateRef<any>;
   @Input("body") _body: TemplateRef<any>;
 
-  @Output("onpaging") _pagingEvent: EventEmitter<any> = new EventEmitter();
+  @Output("onpaging") _pagingEvent: EventEmitter<number> = new EventEmitter();
 
   @Output("onsorting") _sortingevent: EventEmitter<any> = new EventEmitter()
+
+  @Output("onpagesizechanged") _pageSizeChanged: EventEmitter<number> = new EventEmitter<number>();
 
   //#endregion
 
   private sortingFlow: string = "ascending"
   private oldChosenHeader: string
 
-  pagingSkipGrid(newStartIndex) {
+  /**
+   * Setzt die neue Seite
+   *  
+   * @param newStartIndex Neuer Seiten Index (Zero-Based)
+   */
+  pageChange(newStartIndex) {
     this._pagingEvent.emit(newStartIndex)
+  }
+
+  /**
+   * Setzt die Page Size auf dem Grid neu
+   * 
+   * @param pageSize Grösse der Page
+   */
+  pageSizeChanged(pageSize: number) {
+    this._pageSizeChanged.emit(pageSize);
   }
 
   public RegisterColumn() {

@@ -1,5 +1,9 @@
 import { NgFormularCommon } from '../form/form';
-import { Input } from '@angular/core';
+import { Input, Injector } from '@angular/core';
+import { ValidationErrorItem } from '../../validation';
+import { InternalLanguageResourceService, LANGUAGE_SERVICE } from '../../services/languageresource.service';
+import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
+import { Observable } from 'rxjs';
 
 export class NgValidationSummaryCommon {
 
@@ -10,6 +14,10 @@ export class NgValidationSummaryCommon {
 
   // Parent Formular
   protected parent: NgFormularCommon;
+  /**
+  * Service für Error Localisation
+  */
+  protected lngResourceService: ILanguageResourceService;
 
   // #endregion
 
@@ -17,42 +25,35 @@ export class NgValidationSummaryCommon {
 
   // Konstruktor
   // Inject des Formulars
-  constructor(parent: NgFormularCommon) {
+  constructor(parent: NgFormularCommon, injector: Injector) {
     this.parent = parent;
+    this.lngResourceService = injector.get(LANGUAGE_SERVICE, new InternalLanguageResourceService());
   }
 
   // #endregion
 
-  get formErrors(): string[] {
-    var result: Array<string> = Object.keys(this.parent.getForm().controls).map(key => {
+  get formErrors(): Observable<string>[] {
+    var result: Array<Observable<string>> = Object.keys(this.parent.getForm().controls).map(key => {
       const control = this.parent.getForm().controls[key];
-      if (control.errors === null || control.touched === false || control.valid == true) { return null; }
-      if (control.errors.required) {
-        return control.errors.required_message;
 
-      } else if (control.errors.maxvalue) {
+      if (control.errors === null || control.touched === false || control.valid == true)
+        return null;
 
-        return control.errors.maxvalue_message;
+      let keys: string[] = Object.keys(control.errors);
 
-      } else if (control.errors.minvalue) {
-        return control.errors.minvalue_message;
+      if (keys.length <= 0)
+        return null;
 
-      } else if (control.errors.datemin) {
-        return control.errors.message;
+      let errorItem: ValidationErrorItem = control.errors[keys[0]];
 
-      } else if (control.errors.datemax) {
-        return control.errors.message;
-
-      } else if (control.errors.dateformat) {
-        return control.errors.message;
-
-      } else if (control.errors.email) {
-        return control.errors.message;
-
-
-      } else {
-        return `${key} has an unknown error`;
+      // Validation Parameters
+      const parameters = {};
+      if (errorItem.parameters !== null && errorItem.parameters !== undefined) {
+        errorItem.parameters.forEach((v, k) => { parameters[k] = v });
       }
+      parameters["FIELD"] = errorItem.fieldName;
+
+      return this.lngResourceService.GetString(errorItem.errorMessageValidationSummaryKey, parameters)
     });
 
     return result.filter(item => item !== null);

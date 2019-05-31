@@ -5,8 +5,8 @@
       <div class="input-group-addon">@</div>
       <input id="{{_name}}" name="{{_name}}" type="text" class="form-control"
              [value]="value" [attr.placeholder]="_placeholder" (blur)="onTouch()" (input)="setValue($event.target.value)"
-             autocomplete="email" [attr.maxlength]="_maxlength" [disabled]="isdisabled" />
-      <label for="{{_name}}" class="form-label-adaptive form-label-fixed" [ngClass]="{ 'required': _isrequired }" *ngIf="_isadaptivelabel">{{_label}}</label>
+             autocomplete="email" [attr.maxlength]="_maxlength" [disabled]="isdisabled" [readonly]="_readonly" />
+      <label for="{{_name}}" class="form-label-adaptive form-label-fixed" [ngClass]="{ 'required': _isrequired }" *ngIf="_isadaptivelabel && !_disablelabel">{{_label}}</label>
     </div>
   </div>
 </div>

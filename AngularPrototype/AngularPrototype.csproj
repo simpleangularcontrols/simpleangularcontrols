@@ -157,6 +157,7 @@
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\input\inputsearch.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\list\dropdown.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\list\listbox.html" />
+    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\static\formcontainer.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\static\staticlabel.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\tabs\tab.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\tabs\tabitem.html" />
@@ -576,8 +577,11 @@
     <Compile Include="Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\static\formcontainer.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\static\formcontainer.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\upload\uploadmultiple.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\upload\uploadsingle.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\ilanguageresource.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\iuploadcontrol.ts" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -630,7 +634,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\services\" />
-    <Folder Include="angular\moduleBase\projects\jngcontrols-common\src\services\" />
     <Folder Include="App_Data\" />
     <Folder Include="Layout\cssextensions\" />
   </ItemGroup>
@@ -803,6 +806,8 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\idatetimecontrol.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\public_api.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\confirm\confirm.service.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\services\index.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\services\languageresource.service.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\test.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\utilities\Convertion.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\utilities\datatypes.ts" />

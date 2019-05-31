@@ -3,6 +3,6 @@
   <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <div class="form-control-static" [innerHTML]="value">
     </div>
-    <label for="{{_name}}" class="col-left control-label" *ngIf="_isadaptivelabel">{{_label}}</label>
+    <label for="{{_name}}" class="col-left control-label" *ngIf="_isadaptivelabel && !_disablelabel">{{_label}}</label>
   </div>
 </div>

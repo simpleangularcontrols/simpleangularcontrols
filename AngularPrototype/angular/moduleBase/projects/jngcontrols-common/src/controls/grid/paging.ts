@@ -1,5 +1,6 @@
 import { Input, Output, EventEmitter } from "@angular/core";
 import { PagerData } from "./model";
+import { Interpolation } from "../../utilities/interpolation";
 
 /**
  * Basiskomponente für Paging
@@ -39,7 +40,7 @@ export abstract class NgPagingCommon {
   /**
    * Anzahl Rows pro Seite
    */
-  protected pageSize: number = 25;
+  protected pageSize: number = 20;
 
   /**
    * Pager Data Settings
@@ -63,10 +64,70 @@ export abstract class NgPagingCommon {
   }
 
   /**
+   * Text in Pager für "Seite x von y".
+   *
+   * Folgende Interpolation Texte sind vorhanden:
+   * {{CURRENTPAGE}}: Aktuelle Seite
+   * {{TOTALPAGES}}: Anzahl Seiten
+   * 
+   */
+  @Input("pagingtext")
+  public pagingText: string = "Seite {{CURRENTPAGE}} von {{TOTALPAGES}}";
+
+  /**
+   * Text in Page für Anzahl Seitenelemente pro Seite
+   *
+   * Folgende Interpolation Texte sind vorhanden:
+   * {{PAGESIZE}}: Anzahl Elemente pro Seite
+   * 
+   */
+  @Input("pagesizetext")
+  public pageSizeText: string = "Einträge pro Seite {{PAGESIZE}}";
+
+  public GetPageSizeText(): string {
+    let interpolation: Interpolation = new Interpolation();
+
+    const data = {
+      PAGESIZE: this.getPageSize()
+    }
+
+    return interpolation.interpolateString(this.pageSizeText, data);
+  }
+
+  public GetPagingText(): string {
+    let interpolation: Interpolation = new Interpolation();
+
+    const data = {
+      CURRENTPAGE: this.getCurrentPageNumber(),
+      TOTALPAGES: this.getTotalPageNumber()
+    }
+
+    return interpolation.interpolateString(this.pagingText, data);
+  }
+
+  /**
    * Event wenn im Grid die Seite geändert wird. Als Parameter wird der neue PageIndex mitgegeben.
    */
   @Output("onpaging")
   _pagingEvent: EventEmitter<number> = new EventEmitter();
+
+  /**
+   * Event wenn im Pager die PageSize geändert wird
+   */
+  @Output("onpagesizechanged")
+  _pagesizeChangedEvent: EventEmitter<number> = new EventEmitter<number>();
+
+  /**
+   * Ändert die Seitegrösse
+   * 
+   * @param newSize: Neue Page Size
+   */
+  public changePageSize(newSize: number): void {
+    this.pageSize = newSize;
+
+    // Parent Controls über neue Page Size informieren
+    this._pagesizeChangedEvent.emit(newSize);
+  }
 
   /**
    * Name des Grids. Wird für ID und Name Bezeichnungen verwendet
@@ -227,6 +288,13 @@ export abstract class NgPagingCommon {
    */
   public getTotalPageNumber(): number {
     return this.lastPageIndex + 1;
+  }
+
+  /**
+   * Gibt die aktuelle Pager Size zurück
+   */
+  public getPageSize(): number {
+    return this.pageSize;
   }
 
   //#endregion

@@ -1,6 +1,10 @@
 import { Input, Host, OnInit, Injector } from '@angular/core';
-import { ControlValueAccessor, Validator, AbstractControl, ValidationErrors, NgControl } from '@angular/forms';
+import { ControlValueAccessor, Validator, AbstractControl, NgControl, ValidationErrors } from '@angular/forms';
 import { NgFormularCommon } from '../controls/form/form';
+import { ILanguageResourceService } from '../interfaces/ilanguageresource';
+import { InternalLanguageResourceService, LANGUAGE_SERVICE } from '../services/languageresource.service';
+import { ValidationErrorItem } from '../validation';
+import { Observable } from 'rxjs';
 
 
 export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor, Validator, OnInit {
@@ -12,6 +16,10 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
   // NgModel Form ist disabled
   protected _disabledForm: boolean = false;
   private ngControl: NgControl;
+  /**
+   * Service für Error Localisation
+   */
+  protected lngResourceService: ILanguageResourceService;
 
   // #endregion
 
@@ -21,6 +29,7 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
   // Inject des Formulars
   constructor(@Host() parent: NgFormularCommon, private injector: Injector) {
     this.parent = parent;
+    this.lngResourceService = injector.get(LANGUAGE_SERVICE, new InternalLanguageResourceService());
   }
 
   // #endregion
@@ -190,12 +199,49 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
 
     return this._touched;
   }
-  
+
   public get invalid(): boolean { return this.ngControl !== undefined && this.ngControl !== null && this.ngControl.invalid; }
 
   onTouch(): void {
     this._touched = true;
     this.propagateTouch();
+  }
+
+  GetErrorMessage(): Observable<string> {
+
+    if (this.ngControl.errors === undefined || this.ngControl.errors === null)
+      return new Observable<string>((observer) => {
+        observer.next('');
+        observer.complete();
+      })
+
+
+    let errors: ValidationErrors = this.ngControl.errors;
+
+    if (errors.length === 0)
+      return new Observable<string>((observer) => {
+        observer.next('');
+        observer.complete();
+      });
+
+    let keys: string[] = Object.keys(errors);
+
+    if (keys.length <= 0)
+      return new Observable<string>((observer) => {
+        observer.next('');
+        observer.complete();
+      })
+
+    let errorItem: ValidationErrorItem = errors[keys[0]];
+
+    // Validation Parameters
+    const parameters = {};
+    if (errorItem.parameters !== null && errorItem.parameters !== undefined) {
+      errorItem.parameters.forEach((v, k) => { parameters[k] = v });
+    }
+    parameters["FIELD"] = errorItem.fieldName;
+
+    return this.lngResourceService.GetString(errorItem.errorMessageKey, parameters);
   }
 
   //#endregion

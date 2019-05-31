@@ -1,5 +1,5 @@
-<div>
-  <div #container (mouseenter)="ShowTooltip()" (mouseleave)="HideTooltip()" style="display: inline;">
+<div [style.display]="inlinemode ? 'inline' : null">
+  <div #container (mouseenter)="ShowTooltip()" (mouseleave)="HideTooltip()" [style.display]="inlinemode ? 'inline' : null">
     <ng-content></ng-content>
   </div>
   <div *ngIf="IsTooltipVisible()" [style.visibility]="IsTooltipContentVisible ? 'visible' : 'hidden'" #tooltip class="tooltip in" style="display: block;"

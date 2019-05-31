@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, Input, ViewChild, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { TooltipPosition } from '../../utilities/enums';
+import { convertToBoolean } from '../../utilities/convertion';
 
 /**
  * Tooltip Component
@@ -46,6 +47,22 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
    */
   @Input("tooltiptext")
   _tooltiptext: string;
+
+  /**
+   * Inline Mode für Tooltip
+   */
+  private _inlinemode: boolean;
+
+  @Input("inlinemode")
+  set inlinemode(value: boolean) {
+    this._inlinemode = convertToBoolean(value);
+  }
+  /**
+   * Inline Mode für Tooltip
+   */
+  get inlinemode(): boolean {
+    return this._inlinemode;
+  }
 
   /**
    * Name des Containers für Content (z.B. Icon) auf welchem der Tooltip angezeigt wird.

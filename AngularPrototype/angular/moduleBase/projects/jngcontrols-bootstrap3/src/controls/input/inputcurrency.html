@@ -4,8 +4,8 @@
     <div class="input-group">
       <input id="{{_name}}" name="{{_name}}" type="text" class="form-control"
              [value]="value" [attr.placeholder]="_placeholder" (blur)="onTouch()" (input)="setValue($event.target.value)"
-             (keypress)="onKeyPress($event)" [disabled]="isdisabled" />
-      <label for="{{_name}}" class="form-label-adaptive form-label-fixed" [ngClass]="{ 'required': _isrequired }" *ngIf="_isadaptivelabel">{{_label}}</label>
+             (keypress)="onKeyPress($event)" [disabled]="isdisabled" [readonly]="_readonly" />
+      <label for="{{_name}}" class="form-label-adaptive form-label-fixed" [ngClass]="{ 'required': _isrequired }" *ngIf="_isadaptivelabel && !_disablelabel">{{_label}}</label>
       <div class="input-group-addon">CHF</div>
     </div>
   </div>

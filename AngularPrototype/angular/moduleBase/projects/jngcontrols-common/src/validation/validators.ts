@@ -4,21 +4,85 @@ import { IUploadControl } from '../interfaces/iuploadcontrol';
 import * as moment_ from 'moment';
 const moment = moment_;
 
+/**
+ * Klasse für Validierungsfehler
+ * */
+export class ValidationErrorItem {
+
+  /**
+   * Konstruktor
+   * 
+   * @param errorType Type des Fehlers
+   * @param errorMessageKey Key für Fehlermeldung
+   * @param errorMessageSummaryKey Key für Fehlermeldung in Validation Summary
+   * @param fieldName Name des Labels oder Bezeichnung des Feldes
+   */
+  constructor(errorType: string, errorMessageKey: string, errorMessageSummaryKey: string, fieldName: string) {
+    this.errorType = errorType;
+    this.errorMessageKey = errorMessageKey;
+    this.errorMessageValidationSummaryKey = errorMessageSummaryKey;
+    this.fieldName = fieldName;
+  }
+
+  /**
+   * Typ den Fehler
+   */
+  public errorType: string;
+
+  /**
+   * Error Message Key
+   */
+  public errorMessageKey: string;
+
+  /**
+   * Error Message Key für Validation Summary
+   */
+  public errorMessageValidationSummaryKey: string
+
+  /**
+   * Label oder Name des Feldes
+   */
+  public fieldName: string;
+
+  /**
+   * Map mit Parametern die in den Meldungen als Platzhalter verwendet werden können
+   */
+  public parameters: Map<string, any> = new Map<string, any>();
+
+}
+
 export class Validation {
+
+  static GetValidationErrorItem(errorType: string, errorMessageKey: string, errorMessageValidationSummaryKey: string, fieldName: string, parameters: Map<string, any> = new Map<string, any>()): any {
+    let item: ValidationErrorItem = new ValidationErrorItem(errorType, errorMessageKey, errorMessageValidationSummaryKey, fieldName)
+
+    if (parameters !== null && parameters !== undefined && parameters.size > 0) {
+      parameters.forEach((v, k) => {
+        item.parameters.set(k, v);
+      })
+    }
+
+    return { [errorType]: item };
+  }
 
   static required(control: AbstractControl, fieldName: string): ValidationErrors | null {
     if (Validators.required(control) !== null) {
-      return { 'required': true, 'required_message': 'Feld "' + fieldName + '" ist erforderlich' };
+      return Validation.GetValidationErrorItem('required', 'VALIDATION_ERROR_REQUIRED', 'VALIDATION_ERROR_SUMMARY_REQUIRED', fieldName);
+      // return { 'required': true, 'required_message': 'Feld "' + fieldName + '" ist erforderlich' };
     } else {
       return null;
     }
   }
-  
+
   static minValue(control: AbstractControl, minvalue: number, fieldName: string): ValidationErrors | null {
     let validator: ValidatorFn = Validators.min(minvalue);
 
     if (validator(control) !== null) {
-      return { 'minvalue': true, 'minvalue_message': 'Feld "' + fieldName + '" erfordert einen Minimalwert von ' + minvalue };
+      let parameters: Map<string, any> = new Map<string, any>();
+      parameters.set('MINVALUE', minvalue);
+
+      return Validation.GetValidationErrorItem('minvalue', 'VALIDATION_ERROR_MINVALUE', 'VALIDATION_ERROR_SUMMARY_MINVALUE', fieldName, parameters)
+      // return { 'minvalue': true, 'minvalue_message': 'Feld "' + fieldName + '" erfordert einen Minimalwert von ' + minvalue };
     } else {
       return null;
     }
@@ -28,7 +92,11 @@ export class Validation {
     let validator: ValidatorFn = Validators.pattern(pattern);
 
     if (validator(control) !== null) {
-      return { 'pattern': true, 'pattern_message': 'Feld "' + fieldName + '" akzeptiert nur folgenden Pattern ' + pattern };
+      let parameters: Map<string, any> = new Map<string, any>();
+      parameters.set('PATTERN', pattern);
+
+      return Validation.GetValidationErrorItem('pattern', 'VALIDATION_ERROR_PATTERN', 'VALIDATION_ERROR_SUMMARY_PATTERN', fieldName, parameters)
+      // return { 'pattern': true, 'pattern_message': 'Feld "' + fieldName + '" akzeptiert nur folgenden Pattern ' + pattern };
     } else {
       return null;
     }
@@ -38,7 +106,11 @@ export class Validation {
     let validator: ValidatorFn = Validators.max(maxvalue);
 
     if (validator(control) !== null) {
-      return { 'maxvalue': true, 'maxvalue_message': 'Feld "' + fieldName + '" erfordert einen Maximalwert von ' + maxvalue };
+      let parameters: Map<string, any> = new Map<string, any>();
+      parameters.set('MAXVALUE', maxvalue);
+
+      return Validation.GetValidationErrorItem('maxvalue', 'VALIDATION_ERROR_MAXVALUE', 'VALIDATION_ERROR_SUMMARY_MAXVALUE', fieldName, parameters)
+      // return { 'maxvalue': true, 'maxvalue_message': 'Feld "' + fieldName + '" erfordert einen Maximalwert von ' + maxvalue };
     } else {
       return null;
     }
@@ -46,7 +118,8 @@ export class Validation {
 
   static email(control: AbstractControl, fieldName: string): ValidationErrors | null {
     if (Validators.email(control) !== null) {
-      return { 'email': true, 'message': 'Feld "' + fieldName + '" ist keine E-Mail Adresse' };
+      return Validation.GetValidationErrorItem('email', 'VALIDATION_ERROR_EMAIL', 'VALIDATION_ERROR_SUMMARY_EMAIL', fieldName)
+      // return { 'email': true, 'message': 'Feld "' + fieldName + '" ist keine E-Mail Adresse' };
     } else {
       return null;
     }
@@ -56,7 +129,11 @@ export class Validation {
     let validator: ValidatorFn = Validators.minLength(minlength);
 
     if (minlength !== null && minlength !== undefined && control.value != '' && control.value != undefined && control.value != null && validator(control) != null) {
-      return { 'required': true, 'required_message': 'Feld "' + fieldName + '" erfordert min. ' + minlength + ' Zeichen' };
+      let parameters: Map<string, any> = new Map<string, any>();
+      parameters.set('MINLENGTH', minlength);
+
+      return Validation.GetValidationErrorItem('minlength', 'VALIDATION_ERROR_MINLENGTH', 'VALIDATION_ERROR_SUMMARY_MINLENGTH', fieldName, parameters)
+      // return { 'required': true, 'required_message': 'Feld "' + fieldName + '" erfordert min. ' + minlength + ' Zeichen' };
     } else {
       return null;
     }
@@ -69,7 +146,11 @@ export class Validation {
     }
 
     if (minDate > control.value) {
-      return { 'datemin': true, 'message': 'Feld "' + fieldName + '" muss neuer oder gleich ' + moment(minDate).format(control.GetDateTimeFormatString()) + ' sein' };
+      let parameters: Map<string, any> = new Map<string, any>();
+      parameters.set('MINDATE', moment(minDate).format(control.GetDateTimeFormatString()));
+
+      return Validation.GetValidationErrorItem('datemin', 'VALIDATION_ERROR_MINDATE', 'VALIDATION_ERROR_SUMMARY_MINDATE', fieldName, parameters)
+      // return { 'datemin': true, 'message': 'Feld "' + fieldName + '" muss neuer oder gleich ' + moment(minDate).format(control.GetDateTimeFormatString()) + ' sein' };
     } else {
       return null;
     }
@@ -82,7 +163,11 @@ export class Validation {
     }
 
     if (maxDate < control.value) {
-      return { 'datemax': true, 'message': 'Feld "' + fieldName + '" muss älter oder gleich ' + moment(maxDate).format(control.GetDateTimeFormatString()) + ' sein' };
+      let parameters: Map<string, any> = new Map<string, any>();
+      parameters.set('MAXDATE', moment(maxDate).format(control.GetDateTimeFormatString()));
+
+      return Validation.GetValidationErrorItem('datemax', 'VALIDATION_ERROR_MAXDATE', 'VALIDATION_ERROR_SUMMARY_MAXDATE', fieldName, parameters)
+      // return { 'datemax': true, 'message': 'Feld "' + fieldName + '" muss älter oder gleich ' + moment(maxDate).format(control.GetDateTimeFormatString()) + ' sein' };
     } else {
       return null;
     }
@@ -95,7 +180,11 @@ export class Validation {
     }
 
     if (control.value !== null && minTime > control.value) {
-      return { 'datemin': true, 'message': 'Feld "' + fieldName + '" muss neuer oder gleich ' + moment(minTime).format(control.GetDateTimeFormatString()) + ' sein' };
+      let parameters: Map<string, any> = new Map<string, any>();
+      parameters.set('MINTIME', moment(minTime).format(control.GetDateTimeFormatString()));
+
+      return Validation.GetValidationErrorItem('timemin', 'VALIDATION_ERROR_MINTIME', 'VALIDATION_ERROR_SUMMARY_MINTIME', fieldName, parameters)
+      // return { 'datemin': true, 'message': 'Feld "' + fieldName + '" muss neuer oder gleich ' + moment(minTime).format(control.GetDateTimeFormatString()) + ' sein' };
     } else {
       return null;
     }
@@ -108,7 +197,11 @@ export class Validation {
     }
 
     if (control.value !== null && maxTime < control.value) {
-      return { 'datemax': true, 'message': 'Feld "' + fieldName + '" muss älter oder gleich ' + moment(maxTime).format(control.GetDateTimeFormatString()) + ' sein' };
+      let parameters: Map<string, any> = new Map<string, any>();
+      parameters.set('MAXTIME', moment(maxTime).format(control.GetDateTimeFormatString()));
+
+      return Validation.GetValidationErrorItem('timemax', 'VALIDATION_ERROR_MAXTIME', 'VALIDATION_ERROR_SUMMARY_MAXTIME', fieldName, parameters)
+      // return { 'datemax': true, 'message': 'Feld "' + fieldName + '" muss älter oder gleich ' + moment(maxTime).format(control.GetDateTimeFormatString()) + ' sein' };
     } else {
       return null;
     }
@@ -116,7 +209,8 @@ export class Validation {
 
   static isValidDate(control: IDateTimeControl, fieldName: string): ValidationErrors | null {
     if (!control.IsDateValid()) {
-      return { 'dateformat': true, 'message': 'Feld "' + fieldName + '" ist kein gültiges Datum' };
+      return Validation.GetValidationErrorItem('dateformat', 'VALIDATION_ERROR_DATETIMEFORMAT', 'VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT', fieldName)
+      // return { 'dateformat': true, 'message': 'Feld "' + fieldName + '" ist kein gültiges Datum' };
     } else {
       return null;
     }
@@ -124,44 +218,18 @@ export class Validation {
 
   static minFiles(control: IUploadControl, minFiles: number, fieldName: string): ValidationErrors | null {
     // Check abbrechen, wenn Min Files nicht gesetzt oder 0
-    if ( minFiles === null || minFiles === 0) {
+    if (minFiles === null || minFiles === 0) {
       return null;
     }
 
     if (control.UploadedFileCount() !== null && minFiles > control.UploadedFileCount()) {
-      return { 'filemin': true, 'message': 'Feld "' + fieldName + '" muss min. ' + minFiles + ' hochgeladen haben.' };
+      let parameters: Map<string, any> = new Map<string, any>();
+      parameters.set('MINFILES', minFiles);
+
+      return Validation.GetValidationErrorItem('dateformat', 'VALIDATION_ERROR_FILESMIN', 'VALIDATION_ERROR_SUMMARY_FILESMIN', fieldName, parameters)
     } else {
       return null;
     }
   }
 
-}
-
-/**
- * Klasse für die Definition von Validierungsfehlern
- */
-export class ValidationMessage {
-
-  /**
-   *  Konstruktor
-   *  @param type Typ der Validierungsmeldung
-   */
-  constructor(type: string = '') {
-    this.type = type;
-  }
-
-  /**
-   * Typ der Validerungsmeldung
-   */
-  public type: string;
-
-  /**
-   * Key der Fehlermeldung. Kann dazu verwendet werden, um die Fehlermeldung mehrsprachig zu halten.
-   */
-  public message_key: string;
-
-  /**
-   * Collection von Parametern
-   */
-  public parameters: Map<string, string> = new Map<string, string>();
 }

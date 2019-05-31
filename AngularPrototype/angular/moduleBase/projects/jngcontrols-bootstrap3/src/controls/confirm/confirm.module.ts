@@ -5,6 +5,12 @@ import { NgConfirm } from "./confirm";
 import { jNetworkBootstrap3DialogModule } from "../dialog/dialog.module";
 import { jNetworkBootstrap3ButtonModule } from "../buttons/button.module";
 
+/**
+ *  Module für Confirm Messages
+ *
+ *  In NgModule der Applikation folgenden Eintrag bei Imports einfügen: ExanicBootstrap3ConfirmModule.forRoot()
+ *
+ */
 @NgModule({
   declarations: [NgConfirm],
   imports: [BrowserModule, jNetworkBootstrap3DialogModule, jNetworkBootstrap3ButtonModule],

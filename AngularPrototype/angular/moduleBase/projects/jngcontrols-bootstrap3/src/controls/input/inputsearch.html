@@ -1,11 +1,11 @@
-<div class="input-group input-search" style="width:200px;">
+<div class="input-group input-search" [style.width]="_controlwidth">
   <div class="form-group">
-    <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" style="width:200px;" (keypress)="onKeyPress($event)"
+    <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [style.width]="_controlwidth" (keypress)="onKeyPress($event)"
            [value]="value" [attr.placeholder]="_placeholder" (blur)="onTouch()" (input)="setValue($event.target.value)"
            [attr.maxlength]="_maxlength" [ngClass]="{'validation-error': invalid && (dirty || touched), 'language-specific': _islanguagespecific }"
            [disabled]="isdisabled" [readonly]="_readonly" />
   </div>
-  <a title="{{_searchIconName}}" class="btn-search" (click)="searchClick()">
+  <a title="{{_searchIconName}}" class="btn-search" id="{{_name}}_search" (click)="searchClick()">
     <i class="icon icon-base-search" style="cursor: pointer;"></i>
   </a>
 </div>

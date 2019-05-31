@@ -1,4 +1,4 @@
-import { Component, Host } from '@angular/core';
+import { Component, Host, Injector } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer } from '@angular/forms';
 // import { NgBaseModelControl } from '../../common/basemodelcontrol';
 // import { NgFormular } from '../form/form';
@@ -16,12 +16,14 @@ import { NgFormular } from '../form/form';
       multi: true,
       useExisting: NgValidationSummary
     }
-  ]
+  ],
+  // View Provider, damit das Formular an das Control gebunden werden kann
+  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
 })
 export class NgValidationSummary extends NgValidationSummaryCommon {
 
-  constructor(@Host() parent: NgFormular) {
-    super(parent);
+  constructor(@Host() parent: NgFormular, injector: Injector) {
+    super(parent, injector);
   }
 
 }

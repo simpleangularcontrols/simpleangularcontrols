@@ -1,5 +1,5 @@
 <div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
-  <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="control-label" [ngClass]="[_labelsize !== 12 ?  'col-md-' + _labelsize : 'sr-only']"  [class.required]="_isrequired">{{_label}}</label>
+  <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="control-label" [ngClass]="[_labelsize !== 12 ?  'col-md-' + _labelsize : 'sr-only']" [class.required]="_isrequired">{{_label}}</label>
   <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <div style="position: relative; width: 140px;">
       <div id="{{_name}}" class="datetime-textbox input-group">
@@ -13,6 +13,7 @@
           </button>
         </span>
       </div>
+      <div class="help-block help-block-error" *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)">{{ GetErrorMessage() | async }}</div>
 
       <div class="popover bottom in" role="tooltip" *ngIf="_showselector"
            style="display:block; left:unset; right: 0px; top: 34px; max-width: 325px;">

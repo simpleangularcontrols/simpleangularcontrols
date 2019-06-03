@@ -5,6 +5,7 @@ import { ILanguageResourceService } from '../interfaces/ilanguageresource';
 import { InternalLanguageResourceService, LANGUAGE_SERVICE } from '../services/languageresource.service';
 import { ValidationErrorItem } from '../validation';
 import { Observable } from 'rxjs';
+import { convertToBoolean } from '../utilities/Convertion';
 
 
 export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor, Validator, OnInit {
@@ -27,7 +28,7 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
 
   // Konstruktor
   // Inject des Formulars
-  constructor(@Host() parent: NgFormularCommon, private injector: Injector) {
+  constructor( @Host() parent: NgFormularCommon, private injector: Injector) {
     this.parent = parent;
     this.lngResourceService = injector.get(LANGUAGE_SERVICE, new InternalLanguageResourceService());
   }
@@ -242,6 +243,38 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
     parameters["FIELD"] = errorItem.fieldName;
 
     return this.lngResourceService.GetString(errorItem.errorMessageKey, parameters);
+  }
+
+  /**
+   * Inline Errors für das Control
+   */
+  private _inlineerrorenabled: boolean | null = null;
+
+  @Input("inlineerrorenabled")
+  /**
+   * Aktiviert oder Deaktiviert die Inline Errors für das Control
+   */
+  set inlineerrorenabled(value: boolean | null) {
+    if (value === null || value === undefined)
+      this._inlineerrorenabled = null;
+    else
+      this._inlineerrorenabled = convertToBoolean(value);
+  }
+  /**
+   * Aktiviert oder Deaktiviert die Inline Errors für das Control
+   */
+  get inlineerrorenabled(): boolean | null {
+    return this._inlineerrorenabled;
+  }
+
+  /**
+   * Gibt zurück, ob die Inline Error Meldungen für diesem Control aktiv sind.
+   */
+  get IsInlineErrorEnabled(): boolean {
+    if (this.parent.IsInlineErrorEnabled === null || this.parent.IsInlineErrorEnabled === undefined)
+      return this._inlineerrorenabled;
+
+    return this.parent.IsInlineErrorEnabled !== false && this._inlineerrorenabled !== false;
   }
 
   //#endregion

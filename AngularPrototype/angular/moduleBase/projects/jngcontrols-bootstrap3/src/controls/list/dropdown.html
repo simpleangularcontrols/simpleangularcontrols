@@ -32,6 +32,7 @@
 
 
     </select>
+    <div class="help-block help-block-error" *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)">{{ GetErrorMessage() | async }}</div>
   </div>
 </div>
 

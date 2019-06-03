@@ -1,5 +1,6 @@
 import { NgForm, NgModel } from '@angular/forms';
 import { Input, ViewChild, QueryList, ContentChildren, AfterViewInit, IterableDiffer, IterableDiffers, IterableChanges } from '@angular/core';
+import { convertToBoolean } from '../../utilities/Convertion';
 
 export class NgFormularCommon {
 
@@ -44,6 +45,35 @@ export class NgFormularCommon {
       })
 
     }
+  }
+
+  /**
+  * Inline Errors für das Formular
+  */
+  private _inlineerrorenabled: boolean | null = null;
+
+  @Input("inlineerrorenabled")
+  /**
+   * Aktiviert oder Deaktiviert die Inline Errors für das Control
+   */
+  set inlineerrorenabled(value: boolean) {
+    if (value === null || value === undefined)
+      this._inlineerrorenabled = null;
+    else
+      this._inlineerrorenabled = convertToBoolean(value);
+  }
+  /**
+   * Aktiviert oder Deaktiviert die Inline Errors für das Control
+   */
+  get inlineerrorenabled(): boolean {
+    return this._inlineerrorenabled;
+  }
+
+  /**
+   * Gibt zurück, ob die Inline Error Meldungen für das Formular aktiv sind.
+   */
+  public get IsInlineErrorEnabled(): boolean {
+    return this._inlineerrorenabled !== false
   }
 
 }

@@ -10,6 +10,7 @@
               [class.required]="_isrequired"
               [disabled]="isdisabled" [readonly]="_readonly"></textarea>
     <label for="{{_name}}" class="form-label-adaptive form-label-fixed" [ngClass]="{ 'required': _isrequired }" *ngIf="_isadaptivelabel && !_disablelabel">{{_label}}</label>
+    <div class="help-block help-block-error" *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)">{{ GetErrorMessage() | async }}</div>
   </div>
 </div>
 

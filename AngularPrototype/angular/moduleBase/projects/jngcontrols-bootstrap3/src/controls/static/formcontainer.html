@@ -3,5 +3,6 @@
   <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <ng-content></ng-content>
     <label for="{{_name}}" class="form-label-adaptive form-label-fixed" [ngClass]="{ 'required': isrequired }" *ngIf="_isadaptivelabel && !_disablelabel">{{_label}}</label>
+    <div class="help-block help-block-error" *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)">{{ GetErrorMessage() | async }}</div>
   </div>
 </div>

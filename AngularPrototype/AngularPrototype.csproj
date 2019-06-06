@@ -143,6 +143,7 @@
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\confirm\confirm.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\dialog\dialog.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\grid.html" />
+    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\gridimage.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\gridbutton.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\gridcolumn.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\gridcolumnaction.html" />
@@ -577,7 +578,9 @@
     <Compile Include="Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\gridimage.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\static\formcontainer.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\grid\gridimage.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\static\formcontainer.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\upload\uploadmultiple.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\upload\uploadsingle.ts" />

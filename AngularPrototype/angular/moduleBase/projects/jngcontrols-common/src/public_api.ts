@@ -31,6 +31,7 @@ export { NgGridColumnActionCommon } from './controls/grid/gridcolumnaction';
 export { NgGridColumnBaseCommon } from './controls/grid/gridcolumnbase';
 export { NgPagingCommon } from './controls/grid/paging';
 export { NgGridButtonCommon } from './controls/grid/gridbutton';
+export { NgGridImageCommon } from './controls/grid/gridimage';
 export * from './controls/grid/model';
 
 // Datetime classes

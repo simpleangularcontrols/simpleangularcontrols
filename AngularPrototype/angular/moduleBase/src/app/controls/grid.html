@@ -2,9 +2,10 @@
         [pagerdata]="pagerData">
   <ng-template let-row="row" let-type="type">
     <ngGridColumnAction name="editCol" [type]="type" width="78px">
-      <ngGridButton iconstyle="edit" (onclick)="action($event)"></ngGridButton>
-      <ngGridButton iconstyle="delete" (onclick)="action($event)"></ngGridButton>
-      <ngGridButton iconstyle="sprite icon-sprite-base-main_info" (onclick)="action('info')"></ngGridButton>
+      <ngGridButton icon="edit" (onclick)="action($event)" [isdisabled]="true"></ngGridButton>
+      <ngGridButton icon="delete" (onclick)="action($event)"></ngGridButton>
+      <ngGridButton iconstyle="sprite" icon="icon-sprite-base-main_info" (onclick)="action('info')"></ngGridButton>
+      <ngGridButton iconstyle="sprite" icon="icon-sprite-base-main_info" isdisabled="true" (onclick)="action('info')"></ngGridButton>
       <ngGridImage iconstyle="sprite icon-sprite-base-main_info"></ngGridImage>
     </ngGridColumnAction>
     <ngGridColumn name="someName14" [type]="type" header="Bild" [value]="row.title" width='25%'></ngGridColumn>

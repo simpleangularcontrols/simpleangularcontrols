@@ -95,6 +95,8 @@
         <ngValidationSummary></ngValidationSummary>
 
         <div ngModelGroup="Group1">
+          <ngInputSearch name="field4search" label="Feld 4 Search" [(ngModel)]="values.field4" buttontext="Suchen"></ngInputSearch>
+          <ngInputSearch name="field4search2" disablelabel="true" label="Feld 4 Search" [(ngModel)]="values.field4" buttontext="Suchen"></ngInputSearch>
           <ngInput name="field1" label="Feld 1" labelsize="2" isrequired="true" [(ngModel)]="values.field1"></ngInput>
           <ngInput name="field2" disablelabel="true" [(ngModel)]="values.field2"></ngInput>
           <ngInput name="field3" label="Feld 3" labelsize="4" [(ngModel)]="values.field3"></ngInput>

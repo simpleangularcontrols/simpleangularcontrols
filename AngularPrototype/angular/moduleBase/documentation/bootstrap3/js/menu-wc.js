@@ -119,13 +119,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/jNetworkBootstrap3ConfirmModule.html" data-type="entity-link">jNetworkBootstrap3ConfirmModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-jNetworkBootstrap3ConfirmModule-b72689f94fdf019d5b6dd79a26a113e3"' : 'data-target="#xs-components-links-module-jNetworkBootstrap3ConfirmModule-b72689f94fdf019d5b6dd79a26a113e3"' }>
+                                            'data-target="#components-links-module-jNetworkBootstrap3ConfirmModule-7c4c41f911f6d2f1ba4a64780fffe3d7"' : 'data-target="#xs-components-links-module-jNetworkBootstrap3ConfirmModule-7c4c41f911f6d2f1ba4a64780fffe3d7"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-jNetworkBootstrap3ConfirmModule-b72689f94fdf019d5b6dd79a26a113e3"' :
-                                            'id="xs-components-links-module-jNetworkBootstrap3ConfirmModule-b72689f94fdf019d5b6dd79a26a113e3"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-jNetworkBootstrap3ConfirmModule-7c4c41f911f6d2f1ba4a64780fffe3d7"' :
+                                            'id="xs-components-links-module-jNetworkBootstrap3ConfirmModule-7c4c41f911f6d2f1ba4a64780fffe3d7"' }>
                                             <li class="link">
                                                 <a href="components/NgConfirm.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">NgConfirm</a>
@@ -203,13 +203,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/jNetworkBootstrap3GridModule.html" data-type="entity-link">jNetworkBootstrap3GridModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-jNetworkBootstrap3GridModule-b45c4d749482c92910aa821090bbabd9"' : 'data-target="#xs-components-links-module-jNetworkBootstrap3GridModule-b45c4d749482c92910aa821090bbabd9"' }>
+                                            'data-target="#components-links-module-jNetworkBootstrap3GridModule-6891d5ee6fc906582ac00c7f0289b8fe"' : 'data-target="#xs-components-links-module-jNetworkBootstrap3GridModule-6891d5ee6fc906582ac00c7f0289b8fe"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-jNetworkBootstrap3GridModule-b45c4d749482c92910aa821090bbabd9"' :
-                                            'id="xs-components-links-module-jNetworkBootstrap3GridModule-b45c4d749482c92910aa821090bbabd9"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-jNetworkBootstrap3GridModule-6891d5ee6fc906582ac00c7f0289b8fe"' :
+                                            'id="xs-components-links-module-jNetworkBootstrap3GridModule-6891d5ee6fc906582ac00c7f0289b8fe"' }>
                                             <li class="link">
                                                 <a href="components/NgGrid.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">NgGrid</a>
@@ -227,6 +227,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">NgGridColumnAction</a>
                                             </li>
                                             <li class="link">
+                                                <a href="components/NgGridImage.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">NgGridImage</a>
+                                            </li>
+                                            <li class="link">
                                                 <a href="components/NgPaging.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">NgPaging</a>
                                             </li>
@@ -237,13 +241,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/jNetworkBootstrap3InputModule.html" data-type="entity-link">jNetworkBootstrap3InputModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-jNetworkBootstrap3InputModule-f31768b286d1ec8c98bc88298b973e6b"' : 'data-target="#xs-components-links-module-jNetworkBootstrap3InputModule-f31768b286d1ec8c98bc88298b973e6b"' }>
+                                            'data-target="#components-links-module-jNetworkBootstrap3InputModule-8b42a8412d3a8b6be37e51bfbbcb79e4"' : 'data-target="#xs-components-links-module-jNetworkBootstrap3InputModule-8b42a8412d3a8b6be37e51bfbbcb79e4"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-jNetworkBootstrap3InputModule-f31768b286d1ec8c98bc88298b973e6b"' :
-                                            'id="xs-components-links-module-jNetworkBootstrap3InputModule-f31768b286d1ec8c98bc88298b973e6b"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-jNetworkBootstrap3InputModule-8b42a8412d3a8b6be37e51bfbbcb79e4"' :
+                                            'id="xs-components-links-module-jNetworkBootstrap3InputModule-8b42a8412d3a8b6be37e51bfbbcb79e4"' }>
                                             <li class="link">
                                                 <a href="components/NgInput.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">NgInput</a>
@@ -305,13 +309,17 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/jNetworkBootstrap3StaticLabelModule.html" data-type="entity-link">jNetworkBootstrap3StaticLabelModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-jNetworkBootstrap3StaticLabelModule-07340fed96531e83453eca3fb86aaf24"' : 'data-target="#xs-components-links-module-jNetworkBootstrap3StaticLabelModule-07340fed96531e83453eca3fb86aaf24"' }>
+                                            'data-target="#components-links-module-jNetworkBootstrap3StaticLabelModule-41d675ea2ed9d47923a0c3627f2edf5b"' : 'data-target="#xs-components-links-module-jNetworkBootstrap3StaticLabelModule-41d675ea2ed9d47923a0c3627f2edf5b"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-jNetworkBootstrap3StaticLabelModule-07340fed96531e83453eca3fb86aaf24"' :
-                                            'id="xs-components-links-module-jNetworkBootstrap3StaticLabelModule-07340fed96531e83453eca3fb86aaf24"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-jNetworkBootstrap3StaticLabelModule-41d675ea2ed9d47923a0c3627f2edf5b"' :
+                                            'id="xs-components-links-module-jNetworkBootstrap3StaticLabelModule-41d675ea2ed9d47923a0c3627f2edf5b"' }>
+                                            <li class="link">
+                                                <a href="components/NgStaticFormContainer.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">NgStaticFormContainer</a>
+                                            </li>
                                             <li class="link">
                                                 <a href="components/NgStaticLabel.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">NgStaticLabel</a>
@@ -587,6 +595,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/NgGridCommon.html" data-type="entity-link">NgGridCommon</a>
                             </li>
                             <li class="link">
+                                <a href="classes/NgGridImageCommon.html" data-type="entity-link">NgGridImageCommon</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/NgInputAreaCommon.html" data-type="entity-link">NgInputAreaCommon</a>
                             </li>
                             <li class="link">
@@ -624,6 +635,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/NgRadiobuttonsCommon.html" data-type="entity-link">NgRadiobuttonsCommon</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/NgStaticFormContainerCommon.html" data-type="entity-link">NgStaticFormContainerCommon</a>
                             </li>
                             <li class="link">
                                 <a href="classes/NgStaticLabelCommon.html" data-type="entity-link">NgStaticLabelCommon</a>
@@ -686,7 +700,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Validation.html" data-type="entity-link">Validation</a>
                             </li>
                             <li class="link">
-                                <a href="classes/ValidationMessage.html" data-type="entity-link">ValidationMessage</a>
+                                <a href="classes/ValidationErrorItem.html" data-type="entity-link">ValidationErrorItem</a>
                             </li>
                         </ul>
                     </li>
@@ -698,6 +712,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <span class="icon ion-ios-arrow-down"></span>
                             </div>
                             <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
+                                <li class="link">
+                                    <a href="injectables/InternalLanguageResourceService.html" data-type="entity-link">InternalLanguageResourceService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/LanguageResourceService.html" data-type="entity-link">LanguageResourceService</a>
+                                </li>
                                 <li class="link">
                                     <a href="injectables/NgBaseDateTimeControl.html" data-type="entity-link">NgBaseDateTimeControl</a>
                                 </li>
@@ -725,6 +745,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/IDateTimeControl.html" data-type="entity-link">IDateTimeControl</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ILanguageResourceService.html" data-type="entity-link">ILanguageResourceService</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/IStateObj.html" data-type="entity-link">IStateObj</a>

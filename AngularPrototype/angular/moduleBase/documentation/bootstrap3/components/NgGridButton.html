@@ -61,6 +61,13 @@
     <code>projects/jngcontrols-bootstrap3/src/controls/grid/gridbutton.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Grid Action Button</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -70,6 +77,17 @@
     </p>
 
 
+    <p class="comment">
+        <h3>Example</h3>
+    </p>
+    <div class="io-description">
+                <div>
+                    <pre class="line-numbers"><code class="language-html">Standard Action&lt;ngGridButton icon=&quot;edit&quot; (onclick)=&quot;action('edit')&quot; [isdisabled]=&quot;true&quot;&gt;&lt;/ngGridButton&gt;</code></pre>
+                </div>
+                <div>
+                    <pre class="line-numbers"><code class="language-html">Custom Action&lt;ngGridButton iconstyle=&quot;sprite&quot; icon=&quot;icon-sprite-base-main_info&quot; (onclick)=&quot;action('info')&quot;&gt;&lt;/ngGridButton&gt;</code></pre>
+                </div>
+    </div>
 
 <section>
     <h3>Metadata</h3>
@@ -114,6 +132,21 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#_isdisabledvalue">_isdisabledvalue</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -144,7 +177,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#icon">icon</a>
+                            </li>
+                            <li>
                                 <a href="#iconstyle">iconstyle</a>
+                            </li>
+                            <li>
+                                <a href="#isdisabled">isdisabled</a>
                             </li>
                         </ul>
                     </td>
@@ -178,8 +217,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="iconstyle"></a>
-                        <b>iconstyle</b>
+                        <a name="icon"></a>
+                        <b>icon</b>
                     </td>
                 </tr>
                 <tr>
@@ -196,10 +235,83 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridButtonCommon.html#source" target="_self" >NgGridButtonCommon:6</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridButtonCommon.html#source" target="_self" >NgGridButtonCommon:18</a></code>
 </div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Icon Name aus Sprite</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="iconstyle"></a>
+                        <b>iconstyle</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgGridButtonCommon.html" target="_self" >NgGridButtonCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridButtonCommon.html#source" target="_self" >NgGridButtonCommon:12</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Spriteset. Falls leer werden die internen Standard Icons definiert</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isdisabled"></a>
+                        <b>isdisabled</b>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgGridButtonCommon.html" target="_self" >NgGridButtonCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridButtonCommon.html#source" target="_self" >NgGridButtonCommon:31</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Deaktivieren von Buttons</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -227,10 +339,16 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridButtonCommon.html#source" target="_self" >NgGridButtonCommon:9</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridButtonCommon.html#source" target="_self" >NgGridButtonCommon:45</a></code>
 </div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Action wenn auf Button gelickt wird</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -265,14 +383,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">projects/jngcontrols-bootstrap3/src/controls/grid/gridbutton.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">projects/jngcontrols-bootstrap3/src/controls/grid/gridbutton.ts:25</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Gibt das Icon für den Button zurück</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
@@ -312,7 +432,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgGridButtonCommon.html#source" target="_self" >NgGridButtonCommon:11</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/NgGridButtonCommon.html#source" target="_self" >NgGridButtonCommon:50</a></code>
 </div>
                 </td>
             </tr>
@@ -320,6 +440,8 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Methode welche die Click Action auslöst, falls der Button aktiv ist.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -330,6 +452,58 @@
         </tbody>
     </table>
 </section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_isdisabledvalue"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            _isdisabledvalue</b>
+                            <a href="#_isdisabledvalue"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgGridButtonCommon.html" target="_self" >NgGridButtonCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridButtonCommon.html#source" target="_self" >NgGridButtonCommon:23</a></code>
+</div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Button ist deaktiviert</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
 
 </div>
 
@@ -338,23 +512,48 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, Output, EventEmitter, ElementRef } from &#x27;@angular/core&#x27;;
 import { NgGridCommon, NgGridButtonCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
 
-
+/**
+ * Grid Action Button
+ *
+ * @example Standard Action
+ *
+ * &lt;ngGridButton icon&#x3D;&quot;edit&quot; (onclick)&#x3D;&quot;action(&#x27;edit&#x27;)&quot; [isdisabled]&#x3D;&quot;true&quot;&gt;&lt;/ngGridButton&gt;
+ *
+ * @example Custom Action
+ *
+ * &lt;ngGridButton iconstyle&#x3D;&quot;sprite&quot; icon&#x3D;&quot;icon-sprite-base-main_info&quot; (onclick)&#x3D;&quot;action(&#x27;info&#x27;)&quot;&gt;&lt;/ngGridButton&gt;
+ *
+ */
 @Component({
   selector: &#x27;ngGridButton&#x27;,
   templateUrl: &#x27;./gridbutton.html&#x27;
 })
 export class NgGridButton extends NgGridButtonCommon {
 
-
+  /**
+   * Gibt das Icon für den Button zurück
+   */
   public getIconClass(): string {
-    switch (this.iconstyle) {
-      case &quot;edit&quot;:
-        return &quot;sprite icon-sprite-base-main_edit&quot;;
-      case &quot;delete&quot;:
-        return &quot;sprite icon-sprite-base-main_delete&quot;;
-      default:
-        return this.iconstyle;
+    let iconset: string &#x3D; this.iconstyle;
+    let iconcss: string &#x3D; this.icon;
+
+    if (iconset &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+      switch (this.icon) {
+        case &quot;edit&quot;:
+          iconset &#x3D; &quot;sprite&quot;;
+          iconcss &#x3D; &quot;icon-sprite-base-main_edit&quot;;
+        case &quot;delete&quot;:
+          iconset &#x3D; &quot;sprite&quot;;
+          iconcss &#x3D; &quot;icon-sprite-base-main_delete&quot;;
+      }
     }
+
+    if (this._isdisabledvalue)
+      iconcss +&#x3D; &quot;_disabled&quot;;
+
+    let result &#x3D; iconset + &quot; &quot; + iconcss;
+
+    return result.trim();
   }
 
 
@@ -363,7 +562,7 @@ export class NgGridButton extends NgGridButtonCommon {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;a (click)&#x3D;&quot;callaction()&quot; style&#x3D;&quot;padding-right: 5px;&quot;&gt;&lt;span class&#x3D;&quot;{{getIconClass()}}&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;a (click)&#x3D;&quot;callaction()&quot; style&#x3D;&quot;padding-right: 5px;&quot; [class.disabled]&#x3D;&quot;isdisabled&quot; [attr.disabled]&#x3D;&quot;isdisabled ? &#x27;disabled&#x27; : null&quot;&gt;&lt;span class&#x3D;&quot;{{getIconClass()}}&quot;&gt;&lt;/span&gt;&lt;/a&gt;
 </code></pre>
     </div>
 
@@ -393,8 +592,8 @@ export class NgGridButton extends NgGridButtonCommon {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><a (click)="callaction()" style="padding-right: 5px;"><span class="{{getIconClass()}}"></span></a></div>'
-    var COMPONENTS = [{'name': 'NgButton', 'selector': 'ngButton'},{'name': 'NgCheckbox', 'selector': 'ngCheckbox'},{'name': 'NgConfirm', 'selector': 'ngConfirm'},{'name': 'NgDate', 'selector': 'ngDate'},{'name': 'NgDateSelector', 'selector': 'ngDateSelector'},{'name': 'NgDateTime', 'selector': 'ngDateTime'},{'name': 'NgDialog', 'selector': 'ngDialog'},{'name': 'NgDropdown', 'selector': 'ngDropdown'},{'name': 'NgGrid', 'selector': 'ngGrid'},{'name': 'NgGridButton', 'selector': 'ngGridButton'},{'name': 'NgGridColumn', 'selector': 'ngGridColumn,[ngGridColumn]'},{'name': 'NgGridColumnAction', 'selector': 'ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgInput', 'selector': 'ngInput'},{'name': 'NgInputArea', 'selector': 'ngInputArea'},{'name': 'NgInputCurrency', 'selector': 'ngInputCurrency'},{'name': 'NgInputDecimal', 'selector': 'ngInputDecimal'},{'name': 'NgInputEmail', 'selector': 'ngInputEmail'},{'name': 'NgInputInteger', 'selector': 'ngInputInteger'},{'name': 'NgInputPassword', 'selector': 'ngInputPassword'},{'name': 'NgInputSearch', 'selector': 'ngInputSearch'},{'name': 'NgListbox', 'selector': 'ngListbox'},{'name': 'NgPaging', 'selector': 'ngPaging'},{'name': 'NgRadiobutton', 'selector': 'ngRadiobutton'},{'name': 'NgRadiobuttons', 'selector': 'ngRadiobuttons'},{'name': 'NgStaticLabel', 'selector': 'ngStaticLabel'},{'name': 'NgTab', 'selector': 'ngTab'},{'name': 'NgTabItem', 'selector': 'ngTabItem'},{'name': 'NgTime', 'selector': 'ngTime'},{'name': 'NgTinyMce', 'selector': 'ngTinymce'},{'name': 'NgTinyMceEditorComponent', 'selector': 'ngTinyMceEditor'},{'name': 'NgTooltip', 'selector': 'ngTooltip'},{'name': 'NgTreeItemAction', 'selector': 'ngTreeItemAction'},{'name': 'NgTreeView', 'selector': 'ngTreeView'},{'name': 'NgTreeViewChild', 'selector': 'ngTreeViewChild'},{'name': 'NgUpload', 'selector': 'ngUpload'},{'name': 'NgUploadMultiple', 'selector': 'ngUploadMultiple'},{'name': 'NgValidationSummary', 'selector': 'ngValidationSummary'},{'name': 'NgWizard', 'selector': 'ngWizard'},{'name': 'NgWizardItem', 'selector': 'ngWizardItem'}];
+        var COMPONENT_TEMPLATE = '<div><a (click)="callaction()" style="padding-right: 5px;" [class.disabled]="isdisabled" [attr.disabled]="isdisabled ? \'disabled\' : null"><span class="{{getIconClass()}}"></span></a></div>'
+    var COMPONENTS = [{'name': 'NgButton', 'selector': 'ngButton'},{'name': 'NgCheckbox', 'selector': 'ngCheckbox'},{'name': 'NgConfirm', 'selector': 'ngConfirm'},{'name': 'NgDate', 'selector': 'ngDate'},{'name': 'NgDateSelector', 'selector': 'ngDateSelector'},{'name': 'NgDateTime', 'selector': 'ngDateTime'},{'name': 'NgDialog', 'selector': 'ngDialog'},{'name': 'NgDropdown', 'selector': 'ngDropdown'},{'name': 'NgGrid', 'selector': 'ngGrid'},{'name': 'NgGridButton', 'selector': 'ngGridButton'},{'name': 'NgGridColumn', 'selector': 'ngGridColumn,[ngGridColumn]'},{'name': 'NgGridColumnAction', 'selector': 'ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgGridImage', 'selector': 'ngGridImage'},{'name': 'NgInput', 'selector': 'ngInput'},{'name': 'NgInputArea', 'selector': 'ngInputArea'},{'name': 'NgInputCurrency', 'selector': 'ngInputCurrency'},{'name': 'NgInputDecimal', 'selector': 'ngInputDecimal'},{'name': 'NgInputEmail', 'selector': 'ngInputEmail'},{'name': 'NgInputInteger', 'selector': 'ngInputInteger'},{'name': 'NgInputPassword', 'selector': 'ngInputPassword'},{'name': 'NgInputSearch', 'selector': 'ngInputSearch'},{'name': 'NgListbox', 'selector': 'ngListbox'},{'name': 'NgPaging', 'selector': 'ngPaging'},{'name': 'NgRadiobutton', 'selector': 'ngRadiobutton'},{'name': 'NgRadiobuttons', 'selector': 'ngRadiobuttons'},{'name': 'NgStaticFormContainer', 'selector': 'ngStaticFormContainer'},{'name': 'NgStaticLabel', 'selector': 'ngStaticLabel'},{'name': 'NgTab', 'selector': 'ngTab'},{'name': 'NgTabItem', 'selector': 'ngTabItem'},{'name': 'NgTime', 'selector': 'ngTime'},{'name': 'NgTinyMce', 'selector': 'ngTinymce'},{'name': 'NgTinyMceEditorComponent', 'selector': 'ngTinyMceEditor'},{'name': 'NgTooltip', 'selector': 'ngTooltip'},{'name': 'NgTreeItemAction', 'selector': 'ngTreeItemAction'},{'name': 'NgTreeView', 'selector': 'ngTreeView'},{'name': 'NgTreeViewChild', 'selector': 'ngTreeViewChild'},{'name': 'NgUpload', 'selector': 'ngUpload'},{'name': 'NgUploadMultiple', 'selector': 'ngUploadMultiple'},{'name': 'NgValidationSummary', 'selector': 'ngValidationSummary'},{'name': 'NgWizard', 'selector': 'ngWizard'},{'name': 'NgWizardItem', 'selector': 'ngWizardItem'}];
     var DIRECTIVES = [{'name': 'NgDropdownOption', 'selector': 'option'},{'name': 'NgFormular', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgListboxOption', 'selector': 'option'}];
     var ACTUAL_COMPONENT = {'name': 'NgGridButton'};
 </script>

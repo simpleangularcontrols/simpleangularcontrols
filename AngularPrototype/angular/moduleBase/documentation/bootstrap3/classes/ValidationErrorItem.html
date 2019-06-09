@@ -1,0 +1,711 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Bootstrap 3 Angular Controls</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li>ValidationErrorItem</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/jngcontrols-common/src/validation/validators.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Klasse für Validierungsfehler</p>
+
+            </p>
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#errorMessageKey">errorMessageKey</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#errorMessageValidationSummaryKey">errorMessageValidationSummaryKey</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#errorType">errorType</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#fieldName">fieldName</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#parameters">parameters</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(errorType: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, errorMessageKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, errorMessageSummaryKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:10</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>errorType</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>Type des Fehlers</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>errorMessageKey</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>Key für Fehlermeldung</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>errorMessageSummaryKey</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>Key für Fehlermeldung in Validation Summary</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>fieldName</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>Name des Labels oder Bezeichnung des Feldes</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="errorMessageKey"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            errorMessageKey</b>
+                            <a href="#errorMessageKey"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:35</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Error Message Key</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="errorMessageValidationSummaryKey"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            errorMessageValidationSummaryKey</b>
+                            <a href="#errorMessageValidationSummaryKey"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:40</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Error Message Key für Validation Summary</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="errorType"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            errorType</b>
+                            <a href="#errorType"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:30</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Typ den Fehler</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fieldName"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            fieldName</b>
+                            <a href="#fieldName"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:45</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Label oder Name des Feldes</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="parameters"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            parameters</b>
+                            <a href="#parameters"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Map&lt;string | any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Map&lt;string, any&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:50</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Map mit Parametern die in den Meldungen als Platzhalter verwendet werden können</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AbstractControl, ValidationErrors, Validators, ValidatorFn } from &quot;@angular/forms&quot;;
+import { IDateTimeControl } from &quot;../interfaces/idatetimecontrol&quot;;
+import { IUploadControl } from &#x27;../interfaces/iuploadcontrol&#x27;;
+import * as moment_ from &#x27;moment&#x27;;
+const moment &#x3D; moment_;
+
+/**
+ * Klasse für Validierungsfehler
+ * */
+export class ValidationErrorItem {
+
+  /**
+   * Konstruktor
+   * 
+   * @param errorType Type des Fehlers
+   * @param errorMessageKey Key für Fehlermeldung
+   * @param errorMessageSummaryKey Key für Fehlermeldung in Validation Summary
+   * @param fieldName Name des Labels oder Bezeichnung des Feldes
+   */
+  constructor(errorType: string, errorMessageKey: string, errorMessageSummaryKey: string, fieldName: string) {
+    this.errorType &#x3D; errorType;
+    this.errorMessageKey &#x3D; errorMessageKey;
+    this.errorMessageValidationSummaryKey &#x3D; errorMessageSummaryKey;
+    this.fieldName &#x3D; fieldName;
+  }
+
+  /**
+   * Typ den Fehler
+   */
+  public errorType: string;
+
+  /**
+   * Error Message Key
+   */
+  public errorMessageKey: string;
+
+  /**
+   * Error Message Key für Validation Summary
+   */
+  public errorMessageValidationSummaryKey: string
+
+  /**
+   * Label oder Name des Feldes
+   */
+  public fieldName: string;
+
+  /**
+   * Map mit Parametern die in den Meldungen als Platzhalter verwendet werden können
+   */
+  public parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+
+}
+
+export class Validation {
+
+  static GetValidationErrorItem(errorType: string, errorMessageKey: string, errorMessageValidationSummaryKey: string, fieldName: string, parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;()): any {
+    let item: ValidationErrorItem &#x3D; new ValidationErrorItem(errorType, errorMessageKey, errorMessageValidationSummaryKey, fieldName)
+
+    if (parameters !&#x3D;&#x3D; null &amp;&amp; parameters !&#x3D;&#x3D; undefined &amp;&amp; parameters.size &gt; 0) {
+      parameters.forEach((v, k) &#x3D;&gt; {
+        item.parameters.set(k, v);
+      })
+    }
+
+    return { [errorType]: item };
+  }
+
+  static required(control: AbstractControl, fieldName: string): ValidationErrors | null {
+    if (Validators.required(control) !&#x3D;&#x3D; null) {
+      return Validation.GetValidationErrorItem(&#x27;required&#x27;, &#x27;VALIDATION_ERROR_REQUIRED&#x27;, &#x27;VALIDATION_ERROR_SUMMARY_REQUIRED&#x27;, fieldName);
+      // return { &#x27;required&#x27;: true, &#x27;required_message&#x27;: &#x27;Feld &quot;&#x27; + fieldName + &#x27;&quot; ist erforderlich&#x27; };
+    } else {
+      return null;
+    }
+  }
+
+  static minValue(control: AbstractControl, minvalue: number, fieldName: string): ValidationErrors | null {
+    let validator: ValidatorFn &#x3D; Validators.min(minvalue);
+
+    if (validator(control) !&#x3D;&#x3D; null) {
+      let parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+      parameters.set(&#x27;MINVALUE&#x27;, minvalue);
+
+      return Validation.GetValidationErrorItem(&#x27;minvalue&#x27;, &#x27;VALIDATION_ERROR_MINVALUE&#x27;, &#x27;VALIDATION_ERROR_SUMMARY_MINVALUE&#x27;, fieldName, parameters)
+      // return { &#x27;minvalue&#x27;: true, &#x27;minvalue_message&#x27;: &#x27;Feld &quot;&#x27; + fieldName + &#x27;&quot; erfordert einen Minimalwert von &#x27; + minvalue };
+    } else {
+      return null;
+    }
+  }
+
+  static patternValidator(control: AbstractControl, pattern: string, fieldName: string): ValidationErrors | null {
+    let validator: ValidatorFn &#x3D; Validators.pattern(pattern);
+
+    if (validator(control) !&#x3D;&#x3D; null) {
+      let parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+      parameters.set(&#x27;PATTERN&#x27;, pattern);
+
+      return Validation.GetValidationErrorItem(&#x27;pattern&#x27;, &#x27;VALIDATION_ERROR_PATTERN&#x27;, &#x27;VALIDATION_ERROR_SUMMARY_PATTERN&#x27;, fieldName, parameters)
+      // return { &#x27;pattern&#x27;: true, &#x27;pattern_message&#x27;: &#x27;Feld &quot;&#x27; + fieldName + &#x27;&quot; akzeptiert nur folgenden Pattern &#x27; + pattern };
+    } else {
+      return null;
+    }
+  }
+
+  static maxValue(control: AbstractControl, maxvalue: number, fieldName: string): ValidationErrors | null {
+    let validator: ValidatorFn &#x3D; Validators.max(maxvalue);
+
+    if (validator(control) !&#x3D;&#x3D; null) {
+      let parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+      parameters.set(&#x27;MAXVALUE&#x27;, maxvalue);
+
+      return Validation.GetValidationErrorItem(&#x27;maxvalue&#x27;, &#x27;VALIDATION_ERROR_MAXVALUE&#x27;, &#x27;VALIDATION_ERROR_SUMMARY_MAXVALUE&#x27;, fieldName, parameters)
+      // return { &#x27;maxvalue&#x27;: true, &#x27;maxvalue_message&#x27;: &#x27;Feld &quot;&#x27; + fieldName + &#x27;&quot; erfordert einen Maximalwert von &#x27; + maxvalue };
+    } else {
+      return null;
+    }
+  }
+
+  static email(control: AbstractControl, fieldName: string): ValidationErrors | null {
+    if (Validators.email(control) !&#x3D;&#x3D; null) {
+      return Validation.GetValidationErrorItem(&#x27;email&#x27;, &#x27;VALIDATION_ERROR_EMAIL&#x27;, &#x27;VALIDATION_ERROR_SUMMARY_EMAIL&#x27;, fieldName)
+      // return { &#x27;email&#x27;: true, &#x27;message&#x27;: &#x27;Feld &quot;&#x27; + fieldName + &#x27;&quot; ist keine E-Mail Adresse&#x27; };
+    } else {
+      return null;
+    }
+  }
+
+  static minLength(control: AbstractControl, minlength: number, fieldName: string): ValidationErrors | null {
+    let validator: ValidatorFn &#x3D; Validators.minLength(minlength);
+
+    if (minlength !&#x3D;&#x3D; null &amp;&amp; minlength !&#x3D;&#x3D; undefined &amp;&amp; control.value !&#x3D; &#x27;&#x27; &amp;&amp; control.value !&#x3D; undefined &amp;&amp; control.value !&#x3D; null &amp;&amp; validator(control) !&#x3D; null) {
+      let parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+      parameters.set(&#x27;MINLENGTH&#x27;, minlength);
+
+      return Validation.GetValidationErrorItem(&#x27;minlength&#x27;, &#x27;VALIDATION_ERROR_MINLENGTH&#x27;, &#x27;VALIDATION_ERROR_SUMMARY_MINLENGTH&#x27;, fieldName, parameters)
+      // return { &#x27;required&#x27;: true, &#x27;required_message&#x27;: &#x27;Feld &quot;&#x27; + fieldName + &#x27;&quot; erfordert min. &#x27; + minlength + &#x27; Zeichen&#x27; };
+    } else {
+      return null;
+    }
+  }
+
+  static minDate(control: IDateTimeControl, minDate: Date, fieldName: string): ValidationErrors | null {
+    // Check abbrechen, wenn kein gültiges Datum
+    if (!control.IsDateValid() || minDate &#x3D;&#x3D;&#x3D; null) {
+      return null;
+    }
+
+    if (minDate &gt; control.value) {
+      let parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+      parameters.set(&#x27;MINDATE&#x27;, moment(minDate).format(control.GetDateTimeFormatString()));
+
+      return Validation.GetValidationErrorItem(&#x27;datemin&#x27;, &#x27;VALIDATION_ERROR_MINDATE&#x27;, &#x27;VALIDATION_ERROR_SUMMARY_MINDATE&#x27;, fieldName, parameters)
+      // return { &#x27;datemin&#x27;: true, &#x27;message&#x27;: &#x27;Feld &quot;&#x27; + fieldName + &#x27;&quot; muss neuer oder gleich &#x27; + moment(minDate).format(control.GetDateTimeFormatString()) + &#x27; sein&#x27; };
+    } else {
+      return null;
+    }
+  }
+
+  static maxDate(control: IDateTimeControl, maxDate: Date, fieldName: string): ValidationErrors | null {
+    // Check abbrechen, wenn kein gültiges Datum
+    if (!control.IsDateValid() || maxDate &#x3D;&#x3D;&#x3D; null) {
+      return null;
+    }
+
+    if (maxDate &lt; control.value) {
+      let parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+      parameters.set(&#x27;MAXDATE&#x27;, moment(maxDate).format(control.GetDateTimeFormatString()));
+
+      return Validation.GetValidationErrorItem(&#x27;datemax&#x27;, &#x27;VALIDATION_ERROR_MAXDATE&#x27;, &#x27;VALIDATION_ERROR_SUMMARY_MAXDATE&#x27;, fieldName, parameters)
+      // return { &#x27;datemax&#x27;: true, &#x27;message&#x27;: &#x27;Feld &quot;&#x27; + fieldName + &#x27;&quot; muss älter oder gleich &#x27; + moment(maxDate).format(control.GetDateTimeFormatString()) + &#x27; sein&#x27; };
+    } else {
+      return null;
+    }
+  }
+
+  static minTime(control: IDateTimeControl, minTime: Date, fieldName: string): ValidationErrors | null {
+    // Check abbrechen, wenn kein gültiges Datum
+    if (!control.IsDateValid() || minTime &#x3D;&#x3D;&#x3D; null) {
+      return null;
+    }
+
+    if (control.value !&#x3D;&#x3D; null &amp;&amp; minTime &gt; control.value) {
+      let parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+      parameters.set(&#x27;MINTIME&#x27;, moment(minTime).format(control.GetDateTimeFormatString()));
+
+      return Validation.GetValidationErrorItem(&#x27;timemin&#x27;, &#x27;VALIDATION_ERROR_MINTIME&#x27;, &#x27;VALIDATION_ERROR_SUMMARY_MINTIME&#x27;, fieldName, parameters)
+      // return { &#x27;datemin&#x27;: true, &#x27;message&#x27;: &#x27;Feld &quot;&#x27; + fieldName + &#x27;&quot; muss neuer oder gleich &#x27; + moment(minTime).format(control.GetDateTimeFormatString()) + &#x27; sein&#x27; };
+    } else {
+      return null;
+    }
+  }
+
+  static maxTime(control: IDateTimeControl, maxTime: Date, fieldName: string): ValidationErrors | null {
+    // Check abbrechen, wenn kein gültiges Datum
+    if (!control.IsDateValid() || maxTime &#x3D;&#x3D;&#x3D; null) {
+      return null;
+    }
+
+    if (control.value !&#x3D;&#x3D; null &amp;&amp; maxTime &lt; control.value) {
+      let parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+      parameters.set(&#x27;MAXTIME&#x27;, moment(maxTime).format(control.GetDateTimeFormatString()));
+
+      return Validation.GetValidationErrorItem(&#x27;timemax&#x27;, &#x27;VALIDATION_ERROR_MAXTIME&#x27;, &#x27;VALIDATION_ERROR_SUMMARY_MAXTIME&#x27;, fieldName, parameters)
+      // return { &#x27;datemax&#x27;: true, &#x27;message&#x27;: &#x27;Feld &quot;&#x27; + fieldName + &#x27;&quot; muss älter oder gleich &#x27; + moment(maxTime).format(control.GetDateTimeFormatString()) + &#x27; sein&#x27; };
+    } else {
+      return null;
+    }
+  }
+
+  static isValidDate(control: IDateTimeControl, fieldName: string): ValidationErrors | null {
+    if (!control.IsDateValid()) {
+      return Validation.GetValidationErrorItem(&#x27;dateformat&#x27;, &#x27;VALIDATION_ERROR_DATETIMEFORMAT&#x27;, &#x27;VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT&#x27;, fieldName)
+      // return { &#x27;dateformat&#x27;: true, &#x27;message&#x27;: &#x27;Feld &quot;&#x27; + fieldName + &#x27;&quot; ist kein gültiges Datum&#x27; };
+    } else {
+      return null;
+    }
+  }
+
+  static minFiles(control: IUploadControl, minFiles: number, fieldName: string): ValidationErrors | null {
+    // Check abbrechen, wenn Min Files nicht gesetzt oder 0
+    if (minFiles &#x3D;&#x3D;&#x3D; null || minFiles &#x3D;&#x3D;&#x3D; 0) {
+      return null;
+    }
+
+    if (control.UploadedFileCount() !&#x3D;&#x3D; null &amp;&amp; minFiles &gt; control.UploadedFileCount()) {
+      let parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+      parameters.set(&#x27;MINFILES&#x27;, minFiles);
+
+      return Validation.GetValidationErrorItem(&#x27;dateformat&#x27;, &#x27;VALIDATION_ERROR_FILESMIN&#x27;, &#x27;VALIDATION_ERROR_SUMMARY_FILESMIN&#x27;, fieldName, parameters)
+    } else {
+      return null;
+    }
+  }
+
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'ValidationErrorItem.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

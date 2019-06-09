@@ -42,7 +42,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>NgDateTimeCommon</li>
+  <li>NgStaticFormContainerCommon</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -60,15 +60,22 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/jngcontrols-common/src/controls/datetime/datetime.ts</code>
+            <code>projects/jngcontrols-common/src/controls/static/formcontainer.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Common Control für Form Item Container.</p>
+
+            </p>
 
             <p class="comment">
                 <h3>Extends</h3>
             </p>
             <p class="comment">
-                        <code><a href="../injectables/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
+                        <code><a href="../classes/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
             </p>
 
 
@@ -85,30 +92,6 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#_mask">_mask</a>
-                            </li>
-                            <li>
-                                <a href="#_maxdate">_maxdate</a>
-                            </li>
-                            <li>
-                                <a href="#_mindate">_mindate</a>
-                            </li>
-                            <li>
-                                <a href="#_showselector">_showselector</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#DATEFORMAT">DATEFORMAT</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#_valueAsString">_valueAsString</a>
-                            </li>
-                            <li>
-                                <a href="#value">value</a>
-                            </li>
                             <li>
                                     <span class="modifier">Protected</span>
                                 <a href="#_dirty">_dirty</a>
@@ -156,39 +139,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#dateselect">dateselect</a>
-                            </li>
-                            <li>
-                                <a href="#GetDateTimeFormatString">GetDateTimeFormatString</a>
-                            </li>
-                            <li>
-                                <a href="#ModifyParsedDateTimeValue">ModifyParsedDateTimeValue</a>
-                            </li>
-                            <li>
-                                <a href="#showDateSelector">showDateSelector</a>
-                            </li>
-                            <li>
                                 <a href="#validateData">validateData</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Abstract</span>
-                                <a href="#GetDateTimeFormatString">GetDateTimeFormatString</a>
-                            </li>
-                            <li>
-                                <a href="#IsDateValid">IsDateValid</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Abstract</span>
-                                <a href="#ModifyParsedDateTimeValue">ModifyParsedDateTimeValue</a>
-                            </li>
-                            <li>
-                                <a href="#setValueString">setValueString</a>
-                            </li>
-                            <li>
-                                <a href="#validateData">validateData</a>
-                            </li>
-                            <li>
-                                <a href="#writeValue">writeValue</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
@@ -249,10 +200,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#maxdate">maxdate</a>
+                                <a href="#isrequired">isrequired</a>
                             </li>
                             <li>
-                                <a href="#mindate">mindate</a>
+                                <a href="#tooltiptext">tooltiptext</a>
                             </li>
                         </ul>
                     </td>
@@ -260,20 +211,6 @@
 
 
 
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>HostListeners</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#document:click">document:click</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                     <tr>
                         <td class="col-md-4">
@@ -284,10 +221,7 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#mindate">mindate</a>
-                                </li>
-                                <li>
-                                    <a href="#maxdate">maxdate</a>
+                                    <a href="#isrequired">isrequired</a>
                                 </li>
                             </ul>
                         </td>
@@ -302,242 +236,6 @@
         <h3 id="inputs">
             Properties
         </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="_mask"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Readonly</span>
-                            _mask</b>
-                            <a href="#_mask"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>{ mask: [/\d/, /\d/, &#x27;.&#x27;, /\d/, /\d/, &#x27;.&#x27;, /\d/, /\d/, /\d/, /\d/, &#x27; &#x27;, /[0-2]/, /\d/, &#x27;:&#x27;, /[0-5]/, /\d/], guide: true, placeholderChar: &#x27;_&#x27;, keepCharPositions: true }</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/datetime.ts:16</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="_maxdate"></a>
-                        <span class="name">
-                            <b>
-                            _maxdate</b>
-                            <a href="#_maxdate"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>null</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/datetime.ts:58</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="_mindate"></a>
-                        <span class="name">
-                            <b>
-                            _mindate</b>
-                            <a href="#_mindate"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>null</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/datetime.ts:45</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="_showselector"></a>
-                        <span class="name">
-                            <b>
-                            _showselector</b>
-                            <a href="#_showselector"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>false</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/datetime.ts:61</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="DATEFORMAT"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Readonly</span>
-                            DATEFORMAT</b>
-                            <a href="#DATEFORMAT"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&quot;DD.MM.YYYY HH:mm&quot;</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/datetime.ts:15</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="_valueAsString"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            _valueAsString</b>
-                            <a href="#_valueAsString"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;&#x27;</code>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Inherited from         <code><a href="../injectables/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
-</div>
-                                </td>
-                            </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../injectables/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:33</a></code>
-</div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="value"></a>
-                        <span class="name">
-                            <b>
-                            value</b>
-                            <a href="#value"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Inherited from         <code><a href="../injectables/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
-</div>
-                                </td>
-                            </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../injectables/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:14</a></code>
-</div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -898,224 +596,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="dateselect"></a>
-                    <span class="name">
-                        <b>
-                            dateselect
-                        </b>
-                        <a href="#dateselect"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>dateselect(v: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/datetime.ts:85</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>v</td>
-                                    <td>
-                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="GetDateTimeFormatString"></a>
-                    <span class="name">
-                        <b>
-                            GetDateTimeFormatString
-                        </b>
-                        <a href="#GetDateTimeFormatString"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>GetDateTimeFormatString()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/datetime.ts:22</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="ModifyParsedDateTimeValue"></a>
-                    <span class="name">
-                        <b>
-                            ModifyParsedDateTimeValue
-                        </b>
-                        <a href="#ModifyParsedDateTimeValue"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>ModifyParsedDateTimeValue(v: Moment)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/datetime.ts:26</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>v</td>
-                                    <td>
-                                            <code>Moment</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Moment</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="showDateSelector"></a>
-                    <span class="name">
-                        <b>
-                            showDateSelector
-                        </b>
-                        <a href="#showDateSelector"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>showDateSelector()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="67"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/datetime.ts:67</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="validateData"></a>
                     <span class="name">
                         <b>
@@ -1134,14 +614,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="97"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/datetime.ts:97</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/static/formcontainer.ts:18</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Validierung des Controls</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -1151,6 +633,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1165,6 +648,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Control das Validiert werden soll</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1176,405 +663,8 @@
 
                     </div>
                     <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="GetDateTimeFormatString"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Abstract</span>
-                            GetDateTimeFormatString
-                        </b>
-                        <a href="#GetDateTimeFormatString"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>GetDateTimeFormatString()</code>
-                </td>
-            </tr>
+                        <p>Fehlermeldung aus Validation oder NULL</p>
 
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:26</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="IsDateValid"></a>
-                    <span class="name">
-                        <b>
-                            IsDateValid
-                        </b>
-                        <a href="#IsDateValid"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>IsDateValid()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:97</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="ModifyParsedDateTimeValue"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Abstract</span>
-                            ModifyParsedDateTimeValue
-                        </b>
-                        <a href="#ModifyParsedDateTimeValue"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>ModifyParsedDateTimeValue(v: Moment)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:27</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>v</td>
-                                    <td>
-                                            <code>Moment</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Moment</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="setValueString"></a>
-                    <span class="name">
-                        <b>
-                            setValueString
-                        </b>
-                        <a href="#setValueString"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>setValueString(v: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:89</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>v</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="validateData"></a>
-                    <span class="name">
-                        <b>
-                            validateData
-                        </b>
-                        <a href="#validateData"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>validateData(c: <a href="https://angular.io/api/forms/AbstractControl" target="_blank">AbstractControl</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:108</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>c</td>
-                                    <td>
-                                                <code><a href="https://angular.io/api/forms/AbstractControl" target="_blank" >AbstractControl</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="writeValue"></a>
-                    <span class="name">
-                        <b>
-                            writeValue
-                        </b>
-                        <a href="#writeValue"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>writeValue(value: Date | string)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:50</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>value</td>
-                                    <td>
-                                            <code>Date | string</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -2505,72 +1595,65 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="maxdate"></a>
-                        <b>maxdate</b>
+                        <a name="isrequired"></a>
+                        <b>isrequired</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/datetime.ts:49</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/jngcontrols-common/src/controls/static/formcontainer.ts:35</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Definiert den Container als Required Form Item</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="mindate"></a>
-                        <b>mindate</b>
+                        <a name="tooltiptext"></a>
+                        <b>tooltiptext</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/datetime.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/jngcontrols-common/src/controls/static/formcontainer.ts:42</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Text welcher als Tooltip angezeigt wird.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
 
 
-            <section>
-    <h3>HostListeners</h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="document:click"></a>
-                    <span class="name">
-                        <b>
-                            document:click
-                        </b>
-                        <a href="#document:click"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <i>Arguments : </i><code>'$event.target' </code>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>document:click(targetElement)</code>
-                </td>
-            </tr>
 
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/datetime.ts:78</a></div>
-                </td>
-            </tr>
-
-
-        </tbody>
-    </table>
-</section>
             <section>
     <h3 id="accessors">
         Accessors
@@ -2579,24 +1662,36 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="mindate"></a>
-                        <span class="name"><b>mindate</b><a href="#mindate"><span class="icon ion-ios-link"></span></a></span>
+                        <a name="isrequired"></a>
+                        <span class="name"><b>isrequired</b><a href="#isrequired"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
 
-
                 <tr>
                     <td class="col-md-4">
-                        <span class="accessor"><b>set</b><code>mindate(v)</code></span>
+                        <span class="accessor"><b>get</b><code>isrequired()</code></span>
                     </td>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/datetime.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/jngcontrols-common/src/controls/static/formcontainer.ts:28</a></div>
+                                </td>
+                            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>isrequired(v: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/jngcontrols-common/src/controls/static/formcontainer.ts:35</a></div>
                                 </td>
                             </tr>
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Definiert den Container als Required Form Item</p>
+</div>
 
                                 <div class="io-description">
                                         <b>Parameters :</b>
@@ -2604,6 +1699,7 @@
                                             <thead>
                                                 <tr>
                                                     <td>Name</td>
+                                                        <td>Type</td>
                                                     <td>Optional</td>
                                                 </tr>
                                             </thead>
@@ -2611,61 +1707,9 @@
                                                     <tr>
                                                             <td>v</td>
                                                     
-                                                    
-                                                        <td>
-                                                                No
-                                                        </td>
-                                                        
-                                                    </tr>
-                                            </tbody>
-                                        </table>
-                                </div>
-                                <div>
-                                </div>
-                                <div class="io-description">
-                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                                </div>
-                        </td>
-                    </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="maxdate"></a>
-                        <span class="name"><b>maxdate</b><a href="#maxdate"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-                        <span class="accessor"><b>set</b><code>maxdate(v)</code></span>
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/datetime.ts:49</a></div>
-                                </td>
-                            </tr>
-                    <tr>
-                        <td class="col-md-4">
-
-                                <div class="io-description">
-                                        <b>Parameters :</b>
-                                        <table class="params">
-                                            <thead>
-                                                <tr>
-                                                    <td>Name</td>
-                                                    <td>Optional</td>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                    <tr>
-                                                            <td>v</td>
-                                                    
+                                                            <td>
+                                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                            </td>
                                                     
                                                         <td>
                                                                 No
@@ -2690,117 +1734,48 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {  Input,  HostListener } from &quot;@angular/core&quot;;
-import {  AbstractControl, ValidationErrors } from &quot;@angular/forms&quot;;
-import { Validation } from &quot;../../validation&quot;;
-import { NgBaseDateTimeControl } from &quot;../../common/basedatetimecontrol&quot;;
-// Import Moment.JS
-import { Moment } from &#x27;moment&#x27;;
-import * as moment_ from &#x27;moment&#x27;;
-const moment &#x3D; moment_;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
+import { Input } from &#x27;@angular/core&#x27;;
+import { NgBaseModelControl } from &#x27;../../common/basemodelcontrol&#x27;;
+import { convertToBoolean } from &#x27;../../utilities/convertion&#x27;;
 
+/**
+ * Common Control für Form Item Container.
+ **/
+export class NgStaticFormContainerCommon extends NgBaseModelControl&lt;string&gt; {
 
-export class NgDateTimeCommon extends NgBaseDateTimeControl {
-
-  // #region Constants
-
-  readonly DATEFORMAT: string &#x3D; &quot;DD.MM.YYYY HH:mm&quot;;
-  readonly _mask &#x3D; { mask: [/\d/, /\d/, &#x27;.&#x27;, /\d/, /\d/, &#x27;.&#x27;, /\d/, /\d/, /\d/, /\d/, &#x27; &#x27;, /[0-2]/, /\d/, &#x27;:&#x27;, /[0-5]/, /\d/], guide: true, placeholderChar: &#x27;_&#x27;, keepCharPositions: true };
-
-  // #endregion
-
-  // #region Abstract Methods
-
-  GetDateTimeFormatString(): string {
-    return this.DATEFORMAT;
-  }
-
-  ModifyParsedDateTimeValue(v: Moment): Moment {
-    return v;
-  }
-
-  // #endregion
-
-  // #region Properties
-
-  // Min Date
-  @Input(&quot;mindate&quot;)
-  set mindate(v: string | Date | null) {
-    var date &#x3D; moment(v, [this.DATEFORMAT], true);
-
-    if (date.isValid()) {
-      this._mindate &#x3D; date.utc().toDate();
-    } else {
-      this._mindate &#x3D; null;
-    }
-  }
-  _mindate: Date &#x3D; null;
-
-  // Max Date
-  @Input(&quot;maxdate&quot;)
-  set maxdate(v: string | Date | null) {
-    var date &#x3D; moment(v, [this.DATEFORMAT], true);
-
-    if (date.isValid()) {
-      this._maxdate &#x3D; date.utc().toDate();
-    } else {
-      this._maxdate &#x3D; null;
-    }
-  }
-  _maxdate: Date &#x3D; null;
-
-  // Definiert ob der Date Selector angezeigt wird
-  _showselector: boolean &#x3D; false;
-
-  // #endregion
-
-  // #region Date Selector
-
-  showDateSelector(): void {
-    // Touch Event auslösen
-    this.onTouch();
-
-    if (this._showselector)
-      this._showselector &#x3D; false;
-    else
-      this._showselector &#x3D; true;
-  }
-
-  @HostListener(&#x27;document:click&#x27;, [&#x27;$event.target&#x27;])
-  public onClick(targetElement) {
-    const clickedInside &#x3D; this._elementRef.nativeElement.contains(targetElement);
-    if (!clickedInside)
-      this._showselector &#x3D; false;
-  }
-
-
-  dateselect(v: any) {
-    if (v.date &#x3D;&#x3D;&#x3D; null) {
-      this.setValueString(&quot;&quot;);
-    } else {
-      this.value &#x3D; moment(v.date).utc().toDate();
-    }
-
-    this._showselector &#x3D; false;
-  }
-
-  // #endregion
-
+  /**
+   * Validierung des Controls
+   *
+   * @description Validierung wird auf dem Form Container nicht gemacht, da kein Model Binding vorhanden.
+   * @param c Control das Validiert werden soll
+   * @returns Fehlermeldung aus Validation oder NULL
+   */
   validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null &#x3D; null;
-
-    error &#x3D; super.validateData(c);
-
-    if (error &#x3D;&#x3D;&#x3D; null &amp;&amp; c.value !&#x3D;&#x3D; null &amp;&amp; c.value !&#x3D;&#x3D; undefined &amp;&amp; c.value !&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; this._mindate !&#x3D;&#x3D; undefined &amp;&amp; this._mindate !&#x3D;&#x3D; null) {
-      error &#x3D; Validation.minDate(this, this._mindate, this._label);
-    }
-
-    if (error &#x3D;&#x3D;&#x3D; null &amp;&amp; c.value !&#x3D;&#x3D; null &amp;&amp; c.value !&#x3D;&#x3D; undefined &amp;&amp; c.value !&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; this._maxdate !&#x3D;&#x3D; undefined &amp;&amp; this._maxdate !&#x3D;&#x3D; null) {
-      error &#x3D; Validation.maxDate(this, this._maxdate, this._label);
-    }
-
     return error;
   }
+
+  /**
+   * Definiert den Container als Required Form Item
+   */
+  private _isrequired: boolean &#x3D; false;
+
+  get isrequired(): boolean {
+    return this._isrequired;
+  }
+  /**
+   * Definiert den Container als Required Form Item
+   */
+  @Input(&quot;isrequired&quot;) 
+  set isrequired(v: boolean) {
+    this._isrequired &#x3D; convertToBoolean(v);
+  }
+
+  /**
+   * Text welcher als Tooltip angezeigt wird.
+   */
+  @Input(&quot;tooltiptext&quot;) _tooltiptext: string &#x3D; &#x27;&#x27;;
 
 }
 </code></pre>
@@ -2830,7 +1805,7 @@ export class NgDateTimeCommon extends NgBaseDateTimeControl {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'NgDateTimeCommon.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'NgStaticFormContainerCommon.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

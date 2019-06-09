@@ -581,6 +581,7 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\grid\gridimage.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\static\formcontainer.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\grid\gridimage.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\input\inputsearch.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\static\formcontainer.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\upload\uploadmultiple.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\upload\uploadsingle.ts" />

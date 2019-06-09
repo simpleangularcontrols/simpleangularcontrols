@@ -672,7 +672,7 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
   public _disabled: boolean;
 
   get isDisabled(): boolean {
-    return this._disabled || this.ngRadioButtons.isdisabled;
+    return this._disabled || this.ngRadioButtons._disabledControl;
   }
 
   private _hidden: boolean &#x3D; false;
@@ -683,7 +683,7 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
       this._hidden &#x3D; v as boolean;
     else
       this._hidden &#x3D; v &#x3D;&#x3D;&#x3D; &#x27;true&#x27;;
-    
+
     // Model Reset falls RadioButton selektiert war
     if (this._hidden &amp;&amp; this._checked) {
       this.ngRadioButtons.SelectItem(null);

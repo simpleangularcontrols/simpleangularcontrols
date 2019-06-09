@@ -10,3 +10,13 @@
 
 
 * Das Property "form" in NgFormular ist neu Private. Auf "form" kann über die Methode "getForm()" zugegriffen werden.
+
+# V.1.1.1
+
+## Breaking Changes
+
+* Beim Tag "\<ngGridButton\>" wurde das Property "iconstyle" in 2 Properties "iconstyle" und "icon" aufgeteilt. Werden die Standard Icons verwendet,
+  muss das Property von "inconstyle" auf "icon" umbenannt werden. Werden Custom Icons verwendet, muss das Sprite Set im Property "iconstyle" angegeben werden und
+  das Icon im Property "icon".
+
+

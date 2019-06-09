@@ -35,7 +35,19 @@
 <ul>
 <li>Tag &quot;&lt;ngFormular&gt;&quot; muss durch Tag &quot;&lt;form&gt;&quot; oder Tag &quot;&lt;div ngForm&gt;&lt;/div&gt;&quot; ersetzt werden.
 Grund ist, dass die Kompatibilität zu Reactive Forms nicht gewährleistet wurde und das bei Template Forms
-keine Gruppierung der Formulare durch die Direktive &quot;ngModelGroup&quot; möglich war.</li>
+keine Gruppierung der Formulare durch die Direktive &quot;ngModelGroup&quot; möglich war.
+Wenn in einer Kompontene über @ViewChild auf die NgFormular Komponente zugegriffen wird, muss das Attribute auf dem Form auf folgenden Code
+angepasst werden &#39;#myForm=&quot;NgFormular&quot;&#39;.</li>
+</ul>
+<ul>
+<li>Das Property &quot;form&quot; in NgFormular ist neu Private. Auf &quot;form&quot; kann über die Methode &quot;getForm()&quot; zugegriffen werden.</li>
+</ul>
+<h1 id="v111">V.1.1.1</h1>
+<h2 id="breaking-changes-1">Breaking Changes</h2>
+<ul>
+<li>Beim Tag &quot;&lt;ngGridButton&gt;&quot; wurde das Property &quot;iconstyle&quot; in 2 Properties &quot;iconstyle&quot; und &quot;icon&quot; aufgeteilt. Werden die Standard Icons verwendet,
+muss das Property von &quot;inconstyle&quot; auf &quot;icon&quot; umbenannt werden. Werden Custom Icons verwendet, muss das Sprite Set im Property &quot;iconstyle&quot; angegeben werden und
+das Icon im Property &quot;icon&quot;.</li>
 </ul>
 
 

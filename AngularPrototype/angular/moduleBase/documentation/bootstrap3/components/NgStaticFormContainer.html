@@ -35,7 +35,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>NgRadiobuttons</li>
+  <li>NgStaticFormContainer</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,18 +58,36 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>projects/jngcontrols-bootstrap3/src/controls/checkbox/radiobuttons.ts</code>
+    <code>projects/jngcontrols-bootstrap3/src/controls/static/formcontainer.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Component für einbindung eines beliebigen Controls in die Form Struktur</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
     </p>
     <p class="comment">
-                <code><a href="../classes/NgRadiobuttonsCommon.html" target="_self" >NgRadiobuttonsCommon</a></code>
+                <code><a href="../classes/NgStaticFormContainerCommon.html" target="_self" >NgStaticFormContainerCommon</a></code>
     </p>
 
 
+    <p class="comment">
+        <h3>Example</h3>
+    </p>
+    <div class="io-description">
+                <div>
+                    <pre class="line-numbers"><code class="language-html">&lt;ngStaticFormContainer name='myformcontainer' label=&quot;My Custom Form Control&quot; [isrequired]='false'&gt;&lt;input type=&quot;range&quot; class=&quot;form-control&quot; /&gt;&lt;/ngStaticFormContainer&gt;</code></pre>
+                </div>
+                <div>
+                    <pre class="line-numbers"><code class="language-html">&lt;ngStaticFormContainer name='myformcintainer' label=&quot;My Custom Form Control&quot; [isrequired]='false' tooltiptext=&quot;Dies ist ein Tooltip Text&quot;&gt;&lt;input type=&quot;range&quot; class=&quot;form-control&quot; /&gt;&lt;/ngStaticFormContainer&gt;</code></pre>
+                </div>
+    </div>
 
 <section>
     <h3>Metadata</h3>
@@ -87,15 +105,15 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                            <code>{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() &#x3D;&gt; NgRadiobuttons), multi: true }</code>
-                            <code>{ provide: NG_VALIDATORS, useExisting: forwardRef(() &#x3D;&gt; NgRadiobuttons), multi: true }</code>
+                                <code><a href="../components/NgStaticFormContainer.html" target="_self" >{ provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgStaticFormContainer }</a></code>
+                                <code><a href="../components/NgStaticFormContainer.html" target="_self" >{ provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgStaticFormContainer) }</a></code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>ngRadiobuttons</code></td>
+                <td class="col-md-9"><code>ngStaticFormContainer</code></td>
             </tr>
 
 
@@ -103,7 +121,7 @@
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./radiobuttons.html</code></td>
+                <td class="col-md-9"><code>./formcontainer.html</code></td>
             </tr>
 
 
@@ -176,30 +194,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#GetRadionButtonIndex">GetRadionButtonIndex</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#HasCheckedItem">HasCheckedItem</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#RegisterRadioButton">RegisterRadioButton</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#SelectItem">SelectItem</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#UnregisterRadioButton">UnregisterRadioButton</a>
-                            </li>
-                            <li>
                                 <a href="#validateData">validateData</a>
-                            </li>
-                            <li>
-                                <a href="#writeValue">writeValue</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
@@ -260,6 +255,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#isrequired">isrequired</a>
+                            </li>
+                            <li>
+                                <a href="#tooltiptext">tooltiptext</a>
+                            </li>
+                            <li>
                                 <a href="#disabled">disabled</a>
                             </li>
                             <li>
@@ -308,12 +309,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/jngcontrols-bootstrap3/src/controls/checkbox/radiobuttons.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/jngcontrols-bootstrap3/src/controls/static/formcontainer.ts:30</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konsturktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -322,6 +325,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -336,6 +340,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Parent NgFormular Instanz</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>injector</td>
@@ -348,6 +356,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Injector Instanz</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -360,6 +372,79 @@
 
     <section>
     <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isrequired"></a>
+                        <b>isrequired</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgStaticFormContainerCommon.html" target="_self" >NgStaticFormContainerCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgStaticFormContainerCommon.html#source" target="_self" >NgStaticFormContainerCommon:35</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Definiert den Container als Required Form Item</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="tooltiptext"></a>
+                        <b>tooltiptext</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgStaticFormContainerCommon.html" target="_self" >NgStaticFormContainerCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgStaticFormContainerCommon.html#source" target="_self" >NgStaticFormContainerCommon:42</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Text welcher als Tooltip angezeigt wird.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -648,334 +733,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="GetRadionButtonIndex"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            GetRadionButtonIndex
-                        </b>
-                        <a href="#GetRadionButtonIndex"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>GetRadionButtonIndex()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/NgRadiobuttonsCommon.html" target="_self" >NgRadiobuttonsCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgRadiobuttonsCommon.html#source" target="_self" >NgRadiobuttonsCommon:36</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="HasCheckedItem"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            HasCheckedItem
-                        </b>
-                        <a href="#HasCheckedItem"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>HasCheckedItem()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/NgRadiobuttonsCommon.html" target="_self" >NgRadiobuttonsCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgRadiobuttonsCommon.html#source" target="_self" >NgRadiobuttonsCommon:62</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="RegisterRadioButton"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            RegisterRadioButton
-                        </b>
-                        <a href="#RegisterRadioButton"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>RegisterRadioButton(radioButton: <a href="../classes/NgRadiobuttonCommon.html">NgRadiobuttonCommon</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/NgRadiobuttonsCommon.html" target="_self" >NgRadiobuttonsCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgRadiobuttonsCommon.html#source" target="_self" >NgRadiobuttonsCommon:20</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>radioButton</td>
-                                    <td>
-                                                <code><a href="../classes/NgRadiobuttonCommon.html" target="_self" >NgRadiobuttonCommon</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="SelectItem"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            SelectItem
-                        </b>
-                        <a href="#SelectItem"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>SelectItem(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/NgRadiobuttonsCommon.html" target="_self" >NgRadiobuttonsCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgRadiobuttonsCommon.html#source" target="_self" >NgRadiobuttonsCommon:54</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>value</td>
-                                    <td>
-                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="UnregisterRadioButton"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            UnregisterRadioButton
-                        </b>
-                        <a href="#UnregisterRadioButton"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>UnregisterRadioButton(radioButton: <a href="../classes/NgRadiobuttonCommon.html">NgRadiobuttonCommon</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/NgRadiobuttonsCommon.html" target="_self" >NgRadiobuttonsCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgRadiobuttonsCommon.html#source" target="_self" >NgRadiobuttonsCommon:24</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>radioButton</td>
-                                    <td>
-                                                <code><a href="../classes/NgRadiobuttonCommon.html" target="_self" >NgRadiobuttonCommon</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="validateData"></a>
                     <span class="name">
                         <b>
@@ -994,13 +751,13 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/NgRadiobuttonsCommon.html" target="_self" >NgRadiobuttonsCommon</a></code>
+                    <div class="io-line">Inherited from         <code><a href="../classes/NgStaticFormContainerCommon.html" target="_self" >NgStaticFormContainerCommon</a></code>
 </div>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgRadiobuttonsCommon.html#source" target="_self" >NgRadiobuttonsCommon:71</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/NgStaticFormContainerCommon.html#source" target="_self" >NgStaticFormContainerCommon:18</a></code>
 </div>
                 </td>
             </tr>
@@ -1008,6 +765,8 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Validierung des Controls</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -1017,6 +776,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1031,6 +791,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Control das Validiert werden soll</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1038,87 +802,12 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
 
                     </div>
                     <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="writeValue"></a>
-                    <span class="name">
-                        <b>
-                            writeValue
-                        </b>
-                        <a href="#writeValue"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>writeValue(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
-                </td>
-            </tr>
+                        <p>Fehlermeldung aus Validation oder NULL</p>
 
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/NgRadiobuttonsCommon.html" target="_self" >NgRadiobuttonsCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgRadiobuttonsCommon.html#source" target="_self" >NgRadiobuttonsCommon:43</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>value</td>
-                                    <td>
-                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -2404,20 +2093,41 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Host, forwardRef, Injector } from &#x27;@angular/core&#x27;;
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from &#x27;@angular/forms&#x27;;
-import { NgRadiobuttonsCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
 import { NgFormular } from &#x27;../form/form&#x27;;
+import { NgStaticFormContainerCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
 
+/**
+ * Component für einbindung eines beliebigen Controls in die Form Struktur
+ *
+ * @example
+ *  &lt;ngStaticFormContainer name&#x3D;&#x27;myformcontainer&#x27; label&#x3D;&quot;My Custom Form Control&quot; [isrequired]&#x3D;&#x27;false&#x27;&gt;
+ *      &lt;input type&#x3D;&quot;range&quot; class&#x3D;&quot;form-control&quot; /&gt;
+ *  &lt;/ngStaticFormContainer&gt;
+ *
+ * @example
+ * &lt;ngStaticFormContainer name&#x3D;&#x27;myformcintainer&#x27; label&#x3D;&quot;My Custom Form Control&quot; [isrequired]&#x3D;&#x27;false&#x27; tooltiptext&#x3D;&quot;Dies ist ein Tooltip Text&quot;&gt;
+ *     &lt;input type&#x3D;&quot;range&quot; class&#x3D;&quot;form-control&quot; /&gt;
+ * &lt;/ngStaticFormContainer&gt;
+ * 
+ **/
 @Component({
-  selector: &#x27;ngRadiobuttons&#x27;,
-  templateUrl: &#x27;./radiobuttons.html&#x27;,
+  selector: &#x27;ngStaticFormContainer&#x27;,
+  templateUrl: &#x27;./formcontainer.html&#x27;,
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() &#x3D;&gt; NgRadiobuttons), multi: true },
-    { provide: NG_VALIDATORS, useExisting: forwardRef(() &#x3D;&gt; NgRadiobuttons), multi: true }
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgStaticFormContainer },
+    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgStaticFormContainer) }
   ]
 })
-export class NgRadiobuttons extends NgRadiobuttonsCommon {
 
+export class NgStaticFormContainer extends NgStaticFormContainerCommon {
+
+  /**
+   * Konsturktor
+   * 
+   * @param parent Parent NgFormular Instanz
+   * @param injector Injector Instanz
+   */
   constructor(@Host() parent: NgFormular, injector: Injector) {
     super(parent, injector);
   }
@@ -2427,12 +2137,12 @@ export class NgRadiobuttons extends NgRadiobuttonsCommon {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;form-group&quot;&gt;
-  &lt;label *ngIf&#x3D;&quot;_disablelabel &#x3D;&#x3D;&#x3D; false&quot; for&#x3D;&quot;{{_name}}&quot; class&#x3D;&quot;control-label&quot; [ngClass]&#x3D;&quot;[_labelsize !&#x3D;&#x3D; 12 ?  &#x27;col-md-&#x27; + _labelsize : &#x27;sr-only&#x27;]&quot;&gt;{{_label}}&lt;/label&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;form-group&quot; [ngClass]&#x3D;&quot;{&#x27;has-error&#x27;: invalid &amp;&amp; (dirty || touched)}&quot;&gt;
+  &lt;label *ngIf&#x3D;&quot;_disablelabel &#x3D;&#x3D;&#x3D; false &amp;&amp; !_isadaptivelabel&quot; id&#x3D;&quot;{{_name}}_label&quot; for&#x3D;&quot;{{_name}}&quot; class&#x3D;&quot;control-label&quot; [ngClass]&#x3D;&quot;[_labelsize !&#x3D;&#x3D; 12 ?  &#x27;col-md-&#x27; + _labelsize : &#x27;sr-only&#x27;]&quot; [class.required]&#x3D;&quot;isrequired&quot;&gt;{{_label}}&lt;/label&gt;
   &lt;div [ngClass]&#x3D;&quot;[_disablelabel &#x3D;&#x3D;&#x3D; false ? &#x27;col-md-&#x27; + _inputsize : &#x27;col-md-12&#x27;]&quot;&gt;
-    &lt;div&gt;
-      &lt;ng-content&gt;&lt;/ng-content&gt;
-    &lt;/div&gt;
+    &lt;ng-content&gt;&lt;/ng-content&gt;
+    &lt;label for&#x3D;&quot;{{_name}}&quot; class&#x3D;&quot;form-label-adaptive form-label-fixed&quot; [ngClass]&#x3D;&quot;{ &#x27;required&#x27;: isrequired }&quot; *ngIf&#x3D;&quot;_isadaptivelabel &amp;&amp; !_disablelabel&quot;&gt;{{_label}}&lt;/label&gt;
+    &lt;div class&#x3D;&quot;help-block help-block-error&quot; *ngIf&#x3D;&quot;IsInlineErrorEnabled &amp;&amp; invalid &amp;&amp; (dirty || touched)&quot;&gt;{{ GetErrorMessage() | async }}&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -2464,10 +2174,10 @@ export class NgRadiobuttons extends NgRadiobuttonsCommon {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="form-group">  <label *ngIf="_disablelabel === false" for="{{_name}}" class="control-label" [ngClass]="[_labelsize !== 12 ?  \'col-md-\' + _labelsize : \'sr-only\']">{{_label}}</label>  <div [ngClass]="[_disablelabel === false ? \'col-md-\' + _inputsize : \'col-md-12\']">    <div>      <ng-content></ng-content>    </div>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="form-group" [ngClass]="{\'has-error\': invalid && (dirty || touched)}">  <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="control-label" [ngClass]="[_labelsize !== 12 ?  \'col-md-\' + _labelsize : \'sr-only\']" [class.required]="isrequired">{{_label}}</label>  <div [ngClass]="[_disablelabel === false ? \'col-md-\' + _inputsize : \'col-md-12\']">    <ng-content></ng-content>    <label for="{{_name}}" class="form-label-adaptive form-label-fixed" [ngClass]="{ \'required\': isrequired }" *ngIf="_isadaptivelabel && !_disablelabel">{{_label}}</label>    <div class="help-block help-block-error" *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)">{{ GetErrorMessage() | async }}</div>  </div></div></div>'
     var COMPONENTS = [{'name': 'NgButton', 'selector': 'ngButton'},{'name': 'NgCheckbox', 'selector': 'ngCheckbox'},{'name': 'NgConfirm', 'selector': 'ngConfirm'},{'name': 'NgDate', 'selector': 'ngDate'},{'name': 'NgDateSelector', 'selector': 'ngDateSelector'},{'name': 'NgDateTime', 'selector': 'ngDateTime'},{'name': 'NgDialog', 'selector': 'ngDialog'},{'name': 'NgDropdown', 'selector': 'ngDropdown'},{'name': 'NgGrid', 'selector': 'ngGrid'},{'name': 'NgGridButton', 'selector': 'ngGridButton'},{'name': 'NgGridColumn', 'selector': 'ngGridColumn,[ngGridColumn]'},{'name': 'NgGridColumnAction', 'selector': 'ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgGridImage', 'selector': 'ngGridImage'},{'name': 'NgInput', 'selector': 'ngInput'},{'name': 'NgInputArea', 'selector': 'ngInputArea'},{'name': 'NgInputCurrency', 'selector': 'ngInputCurrency'},{'name': 'NgInputDecimal', 'selector': 'ngInputDecimal'},{'name': 'NgInputEmail', 'selector': 'ngInputEmail'},{'name': 'NgInputInteger', 'selector': 'ngInputInteger'},{'name': 'NgInputPassword', 'selector': 'ngInputPassword'},{'name': 'NgInputSearch', 'selector': 'ngInputSearch'},{'name': 'NgListbox', 'selector': 'ngListbox'},{'name': 'NgPaging', 'selector': 'ngPaging'},{'name': 'NgRadiobutton', 'selector': 'ngRadiobutton'},{'name': 'NgRadiobuttons', 'selector': 'ngRadiobuttons'},{'name': 'NgStaticFormContainer', 'selector': 'ngStaticFormContainer'},{'name': 'NgStaticLabel', 'selector': 'ngStaticLabel'},{'name': 'NgTab', 'selector': 'ngTab'},{'name': 'NgTabItem', 'selector': 'ngTabItem'},{'name': 'NgTime', 'selector': 'ngTime'},{'name': 'NgTinyMce', 'selector': 'ngTinymce'},{'name': 'NgTinyMceEditorComponent', 'selector': 'ngTinyMceEditor'},{'name': 'NgTooltip', 'selector': 'ngTooltip'},{'name': 'NgTreeItemAction', 'selector': 'ngTreeItemAction'},{'name': 'NgTreeView', 'selector': 'ngTreeView'},{'name': 'NgTreeViewChild', 'selector': 'ngTreeViewChild'},{'name': 'NgUpload', 'selector': 'ngUpload'},{'name': 'NgUploadMultiple', 'selector': 'ngUploadMultiple'},{'name': 'NgValidationSummary', 'selector': 'ngValidationSummary'},{'name': 'NgWizard', 'selector': 'ngWizard'},{'name': 'NgWizardItem', 'selector': 'ngWizardItem'}];
     var DIRECTIVES = [{'name': 'NgDropdownOption', 'selector': 'option'},{'name': 'NgFormular', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgListboxOption', 'selector': 'option'}];
-    var ACTUAL_COMPONENT = {'name': 'NgRadiobuttons'};
+    var ACTUAL_COMPONENT = {'name': 'NgStaticFormContainer'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -2501,7 +2211,7 @@ export class NgRadiobuttons extends NgRadiobuttonsCommon {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'NgRadiobuttons.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'NgStaticFormContainer.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

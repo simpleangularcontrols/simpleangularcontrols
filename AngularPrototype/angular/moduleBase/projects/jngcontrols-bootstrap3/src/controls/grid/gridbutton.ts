@@ -31,9 +31,11 @@ export class NgGridButton extends NgGridButtonCommon {
         case "edit":
           iconset = "sprite";
           iconcss = "icon-sprite-base-main_edit";
+          break;
         case "delete":
           iconset = "sprite";
           iconcss = "icon-sprite-base-main_delete";
+          break;
       }
     }
 

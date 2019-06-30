@@ -4,7 +4,9 @@ import { Validation } from "../../validation";
 
 export class NgInputEmailCommon extends NgInputCommon {
 
-
+  /**
+   * Methode validiert, ob der Wert den gegebenen Kriteriten entspricht
+   */
   validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = super.validateData(c);
 

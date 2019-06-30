@@ -6,6 +6,9 @@ import { Validation } from "../validation";
 import { IDateTimeControl } from "../interfaces/idatetimecontrol";
 import { Moment } from "moment";
 import * as moment_ from 'moment';
+/**
+ * Moment
+ */
 const moment = moment_;
 
 @Injectable()

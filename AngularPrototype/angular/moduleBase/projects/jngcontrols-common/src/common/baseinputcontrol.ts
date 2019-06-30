@@ -26,6 +26,9 @@ export abstract class NgInputBase<VALUE> extends NgBaseModelControl<VALUE> {
 
   // #region Event Handler
 
+  /**
+   * Methode validiert Input wenn KeyPress-Event passiert
+   */
   public onKeyPress(event: KeyboardEvent): Boolean {
 
     // Cancel wenn _allowedChars leer ist.
@@ -48,6 +51,9 @@ export abstract class NgInputBase<VALUE> extends NgBaseModelControl<VALUE> {
 
   // #region Protected Virtual Methods
 
+  /**
+   * Methode validiert wenn ein Drück-Event passiert
+   */
   protected OnKeyPressValidation(position: number, character: string): boolean {
     return true;
   }

@@ -1,18 +1,34 @@
-import { Component, Input, TemplateRef, Output, EventEmitter, HostListener, QueryList, ViewChildren, ContentChildren } from '@angular/core';
-import { PagerData } from './model';
-import { NgGridColumnBaseCommon } from './gridcolumnbase';
-import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { NgBaseModelControl } from '../../common/basemodelcontrol';
+import { Input, TemplateRef, Output, EventEmitter } from '@angular/core';
+import { PagerData, SortDescriptor, SortOrder } from './model';
 
 export abstract class NgGridCommon {
 
+  /**
+   * Private Property. Enthielt die Column Menge. Type: number. Default ist 0
+   */
   private gridColumnCount: number = 0;
 
+  /**
+   * Protected Property. Enthielt Array of Pages. Default value: empty array []
+   */
   protected paginators: Array<any> = [];
+
+  /**
+   * Protected Property. Enthielt die Nummer der aktiven Seite. Type: number. Default ist 1
+   */
   protected activePage: number = 1;
+
+  /**
+   * Protected Property. Enthielt die Nummer der ersten angezeigtenen Seite in Pager. Type: number. Default ist 1
+   */
   protected firstPageNumber: number = 1;
-  protected firstVisibleIndex: number = 1;
-  protected lastVisibleIndex;
+
+  // protected firstVisibleIndex: number = 1;
+  // protected lastVisibleIndex;
+
+  /**
+   * Protected Property. Enthielt die Nummer der letzen Seite in Pager. Type: number. Default ist undefined/null
+   */
   protected lastPageNumber: number;
 
   //#region InputOutputs
@@ -25,10 +41,15 @@ export abstract class NgGridCommon {
 
   /**
    * Pager Settings
+   *
+   * Pager kann ausgeschaltet werden, in dem PagerData auf NULL gesetzt wird.
    */
   @Input('pagerdata')
   public pagerdata: PagerData
 
+  /**
+   * Input property für Name.
+   */
   @Input("name")
   public name: string
 
@@ -60,20 +81,47 @@ export abstract class NgGridCommon {
   @Input("pagesizetext")
   public pageSizeText: string = "Einträge pro Seite {{PAGESIZE}}";
 
+  /**
+   * Input property für die maximalle Seiten die sichtbar sind. Type: number.
+   */
   @Input("maxvisiblepagenumbers") _maxvisiblepagenumbers: number;
+
+  /**
+   * Input property für headers. Type: TemplateRef<any>.
+   */
   @Input("headers") _headers: TemplateRef<any>;
+
+  /**
+   * Input property für body. Type: TemplateRef<any>.
+   */
   @Input("body") _body: TemplateRef<any>;
 
+  /**
+   * Output EventEmitter. Wird aufgerufen wenn das Pager geklickt ist. 
+   */
   @Output("onpaging") _pagingEvent: EventEmitter<number> = new EventEmitter();
 
-  @Output("onsorting") _sortingevent: EventEmitter<any> = new EventEmitter()
+  /**
+   * Output EventEmitter. Wird aufgerufen wenn ein Header geklickt ist, damit das Column soritert wird. 
+   */
+  @Output("onsorting") _sortingevent: EventEmitter<SortDescriptor> = new EventEmitter<SortDescriptor>()
 
+  /**
+   * Output EventEmitter. Wird aufgerufen wenn ein PageSize geklickt ist, damit PageSizing geändert wird. 
+   */
   @Output("onpagesizechanged") _pageSizeChanged: EventEmitter<number> = new EventEmitter<number>();
 
   //#endregion
 
-  private sortingFlow: string = "ascending"
-  private oldChosenHeader: string
+  /**
+   * Aktuelle Sortierung
+   */
+  private sortDirection: SortOrder = SortOrder.None;
+
+  /**
+   * Aktuell Sortierte Spalte
+   */
+  private sortColumn: string = '';
 
   /**
    * Setzt die neue Seite
@@ -93,29 +141,77 @@ export abstract class NgGridCommon {
     this._pageSizeChanged.emit(pageSize);
   }
 
+  /**
+   * Die Methode erhöht die Column-Stücke um eins
+   */
   public RegisterColumn() {
     this.gridColumnCount++;
   }
 
+  /**
+   * Die Methode verringert die Column-Stücke um eins
+   */
   public UnregisterColumn() {
     this.gridColumnCount--;
   }
 
+  /**
+   * Die Methode ergibt die Column Menge
+   */
   public GetColumnCount(): number {
     return this.gridColumnCount;
   }
 
-  public sortBy(command) {
-    if (command == this.oldChosenHeader) {
-      if (this.sortingFlow == "ascending") {
-        this.sortingFlow = "descending"
-      } else {
-        this.sortingFlow = "ascending"
+  /**
+   * Die Methode deffiniert das Sortierung Flow
+   */
+  public SortBy(command) {
+
+    if (command == this.sortColumn) {
+
+      switch (this.sortDirection) {
+        case SortOrder.None:
+        case SortOrder.Descending:
+          this.sortDirection = SortOrder.Ascending;
+          break;
+        case SortOrder.Ascending:
+          this.sortDirection = SortOrder.Descending;
+          break;
       }
+
     } else {
-      this.sortingFlow = "ascending"
+      this.sortDirection = SortOrder.Ascending
     }
-    this._sortingevent.emit({ command, flow: this.sortingFlow })
-    this.oldChosenHeader = command
+
+    let result: SortDescriptor = new SortDescriptor();
+    result.SortColumn = command;
+    result.SortOrder = this.sortDirection;
+
+    this._sortingevent.emit(result)
+  }
+
+  /**
+   * Model für Sortierung
+   * 
+   * @param sortDescription Settings für aktuelle sortierung
+   */
+  @Input("sortdata")
+  public set ApplySort(sortDescription: SortDescriptor) {
+    this.sortColumn = sortDescription.SortColumn;
+    this.sortDirection = sortDescription.SortOrder;
+  }
+
+  /**
+   * Methode welche die aktuelle Sortierte Spalte zurückgibt
+   */
+  public GetSortColumn(): string {
+    return this.sortColumn;
+  }
+
+  /**
+   * Methode welche die Sortierung für die Spalte zurückgibt
+   */
+  public GetSortDirection(): SortOrder {
+    return this.sortDirection;
   }
 }

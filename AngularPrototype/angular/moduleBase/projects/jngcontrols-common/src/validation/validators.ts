@@ -2,6 +2,9 @@ import { AbstractControl, ValidationErrors, Validators, ValidatorFn } from "@ang
 import { IDateTimeControl } from "../interfaces/idatetimecontrol";
 import { IUploadControl } from '../interfaces/iuploadcontrol';
 import * as moment_ from 'moment';
+/**
+ * Moment
+ */
 const moment = moment_;
 
 /**
@@ -51,6 +54,9 @@ export class ValidationErrorItem {
 
 }
 
+/**
+ * Klasse mit Standard Validatoren
+ */
 export class Validation {
 
   static GetValidationErrorItem(errorType: string, errorMessageKey: string, errorMessageValidationSummaryKey: string, fieldName: string, parameters: Map<string, any> = new Map<string, any>()): any {
@@ -65,6 +71,12 @@ export class Validation {
     return { [errorType]: item };
   }
 
+  /**
+   * Validator für Required State
+   * 
+   * @param control Control das Validiert wird
+   * @param fieldName Label des Controls
+   */
   static required(control: AbstractControl, fieldName: string): ValidationErrors | null {
     if (Validators.required(control) !== null) {
       return Validation.GetValidationErrorItem('required', 'VALIDATION_ERROR_REQUIRED', 'VALIDATION_ERROR_SUMMARY_REQUIRED', fieldName);
@@ -74,6 +86,13 @@ export class Validation {
     }
   }
 
+  /**
+   * Validator für Min Value
+   * 
+   * @param control Control das Validiert wird
+   * @param minvalue Min. Value
+   * @param fieldName Label des Controls
+   */
   static minValue(control: AbstractControl, minvalue: number, fieldName: string): ValidationErrors | null {
     let validator: ValidatorFn = Validators.min(minvalue);
 
@@ -88,6 +107,12 @@ export class Validation {
     }
   }
 
+  /**
+   * Validierung mit einem RegEx Pattern
+   * @param control Control das validiert werden soll.
+   * @param pattern RegEx Pattern
+   * @param fieldName Label des Controls
+   */
   static patternValidator(control: AbstractControl, pattern: string, fieldName: string): ValidationErrors | null {
     let validator: ValidatorFn = Validators.pattern(pattern);
 
@@ -102,6 +127,13 @@ export class Validation {
     }
   }
 
+  /**
+   * Validator für Max Value
+   * 
+   * @param control Control das Validiert werden soll
+   * @param maxvalue Max. Wert
+   * @param fieldName Label des Controls
+   */
   static maxValue(control: AbstractControl, maxvalue: number, fieldName: string): ValidationErrors | null {
     let validator: ValidatorFn = Validators.max(maxvalue);
 
@@ -116,6 +148,12 @@ export class Validation {
     }
   }
 
+  /**
+   * Validiert Feld auf E-Mail Adresse
+   * 
+   * @param control Control das Valdiert werden soll
+   * @param fieldName Label des Controls
+   */
   static email(control: AbstractControl, fieldName: string): ValidationErrors | null {
     if (Validators.email(control) !== null) {
       return Validation.GetValidationErrorItem('email', 'VALIDATION_ERROR_EMAIL', 'VALIDATION_ERROR_SUMMARY_EMAIL', fieldName)
@@ -125,6 +163,13 @@ export class Validation {
     }
   }
 
+  /**
+   * Validiert auf die Länge des Wertes im Control
+   * 
+   * @param control Control das Validiert werden soll
+   * @param minlength Min. Länge des Wertes
+   * @param fieldName Label des Controls
+   */
   static minLength(control: AbstractControl, minlength: number, fieldName: string): ValidationErrors | null {
     let validator: ValidatorFn = Validators.minLength(minlength);
 
@@ -139,6 +184,12 @@ export class Validation {
     }
   }
 
+  /**
+   * Validiert ob das Datum neuer als minDate ist
+   * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
+   * @param minDate Min. Datum
+   * @param fieldName Label des Controls
+   */
   static minDate(control: IDateTimeControl, minDate: Date, fieldName: string): ValidationErrors | null {
     // Check abbrechen, wenn kein gültiges Datum
     if (!control.IsDateValid() || minDate === null) {
@@ -156,6 +207,12 @@ export class Validation {
     }
   }
 
+  /**
+   * Validiert ob das Datum älter als maxDate ist
+   * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
+   * @param maxDate max. Datum
+   * @param fieldName Label des Controls
+   */
   static maxDate(control: IDateTimeControl, maxDate: Date, fieldName: string): ValidationErrors | null {
     // Check abbrechen, wenn kein gültiges Datum
     if (!control.IsDateValid() || maxDate === null) {
@@ -173,6 +230,13 @@ export class Validation {
     }
   }
 
+  /**
+   * Validiert ob die Zeit später als minTime ist.
+   * 
+   * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
+   * @param minTime Min. Zeit
+   * @param fieldName Label des Controls
+   */
   static minTime(control: IDateTimeControl, minTime: Date, fieldName: string): ValidationErrors | null {
     // Check abbrechen, wenn kein gültiges Datum
     if (!control.IsDateValid() || minTime === null) {
@@ -190,6 +254,13 @@ export class Validation {
     }
   }
 
+  /**
+   * Validiert ob die Zeit früher als maxTime ist.
+   * 
+   * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
+   * @param maxTime Min. Zeit
+   * @param fieldName Label des Controls
+   */
   static maxTime(control: IDateTimeControl, maxTime: Date, fieldName: string): ValidationErrors | null {
     // Check abbrechen, wenn kein gültiges Datum
     if (!control.IsDateValid() || maxTime === null) {
@@ -207,6 +278,12 @@ export class Validation {
     }
   }
 
+  /**
+   * Validator der prüft ob der Wert ein Datum ist.
+   * 
+   * @param control Control mit IDateTimeControl Interface implementierung
+   * @param fieldName Label des Controls
+   */
   static isValidDate(control: IDateTimeControl, fieldName: string): ValidationErrors | null {
     if (!control.IsDateValid()) {
       return Validation.GetValidationErrorItem('dateformat', 'VALIDATION_ERROR_DATETIMEFORMAT', 'VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT', fieldName)
@@ -216,6 +293,13 @@ export class Validation {
     }
   }
 
+  /**
+   * Validator für min. Anzahl von Uploads
+   * 
+   * @param control Control das Validatiert werden soll. Control muss IUploadControl implementiert haben
+   * @param minFiles Min. Anzahl Files die hochgeladen werden müssen
+   * @param fieldName Label des Controls
+   */
   static minFiles(control: IUploadControl, minFiles: number, fieldName: string): ValidationErrors | null {
     // Check abbrechen, wenn Min Files nicht gesetzt oder 0
     if (minFiles === null || minFiles === 0) {

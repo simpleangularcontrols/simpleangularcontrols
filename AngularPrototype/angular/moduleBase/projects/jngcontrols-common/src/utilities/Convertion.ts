@@ -1,3 +1,7 @@
+/**
+ * Erzeugt ein Boolean
+ * @param value 
+ */
 export function convertToBoolean(value: any): boolean {
   if (value === null || value === undefined || typeof value === "boolean")
     return value;
@@ -5,6 +9,10 @@ export function convertToBoolean(value: any): boolean {
   return value.toString() === "true";
 }
 
+/**
+ * Erzeugt ein Number
+ * @param value 
+ */
 export function convertToNumber(value: any): number {
   if (value === null || value === undefined || typeof value === "number")
     return value;

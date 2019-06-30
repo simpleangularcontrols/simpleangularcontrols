@@ -6,6 +6,9 @@ import { NgBaseDateTimeControl } from "../../common/basedatetimecontrol";
 // Import Moment.JS
 import { Moment } from 'moment';
 import * as moment_ from 'moment';
+/**
+ * Moment
+ */
 const moment = moment_;
 
 
@@ -13,17 +16,29 @@ export class NgDateCommon extends NgBaseDateTimeControl {
 
   // #region Constants
 
+  /**
+   * Format des Datums
+   */
   readonly DATEFORMAT: string = "DD.MM.YYYY";
+  /**
+   * Maske
+   */
   readonly _mask = { mask: [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/,], guide: true, placeholderChar: '_', keepCharPositions: true };
 
   // #endregion
 
   // #region Abstract Methods
 
+  /**
+   * Methode ergibt Datum-Format vom String
+   */
   GetDateTimeFormatString(): string {
     return this.DATEFORMAT;
   }
 
+  /**
+   * Methode ergibt Datum - Moment
+   */
   ModifyParsedDateTimeValue(v: Moment): Moment {
     return v;
   }
@@ -32,7 +47,9 @@ export class NgDateCommon extends NgBaseDateTimeControl {
 
   // #region Properties
 
-  // Min Date
+  /**
+   * Min Date
+   */
   @Input("mindate")
   set mindate(v: string | Date | null) {
     var date = moment(v, [this.DATEFORMAT], true);
@@ -43,9 +60,14 @@ export class NgDateCommon extends NgBaseDateTimeControl {
       this._mindate = null;
     }
   }
+  /**
+   * Min Date
+   */
   _mindate: Date = null;
 
-  // Max Date
+  /**
+   * Min Date
+   */
   @Input("maxdate")
   set maxdate(v: string | Date | null) {
     var date = moment(v, [this.DATEFORMAT], true);
@@ -56,15 +78,23 @@ export class NgDateCommon extends NgBaseDateTimeControl {
       this._maxdate = null;
     }
   }
+  /**
+   * Min Date
+   */
   _maxdate: Date = null;
 
-  // Definiert ob der Date Selector angezeigt wird
+  /**
+   * Definiert ob der Date Selector angezeigt wird
+   */
   _showselector: boolean = false;
 
   // #endregion
 
   // #region Date Selector
 
+  /**
+   * Zeigt Date Selector an
+   */
   showDateSelector(): void {
     // Touch Event auslösen
     this.onTouch();
@@ -75,14 +105,22 @@ export class NgDateCommon extends NgBaseDateTimeControl {
       this._showselector = true;
   }
 
+  /**
+   * HostListener
+   */
   @HostListener('document:click', ['$event.target'])
+  /**
+   * Click Event
+   */
   public onClick(targetElement) {
     const clickedInside = this._elementRef.nativeElement.contains(targetElement);
     if (!clickedInside)
       this._showselector = false;
   }
 
-
+  /**
+   * Date Selector
+   */
   dateselect(v: any) {
     if (v.date === null) {
       this.setValueString("");
@@ -95,6 +133,9 @@ export class NgDateCommon extends NgBaseDateTimeControl {
 
   // #endregion
 
+  /**
+   * Validator
+   */
   validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = null;
 

@@ -2,19 +2,33 @@ import { NgForm, NgModel } from '@angular/forms';
 import { Input, ViewChild, QueryList, ContentChildren, AfterViewInit, IterableDiffer, IterableDiffers, IterableChanges } from '@angular/core';
 import { convertToBoolean } from '../../utilities/Convertion';
 
+/**
+ * Base Komponente für NgFormular
+ */
 export class NgFormularCommon {
 
-  // Form Control
+  /**
+   * 
+   */
   @Input()
   ngFormular: string;
 
-  // Default Label Size for Form
+  /**
+   * Default Label Size for Form
+   */
   @Input("labelsize") labelsize: number = 3;
-  // Kontroliert, ob das Label adaptive ist
+  /**
+   * Kontroliert, ob das Label adaptive ist
+   */
   @Input("isadaptivelabel") isadaptivelabel: boolean = false;
-  // Type des Forms
+  /**
+   * Type des Forms
+   */
   @Input("orientation") orientation: string = "horizontal";
 
+  /**
+   * Gibt die Orientation des Formulars zurück
+   */
   public getOrientation(): string {
     switch (this.orientation.toLowerCase()) {
       case 'horizontal':
@@ -28,13 +42,24 @@ export class NgFormularCommon {
     }
   }
 
+  /**
+   * Gibt die NgForm Instanz zurück
+   */
   public getForm(): NgForm {
     return this.form;
   }
 
+  /**
+   * Konstruktor
+   * 
+   * @param form Instanz von NgForm
+   */
   constructor(private form: NgForm) {
   }
 
+  /**
+   * Markiert alle Controls innerhalb des Formulares als Touched
+   */
   public markAsTouched(): void {
 
     if (this.form && this.form.invalid) {

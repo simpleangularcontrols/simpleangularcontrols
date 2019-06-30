@@ -5,14 +5,26 @@ import { NgInputCommon } from "./input";
 
 export class NgInputSearchCommon extends NgInputCommon {
 
+  /**
+   * Name des Such-Icons
+   */
   @Input("iconname") _searchIconName: string = "";
 
+  /**
+   * Text welcher auf dem Button angezeigt wird
+   */
   @Input("buttontext") _buttontext: string = "";
 
+  /**
+   * Event wenn auf das Such-Icon geclickt wird
+   */
   @Output("onclick")
   clickaction: EventEmitter<any> = new EventEmitter<any>();
 
-  searchClick() {
+  /**
+   * Methode sendet den Wert des Inputs durch das Event
+   */
+  searchClick(){
     this.clickaction.emit(this.value)
   }
 }

@@ -10,6 +10,9 @@ import { EventEmitter } from '@angular/core';
 import { NgTinyMceEditorComponent } from './tinymceeditor';
 import { validEvents } from './events';
 
+/**
+ * Bind Handler Event
+ */
 export const bindHandlers = (ctx: NgTinyMceEditorComponent, editor: any, initEvent: Event): void => {
   validEvents.forEach((eventName) => {
     const eventEmitter: EventEmitter<any> = ctx[eventName];
@@ -23,8 +26,14 @@ export const bindHandlers = (ctx: NgTinyMceEditorComponent, editor: any, initEve
   });
 };
 
+/**
+ * Unique Wert
+ */
 let unique = 0;
 
+/**
+ * UUID
+ */
 export const uuid = (prefix: string): string => {
   const date = new Date();
   const time = date.getTime();
@@ -35,10 +44,16 @@ export const uuid = (prefix: string): string => {
   return prefix + '_' + random + unique + String(time);
 };
 
+/**
+ * Prüft ob das Element ein HTMLTextAreaElement ist
+ */
 export const isTextarea = (element?: Element): element is HTMLTextAreaElement => {
   return typeof element !== 'undefined' && element.tagName.toLowerCase() === 'textarea';
 };
 
+/**
+ * Plugins-Array Normalisierung
+ */
 const normalizePluginArray = (plugins?: string | string[]): string[] => {
   if (typeof plugins === 'undefined' || plugins === '') {
     return [];
@@ -47,5 +62,8 @@ const normalizePluginArray = (plugins?: string | string[]): string[] => {
   return Array.isArray(plugins) ? plugins : plugins.split(' ');
 };
 
+/**
+ * Merge von Plugins
+ */
 export const mergePlugins = (initPlugins: string | string[], inputPlugins?: string | string[]) =>
   normalizePluginArray(initPlugins).concat(normalizePluginArray(inputPlugins));

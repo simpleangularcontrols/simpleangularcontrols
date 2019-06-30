@@ -4,20 +4,21 @@ import { ValidationErrorItem } from '../../validation';
 import { InternalLanguageResourceService, LANGUAGE_SERVICE } from '../../services/languageresource.service';
 import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
 import { Observable } from 'rxjs';
-import { AbstractControl, FormArray } from '@angular/forms/src/model';
-import { NgModelGroup } from '@angular/forms/src/directives/ng_model_group';
 import { NgForm } from '@angular/forms';
-import { collectExternalReferences } from '@angular/compiler/src/output/output_ast';
-import { NgControl } from '@angular/forms';
+import { FormArray } from '@angular/forms';
 
 export class NgValidationSummaryCommon {
-
+  /**
+   * Name-Property
+   */
   @Input("name")
   _name: string = "";
 
   // #region Private Variables
 
-  // Parent Formular
+  /**
+   * Parent Formular
+   */
   protected parent: NgFormularCommon;
   /**
   * Service für Error Localisation
@@ -28,8 +29,10 @@ export class NgValidationSummaryCommon {
 
   // #region Constructor
 
-  // Konstruktor
-  // Inject des Formulars
+  /**
+   * Konstruktor
+   * Inject des Formulars
+   */
   constructor(parent: NgFormularCommon, injector: Injector) {
     this.parent = parent;
     this.lngResourceService = injector.get(LANGUAGE_SERVICE, new InternalLanguageResourceService());
@@ -37,6 +40,9 @@ export class NgValidationSummaryCommon {
 
   // #endregion
 
+  /**
+   * Validation Methode
+   */
   get formErrors(): Observable<string>[] {
 
     const collection: Array<Observable<string>> = new Array<Observable<string>>();
@@ -101,7 +107,9 @@ export class NgValidationSummaryCommon {
     });
   }
 
-
+  /**
+   * Getter wenn Errors entstehen
+   */
   get hasErrors() {
     return this.formErrors.length > 0;
   }

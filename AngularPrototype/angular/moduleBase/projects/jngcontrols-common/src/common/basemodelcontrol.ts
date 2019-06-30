@@ -12,10 +12,17 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
 
   // #region Private Variables
 
-  // Parent Formular
+  /**
+   * Parent Formular
+   */
   protected parent: NgFormularCommon;
-  // NgModel Form ist disabled
+  /**
+   * NgModel Form ist disabled
+   */
   protected _disabledForm: boolean = false;
+  /**
+   * ngControl
+   */
   private ngControl: NgControl;
   /**
    * Service für Error Localisation
@@ -26,9 +33,11 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
 
   // #region Constructor
 
-  // Konstruktor
-  // Inject des Formulars
-  constructor( @Host() parent: NgFormularCommon, private injector: Injector) {
+  /**
+   * Konstruktor
+   * Inject des Formulars
+   */
+  constructor(@Host() parent: NgFormularCommon, private injector: Injector) {
     this.parent = parent;
     this.lngResourceService = injector.get(LANGUAGE_SERVICE, new InternalLanguageResourceService());
   }
@@ -37,11 +46,15 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
 
   // #region Control Events
 
-  // Init Event
+  /**
+   * Init Event
+   */
   ngOnInit() {
     this.ngControl = this.injector.get(NgControl, null);
 
-    // Label Size von Formular lesen
+    /**
+     * Label Size von Formular lesen
+     */
     if (this._labelsize === undefined) {
       if (this.parent.labelsize !== undefined) {
         this._labelsize = this.parent.labelsize;
@@ -50,7 +63,9 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
       }
     }
 
-    // Adaptive Label from Form
+    /**
+     * Adaptive Label from Form
+     */
     if (this._isadaptivelabel === undefined) {
       if (this.parent.isadaptivelabel !== undefined) {
         this._isadaptivelabel = this.parent.isadaptivelabel;
@@ -66,28 +81,40 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
 
   // #region Implementation ControlValueAccessor
 
-  // Leere Implementation von "propagateChange". Muss gemacht werden, damit kein Fehler entsteht
+  /**
+   * Leere Implementation von "propagateChange". Muss gemacht werden, damit kein Fehler entsteht
+   */
   propagateChange: any = () => { };
-  // Leere Implementation von "propagateTouch". Muss gemacht werden, damit kein Fehler entsteht
+  /**
+   * Leere Implementation von "propagateTouch". Muss gemacht werden, damit kein Fehler entsteht
+   */
   propagateTouch: any = () => { };
 
-  // Methode, damit andere Controls änderungen im Control mitbekommen können
-  // Zur Änderungsinfo die Methode propagateChange aufrufen.
+  /**
+   * Methode, damit andere Controls änderungen im Control mitbekommen können
+   * Zur Änderungsinfo die Methode propagateChange aufrufen.
+   */
   registerOnChange(fn: any): void {
     this.propagateChange = (obj) => fn(obj);
   }
 
-  // Methode, damit andere Controls änderungen mitbekommen, wenn das Control aktiviert (Focus) wird.
+  /**
+   * Methode, damit andere Controls änderungen mitbekommen, wenn das Control aktiviert (Focus) wird.
+   */
   registerOnTouched(fn: any): void {
     this.propagateTouch = (obj) => fn(obj);
   }
 
-  // Methode zum schreiben von Werten aus dem Model in das Control
+  /**
+   * Methode zum schreiben von Werten aus dem Model in das Control
+   */
   writeValue(value: VALUE) {
     this._value = value;
   }
 
-  // Setzt das Control auf Disabled
+  /**
+   * Setzt das Control auf Disabled
+   */
   setDisabledState(isDisabled: boolean): void {
     this._disabledForm = isDisabled;
   }
@@ -96,22 +123,31 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
 
   // #region Control Value
 
-  // Interne Variable, die den Wert des Controls hält
+  /**
+   * Interne Variable, die den Wert des Controls hält
+   */
   protected _value: VALUE = null;
 
-  // Set Methode für NgModel Binding in Html Markup
-  // Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.
+  /**
+   * Set Methode für NgModel Binding in Html Markup
+   * Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.
+   */
   @Input("value")
   set value(v: VALUE) {
     this._value = this.ConvertInputValue(v);
     this.propagateChange(this._value);
   }
 
-  // Get Methode für NgModel Binding in Html Markup
+  /**
+   * Get Methode für NgModel Binding in Html Markup
+   */
   get value(): VALUE {
     return this._value;
   }
 
+  /**
+   * Methode die den Wert des Inputs setzt
+   */
   setValue(v: VALUE): void {
     this.value = v;
   }
@@ -120,23 +156,39 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
 
   // #region Properties
 
-  // Name des Controls
+  /**
+   * Name des Controls
+   */
   @Input("name") _name: string = '';
-  // Definiert den Label Text
+  /**
+   * Definiert den Label Text
+   */
   @Input("label") _label: string = '';
-  // Definiert die Labelgröse
+  /**
+   * Definiert die Labelgröse
+   */
   @Input("labelsize") _labelsize: number = undefined;
-  // Deaktiviert das Label im Template
+  /**
+   * Deaktiviert das Label im Template
+   */
   @Input("disablelabel") _disablelabel: boolean = false;
-  // Deaktiviert das Input Control
+  /**
+   * Deaktiviert das Input Control
+   */
   @Input("disabled") _disabledControl: boolean = false;
-  // Kontroliert, ob das Label adaptive ist
+  /**
+   * Kontroliert, ob das Label adaptive ist
+   */
   @Input("isadaptivelabel") _isadaptivelabel: boolean = undefined;
-  // Definiert, ob das Control Sprachspezifisch ist
+  /**
+   * Definiert, ob das Control Sprachspezifisch ist
+   */
   @Input("islanguagespecific") _islanguagespecific: boolean = false;
 
 
-  // Definiert ob das Control disabled ist
+  /**
+   * Definiert ob das Control disabled ist
+   */
   get isdisabled(): boolean {
     return this._disabledForm || this._disabledControl;
   }
@@ -145,7 +197,9 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
 
   // #region Internal Properties
 
-  // Berechnet die Breite des Labels
+  /**
+   * Berechnet die Breite des Labels
+   */
   get _inputsize(): number {
     return 12 - this._labelsize;
   }
@@ -154,36 +208,61 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
 
   // #region Protected Helper Methods
 
+  /**
+   * Method can be used to Set Properties at Class Init
+   */
   protected OnClassInit(): void {
-    // Method can be used to Set Properties at Class Init
   }
 
+  /**
+   * Methode ergibt Decimal Symbol
+   */
   protected GetDecimalSymbol(): string {
     return ".";
   }
 
+  /**
+   * Method can Overwriten in Parent Classes
+   */
   protected ConvertInputValue(value: VALUE): VALUE {
     return value;
-    // Method can Overwriten in Parent Classes
   }
 
   // #endregion
 
   //#region Validation Base
 
-  // Validator
+  /**
+   * Validator
+   */
   protected _onChange: () => void;
 
+  /**
+   * Validator Methode
+   */
   validate(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = this.validateData(c);
     return error;
   }
 
+  /**
+   * Abstrakte Validator Methode
+   */
   abstract validateData(c: AbstractControl): ValidationErrors | null;
 
+  /**
+   * Methode registriert Änderungen bei der Validierung
+   */
   registerOnValidatorChange(fn: () => void): void { this._onChange = fn; }
 
+  /**
+   * Boolean Property dirty; default Wert - false
+   */
   protected _dirty: boolean = false;
+
+  /**
+   * Methode ergibt Boolean Wert für dirty
+   */
   public get dirty(): boolean {
     if (this.ngControl !== null) {
       this._dirty = this.ngControl.dirty;
@@ -192,7 +271,13 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
     return this._dirty;
   }
 
+  /**
+   * Boolean Property touched; default Wert - false
+   */
   protected _touched: boolean = false;
+  /**
+   * Methode ergibt Boolean Wert für touched
+   */
   public get touched(): boolean {
     if (this.ngControl !== null) {
       this._touched = this.ngControl.touched;
@@ -200,14 +285,22 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
 
     return this._touched;
   }
-
+  /**
+   * Methode ergibt boolean Wert wenn Form invalid oder nicht invalid ist
+   */
   public get invalid(): boolean { return this.ngControl !== undefined && this.ngControl !== null && this.ngControl.invalid; }
 
+  /**
+   * Methode ergibt boolean touched = true
+   */
   onTouch(): void {
     this._touched = true;
     this.propagateTouch();
   }
 
+  /**
+   * Methode ergibt Error anhand von gegebenen Kriterien
+   */
   GetErrorMessage(): Observable<string> {
 
     if (this.ngControl.errors === undefined || this.ngControl.errors === null)
@@ -246,8 +339,8 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
   }
 
   /**
-   * Inline Errors für das Control
-   */
+ * Inline Errors für das Control
+ */
   private _inlineerrorenabled: boolean | null = null;
 
   @Input("inlineerrorenabled")

@@ -8,29 +8,57 @@ import { Validation } from '../../validation';
 @Directive({ selector: 'option' })
 export class NgListboxOption implements OnDestroy {
 
+  /**
+   * Konstruktor
+   */
   constructor(private _element: ElementRef, private _renderer: Renderer2) { }
 
+  /**
+   * Wert des Controls
+   */
   @Input("value")
   _value: string;
 
+  /**
+   * Methode ergibt den Status der Elemente, die selektiert wurden
+   */
   _setSelected(selected: boolean) {
     this._renderer.setProperty(this._element.nativeElement, 'selected', selected);
   }
 
+  /**
+   * Event wenn die Komponente zerstört wird
+   */
   ngOnDestroy(): void {
   }
 
 }
 
-// Wrapper für HTML Options
+/**
+ * Wrapper für HTML Options
+ */
 interface HTMLOption {
+  /**
+   * Wert
+   */
   value: string;
+  /**
+   * Boolean Property für Selektierte Elemente
+   */
   selected: boolean;
 }
 
-// Wrapper für HTML Select
+/**
+ * Wrapper für HTML Select
+ */
 abstract class HTMLCollection {
+  /**
+   * Länge
+   */
   length: number;
+  /**
+   * Option-Item
+   */
   abstract item(_: number): HTMLOption;
 }
 
@@ -47,11 +75,20 @@ abstract class HTMLCollection {
 //   viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
 // })
 export class NgListboxCommon extends NgBaseSelectControl<Array<string>> {
+  /**
+   * Anzahl der Zeilen
+   */
   @Input("rowsize") _rowsize: number = 5;
 
+  /**
+   * ViewChildren Methode
+   */
   @ViewChildren(NgListboxOption)
   contentOptions: QueryList<NgListboxOption>;
 
+  /**
+   * Getter für selektierte Elemente
+   */
   getSelectedItems(selectelement: any) {
     let selectedValues: Array<string> = new Array<string>();
 
@@ -76,6 +113,9 @@ export class NgListboxCommon extends NgBaseSelectControl<Array<string>> {
     }
   }
 
+  /**
+   * Methode schreibt neuen Wert
+   */
   writeValue(value: Array<string>) {
     if (this.contentOptions && value) {
       this.contentOptions.forEach(itm => {
@@ -86,6 +126,9 @@ export class NgListboxCommon extends NgBaseSelectControl<Array<string>> {
     super.writeValue(value);
   }
   
+  /**
+   * Validator Methode
+   */
   validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = null;
 

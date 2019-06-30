@@ -53,12 +53,15 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
    */
   private _inlinemode: boolean;
 
+  /**
+   * Setter für Inline Mode für Tooltip
+   */
   @Input("inlinemode")
   set inlinemode(value: boolean) {
     this._inlinemode = convertToBoolean(value);
   }
   /**
-   * Inline Mode für Tooltip
+   * Getter für Inline Mode für Tooltip
    */
   get inlinemode(): boolean {
     return this._inlinemode;

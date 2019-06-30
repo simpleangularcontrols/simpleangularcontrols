@@ -14,6 +14,9 @@ export class NgInputCommon extends NgInputBase<string> {
    */
   @Input("controlwidth") _controlwidth: string = null
 
+  /**
+   * Methode validiert, ob der Wert den gegebenen Kriterien entspricht
+   */
   validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors|null = null;
 
@@ -24,6 +27,7 @@ export class NgInputCommon extends NgInputBase<string> {
     if (error === null && this._pattern !== undefined && this._pattern !== null) {
       error = Validation.patternValidator(c, this._pattern, this._label);
     }
+
 
     return error;
   }

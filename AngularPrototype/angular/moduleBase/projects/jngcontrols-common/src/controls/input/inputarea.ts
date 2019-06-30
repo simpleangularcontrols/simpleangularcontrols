@@ -17,9 +17,11 @@ export class NgInputAreaCommon extends NgInputCommon {
   /**
    * Property mit dem Custom CSS Klassen auf dem Form-Control definiert werden können.
    */
-  @Input("customCssClass")
-  _customClasses: string = '';
+  @Input("customCssClass") _customClasses: string = '';
 
+  /**
+   * Getter für die Länge des Inputs
+   */
   get _currentLength(): number {
     if (this.value === null || this.value === undefined)
       return 0;
@@ -27,6 +29,9 @@ export class NgInputAreaCommon extends NgInputCommon {
       return this.value.length + this.value.split(/\r|\n/).length - 1;
   }
 
+  /**
+   * Methode wird 'true' ergeben wenn ein Key gedrückt wird und maxlength ist nicht definiert
+   */
   public onKeyPress(event: KeyboardEvent): Boolean {
     // Exist if MaxLength not defined
     if (this._maxlength === undefined || this._maxlength === null)

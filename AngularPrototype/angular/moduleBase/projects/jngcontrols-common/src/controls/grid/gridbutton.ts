@@ -6,14 +6,14 @@ import { Input, Output, EventEmitter } from '@angular/core';
 export class NgGridButtonCommon {
 
   /**
-   * Spriteset. Falls leer werden die internen Standard Icons definiert
+   * Input Property für Styling des Buttons. Deffiniert die Css Klassen des Buttons
    */
   @Input("iconstyle")
-  public iconstyle: string = "";
+  public iconstyle: string = ""
 
   /**
-   * Icon Name aus Sprite
-   */
+ * Icon Name aus Sprite
+ */
   @Input("icon")
   public icon: string;
 
@@ -39,13 +39,13 @@ export class NgGridButtonCommon {
   }
 
   /**
-   * Action wenn auf Button gelickt wird
-   */
+  * Event wenn auf den Button geklickt wird
+  */
   @Output("onclick")
   clickaction: EventEmitter<any> = new EventEmitter<any>();
 
   /**
-   * Methode welche die Click Action auslöst, falls der Button aktiv ist.
+   * Die Methode wird das cklickaction Emitter aktivieren
    */
   public callaction() {
     if (!this._isdisabledvalue)

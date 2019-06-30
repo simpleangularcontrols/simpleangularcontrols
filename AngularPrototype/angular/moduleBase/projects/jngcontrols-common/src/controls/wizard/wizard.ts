@@ -3,17 +3,27 @@ import { ControlValueAccessor } from '@angular/forms';
 import { NgWizardItemCommon } from './wizarditem';
 
 export abstract class NgWizardCommon implements AfterContentInit, ControlValueAccessor {
-
+  /**
+   * Abstrakte QueryList von NgWizardItemCommon
+   */
   abstract wizardItems(): QueryList<NgWizardItemCommon>;
-
+  /**
+   * Name des Controls
+   */
   @Input("name")
   _name: string = "";
-
+  /**
+   * Boolean Property prüft ob Navigation im Wizard disabled ist; default Wert - false
+   */
   @Input("disablenavigation")
   _disableNavigation: boolean = false;
-
+  /**
+   * Aktueller Schritt im Wizard
+   */
   private _currentstep: string;
-
+  /**
+   * Setter und Getter für aktueller Schritt
+   */
   @Input("currentstep")
   set currentstep(v: string | null) {
     this.changeStep(v);
@@ -22,7 +32,9 @@ export abstract class NgWizardCommon implements AfterContentInit, ControlValueAc
   get currentstep(): string | null {
     return this._currentstep;
   }
-
+  /**
+   * EventEmitter wenn der Schritt geändert wird
+   */
   @Output("stepchanged")
   _onStepChanged: EventEmitter<string> = new EventEmitter<string>();
 
@@ -33,10 +45,15 @@ export abstract class NgWizardCommon implements AfterContentInit, ControlValueAc
 
   // #region Control initialisieren
 
+  /**
+   * AfterContentInit Event
+   */
   ngAfterContentInit() {
     this.initSteps();
   }
-
+  /**
+   * Ursprünglicher Schritt wird selektiert
+   */
   private initSteps(): void {
     let activeStep = this.wizardItems().filter((step) => step._active);
 
@@ -50,6 +67,10 @@ export abstract class NgWizardCommon implements AfterContentInit, ControlValueAc
 
   // #endregion
 
+  /**
+   * Schritt selektieren
+   * @param step 
+   */
   selectStep(step: NgWizardItemCommon): void {
 
     // Cancel if Navigation disabled
@@ -59,6 +80,10 @@ export abstract class NgWizardCommon implements AfterContentInit, ControlValueAc
     this.changeStep(step._id);
   }
 
+  /**
+   * Auf nächsten/vorherigen Schritt gehen
+   * @param step 
+   */
   changeStep(step: string | null) {
     if (this.wizardItems() === undefined || this.wizardItems() === null)
       return;
@@ -90,24 +115,34 @@ export abstract class NgWizardCommon implements AfterContentInit, ControlValueAc
     this._onStepChanged.emit(step);
   }
 
-  // Leere Implementation von "propagateChange". Muss gemacht werden, damit kein Fehler entsteht
+  /**
+   * Leere Implementation von "propagateChange". Muss gemacht werden, damit kein Fehler entsteht
+   */
   propagateChange: any = () => { };
-  // Leere Implementation von "propagateTouch". Muss gemacht werden, damit kein Fehler entsteht
+  /**
+   * Leere Implementation von "propagateTouch". Muss gemacht werden, damit kein Fehler entsteht
+   */
   propagateTouch: any = () => { };
 
 
- // Methode, damit andere Controls änderungen im Control mitbekommen können
-  // Zur Änderungsinfo die Methode propagateChange aufrufen.
+ /**
+  * Methode, damit andere Controls änderungen im Control mitbekommen können
+  * Zur Änderungsinfo die Methode propagateChange aufrufen.
+  */
   registerOnChange(fn: any): void {
     this.propagateChange = (obj) => fn(obj);
   }
 
-  // Methode, damit andere Controls änderungen mitbekommen, wenn das Control aktiviert (Focus) wird.
+  /**
+   * Methode, damit andere Controls änderungen mitbekommen, wenn das Control aktiviert (Focus) wird.
+   */
   registerOnTouched(fn: any): void {
     this.propagateTouch = (obj) => fn(obj);
   }
 
-  // Methode zum schreiben von Werten aus dem Model in das Control
+  /**
+   * Methode zum schreiben von Werten aus dem Model in das Control
+   */
   writeValue(value: string|null) {
     if (value) {
       this.changeStep(value);

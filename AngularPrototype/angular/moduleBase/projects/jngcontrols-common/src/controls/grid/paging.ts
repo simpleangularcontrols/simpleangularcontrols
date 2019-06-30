@@ -94,6 +94,9 @@ export abstract class NgPagingCommon {
     return interpolation.interpolateString(this.pageSizeText, data);
   }
 
+  /**
+   * Die Methode erstellt den Text, der auf den Pager renderierrt wird. Current page und TotalPage
+   */
   public GetPagingText(): string {
     let interpolation: Interpolation = new Interpolation();
 
@@ -109,7 +112,7 @@ export abstract class NgPagingCommon {
    * Event wenn im Grid die Seite geändert wird. Als Parameter wird der neue PageIndex mitgegeben.
    */
   @Output("onpaging")
-  _pagingEvent: EventEmitter<number> = new EventEmitter();
+  _pagingEvent: EventEmitter<PagerData> = new EventEmitter<PagerData>();
 
   /**
    * Event wenn im Pager die PageSize geändert wird
@@ -169,8 +172,10 @@ export abstract class NgPagingCommon {
   /**
    * Methode löst den Event aus, dass ein Paging stattgefunden hat
    */
-  protected paged() {
-    this._pagingEvent.emit(this.activePageIndex);
+  protected paged(newPageIndex: number) {
+
+    let pagerData: PagerData = new PagerData(this.pagedata.PageSize, newPageIndex, this.pagedata.TotalRowCount);
+    this._pagingEvent.emit(pagerData);
   }
 
   /**
@@ -223,8 +228,7 @@ export abstract class NgPagingCommon {
     if (this.activePageIndex !== newPageIndex) {
       console.log("NgPagingCommon: change page to index " + newPageIndex);
 
-      this.activePageIndex = newPageIndex;
-      this.paged();
+      this.paged(newPageIndex);
     }
   }
 
@@ -235,8 +239,7 @@ export abstract class NgPagingCommon {
     if (this.activePageIndex != this.lastPageIndex) {
       console.log("NgPagingCommon: nextPage called");
 
-      this.activePageIndex += 1;
-      this.paged();
+      this.paged(this.activePageIndex + 1);
     }
   }
 
@@ -247,8 +250,7 @@ export abstract class NgPagingCommon {
     if (this.activePageIndex != this.firstPageIndex) {
       console.log("NgPagingCommon: previousPage called");
 
-      this.activePageIndex -= 1;
-      this.paged();
+      this.paged(this.activePageIndex - 1);
     }
   }
 
@@ -259,8 +261,7 @@ export abstract class NgPagingCommon {
     if (this.activePageIndex != this.firstPageIndex) {
       console.log("NgPagingCommon: firstPage called");
 
-      this.activePageIndex = 0;
-      this.paged();
+      this.paged(0);
     }
   }
 
@@ -271,8 +272,7 @@ export abstract class NgPagingCommon {
     if (this.activePageIndex != this.lastPageIndex) {
       console.log("NgPagingCommon: lastPage called");
 
-      this.activePageIndex = this.lastPageIndex;
-      this.paged();
+      this.paged(this.lastPageIndex);
     }
   }
 

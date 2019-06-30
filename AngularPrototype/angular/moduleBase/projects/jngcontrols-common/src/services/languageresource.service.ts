@@ -3,6 +3,9 @@ import { ILanguageResourceService } from "../interfaces/ilanguageresource";
 import { Interpolation } from "../utilities/interpolation";
 import { Observable } from "rxjs";
 
+/**
+ * Injection Token für Language Resource Service
+ */
 export const LANGUAGE_SERVICE = new InjectionToken<LanguageResourceService>('LanguageResourceService');
 
 /**
@@ -77,6 +80,7 @@ export class InternalLanguageResourceService extends LanguageResourceService {
     this.data.get('de').set('VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT', 'Feld "{{FIELD}}" ist kein gültiges Datum.');
     this.data.get('de').set('VALIDATION_ERROR_FILESMIN', 'Es müssen min. {{MINFILES}} Dateien hochgeladen sein.');
     this.data.get('de').set('VALIDATION_ERROR_SUMMARY_FILESMIN', 'Feld "{{FIELD}}" muss min. {{MINFILES}} Dateien hochgeladen haben.');
+
 
     // EN
     this.data.set('en', new Map<string, string>());

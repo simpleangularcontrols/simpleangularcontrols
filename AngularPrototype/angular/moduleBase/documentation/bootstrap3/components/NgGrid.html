@@ -145,15 +145,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#firstVisibleIndex">firstVisibleIndex</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
                                 <a href="#lastPageNumber">lastPageNumber</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#lastVisibleIndex">lastVisibleIndex</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
@@ -176,6 +168,14 @@
                                 <a href="#GetColumnCount">GetColumnCount</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#GetSortColumn">GetSortColumn</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#GetSortDirection">GetSortDirection</a>
+                            </li>
+                            <li>
                                 <a href="#pageChange">pageChange</a>
                             </li>
                             <li>
@@ -187,7 +187,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#sortBy">sortBy</a>
+                                <a href="#SortBy">SortBy</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -228,6 +228,9 @@
                             </li>
                             <li>
                                 <a href="#pagingtext">pagingtext</a>
+                            </li>
+                            <li>
+                                <a href="#sortdata">sortdata</a>
                             </li>
                             <li>
                                 <a href="#value">value</a>
@@ -288,10 +291,16 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:65</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:97</a></code>
 </div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Input property für body. Type: TemplateRef<any>.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -316,7 +325,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:39</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:60</a></code>
 </div>
                             </td>
                         </tr>
@@ -350,10 +359,16 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:64</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:92</a></code>
 </div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Input property für headers. Type: TemplateRef<any>.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -378,10 +393,16 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:63</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:87</a></code>
 </div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Input property für die maximalle Seiten die sichtbar sind. Type: number.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -406,10 +427,16 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:33</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:54</a></code>
 </div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Input property für Name.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -434,13 +461,14 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:30</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:48</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Pager Settings</p>
+<p>Pager kann ausgeschaltet werden, in dem PagerData auf NULL gesetzt wird.</p>
 </div>
                     </td>
                 </tr>
@@ -473,7 +501,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:61</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:82</a></code>
 </div>
                             </td>
                         </tr>
@@ -514,7 +542,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:51</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:72</a></code>
 </div>
                             </td>
                         </tr>
@@ -524,6 +552,34 @@
 <p>Folgende Interpolation Texte sind vorhanden:
 {{CURRENTPAGE}}: Aktuelle Seite
 {{TOTALPAGES}}: Anzahl Seiten</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sortdata"></a>
+                        <b>sortdata</b>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../classes/NgGridCommon.html" target="_self" >NgGridCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:199</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Model für Sortierung</p>
 </div>
                     </td>
                 </tr>
@@ -551,7 +607,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:24</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:40</a></code>
 </div>
                             </td>
                         </tr>
@@ -588,10 +644,16 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:71</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:112</a></code>
 </div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Output EventEmitter. Wird aufgerufen wenn ein PageSize geklickt ist, damit PageSizing geändert wird. </p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -616,10 +678,16 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:67</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:102</a></code>
 </div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Output EventEmitter. Wird aufgerufen wenn das Pager geklickt ist. </p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -632,7 +700,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>    <code>EventEmitter&lt;any&gt;</code>
+                        <i>Type : </i>        <code><a href="../classes/SortDescriptor.html" target="_self" >EventEmitter&lt;SortDescriptor&gt;</a></code>
 
                     </td>
                 </tr>
@@ -644,10 +712,16 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:69</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:107</a></code>
 </div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Output EventEmitter. Wird aufgerufen wenn ein Header geklickt ist, damit das Column soritert wird. </p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -688,7 +762,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:104</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:161</a></code>
 </div>
                 </td>
             </tr>
@@ -696,9 +770,109 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Die Methode ergibt die Column Menge</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GetSortColumn"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            GetSortColumn
+                        </b>
+                        <a href="#GetSortColumn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>GetSortColumn()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/NgGridCommon.html" target="_self" >NgGridCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:207</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Methode welche die aktuelle Sortierte Spalte zurückgibt</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GetSortDirection"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            GetSortDirection
+                        </b>
+                        <a href="#GetSortDirection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>GetSortDirection()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/NgGridCommon.html" target="_self" >NgGridCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:214</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Methode welche die Sortierung für die Spalte zurückgibt</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/enumerations.html#SortOrder" target="_self" >SortOrder</a></code>
 
                     </div>
                 </td>
@@ -733,7 +907,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:83</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:131</a></code>
 </div>
                 </td>
             </tr>
@@ -812,7 +986,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:92</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:140</a></code>
 </div>
                 </td>
             </tr>
@@ -897,7 +1071,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:96</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:147</a></code>
 </div>
                 </td>
             </tr>
@@ -905,6 +1079,8 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Die Methode erhöht die Column-Stücke um eins</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -918,20 +1094,20 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="sortBy"></a>
+                    <a name="SortBy"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Public</span>
-                            sortBy
+                            SortBy
                         </b>
-                        <a href="#sortBy"><span class="icon ion-ios-link"></span></a>
+                        <a href="#SortBy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>sortBy(command)</code>
+                    <code>SortBy(command)</code>
                 </td>
             </tr>
 
@@ -944,7 +1120,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:108</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:168</a></code>
 </div>
                 </td>
             </tr>
@@ -952,6 +1128,8 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Die Methode deffiniert das Sortierung Flow</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -1018,7 +1196,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:100</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:154</a></code>
 </div>
                 </td>
             </tr>
@@ -1026,6 +1204,8 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Die Methode verringert die Column-Stücke um eins</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -1141,11 +1321,17 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:12</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:19</a></code>
 </div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Protected Property. Enthielt die Nummer der aktiven Seite. Type: number. Default ist 1</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -1181,51 +1367,17 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:13</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:24</a></code>
 </div>
                             </td>
                         </tr>
 
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="firstVisibleIndex"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            firstVisibleIndex</b>
-                            <a href="#firstVisibleIndex"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <div class="io-description"><p>Protected Property. Enthielt die Nummer der ersten angezeigtenen Seite in Pager. Type: number. Default ist 1</p>
+</div>
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>1</code>
-                        </td>
-                    </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Inherited from         <code><a href="../classes/NgGridCommon.html" target="_self" >NgGridCommon</a></code>
-</div>
-                                </td>
-                            </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:14</a></code>
-</div>
-                            </td>
-                        </tr>
-
 
             </tbody>
         </table>
@@ -1256,40 +1408,17 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:16</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:32</a></code>
 </div>
                             </td>
                         </tr>
 
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="lastVisibleIndex"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            lastVisibleIndex</b>
-                            <a href="#lastVisibleIndex"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <div class="io-description"><p>Protected Property. Enthielt die Nummer der letzen Seite in Pager. Type: number. Default ist undefined/null</p>
+</div>
                     </td>
                 </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Inherited from         <code><a href="../classes/NgGridCommon.html" target="_self" >NgGridCommon</a></code>
-</div>
-                                </td>
-                            </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:15</a></code>
-</div>
-                            </td>
-                        </tr>
-
 
             </tbody>
         </table>
@@ -1325,11 +1454,17 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:11</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgGridCommon.html#source" target="_self" >NgGridCommon:14</a></code>
 </div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Protected Property. Enthielt Array of Pages. Default value: empty array []</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -1423,7 +1558,7 @@ export class NgGrid extends NgGridCommon {
 <script>
         var COMPONENT_TEMPLATE = '<div><table class="table table-striped table-condensed table-hover" id={{name}}>  <thead>    <tr>      <ng-container *ngTemplateOutlet="template; context { row: {}, type: \'header\'}">      </ng-container>    </tr>  </thead>  <tbody>    <ng-container *ngFor="let item of value; let i=index">      <tr>        <ng-container *ngTemplateOutlet="template; context { row: item, type: \'body\'}">        </ng-container>      </tr>    </ng-container>    <tr *ngIf="value === undefined || value === null || value.length==0">      <td [attr.colspan]="GetColumnCount()">{{_emptytext}}</td>    </tr>    <tr>      <td [attr.colspan]="GetColumnCount()">        <div class="container">          <ngPaging name="{{name}}Paging" (onpaging)="pageChange($event)" (onpagesizechanged)="pageSizeChanged($event)" [pagerdata]="pagerdata" [pagingtext]="pagingText" [pagesizetext]="pageSizeText"></ngPaging>        </div>      </td>    </tr>  </tbody></table></div>'
     var COMPONENTS = [{'name': 'NgButton', 'selector': 'ngButton'},{'name': 'NgCheckbox', 'selector': 'ngCheckbox'},{'name': 'NgConfirm', 'selector': 'ngConfirm'},{'name': 'NgDate', 'selector': 'ngDate'},{'name': 'NgDateSelector', 'selector': 'ngDateSelector'},{'name': 'NgDateTime', 'selector': 'ngDateTime'},{'name': 'NgDialog', 'selector': 'ngDialog'},{'name': 'NgDropdown', 'selector': 'ngDropdown'},{'name': 'NgGrid', 'selector': 'ngGrid'},{'name': 'NgGridButton', 'selector': 'ngGridButton'},{'name': 'NgGridColumn', 'selector': 'ngGridColumn,[ngGridColumn]'},{'name': 'NgGridColumnAction', 'selector': 'ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgGridImage', 'selector': 'ngGridImage'},{'name': 'NgInput', 'selector': 'ngInput'},{'name': 'NgInputArea', 'selector': 'ngInputArea'},{'name': 'NgInputCurrency', 'selector': 'ngInputCurrency'},{'name': 'NgInputDecimal', 'selector': 'ngInputDecimal'},{'name': 'NgInputEmail', 'selector': 'ngInputEmail'},{'name': 'NgInputInteger', 'selector': 'ngInputInteger'},{'name': 'NgInputPassword', 'selector': 'ngInputPassword'},{'name': 'NgInputSearch', 'selector': 'ngInputSearch'},{'name': 'NgListbox', 'selector': 'ngListbox'},{'name': 'NgPaging', 'selector': 'ngPaging'},{'name': 'NgRadiobutton', 'selector': 'ngRadiobutton'},{'name': 'NgRadiobuttons', 'selector': 'ngRadiobuttons'},{'name': 'NgStaticFormContainer', 'selector': 'ngStaticFormContainer'},{'name': 'NgStaticLabel', 'selector': 'ngStaticLabel'},{'name': 'NgTab', 'selector': 'ngTab'},{'name': 'NgTabItem', 'selector': 'ngTabItem'},{'name': 'NgTime', 'selector': 'ngTime'},{'name': 'NgTinyMce', 'selector': 'ngTinymce'},{'name': 'NgTinyMceEditorComponent', 'selector': 'ngTinyMceEditor'},{'name': 'NgTooltip', 'selector': 'ngTooltip'},{'name': 'NgTreeItemAction', 'selector': 'ngTreeItemAction'},{'name': 'NgTreeView', 'selector': 'ngTreeView'},{'name': 'NgTreeViewChild', 'selector': 'ngTreeViewChild'},{'name': 'NgUpload', 'selector': 'ngUpload'},{'name': 'NgUploadMultiple', 'selector': 'ngUploadMultiple'},{'name': 'NgValidationSummary', 'selector': 'ngValidationSummary'},{'name': 'NgWizard', 'selector': 'ngWizard'},{'name': 'NgWizardItem', 'selector': 'ngWizardItem'}];
-    var DIRECTIVES = [{'name': 'NgDropdownOption', 'selector': 'option'},{'name': 'NgFormular', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgListboxOption', 'selector': 'option'}];
+    var DIRECTIVES = [{'name': 'NgDropdownOption', 'selector': 'option'},{'name': 'NgFormular', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgListboxOption', 'selector': 'option'},{'name': 'ProvideParentNgFormular', 'selector': '[inherit-form]'}];
     var ACTUAL_COMPONENT = {'name': 'NgGrid'};
 </script>
 <script src="../js/tree.js"></script>

@@ -139,14 +139,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">projects/jngcontrols-common/src/interfaces/iconfirmcomponent.ts:8</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">projects/jngcontrols-common/src/interfaces/iconfirmcomponent.ts:14</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Ausblenden</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -178,14 +180,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="7"
-                            class="link-to-prism">projects/jngcontrols-common/src/interfaces/iconfirmcomponent.ts:7</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">projects/jngcontrols-common/src/interfaces/iconfirmcomponent.ts:10</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Anzeigen</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -226,6 +230,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>EventEmitter beim Bestätigen</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -239,8 +249,17 @@
  * Interface für Comfirm Dialog implementation
  */
 export interface IConfirmComponent {
+  /**
+   * Anzeigen
+   */
   show(): void;
+  /**
+   * Ausblenden
+   */
   hide(): void;
+  /**
+   * EventEmitter beim Bestätigen
+   */
   onconfirm: EventEmitter&lt;string&gt;;
 }
 </code></pre>

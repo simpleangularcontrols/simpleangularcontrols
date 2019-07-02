@@ -250,7 +250,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Methode welche die Click Action auslöst, falls der Button aktiv ist.</p>
+                    <div class="io-description"><p>Die Methode wird das cklickaction Emitter aktivieren</p>
 </div>
 
                     <div class="io-description">
@@ -318,7 +318,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Spriteset. Falls leer werden die internen Standard Icons definiert</p>
+                        <div class="io-description"><p>Input Property für Styling des Buttons. Deffiniert die Css Klassen des Buttons</p>
 </div>
                     </td>
                 </tr>
@@ -369,7 +369,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Action wenn auf Button gelickt wird</p>
+                        <div class="io-description"><p>Event wenn auf den Button geklickt wird</p>
 </div>
                     </td>
                 </tr>
@@ -467,14 +467,14 @@
 export class NgGridButtonCommon {
 
   /**
-   * Spriteset. Falls leer werden die internen Standard Icons definiert
+   * Input Property für Styling des Buttons. Deffiniert die Css Klassen des Buttons
    */
   @Input(&quot;iconstyle&quot;)
-  public iconstyle: string &#x3D; &quot;&quot;;
+  public iconstyle: string &#x3D; &quot;&quot;
 
   /**
-   * Icon Name aus Sprite
-   */
+ * Icon Name aus Sprite
+ */
   @Input(&quot;icon&quot;)
   public icon: string;
 
@@ -500,16 +500,16 @@ export class NgGridButtonCommon {
   }
 
   /**
-   * Action wenn auf Button gelickt wird
-   */
+  * Event wenn auf den Button geklickt wird
+  */
   @Output(&quot;onclick&quot;)
   clickaction: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
 
   /**
-   * Methode welche die Click Action auslöst, falls der Button aktiv ist.
+   * Die Methode wird das cklickaction Emitter aktivieren
    */
   public callaction() {
-    if (!this._isdisabledvalue)
+    if (!this._isdisabledvalue) 
       this.clickaction.emit(this.iconstyle)
   }
 }

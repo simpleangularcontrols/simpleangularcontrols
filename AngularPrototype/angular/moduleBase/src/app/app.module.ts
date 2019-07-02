@@ -20,13 +20,14 @@ import { TokenInterceptor } from './services/TokenInterceptor';
 // Example Controls
 import { ExampleGrid } from './controls/grid';
 import { ExampleDialog } from './controls/dialog';
+import { SubFormComponent } from './controls/subform.component';
 
 // import localeDeCh from '@angular/common/locales/de-CH';
 
 const NgDirectives = [
   AppComponent, UserComponent,
 
-  ExampleGrid, ExampleDialog
+  ExampleGrid, ExampleDialog, SubFormComponent
 ]
 
 import {
@@ -44,7 +45,8 @@ import {
   // jNetworkBootstrap4StaticLabelModule,
   jNetworkBootstrap3WizardModule,
   jNetworkBootstrap3ConfirmModule,
-  jNetworkBootstrap3UploadModule
+  jNetworkBootstrap3UploadModule,
+  jNetworkBootstrap3DirectiveModule
 } from '@jnetwork/jngcontrols-bootstrap3';
 
 
@@ -80,6 +82,7 @@ import { UploadxModule } from 'ngx-uploadx';
     // jNetworkBootstrap4StaticLabelModule,
     jNetworkBootstrap3WizardModule,
     jNetworkBootstrap3UploadModule,
+    jNetworkBootstrap3DirectiveModule,
     jNetworkBootstrap3ConfirmModule.forRoot(),
 
     // Third Party Modules

@@ -136,8 +136,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">projects/jngcontrols-common/src/services/languageresource.service.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">projects/jngcontrols-common/src/services/languageresource.service.ts:36</a></div>
                 </td>
             </tr>
 
@@ -207,6 +207,9 @@ import { ILanguageResourceService } from &quot;../interfaces/ilanguageresource&q
 import { Interpolation } from &quot;../utilities/interpolation&quot;;
 import { Observable } from &quot;rxjs&quot;;
 
+/**
+ * Injection Token für Language Resource Service
+ */
 export const LANGUAGE_SERVICE &#x3D; new InjectionToken&lt;LanguageResourceService&gt;(&#x27;LanguageResourceService&#x27;);
 
 /**
@@ -282,15 +285,22 @@ export class InternalLanguageResourceService extends LanguageResourceService {
     this.data.get(&#x27;de&#x27;).set(&#x27;VALIDATION_ERROR_FILESMIN&#x27;, &#x27;Es müssen min. {{MINFILES}} Dateien hochgeladen sein.&#x27;);
     this.data.get(&#x27;de&#x27;).set(&#x27;VALIDATION_ERROR_SUMMARY_FILESMIN&#x27;, &#x27;Feld &quot;{{FIELD}}&quot; muss min. {{MINFILES}} Dateien hochgeladen haben.&#x27;);
 
+
     // EN
     this.data.set(&#x27;en&#x27;, new Map&lt;string, string&gt;());
 
   }
 
+  /**
+   * Die Funktion setzt die default Sprache auf DE, falls die Sprach-Setzung nicht möglich ist.
+   */
   private GetFallbackLanguage(): string {
     return &#x27;de&#x27;;
   }
 
+  /**
+   * Die Funktion ergibt die ausgewählte Sprache.
+   */
   private GetLanguage(): string {
     let language: string &#x3D; navigator.language;
 
@@ -301,6 +311,9 @@ export class InternalLanguageResourceService extends LanguageResourceService {
     }
   }
 
+  /**
+  * Die Methode ergibt die selecte Sprache (string)  anhand von Key und Params
+  */
   public GetString(key: string, params?: any): Observable&lt;string&gt; {
 
     return new Observable&lt;string&gt;((observer) &#x3D;&gt; {

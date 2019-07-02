@@ -280,7 +280,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Spriteset. Falls leer werden die internen Standard Icons definiert</p>
+                        <div class="io-description"><p>Input Property für Styling des Buttons. Deffiniert die Css Klassen des Buttons</p>
 </div>
                     </td>
                 </tr>
@@ -345,7 +345,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Action wenn auf Button gelickt wird</p>
+                        <div class="io-description"><p>Event wenn auf den Button geklickt wird</p>
 </div>
                     </td>
                 </tr>
@@ -440,7 +440,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Methode welche die Click Action auslöst, falls der Button aktiv ist.</p>
+                    <div class="io-description"><p>Die Methode wird das cklickaction Emitter aktivieren</p>
 </div>
 
                     <div class="io-description">
@@ -542,9 +542,11 @@ export class NgGridButton extends NgGridButtonCommon {
         case &quot;edit&quot;:
           iconset &#x3D; &quot;sprite&quot;;
           iconcss &#x3D; &quot;icon-sprite-base-main_edit&quot;;
+          break;
         case &quot;delete&quot;:
           iconset &#x3D; &quot;sprite&quot;;
           iconcss &#x3D; &quot;icon-sprite-base-main_delete&quot;;
+          break;
       }
     }
 
@@ -594,7 +596,7 @@ export class NgGridButton extends NgGridButtonCommon {
 <script>
         var COMPONENT_TEMPLATE = '<div><a (click)="callaction()" style="padding-right: 5px;" [class.disabled]="isdisabled" [attr.disabled]="isdisabled ? \'disabled\' : null"><span class="{{getIconClass()}}"></span></a></div>'
     var COMPONENTS = [{'name': 'NgButton', 'selector': 'ngButton'},{'name': 'NgCheckbox', 'selector': 'ngCheckbox'},{'name': 'NgConfirm', 'selector': 'ngConfirm'},{'name': 'NgDate', 'selector': 'ngDate'},{'name': 'NgDateSelector', 'selector': 'ngDateSelector'},{'name': 'NgDateTime', 'selector': 'ngDateTime'},{'name': 'NgDialog', 'selector': 'ngDialog'},{'name': 'NgDropdown', 'selector': 'ngDropdown'},{'name': 'NgGrid', 'selector': 'ngGrid'},{'name': 'NgGridButton', 'selector': 'ngGridButton'},{'name': 'NgGridColumn', 'selector': 'ngGridColumn,[ngGridColumn]'},{'name': 'NgGridColumnAction', 'selector': 'ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgGridImage', 'selector': 'ngGridImage'},{'name': 'NgInput', 'selector': 'ngInput'},{'name': 'NgInputArea', 'selector': 'ngInputArea'},{'name': 'NgInputCurrency', 'selector': 'ngInputCurrency'},{'name': 'NgInputDecimal', 'selector': 'ngInputDecimal'},{'name': 'NgInputEmail', 'selector': 'ngInputEmail'},{'name': 'NgInputInteger', 'selector': 'ngInputInteger'},{'name': 'NgInputPassword', 'selector': 'ngInputPassword'},{'name': 'NgInputSearch', 'selector': 'ngInputSearch'},{'name': 'NgListbox', 'selector': 'ngListbox'},{'name': 'NgPaging', 'selector': 'ngPaging'},{'name': 'NgRadiobutton', 'selector': 'ngRadiobutton'},{'name': 'NgRadiobuttons', 'selector': 'ngRadiobuttons'},{'name': 'NgStaticFormContainer', 'selector': 'ngStaticFormContainer'},{'name': 'NgStaticLabel', 'selector': 'ngStaticLabel'},{'name': 'NgTab', 'selector': 'ngTab'},{'name': 'NgTabItem', 'selector': 'ngTabItem'},{'name': 'NgTime', 'selector': 'ngTime'},{'name': 'NgTinyMce', 'selector': 'ngTinymce'},{'name': 'NgTinyMceEditorComponent', 'selector': 'ngTinyMceEditor'},{'name': 'NgTooltip', 'selector': 'ngTooltip'},{'name': 'NgTreeItemAction', 'selector': 'ngTreeItemAction'},{'name': 'NgTreeView', 'selector': 'ngTreeView'},{'name': 'NgTreeViewChild', 'selector': 'ngTreeViewChild'},{'name': 'NgUpload', 'selector': 'ngUpload'},{'name': 'NgUploadMultiple', 'selector': 'ngUploadMultiple'},{'name': 'NgValidationSummary', 'selector': 'ngValidationSummary'},{'name': 'NgWizard', 'selector': 'ngWizard'},{'name': 'NgWizardItem', 'selector': 'ngWizardItem'}];
-    var DIRECTIVES = [{'name': 'NgDropdownOption', 'selector': 'option'},{'name': 'NgFormular', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgListboxOption', 'selector': 'option'}];
+    var DIRECTIVES = [{'name': 'NgDropdownOption', 'selector': 'option'},{'name': 'NgFormular', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgListboxOption', 'selector': 'option'},{'name': 'ProvideParentNgFormular', 'selector': '[inherit-form]'}];
     var ACTUAL_COMPONENT = {'name': 'NgGridButton'};
 </script>
 <script src="../js/tree.js"></script>

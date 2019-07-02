@@ -143,6 +143,8 @@
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -205,9 +207,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/jngcontrols-common/src/controls/list/listbox.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/jngcontrols-common/src/controls/list/listbox.ts:20</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Wert des Controls</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -241,14 +249,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/list/listbox.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/list/listbox.ts:25</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Methode ergibt den Status der Elemente, die selektiert wurden</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -311,14 +321,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/list/listbox.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/list/listbox.ts:32</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Event wenn die Komponente zerstört wird</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -345,29 +357,57 @@ import { Validation } from &#x27;../../validation&#x27;;
 @Directive({ selector: &#x27;option&#x27; })
 export class NgListboxOption implements OnDestroy {
 
+  /**
+   * Konstruktor
+   */
   constructor(private _element: ElementRef, private _renderer: Renderer2) { }
 
+  /**
+   * Wert des Controls
+   */
   @Input(&quot;value&quot;)
   _value: string;
 
+  /**
+   * Methode ergibt den Status der Elemente, die selektiert wurden
+   */
   _setSelected(selected: boolean) {
     this._renderer.setProperty(this._element.nativeElement, &#x27;selected&#x27;, selected);
   }
 
+  /**
+   * Event wenn die Komponente zerstört wird
+   */
   ngOnDestroy(): void {
   }
 
 }
 
-// Wrapper für HTML Options
+/**
+ * Wrapper für HTML Options
+ */
 interface HTMLOption {
+  /**
+   * Wert
+   */
   value: string;
+  /**
+   * Boolean Property für Selektierte Elemente
+   */
   selected: boolean;
 }
 
-// Wrapper für HTML Select
+/**
+ * Wrapper für HTML Select
+ */
 abstract class HTMLCollection {
+  /**
+   * Länge
+   */
   length: number;
+  /**
+   * Option-Item
+   */
   abstract item(_: number): HTMLOption;
 }
 
@@ -384,11 +424,20 @@ abstract class HTMLCollection {
 //   viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
 // })
 export class NgListboxCommon extends NgBaseSelectControl&lt;Array&lt;string&gt;&gt; {
+  /**
+   * Anzahl der Zeilen
+   */
   @Input(&quot;rowsize&quot;) _rowsize: number &#x3D; 5;
 
+  /**
+   * ViewChildren Methode
+   */
   @ViewChildren(NgListboxOption)
   contentOptions: QueryList&lt;NgListboxOption&gt;;
 
+  /**
+   * Getter für selektierte Elemente
+   */
   getSelectedItems(selectelement: any) {
     let selectedValues: Array&lt;string&gt; &#x3D; new Array&lt;string&gt;();
 
@@ -413,6 +462,9 @@ export class NgListboxCommon extends NgBaseSelectControl&lt;Array&lt;string&gt;&
     }
   }
 
+  /**
+   * Methode schreibt neuen Wert
+   */
   writeValue(value: Array&lt;string&gt;) {
     if (this.contentOptions &amp;&amp; value) {
       this.contentOptions.forEach(itm &#x3D;&gt; {
@@ -423,6 +475,9 @@ export class NgListboxCommon extends NgBaseSelectControl&lt;Array&lt;string&gt;&
     super.writeValue(value);
   }
   
+  /**
+   * Validator Methode
+   */
   validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null &#x3D; null;
 

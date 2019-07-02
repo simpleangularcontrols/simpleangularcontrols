@@ -64,6 +64,13 @@
             <code>projects/jngcontrols-common/src/interfaces/ilanguageresource.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface für Language Resource Service implementation</p>
+
+            </p>
 
 
         <section>
@@ -115,14 +122,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="4"
-                            class="link-to-prism">projects/jngcontrols-common/src/interfaces/ilanguageresource.ts:4</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">projects/jngcontrols-common/src/interfaces/ilanguageresource.ts:10</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Get String anhand von Key und Params</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -183,7 +192,13 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Observable } from &quot;rxjs&quot;;
 
+/**
+ * Interface für Language Resource Service implementation
+ */
 export interface ILanguageResourceService {
+  /**
+   * Get String anhand von Key und Params
+   */
   GetString(key: string, params?: any): Observable&lt;string&gt;;
 }
 </code></pre>

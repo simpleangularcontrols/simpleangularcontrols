@@ -182,6 +182,24 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                             </li>
                             <li class="link">
+                                <a href="modules/jNetworkBootstrap3DirectiveModule.html" data-type="entity-link">jNetworkBootstrap3DirectiveModule</a>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#directives-links-module-jNetworkBootstrap3DirectiveModule-7c238e8b694d7d3e27cf31698e6aedb8"' : 'data-target="#xs-directives-links-module-jNetworkBootstrap3DirectiveModule-7c238e8b694d7d3e27cf31698e6aedb8"' }>
+                                        <span class="icon ion-md-code-working"></span>
+                                        <span>Directives</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-jNetworkBootstrap3DirectiveModule-7c238e8b694d7d3e27cf31698e6aedb8"' :
+                                        'id="xs-directives-links-module-jNetworkBootstrap3DirectiveModule-7c238e8b694d7d3e27cf31698e6aedb8"' }>
+                                        <li class="link">
+                                            <a href="directives/ProvideParentNgFormular.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">ProvideParentNgFormular</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </li>
+                            <li class="link">
                                 <a href="modules/jNetworkBootstrap3FormModule.html" data-type="entity-link">jNetworkBootstrap3FormModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?

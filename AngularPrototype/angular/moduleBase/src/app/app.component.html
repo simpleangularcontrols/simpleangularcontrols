@@ -207,7 +207,7 @@
     </ng-template>
   </ngTabItem>
 
-  <ngTabItem id="tabDate" label="Test">
+  <ngTabItem id="tabFormGroup" label="NgFormGroup">
     <ng-template>
       <form name="myForm" #form3="ngForm" ngForm>
         <ngValidationSummary></ngValidationSummary>
@@ -222,6 +222,28 @@
       </form>
     </ng-template>
   </ngTabItem>
+
+  <ngTabItem id="tabSubform" label="SubForm">
+    <ng-template>
+      <div name="subform" #formSubForm="ngForm" ngForm>
+        <ngValidationSummary></ngValidationSummary>
+
+        <div ngModelGroup="MyGroup">
+          <ngInput [(ngModel)]="values.fieldarea1" name="subformField1" label="field 1" [isrequired]="true"></ngInput>
+          <div ngModelGroup="MyGroup2">
+            <ngInput [(ngModel)]="values.fieldarea2" name="subformField2" label="field 2" [isrequired]="true"></ngInput>
+          </div>
+
+          <ngSubForm [(mymodel)]="values"></ngSubForm>
+
+        </div>
+
+        <div>Valid: {{ formSubForm.valid }}</div>
+        <ngButton (onclick)="debugAction()" text="Action Debug"></ngButton>
+      </div>
+    </ng-template>
+  </ngTabItem>
+
 
   <ngTabItem id="tabDate" label="Date & Time">
     <ng-template>

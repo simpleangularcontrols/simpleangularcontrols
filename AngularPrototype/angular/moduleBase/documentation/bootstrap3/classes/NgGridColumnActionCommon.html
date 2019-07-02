@@ -88,6 +88,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#GetSortDirection">GetSortDirection</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#IsBody">IsBody</a>
                             </li>
                             <li>
@@ -97,6 +101,10 @@
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#IsHeader">IsHeader</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#IsSortedColumn">IsSortedColumn</a>
                             </li>
                             <li>
                                 <a href="#ngOnDestroy">ngOnDestroy</a>
@@ -137,6 +145,8 @@
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -145,6 +155,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -159,6 +170,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>NgGridCommon</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>el</td>
@@ -171,6 +186,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Element Referenz</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -187,6 +206,53 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GetSortDirection"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            GetSortDirection
+                        </b>
+                        <a href="#GetSortDirection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>GetSortDirection()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/NgGridColumnBaseCommon.html" target="_self" >NgGridColumnBaseCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/NgGridColumnBaseCommon.html#source" target="_self" >NgGridColumnBaseCommon:112</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -217,7 +283,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgGridColumnBaseCommon.html#source" target="_self" >NgGridColumnBaseCommon:56</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/NgGridColumnBaseCommon.html#source" target="_self" >NgGridColumnBaseCommon:81</a></code>
 </div>
                 </td>
             </tr>
@@ -225,6 +291,8 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>die Methode ergibt boolean Wert, ob das Element Body ist. </p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
@@ -264,7 +332,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgGridColumnBaseCommon.html#source" target="_self" >NgGridColumnBaseCommon:60</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/NgGridColumnBaseCommon.html#source" target="_self" >NgGridColumnBaseCommon:88</a></code>
 </div>
                 </td>
             </tr>
@@ -272,6 +340,8 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>die Methode ergibt boolean Wert, ob das Element Footer ist. </p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
@@ -311,7 +381,56 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgGridColumnBaseCommon.html#source" target="_self" >NgGridColumnBaseCommon:52</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/NgGridColumnBaseCommon.html#source" target="_self" >NgGridColumnBaseCommon:74</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>die Methode ergibt boolean Wert, ob das Element Header ist. </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="IsSortedColumn"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            IsSortedColumn
+                        </b>
+                        <a href="#IsSortedColumn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>IsSortedColumn()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/NgGridColumnBaseCommon.html" target="_self" >NgGridColumnBaseCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/NgGridColumnBaseCommon.html#source" target="_self" >NgGridColumnBaseCommon:108</a></code>
 </div>
                 </td>
             </tr>
@@ -356,7 +475,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgGridColumnBaseCommon.html#source" target="_self" >NgGridColumnBaseCommon:26</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/NgGridColumnBaseCommon.html#source" target="_self" >NgGridColumnBaseCommon:33</a></code>
 </div>
                 </td>
             </tr>
@@ -364,6 +483,8 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>lifecycle hook - ngOnDestroy. Wird aufgeruren wenn das Component zerstört wird.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -401,7 +522,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgGridColumnBaseCommon.html#source" target="_self" >NgGridColumnBaseCommon:11</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/NgGridColumnBaseCommon.html#source" target="_self" >NgGridColumnBaseCommon:15</a></code>
 </div>
                 </td>
             </tr>
@@ -409,6 +530,8 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>lifecycle hook - OnInit. Wird aufgeruren sobald das Komponent initialisiert ist.</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -448,7 +571,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgGridColumnBaseCommon.html#source" target="_self" >NgGridColumnBaseCommon:69</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/NgGridColumnBaseCommon.html#source" target="_self" >NgGridColumnBaseCommon:103</a></code>
 </div>
                 </td>
             </tr>
@@ -456,6 +579,8 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Die Methode deffiniert wie das Grid sortiert wird, abhängig von gekligte Column</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
@@ -480,6 +605,12 @@ import { NgGridColumnBaseCommon } from &#x27;./gridcolumnbase&#x27;;
 import { NgGridCommon } from &#x27;./grid&#x27;;
 
 export class NgGridColumnActionCommon extends NgGridColumnBaseCommon {
+
+  /**
+  * Konstruktor
+  * @param el Element Referenz
+  * @param grid NgGridCommon
+  */
   constructor(grid: NgGridCommon, el: ElementRef) {
     super(grid, el);
   }

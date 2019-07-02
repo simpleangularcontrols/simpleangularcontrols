@@ -130,7 +130,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -249,7 +249,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:38</a></div>
                             </td>
                         </tr>
 
@@ -283,7 +283,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:43</a></div>
                             </td>
                         </tr>
 
@@ -317,7 +317,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:33</a></div>
                             </td>
                         </tr>
 
@@ -351,7 +351,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:45</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:48</a></div>
                             </td>
                         </tr>
 
@@ -390,7 +390,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:53</a></div>
                             </td>
                         </tr>
 
@@ -419,6 +419,9 @@
 import { IDateTimeControl } from &quot;../interfaces/idatetimecontrol&quot;;
 import { IUploadControl } from &#x27;../interfaces/iuploadcontrol&#x27;;
 import * as moment_ from &#x27;moment&#x27;;
+/**
+ * Moment
+ */
 const moment &#x3D; moment_;
 
 /**
@@ -468,8 +471,19 @@ export class ValidationErrorItem {
 
 }
 
+/**
+ * Klasse mit Standard Validatoren
+ */
 export class Validation {
 
+  /**
+   * Die Methode ist von jedem Validator aufgerufen. Die setzt sowohl den errorType des gerpüfte Item, als auch die ErrorMessage (gemäss von errorType, FieldName und Parameters).
+   * @param errorType Typ den Fehler
+   * @param errorMessageKey Error Message Key
+   * @param errorMessageValidationSummaryKey Error Message Key für Validation Summary
+   * @param fieldName  Label oder Name des Feldes
+   * @param parameters Parametern die in den Meldungen als Platzhalter verwendet werden können
+   */
   static GetValidationErrorItem(errorType: string, errorMessageKey: string, errorMessageValidationSummaryKey: string, fieldName: string, parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;()): any {
     let item: ValidationErrorItem &#x3D; new ValidationErrorItem(errorType, errorMessageKey, errorMessageValidationSummaryKey, fieldName)
 
@@ -482,6 +496,12 @@ export class Validation {
     return { [errorType]: item };
   }
 
+  /**
+   * Validator für Required State
+   * 
+   * @param control Control das Validiert wird
+   * @param fieldName Label des Controls
+   */
   static required(control: AbstractControl, fieldName: string): ValidationErrors | null {
     if (Validators.required(control) !&#x3D;&#x3D; null) {
       return Validation.GetValidationErrorItem(&#x27;required&#x27;, &#x27;VALIDATION_ERROR_REQUIRED&#x27;, &#x27;VALIDATION_ERROR_SUMMARY_REQUIRED&#x27;, fieldName);
@@ -491,6 +511,13 @@ export class Validation {
     }
   }
 
+  /**
+   * Validator für Min Value
+   * 
+   * @param control Control das Validiert wird
+   * @param minvalue Min. Value
+   * @param fieldName Label des Controls
+   */
   static minValue(control: AbstractControl, minvalue: number, fieldName: string): ValidationErrors | null {
     let validator: ValidatorFn &#x3D; Validators.min(minvalue);
 
@@ -505,6 +532,12 @@ export class Validation {
     }
   }
 
+  /**
+   * Validierung mit einem RegEx Pattern
+   * @param control Control das validiert werden soll.
+   * @param pattern RegEx Pattern
+   * @param fieldName Label des Controls
+   */
   static patternValidator(control: AbstractControl, pattern: string, fieldName: string): ValidationErrors | null {
     let validator: ValidatorFn &#x3D; Validators.pattern(pattern);
 
@@ -519,6 +552,13 @@ export class Validation {
     }
   }
 
+  /**
+   * Validator für Max Value
+   * 
+   * @param control Control das Validiert werden soll
+   * @param maxvalue Max. Wert
+   * @param fieldName Label des Controls
+   */
   static maxValue(control: AbstractControl, maxvalue: number, fieldName: string): ValidationErrors | null {
     let validator: ValidatorFn &#x3D; Validators.max(maxvalue);
 
@@ -533,6 +573,12 @@ export class Validation {
     }
   }
 
+  /**
+   * Validiert Feld auf E-Mail Adresse
+   * 
+   * @param control Control das Valdiert werden soll
+   * @param fieldName Label des Controls
+   */
   static email(control: AbstractControl, fieldName: string): ValidationErrors | null {
     if (Validators.email(control) !&#x3D;&#x3D; null) {
       return Validation.GetValidationErrorItem(&#x27;email&#x27;, &#x27;VALIDATION_ERROR_EMAIL&#x27;, &#x27;VALIDATION_ERROR_SUMMARY_EMAIL&#x27;, fieldName)
@@ -542,6 +588,13 @@ export class Validation {
     }
   }
 
+  /**
+   * Validiert auf die Länge des Wertes im Control
+   * 
+   * @param control Control das Validiert werden soll
+   * @param minlength Min. Länge des Wertes
+   * @param fieldName Label des Controls
+   */
   static minLength(control: AbstractControl, minlength: number, fieldName: string): ValidationErrors | null {
     let validator: ValidatorFn &#x3D; Validators.minLength(minlength);
 
@@ -556,6 +609,12 @@ export class Validation {
     }
   }
 
+  /**
+   * Validiert ob das Datum neuer als minDate ist
+   * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
+   * @param minDate Min. Datum
+   * @param fieldName Label des Controls
+   */
   static minDate(control: IDateTimeControl, minDate: Date, fieldName: string): ValidationErrors | null {
     // Check abbrechen, wenn kein gültiges Datum
     if (!control.IsDateValid() || minDate &#x3D;&#x3D;&#x3D; null) {
@@ -573,6 +632,12 @@ export class Validation {
     }
   }
 
+  /**
+   * Validiert ob das Datum älter als maxDate ist
+   * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
+   * @param maxDate max. Datum
+   * @param fieldName Label des Controls
+   */
   static maxDate(control: IDateTimeControl, maxDate: Date, fieldName: string): ValidationErrors | null {
     // Check abbrechen, wenn kein gültiges Datum
     if (!control.IsDateValid() || maxDate &#x3D;&#x3D;&#x3D; null) {
@@ -590,6 +655,13 @@ export class Validation {
     }
   }
 
+  /**
+   * Validiert ob die Zeit später als minTime ist.
+   * 
+   * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
+   * @param minTime Min. Zeit
+   * @param fieldName Label des Controls
+   */
   static minTime(control: IDateTimeControl, minTime: Date, fieldName: string): ValidationErrors | null {
     // Check abbrechen, wenn kein gültiges Datum
     if (!control.IsDateValid() || minTime &#x3D;&#x3D;&#x3D; null) {
@@ -607,6 +679,13 @@ export class Validation {
     }
   }
 
+  /**
+   * Validiert ob die Zeit früher als maxTime ist.
+   * 
+   * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
+   * @param maxTime Min. Zeit
+   * @param fieldName Label des Controls
+   */
   static maxTime(control: IDateTimeControl, maxTime: Date, fieldName: string): ValidationErrors | null {
     // Check abbrechen, wenn kein gültiges Datum
     if (!control.IsDateValid() || maxTime &#x3D;&#x3D;&#x3D; null) {
@@ -624,6 +703,12 @@ export class Validation {
     }
   }
 
+  /**
+   * Validator der prüft ob der Wert ein Datum ist.
+   * 
+   * @param control Control mit IDateTimeControl Interface implementierung
+   * @param fieldName Label des Controls
+   */
   static isValidDate(control: IDateTimeControl, fieldName: string): ValidationErrors | null {
     if (!control.IsDateValid()) {
       return Validation.GetValidationErrorItem(&#x27;dateformat&#x27;, &#x27;VALIDATION_ERROR_DATETIMEFORMAT&#x27;, &#x27;VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT&#x27;, fieldName)
@@ -633,6 +718,13 @@ export class Validation {
     }
   }
 
+  /**
+   * Validator für min. Anzahl von Uploads
+   * 
+   * @param control Control das Validatiert werden soll. Control muss IUploadControl implementiert haben
+   * @param minFiles Min. Anzahl Files die hochgeladen werden müssen
+   * @param fieldName Label des Controls
+   */
   static minFiles(control: IUploadControl, minFiles: number, fieldName: string): ValidationErrors | null {
     // Check abbrechen, wenn Min Files nicht gesetzt oder 0
     if (minFiles &#x3D;&#x3D;&#x3D; null || minFiles &#x3D;&#x3D;&#x3D; 0) {

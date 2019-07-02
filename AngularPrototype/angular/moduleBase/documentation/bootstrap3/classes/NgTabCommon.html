@@ -163,14 +163,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/tabs/tab.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/tabs/tab.ts:69</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Ergibt das ID vom Tab-Button</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -233,14 +235,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/tabs/tab.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/tabs/tab.ts:31</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>AfterContentInit Event</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -272,14 +276,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/tabs/tab.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/tabs/tab.ts:56</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Tab selektieren</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -344,14 +350,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="7"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/tabs/tab.ts:7</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="9"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/tabs/tab.ts:9</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Array von TabItems</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/NgTabItemCommon.html" target="_self" >NgTabItemCommon[]</a></code>
@@ -386,9 +394,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/jngcontrols-common/src/controls/tabs/tab.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/jngcontrols-common/src/controls/tabs/tab.ts:15</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Name des Controls</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -407,7 +421,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/jngcontrols-common/src/controls/tabs/tab.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/jngcontrols-common/src/controls/tabs/tab.ts:18</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -433,9 +447,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/jngcontrols-common/src/controls/tabs/tab.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/jngcontrols-common/src/controls/tabs/tab.ts:24</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Löscht versteckte TabItems</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -451,24 +471,38 @@ import { NgTabItemCommon } from &#x27;./tabitem&#x27;;
 
 
 export abstract class NgTabCommon implements AfterContentInit {
-
+  /**
+   * Array von TabItems
+   */
   abstract tabItems(): NgTabItemCommon[];
 
+  /**
+   * Name des Controls
+   */
   @Input(&quot;name&quot;)
   public _name: string &#x3D; &quot;&quot;;
 
   @Input(&quot;tablabeltemplate&quot;)
   displayTabLabelTemplate: TemplateRef&lt;any&gt;;
 
+  /**
+   * Löscht versteckte TabItems
+   */
   @Input(&quot;unloadtabitemswhenhidden&quot;)
   _unloadtabitemswhenhidden: boolean | null &#x3D; null;
 
   // #region Control initialisieren
-
+  
+  /**
+   * AfterContentInit Event
+   */
   ngAfterContentInit() {
     this.initTabs();
   }
 
+  /**
+   * Initialisiert die Tabs
+   */
   private initTabs(): void {
     let activeTab &#x3D; this.tabItems().filter((tab) &#x3D;&gt; tab._active);
 
@@ -483,6 +517,10 @@ export abstract class NgTabCommon implements AfterContentInit {
 
   // #endregion
 
+  /**
+   * Tab selektieren
+   * @param tab
+   */
   selectTab(tab: NgTabItemCommon): void {
     // Cancel if Selected Tab is disabled
     if (tab._disabled)
@@ -492,6 +530,10 @@ export abstract class NgTabCommon implements AfterContentInit {
     tab._active &#x3D; true;
   }
 
+  /**
+   * Ergibt das ID vom Tab-Button
+   * @param tabitemid 
+   */
   public GetTabItemButtonId(tabitemid: string) {
     return this._name + &quot;_&quot; + tabitemid;
   }

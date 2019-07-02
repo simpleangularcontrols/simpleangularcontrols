@@ -121,12 +121,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/dateselector.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/dateselector.ts:15</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -249,10 +251,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/dateselector.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/dateselector.ts:42</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Datum</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -281,10 +289,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/dateselector.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/dateselector.ts:38</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>DisplayText Property; default Wert - &#39;&#39;</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -313,10 +327,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/dateselector.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/dateselector.ts:50</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Boolean Property, die zeigt, ob das Element aktuell ist; default Wert - false</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -345,10 +365,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/dateselector.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/dateselector.ts:46</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Boolean Property, die zeigt, ob das Control enabled ist; default Wert - false</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -377,10 +403,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/dateselector.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/dateselector.ts:58</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Boolean Property, die zeigt, ob das Element neu ist; default Wert - false</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -409,10 +441,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/dateselector.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/dateselector.ts:54</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Boolean Property, die zeigt, ob das Element selektiert ist; default Wert - false</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -433,6 +471,9 @@ import { OnInit } from &quot;@angular/core&quot;;
 // Import Moment.JS
 import { Moment } from &#x27;moment&#x27;;
 import * as moment_ from &#x27;moment&#x27;;
+/**
+ * Moment
+ */
 const moment &#x3D; moment_;
 
 
@@ -441,6 +482,15 @@ const moment &#x3D; moment_;
 
 class DateSelectorItem {
 
+  /**
+   * Konstruktor
+   * @param displaytext 
+   * @param date 
+   * @param isenabled 
+   * @param isselected 
+   * @param iscurrent 
+   * @param isnew 
+   */
   constructor(displaytext: string, date: Date, isenabled: boolean, isselected: boolean, iscurrent: boolean, isnew: boolean) {
     this.displaytext &#x3D; displaytext;
     this.date &#x3D; date;
@@ -450,11 +500,29 @@ class DateSelectorItem {
     this.isnew &#x3D; isnew;
   }
 
+  /**
+   * DisplayText Property; default Wert - &#x27;&#x27;
+   */
   displaytext: string &#x3D; &#x27;&#x27;;
+  /**
+   * Datum
+   */
   date: Date &#x3D; undefined;
+  /**
+   * Boolean Property, die zeigt, ob das Control enabled ist; default Wert - false
+   */
   isenabled: boolean &#x3D; false;
+  /**
+   * Boolean Property, die zeigt, ob das Element aktuell ist; default Wert - false
+   */
   iscurrent: boolean &#x3D; false;
+  /**
+   * Boolean Property, die zeigt, ob das Element selektiert ist; default Wert - false
+   */
   isselected: boolean &#x3D; false;
+  /**
+   * Boolean Property, die zeigt, ob das Element neu ist; default Wert - false
+   */
   isnew: boolean &#x3D; false;
 }
 
@@ -466,25 +534,49 @@ class DateSelectorItem {
 // })
 export class NgDateSelectorCommon implements OnInit {
 
+  /**
+   * Datum Selector
+   */
   @Input(&quot;dateselection&quot;)
   _dateselection: boolean &#x3D; false;
 
+  /**
+   * Time Selector
+   */
   @Input(&quot;timeselection&quot;)
   _timeselection: boolean &#x3D; false;
 
+  /**
+   * Monat
+   */
   @Input(&quot;month&quot;)
   _month: number &#x3D; 4;
 
+  /**
+   * Jahr
+   */
   @Input(&quot;year&quot;)
   _year: number &#x3D; 2018
 
+  /**
+   * Boolean Property für automatische Selektierung; default Wert - false
+   */
   @Input(&quot;autoapplyselection&quot;)
   _autoapplyselection &#x3D; false;
 
-  // Aktuell gewähltes Datum
+  /**
+   * Aktuell gewähltes Datum
+   */
   private _selectedValue: Moment | null;
 
+  /**
+   * Ursprüngliches Datum
+   */
   private _initialValue: Moment | null;
+
+  /**
+   * Input für ursprüngliches Datum
+   */
   @Input(&quot;initialValue&quot;)
   get initialValue(): Date {
     return this._initialValue.toDate();
@@ -505,31 +597,55 @@ export class NgDateSelectorCommon implements OnInit {
     }
   }
 
+  /**
+   * Output Event beim Datum Selektieren
+   */
   @Output(&quot;onSelect&quot;)
   onSelectDate &#x3D; new EventEmitter&lt;any&gt;();
 
+  /**
+   * Ursprünglicher Kalender
+   */
   private initCalendar(v: Moment) {
 
-    // Monat und Jahr setzen
+    /**
+     * Monat und Jahr setzen
+     */
     this._month &#x3D; v.month();
     this._year &#x3D; v.year();
 
-    // Daten für Kalender initialiseren
+    /**
+     * Daten für Kalender initialiseren
+     */
     this.initDates();
   }
 
+  /**
+   * Anfang des Kalenders
+   */
   private beginOfCalendar: number &#x3D; 1;
 
+  /**
+   * Array von Daten
+   */
   dates: DateSelectorItem[][] &#x3D; [];
 
+  /**
+   * Init Event
+   */
   ngOnInit() {
-    // Init Initial Date if Empty
+    /**
+     * Init Initial Date if Empty
+     */
     if (this._initialValue &#x3D;&#x3D;&#x3D; undefined)
       this.initialValue &#x3D; null;
 
     this.initDates();
   }
 
+  /**
+   * Initial Datum
+   */
   private initDates(): void {
     var currentMonth &#x3D; moment(new Date(this._year, this._month, 1));
     var lastMonth &#x3D; moment(new Date(this._year, this._month, 1));
@@ -606,6 +722,9 @@ export class NgDateSelectorCommon implements OnInit {
     }
   }
 
+  /**
+   * Modus ändern
+   */
   changeMode(): void {
     if (this.beginOfCalendar &#x3D;&#x3D;&#x3D; 0)
       this.beginOfCalendar &#x3D; 1;
@@ -615,6 +734,9 @@ export class NgDateSelectorCommon implements OnInit {
     this.initDates();
   }
 
+  /**
+   * Vorheriger Monat
+   */
   monthBack(): void {
     this._month &#x3D; this._month - 1;
 
@@ -626,6 +748,9 @@ export class NgDateSelectorCommon implements OnInit {
     this.initDates();
   }
 
+  /**
+   * Nächster Monat
+   */
   monthNext(): void {
     this._month &#x3D; this._month + 1;
 
@@ -637,6 +762,9 @@ export class NgDateSelectorCommon implements OnInit {
     this.initDates();
   }
 
+  /**
+   * Methode ergibt das selektierte Datum
+   */
   selectDate(v: DateSelectorItem): void {
     if (v.isenabled) {
       this.dates.forEach(itm &#x3D;&gt; itm.filter(itm &#x3D;&gt; itm.isnew).forEach(itm &#x3D;&gt; itm.isnew &#x3D; false));
@@ -668,10 +796,15 @@ export class NgDateSelectorCommon implements OnInit {
 
   //#region Time Settings
 
+  /**
+   * Getter für Stunden Uhrzeit
+   */
   getHours(): number {
     if (this._selectedValue &#x3D;&#x3D;&#x3D; null) {
 
-      // Wert aus Init Value lesen
+      /**
+       * Wert aus Init Value lesen
+       */
       if (this._initialValue &#x3D;&#x3D;&#x3D; null) {
         return 0;
       } else {
@@ -682,8 +815,13 @@ export class NgDateSelectorCommon implements OnInit {
       return this._selectedValue.hour();
     }
   }
+  /**
+   * Setter für Stunden Uhrzeit
+   */
   setHours(v: number | null): void {
-    // Select Value setzen falls leer
+    /**
+     * Select Value setzen falls leer
+     */
     this.initSelectedValue();
 
     if (v &#x3D;&#x3D;&#x3D; null) {
@@ -692,11 +830,15 @@ export class NgDateSelectorCommon implements OnInit {
       this._selectedValue.hour(v);
     }
   }
-
+  /**
+   * Getter für Minuten Uhrzeit
+   */
   getMinutes(): number {
     if (this._selectedValue &#x3D;&#x3D;&#x3D; null) {
 
-      // Wert aus Init Value lesen
+      /**
+       * Wert aus Init Value lesen
+       */
       if (this._initialValue &#x3D;&#x3D;&#x3D; null) {
         return 0;
       } else {
@@ -707,8 +849,13 @@ export class NgDateSelectorCommon implements OnInit {
       return this._selectedValue.minutes();
     }
   }
+  /**
+   * Setter für Minuten Uhrzeit
+   */
   setMinutes(v: number | null): void {
-    // Select Value setzen falls leer
+    /**
+     * Select Value setzen falls leer
+     */
     this.initSelectedValue();
 
     if (v &#x3D;&#x3D;&#x3D; null) {
@@ -719,7 +866,9 @@ export class NgDateSelectorCommon implements OnInit {
   }
 
   private initSelectedValue() {
-    // Select Value setzen falls leer
+    /**
+     * Select Value setzen falls leer
+     */
     if (this._selectedValue &#x3D;&#x3D;&#x3D; null) {
       if (this._initialValue &#x3D;&#x3D;&#x3D; null)
         this._selectedValue &#x3D; moment();
@@ -732,15 +881,21 @@ export class NgDateSelectorCommon implements OnInit {
 
   //#region Button Actions
 
-  // Auswahl auf aktuelle Zeit stellen
+  /**
+   * Auswahl auf aktuelle Zeit stellen
+   */
   setToday(): void {
     this._selectedValue &#x3D; moment();
 
-    // Sekunden un Milisekunden Clean
+    /**
+     * Sekunden un Milisekunden Clean
+     */
     this._selectedValue.second(0);
     this._selectedValue.millisecond(0);
 
-    // Kalender Daten initialisieren falls Kalender angezeigt
+    /**
+     * Kalender Daten initialisieren falls Kalender angezeigt
+     */
     if (this._dateselection)
       this.initCalendar(this._selectedValue);
 
@@ -748,6 +903,9 @@ export class NgDateSelectorCommon implements OnInit {
       this.applySelection()  
   }
 
+  /**
+   * Selektierung übernehmen
+   */
   applySelection(): void {
 
     if (this._timeselection &#x3D;&#x3D;&#x3D; false &amp;&amp; this._selectedValue !&#x3D;&#x3D; null) {
@@ -770,6 +928,9 @@ export class NgDateSelectorCommon implements OnInit {
     });
   }
 
+  /**
+   * Selektierung resetten
+   */
   resetSelection(): void {
     this.onSelectDate.emit({
       date: null

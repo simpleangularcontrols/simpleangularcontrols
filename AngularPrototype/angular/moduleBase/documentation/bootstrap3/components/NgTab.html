@@ -216,10 +216,16 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgTabCommon.html#source" target="_self" >NgTabCommon:10</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTabCommon.html#source" target="_self" >NgTabCommon:15</a></code>
 </div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Name des Controls</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -244,7 +250,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgTabCommon.html#source" target="_self" >NgTabCommon:13</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTabCommon.html#source" target="_self" >NgTabCommon:18</a></code>
 </div>
                             </td>
                         </tr>
@@ -277,10 +283,16 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../classes/NgTabCommon.html#source" target="_self" >NgTabCommon:16</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../classes/NgTabCommon.html#source" target="_self" >NgTabCommon:24</a></code>
 </div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Löscht versteckte TabItems</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -361,7 +373,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgTabCommon.html#source" target="_self" >NgTabCommon:47</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/NgTabCommon.html#source" target="_self" >NgTabCommon:69</a></code>
 </div>
                 </td>
             </tr>
@@ -369,6 +381,8 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Ergibt das ID vom Tab-Button</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -437,7 +451,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgTabCommon.html#source" target="_self" >NgTabCommon:20</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/NgTabCommon.html#source" target="_self" >NgTabCommon:31</a></code>
 </div>
                 </td>
             </tr>
@@ -445,6 +459,8 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>AfterContentInit Event</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -482,7 +498,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgTabCommon.html#source" target="_self" >NgTabCommon:38</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/NgTabCommon.html#source" target="_self" >NgTabCommon:56</a></code>
 </div>
                 </td>
             </tr>
@@ -490,6 +506,8 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Tab selektieren</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -560,7 +578,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/NgTabCommon.html#source" target="_self" >NgTabCommon:7</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/NgTabCommon.html#source" target="_self" >NgTabCommon:9</a></code>
 </div>
                 </td>
             </tr>
@@ -568,6 +586,8 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Array von TabItems</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/NgTabItemCommon.html" target="_self" >NgTabItemCommon[]</a></code>
@@ -708,7 +728,7 @@ export class NgTab extends NgTabCommon {
 <script>
         var COMPONENT_TEMPLATE = '<div><!-- Nav tabs --><div [id]="_name" class="content-nav-tabs">  <ul class="nav nav-tabs" role="tablist">    <li *ngFor="let item of _tabItems" [ngClass]="{ \'active show\': item._active, \'disabled\': item._disabled }" (click)="selectTab(item)"        [ngStyle]="{\'cursor\': item._disabled ? \'not-allowed\' : \'pointer\'}">      <a [id]="GetTabItemButtonId(item._id)" role="tab">        <ng-template *ngTemplateOutlet="displayTabLabelTemplate || defaultTabLabelTemplate;context:{ label: item._label }">        </ng-template>      </a>    </li>  </ul></div><!-- Tab panes --><div class="tab-content" style="margin-top: 15px;">  <ng-content></ng-content></div><ng-template #defaultTabLabelTemplate let-label="label">  {{label}}</ng-template></div>'
     var COMPONENTS = [{'name': 'NgButton', 'selector': 'ngButton'},{'name': 'NgCheckbox', 'selector': 'ngCheckbox'},{'name': 'NgConfirm', 'selector': 'ngConfirm'},{'name': 'NgDate', 'selector': 'ngDate'},{'name': 'NgDateSelector', 'selector': 'ngDateSelector'},{'name': 'NgDateTime', 'selector': 'ngDateTime'},{'name': 'NgDialog', 'selector': 'ngDialog'},{'name': 'NgDropdown', 'selector': 'ngDropdown'},{'name': 'NgGrid', 'selector': 'ngGrid'},{'name': 'NgGridButton', 'selector': 'ngGridButton'},{'name': 'NgGridColumn', 'selector': 'ngGridColumn,[ngGridColumn]'},{'name': 'NgGridColumnAction', 'selector': 'ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgGridImage', 'selector': 'ngGridImage'},{'name': 'NgInput', 'selector': 'ngInput'},{'name': 'NgInputArea', 'selector': 'ngInputArea'},{'name': 'NgInputCurrency', 'selector': 'ngInputCurrency'},{'name': 'NgInputDecimal', 'selector': 'ngInputDecimal'},{'name': 'NgInputEmail', 'selector': 'ngInputEmail'},{'name': 'NgInputInteger', 'selector': 'ngInputInteger'},{'name': 'NgInputPassword', 'selector': 'ngInputPassword'},{'name': 'NgInputSearch', 'selector': 'ngInputSearch'},{'name': 'NgListbox', 'selector': 'ngListbox'},{'name': 'NgPaging', 'selector': 'ngPaging'},{'name': 'NgRadiobutton', 'selector': 'ngRadiobutton'},{'name': 'NgRadiobuttons', 'selector': 'ngRadiobuttons'},{'name': 'NgStaticFormContainer', 'selector': 'ngStaticFormContainer'},{'name': 'NgStaticLabel', 'selector': 'ngStaticLabel'},{'name': 'NgTab', 'selector': 'ngTab'},{'name': 'NgTabItem', 'selector': 'ngTabItem'},{'name': 'NgTime', 'selector': 'ngTime'},{'name': 'NgTinyMce', 'selector': 'ngTinymce'},{'name': 'NgTinyMceEditorComponent', 'selector': 'ngTinyMceEditor'},{'name': 'NgTooltip', 'selector': 'ngTooltip'},{'name': 'NgTreeItemAction', 'selector': 'ngTreeItemAction'},{'name': 'NgTreeView', 'selector': 'ngTreeView'},{'name': 'NgTreeViewChild', 'selector': 'ngTreeViewChild'},{'name': 'NgUpload', 'selector': 'ngUpload'},{'name': 'NgUploadMultiple', 'selector': 'ngUploadMultiple'},{'name': 'NgValidationSummary', 'selector': 'ngValidationSummary'},{'name': 'NgWizard', 'selector': 'ngWizard'},{'name': 'NgWizardItem', 'selector': 'ngWizardItem'}];
-    var DIRECTIVES = [{'name': 'NgDropdownOption', 'selector': 'option'},{'name': 'NgFormular', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgListboxOption', 'selector': 'option'}];
+    var DIRECTIVES = [{'name': 'NgDropdownOption', 'selector': 'option'},{'name': 'NgFormular', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgListboxOption', 'selector': 'option'},{'name': 'ProvideParentNgFormular', 'selector': '[inherit-form]'}];
     var ACTUAL_COMPONENT = {'name': 'NgTab'};
 </script>
 <script src="../js/tree.js"></script>

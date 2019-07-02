@@ -22,4 +22,4 @@ export * from './controls/form/form.module';
 export * from './controls/form/form';
 export * from './controls/grid/grid.module';
 export * from './controls/treeview/treeview.module';
-
+export * from './directives/directives.module';

@@ -4,8 +4,7 @@ import { ValidationErrorItem } from '../../validation';
 import { InternalLanguageResourceService, LANGUAGE_SERVICE } from '../../services/languageresource.service';
 import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
 import { Observable } from 'rxjs';
-import { NgForm } from '@angular/forms';
-import { FormArray } from '@angular/forms';
+import { NgForm, AbstractControl, FormGroup, FormArray } from '@angular/forms';
 
 export class NgValidationSummaryCommon {
   /**
@@ -55,56 +54,64 @@ export class NgValidationSummaryCommon {
     return collection.filter(item => item !== null);
   }
 
-  private getErrorCollection(controls: Array<NgForm | FormArray>, collection: Array<Observable<string>>) {
+  private getErrorCollection(controls: Array<NgForm | FormArray>, collection: Array<Observable<string>>): void {
     controls.forEach(ctl => {
 
       if (ctl.controls === undefined || ctl.controls === null) {
 
-        if (ctl.errors === null || ctl.touched === false || ctl.valid == true)
-          return;
-
-        let keys: string[] = Object.keys(ctl.errors);
-
-        if (keys.length <= 0)
-          return;
-
-        let errorItem: ValidationErrorItem = ctl.errors[keys[0]];
-
-        // Validation Parameters
-        const parameters = {};
-        if (errorItem.parameters !== null && errorItem.parameters !== undefined) {
-          errorItem.parameters.forEach((v, k) => { parameters[k] = v });
-        }
-        parameters["FIELD"] = errorItem.fieldName;
-
-        collection.push(this.lngResourceService.GetString(errorItem.errorMessageValidationSummaryKey, parameters));
+        this.addErrorToCollection(<AbstractControl>ctl, collection);
 
       } else {
 
         Object.keys(ctl.controls).map(key => {
           const control = ctl.controls[key];
 
-          if (control.errors === null || control.touched === false || control.valid == true)
+          // Cancel Analyse wenn Item not Touched oder Valid
+          if (control.touched === false || control.valid === true)
             return;
 
-          let keys: string[] = Object.keys(control.errors);
+          // Handle wenn Control kein Container ist
+          if (control.controls === undefined || control.controls === null) {
+            this.addErrorToCollection(control, collection);
+          } else {
+            // Handling eines Control Containers
+            let items: Array<NgForm | FormArray> = Object.keys(control.controls).map(key => {
+              return <NgForm | FormArray>control.controls[key];
+            });
 
-          if (keys.length <= 0)
-            return;
-
-          let errorItem: ValidationErrorItem = control.errors[keys[0]];
-
-          // Validation Parameters
-          const parameters = {};
-          if (errorItem.parameters !== null && errorItem.parameters !== undefined) {
-            errorItem.parameters.forEach((v, k) => { parameters[k] = v });
+            this.getErrorCollection(items, collection);
           }
-          parameters["FIELD"] = errorItem.fieldName;
 
-          collection.push(this.lngResourceService.GetString(errorItem.errorMessageValidationSummaryKey, parameters));
         });
       }
     });
+  }
+
+  /**
+   * Fügt einen Validation Error in die Error Collection hinzu
+   * 
+   * @param ctl Fehlerhaftes Control
+   * @param collection Collection aller Fehlermeldungen
+   */
+  private addErrorToCollection(ctl: AbstractControl, collection: Array<Observable<string>>): void {
+    if (ctl.errors === null || ctl.touched === false || ctl.valid == true)
+      return;
+
+    let keys: string[] = Object.keys(ctl.errors);
+
+    if (keys.length <= 0)
+      return;
+
+    let errorItem: ValidationErrorItem = ctl.errors[keys[0]];
+
+    // Validation Parameters
+    const parameters = {};
+    if (errorItem.parameters !== null && errorItem.parameters !== undefined) {
+      errorItem.parameters.forEach((v, k) => { parameters[k] = v });
+    }
+    parameters["FIELD"] = errorItem.fieldName;
+
+    collection.push(this.lngResourceService.GetString(errorItem.errorMessageValidationSummaryKey, parameters));
   }
 
   /**

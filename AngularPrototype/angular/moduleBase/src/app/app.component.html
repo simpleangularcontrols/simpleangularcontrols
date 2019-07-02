@@ -141,6 +141,7 @@
           <ngCheckbox name="checkbox2" label="Checkbox 2" labelsize="2" [(ngModel)]="values.checkbox2"></ngCheckbox>
           <ngCheckbox name="checkbox3" label="Checkbox 3" disablelabel="true" [(ngModel)]="values.checkbox3"></ngCheckbox>
           <ngCheckbox name="checkbox4" label="Checkbox 4" [(ngModel)]="values.checkbox4" disabled="true"></ngCheckbox>
+          <ngCheckbox name="checkbox4" label="Checkbox 5" [(ngModel)]="values.checkbox4" disabled="true" checkboxtext="Dies ist ein Text"></ngCheckbox>
 
           <ngRadiobuttons name="radiobuttons1" label="Radiobuttons 1" [(ngModel)]="values.radiobuttons1">
             <ngRadiobutton name="rb1" value="1" label="Wert 1"></ngRadiobutton>
@@ -209,62 +210,66 @@
   <ngTabItem id="tabDate" label="Test">
     <ng-template>
       <form name="myForm" #form3="ngForm" ngForm>
-        <ngButton (onclick)="debugAction()" text="Action Debug"></ngButton>
+        <ngValidationSummary></ngValidationSummary>
         <div ngModelGroup="MyGroup">
+          <ngInput [(ngModel)]="values.fieldarea1" name="xxmsdd" label="field 1" [isrequired]="true"></ngInput>
           <div ngModelGroup="MyGroup2">
-            <input [(ngModel)]="values.fieldarea2" name="xxmsd" />
+            <ngInput [(ngModel)]="values.fieldarea2" name="xxmsd" label="field 2" [isrequired]="true"></ngInput>
           </div>
         </div>
+
+        <ngButton (onclick)="debugAction()" text="Action Debug"></ngButton>
       </form>
-      </ng-template></ngTabItem>
+    </ng-template>
+  </ngTabItem>
 
-      <ngTabItem id="tabDate" label="Date & Time">
-        <ng-template>
-          <form #formDateTime="NgFormular" labelsize="3">
-            <ngValidationSummary></ngValidationSummary>
+  <ngTabItem id="tabDate" label="Date & Time">
+    <ng-template>
+      <form #formDateTime="NgFormular" labelsize="3">
+        <ngValidationSummary></ngValidationSummary>
 
-            <ngDate name="datum1" label="Datum 1" [(ngModel)]="valuesDateTime.datum1"></ngDate>
+        <ngDate name="datum1" label="Datum 1" [(ngModel)]="valuesDateTime.datum1"></ngDate>
 
-            <ngDate name="datum2" label="Datum 2" [(ngModel)]="valuesDateTime.datum2" [isrequired]="true"></ngDate>
+        <ngDate name="datum2" label="Datum 2" [(ngModel)]="valuesDateTime.datum2" [isrequired]="true"></ngDate>
 
-            <ngDate name="datum3" label="Datum 3 (Min 01.01.2018)" [(ngModel)]="valuesDateTime.datum3" mindate="01.01.2018"></ngDate>
+        <ngDate name="datum3" label="Datum 3 (Min 01.01.2018)" [(ngModel)]="valuesDateTime.datum3" mindate="01.01.2018"></ngDate>
 
-            <ngDate name="datum4" label="Datum 4 (Max 31.12.2018)" [(ngModel)]="valuesDateTime.datum4" maxdate="31.12.2018"></ngDate>
+        <ngDate name="datum4" label="Datum 4 (Max 31.12.2018)" [(ngModel)]="valuesDateTime.datum4" maxdate="31.12.2018"></ngDate>
 
-            <ngDate name="datum5" label="Datum 5" [(ngModel)]="valuesDateTime.datum5" disabled="true"></ngDate>
+        <ngDate name="datum5" label="Datum 5" [(ngModel)]="valuesDateTime.datum5" disabled="true"></ngDate>
 
-            <ngTime name="time1" label="Zeit 1" [(ngModel)]="valuesDateTime.time1"></ngTime>
+        <ngTime name="time1" label="Zeit 1" [(ngModel)]="valuesDateTime.time1"></ngTime>
 
-            <ngTime name="time2" label="Zeit 2 (Min. 10:00)" [(ngModel)]="valuesDateTime.time2" mintime="10:00"></ngTime>
+        <ngTime name="time2" label="Zeit 2 (Min. 10:00)" [(ngModel)]="valuesDateTime.time2" mintime="10:00"></ngTime>
 
-            <ngTime name="time3" label="Zeit 3 (Max. 18:00)" [(ngModel)]="valuesDateTime.time3" maxtime="18:00"></ngTime>
+        <ngTime name="time3" label="Zeit 3 (Max. 18:00)" [(ngModel)]="valuesDateTime.time3" maxtime="18:00"></ngTime>
 
-            <ngTime name="time4" label="Zeit 4 (10:00 - 18:00)" [(ngModel)]="valuesDateTime.time4" mintime="10:00" maxtime="18:00"></ngTime>
+        <ngTime name="time4" label="Zeit 4 (10:00 - 18:00)" [(ngModel)]="valuesDateTime.time4" mintime="10:00" maxtime="18:00"></ngTime>
 
-            <ngTime name="time5" label="Zeit 5 (Disabled)" [(ngModel)]="valuesDateTime.time5" disabled="true"></ngTime>
+        <ngTime name="time5" label="Zeit 5 (Disabled)" [(ngModel)]="valuesDateTime.time5" disabled="true"></ngTime>
 
-            <ngDateTime name="datetime1" label="Datum & Zeit 1" [(ngModel)]="valuesDateTime.datumzeit1"></ngDateTime>
+        <ngDateTime name="datetime1" label="Datum & Zeit 1" [(ngModel)]="valuesDateTime.datumzeit1"></ngDateTime>
 
-            <ngDateTime name="datetime2" label="Datum & Zeit 2 (Min. 19.08.2018 14:00)" [(ngModel)]="valuesDateTime.datumzeit2" mindate="19.08.2018 14:00"></ngDateTime>
+        <ngDateTime name="datetime2" label="Datum & Zeit 2 (Min. 19.08.2018 14:00)" [(ngModel)]="valuesDateTime.datumzeit2" mindate="19.08.2018 14:00"></ngDateTime>
 
-            <ngDateTime name="datetime3" label="Datum & Zeit 3 (Max. 19.08.2018 17:00)" [(ngModel)]="valuesDateTime.datumzeit3" maxdate="19.08.2018 17:00"></ngDateTime>
+        <ngDateTime name="datetime3" label="Datum & Zeit 3 (Max. 19.08.2018 17:00)" [(ngModel)]="valuesDateTime.datumzeit3" maxdate="19.08.2018 17:00"></ngDateTime>
 
-            <ngDateTime name="datetime4" label="Datum & Zeit 4 (Required)" [(ngModel)]="valuesDateTime.datumzeit4" [isrequired]="true"></ngDateTime>
+        <ngDateTime name="datetime4" label="Datum & Zeit 4 (Required)" [(ngModel)]="valuesDateTime.datumzeit4" [isrequired]="true"></ngDateTime>
 
-            <ngDateTime name="datetime5" label="Datum & Zeit 5 (Disabled)" [(ngModel)]="valuesDateTime.datumzeit5" disabled="true"></ngDateTime>
+        <ngDateTime name="datetime5" label="Datum & Zeit 5 (Disabled)" [(ngModel)]="valuesDateTime.datumzeit5" disabled="true"></ngDateTime>
 
-            <ngDateSelector name="selector1" dateselection="true" timeselection="true"></ngDateSelector>
+        <ngDateSelector name="selector1" dateselection="true" timeselection="true"></ngDateSelector>
 
-            <ngButton name="bDateTimeSave" text="Speichern" [isdisabled]="formDateTime.form.invalid" (onclick)="dateTimeSave()"></ngButton>
+        <ngButton name="bDateTimeSave" text="Speichern" [isdisabled]="formDateTime.form.invalid" (onclick)="dateTimeSave()"></ngButton>
 
-          </form>
-        </ng-template>
-      </ngTabItem>
+      </form>
+    </ng-template>
+  </ngTabItem>
 
-      <ngTabItem id="tabGrid" label="Grid">
-        <ng-template>
-          <ngExampleGrid></ngExampleGrid>
-        </ng-template>
-      </ngTabItem>
+  <ngTabItem id="tabGrid" label="Grid">
+    <ng-template>
+      <ngExampleGrid></ngExampleGrid>
+    </ng-template>
+  </ngTabItem>
 </ngTab>
 

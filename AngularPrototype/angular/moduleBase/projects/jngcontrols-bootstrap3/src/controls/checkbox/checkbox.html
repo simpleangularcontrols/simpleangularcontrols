@@ -5,6 +5,7 @@
       <label>
         <input id="{{_name}}" name="{{_name}}" type="checkbox" class="visible-checkbox" [checked]="value" [disabled]="isdisabled"
                (blur)="onTouch()" (change)="setValue($event.target.checked)" />
+        <ng-container *ngIf="_checkboxtext"> {{_checkboxtext}} </ng-container>
       </label>
     </div>
   </div>

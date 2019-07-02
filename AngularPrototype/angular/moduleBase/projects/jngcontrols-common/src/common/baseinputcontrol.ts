@@ -15,7 +15,7 @@ export abstract class NgInputBase<VALUE> extends NgBaseModelControl<VALUE> {
   // Macht das Input readonly
   @Input("readonly") _readonly: boolean = false;
   // Definiert das Feld als valid/invalid von eingegebenen regex-pattern
-  @Input("pattern") _pattern: string
+  @Input("regexvalidation") _pattern: string
   /**
    * Text welcher als Tooltip angezeigt wird.
    */

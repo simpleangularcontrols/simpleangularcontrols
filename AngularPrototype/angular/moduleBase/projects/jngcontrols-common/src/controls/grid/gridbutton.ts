@@ -48,7 +48,7 @@ export class NgGridButtonCommon {
    * Die Methode wird das cklickaction Emitter aktivieren
    */
   public callaction() {
-    if (!this._isdisabledvalue)
+    if (!this._isdisabledvalue) 
       this.clickaction.emit(this.iconstyle)
   }
 }

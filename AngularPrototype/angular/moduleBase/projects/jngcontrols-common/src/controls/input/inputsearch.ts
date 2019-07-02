@@ -8,11 +8,10 @@ export class NgInputSearchCommon extends NgInputCommon {
   /**
    * Name des Such-Icons
    */
-  @Input("iconname") _searchIconName: string = "";
-
+  @Input("iconname") _searchIconName: string = ""
   /**
-   * Text welcher auf dem Button angezeigt wird
-   */
+ * Text welcher auf dem Button angezeigt wird
+ */
   @Input("buttontext") _buttontext: string = "";
 
   /**
@@ -24,7 +23,7 @@ export class NgInputSearchCommon extends NgInputCommon {
   /**
    * Methode sendet den Wert des Inputs durch das Event
    */
-  searchClick(){
+  searchClick() {
     this.clickaction.emit(this.value)
   }
 }

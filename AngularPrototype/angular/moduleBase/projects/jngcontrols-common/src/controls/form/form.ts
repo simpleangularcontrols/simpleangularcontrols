@@ -8,7 +8,7 @@ import { convertToBoolean } from '../../utilities/Convertion';
 export class NgFormularCommon {
 
   /**
-   * 
+   * Form Control
    */
   @Input()
   ngFormular: string;
@@ -27,7 +27,7 @@ export class NgFormularCommon {
   @Input("orientation") orientation: string = "horizontal";
 
   /**
-   * Gibt die Orientation des Formulars zurück
+   * Vertikale oder horizontale Orientierung des Formulars zurück
    */
   public getOrientation(): string {
     switch (this.orientation.toLowerCase()) {

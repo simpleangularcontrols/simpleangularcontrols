@@ -52,7 +52,7 @@ export class NgButtonCommon {
    */
   @Input("role")
   set role(v: string) {
-
+    // Validation of Input
     switch (v) {
       case '':
       case 'primary':

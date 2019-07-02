@@ -5,7 +5,7 @@ import { Validation } from '../../validation';
 import { NgFormularCommon } from '../form/form';
 
 /**
- * Function um ein Key Value String für das Dropdown zu erzeugen
+ * Function um ein Key Value Pair für das Dropdown zu erzeugen
  * @param id ID 
  * @param value Wert der an das Element gebunden werden soll
  */

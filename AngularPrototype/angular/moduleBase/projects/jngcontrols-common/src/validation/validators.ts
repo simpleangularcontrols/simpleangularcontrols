@@ -59,6 +59,14 @@ export class ValidationErrorItem {
  */
 export class Validation {
 
+  /**
+   * Die Methode ist von jedem Validator aufgerufen. Die setzt sowohl den errorType des gerpüfte Item, als auch die ErrorMessage (gemäss von errorType, FieldName und Parameters).
+   * @param errorType Typ den Fehler
+   * @param errorMessageKey Error Message Key
+   * @param errorMessageValidationSummaryKey Error Message Key für Validation Summary
+   * @param fieldName  Label oder Name des Feldes
+   * @param parameters Parametern die in den Meldungen als Platzhalter verwendet werden können
+   */
   static GetValidationErrorItem(errorType: string, errorMessageKey: string, errorMessageValidationSummaryKey: string, fieldName: string, parameters: Map<string, any> = new Map<string, any>()): any {
     let item: ValidationErrorItem = new ValidationErrorItem(errorType, errorMessageKey, errorMessageValidationSummaryKey, fieldName)
 

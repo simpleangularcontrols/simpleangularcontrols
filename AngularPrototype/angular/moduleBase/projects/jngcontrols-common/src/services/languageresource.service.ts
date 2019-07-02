@@ -87,10 +87,16 @@ export class InternalLanguageResourceService extends LanguageResourceService {
 
   }
 
+  /**
+   * Die Funktion setzt die default Sprache auf DE, falls die Sprach-Setzung nicht möglich ist.
+   */
   private GetFallbackLanguage(): string {
     return 'de';
   }
 
+  /**
+   * Die Funktion ergibt die ausgewählte Sprache.
+   */
   private GetLanguage(): string {
     let language: string = navigator.language;
 
@@ -101,6 +107,9 @@ export class InternalLanguageResourceService extends LanguageResourceService {
     }
   }
 
+  /**
+  * Die Methode ergibt die selecte Sprache (string)  anhand von Key und Params
+  */
   public GetString(key: string, params?: any): Observable<string> {
 
     return new Observable<string>((observer) => {

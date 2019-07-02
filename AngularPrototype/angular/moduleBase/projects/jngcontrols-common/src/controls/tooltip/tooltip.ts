@@ -378,5 +378,4 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
 
     return allowedPositions;
   }
-
 }

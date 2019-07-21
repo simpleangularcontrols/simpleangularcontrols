@@ -11,11 +11,14 @@ export class NgUploadFile {
   uploadId: string;
   progress: number;
   status: string;
+  documentid: string;
+
   constructor(ufile: UploadState) {
     this.uploadId = ufile.uploadId;
     this.name = ufile.name;
     this.progress = ufile.progress;
     this.status = ufile.status;
+    this.documentid = null;
   }
 }
 
@@ -27,6 +30,7 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
   private _allowedtypes: string = "*";
   private _autoupload: boolean = false;
   private _enablepause: boolean = true;
+  private _endpoint: string = null;
 
   @Input("allowedtypes")
   set allowedtypes(types: string) {
@@ -57,6 +61,18 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
 
   @Input("maxfilesize") maxfilesize: number = 0;
 
+  /**
+   * Definiert den Registration Endpoint für Uploads.
+   */
+  @Input("endpoint")
+  set endpoint(v: string) {
+    this._endpoint = v;
+    this.setEndpoint(v);
+  };
+  get endpoint(): string {
+    return this._endpoint;
+  }
+
   @Output("onfileerror") onfileerror = new EventEmitter<string>();
 
   // File Input Control
@@ -72,8 +88,7 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
     super(parent, injector);
 
     this.uploads = [];
-
-    this.options.endpoint = '/services/api/upload/register';
+    
     this.options.allowedTypes = '*';
     this.options.concurrency = 1;
     this.options.token = 'sometoken';
@@ -99,7 +114,14 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
     super.ngOnInit();
     // Init Event Listener for Input File Control and Handling Files
     this.listenerFn = this.renderer.listen(this.uploadInput.nativeElement, 'change', this.fileListener);
+
     this.setAllowedTypes(this._allowedtypes);
+    this.setEndpoint(this._endpoint);
+
+    if (this._endpoint === null)
+      throw new Error('endpoint is not defined!');
+
+    this.uploadService.connect(this.options);
   }
 
   /**
@@ -245,6 +267,14 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
   }
 
   /**
+   * Setzt den Upload Endpoit
+   * @param url Register URI
+   */
+  private setEndpoint(url: string) {
+    this.options.endpoint = url;
+  }
+
+  /**
    * Prüft ob die Dateierweiterung gültig ist
    * 
    * @param filename Dateiname
@@ -300,7 +330,7 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
       if (index >= 0)
         this.uploads.splice(index, 1);
 
-      this.SetUploadValue(ufile);
+      this.SetUploadValue(null);
     }
     else if (ufile.status === 'complete') {
       this.uploads[index].progress = ufile.progress;

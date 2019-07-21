@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  uploaduri: '/services/api/upload/register'
 };

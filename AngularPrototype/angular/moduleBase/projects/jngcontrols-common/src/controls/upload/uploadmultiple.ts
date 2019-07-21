@@ -8,7 +8,7 @@ import { IUploadControl } from '../../interfaces/iuploadcontrol';
 /**
  * Upload Componente für mehrere Files
  */
-export class NgUploadMultipleCommon extends NgUploadBase<string[]> implements IUploadControl  {
+export class NgUploadMultipleCommon extends NgUploadBase<string[]> implements IUploadControl {
 
   @Input("maxfiles")
   public maxfiles: number = 0;
@@ -36,10 +36,31 @@ export class NgUploadMultipleCommon extends NgUploadBase<string[]> implements IU
    * @param file ID des Files welches hochgeladen wurde.
    */
   SetUploadValue(file: UploadState) {
+    let documentid: string = null;
+    if (file === null) {
+      documentid = null;
+    } else {
+      if (file.response !== undefined && file.response !== null && file.response.documentid !== null && file.response.documentid !== undefined) {
+        documentid = file.response.documentid;
+      } else {
+        documentid = file.uploadId;
+      }
+
+      // Document ID aktualisieren, damit Wert von Server in Model gesetzt werden kann.
+      this.uploads.filter(itm => itm !== null && itm.uploadId === file.uploadId).forEach(itm => {
+        itm.documentid = documentid;
+      });
+    }
+
+
+    // List of Files
     let fileIds: string[] = [];
 
     // Add all Items with Uploaded State to Model
-    this.uploads.filter(itm => itm.status === 'complete').forEach(itm => fileIds.push(itm.uploadId));
+    this.uploads.filter(itm => itm.status === 'complete').forEach(itm => {
+      if (itm.documentid !== null && itm.documentid !== undefined)
+        fileIds.push(itm.documentid);
+    });
 
     if (fileIds.length > 0)
       super.setValue(fileIds);

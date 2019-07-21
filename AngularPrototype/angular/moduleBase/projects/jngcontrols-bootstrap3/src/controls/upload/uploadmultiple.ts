@@ -2,6 +2,7 @@ import { Component, Host, forwardRef, Injector, Renderer2 } from '@angular/core'
 import { NgUploadMultipleCommon } from '@jnetwork/jngcontrols-common';
 import { NgFormular } from '../form/form';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
+import { NgZone } from '@angular/core';
 
 // https://github.com/kukhariev/ngx-uploadx/
 
@@ -15,8 +16,8 @@ import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/for
 })
 export class NgUploadMultiple extends NgUploadMultipleCommon {
 
-  constructor( @Host() parent: NgFormular, injector: Injector, renderer: Renderer2) {
-    super(parent, injector, renderer);
+  constructor( @Host() parent: NgFormular, injector: Injector, renderer: Renderer2, ngZone: NgZone) {
+    super(parent, injector, renderer, ngZone);
   }
 
 }

@@ -45,8 +45,7 @@ import {
   // jNetworkBootstrap4StaticLabelModule,
   jNetworkBootstrap3WizardModule,
   jNetworkBootstrap3ConfirmModule,
-  jNetworkBootstrap3UploadModule,
-  jNetworkBootstrap3DirectiveModule
+  jNetworkBootstrap3UploadModule
 } from '@jnetwork/jngcontrols-bootstrap3';
 
 
@@ -82,7 +81,6 @@ import { UploadxModule } from 'ngx-uploadx';
     // jNetworkBootstrap4StaticLabelModule,
     jNetworkBootstrap3WizardModule,
     jNetworkBootstrap3UploadModule,
-    jNetworkBootstrap3DirectiveModule,
     jNetworkBootstrap3ConfirmModule.forRoot(),
 
     // Third Party Modules

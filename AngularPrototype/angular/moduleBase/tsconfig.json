@@ -36,12 +36,6 @@
       ],
       "@jnetwork/jngcontrols-bootstrap3/*": [
         "dist/jngcontrols-bootstrap3/*"
-      ],
-      "ngx-uploadx": [
-        "dist/uploadx"
-      ],
-      "ngx-uploadx/*": [
-        "dist/uploadx/*"
       ]
     }
   }

@@ -4,6 +4,7 @@ import { NgBaseModelControl } from './basemodelcontrol';
 import { NgFormularCommon } from '../controls/form/form';
 import { UploadxControlEvent, UploadxOptions, UploadState, UploadxService } from 'ngx-uploadx';
 import { Validation } from '../validation';
+import { NgZone } from '@angular/core';
 
 export class NgUploadFile {
   name: string;
@@ -21,7 +22,7 @@ export class NgUploadFile {
 export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> implements OnInit, OnDestroy {
 
   uploads: NgUploadFile[];
-  private options: UploadxOptions;
+  private options: UploadxOptions = {};
   private uploadService: UploadxService;
   private _allowedtypes: string = "*";
   private _autoupload: boolean = false;
@@ -67,27 +68,24 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
   /**
    * Constructor
    */
-  constructor(parent: NgFormularCommon, injector: Injector, private renderer: Renderer2) {
+  constructor(parent: NgFormularCommon, injector: Injector, private renderer: Renderer2, private ngZone: NgZone) {
     super(parent, injector);
 
     this.uploads = [];
-    this.options = {
-      concurrency: 1,
-      maxRetryAttempts: 3,
-      // allowedTypes: 'image/*,video/*',
-      allowedTypes: '*',
-      url: '/services/api/upload/register',
-      token: 'someToken',
-      autoUpload: this._autoupload,
-      withCredentials: true,
-      chunkSize: 1024 * 16 * 8,
-      headers: (f: File) => ({
-        'Content-Disposition': `filename=${encodeURI(f.name)}`
-      })
-    };
+
+    this.options.endpoint = '/services/api/upload/register';
+    this.options.allowedTypes = '*';
+    this.options.concurrency = 1;
+    this.options.token = 'sometoken';
+    this.options.autoUpload = this._autoupload;
+    this.options.withCredentials = true;
+    this.options.chunkSize = 1024 * 16 * 8;
+    this.options.headers = (f: File) => ({
+      'Content-Disposition': `filename=${encodeURI(f.name)}`
+    });
 
     // Init new Service Instance
-    this.uploadService = new UploadxService();
+    this.uploadService = new UploadxService(this.ngZone);
     this.uploadService.init(this.options);
 
     // Subscripe Event for State changes
@@ -302,7 +300,7 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
       if (index >= 0)
         this.uploads.splice(index, 1);
 
-      this.SetUploadValue(null);
+      this.SetUploadValue(ufile);
     }
     else if (ufile.status === 'complete') {
       this.uploads[index].progress = ufile.progress;

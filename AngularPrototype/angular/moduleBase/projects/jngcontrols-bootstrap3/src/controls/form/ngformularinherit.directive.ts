@@ -1,5 +1,5 @@
 import { Directive } from '@angular/core';
-import { NgFormular } from '../controls/form/form';
+import { NgFormular } from './form';
 import { SkipSelf } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ControlContainer } from '@angular/forms';
@@ -72,4 +72,4 @@ export function NGFORM_FACTORY(form: NgForm) {
     }
   ]
 })
-export class ProvideParentNgFormular { }
+export class ProvideParentNgFormularDirective { }

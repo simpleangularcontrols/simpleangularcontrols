@@ -1,4 +1,4 @@
-import { Component, Host } from '@angular/core';
+import { Component, Host, Injector } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer } from '@angular/forms';
 import { NgValidationSummaryCommon } from '@jnetwork/jngcontrols-common';
 import { NgFormular } from '../form/form';
@@ -20,8 +20,8 @@ import { NgFormular } from '../form/form';
 })
 export class NgValidationSummary extends NgValidationSummaryCommon {
 
-  constructor(@Host() parent: NgFormular) {
-    super(parent);
+  constructor( @Host() parent: NgFormular, injector: Injector) {
+    super(parent, injector);
   }
 
 }

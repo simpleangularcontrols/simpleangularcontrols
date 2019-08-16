@@ -1,0 +1,18 @@
+<div class="row align-items-center">
+  <div class="col-pagination col-12 col-sm-9" id={{name}}>
+    <ul class="pagination my-2">
+      <li class="page-item" [ngClass]="{'aspNetDisabled disabled': activePageIndex == firstPageIndex}">
+        <a class="page-link" (click)="firstPage()">«</a>
+      </li>
+      <li class="page-item" *ngFor="let page of paginators; let i = index" [ngClass]="{'active': page == activePageIndex}">
+        <a class="page-link" (click)="changePage(page)">{{page + 1 }}</a>
+      </li>
+      <li class="page-item" [ngClass]="{'aspNetDisabled disabled': activePageIndex == lastPageIndex}">
+        <a class="page-link" (click)="lastPage()">»</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-summary col-12 col-sm-3 text-right">
+    Seite {{getCurrentPageNumber()}} von {{getTotalPageNumber()}}
+  </div>
+</div>

@@ -1,9 +1,11 @@
-<div class="form-row form-group">
-  <label for="{{_name}}" class="col" [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only' ]">{{_label}}</label>
-  <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
+<div class="row form-group">
+  <div class="col-12" [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]">{{_label}}</div>
+  <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-md-12']">
     <div class="form-check">
       <input class="form-check-input" id="{{_name}}" name="{{_name}}" type="checkbox" [checked]="value" (blur)="onTouch()" (change)="setValue($event.target.checked)" [disabled]="isdisabled" />
-      <label class="form-check-label"></label>
+      <label for="{{_name}}" class="form-check-label">
+        <ng-container *ngIf="_checkboxtext">{{_checkboxtext}}</ng-container>
+      </label>
     </div>
   </div>
 </div>

@@ -1,0 +1,8 @@
+<th scope="col" *ngIf="IsHeader()" [style.width]="width" (click)="SortByColumn()">
+  <span>{{header}}</span>
+</th>
+<td scope="col" *ngIf="IsBody()" [style.width]="width" [class.ellipsis]="IsEllipsis()">
+  <span [attr.title]="IsEllipsis() ? value : null">
+    {{value}}
+  </span>
+</td>

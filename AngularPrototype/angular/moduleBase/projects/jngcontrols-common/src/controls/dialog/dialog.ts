@@ -73,6 +73,12 @@ export class NgDialogCommon {
   public width: string = null;
 
   /**
+ * Input Property. Erhält grösse des Dialogs
+ */
+  @Input("dialogsize")
+  public dialogsize: string = "normal";
+
+  /**
    * Output Emitter. Wird aufgerufen, wenn das Wert des _show property geändert ist - damait das Dialog geöfnet/geschlossen wird.
    */
   @Output("isvisibleChange")

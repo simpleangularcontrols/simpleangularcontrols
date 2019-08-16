@@ -1,7 +1,7 @@
 import { Component, ViewChild, HostListener } from '@angular/core';
 import { NgForm, FormGroup, FormControl } from '@angular/forms';
 import { DeprecatedCurrencyPipe } from '@angular/common/src/pipes/deprecated/number_pipe';
-import { NgFormular } from '@jnetwork/jngcontrols-bootstrap3';
+import { NgFormular } from '@jnetwork/jngcontrols-bootstrap4';
 
 
 interface KeyValue {

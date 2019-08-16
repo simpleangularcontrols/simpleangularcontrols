@@ -1,4 +1,14 @@
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="{{getName}}" id="{{getName}}_{{getIndex}}" [value]="_value" [checked]="_checked" (change)="ChangeEvent()" [disabled]="isDisabled">
-  <label class="form-check-label" for="{{getName}}_{{getIndex}}">{{_label}}</label>
+<div class="form-check" *ngIf="hidden===false">
+  <input id="{{getName}}_{{getIndex}}" name="{{getName}}" type="radio" class="form-check-input" [value]="_value" [checked]="_checked"
+         (change)="ChangeEvent()" [disabled]="isDisabled" />
+  <label for="{{getName}}_{{getIndex}}" class="form-check-label">
+    <ng-template *ngTemplateOutlet="displayValueTemplate || defaultItemLabelTemplate;context:{ label: _label }">
+    </ng-template>
+  </label>
 </div>
+
+<ng-template #defaultItemLabelTemplate let-label="label">
+  {{label}}
+</ng-template>
+
+

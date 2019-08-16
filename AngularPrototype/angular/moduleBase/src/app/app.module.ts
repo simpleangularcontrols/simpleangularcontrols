@@ -30,24 +30,41 @@ const NgDirectives = [
   ExampleGrid, ExampleDialog, SubFormComponent
 ]
 
-import {
-  jNetworkBootstrap3FormModule,
-  jNetworkBootstrap3ButtonModule,
-  jNetworkBootstrap3DialogModule,
-  jNetworkBootstrap3CheckboxModule,
-  jNetworkBootstrap3ListModule,
-  jNetworkBootstrap3ValidationSummaryModule,
-  jNetworkBootstrap3TabsModule,
-  jNetworkBootstrap3InputModule,
-  jNetworkBootstrap3DateTimeModule,
-  jNetworkBootstrap3TinyMceModule,
-  jNetworkBootstrap3GridModule,
-  // jNetworkBootstrap4StaticLabelModule,
-  jNetworkBootstrap3WizardModule,
-  jNetworkBootstrap3ConfirmModule,
-  jNetworkBootstrap3UploadModule
-} from '@jnetwork/jngcontrols-bootstrap3';
+//import {
+//  jNetworkBootstrap3FormModule,
+//  jNetworkBootstrap3ButtonModule,
+//  jNetworkBootstrap3DialogModule,
+//  jNetworkBootstrap3CheckboxModule,
+//  jNetworkBootstrap3ListModule,
+//  jNetworkBootstrap3ValidationSummaryModule,
+//  jNetworkBootstrap3TabsModule,
+//  jNetworkBootstrap3InputModule,
+//  jNetworkBootstrap3DateTimeModule,
+//  jNetworkBootstrap3TinyMceModule,
+//  jNetworkBootstrap3GridModule,
+//  // jNetworkBootstrap4StaticLabelModule,
+//  jNetworkBootstrap3WizardModule,
+//  jNetworkBootstrap3ConfirmModule,
+//  jNetworkBootstrap3UploadModule
+//} from '@jnetwork/jngcontrols-bootstrap3';
 
+import {
+  jNetworkBootstrap4FormModule,
+  jNetworkBootstrap4ButtonModule,
+  jNetworkBootstrap4DialogModule,
+  jNetworkBootstrap4CheckboxModule,
+  jNetworkBootstrap4ListModule,
+  jNetworkBootstrap4ValidationSummaryModule,
+  jNetworkBootstrap4TabsModule,
+  jNetworkBootstrap4InputModule,
+  jNetworkBootstrap4DateTimeModule,
+  jNetworkBootstrap4TinyMceModule,
+  jNetworkBootstrap4GridModule,
+  // jNetworkBootstrap4StaticLabelModule,
+  jNetworkBootstrap4WizardModule,
+  jNetworkBootstrap4ConfirmModule,
+  // jNetworkBootstrap4UploadModule
+} from '@jnetwork/jngcontrols-bootstrap4';
 
 import { UploadxModule } from 'ngx-uploadx';
 
@@ -67,21 +84,39 @@ import { UploadxModule } from 'ngx-uploadx';
     ToastrModule.forRoot(),
 
     // Exanic Controls
-    jNetworkBootstrap3FormModule,
-    jNetworkBootstrap3ButtonModule,
-    jNetworkBootstrap3DialogModule,
-    jNetworkBootstrap3CheckboxModule,
-    jNetworkBootstrap3ListModule,
-    jNetworkBootstrap3ValidationSummaryModule,
-    jNetworkBootstrap3TabsModule,
-    jNetworkBootstrap3InputModule,
-    jNetworkBootstrap3DateTimeModule,
-    jNetworkBootstrap3TinyMceModule,
-    jNetworkBootstrap3GridModule,
+    //jNetworkBootstrap3FormModule,
+    //jNetworkBootstrap3ButtonModule,
+    //jNetworkBootstrap3DialogModule,
+    //jNetworkBootstrap3CheckboxModule,
+    //jNetworkBootstrap3ListModule,
+    //jNetworkBootstrap3ValidationSummaryModule,
+    //jNetworkBootstrap3TabsModule,
+    //jNetworkBootstrap3InputModule,
+    //jNetworkBootstrap3DateTimeModule,
+    //jNetworkBootstrap3TinyMceModule,
+    //jNetworkBootstrap3GridModule,
+    //// jNetworkBootstrap4StaticLabelModule,
+    //jNetworkBootstrap3WizardModule,
+    //jNetworkBootstrap3UploadModule,
+    //jNetworkBootstrap3ConfirmModule.forRoot(),
+
+    // Exanic Controls
+    jNetworkBootstrap4FormModule,
+    jNetworkBootstrap4ButtonModule,
+    jNetworkBootstrap4DialogModule,
+    jNetworkBootstrap4CheckboxModule,
+    jNetworkBootstrap4ListModule,
+    jNetworkBootstrap4ValidationSummaryModule,
+    jNetworkBootstrap4TabsModule,
+    jNetworkBootstrap4InputModule,
+    jNetworkBootstrap4DateTimeModule,
+    jNetworkBootstrap4TinyMceModule,
+    jNetworkBootstrap4GridModule,
     // jNetworkBootstrap4StaticLabelModule,
-    jNetworkBootstrap3WizardModule,
-    jNetworkBootstrap3UploadModule,
-    jNetworkBootstrap3ConfirmModule.forRoot(),
+    jNetworkBootstrap4WizardModule,
+    // jNetworkBootstrap4UploadModule,
+    jNetworkBootstrap4ConfirmModule.forRoot(),
+
 
     // Third Party Modules
     TextMaskModule,

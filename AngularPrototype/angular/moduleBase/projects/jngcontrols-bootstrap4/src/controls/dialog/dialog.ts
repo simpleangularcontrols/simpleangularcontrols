@@ -15,5 +15,14 @@ export class NgDialog extends NgDialogCommon {
     this.element = el.nativeElement;
   }
 
+
+  ngOnInit() {
+    // Element an Body für korrektes Styling unter Bootstrap 3 verschieben
+    document.body.appendChild(this.element);
+  }
+
+  ngOnDestroy() {
+    document.body.removeChild(this.element);
+  }
 }
 

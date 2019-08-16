@@ -1,0 +1,13 @@
+<ngDialog [(isvisible)]="isvisible" [title]="title" [allowesc]="false" [closebutton]="false" dialogsize="small">
+  <div dialogbody>
+    <div class="media">
+      <img [attr.src]="image" class="align-self-center mr-3" *ngIf="hasImage()" />
+      <div class="media-body">{{message}}</div>
+    </div>
+  </div>
+  <div dialogfooter>
+    <ng-container *ngFor="let button of buttons">
+      <ngButton [name]="button.key" [text]="button.text" (onclick)="confirm(button.key)" style="margin-left: 15px;"></ngButton>
+    </ng-container>
+  </div>
+</ngDialog>

@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "^7.2.3",
     "@angular/router": "^7.2.3",
     "@compodoc/compodoc": "^1.1.9",
+    "@jnetwork/jngcontrols-bootstrap4": "file:dist/jngcontrols-bootstrap4",
     "@jnetwork/jngcontrols-bootstrap3": "file:dist/jngcontrols-bootstrap3",
     "@jnetwork/jngcontrols-common": "file:dist/jngcontrols-common",
     "angular2-text-mask": "9.0.0",

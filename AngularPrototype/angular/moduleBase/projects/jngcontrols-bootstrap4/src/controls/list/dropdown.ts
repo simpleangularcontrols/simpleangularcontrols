@@ -10,13 +10,11 @@ import { NgDropdownCommon, NgDropdownOptionCommon } from '@jnetwork/jngcontrols-
   providers: [
     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgDropdown },
     { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgDropdown) }
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
+  ]
 })
 export class NgDropdown extends NgDropdownCommon {
 
-  constructor(@Host() parent: NgFormular, injector: Injector, _renderer: Renderer2, _elementRef: ElementRef) {
+  constructor( @Host() parent: NgFormular, injector: Injector, _renderer: Renderer2, _elementRef: ElementRef) {
     super(parent, injector, _renderer, _elementRef);
   }
 

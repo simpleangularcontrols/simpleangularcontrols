@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { ServiceConfirm } from "@jnetwork/jngcontrols-bootstrap3";
+import { ServiceConfirm } from "@jnetwork/jngcontrols-bootstrap4";
 
 @Component({
   selector: 'ngExampleDialog',

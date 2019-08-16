@@ -1,0 +1,28 @@
+<div class="table-responsive">
+  <table class="table table-sm table-striped table-condensed table-hover" id={{name}}>
+    <thead>
+      <tr>
+        <ng-container *ngTemplateOutlet="template; context { row: {}, type: 'header'}">
+        </ng-container>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let item of value; let i=index">
+        <tr>
+          <ng-container *ngTemplateOutlet="template; context { row: item, type: 'body'}">
+          </ng-container>
+        </tr>
+      </ng-container>
+      <tr *ngIf="value === undefined || value === null || value.length==0">
+        <td [attr.colspan]="GetColumnCount()">{{_emptytext}}</td>
+      </tr>
+      <tr>
+        <td [attr.colspan]="GetColumnCount()">
+          <div class="container-fluid">
+            <ngPaging name="{{name}}Paging" (onpaging)="pageChange($event)" (onpagesizechanged)="pageSizeChanged($event)" [pagerdata]="pagerdata" [pagingtext]="pagingText" [pagesizetext]="pageSizeText"></ngPaging>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

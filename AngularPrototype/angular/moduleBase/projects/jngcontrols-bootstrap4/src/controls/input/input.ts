@@ -17,10 +17,7 @@ import { NgInputCommon } from '@jnetwork/jngcontrols-common';
 
 export class NgInput extends NgInputCommon {
 
-  constructor(@Host() parent: NgFormular, injector: Injector) {
+  constructor( @Host() parent: NgFormular, injector: Injector) {
     super(parent, injector);
   }
-
-  _isAdptiveLabel = true;
-
 }

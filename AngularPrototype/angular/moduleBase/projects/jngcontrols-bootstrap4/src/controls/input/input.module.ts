@@ -7,13 +7,14 @@ import { NgInputCurrency } from "./inputcurrency";
 import { NgInputDecimal } from "./inputdecimal";
 import { NgInputInteger } from "./inputinteger";
 import { NgInputPassword } from "./inputpassword";
+import { NgInputSearch } from './inputsearch';
 
 
 @NgModule({
-  declarations: [NgInput, NgInputArea, NgInputCurrency, NgInputDecimal, NgInputEmail, NgInputInteger, NgInputPassword],
+  declarations: [NgInput, NgInputArea, NgInputCurrency, NgInputDecimal, NgInputEmail, NgInputInteger, NgInputPassword, NgInputSearch],
   imports: [
     BrowserModule
   ],
-  exports: [NgInput, NgInputArea, NgInputCurrency, NgInputDecimal, NgInputEmail, NgInputInteger, NgInputPassword]
+  exports: [NgInput, NgInputArea, NgInputCurrency, NgInputDecimal, NgInputEmail, NgInputInteger, NgInputPassword, NgInputSearch]
 })
 export class jNetworkBootstrap4InputModule { }

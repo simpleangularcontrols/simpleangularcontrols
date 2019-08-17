@@ -1,4 +1,4 @@
-<div class="row form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
+<div class="row form-group" [class.no-gutters]="_disablelabel">
   <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="col-form-label" [ngClass]="[_labelsize !== 12 ?  'col-sm-' + _labelsize : 'sr-only']" [class.required]="isrequired">{{_label}}</label>
   <div [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
     <ng-content></ng-content>

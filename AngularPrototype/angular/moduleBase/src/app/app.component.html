@@ -109,7 +109,7 @@
           <ngInput name="field7" label="Feld 7" [(ngModel)]="values.field7" disabled="true"></ngInput>
         </div>
         <div ngModelGroup="Group2">
-          <ngInputDecimal name="fieldd1" label="Decimal 1 (Decimal)" [(ngModel)]="values.fieldd1"></ngInputDecimal>
+          <ngInputDecimal name="fieldd1" label="Decimal 1 (Decimal)" disablelabel="true" [(ngModel)]="values.fieldd1"></ngInputDecimal>
           <ngInputDecimal name="fieldd2" label="Decimal 2 (Decimal with Negativ)" [(ngModel)]="values.fieldd2" [allownegativ]="true"></ngInputDecimal>
           <ngInputDecimal name="fieldd3" label="Decimal 3 (Decimal with Negativ (10-20))" [(ngModel)]="values.fieldd3" [allownegativ]="true" isrequired="true" [minvalue]="10" [maxvalue]="20"></ngInputDecimal>
           <ngInputDecimal name="fieldd4" label="Decimal 4 (Decimal)" [(ngModel)]="values.fieldd1" disabled="true"></ngInputDecimal>

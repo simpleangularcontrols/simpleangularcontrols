@@ -1,4 +1,4 @@
-<div class="row form-group">
+<div class="row form-group" [class.no-gutters]="_disablelabel">
   <div class="col-12" [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]">{{_label}}</div>
   <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-md-12']">
     <div class="form-check">

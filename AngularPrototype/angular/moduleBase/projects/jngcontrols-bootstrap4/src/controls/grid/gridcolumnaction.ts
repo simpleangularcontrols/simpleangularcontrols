@@ -12,6 +12,6 @@ export class NgGridColumnAction extends NgGridColumnActionCommon {
   constructor(grid: NgGrid, el: ElementRef) {
     super(grid, el);
 
-    this.width = "52px";
+    this.width = "60px";
   }
 }

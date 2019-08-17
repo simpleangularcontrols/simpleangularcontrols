@@ -1,4 +1,4 @@
-import { NgForm, NgModel } from '@angular/forms';
+import { NgForm, NgModel, FormGroup, AbstractControl } from '@angular/forms';
 import { Input, ViewChild, QueryList, ContentChildren, AfterViewInit, IterableDiffer, IterableDiffers, IterableChanges } from '@angular/core';
 import { convertToBoolean } from '../../utilities/Convertion';
 
@@ -63,12 +63,24 @@ export class NgFormularCommon {
   public markAsTouched(): void {
 
     if (this.form && this.form.invalid) {
+      this.markAsTouchedInternal(this.form.controls);
+    }
+  }
 
-      Object.keys(this.form.controls).forEach(field => {
-        let control = this.form.control.get(field);
+  /**
+   * Markiert alle Controls inkl. dem Tree als Touched
+   * @param controls Controls Collection
+   */
+  private markAsTouchedInternal(controls: { [key: string]: AbstractControl }) {
+    let keyList: string[] = Object.keys(controls);
+
+    for (var field of keyList) {
+      let control = controls[field];
+      if (control instanceof FormGroup) {
+        this.markAsTouchedInternal(control.controls);
+      } else {
         control.markAsTouched({ onlySelf: true });
-      })
-
+      }
     }
   }
 

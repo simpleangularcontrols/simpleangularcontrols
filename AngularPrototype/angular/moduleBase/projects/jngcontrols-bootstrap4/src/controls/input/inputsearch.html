@@ -1,7 +1,7 @@
 <div class="row form-group" [class.no-gutters]="_disablelabel">
   <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="col-form-label" [ngClass]="[_labelsize !== 12 ?  'col-sm-' + _labelsize : 'sr-only']" [class.required]="_isrequired">{{_label}}</label>
   <div [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
-    <div class="input-group">
+    <div class="input-group input-group-sm">
       <input id="{{_name}}" name="{{_name}}" type="text" class="form-control"
              [value]="value" [attr.placeholder]="_placeholder"
              (blur)="onTouch()" (input)="setValue($event.target.value)"

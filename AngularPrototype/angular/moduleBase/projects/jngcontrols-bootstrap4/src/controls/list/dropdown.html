@@ -2,7 +2,7 @@
   <label for="{{_name}}" class="col-12 col-form-label" [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]">{{_label}}</label>
   <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
 
-    <select #dropdownitem id="{{_name}}" name="{{_name}}" class="form-control" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()" (change)="setValue(dropdownitem.value)"
+    <select #dropdownitem id="{{_name}}" name="{{_name}}" class="form-control form-control-sm" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()" (change)="setValue(dropdownitem.value)"
             [disabled]="isdisabled">
 
       <option *ngIf="_emptylabel !== ''" [ngValue]="_emptyoptionvalue">{{_emptylabel}}</option>

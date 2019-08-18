@@ -8,12 +8,12 @@ import { NgStaticFormContainerCommon } from '@jnetwork/jngcontrols-common';
  *
  * @example
  *  <ngStaticFormContainer name='myformcontainer' label="My Custom Form Control" [isrequired]='false'>
- *      <input type="range" class="form-control" />
+ *      <input type="range" class="form-control form-control-sm" />
  *  </ngStaticFormContainer>
  *
  * @example
  * <ngStaticFormContainer name='myformcintainer' label="My Custom Form Control" [isrequired]='false' tooltiptext="Dies ist ein Tooltip Text">
- *     <input type="range" class="form-control" />
+ *     <input type="range" class="form-control form-control-sm" />
  * </ngStaticFormContainer>
  * 
  **/

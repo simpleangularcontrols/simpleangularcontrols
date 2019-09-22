@@ -1,6 +1,6 @@
 <div class="form-group">
   <div class="row">
-    <legend *ngIf="_disablelabel === false" class="col-form-label col-12 pt-0" [ngClass]="[_labelsize !== 12 ?  'col-sm-' + _labelsize : 'sr-only']">{{_label}}</legend>
+    <div *ngIf="_disablelabel === false" class="col-form-label col-12 pt-0" [ngClass]="[_labelsize !== 12 ?  'col-sm-' + _labelsize : 'sr-only']">{{_label}}</div>
     <div [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-md-12']">
       <div>
         <ng-content></ng-content>

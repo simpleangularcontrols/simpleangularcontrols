@@ -150,6 +150,18 @@ class formdata {
   fieldmultipleupload5: string[] = null;
 }
 
+export class DropdownModel {
+
+  SelectedId: number | null = null;
+  Items: KeyValueModel[] = [];
+
+}
+
+export class KeyValueModel {
+  public Id: number = 0;
+  public Displaytext: string = '';
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -269,6 +281,30 @@ export class AppComponent {
     alert('menu event: ' + ev.detail);
   }
 
+
+  MannschaftsModel: DropdownModel = new DropdownModel();
+  SpielerModel: DropdownModel = new DropdownModel();
+
+  FilterChanged(value: boolean): void {
+
+  }
+
+  LoadDropdownModels() {
+
+    let model1: DropdownModel = new DropdownModel();
+    model1.SelectedId = this.MannschaftsModel.SelectedId;
+
+
+    for (let i: number = 1; i <= 10; i++) {
+      let item: KeyValueModel = new KeyValueModel();
+      item.Id = i;
+      item.Displaytext = `Team ${i}`;
+      model1.Items.push(item);
+    }
+
+    this.MannschaftsModel = model1;
+
+  }
 }
 
 

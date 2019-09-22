@@ -64,7 +64,7 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
    * @param _renderer 
    * @param _elementRef 
    */
-  constructor(@Host() parent: NgFormularCommon, injector: Injector, private _renderer: Renderer2, private _elementRef: ElementRef) {
+  constructor( @Host() parent: NgFormularCommon, injector: Injector, private _renderer: Renderer2, private _elementRef: ElementRef) {
     super(parent, injector);
   }
   /**
@@ -168,6 +168,12 @@ export class NgDropdownOptionCommon implements OnDestroy {
 
     this._dropdown._optionMap.set(this.id, value);
     this._setElementValue(_buildValueString(this.id, value));
+
+    // Item auf Selected stellen, wenn Wert mit Dropdown übereinstimmt.
+    if (this._dropdown && this._dropdown.value === value) {
+      this._renderer.setProperty(this._element.nativeElement, 'selected', true);
+    }
+
   }
   /**
    * Wert-Setter
@@ -175,6 +181,12 @@ export class NgDropdownOptionCommon implements OnDestroy {
   @Input("value")
   set value(value: any) {
     this._setElementValue(value);
+
+    // Item auf Selected stellen, wenn Wert mit Dropdown übereinstimmt.
+    if (this._dropdown && this._dropdown.value === value) {
+      this._renderer.setProperty(this._element.nativeElement, 'selected', true);
+    }
+
   }
   /**
    * Den Wert vom Option-Element einstellen

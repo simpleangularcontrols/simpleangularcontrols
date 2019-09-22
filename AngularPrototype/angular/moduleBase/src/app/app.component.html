@@ -50,6 +50,20 @@
         <ngButton name="fButton1" text="Speichern" [isdisabled]="formTemp.form.invalid" (onclick)="t3Save()"></ngButton>
 
       </form>
+
+      <form #formTemp2="NgFormular">
+
+        <ngDropdown name="mannschaft" label="RAPPORT_MANNSCHAFT" [(ngModel)]="MannschaftsModel.SelectedId" [options]="MannschaftsModel.Items" optionlabel="Displaytext" optionvalue="Id" (ngModelChange)="FilterChanged(true)"
+                    [emptyvalue]="null" emptylabel="RAPPOR_FILTER_ALLE"></ngDropdown>
+
+        <ngDropdown name="spieler" label="RAPPORT_SPIELER" [(ngModel)]="SpielerModel.SelectedId" [options]="SpielerModel.Items" optionlabel="Displaytext" optionvalue="Id" (ngModelChange)="FilterChanged(true)"
+                    [emptyvalue]="null" emptylabel="RAPPOR_FILTER_ALLE"></ngDropdown>
+
+        <ngButton name="bLoadDropdown" text="Load Dropdown" (onclick)="LoadDropdownModels()"></ngButton>
+
+        <div>{{ MannschaftsModel | json }}</div>
+
+      </form>
     </ng-template>
   </ngTabItem>
 

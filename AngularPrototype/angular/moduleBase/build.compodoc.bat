@@ -1,2 +1,2 @@
-npm run-script compodoc-bs3
-npm run-script compodoc-bs4
+call npm run-script compodoc-bs3
+call npm run-script compodoc-bs4

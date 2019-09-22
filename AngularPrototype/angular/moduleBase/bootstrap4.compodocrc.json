@@ -1,5 +1,5 @@
 {
-  "name": "Bootstrap 3 Angular Controls",
+  "name": "Bootstrap 4 Angular Controls",
   "tsconfig": "compodoc.bootstrap4.json",
   "hideGenerator": true,
   "includesName": "Dokumentation",

@@ -99,13 +99,11 @@ export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> imple
    */
   validateData(c: AbstractControl): ValidationErrors {
     if (!this.HasCheckedItem()) {
-      console.log('Control' + this._name + ' has a Validation Error');
       return {
         'required': true, 'required_message': 'Feld "' + this._label + '" ist erforderlich'
       }
     }
     else {
-      console.log('Control' + this._name + ' is valid');
       return null;
     }
   }

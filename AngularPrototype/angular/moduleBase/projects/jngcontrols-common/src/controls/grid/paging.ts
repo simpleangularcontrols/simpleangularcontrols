@@ -226,8 +226,6 @@ export abstract class NgPagingCommon {
    */
   public changePage(newPageIndex: number) {
     if (this.activePageIndex !== newPageIndex) {
-      console.log("NgPagingCommon: change page to index " + newPageIndex);
-
       this.paged(newPageIndex);
     }
   }
@@ -237,8 +235,6 @@ export abstract class NgPagingCommon {
    */
   public nextPage() {
     if (this.activePageIndex != this.lastPageIndex) {
-      console.log("NgPagingCommon: nextPage called");
-
       this.paged(this.activePageIndex + 1);
     }
   }
@@ -248,8 +244,6 @@ export abstract class NgPagingCommon {
    */
   public previousPage() {
     if (this.activePageIndex != this.firstPageIndex) {
-      console.log("NgPagingCommon: previousPage called");
-
       this.paged(this.activePageIndex - 1);
     }
   }
@@ -259,8 +253,6 @@ export abstract class NgPagingCommon {
    */
   public firstPage() {
     if (this.activePageIndex != this.firstPageIndex) {
-      console.log("NgPagingCommon: firstPage called");
-
       this.paged(0);
     }
   }
@@ -270,8 +262,6 @@ export abstract class NgPagingCommon {
    */
   public lastPage() {
     if (this.activePageIndex != this.lastPageIndex) {
-      console.log("NgPagingCommon: lastPage called");
-
       this.paged(this.lastPageIndex);
     }
   }

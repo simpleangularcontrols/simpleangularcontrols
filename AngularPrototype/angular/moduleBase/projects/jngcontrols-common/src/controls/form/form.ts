@@ -68,6 +68,13 @@ export class NgFormularCommon {
   }
 
   /**
+   * Aktualisiert die Werte und den Gültigkeitsstatus des Formulars
+   */
+  public updateValueAndValidity(): void {
+    this.updateValueAndValidityInternal(this.form.controls);
+  }
+
+  /**
    * Markiert alle Controls inkl. dem Tree als Touched
    * @param controls Controls Collection
    */
@@ -80,6 +87,24 @@ export class NgFormularCommon {
         this.markAsTouchedInternal(control.controls);
       } else {
         control.markAsTouched({ onlySelf: true });
+      }
+    }
+  }
+
+  /**
+   * Aktualisiert die Werte und die gültigkeit des Formulars
+   * 
+   * @param controls Controls Collection
+   */
+  private updateValueAndValidityInternal(controls: { [key: string]: AbstractControl }) {
+    let keyList: string[] = Object.keys(controls);
+
+    for (var field of keyList) {
+      let control = controls[field];
+      if (control instanceof FormGroup) {
+        this.updateValueAndValidityInternal(control.controls);
+      } else {
+        control.updateValueAndValidity({ onlySelf: true });
       }
     }
   }

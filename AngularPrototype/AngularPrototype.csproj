@@ -130,6 +130,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AdminLte\css\adminlte.min.css" />
+    <Content Include="AdminLte\js\adminlte.min.js" />
     <Content Include="angular\moduleBase\karma.conf.js" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\karma.conf.js" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\controls\buttons\button.html" />
@@ -232,6 +234,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="icons\BugTrackingIcon.png" />
     <Content Include="icons\dialog\error.png" />
     <Content Include="icons\dialog\forbidden.png" />
     <Content Include="icons\dialog\information.png" />
@@ -553,6 +556,7 @@
     <Content Include="angular\moduleBase\CONTRIBUTING.md" />
     <Content Include="angular\moduleBase\LICENSE.md" />
     <Content Include="angular\moduleBase\TODO.md" />
+    <Content Include="AdminLte.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="gulpfile.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -626,6 +630,13 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\ILanguageResource.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\ILanguageService.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\IUploadControl.ts" />
+    <Compile Include="AdminLte.Master.cs">
+      <DependentUpon>AdminLte.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminLte.Master.designer.cs">
+      <DependentUpon>AdminLte.Master</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>

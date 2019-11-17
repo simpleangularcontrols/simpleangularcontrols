@@ -9,5 +9,8 @@
   },
   "scripts": {
     "build": "echo hallo"
+  },
+  "dependencies": {
+    "admin-lte": "^3.0.0"
   }
 }

@@ -143,7 +143,9 @@
               "projects/jngcontrols-common/tsconfig.spec.json"
             ],
             "exclude": [
-              "**/node_modules/**"
+              "**/node_modules/**",
+              "**/treeview/**", // Temp Rule
+              "**/tinymce/**" // Temp Rule
             ]
           }
         }

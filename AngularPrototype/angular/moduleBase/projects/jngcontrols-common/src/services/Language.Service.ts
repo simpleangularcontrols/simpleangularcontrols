@@ -1,8 +1,8 @@
-import { Injectable, InjectionToken } from "@angular/core";
-import { ILanguageService } from "../interfaces/ilanguageservice";
-import { LanguageModel } from "../models/languagemodel";
-import { Interpolation } from "../utilities/interpolation";
-import { Observable } from "rxjs";
+import { Injectable, InjectionToken } from '@angular/core';
+import { ILanguageService } from '../interfaces/ilanguageservice';
+import { LanguageModel } from '../models/languagemodel';
+import { Interpolation } from '../utilities/interpolation';
+import { Observable } from 'rxjs';
 
 /**
  * Injection Token für Language Service
@@ -15,7 +15,7 @@ export const LANGUAGE_SERVICE = new InjectionToken<ILanguageService>('LanguageSe
  * @example
  *
  * // Eigene Beispielimplementierung für Application
- * 
+ *
  * (at)Injectable()
  * export class ControlsLanguageService extends LanguageService {
  *
@@ -24,7 +24,7 @@ export const LANGUAGE_SERVICE = new InjectionToken<ILanguageService>('LanguageSe
  *   }
  *
  *    configUrl = 'assets/languages.json';
- * 
+ *
  *    public GetLanguages(): Observable<LanguageModel[]> {
  *      return this.http.get(this.configUrl);
  *    }
@@ -48,14 +48,14 @@ export class InternalLanguageService extends LanguageService {
 
     return new Observable<LanguageModel[]>((observer) => {
 
-      let result: LanguageModel[] = [];
+      const result: LanguageModel[] = [];
 
-      let de: LanguageModel = new LanguageModel();
+      const de: LanguageModel = new LanguageModel();
       de.IcoCode = 'de';
       de.Icon = '/icons/de.png';
       de.Text = 'Deutsch';
 
-      let en: LanguageModel = new LanguageModel();
+      const en: LanguageModel = new LanguageModel();
       en.IcoCode = 'en';
       en.Icon = '/icons/en.png';
       en.Text = 'Englisch';

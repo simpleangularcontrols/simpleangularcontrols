@@ -24,12 +24,11 @@ export class NgDialogCommon {
      */
     this.cdRef.detectChanges();
   }
-  
+
   /**
    * Boolean Property definiert ob das Dialog angezeigt wird
    */
   _show: boolean = false;
-
 
   /**
    * Das property enthielt (wenn überhaupt gesetzt) entweder keywords für sizing oder custom css Klassen. 
@@ -68,7 +67,7 @@ export class NgDialogCommon {
   @Input("backdrop")
   public _backdrop: boolean = true;
 
- 
+
 
   /**
    * Input Property. Erhält den Namen des Dialog - benutzt für das ID. Default Value: ""
@@ -95,7 +94,7 @@ export class NgDialogCommon {
    * Wenn size ist NICHT gesetzt (oder "medium" oder ""), default ist in medium size: max-width 500px.
    */
   @Input("size")
-  set defineSize(v: string){
+  set defineSize(v: string) {
     v = v.toLowerCase();
     this._size = v;
   }
@@ -104,9 +103,9 @@ export class NgDialogCommon {
   /**
    * Die Funktion prüft ob es ein default css classe für Size des Dialog durch den size Input gesetzt wurde.
    */
-  issetdefaultsize(): boolean{
+  issetdefaultsize(): boolean {
     let result: boolean = false
-    
+
     switch (this._size) {
       case 'small': result = true; break;
       case 'medium': result = true; break;
@@ -117,7 +116,7 @@ export class NgDialogCommon {
     return result
   }
 
-  
+
 
   /**
    * Output Emitter. Wird aufgerufen, wenn das Wert des _show property geändert ist - damait das Dialog geöfnet/geschlossen wird.
@@ -125,23 +124,23 @@ export class NgDialogCommon {
   @Output("isvisibleChange")
   isVisibleEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-   /**
-   * Setter. Erhält das boolen Wert des _show property
-   */
+  /**
+  * Setter. Erhält das boolen Wert des _show property
+  */
   @Input("isvisible")
   set visible(v: boolean) {
     this._show = v;
 
-    
+
     if (this._show && !document.body.classList.contains("modal-open")) {
       document.body.classList.add("modal-open");
     }
-    if (this._show === false && document.body.classList.contains("modal-open")){
+    if (this._show === false && document.body.classList.contains("modal-open")) {
       document.body.classList.remove("modal-open");
     }
   }
 
-  
+
 
   /**
    * Getter. Ergibt das boolen Wert des _show property
@@ -170,7 +169,7 @@ export class NgDialogCommon {
    */
   public hide(): void {
     this._show = false;
-    if (this._show === false && document.body.classList.contains("modal-open")){
+    if (this._show === false && document.body.classList.contains("modal-open")) {
       document.body.classList.remove("modal-open");
     }
     this.isVisibleEmitter.emit(this._show);

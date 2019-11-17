@@ -13,36 +13,36 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
   /**
   * Max länge an Zeichen für Eingabefeld
   */
-  @Input("maxlength") _maxlength: number = null;
+  @Input('maxlength') _maxlength: number = null;
 
   /**
    * Fix breite für das Control definieren.
    */
-  @Input("controlwidth") _controlwidth: string = null
+  @Input('controlwidth') _controlwidth: string = null;
 
   /**
    * Aktiviert den Validator, das min. eine Sprache erfasst sein muss
    */
-  @Input("requiredany") _anyrequired: boolean = false;
+  @Input('requiredany') _anyrequired: boolean = false;
 
 
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input("validationmessagerequired") _validationMessageRequired: string = 'VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY';
+  @Input('validationmessagerequired') _validationMessageRequired: string = 'VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input("validationmessagesummaryrequired") _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY';
+  @Input('validationmessagesummaryrequired') _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY';
 
   /**
    * Resource Key für Validation Message Pattern bei Control
    */
-  @Input("validationmessagerequiredany") _validationMessageRequiredAny: string = 'VALIDATION_ERROR_MULTILANGUAGEREQUIRED';
+  @Input('validationmessagerequiredany') _validationMessageRequiredAny: string = 'VALIDATION_ERROR_MULTILANGUAGEREQUIRED';
   /**
    * Resource Key für Validation Message Pattern in Validation Summary
    */
-  @Input("validationmessagesummaryrequiredany") _validationMessageRequiredAnySummary: string = 'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED';
+  @Input('validationmessagesummaryrequiredany') _validationMessageRequiredAnySummary: string = 'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED';
 
 
   /**
@@ -95,7 +95,7 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
 
   get LanguageValue(): string {
     if (this.value) {
-      let currentIsoCode: string = this.selectedLanguage ? this.selectedLanguage.IcoCode : null;
+      const currentIsoCode: string = this.selectedLanguage ? this.selectedLanguage.IcoCode : null;
 
       // Fallback falls keine Selektierte Sprache
       if (currentIsoCode === null) {
@@ -110,7 +110,7 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
 
   public SetLanguageValue(value: string) {
     if (this.value) {
-      let currentIsoCode: string = this.selectedLanguage ? this.selectedLanguage.IcoCode : null;
+      const currentIsoCode: string = this.selectedLanguage ? this.selectedLanguage.IcoCode : null;
 
       // Fallback falls keine Selektierte Sprache
       if (currentIsoCode === null) {

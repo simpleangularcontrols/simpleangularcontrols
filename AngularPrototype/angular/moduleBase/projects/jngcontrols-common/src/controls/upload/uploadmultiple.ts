@@ -1,8 +1,8 @@
 import { NgUploadBase } from '../../common/baseuploadcontrol';
 import { UploadState } from 'ngx-uploadx';
 import { Input } from '@angular/core';
-import { AbstractControl, ValidationErrors, } from "@angular/forms";
-import { Validation } from "../../validation";
+import { AbstractControl, ValidationErrors, } from '@angular/forms';
+import { Validation } from '../../validation';
 import { IUploadControl } from '../../interfaces/iuploadcontrol';
 
 /**
@@ -10,24 +10,24 @@ import { IUploadControl } from '../../interfaces/iuploadcontrol';
  */
 export class NgUploadMultipleCommon extends NgUploadBase<string[]> implements IUploadControl {
 
-  @Input("maxfiles")
+  @Input('maxfiles')
   public maxfiles: number = 0;
 
-  @Input("minfiles")
+  @Input('minfiles')
   public minfiles: number = 0;
 
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input("validationmessageminfiles") _validationMessageMinFiles: string = 'VALIDATION_ERROR_FILESMIN';
+  @Input('validationmessageminfiles') _validationMessageMinFiles: string = 'VALIDATION_ERROR_FILESMIN';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input("validationmessagesummaryminfiles") _validationMessageMinFilesSummary: string = 'VALIDATION_ERROR_SUMMARY_FILESMIN';
+  @Input('validationmessagesummaryminfiles') _validationMessageMinFilesSummary: string = 'VALIDATION_ERROR_SUMMARY_FILESMIN';
 
   /**
    * Prüft ob die max. Files in der Queue nicht überschritten werden
-   * 
+   *
    * @param file File das hinzugefügt wurde
    */
   CustomAddValidation(file: UploadState): boolean {
@@ -41,7 +41,7 @@ export class NgUploadMultipleCommon extends NgUploadBase<string[]> implements IU
 
   /**
    * Setzt die File ID's der hochgeladen Files in das Model
-   * 
+   *
    * @param file ID des Files welches hochgeladen wurde.
    */
   SetUploadValue(file: UploadState) {
@@ -63,18 +63,20 @@ export class NgUploadMultipleCommon extends NgUploadBase<string[]> implements IU
 
 
     // List of Files
-    let fileIds: string[] = [];
+    const fileIds: string[] = [];
 
     // Add all Items with Uploaded State to Model
     this.uploads.filter(itm => itm.status === 'complete').forEach(itm => {
-      if (itm.documentid !== null && itm.documentid !== undefined)
+      if (itm.documentid !== null && itm.documentid !== undefined) {
         fileIds.push(itm.documentid);
+      }
     });
 
-    if (fileIds.length > 0)
+    if (fileIds.length > 0) {
       super.setValue(fileIds);
-    else
+    } else {
       super.setValue(null);
+    }
   }
 
   /**
@@ -86,7 +88,7 @@ export class NgUploadMultipleCommon extends NgUploadBase<string[]> implements IU
 
   /**
    * Validiert das Control
-   * 
+   *
    * @param c Control
    */
   validateData(c: AbstractControl): ValidationErrors | null {

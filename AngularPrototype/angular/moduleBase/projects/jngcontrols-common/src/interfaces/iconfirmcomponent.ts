@@ -1,9 +1,15 @@
-import { EventEmitter } from "@angular/core";
+import { EventEmitter } from '@angular/core';
 
 /**
  * Interface für Comfirm Dialog implementation
  */
 export interface IConfirmComponent {
+
+  /**
+   * EventEmitter beim Bestätigen
+   */
+  onconfirm: EventEmitter<string>;
+
   /**
    * Anzeigen
    */
@@ -12,8 +18,4 @@ export interface IConfirmComponent {
    * Ausblenden
    */
   hide(): void;
-  /**
-   * EventEmitter beim Bestätigen
-   */
-  onconfirm: EventEmitter<string>;
 }

@@ -27,21 +27,23 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
   uploads: NgUploadFile[];
   private options: UploadxOptions = {};
   private uploadService: UploadxService;
-  private _allowedtypes: string = "*";
+  private _allowedtypes: string = '*';
   private _autoupload: boolean = false;
   private _enablepause: boolean = true;
   private _endpoint: string = null;
-  
+
+  //#region Properties
+
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input("validationmessagerequired") _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
+  @Input('validationmessagerequired') _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input("validationmessagesummaryrequired") _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
+  @Input('validationmessagesummaryrequired') _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
-  @Input("allowedtypes")
+  @Input('allowedtypes')
   set allowedtypes(types: string) {
     this._allowedtypes = types;
     this.setAllowedTypes(types);
@@ -50,7 +52,7 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
     return this._allowedtypes;
   }
 
-  @Input("autoupload")
+  @Input('autoupload')
   set autoupload(v: boolean) {
     this._autoupload = v;
     this.options.autoUpload = v;
@@ -60,7 +62,7 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
     return this._autoupload;
   }
 
-  @Input("enablepause")
+  @Input('enablepause')
   set enablepause(v: boolean) {
     this._enablepause = v;
   }
@@ -68,24 +70,28 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
     return this._enablepause;
   }
 
-  @Input("maxfilesize") maxfilesize: number = 0;
+  @Input('maxfilesize') maxfilesize: number = 0;
 
+  // Definiert das Control als Required
+  @Input('isrequired') _isrequired: boolean = false;
+
+  //#endregion
   /**
    * Definiert den Registration Endpoint für Uploads.
    */
-  @Input("endpoint")
+  @Input('endpoint')
   set endpoint(v: string) {
     this._endpoint = v;
     this.setEndpoint(v);
-  };
+  }
   get endpoint(): string {
     return this._endpoint;
   }
 
-  @Output("onfileerror") onfileerror = new EventEmitter<string>();
+  @Output('onfileerror') onfileerror = new EventEmitter<string>();
 
   // File Input Control
-  @ViewChild("files")
+  @ViewChild('files')
   private uploadInput: ElementRef;
   // Listener für Files
   listenerFn: () => void;
@@ -97,7 +103,7 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
     super(parent, injector);
 
     this.uploads = [];
-    
+
     this.options.allowedTypes = '*';
     this.options.concurrency = 1;
     this.options.token = 'sometoken';
@@ -127,8 +133,9 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
     this.setAllowedTypes(this._allowedtypes);
     this.setEndpoint(this._endpoint);
 
-    if (this._endpoint === null)
+    if (this._endpoint === null) {
       throw new Error('endpoint is not defined!');
+    }
 
     this.uploadService.connect(this.options);
   }
@@ -142,12 +149,6 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
     }
   }
 
-  //#region Properties
-
-  // Definiert das Control als Required
-  @Input("isrequired") _isrequired: boolean = false;
-
-  //#endregion
 
   //#region All File Events
 
@@ -155,24 +156,27 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
    * Cancel all Uploaded files
    */
   cancelAll() {
-    if (this.HasQueueItem() === true)
+    if (this.HasQueueItem() === true) {
       this.uploadService.control({ action: 'cancelAll' });
+    }
   }
 
   /**
    * Upload all queued Files
    */
   uploadAll() {
-    if (this.IsStateToUpload() === true)
+    if (this.IsStateToUpload() === true) {
       this.uploadService.control({ action: 'uploadAll' });
+    }
   }
 
   /**
    * Pause all Uploads
    */
   pauseAll() {
-    if (this.IsUploading() === true)
+    if (this.IsUploading() === true) {
       this.uploadService.control({ action: 'pauseAll' });
+    }
   }
 
   //#endregion
@@ -198,7 +202,7 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
 
   /**
    * Upload Single File
-   * 
+   *
    * @param uploadId ID of File to Upload
    */
   upload(uploadId) {
@@ -214,15 +218,15 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
   }
 
   IsStateToUpload(): boolean {
-    return this.uploads.filter(itm => itm.status == 'added' || itm.status == 'paused').length > 0;
+    return this.uploads.filter(itm => itm.status === 'added' || itm.status === 'paused').length > 0;
   }
 
   IsUploading(): boolean {
-    return this.uploads.filter(itm => itm.status == 'uploading').length > 0;
+    return this.uploads.filter(itm => itm.status === 'uploading').length > 0;
   }
 
   IsPaused(): boolean {
-    return this.uploads.filter(itm => itm.status == 'paused').length > 0;
+    return this.uploads.filter(itm => itm.status === 'paused').length > 0;
   }
 
   Filename(): string {
@@ -235,7 +239,7 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
 
   HasSuccessUpload(): boolean {
     if (this.uploads.length > 0) {
-      return this.uploads.filter(itm => itm.status != 'complete').length == 0;
+      return this.uploads.filter(itm => itm.status !== 'complete').length === 0;
     } else {
       return false;
     }
@@ -267,11 +271,11 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
 
   /**
    * Setzt die erlaubten Datentypen für den Upload
-   * 
+   *
    * @param types Erlaubte File Extensions
    */
   private setAllowedTypes(types: string) {
-    this.renderer.setAttribute(this.uploadInput.nativeElement, "accept", types);
+    this.renderer.setAttribute(this.uploadInput.nativeElement, 'accept', types);
     this.options.allowedTypes = types;
   }
 
@@ -285,20 +289,22 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
 
   /**
    * Prüft ob die Dateierweiterung gültig ist
-   * 
+   *
    * @param filename Dateiname
    */
   private isExtensionValid(filename: string): boolean {
 
-    if (this._allowedtypes === "*")
+    if (this._allowedtypes === '*') {
       return true;
+    }
 
     let isValid: boolean = false;
-    let extensions: string[] = this._allowedtypes.split('|');
+    const extensions: string[] = this._allowedtypes.split('|');
 
     extensions.forEach(itm => {
-      if (filename.endsWith(itm))
+      if (filename.endsWith(itm)) {
         isValid = true;
+      }
     });
 
     return isValid;
@@ -306,19 +312,20 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
 
   /**
    * Prüft ob das File nicht zu gross ist.
-   * 
+   *
    * @param filesize Max File Size in Bytes
    */
   private isFileSizeValid(filesize: number): boolean {
-    if (this.maxfilesize === 0)
+    if (this.maxfilesize === 0) {
       return true;
+    }
 
-    return this.maxfilesize >= filesize
+    return this.maxfilesize >= filesize;
   }
 
   /**
    * Upload Event
-   * 
+   *
    * @param uploadsOutStream Upload Item
    */
   onUpload(ufile: UploadState) {
@@ -330,18 +337,19 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
       } else {
         this.cancel(ufile.uploadId);
 
-        if (!this.isExtensionValid(ufile.name))
-          this.onfileerror.emit("INVALID_EXTENSION");
-        else if (!this.isFileSizeValid(ufile.size))
-          this.onfileerror.emit("INVALID_FILESIZE");
+        if (!this.isExtensionValid(ufile.name)) {
+          this.onfileerror.emit('INVALID_EXTENSION');
+        } else if (!this.isFileSizeValid(ufile.size)) {
+          this.onfileerror.emit('INVALID_FILESIZE');
+        }
       }
     } else if (ufile.status === 'cancelled') {
-      if (index >= 0)
+      if (index >= 0) {
         this.uploads.splice(index, 1);
+      }
 
       this.SetUploadValue(null);
-    }
-    else if (ufile.status === 'complete') {
+    } else if (ufile.status === 'complete') {
       this.uploads[index].progress = ufile.progress;
       this.uploads[index].status = ufile.status;
       this.SetUploadValue(ufile);
@@ -360,18 +368,18 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
     if (this.uploadInput.nativeElement.files) {
       this.uploadService.handleFileList(this.uploadInput.nativeElement.files);
     }
-  };
+  }
 
   /**
    * Methode welche die Upload ID's in das Model setzt oder löscht
-   * 
+   *
    * @param file Type von File ID's
    */
   abstract SetUploadValue(file: UploadState);
 
   /**
    * Methode kann für Controls verwendet werden, zusätzliche Validierungen bei hinzufügen der Files zu machen
-   * 
+   *
    * @param file File das hinzugefügt wurde.
    */
   abstract CustomAddValidation(file: UploadState): boolean;

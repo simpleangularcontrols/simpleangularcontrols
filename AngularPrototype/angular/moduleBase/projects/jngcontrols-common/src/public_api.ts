@@ -14,7 +14,7 @@ export { NgValidationSummaryCommon } from './controls/validation/validationsumma
 export { NgTabCommon } from './controls/tabs/tab';
 export { NgTabItemCommon } from './controls/tabs/tabitem';
 
-//Input classes
+// Input classes
 export { NgInputCommon } from './controls/input/input';
 export { NgInputAreaCommon } from './controls/input/inputarea';
 export { NgInputCurrencyCommon } from './controls/input/inputcurrency';
@@ -52,7 +52,7 @@ export { NgWizardItemCommon } from './controls/wizard/wizarditem';
 export { NgTinyMceCommon } from './controls/tinymce/tinymce';
 export { jNetworkTinyMceEditorModule } from './controls/tinymce/tinymceeditor.module';
 
-//TreeView
+// TreeView
 export { NgTreeViewCommon } from './controls/treeview/treeview';
 export { NgTreeViewChildCommon } from './controls/treeview/treeviewchild';
 export { NgTreeItemActionCommon } from './controls/treeview/ngtreeitemaction';
@@ -65,7 +65,7 @@ export { NgUploadSingleCommon } from './controls/upload/uploadsingle';
 export { NgUploadMultipleCommon } from './controls/upload/uploadmultiple';
 export { NgUploadFile } from './common/baseuploadcontrol';
 
-//MultiLanguage classes
+// MultiLanguage classes
 export { NgMultilanguageInputCommon } from './controls/multilanguage/multilanguageinput';
 
 // Confirm Service

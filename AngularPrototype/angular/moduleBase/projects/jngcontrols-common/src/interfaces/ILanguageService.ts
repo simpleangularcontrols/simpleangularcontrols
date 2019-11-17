@@ -1,4 +1,4 @@
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
 import { LanguageModel } from '../models/languagemodel';
 
 export interface ILanguageService {

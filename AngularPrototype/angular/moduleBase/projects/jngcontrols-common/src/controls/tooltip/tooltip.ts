@@ -11,7 +11,7 @@ import { convertToBoolean } from '../../utilities/convertion';
  *
  * Tooltip muss in 2 Schritten angezeigt werden. In einem ersten Schritt wird der Tooltip Markup erzeugt mit (ngIf). In einem 2. Schritt
  * kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht so gemacht, kann es bei gewissen Browsern zu einem Flacker Effekt führen.
- * 
+ *
  */
 export class NgTooltipCommon implements OnInit, OnDestroy {
   /**
@@ -39,13 +39,13 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
    *
    * Wert 'auto' kann mit einem anderen Wert kombiniert werden.
    */
-  @Input("position")
+  @Input('position')
   _position: string = 'right|auto';
 
   /**
    * Text für ToolTip
    */
-  @Input("tooltiptext")
+  @Input('tooltiptext')
   _tooltiptext: string;
 
   /**
@@ -54,9 +54,14 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
   private _inlinemode: boolean;
 
   /**
+   * Definiert ob der Tooltip sichtbar sein soll
+   */
+  IsTooltipContentVisible: boolean = false;
+
+  /**
    * Setter für Inline Mode für Tooltip
    */
-  @Input("inlinemode")
+  @Input('inlinemode')
   set inlinemode(value: boolean) {
     this._inlinemode = convertToBoolean(value);
   }
@@ -70,7 +75,7 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
   /**
    * Name des Containers für Content (z.B. Icon) auf welchem der Tooltip angezeigt wird.
    */
-  @ViewChild("container") content: ElementRef<HTMLElement>;
+  @ViewChild('container') content: ElementRef<HTMLElement>;
 
   /**
    * Name des Containers für den Tooltip
@@ -80,13 +85,11 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
   /**
    * Setter für Name des Containers für den Tooltip. Wird benötigt, da Tooltip via NGIF ausgeblendet werden kann.
    */
-  @ViewChild("tooltip")
+  @ViewChild('tooltip')
   set tooltip(content: ElementRef) {
-    //if (content === undefined && this.tooltipcontainer !== undefined)
-    //  document.body.removeChild(this.tooltipcontainer.nativeElement);
-
-    if (content !== undefined)
+    if (content !== undefined) {
       document.body.appendChild(content.nativeElement);
+    }
 
     this.tooltipcontainer = content;
     this.onContentChange();
@@ -107,8 +110,9 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
     window.addEventListener('scroll', this.onContentChange, true);
     window.addEventListener('resize', this.onContentChange, true);
 
-    if (this.tooltipcontainer !== undefined)
+    if (this.tooltipcontainer !== undefined) {
       document.body.appendChild(this.tooltipcontainer.nativeElement);
+    }
   }
 
   /**
@@ -119,8 +123,9 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
     window.removeEventListener('scroll', this.onContentChange, true);
     window.removeEventListener('resize', this.onContentChange, true);
 
-    if (this.tooltipcontainer !== undefined)
+    if (this.tooltipcontainer !== undefined) {
       document.body.removeChild(this.tooltipcontainer.nativeElement);
+    }
   }
 
   /**
@@ -128,11 +133,11 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
    */
   private getTopPosition(): number {
     if (this.content !== null && this.content !== undefined) {
-      let item = this.content.nativeElement;
+      const item = this.content.nativeElement;
 
       if (item.children.length >= 1) {
-        let childItem = item.firstElementChild as HTMLElement;
-        let contentPosition: ClientRect = childItem.getBoundingClientRect();
+        const childItem = item.firstElementChild as HTMLElement;
+        const contentPosition: ClientRect = childItem.getBoundingClientRect();
 
         switch (this.GetTooltipPosition()) {
           case TooltipPosition.top:
@@ -165,11 +170,11 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
   private getLeftPosition(): number {
 
     if (this.content !== null && this.content !== undefined) {
-      let item = this.content.nativeElement;
+      const item = this.content.nativeElement;
 
       if (item.children.length >= 1) {
-        let childItem = item.firstElementChild as HTMLElement;
-        let contentPosition: ClientRect = childItem.getBoundingClientRect();
+        const childItem = item.firstElementChild as HTMLElement;
+        const contentPosition: ClientRect = childItem.getBoundingClientRect();
 
         switch (this.GetTooltipPosition()) {
           case TooltipPosition.top:
@@ -179,7 +184,7 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
             this.LeftPos = contentPosition.left + contentPosition.width;
             return contentPosition.left + contentPosition.width;
           case TooltipPosition.bottom:
-            this.LeftPos = contentPosition.left + (childItem.clientWidth / 2) - (this.getToolTipWidth() / 2);;
+            this.LeftPos = contentPosition.left + (childItem.clientWidth / 2) - (this.getToolTipWidth() / 2);
             return contentPosition.left + (childItem.clientWidth / 2) - (this.getToolTipWidth() / 2);
           case TooltipPosition.left:
             this.LeftPos = contentPosition.left - this.getToolTipWidth();
@@ -200,10 +205,11 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
    * Berechnet die Höhe des Tooltips
    */
   private getToolTipHeight(): number {
-    if (this.tooltipcontainer)
+    if (this.tooltipcontainer) {
       return this.tooltipcontainer.nativeElement.clientHeight;
-    else
+    } else {
       return 0;
+    }
   }
 
   /**
@@ -212,16 +218,11 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
   private getToolTipWidth(): number {
     if (this.tooltipcontainer) {
       return this.tooltipcontainer.nativeElement.clientWidth;
-    }
-
-    else
+    } else {
       return 0;
+    }
   }
 
-  /**
-   * Definiert ob der Tooltip sichtbar sein soll
-   */
-  IsTooltipContentVisible: boolean = false;
 
   /**
    * Definiert ob der Tooltip im Markup vorhanden ist
@@ -239,7 +240,7 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
       this.getLeftPosition();
       this.getTopPosition();
       this.IsTooltipContentVisible = true;
-    })
+    });
   }
 
   /**
@@ -257,44 +258,60 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
     setTimeout(() => {
       this.getLeftPosition();
       this.getTopPosition();
-    })
+    });
   }
 
   /**
    * Gibt die Position des Tooltips zurück
    */
   public GetTooltipPosition(): TooltipPosition {
-    let validPositions: TooltipPosition = this.ValidatePositions();
+    const validPositions: TooltipPosition = this.ValidatePositions();
 
-    if (this.HasPosition(TooltipPosition.right) && (validPositions & TooltipPosition.right))
+    // tslint:disable-next-line:no-bitwise
+    if (this.HasPosition(TooltipPosition.right) && (validPositions & TooltipPosition.right)) {
       return TooltipPosition.right;
+    }
 
-    if (this.HasPosition(TooltipPosition.top) && (validPositions & TooltipPosition.top))
+    // tslint:disable-next-line:no-bitwise
+    if (this.HasPosition(TooltipPosition.top) && (validPositions & TooltipPosition.top)) {
       return TooltipPosition.top;
+    }
 
-    if (this.HasPosition(TooltipPosition.left) && (validPositions & TooltipPosition.left))
+    // tslint:disable-next-line:no-bitwise
+    if (this.HasPosition(TooltipPosition.left) && (validPositions & TooltipPosition.left)) {
       return TooltipPosition.left;
+    }
 
-    if (this.HasPosition(TooltipPosition.bottom) && (validPositions & TooltipPosition.bottom))
+    // tslint:disable-next-line:no-bitwise
+    if (this.HasPosition(TooltipPosition.bottom) && (validPositions & TooltipPosition.bottom)) {
       return TooltipPosition.bottom;
+    }
 
     // Get Auto Position or Default
     if (this.IsAutoPosition()) {
-      if (validPositions & TooltipPosition.right)
+
+      // tslint:disable-next-line:no-bitwise
+      if (validPositions & TooltipPosition.right) {
         return TooltipPosition.right;
+      }
 
-      if (validPositions & TooltipPosition.top)
+      // tslint:disable-next-line:no-bitwise
+      if (validPositions & TooltipPosition.top) {
         return TooltipPosition.top;
+      }
 
-      if (validPositions & TooltipPosition.left)
+      // tslint:disable-next-line:no-bitwise
+      if (validPositions & TooltipPosition.left) {
         return TooltipPosition.left;
+      }
 
-      if (validPositions & TooltipPosition.bottom)
+      // tslint:disable-next-line:no-bitwise
+      if (validPositions & TooltipPosition.bottom) {
         return TooltipPosition.bottom;
+      }
 
       return TooltipPosition.right;
-    }
-    else {
+    } else {
       return this.GetPosition();
     }
   }
@@ -303,27 +320,31 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
    * Definiert ob AutoPosition aktiv ist
    */
   private IsAutoPosition(): boolean {
-    let positions = this._position.split("|");
-    return positions.indexOf("auto") >= 0;
+    const positions = this._position.split('|');
+    return positions.indexOf('auto') >= 0;
   }
 
   /**
    * Gibt die definierte Position für den Tooltip zurück
    */
   private GetPosition(): TooltipPosition {
-    let positions = this._position.split("|");
+    const positions = this._position.split('|');
 
-    if (this.HasPosition(TooltipPosition.left))
+    if (this.HasPosition(TooltipPosition.left)) {
       return TooltipPosition.left;
+    }
 
-    if (this.HasPosition(TooltipPosition.top))
+    if (this.HasPosition(TooltipPosition.top)) {
       return TooltipPosition.top;
+    }
 
-    if (this.HasPosition(TooltipPosition.right))
+    if (this.HasPosition(TooltipPosition.right)) {
       return TooltipPosition.right;
+    }
 
-    if (this.HasPosition(TooltipPosition.bottom))
+    if (this.HasPosition(TooltipPosition.bottom)) {
       return TooltipPosition.bottom;
+    }
 
     // Default Position if empty
     return TooltipPosition.right;
@@ -331,23 +352,27 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
 
   /**
    * Gibt zurück, ob die Position konfiguriert wurde
-   * 
+   *
    * @param position Position auf welche geprüft wird
    */
   private HasPosition(position: TooltipPosition): boolean {
-    let positions = this._position.split("|");
+    const positions = this._position.split('|');
 
-    if (position == TooltipPosition.right && positions.indexOf("right") >= 0)
+    if (position === TooltipPosition.right && positions.indexOf('right') >= 0) {
       return true;
+    }
 
-    if (position == TooltipPosition.top && positions.indexOf("top") >= 0)
+    if (position === TooltipPosition.top && positions.indexOf('top') >= 0) {
       return true;
+    }
 
-    if (position == TooltipPosition.left && positions.indexOf("left") >= 0)
+    if (position === TooltipPosition.left && positions.indexOf('left') >= 0) {
       return true;
+    }
 
-    if (position == TooltipPosition.bottom && positions.indexOf("bottom") >= 0)
+    if (position === TooltipPosition.bottom && positions.indexOf('bottom') >= 0) {
       return true;
+    }
 
     return false;
   }
@@ -357,8 +382,9 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
    */
   private ValidatePositions(): TooltipPosition {
     // Check if Container is false
-    if (this.tooltipcontainer === undefined)
+    if (this.tooltipcontainer === undefined) {
       return TooltipPosition.right;
+    }
 
     let allowedPositions: TooltipPosition = TooltipPosition.none;
     const basePosition: ClientRect = this.content.nativeElement.firstElementChild.getBoundingClientRect();
@@ -369,22 +395,30 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
     const topPosOk: boolean = basePosition.top - tooltipRect.height > 0;
     const bottomPosOk: boolean = basePosition.bottom + tooltipRect.height < window.innerHeight;
 
-    const leftHalfPosOk: boolean = basePosition.left - (tooltipRect.width / 2) > 0
+    const leftHalfPosOk: boolean = basePosition.left - (tooltipRect.width / 2) > 0;
     const rightHalfPosOk: boolean = basePosition.right + (tooltipRect.width / 2) < window.innerWidth;
     const topHalfPosOk: boolean = basePosition.top - (tooltipRect.height / 2) > 0;
     const bottomHalfPosOk: boolean = basePosition.bottom + (tooltipRect.height / 2) < window.innerHeight;
 
-    if (leftPosOk && topHalfPosOk && bottomHalfPosOk)
+    if (leftPosOk && topHalfPosOk && bottomHalfPosOk) {
+      // tslint:disable-next-line:no-bitwise
       allowedPositions = allowedPositions | TooltipPosition.left;
+    }
 
-    if (rightPosOk && topHalfPosOk && bottomHalfPosOk)
+    if (rightPosOk && topHalfPosOk && bottomHalfPosOk) {
+      // tslint:disable-next-line:no-bitwise
       allowedPositions = allowedPositions | TooltipPosition.right;
+    }
 
-    if (topPosOk && leftHalfPosOk && rightHalfPosOk)
+    if (topPosOk && leftHalfPosOk && rightHalfPosOk) {
+      // tslint:disable-next-line:no-bitwise
       allowedPositions = allowedPositions | TooltipPosition.top;
+    }
 
-    if (bottomPosOk && leftHalfPosOk && rightHalfPosOk)
+    if (bottomPosOk && leftHalfPosOk && rightHalfPosOk) {
+      // tslint:disable-next-line:no-bitwise
       allowedPositions = allowedPositions | TooltipPosition.bottom;
+    }
 
     return allowedPositions;
   }

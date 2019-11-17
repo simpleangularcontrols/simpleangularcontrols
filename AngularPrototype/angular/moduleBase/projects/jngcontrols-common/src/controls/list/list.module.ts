@@ -1,11 +1,9 @@
-import { NgModule } from "@angular/core";
-import { NgListboxOption } from "./listbox";
+import { NgModule } from '@angular/core';
+import { NgListboxOption } from './listbox';
 
 @NgModule({
   declarations: [NgListboxOption],
-  imports: [
-    
-  ],
+  imports: [],
   exports: [NgListboxOption]
 })
-export class jNetworkCommonListboxOptionModule { }
+export class JNetworkCommonListboxOptionModule { }

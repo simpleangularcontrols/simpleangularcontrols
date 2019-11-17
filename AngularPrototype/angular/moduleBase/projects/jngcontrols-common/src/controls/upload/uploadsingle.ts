@@ -8,7 +8,7 @@ export class NgUploadSingleCommon extends NgUploadBase<string>  {
 
   /**
   * Macht keine Validierung in diesem Control
-  * 
+  *
   * @param file File das hinzugefügt wurde
   */
   CustomAddValidation(file: UploadState): boolean {
@@ -18,7 +18,7 @@ export class NgUploadSingleCommon extends NgUploadBase<string>  {
 
   /**
    * Setzt die File ID des hochgeladen Files in das Model
-   * 
+   *
    * @param file ID des Files
    */
   SetUploadValue(file: UploadState) {

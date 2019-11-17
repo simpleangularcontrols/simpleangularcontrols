@@ -1,5 +1,5 @@
-import { IConfirmComponent } from "../../interfaces/iconfirmcomponent";
-import { EventEmitter, Output, Input } from "@angular/core";
+import { IConfirmComponent } from '../../interfaces/iconfirmcomponent';
+import { EventEmitter, Output, Input } from '@angular/core';
 import { NgConfirmButton } from './confirm.button';
 
 /**
@@ -12,31 +12,31 @@ export class NgConfirmCommon implements IConfirmComponent {
   /**
    * Event wenn Dialog geschlossen wird
    */
-  @Output("onconfirm")
+  @Output()
   public onconfirm: EventEmitter<string> = new EventEmitter<string>();
 
   /**
  * Dialog Titel für Confirm Dialog
  */
-  @Input("title")
+  @Input()
   public title: string = '';
 
   /**
    * Nachricht die auf dem Dialog angezeigt wird
    */
-  @Input("message")
+  @Input()
   public message: string = '';
 
   /**
    * Icon welches auf dem Dialog angezeigt wird
    */
-  @Input("image")
+  @Input()
   public image: string = '';
 
   /**
    * Map mit Buttons die in Dialog angezeigt werden.
    */
-  @Input("buttons")
+  @Input()
   public buttons: NgConfirmButton[] = [];
 
   //#endregion

@@ -1,6 +1,6 @@
-import { Injector, ApplicationRef, ViewContainerRef, Inject, ComponentFactoryResolver, EventEmitter } from "@angular/core";
-import { ComponentFactory } from "@angular/core";
-import { ComponentRef } from "@angular/core";
+import { Injector, ApplicationRef, ViewContainerRef, Inject, ComponentFactoryResolver, EventEmitter } from '@angular/core';
+import { ComponentFactory } from '@angular/core';
+import { ComponentRef } from '@angular/core';
 import { IConfirmComponent } from '../../interfaces/iconfirmcomponent';
 
 /**
@@ -15,6 +15,15 @@ export abstract class ServiceConfirmCommon {
    */
   constructor(private appRef: ApplicationRef, private injector: Injector) {
   }
+
+  //#region Properties
+
+  /**
+   * Referenz auf IConfirm Instanz.
+   */
+  protected component: ComponentRef<IConfirmComponent> = null;
+
+  //#endregion
 
   //#region Abstract Methods
 
@@ -34,16 +43,11 @@ export abstract class ServiceConfirmCommon {
   //#region Protected Methods
 
   /**
-   * Referenz auf IConfirm Instanz.
-   */
-  protected component: ComponentRef<IConfirmComponent> = null;
-
-  /**
    * Erzeugt eine Instanz für den Dialog
    */
   protected CreateInstance(): void {
     // ComponentFactory aus Service laden
-    let factory: ComponentFactory<IConfirmComponent> = this.GetComponentFactory();
+    const factory: ComponentFactory<IConfirmComponent> = this.GetComponentFactory();
 
     // Instanz der Komponente erzeugen und an die View anhängen
     this.component = factory.create(this.injector);
@@ -82,14 +86,14 @@ export abstract class ServiceConfirmCommon {
   protected Confirm(): EventEmitter<string> {
     // Dialog erzeugen
     this.CreateInstance();
-    let instance: IConfirmComponent = this.OpenDialog();
+    const instance: IConfirmComponent = this.OpenDialog();
 
     // Konfiguration der Dialog Instanz durch Service Implementation zulassen
     this.ConfigureDialog(instance);
 
     // Event Emitter für Confirmation im Service. Event Emitter Asynchron initialiseren
-    let confirmTask: EventEmitter<string> = new EventEmitter<string>(true);
-    
+    const confirmTask: EventEmitter<string> = new EventEmitter<string>(true);
+
     // Callback wenn Dialog bestätigt wurde
     instance.onconfirm.subscribe(value => {
       // Dialog entfernen

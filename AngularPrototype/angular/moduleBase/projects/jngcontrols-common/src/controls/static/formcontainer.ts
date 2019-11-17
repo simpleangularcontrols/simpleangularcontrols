@@ -8,6 +8,31 @@ import { convertToBoolean } from '../../utilities/convertion';
  **/
 export class NgStaticFormContainerCommon extends NgBaseModelControl<string> {
 
+
+  /**
+   * Definiert den Container als Required Form Item
+   */
+  private _isrequired: boolean = false;
+
+  /**
+   * Text welcher als Tooltip angezeigt wird.
+   */
+  @Input('tooltiptext') _tooltiptext: string = '';
+
+  /**
+   * Definiert den Container als Required Form Item
+   */
+  get isrequired(): boolean {
+    return this._isrequired;
+  }
+  /**
+   * Definiert den Container als Required Form Item
+   */
+  @Input('isrequired')
+  set isrequired(v: boolean) {
+    this._isrequired = convertToBoolean(v);
+  }
+
   /**
    * Validierung des Controls
    *
@@ -16,29 +41,7 @@ export class NgStaticFormContainerCommon extends NgBaseModelControl<string> {
    * @returns Fehlermeldung aus Validation oder NULL
    */
   validateData(c: AbstractControl): ValidationErrors | null {
-    let error: ValidationErrors | null = null;
-    return error;
+    // Keine Validierung, daher immer NULL
+    return null;
   }
-
-  /**
-   * Definiert den Container als Required Form Item
-   */
-  private _isrequired: boolean = false;
-
-  get isrequired(): boolean {
-    return this._isrequired;
-  }
-  /**
-   * Definiert den Container als Required Form Item
-   */
-  @Input("isrequired") 
-  set isrequired(v: boolean) {
-    this._isrequired = convertToBoolean(v);
-  }
-
-  /**
-   * Text welcher als Tooltip angezeigt wird.
-   */
-  @Input("tooltiptext") _tooltiptext: string = '';
-
 }

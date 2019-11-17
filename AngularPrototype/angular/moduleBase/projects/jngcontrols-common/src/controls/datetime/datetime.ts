@@ -1,5 +1,5 @@
-import {  Input,  HostListener } from "@angular/core";
-import {  AbstractControl, ValidationErrors } from "@angular/forms";
+import { Input, HostListener } from "@angular/core";
+import { AbstractControl, ValidationErrors } from "@angular/forms";
 import { Validation } from "../../validation";
 import { NgBaseDateTimeControl } from "../../common/basedatetimecontrol";
 // Import Moment.JS
@@ -11,7 +11,9 @@ import * as moment_ from 'moment';
  */
 const moment = moment_;
 
-
+/**
+ * Komponente für NgDateTimeCommon. Extends NgBaseDateTimeControl 
+ */
 export class NgDateTimeCommon extends NgBaseDateTimeControl {
 
   // #region Constants
@@ -55,7 +57,7 @@ export class NgDateTimeCommon extends NgBaseDateTimeControl {
     var date = moment(v, [this.DATEFORMAT], true);
 
     if (date.isValid()) {
-      this._mindate = date.utc().toDate();
+      this._mindate = super.getDate(date).toDate();
     } else {
       this._mindate = null;
     }
@@ -73,7 +75,7 @@ export class NgDateTimeCommon extends NgBaseDateTimeControl {
     var date = moment(v, [this.DATEFORMAT], true);
 
     if (date.isValid()) {
-      this._maxdate = date.utc().toDate();
+      this._maxdate = super.getDate(date).toDate();
     } else {
       this._maxdate = null;
     }
@@ -87,6 +89,26 @@ export class NgDateTimeCommon extends NgBaseDateTimeControl {
    * Definiert ob der Date Selector angezeigt wird
    */
   _showselector: boolean = false;
+
+
+  /**
+   * Resource Key für Validation Message MinDate bei Control
+   */
+  @Input("validationmessagemindate") _validationMessageMinDate: string = 'VALIDATION_ERROR_MINDATE';
+  /**
+   * Resource Key für Validation Message MinDate in Validation Summary
+   */
+  @Input("validationmessagesummarymindate") _validationMessageMinDateSummary: string = 'VALIDATION_ERROR_SUMMARY_MINDATE';
+
+  /**
+   * Resource Key für Validation Message MaxDate bei Control
+   */
+  @Input("validationmessagemaxdate") _validationMessageMaxDate: string = 'VALIDATION_ERROR_MAXDATE';
+  /**
+   * Resource Key für Validation Message MaxDate in Validation Summary
+   */
+  @Input("validationmessagesummarymaxdate") _validationMessageMaxDateSummary: string = 'VALIDATION_ERROR_SUMMARY_MAXDATE';
+
 
   // #endregion
 
@@ -144,11 +166,11 @@ export class NgDateTimeCommon extends NgBaseDateTimeControl {
     error = super.validateData(c);
 
     if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._mindate !== undefined && this._mindate !== null) {
-      error = Validation.minDate(this, this._mindate, this._label);
+      error = Validation.minDate(this, this._mindate, this._label, this._validationMessageMinDate, this._validationMessageMinDateSummary);
     }
 
     if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._maxdate !== undefined && this._maxdate !== null) {
-      error = Validation.maxDate(this, this._maxdate, this._label);
+      error = Validation.maxDate(this, this._maxdate, this._label, this._validationMessageMaxDate, this._validationMessageMaxDateSummary);
     }
 
     return error;

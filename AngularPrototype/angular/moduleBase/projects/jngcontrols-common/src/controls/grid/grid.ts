@@ -1,6 +1,9 @@
 import { Input, TemplateRef, Output, EventEmitter } from '@angular/core';
 import { PagerData, SortDescriptor, SortOrder } from './model';
 
+/**
+ *Basis Komponente für NgGrid
+ */
 export abstract class NgGridCommon {
 
   /**

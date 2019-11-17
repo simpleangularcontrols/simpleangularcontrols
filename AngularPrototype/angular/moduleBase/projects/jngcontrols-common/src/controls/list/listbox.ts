@@ -1,15 +1,24 @@
 import { Input, Directive, OnDestroy, QueryList, ViewChildren, ElementRef, Renderer2 } from '@angular/core';
-import {  ValidationErrors, AbstractControl } from '@angular/forms';
+import { ValidationErrors, AbstractControl } from '@angular/forms';
 import { NgBaseSelectControl } from '../../common/baseselectcontrol';
 import { Validation } from '../../validation';
 
 
-// Element für Access auf Option Field
+/**
+ *  Element für Access auf Option Field
+ * @selector option
+ */
 @Directive({ selector: 'option' })
+
+/**
+ *Basis Komponente für NgListboxOption
+ */
 export class NgListboxOption implements OnDestroy {
 
   /**
    * Konstruktor
+   * @param _element: ElementRef
+   * @param _renderer: Renderer2
    */
   constructor(private _element: ElementRef, private _renderer: Renderer2) { }
 
@@ -74,11 +83,26 @@ abstract class HTMLCollection {
 //   // View Provider, damit das Formular an das Control gebunden werden kann
 //   viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
 // })
+
+/**
+ * Komponente für NgListboxCommon. Extends NgBaseSelectControl 
+ */
 export class NgListboxCommon extends NgBaseSelectControl<Array<string>> {
   /**
    * Anzahl der Zeilen
    */
   @Input("rowsize") _rowsize: number = 5;
+
+
+  /**
+   * Resource Key für Validation Message Required bei Control
+   */
+  @Input("validationmessagerequired") _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
+  /**
+   * Resource Key für Validation Message Required in Validation Summary
+   */
+  @Input("validationmessagesummaryrequired") _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
+
 
   /**
    * ViewChildren Methode
@@ -125,7 +149,7 @@ export class NgListboxCommon extends NgBaseSelectControl<Array<string>> {
 
     super.writeValue(value);
   }
-  
+
   /**
    * Validator Methode
    */
@@ -133,7 +157,7 @@ export class NgListboxCommon extends NgBaseSelectControl<Array<string>> {
     let error: ValidationErrors | null = null;
 
     if (this._isrequired) {
-      error = Validation.required(c, this._label);
+      error = Validation.required(c, this._label, this._validationMessageRequired, this._validationMessageRequiredSummary);
     }
 
     return error;

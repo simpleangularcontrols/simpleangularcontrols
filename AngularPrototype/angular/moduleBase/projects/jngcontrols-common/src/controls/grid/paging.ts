@@ -84,6 +84,9 @@ export abstract class NgPagingCommon {
   @Input("pagesizetext")
   public pageSizeText: string = "Einträge pro Seite {{PAGESIZE}}";
 
+  /**
+   * Getter für pagesize. returns String
+   */
   public GetPageSizeText(): string {
     let interpolation: Interpolation = new Interpolation();
 

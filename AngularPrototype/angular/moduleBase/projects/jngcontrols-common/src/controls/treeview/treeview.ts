@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output, Input, OnInit, ChangeDetectorRef, TemplateRef, ContentChild } from '@angular/core';
 
-
+/**
+ * Basis Komponente für NgTreeView
+ */
 export class NgTreeViewCommon implements OnInit {
 
   /**
@@ -260,7 +262,10 @@ export class NgTreeViewCommon implements OnInit {
   selectedItemEmitter: EventEmitter<string> = new EventEmitter<string>();
 
 
-
+  /**
+   * A lifecycle hook that is called after Angular has initialized all data-bound properties of a directive. 
+   * Define an ngOnInit() method to handle any additional initialization tasks.
+   */
   ngOnInit() {
 
     this.collapseAllNode(this._collapseAll)

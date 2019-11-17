@@ -1,7 +1,9 @@
 import { Input, Output, EventEmitter, ElementRef, OnInit } from '@angular/core';
 
 
-
+/**
+ *Basis Komponente für NgTreeItemAction
+ */
 export class NgTreeItemActionCommon implements OnInit {
 
     /**

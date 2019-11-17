@@ -1,10 +1,22 @@
 import { Output, EventEmitter } from '@angular/core';
 
+/**
+ * interface. Enthielt properties event von type T und editor von type any
+ */
 export interface EventObj<T> {
+  /**
+   * property typ T
+   */
   event: T;
+  /**
+   * property typ any
+   */
   editor: any;
 }
 
+/**
+ * Klasse EVents. Еnthalt verchiedene Outputs
+ */
 export class Events {
   @Output() onBeforePaste: EventEmitter<EventObj<ClipboardEvent>> = new EventEmitter();
   @Output() onBlur: EventEmitter<EventObj<FocusEvent>> = new EventEmitter();
@@ -72,6 +84,9 @@ export class Events {
   @Output() onVisualAid: EventEmitter<EventObj<any>> = new EventEmitter();
 }
 
+/**
+ * Enthielt key words von alle Events für Tiny MCE
+ */
 export const validEvents: (keyof Events)[] = [
   'onActivate',
   'onAddUndo',

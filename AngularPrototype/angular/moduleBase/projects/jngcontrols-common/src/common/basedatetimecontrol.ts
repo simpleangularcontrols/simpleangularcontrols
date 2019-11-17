@@ -1,23 +1,34 @@
-import { NgBaseModelControl } from "./basemodelcontrol";
-import { NgFormularCommon } from "../controls/form/form";
-import { ElementRef, Input, Injectable, Injector } from "@angular/core";
-import { AbstractControl, ValidationErrors } from "@angular/forms";
-import { Validation } from "../validation";
-import { IDateTimeControl } from "../interfaces/idatetimecontrol";
-import { Moment } from "moment";
+import { NgBaseModelControl } from './basemodelcontrol';
+import { NgFormularCommon } from '../controls/form/form';
+import { ElementRef, Input, Injectable, Injector } from '@angular/core';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { Validation } from '../validation';
+import { IDateTimeControl } from '../interfaces/idatetimecontrol';
+import { Moment } from 'moment';
 import * as moment_ from 'moment';
 /**
  * Moment
  */
 const moment = moment_;
-
+/**
+ * Injectable directive
+ */
 @Injectable()
 export abstract class NgBaseDateTimeControl extends NgBaseModelControl<Date> implements IDateTimeControl {
 
+  /**
+   * value. Typ: any
+   */
   value: any;
 
   // #region Constructor
 
+  /**
+   * Konstruktor
+   * @param parent typ NgFormularCommon
+   * @param injector typ Injector
+   * @param _elementRef typ ElementRef
+   */
   constructor(parent: NgFormularCommon, injector: Injector, protected _elementRef: ElementRef) {
     super(parent, injector);
   }
@@ -26,46 +37,99 @@ export abstract class NgBaseDateTimeControl extends NgBaseModelControl<Date> imp
 
   //#region Abstract Methods
 
+  /**
+   * das property enthielt das Value als string. Default ist ''
+   */
+  protected _valueAsString = '';
+
+  /**
+   * Definiert das Control als Required
+   */
+  @Input('isrequired') _isrequired: boolean = false;
+
+  /**
+   * TextBox Placeholder
+   */
+  @Input('placeholder') _placeholder: string = null;
+
+
+  /**
+   * Resource Key für Validation Message Required bei Control
+   */
+  @Input("validationmessagerequired") _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
+  /**
+   * Resource Key für Validation Message Required in Validation Summary
+   */
+  @Input("validationmessagesummaryrequired") _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
+
+  /**
+   * Resource Key für Validation Message DateTimeFormat bei Control
+   */
+  @Input("validationmessagedatetimeformat") _validationMessageDateTimeFormat: string = 'VALIDATION_ERROR_DATETIMEFORMAT';
+  /**
+   * Resource Key für Validation Message DateTimeFormat in Validation Summary
+   */
+  @Input("validationmessagesummarydatetimeformat") _validationMessageDateTimeFormatSummary: string = 'VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT';
+
+  /**
+   * Die methode returns dateTime in string
+   */
   abstract GetDateTimeFormatString(): string;
+
+  /**
+   * Die methode modifiziert das eingegebene Value von typ Moment
+   */
   abstract ModifyParsedDateTimeValue(v: Moment): Moment;
 
   //#endregion
 
   //#region Variablen
 
-  protected _valueAsString = '';
-
   //#endregion
 
-
   // #region Properties
-
-  // Definiert das Control als Required
-  @Input("isrequired") _isrequired: boolean = false;
-  // TextBox Placeholder
-  @Input("placeholder") _placeholder: string = null;
 
   //#endregion
 
   //#region ValueControlAccess
 
-  // Overwrite WriteValue to Set correct Date Object
+  /**
+   * Overwrite WriteValue to Set correct Date Object
+   */
   writeValue(value: Date | string) {
     if (value === '' || value === null || value === undefined) {
       this._value = null;
     } else {
-      this._value = moment.utc(value).toDate();
+      this._value = this.getDate(value).toDate();
     }
 
     super.writeValue(this._value);
   }
 
-  //#endregion
+  /**
+  * JSON Date String in ein UTC DateTime Object konvertieren, welches vom Control verwendete werden kann
+  */
+  getDate(timestamp) {
+    var date = new Date(timestamp);
 
+    var year = date.getUTCFullYear();
+    var month = date.getUTCMonth();
+    var day = date.getUTCDate();
+    var hours = date.getUTCHours();
+    var minutes = date.getUTCMinutes();
+    var seconds = date.getUTCSeconds();
+
+    return moment(Date.UTC(year, month, day, hours, minutes, seconds));
+  }
+
+  //#endregion
 
   // #region Value as String
 
-  @Input("valuestring")
+  /**
+   * Das Input bekommt das value von typ string
+   */
+  @Input('valuestring')
   set valuestring(v: string) {
     this._valueAsString = v;
     let date: Moment = moment(v, [this.GetDateTimeFormatString()], true);
@@ -74,21 +138,26 @@ export abstract class NgBaseDateTimeControl extends NgBaseModelControl<Date> imp
 
     if (date.isValid()) {
       this.value = date.toDate();
-    }
-    else {
+    } else {
       this.value = null;
     }
   }
 
+  /**
+   * getter für valuestring
+   */
   get valuestring(): string {
-    if (this.value === null)
+    if (this.value === null) {
       return this._valueAsString;
-    else {
-      var date = moment.utc(this.value);
+    } else {
+      const date = moment.utc(this.value);
       return date.local().format(this.GetDateTimeFormatString());
     }
   }
 
+  /**
+   * setzt das value von typ string zu property valuestring
+   */
   setValueString(v: string) {
     this.valuestring = v;
   }
@@ -97,10 +166,14 @@ export abstract class NgBaseDateTimeControl extends NgBaseModelControl<Date> imp
 
   //#region Validation
 
+  /**
+   * prüft ob das Date ist valid
+   */
   IsDateValid(): boolean {
     // NULL ist gültig
-    if (this._valueAsString === null || this._valueAsString === undefined || this._valueAsString === '')
+    if (this._valueAsString === null || this._valueAsString === undefined || this._valueAsString === '') {
       return true;
+    }
 
     let date: Moment = moment(this.valuestring, [this.GetDateTimeFormatString()], true);
     date = this.ModifyParsedDateTimeValue(date).utc();
@@ -108,13 +181,16 @@ export abstract class NgBaseDateTimeControl extends NgBaseModelControl<Date> imp
     return date.isValid();
   }
 
+  /**
+   * Validator
+   */
   validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = null;
 
-    error = Validation.isValidDate(this, this._label);
+    error = Validation.isValidDate(this, this._label, this._validationMessageDateTimeFormat, this._validationMessageDateTimeFormatSummary);
 
     if (this._isrequired) {
-      error = Validation.required(c, this._label);
+      error = Validation.required(c, this._label, this._validationMessageRequired, this._validationMessageRequiredSummary);
     }
 
     return error;

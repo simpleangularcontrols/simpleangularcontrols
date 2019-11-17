@@ -2,6 +2,9 @@ import { Input, } from "@angular/core";
 import { NgInputCommon } from "./input";
 import { AbstractControl, ValidationErrors } from "@angular/forms";
 
+/**
+ * Basis Komponente für NgInputArea
+ */
 export class NgInputAreaCommon extends NgInputCommon {
 
   /**

@@ -9,12 +9,33 @@
 import { uuid } from './utils';
 
 export type callbackFn = () => void;
+
+/**
+ * interface. Enthielt properties listeners von type callbackFn, scriptId von type string und scriptLoaded von type boolean
+ */
 export interface IStateObj {
+
+  /**
+   * array von callbackFn
+   */
   listeners: callbackFn[];
+  /**
+   * Id des Scripts. typ string
+   */
   scriptId: string;
+  /**
+   * boolean property, deffiniert ob den script sich loadet. Default ist nicht deffiniert. 
+   */
   scriptLoaded: boolean;
 }
 
+/**
+*Funktion.  Fügt ein scripttag hinzu. Verlangt: 
+* scriptId: string, 
+* doc: Document, 
+* url: string, 
+ *callback: callbackFn
+ */
 const injectScriptTag = (scriptId: string, doc: Document, url: string, callback: callbackFn) => {
   const scriptTag = doc.createElement('script');
   scriptTag.type = 'application/javascript';
@@ -24,6 +45,9 @@ const injectScriptTag = (scriptId: string, doc: Document, url: string, callback:
   doc.head.appendChild(scriptTag);
 };
 
+/**
+ * Funktion create. Returns IStateObj
+ */
 export const create = (): IStateObj => {
   return {
     listeners: [],
@@ -32,6 +56,13 @@ export const create = (): IStateObj => {
   };
 };
 
+/**
+ * Funktion load. Verlangt:
+ * state: IStateObj
+ * doc: Document 
+ * url: string
+ * callback: callbackFn
+ */
 export const load = (state: IStateObj, doc: Document, url: string, callback: callbackFn) => {
   if (state.scriptLoaded) {
     callback();

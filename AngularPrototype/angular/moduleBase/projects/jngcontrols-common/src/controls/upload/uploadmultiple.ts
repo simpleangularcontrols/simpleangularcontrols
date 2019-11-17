@@ -17,6 +17,15 @@ export class NgUploadMultipleCommon extends NgUploadBase<string[]> implements IU
   public minfiles: number = 0;
 
   /**
+   * Resource Key für Validation Message Required bei Control
+   */
+  @Input("validationmessageminfiles") _validationMessageMinFiles: string = 'VALIDATION_ERROR_FILESMIN';
+  /**
+   * Resource Key für Validation Message Required in Validation Summary
+   */
+  @Input("validationmessagesummaryminfiles") _validationMessageMinFilesSummary: string = 'VALIDATION_ERROR_SUMMARY_FILESMIN';
+
+  /**
    * Prüft ob die max. Files in der Queue nicht überschritten werden
    * 
    * @param file File das hinzugefügt wurde
@@ -84,7 +93,7 @@ export class NgUploadMultipleCommon extends NgUploadBase<string[]> implements IU
     let error: ValidationErrors | null = super.validateData(c);
 
     if (error === null) {
-      error = Validation.minFiles(this, this.minfiles, this._label);
+      error = Validation.minFiles(this, this.minfiles, this._label, this._validationMessageMinFiles, this._validationMessageMinFilesSummary);
     }
 
     return error;

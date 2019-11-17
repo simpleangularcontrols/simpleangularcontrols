@@ -7,7 +7,9 @@ import { ValidationErrorItem } from '../validation';
 import { Observable } from 'rxjs';
 import { convertToBoolean } from '../utilities/Convertion';
 
-
+/**
+ * Abstract Klasse für NgBaseModelControl. Implements ControlValueAccessor, Validator, OnInit
+ */
 export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor, Validator, OnInit {
 
   // #region Private Variables
@@ -31,16 +33,83 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
 
   // #endregion
 
+  // #region Properties
+
+  /**
+   * Name des Controls
+   */
+  @Input('name') _name: string = '';
+  /**
+   * Definiert den Label Text
+   */
+  @Input('label') _label: string = '';
+  /**
+   * Definiert die Labelgröse
+   */
+  @Input('labelsize') _labelsize: number = undefined;
+  /**
+   * Deaktiviert das Label im Template
+   */
+  @Input('disablelabel') _disablelabel: boolean = false;
+  /**
+   * Deaktiviert das Input Control
+   */
+  @Input('disabled') _disabledControl: boolean = false;
+  /**
+   * Kontroliert, ob das Label adaptive ist
+   */
+  @Input('isadaptivelabel') _isadaptivelabel: boolean = undefined;
+  /**
+   * Definiert, ob das Control Sprachspezifisch ist
+   */
+  @Input('islanguagespecific') _islanguagespecific: boolean = false;
+
+  /**
+   * Definiert ob das Control disabled ist
+   */
+  get isdisabled(): boolean {
+    return this._disabledForm || this._disabledControl;
+  }
+
+  // #endregion
+
   // #region Constructor
 
   /**
    * Konstruktor
    * Inject des Formulars
+   * @parent NgFormularCommon
+   * @injector Injector
    */
   constructor(@Host() parent: NgFormularCommon, private injector: Injector) {
     this.parent = parent;
     this.lngResourceService = injector.get(LANGUAGERESOURCE_SERVICE, new InternalLanguageResourceService());
   }
+
+  /**
+   * Interne Variable, die den Wert des Controls hält
+   */
+  protected _value: VALUE = null;
+
+  /**
+   * Validator
+   */
+  protected _onChange: () => void;
+
+   /**
+   * Boolean Property dirty; default Wert - false
+   */
+  protected _dirty: boolean = false;
+
+  /**
+   * Boolean Property touched; default Wert - false
+   */
+  protected _touched: boolean = false;
+
+  /**
+  * Inline Errors für das Control
+  */
+  private _inlineerrorenabled: boolean | null = null;
 
   // #endregion
 
@@ -124,15 +193,10 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
   // #region Control Value
 
   /**
-   * Interne Variable, die den Wert des Controls hält
-   */
-  protected _value: VALUE = null;
-
-  /**
    * Set Methode für NgModel Binding in Html Markup
    * Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.
    */
-  @Input("value")
+  @Input('value')
   set value(v: VALUE) {
     this._value = this.ConvertInputValue(v);
     this.propagateChange(this._value);
@@ -150,47 +214,6 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
    */
   setValue(v: VALUE): void {
     this.value = v;
-  }
-
-  // #endregion
-
-  // #region Properties
-
-  /**
-   * Name des Controls
-   */
-  @Input("name") _name: string = '';
-  /**
-   * Definiert den Label Text
-   */
-  @Input("label") _label: string = '';
-  /**
-   * Definiert die Labelgröse
-   */
-  @Input("labelsize") _labelsize: number = undefined;
-  /**
-   * Deaktiviert das Label im Template
-   */
-  @Input("disablelabel") _disablelabel: boolean = false;
-  /**
-   * Deaktiviert das Input Control
-   */
-  @Input("disabled") _disabledControl: boolean = false;
-  /**
-   * Kontroliert, ob das Label adaptive ist
-   */
-  @Input("isadaptivelabel") _isadaptivelabel: boolean = undefined;
-  /**
-   * Definiert, ob das Control Sprachspezifisch ist
-   */
-  @Input("islanguagespecific") _islanguagespecific: boolean = false;
-
-
-  /**
-   * Definiert ob das Control disabled ist
-   */
-  get isdisabled(): boolean {
-    return this._disabledForm || this._disabledControl;
   }
 
   // #endregion
@@ -218,7 +241,7 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
    * Methode ergibt Decimal Symbol
    */
   protected GetDecimalSymbol(): string {
-    return ".";
+    return '.';
   }
 
   /**
@@ -233,15 +256,10 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
   //#region Validation Base
 
   /**
-   * Validator
-   */
-  protected _onChange: () => void;
-
-  /**
    * Validator Methode
    */
   validate(c: AbstractControl): ValidationErrors | null {
-    let error: ValidationErrors | null = this.validateData(c);
+    const error: ValidationErrors | null = this.validateData(c);
     return error;
   }
 
@@ -256,11 +274,6 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
   registerOnValidatorChange(fn: () => void): void { this._onChange = fn; }
 
   /**
-   * Boolean Property dirty; default Wert - false
-   */
-  protected _dirty: boolean = false;
-
-  /**
    * Methode ergibt Boolean Wert für dirty
    */
   public get dirty(): boolean {
@@ -271,10 +284,6 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
     return this._dirty;
   }
 
-  /**
-   * Boolean Property touched; default Wert - false
-   */
-  protected _touched: boolean = false;
   /**
    * Methode ergibt Boolean Wert für touched
    */
@@ -303,55 +312,54 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
    */
   GetErrorMessage(): Observable<string> {
 
-    if (this.ngControl.errors === undefined || this.ngControl.errors === null)
-      return new Observable<string>((observer) => {
-        observer.next('');
-        observer.complete();
-      })
-
-
-    let errors: ValidationErrors = this.ngControl.errors;
-
-    if (errors.length === 0)
+    if (this.ngControl.errors === undefined || this.ngControl.errors === null) {
       return new Observable<string>((observer) => {
         observer.next('');
         observer.complete();
       });
+    }
 
-    let keys: string[] = Object.keys(errors);
 
-    if (keys.length <= 0)
+    const errors: ValidationErrors = this.ngControl.errors;
+
+    if (errors.length === 0) {
       return new Observable<string>((observer) => {
         observer.next('');
         observer.complete();
-      })
+      });
+    }
 
-    let errorItem: ValidationErrorItem = errors[keys[0]];
+    const keys: string[] = Object.keys(errors);
+
+    if (keys.length <= 0) {
+      return new Observable<string>((observer) => {
+        observer.next('');
+        observer.complete();
+      });
+    }
+
+    const errorItem: ValidationErrorItem = errors[keys[0]];
 
     // Validation Parameters
     const parameters = {};
     if (errorItem.parameters !== null && errorItem.parameters !== undefined) {
-      errorItem.parameters.forEach((v, k) => { parameters[k] = v });
+      errorItem.parameters.forEach((v, k) => { parameters[k] = v; });
     }
-    parameters["FIELD"] = errorItem.fieldName;
+    parameters['FIELD'] = errorItem.fieldName;
 
     return this.lngResourceService.GetString(errorItem.errorMessageKey, parameters);
   }
 
-  /**
- * Inline Errors für das Control
- */
-  private _inlineerrorenabled: boolean | null = null;
-
-  @Input("inlineerrorenabled")
+  @Input('inlineerrorenabled')
   /**
    * Aktiviert oder Deaktiviert die Inline Errors für das Control
    */
   set inlineerrorenabled(value: boolean | null) {
-    if (value === null || value === undefined)
+    if (value === null || value === undefined) {
       this._inlineerrorenabled = null;
-    else
+    } else {
       this._inlineerrorenabled = convertToBoolean(value);
+    }
   }
   /**
    * Aktiviert oder Deaktiviert die Inline Errors für das Control
@@ -364,8 +372,9 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
    * Gibt zurück, ob die Inline Error Meldungen für diesem Control aktiv sind.
    */
   get IsInlineErrorEnabled(): boolean {
-    if (this.parent.IsInlineErrorEnabled === null || this.parent.IsInlineErrorEnabled === undefined)
+    if (this.parent.IsInlineErrorEnabled === null || this.parent.IsInlineErrorEnabled === undefined) {
       return this._inlineerrorenabled;
+    }
 
     return this.parent.IsInlineErrorEnabled !== false && this._inlineerrorenabled !== false;
   }

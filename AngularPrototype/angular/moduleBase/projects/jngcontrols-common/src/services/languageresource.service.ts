@@ -31,8 +31,15 @@ export const LANGUAGERESOURCE_SERVICE = new InjectionToken<LanguageResourceServi
  *  }
  *
  */
+
+ /**
+ * Service für interne Übersetzungen
+ * */
 @Injectable({ providedIn: 'root' })
 export abstract class LanguageResourceService implements ILanguageResourceService {
+  /**
+   * Die Methode übersetzt den eingegebenen Wort/Begriff. Verlangt key und optionell params
+   */
   abstract GetString(key: string, params?: any): Observable<string>;
 }
 
@@ -51,6 +58,7 @@ export class InternalLanguageResourceService extends LanguageResourceService {
    * Konstruktor
    * */
   constructor() {
+
     super();
 
     // Set Languages
@@ -80,7 +88,6 @@ export class InternalLanguageResourceService extends LanguageResourceService {
     this.data.get('de').set('VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT', 'Feld "{{FIELD}}" ist kein gültiges Datum.');
     this.data.get('de').set('VALIDATION_ERROR_FILESMIN', 'Es müssen min. {{MINFILES}} Dateien hochgeladen sein.');
     this.data.get('de').set('VALIDATION_ERROR_SUMMARY_FILESMIN', 'Feld "{{FIELD}}" muss min. {{MINFILES}} Dateien hochgeladen haben.');
-
     this.data.get('de').set('VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY', 'Es muss min. 1 Sprache erfasst sein.');
     this.data.get('de').set('VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY', 'Feld "{{FIELD}}" muss min. 1 Sprache erfasst haben.');
     this.data.get('de').set('VALIDATION_ERROR_MULTILANGUAGEREQUIRED', 'Es müssen alle Sprachen erfasst sein.');

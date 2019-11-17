@@ -1,6 +1,7 @@
 import { NgForm, NgModel, FormGroup, AbstractControl } from '@angular/forms';
 import { Input, ViewChild, QueryList, ContentChildren, AfterViewInit, IterableDiffer, IterableDiffers, IterableChanges } from '@angular/core';
 import { convertToBoolean } from '../../utilities/Convertion';
+import { FormHooks } from '@angular/forms/src/model';
 
 /**
  * Base Komponente für NgFormular
@@ -25,6 +26,20 @@ export class NgFormularCommon {
    * Type des Forms
    */
   @Input("orientation") orientation: string = "horizontal";
+
+  private _updateon: FormHooks = "change";
+
+  /**
+   * Definiert, wenn das Model geupdatet wird
+   */
+  @Input("updateon")
+  set updateon(v: FormHooks) {
+    this._updateon = v;
+    this.form.options.updateOn = v;
+  }
+  get updateon(): FormHooks {
+    return this._updateon;
+  }
 
   /**
    * Vertikale oder horizontale Orientierung des Formulars zurück
@@ -55,6 +70,7 @@ export class NgFormularCommon {
    * @param form Instanz von NgForm
    */
   constructor(private form: NgForm) {
+    this.form.options = { updateOn: this._updateon };
   }
 
   /**

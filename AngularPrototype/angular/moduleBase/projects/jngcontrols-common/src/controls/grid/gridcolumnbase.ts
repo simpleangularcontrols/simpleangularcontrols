@@ -2,8 +2,14 @@ import { Input, ElementRef, OnInit, Directive, OnDestroy } from '@angular/core';
 import { NgGridCommon } from './grid';
 import { SortOrder } from './model';
 
+/**
+ * Base Komponente für GridColumn
+ */
 export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
 
+  /**
+   * Konstruktor
+   */
   constructor(private grid: NgGridCommon, private el: ElementRef) {
   }
 
@@ -105,10 +111,16 @@ export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
       return this.grid.SortBy(this.SortKey)
   }
 
+  /**
+   * die Methode ergibt boolean Wert und definiert, ob das Column für Sortierung aktiviert ist, gemäß eingegebene sortKey
+   */
   public IsSortedColumn(): boolean {
     return this.grid.GetSortColumn() === this.SortKey;
   }
 
+  /**
+   * Die methode definiert die Dortirung Richtung. Die Werte sind: none, asc, desc.
+   */
   public GetSortDirection(): string {
     switch (this.grid.GetSortDirection()) {
       case SortOrder.None:

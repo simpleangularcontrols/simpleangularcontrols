@@ -1,8 +1,9 @@
 import { Output, EventEmitter, Input } from '@angular/core';
 import { NgInputCommon } from "./input";
 
-
-
+/**
+ * Basis Komponente für NgInputSearch
+ */
 export class NgInputSearchCommon extends NgInputCommon {
 
   /**

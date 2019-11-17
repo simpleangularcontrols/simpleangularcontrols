@@ -2,7 +2,9 @@ import { ValidationErrors, AbstractControl } from '@angular/forms';
 import { NgBaseModelControl } from '../../common/basemodelcontrol';
 import { Input } from '@angular/core';
 
-
+/**
+ * Basis Komponente für NgCheckboxCommon. Extends NgBaseModelControl
+ */
 export class NgCheckboxCommon extends NgBaseModelControl<boolean> {
 
   /**

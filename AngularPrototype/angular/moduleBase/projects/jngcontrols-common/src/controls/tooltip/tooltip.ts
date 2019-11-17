@@ -364,16 +364,26 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
     const basePosition: ClientRect = this.content.nativeElement.firstElementChild.getBoundingClientRect();
     const tooltipRect: ClientRect = this.tooltipcontainer.nativeElement.getBoundingClientRect();
 
-    if (basePosition.left - tooltipRect.width > 0)
+    const leftPosOk: boolean = basePosition.left - tooltipRect.width > 0;
+    const rightPosOk: boolean = basePosition.right + tooltipRect.width < window.innerWidth;
+    const topPosOk: boolean = basePosition.top - tooltipRect.height > 0;
+    const bottomPosOk: boolean = basePosition.bottom + tooltipRect.height < window.innerHeight;
+
+    const leftHalfPosOk: boolean = basePosition.left - (tooltipRect.width / 2) > 0
+    const rightHalfPosOk: boolean = basePosition.right + (tooltipRect.width / 2) < window.innerWidth;
+    const topHalfPosOk: boolean = basePosition.top - (tooltipRect.height / 2) > 0;
+    const bottomHalfPosOk: boolean = basePosition.bottom + (tooltipRect.height / 2) < window.innerHeight;
+
+    if (leftPosOk && topHalfPosOk && bottomHalfPosOk)
       allowedPositions = allowedPositions | TooltipPosition.left;
 
-    if (basePosition.right + tooltipRect.width < window.innerWidth)
+    if (rightPosOk && topHalfPosOk && bottomHalfPosOk)
       allowedPositions = allowedPositions | TooltipPosition.right;
 
-    if (basePosition.top - tooltipRect.height > 0)
+    if (topPosOk && leftHalfPosOk && rightHalfPosOk)
       allowedPositions = allowedPositions | TooltipPosition.top;
 
-    if (basePosition.bottom + tooltipRect.height < window.innerHeight)
+    if (bottomPosOk && leftHalfPosOk && rightHalfPosOk)
       allowedPositions = allowedPositions | TooltipPosition.bottom;
 
     return allowedPositions;

@@ -1,10 +1,13 @@
-import { Host, Injector, ChangeDetectorRef } from '@angular/core';
+import { Host, Injector, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors, Validator } from '@angular/forms';
 import { NgFormularCommon } from '../form/form';
 import { NgRadiobuttonCommon } from './radiobutton';
 import { NgBaseModelControl } from '../../common/basemodelcontrol';
+import { Validation } from '../../validation';
 
-
+/**
+ * Basis Komponente für NgRadiobuttonsCommon. Extends NgBaseModelControl
+ */
 export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> implements Validator {
 
   /**
@@ -14,6 +17,16 @@ export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> imple
   constructor(@Host() parent: NgFormularCommon, injector: Injector) {
     super(parent, injector);
   }
+
+  /**
+   * Resource Key für Validation Message Required bei Control
+   */
+  @Input("validationmessagerequired") _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
+  /**
+   * Resource Key für Validation Message Required in Validation Summary
+   */
+  @Input("validationmessagesummaryrequired") _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
+
 
   //#region Sub Control registration
 
@@ -93,17 +106,14 @@ export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> imple
 
     return this.contentRadiobuttons.some(itm => itm._checked);
   }
-  
+
   /**
    * Validator
    */
   validateData(c: AbstractControl): ValidationErrors {
     if (!this.HasCheckedItem()) {
-      return {
-        'required': true, 'required_message': 'Feld "' + this._label + '" ist erforderlich'
-      }
-    }
-    else {
+      return Validation.GetValidationErrorItem('required', this._validationMessageRequired, this._validationMessageRequiredSummary, this._label);
+    } else {
       return null;
     }
   }

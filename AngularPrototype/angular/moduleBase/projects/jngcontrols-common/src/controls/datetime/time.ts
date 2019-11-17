@@ -1,5 +1,5 @@
-import { Input,  HostListener } from "@angular/core";
-import { AbstractControl, ValidationErrors} from "@angular/forms";
+import { Input, HostListener } from "@angular/core";
+import { AbstractControl, ValidationErrors } from "@angular/forms";
 import { Validation } from "../../validation";
 import { NgBaseDateTimeControl } from "../../common/basedatetimecontrol";
 // Import Moment.JS
@@ -10,9 +10,11 @@ import * as moment_ from 'moment';
  */
 const moment = moment_;
 
-
+/**
+ * Komponente für NgTimeCommon. Extends NgBaseDateTimeControl 
+ */
 export class NgTimeCommon extends NgBaseDateTimeControl {
-  
+
   // #region Constants
 
   /**
@@ -46,7 +48,7 @@ export class NgTimeCommon extends NgBaseDateTimeControl {
   }
 
   // #endregion
-  
+
   // #region Properties
 
   /**
@@ -59,7 +61,7 @@ export class NgTimeCommon extends NgBaseDateTimeControl {
     time = this.ModifyParsedDateTimeValue(time);
 
     if (time.isValid()) {
-      this._mintime = time.utc().toDate();
+      this._mintime = super.getDate(time).toDate();
     } else {
       this._mintime = null;
     }
@@ -79,7 +81,7 @@ export class NgTimeCommon extends NgBaseDateTimeControl {
     time = this.ModifyParsedDateTimeValue(time);
 
     if (time.isValid()) {
-      this._maxtime = time.utc().toDate();
+      this._maxtime = super.getDate(time).toDate();
     } else {
       this._maxtime = null;
     }
@@ -94,8 +96,26 @@ export class NgTimeCommon extends NgBaseDateTimeControl {
    */
   _showselector: boolean = false;
 
+  /**
+   * Resource Key für Validation Message MinTime bei Control
+   */
+  @Input("validationmessagemintime") _validationMessageMinTime: string = 'VALIDATION_ERROR_MINTIME';
+  /**
+   * Resource Key für Validation Message MinTime in Validation Summary
+   */
+  @Input("validationmessagesummarymintime") _validationMessageMinTimeSummary: string = 'VALIDATION_ERROR_SUMMARY_MINTIME';
+
+  /**
+   * Resource Key für Validation Message MinTime bei Control
+   */
+  @Input("validationmessagemaxtime") _validationMessageMaxTime: string = 'VALIDATION_ERROR_MAXTIME';
+  /**
+   * Resource Key für Validation Message MinTime in Validation Summary
+   */
+  @Input("validationmessagesummarymaxtime") _validationMessageMaxTimeSummary: string = 'VALIDATION_ERROR_SUMMARY_MAXTIME';
+
   // #endregion
-   
+
   // #region Time Selector
 
   /**
@@ -148,11 +168,11 @@ export class NgTimeCommon extends NgBaseDateTimeControl {
     error = super.validateData(c);
 
     if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._mintime !== undefined && this._mintime !== null) {
-      error = Validation.minTime(this, this._mintime, this._label);
+      error = Validation.minTime(this, this._mintime, this._label, this._validationMessageMinTime, this._validationMessageMinTimeSummary);
     }
 
     if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._maxtime !== undefined && this._maxtime !== null) {
-      error = Validation.maxTime(this, this._maxtime, this._label);
+      error = Validation.maxTime(this, this._maxtime, this._label, this._validationMessageMaxTime, this._validationMessageMaxTimeSummary);
     }
 
     return error;

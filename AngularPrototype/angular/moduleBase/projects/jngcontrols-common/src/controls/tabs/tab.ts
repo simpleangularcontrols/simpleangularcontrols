@@ -1,7 +1,9 @@
 import { AfterContentInit, TemplateRef, Input } from '@angular/core';
 import { NgTabItemCommon } from './tabitem';
 
-
+/**
+ *Basis Komponente für NgTab
+ */
 export abstract class NgTabCommon implements AfterContentInit {
   /**
    * Array von TabItems
@@ -14,6 +16,9 @@ export abstract class NgTabCommon implements AfterContentInit {
   @Input("name")
   public _name: string = "";
 
+  /**
+   * Input property for template. Typ TemplateRef<any>
+   */
   @Input("tablabeltemplate")
   displayTabLabelTemplate: TemplateRef<any>;
 

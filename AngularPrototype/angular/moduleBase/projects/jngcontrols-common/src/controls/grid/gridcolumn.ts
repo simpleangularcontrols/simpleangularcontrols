@@ -3,7 +3,13 @@ import { NgGridColumnBaseCommon } from './gridcolumnbase';
 import { NgGridCommon } from './grid';
 import { convertToBoolean } from '../../utilities/convertion';
 
+/**
+ * Komponente für NgGridColumnCommon. Extends NgGridColumnBaseCommon 
+ */
 export class NgGridColumnCommon extends NgGridColumnBaseCommon {
+  /**
+   * Konstruktor
+   */
   constructor(grid: NgGridCommon, el: ElementRef) {
     super(grid, el);
   }

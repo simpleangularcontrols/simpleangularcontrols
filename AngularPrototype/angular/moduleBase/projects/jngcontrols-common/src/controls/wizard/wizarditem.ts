@@ -1,5 +1,8 @@
 import { Input } from '@angular/core';
 
+/**
+ * Basis Komponente für NgWizardItem
+ */
 export class NgWizardItemCommon {
   /**
    * Prüft ob der aktuelle Schritt aktiv ist.

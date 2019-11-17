@@ -31,6 +31,15 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
   private _autoupload: boolean = false;
   private _enablepause: boolean = true;
   private _endpoint: string = null;
+  
+  /**
+   * Resource Key für Validation Message Required bei Control
+   */
+  @Input("validationmessagerequired") _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
+  /**
+   * Resource Key für Validation Message Required in Validation Summary
+   */
+  @Input("validationmessagesummaryrequired") _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
   @Input("allowedtypes")
   set allowedtypes(types: string) {
@@ -248,7 +257,7 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
     let error: ValidationErrors | null = null;
 
     if (this._isrequired) {
-      error = Validation.required(c, this._label);
+      error = Validation.required(c, this._label, this._validationMessageRequired, this._validationMessageRequiredSummary);
     }
 
     return error;

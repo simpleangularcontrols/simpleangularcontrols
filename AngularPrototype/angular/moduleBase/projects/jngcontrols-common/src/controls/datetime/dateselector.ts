@@ -11,7 +11,9 @@ const moment = moment_;
 
 
 // #region Helper Classes
-
+/**
+ *Basis Komponente für DateSelectorItem
+ */
 class DateSelectorItem {
 
   /**
@@ -64,6 +66,9 @@ class DateSelectorItem {
 //   selector: 'ngDateSelector',
 //   templateUrl: './dateselector.html',
 // })
+/**
+ *Basis Komponente für NgDateSelector
+ */
 export class NgDateSelectorCommon implements OnInit {
 
   /**

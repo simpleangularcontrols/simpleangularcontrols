@@ -6,6 +6,9 @@ import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
 import { Observable } from 'rxjs';
 import { NgForm, AbstractControl, FormGroup, FormArray } from '@angular/forms';
 
+/**
+ * Basis Komponente für NgValidationSummary
+ */
 export class NgValidationSummaryCommon {
   /**
    * Name-Property
@@ -54,6 +57,9 @@ export class NgValidationSummaryCommon {
     return collection.filter(item => item !== null);
   }
 
+  /**
+   * Die Methode gibt Collection von Errors. Verlangt controls: Array<NgForm | FormArray> und  collection: Array<Observable<string>>
+   */
   private getErrorCollection(controls: Array<NgForm | FormArray>, collection: Array<Observable<string>>): void {
     controls.forEach(ctl => {
 

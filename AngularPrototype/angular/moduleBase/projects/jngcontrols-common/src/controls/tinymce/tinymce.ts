@@ -3,15 +3,34 @@ import { AbstractControl, ValidationErrors } from "@angular/forms";
 import { Input } from "@angular/core";
 import { Validation } from "../../validation";
 
+/**
+ * Komponente für NgTinyMceCommon. Extends NgInputBase
+ */
 export class NgTinyMceCommon extends NgInputBase<string> {
-  // TextBox Placeholder
+  /**
+   * TextBox Placeholder
+   */
   @Input("maxlength") _maxlength: number = null;
 
+
+  /**
+   * Resource Key für Validation Message Required bei Control
+   */
+  @Input("validationmessagerequired") _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
+  /**
+   * Resource Key für Validation Message Required in Validation Summary
+   */
+  @Input("validationmessagesummaryrequired") _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
+
+
+  /**
+   * Validator 
+   */
   validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = null;
 
     if (this._isrequired) {
-      error = Validation.required(c, this._label);
+      error = Validation.required(c, this._label, this._validationMessageRequired, this._validationMessageRequiredSummary);
     }
 
     return error;

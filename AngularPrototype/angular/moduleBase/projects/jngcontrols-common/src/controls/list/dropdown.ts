@@ -11,12 +11,14 @@ import { NgFormularCommon } from '../form/form';
  */
 export function _buildValueString(id: string | null, value: any): string {
   // Wenn ID null ist Object zurückgeben
-  if (id == null)
+  if (id == null) {
     return `${value}`;
+  }
 
   // Mapping Objekt zu String
-  if (value && typeof value === 'object')
+  if (value && typeof value === 'object') {
     value = 'Object';
+  }
 
   // String als ID
   return `${id}: ${value}`.slice(0, 50);
@@ -57,6 +59,19 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
     }
     this._compareWith = fn;
   }
+
+
+  /**
+   * Resource Key für Validation Message Required bei Control
+   */
+  @Input("validationmessagerequired") _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
+  /**
+   * Resource Key für Validation Message Required in Validation Summary
+   */
+  @Input("validationmessagesummaryrequired") _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
+
+
+
   /**
    * Konstruktor
    * @param parent 
@@ -64,7 +79,7 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
    * @param _renderer 
    * @param _elementRef 
    */
-  constructor( @Host() parent: NgFormularCommon, injector: Injector, private _renderer: Renderer2, private _elementRef: ElementRef) {
+  constructor(@Host() parent: NgFormularCommon, injector: Injector, private _renderer: Renderer2, private _elementRef: ElementRef) {
     super(parent, injector);
   }
   /**
@@ -81,8 +96,13 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
   writeValue(value: any) {
     // Select Item aus Control lesen
     let selectItem: any = this._elementRef.nativeElement.getElementsByTagName("select")[0];
-
+    /**
+     * Id vom Select Item
+     */
     let id: string | null = this.getOptionId(value);
+    /**
+     * Value String
+     */
     let valueString = _buildValueString(id, value);
 
     if (selectItem !== undefined)
@@ -98,7 +118,7 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
   }
   /**
    * Nimmt das ID vom Option
-   * @param value 
+   * @param value
    */
   private getOptionId(value: any): string | null {
     for (const id of Array.from(this._optionMap.keys())) {
@@ -129,9 +149,8 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
     let error: ValidationErrors | null = null;
 
     if (this._isrequired) {
-      error = Validation.required(c, this._label);
+      error = Validation.required(c, this._label, this._validationMessageRequired, this._validationMessageRequiredSummary);
     }
-
     return error;
   }
 }
@@ -168,12 +187,6 @@ export class NgDropdownOptionCommon implements OnDestroy {
 
     this._dropdown._optionMap.set(this.id, value);
     this._setElementValue(_buildValueString(this.id, value));
-
-    // Item auf Selected stellen, wenn Wert mit Dropdown übereinstimmt.
-    if (this._dropdown && this._dropdown.value === value) {
-      this._renderer.setProperty(this._element.nativeElement, 'selected', true);
-    }
-
   }
   /**
    * Wert-Setter
@@ -181,12 +194,6 @@ export class NgDropdownOptionCommon implements OnDestroy {
   @Input("value")
   set value(value: any) {
     this._setElementValue(value);
-
-    // Item auf Selected stellen, wenn Wert mit Dropdown übereinstimmt.
-    if (this._dropdown && this._dropdown.value === value) {
-      this._renderer.setProperty(this._element.nativeElement, 'selected', true);
-    }
-
   }
   /**
    * Den Wert vom Option-Element einstellen

@@ -2,6 +2,9 @@ import { AfterContentInit, QueryList, Input, Output, EventEmitter } from '@angul
 import { ControlValueAccessor } from '@angular/forms';
 import { NgWizardItemCommon } from './wizarditem';
 
+/**
+ * Base Komponente für NgWizardCommon
+ */
 export abstract class NgWizardCommon implements AfterContentInit, ControlValueAccessor {
   /**
    * Abstrakte QueryList von NgWizardItemCommon

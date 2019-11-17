@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
 /**
  * Injection Token für Language Resource Service
  */
-export const LANGUAGE_SERVICE = new InjectionToken<LanguageResourceService>('LanguageResourceService');
+export const LANGUAGERESOURCE_SERVICE = new InjectionToken<LanguageResourceService>('LanguageResourceService');
 
 /**
  * Base Service für Localisation von Fehlermeldungen
@@ -81,6 +81,10 @@ export class InternalLanguageResourceService extends LanguageResourceService {
     this.data.get('de').set('VALIDATION_ERROR_FILESMIN', 'Es müssen min. {{MINFILES}} Dateien hochgeladen sein.');
     this.data.get('de').set('VALIDATION_ERROR_SUMMARY_FILESMIN', 'Feld "{{FIELD}}" muss min. {{MINFILES}} Dateien hochgeladen haben.');
 
+    this.data.get('de').set('VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY', 'Es muss min. 1 Sprache erfasst sein.');
+    this.data.get('de').set('VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY', 'Feld "{{FIELD}}" muss min. 1 Sprache erfasst haben.');
+    this.data.get('de').set('VALIDATION_ERROR_MULTILANGUAGEREQUIRED', 'Es müssen alle Sprachen erfasst sein.');
+    this.data.get('de').set('VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED', 'Feld "{{FIELD}}" muss alle Sprachen erfasst haben.');
 
     // EN
     this.data.set('en', new Map<string, string>());

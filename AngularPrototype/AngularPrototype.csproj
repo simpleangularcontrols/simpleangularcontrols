@@ -199,6 +199,7 @@
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\input\inputsearch.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\list\dropdown.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\list\listbox.html" />
+    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\multilanguage\multilanguageinput.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\static\formcontainer.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\static\staticlabel.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\tabs\tab.html" />
@@ -213,6 +214,7 @@
     <Content Include="angular\moduleBase\src\app\app.component.html" />
     <Content Include="angular\moduleBase\src\app\controls\dialog.html" />
     <Content Include="angular\moduleBase\src\app\controls\grid.html" />
+    <Content Include="angular\moduleBase\src\app\controls\multilanguageinput.component.html" />
     <Content Include="angular\moduleBase\src\app\controls\subform.component.html" />
     <Content Include="angular\moduleBase\src\app\modules\UserComponent.html" />
     <Content Include="angular\moduleBase\src\index.html" />
@@ -230,6 +232,13 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="icons\dialog\error.png" />
+    <Content Include="icons\dialog\forbidden.png" />
+    <Content Include="icons\dialog\information.png" />
+    <Content Include="icons\dialog\question.png" />
+    <Content Include="icons\dialog\stop.png" />
+    <Content Include="icons\dialog\unknown.png" />
+    <Content Include="icons\dialog\warning.png" />
     <Content Include="Layout\css\bootstrap.css" />
     <Content Include="Layout\css\font-awesome.min.css" />
     <Content Include="Layout\css\nativestyles.css" />
@@ -603,16 +612,20 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\grid\gridimage.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\grid\paging.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\input\inputsearch.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\multilanguage\multilanguage.module.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\multilanguage\multilanguageinput.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\static\formcontainer.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\static\staticlabel.module.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\static\staticlabel.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\grid\gridimage.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\input\inputsearch.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\multilanguage\multilanguageinput.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\static\formcontainer.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\upload\uploadmultiple.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\upload\uploadsingle.ts" />
-    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\ilanguageresource.ts" />
-    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\iuploadcontrol.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\ILanguageResource.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\ILanguageService.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\IUploadControl.ts" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -832,12 +845,14 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\validation\validationsummary.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\wizard\wizard.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\wizard\wizarditem.ts" />
-    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\iconfirmcomponent.ts" />
-    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\idatetimecontrol.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\IConfirmComponent.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\IDateTimeControl.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\models\LanguageModel.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\public_api.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\confirm\confirm.service.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\services\index.ts" />
-    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\services\languageresource.service.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\services\Language.Service.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\services\LanguageResource.Service.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\test.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\utilities\Convertion.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\utilities\datatypes.ts" />
@@ -850,6 +865,7 @@
     <TypeScriptCompile Include="angular\moduleBase\src\app\app.module.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\controls\dialog.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\controls\grid.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\src\app\controls\multilanguageinput.component.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\controls\subform.component.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\modules\UserComponent.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\services\AuthenticationService.ts" />

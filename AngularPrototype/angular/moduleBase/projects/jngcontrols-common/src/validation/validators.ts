@@ -2,6 +2,7 @@ import { AbstractControl, ValidationErrors, Validators, ValidatorFn } from "@ang
 import { IDateTimeControl } from "../interfaces/idatetimecontrol";
 import { IUploadControl } from '../interfaces/iuploadcontrol';
 import * as moment_ from 'moment';
+import { LanguageModel } from '../models/languagemodel';
 /**
  * Moment
  */
@@ -324,4 +325,42 @@ export class Validation {
     }
   }
 
+  static multilanguageRequired(control: AbstractControl, languages: LanguageModel[], fieldName: string): ValidationErrors | null {
+    let found = false;
+
+    languages.forEach((item: LanguageModel) => {
+      if (control.value) {
+        if (control.value[item.IcoCode] === undefined || control.value[item.IcoCode] === null || control.value[item.IcoCode] === '') {
+          found = true;
+        }
+      }
+    });
+
+    if (found) {
+      return Validation.GetValidationErrorItem('required', 'VALIDATION_ERROR_MULTILANGUAGEREQUIRED', 'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED', fieldName)
+    } else {
+      return null;
+    }
+  }
+
+
+  static multilanguageRequiredAny(control: AbstractControl, languages: LanguageModel[], fieldName: string): ValidationErrors | null {
+    let found = false;
+
+    languages.forEach((item: LanguageModel) => {
+
+      if (control.value) {
+        if (control.value[item.IcoCode] !== undefined && control.value[item.IcoCode] !== null && control.value[item.IcoCode] !== '') {
+          found = true;
+        }
+      }
+
+    });
+
+    if (!found) {
+      return Validation.GetValidationErrorItem('requiredany', 'VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY', 'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY', fieldName)
+    } else {
+      return null;
+    }
+  }
 }

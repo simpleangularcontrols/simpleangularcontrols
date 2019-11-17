@@ -2,7 +2,7 @@ import { Input, Host, OnInit, Injector } from '@angular/core';
 import { ControlValueAccessor, Validator, AbstractControl, NgControl, ValidationErrors } from '@angular/forms';
 import { NgFormularCommon } from '../controls/form/form';
 import { ILanguageResourceService } from '../interfaces/ilanguageresource';
-import { InternalLanguageResourceService, LANGUAGE_SERVICE } from '../services/languageresource.service';
+import { InternalLanguageResourceService, LANGUAGERESOURCE_SERVICE } from '../services/languageresource.service';
 import { ValidationErrorItem } from '../validation';
 import { Observable } from 'rxjs';
 import { convertToBoolean } from '../utilities/Convertion';
@@ -39,7 +39,7 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
    */
   constructor(@Host() parent: NgFormularCommon, private injector: Injector) {
     this.parent = parent;
-    this.lngResourceService = injector.get(LANGUAGE_SERVICE, new InternalLanguageResourceService());
+    this.lngResourceService = injector.get(LANGUAGERESOURCE_SERVICE, new InternalLanguageResourceService());
   }
 
   // #endregion

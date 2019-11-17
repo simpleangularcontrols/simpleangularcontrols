@@ -18,5 +18,5 @@ export { jNetworkBootstrap4ConfirmModule, ServiceConfirm } from './controls/conf
 export * from './controls/form/form.module';
 export * from './controls/form/form';
 export * from './controls/grid/grid.module';
-
+export * from './controls/multilanguage/multilanguage.module';
 

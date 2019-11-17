@@ -50,12 +50,12 @@ export { NgWizardItemCommon } from './controls/wizard/wizarditem';
 
 // TinyMCE
 export { NgTinyMceCommon } from './controls/tinymce/tinymce';
-export { jNetworkTinyMceEditorModule } from './controls/tinymce/tinymceeditor.module'
+export { jNetworkTinyMceEditorModule } from './controls/tinymce/tinymceeditor.module';
 
 //TreeView
-export { NgTreeViewCommon } from './controls/treeview/treeview'
-export { NgTreeViewChildCommon } from './controls/treeview/treeviewchild'
-export { NgTreeItemActionCommon } from './controls/treeview/ngtreeitemaction'
+export { NgTreeViewCommon } from './controls/treeview/treeview';
+export { NgTreeViewChildCommon } from './controls/treeview/treeviewchild';
+export { NgTreeItemActionCommon } from './controls/treeview/ngtreeitemaction';
 
 // Tooltip
 export { NgTooltipCommon } from './controls/tooltip/tooltip';
@@ -65,6 +65,9 @@ export { NgUploadSingleCommon } from './controls/upload/uploadsingle';
 export { NgUploadMultipleCommon } from './controls/upload/uploadmultiple';
 export { NgUploadFile } from './common/baseuploadcontrol';
 
+//MultiLanguage classes
+export { NgMultilanguageInputCommon } from './controls/multilanguage/multilanguageinput';
+
 // Confirm Service
 export * from './controls/confirm/confirm.service';
 export { NgConfirmCommon } from './controls/confirm/confirm';
@@ -73,13 +76,14 @@ export * from './interfaces/iconfirmcomponent';
 
 // Services
 export * from './interfaces/ilanguageresource';
-export { LanguageResourceService, LANGUAGE_SERVICE } from './services';
+export * from './interfaces/ilanguageservice';
+export { LanguageResourceService, LANGUAGERESOURCE_SERVICE, LanguageService, LANGUAGE_SERVICE } from './services';
 
 // Export Validators
 export * from './validation';
 
 // Export of Modules
-export * from './controls/list/list.module'
+export * from './controls/list/list.module';
 
 // Export Utlities
 export * from './utilities/Convertion';

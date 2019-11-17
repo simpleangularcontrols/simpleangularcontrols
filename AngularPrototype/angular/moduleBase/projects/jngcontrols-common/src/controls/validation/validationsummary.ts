@@ -1,7 +1,7 @@
 import { NgFormularCommon } from '../form/form';
 import { Input, Injector } from '@angular/core';
 import { ValidationErrorItem } from '../../validation';
-import { InternalLanguageResourceService, LANGUAGE_SERVICE } from '../../services/languageresource.service';
+import { InternalLanguageResourceService, LANGUAGERESOURCE_SERVICE } from '../../services/languageresource.service';
 import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
 import { Observable } from 'rxjs';
 import { NgForm, AbstractControl, FormGroup, FormArray } from '@angular/forms';
@@ -34,7 +34,7 @@ export class NgValidationSummaryCommon {
    */
   constructor(parent: NgFormularCommon, injector: Injector) {
     this.parent = parent;
-    this.lngResourceService = injector.get(LANGUAGE_SERVICE, new InternalLanguageResourceService());
+    this.lngResourceService = injector.get(LANGUAGERESOURCE_SERVICE, new InternalLanguageResourceService());
   }
 
   // #endregion

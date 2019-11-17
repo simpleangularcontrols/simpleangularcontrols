@@ -1,0 +1,12 @@
+<div>Debug:</div>
+<div>{{ ValuesItem | json}}</div>
+<form #formMultiLanguage="NgFormular" labelsize="3">
+  <ngValidationSummary></ngValidationSummary>
+  <ngMultilanguageInput name="mlInput1" [(ngModel)]="ValuesItem.Model1" label="Input 1"></ngMultilanguageInput>
+  <ngMultilanguageInput name="mlInput2" [(ngModel)]="ValuesItem.Model2" [requiredany]="true" label="Input 2"></ngMultilanguageInput>
+  <ngMultilanguageInput name="mlInput3" [(ngModel)]="ValuesItem.Model3" [isrequired]="true" label="Input 3"></ngMultilanguageInput>
+  <ngMultilanguageInput name="mlInput4" [(ngModel)]="ValuesItem.Model4" [isrequired]="true" label="Input 4" [disabled]="true"></ngMultilanguageInput>
+
+  <ngButton name="speichern" text="Speichern" (onclick)="save()"></ngButton>
+  <div>Form State: {{formMultiLanguage.form.valid}}</div>
+</form>

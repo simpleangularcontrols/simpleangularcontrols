@@ -67,6 +67,7 @@ export { NgUploadFile } from './common/baseuploadcontrol';
 
 // MultiLanguage classes
 export { NgMultilanguageInputCommon } from './controls/multilanguage/multilanguageinput';
+export { NgMultilanguageInputAreaCommon } from './controls/multilanguage/multilanguageinputarea';
 
 // Confirm Service
 export * from './controls/confirm/confirm.service';

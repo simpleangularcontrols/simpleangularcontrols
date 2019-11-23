@@ -26,7 +26,8 @@ export class ExampleMultiLanguageInput {
     Model1: new MultiLangauageDataModel(),
     Model2: new MultiLangauageDataModel(),
     Model3: new MultiLangauageDataModel(),
-    Model4: { de: 'Wert Deutsch', en: 'Wert Englisch' }
+    Model4: { de: 'Wert Deutsch', en: 'Wert Englisch' },
+    Model5: { de: 'Wert Deutsch', en: 'Wert Englisch' }
   };
 
 }

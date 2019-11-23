@@ -6,6 +6,7 @@
   <ngMultilanguageInput name="mlInput2" [(ngModel)]="ValuesItem.Model2" [requiredany]="true" label="Input 2"></ngMultilanguageInput>
   <ngMultilanguageInput name="mlInput3" [(ngModel)]="ValuesItem.Model3" [isrequired]="true" label="Input 3"></ngMultilanguageInput>
   <ngMultilanguageInput name="mlInput4" [(ngModel)]="ValuesItem.Model4" [isrequired]="true" label="Input 4" [disabled]="true"></ngMultilanguageInput>
+  <ngMultilanguageInputArea name="mlInput5" [(ngModel)]="ValuesItem.Model5" [isrequired]="true" label="Area 5"></ngMultilanguageInputArea>
 
   <ngButton name="speichern" text="Speichern" (onclick)="save()"></ngButton>
   <div>Form State: {{formMultiLanguage.form.valid}}</div>

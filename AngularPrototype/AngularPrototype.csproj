@@ -201,6 +201,7 @@
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\input\inputsearch.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\list\dropdown.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\list\listbox.html" />
+    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\multilanguage\multilanguageinputarea.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\multilanguage\multilanguageinput.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\static\formcontainer.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\static\staticlabel.html" />
@@ -617,12 +618,14 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\grid\paging.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\input\inputsearch.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\multilanguage\multilanguage.module.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\multilanguage\multilanguageinputarea.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\multilanguage\multilanguageinput.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\static\formcontainer.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\static\staticlabel.module.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\static\staticlabel.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\grid\gridimage.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\input\inputsearch.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\multilanguage\multilanguageinputarea.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\multilanguage\multilanguageinput.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\static\formcontainer.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\upload\uploadmultiple.ts" />

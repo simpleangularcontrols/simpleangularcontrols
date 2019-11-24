@@ -5,7 +5,7 @@ export class LanguageModel {
   /**
    * ISO Code zu Sprache
    */
-  public IcoCode: string;
+  public IsoCode: string;
   /**
    * Icon für Sprache
    */

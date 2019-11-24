@@ -100,7 +100,7 @@ export class NgMultilanguageInputAreaCommon extends NgInputBase<any> {
 
   get LanguageValue(): string {
     if (this.value) {
-      const currentIsoCode: string = this.selectedLanguage ? this.selectedLanguage.IcoCode : null;
+      const currentIsoCode: string = this.selectedLanguage ? this.selectedLanguage.IsoCode : null;
 
       // Fallback falls keine Selektierte Sprache
       if (currentIsoCode === null) {
@@ -115,7 +115,7 @@ export class NgMultilanguageInputAreaCommon extends NgInputBase<any> {
 
   public SetLanguageValue(value: string) {
     if (this.value) {
-      const currentIsoCode: string = this.selectedLanguage ? this.selectedLanguage.IcoCode : null;
+      const currentIsoCode: string = this.selectedLanguage ? this.selectedLanguage.IsoCode : null;
 
       // Fallback falls keine Selektierte Sprache
       if (currentIsoCode === null) {
@@ -138,7 +138,7 @@ export class NgMultilanguageInputAreaCommon extends NgInputBase<any> {
         return true;
       }
 
-      return this.value[sprache.IcoCode] === undefined || this.value[sprache.IcoCode] === '' || this.value[sprache.IcoCode] === null;
+      return this.value[sprache.IsoCode] === undefined || this.value[sprache.IsoCode] === '' || this.value[sprache.IsoCode] === null;
     } else {
       return true;
     }
@@ -155,7 +155,7 @@ export class NgMultilanguageInputAreaCommon extends NgInputBase<any> {
           return;
         }
 
-        if (this.value[itm.IcoCode] === undefined || this.value[itm.IcoCode] === '' || this.value[itm.IcoCode] === null) {
+        if (this.value[itm.IsoCode] === undefined || this.value[itm.IsoCode] === '' || this.value[itm.IsoCode] === null) {
           found = true;
           return;
         }

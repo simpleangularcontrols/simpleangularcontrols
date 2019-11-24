@@ -51,12 +51,12 @@ export class InternalLanguageService extends LanguageService {
       const result: LanguageModel[] = [];
 
       const de: LanguageModel = new LanguageModel();
-      de.IcoCode = 'de';
+      de.IsoCode = 'de';
       de.Icon = '/icons/de.png';
       de.Text = 'Deutsch';
 
       const en: LanguageModel = new LanguageModel();
-      en.IcoCode = 'en';
+      en.IsoCode = 'en';
       en.Icon = '/icons/en.png';
       en.Text = 'Englisch';
 

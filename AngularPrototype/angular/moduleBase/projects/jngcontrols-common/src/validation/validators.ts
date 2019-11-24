@@ -354,7 +354,7 @@ export class Validation {
 
     languages.forEach((item: LanguageModel) => {
       if (control.value) {
-        if (control.value[item.IcoCode] === undefined || control.value[item.IcoCode] === null || control.value[item.IcoCode] === '') {
+        if (control.value[item.IsoCode] === undefined || control.value[item.IsoCode] === null || control.value[item.IsoCode] === '') {
           found = true;
         }
       }
@@ -382,7 +382,7 @@ export class Validation {
     languages.forEach((item: LanguageModel) => {
 
       if (control.value) {
-        if (control.value[item.IcoCode] !== undefined && control.value[item.IcoCode] !== null && control.value[item.IcoCode] !== '') {
+        if (control.value[item.IsoCode] !== undefined && control.value[item.IsoCode] !== null && control.value[item.IsoCode] !== '') {
           found = true;
         }
       }

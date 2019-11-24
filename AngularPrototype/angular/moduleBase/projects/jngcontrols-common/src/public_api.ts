@@ -80,6 +80,9 @@ export * from './interfaces/ilanguageresource';
 export * from './interfaces/ilanguageservice';
 export { LanguageResourceService, LANGUAGERESOURCE_SERVICE, LanguageService, LANGUAGE_SERVICE } from './services';
 
+// Export Models
+export * from './models/LanguageModel';
+
 // Export Validators
 export * from './validation';
 

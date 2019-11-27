@@ -20,6 +20,8 @@ export class ExampleMultiLanguageInput {
 
   public save(): void {
 
+    this.formular.markAsTouched();
+
   }
 
   ValuesItem = {

@@ -23,6 +23,8 @@ import { ExampleDialog } from './controls/dialog';
 import { SubFormComponent } from './controls/subform.component';
 import { ExampleMultiLanguageInput } from './controls/multilanguageinput.component';
 
+import { LANGUAGE_SERVICE } from '@jnetwork/jngcontrols-common';
+import { ControlsLanguageService } from './services/language.service';
 // import localeDeCh from '@angular/common/locales/de-CH';
 
 const NgDirectives = [
@@ -129,7 +131,8 @@ import { UploadxModule } from 'ngx-uploadx';
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true
-  }], // /*{ provide: LOCALE_ID, useValue: "de-CH" }*/],
+  },
+{ provide: LANGUAGE_SERVICE, useClass: ControlsLanguageService }], // /*{ provide: LOCALE_ID, useValue: "de-CH" }*/],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

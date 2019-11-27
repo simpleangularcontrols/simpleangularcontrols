@@ -558,6 +558,7 @@
     <Content Include="angular\moduleBase\LICENSE.md" />
     <Content Include="angular\moduleBase\TODO.md" />
     <Content Include="AdminLte.Master" />
+    <Content Include="languages.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="gulpfile.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -883,6 +884,7 @@
     <TypeScriptCompile Include="angular\moduleBase\src\app\controls\subform.component.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\modules\UserComponent.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\services\AuthenticationService.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\src\app\services\language.service.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\services\TokenInterceptor.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\services\UserService.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\environments\environment.prod.ts" />

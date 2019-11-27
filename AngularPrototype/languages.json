@@ -1,0 +1,17 @@
+﻿[
+  {
+    "IsoCode": "de",
+    "Icon": "/icons/languages/de.png",
+    "Text": "Deutsch"
+  },
+  {
+    "IsoCode": "en",
+    "Icon": "/icons/languages/en.png",
+    "Text": "English"
+  },
+  {
+    "IsoCode": "fr",
+    "Icon": "/icons/languages/fr.png",
+    "Text": "Francais"
+  }
+]

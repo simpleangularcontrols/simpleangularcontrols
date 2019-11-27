@@ -29,20 +29,20 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input('validationmessagerequired') _validationMessageRequired: string = 'VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY';
+  @Input('validationmessagerequired') _validationMessageRequired: string = 'VALIDATION_ERROR_MULTILANGUAGEREQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input('validationmessagesummaryrequired') _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY';
+  @Input('validationmessagesummaryrequired') _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED';
 
   /**
    * Resource Key für Validation Message Pattern bei Control
    */
-  @Input('validationmessagerequiredany') _validationMessageRequiredAny: string = 'VALIDATION_ERROR_MULTILANGUAGEREQUIRED';
+  @Input('validationmessagerequiredany') _validationMessageRequiredAny: string = 'VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY';
   /**
    * Resource Key für Validation Message Pattern in Validation Summary
    */
-  @Input('validationmessagesummaryrequiredany') _validationMessageRequiredAnySummary: string = 'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED';
+  @Input('validationmessagesummaryrequiredany') _validationMessageRequiredAnySummary: string = 'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY';
 
 
   /**
@@ -64,6 +64,8 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
 
       if (this.languages.length > 0) {
         this.selectedLanguage = this.languages[0];
+        // Control Validierung ausführen, da Wert potentiell bereits gesetzt sein kann
+        this.UpdateValueAndValidity();
       }
 
     });

@@ -77,7 +77,6 @@ export class NgFormularCommon {
    * Markiert alle Controls innerhalb des Formulares als Touched
    */
   public markAsTouched(): void {
-
     if (this.form && this.form.invalid) {
       this.markAsTouchedInternal(this.form.controls);
     }
@@ -86,8 +85,16 @@ export class NgFormularCommon {
   /**
    * Aktualisiert die Werte und den Gültigkeitsstatus des Formulars
    */
-  public updateValueAndValidity(): void {
+  public updateValueAndValidity(markAsTouched?: boolean = true): void {
+    // Update all Controls
     this.updateValueAndValidityInternal(this.form.controls);
+    // Update Main Form
+    this.getForm().form.updateValueAndValidity();
+
+    // Mark all Controls as Touched
+    if (markAsTouched) {
+      this.markAsTouched();
+    }
   }
 
   /**

@@ -85,7 +85,7 @@ export class NgFormularCommon {
   /**
    * Aktualisiert die Werte und den Gültigkeitsstatus des Formulars
    */
-  public updateValueAndValidity(markAsTouched?: boolean = true): void {
+  public updateValueAndValidity(markAsTouched: boolean = true): void {
     // Update all Controls
     this.updateValueAndValidityInternal(this.form.controls);
     // Update Main Form

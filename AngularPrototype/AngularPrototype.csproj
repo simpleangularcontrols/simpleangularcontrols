@@ -521,7 +521,6 @@
     <Content Include="angular\moduleBase\.editorconfig" />
     <Content Include="angular\moduleBase\.gitignore" />
     <Content Include="angular\moduleBase\angular.json" />
-    <Content Include="angular\moduleBase\package-lock.json" />
     <Content Include="angular\moduleBase\package.json" />
     <Content Include="angular\moduleBase\README.md" />
     <Content Include="angular\moduleBase\tsconfig.json" />

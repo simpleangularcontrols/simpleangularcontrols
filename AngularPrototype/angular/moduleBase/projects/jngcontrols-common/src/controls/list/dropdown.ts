@@ -60,17 +60,14 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
     this._compareWith = fn;
   }
 
-
   /**
-   * Resource Key für Validation Message Required bei Control
-   */
+ * Resource Key für Validation Message Required bei Control
+ */
   @Input("validationmessagerequired") _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
   @Input("validationmessagesummaryrequired") _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
-
-
 
   /**
    * Konstruktor
@@ -79,9 +76,10 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
    * @param _renderer 
    * @param _elementRef 
    */
-  constructor(@Host() parent: NgFormularCommon, injector: Injector, private _renderer: Renderer2, private _elementRef: ElementRef) {
+  constructor( @Host() parent: NgFormularCommon, injector: Injector, private _renderer: Renderer2, private _elementRef: ElementRef) {
     super(parent, injector);
   }
+
   /**
    * Wert einstellen
    * @param value - Wert
@@ -89,11 +87,41 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
   setValue(value: string) {
     super.setValue(this.getOptionValue(value));
   }
+
   /**
    * Wert schreiben
    * @param value - Wert
    */
   writeValue(value: any) {
+    this.setSelectedValue(value);
+    super.writeValue(value);
+  }
+  /**
+   * Registriert das OptionID-Counter als String
+   */
+  registerOption(): string {
+    return (this._optionIdCounter++).toString();
+  }
+
+  /**
+   * Methode die von Options aufgerufen wird, um das Mapping zwischen Dropdown Value und Value herzustellen.
+   * @param id: Id aus Options
+   * @param value: Value
+   */
+  public setOptionMap(id: string, value: any): void {
+    this._optionMap.set(id, value);
+
+    // Selected Value auf Control aktualisieren, wenn Value dem SelectedValue entspricht
+    if (this.value === value) {
+      this.setSelectedValue(value);
+    }
+  }
+
+  /**
+   * Setzt den Selected Value auf dem Control
+   * @param value Value
+   */
+  private setSelectedValue(value: any): void {
     // Select Item aus Control lesen
     let selectItem: any = this._elementRef.nativeElement.getElementsByTagName("select")[0];
     /**
@@ -108,14 +136,9 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
     if (selectItem !== undefined)
       this._renderer.setProperty(selectItem, 'value', valueString);
 
-    super.writeValue(value);
+    console.log('setSelectedValue');
   }
-  /**
-   * Registriert das OptionID-Counter als String
-   */
-  registerOption(): string {
-    return (this._optionIdCounter++).toString();
-  }
+
   /**
    * Nimmt das ID vom Option
    * @param value
@@ -185,8 +208,10 @@ export class NgDropdownOptionCommon implements OnDestroy {
     if (this._dropdown == null)
       return;
 
-    this._dropdown._optionMap.set(this.id, value);
+    this._dropdown.setOptionMap(this.id, value);
     this._setElementValue(_buildValueString(this.id, value));
+
+    this._dropdown.writeValue(this._dropdown.value);
   }
   /**
    * Wert-Setter

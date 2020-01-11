@@ -10,6 +10,12 @@ interface KeyValue {
   text: string
 }
 
+interface KeyValueNumeric {
+  label: string,
+  value: number,
+  text: string
+}
+
 interface KeyValue2 extends KeyValue {
   enabled: boolean
 }
@@ -99,6 +105,7 @@ class formdata {
   dropdown9: string = '';
   dropdown10: string = '';
   dropdown11: string = '';
+  dropdown12: number = 2;
 
   radiobuttons1: string = '3';
   radiobuttons2: string = 'o1';
@@ -113,6 +120,7 @@ class formdata {
 
   dropdownitems: KeyValue[] = [{ label: 'Wert 1', value: 'v1', text: 'Text 1' }, { label: 'Wert 2', value: 'v2', text: 'Text 2' }, { label: 'Wert 3', value: 'v3', text: 'Text 3' }];
   dropdownitems2: KeyValue2[] = [{ label: 'Wert 1', value: 'v1', text: 'Text 1', enabled: true }, { label: 'Wert 2', value: 'v2', text: 'Text 2', enabled: false }, { label: 'Wert 3', value: 'v3', text: 'Text 3', enabled: true }];
+  dropdownitems3: KeyValueNumeric[] = [{ label: 'Wert 1', value: 1, text: 'Text 1' }, { label: 'Wert 2', value: 2, text: 'Text 2' }, { label: 'Wert 3', value: 3, text: 'Text 3' }];
   groupitems: GroupElement[] = [{
     label: 'Group 1', items: [{ label: 'Wert 1', value: 'v1', text: 'Text 1' }, { label: 'Wert 2', value: 'v2', text: 'Text 2' }]
   }, {
@@ -303,6 +311,13 @@ export class AppComponent {
     }
 
     this.MannschaftsModel = model1;
+
+  }
+
+  SetDropdownProperties(): void {
+
+    this.values.dropdownitems3 = [{ label: 'Wert 1', value: 1, text: 'Text 1' }, { label: 'Wert 2', value: 2, text: 'Text 2' }, { label: 'Wert 3', value: 3, text: 'Text 3' }];
+    this.values.dropdown12 = 2;
 
   }
 }

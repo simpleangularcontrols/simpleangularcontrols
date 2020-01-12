@@ -558,6 +558,7 @@
     <Content Include="angular\moduleBase\TODO.md" />
     <Content Include="AdminLte.Master" />
     <Content Include="languages.json" />
+    <Content Include="angular\moduleBase\build.package.bat" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="gulpfile.js" />
     <Content Include="Scripts\bootstrap.js" />

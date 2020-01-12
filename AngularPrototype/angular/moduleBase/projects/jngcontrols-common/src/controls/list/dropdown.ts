@@ -135,8 +135,6 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
 
     if (selectItem !== undefined)
       this._renderer.setProperty(selectItem, 'value', valueString);
-
-    console.log('setSelectedValue');
   }
 
   /**

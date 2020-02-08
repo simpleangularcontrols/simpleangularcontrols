@@ -1,7 +1,7 @@
-import { AbstractControl, ValidationErrors, } from "@angular/forms";
-import { NgInputCommon } from "./input";
-import { Validation } from "../../validation";
-import { Input } from "@angular/core";
+import { AbstractControl, ValidationErrors, } from '@angular/forms';
+import { NgInputCommon } from './input';
+import { Validation } from '../../validation';
+import { Input } from '@angular/core';
 
 /**
  * Basis Komponente für NgInputEmail
@@ -11,11 +11,11 @@ export class NgInputEmailCommon extends NgInputCommon {
   /**
    * Resource Key für Validation Message Email bei Control
    */
-  @Input("validationmessageemail") _validationMessageEmail: string = 'VALIDATION_ERROR_EMAIL';
+  @Input('validationmessageemail') _validationMessageEmail: string = 'VALIDATION_ERROR_EMAIL';
   /**
    * Resource Key für Validation Message Email in Validation Summary
    */
-  @Input("validationmessagesummaryemail") _validationMessageEmailSummary: string = 'VALIDATION_ERROR_SUMMARY_EMAIL';
+  @Input('validationmessagesummaryemail') _validationMessageEmailSummary: string = 'VALIDATION_ERROR_SUMMARY_EMAIL';
 
 
   /**

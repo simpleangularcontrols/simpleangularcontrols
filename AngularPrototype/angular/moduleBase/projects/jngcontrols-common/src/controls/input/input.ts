@@ -10,31 +10,31 @@ export class NgInputCommon extends NgInputBase<string> {
   /**
    * Max länge an Zeichen für Eingabefeld
    */
-  @Input("maxlength") _maxlength: number = null;
+  @Input('maxlength') _maxlength: number = null;
 
   /**
    * Fix breite für das Control definieren.
    */
-  @Input("controlwidth") _controlwidth: string = null;
+  @Input('controlwidth') _controlwidth: string = null;
 
 
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input("validationmessagerequired") _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
+  @Input('validationmessagerequired') _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input("validationmessagesummaryrequired") _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
+  @Input('validationmessagesummaryrequired') _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
   /**
    * Resource Key für Validation Message Pattern bei Control
    */
-  @Input("validationmessagepattern") _validationMessagePattern: string = 'VALIDATION_ERROR_PATTERN';
+  @Input('validationmessagepattern') _validationMessagePattern: string = 'VALIDATION_ERROR_PATTERN';
   /**
    * Resource Key für Validation Message Pattern in Validation Summary
    */
-  @Input("validationmessagesummarypattern") _validationMessagePatternSummary: string = 'VALIDATION_ERROR_SUMMARY_PATTERN';
+  @Input('validationmessagesummarypattern') _validationMessagePatternSummary: string = 'VALIDATION_ERROR_SUMMARY_PATTERN';
 
 
   /**

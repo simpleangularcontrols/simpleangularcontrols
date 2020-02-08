@@ -1,4 +1,4 @@
-import { NgInputDecimalCommon } from "./inputdecimal";
+import { NgInputDecimalCommon } from './inputdecimal';
 
 /**
  * Basis Komponente für NgInputCurrency

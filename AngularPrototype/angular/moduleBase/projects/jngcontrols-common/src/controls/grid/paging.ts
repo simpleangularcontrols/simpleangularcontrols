@@ -1,6 +1,6 @@
-import { Input, Output, EventEmitter } from "@angular/core";
-import { PagerData } from "./model";
-import { Interpolation } from "../../utilities/interpolation";
+import { Input, Output, EventEmitter } from '@angular/core';
+import { PagerData } from './model';
+import { Interpolation } from '../../utilities/interpolation';
 
 /**
  * Basiskomponente für Paging
@@ -51,7 +51,7 @@ export abstract class NgPagingCommon {
   /**
    * Property für Pager Data
    */
-  @Input("pagerdata")
+  @Input('pagerdata')
   set PagerData(p: PagerData) {
     if (p != null) {
       this.totalRowCount = p.TotalRowCount;
@@ -64,35 +64,49 @@ export abstract class NgPagingCommon {
   }
 
   /**
-   * Text in Pager für "Seite x von y".
-   *
+   * Text in Pager für 'Seite x von y'.
    * Folgende Interpolation Texte sind vorhanden:
    * {{CURRENTPAGE}}: Aktuelle Seite
    * {{TOTALPAGES}}: Anzahl Seiten
-   * 
    */
-  @Input("pagingtext")
-  public pagingText: string = "Seite {{CURRENTPAGE}} von {{TOTALPAGES}}";
+  @Input('pagingtext')
+  public pagingText: string = 'Seite {{CURRENTPAGE}} von {{TOTALPAGES}}';
 
   /**
    * Text in Page für Anzahl Seitenelemente pro Seite
-   *
    * Folgende Interpolation Texte sind vorhanden:
    * {{PAGESIZE}}: Anzahl Elemente pro Seite
-   * 
    */
-  @Input("pagesizetext")
-  public pageSizeText: string = "Einträge pro Seite {{PAGESIZE}}";
+  @Input('pagesizetext')
+  public pageSizeText: string = 'Einträge pro Seite {{PAGESIZE}}';
+
+  /**
+  * Name des Grids. Wird für ID und Name Bezeichnungen verwendet
+  */
+  @Input('name')
+  public name: string;
+
+  /**
+   * Event wenn im Grid die Seite geändert wird. Als Parameter wird der neue PageIndex mitgegeben.
+   */
+  @Output('onpaging')
+  _pagingEvent: EventEmitter<PagerData> = new EventEmitter<PagerData>();
+
+  /**
+   * Event wenn im Pager die PageSize geändert wird
+   */
+  @Output('onpagesizechanged')
+  _pagesizeChangedEvent: EventEmitter<number> = new EventEmitter<number>();
 
   /**
    * Getter für pagesize. returns String
    */
   public GetPageSizeText(): string {
-    let interpolation: Interpolation = new Interpolation();
+    const interpolation: Interpolation = new Interpolation();
 
     const data = {
       PAGESIZE: this.getPageSize()
-    }
+    };
 
     return interpolation.interpolateString(this.pageSizeText, data);
   }
@@ -101,31 +115,18 @@ export abstract class NgPagingCommon {
    * Die Methode erstellt den Text, der auf den Pager renderierrt wird. Current page und TotalPage
    */
   public GetPagingText(): string {
-    let interpolation: Interpolation = new Interpolation();
+    const interpolation: Interpolation = new Interpolation();
 
     const data = {
       CURRENTPAGE: this.getCurrentPageNumber(),
       TOTALPAGES: this.getTotalPageNumber()
-    }
+    };
 
     return interpolation.interpolateString(this.pagingText, data);
   }
 
   /**
-   * Event wenn im Grid die Seite geändert wird. Als Parameter wird der neue PageIndex mitgegeben.
-   */
-  @Output("onpaging")
-  _pagingEvent: EventEmitter<PagerData> = new EventEmitter<PagerData>();
-
-  /**
-   * Event wenn im Pager die PageSize geändert wird
-   */
-  @Output("onpagesizechanged")
-  _pagesizeChangedEvent: EventEmitter<number> = new EventEmitter<number>();
-
-  /**
    * Ändert die Seitegrösse
-   * 
    * @param newSize: Neue Page Size
    */
   public changePageSize(newSize: number): void {
@@ -135,11 +136,7 @@ export abstract class NgPagingCommon {
     this._pagesizeChangedEvent.emit(newSize);
   }
 
-  /**
-   * Name des Grids. Wird für ID und Name Bezeichnungen verwendet
-   */
-  @Input("name")
-  public name: string
+
 
   //#endregion
 
@@ -155,19 +152,19 @@ export abstract class NgPagingCommon {
       let totalPageCount = Math.ceil(this.totalRowCount / this.pageSize);
 
       // PageCount auf 1 stellen, wenn keine Records vorhanden sind.
-      if (totalPageCount === 0)
+      if (totalPageCount === 0) {
         totalPageCount = 1;
+      }
 
       // PageIndex berechnen
       this.lastPageIndex = totalPageCount - 1;
-      let startPageIndex = this.getStartPageIndex(totalPageCount);
-      let endPageIndex = this.getEndPageIndex(totalPageCount);
+      const startPageIndex = this.getStartPageIndex(totalPageCount);
+      const endPageIndex = this.getEndPageIndex(totalPageCount);
 
       for (let i = startPageIndex; i <= endPageIndex; i++) {
         this.paginators.push(i);
       }
-    }
-    else {
+    } else {
       this.paginators.push(0);
     }
   }
@@ -176,14 +173,12 @@ export abstract class NgPagingCommon {
    * Methode löst den Event aus, dass ein Paging stattgefunden hat
    */
   protected paged(newPageIndex: number) {
-
-    let pagerData: PagerData = new PagerData(this.pagedata.PageSize, newPageIndex, this.pagedata.TotalRowCount);
+    const pagerData: PagerData = new PagerData(this.pagedata.PageSize, newPageIndex, this.pagedata.TotalRowCount);
     this._pagingEvent.emit(pagerData);
   }
 
   /**
    * Gibt den Start Index zurück
-   * 
    * @param totalPageCount Total Anzahl Seiten
    */
   protected getStartPageIndex(totalPageCount: number): number {
@@ -194,6 +189,7 @@ export abstract class NgPagingCommon {
     if ((totalPageCount - this.activePageIndex - 1) < 2) {
       startingPageToDisplay = totalPageCount - 5;
     }
+
     if (startingPageToDisplay < 0) {
       startingPageToDisplay = 0;
     }
@@ -202,17 +198,15 @@ export abstract class NgPagingCommon {
 
   /**
    * Gibt den letzten Seitenindex zurück.
-   * 
    * @param totalPageCount Total Anzahl Seiten
    */
   protected getEndPageIndex(totalPageCount: number): number {
     let endingPageToDisplay = this.activePageIndex + 2;
-    let maxEndingPageIndex = (4 > (totalPageCount - 1)) ? (totalPageCount - 1) : 4;
+    const maxEndingPageIndex = (4 > (totalPageCount - 1)) ? (totalPageCount - 1) : 4;
 
     if (endingPageToDisplay > totalPageCount - 1) {
       endingPageToDisplay = totalPageCount - 1;
-    }
-    else if (this.activePageIndex < 2) {
+    } else if (this.activePageIndex < 2) {
       endingPageToDisplay = maxEndingPageIndex;
     }
     return endingPageToDisplay;
@@ -224,7 +218,6 @@ export abstract class NgPagingCommon {
 
   /**
    * Andert die Seite auf den neuen Index
-   * 
    * @param newPageIndex Seiten Index. Dies entspricht der Seitenzahl - 1.
    */
   public changePage(newPageIndex: number) {
@@ -237,7 +230,7 @@ export abstract class NgPagingCommon {
    * Paging auf nächste Seite
    */
   public nextPage() {
-    if (this.activePageIndex != this.lastPageIndex) {
+    if (this.activePageIndex !== this.lastPageIndex) {
       this.paged(this.activePageIndex + 1);
     }
   }
@@ -246,7 +239,7 @@ export abstract class NgPagingCommon {
    * Paging eine Seite zurück
    */
   public previousPage() {
-    if (this.activePageIndex != this.firstPageIndex) {
+    if (this.activePageIndex !== this.firstPageIndex) {
       this.paged(this.activePageIndex - 1);
     }
   }
@@ -255,7 +248,7 @@ export abstract class NgPagingCommon {
    * Paging auf 1. Seite
    */
   public firstPage() {
-    if (this.activePageIndex != this.firstPageIndex) {
+    if (this.activePageIndex !== this.firstPageIndex) {
       this.paged(0);
     }
   }
@@ -264,7 +257,7 @@ export abstract class NgPagingCommon {
    * Paging auf letzter Seite
    */
   public lastPage() {
-    if (this.activePageIndex != this.lastPageIndex) {
+    if (this.activePageIndex !== this.lastPageIndex) {
       this.paged(this.lastPageIndex);
     }
   }

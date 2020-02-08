@@ -5,31 +5,32 @@ import { NgTabItemCommon } from './tabitem';
  *Basis Komponente für NgTab
  */
 export abstract class NgTabCommon implements AfterContentInit {
-  /**
-   * Array von TabItems
-   */
-  abstract tabItems(): NgTabItemCommon[];
 
   /**
    * Name des Controls
    */
-  @Input("name")
-  public _name: string = "";
+  @Input('name')
+  public _name: string = '';
 
   /**
    * Input property for template. Typ TemplateRef<any>
    */
-  @Input("tablabeltemplate")
+  @Input('tablabeltemplate')
   displayTabLabelTemplate: TemplateRef<any>;
 
   /**
    * Löscht versteckte TabItems
    */
-  @Input("unloadtabitemswhenhidden")
+  @Input('unloadtabitemswhenhidden')
   _unloadtabitemswhenhidden: boolean | null = null;
 
+  /**
+   * Array von TabItems
+   */
+  abstract tabItems(): NgTabItemCommon[];
+
   // #region Control initialisieren
-  
+
   /**
    * AfterContentInit Event
    */
@@ -41,15 +42,17 @@ export abstract class NgTabCommon implements AfterContentInit {
    * Initialisiert die Tabs
    */
   private initTabs(): void {
-    let activeTab = this.tabItems().filter((tab) => tab._active);
+    const activeTab = this.tabItems().filter((tab) => tab._active);
 
     this.tabItems().forEach(itm => {
-      if (this._unloadtabitemswhenhidden !== null)
+      if (this._unloadtabitemswhenhidden !== null) {
         itm._unloadwhenhidden = this._unloadtabitemswhenhidden;
+      }
     });
 
-    if (activeTab.length === 0)
+    if (activeTab.length === 0) {
       this.selectTab(this.tabItems()[0]);
+    }
   }
 
   // #endregion
@@ -60,18 +63,19 @@ export abstract class NgTabCommon implements AfterContentInit {
    */
   selectTab(tab: NgTabItemCommon): void {
     // Cancel if Selected Tab is disabled
-    if (tab._disabled)
+    if (tab._disabled) {
       return;
+    }
 
-    this.tabItems().forEach(tab => tab._active = false);
+    this.tabItems().forEach(item => item._active = false);
     tab._active = true;
   }
 
   /**
    * Ergibt das ID vom Tab-Button
-   * @param tabitemid 
+   * @param tabitemid ID des Tabs
    */
   public GetTabItemButtonId(tabitemid: string) {
-    return this._name + "_" + tabitemid;
+    return this._name + '_' + tabitemid;
   }
 }

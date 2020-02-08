@@ -3,7 +3,7 @@ import { NgGridColumnBaseCommon } from './gridcolumnbase';
 import { NgGridCommon } from './grid';
 
 /**
- * Komponente für NgGridColumnActionCommon. Extends NgGridColumnBaseCommon 
+ * Komponente für NgGridColumnActionCommon. Extends NgGridColumnBaseCommon
  */
 export class NgGridColumnActionCommon extends NgGridColumnBaseCommon {
 

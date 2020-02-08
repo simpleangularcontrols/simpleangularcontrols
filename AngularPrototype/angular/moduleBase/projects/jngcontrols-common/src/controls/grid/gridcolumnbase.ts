@@ -13,14 +13,48 @@ export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
   constructor(private grid: NgGridCommon, private el: ElementRef) {
   }
 
+  //#region Input / Outputs
+
+  /**
+  * Das Input property erhält das Value des Column
+  */
+  @Input('value')
+  public value: any;
+
+  /**
+   * Das Input property erhält das Header des Column
+   */
+  @Input('header')
+  public header: string;
+
+  /**
+   * Das Input property erhält die Breite des Column
+   */
+  @Input('width')
+  public width: string;
+
+  /**
+   * Das Input property erhält das Type des Column
+   */
+  @Input('type')
+  public type: string;
+
+  /**
+   * Das Input property erhält das Column- Key-Word, damit das Column sortiert werden kann.
+   */
+  @Input('sortkey')
+  public SortKey: string;
+
+  //#endregion
+
   //#region Interface Implementations
 
   /**
   * lifecycle hook - OnInit. Wird aufgeruren sobald das Komponent initialisiert ist.
   */
   ngOnInit() {
-    let rootElement: HTMLElement = this.el.nativeElement;
-    let parentElement: HTMLElement = rootElement.parentElement;
+    const rootElement: HTMLElement = this.el.nativeElement;
+    const parentElement: HTMLElement = rootElement.parentElement;
 
     while (rootElement.firstChild) {
       parentElement.insertBefore(rootElement.firstChild, rootElement);
@@ -44,52 +78,24 @@ export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
 
   //#endregion
 
-  //#region InputOutputs
-
-  /**
-  * Das Input property erhält das Value des Column
-  */
-  @Input("value")
-  public value: any;
-
-  /**
-   * Das Input property erhält das Header des Column
-   */
-  @Input("header")
-  public header: string;
-
-  /**
-   * Das Input property erhält die Breite des Column
-   */
-  @Input("width")
-  public width: string;
-
-  /**
-   * Das Input property erhält das Type des Column
-   */
-  @Input("type")
-  public type: string;
-
-  //#endregion
-
   //#region Type Handling
 
   /**
-   * die Methode ergibt boolean Wert, ob das Element Header ist. 
+   * die Methode ergibt boolean Wert, ob das Element Header ist.
    */
   public IsHeader(): boolean {
     return this.type === 'header';
   }
 
   /**
-   * die Methode ergibt boolean Wert, ob das Element Body ist. 
+   * die Methode ergibt boolean Wert, ob das Element Body ist.
    */
   public IsBody(): boolean {
     return this.type === 'body';
   }
 
   /**
-   * die Methode ergibt boolean Wert, ob das Element Footer ist. 
+   * die Methode ergibt boolean Wert, ob das Element Footer ist.
    */
   public IsFooter(): boolean {
     return this.type === 'footer';
@@ -98,17 +104,12 @@ export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
   //#endregion
 
   /**
-   * Das Input property erhält das Column- Key-Word, damit das Column sortiert werden kann.
-   */
-  @Input("sortkey")
-  public SortKey: string
-
-  /**
    * Die Methode deffiniert wie das Grid sortiert wird, abhängig von gekligte Column
    */
   public SortByColumn() {
-    if (this.SortKey !== undefined && this.SortKey !== null && this.SortKey !== '')
-      return this.grid.SortBy(this.SortKey)
+    if (this.SortKey !== undefined && this.SortKey !== null && this.SortKey !== '') {
+      return this.grid.SortBy(this.SortKey);
+    }
   }
 
   /**
@@ -124,9 +125,9 @@ export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
   public GetSortDirection(): string {
     switch (this.grid.GetSortDirection()) {
       case SortOrder.None:
-        return 'none'
+        return 'none';
       case SortOrder.Ascending:
-        return 'asc'
+        return 'asc';
       case SortOrder.Descending:
         return 'desc';
       default:

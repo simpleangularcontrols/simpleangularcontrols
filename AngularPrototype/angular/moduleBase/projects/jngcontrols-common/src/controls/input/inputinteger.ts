@@ -11,45 +11,45 @@ export class NgInputIntegerCommon extends NgInputBase<number> {
   /**
    * Definiert das Negative Werte erlaubt sind
    */
-  @Input("allownegativ") _allownegativ: boolean = false;
+  @Input('allownegativ') _allownegativ: boolean = false;
   /**
    * Definiert den minimalen Wert
    */
-  @Input("minvalue") _minvalue: number = undefined;
+  @Input('minvalue') _minvalue: number = undefined;
   /**
    * Definiert den maximalen Wert
    */
-  @Input("maxvalue") _maxvalue: number = undefined;
+  @Input('maxvalue') _maxvalue: number = undefined;
 
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input("validationmessagerequired") _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
+  @Input('validationmessagerequired') _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input("validationmessagesummaryrequired") _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
+  @Input('validationmessagesummaryrequired') _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
   /**
    * Resource Key für Validation Message MinValue bei Control
    */
-  @Input("validationmessageminvalue") _validationMessageMinValue: string = 'VALIDATION_ERROR_MINVALUE';
+  @Input('validationmessageminvalue') _validationMessageMinValue: string = 'VALIDATION_ERROR_MINVALUE';
   /**
    * Resource Key für Validation Message MinValue in Validation Summary
    */
-  @Input("validationmessagesummaryminvalue") _validationMessageMinValueSummary: string = 'VALIDATION_ERROR_SUMMARY_MINVALUE';
+  @Input('validationmessagesummaryminvalue') _validationMessageMinValueSummary: string = 'VALIDATION_ERROR_SUMMARY_MINVALUE';
 
   /**
    * Resource Key für Validation Message MaxValue bei Control
    */
-  @Input("validationmessagemaxvalue") _validationMessageMaxValue: string = 'VALIDATION_ERROR_MAXVALUE';
+  @Input('validationmessagemaxvalue') _validationMessageMaxValue: string = 'VALIDATION_ERROR_MAXVALUE';
   /**
    * Resource Key für Validation Message MaxValue in Validation Summary
    */
-  @Input("validationmessagesummarymaxvalue") _validationMessageMaxValueSummary: string = 'VALIDATION_ERROR_SUMMARY_MAXVALUE';
+  @Input('validationmessagesummarymaxvalue') _validationMessageMaxValueSummary: string = 'VALIDATION_ERROR_SUMMARY_MAXVALUE';
 
 
-  /** 
+  /**
    * Methode die erzeugt den Control in Abhängigkeit davon, ob negative Were erlaubt sing oder nicht
    */
   protected OnClassInit(): void {
@@ -58,13 +58,14 @@ export class NgInputIntegerCommon extends NgInputBase<number> {
     /**
      * Definiert die Wete die erlaubt sind
      */
-    this._allowedchars = "0123456789";
+    this._allowedchars = '0123456789';
 
-    if (this._allownegativ)
-      this._allowedchars = this._allowedchars + "-";
+    if (this._allownegativ) {
+      this._allowedchars = this._allowedchars + '-';
+    }
   }
 
-  /** 
+  /**
    * Konvertiert den Wert des Inputs
    */
   protected ConvertInputValue(value: any): any {
@@ -74,7 +75,7 @@ export class NgInputIntegerCommon extends NgInputBase<number> {
       if (this._allownegativ === true && value === '-') {
         return '-';
       } else {
-        return parseInt(value);
+        return parseInt(value, 10);
       }
     }
   }
@@ -83,8 +84,9 @@ export class NgInputIntegerCommon extends NgInputBase<number> {
    * Methode validiert ob der Wert entspricht den gegebenen Kriterien wenn ein Key gedrückt wird
    */
   protected OnKeyPressValidation(position: number, character: string): boolean {
-    if (this._allownegativ === false && character === "-" || this._allownegativ === true && position > 0 && character === '-')
+    if (this._allownegativ === false && character === '-' || this._allownegativ === true && position > 0 && character === '-') {
       return false;
+    }
 
     return true;
   }

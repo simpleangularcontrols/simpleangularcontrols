@@ -4,7 +4,7 @@ import { NgGridCommon } from './grid';
 import { convertToBoolean } from '../../utilities/convertion';
 
 /**
- * Komponente für NgGridColumnCommon. Extends NgGridColumnBaseCommon 
+ * Komponente für NgGridColumnCommon. Extends NgGridColumnBaseCommon
  */
 export class NgGridColumnCommon extends NgGridColumnBaseCommon {
   /**
@@ -22,7 +22,7 @@ export class NgGridColumnCommon extends NgGridColumnBaseCommon {
   /**
    * Input Parameter für das css Class ellipsis. Das Setter setzt das boolean Wert auf das private property _ellipsis
    */
-  @Input("ellipsis")
+  @Input('ellipsis')
   public set ellipsis(v: string | boolean) {
     this._ellipsis = convertToBoolean(v);
   }

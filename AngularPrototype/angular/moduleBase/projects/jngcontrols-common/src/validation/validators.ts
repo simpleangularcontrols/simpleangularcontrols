@@ -1,5 +1,5 @@
-import { AbstractControl, ValidationErrors, Validators, ValidatorFn } from "@angular/forms";
-import { IDateTimeControl } from "../interfaces/idatetimecontrol";
+import { AbstractControl, ValidationErrors, Validators, ValidatorFn } from '@angular/forms';
+import { IDateTimeControl } from '../interfaces/idatetimecontrol';
 import { IUploadControl } from '../interfaces/iuploadcontrol';
 import * as moment_ from 'moment';
 import { LanguageModel } from '../models/languagemodel';
@@ -15,7 +15,6 @@ export class ValidationErrorItem {
 
   /**
    * Konstruktor
-   * 
    * @param errorType Type des Fehlers
    * @param errorMessageKey Key für Fehlermeldung
    * @param errorMessageSummaryKey Key für Fehlermeldung in Validation Summary
@@ -41,7 +40,7 @@ export class ValidationErrorItem {
   /**
    * Error Message Key für Validation Summary
    */
-  public errorMessageValidationSummaryKey: string
+  public errorMessageValidationSummaryKey: string;
 
   /**
    * Label oder Name des Feldes
@@ -69,12 +68,12 @@ export class Validation {
    * @param parameters Parametern die in den Meldungen als Platzhalter verwendet werden können
    */
   static GetValidationErrorItem(errorType: string, errorMessageKey: string, errorMessageValidationSummaryKey: string, fieldName: string, parameters: Map<string, any> = new Map<string, any>()): any {
-    let item: ValidationErrorItem = new ValidationErrorItem(errorType, errorMessageKey, errorMessageValidationSummaryKey, fieldName)
+    const item: ValidationErrorItem = new ValidationErrorItem(errorType, errorMessageKey, errorMessageValidationSummaryKey, fieldName);
 
     if (parameters !== null && parameters !== undefined && parameters.size > 0) {
       parameters.forEach((v, k) => {
         item.parameters.set(k, v);
-      })
+      });
     }
 
     return { [errorType]: item };
@@ -82,7 +81,6 @@ export class Validation {
 
   /**
    * Validator für Required State
-   * 
    * @param control Control das Validiert wird
    * @param fieldName Label des Controls
    * @param validationMessage Validierungsmeldung die
@@ -98,7 +96,6 @@ export class Validation {
 
   /**
    * Validator für Min Value
-   * 
    * @param control Control das Validiert wird
    * @param minvalue Min. Value
    * @param fieldName Label des Controls
@@ -106,13 +103,13 @@ export class Validation {
    * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
    */
   static minValue(control: AbstractControl, minvalue: number, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
-    let validator: ValidatorFn = Validators.min(minvalue);
+    const validator: ValidatorFn = Validators.min(minvalue);
 
     if (validator(control) !== null) {
-      let parameters: Map<string, any> = new Map<string, any>();
+      const parameters: Map<string, any> = new Map<string, any>();
       parameters.set('MINVALUE', minvalue);
 
-      return Validation.GetValidationErrorItem('minvalue', validationMessage, validationMessageSummary, fieldName, parameters)
+      return Validation.GetValidationErrorItem('minvalue', validationMessage, validationMessageSummary, fieldName, parameters);
     } else {
       return null;
     }
@@ -127,13 +124,13 @@ export class Validation {
    * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
    */
   static patternValidator(control: AbstractControl, pattern: string, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
-    let validator: ValidatorFn = Validators.pattern(pattern);
+    const validator: ValidatorFn = Validators.pattern(pattern);
 
     if (validator(control) !== null) {
-      let parameters: Map<string, any> = new Map<string, any>();
+      const parameters: Map<string, any> = new Map<string, any>();
       parameters.set('PATTERN', pattern);
 
-      return Validation.GetValidationErrorItem('pattern', validationMessage, validationMessageSummary, fieldName, parameters)
+      return Validation.GetValidationErrorItem('pattern', validationMessage, validationMessageSummary, fieldName, parameters);
     } else {
       return null;
     }
@@ -141,7 +138,6 @@ export class Validation {
 
   /**
    * Validator für Max Value
-   * 
    * @param control Control das Validiert werden soll
    * @param maxvalue Max. Wert
    * @param fieldName Label des Controls
@@ -149,13 +145,13 @@ export class Validation {
    * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
    */
   static maxValue(control: AbstractControl, maxvalue: number, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
-    let validator: ValidatorFn = Validators.max(maxvalue);
+    const validator: ValidatorFn = Validators.max(maxvalue);
 
     if (validator(control) !== null) {
-      let parameters: Map<string, any> = new Map<string, any>();
+      const parameters: Map<string, any> = new Map<string, any>();
       parameters.set('MAXVALUE', maxvalue);
 
-      return Validation.GetValidationErrorItem('maxvalue', validationMessage, validationMessageSummary, fieldName, parameters)
+      return Validation.GetValidationErrorItem('maxvalue', validationMessage, validationMessageSummary, fieldName, parameters);
     } else {
       return null;
     }
@@ -163,7 +159,6 @@ export class Validation {
 
   /**
    * Validiert Feld auf E-Mail Adresse
-   * 
    * @param control Control das Valdiert werden soll
    * @param fieldName Label des Controls
    * @param validationMessage Validierungsmeldung die
@@ -171,7 +166,7 @@ export class Validation {
    */
   static email(control: AbstractControl, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
     if (Validators.email(control) !== null) {
-      return Validation.GetValidationErrorItem('email', validationMessage, validationMessageSummary, fieldName)
+      return Validation.GetValidationErrorItem('email', validationMessage, validationMessageSummary, fieldName);
     } else {
       return null;
     }
@@ -179,7 +174,6 @@ export class Validation {
 
   /**
    * Validiert auf die Länge des Wertes im Control
-   * 
    * @param control Control das Validiert werden soll
    * @param minlength Min. Länge des Wertes
    * @param fieldName Label des Controls
@@ -187,13 +181,13 @@ export class Validation {
    * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
    */
   static minLength(control: AbstractControl, minlength: number, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
-    let validator: ValidatorFn = Validators.minLength(minlength);
+    const validator: ValidatorFn = Validators.minLength(minlength);
 
-    if (minlength !== null && minlength !== undefined && control.value != '' && control.value != undefined && control.value != null && validator(control) != null) {
-      let parameters: Map<string, any> = new Map<string, any>();
+    if (minlength !== null && minlength !== undefined && control.value !== '' && control.value !== undefined && control.value != null && validator(control) != null) {
+      const parameters: Map<string, any> = new Map<string, any>();
       parameters.set('MINLENGTH', minlength);
 
-      return Validation.GetValidationErrorItem('minlength', validationMessage, validationMessageSummary, fieldName, parameters)
+      return Validation.GetValidationErrorItem('minlength', validationMessage, validationMessageSummary, fieldName, parameters);
     } else {
       return null;
     }
@@ -214,10 +208,10 @@ export class Validation {
     }
 
     if (minDate > control.value) {
-      let parameters: Map<string, any> = new Map<string, any>();
+      const parameters: Map<string, any> = new Map<string, any>();
       parameters.set('MINDATE', moment(minDate).format(control.GetDateTimeFormatString()));
 
-      return Validation.GetValidationErrorItem('datemin', validationMessage, validationMessageSummary, fieldName, parameters)
+      return Validation.GetValidationErrorItem('datemin', validationMessage, validationMessageSummary, fieldName, parameters);
     } else {
       return null;
     }
@@ -238,10 +232,10 @@ export class Validation {
     }
 
     if (maxDate < control.value) {
-      let parameters: Map<string, any> = new Map<string, any>();
+      const parameters: Map<string, any> = new Map<string, any>();
       parameters.set('MAXDATE', moment(maxDate).format(control.GetDateTimeFormatString()));
 
-      return Validation.GetValidationErrorItem('datemax', validationMessage, validationMessageSummary, fieldName, parameters)
+      return Validation.GetValidationErrorItem('datemax', validationMessage, validationMessageSummary, fieldName, parameters);
     } else {
       return null;
     }
@@ -249,7 +243,6 @@ export class Validation {
 
   /**
    * Validiert ob die Zeit später als minTime ist.
-   * 
    * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
    * @param minTime Min. Zeit
    * @param fieldName Label des Controls
@@ -263,10 +256,10 @@ export class Validation {
     }
 
     if (control.value !== null && minTime > control.value) {
-      let parameters: Map<string, any> = new Map<string, any>();
+      const parameters: Map<string, any> = new Map<string, any>();
       parameters.set('MINTIME', moment(minTime).format(control.GetDateTimeFormatString()));
 
-      return Validation.GetValidationErrorItem('timemin', validationMessage, validationMessageSummary, fieldName, parameters)
+      return Validation.GetValidationErrorItem('timemin', validationMessage, validationMessageSummary, fieldName, parameters);
     } else {
       return null;
     }
@@ -274,7 +267,6 @@ export class Validation {
 
   /**
    * Validiert ob die Zeit früher als maxTime ist.
-   * 
    * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
    * @param maxTime Min. Zeit
    * @param fieldName Label des Controls
@@ -288,10 +280,10 @@ export class Validation {
     }
 
     if (control.value !== null && maxTime < control.value) {
-      let parameters: Map<string, any> = new Map<string, any>();
+      const parameters: Map<string, any> = new Map<string, any>();
       parameters.set('MAXTIME', moment(maxTime).format(control.GetDateTimeFormatString()));
 
-      return Validation.GetValidationErrorItem('timemax', validationMessage, validationMessageSummary, fieldName, parameters)
+      return Validation.GetValidationErrorItem('timemax', validationMessage, validationMessageSummary, fieldName, parameters);
     } else {
       return null;
     }
@@ -299,15 +291,14 @@ export class Validation {
 
   /**
    * Validator der prüft ob der Wert ein Datum ist.
-   * 
    * @param control Control mit IDateTimeControl Interface implementierung
    * @param fieldName Label des Controls
-   * @param validationMessage Validierungsmeldung die 
+   * @param validationMessage Validierungsmeldung die beim Control angezeigt wird
    * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
    */
   static isValidDate(control: IDateTimeControl, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
     if (!control.IsDateValid()) {
-      return Validation.GetValidationErrorItem('dateformat', validationMessage, validationMessageSummary, fieldName)
+      return Validation.GetValidationErrorItem('dateformat', validationMessage, validationMessageSummary, fieldName);
       // return { 'dateformat': true, 'message': 'Feld "' + fieldName + '" ist kein gültiges Datum' };
     } else {
       return null;
@@ -316,7 +307,6 @@ export class Validation {
 
   /**
    * Validator für min. Anzahl von Uploads
-   * 
    * @param control Control das Validatiert werden soll. Control muss IUploadControl implementiert haben
    * @param minFiles Min. Anzahl Files die hochgeladen werden müssen
    * @param fieldName Label des Controls
@@ -330,10 +320,10 @@ export class Validation {
     }
 
     if (control.UploadedFileCount() !== null && minFiles > control.UploadedFileCount()) {
-      let parameters: Map<string, any> = new Map<string, any>();
+      const parameters: Map<string, any> = new Map<string, any>();
       parameters.set('MINFILES', minFiles);
 
-      return Validation.GetValidationErrorItem('dateformat', validationMessage, validationMessageSummary, fieldName, parameters)
+      return Validation.GetValidationErrorItem('dateformat', validationMessage, validationMessageSummary, fieldName, parameters);
     } else {
       return null;
     }
@@ -342,7 +332,6 @@ export class Validation {
 
   /**
    * Validator für MultiLanguage Control, welcher überprüft ob alle Sprachen erfasst sind.
-   * 
    * @param control Control das Validatiert werden soll
    * @param languages Sprachen die im Control erfasst werden können.
    * @param fieldName Label des Controls
@@ -361,7 +350,7 @@ export class Validation {
     });
 
     if (found) {
-      return Validation.GetValidationErrorItem('required', validationMessage, validationMessageSummary, fieldName)
+      return Validation.GetValidationErrorItem('required', validationMessage, validationMessageSummary, fieldName);
     } else {
       return null;
     }
@@ -369,7 +358,6 @@ export class Validation {
 
   /**
    * Validator für MultiLanguage Control, welcher überprüft ob min. ein Wert erfasst wurde
-   * 
    * @param control Control das Validatiert werden soll
    * @param languages Sprachen die im Control erfasst werden können.
    * @param fieldName Label des Controls
@@ -390,7 +378,7 @@ export class Validation {
     });
 
     if (!found) {
-      return Validation.GetValidationErrorItem('requiredany', validationMessage, validationMessageSummary, fieldName)
+      return Validation.GetValidationErrorItem('requiredany', validationMessage, validationMessageSummary, fieldName);
     } else {
       return null;
     }

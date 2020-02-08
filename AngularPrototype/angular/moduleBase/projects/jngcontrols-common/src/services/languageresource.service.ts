@@ -1,7 +1,7 @@
-import { Injectable, InjectionToken } from "@angular/core";
-import { ILanguageResourceService } from "../interfaces/ilanguageresource";
-import { Interpolation } from "../utilities/interpolation";
-import { Observable } from "rxjs";
+import { Injectable, InjectionToken } from '@angular/core';
+import { ILanguageResourceService } from '../interfaces/ilanguageresource';
+import { Interpolation } from '../utilities/interpolation';
+import { Observable } from 'rxjs';
 
 /**
  * Injection Token für Language Resource Service
@@ -14,7 +14,6 @@ export const LANGUAGERESOURCE_SERVICE = new InjectionToken<LanguageResourceServi
  * @example
  *
  * // Eigene Beispielimplementierung für Application mit ngx-translate
- * 
  * (at)Injectable()
  * export class ControlsLocalisation extends LanguageResourceService {
  *
@@ -32,9 +31,9 @@ export const LANGUAGERESOURCE_SERVICE = new InjectionToken<LanguageResourceServi
  *
  */
 
- /**
- * Service für interne Übersetzungen
- * */
+/**
+* Service für interne Übersetzungen
+* */
 @Injectable({ providedIn: 'root' })
 export abstract class LanguageResourceService implements ILanguageResourceService {
   /**
@@ -109,7 +108,7 @@ export class InternalLanguageResourceService extends LanguageResourceService {
    * Die Funktion ergibt die ausgewählte Sprache.
    */
   private GetLanguage(): string {
-    let language: string = navigator.language;
+    const language: string = navigator.language;
 
     if (language.indexOf('-') >= 0) {
       return language.split('-')[0];
@@ -138,14 +137,13 @@ export class InternalLanguageResourceService extends LanguageResourceService {
       }
 
       if (this.data.get(language).has(key)) {
-        let resource = this.data.get(language).get(key);
+        const resource = this.data.get(language).get(key);
         if (params !== undefined && params !== null) {
-          let formatter: Interpolation = new Interpolation();
+          const formatter: Interpolation = new Interpolation();
           observer.next(formatter.interpolateString(resource, params));
           observer.complete();
           return;
-        }
-        else {
+        } else {
           observer.next(resource);
           observer.complete();
           return;
@@ -156,6 +154,6 @@ export class InternalLanguageResourceService extends LanguageResourceService {
         observer.complete();
         return;
       }
-    })
+    });
   }
 }

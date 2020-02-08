@@ -9,6 +9,11 @@ import { FormHooks } from '@angular/forms/src/model';
 export class NgFormularCommon {
 
   /**
+  * Inline Errors für das Formular
+  */
+  private _inlineerrorenabled: boolean | null = null;
+
+  /**
    * Form Control
    */
   @Input()
@@ -17,28 +22,46 @@ export class NgFormularCommon {
   /**
    * Default Label Size for Form
    */
-  @Input("labelsize") labelsize: number = 3;
+  @Input('labelsize') labelsize: number = 3;
   /**
    * Kontroliert, ob das Label adaptive ist
    */
-  @Input("isadaptivelabel") isadaptivelabel: boolean = false;
+  @Input('isadaptivelabel') isadaptivelabel: boolean = false;
   /**
    * Type des Forms
    */
-  @Input("orientation") orientation: string = "horizontal";
+  @Input('orientation') orientation: string = 'horizontal';
 
-  private _updateon: FormHooks = "change";
+  private _updateon: FormHooks = 'change';
 
   /**
    * Definiert, wenn das Model geupdatet wird
    */
-  @Input("updateon")
+  @Input('updateon')
   set updateon(v: FormHooks) {
     this._updateon = v;
     this.form.options.updateOn = v;
   }
   get updateon(): FormHooks {
     return this._updateon;
+  }
+
+  @Input('inlineerrorenabled')
+  /**
+   * Aktiviert oder Deaktiviert die Inline Errors für das Control
+   */
+  set inlineerrorenabled(value: boolean) {
+    if (value === null || value === undefined) {
+      this._inlineerrorenabled = null;
+    } else {
+      this._inlineerrorenabled = convertToBoolean(value);
+    }
+  }
+  /**
+   * Aktiviert oder Deaktiviert die Inline Errors für das Control
+   */
+  get inlineerrorenabled(): boolean {
+    return this._inlineerrorenabled;
   }
 
   /**
@@ -53,7 +76,7 @@ export class NgFormularCommon {
       case 'none':
         return 'none';
       default:
-        throw new Error('Invalid formtype at ngFormularCommon. Valid values are horizontal, vertical, none')
+        throw new Error('Invalid formtype at ngFormularCommon. Valid values are horizontal, vertical, none');
     }
   }
 
@@ -66,7 +89,6 @@ export class NgFormularCommon {
 
   /**
    * Konstruktor
-   * 
    * @param form Instanz von NgForm
    */
   constructor(private form: NgForm) {
@@ -102,10 +124,10 @@ export class NgFormularCommon {
    * @param controls Controls Collection
    */
   private markAsTouchedInternal(controls: { [key: string]: AbstractControl }) {
-    let keyList: string[] = Object.keys(controls);
+    const keyList: string[] = Object.keys(controls);
 
-    for (var field of keyList) {
-      let control = controls[field];
+    for (const field of keyList) {
+      const control = controls[field];
       if (control instanceof FormGroup) {
         this.markAsTouchedInternal(control.controls);
       } else {
@@ -116,14 +138,13 @@ export class NgFormularCommon {
 
   /**
    * Aktualisiert die Werte und die gültigkeit des Formulars
-   * 
    * @param controls Controls Collection
    */
   private updateValueAndValidityInternal(controls: { [key: string]: AbstractControl }) {
-    let keyList: string[] = Object.keys(controls);
+    const keyList: string[] = Object.keys(controls);
 
-    for (var field of keyList) {
-      let control = controls[field];
+    for (const field of keyList) {
+      const control = controls[field];
       if (control instanceof FormGroup) {
         this.updateValueAndValidityInternal(control.controls);
       } else {
@@ -133,32 +154,10 @@ export class NgFormularCommon {
   }
 
   /**
-  * Inline Errors für das Formular
-  */
-  private _inlineerrorenabled: boolean | null = null;
-
-  @Input("inlineerrorenabled")
-  /**
-   * Aktiviert oder Deaktiviert die Inline Errors für das Control
-   */
-  set inlineerrorenabled(value: boolean) {
-    if (value === null || value === undefined)
-      this._inlineerrorenabled = null;
-    else
-      this._inlineerrorenabled = convertToBoolean(value);
-  }
-  /**
-   * Aktiviert oder Deaktiviert die Inline Errors für das Control
-   */
-  get inlineerrorenabled(): boolean {
-    return this._inlineerrorenabled;
-  }
-
-  /**
    * Gibt zurück, ob die Inline Error Meldungen für das Formular aktiv sind.
    */
   public get IsInlineErrorEnabled(): boolean {
-    return this._inlineerrorenabled !== false
+    return this._inlineerrorenabled !== false;
   }
 
 }

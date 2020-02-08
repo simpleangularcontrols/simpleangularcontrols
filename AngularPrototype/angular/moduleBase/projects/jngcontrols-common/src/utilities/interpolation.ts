@@ -21,7 +21,7 @@ export class Interpolation {
     }
 
     return text.replace(this.templateMatcher, (substring: string, b: string) => {
-      let r = this.getValue(params, b);
+      const r = this.getValue(params, b);
       return isDefined(r) ? r : substring;
     });
   }
@@ -32,7 +32,7 @@ export class Interpolation {
    * @param key Key nach welchem gesucht wird. Navigation in Properties des Objekt mit einem Punkt.
    */
   private getValue(target: any, key: string): any {
-    let keys = key.split('.');
+    const keys = key.split('.');
     key = '';
     do {
       key += keys.shift();

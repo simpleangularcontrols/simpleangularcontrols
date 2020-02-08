@@ -31,8 +31,8 @@ export class NgDialogCommon {
   _show: boolean = false;
 
   /**
-   * Das property enthielt (wenn überhaupt gesetzt) entweder keywords für sizing oder custom css Klassen. 
-   * Die akzeptabel keywordssind: "small", "large", "extralarge", "medium", "". 
+   * Das property enthielt (wenn überhaupt gesetzt) entweder keywords für sizing oder custom css Klassen.
+   * Die akzeptabel keywordssind: 'small', 'large', 'extralarge', 'medium', ''.
    */
   _size: string = '';
 
@@ -50,61 +50,87 @@ export class NgDialogCommon {
   // #region Properties
 
   /**
-   * Input Property. Erhält den Title des Dialog. Default Value: "Dialog".
+   * Input Property. Erhält den Title des Dialog. Default Value: 'Dialog'.
    */
-  @Input("title")
-  public _title: string = "Dialog";
+  @Input('title')
+  public _title: string = 'Dialog';
 
   /**
    * Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch ESC geschlossen werden. Default ist true.
    */
-  @Input("allowesc")
+  @Input('allowesc')
   public _allowesc: boolean = true;
 
   /**
    * Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch click außerhalb des Dialog-Fenster geschlossen werden. Default ist true.
    */
-  @Input("backdrop")
+  @Input('backdrop')
   public _backdrop: boolean = true;
 
-
-
   /**
-   * Input Property. Erhält den Namen des Dialog - benutzt für das ID. Default Value: ""
+   * Input Property. Erhält den Namen des Dialog - benutzt für das ID. Default Value: ''
    */
-  @Input("name")
-  public _name: string = "";
+  @Input('name')
+  public _name: string = '';
 
   /**
    * Steuert ob im Header des Dialogs ein Button angezeigt wird.
    */
-  @Input("closebutton")
+  @Input('closebutton')
   public closebutton: boolean = true;
 
   /**
    * Input Property. Erhält die Breite des Dialog
    */
-  @Input("width")
+  @Input('width')
   public width: string = null;
 
   /**
-   * Das Input akzeptiert sowohl default size-css-Klassen als auch custom Klassen. 
+   * Das Input akzeptiert sowohl default size-css-Klassen als auch custom Klassen.
    * case insensitive.
-   * Die akzeptabel default-size-Klassen sind: "small", "large", "extralarge", "medium", "". 
-   * Wenn size ist NICHT gesetzt (oder "medium" oder ""), default ist in medium size: max-width 500px.
+   * Die akzeptabel default-size-Klassen sind: 'small', 'large', 'extralarge', 'medium', ''.
+   * Wenn size ist NICHT gesetzt (oder 'medium' oder ''), default ist in medium size: max-width 500px.
    */
-  @Input("size")
+  @Input('size')
   set defineSize(v: string) {
     v = v.toLowerCase();
     this._size = v;
   }
 
+  /**
+   * Output Emitter. Wird aufgerufen, wenn das Wert des _show property geändert ist - damait das Dialog geöfnet/geschlossen wird.
+   */
+  @Output('isvisibleChange')
+  isVisibleEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  /**
+  * Setter. Erhält das boolen Wert des _show property
+  */
+  @Input('isvisible')
+  set visible(v: boolean) {
+    this._show = v;
+
+
+    if (this._show && !document.body.classList.contains('modal-open')) {
+      document.body.classList.add('modal-open');
+    }
+    if (this._show === false && document.body.classList.contains('modal-open')) {
+      document.body.classList.remove('modal-open');
+    }
+  }
+
+  /**
+   * Getter. Ergibt das boolen Wert des _show property
+   */
+  get isVisible(): boolean {
+    return this._show;
+  }
 
   /**
    * Die Funktion prüft ob es ein default css classe für Size des Dialog durch den size Input gesetzt wurde.
    */
   issetdefaultsize(): boolean {
-    let result: boolean = false
+    let result: boolean = false;
 
     switch (this._size) {
       case 'small': result = true; break;
@@ -113,40 +139,8 @@ export class NgDialogCommon {
       case 'extralarge': result = true; break;
       case '': result = true; break;
     }
-    return result
-  }
 
-
-
-  /**
-   * Output Emitter. Wird aufgerufen, wenn das Wert des _show property geändert ist - damait das Dialog geöfnet/geschlossen wird.
-   */
-  @Output("isvisibleChange")
-  isVisibleEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  /**
-  * Setter. Erhält das boolen Wert des _show property
-  */
-  @Input("isvisible")
-  set visible(v: boolean) {
-    this._show = v;
-
-
-    if (this._show && !document.body.classList.contains("modal-open")) {
-      document.body.classList.add("modal-open");
-    }
-    if (this._show === false && document.body.classList.contains("modal-open")) {
-      document.body.classList.remove("modal-open");
-    }
-  }
-
-
-
-  /**
-   * Getter. Ergibt das boolen Wert des _show property
-   */
-  get isVisible(): boolean {
-    return this._show;
+    return result;
   }
 
   // #endregion
@@ -158,8 +152,8 @@ export class NgDialogCommon {
    */
   public show(): void {
     this._show = true;
-    if (this._show && !document.body.classList.contains("modal-open")) {
-      document.body.classList.add("modal-open");
+    if (this._show && !document.body.classList.contains('modal-open')) {
+      document.body.classList.add('modal-open');
     }
     this.isVisibleEmitter.emit(this._show);
   }
@@ -169,8 +163,8 @@ export class NgDialogCommon {
    */
   public hide(): void {
     this._show = false;
-    if (this._show === false && document.body.classList.contains("modal-open")) {
-      document.body.classList.remove("modal-open");
+    if (this._show === false && document.body.classList.contains('modal-open')) {
+      document.body.classList.remove('modal-open');
     }
     this.isVisibleEmitter.emit(this._show);
   }

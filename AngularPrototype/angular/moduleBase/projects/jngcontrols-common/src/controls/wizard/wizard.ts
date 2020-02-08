@@ -6,28 +6,28 @@ import { NgWizardItemCommon } from './wizarditem';
  * Base Komponente für NgWizardCommon
  */
 export abstract class NgWizardCommon implements AfterContentInit, ControlValueAccessor {
+
   /**
-   * Abstrakte QueryList von NgWizardItemCommon
-   */
-  abstract wizardItems(): QueryList<NgWizardItemCommon>;
+  * Aktueller Schritt im Wizard
+  */
+  private _currentstep: string;
+
   /**
    * Name des Controls
    */
-  @Input("name")
-  _name: string = "";
+  @Input('name')
+  _name: string = '';
+
   /**
    * Boolean Property prüft ob Navigation im Wizard disabled ist; default Wert - false
    */
-  @Input("disablenavigation")
+  @Input('disablenavigation')
   _disableNavigation: boolean = false;
-  /**
-   * Aktueller Schritt im Wizard
-   */
-  private _currentstep: string;
+
   /**
    * Setter und Getter für aktueller Schritt
    */
-  @Input("currentstep")
+  @Input('currentstep')
   set currentstep(v: string | null) {
     this.changeStep(v);
     this.propagateChange(this._currentstep);
@@ -38,8 +38,14 @@ export abstract class NgWizardCommon implements AfterContentInit, ControlValueAc
   /**
    * EventEmitter wenn der Schritt geändert wird
    */
-  @Output("stepchanged")
+  @Output('stepchanged')
   _onStepChanged: EventEmitter<string> = new EventEmitter<string>();
+
+
+  /**
+   * Abstrakte QueryList von NgWizardItemCommon
+   */
+  abstract wizardItems(): QueryList<NgWizardItemCommon>;
 
   private setStepInternal(step: string): void {
     this._currentstep = step;
@@ -58,10 +64,10 @@ export abstract class NgWizardCommon implements AfterContentInit, ControlValueAc
    * Ursprünglicher Schritt wird selektiert
    */
   private initSteps(): void {
-    let activeStep = this.wizardItems().filter((step) => step._active);
+    const activeStep = this.wizardItems().filter((step) => step._active);
 
     if (activeStep.length === 0) {
-      let initStep: NgWizardItemCommon = this.wizardItems().toArray()[0];
+      const initStep: NgWizardItemCommon = this.wizardItems().toArray()[0];
       this.selectStep(initStep);
       initStep._disabled = false;
       this.setStepInternal(initStep._id);
@@ -72,46 +78,51 @@ export abstract class NgWizardCommon implements AfterContentInit, ControlValueAc
 
   /**
    * Schritt selektieren
-   * @param step 
+   * @param step Step welcher selektiert werden soll
    */
   selectStep(step: NgWizardItemCommon): void {
 
     // Cancel if Navigation disabled
-    if (this._disableNavigation)
+    if (this._disableNavigation) {
       return;
+    }
 
     this.changeStep(step._id);
   }
 
   /**
    * Auf nächsten/vorherigen Schritt gehen
-   * @param step 
+   * @param step Step auf welchen gewechselt werden soll
    */
   changeStep(step: string | null) {
-    if (this.wizardItems() === undefined || this.wizardItems() === null)
+    if (this.wizardItems() === undefined || this.wizardItems() === null) {
       return;
+    }
 
-    let wizardItemsArray: NgWizardItemCommon[] = this.wizardItems().toArray();
-    let itemsCount: number = wizardItemsArray.length;
-    let currentItemIndex = wizardItemsArray.findIndex(itm => itm._id === step);
+    const wizardItemsArray: NgWizardItemCommon[] = this.wizardItems().toArray();
+    const itemsCount: number = wizardItemsArray.length;
+    const currentItemIndex = wizardItemsArray.findIndex(itm => itm._id === step);
 
     for (let i: number = 0; i < itemsCount; i++) {
-      let item: NgWizardItemCommon = wizardItemsArray[i];
+      const item: NgWizardItemCommon = wizardItemsArray[i];
 
-      if (i < currentItemIndex)
+      if (i < currentItemIndex) {
         item._iscomplete = true;
-      else
+      } else {
         item._iscomplete = false;
+      }
 
-      if (i > currentItemIndex + 1)
+      if (i > currentItemIndex + 1) {
         item._disabled = true;
-      else
+      } else {
         item._disabled = false;
+      }
 
-      if (i == currentItemIndex)
+      if (i === currentItemIndex) {
         item._active = true;
-      else
+      } else {
         item._active = false;
+      }
     }
 
     this.setStepInternal(step);
@@ -119,19 +130,19 @@ export abstract class NgWizardCommon implements AfterContentInit, ControlValueAc
   }
 
   /**
-   * Leere Implementation von "propagateChange". Muss gemacht werden, damit kein Fehler entsteht
+   * Leere Implementation von 'propagateChange'. Muss gemacht werden, damit kein Fehler entsteht
    */
   propagateChange: any = () => { };
   /**
-   * Leere Implementation von "propagateTouch". Muss gemacht werden, damit kein Fehler entsteht
+   * Leere Implementation von 'propagateTouch'. Muss gemacht werden, damit kein Fehler entsteht
    */
   propagateTouch: any = () => { };
 
 
- /**
-  * Methode, damit andere Controls änderungen im Control mitbekommen können
-  * Zur Änderungsinfo die Methode propagateChange aufrufen.
-  */
+  /**
+   * Methode, damit andere Controls änderungen im Control mitbekommen können
+   * Zur Änderungsinfo die Methode propagateChange aufrufen.
+   */
   registerOnChange(fn: any): void {
     this.propagateChange = (obj) => fn(obj);
   }
@@ -146,7 +157,7 @@ export abstract class NgWizardCommon implements AfterContentInit, ControlValueAc
   /**
    * Methode zum schreiben von Werten aus dem Model in das Control
    */
-  writeValue(value: string|null) {
+  writeValue(value: string | null) {
     if (value) {
       this.changeStep(value);
     }

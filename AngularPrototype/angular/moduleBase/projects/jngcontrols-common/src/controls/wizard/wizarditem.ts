@@ -7,27 +7,27 @@ export class NgWizardItemCommon {
   /**
    * Prüft ob der aktuelle Schritt aktiv ist.
    */
-  @Input("active")
+  @Input('active')
   _active: boolean;
   /**
    * Prüft ob der Schritt abgeschlossen wurde.
    */
-  @Input("iscomplete")
+  @Input('iscomplete')
   _iscomplete: boolean = false;
   /**
    * Prüft ob der Schritt disabled ist.
    */
-  @Input("disabled")
+  @Input('disabled')
   _disabled: boolean = true;
   /**
    * ID-String
    */
-  @Input("id")
+  @Input('id')
   _id: string;
   /**
    * Label-Property, das angezeigt wird
    */
-  @Input("label")
+  @Input('label')
   _label: string;
 
 }

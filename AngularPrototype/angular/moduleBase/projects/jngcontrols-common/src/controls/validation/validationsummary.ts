@@ -13,8 +13,8 @@ export class NgValidationSummaryCommon {
   /**
    * Name-Property
    */
-  @Input("name")
-  _name: string = "";
+  @Input('name')
+  _name: string = '';
 
   // #region Private Variables
 
@@ -69,20 +69,21 @@ export class NgValidationSummaryCommon {
 
       } else {
 
-        Object.keys(ctl.controls).map(key => {
-          const control = ctl.controls[key];
+        Object.keys(ctl.controls).map(controlKey => {
+          const control = ctl.controls[controlKey];
 
           // Cancel Analyse wenn Item not Touched oder Valid
-          if (control.touched === false || control.valid === true)
+          if (control.touched === false || control.valid === true) {
             return;
+          }
 
           // Handle wenn Control kein Container ist
           if (control.controls === undefined || control.controls === null) {
             this.addErrorToCollection(control, collection);
           } else {
             // Handling eines Control Containers
-            let items: Array<NgForm | FormArray> = Object.keys(control.controls).map(key => {
-              return <NgForm | FormArray>control.controls[key];
+            const items: Array<NgForm | FormArray> = Object.keys(control.controls).map(formKey => {
+              return <NgForm | FormArray>control.controls[formKey];
             });
 
             this.getErrorCollection(items, collection);
@@ -95,27 +96,30 @@ export class NgValidationSummaryCommon {
 
   /**
    * Fügt einen Validation Error in die Error Collection hinzu
-   * 
    * @param ctl Fehlerhaftes Control
    * @param collection Collection aller Fehlermeldungen
    */
   private addErrorToCollection(ctl: AbstractControl, collection: Array<Observable<string>>): void {
-    if (ctl.errors === null || ctl.touched === false || ctl.valid == true)
+    if (ctl.errors === null || ctl.touched === false || ctl.valid === true) {
       return;
+    }
 
-    let keys: string[] = Object.keys(ctl.errors);
+    const keys: string[] = Object.keys(ctl.errors);
 
-    if (keys.length <= 0)
+    if (keys.length <= 0) {
       return;
+    }
 
-    let errorItem: ValidationErrorItem = ctl.errors[keys[0]];
+    const errorItem: ValidationErrorItem = ctl.errors[keys[0]];
 
     // Validation Parameters
     const parameters = {};
     if (errorItem.parameters !== null && errorItem.parameters !== undefined) {
-      errorItem.parameters.forEach((v, k) => { parameters[k] = v });
+      errorItem.parameters.forEach((v, k) => {
+        parameters[k] = v;
+      });
     }
-    parameters["FIELD"] = errorItem.fieldName;
+    parameters['FIELD'] = errorItem.fieldName;
 
     collection.push(this.lngResourceService.GetString(errorItem.errorMessageValidationSummaryKey, parameters));
   }

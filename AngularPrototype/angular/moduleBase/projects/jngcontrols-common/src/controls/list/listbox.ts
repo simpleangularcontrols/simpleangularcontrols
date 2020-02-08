@@ -25,7 +25,7 @@ export class NgListboxOption implements OnDestroy {
   /**
    * Wert des Controls
    */
-  @Input("value")
+  @Input('value')
   _value: string;
 
   /**
@@ -85,23 +85,23 @@ abstract class HTMLCollection {
 // })
 
 /**
- * Komponente für NgListboxCommon. Extends NgBaseSelectControl 
+ * Komponente für NgListboxCommon. Extends NgBaseSelectControl
  */
 export class NgListboxCommon extends NgBaseSelectControl<Array<string>> {
   /**
    * Anzahl der Zeilen
    */
-  @Input("rowsize") _rowsize: number = 5;
+  @Input('rowsize') _rowsize: number = 5;
 
 
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input("validationmessagerequired") _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
+  @Input('validationmessagerequired') _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input("validationmessagesummaryrequired") _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
+  @Input('validationmessagesummaryrequired') _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
 
   /**
@@ -114,7 +114,7 @@ export class NgListboxCommon extends NgBaseSelectControl<Array<string>> {
    * Getter für selektierte Elemente
    */
   getSelectedItems(selectelement: any) {
-    let selectedValues: Array<string> = new Array<string>();
+    const selectedValues: Array<string> = new Array<string>();
 
     if (selectelement.hasOwnProperty('selectedOptions')) {
       const options: HTMLCollection = selectelement.selectedOptions;
@@ -122,9 +122,7 @@ export class NgListboxCommon extends NgBaseSelectControl<Array<string>> {
         const opt: HTMLOption = options.item(i);
         selectedValues.push(opt.value);
       }
-    }
-    // Degrade on IE
-    else {
+    } else { // Degrade on IE
       const options: HTMLCollection = <HTMLCollection>selectelement.options;
       for (let i = 0; i < options.length; i++) {
         const opt: HTMLOption = options.item(i);

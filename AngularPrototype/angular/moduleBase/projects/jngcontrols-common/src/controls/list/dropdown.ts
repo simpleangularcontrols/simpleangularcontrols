@@ -6,7 +6,7 @@ import { NgFormularCommon } from '../form/form';
 
 /**
  * Function um ein Key Value Pair für das Dropdown zu erzeugen
- * @param id ID 
+ * @param id ID
  * @param value Wert der an das Element gebunden werden soll
  */
 export function _buildValueString(id: string | null, value: any): string {
@@ -44,15 +44,15 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
   /**
    * Label Text für Empty Item
    */
-  @Input("emptylabel") _emptylabel: string = '';
+  @Input('emptylabel') _emptylabel: string = '';
   /**
    * Option Value für Empty Item
    */
-  @Input("emptyvalue") _emptyoptionvalue: string = null;
+  @Input('emptyvalue') _emptyoptionvalue: string = null;
   /**
    * compareWith-Funktion
    */
-  @Input("compareWith")
+  @Input('compareWith')
   set compareWith(fn: (o1: any, o2: any) => boolean) {
     if (typeof fn !== 'function') {
       throw new Error(`compareWith must be a function, but received ${JSON.stringify(fn)}`);
@@ -63,18 +63,18 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
   /**
  * Resource Key für Validation Message Required bei Control
  */
-  @Input("validationmessagerequired") _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
+  @Input('validationmessagerequired') _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input("validationmessagesummaryrequired") _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
+  @Input('validationmessagesummaryrequired') _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
   /**
    * Konstruktor
-   * @param parent 
-   * @param injector 
-   * @param _renderer 
-   * @param _elementRef 
+   * @param parent Übergeordnetes HTML Element
+   * @param injector Injector für Services
+   * @param _renderer Render Engine
+   * @param _elementRef Referenz von HTML Element
    */
   constructor( @Host() parent: NgFormularCommon, injector: Injector, private _renderer: Renderer2, private _elementRef: ElementRef) {
     super(parent, injector);
@@ -123,18 +123,19 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
    */
   private setSelectedValue(value: any): void {
     // Select Item aus Control lesen
-    let selectItem: any = this._elementRef.nativeElement.getElementsByTagName("select")[0];
+    const selectItem: any = this._elementRef.nativeElement.getElementsByTagName('select')[0];
     /**
      * Id vom Select Item
      */
-    let id: string | null = this.getOptionId(value);
+    const id: string | null = this.getOptionId(value);
     /**
      * Value String
      */
-    let valueString = _buildValueString(id, value);
+    const valueString = _buildValueString(id, value);
 
-    if (selectItem !== undefined)
+    if (selectItem !== undefined) {
       this._renderer.setProperty(selectItem, 'value', valueString);
+    }
   }
 
   /**
@@ -143,7 +144,9 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
    */
   private getOptionId(value: any): string | null {
     for (const id of Array.from(this._optionMap.keys())) {
-      if (this._compareWith(this._optionMap.get(id), value)) return id;
+      if (this._compareWith(this._optionMap.get(id), value)) {
+        return id;
+      }
     }
     return null;
   }
@@ -157,14 +160,14 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
   }
   /**
    * ID extrahieren
-   * @param valueString 
+   * @param valueString String bei welchem die ID Extrahiert werden soll
    */
   private extractId(valueString: string): string {
     return valueString.split(':')[0];
   }
   /**
    * Validator
-   * @param c 
+   * @param c Control Instanz
    */
   validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = null;
@@ -186,25 +189,26 @@ export class NgDropdownOptionCommon implements OnDestroy {
   private id: string = null;
   /**
    * Konstruktor
-   * @param _element 
-   * @param _renderer 
-   * @param _dropdown 
+   * @param _element Referenz auf HTML Element
+   * @param _renderer Render Engine
+   * @param _dropdown Dropdown Instanz
    */
   constructor(private _element: ElementRef, private _renderer: Renderer2, private _dropdown: NgDropdownCommon) {
 
-    if (this._dropdown)
+    if (this._dropdown) {
       this.id = this._dropdown.registerOption();
-
+    }
   }
   /**
    * Option ngValue
    */
-  @Input("ngValue")
+  @Input('ngValue')
   set ngValue(value: any) {
 
     // Cancel wenn kein Parent Dropdown vorhanden
-    if (this._dropdown == null)
+    if (this._dropdown == null) {
       return;
+    }
 
     this._dropdown.setOptionMap(this.id, value);
     this._setElementValue(_buildValueString(this.id, value));
@@ -214,13 +218,13 @@ export class NgDropdownOptionCommon implements OnDestroy {
   /**
    * Wert-Setter
    */
-  @Input("value")
+  @Input('value')
   set value(value: any) {
     this._setElementValue(value);
   }
   /**
    * Den Wert vom Option-Element einstellen
-   * @param value 
+   * @param value Wert
    */
   _setElementValue(value: string): void {
     this._renderer.setProperty(this._element.nativeElement, 'value', value);

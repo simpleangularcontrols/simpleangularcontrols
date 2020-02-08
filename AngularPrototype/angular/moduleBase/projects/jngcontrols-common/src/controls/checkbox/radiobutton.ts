@@ -18,26 +18,32 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
   /**
    * Wert
    */
-  @Input("value")
+  @Input('value')
   public _value: any;
 
   /**
    * Label Text
    */
-  @Input("label")
+  @Input('label')
   public _label: string;
 
   /**
    * Boolean Property, ob Radiobutton checked ist
    */
-  @Input("checked")
+  @Input('checked')
   public _checked: boolean;
 
   /**
    * Boolean Property, ob Radiobutton disabled ist
    */
-  @Input("disabled")
+  @Input('disabled')
   public _disabled: boolean;
+
+  /**
+   * Output Event
+   */
+  @Output()
+  onselectitem = new EventEmitter();
 
   /**
    * Methode ergibt Boolean, ob Control disabled ist
@@ -54,13 +60,14 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
   /**
    * Setter für hidden Property
    */
-  @Input("hidden")
+  @Input('hidden')
   set hidden(v: boolean | string) {
-    if (v === null || v === undefined || typeof v === 'boolean')
+    if (v === null || v === undefined || typeof v === 'boolean') {
       this._hidden = v as boolean;
-    else
+    } else {
       this._hidden = v === 'true';
-    
+    }
+
     // Model Reset falls RadioButton selektiert war
     if (this._hidden && this._checked) {
       this.ngRadioButtons.SelectItem(null);
@@ -81,8 +88,9 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
    * Getter für Unique Index
    */
   get getIndex(): number {
-    if (this._index === null && this.ngRadioButtons !== null && this.ngRadioButtons !== undefined)
+    if (this._index === null && this.ngRadioButtons !== null && this.ngRadioButtons !== undefined) {
       this._index = this.ngRadioButtons.GetRadionButtonIndex();
+    }
 
     return this._index;
   }
@@ -99,7 +107,7 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
   /**
    * Template für Value Element
    */
-  @Input("labeltemplate")
+  @Input('labeltemplate')
   displayValueTemplate: TemplateRef<any>;
 
   //#endregion
@@ -123,10 +131,4 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
     this.ngRadioButtons.SelectItem(this._value);
     this.onselectitem.emit();
   }
-
-  /**
-   * Output Event
-   */
-  @Output()
-  onselectitem = new EventEmitter();
 }

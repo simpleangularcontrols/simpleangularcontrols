@@ -11,6 +11,11 @@ import { Validation } from '../../validation';
 export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> implements Validator {
 
   /**
+   * Radio Button Index
+   */
+  private radioButtonIndex: number = 0;
+
+  /**
    * Konstruktor
    * Inject des Formulars
    */
@@ -21,11 +26,11 @@ export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> imple
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input("validationmessagerequired") _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
+  @Input('validationmessagerequired') _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input("validationmessagesummaryrequired") _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
+  @Input('validationmessagesummaryrequired') _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
 
   //#region Sub Control registration
@@ -46,7 +51,7 @@ export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> imple
    * Löschen des Radio Button
    */
   public UnregisterRadioButton(radioButton: NgRadiobuttonCommon) {
-    let index: number = this.contentRadiobuttons.indexOf(radioButton);
+    const index: number = this.contentRadiobuttons.indexOf(radioButton);
 
     if (index >= 0) {
       this.contentRadiobuttons.splice(index, 1);
@@ -54,11 +59,6 @@ export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> imple
   }
 
   //#endregion
-
-  /**
-   * Radio Button Index
-   */
-  private radioButtonIndex: number = 0;
 
   /**
    * GEtter für Radio Button Index
@@ -99,10 +99,11 @@ export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> imple
    * Methode prüft ob Item checked ist
    */
   public HasCheckedItem(): boolean {
-    let radioButtons: NgRadiobuttonCommon[] = this.contentRadiobuttons;
+    const radioButtons: NgRadiobuttonCommon[] = this.contentRadiobuttons;
 
-    if (radioButtons === undefined || radioButtons === null)
+    if (radioButtons === undefined || radioButtons === null) {
       return false;
+    }
 
     return this.contentRadiobuttons.some(itm => itm._checked);
   }

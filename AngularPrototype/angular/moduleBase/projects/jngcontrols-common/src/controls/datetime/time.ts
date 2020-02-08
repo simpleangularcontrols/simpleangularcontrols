@@ -1,7 +1,7 @@
-import { Input, HostListener } from "@angular/core";
-import { AbstractControl, ValidationErrors } from "@angular/forms";
-import { Validation } from "../../validation";
-import { NgBaseDateTimeControl } from "../../common/basedatetimecontrol";
+import { Input, HostListener } from '@angular/core';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { Validation } from '../../validation';
+import { NgBaseDateTimeControl } from '../../common/basedatetimecontrol';
 // Import Moment.JS
 import { Moment } from 'moment';
 import * as moment_ from 'moment';
@@ -11,7 +11,7 @@ import * as moment_ from 'moment';
 const moment = moment_;
 
 /**
- * Komponente für NgTimeCommon. Extends NgBaseDateTimeControl 
+ * Komponente für NgTimeCommon. Extends NgBaseDateTimeControl
  */
 export class NgTimeCommon extends NgBaseDateTimeControl {
 
@@ -20,11 +20,78 @@ export class NgTimeCommon extends NgBaseDateTimeControl {
   /**
    * Format des Datums
    */
-  readonly TIMEFORMAT: string = "HH:mm";
+  readonly TIMEFORMAT: string = 'HH:mm';
   /**
    * Maske
    */
   readonly _mask = { mask: [/[0-2]/, /\d/, ':', /[0-5]/, /\d/], guide: true, placeholderChar: '_', keepCharPositions: true };
+
+  // #endregion
+
+  // #region Properties
+
+  /**
+   * Min Time
+   */
+  @Input('mintime')
+  set mintime(v: string | Date | null) {
+    let time = moment(v, [this.TIMEFORMAT], true);
+
+    time = this.ModifyParsedDateTimeValue(time);
+
+    if (time.isValid()) {
+      this._mintime = super.getDate(time).toDate();
+    } else {
+      this._mintime = null;
+    }
+  }
+  /**
+   * Min Time
+   */
+  _mintime: Date = null;
+
+  /**
+   * Max Time
+   */
+  @Input('maxtime')
+  set maxtime(v: string | Date | null) {
+    let time = moment(v, [this.TIMEFORMAT], true);
+
+    time = this.ModifyParsedDateTimeValue(time);
+
+    if (time.isValid()) {
+      this._maxtime = super.getDate(time).toDate();
+    } else {
+      this._maxtime = null;
+    }
+  }
+  /**
+   * Max Time
+   */
+  _maxtime: Date = null;
+
+  /**
+   * Definiert ob der Date Selector angezeigt wird
+   */
+  _showselector: boolean = false;
+
+  /**
+   * Resource Key für Validation Message MinTime bei Control
+   */
+  @Input('validationmessagemintime') _validationMessageMinTime: string = 'VALIDATION_ERROR_MINTIME';
+  /**
+   * Resource Key für Validation Message MinTime in Validation Summary
+   */
+  @Input('validationmessagesummarymintime') _validationMessageMinTimeSummary: string = 'VALIDATION_ERROR_SUMMARY_MINTIME';
+
+  /**
+   * Resource Key für Validation Message MinTime bei Control
+   */
+  @Input('validationmessagemaxtime') _validationMessageMaxTime: string = 'VALIDATION_ERROR_MAXTIME';
+  /**
+   * Resource Key für Validation Message MinTime in Validation Summary
+   */
+  @Input('validationmessagesummarymaxtime') _validationMessageMaxTimeSummary: string = 'VALIDATION_ERROR_SUMMARY_MAXTIME';
 
   // #endregion
 
@@ -49,73 +116,6 @@ export class NgTimeCommon extends NgBaseDateTimeControl {
 
   // #endregion
 
-  // #region Properties
-
-  /**
-   * Min Time
-   */
-  @Input("mintime")
-  set mintime(v: string | Date | null) {
-    var time = moment(v, [this.TIMEFORMAT], true);
-
-    time = this.ModifyParsedDateTimeValue(time);
-
-    if (time.isValid()) {
-      this._mintime = super.getDate(time).toDate();
-    } else {
-      this._mintime = null;
-    }
-  }
-  /**
-   * Min Time
-   */
-  _mintime: Date = null;
-
-  /**
-   * Max Time
-   */
-  @Input("maxtime")
-  set maxtime(v: string | Date | null) {
-    var time = moment(v, [this.TIMEFORMAT], true);
-
-    time = this.ModifyParsedDateTimeValue(time);
-
-    if (time.isValid()) {
-      this._maxtime = super.getDate(time).toDate();
-    } else {
-      this._maxtime = null;
-    }
-  }
-  /**
-   * Max Time
-   */
-  _maxtime: Date = null;
-
-  /**
-   * Definiert ob der Date Selector angezeigt wird
-   */
-  _showselector: boolean = false;
-
-  /**
-   * Resource Key für Validation Message MinTime bei Control
-   */
-  @Input("validationmessagemintime") _validationMessageMinTime: string = 'VALIDATION_ERROR_MINTIME';
-  /**
-   * Resource Key für Validation Message MinTime in Validation Summary
-   */
-  @Input("validationmessagesummarymintime") _validationMessageMinTimeSummary: string = 'VALIDATION_ERROR_SUMMARY_MINTIME';
-
-  /**
-   * Resource Key für Validation Message MinTime bei Control
-   */
-  @Input("validationmessagemaxtime") _validationMessageMaxTime: string = 'VALIDATION_ERROR_MAXTIME';
-  /**
-   * Resource Key für Validation Message MinTime in Validation Summary
-   */
-  @Input("validationmessagesummarymaxtime") _validationMessageMaxTimeSummary: string = 'VALIDATION_ERROR_SUMMARY_MAXTIME';
-
-  // #endregion
-
   // #region Time Selector
 
   /**
@@ -125,10 +125,11 @@ export class NgTimeCommon extends NgBaseDateTimeControl {
     // Touch Event auslösen
     this.onTouch();
 
-    if (this._showselector)
+    if (this._showselector) {
       this._showselector = false;
-    else
+    } else {
       this._showselector = true;
+    }
   }
 
   /**
@@ -140,8 +141,9 @@ export class NgTimeCommon extends NgBaseDateTimeControl {
    */
   public onClick(targetElement) {
     const clickedInside = this._elementRef.nativeElement.contains(targetElement);
-    if (!clickedInside)
+    if (!clickedInside) {
       this._showselector = false;
+    }
   }
 
   /**
@@ -149,7 +151,7 @@ export class NgTimeCommon extends NgBaseDateTimeControl {
    */
   timeselect(v: any) {
     if (v.date === null) {
-      this.setValueString("");
+      this.setValueString('');
     } else {
       this.value = moment(v.date).utc().toDate();
     }

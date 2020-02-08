@@ -56,20 +56,20 @@ export abstract class NgBaseDateTimeControl extends NgBaseModelControl<Date> imp
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input("validationmessagerequired") _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
+  @Input('validationmessagerequired') _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input("validationmessagesummaryrequired") _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
+  @Input('validationmessagesummaryrequired') _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
   /**
    * Resource Key für Validation Message DateTimeFormat bei Control
    */
-  @Input("validationmessagedatetimeformat") _validationMessageDateTimeFormat: string = 'VALIDATION_ERROR_DATETIMEFORMAT';
+  @Input('validationmessagedatetimeformat') _validationMessageDateTimeFormat: string = 'VALIDATION_ERROR_DATETIMEFORMAT';
   /**
    * Resource Key für Validation Message DateTimeFormat in Validation Summary
    */
-  @Input("validationmessagesummarydatetimeformat") _validationMessageDateTimeFormatSummary: string = 'VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT';
+  @Input('validationmessagesummarydatetimeformat') _validationMessageDateTimeFormatSummary: string = 'VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT';
 
   /**
    * Die methode returns dateTime in string
@@ -110,14 +110,13 @@ export abstract class NgBaseDateTimeControl extends NgBaseModelControl<Date> imp
   * JSON Date String in ein UTC DateTime Object konvertieren, welches vom Control verwendete werden kann
   */
   getDate(timestamp) {
-    var date = new Date(timestamp);
-
-    var year = date.getUTCFullYear();
-    var month = date.getUTCMonth();
-    var day = date.getUTCDate();
-    var hours = date.getUTCHours();
-    var minutes = date.getUTCMinutes();
-    var seconds = date.getUTCSeconds();
+    const date = new Date(timestamp);
+    const year = date.getUTCFullYear();
+    const month = date.getUTCMonth();
+    const day = date.getUTCDate();
+    const hours = date.getUTCHours();
+    const minutes = date.getUTCMinutes();
+    const seconds = date.getUTCSeconds();
 
     return moment(Date.UTC(year, month, day, hours, minutes, seconds));
   }

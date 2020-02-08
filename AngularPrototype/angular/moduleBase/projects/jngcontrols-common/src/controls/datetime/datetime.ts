@@ -1,7 +1,7 @@
-import { Input, HostListener } from "@angular/core";
-import { AbstractControl, ValidationErrors } from "@angular/forms";
-import { Validation } from "../../validation";
-import { NgBaseDateTimeControl } from "../../common/basedatetimecontrol";
+import { Input, HostListener } from '@angular/core';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { Validation } from '../../validation';
+import { NgBaseDateTimeControl } from '../../common/basedatetimecontrol';
 // Import Moment.JS
 import { Moment } from 'moment';
 import * as moment_ from 'moment';
@@ -12,7 +12,7 @@ import * as moment_ from 'moment';
 const moment = moment_;
 
 /**
- * Komponente für NgDateTimeCommon. Extends NgBaseDateTimeControl 
+ * Komponente für NgDateTimeCommon. Extends NgBaseDateTimeControl
  */
 export class NgDateTimeCommon extends NgBaseDateTimeControl {
 
@@ -21,29 +21,11 @@ export class NgDateTimeCommon extends NgBaseDateTimeControl {
   /**
    * Format des Datums
    */
-  readonly DATEFORMAT: string = "DD.MM.YYYY HH:mm";
+  readonly DATEFORMAT: string = 'DD.MM.YYYY HH:mm';
   /**
    * Maske
    */
   readonly _mask = { mask: [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/, ' ', /[0-2]/, /\d/, ':', /[0-5]/, /\d/], guide: true, placeholderChar: '_', keepCharPositions: true };
-
-  // #endregion
-
-  // #region Abstract Methods
-
-  /**
-   * Methode ergibt Datum-Format vom String
-   */
-  GetDateTimeFormatString(): string {
-    return this.DATEFORMAT;
-  }
-
-  /**
-   * Methode modifiziert den parsed Wert des Datums
-   */
-  ModifyParsedDateTimeValue(v: Moment): Moment {
-    return v;
-  }
 
   // #endregion
 
@@ -52,9 +34,9 @@ export class NgDateTimeCommon extends NgBaseDateTimeControl {
   /**
    * Min Date
    */
-  @Input("mindate")
+  @Input('mindate')
   set mindate(v: string | Date | null) {
-    var date = moment(v, [this.DATEFORMAT], true);
+    const date = moment(v, [this.DATEFORMAT], true);
 
     if (date.isValid()) {
       this._mindate = super.getDate(date).toDate();
@@ -70,9 +52,9 @@ export class NgDateTimeCommon extends NgBaseDateTimeControl {
   /**
    * Max Date
    */
-  @Input("maxdate")
+  @Input('maxdate')
   set maxdate(v: string | Date | null) {
-    var date = moment(v, [this.DATEFORMAT], true);
+    const date = moment(v, [this.DATEFORMAT], true);
 
     if (date.isValid()) {
       this._maxdate = super.getDate(date).toDate();
@@ -94,21 +76,39 @@ export class NgDateTimeCommon extends NgBaseDateTimeControl {
   /**
    * Resource Key für Validation Message MinDate bei Control
    */
-  @Input("validationmessagemindate") _validationMessageMinDate: string = 'VALIDATION_ERROR_MINDATE';
+  @Input('validationmessagemindate') _validationMessageMinDate: string = 'VALIDATION_ERROR_MINDATE';
   /**
    * Resource Key für Validation Message MinDate in Validation Summary
    */
-  @Input("validationmessagesummarymindate") _validationMessageMinDateSummary: string = 'VALIDATION_ERROR_SUMMARY_MINDATE';
+  @Input('validationmessagesummarymindate') _validationMessageMinDateSummary: string = 'VALIDATION_ERROR_SUMMARY_MINDATE';
 
   /**
    * Resource Key für Validation Message MaxDate bei Control
    */
-  @Input("validationmessagemaxdate") _validationMessageMaxDate: string = 'VALIDATION_ERROR_MAXDATE';
+  @Input('validationmessagemaxdate') _validationMessageMaxDate: string = 'VALIDATION_ERROR_MAXDATE';
   /**
    * Resource Key für Validation Message MaxDate in Validation Summary
    */
-  @Input("validationmessagesummarymaxdate") _validationMessageMaxDateSummary: string = 'VALIDATION_ERROR_SUMMARY_MAXDATE';
+  @Input('validationmessagesummarymaxdate') _validationMessageMaxDateSummary: string = 'VALIDATION_ERROR_SUMMARY_MAXDATE';
 
+
+  // #endregion
+
+  // #region Abstract Methods
+
+  /**
+   * Methode ergibt Datum-Format vom String
+   */
+  GetDateTimeFormatString(): string {
+    return this.DATEFORMAT;
+  }
+
+  /**
+   * Methode modifiziert den parsed Wert des Datums
+   */
+  ModifyParsedDateTimeValue(v: Moment): Moment {
+    return v;
+  }
 
   // #endregion
 
@@ -123,10 +123,11 @@ export class NgDateTimeCommon extends NgBaseDateTimeControl {
      */
     this.onTouch();
 
-    if (this._showselector)
+    if (this._showselector) {
       this._showselector = false;
-    else
+    } else {
       this._showselector = true;
+    }
   }
 
   /**
@@ -138,8 +139,9 @@ export class NgDateTimeCommon extends NgBaseDateTimeControl {
    */
   public onClick(targetElement) {
     const clickedInside = this._elementRef.nativeElement.contains(targetElement);
-    if (!clickedInside)
+    if (!clickedInside) {
       this._showselector = false;
+    }
   }
 
   /**
@@ -147,7 +149,7 @@ export class NgDateTimeCommon extends NgBaseDateTimeControl {
    */
   dateselect(v: any) {
     if (v.date === null) {
-      this.setValueString("");
+      this.setValueString('');
     } else {
       this.value = moment(v.date).utc().toDate();
     }

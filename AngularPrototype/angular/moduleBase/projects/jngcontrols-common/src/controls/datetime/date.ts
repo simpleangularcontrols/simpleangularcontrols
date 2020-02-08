@@ -1,8 +1,8 @@
-import { Input, HostListener } from "@angular/core";
-import { AbstractControl, ValidationErrors } from "@angular/forms";
-// import { NgFormular } from "../form/form";
-import { Validation } from "../../validation";
-import { NgBaseDateTimeControl } from "../../common/basedatetimecontrol";
+import { Input, HostListener } from '@angular/core';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
+// import { NgFormular } from '../form/form';
+import { Validation } from '../../validation';
+import { NgBaseDateTimeControl } from '../../common/basedatetimecontrol';
 // Import Moment.JS
 import { Moment } from 'moment';
 import * as moment_ from 'moment';
@@ -12,7 +12,7 @@ import * as moment_ from 'moment';
 const moment = moment_;
 
 /**
- * Komponente für NgDateCommon. Extends NgBaseDateTimeControl 
+ * Komponente für NgDateCommon. Extends NgBaseDateTimeControl
  */
 export class NgDateCommon extends NgBaseDateTimeControl {
 
@@ -21,11 +21,75 @@ export class NgDateCommon extends NgBaseDateTimeControl {
   /**
    * Format des Datums
    */
-  readonly DATEFORMAT: string = "DD.MM.YYYY";
+  readonly DATEFORMAT: string = 'DD.MM.YYYY';
   /**
    * Maske
    */
-  readonly _mask = { mask: [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/,], guide: true, placeholderChar: '_', keepCharPositions: true };
+  readonly _mask = { mask: [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/], guide: true, placeholderChar: '_', keepCharPositions: true };
+
+  // #endregion
+
+  // #region Properties
+
+  /**
+   * Min Date
+   */
+  @Input('mindate')
+  set mindate(v: string | Date | null) {
+    const date = moment(v, [this.DATEFORMAT], true);
+
+    if (date.isValid()) {
+      this._mindate = super.getDate(date).toDate();
+    } else {
+      this._mindate = null;
+    }
+  }
+  /**
+   * Min Date
+   */
+  _mindate: Date = null;
+
+  /**
+   * Min Date
+   */
+  @Input('maxdate')
+  set maxdate(v: string | Date | null) {
+    const date = moment(v, [this.DATEFORMAT], true);
+
+    if (date.isValid()) {
+      this._maxdate = super.getDate(date).toDate();
+    } else {
+      this._maxdate = null;
+    }
+  }
+  /**
+   * Min Date
+   */
+  _maxdate: Date = null;
+
+  /**
+   * Definiert ob der Date Selector angezeigt wird
+   */
+  _showselector: boolean = false;
+
+  /**
+   * Resource Key für Validation Message MinDate bei Control
+   */
+  @Input('validationmessagemindate') _validationMessageMinDate: string = 'VALIDATION_ERROR_MINDATE';
+  /**
+   * Resource Key für Validation Message MinDate in Validation Summary
+   */
+  @Input('validationmessagesummarymindate') _validationMessageMinDateSummary: string = 'VALIDATION_ERROR_SUMMARY_MINDATE';
+
+  /**
+   * Resource Key für Validation Message MaxDate bei Control
+   */
+  @Input('validationmessagemaxdate') _validationMessageMaxDate: string = 'VALIDATION_ERROR_MAXDATE';
+  /**
+   * Resource Key für Validation Message MaxDate in Validation Summary
+   */
+  @Input('validationmessagesummarymaxdate') _validationMessageMaxDateSummary: string = 'VALIDATION_ERROR_SUMMARY_MAXDATE';
+
 
   // #endregion
 
@@ -47,70 +111,6 @@ export class NgDateCommon extends NgBaseDateTimeControl {
 
   // #endregion
 
-  // #region Properties
-
-  /**
-   * Min Date
-   */
-  @Input("mindate")
-  set mindate(v: string | Date | null) {
-    var date = moment(v, [this.DATEFORMAT], true);
-
-    if (date.isValid()) {
-      this._mindate = super.getDate(date).toDate();
-    } else {
-      this._mindate = null;
-    }
-  }
-  /**
-   * Min Date
-   */
-  _mindate: Date = null;
-
-  /**
-   * Min Date
-   */
-  @Input("maxdate")
-  set maxdate(v: string | Date | null) {
-    var date = moment(v, [this.DATEFORMAT], true);
-
-    if (date.isValid()) {
-      this._maxdate = super.getDate(date).toDate();
-    } else {
-      this._maxdate = null;
-    }
-  }
-  /**
-   * Min Date
-   */
-  _maxdate: Date = null;
-
-  /**
-   * Definiert ob der Date Selector angezeigt wird
-   */
-  _showselector: boolean = false;
-
-  /**
-   * Resource Key für Validation Message MinDate bei Control
-   */
-  @Input("validationmessagemindate") _validationMessageMinDate: string = 'VALIDATION_ERROR_MINDATE';
-  /**
-   * Resource Key für Validation Message MinDate in Validation Summary
-   */
-  @Input("validationmessagesummarymindate") _validationMessageMinDateSummary: string = 'VALIDATION_ERROR_SUMMARY_MINDATE';
-
-  /**
-   * Resource Key für Validation Message MaxDate bei Control
-   */
-  @Input("validationmessagemaxdate") _validationMessageMaxDate: string = 'VALIDATION_ERROR_MAXDATE';
-  /**
-   * Resource Key für Validation Message MaxDate in Validation Summary
-   */
-  @Input("validationmessagesummarymaxdate") _validationMessageMaxDateSummary: string = 'VALIDATION_ERROR_SUMMARY_MAXDATE';
-
-
-  // #endregion
-
   // #region Date Selector
 
   /**
@@ -120,10 +120,11 @@ export class NgDateCommon extends NgBaseDateTimeControl {
     // Touch Event auslösen
     this.onTouch();
 
-    if (this._showselector)
+    if (this._showselector) {
       this._showselector = false;
-    else
+    } else {
       this._showselector = true;
+    }
   }
 
   /**
@@ -135,8 +136,9 @@ export class NgDateCommon extends NgBaseDateTimeControl {
    */
   public onClick(targetElement) {
     const clickedInside = this._elementRef.nativeElement.contains(targetElement);
-    if (!clickedInside)
+    if (!clickedInside) {
       this._showselector = false;
+    }
   }
 
   /**
@@ -144,7 +146,7 @@ export class NgDateCommon extends NgBaseDateTimeControl {
    */
   dateselect(v: any) {
     if (v.date === null) {
-      this.setValueString("");
+      this.setValueString('');
     } else {
       this.value = moment(v.date).utc().toDate();
     }

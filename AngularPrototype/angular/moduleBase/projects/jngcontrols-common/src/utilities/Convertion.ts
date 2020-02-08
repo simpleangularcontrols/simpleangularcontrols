@@ -1,21 +1,23 @@
 /**
  * Erzeugt ein Boolean
- * @param value 
+ * @param value
  */
 export function convertToBoolean(value: any): boolean {
-  if (value === null || value === undefined || typeof value === "boolean")
+  if (value === null || value === undefined || typeof value === 'boolean') {
     return value;
+  }
 
-  return value.toString() === "true";
+  return value.toString() === 'true';
 }
 
 /**
  * Erzeugt ein Number
- * @param value 
+ * @param value
  */
 export function convertToNumber(value: any): number {
-  if (value === null || value === undefined || typeof value === "number")
+  if (value === null || value === undefined || typeof value === 'number') {
     return value;
+  }
 
   return parseFloat(value.toString());
 }
@@ -27,6 +29,8 @@ export function convertToNumber(value: any): number {
  */
 export function mapToObject(map: Map<string, any>): any {
   const obj = {};
-  map.forEach((v, k) => { obj[k] = v });
+  map.forEach((v, k) => {
+    obj[k] = v;
+  });
   return obj;
 }

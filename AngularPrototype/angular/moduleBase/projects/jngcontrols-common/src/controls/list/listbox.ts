@@ -8,12 +8,12 @@ import { Validation } from '../../validation';
  *  Element für Access auf Option Field
  * @selector option
  */
-@Directive({ selector: 'option' })
+@Directive({ selector: '[ngOption], option' })
 
 /**
  *Basis Komponente für NgListboxOption
  */
-export class NgListboxOption implements OnDestroy {
+export class NgListboxOptionDirective implements OnDestroy {
 
   /**
    * Konstruktor
@@ -107,8 +107,8 @@ export class NgListboxCommon extends NgBaseSelectControl<Array<string>> {
   /**
    * ViewChildren Methode
    */
-  @ViewChildren(NgListboxOption)
-  contentOptions: QueryList<NgListboxOption>;
+  @ViewChildren(NgListboxOptionDirective)
+  contentOptions: QueryList<NgListboxOptionDirective>;
 
   /**
    * Getter für selektierte Elemente

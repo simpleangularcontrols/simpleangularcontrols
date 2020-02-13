@@ -1,35 +1,35 @@
 import { Component, ViewChild, HostListener } from '@angular/core';
 import { NgForm, FormGroup, FormControl } from '@angular/forms';
 import { DeprecatedCurrencyPipe } from '@angular/common/src/pipes/deprecated/number_pipe';
-import { NgFormular } from '@jnetwork/jngcontrols-bootstrap4';
+import { NgFormularDirective } from '@jnetwork/jngcontrols-bootstrap4';
 
 
 interface KeyValue {
-  label: string,
-  value: string,
-  text: string
+  label: string;
+  value: string;
+  text: string;
 }
 
 interface KeyValueNumeric {
-  label: string,
-  value: number,
-  text: string
+  label: string;
+  value: number;
+  text: string;
 }
 
 interface KeyValue2 extends KeyValue {
-  enabled: boolean
+  enabled: boolean;
 }
 
 interface KeyValue3 extends KeyValue2 {
-  checked: boolean
+  checked: boolean;
 }
 
 interface GroupElement {
-  label: string,
-  items: KeyValue[]
+  label: string;
+  items: KeyValue[];
 }
 
-class formdataDateTime {
+class FormdataDateTime {
   datum1: Date = new Date(2018, 10, 22, null, null, null, null);
   datum2: Date = new Date(2018, 8, 10, null, null, null, null);
   datum3: Date = new Date(2018, 9, 12, null, null, null, null);
@@ -51,7 +51,7 @@ class formdataDateTime {
 
 }
 
-class formdata {
+class Formdata {
   // Form Example 2
   field1: string = '';
   field2: string = '';
@@ -113,9 +113,9 @@ class formdata {
   radiobuttons4: string = '3';
 
   listbox1: string[];
-  listbox2: string[] = ["v2", "v3"];
+  listbox2: string[] = ['v2', 'v3'];
   listbox3: string[];
-  listbox4: string[] = ["v2", "v3"];
+  listbox4: string[] = ['v2', 'v3'];
   listbox5: string[] = [];
 
   dropdownitems: KeyValue[] = [{ label: 'Wert 1', value: 'v1', text: 'Text 1' }, { label: 'Wert 2', value: 'v2', text: 'Text 2' }, { label: 'Wert 3', value: 'v3', text: 'Text 3' }];
@@ -186,16 +186,25 @@ export class AppComponent {
 
   testrequired: boolean = true;
 
-  @ViewChild("form") myForm: NgFormular;
-  @ViewChild("form2") form2: NgFormular;
-  @ViewChild("form3") form3: NgForm;
-  @ViewChild("formTemp") formTemp: NgFormular;
-  @ViewChild("formDateTime") formDateTime: NgFormular;
-  @ViewChild("formExampleUpload") formUpload: NgFormular;
+  values: Formdata = new Formdata();
+
+  valuesDateTime: FormdataDateTime = new FormdataDateTime();
+  mindatevalue: Date = new Date(2018, 1, 1);
+
+  modal1: boolean = false;
+
+  MannschaftsModel: DropdownModel = new DropdownModel();
+  SpielerModel: DropdownModel = new DropdownModel();
+
+  @ViewChild('form') myForm: NgFormularDirective;
+  @ViewChild('form2') form2: NgFormularDirective;
+  @ViewChild('form3') form3: NgFormularDirective;
+  @ViewChild('formTemp') formTemp: NgFormularDirective;
+  @ViewChild('formDateTime') formDateTime: NgFormularDirective;
+  @ViewChild('formExampleUpload') formUpload: NgFormularDirective;
 
   changeRequired() {
     this.testrequired = !this.testrequired;
-    console.info('Required is:' + this.testrequired);
   }
 
   debugAction() {
@@ -221,19 +230,14 @@ export class AppComponent {
     });
   }
 
-  values: formdata = new formdata();
-
   t3Save() {
-    //alert('Save Form 2');
+    // alert('Save Form 2');
     alert(JSON.stringify(this.values));
   }
 
   GetFormValues(): string {
     return JSON.stringify(this.values) + '---' + JSON.stringify(this.valuesDateTime);
   }
-
-  valuesDateTime: formdataDateTime = new formdataDateTime();
-  mindatevalue: Date = new Date(2018, 1, 1);
 
   dateTimeSave() {
     alert(JSON.stringify(this.valuesDateTime));
@@ -246,18 +250,21 @@ export class AppComponent {
   }
 
   radio1Remove(): void {
-    var option = this.values.radiobuttonitems1.find(itm => itm.value === 'o5');
-    if (option !== undefined)
+    const option = this.values.radiobuttonitems1.find(itm => itm.value === 'o5');
+
+    if (option !== undefined) {
       this.values.radiobuttonitems1.splice(this.values.radiobuttonitems1.indexOf(option), 1);
+    }
   }
 
   radio1ChangeProperty(): void {
-    var option = this.values.radiobuttonitems1.find(itm => itm.value === 'o4');
-    if (option !== undefined)
-      option.label = "Property Change " + Date.now();
+    const option = this.values.radiobuttonitems1.find(itm => itm.value === 'o4');
+
+    if (option !== undefined) {
+      option.label = 'Property Change ' + Date.now();
+    }
   }
 
-  modal1: boolean = false;
 
   modal1Open() {
     alert(this.modal1);
@@ -289,22 +296,18 @@ export class AppComponent {
     alert('menu event: ' + ev.detail);
   }
 
-
-  MannschaftsModel: DropdownModel = new DropdownModel();
-  SpielerModel: DropdownModel = new DropdownModel();
-
   FilterChanged(value: boolean): void {
 
   }
 
   LoadDropdownModels() {
 
-    let model1: DropdownModel = new DropdownModel();
+    const model1: DropdownModel = new DropdownModel();
     model1.SelectedId = this.MannschaftsModel.SelectedId;
 
 
     for (let i: number = 1; i <= 10; i++) {
-      let item: KeyValueModel = new KeyValueModel();
+      const item: KeyValueModel = new KeyValueModel();
       item.Id = i;
       item.Displaytext = `Team ${i}`;
       model1.Items.push(item);

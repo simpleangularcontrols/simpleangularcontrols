@@ -1,28 +1,26 @@
-import { Component } from "@angular/core";
-import { UserService } from "../services/UserService";
-import { AuthenticationService } from "../services/AuthenticationService";
-import { OnInit } from "@angular/core";
-import { ToastrService } from "ngx-toastr";
+import { Component } from '@angular/core';
+import { UserService } from '../services/UserService';
+import { AuthenticationService } from '../services/AuthenticationService';
+import { OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'ngUserComponent',
+  selector: 'app-usercomponent',
   templateUrl: './UserComponent.html'
 })
 export class UserComponent {
 
-  constructor(private userService: UserService, private authService: AuthenticationService, private toastr: ToastrService) {
-
-  }
-
-  protected login(): void {
-    this.authService.Login("admin", "12345678");
-  }
-
-
   users: string[];
   users2: string[];
 
-  protected loadusers(): void {
+  constructor(private userService: UserService, private authService: AuthenticationService, private toastr: ToastrService) {
+  }
+
+  login(): void {
+    this.authService.Login('admin', '12345678');
+  }
+
+  loadusers(): void {
 
     this.userService.GetUsers().subscribe((result) => {
 

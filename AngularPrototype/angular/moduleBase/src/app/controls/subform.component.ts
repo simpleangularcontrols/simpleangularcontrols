@@ -6,11 +6,11 @@ import { DoCheck } from '@angular/core';
 
 
 @Component({
-  selector: 'ngSubForm',
+  selector: 'app-subform',
   templateUrl: './subform.component.html'
 })
 export class SubFormComponent implements DoCheck {
-  
+
   @Input() mymodel;
   @Output() mymodelChange = new EventEmitter();
 

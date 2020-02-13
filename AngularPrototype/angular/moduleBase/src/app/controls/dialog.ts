@@ -1,23 +1,24 @@
-import { Component } from "@angular/core";
-import { ServiceConfirm } from "@jnetwork/jngcontrols-bootstrap4";
+import { Component } from '@angular/core';
+import { ServiceConfirm } from '@jnetwork/jngcontrols-bootstrap4';
 
 @Component({
-  selector: 'ngExampleDialog',
+  selector: 'app-example-dialog',
   templateUrl: './dialog.html'
 })
-export class ExampleDialog {
+export class ExampleDialogComponent {
 
   constructor(private confirmService: ServiceConfirm) {
 
   }
 
   public confirmExample(): void {
-    this.confirmService.ConfirmMessage('Benutzer löschen','Soll der Benutzer gelöscht werden?').subscribe(result => {
+    this.confirmService.ConfirmMessage('Benutzer löschen', 'Soll der Benutzer gelöscht werden?').subscribe(result => {
       console.log('Action called');
-      if (result === 'yes')
+      if (result === 'yes') {
         alert('True');
-      else
+      } else {
         alert('False');
+      }
     });
   }
 

@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from "rxjs/internal/Observable";
-import { map } from "rxjs/operators";
+import { Observable } from 'rxjs/internal/Observable';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +17,10 @@ export class AuthenticationService {
    */
   public Login(username: string, password: string): void {
 
-    this.http.post("http://localhost:54538/api/auth/token", "username=" + username + "&password=" + password + "&grant_type=password").subscribe((result: AuthResponse) => {
+    this.http.post('http://localhost:54538/api/auth/token', 'username=' + username + '&password=' + password + '&grant_type=password').subscribe((result: AuthResponse) => {
 
-      sessionStorage.setItem("auth.accesstoken", result.access_token);
-      sessionStorage.setItem("auth.refreshtoken", result.refresh_token);
+      sessionStorage.setItem('auth.accesstoken', result.access_token);
+      sessionStorage.setItem('auth.refreshtoken', result.refresh_token);
 
     }, (error) => {
 
@@ -31,11 +31,11 @@ export class AuthenticationService {
    * Neues Access Token beim Server holen
    */
   public RefreshToken(): Observable<string> {
-    return this.http.post<AuthResponse>("http://localhost:54538/api/auth/token","refresh_token=" + sessionStorage.getItem("auth.refreshtoken") + "&grant_type=refresh_token")
+    return this.http.post<AuthResponse>('http://localhost:54538/api/auth/token', 'refresh_token=' + sessionStorage.getItem('auth.refreshtoken') + '&grant_type=refresh_token')
       .pipe(map(result => {
 
-        sessionStorage.setItem("auth.accesstoken", result.access_token);
-        sessionStorage.setItem("auth.refreshtoken", result.refresh_token);
+        sessionStorage.setItem('auth.accesstoken', result.access_token);
+        sessionStorage.setItem('auth.refreshtoken', result.refresh_token);
 
         return result.access_token;
       }));
@@ -43,21 +43,22 @@ export class AuthenticationService {
 
   // Logout des Benutzers
   public Logout(): void {
-    sessionStorage.removeItem("auth.accesstoken");
-    sessionStorage.removeItem("auth.refreshtoken");
-}
+    sessionStorage.removeItem('auth.accesstoken');
+    sessionStorage.removeItem('auth.refreshtoken');
+  }
 
   /**
    * Token aus Session Storage zurückgeben
    */
   public GetToken(): string {
-  let token: string = sessionStorage.getItem("auth.accesstoken");
+    const token: string = sessionStorage.getItem('auth.accesstoken');
 
-  if (token === null || token === undefined)
-    return null;
-  else
-    return token;
-}
+    if (token === null || token === undefined) {
+      return null;
+    } else {
+      return token;
+    }
+  }
 
 }
 

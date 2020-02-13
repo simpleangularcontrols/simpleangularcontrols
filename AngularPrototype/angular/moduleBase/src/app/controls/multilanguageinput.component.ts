@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NgFormular } from '@jnetwork/jngcontrols-bootstrap4';
+import { NgFormularDirective } from '@jnetwork/jngcontrols-bootstrap4';
 
 export class MultiLangauageDataModel {
 
@@ -10,19 +10,10 @@ export class MultiLangauageDataModel {
 
 
 @Component({
-  selector: 'ngExampleMultiLanguage',
+  selector: 'app-example-multilanguage',
   templateUrl: './multilanguageinput.component.html'
 })
-export class ExampleMultiLanguageInput {
-
-  @ViewChild("formMultiLanguage")
-  formular: NgFormular;
-
-  public save(): void {
-
-    this.formular.markAsTouched();
-
-  }
+export class ExampleMultiLanguageInputComponent {
 
   ValuesItem = {
     Model1: new MultiLangauageDataModel(),
@@ -31,5 +22,15 @@ export class ExampleMultiLanguageInput {
     Model4: { de: 'Wert Deutsch', en: 'Wert Englisch' },
     Model5: { de: 'Wert Deutsch', en: 'Wert Englisch' }
   };
+
+  @ViewChild('formMultiLanguage')
+  formular: NgFormularDirective;
+
+  public save(): void {
+
+    this.formular.markAsTouched();
+
+  }
+
 
 }

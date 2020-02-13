@@ -18,10 +18,10 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './services/TokenInterceptor';
 
 // Example Controls
-import { ExampleGrid } from './controls/grid';
-import { ExampleDialog } from './controls/dialog';
+import { ExampleGridComponent, TempDirective } from './controls/grid';
+import { ExampleDialogComponent } from './controls/dialog';
 import { SubFormComponent } from './controls/subform.component';
-import { ExampleMultiLanguageInput } from './controls/multilanguageinput.component';
+import { ExampleMultiLanguageInputComponent } from './controls/multilanguageinput.component';
 
 import { LANGUAGE_SERVICE } from '@jnetwork/jngcontrols-common';
 import { ControlsLanguageService } from './services/language.service';
@@ -30,26 +30,26 @@ import { ControlsLanguageService } from './services/language.service';
 const NgDirectives = [
   AppComponent, UserComponent,
 
-  ExampleGrid, ExampleDialog, SubFormComponent, ExampleMultiLanguageInput
-]
+  ExampleGridComponent, ExampleDialogComponent, SubFormComponent, ExampleMultiLanguageInputComponent, TempDirective
+];
 
-//import {
-//  jNetworkBootstrap3FormModule,
-//  jNetworkBootstrap3ButtonModule,
-//  jNetworkBootstrap3DialogModule,
-//  jNetworkBootstrap3CheckboxModule,
-//  jNetworkBootstrap3ListModule,
-//  jNetworkBootstrap3ValidationSummaryModule,
-//  jNetworkBootstrap3TabsModule,
-//  jNetworkBootstrap3InputModule,
-//  jNetworkBootstrap3DateTimeModule,
-//  jNetworkBootstrap3TinyMceModule,
-//  jNetworkBootstrap3GridModule,
+// import {
+//  JNetworkBootstrap3FormModule,
+//  JNetworkBootstrap3ButtonModule,
+//  JNetworkBootstrap3DialogModule,
+//  JNetworkBootstrap3CheckboxModule,
+//  JNetworkBootstrap3ListModule,
+//  JNetworkBootstrap3ValidationSummaryModule,
+//  JNetworkBootstrap3TabsModule,
+//  JNetworkBootstrap3InputModule,
+//  JNetworkBootstrap3DateTimeModule,
+//  JNetworkBootstrap3TinyMceModule,
+//  JNetworkBootstrap3GridModule,
 //  // JNetworkBootstrap4StaticLabelModule,
-//  jNetworkBootstrap3WizardModule,
-//  jNetworkBootstrap3ConfirmModule,
-//  jNetworkBootstrap3UploadModule
-//} from '@jnetwork/jngcontrols-bootstrap3';
+//  JNetworkBootstrap3WizardModule,
+//  JNetworkBootstrap3ConfirmModule,
+//  JNetworkBootstrap3UploadModule
+// } from '@jnetwork/jngcontrols-bootstrap3';
 
 import {
   JNetworkBootstrap4FormModule,
@@ -88,21 +88,21 @@ import { UploadxModule } from 'ngx-uploadx';
     ToastrModule.forRoot(),
 
     // Exanic Controls
-    //jNetworkBootstrap3FormModule,
-    //jNetworkBootstrap3ButtonModule,
-    //jNetworkBootstrap3DialogModule,
-    //jNetworkBootstrap3CheckboxModule,
-    //jNetworkBootstrap3ListModule,
-    //jNetworkBootstrap3ValidationSummaryModule,
-    //jNetworkBootstrap3TabsModule,
-    //jNetworkBootstrap3InputModule,
-    //jNetworkBootstrap3DateTimeModule,
-    //jNetworkBootstrap3TinyMceModule,
-    //jNetworkBootstrap3GridModule,
-    //// JNetworkBootstrap4StaticLabelModule,
-    //jNetworkBootstrap3WizardModule,
-    //jNetworkBootstrap3UploadModule,
-    //jNetworkBootstrap3ConfirmModule.forRoot(),
+    // JNetworkBootstrap3FormModule,
+    // JNetworkBootstrap3ButtonModule,
+    // JNetworkBootstrap3DialogModule,
+    // JNetworkBootstrap3CheckboxModule,
+    // JNetworkBootstrap3ListModule,
+    // JNetworkBootstrap3ValidationSummaryModule,
+    // JNetworkBootstrap3TabsModule,
+    // JNetworkBootstrap3InputModule,
+    // JNetworkBootstrap3DateTimeModule,
+    // JNetworkBootstrap3TinyMceModule,
+    // JNetworkBootstrap3GridModule,
+    // JNetworkBootstrap4StaticLabelModule,
+    // JNetworkBootstrap3WizardModule,
+    // JNetworkBootstrap3UploadModule,
+    // JNetworkBootstrap3ConfirmModule.forRoot(),
 
     // Exanic Controls
     JNetworkBootstrap4FormModule,
@@ -132,7 +132,7 @@ import { UploadxModule } from 'ngx-uploadx';
     useClass: TokenInterceptor,
     multi: true
   },
-{ provide: LANGUAGE_SERVICE, useClass: ControlsLanguageService }], // /*{ provide: LOCALE_ID, useValue: "de-CH" }*/],
+    { provide: LANGUAGE_SERVICE, useClass: ControlsLanguageService }], // /*{ provide: LOCALE_ID, useValue: 'de-CH' }*/],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

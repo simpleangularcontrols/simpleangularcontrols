@@ -1,14 +1,14 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { NgStaticLabel } from "./staticlabel";
-import { NgStaticFormContainer } from './formcontainer';
-import { jNetworkBootstrap3TooltipModule } from "../tooltip/tooltip.module";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgStaticLabelComponent } from './staticlabel';
+import { NgStaticFormContainerComponent } from './formcontainer';
+import { JNetworkBootstrap3TooltipModule } from '../tooltip/tooltip.module';
 
 @NgModule({
-  declarations: [NgStaticLabel, NgStaticFormContainer],
+  declarations: [NgStaticLabelComponent, NgStaticFormContainerComponent],
   imports: [
-    BrowserModule, jNetworkBootstrap3TooltipModule
+    BrowserModule, JNetworkBootstrap3TooltipModule
   ],
-  exports: [NgStaticLabel, NgStaticFormContainer]
+  exports: [NgStaticLabelComponent, NgStaticFormContainerComponent]
 })
-export class jNetworkBootstrap3StaticLabelModule { }
+export class JNetworkBootstrap3StaticLabelModule { }

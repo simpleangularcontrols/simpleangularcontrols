@@ -1,5 +1,5 @@
-import { NgModule } from "@angular/core";
-import { NgTinyMceEditorComponent } from "./tinymceeditor";
+import { NgModule } from '@angular/core';
+import { NgTinyMceEditorComponent } from './tinymceeditor';
 
 @NgModule({
   declarations: [NgTinyMceEditorComponent],

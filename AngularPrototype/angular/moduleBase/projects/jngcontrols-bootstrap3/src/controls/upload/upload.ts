@@ -1,22 +1,22 @@
 import { Component, Host, forwardRef, Injector, Renderer2 } from '@angular/core';
 import { NgUploadSingleCommon } from '@jnetwork/jngcontrols-common';
-import { NgFormular } from '../form/form';
+import { NgFormularDirective } from '../form/form';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
 import { NgZone } from '@angular/core';
 
 // https://github.com/kukhariev/ngx-uploadx/
 
 @Component({
-  selector: 'ngUpload',
+  selector: 'ng-upload,ngUpload',
   templateUrl: './upload.html',
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgUpload },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgUpload) }
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgUploadComponent },
+    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgUploadComponent) }
   ]
 })
-export class NgUpload extends NgUploadSingleCommon {
+export class NgUploadComponent extends NgUploadSingleCommon {
 
-  constructor( @Host() parent: NgFormular, injector: Injector, renderer: Renderer2, ngZone: NgZone) {
+  constructor( @Host() parent: NgFormularDirective, injector: Injector, renderer: Renderer2, ngZone: NgZone) {
     super(parent, injector, renderer, ngZone);
   }
 

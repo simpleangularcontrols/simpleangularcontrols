@@ -1,12 +1,12 @@
-import { NgModule } from "@angular/core";
-import { NgValidationSummary } from "./validationsummary";
-import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from '@angular/core';
+import { NgValidationSummaryComponent } from './validationsummary';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
-  declarations: [NgValidationSummary],
+  declarations: [NgValidationSummaryComponent],
   imports: [
     BrowserModule
   ],
-  exports: [NgValidationSummary]
+  exports: [NgValidationSummaryComponent]
 })
-export class jNetworkBootstrap3ValidationSummaryModule { }
+export class JNetworkBootstrap3ValidationSummaryModule { }

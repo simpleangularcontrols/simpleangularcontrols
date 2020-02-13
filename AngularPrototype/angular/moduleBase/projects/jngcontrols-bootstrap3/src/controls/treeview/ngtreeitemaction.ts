@@ -1,15 +1,15 @@
-import { Component,  ElementRef } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { NgTreeItemActionCommon } from '@jnetwork/jngcontrols-common';
 
 
 @Component({
-    selector: 'ngTreeItemAction',
-    templateUrl: './ngtreeitemaction.html'
+  selector: 'ng-treeitemaction,ngTreeItemAction',
+  templateUrl: './ngtreeitemaction.html'
 })
-export class NgTreeItemAction extends NgTreeItemActionCommon {
+export class NgTreeItemActionComponent extends NgTreeItemActionCommon {
 
-    constructor(el: ElementRef) {
-        super(el);
-      }
+  constructor(el: ElementRef) {
+    super(el);
+  }
 
 }

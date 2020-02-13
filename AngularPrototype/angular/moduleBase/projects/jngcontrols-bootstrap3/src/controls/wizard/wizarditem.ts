@@ -2,10 +2,10 @@ import { Component, } from '@angular/core';
 import { NgWizardItemCommon } from '@jnetwork/jngcontrols-common';
 
 @Component({
-  selector: 'ngWizardItem',
+  selector: 'ng-wizarditem,ngWizardItem',
   templateUrl: './wizarditem.html'
 })
-export class NgWizardItem extends NgWizardItemCommon {
+export class NgWizardItemComponent extends NgWizardItemCommon {
 
 }
 

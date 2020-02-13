@@ -1,14 +1,14 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { NgCheckbox } from "./checkbox";
-import { NgRadiobutton } from "./radiobutton";
-import { NgRadiobuttons } from "./radiobuttons";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgCheckboxComponent } from './checkbox';
+import { NgRadiobuttonComponent } from './radiobutton';
+import { NgRadiobuttonsComponent } from './radiobuttons';
 
 @NgModule({
-  declarations: [NgCheckbox, NgRadiobutton, NgRadiobuttons],
+  declarations: [NgCheckboxComponent, NgRadiobuttonComponent, NgRadiobuttonsComponent],
   imports: [
     BrowserModule
   ],
-  exports: [NgCheckbox, NgRadiobutton, NgRadiobuttons]
+  exports: [NgCheckboxComponent, NgRadiobuttonComponent, NgRadiobuttonsComponent]
 })
-export class jNetworkBootstrap3CheckboxModule { }
+export class JNetworkBootstrap3CheckboxModule { }

@@ -1,13 +1,13 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { NgTooltip } from "./tooltip";
-import { CommonModule } from "@angular/common";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgTooltipComponent } from './tooltip';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [NgTooltip],
+  declarations: [NgTooltipComponent],
   imports: [
     BrowserModule, CommonModule
   ],
-  exports: [NgTooltip]
+  exports: [NgTooltipComponent]
 })
-export class jNetworkBootstrap3TooltipModule { }
+export class JNetworkBootstrap3TooltipModule { }

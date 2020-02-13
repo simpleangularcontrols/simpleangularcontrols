@@ -3,26 +3,26 @@ import { NG_VALUE_ACCESSOR, ControlContainer } from '@angular/forms';
 // import { NgBaseModelControl } from '../../common/basemodelcontrol';
 // import { NgFormular } from '../form/form';
 import { NgValidationSummaryCommon } from '@jnetwork/jngcontrols-common';
-import { NgFormular } from '../form/form';
+import { NgFormularDirective } from '../form/form';
 
 
 @Component({
-  selector: 'ngValidationSummary',
+  selector: 'ng-validationsummary,ngValidationSummary',
   templateUrl: './validationsummary.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NgValidationSummary
+      useExisting: NgValidationSummaryComponent
     }
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
+  viewProviders: [{ provide: ControlContainer, useExisting: NgFormularDirective }]
 })
-export class NgValidationSummary extends NgValidationSummaryCommon {
+export class NgValidationSummaryComponent extends NgValidationSummaryCommon {
 
-  constructor(@Host() parent: NgFormular, injector: Injector) {
+  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
     super(parent, injector);
   }
 

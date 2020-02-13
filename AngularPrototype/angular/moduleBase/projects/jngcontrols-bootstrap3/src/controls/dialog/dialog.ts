@@ -3,10 +3,10 @@ import { NgDialogCommon } from '@jnetwork/jngcontrols-common';
 import { Promise } from 'q';
 
 @Component({
-  selector: 'ngDialog',
+  selector: 'ng-dialog,ngDialog',
   templateUrl: './dialog.html'
 })
-export class NgDialog extends NgDialogCommon implements OnInit, OnDestroy {
+export class NgDialogComponent extends NgDialogCommon implements OnInit, OnDestroy {
   // DOM Element
   private element: any;
 
@@ -18,7 +18,7 @@ export class NgDialog extends NgDialogCommon implements OnInit, OnDestroy {
 
   //#region Bootstrap 3 Spezifische Properites
 
-  @Input("zindex")
+  @Input('zindex')
   zindex: number = 20002;
 
   private _lastDialogMarginTop: number = 0;
@@ -28,8 +28,9 @@ export class NgDialog extends NgDialogCommon implements OnInit, OnDestroy {
     let result: number = 0;
 
     // ContentPlaceholder kann NULL/UNDEFINED sein wenn Dialog nicht angezeigt wird
-    if (this.dialogElement !== null && this.dialogElement !== undefined)
+    if (this.dialogElement !== null && this.dialogElement !== undefined) {
       result = (this.dialogElement.nativeElement.clientHeight / 2) * -1;
+    }
 
     // Change Detection ausführen, falls Wert nach Rendering noch geändert hat. Kann durch HTML Content / Zeilenumbrüche usw. ausgelöst werden.
     if (this._lastDialogMarginTop !== result) {

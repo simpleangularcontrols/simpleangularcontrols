@@ -1,13 +1,13 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { NgTinyMce } from "./tinymce";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgTinyMceComponent } from './tinymce';
 import { jNetworkTinyMceEditorModule } from '@jnetwork/jngcontrols-common';
 
 @NgModule({
-  declarations: [NgTinyMce],
+  declarations: [NgTinyMceComponent],
   imports: [
     BrowserModule, jNetworkTinyMceEditorModule
   ],
-  exports: [NgTinyMce]
+  exports: [NgTinyMceComponent]
 })
-export class jNetworkBootstrap3TinyMceModule { }
+export class JNetworkBootstrap3TinyMceModule { }

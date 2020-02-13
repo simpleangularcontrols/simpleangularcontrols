@@ -1,15 +1,15 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { NgDropdown, NgDropdownOption } from "./dropdown";
-import { NgListbox } from "./listbox";
-import { JNetworkCommonListboxOptionModule } from "@jnetwork/jngcontrols-common";
-import { FormsModule } from "@angular/forms";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgDropdownComponent, NgDropdownOptionDirective } from './dropdown';
+import { NgListboxComponent } from './listbox';
+import { JNetworkCommonListboxOptionModule } from '@jnetwork/jngcontrols-common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [NgDropdown, NgDropdownOption, NgListbox],
+  declarations: [NgDropdownComponent, NgDropdownOptionDirective, NgListboxComponent],
   imports: [
     BrowserModule, JNetworkCommonListboxOptionModule, FormsModule
   ],
-  exports: [NgDropdown, NgDropdownOption, NgListbox]
+  exports: [NgDropdownComponent, NgDropdownOptionDirective, NgListboxComponent]
 })
-export class jNetworkBootstrap3ListModule { }
+export class JNetworkBootstrap3ListModule { }

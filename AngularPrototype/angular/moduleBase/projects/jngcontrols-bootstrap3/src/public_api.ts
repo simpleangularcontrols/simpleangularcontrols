@@ -15,7 +15,7 @@ export * from './controls/static/staticlabel.module';
 export * from './controls/wizard/wizard.module';
 export * from './controls/tooltip/tooltip.module';
 export * from './controls/upload/upload.module';
-export { jNetworkBootstrap3ConfirmModule, ServiceConfirm } from './controls/confirm/confirm.module';
+export { JNetworkBootstrap3ConfirmModule, ServiceConfirm } from './controls/confirm/confirm.module';
 
 // Form Module and Classes
 export * from './controls/form/form.module';

@@ -1,13 +1,13 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { NgWizard } from "./wizard";
-import { NgWizardItem } from "./wizarditem";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgWizardComponent } from './wizard';
+import { NgWizardItemComponent } from './wizarditem';
 
 @NgModule({
-  declarations: [NgWizard, NgWizardItem],
+  declarations: [NgWizardComponent, NgWizardItemComponent],
   imports: [
     BrowserModule
   ],
-  exports: [NgWizard, NgWizardItem]
+  exports: [NgWizardComponent, NgWizardItemComponent]
 })
-export class jNetworkBootstrap3WizardModule { }
+export class JNetworkBootstrap3WizardModule { }

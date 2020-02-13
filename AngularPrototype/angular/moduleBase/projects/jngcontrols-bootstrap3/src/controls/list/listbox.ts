@@ -1,22 +1,22 @@
 import { Component, Host, forwardRef, Injector } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
 // import { NgBaseSelectControl } from '../../common/baseselectcontrol';
-import { NgFormular } from '../form/form';
+import { NgFormularDirective } from '../form/form';
 // import { Validation } from '../../validation';
 import { NgListboxCommon } from '@jnetwork/jngcontrols-common';
 
 
 @Component({
-  selector: 'ngListbox',
+  selector: 'ng-listbox,ngListbox',
   templateUrl: './listbox.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgListbox },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgListbox) }
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgListboxComponent },
+    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgListboxComponent) }
   ]
 })
-export class NgListbox extends NgListboxCommon{
-  constructor(@Host() parent: NgFormular, injector: Injector) {
+export class NgListboxComponent extends NgListboxCommon {
+  constructor( @Host() parent: NgFormularDirective, injector: Injector) {
     super(parent, injector);
   }
 }

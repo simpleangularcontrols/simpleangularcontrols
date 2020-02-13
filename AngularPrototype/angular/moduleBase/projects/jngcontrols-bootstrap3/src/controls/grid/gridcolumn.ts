@@ -1,14 +1,14 @@
 import { Component, Renderer2, ElementRef, OnInit, forwardRef } from '@angular/core';
 import { NgGridColumnCommon, NgGridColumnBaseCommon } from '@jnetwork/jngcontrols-common';
-import { NgGrid } from './grid';
+import { NgGridComponent } from './grid';
 
 @Component({
-  selector: 'ngGridColumn,[ngGridColumn]',
+  selector: 'ng-gridcolumn,ngGridColumn,[ngGridColumn]',
   templateUrl: './gridcolumn.html',
-  providers: [{ provide: NgGridColumnBaseCommon, useExisting: forwardRef(() => NgGridColumn) }],
+  providers: [{ provide: NgGridColumnBaseCommon, useExisting: forwardRef(() => NgGridColumnComponent) }],
 })
-export class NgGridColumn extends NgGridColumnCommon {
-  constructor(grid: NgGrid, el: ElementRef) {
+export class NgGridColumnComponent extends NgGridColumnCommon {
+  constructor(grid: NgGridComponent, el: ElementRef) {
     super(grid, el);
   }
 }

@@ -1,24 +1,24 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { NgInput } from "./input";
-import { NgInputEmail } from "./inputemail";
-import { NgInputArea } from "./inputarea";
-import { NgInputCurrency } from "./inputcurrency";
-import { NgInputDecimal } from "./inputdecimal";
-import { NgInputInteger } from "./inputinteger";
-import { NgInputPassword } from "./inputpassword";
-import { FormsModule } from "@angular/forms";
-import { CommonModule } from "@angular/common";
-import { NgInputSearch } from "./inputsearch";
-import { NgTooltip } from "../tooltip/tooltip";
-import { jNetworkBootstrap3TooltipModule } from "../tooltip/tooltip.module";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgInputComponent } from './input';
+import { NgInputEmailComponent } from './inputemail';
+import { NgInputAreaComponent } from './inputarea';
+import { NgInputCurrencyComponent } from './inputcurrency';
+import { NgInputDecimalComponent } from './inputdecimal';
+import { NgInputIntegerComponent } from './inputinteger';
+import { NgInputPasswordComponent } from './inputpassword';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { NgInputSearchComponent } from './inputsearch';
+import { NgTooltipComponent } from '../tooltip/tooltip';
+import { JNetworkBootstrap3TooltipModule } from '../tooltip/tooltip.module';
 
 
 @NgModule({
-  declarations: [NgInput, NgInputArea, NgInputCurrency, NgInputDecimal, NgInputEmail, NgInputInteger, NgInputPassword, NgInputSearch],
+  declarations: [NgInputComponent, NgInputAreaComponent, NgInputCurrencyComponent, NgInputDecimalComponent, NgInputEmailComponent, NgInputIntegerComponent, NgInputPasswordComponent, NgInputSearchComponent],
   imports: [
-    BrowserModule, CommonModule, FormsModule, jNetworkBootstrap3TooltipModule
+    BrowserModule, CommonModule, FormsModule, JNetworkBootstrap3TooltipModule
   ],
-  exports: [NgInput, NgInputArea, NgInputCurrency, NgInputDecimal, NgInputEmail, NgInputInteger, NgInputPassword, NgInputSearch]
+  exports: [NgInputComponent, NgInputAreaComponent, NgInputCurrencyComponent, NgInputDecimalComponent, NgInputEmailComponent, NgInputIntegerComponent, NgInputPasswordComponent, NgInputSearchComponent]
 })
-export class jNetworkBootstrap3InputModule { }
+export class JNetworkBootstrap3InputModule { }

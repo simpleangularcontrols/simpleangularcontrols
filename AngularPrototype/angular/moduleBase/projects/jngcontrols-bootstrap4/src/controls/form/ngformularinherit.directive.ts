@@ -1,21 +1,19 @@
 import { Directive } from '@angular/core';
-import { NgFormular } from './form';
+import { NgFormularDirective } from './form';
 import { SkipSelf } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ControlContainer } from '@angular/forms';
 
 /**
  * Factory Methode für NgFormular
- * 
  * @param form NgFormular
  */
-export function NGFORMULAR_FACTORY(form: NgFormular) {
+export function NGFORMULAR_FACTORY(form: NgFormularDirective) {
   return form;
 }
 
 /**
  * Factory Methode für NgForm
- * 
  * @param form NgForm
  */
 export function NGFORM_FACTORY(form: NgForm) {
@@ -56,15 +54,12 @@ export function NGFORM_FACTORY(form: NgForm) {
  *
  */
 @Directive({
-  selector: '[inherit-form]',
+  selector: '[ngInheritForm],[inherit-form]',
   providers: [
     {
-      provide: NgFormular,
+      provide: NgFormularDirective,
       useFactory: NGFORMULAR_FACTORY,
-      //useFactory: (form: NgFormular) => {
-      //  return form;
-      //},
-      deps: [[new SkipSelf(), NgFormular]]
+      deps: [[new SkipSelf(), NgFormularDirective]]
     }, {
       provide: ControlContainer,
       useFactory: NGFORM_FACTORY,

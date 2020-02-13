@@ -1,22 +1,22 @@
 import { NgTinyMceCommon } from '@jnetwork/jngcontrols-common';
-import { NgFormular } from '../form/form';
-import { Component, forwardRef, Host, Injector } from "@angular/core";
-import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from "@angular/forms";
+import { NgFormularDirective } from '../form/form';
+import { Component, forwardRef, Host, Injector } from '@angular/core';
+import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/forms';
 
 @Component({
-  selector: 'ngTinymce',
+  selector: 'ng-tinymce,ngTinymce',
   templateUrl: './tinymce.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgTinyMce },
-    { provide: NG_VALIDATORS, useExisting: forwardRef(() => NgTinyMce), multi: true }
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgTinyMceComponent },
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => NgTinyMceComponent), multi: true }
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
+  viewProviders: [{ provide: ControlContainer, useExisting: NgFormularDirective }]
 })
-export class NgTinyMce extends NgTinyMceCommon {
+export class NgTinyMceComponent extends NgTinyMceCommon {
 
-  constructor(@Host() parent: NgFormular, injector: Injector) {
+  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
     super(parent, injector);
   }
 

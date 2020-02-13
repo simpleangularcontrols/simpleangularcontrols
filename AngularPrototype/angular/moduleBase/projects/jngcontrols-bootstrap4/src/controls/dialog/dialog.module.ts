@@ -1,12 +1,12 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { NgDialog } from "./dialog";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgDialogComponent } from './dialog';
 
 @NgModule({
-  declarations: [NgDialog],
+  declarations: [NgDialogComponent],
   imports: [
     BrowserModule
   ],
-  exports: [NgDialog]
+  exports: [NgDialogComponent]
 })
-export class jNetworkBootstrap4DialogModule { }
+export class JNetworkBootstrap4DialogModule { }

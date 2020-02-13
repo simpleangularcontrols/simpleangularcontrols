@@ -13,7 +13,7 @@ export * from './controls/datetime/datetime.module';
 export * from './controls/tinymce/tinymce.module';
 export * from './controls/static/staticlabel.module';
 export * from './controls/wizard/wizard.module';
-export { jNetworkBootstrap4ConfirmModule, ServiceConfirm } from './controls/confirm/confirm.module';
+export { JNetworkBootstrap4ConfirmModule, ServiceConfirm } from './controls/confirm/confirm.module';
 
 export * from './controls/form/form.module';
 export * from './controls/form/form';

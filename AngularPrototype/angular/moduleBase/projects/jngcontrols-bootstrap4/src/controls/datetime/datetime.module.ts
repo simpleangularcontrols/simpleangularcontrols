@@ -1,16 +1,16 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { NgDate } from "./date";
-import { NgDateTime } from "./datetime";
-import { NgDateSelector } from "./dateselector";
-import { NgTime } from "./time";
-import { TextMaskModule } from "angular2-text-mask";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgDateComponent } from './date';
+import { NgDateTimeComponent } from './datetime';
+import { NgDateSelectorComponent } from './dateselector';
+import { NgTimeComponent } from './time';
+import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
-  declarations: [NgDate, NgDateTime, NgTime, NgDateSelector],
+  declarations: [NgDateComponent, NgDateTimeComponent, NgTimeComponent, NgDateSelectorComponent],
   imports: [
     BrowserModule, TextMaskModule
   ],
-  exports: [NgDate, NgDateTime, NgTime, NgDateSelector]
+  exports: [NgDateComponent, NgDateTimeComponent, NgTimeComponent, NgDateSelectorComponent]
 })
-export class jNetworkBootstrap4DateTimeModule { }
+export class JNetworkBootstrap4DateTimeModule { }

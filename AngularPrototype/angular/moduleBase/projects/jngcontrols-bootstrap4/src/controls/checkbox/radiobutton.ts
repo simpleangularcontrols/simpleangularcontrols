@@ -1,14 +1,14 @@
 import { Component, Host } from '@angular/core';
 import { NgRadiobuttonCommon } from '@jnetwork/jngcontrols-common';
-import { NgRadiobuttons } from './radiobuttons';
+import { NgRadiobuttonsComponent } from './radiobuttons';
 
 @Component({
-  selector: 'ngRadiobutton',
+  selector: 'ng-radiobutton,ngRadiobutton',
   templateUrl: './radiobutton.html',
 })
-export class NgRadiobutton extends NgRadiobuttonCommon {
+export class NgRadiobuttonComponent extends NgRadiobuttonCommon {
 
-  constructor(@Host() ngRadioButtons: NgRadiobuttons) {
+  constructor(@Host() ngRadioButtons: NgRadiobuttonsComponent) {
     super(ngRadioButtons);
   }
 

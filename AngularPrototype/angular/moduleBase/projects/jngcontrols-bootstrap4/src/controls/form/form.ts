@@ -12,19 +12,18 @@ import { Directive } from '@angular/core';
  * <div ngForm></div>
  *
  * @example Beispiel über Form Tag
- * 
+ *
  * <form></form>
- * 
+ *
  */
 @Directive({
   selector: 'form:not([ngNoForm]):not([formGroup]),[ngForm]',
   exportAs: 'NgFormular'
 })
-export class NgFormular extends NgFormularCommon {
+export class NgFormularDirective extends NgFormularCommon {
 
   /**
    * Konstruktor
-   * 
    * @param form Instanz von NgForm für eigene automatische Formular Logik
    */
   constructor(form: NgForm) {

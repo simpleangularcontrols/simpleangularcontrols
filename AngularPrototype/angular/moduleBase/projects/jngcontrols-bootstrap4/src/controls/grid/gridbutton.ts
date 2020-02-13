@@ -10,14 +10,14 @@ import { NgGridCommon, NgGridButtonCommon } from '@jnetwork/jngcontrols-common';
  *
  * @example Custom Action
  *
- * <ngGridButton iconstyle="sprite" icon="icon-sprite-base-main_info" (onclick)="action('info')"></ngGridButton>
+ * <ngGridButton iconstyle="sprite" icon="icon-sprite-base-main_info" (onclick)="action("info")"></ngGridButton>
  *
  */
 @Component({
-  selector: 'ngGridButton',
+  selector: 'ng-gridbutton,ngGridButton',
   templateUrl: './gridbutton.html'
 })
-export class NgGridButton extends NgGridButtonCommon {
+export class NgGridButtonComponent extends NgGridButtonCommon {
 
   /**
    * Gibt das Icon für den Button zurück
@@ -28,21 +28,22 @@ export class NgGridButton extends NgGridButtonCommon {
 
     if (iconset === '') {
       switch (this.icon) {
-        case "edit":
-          iconset = "sprite";
-          iconcss = "icon-sprite-base-main_edit";
+        case 'edit':
+          iconset = 'sprite';
+          iconcss = 'icon-sprite-base-main_edit';
           break;
-        case "delete":
-          iconset = "sprite";
-          iconcss = "icon-sprite-base-main_delete";
+        case 'delete':
+          iconset = 'sprite';
+          iconcss = 'icon-sprite-base-main_delete';
           break;
       }
     }
 
-    if (this._isdisabledvalue)
-      iconcss += "_disabled";
+    if (this._isdisabledvalue) {
+      iconcss += '_disabled';
+    }
 
-    let result = iconset + " " + iconcss;
+    const result = iconset + ' ' + iconcss;
 
     return result.trim();
   }

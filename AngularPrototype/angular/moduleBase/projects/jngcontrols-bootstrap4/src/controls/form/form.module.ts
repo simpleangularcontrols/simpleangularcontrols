@@ -1,17 +1,17 @@
-import { NgModule } from "@angular/core";
-import { NgFormular } from "./form";
-import { BrowserModule } from "@angular/platform-browser";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { NgModule } from '@angular/core';
+import { NgFormularDirective } from './form';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProvideParentNgFormularDirective } from './ngformularinherit.directive';
 
 @NgModule({
-  declarations: [NgFormular, ProvideParentNgFormularDirective],
+  declarations: [NgFormularDirective, ProvideParentNgFormularDirective],
   imports: [
     BrowserModule,
     FormsModule
   ],
   exports: [
-    NgFormular, ProvideParentNgFormularDirective
+    NgFormularDirective, ProvideParentNgFormularDirective
   ]
 })
-export class jNetworkBootstrap4FormModule { }
+export class JNetworkBootstrap4FormModule { }

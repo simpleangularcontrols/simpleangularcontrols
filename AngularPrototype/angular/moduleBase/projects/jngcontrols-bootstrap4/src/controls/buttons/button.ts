@@ -2,9 +2,9 @@ import { Component} from '@angular/core';
 import { NgButtonCommon } from '@jnetwork/jngcontrols-common';
 
 @Component({
-  selector: 'ngButton',
+  selector: 'ng-button,ngButton',
   templateUrl: './button.html',
 })
-export class NgButton extends NgButtonCommon {
+export class NgButtonComponent extends NgButtonCommon {
 
 }

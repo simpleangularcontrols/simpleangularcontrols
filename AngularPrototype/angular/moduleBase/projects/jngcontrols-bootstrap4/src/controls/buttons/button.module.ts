@@ -1,12 +1,12 @@
-import { NgModule } from "@angular/core";
-import { NgButton } from "./button";
+import { NgModule } from '@angular/core';
+import { NgButtonComponent } from './button';
 import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
-  declarations: [NgButton],
+  declarations: [NgButtonComponent],
   imports: [
     BrowserModule
   ],
-  exports: [NgButton]
+  exports: [NgButtonComponent]
 })
-export class jNetworkBootstrap4ButtonModule { }
+export class JNetworkBootstrap4ButtonModule { }

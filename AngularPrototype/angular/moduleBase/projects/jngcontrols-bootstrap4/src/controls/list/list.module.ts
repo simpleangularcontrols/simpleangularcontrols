@@ -1,13 +1,13 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { NgDropdown, NgDropdownOption } from "./dropdown";
-import { NgListbox } from "./listbox";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgDropdownComponent, NgDropdownOptionDirective } from './dropdown';
+import { NgListboxComponent } from './listbox';
 
 @NgModule({
-  declarations: [NgDropdown, NgDropdownOption, NgListbox],
+  declarations: [NgDropdownComponent, NgDropdownOptionDirective, NgListboxComponent],
   imports: [
     BrowserModule
   ],
-  exports: [NgDropdown, NgDropdownOption, NgListbox]
+  exports: [NgDropdownComponent, NgDropdownOptionDirective, NgListboxComponent]
 })
-export class jNetworkBootstrap4ListModule { }
+export class JNetworkBootstrap4ListModule { }

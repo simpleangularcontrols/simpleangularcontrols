@@ -1,14 +1,14 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { NgMultilanguageInput } from "./multilanguageinput";
-import { NgMultilanguageInputArea } from "./multilanguageinputarea";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgMultilanguageInputComponent } from './multilanguageinput';
+import { NgMultilanguageInputAreaComponent } from './multilanguageinputarea';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [NgMultilanguageInput, NgMultilanguageInputArea],
+  declarations: [NgMultilanguageInputComponent, NgMultilanguageInputAreaComponent],
   imports: [
     BrowserModule, NgbDropdownModule
   ],
-  exports: [NgMultilanguageInput, NgMultilanguageInputArea]
+  exports: [NgMultilanguageInputComponent, NgMultilanguageInputAreaComponent]
 })
-export class jNetworkBootstrap4MultilanguageModule { }
+export class JNetworkBootstrap4MultilanguageModule { }

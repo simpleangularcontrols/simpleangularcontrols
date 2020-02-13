@@ -1,20 +1,20 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { NgInput } from "./input";
-import { NgInputEmail } from "./inputemail";
-import { NgInputArea } from "./inputarea";
-import { NgInputCurrency } from "./inputcurrency";
-import { NgInputDecimal } from "./inputdecimal";
-import { NgInputInteger } from "./inputinteger";
-import { NgInputPassword } from "./inputpassword";
-import { NgInputSearch } from './inputsearch';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgInputComponent } from './input';
+import { NgInputEmailComponent } from './inputemail';
+import { NgInputAreaComponent } from './inputarea';
+import { NgInputCurrencyComponent } from './inputcurrency';
+import { NgInputDecimalComponent } from './inputdecimal';
+import { NgInputIntegerComponent } from './inputinteger';
+import { NgInputPasswordComponent } from './inputpassword';
+import { NgInputSearchComponent } from './inputsearch';
 
 
 @NgModule({
-  declarations: [NgInput, NgInputArea, NgInputCurrency, NgInputDecimal, NgInputEmail, NgInputInteger, NgInputPassword, NgInputSearch],
+  declarations: [NgInputComponent, NgInputAreaComponent, NgInputCurrencyComponent, NgInputDecimalComponent, NgInputEmailComponent, NgInputIntegerComponent, NgInputPasswordComponent, NgInputSearchComponent],
   imports: [
     BrowserModule
   ],
-  exports: [NgInput, NgInputArea, NgInputCurrency, NgInputDecimal, NgInputEmail, NgInputInteger, NgInputPassword, NgInputSearch]
+  exports: [NgInputComponent, NgInputAreaComponent, NgInputCurrencyComponent, NgInputDecimalComponent, NgInputEmailComponent, NgInputIntegerComponent, NgInputPasswordComponent, NgInputSearchComponent]
 })
-export class jNetworkBootstrap4InputModule { }
+export class JNetworkBootstrap4InputModule { }

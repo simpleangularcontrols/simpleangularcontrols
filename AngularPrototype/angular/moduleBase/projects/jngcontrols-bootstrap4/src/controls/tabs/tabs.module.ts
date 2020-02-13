@@ -1,13 +1,13 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { NgTab } from "./tab";
-import { NgTabItem } from "./tabitem";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgTabComponent } from './tab';
+import { NgTabItemComponent } from './tabitem';
 
 @NgModule({
-  declarations: [NgTab, NgTabItem],
+  declarations: [NgTabComponent, NgTabItemComponent],
   imports: [
     BrowserModule
   ],
-  exports: [NgTab, NgTabItem]
+  exports: [NgTabComponent, NgTabItemComponent]
 })
-export class jNetworkBootstrap4TabsModule { }
+export class JNetworkBootstrap4TabsModule { }

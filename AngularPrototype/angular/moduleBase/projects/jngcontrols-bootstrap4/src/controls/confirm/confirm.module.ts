@@ -1,9 +1,9 @@
-import { NgModule, ModuleWithProviders } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { ServiceConfirm } from "./confirm.service";
-import { NgConfirm } from "./confirm";
-import { jNetworkBootstrap4DialogModule } from "../dialog/dialog.module";
-import { jNetworkBootstrap4ButtonModule } from "../buttons/button.module";
+import { NgModule, ModuleWithProviders } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { ServiceConfirm } from './confirm.service';
+import { NgConfirmComponent } from './confirm';
+import { JNetworkBootstrap4DialogModule } from '../dialog/dialog.module';
+import { JNetworkBootstrap4ButtonModule } from '../buttons/button.module';
 
 /**
  *  Module für Confirm Messages
@@ -12,17 +12,17 @@ import { jNetworkBootstrap4ButtonModule } from "../buttons/button.module";
  *
  */
 @NgModule({
-  declarations: [NgConfirm],
-  imports: [BrowserModule, jNetworkBootstrap4DialogModule, jNetworkBootstrap4ButtonModule],
-  exports: [NgConfirm],
-  entryComponents: [NgConfirm]
+  declarations: [NgConfirmComponent],
+  imports: [BrowserModule, JNetworkBootstrap4DialogModule, JNetworkBootstrap4ButtonModule],
+  exports: [NgConfirmComponent],
+  entryComponents: [NgConfirmComponent]
 })
-export class jNetworkBootstrap4ConfirmModule {
+export class JNetworkBootstrap4ConfirmModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: jNetworkBootstrap4ConfirmModule,
+      ngModule: JNetworkBootstrap4ConfirmModule,
       providers: [ServiceConfirm]
-    }
+    };
   }
 }
 

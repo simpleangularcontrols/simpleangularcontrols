@@ -1,19 +1,19 @@
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 
-import { NgGrid } from "./grid";
-import { BrowserModule } from "@angular/platform-browser";
-import { NgGridColumn } from "./gridcolumn";
-import { NgGridButton } from './gridbutton';
-import { NgPaging } from "./paging";
-import { NgGridColumnAction } from "./gridcolumnaction";
-import { NgGridImage } from './gridimage';
+import { NgGridComponent } from './grid';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgGridColumnComponent } from './gridcolumn';
+import { NgGridButtonComponent } from './gridbutton';
+import { NgPagingComponent } from './paging';
+import { NgGridColumnActionComponent } from './gridcolumnaction';
+import { NgGridImageComponent } from './gridimage';
 
 @NgModule({
-  declarations: [NgGrid, NgGridColumn, NgGridColumnAction, NgPaging, NgGridButton, NgGridImage],
+  declarations: [NgGridComponent, NgGridColumnComponent, NgGridColumnActionComponent, NgPagingComponent, NgGridButtonComponent, NgGridImageComponent],
   imports: [
     BrowserModule
   ],
-  exports: [NgGrid, NgGridColumn, NgGridColumnAction, NgPaging, NgGridButton, NgGridImage]
+  exports: [NgGridComponent, NgGridColumnComponent, NgGridColumnActionComponent, NgPagingComponent, NgGridButtonComponent, NgGridImageComponent]
 })
-export class jNetworkBootstrap4GridModule { }
+export class JNetworkBootstrap4GridModule { }
 

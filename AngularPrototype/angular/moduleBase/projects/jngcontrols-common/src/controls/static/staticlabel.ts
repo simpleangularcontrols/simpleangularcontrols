@@ -5,7 +5,6 @@ import { Input, Directive } from '@angular/core';
 /**
  * Common Klasse für Static Label Control
  **/
-@Directive()
 export class NgStaticLabelCommon extends NgInputBase<string> {
 
   /**

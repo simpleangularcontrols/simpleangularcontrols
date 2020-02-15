@@ -6,7 +6,6 @@ import { Validation } from "../../validation";
 /**
  * Komponente für NgTinyMceCommon. Extends NgInputBase
  */
-@Directive()
 export class NgTinyMceCommon extends NgInputBase<string> {
   /**
    * TextBox Placeholder

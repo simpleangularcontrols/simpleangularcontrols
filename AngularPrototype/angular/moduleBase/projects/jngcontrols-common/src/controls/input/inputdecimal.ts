@@ -6,7 +6,6 @@ import { NgInputBase } from '../../common/baseinputcontrol';
 /**
  * Basis Komponente für NgInputDecimal
  */
-@Directive()
 export class NgInputDecimalCommon extends NgInputBase<number> {
 
   /**

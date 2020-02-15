@@ -3,7 +3,6 @@ import { Component, EventEmitter, Output, Input, OnInit, ChangeDetectorRef, Temp
 /**
  * Basis Komponente für NgTreeView
  */
-@Directive()
 export class NgTreeViewCommon implements OnInit {
 
   /**

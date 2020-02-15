@@ -5,7 +5,6 @@ import { NgWizardItemCommon } from './wizarditem';
 /**
  * Base Komponente für NgWizardCommon
  */
-@Directive()
 export abstract class NgWizardCommon implements AfterContentInit, ControlValueAccessor {
 
   /**

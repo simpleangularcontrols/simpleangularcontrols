@@ -5,7 +5,6 @@ import { NgConfirmButton } from './confirm.button';
 /**
  * Basis Klasse für Confirm Dialog
  */
-@Directive()
 export class NgConfirmCommon implements IConfirmComponent {
 
   //#region Input / Output Properties

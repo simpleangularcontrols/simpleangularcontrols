@@ -4,7 +4,6 @@ import { NgBaseListControl } from './baselistcontrol';
 /**
  * Abstract Klasse für NgBaseSelectControl. Extendes NgBaseListControl
  */
-@Directive()
 export abstract class NgBaseSelectControl<VALUE> extends NgBaseListControl<VALUE> {
 
   /**

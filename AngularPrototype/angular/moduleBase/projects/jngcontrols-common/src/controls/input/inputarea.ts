@@ -5,7 +5,6 @@ import { AbstractControl, ValidationErrors } from '@angular/forms';
 /**
  * Basis Komponente für NgInputArea
  */
-@Directive()
 export class NgInputAreaCommon extends NgInputCommon {
 
   /**

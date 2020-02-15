@@ -13,7 +13,6 @@ const moment = moment_;
 /**
  * Komponente für NgTimeCommon. Extends NgBaseDateTimeControl
  */
-@Directive()
 export class NgTimeCommon extends NgBaseDateTimeControl {
 
   // #region Constants

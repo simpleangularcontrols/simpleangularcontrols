@@ -6,7 +6,6 @@ import { Input, Directive } from '@angular/core';
 /**
  * Basis Komponente für NgInputPassword
  */
-@Directive()
 export class NgInputPasswordCommon extends NgInputCommon {
 
   /**

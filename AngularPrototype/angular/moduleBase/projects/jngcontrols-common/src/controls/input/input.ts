@@ -6,7 +6,6 @@ import { Validation } from '../../validation';
 /**
  * Basis Komponente für NgInput
  */
-@Directive()
 export class NgInputCommon extends NgInputBase<string> {
   /**
    * Max länge an Zeichen für Eingabefeld

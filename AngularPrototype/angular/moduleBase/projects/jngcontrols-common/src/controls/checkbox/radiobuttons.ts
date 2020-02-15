@@ -8,7 +8,6 @@ import { Validation } from '../../validation';
 /**
  * Basis Komponente für NgRadiobuttonsCommon. Extends NgBaseModelControl
  */
-@Directive()
 export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> implements Validator {
 
   /**
@@ -20,7 +19,7 @@ export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> imple
    * Konstruktor
    * Inject des Formulars
    */
-  constructor(@Host() parent: NgFormularCommon, injector: Injector) {
+  constructor( @Host() parent: NgFormularCommon, injector: Injector) {
     super(parent, injector);
   }
 

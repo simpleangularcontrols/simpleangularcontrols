@@ -4,7 +4,6 @@ import { NgTabItemCommon } from './tabitem';
 /**
  *Basis Komponente für NgTab
  */
-@Directive()
 export abstract class NgTabCommon implements AfterContentInit {
 
   /**

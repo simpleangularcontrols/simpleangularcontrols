@@ -6,7 +6,6 @@ import { convertToBoolean } from '../../utilities/convertion';
 /**
  * Common Control für Form Item Container.
  **/
-@Directive()
 export class NgStaticFormContainerCommon extends NgBaseModelControl<string> {
 
 

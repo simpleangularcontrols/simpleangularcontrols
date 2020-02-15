@@ -4,12 +4,9 @@ import { PagerData, SortDescriptor, SortOrder } from './model';
 /**
  *Basis Komponente für NgGrid
  */
-@Directive()
-export abstract class NgGridCommon implements OnInit {
+export abstract class NgGridCommon {
 
   constructor(private cd: ChangeDetectorRef) { }
-
-  ngOnInit(): void { }
 
   /**
    * Private Property. Enthielt die Column Menge. Type: number. Default ist 0

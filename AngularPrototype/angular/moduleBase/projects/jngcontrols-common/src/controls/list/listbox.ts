@@ -87,7 +87,6 @@ abstract class HTMLCollection {
 /**
  * Komponente für NgListboxCommon. Extends NgBaseSelectControl
  */
-@Directive()
 export class NgListboxCommon extends NgBaseSelectControl<Array<string>> {
   /**
    * Anzahl der Zeilen

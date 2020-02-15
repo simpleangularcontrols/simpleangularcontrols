@@ -9,7 +9,6 @@ import { NgForm, AbstractControl, FormGroup, FormArray } from '@angular/forms';
 /**
  * Basis Komponente für NgValidationSummary
  */
-@Directive()
 export class NgValidationSummaryCommon {
   /**
    * Name-Property

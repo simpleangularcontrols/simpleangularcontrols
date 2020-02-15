@@ -8,7 +8,9 @@ import { Observable } from 'rxjs/internal/Observable';
 import { LanguageModel } from '../../models/languagemodel';
 import { Validation } from '../../validation';
 
-@Directive()
+/**
+ * Base Klasse für Multi Language Input Control
+ */
 export class NgMultilanguageInputCommon extends NgInputBase<any> {
 
   /**

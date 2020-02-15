@@ -3,7 +3,6 @@ import { Input, Directive } from '@angular/core';
 /**
  * Basis Komponente für NgGridImage
  */
-@Directive()
 export class NgGridImageCommon {
 
   /**

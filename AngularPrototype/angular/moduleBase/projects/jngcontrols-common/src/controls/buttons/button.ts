@@ -3,7 +3,6 @@ import { Input, Output, EventEmitter, Directive } from '@angular/core';
 /**
  * Base Komponente für das Button
  */
-@Directive()
 export class NgButtonCommon {
 
   /**

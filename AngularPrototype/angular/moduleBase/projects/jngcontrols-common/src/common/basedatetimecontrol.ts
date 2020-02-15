@@ -13,7 +13,6 @@ const moment = moment_;
 /**
  * Injectable directive
  */
-@Directive()
 @Injectable()
 export abstract class NgBaseDateTimeControl extends NgBaseModelControl<Date> implements IDateTimeControl {
 

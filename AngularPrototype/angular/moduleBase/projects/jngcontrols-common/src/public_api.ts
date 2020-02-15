@@ -50,7 +50,7 @@ export { NgWizardItemCommon } from './controls/wizard/wizarditem';
 
 // TinyMCE
 export { NgTinyMceCommon } from './controls/tinymce/tinymce';
-export { NgTinyMceEditorComponent } from './controls/tinymce/tinymceeditor'
+export { NgTinyMceEditorComponent } from './controls/tinymce/tinymceeditor';
 export { jNetworkTinyMceEditorModule } from './controls/tinymce/tinymceeditor.module';
 
 // TreeView

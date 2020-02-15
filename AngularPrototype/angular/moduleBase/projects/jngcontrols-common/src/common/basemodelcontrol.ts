@@ -10,7 +10,6 @@ import { convertToBoolean } from '../utilities/Convertion';
 /**
  * Abstract Klasse für NgBaseModelControl. Implements ControlValueAccessor, Validator, OnInit
  */
-@Directive()
 export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor, Validator, OnInit {
 
   // #region Private Variables

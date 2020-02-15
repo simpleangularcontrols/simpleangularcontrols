@@ -5,12 +5,11 @@ import { convertToBoolean } from '../../utilities/Convertion';
 /**
  * Typ für Form Actions
  */
-export type FormHooks = 'change' | 'blur' | 'submit'; 
+export type FormHooks = 'change' | 'blur' | 'submit';
 
 /**
  * Base Komponente für NgFormular
  */
-@Directive()
 export class NgFormularCommon {
 
   /**

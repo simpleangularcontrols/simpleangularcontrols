@@ -5,7 +5,6 @@ import { SortOrder } from './model';
 /**
  * Base Komponente für GridColumn
  */
-@Directive()
 export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
 
   /**

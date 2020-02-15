@@ -4,7 +4,6 @@ import { NgRadiobuttonsCommon } from './radiobuttons';
 /**
  * Basis Komponente für NgRadiobutton.
  */
-@Directive()
 export abstract class NgRadiobuttonCommon implements OnDestroy {
 
   /**

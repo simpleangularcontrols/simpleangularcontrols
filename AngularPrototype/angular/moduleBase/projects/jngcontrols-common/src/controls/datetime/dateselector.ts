@@ -69,7 +69,6 @@ class DateSelectorItem {
 /**
  *Basis Komponente für NgDateSelector
  */
-@Directive()
 export class NgDateSelectorCommon implements OnInit {
 
   /**

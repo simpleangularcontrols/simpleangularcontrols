@@ -5,7 +5,6 @@ import { ViewChild, Directive } from '@angular/core';
 /**
  * Base Komponente für Dialog
  */
-@Directive()
 export class NgDialogCommon {
 
   /**

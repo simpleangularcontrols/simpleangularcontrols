@@ -4,7 +4,6 @@ import { Input, Output, EventEmitter, ElementRef, OnInit, Directive } from '@ang
 /**
  *Basis Komponente für NgTreeItemAction
  */
-@Directive()
 export class NgTreeItemActionCommon implements OnInit {
 
     /**

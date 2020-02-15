@@ -4,7 +4,6 @@ import { NgInputCommon } from './input';
 /**
  * Basis Komponente für NgInputSearch
  */
-@Directive()
 export class NgInputSearchCommon extends NgInputCommon {
 
   /**

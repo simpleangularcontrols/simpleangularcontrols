@@ -27,7 +27,6 @@ export function _buildValueString(id: string | null, value: any): string {
 /**
  * Base Dropdown Komponente
  */
-@Directive()
 export class NgDropdownCommon extends NgBaseSelectControl<any> {
   /**
    * Counter vom OptionID; default Wert = 0
@@ -183,7 +182,6 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
 /**
  * ngDropdownOption-Klasse
  */
-@Directive()
 export class NgDropdownOptionCommon implements OnDestroy {
   /**
    * ID-String

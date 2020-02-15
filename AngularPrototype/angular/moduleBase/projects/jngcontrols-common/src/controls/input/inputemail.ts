@@ -6,7 +6,6 @@ import { Input, Directive } from '@angular/core';
 /**
  * Basis Komponente für NgInputEmail
  */
-@Directive()
 export class NgInputEmailCommon extends NgInputCommon {
 
   /**

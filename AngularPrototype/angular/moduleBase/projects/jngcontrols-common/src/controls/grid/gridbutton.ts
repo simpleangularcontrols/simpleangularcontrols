@@ -3,7 +3,6 @@ import { Input, Output, EventEmitter, Directive } from '@angular/core';
 /**
  * Base Grid Action Button
  */
-@Directive()
 export class NgGridButtonCommon {
 
   /**

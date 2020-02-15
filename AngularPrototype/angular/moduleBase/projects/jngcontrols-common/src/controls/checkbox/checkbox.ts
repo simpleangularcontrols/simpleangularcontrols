@@ -5,7 +5,6 @@ import { Input, Directive } from '@angular/core';
 /**
  * Basis Komponente für NgCheckboxCommon. Extends NgBaseModelControl
  */
-@Directive()
 export class NgCheckboxCommon extends NgBaseModelControl<boolean> {
 
   /**

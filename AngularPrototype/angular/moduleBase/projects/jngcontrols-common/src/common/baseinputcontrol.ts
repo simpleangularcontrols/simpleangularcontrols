@@ -4,7 +4,6 @@ import { Input, Directive } from '@angular/core';
 /**
  * Abstract Klasse für NgInputBase. Extendes NgBaseModelControl
  */
-@Directive()
 export abstract class NgInputBase<VALUE> extends NgBaseModelControl<VALUE> {
 
   // #region Properties

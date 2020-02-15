@@ -13,7 +13,6 @@ import { convertToBoolean } from '../../utilities/convertion';
  * kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht so gemacht, kann es bei gewissen Browsern zu einem Flacker Effekt führen.
  *
  */
-@Directive()
 export class NgTooltipCommon implements OnInit, OnDestroy {
   /**
    * Property für Enum in Angular HTML Template

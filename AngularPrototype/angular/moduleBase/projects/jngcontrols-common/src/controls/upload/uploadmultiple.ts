@@ -8,7 +8,6 @@ import { IUploadControl } from '../../interfaces/iuploadcontrol';
 /**
  * Upload Componente für mehrere Files
  */
-@Directive()
 export class NgUploadMultipleCommon extends NgUploadBase<string[]> implements IUploadControl {
 
   @Input('maxfiles')

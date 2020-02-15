@@ -3,7 +3,6 @@ import { Input, TemplateRef, ContentChild, Directive } from '@angular/core';
 /**
  * Die Basis Komponente für NgTabItem
  */
-@Directive()
 export class NgTabItemCommon {
   /**
    * Boolean Property prüft ob das Tab aktiv ist

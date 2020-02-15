@@ -5,7 +5,6 @@ import { Interpolation } from '../../utilities/interpolation';
 /**
  * Basiskomponente für Paging
  */
-@Directive()
 export abstract class NgPagingCommon {
 
   /**

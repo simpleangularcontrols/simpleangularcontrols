@@ -6,7 +6,6 @@ import { convertToBoolean } from '../../utilities/convertion';
 /**
  * Komponente für NgGridColumnCommon. Extends NgGridColumnBaseCommon
  */
-@Directive()
 export class NgGridColumnCommon extends NgGridColumnBaseCommon {
   /**
    * Konstruktor

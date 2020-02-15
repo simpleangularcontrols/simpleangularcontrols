@@ -14,6 +14,11 @@ import { NgPagingCommon } from '@jnetwork/jngcontrols-common';
 })
 export class NgPagingComponent extends NgPagingCommon {
 
-  constructor() { }
+  /**
+   * Konstruktor
+   */
+  constructor() {
+    super();
+  }
 
 }

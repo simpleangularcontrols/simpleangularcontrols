@@ -1,8 +1,6 @@
-import { Component, Directive, QueryList, ContentChildren, forwardRef, TemplateRef, ContentChild, ViewChildren, ElementRef } from '@angular/core';
-import { NgGridCommon, NgGridColumnBaseCommon, PagerData } from '@jnetwork/jngcontrols-common';
-import { NgFormularDirective } from '../form/form';
-import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/forms';
-import { NgPagingComponent } from './paging';
+import { Component, ContentChild, forwardRef, TemplateRef, ChangeDetectorRef } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NgGridCommon } from '@jnetwork/jngcontrols-common';
 
 @Component({
   selector: 'ng-grid,ngGrid',
@@ -20,4 +18,11 @@ export class NgGridComponent extends NgGridCommon {
 
   ellipsis: boolean = false;
 
+  /**
+   * Konstrukor
+   * @param cdRef Change Detection Reference
+   */
+  constructor(cdRef: ChangeDetectorRef) {
+    super(cdRef);
+  }
 }

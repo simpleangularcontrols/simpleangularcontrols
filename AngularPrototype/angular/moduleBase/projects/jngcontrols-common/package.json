@@ -8,6 +8,9 @@
     "angular2-text-mask": "9.0.0",
     "ngx-uploadx": "3.1.2"
   },
+  "scripts": {
+    "postinstall": "ngcc"
+  },
   "author": {
     "name": "jNetwork GmbH",
     "email": "info@jnetwork.ch",

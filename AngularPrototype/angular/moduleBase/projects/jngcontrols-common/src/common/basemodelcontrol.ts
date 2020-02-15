@@ -81,7 +81,7 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
    * @parent NgFormularCommon
    * @injector Injector
    */
-  constructor( @Host() parent: NgFormularCommon, private injector: Injector) {
+  constructor(@Host() parent: NgFormularCommon, private injector: Injector) {
     this.parent = parent;
     this.lngResourceService = injector.get(LANGUAGERESOURCE_SERVICE, new InternalLanguageResourceService());
   }
@@ -351,7 +351,9 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
   }
 
   protected UpdateValueAndValidity(): void {
-    this.ngControl.control.updateValueAndValidity({ onlySelf: true });
+    if (this.ngControl) {
+      this.ngControl.control.updateValueAndValidity({ onlySelf: true });
+    }
   }
 
   @Input('inlineerrorenabled')

@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnDestroy, QueryList, Renderer2, ViewChildren } from '@angular/core';
+import { Directive, ElementRef, Input, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { NgBaseSelectControl } from '../../common/baseselectcontrol';
 import { Validation } from '../../validation';
@@ -13,7 +13,7 @@ import { Validation } from '../../validation';
 /**
  *Basis Komponente für NgListboxOption
  */
-export class NgListboxOptionDirective implements OnDestroy {
+export class NgListboxOptionDirective {
 
   /**
    * Konstruktor
@@ -34,13 +34,6 @@ export class NgListboxOptionDirective implements OnDestroy {
   _setSelected(selected: boolean) {
     this._renderer.setProperty(this._element.nativeElement, 'selected', selected);
   }
-
-  /**
-   * Event wenn die Komponente zerstört wird
-   */
-  ngOnDestroy(): void {
-  }
-
 }
 
 /**

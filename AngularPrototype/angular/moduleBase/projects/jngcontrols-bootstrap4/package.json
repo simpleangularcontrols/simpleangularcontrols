@@ -7,6 +7,9 @@
     "@ng-bootstrap/ng-bootstrap": "5.3.0",
     "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common"
   },
+  "scripts": {
+    "postinstall": "ngcc"
+  },
   "devDependencies": {
     "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common"
   },

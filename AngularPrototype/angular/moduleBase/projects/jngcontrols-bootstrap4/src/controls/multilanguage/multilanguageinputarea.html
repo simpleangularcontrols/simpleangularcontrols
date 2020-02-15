@@ -10,11 +10,11 @@
              [attr.maxlength]="_maxlength" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" [disabled]="isdisabled"></textarea>
 
       <div ngbDropdown placement="bottom-right" class="input-group-append">
-        <button ngbDropdownToggle id="dropdownitem" type="button" class="btn"
+        <button ngbDropdownToggle [id]="_name + '_dropdownitem'" type="button" class="btn"
             [ngClass]="[IsAnyEmpty() ? 'btn-warning' : 'btn-secondary']">
           <img src="{{SelectedIcon}}" data-iso="de" class="align-baseline mr-1">
         </button>
-        <div ngbDropdownMenu aria-labelledby="dropdownitem">
+        <div ngbDropdownMenu [attr.aria-labelledby]="_name + '_dropdownitem'">
 
           <a ngbDropdownItem *ngFor="let sprache of Languages" (click)="SelectLanguage(sprache)"
              [ngClass]="{'text-danger border-left border-danger':IsEmpty(sprache)}">

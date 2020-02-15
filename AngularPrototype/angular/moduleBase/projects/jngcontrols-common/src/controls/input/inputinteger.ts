@@ -1,4 +1,4 @@
-import { Input } from '@angular/core';
+import { Input, Directive } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { Validation } from '../../validation';
 import { NgInputBase } from '../../common/baseinputcontrol';
@@ -6,6 +6,7 @@ import { NgInputBase } from '../../common/baseinputcontrol';
 /**
  * Basis Komponente für NgInputInteger
  */
+@Directive()
 export class NgInputIntegerCommon extends NgInputBase<number> {
 
   /**

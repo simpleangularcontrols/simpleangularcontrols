@@ -1,5 +1,5 @@
 import { NgFormularCommon } from '../form/form';
-import { Input, Injector } from '@angular/core';
+import { Input, Injector, Directive } from '@angular/core';
 import { ValidationErrorItem } from '../../validation';
 import { InternalLanguageResourceService, LANGUAGERESOURCE_SERVICE } from '../../services/languageresource.service';
 import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
@@ -9,6 +9,7 @@ import { NgForm, AbstractControl, FormGroup, FormArray } from '@angular/forms';
 /**
  * Basis Komponente für NgValidationSummary
  */
+@Directive()
 export class NgValidationSummaryCommon {
   /**
    * Name-Property

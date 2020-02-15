@@ -1,4 +1,4 @@
-import { Input, EventEmitter, Output, TemplateRef, Component, ElementRef } from '@angular/core';
+import { Input, EventEmitter, Output, TemplateRef, Component, ElementRef, Directive } from '@angular/core';
 import { NgGridColumnBaseCommon } from './gridcolumnbase';
 import { NgGridCommon } from './grid';
 import { convertToBoolean } from '../../utilities/convertion';
@@ -6,6 +6,7 @@ import { convertToBoolean } from '../../utilities/convertion';
 /**
  * Komponente für NgGridColumnCommon. Extends NgGridColumnBaseCommon
  */
+@Directive()
 export class NgGridColumnCommon extends NgGridColumnBaseCommon {
   /**
    * Konstruktor

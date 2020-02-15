@@ -1,0 +1,1 @@
+export { NgValidationSummaryComponent } from './validationsummary';

@@ -1,4 +1,4 @@
-import { Component, Host, forwardRef, Injector, Inject, Input } from '@angular/core';
+import { Component, Host, forwardRef, Injector, Inject, Input, Directive } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS, AbstractControl, ValidationErrors } from '@angular/forms';
 import { NgFormularCommon } from '../form/form';
 import { NgInputBase } from '../../common/baseinputcontrol';
@@ -8,6 +8,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { LanguageModel } from '../../models/languagemodel';
 import { Validation } from '../../validation';
 
+@Directive()
 export class NgMultilanguageInputAreaCommon extends NgInputBase<any> {
 
   /**

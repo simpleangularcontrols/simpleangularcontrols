@@ -1,19 +1,25 @@
-import { Input, ElementRef, OnInit, Directive, OnDestroy } from '@angular/core';
+import { Input, ElementRef, OnInit, Directive, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 import { NgGridCommon } from './grid';
 import { SortOrder } from './model';
 
 /**
  * Base Komponente für GridColumn
  */
+@Directive()
 export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
 
   /**
    * Konstruktor
    */
-  constructor(private grid: NgGridCommon, private el: ElementRef) {
-  }
+  constructor(private grid: NgGridCommon, private el: ElementRef) { }
 
   //#region Input / Outputs
+
+  /**
+  * Das Input property erhält den Namen des Column
+  */
+  @Input('name')
+  public name: any;
 
   /**
   * Das Input property erhält das Value des Column
@@ -72,7 +78,7 @@ export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
    */
   ngOnDestroy(): void {
     if (this.IsHeader()) {
-      this.grid.UnregisterColumn();
+       this.grid.UnregisterColumn();
     }
   }
 

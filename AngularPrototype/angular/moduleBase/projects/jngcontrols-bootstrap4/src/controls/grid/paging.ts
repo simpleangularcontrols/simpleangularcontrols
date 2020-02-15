@@ -15,4 +15,6 @@ import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/for
 })
 export class NgPagingComponent extends NgPagingCommon {
 
+  constructor() { super(); }
+
 }

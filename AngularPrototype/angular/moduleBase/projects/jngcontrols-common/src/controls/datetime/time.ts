@@ -1,4 +1,4 @@
-import { Input, HostListener } from '@angular/core';
+import { Input, HostListener, Directive } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { Validation } from '../../validation';
 import { NgBaseDateTimeControl } from '../../common/basedatetimecontrol';
@@ -13,6 +13,7 @@ const moment = moment_;
 /**
  * Komponente für NgTimeCommon. Extends NgBaseDateTimeControl
  */
+@Directive()
 export class NgTimeCommon extends NgBaseDateTimeControl {
 
   // #region Constants

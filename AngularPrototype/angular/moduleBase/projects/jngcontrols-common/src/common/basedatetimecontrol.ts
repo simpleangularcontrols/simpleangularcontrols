@@ -1,6 +1,6 @@
 import { NgBaseModelControl } from './basemodelcontrol';
 import { NgFormularCommon } from '../controls/form/form';
-import { ElementRef, Input, Injectable, Injector } from '@angular/core';
+import { ElementRef, Input, Injectable, Injector, Directive } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { Validation } from '../validation';
 import { IDateTimeControl } from '../interfaces/idatetimecontrol';
@@ -13,6 +13,7 @@ const moment = moment_;
 /**
  * Injectable directive
  */
+@Directive()
 @Injectable()
 export abstract class NgBaseDateTimeControl extends NgBaseModelControl<Date> implements IDateTimeControl {
 

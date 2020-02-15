@@ -1,0 +1,1 @@
+export { NgDialogComponent } from './dialog';

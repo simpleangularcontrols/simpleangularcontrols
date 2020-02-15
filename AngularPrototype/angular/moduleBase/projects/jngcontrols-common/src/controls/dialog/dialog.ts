@@ -1,10 +1,11 @@
 import { Input, ElementRef, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { HostListener } from '@angular/core';
-import { ViewChild } from '@angular/core';
+import { ViewChild, Directive } from '@angular/core';
 
 /**
  * Base Komponente für Dialog
  */
+@Directive()
 export class NgDialogCommon {
 
   /**
@@ -15,14 +16,14 @@ export class NgDialogCommon {
   /**
    * Implementation als Setter, da mit ngIf das Element bei Unsichtbarkeit UNDEFINED ist.
    */
-  @ViewChild('dialog')
+  @ViewChild('dialog', { static: true })
   set dialogElementSetter(content: ElementRef) {
     this.dialogElement = content;
 
     /**
      * Detect Changes ausführen, da beim Einblenden/Ausblenden des Dialogs Parameter und Properties ändern können diese ausserhalb der Standart ChangeDetection geändert würden.
      */
-    this.cdRef.detectChanges();
+    // this.cdRef.detectChanges();
   }
 
   /**

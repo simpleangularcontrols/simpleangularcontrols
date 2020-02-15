@@ -1,4 +1,4 @@
-import { Output, EventEmitter } from '@angular/core';
+import { Output, EventEmitter, Directive } from '@angular/core';
 
 /**
  * interface. Enthielt properties event von type T und editor von type any
@@ -17,6 +17,7 @@ export interface EventObj<T> {
 /**
  * Klasse EVents. Еnthalt verchiedene Outputs
  */
+@Directive()
 export class Events {
   @Output() onBeforePaste: EventEmitter<EventObj<ClipboardEvent>> = new EventEmitter();
   @Output() onBlur: EventEmitter<EventObj<FocusEvent>> = new EventEmitter();

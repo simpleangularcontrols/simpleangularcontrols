@@ -1,6 +1,6 @@
 import { NgUploadBase } from '../../common/baseuploadcontrol';
 import { UploadState } from 'ngx-uploadx';
-import { Input } from '@angular/core';
+import { Input, Directive } from '@angular/core';
 import { AbstractControl, ValidationErrors, } from '@angular/forms';
 import { Validation } from '../../validation';
 import { IUploadControl } from '../../interfaces/iuploadcontrol';
@@ -8,6 +8,7 @@ import { IUploadControl } from '../../interfaces/iuploadcontrol';
 /**
  * Upload Componente für mehrere Files
  */
+@Directive()
 export class NgUploadMultipleCommon extends NgUploadBase<string[]> implements IUploadControl {
 
   @Input('maxfiles')

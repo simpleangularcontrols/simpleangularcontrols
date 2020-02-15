@@ -1,4 +1,4 @@
-import { Input, Host, OnInit, Injector } from '@angular/core';
+import { Input, Host, OnInit, Injector, Directive } from '@angular/core';
 import { ControlValueAccessor, Validator, AbstractControl, NgControl, ValidationErrors } from '@angular/forms';
 import { NgFormularCommon } from '../controls/form/form';
 import { ILanguageResourceService } from '../interfaces/ilanguageresource';
@@ -10,6 +10,7 @@ import { convertToBoolean } from '../utilities/Convertion';
 /**
  * Abstract Klasse für NgBaseModelControl. Implements ControlValueAccessor, Validator, OnInit
  */
+@Directive()
 export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor, Validator, OnInit {
 
   // #region Private Variables

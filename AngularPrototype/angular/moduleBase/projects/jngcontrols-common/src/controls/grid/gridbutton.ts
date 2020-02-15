@@ -1,8 +1,9 @@
-import { Input, Output, EventEmitter } from '@angular/core';
+import { Input, Output, EventEmitter, Directive } from '@angular/core';
 
 /**
  * Base Grid Action Button
  */
+@Directive()
 export class NgGridButtonCommon {
 
   /**

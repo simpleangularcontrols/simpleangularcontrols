@@ -18,7 +18,7 @@ import { JNetworkBootstrap4ButtonModule } from '../buttons/button.module';
   entryComponents: [NgConfirmComponent]
 })
 export class JNetworkBootstrap4ConfirmModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<JNetworkBootstrap4ConfirmModule> {
     return {
       ngModule: JNetworkBootstrap4ConfirmModule,
       providers: [ServiceConfirm]

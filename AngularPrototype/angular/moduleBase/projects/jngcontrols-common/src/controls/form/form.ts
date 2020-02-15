@@ -1,11 +1,16 @@
 import { NgForm, NgModel, FormGroup, AbstractControl } from '@angular/forms';
-import { Input, ViewChild, QueryList, ContentChildren, AfterViewInit, IterableDiffer, IterableDiffers, IterableChanges } from '@angular/core';
+import { Input, ViewChild, QueryList, ContentChildren, AfterViewInit, IterableDiffer, IterableDiffers, IterableChanges, Directive } from '@angular/core';
 import { convertToBoolean } from '../../utilities/Convertion';
-import { FormHooks } from '@angular/forms/src/model';
+
+/**
+ * Typ für Form Actions
+ */
+export type FormHooks = 'change' | 'blur' | 'submit'; 
 
 /**
  * Base Komponente für NgFormular
  */
+@Directive()
 export class NgFormularCommon {
 
   /**

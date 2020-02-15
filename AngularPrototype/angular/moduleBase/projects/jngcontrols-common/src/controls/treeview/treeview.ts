@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Output, Input, OnInit, ChangeDetectorRef, TemplateRef, ContentChild } from '@angular/core';
+import { Component, EventEmitter, Output, Input, OnInit, ChangeDetectorRef, TemplateRef, ContentChild, Directive } from '@angular/core';
 
 /**
  * Basis Komponente für NgTreeView
  */
+@Directive()
 export class NgTreeViewCommon implements OnInit {
 
   /**
@@ -82,7 +83,7 @@ export class NgTreeViewCommon implements OnInit {
   /**
    * Die Directive erhält die actions für das TreeView
    */
-  @ContentChild("actions")
+  @ContentChild("actions", { static: true })
   public set treeviewTemplate(v: TemplateRef<any>) {
     this.templateTree = v;
   }
@@ -104,7 +105,7 @@ export class NgTreeViewCommon implements OnInit {
   /**
    * Setter property. Deffiniert das FileIcon für das TreeView
    */
-  @ContentChild("treefileicon")
+  @ContentChild("treefileicon", { static: true })
   public set treefileicon(v: TemplateRef<any>) {
     this.fileicontemplate = v;
   }

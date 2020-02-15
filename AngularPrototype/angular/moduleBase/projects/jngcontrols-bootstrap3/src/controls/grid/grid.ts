@@ -15,7 +15,7 @@ import { NgPagingComponent } from './paging';
 })
 export class NgGridComponent extends NgGridCommon {
 
-  @ContentChild(TemplateRef)
+  @ContentChild(TemplateRef, { static: true })
   template: TemplateRef<any>;
 
   ellipsis: boolean = false;

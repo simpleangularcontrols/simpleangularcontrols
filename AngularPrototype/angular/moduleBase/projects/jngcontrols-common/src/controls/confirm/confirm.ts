@@ -1,10 +1,11 @@
 import { IConfirmComponent } from '../../interfaces/iconfirmcomponent';
-import { EventEmitter, Output, Input } from '@angular/core';
+import { EventEmitter, Output, Input, Directive } from '@angular/core';
 import { NgConfirmButton } from './confirm.button';
 
 /**
  * Basis Klasse für Confirm Dialog
  */
+@Directive()
 export class NgConfirmCommon implements IConfirmComponent {
 
   //#region Input / Output Properties

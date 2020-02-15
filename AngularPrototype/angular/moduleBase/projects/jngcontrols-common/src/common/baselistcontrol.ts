@@ -1,9 +1,10 @@
-import { Input, TemplateRef } from '@angular/core';
+import { Input, TemplateRef, Directive } from '@angular/core';
 import { NgBaseModelControl } from './basemodelcontrol';
 
 /**
  * Abstract Klasse für NgBaseListControl. Extendes NgBaseModelControl
  */
+@Directive()
 export abstract class NgBaseListControl<VALUE> extends NgBaseModelControl<VALUE> {
 
   /**

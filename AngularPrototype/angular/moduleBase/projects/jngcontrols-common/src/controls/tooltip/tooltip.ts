@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Input, ViewChild, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, ElementRef, OnInit, Input, ViewChild, OnDestroy, ChangeDetectorRef, Directive } from '@angular/core';
 import { TooltipPosition } from '../../utilities/enums';
 import { convertToBoolean } from '../../utilities/convertion';
 
@@ -13,6 +13,7 @@ import { convertToBoolean } from '../../utilities/convertion';
  * kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht so gemacht, kann es bei gewissen Browsern zu einem Flacker Effekt führen.
  *
  */
+@Directive()
 export class NgTooltipCommon implements OnInit, OnDestroy {
   /**
    * Property für Enum in Angular HTML Template
@@ -75,7 +76,7 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
   /**
    * Name des Containers für Content (z.B. Icon) auf welchem der Tooltip angezeigt wird.
    */
-  @ViewChild('container') content: ElementRef<HTMLElement>;
+  @ViewChild('container', { static: true }) content: ElementRef<HTMLElement>;
 
   /**
    * Name des Containers für den Tooltip
@@ -85,7 +86,7 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
   /**
    * Setter für Name des Containers für den Tooltip. Wird benötigt, da Tooltip via NGIF ausgeblendet werden kann.
    */
-  @ViewChild('tooltip')
+  @ViewChild('tooltip', { static: true })
   set tooltip(content: ElementRef) {
     if (content !== undefined) {
       document.body.appendChild(content.nativeElement);

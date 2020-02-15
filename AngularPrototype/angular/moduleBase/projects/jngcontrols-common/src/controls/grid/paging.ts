@@ -1,10 +1,11 @@
-import { Input, Output, EventEmitter } from '@angular/core';
+import { Input, Output, EventEmitter, Directive } from '@angular/core';
 import { PagerData } from './model';
 import { Interpolation } from '../../utilities/interpolation';
 
 /**
  * Basiskomponente für Paging
  */
+@Directive()
 export abstract class NgPagingCommon {
 
   /**

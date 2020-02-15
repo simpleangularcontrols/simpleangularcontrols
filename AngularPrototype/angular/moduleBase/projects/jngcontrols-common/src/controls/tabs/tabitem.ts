@@ -1,8 +1,9 @@
-import { Input, TemplateRef, ContentChild } from '@angular/core';
+import { Input, TemplateRef, ContentChild, Directive } from '@angular/core';
 
 /**
  * Die Basis Komponente für NgTabItem
  */
+@Directive()
 export class NgTabItemCommon {
   /**
    * Boolean Property prüft ob das Tab aktiv ist
@@ -34,7 +35,7 @@ export class NgTabItemCommon {
   /**
    * ContentChild Decorator
    */
-  @ContentChild(TemplateRef)
+  @ContentChild(TemplateRef, { static: true })
   templateRef: TemplateRef<any>;
 
 }

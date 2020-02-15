@@ -1,11 +1,12 @@
 import { AbstractControl, ValidationErrors, } from '@angular/forms';
 import { NgInputCommon } from './input';
 import { Validation } from '../../validation';
-import { Input } from '@angular/core';
+import { Input, Directive } from '@angular/core';
 
 /**
  * Basis Komponente für NgInputEmail
  */
+@Directive()
 export class NgInputEmailCommon extends NgInputCommon {
 
   /**

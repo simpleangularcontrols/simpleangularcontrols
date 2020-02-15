@@ -1,15 +1,20 @@
-import { Input, TemplateRef, Output, EventEmitter } from '@angular/core';
+import { Input, TemplateRef, Output, EventEmitter, Directive, OnInit, ChangeDetectorRef } from '@angular/core';
 import { PagerData, SortDescriptor, SortOrder } from './model';
 
 /**
  *Basis Komponente für NgGrid
  */
-export abstract class NgGridCommon {
+@Directive()
+export abstract class NgGridCommon implements OnInit {
+
+  constructor(private cd: ChangeDetectorRef) { }
+
+  ngOnInit(): void { }
 
   /**
    * Private Property. Enthielt die Column Menge. Type: number. Default ist 0
    */
-  private gridColumnCount: number = 0;
+  public ColumnCount: number = 0;
 
   /**
    * Protected Property. Enthielt Array of Pages. Default value: empty array []
@@ -61,7 +66,6 @@ export abstract class NgGridCommon {
    */
   @Input('emptytext')
   public _emptytext: string;
-
 
   /**
    * Text in Pager für 'Seite x von y'.
@@ -142,21 +146,16 @@ export abstract class NgGridCommon {
    * Die Methode erhöht die Column-Stücke um eins
    */
   public RegisterColumn() {
-    this.gridColumnCount++;
+    this.ColumnCount++;
+    // Detect Changes ausführen, da ColumnChange nach OnInit ausgeführt wird.
+    this.cd.detectChanges();
   }
 
   /**
    * Die Methode verringert die Column-Stücke um eins
    */
   public UnregisterColumn() {
-    this.gridColumnCount--;
-  }
-
-  /**
-   * Die Methode ergibt die Column Menge
-   */
-  public GetColumnCount(): number {
-    return this.gridColumnCount;
+    this.ColumnCount--;
   }
 
   /**

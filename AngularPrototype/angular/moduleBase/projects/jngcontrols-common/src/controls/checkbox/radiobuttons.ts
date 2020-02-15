@@ -1,4 +1,4 @@
-import { Host, Injector, Input } from '@angular/core';
+import { Host, Injector, Input, Directive } from '@angular/core';
 import { AbstractControl, ValidationErrors, Validator } from '@angular/forms';
 import { NgFormularCommon } from '../form/form';
 import { NgRadiobuttonCommon } from './radiobutton';
@@ -8,6 +8,7 @@ import { Validation } from '../../validation';
 /**
  * Basis Komponente für NgRadiobuttonsCommon. Extends NgBaseModelControl
  */
+@Directive()
 export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> implements Validator {
 
   /**

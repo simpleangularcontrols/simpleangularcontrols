@@ -1,8 +1,9 @@
-import { Input } from '@angular/core';
+import { Input, Directive } from '@angular/core';
 
 /**
  * Basis Komponente für NgWizardItem
  */
+@Directive()
 export class NgWizardItemCommon {
   /**
    * Prüft ob der aktuelle Schritt aktiv ist.

@@ -1,6 +1,6 @@
 import { Component, ViewChild, HostListener } from '@angular/core';
 import { NgForm, FormGroup, FormControl } from '@angular/forms';
-import { DeprecatedCurrencyPipe } from '@angular/common/src/pipes/deprecated/number_pipe';
+import { CurrencyPipe } from '@angular/common';
 import { NgFormularDirective } from '@jnetwork/jngcontrols-bootstrap4';
 
 

@@ -1,9 +1,10 @@
-import { Input, EventEmitter, Output, TemplateRef, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Input, EventEmitter, Output, TemplateRef, OnInit, OnDestroy, ChangeDetectorRef, Directive } from '@angular/core';
 import { NgRadiobuttonsCommon } from './radiobuttons';
 
 /**
  * Basis Komponente für NgRadiobutton.
  */
+@Directive()
 export abstract class NgRadiobuttonCommon implements OnDestroy {
 
   /**

@@ -23,7 +23,7 @@ export class ExampleMultiLanguageInputComponent {
     Model5: { de: 'Wert Deutsch', en: 'Wert Englisch' }
   };
 
-  @ViewChild('formMultiLanguage')
+  @ViewChild('formMultiLanguage', { static: true })
   formular: NgFormularDirective;
 
   public save(): void {

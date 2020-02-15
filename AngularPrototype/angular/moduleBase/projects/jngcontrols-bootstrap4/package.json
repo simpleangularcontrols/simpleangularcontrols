@@ -2,9 +2,9 @@
   "name": "@jnetwork/jngcontrols-bootstrap4",
   "version": "1.1.15",
   "peerDependencies": {
-    "@angular/common": "^7.2.0",
-    "@angular/core": "^7.2.0",
-    "@ng-bootstrap/ng-bootstrap": "4.2.2",
+    "@angular/common": "9.0.1",
+    "@angular/core": "9.0.1",
+    "@ng-bootstrap/ng-bootstrap": "5.3.0",
     "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common"
   },
   "devDependencies": {

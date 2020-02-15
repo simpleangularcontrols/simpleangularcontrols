@@ -1,5 +1,5 @@
-import { NgForm, NgModel, FormGroup, AbstractControl } from '@angular/forms';
-import { Input, ViewChild, QueryList, ContentChildren, AfterViewInit, IterableDiffer, IterableDiffers, IterableChanges, Directive } from '@angular/core';
+import { Input } from '@angular/core';
+import { AbstractControl, FormGroup, NgForm } from '@angular/forms';
 import { convertToBoolean } from '../../utilities/Convertion';
 
 /**

@@ -1,5 +1,5 @@
+import { Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { Input, Directive } from '@angular/core';
 import { NgBaseModelControl } from '../../common/basemodelcontrol';
 import { convertToBoolean } from '../../utilities/convertion';
 

@@ -1,5 +1,5 @@
+import { Input } from '@angular/core';
 import { NgBaseModelControl } from './basemodelcontrol';
-import { Input, Directive } from '@angular/core';
 
 /**
  * Abstract Klasse für NgInputBase. Extendes NgBaseModelControl

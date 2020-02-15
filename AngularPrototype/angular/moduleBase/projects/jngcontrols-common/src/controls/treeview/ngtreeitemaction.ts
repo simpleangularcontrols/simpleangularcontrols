@@ -1,4 +1,4 @@
-import { Input, Output, EventEmitter, ElementRef, OnInit, Directive } from '@angular/core';
+import { ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 
 /**

@@ -1,4 +1,4 @@
-import { AfterContentInit, QueryList, Input, Output, EventEmitter, Directive } from '@angular/core';
+import { AfterContentInit, EventEmitter, Input, Output, QueryList } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { NgWizardItemCommon } from './wizarditem';
 

@@ -1,5 +1,5 @@
+import { EventEmitter, Input, Output } from '@angular/core';
 import { IConfirmComponent } from '../../interfaces/iconfirmcomponent';
-import { EventEmitter, Output, Input, Directive } from '@angular/core';
 import { NgConfirmButton } from './confirm.button';
 
 /**

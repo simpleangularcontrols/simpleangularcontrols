@@ -1,7 +1,7 @@
-import { AbstractControl, ValidationErrors, Validators, ValidatorFn } from '@angular/forms';
+import { AbstractControl, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import * as moment_ from 'moment';
 import { IDateTimeControl } from '../interfaces/idatetimecontrol';
 import { IUploadControl } from '../interfaces/iuploadcontrol';
-import * as moment_ from 'moment';
 import { LanguageModel } from '../models/languagemodel';
 /**
  * Moment

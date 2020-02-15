@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, Input, OnInit, ChangeDetectorRef, TemplateRef, ContentChild, Directive } from '@angular/core';
+import { ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 
 /**
  * Basis Komponente für NgTreeView

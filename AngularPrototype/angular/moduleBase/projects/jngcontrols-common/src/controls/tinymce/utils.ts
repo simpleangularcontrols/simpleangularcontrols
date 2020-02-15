@@ -7,8 +7,8 @@
  */
 
 import { EventEmitter } from '@angular/core';
-import { NgTinyMceEditorComponent } from './tinymceeditor';
 import { validEvents } from './events';
+import { NgTinyMceEditorComponent } from './tinymceeditor';
 
 /**
  * Bind Handler Event

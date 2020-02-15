@@ -1,4 +1,4 @@
-import { Input, TemplateRef, Directive } from '@angular/core';
+import { Input, TemplateRef } from '@angular/core';
 import { NgBaseModelControl } from './basemodelcontrol';
 
 /**

@@ -1,4 +1,4 @@
-import { Input, TemplateRef, Output, EventEmitter, Directive, OnInit, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
 import { PagerData, SortDescriptor, SortOrder } from './model';
 
 /**

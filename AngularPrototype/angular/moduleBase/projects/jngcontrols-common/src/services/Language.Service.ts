@@ -1,8 +1,7 @@
 import { Injectable, InjectionToken } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ILanguageService } from '../interfaces/ilanguageservice';
 import { LanguageModel } from '../models/languagemodel';
-import { Interpolation } from '../utilities/interpolation';
-import { Observable } from 'rxjs';
 
 /**
  * Injection Token für Language Service

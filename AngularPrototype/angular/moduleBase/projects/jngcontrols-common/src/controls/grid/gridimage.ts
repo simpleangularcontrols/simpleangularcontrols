@@ -1,4 +1,4 @@
-import { Input, Directive } from '@angular/core';
+import { Input } from '@angular/core';
 
 /**
  * Basis Komponente für NgGridImage

@@ -1,10 +1,9 @@
-import { EventEmitter, forwardRef, Injector, ViewChild, Input, Output, ElementRef, Renderer2, OnInit, OnDestroy, Directive } from '@angular/core';
-import { ValidationErrors, AbstractControl } from '@angular/forms';
-import { NgBaseModelControl } from './basemodelcontrol';
+import { ElementRef, EventEmitter, Injector, Input, NgZone, OnDestroy, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { UploadState, UploadxOptions, UploadxService } from 'ngx-uploadx';
 import { NgFormularCommon } from '../controls/form/form';
-import { UploadxControlEvent, UploadxOptions, UploadState, UploadxService } from 'ngx-uploadx';
 import { Validation } from '../validation';
-import { NgZone } from '@angular/core';
+import { NgBaseModelControl } from './basemodelcontrol';
 
 export class NgUploadFile {
   name: string;

@@ -1,6 +1,6 @@
-import { Input, EventEmitter, Output, TemplateRef, Component, ElementRef } from '@angular/core';
-import { NgGridColumnBaseCommon } from './gridcolumnbase';
+import { ElementRef } from '@angular/core';
 import { NgGridCommon } from './grid';
+import { NgGridColumnBaseCommon } from './gridcolumnbase';
 
 /**
  * Komponente für NgGridColumnActionCommon. Extends NgGridColumnBaseCommon

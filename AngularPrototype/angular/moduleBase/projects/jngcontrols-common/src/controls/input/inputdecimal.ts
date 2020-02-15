@@ -1,7 +1,7 @@
-import { Input, Directive } from '@angular/core';
+import { Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { Validation } from '../../validation';
 import { NgInputBase } from '../../common/baseinputcontrol';
+import { Validation } from '../../validation';
 
 /**
  * Basis Komponente für NgInputDecimal

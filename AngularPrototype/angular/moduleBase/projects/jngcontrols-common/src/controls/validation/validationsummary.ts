@@ -1,10 +1,10 @@
-import { NgFormularCommon } from '../form/form';
-import { Input, Injector, Directive } from '@angular/core';
-import { ValidationErrorItem } from '../../validation';
-import { InternalLanguageResourceService, LANGUAGERESOURCE_SERVICE } from '../../services/languageresource.service';
-import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
+import { Injector, Input } from '@angular/core';
+import { AbstractControl, FormArray, NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { NgForm, AbstractControl, FormGroup, FormArray } from '@angular/forms';
+import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
+import { InternalLanguageResourceService, LANGUAGERESOURCE_SERVICE } from '../../services/languageresource.service';
+import { ValidationErrorItem } from '../../validation';
+import { NgFormularCommon } from '../form/form';
 
 /**
  * Basis Komponente für NgValidationSummary

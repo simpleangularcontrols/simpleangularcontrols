@@ -1,11 +1,11 @@
-import { NgBaseModelControl } from './basemodelcontrol';
-import { NgFormularCommon } from '../controls/form/form';
-import { ElementRef, Input, Injectable, Injector, Directive } from '@angular/core';
+import { ElementRef, Injectable, Injector, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { Validation } from '../validation';
-import { IDateTimeControl } from '../interfaces/idatetimecontrol';
-import { Moment } from 'moment';
 import * as moment_ from 'moment';
+import { Moment } from 'moment';
+import { NgFormularCommon } from '../controls/form/form';
+import { IDateTimeControl } from '../interfaces/idatetimecontrol';
+import { Validation } from '../validation';
+import { NgBaseModelControl } from './basemodelcontrol';
 /**
  * Moment
  */
@@ -15,7 +15,6 @@ const moment = moment_;
  */
 @Injectable()
 export abstract class NgBaseDateTimeControl extends NgBaseModelControl<Date> implements IDateTimeControl {
-
   /**
    * value. Typ: any
    */
@@ -51,7 +50,6 @@ export abstract class NgBaseDateTimeControl extends NgBaseModelControl<Date> imp
    * TextBox Placeholder
    */
   @Input('placeholder') _placeholder: string = null;
-
 
   /**
    * Resource Key für Validation Message Required bei Control

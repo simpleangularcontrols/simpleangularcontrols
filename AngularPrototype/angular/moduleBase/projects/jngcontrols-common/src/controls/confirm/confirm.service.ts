@@ -1,6 +1,4 @@
-import { Injector, ApplicationRef, ViewContainerRef, Inject, ComponentFactoryResolver, EventEmitter } from '@angular/core';
-import { ComponentFactory } from '@angular/core';
-import { ComponentRef } from '@angular/core';
+import { ApplicationRef, ComponentFactory, ComponentRef, EventEmitter, Injector } from '@angular/core';
 import { IConfirmComponent } from '../../interfaces/iconfirmcomponent';
 
 /**

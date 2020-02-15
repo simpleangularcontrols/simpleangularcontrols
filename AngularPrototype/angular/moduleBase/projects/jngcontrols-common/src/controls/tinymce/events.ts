@@ -1,4 +1,4 @@
-import { Output, EventEmitter, Directive } from '@angular/core';
+import { Directive, EventEmitter, Output } from '@angular/core';
 
 /**
  * interface. Enthielt properties event von type T und editor von type any

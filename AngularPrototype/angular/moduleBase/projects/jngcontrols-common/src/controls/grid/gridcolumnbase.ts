@@ -1,4 +1,4 @@
-import { Input, ElementRef, OnInit, Directive, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
+import { ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { NgGridCommon } from './grid';
 import { SortOrder } from './model';
 

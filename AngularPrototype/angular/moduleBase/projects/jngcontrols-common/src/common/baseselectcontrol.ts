@@ -1,4 +1,4 @@
-import { Input, Directive } from '@angular/core';
+import { Input } from '@angular/core';
 import { NgBaseListControl } from './baselistcontrol';
 
 /**

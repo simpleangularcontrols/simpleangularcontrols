@@ -1,4 +1,4 @@
-import { Input, Output, EventEmitter, Directive } from '@angular/core';
+import { EventEmitter, Input, Output } from '@angular/core';
 
 /**
  * Base Komponente für das Button

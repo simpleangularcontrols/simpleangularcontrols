@@ -1,4 +1,4 @@
-import { Input, TemplateRef, ContentChild, Directive } from '@angular/core';
+import { ContentChild, Input, TemplateRef } from '@angular/core';
 
 /**
  * Die Basis Komponente für NgTabItem

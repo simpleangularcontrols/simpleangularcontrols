@@ -1,12 +1,12 @@
 // Source: https://github.com/cnblogs/tinymce-angular
 
-import { Component, AfterViewInit, Input, ElementRef, OnDestroy, forwardRef, NgZone } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, forwardRef, Input, NgZone, OnDestroy } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-
-import * as ScriptLoader from './scriptLoader';
-import { uuid, isTextarea, bindHandlers, mergePlugins } from './utils';
-import { getTinymce } from './generic';
 import { Events } from './events';
+import { getTinymce } from './generic';
+import * as ScriptLoader from './scriptLoader';
+import { bindHandlers, isTextarea, mergePlugins, uuid } from './utils';
+
 
 const scriptState = ScriptLoader.create();
 

@@ -1,5 +1,5 @@
-import { NgUploadBase } from '../../common/baseuploadcontrol';
 import { UploadState } from 'ngx-uploadx';
+import { NgUploadBase } from '../../common/baseuploadcontrol';
 
 /**
  * Upload Komponente für ein einzelnes File

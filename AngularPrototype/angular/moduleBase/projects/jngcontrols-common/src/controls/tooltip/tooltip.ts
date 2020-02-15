@@ -1,6 +1,6 @@
-import { Component, ElementRef, OnInit, Input, ViewChild, OnDestroy, ChangeDetectorRef, Directive } from '@angular/core';
-import { TooltipPosition } from '../../utilities/enums';
+import { ChangeDetectorRef, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { convertToBoolean } from '../../utilities/convertion';
+import { TooltipPosition } from '../../utilities/enums';
 
 /**
  * Tooltip Component

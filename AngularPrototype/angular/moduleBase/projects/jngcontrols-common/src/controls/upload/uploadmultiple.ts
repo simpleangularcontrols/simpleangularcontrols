@@ -1,9 +1,9 @@
-import { NgUploadBase } from '../../common/baseuploadcontrol';
+import { Input } from '@angular/core';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { UploadState } from 'ngx-uploadx';
-import { Input, Directive } from '@angular/core';
-import { AbstractControl, ValidationErrors, } from '@angular/forms';
-import { Validation } from '../../validation';
+import { NgUploadBase } from '../../common/baseuploadcontrol';
 import { IUploadControl } from '../../interfaces/iuploadcontrol';
+import { Validation } from '../../validation';
 
 /**
  * Upload Componente für mehrere Files

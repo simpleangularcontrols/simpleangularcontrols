@@ -1,8 +1,7 @@
-import { Input, Output, EventEmitter } from '@angular/core';
-import { OnInit } from '@angular/core';
+import { EventEmitter, Input, OnInit, Output } from '@angular/core';
+import * as moment_ from 'moment';
 // Import Moment.JS
 import { Moment } from 'moment';
-import * as moment_ from 'moment';
 /**
  * Moment
  */

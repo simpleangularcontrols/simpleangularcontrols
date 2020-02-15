@@ -1,4 +1,4 @@
-import { AfterContentInit, TemplateRef, Input, Directive } from '@angular/core';
+import { AfterContentInit, Input, TemplateRef } from '@angular/core';
 import { NgTabItemCommon } from './tabitem';
 
 /**

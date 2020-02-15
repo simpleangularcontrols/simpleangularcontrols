@@ -1,6 +1,4 @@
-import { Input, ElementRef, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
-import { HostListener } from '@angular/core';
-import { ViewChild, Directive } from '@angular/core';
+import { ChangeDetectorRef, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
 
 /**
  * Base Komponente für Dialog

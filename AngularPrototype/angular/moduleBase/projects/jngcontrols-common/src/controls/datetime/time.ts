@@ -1,10 +1,11 @@
-import { Input, HostListener, Directive } from '@angular/core';
+import { Input, HostListener, Injector, ElementRef } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { Validation } from '../../validation';
 import { NgBaseDateTimeControl } from '../../common/basedatetimecontrol';
 // Import Moment.JS
 import { Moment } from 'moment';
 import * as moment_ from 'moment';
+import { NgFormularCommon } from '../form/form';
 /**
  * Moment
  */
@@ -94,6 +95,16 @@ export class NgTimeCommon extends NgBaseDateTimeControl {
   @Input('validationmessagesummarymaxtime') _validationMessageMaxTimeSummary: string = 'VALIDATION_ERROR_SUMMARY_MAXTIME';
 
   // #endregion
+
+  /**
+   * Konstruktor
+   * @param parent typ NgFormularCommon
+   * @param injector typ Injector
+   * @param _elementRef typ ElementRef
+   */
+  constructor(parent: NgFormularCommon, injector: Injector, protected _elementRef: ElementRef) {
+    super(parent, injector, _elementRef);
+  }
 
   // #region Abstract Methods
 

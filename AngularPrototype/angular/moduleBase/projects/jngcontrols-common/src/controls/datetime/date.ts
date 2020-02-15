@@ -1,4 +1,4 @@
-import { Input, HostListener, Directive } from '@angular/core';
+import { Input, HostListener, Directive, Injector, ElementRef } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 // import { NgFormular } from '../form/form';
 import { Validation } from '../../validation';
@@ -6,6 +6,7 @@ import { NgBaseDateTimeControl } from '../../common/basedatetimecontrol';
 // Import Moment.JS
 import { Moment } from 'moment';
 import * as moment_ from 'moment';
+import { NgFormularCommon } from '../form/form';
 /**
  * Moment
  */
@@ -92,6 +93,16 @@ export class NgDateCommon extends NgBaseDateTimeControl {
 
 
   // #endregion
+
+  /**
+   * Konstruktor
+   * @param parent typ NgFormularCommon
+   * @param injector typ Injector
+   * @param _elementRef typ ElementRef
+   */
+  constructor(parent: NgFormularCommon, injector: Injector, protected _elementRef: ElementRef) {
+    super(parent, injector, _elementRef);
+  }
 
   // #region Abstract Methods
 

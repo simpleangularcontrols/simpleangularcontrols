@@ -6,6 +6,9 @@
     "@angular/core": "^7.2.0",
     "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common"
   },
+  "scripts": {
+    "postinstall": "ngcc"
+  },
   "devDependencies": {
     "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common"
   },

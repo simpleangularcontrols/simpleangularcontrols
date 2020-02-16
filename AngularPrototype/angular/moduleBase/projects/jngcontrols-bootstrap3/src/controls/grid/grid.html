@@ -13,10 +13,10 @@
       </tr>
     </ng-container>
     <tr *ngIf="value === undefined || value === null || value.length==0">
-      <td [attr.colspan]="GetColumnCount()">{{_emptytext}}</td>
+      <td [attr.colspan]="ColumnCount">{{_emptytext}}</td>
     </tr>
     <tr>
-      <td [attr.colspan]="GetColumnCount()">
+      <td [attr.colspan]="ColumnCount">
         <div class="container">
           <ngPaging name="{{name}}Paging" (onpaging)="pageChange($event)" (onpagesizechanged)="pageSizeChanged($event)" [pagerdata]="pagerdata" [pagingtext]="pagingText" [pagesizetext]="pageSizeText"></ngPaging>
         </div>

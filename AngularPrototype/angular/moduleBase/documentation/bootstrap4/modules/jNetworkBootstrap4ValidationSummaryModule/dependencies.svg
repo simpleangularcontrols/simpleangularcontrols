@@ -21,44 +21,44 @@
 <polygon fill="#fb8072" stroke="transparent" points="406,-10 406,-30 426,-30 426,-10 406,-10"/>
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
-<title>cluster_jNetworkBootstrap4ValidationSummaryModule</title>
+<title>cluster_JNetworkBootstrap4ValidationSummaryModule</title>
 <polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="96,-70 96,-268 400,-268 400,-70 96,-70"/>
 </g>
 <g id="clust2" class="cluster">
-<title>cluster_jNetworkBootstrap4ValidationSummaryModule_declarations</title>
-<polygon fill="none" stroke="#000000" points="167,-78 167,-130 329,-130 329,-78 167,-78"/>
+<title>cluster_JNetworkBootstrap4ValidationSummaryModule_declarations</title>
+<polygon fill="none" stroke="#000000" points="134,-78 134,-130 362,-130 362,-78 134,-78"/>
 </g>
 <g id="clust5" class="cluster">
-<title>cluster_jNetworkBootstrap4ValidationSummaryModule_exports</title>
-<polygon fill="none" stroke="#000000" points="165,-208 165,-260 331,-260 331,-208 165,-208"/>
+<title>cluster_JNetworkBootstrap4ValidationSummaryModule_exports</title>
+<polygon fill="none" stroke="#000000" points="132,-208 132,-260 364,-260 364,-208 132,-208"/>
 </g>
-<!-- NgValidationSummary -->
+<!-- NgValidationSummaryComponent -->
 <g id="node1" class="node">
-<title>NgValidationSummary</title>
-<polygon fill="#ffffb3" stroke="#000000" points="321.1442,-122 174.8558,-122 174.8558,-86 321.1442,-86 321.1442,-122"/>
-<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgValidationSummary</text>
+<title>NgValidationSummaryComponent</title>
+<polygon fill="#ffffb3" stroke="#000000" points="353.9762,-122 142.0238,-122 142.0238,-86 353.9762,-86 353.9762,-122"/>
+<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgValidationSummaryComponent</text>
 </g>
-<!-- jNetworkBootstrap4ValidationSummaryModule -->
+<!-- JNetworkBootstrap4ValidationSummaryModule -->
 <g id="node2" class="node">
-<title>jNetworkBootstrap4ValidationSummaryModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="391.8945,-187 388.8945,-191 367.8945,-191 364.8945,-187 104.1055,-187 104.1055,-151 391.8945,-151 391.8945,-187"/>
-<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">jNetworkBootstrap4ValidationSummaryModule</text>
+<title>JNetworkBootstrap4ValidationSummaryModule</title>
+<polygon fill="#8dd3c7" stroke="#000000" points="392.4482,-187 389.4482,-191 368.4482,-191 365.4482,-187 103.5518,-187 103.5518,-151 392.4482,-151 392.4482,-187"/>
+<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">JNetworkBootstrap4ValidationSummaryModule</text>
 </g>
-<!-- NgValidationSummary&#45;&gt;jNetworkBootstrap4ValidationSummaryModule -->
+<!-- NgValidationSummaryComponent&#45;&gt;JNetworkBootstrap4ValidationSummaryModule -->
 <g id="edge1" class="edge">
-<title>NgValidationSummary&#45;&gt;jNetworkBootstrap4ValidationSummaryModule</title>
+<title>NgValidationSummaryComponent&#45;&gt;JNetworkBootstrap4ValidationSummaryModule</title>
 <path fill="none" stroke="#000000" d="M248,-122.1061C248,-122.1061 248,-140.991 248,-140.991"/>
 <polygon fill="#000000" stroke="#000000" points="244.5001,-140.9909 248,-150.991 251.5001,-140.991 244.5001,-140.9909"/>
 </g>
-<!-- NgValidationSummary  -->
+<!-- NgValidationSummaryComponent  -->
 <g id="node3" class="node">
-<title>NgValidationSummary </title>
-<polygon fill="#fb8072" stroke="#000000" points="323.1439,-252 172.8561,-252 172.8561,-216 323.1439,-216 323.1439,-252"/>
-<text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgValidationSummary </text>
+<title>NgValidationSummaryComponent </title>
+<polygon fill="#fb8072" stroke="#000000" points="355.9767,-252 140.0233,-252 140.0233,-216 355.9767,-216 355.9767,-252"/>
+<text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgValidationSummaryComponent </text>
 </g>
-<!-- jNetworkBootstrap4ValidationSummaryModule&#45;&gt;NgValidationSummary  -->
+<!-- JNetworkBootstrap4ValidationSummaryModule&#45;&gt;NgValidationSummaryComponent  -->
 <g id="edge2" class="edge">
-<title>jNetworkBootstrap4ValidationSummaryModule&#45;&gt;NgValidationSummary </title>
+<title>JNetworkBootstrap4ValidationSummaryModule&#45;&gt;NgValidationSummaryComponent </title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M248,-187.1061C248,-187.1061 248,-205.991 248,-205.991"/>
 <polygon fill="#000000" stroke="#000000" points="244.5001,-205.9909 248,-215.991 251.5001,-205.991 244.5001,-205.9909"/>
 </g>

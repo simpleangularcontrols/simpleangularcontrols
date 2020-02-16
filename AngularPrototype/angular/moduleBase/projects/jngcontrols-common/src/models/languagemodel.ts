@@ -1,3 +1,5 @@
+import { IconType } from '../enums/IconType';
+
 /**
  * Model für Sprachen
  */
@@ -14,4 +16,8 @@ export class LanguageModel {
    * Bezeichnung für Sprache
    */
   public Text: string;
+  /**
+   * Typ des Icons. Default ist Image
+   */
+  public IconType: IconType = IconType.Image;
 }

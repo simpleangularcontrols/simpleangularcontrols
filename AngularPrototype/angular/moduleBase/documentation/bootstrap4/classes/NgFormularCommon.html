@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Bootstrap 3 Angular Controls</title>
+        <title>Bootstrap 4 Angular Controls</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -99,6 +99,10 @@
                                     <span class="modifier">Public</span>
                                 <a href="#markAsTouched">markAsTouched</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#updateValueAndValidity">updateValueAndValidity</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -126,6 +130,9 @@
                             <li>
                                 <a href="#orientation">orientation</a>
                             </li>
+                            <li>
+                                <a href="#updateon">updateon</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -141,6 +148,9 @@
                     <tr>
                         <td class="col-md-4">
                             <ul class="index-list">
+                                <li>
+                                    <a href="#updateon">updateon</a>
+                                </li>
                                 <li>
                                     <a href="#inlineerrorenabled">inlineerrorenabled</a>
                                 </li>
@@ -165,7 +175,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:50</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:92</a></div>
                             </td>
                         </tr>
 
@@ -240,8 +250,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:90</a></div>
                 </td>
             </tr>
 
@@ -283,8 +293,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:74</a></div>
                 </td>
             </tr>
 
@@ -326,8 +336,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="105"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:105</a></div>
                 </td>
             </tr>
 
@@ -340,6 +350,84 @@
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateValueAndValidity"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            updateValueAndValidity
+                        </b>
+                        <a href="#updateValueAndValidity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateValueAndValidity(markAsTouched: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="114"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:114</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Aktualisiert die Werte und den Gültigkeitsstatus des Formulars</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>markAsTouched</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>true</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -365,7 +453,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:96</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:57</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -391,7 +479,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:33</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -423,7 +511,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:29</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -450,7 +538,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:24</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -477,17 +565,38 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&quot;horizontal&quot;</code>
+                        <i>Default value : </i><code>&#x27;horizontal&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:37</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Type des Forms</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="updateon"></a>
+                        <b>updateon</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:45</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Definiert, wenn das Model geupdatet wird</p>
 </div>
                     </td>
                 </tr>
@@ -505,6 +614,73 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="updateon"></a>
+                        <span class="name"><b>updateon</b><a href="#updateon"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>updateon()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:49</a></div>
+                                </td>
+                            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>updateon(v)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:45</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Definiert, wenn das Model geupdatet wird</p>
+</div>
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>v</td>
+                                                    
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="inlineerrorenabled"></a>
                         <span class="name"><b>inlineerrorenabled</b><a href="#inlineerrorenabled"><span class="icon ion-ios-link"></span></a></span>
                     </td>
@@ -517,7 +693,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:105</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:67</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -539,7 +715,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:96</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:57</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -597,7 +773,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:112</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="163" class="link-to-prism">projects/jngcontrols-common/src/controls/form/form.ts:163</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -619,14 +795,24 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgForm, NgModel, FormGroup, AbstractControl } from &#x27;@angular/forms&#x27;;
-import { Input, ViewChild, QueryList, ContentChildren, AfterViewInit, IterableDiffer, IterableDiffers, IterableChanges } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Input } from &#x27;@angular/core&#x27;;
+import { AbstractControl, FormGroup, NgForm } from &#x27;@angular/forms&#x27;;
 import { convertToBoolean } from &#x27;../../utilities/Convertion&#x27;;
+
+/**
+ * Typ für Form Actions
+ */
+export type FormHooks &#x3D; &#x27;change&#x27; | &#x27;blur&#x27; | &#x27;submit&#x27;;
 
 /**
  * Base Komponente für NgFormular
  */
 export class NgFormularCommon {
+
+  /**
+  * Inline Errors für das Formular
+  */
+  private _inlineerrorenabled: boolean | null &#x3D; null;
 
   /**
    * Form Control
@@ -637,15 +823,47 @@ export class NgFormularCommon {
   /**
    * Default Label Size for Form
    */
-  @Input(&quot;labelsize&quot;) labelsize: number &#x3D; 3;
+  @Input(&#x27;labelsize&#x27;) labelsize: number &#x3D; 3;
   /**
    * Kontroliert, ob das Label adaptive ist
    */
-  @Input(&quot;isadaptivelabel&quot;) isadaptivelabel: boolean &#x3D; false;
+  @Input(&#x27;isadaptivelabel&#x27;) isadaptivelabel: boolean &#x3D; false;
   /**
    * Type des Forms
    */
-  @Input(&quot;orientation&quot;) orientation: string &#x3D; &quot;horizontal&quot;;
+  @Input(&#x27;orientation&#x27;) orientation: string &#x3D; &#x27;horizontal&#x27;;
+
+  private _updateon: FormHooks &#x3D; &#x27;change&#x27;;
+
+  /**
+   * Definiert, wenn das Model geupdatet wird
+   */
+  @Input(&#x27;updateon&#x27;)
+  set updateon(v: FormHooks) {
+    this._updateon &#x3D; v;
+    this.form.options.updateOn &#x3D; v;
+  }
+  get updateon(): FormHooks {
+    return this._updateon;
+  }
+
+  @Input(&#x27;inlineerrorenabled&#x27;)
+  /**
+   * Aktiviert oder Deaktiviert die Inline Errors für das Control
+   */
+  set inlineerrorenabled(value: boolean) {
+    if (value &#x3D;&#x3D;&#x3D; null || value &#x3D;&#x3D;&#x3D; undefined) {
+      this._inlineerrorenabled &#x3D; null;
+    } else {
+      this._inlineerrorenabled &#x3D; convertToBoolean(value);
+    }
+  }
+  /**
+   * Aktiviert oder Deaktiviert die Inline Errors für das Control
+   */
+  get inlineerrorenabled(): boolean {
+    return this._inlineerrorenabled;
+  }
 
   /**
    * Vertikale oder horizontale Orientierung des Formulars zurück
@@ -659,7 +877,7 @@ export class NgFormularCommon {
       case &#x27;none&#x27;:
         return &#x27;none&#x27;;
       default:
-        throw new Error(&#x27;Invalid formtype at ngFormularCommon. Valid values are horizontal, vertical, none&#x27;)
+        throw new Error(&#x27;Invalid formtype at ngFormularCommon. Valid values are horizontal, vertical, none&#x27;);
     }
   }
 
@@ -672,19 +890,33 @@ export class NgFormularCommon {
 
   /**
    * Konstruktor
-   * 
    * @param form Instanz von NgForm
    */
   constructor(private form: NgForm) {
+    this.form.options &#x3D; { updateOn: this._updateon };
   }
 
   /**
    * Markiert alle Controls innerhalb des Formulares als Touched
    */
   public markAsTouched(): void {
-
     if (this.form &amp;&amp; this.form.invalid) {
       this.markAsTouchedInternal(this.form.controls);
+    }
+  }
+
+  /**
+   * Aktualisiert die Werte und den Gültigkeitsstatus des Formulars
+   */
+  public updateValueAndValidity(markAsTouched: boolean &#x3D; true): void {
+    // Update all Controls
+    this.updateValueAndValidityInternal(this.form.controls);
+    // Update Main Form
+    this.getForm().form.updateValueAndValidity();
+
+    // Mark all Controls as Touched
+    if (markAsTouched) {
+      this.markAsTouched();
     }
   }
 
@@ -693,10 +925,10 @@ export class NgFormularCommon {
    * @param controls Controls Collection
    */
   private markAsTouchedInternal(controls: { [key: string]: AbstractControl }) {
-    let keyList: string[] &#x3D; Object.keys(controls);
+    const keyList: string[] &#x3D; Object.keys(controls);
 
-    for (var field of keyList) {
-      let control &#x3D; controls[field];
+    for (const field of keyList) {
+      const control &#x3D; controls[field];
       if (control instanceof FormGroup) {
         this.markAsTouchedInternal(control.controls);
       } else {
@@ -706,32 +938,27 @@ export class NgFormularCommon {
   }
 
   /**
-  * Inline Errors für das Formular
-  */
-  private _inlineerrorenabled: boolean | null &#x3D; null;
+   * Aktualisiert die Werte und die gültigkeit des Formulars
+   * @param controls Controls Collection
+   */
+  private updateValueAndValidityInternal(controls: { [key: string]: AbstractControl }) {
+    const keyList: string[] &#x3D; Object.keys(controls);
 
-  @Input(&quot;inlineerrorenabled&quot;)
-  /**
-   * Aktiviert oder Deaktiviert die Inline Errors für das Control
-   */
-  set inlineerrorenabled(value: boolean) {
-    if (value &#x3D;&#x3D;&#x3D; null || value &#x3D;&#x3D;&#x3D; undefined)
-      this._inlineerrorenabled &#x3D; null;
-    else
-      this._inlineerrorenabled &#x3D; convertToBoolean(value);
-  }
-  /**
-   * Aktiviert oder Deaktiviert die Inline Errors für das Control
-   */
-  get inlineerrorenabled(): boolean {
-    return this._inlineerrorenabled;
+    for (const field of keyList) {
+      const control &#x3D; controls[field];
+      if (control instanceof FormGroup) {
+        this.updateValueAndValidityInternal(control.controls);
+      } else {
+        control.updateValueAndValidity({ onlySelf: true });
+      }
+    }
   }
 
   /**
    * Gibt zurück, ob die Inline Error Meldungen für das Formular aktiv sind.
    */
   public get IsInlineErrorEnabled(): boolean {
-    return this._inlineerrorenabled !&#x3D;&#x3D; false
+    return this._inlineerrorenabled !&#x3D;&#x3D; false;
   }
 
 }
@@ -741,6 +968,7 @@ export class NgFormularCommon {
 
 
 
+                   
 
 
 
@@ -763,6 +991,7 @@ export class NgFormularCommon {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'NgFormularCommon.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

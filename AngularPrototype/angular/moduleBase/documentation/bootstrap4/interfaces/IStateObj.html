@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Bootstrap 3 Angular Controls</title>
+        <title>Bootstrap 4 Angular Controls</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -64,6 +64,13 @@
             <code>projects/jngcontrols-common/src/controls/tinymce/scriptLoader.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>interface. Enthielt properties listeners von type callbackFn, scriptId von type string und scriptLoaded von type boolean</p>
+
+            </p>
 
 
         <section>
@@ -125,6 +132,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>array von callbackFn</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -154,6 +167,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Id des Scripts. typ string</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -183,6 +202,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>boolean property, deffiniert ob den script sich loadet. Default ist nicht deffiniert. </p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -193,12 +218,33 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { uuid } from &#x27;./utils&#x27;;
 
 export type callbackFn &#x3D; () &#x3D;&gt; void;
+
+/**
+ * interface. Enthielt properties listeners von type callbackFn, scriptId von type string und scriptLoaded von type boolean
+ */
 export interface IStateObj {
+
+  /**
+   * array von callbackFn
+   */
   listeners: callbackFn[];
+  /**
+   * Id des Scripts. typ string
+   */
   scriptId: string;
+  /**
+   * boolean property, deffiniert ob den script sich loadet. Default ist nicht deffiniert. 
+   */
   scriptLoaded: boolean;
 }
 
+/**
+*Funktion.  Fügt ein scripttag hinzu. Verlangt: 
+* scriptId: string, 
+* doc: Document, 
+* url: string, 
+ *callback: callbackFn
+ */
 const injectScriptTag &#x3D; (scriptId: string, doc: Document, url: string, callback: callbackFn) &#x3D;&gt; {
   const scriptTag &#x3D; doc.createElement(&#x27;script&#x27;);
   scriptTag.type &#x3D; &#x27;application/javascript&#x27;;
@@ -208,6 +254,9 @@ const injectScriptTag &#x3D; (scriptId: string, doc: Document, url: string, call
   doc.head.appendChild(scriptTag);
 };
 
+/**
+ * Funktion create. Returns IStateObj
+ */
 export const create &#x3D; (): IStateObj &#x3D;&gt; {
   return {
     listeners: [],
@@ -216,6 +265,13 @@ export const create &#x3D; (): IStateObj &#x3D;&gt; {
   };
 };
 
+/**
+ * Funktion load. Verlangt:
+ * state: IStateObj
+ * doc: Document 
+ * url: string
+ * callback: callbackFn
+ */
 export const load &#x3D; (state: IStateObj, doc: Document, url: string, callback: callbackFn) &#x3D;&gt; {
   if (state.scriptLoaded) {
     callback();
@@ -234,6 +290,7 @@ export const load &#x3D; (state: IStateObj, doc: Document, url: string, callback
 </div>
 
 
+                   
 
 
 
@@ -256,6 +313,7 @@ export const load &#x3D; (state: IStateObj, doc: Document, url: string, callback
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
             var COMPODOC_CURRENT_PAGE_URL = 'IStateObj.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

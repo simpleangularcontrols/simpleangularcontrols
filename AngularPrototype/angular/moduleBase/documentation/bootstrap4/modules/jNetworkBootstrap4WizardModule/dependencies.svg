@@ -21,70 +21,70 @@
 <polygon fill="#fb8072" stroke="transparent" points="406,-10 406,-30 426,-30 426,-10 406,-10"/>
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
-<title>cluster_jNetworkBootstrap4WizardModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="132,-70 132,-268 364,-268 364,-70 132,-70"/>
+<title>cluster_JNetworkBootstrap4WizardModule</title>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="67,-70 67,-268 429,-268 429,-70 67,-70"/>
 </g>
 <g id="clust2" class="cluster">
-<title>cluster_jNetworkBootstrap4WizardModule_declarations</title>
-<polygon fill="none" stroke="#000000" points="144,-78 144,-130 352,-130 352,-78 144,-78"/>
+<title>cluster_JNetworkBootstrap4WizardModule_declarations</title>
+<polygon fill="none" stroke="#000000" points="78,-78 78,-130 417,-130 417,-78 78,-78"/>
 </g>
 <g id="clust6" class="cluster">
-<title>cluster_jNetworkBootstrap4WizardModule_exports</title>
-<polygon fill="none" stroke="#000000" points="140,-208 140,-260 356,-260 356,-208 140,-208"/>
+<title>cluster_JNetworkBootstrap4WizardModule_exports</title>
+<polygon fill="none" stroke="#000000" points="75,-208 75,-260 421,-260 421,-208 75,-208"/>
 </g>
-<!-- NgWizard -->
+<!-- NgWizardComponent -->
 <g id="node1" class="node">
-<title>NgWizard</title>
-<polygon fill="#ffffb3" stroke="#000000" points="344.3022,-122 269.6978,-122 269.6978,-86 344.3022,-86 344.3022,-122"/>
-<text text-anchor="middle" x="307" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgWizard</text>
+<title>NgWizardComponent</title>
+<polygon fill="#ffffb3" stroke="#000000" points="408.6345,-122 269.3655,-122 269.3655,-86 408.6345,-86 408.6345,-122"/>
+<text text-anchor="middle" x="339" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgWizardComponent</text>
 </g>
-<!-- jNetworkBootstrap4WizardModule -->
+<!-- JNetworkBootstrap4WizardModule -->
 <g id="node3" class="node">
-<title>jNetworkBootstrap4WizardModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="355.552,-187 352.552,-191 331.552,-191 328.552,-187 140.448,-187 140.448,-151 355.552,-151 355.552,-187"/>
-<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">jNetworkBootstrap4WizardModule</text>
+<title>JNetworkBootstrap4WizardModule</title>
+<polygon fill="#8dd3c7" stroke="#000000" points="356.1064,-187 353.1064,-191 332.1064,-191 329.1064,-187 139.8936,-187 139.8936,-151 356.1064,-151 356.1064,-187"/>
+<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">JNetworkBootstrap4WizardModule</text>
 </g>
-<!-- NgWizard&#45;&gt;jNetworkBootstrap4WizardModule -->
+<!-- NgWizardComponent&#45;&gt;JNetworkBootstrap4WizardModule -->
 <g id="edge1" class="edge">
-<title>NgWizard&#45;&gt;jNetworkBootstrap4WizardModule</title>
-<path fill="none" stroke="#000000" d="M307,-122.1061C307,-122.1061 307,-140.991 307,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="303.5001,-140.9909 307,-150.991 310.5001,-140.991 303.5001,-140.9909"/>
+<title>NgWizardComponent&#45;&gt;JNetworkBootstrap4WizardModule</title>
+<path fill="none" stroke="#000000" d="M312.743,-122.1061C312.743,-122.1061 312.743,-140.991 312.743,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="309.2431,-140.9909 312.743,-150.991 316.2431,-140.991 309.2431,-140.9909"/>
 </g>
-<!-- NgWizardItem -->
+<!-- NgWizardItemComponent -->
 <g id="node2" class="node">
-<title>NgWizardItem</title>
-<polygon fill="#ffffb3" stroke="#000000" points="251.958,-122 152.042,-122 152.042,-86 251.958,-86 251.958,-122"/>
-<text text-anchor="middle" x="202" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgWizardItem</text>
+<title>NgWizardItemComponent</title>
+<polygon fill="#ffffb3" stroke="#000000" points="251.7907,-122 86.2093,-122 86.2093,-86 251.7907,-86 251.7907,-122"/>
+<text text-anchor="middle" x="169" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgWizardItemComponent</text>
 </g>
-<!-- NgWizardItem&#45;&gt;jNetworkBootstrap4WizardModule -->
+<!-- NgWizardItemComponent&#45;&gt;JNetworkBootstrap4WizardModule -->
 <g id="edge2" class="edge">
-<title>NgWizardItem&#45;&gt;jNetworkBootstrap4WizardModule</title>
-<path fill="none" stroke="#000000" d="M202,-122.1061C202,-122.1061 202,-140.991 202,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="198.5001,-140.9909 202,-150.991 205.5001,-140.991 198.5001,-140.9909"/>
+<title>NgWizardItemComponent&#45;&gt;JNetworkBootstrap4WizardModule</title>
+<path fill="none" stroke="#000000" d="M195.6711,-122.1061C195.6711,-122.1061 195.6711,-140.991 195.6711,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="192.1712,-140.9909 195.6711,-150.991 199.1712,-140.991 192.1712,-140.9909"/>
 </g>
-<!-- NgWizard  -->
+<!-- NgWizardComponent  -->
 <g id="node4" class="node">
-<title>NgWizard </title>
-<polygon fill="#fb8072" stroke="#000000" points="347.8019,-252 270.1981,-252 270.1981,-216 347.8019,-216 347.8019,-252"/>
-<text text-anchor="middle" x="309" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgWizard </text>
+<title>NgWizardComponent </title>
+<polygon fill="#fb8072" stroke="#000000" points="412.6341,-252 269.3659,-252 269.3659,-216 412.6341,-216 412.6341,-252"/>
+<text text-anchor="middle" x="341" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgWizardComponent </text>
 </g>
-<!-- jNetworkBootstrap4WizardModule&#45;&gt;NgWizard  -->
+<!-- JNetworkBootstrap4WizardModule&#45;&gt;NgWizardComponent  -->
 <g id="edge3" class="edge">
-<title>jNetworkBootstrap4WizardModule&#45;&gt;NgWizard </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M309,-187.1061C309,-187.1061 309,-205.991 309,-205.991"/>
-<polygon fill="#000000" stroke="#000000" points="305.5001,-205.9909 309,-215.991 312.5001,-205.991 305.5001,-205.9909"/>
+<title>JNetworkBootstrap4WizardModule&#45;&gt;NgWizardComponent </title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M312.868,-187.1061C312.868,-187.1061 312.868,-205.991 312.868,-205.991"/>
+<polygon fill="#000000" stroke="#000000" points="309.3681,-205.9909 312.868,-215.991 316.3681,-205.991 309.3681,-205.9909"/>
 </g>
-<!-- NgWizardItem  -->
+<!-- NgWizardItemComponent  -->
 <g id="node5" class="node">
-<title>NgWizardItem </title>
-<polygon fill="#fb8072" stroke="#000000" points="251.959,-252 148.041,-252 148.041,-216 251.959,-216 251.959,-252"/>
-<text text-anchor="middle" x="200" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgWizardItem </text>
+<title>NgWizardItemComponent </title>
+<polygon fill="#fb8072" stroke="#000000" points="251.2905,-252 82.7095,-252 82.7095,-216 251.2905,-216 251.2905,-252"/>
+<text text-anchor="middle" x="167" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgWizardItemComponent </text>
 </g>
-<!-- jNetworkBootstrap4WizardModule&#45;&gt;NgWizardItem  -->
+<!-- JNetworkBootstrap4WizardModule&#45;&gt;NgWizardItemComponent  -->
 <g id="edge4" class="edge">
-<title>jNetworkBootstrap4WizardModule&#45;&gt;NgWizardItem </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M200,-187.1061C200,-187.1061 200,-205.991 200,-205.991"/>
-<polygon fill="#000000" stroke="#000000" points="196.5001,-205.9909 200,-215.991 203.5001,-205.991 196.5001,-205.9909"/>
+<title>JNetworkBootstrap4WizardModule&#45;&gt;NgWizardItemComponent </title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M195.5461,-187.1061C195.5461,-187.1061 195.5461,-205.991 195.5461,-205.991"/>
+<polygon fill="#000000" stroke="#000000" points="192.0462,-205.9909 195.5461,-215.991 199.0462,-205.991 192.0462,-205.9909"/>
 </g>
 </g>
 </svg>

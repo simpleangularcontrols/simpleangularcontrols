@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Bootstrap 3 Angular Controls</title>
+        <title>Bootstrap 4 Angular Controls</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -90,6 +90,9 @@
                                 <a href="#_show">_show</a>
                             </li>
                             <li>
+                                <a href="#_size">_size</a>
+                            </li>
+                            <li>
                                 <a href="#dialogElement">dialogElement</a>
                             </li>
                         </ul>
@@ -107,6 +110,9 @@
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#hide">hide</a>
+                            </li>
+                            <li>
+                                <a href="#issetdefaultsize">issetdefaultsize</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -134,13 +140,13 @@
                                 <a href="#closebutton">closebutton</a>
                             </li>
                             <li>
-                                <a href="#dialogsize">dialogsize</a>
-                            </li>
-                            <li>
                                 <a href="#isvisible">isvisible</a>
                             </li>
                             <li>
                                 <a href="#name">name</a>
+                            </li>
+                            <li>
+                                <a href="#size">size</a>
                             </li>
                             <li>
                                 <a href="#title">title</a>
@@ -198,6 +204,9 @@
                                     <a href="#dialogElementSetter">dialogElementSetter</a>
                                 </li>
                                 <li>
+                                    <a href="#defineSize">defineSize</a>
+                                </li>
+                                <li>
                                     <a href="#visible">visible</a>
                                 </li>
                                 <li>
@@ -224,7 +233,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -295,13 +304,52 @@ Inject des Formulars</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:29</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Boolean Property definiert ob das Dialog angezeigt wird</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_size"></a>
+                        <span class="name">
+                            <b>
+                            _size</b>
+                            <a href="#_size"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:35</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Das property enthielt (wenn überhaupt gesetzt) entweder keywords für sizing oder custom css Klassen.
+Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#39;, &#39;medium&#39;, &#39;&#39;.</p>
 </div>
                     </td>
                 </tr>
@@ -328,10 +376,16 @@ Inject des Formulars</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:11</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Name des Containers für den Dialog</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -366,8 +420,8 @@ Inject des Formulars</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="117"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:117</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="162"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:162</a></div>
                 </td>
             </tr>
 
@@ -379,6 +433,47 @@ Inject des Formulars</p>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="issetdefaultsize"></a>
+                    <span class="name">
+                        <b>
+                            issetdefaultsize
+                        </b>
+                        <a href="#issetdefaultsize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>issetdefaultsize()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="130"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:130</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Die Funktion prüft ob es ein default css classe für Size des Dialog durch den size Input gesetzt wurde.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                     </div>
                 </td>
@@ -409,8 +504,8 @@ Inject des Formulars</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="109"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:109</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="151"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:151</a></div>
                 </td>
             </tr>
 
@@ -453,9 +548,15 @@ Inject des Formulars</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:60</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch ESC geschlossen werden. Default ist true.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -479,9 +580,15 @@ Inject des Formulars</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:53</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:66</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch click außerhalb des Dialog-Fenster geschlossen werden. Default ist true.</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -505,44 +612,12 @@ Inject des Formulars</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:67</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:78</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Steuert ob im Header des Dialogs ein Button angezeigt wird.</p>
-</div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="dialogsize"></a>
-                        <b>dialogsize</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>&quot;normal&quot;</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:79</a></div>
-                            </td>
-                        </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Input Property. Erhält grösse des Dialogs</p>
 </div>
                     </td>
                 </tr>
@@ -564,7 +639,7 @@ Inject des Formulars</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:91</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:108</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -591,17 +666,47 @@ Inject des Formulars</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&quot;&quot;</code>
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:61</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:72</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Input Property. Erhält den Namen des Dialog - benutzt für das ID. Default Value: &quot;&quot;</p>
+                        <div class="io-description"><p>Input Property. Erhält den Namen des Dialog - benutzt für das ID. Default Value: &#39;&#39;</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="size"></a>
+                        <b>size</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:93</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Das Input akzeptiert sowohl default size-css-Klassen als auch custom Klassen.
+case insensitive.
+Die akzeptabel default-size-Klassen sind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#39;, &#39;medium&#39;, &#39;&#39;.
+Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist in medium size: max-width 500px.</p>
 </div>
                     </td>
                 </tr>
@@ -623,17 +728,17 @@ Inject des Formulars</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&quot;Dialog&quot;</code>
+                        <i>Default value : </i><code>&#x27;Dialog&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:47</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:54</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Input Property. Erhält den Title des Dialog. Default Value: &quot;Dialog&quot;.</p>
+                        <div class="io-description"><p>Input Property. Erhält den Title des Dialog. Default Value: &#39;Dialog&#39;.</p>
 </div>
                     </td>
                 </tr>
@@ -660,7 +765,7 @@ Inject des Formulars</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:73</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:84</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -690,7 +795,7 @@ Inject des Formulars</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:85</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:102</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -731,8 +836,8 @@ Inject des Formulars</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="134"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:134</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="185"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:185</a></div>
                 </td>
             </tr>
 
@@ -773,8 +878,8 @@ Inject des Formulars</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="145"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:145</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="196"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:196</a></div>
                 </td>
             </tr>
 
@@ -810,7 +915,7 @@ Inject des Formulars</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:17</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -854,6 +959,70 @@ Inject des Formulars</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="defineSize"></a>
+                        <span class="name"><b>defineSize</b><a href="#defineSize"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>defineSize(v: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:93</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Das Input akzeptiert sowohl default size-css-Klassen als auch custom Klassen.
+case insensitive.
+Die akzeptabel default-size-Klassen sind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#39;, &#39;medium&#39;, &#39;&#39;.
+Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist in medium size: max-width 500px.</p>
+</div>
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>v</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="visible"></a>
                         <span class="name"><b>visible</b><a href="#visible"><span class="icon ion-ios-link"></span></a></span>
                     </td>
@@ -867,7 +1036,7 @@ Inject des Formulars</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:91</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:108</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -927,7 +1096,7 @@ Inject des Formulars</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:98</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:123</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -960,9 +1129,20 @@ Inject des Formulars</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:122</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="173" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:173</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Getter for ChangeDetector.</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank" >ChangeDetectorRef</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -971,34 +1151,41 @@ Inject des Formulars</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Input, ElementRef, Output, EventEmitter, ChangeDetectorRef } from &#x27;@angular/core&#x27;;
-import { HostListener } from &#x27;@angular/core&#x27;;
-import { ViewChild } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectorRef, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from &#x27;@angular/core&#x27;;
 
 /**
  * Base Komponente für Dialog
  */
 export class NgDialogCommon {
 
+  /**
+   * Name des Containers für den Dialog
+   */
   dialogElement: ElementRef;
 
   /**
    * Implementation als Setter, da mit ngIf das Element bei Unsichtbarkeit UNDEFINED ist.
    */
-  @ViewChild(&#x27;dialog&#x27;)
+  @ViewChild(&#x27;dialog&#x27;, { static: true })
   set dialogElementSetter(content: ElementRef) {
     this.dialogElement &#x3D; content;
 
     /**
      * Detect Changes ausführen, da beim Einblenden/Ausblenden des Dialogs Parameter und Properties ändern können diese ausserhalb der Standart ChangeDetection geändert würden.
      */
-    this.cdRef.detectChanges();
+    // this.cdRef.detectChanges();
   }
-  
+
   /**
    * Boolean Property definiert ob das Dialog angezeigt wird
    */
   _show: boolean &#x3D; false;
+
+  /**
+   * Das property enthielt (wenn überhaupt gesetzt) entweder keywords für sizing oder custom css Klassen.
+   * Die akzeptabel keywordssind: &#x27;small&#x27;, &#x27;large&#x27;, &#x27;extralarge&#x27;, &#x27;medium&#x27;, &#x27;&#x27;.
+   */
+  _size: string &#x3D; &#x27;&#x27;;
 
   // #region Constructor
 
@@ -1014,55 +1201,73 @@ export class NgDialogCommon {
   // #region Properties
 
   /**
-   * Input Property. Erhält den Title des Dialog. Default Value: &quot;Dialog&quot;.
+   * Input Property. Erhält den Title des Dialog. Default Value: &#x27;Dialog&#x27;.
    */
-  @Input(&quot;title&quot;)
-  public _title: string &#x3D; &quot;Dialog&quot;;
-
-  @Input(&quot;allowesc&quot;)
-  public _allowesc: boolean &#x3D; true;
-
-  @Input(&quot;backdrop&quot;)
-  public _backdrop: boolean &#x3D; true;
-
- 
+  @Input(&#x27;title&#x27;)
+  public _title: string &#x3D; &#x27;Dialog&#x27;;
 
   /**
-   * Input Property. Erhält den Namen des Dialog - benutzt für das ID. Default Value: &quot;&quot;
+   * Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch ESC geschlossen werden. Default ist true.
    */
-  @Input(&quot;name&quot;)
-  public _name: string &#x3D; &quot;&quot;;
+  @Input(&#x27;allowesc&#x27;)
+  public _allowesc: boolean &#x3D; true;
+
+  /**
+   * Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch click außerhalb des Dialog-Fenster geschlossen werden. Default ist true.
+   */
+  @Input(&#x27;backdrop&#x27;)
+  public _backdrop: boolean &#x3D; true;
+
+  /**
+   * Input Property. Erhält den Namen des Dialog - benutzt für das ID. Default Value: &#x27;&#x27;
+   */
+  @Input(&#x27;name&#x27;)
+  public _name: string &#x3D; &#x27;&#x27;;
 
   /**
    * Steuert ob im Header des Dialogs ein Button angezeigt wird.
    */
-  @Input(&quot;closebutton&quot;)
+  @Input(&#x27;closebutton&#x27;)
   public closebutton: boolean &#x3D; true;
 
   /**
    * Input Property. Erhält die Breite des Dialog
    */
-  @Input(&quot;width&quot;)
+  @Input(&#x27;width&#x27;)
   public width: string &#x3D; null;
 
   /**
- * Input Property. Erhält grösse des Dialogs
- */
-  @Input(&quot;dialogsize&quot;)
-  public dialogsize: string &#x3D; &quot;normal&quot;;
+   * Das Input akzeptiert sowohl default size-css-Klassen als auch custom Klassen.
+   * case insensitive.
+   * Die akzeptabel default-size-Klassen sind: &#x27;small&#x27;, &#x27;large&#x27;, &#x27;extralarge&#x27;, &#x27;medium&#x27;, &#x27;&#x27;.
+   * Wenn size ist NICHT gesetzt (oder &#x27;medium&#x27; oder &#x27;&#x27;), default ist in medium size: max-width 500px.
+   */
+  @Input(&#x27;size&#x27;)
+  set defineSize(v: string) {
+    v &#x3D; v.toLowerCase();
+    this._size &#x3D; v;
+  }
 
   /**
    * Output Emitter. Wird aufgerufen, wenn das Wert des _show property geändert ist - damait das Dialog geöfnet/geschlossen wird.
    */
-  @Output(&quot;isvisibleChange&quot;)
+  @Output(&#x27;isvisibleChange&#x27;)
   isVisibleEmitter: EventEmitter&lt;boolean&gt; &#x3D; new EventEmitter&lt;boolean&gt;();
 
-   /**
-   * Setter. Erhält das boolen Wert des _show property
-   */
-  @Input(&quot;isvisible&quot;)
+  /**
+  * Setter. Erhält das boolen Wert des _show property
+  */
+  @Input(&#x27;isvisible&#x27;)
   set visible(v: boolean) {
     this._show &#x3D; v;
+
+
+    if (this._show &amp;&amp; !document.body.classList.contains(&#x27;modal-open&#x27;)) {
+      document.body.classList.add(&#x27;modal-open&#x27;);
+    }
+    if (this._show &#x3D;&#x3D;&#x3D; false &amp;&amp; document.body.classList.contains(&#x27;modal-open&#x27;)) {
+      document.body.classList.remove(&#x27;modal-open&#x27;);
+    }
   }
 
   /**
@@ -1070,6 +1275,23 @@ export class NgDialogCommon {
    */
   get isVisible(): boolean {
     return this._show;
+  }
+
+  /**
+   * Die Funktion prüft ob es ein default css classe für Size des Dialog durch den size Input gesetzt wurde.
+   */
+  issetdefaultsize(): boolean {
+    let result: boolean &#x3D; false;
+
+    switch (this._size) {
+      case &#x27;small&#x27;: result &#x3D; true; break;
+      case &#x27;medium&#x27;: result &#x3D; true; break;
+      case &#x27;large&#x27;: result &#x3D; true; break;
+      case &#x27;extralarge&#x27;: result &#x3D; true; break;
+      case &#x27;&#x27;: result &#x3D; true; break;
+    }
+
+    return result;
   }
 
   // #endregion
@@ -1081,6 +1303,9 @@ export class NgDialogCommon {
    */
   public show(): void {
     this._show &#x3D; true;
+    if (this._show &amp;&amp; !document.body.classList.contains(&#x27;modal-open&#x27;)) {
+      document.body.classList.add(&#x27;modal-open&#x27;);
+    }
     this.isVisibleEmitter.emit(this._show);
   }
 
@@ -1089,9 +1314,15 @@ export class NgDialogCommon {
    */
   public hide(): void {
     this._show &#x3D; false;
+    if (this._show &#x3D;&#x3D;&#x3D; false &amp;&amp; document.body.classList.contains(&#x27;modal-open&#x27;)) {
+      document.body.classList.remove(&#x27;modal-open&#x27;);
+    }
     this.isVisibleEmitter.emit(this._show);
   }
 
+  /**
+   * Getter for ChangeDetector.
+   */
   protected get ChangeDetector(): ChangeDetectorRef {
     return this.cdRef;
   }
@@ -1132,6 +1363,7 @@ export class NgDialogCommon {
 
 
 
+                   
 
 
 
@@ -1154,6 +1386,7 @@ export class NgDialogCommon {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'NgDialogCommon.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

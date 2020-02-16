@@ -1,7 +1,7 @@
-import { Component, Host, forwardRef, Injector, Inject } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
+import { Component, forwardRef, Host, Injector } from '@angular/core';
+import { ControlContainer, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NgMultilanguageInputAreaCommon, IconType } from '@jnetwork/jngcontrols-common';
 import { NgFormularDirective } from '../form/form';
-import { NgMultilanguageInputAreaCommon } from '@jnetwork/jngcontrols-common';
 
 @Component({
   selector: 'ng-multilanguageinputarea,ngMultilanguageInputArea',
@@ -14,10 +14,22 @@ import { NgMultilanguageInputAreaCommon } from '@jnetwork/jngcontrols-common';
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [{ provide: ControlContainer, useExisting: NgFormularDirective }]
 })
-
+/**
+ * Componente für Mehrsprache Texte als mehrzeiliger Text
+ */
 export class NgMultilanguageInputAreaComponent extends NgMultilanguageInputAreaCommon {
 
-  constructor( @Host() parent: NgFormularDirective, injector: Injector) {
+  /**
+   * Enum für IconType in HTML Template
+   */
+  IconType = IconType;
+
+  /**
+   * Konstruktor
+   * @param parent Formular Inject
+   * @param injector Default Injector
+   */
+  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
     super(parent, injector);
   }
 }

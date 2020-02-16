@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Bootstrap 3 Angular Controls</title>
+        <title>Bootstrap 4 Angular Controls</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -226,7 +226,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/model.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/model.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -264,7 +264,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/model.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/model.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -302,7 +302,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/model.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/model.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -329,47 +329,46 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class PagerData {
 
-    /**
-     * Konstruktor
-     * 
-     * @param PageSize Anzahl Elemente pro Seite
-     * @param CurrentPageIndex Aktuelle Seite
-     * @param TotalRowCount Total Rows in Datenbank
-     */
-    constructor(PageSize?: number, CurrentPageIndex?: number, TotalRowCount?: number) {
-        this.PageSize &#x3D; PageSize;
-        this.CurrentPageIndex &#x3D; CurrentPageIndex;
-        this.TotalRowCount &#x3D; TotalRowCount;
-    }
+  /**
+   * Konstruktor
+   * @param PageSize Anzahl Elemente pro Seite
+   * @param CurrentPageIndex Aktuelle Seite
+   * @param TotalRowCount Total Rows in Datenbank
+   */
+  constructor(PageSize?: number, CurrentPageIndex?: number, TotalRowCount?: number) {
+    this.PageSize &#x3D; PageSize;
+    this.CurrentPageIndex &#x3D; CurrentPageIndex;
+    this.TotalRowCount &#x3D; TotalRowCount;
+  }
 
-    /**
-     * Gesamte Anzahl der Zeilen
-    */
-    TotalRowCount: number &#x3D; 0;
+  /**
+   * Gesamte Anzahl der Zeilen
+  */
+  TotalRowCount: number &#x3D; 0;
 
-    /**
-     * Aktueller Index der Seite
-     */
-    CurrentPageIndex: number &#x3D; 0;
+  /**
+   * Aktueller Index der Seite
+   */
+  CurrentPageIndex: number &#x3D; 0;
 
-    /**
-     * PageSize
-     */
-    PageSize: number &#x3D; 0;
+  /**
+   * PageSize
+   */
+  PageSize: number &#x3D; 0;
 }
 
 /**
  * GridResponse-Klasse
  */
 export class GridResponse&lt;T&gt; {
-    /**
-     * Gesamte Anzahl der Zeilen
-     */
-    TotalRowCount: number;
-    /**
-     * Data
-     */
-    Data: T[]
+  /**
+   * Gesamte Anzahl der Zeilen
+   */
+  TotalRowCount: number;
+  /**
+   * Data
+   */
+  Data: T[];
 }
 
 /**
@@ -378,13 +377,12 @@ export class GridResponse&lt;T&gt; {
 export class SortDescriptor {
   /**
    * Konstruktor
-   * 
-   * @param SortColumn Column die Sortiert wird
-   * @param SortOrder Art der Sortierung
+   * @param sortcolumn Column die Sortiert wird
+   * @param sortorder Art der Sortierung
    */
-  constructor(SortColumn?: string, SortOrder?: SortOrder) {
-    this.SortColumn &#x3D; SortColumn;
-    this.SortOrder &#x3D; SortOrder;
+  constructor(sortcolumn?: string, sortorder?: SortOrder) {
+    this.SortColumn &#x3D; sortcolumn;
+    this.SortOrder &#x3D; sortorder;
   }
 
   /**
@@ -402,9 +400,9 @@ export class SortDescriptor {
  * Enum für Sortierung
  */
 export enum SortOrder {
-    None &#x3D; 0,
-    Ascending &#x3D; 1,
-    Descending &#x3D; 2
+  None &#x3D; 0,
+  Ascending &#x3D; 1,
+  Descending &#x3D; 2
 }
 </code></pre>
     </div>
@@ -412,6 +410,7 @@ export enum SortOrder {
 
 
 
+                   
 
 
 
@@ -434,6 +433,7 @@ export enum SortOrder {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'PagerData.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Bootstrap 3 Angular Controls</title>
+        <title>Bootstrap 4 Angular Controls</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -592,8 +592,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IConfirmComponent } from &quot;../../interfaces/iconfirmcomponent&quot;;
-import { EventEmitter, Output, Input } from &quot;@angular/core&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EventEmitter, Input, Output } from &#x27;@angular/core&#x27;;
+import { IConfirmComponent } from &#x27;../../interfaces/iconfirmcomponent&#x27;;
 import { NgConfirmButton } from &#x27;./confirm.button&#x27;;
 
 /**
@@ -606,31 +606,31 @@ export class NgConfirmCommon implements IConfirmComponent {
   /**
    * Event wenn Dialog geschlossen wird
    */
-  @Output(&quot;onconfirm&quot;)
+  @Output()
   public onconfirm: EventEmitter&lt;string&gt; &#x3D; new EventEmitter&lt;string&gt;();
 
   /**
  * Dialog Titel für Confirm Dialog
  */
-  @Input(&quot;title&quot;)
+  @Input()
   public title: string &#x3D; &#x27;&#x27;;
 
   /**
    * Nachricht die auf dem Dialog angezeigt wird
    */
-  @Input(&quot;message&quot;)
+  @Input()
   public message: string &#x3D; &#x27;&#x27;;
 
   /**
    * Icon welches auf dem Dialog angezeigt wird
    */
-  @Input(&quot;image&quot;)
+  @Input()
   public image: string &#x3D; &#x27;&#x27;;
 
   /**
    * Map mit Buttons die in Dialog angezeigt werden.
    */
-  @Input(&quot;buttons&quot;)
+  @Input()
   public buttons: NgConfirmButton[] &#x3D; [];
 
   //#endregion
@@ -685,6 +685,7 @@ export class NgConfirmCommon implements IConfirmComponent {
 
 
 
+                   
 
 
 
@@ -707,6 +708,7 @@ export class NgConfirmCommon implements IConfirmComponent {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'NgConfirmCommon.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

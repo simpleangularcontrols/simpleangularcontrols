@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Bootstrap 3 Angular Controls</title>
+        <title>Bootstrap 4 Angular Controls</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -68,9 +68,11 @@
             </p>
             <p class="comment">
                 <p>Tooltip Component</p>
-<p>Benötigt im HTML Markup folgende Identifier
-- container: Container für ng-content in welchem das Element angezeigt wird, wo der Tooltip angehängt wird.
-- tooltip: Container für Tooltip</p>
+<p>Benötigt im HTML Markup folgende Identifier</p>
+<ul>
+<li>container: Container für ng-content in welchem das Element angezeigt wird, wo der Tooltip angehängt wird.</li>
+<li>tooltip: Container für Tooltip</li>
+</ul>
 <p>Tooltip muss in 2 Schritten angezeigt werden. In einem ersten Schritt wird der Tooltip Markup erzeugt mit (ngIf). In einem 2. Schritt
 kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht so gemacht, kann es bei gewissen Browsern zu einem Flacker Effekt führen.</p>
 
@@ -204,7 +206,7 @@ kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:94</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:97</a></div>
                             </td>
                         </tr>
 
@@ -291,13 +293,13 @@ kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @ViewChild(&#x27;container&#x27;)<br />
+                                @ViewChild(&#x27;container&#x27;, {static: true})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:73</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:78</a></div>
                             </td>
                         </tr>
 
@@ -335,7 +337,7 @@ kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="224" class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:224</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:59</a></div>
                             </td>
                         </tr>
 
@@ -487,8 +489,8 @@ kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="266"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:266</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="267"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:267</a></div>
                 </td>
             </tr>
 
@@ -528,8 +530,8 @@ kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="248"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:248</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="249"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:249</a></div>
                 </td>
             </tr>
 
@@ -569,8 +571,8 @@ kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="229"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:229</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="230"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:230</a></div>
                 </td>
             </tr>
 
@@ -610,8 +612,8 @@ kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="117"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:117</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="121"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:121</a></div>
                 </td>
             </tr>
 
@@ -651,8 +653,8 @@ kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="105"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:105</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="108"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:108</a></div>
                 </td>
             </tr>
 
@@ -692,8 +694,8 @@ kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="236"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:236</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="237"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:237</a></div>
                 </td>
             </tr>
 
@@ -731,7 +733,7 @@ kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:60</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:65</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -826,7 +828,7 @@ kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:66</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:71</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -848,7 +850,7 @@ kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:60</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:65</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -909,7 +911,7 @@ kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:84</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">projects/jngcontrols-common/src/controls/tooltip/tooltip.ts:89</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -954,9 +956,9 @@ kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ElementRef, OnInit, Input, ViewChild, OnDestroy, ChangeDetectorRef } from &#x27;@angular/core&#x27;;
-import { TooltipPosition } from &#x27;../../utilities/enums&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectorRef, ElementRef, Input, OnDestroy, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
 import { convertToBoolean } from &#x27;../../utilities/convertion&#x27;;
+import { TooltipPosition } from &#x27;../../utilities/enums&#x27;;
 
 /**
  * Tooltip Component
@@ -967,7 +969,7 @@ import { convertToBoolean } from &#x27;../../utilities/convertion&#x27;;
  *
  * Tooltip muss in 2 Schritten angezeigt werden. In einem ersten Schritt wird der Tooltip Markup erzeugt mit (ngIf). In einem 2. Schritt
  * kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht so gemacht, kann es bei gewissen Browsern zu einem Flacker Effekt führen.
- * 
+ *
  */
 export class NgTooltipCommon implements OnInit, OnDestroy {
   /**
@@ -995,13 +997,13 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
    *
    * Wert &#x27;auto&#x27; kann mit einem anderen Wert kombiniert werden.
    */
-  @Input(&quot;position&quot;)
+  @Input(&#x27;position&#x27;)
   _position: string &#x3D; &#x27;right|auto&#x27;;
 
   /**
    * Text für ToolTip
    */
-  @Input(&quot;tooltiptext&quot;)
+  @Input(&#x27;tooltiptext&#x27;)
   _tooltiptext: string;
 
   /**
@@ -1010,9 +1012,14 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
   private _inlinemode: boolean;
 
   /**
+   * Definiert ob der Tooltip sichtbar sein soll
+   */
+  IsTooltipContentVisible: boolean &#x3D; false;
+
+  /**
    * Setter für Inline Mode für Tooltip
    */
-  @Input(&quot;inlinemode&quot;)
+  @Input(&#x27;inlinemode&#x27;)
   set inlinemode(value: boolean) {
     this._inlinemode &#x3D; convertToBoolean(value);
   }
@@ -1026,7 +1033,7 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
   /**
    * Name des Containers für Content (z.B. Icon) auf welchem der Tooltip angezeigt wird.
    */
-  @ViewChild(&quot;container&quot;) content: ElementRef&lt;HTMLElement&gt;;
+  @ViewChild(&#x27;container&#x27;, { static: true }) content: ElementRef&lt;HTMLElement&gt;;
 
   /**
    * Name des Containers für den Tooltip
@@ -1036,13 +1043,11 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
   /**
    * Setter für Name des Containers für den Tooltip. Wird benötigt, da Tooltip via NGIF ausgeblendet werden kann.
    */
-  @ViewChild(&quot;tooltip&quot;)
+  @ViewChild(&#x27;tooltip&#x27;, { static: true })
   set tooltip(content: ElementRef) {
-    //if (content &#x3D;&#x3D;&#x3D; undefined &amp;&amp; this.tooltipcontainer !&#x3D;&#x3D; undefined)
-    //  document.body.removeChild(this.tooltipcontainer.nativeElement);
-
-    if (content !&#x3D;&#x3D; undefined)
+    if (content !&#x3D;&#x3D; undefined) {
       document.body.appendChild(content.nativeElement);
+    }
 
     this.tooltipcontainer &#x3D; content;
     this.onContentChange();
@@ -1063,8 +1068,9 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
     window.addEventListener(&#x27;scroll&#x27;, this.onContentChange, true);
     window.addEventListener(&#x27;resize&#x27;, this.onContentChange, true);
 
-    if (this.tooltipcontainer !&#x3D;&#x3D; undefined)
+    if (this.tooltipcontainer !&#x3D;&#x3D; undefined) {
       document.body.appendChild(this.tooltipcontainer.nativeElement);
+    }
   }
 
   /**
@@ -1075,8 +1081,9 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
     window.removeEventListener(&#x27;scroll&#x27;, this.onContentChange, true);
     window.removeEventListener(&#x27;resize&#x27;, this.onContentChange, true);
 
-    if (this.tooltipcontainer !&#x3D;&#x3D; undefined)
+    if (this.tooltipcontainer !&#x3D;&#x3D; undefined) {
       document.body.removeChild(this.tooltipcontainer.nativeElement);
+    }
   }
 
   /**
@@ -1084,11 +1091,11 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
    */
   private getTopPosition(): number {
     if (this.content !&#x3D;&#x3D; null &amp;&amp; this.content !&#x3D;&#x3D; undefined) {
-      let item &#x3D; this.content.nativeElement;
+      const item &#x3D; this.content.nativeElement;
 
       if (item.children.length &gt;&#x3D; 1) {
-        let childItem &#x3D; item.firstElementChild as HTMLElement;
-        let contentPosition: ClientRect &#x3D; childItem.getBoundingClientRect();
+        const childItem &#x3D; item.firstElementChild as HTMLElement;
+        const contentPosition: ClientRect &#x3D; childItem.getBoundingClientRect();
 
         switch (this.GetTooltipPosition()) {
           case TooltipPosition.top:
@@ -1121,11 +1128,11 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
   private getLeftPosition(): number {
 
     if (this.content !&#x3D;&#x3D; null &amp;&amp; this.content !&#x3D;&#x3D; undefined) {
-      let item &#x3D; this.content.nativeElement;
+      const item &#x3D; this.content.nativeElement;
 
       if (item.children.length &gt;&#x3D; 1) {
-        let childItem &#x3D; item.firstElementChild as HTMLElement;
-        let contentPosition: ClientRect &#x3D; childItem.getBoundingClientRect();
+        const childItem &#x3D; item.firstElementChild as HTMLElement;
+        const contentPosition: ClientRect &#x3D; childItem.getBoundingClientRect();
 
         switch (this.GetTooltipPosition()) {
           case TooltipPosition.top:
@@ -1135,7 +1142,7 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
             this.LeftPos &#x3D; contentPosition.left + contentPosition.width;
             return contentPosition.left + contentPosition.width;
           case TooltipPosition.bottom:
-            this.LeftPos &#x3D; contentPosition.left + (childItem.clientWidth / 2) - (this.getToolTipWidth() / 2);;
+            this.LeftPos &#x3D; contentPosition.left + (childItem.clientWidth / 2) - (this.getToolTipWidth() / 2);
             return contentPosition.left + (childItem.clientWidth / 2) - (this.getToolTipWidth() / 2);
           case TooltipPosition.left:
             this.LeftPos &#x3D; contentPosition.left - this.getToolTipWidth();
@@ -1156,10 +1163,11 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
    * Berechnet die Höhe des Tooltips
    */
   private getToolTipHeight(): number {
-    if (this.tooltipcontainer)
+    if (this.tooltipcontainer) {
       return this.tooltipcontainer.nativeElement.clientHeight;
-    else
+    } else {
       return 0;
+    }
   }
 
   /**
@@ -1168,16 +1176,11 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
   private getToolTipWidth(): number {
     if (this.tooltipcontainer) {
       return this.tooltipcontainer.nativeElement.clientWidth;
-    }
-
-    else
+    } else {
       return 0;
+    }
   }
 
-  /**
-   * Definiert ob der Tooltip sichtbar sein soll
-   */
-  IsTooltipContentVisible: boolean &#x3D; false;
 
   /**
    * Definiert ob der Tooltip im Markup vorhanden ist
@@ -1195,7 +1198,7 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
       this.getLeftPosition();
       this.getTopPosition();
       this.IsTooltipContentVisible &#x3D; true;
-    })
+    });
   }
 
   /**
@@ -1213,44 +1216,60 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
     setTimeout(() &#x3D;&gt; {
       this.getLeftPosition();
       this.getTopPosition();
-    })
+    });
   }
 
   /**
    * Gibt die Position des Tooltips zurück
    */
   public GetTooltipPosition(): TooltipPosition {
-    let validPositions: TooltipPosition &#x3D; this.ValidatePositions();
+    const validPositions: TooltipPosition &#x3D; this.ValidatePositions();
 
-    if (this.HasPosition(TooltipPosition.right) &amp;&amp; (validPositions &amp; TooltipPosition.right))
+    // tslint:disable-next-line:no-bitwise
+    if (this.HasPosition(TooltipPosition.right) &amp;&amp; (validPositions &amp; TooltipPosition.right)) {
       return TooltipPosition.right;
+    }
 
-    if (this.HasPosition(TooltipPosition.top) &amp;&amp; (validPositions &amp; TooltipPosition.top))
+    // tslint:disable-next-line:no-bitwise
+    if (this.HasPosition(TooltipPosition.top) &amp;&amp; (validPositions &amp; TooltipPosition.top)) {
       return TooltipPosition.top;
+    }
 
-    if (this.HasPosition(TooltipPosition.left) &amp;&amp; (validPositions &amp; TooltipPosition.left))
+    // tslint:disable-next-line:no-bitwise
+    if (this.HasPosition(TooltipPosition.left) &amp;&amp; (validPositions &amp; TooltipPosition.left)) {
       return TooltipPosition.left;
+    }
 
-    if (this.HasPosition(TooltipPosition.bottom) &amp;&amp; (validPositions &amp; TooltipPosition.bottom))
+    // tslint:disable-next-line:no-bitwise
+    if (this.HasPosition(TooltipPosition.bottom) &amp;&amp; (validPositions &amp; TooltipPosition.bottom)) {
       return TooltipPosition.bottom;
+    }
 
     // Get Auto Position or Default
     if (this.IsAutoPosition()) {
-      if (validPositions &amp; TooltipPosition.right)
+
+      // tslint:disable-next-line:no-bitwise
+      if (validPositions &amp; TooltipPosition.right) {
         return TooltipPosition.right;
+      }
 
-      if (validPositions &amp; TooltipPosition.top)
+      // tslint:disable-next-line:no-bitwise
+      if (validPositions &amp; TooltipPosition.top) {
         return TooltipPosition.top;
+      }
 
-      if (validPositions &amp; TooltipPosition.left)
+      // tslint:disable-next-line:no-bitwise
+      if (validPositions &amp; TooltipPosition.left) {
         return TooltipPosition.left;
+      }
 
-      if (validPositions &amp; TooltipPosition.bottom)
+      // tslint:disable-next-line:no-bitwise
+      if (validPositions &amp; TooltipPosition.bottom) {
         return TooltipPosition.bottom;
+      }
 
       return TooltipPosition.right;
-    }
-    else {
+    } else {
       return this.GetPosition();
     }
   }
@@ -1259,27 +1278,31 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
    * Definiert ob AutoPosition aktiv ist
    */
   private IsAutoPosition(): boolean {
-    let positions &#x3D; this._position.split(&quot;|&quot;);
-    return positions.indexOf(&quot;auto&quot;) &gt;&#x3D; 0;
+    const positions &#x3D; this._position.split(&#x27;|&#x27;);
+    return positions.indexOf(&#x27;auto&#x27;) &gt;&#x3D; 0;
   }
 
   /**
    * Gibt die definierte Position für den Tooltip zurück
    */
   private GetPosition(): TooltipPosition {
-    let positions &#x3D; this._position.split(&quot;|&quot;);
+    const positions &#x3D; this._position.split(&#x27;|&#x27;);
 
-    if (this.HasPosition(TooltipPosition.left))
+    if (this.HasPosition(TooltipPosition.left)) {
       return TooltipPosition.left;
+    }
 
-    if (this.HasPosition(TooltipPosition.top))
+    if (this.HasPosition(TooltipPosition.top)) {
       return TooltipPosition.top;
+    }
 
-    if (this.HasPosition(TooltipPosition.right))
+    if (this.HasPosition(TooltipPosition.right)) {
       return TooltipPosition.right;
+    }
 
-    if (this.HasPosition(TooltipPosition.bottom))
+    if (this.HasPosition(TooltipPosition.bottom)) {
       return TooltipPosition.bottom;
+    }
 
     // Default Position if empty
     return TooltipPosition.right;
@@ -1287,23 +1310,27 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
 
   /**
    * Gibt zurück, ob die Position konfiguriert wurde
-   * 
+   *
    * @param position Position auf welche geprüft wird
    */
   private HasPosition(position: TooltipPosition): boolean {
-    let positions &#x3D; this._position.split(&quot;|&quot;);
+    const positions &#x3D; this._position.split(&#x27;|&#x27;);
 
-    if (position &#x3D;&#x3D; TooltipPosition.right &amp;&amp; positions.indexOf(&quot;right&quot;) &gt;&#x3D; 0)
+    if (position &#x3D;&#x3D;&#x3D; TooltipPosition.right &amp;&amp; positions.indexOf(&#x27;right&#x27;) &gt;&#x3D; 0) {
       return true;
+    }
 
-    if (position &#x3D;&#x3D; TooltipPosition.top &amp;&amp; positions.indexOf(&quot;top&quot;) &gt;&#x3D; 0)
+    if (position &#x3D;&#x3D;&#x3D; TooltipPosition.top &amp;&amp; positions.indexOf(&#x27;top&#x27;) &gt;&#x3D; 0) {
       return true;
+    }
 
-    if (position &#x3D;&#x3D; TooltipPosition.left &amp;&amp; positions.indexOf(&quot;left&quot;) &gt;&#x3D; 0)
+    if (position &#x3D;&#x3D;&#x3D; TooltipPosition.left &amp;&amp; positions.indexOf(&#x27;left&#x27;) &gt;&#x3D; 0) {
       return true;
+    }
 
-    if (position &#x3D;&#x3D; TooltipPosition.bottom &amp;&amp; positions.indexOf(&quot;bottom&quot;) &gt;&#x3D; 0)
+    if (position &#x3D;&#x3D;&#x3D; TooltipPosition.bottom &amp;&amp; positions.indexOf(&#x27;bottom&#x27;) &gt;&#x3D; 0) {
       return true;
+    }
 
     return false;
   }
@@ -1313,24 +1340,43 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
    */
   private ValidatePositions(): TooltipPosition {
     // Check if Container is false
-    if (this.tooltipcontainer &#x3D;&#x3D;&#x3D; undefined)
+    if (this.tooltipcontainer &#x3D;&#x3D;&#x3D; undefined) {
       return TooltipPosition.right;
+    }
 
     let allowedPositions: TooltipPosition &#x3D; TooltipPosition.none;
     const basePosition: ClientRect &#x3D; this.content.nativeElement.firstElementChild.getBoundingClientRect();
     const tooltipRect: ClientRect &#x3D; this.tooltipcontainer.nativeElement.getBoundingClientRect();
 
-    if (basePosition.left - tooltipRect.width &gt; 0)
+    const leftPosOk: boolean &#x3D; basePosition.left - tooltipRect.width &gt; 0;
+    const rightPosOk: boolean &#x3D; basePosition.right + tooltipRect.width &lt; window.innerWidth;
+    const topPosOk: boolean &#x3D; basePosition.top - tooltipRect.height &gt; 0;
+    const bottomPosOk: boolean &#x3D; basePosition.bottom + tooltipRect.height &lt; window.innerHeight;
+
+    const leftHalfPosOk: boolean &#x3D; basePosition.left - (tooltipRect.width / 2) &gt; 0;
+    const rightHalfPosOk: boolean &#x3D; basePosition.right + (tooltipRect.width / 2) &lt; window.innerWidth;
+    const topHalfPosOk: boolean &#x3D; basePosition.top - (tooltipRect.height / 2) &gt; 0;
+    const bottomHalfPosOk: boolean &#x3D; basePosition.bottom + (tooltipRect.height / 2) &lt; window.innerHeight;
+
+    if (leftPosOk &amp;&amp; topHalfPosOk &amp;&amp; bottomHalfPosOk) {
+      // tslint:disable-next-line:no-bitwise
       allowedPositions &#x3D; allowedPositions | TooltipPosition.left;
+    }
 
-    if (basePosition.right + tooltipRect.width &lt; window.innerWidth)
+    if (rightPosOk &amp;&amp; topHalfPosOk &amp;&amp; bottomHalfPosOk) {
+      // tslint:disable-next-line:no-bitwise
       allowedPositions &#x3D; allowedPositions | TooltipPosition.right;
+    }
 
-    if (basePosition.top - tooltipRect.height &gt; 0)
+    if (topPosOk &amp;&amp; leftHalfPosOk &amp;&amp; rightHalfPosOk) {
+      // tslint:disable-next-line:no-bitwise
       allowedPositions &#x3D; allowedPositions | TooltipPosition.top;
+    }
 
-    if (basePosition.bottom + tooltipRect.height &lt; window.innerHeight)
+    if (bottomPosOk &amp;&amp; leftHalfPosOk &amp;&amp; rightHalfPosOk) {
+      // tslint:disable-next-line:no-bitwise
       allowedPositions &#x3D; allowedPositions | TooltipPosition.bottom;
+    }
 
     return allowedPositions;
   }
@@ -1341,6 +1387,7 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
 
 
 
+                   
 
 
 
@@ -1363,6 +1410,7 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'NgTooltipCommon.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

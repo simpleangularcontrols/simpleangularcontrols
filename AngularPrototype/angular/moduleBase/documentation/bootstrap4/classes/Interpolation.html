@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Bootstrap 3 Angular Controls</title>
+        <title>Bootstrap 4 Angular Controls</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -238,7 +238,7 @@ export class Interpolation {
     }
 
     return text.replace(this.templateMatcher, (substring: string, b: string) &#x3D;&gt; {
-      let r &#x3D; this.getValue(params, b);
+      const r &#x3D; this.getValue(params, b);
       return isDefined(r) ? r : substring;
     });
   }
@@ -249,7 +249,7 @@ export class Interpolation {
    * @param key Key nach welchem gesucht wird. Navigation in Properties des Objekt mit einem Punkt.
    */
   private getValue(target: any, key: string): any {
-    let keys &#x3D; key.split(&#x27;.&#x27;);
+    const keys &#x3D; key.split(&#x27;.&#x27;);
     key &#x3D; &#x27;&#x27;;
     do {
       key +&#x3D; keys.shift();
@@ -273,6 +273,7 @@ export class Interpolation {
 
 
 
+                   
 
 
 
@@ -295,6 +296,7 @@ export class Interpolation {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'Interpolation.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

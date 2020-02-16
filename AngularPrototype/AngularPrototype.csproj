@@ -559,6 +559,7 @@
     <Content Include="AdminLte.Master" />
     <Content Include="languages.json" />
     <Content Include="angular\moduleBase\build.package.bat" />
+    <Content Include="languages_sprite.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="gulpfile.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -646,6 +647,7 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\static\formcontainer.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\upload\uploadmultiple.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\upload\uploadsingle.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\enums\IconType.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\ILanguageResource.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\ILanguageService.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\interfaces\IUploadControl.ts" />

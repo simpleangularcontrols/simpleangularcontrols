@@ -5,7 +5,7 @@
     "entryFile": "src/public_api.ts",
     "umdModuleIds": {
       "moment": "moment",
-      "angular2-text-mask": "angular2-text-mask",
+      "angular2-text-mask": "angular2TextMask",
       "@ng-bootstrap/ng-bootstrap": "ngBootstrap",
       "@jnetwork/jngcontrols-common": "jngControlsCommon"
     }

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Bootstrap 3 Angular Controls</title>
+        <title>Bootstrap 4 Angular Controls</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -63,6 +63,13 @@
             <code>projects/jngcontrols-common/src/controls/grid/grid.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Basis Komponente für NgGrid</p>
+
+            </p>
 
 
 
@@ -82,6 +89,10 @@
                             <li>
                                     <span class="modifier">Protected</span>
                                 <a href="#activePage">activePage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ColumnCount">ColumnCount</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
@@ -107,10 +118,6 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#GetColumnCount">GetColumnCount</a>
-                            </li>
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#GetSortColumn">GetSortColumn</a>
@@ -224,6 +231,54 @@
     </table>
 </section>
 
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(cd: <a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank">ChangeDetectorRef</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:7</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>cd</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank" >ChangeDetectorRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
             <section>
     
@@ -256,13 +311,52 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:24</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Protected Property. Enthielt die Nummer der aktiven Seite. Type: number. Default ist 1</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ColumnCount"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            ColumnCount</b>
+                            <a href="#ColumnCount"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>0</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:14</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Private Property. Enthielt die Column Menge. Type: number. Default ist 0</p>
 </div>
                     </td>
                 </tr>
@@ -295,7 +389,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -329,7 +423,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:37</a></div>
                             </td>
                         </tr>
 
@@ -368,7 +462,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -388,49 +482,6 @@
     <h3 id="methods">
         Methods
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="GetColumnCount"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            GetColumnCount
-                        </b>
-                        <a href="#GetColumnCount"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>GetColumnCount()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="161"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:161</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Die Methode ergibt die Column Menge</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -455,8 +506,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="207"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:207</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="199"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:199</a></div>
                 </td>
             </tr>
 
@@ -498,8 +549,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="214"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:214</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="206"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:206</a></div>
                 </td>
             </tr>
 
@@ -539,8 +590,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="131"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:131</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="130"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:130</a></div>
                 </td>
             </tr>
 
@@ -612,8 +663,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="140"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:140</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="138"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:138</a></div>
                 </td>
             </tr>
 
@@ -691,8 +742,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="147"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:147</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="145"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:145</a></div>
                 </td>
             </tr>
 
@@ -734,8 +785,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="168"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:168</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="161"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:161</a></div>
                 </td>
             </tr>
 
@@ -870,7 +921,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:60</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:65</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -951,7 +1002,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:54</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:59</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -978,7 +1029,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:53</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1006,7 +1057,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&quot;Einträge pro Seite {{PAGESIZE}}&quot;</code>
+                        <i>Default value : </i><code>&#x27;Einträge pro Seite {{PAGESIZE}}&#x27;</code>
                     </td>
                 </tr>
                         <tr>
@@ -1016,8 +1067,8 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Text in Page für Anzahl Seitenelemente pro Seite</p>
-<p>Folgende Interpolation Texte sind vorhanden:
+                        <div class="io-description"><p>Text in Page für Anzahl Seitenelemente pro Seite
+Folgende Interpolation Texte sind vorhanden:
 {{PAGESIZE}}: Anzahl Elemente pro Seite</p>
 </div>
                     </td>
@@ -1040,18 +1091,18 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&quot;Seite {{CURRENTPAGE}} von {{TOTALPAGES}}&quot;</code>
+                        <i>Default value : </i><code>&#x27;Seite {{CURRENTPAGE}} von {{TOTALPAGES}}&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:72</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:74</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Text in Pager für &quot;Seite x von y&quot;.</p>
-<p>Folgende Interpolation Texte sind vorhanden:
+                        <div class="io-description"><p>Text in Pager für &#39;Seite x von y&#39;.
+Folgende Interpolation Texte sind vorhanden:
 {{CURRENTPAGE}}: Aktuelle Seite
 {{TOTALPAGES}}: Anzahl Seiten</p>
 </div>
@@ -1069,7 +1120,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="199" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:199</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="191" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:191</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1096,7 +1147,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:45</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1131,7 +1182,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Output EventEmitter. Wird aufgerufen wenn ein PageSize geklickt ist, damit PageSizing geändert wird. </p>
+                        <div class="io-description"><p>Output EventEmitter. Wird aufgerufen wenn ein PageSize geklickt ist, damit PageSizing geändert wird.</p>
 </div>
                     </td>
                 </tr>
@@ -1158,7 +1209,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Output EventEmitter. Wird aufgerufen wenn das Pager geklickt ist. </p>
+                        <div class="io-description"><p>Output EventEmitter. Wird aufgerufen wenn das Pager geklickt ist.</p>
 </div>
                     </td>
                 </tr>
@@ -1185,7 +1236,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Output EventEmitter. Wird aufgerufen wenn ein Header geklickt ist, damit das Column soritert wird. </p>
+                        <div class="io-description"><p>Output EventEmitter. Wird aufgerufen wenn ein Header geklickt ist, damit das Column soritert wird.</p>
 </div>
                     </td>
                 </tr>
@@ -1215,7 +1266,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="199" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:199</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="191" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:191</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1265,15 +1316,20 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Input, TemplateRef, Output, EventEmitter } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectorRef, EventEmitter, Input, Output, TemplateRef } from &#x27;@angular/core&#x27;;
 import { PagerData, SortDescriptor, SortOrder } from &#x27;./model&#x27;;
 
+/**
+ *Basis Komponente für NgGrid
+ */
 export abstract class NgGridCommon {
+
+  constructor(private cd: ChangeDetectorRef) { }
 
   /**
    * Private Property. Enthielt die Column Menge. Type: number. Default ist 0
    */
-  private gridColumnCount: number &#x3D; 0;
+  public ColumnCount: number &#x3D; 0;
 
   /**
    * Protected Property. Enthielt Array of Pages. Default value: empty array []
@@ -1303,8 +1359,8 @@ export abstract class NgGridCommon {
   /**
    * Grid Daten
    */
-  @Input(&quot;value&quot;)
-  public value: any
+  @Input(&#x27;value&#x27;)
+  public value: any;
 
   /**
    * Pager Settings
@@ -1312,71 +1368,66 @@ export abstract class NgGridCommon {
    * Pager kann ausgeschaltet werden, in dem PagerData auf NULL gesetzt wird.
    */
   @Input(&#x27;pagerdata&#x27;)
-  public pagerdata: PagerData
+  public pagerdata: PagerData;
 
   /**
    * Input property für Name.
    */
-  @Input(&quot;name&quot;)
-  public name: string
+  @Input(&#x27;name&#x27;)
+  public name: string;
 
   /**
    * Text welcher angezeigt wird, wenn keine Rows verfügbar sind.
    */
-  @Input(&quot;emptytext&quot;)
-  public _emptytext: string
-
+  @Input(&#x27;emptytext&#x27;)
+  public _emptytext: string;
 
   /**
-   * Text in Pager für &quot;Seite x von y&quot;.
-   *
+   * Text in Pager für &#x27;Seite x von y&#x27;.
    * Folgende Interpolation Texte sind vorhanden:
    * {{CURRENTPAGE}}: Aktuelle Seite
    * {{TOTALPAGES}}: Anzahl Seiten
-   * 
    */
-  @Input(&quot;pagingtext&quot;)
-  public pagingText: string &#x3D; &quot;Seite {{CURRENTPAGE}} von {{TOTALPAGES}}&quot;;
+  @Input(&#x27;pagingtext&#x27;)
+  public pagingText: string &#x3D; &#x27;Seite {{CURRENTPAGE}} von {{TOTALPAGES}}&#x27;;
 
   /**
    * Text in Page für Anzahl Seitenelemente pro Seite
-   *
    * Folgende Interpolation Texte sind vorhanden:
    * {{PAGESIZE}}: Anzahl Elemente pro Seite
-   * 
    */
-  @Input(&quot;pagesizetext&quot;)
-  public pageSizeText: string &#x3D; &quot;Einträge pro Seite {{PAGESIZE}}&quot;;
+  @Input(&#x27;pagesizetext&#x27;)
+  public pageSizeText: string &#x3D; &#x27;Einträge pro Seite {{PAGESIZE}}&#x27;;
 
   /**
    * Input property für die maximalle Seiten die sichtbar sind. Type: number.
    */
-  @Input(&quot;maxvisiblepagenumbers&quot;) _maxvisiblepagenumbers: number;
+  @Input(&#x27;maxvisiblepagenumbers&#x27;) _maxvisiblepagenumbers: number;
 
   /**
    * Input property für headers. Type: TemplateRef&lt;any&gt;.
    */
-  @Input(&quot;headers&quot;) _headers: TemplateRef&lt;any&gt;;
+  @Input(&#x27;headers&#x27;) _headers: TemplateRef&lt;any&gt;;
 
   /**
    * Input property für body. Type: TemplateRef&lt;any&gt;.
    */
-  @Input(&quot;body&quot;) _body: TemplateRef&lt;any&gt;;
+  @Input(&#x27;body&#x27;) _body: TemplateRef&lt;any&gt;;
 
   /**
-   * Output EventEmitter. Wird aufgerufen wenn das Pager geklickt ist. 
+   * Output EventEmitter. Wird aufgerufen wenn das Pager geklickt ist.
    */
-  @Output(&quot;onpaging&quot;) _pagingEvent: EventEmitter&lt;number&gt; &#x3D; new EventEmitter();
+  @Output(&#x27;onpaging&#x27;) _pagingEvent: EventEmitter&lt;number&gt; &#x3D; new EventEmitter();
 
   /**
-   * Output EventEmitter. Wird aufgerufen wenn ein Header geklickt ist, damit das Column soritert wird. 
+   * Output EventEmitter. Wird aufgerufen wenn ein Header geklickt ist, damit das Column soritert wird.
    */
-  @Output(&quot;onsorting&quot;) _sortingevent: EventEmitter&lt;SortDescriptor&gt; &#x3D; new EventEmitter&lt;SortDescriptor&gt;()
+  @Output(&#x27;onsorting&#x27;) _sortingevent: EventEmitter&lt;SortDescriptor&gt; &#x3D; new EventEmitter&lt;SortDescriptor&gt;();
 
   /**
-   * Output EventEmitter. Wird aufgerufen wenn ein PageSize geklickt ist, damit PageSizing geändert wird. 
+   * Output EventEmitter. Wird aufgerufen wenn ein PageSize geklickt ist, damit PageSizing geändert wird.
    */
-  @Output(&quot;onpagesizechanged&quot;) _pageSizeChanged: EventEmitter&lt;number&gt; &#x3D; new EventEmitter&lt;number&gt;();
+  @Output(&#x27;onpagesizechanged&#x27;) _pageSizeChanged: EventEmitter&lt;number&gt; &#x3D; new EventEmitter&lt;number&gt;();
 
   //#endregion
 
@@ -1392,16 +1443,14 @@ export abstract class NgGridCommon {
 
   /**
    * Setzt die neue Seite
-   *  
    * @param newStartIndex Neuer Seiten Index (Zero-Based)
    */
   pageChange(newStartIndex) {
-    this._pagingEvent.emit(newStartIndex)
+    this._pagingEvent.emit(newStartIndex);
   }
 
   /**
    * Setzt die Page Size auf dem Grid neu
-   * 
    * @param pageSize Grösse der Page
    */
   pageSizeChanged(pageSize: number) {
@@ -1412,21 +1461,16 @@ export abstract class NgGridCommon {
    * Die Methode erhöht die Column-Stücke um eins
    */
   public RegisterColumn() {
-    this.gridColumnCount++;
+    this.ColumnCount++;
+    // Detect Changes ausführen, da ColumnChange nach OnInit ausgeführt wird.
+    this.cd.detectChanges();
   }
 
   /**
    * Die Methode verringert die Column-Stücke um eins
    */
   public UnregisterColumn() {
-    this.gridColumnCount--;
-  }
-
-  /**
-   * Die Methode ergibt die Column Menge
-   */
-  public GetColumnCount(): number {
-    return this.gridColumnCount;
+    this.ColumnCount--;
   }
 
   /**
@@ -1434,7 +1478,7 @@ export abstract class NgGridCommon {
    */
   public SortBy(command) {
 
-    if (command &#x3D;&#x3D; this.sortColumn) {
+    if (command &#x3D;&#x3D;&#x3D; this.sortColumn) {
 
       switch (this.sortDirection) {
         case SortOrder.None:
@@ -1447,22 +1491,21 @@ export abstract class NgGridCommon {
       }
 
     } else {
-      this.sortDirection &#x3D; SortOrder.Ascending
+      this.sortDirection &#x3D; SortOrder.Ascending;
     }
 
-    let result: SortDescriptor &#x3D; new SortDescriptor();
+    const result: SortDescriptor &#x3D; new SortDescriptor();
     result.SortColumn &#x3D; command;
     result.SortOrder &#x3D; this.sortDirection;
 
-    this._sortingevent.emit(result)
+    this._sortingevent.emit(result);
   }
 
   /**
    * Model für Sortierung
-   * 
    * @param sortDescription Settings für aktuelle sortierung
    */
-  @Input(&quot;sortdata&quot;)
+  @Input(&#x27;sortdata&#x27;)
   public set ApplySort(sortDescription: SortDescriptor) {
     this.sortColumn &#x3D; sortDescription.SortColumn;
     this.sortDirection &#x3D; sortDescription.SortOrder;
@@ -1488,6 +1531,7 @@ export abstract class NgGridCommon {
 
 
 
+                   
 
 
 
@@ -1510,6 +1554,7 @@ export abstract class NgGridCommon {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'NgGridCommon.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

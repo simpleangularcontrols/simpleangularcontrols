@@ -6,6 +6,7 @@ import { LanguageModel } from '../../models/languagemodel';
 import { InternalLanguageService, LANGUAGE_SERVICE } from '../../services/Language.Service';
 import { Validation } from '../../validation';
 import { NgFormularCommon } from '../form/form';
+import { IconType } from '../../enums/IconType';
 
 /**
  * Base Klasse für Multi Language Input Control
@@ -56,7 +57,7 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
   * Konstruktor
   * Inject des Formulars
   */
-  constructor( @Host() parent: NgFormularCommon, injector: Injector) {
+  constructor(@Host() parent: NgFormularCommon, injector: Injector) {
     super(parent, injector);
 
     this.lngLanguageService = injector.get(LANGUAGE_SERVICE, new InternalLanguageService());
@@ -89,11 +90,25 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
     return this.languages;
   }
 
+  /**
+   * Gibt das Icon der selektierten Sprache zurück
+   */
   get SelectedIcon(): string {
     if (this.selectedLanguage) {
       return this.selectedLanguage.Icon;
     } else {
       return '';
+    }
+  }
+
+  /**
+   * Gibt den Type des Icons für die selektierte Sprache zurück
+   */
+  get SelectedIconType(): IconType {
+    if (this.selectedLanguage) {
+      return this.selectedLanguage.IconType;
+    } else {
+      return IconType.Image;
     }
   }
 

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Bootstrap 3 Angular Controls</title>
+        <title>Bootstrap 4 Angular Controls</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -63,6 +63,13 @@
             <code>projects/jngcontrols-common/src/controls/validation/validationsummary.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Basis Komponente für NgValidationSummary</p>
+
+            </p>
 
 
 
@@ -142,7 +149,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/jngcontrols-common/src/controls/validation/validationsummary.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/jngcontrols-common/src/controls/validation/validationsummary.ts:28</a></div>
                             </td>
                         </tr>
 
@@ -221,7 +228,7 @@ Inject des Formulars</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/jngcontrols-common/src/controls/validation/validationsummary.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/jngcontrols-common/src/controls/validation/validationsummary.ts:28</a></div>
                             </td>
                         </tr>
 
@@ -255,7 +262,7 @@ Inject des Formulars</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/jngcontrols-common/src/controls/validation/validationsummary.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/jngcontrols-common/src/controls/validation/validationsummary.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -290,12 +297,12 @@ Inject des Formulars</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&quot;&quot;</code>
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/jngcontrols-common/src/controls/validation/validationsummary.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/jngcontrols-common/src/controls/validation/validationsummary.ts:17</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -330,7 +337,7 @@ Inject des Formulars</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/jngcontrols-common/src/controls/validation/validationsummary.ts:45</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/jngcontrols-common/src/controls/validation/validationsummary.ts:48</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -363,7 +370,7 @@ Inject des Formulars</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="120" class="link-to-prism">projects/jngcontrols-common/src/controls/validation/validationsummary.ts:120</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">projects/jngcontrols-common/src/controls/validation/validationsummary.ts:130</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -381,20 +388,23 @@ Inject des Formulars</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgFormularCommon } from &#x27;../form/form&#x27;;
-import { Input, Injector } from &#x27;@angular/core&#x27;;
-import { ValidationErrorItem } from &#x27;../../validation&#x27;;
-import { InternalLanguageResourceService, LANGUAGE_SERVICE } from &#x27;../../services/languageresource.service&#x27;;
-import { ILanguageResourceService } from &#x27;../../interfaces/ilanguageresource&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injector, Input } from &#x27;@angular/core&#x27;;
+import { AbstractControl, FormArray, NgForm } from &#x27;@angular/forms&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
-import { NgForm, AbstractControl, FormGroup, FormArray } from &#x27;@angular/forms&#x27;;
+import { ILanguageResourceService } from &#x27;../../interfaces/ilanguageresource&#x27;;
+import { InternalLanguageResourceService, LANGUAGERESOURCE_SERVICE } from &#x27;../../services/languageresource.service&#x27;;
+import { ValidationErrorItem } from &#x27;../../validation&#x27;;
+import { NgFormularCommon } from &#x27;../form/form&#x27;;
 
+/**
+ * Basis Komponente für NgValidationSummary
+ */
 export class NgValidationSummaryCommon {
   /**
    * Name-Property
    */
-  @Input(&quot;name&quot;)
-  _name: string &#x3D; &quot;&quot;;
+  @Input(&#x27;name&#x27;)
+  _name: string &#x3D; &#x27;&#x27;;
 
   // #region Private Variables
 
@@ -417,7 +427,7 @@ export class NgValidationSummaryCommon {
    */
   constructor(parent: NgFormularCommon, injector: Injector) {
     this.parent &#x3D; parent;
-    this.lngResourceService &#x3D; injector.get(LANGUAGE_SERVICE, new InternalLanguageResourceService());
+    this.lngResourceService &#x3D; injector.get(LANGUAGERESOURCE_SERVICE, new InternalLanguageResourceService());
   }
 
   // #endregion
@@ -437,6 +447,9 @@ export class NgValidationSummaryCommon {
     return collection.filter(item &#x3D;&gt; item !&#x3D;&#x3D; null);
   }
 
+  /**
+   * Die Methode gibt Collection von Errors. Verlangt controls: Array&lt;NgForm | FormArray&gt; und  collection: Array&lt;Observable&lt;string&gt;&gt;
+   */
   private getErrorCollection(controls: Array&lt;NgForm | FormArray&gt;, collection: Array&lt;Observable&lt;string&gt;&gt;): void {
     controls.forEach(ctl &#x3D;&gt; {
 
@@ -446,20 +459,21 @@ export class NgValidationSummaryCommon {
 
       } else {
 
-        Object.keys(ctl.controls).map(key &#x3D;&gt; {
-          const control &#x3D; ctl.controls[key];
+        Object.keys(ctl.controls).map(controlKey &#x3D;&gt; {
+          const control &#x3D; ctl.controls[controlKey];
 
           // Cancel Analyse wenn Item not Touched oder Valid
-          if (control.touched &#x3D;&#x3D;&#x3D; false || control.valid &#x3D;&#x3D;&#x3D; true)
+          if (control.touched &#x3D;&#x3D;&#x3D; false || control.valid &#x3D;&#x3D;&#x3D; true) {
             return;
+          }
 
           // Handle wenn Control kein Container ist
           if (control.controls &#x3D;&#x3D;&#x3D; undefined || control.controls &#x3D;&#x3D;&#x3D; null) {
             this.addErrorToCollection(control, collection);
           } else {
             // Handling eines Control Containers
-            let items: Array&lt;NgForm | FormArray&gt; &#x3D; Object.keys(control.controls).map(key &#x3D;&gt; {
-              return &lt;NgForm | FormArray&gt;control.controls[key];
+            const items: Array&lt;NgForm | FormArray&gt; &#x3D; Object.keys(control.controls).map(formKey &#x3D;&gt; {
+              return &lt;NgForm | FormArray&gt;control.controls[formKey];
             });
 
             this.getErrorCollection(items, collection);
@@ -472,27 +486,30 @@ export class NgValidationSummaryCommon {
 
   /**
    * Fügt einen Validation Error in die Error Collection hinzu
-   * 
    * @param ctl Fehlerhaftes Control
    * @param collection Collection aller Fehlermeldungen
    */
   private addErrorToCollection(ctl: AbstractControl, collection: Array&lt;Observable&lt;string&gt;&gt;): void {
-    if (ctl.errors &#x3D;&#x3D;&#x3D; null || ctl.touched &#x3D;&#x3D;&#x3D; false || ctl.valid &#x3D;&#x3D; true)
+    if (ctl.errors &#x3D;&#x3D;&#x3D; null || ctl.touched &#x3D;&#x3D;&#x3D; false || ctl.valid &#x3D;&#x3D;&#x3D; true) {
       return;
+    }
 
-    let keys: string[] &#x3D; Object.keys(ctl.errors);
+    const keys: string[] &#x3D; Object.keys(ctl.errors);
 
-    if (keys.length &lt;&#x3D; 0)
+    if (keys.length &lt;&#x3D; 0) {
       return;
+    }
 
-    let errorItem: ValidationErrorItem &#x3D; ctl.errors[keys[0]];
+    const errorItem: ValidationErrorItem &#x3D; ctl.errors[keys[0]];
 
     // Validation Parameters
     const parameters &#x3D; {};
     if (errorItem.parameters !&#x3D;&#x3D; null &amp;&amp; errorItem.parameters !&#x3D;&#x3D; undefined) {
-      errorItem.parameters.forEach((v, k) &#x3D;&gt; { parameters[k] &#x3D; v });
+      errorItem.parameters.forEach((v, k) &#x3D;&gt; {
+        parameters[k] &#x3D; v;
+      });
     }
-    parameters[&quot;FIELD&quot;] &#x3D; errorItem.fieldName;
+    parameters[&#x27;FIELD&#x27;] &#x3D; errorItem.fieldName;
 
     collection.push(this.lngResourceService.GetString(errorItem.errorMessageValidationSummaryKey, parameters));
   }
@@ -512,6 +529,7 @@ export class NgValidationSummaryCommon {
 
 
 
+                   
 
 
 
@@ -534,6 +552,7 @@ export class NgValidationSummaryCommon {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'NgValidationSummaryCommon.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

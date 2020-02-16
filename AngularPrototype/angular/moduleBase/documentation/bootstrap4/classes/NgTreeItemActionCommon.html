@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Bootstrap 3 Angular Controls</title>
+        <title>Bootstrap 4 Angular Controls</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -63,6 +63,13 @@
             <code>projects/jngcontrols-common/src/controls/treeview/ngtreeitemaction.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Basis Komponente für NgTreeItemAction</p>
+
+            </p>
 
 
             <p class="comment">
@@ -152,7 +159,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">projects/jngcontrols-common/src/controls/treeview/ngtreeitemaction.ts:5</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">projects/jngcontrols-common/src/controls/treeview/ngtreeitemaction.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -225,8 +232,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/treeview/ngtreeitemaction.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/treeview/ngtreeitemaction.ts:71</a></div>
                 </td>
             </tr>
 
@@ -266,8 +273,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/treeview/ngtreeitemaction.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/treeview/ngtreeitemaction.ts:19</a></div>
                 </td>
             </tr>
 
@@ -307,8 +314,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/treeview/ngtreeitemaction.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/treeview/ngtreeitemaction.ts:57</a></div>
                 </td>
             </tr>
 
@@ -373,7 +380,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/jngcontrols-common/src/controls/treeview/ngtreeitemaction.ts:44</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/jngcontrols-common/src/controls/treeview/ngtreeitemaction.ts:46</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -400,7 +407,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/jngcontrols-common/src/controls/treeview/ngtreeitemaction.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/jngcontrols-common/src/controls/treeview/ngtreeitemaction.ts:36</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -427,7 +434,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/jngcontrols-common/src/controls/treeview/ngtreeitemaction.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/jngcontrols-common/src/controls/treeview/ngtreeitemaction.ts:41</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -457,7 +464,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">projects/jngcontrols-common/src/controls/treeview/ngtreeitemaction.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">projects/jngcontrols-common/src/controls/treeview/ngtreeitemaction.ts:52</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -475,10 +482,12 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Input, Output, EventEmitter, ElementRef, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ElementRef, EventEmitter, Input, OnInit, Output } from &#x27;@angular/core&#x27;;
 
 
-
+/**
+ *Basis Komponente für NgTreeItemAction
+ */
 export class NgTreeItemActionCommon implements OnInit {
 
     /**
@@ -557,6 +566,7 @@ export class NgTreeItemActionCommon implements OnInit {
 
 
 
+                   
 
 
 
@@ -579,6 +589,7 @@ export class NgTreeItemActionCommon implements OnInit {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'NgTreeItemActionCommon.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

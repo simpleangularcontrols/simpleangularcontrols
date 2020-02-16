@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Bootstrap 3 Angular Controls</title>
+        <title>Bootstrap 4 Angular Controls</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -63,6 +63,13 @@
             <code>projects/jngcontrols-common/src/controls/wizard/wizarditem.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Basis Komponente für NgWizardItem</p>
+
+            </p>
 
 
 
@@ -90,7 +97,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">projects/jngcontrols-common/src/controls/wizard/wizarditem.ts:8</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">projects/jngcontrols-common/src/controls/wizard/wizarditem.ts:11</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -122,7 +129,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/jngcontrols-common/src/controls/wizard/wizarditem.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/jngcontrols-common/src/controls/wizard/wizarditem.ts:21</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -149,7 +156,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/jngcontrols-common/src/controls/wizard/wizarditem.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/jngcontrols-common/src/controls/wizard/wizarditem.ts:26</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -181,7 +188,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/jngcontrols-common/src/controls/wizard/wizarditem.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/jngcontrols-common/src/controls/wizard/wizarditem.ts:16</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -208,7 +215,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/jngcontrols-common/src/controls/wizard/wizarditem.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/jngcontrols-common/src/controls/wizard/wizarditem.ts:31</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -229,31 +236,34 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Input } from &#x27;@angular/core&#x27;;
 
+/**
+ * Basis Komponente für NgWizardItem
+ */
 export class NgWizardItemCommon {
   /**
    * Prüft ob der aktuelle Schritt aktiv ist.
    */
-  @Input(&quot;active&quot;)
+  @Input(&#x27;active&#x27;)
   _active: boolean;
   /**
    * Prüft ob der Schritt abgeschlossen wurde.
    */
-  @Input(&quot;iscomplete&quot;)
+  @Input(&#x27;iscomplete&#x27;)
   _iscomplete: boolean &#x3D; false;
   /**
    * Prüft ob der Schritt disabled ist.
    */
-  @Input(&quot;disabled&quot;)
+  @Input(&#x27;disabled&#x27;)
   _disabled: boolean &#x3D; true;
   /**
    * ID-String
    */
-  @Input(&quot;id&quot;)
+  @Input(&#x27;id&#x27;)
   _id: string;
   /**
    * Label-Property, das angezeigt wird
    */
-  @Input(&quot;label&quot;)
+  @Input(&#x27;label&#x27;)
   _label: string;
 
 }
@@ -263,6 +273,7 @@ export class NgWizardItemCommon {
 
 
 
+                   
 
 
 
@@ -285,6 +296,7 @@ export class NgWizardItemCommon {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'NgWizardItemCommon.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

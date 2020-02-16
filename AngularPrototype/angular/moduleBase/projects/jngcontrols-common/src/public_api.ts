@@ -84,6 +84,9 @@ export { LanguageResourceService, LANGUAGERESOURCE_SERVICE, LanguageService, LAN
 // Export Models
 export * from './models/LanguageModel';
 
+// Export Enums
+export * from './enums/IconType';
+
 // Export Validators
 export * from './validation';
 

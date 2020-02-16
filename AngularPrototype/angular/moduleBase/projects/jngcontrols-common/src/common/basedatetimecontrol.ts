@@ -11,9 +11,8 @@ import { NgBaseModelControl } from './basemodelcontrol';
  */
 const moment = moment_;
 /**
- * Injectable directive
+ * Base Klasse für Date/Time Controls
  */
-@Injectable()
 export abstract class NgBaseDateTimeControl extends NgBaseModelControl<Date> implements IDateTimeControl {
   /**
    * value. Typ: any

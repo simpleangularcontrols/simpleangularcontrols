@@ -291,6 +291,8 @@
 
         <ngTime name="time5" label="Zeit 5 (Disabled)" [(ngModel)]="valuesDateTime.time5" disabled="true"></ngTime>
 
+        <ngTime name="time6" label="Zeit 5 (Required)" [(ngModel)]="valuesDateTime.time6" [isrequired]="true"></ngTime>
+
         <ngDateTime name="datetime1" label="Datum & Zeit 1" [(ngModel)]="valuesDateTime.datumzeit1"></ngDateTime>
 
         <ngDateTime name="datetime2" label="Datum & Zeit 2 (Min. 19.08.2018 14:00)" [(ngModel)]="valuesDateTime.datumzeit2" mindate="19.08.2018 14:00"></ngDateTime>

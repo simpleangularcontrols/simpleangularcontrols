@@ -41,6 +41,7 @@ class FormdataDateTime {
   time3: Date = new Date(1900, 0, 1, 8, 32, null, null);
   time4: Date = new Date(1900, 0, 1, 14, 35, null, null);
   time5: Date = new Date(1900, 0, 1, 10, 15, null, null);
+  time6: Date = new Date(1900, 0, 1, 10, 15, null, null);
 
 
   datumzeit1: Date = new Date(2018, 2, 1, 10, 52, null, null);

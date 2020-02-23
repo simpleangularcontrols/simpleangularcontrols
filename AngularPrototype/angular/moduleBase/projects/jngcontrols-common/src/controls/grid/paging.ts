@@ -98,6 +98,12 @@ export abstract class NgPagingCommon {
   public pageSizes: string = '20|50|100';
 
   /**
+   * Auswahl der Seitengrösse deaktivieren
+   */
+  @Input('pageSizeDisabled')
+  public pagesizedisabled: boolean = false;
+
+  /**
    * Gibt die Page Sizes als Number Array zurück
    */
   public get getPageSizes(): number[] {

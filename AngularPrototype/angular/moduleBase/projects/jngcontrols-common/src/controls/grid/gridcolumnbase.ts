@@ -77,7 +77,7 @@ export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
    */
   ngOnDestroy(): void {
     if (this.IsHeader()) {
-       this.grid.UnregisterColumn();
+      this.grid.UnregisterColumn();
     }
   }
 
@@ -121,14 +121,14 @@ export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
    * die Methode ergibt boolean Wert und definiert, ob das Column für Sortierung aktiviert ist, gemäß eingegebene sortKey
    */
   public IsSortedColumn(): boolean {
-    return this.grid.GetSortColumn() === this.SortKey;
+    return this.grid.sortColumn === this.SortKey;
   }
 
   /**
    * Die methode definiert die Dortirung Richtung. Die Werte sind: none, asc, desc.
    */
   public GetSortDirection(): string {
-    switch (this.grid.GetSortDirection()) {
+    switch (this.grid.sortDirection) {
       case SortOrder.None:
         return 'none';
       case SortOrder.Ascending:

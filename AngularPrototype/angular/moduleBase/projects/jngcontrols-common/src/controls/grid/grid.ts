@@ -82,6 +82,18 @@ export abstract class NgGridCommon {
   public pageSizeText: string = 'PAGING_PAGEENTRIESTEXT';
 
   /**
+   * Definiert die Anzahl der Elemente pro Seite die ausgewählt werden können
+   */
+  @Input('pagesizes')
+  public pageSizes: string = '20|50|100';
+
+  /**
+   * Deaktiviert die Auswahl der PageSize im Pager
+   */
+  @Input('pagesizedisabled')
+  public pageSizeDisabled: boolean = false;
+
+  /**
    * Input property für die maximalle Seiten die sichtbar sind. Type: number.
    */
   @Input('maxvisiblepagenumbers') _maxvisiblepagenumbers: number;
@@ -111,12 +123,12 @@ export abstract class NgGridCommon {
   /**
    * Aktuelle Sortierung
    */
-  private sortDirection: SortOrder = SortOrder.None;
+  public sortDirection: SortOrder = SortOrder.None;
 
   /**
    * Aktuell Sortierte Spalte
    */
-  private sortColumn: string = '';
+  public sortColumn: string = '';
 
   /**
    * Setzt die neue Seite
@@ -125,7 +137,7 @@ export abstract class NgGridCommon {
   pageChange(newStartIndex) {
     this._pagingEvent.emit(newStartIndex);
   }
-  
+
   /**
    * Die Methode erhöht die Column-Stücke um eins
    */
@@ -146,26 +158,27 @@ export abstract class NgGridCommon {
    * Die Methode deffiniert das Sortierung Flow
    */
   public SortBy(command) {
+    let direction: SortOrder;
 
     if (command === this.sortColumn) {
 
       switch (this.sortDirection) {
         case SortOrder.None:
         case SortOrder.Descending:
-          this.sortDirection = SortOrder.Ascending;
+          direction = SortOrder.Ascending;
           break;
         case SortOrder.Ascending:
-          this.sortDirection = SortOrder.Descending;
+          direction = SortOrder.Descending;
           break;
       }
 
     } else {
-      this.sortDirection = SortOrder.Ascending;
+      direction = SortOrder.Ascending;
     }
 
     const result: SortDescriptor = new SortDescriptor();
     result.SortColumn = command;
-    result.SortOrder = this.sortDirection;
+    result.SortOrder = direction;
 
     this._sortingevent.emit(result);
   }
@@ -178,19 +191,5 @@ export abstract class NgGridCommon {
   public set ApplySort(sortDescription: SortDescriptor) {
     this.sortColumn = sortDescription.SortColumn;
     this.sortDirection = sortDescription.SortOrder;
-  }
-
-  /**
-   * Methode welche die aktuelle Sortierte Spalte zurückgibt
-   */
-  public GetSortColumn(): string {
-    return this.sortColumn;
-  }
-
-  /**
-   * Methode welche die Sortierung für die Spalte zurückgibt
-   */
-  public GetSortDirection(): SortOrder {
-    return this.sortDirection;
   }
 }

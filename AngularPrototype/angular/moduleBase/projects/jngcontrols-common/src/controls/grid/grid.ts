@@ -36,7 +36,7 @@ export abstract class NgGridCommon {
    */
   protected lastPageNumber: number;
 
-  //#region InputOutputs
+  //#region Input and Outputs
 
   /**
    * Grid Daten
@@ -71,7 +71,7 @@ export abstract class NgGridCommon {
    * {{TOTALPAGES}}: Anzahl Seiten
    */
   @Input('pagingtext')
-  public pagingText: string = 'Seite {{CURRENTPAGE}} von {{TOTALPAGES}}';
+  public pagingText: string = 'PAGING_PAGEOFTEXT';
 
   /**
    * Text in Page für Anzahl Seitenelemente pro Seite
@@ -79,7 +79,7 @@ export abstract class NgGridCommon {
    * {{PAGESIZE}}: Anzahl Elemente pro Seite
    */
   @Input('pagesizetext')
-  public pageSizeText: string = 'Einträge pro Seite {{PAGESIZE}}';
+  public pageSizeText: string = 'PAGING_PAGEENTRIESTEXT';
 
   /**
    * Input property für die maximalle Seiten die sichtbar sind. Type: number.
@@ -106,11 +106,6 @@ export abstract class NgGridCommon {
    */
   @Output('onsorting') _sortingevent: EventEmitter<SortDescriptor> = new EventEmitter<SortDescriptor>();
 
-  /**
-   * Output EventEmitter. Wird aufgerufen wenn ein PageSize geklickt ist, damit PageSizing geändert wird.
-   */
-  @Output('onpagesizechanged') _pageSizeChanged: EventEmitter<number> = new EventEmitter<number>();
-
   //#endregion
 
   /**
@@ -130,15 +125,7 @@ export abstract class NgGridCommon {
   pageChange(newStartIndex) {
     this._pagingEvent.emit(newStartIndex);
   }
-
-  /**
-   * Setzt die Page Size auf dem Grid neu
-   * @param pageSize Grösse der Page
-   */
-  pageSizeChanged(pageSize: number) {
-    this._pageSizeChanged.emit(pageSize);
-  }
-
+  
   /**
    * Die Methode erhöht die Column-Stücke um eins
    */

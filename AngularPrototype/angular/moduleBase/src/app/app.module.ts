@@ -14,6 +14,8 @@ import { TextMaskModule } from 'angular2-text-mask';
 import { UserComponent } from './modules/UserComponent';
 import { UserService } from './services/UserService';
 import { AuthenticationService } from './services/AuthenticationService';
+import { GridService } from './services/GridService';
+
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './services/TokenInterceptor';
 
@@ -127,7 +129,7 @@ import { UploadxModule } from 'ngx-uploadx';
     TextMaskModule,
     UploadxModule
   ],
-  providers: [UserService, AuthenticationService, {
+  providers: [UserService, AuthenticationService, GridService, {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true

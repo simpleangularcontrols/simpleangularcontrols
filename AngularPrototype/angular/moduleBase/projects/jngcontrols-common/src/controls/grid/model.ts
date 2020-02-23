@@ -9,7 +9,7 @@ export class PagerData {
    * @param CurrentPageIndex Aktuelle Seite
    * @param TotalRowCount Total Rows in Datenbank
    */
-  constructor(PageSize?: number, CurrentPageIndex?: number, TotalRowCount?: number) {
+  constructor(PageSize: number, CurrentPageIndex: number, TotalRowCount: number) {
     this.PageSize = PageSize;
     this.CurrentPageIndex = CurrentPageIndex;
     this.TotalRowCount = TotalRowCount;
@@ -18,17 +18,44 @@ export class PagerData {
   /**
    * Gesamte Anzahl der Zeilen
   */
-  TotalRowCount: number = 0;
+  TotalRowCount = 0;
 
   /**
    * Aktueller Index der Seite
    */
-  CurrentPageIndex: number = 0;
+  CurrentPageIndex = 0;
 
   /**
    * PageSize
    */
+  PageSize = 20;
+}
+
+/**
+ * Model wenn Seite geändert werden soll
+ */
+export class PagerRequest {
+
+  /**
+   * Konstruktor
+   * @param PageSize Seitegrösse / Anzahl Elemente pro Seite
+   * @param NewPageIndex Neuer Seitenindex
+   */
+  constructor(PageSize: number, NewPageIndex: number) {
+    this.PageSize = PageSize;
+    this.NewPageIndex = NewPageIndex;
+  }
+
+  /**
+   * Aktueller Index der Seite
+   */
   PageSize: number = 0;
+
+  /**
+   * PageSize
+   */
+  NewPageIndex: number = 0;
+
 }
 
 /**

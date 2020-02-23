@@ -1,16 +1,30 @@
-import { EventEmitter, Input, Output } from '@angular/core';
+import { EventEmitter, Injector, Input, Output } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ILanguageResourceService } from '../../interfaces/ILanguageResource';
+import { InternalLanguageResourceService, LANGUAGERESOURCE_SERVICE } from '../../services/LanguageResource.Service';
 import { Interpolation } from '../../utilities/interpolation';
-import { PagerData } from './model';
+import { PagerData, PagerRequest } from './model';
 
 /**
  * Basiskomponente für Paging
  */
 export abstract class NgPagingCommon {
+  /**
+   * Service für Error Localisation
+   */
+  protected lngResourceService: ILanguageResourceService;
+
+  // #region Constructor
 
   /**
    * Konstruktor
+   * Inject des Formulars
+   * @parent NgFormularCommon
+   * @injector Injector
    */
-  constructor() { }
+  constructor(private injector: Injector) {
+    this.lngResourceService = injector.get(LANGUAGERESOURCE_SERVICE, new InternalLanguageResourceService());
+  }
 
   /**
    * Item für jedes Paging Element (Seitenzahl)
@@ -38,26 +52,21 @@ export abstract class NgPagingCommon {
   protected totalRowCount: number = 0;
 
   /**
-   * Anzahl Rows pro Seite
+   * Anzahl Elemente pro Seite
    */
-  protected pageSize: number = 20;
+  pageSize: number = 20;
 
-  /**
-   * Pager Data Settings
-   */
-  pagedata: PagerData;
   //#region Input and Outputs
 
   /**
    * Property für Pager Data
    */
   @Input('pagerdata')
-  set PagerData(p: PagerData) {
+  set pagerdata(p: PagerData) {
     if (p != null) {
       this.totalRowCount = p.TotalRowCount;
       this.activePageIndex = p.CurrentPageIndex;
       this.pageSize = p.PageSize;
-      this.pagedata = p;
     }
 
     this.createPager();
@@ -70,7 +79,7 @@ export abstract class NgPagingCommon {
    * {{TOTALPAGES}}: Anzahl Seiten
    */
   @Input('pagingtext')
-  public pagingText: string = 'Seite {{CURRENTPAGE}} von {{TOTALPAGES}}';
+  public pagingText: string = 'PAGING_PAGEOFTEXT';
 
   /**
    * Text in Page für Anzahl Seitenelemente pro Seite
@@ -78,7 +87,22 @@ export abstract class NgPagingCommon {
    * {{PAGESIZE}}: Anzahl Elemente pro Seite
    */
   @Input('pagesizetext')
-  public pageSizeText: string = 'Einträge pro Seite {{PAGESIZE}}';
+  public pageSizeText: string = 'PAGING_PAGEENTRIESTEXT';
+
+  /**
+   * Text in Page für Anzahl Seitenelemente pro Seite
+   * Folgende Interpolation Texte sind vorhanden:
+   * {{PAGESIZE}}: Anzahl Elemente pro Seite
+   */
+  @Input('pagesizes')
+  public pageSizes: string = '20|50|100';
+
+  /**
+   * Gibt die Page Sizes als Number Array zurück
+   */
+  public get getPageSizes(): number[] {
+    return this.pageSizes.split('|').map(itm => Number(itm));
+  }
 
   /**
   * Name des Grids. Wird für ID und Name Bezeichnungen verwendet
@@ -90,53 +114,7 @@ export abstract class NgPagingCommon {
    * Event wenn im Grid die Seite geändert wird. Als Parameter wird der neue PageIndex mitgegeben.
    */
   @Output('onpaging')
-  _pagingEvent: EventEmitter<PagerData> = new EventEmitter<PagerData>();
-
-  /**
-   * Event wenn im Pager die PageSize geändert wird
-   */
-  @Output('onpagesizechanged')
-  _pagesizeChangedEvent: EventEmitter<number> = new EventEmitter<number>();
-
-  /**
-   * Getter für pagesize. returns String
-   */
-  public GetPageSizeText(): string {
-    const interpolation: Interpolation = new Interpolation();
-
-    const data = {
-      PAGESIZE: this.getPageSize()
-    };
-
-    return interpolation.interpolateString(this.pageSizeText, data);
-  }
-
-  /**
-   * Die Methode erstellt den Text, der auf den Pager renderierrt wird. Current page und TotalPage
-   */
-  public GetPagingText(): string {
-    const interpolation: Interpolation = new Interpolation();
-
-    const data = {
-      CURRENTPAGE: this.getCurrentPageNumber(),
-      TOTALPAGES: this.getTotalPageNumber()
-    };
-
-    return interpolation.interpolateString(this.pagingText, data);
-  }
-
-  /**
-   * Ändert die Seitegrösse
-   * @param newSize: Neue Page Size
-   */
-  public changePageSize(newSize: number): void {
-    this.pageSize = newSize;
-
-    // Parent Controls über neue Page Size informieren
-    this._pagesizeChangedEvent.emit(newSize);
-  }
-
-
+  pagingEvent: EventEmitter<PagerRequest> = new EventEmitter<PagerRequest>();
 
   //#endregion
 
@@ -161,6 +139,11 @@ export abstract class NgPagingCommon {
       const startPageIndex = this.getStartPageIndex(totalPageCount);
       const endPageIndex = this.getEndPageIndex(totalPageCount);
 
+      // Index Fix wenn Aktive Seite grösser als letze Seite
+      if (this.activePageIndex > this.lastPageIndex) {
+        this.activePageIndex = this.lastPageIndex;
+      }
+
       for (let i = startPageIndex; i <= endPageIndex; i++) {
         this.paginators.push(i);
       }
@@ -173,8 +156,8 @@ export abstract class NgPagingCommon {
    * Methode löst den Event aus, dass ein Paging stattgefunden hat
    */
   protected paged(newPageIndex: number) {
-    const pagerData: PagerData = new PagerData(this.pagedata.PageSize, newPageIndex, this.pagedata.TotalRowCount);
-    this._pagingEvent.emit(pagerData);
+    const pagerData: PagerRequest = new PagerRequest(this.pageSize, newPageIndex);
+    this.pagingEvent.emit(pagerData);
   }
 
   /**
@@ -224,6 +207,15 @@ export abstract class NgPagingCommon {
     if (this.activePageIndex !== newPageIndex) {
       this.paged(newPageIndex);
     }
+  }
+
+  /**
+   * Ändert die Seitengrösse im Pager
+   * @param newSize Neue Anzahl Elemente pro Seite
+   */
+  public changePageSize(newSize: number) {
+    const pagerData: PagerRequest = new PagerRequest(newSize, this.activePageIndex);
+    this.pagingEvent.emit(pagerData);
   }
 
   /**
@@ -277,11 +269,19 @@ export abstract class NgPagingCommon {
   }
 
   /**
-   * Gibt die aktuelle Pager Size zurück
+   * Text mit Aktueller Seite und Total Seiten
    */
-  public getPageSize(): number {
-    return this.pageSize;
+  public get PagingText(): Observable<string> {
+    return this.lngResourceService.GetString(this.pagingText, { CURRENTPAGE: this.getCurrentPageNumber(), TOTALPAGES: this.getTotalPageNumber() });
   }
+
+  /**
+   * Property mit Text für Total Einträge in Seite
+   */
+  public get PageSizeText(): Observable<string> {
+    return this.lngResourceService.GetString(this.pageSizeText);
+  }
+
 
   //#endregion
 }

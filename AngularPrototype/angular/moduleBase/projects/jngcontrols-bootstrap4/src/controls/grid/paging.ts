@@ -1,7 +1,6 @@
-import { Component, Input, Output, EventEmitter, HostListener, Host, forwardRef } from '@angular/core';
+import { Component, forwardRef, Injector } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { NgPagingCommon } from '@jnetwork/jngcontrols-common';
-import { NgFormularDirective } from '../form/form';
-import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/forms';
 
 
 @Component({
@@ -15,6 +14,6 @@ import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/for
 })
 export class NgPagingComponent extends NgPagingCommon {
 
-  constructor() { super(); }
+  constructor(injector: Injector) { super(injector); }
 
 }

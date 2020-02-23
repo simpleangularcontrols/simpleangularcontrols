@@ -39,5 +39,9 @@
         "dist/jngcontrols-bootstrap3/*"
       ]
     }
+  },
+  "angularCompilerOptions": {
+    "enableIvy": false,
+    "allowEmptyCodegenFiles": true
   }
 }

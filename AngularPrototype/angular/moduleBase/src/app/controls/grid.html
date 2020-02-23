@@ -1,4 +1,4 @@
-<ngGrid name='superGridName' [value]="TableData" placeholder="grid" label="imgrid" (onpaging)="pagingSkip($event)"
+<ngGrid name='superGridName' [value]="data" placeholder="grid" label="imgrid" (onpaging)="pagingSkip($event)"
         [pagerdata]="pagerData">
   <ng-template let-row="row" let-type="type">
     <ngGridColumnAction name="editCol" [type]="type" width="78px">
@@ -8,8 +8,8 @@
       <ngGridButton iconstyle="sprite" icon="icon-sprite-base-main_info" isdisabled="true" (onclick)="action('info')"></ngGridButton>
       <ngGridImage iconstyle="sprite icon-sprite-base-main_info"></ngGridImage>
     </ngGridColumnAction>
-    <ngGridColumn name="someName14" [type]="type" header="Bild" [value]="row.title" width='25%'></ngGridColumn>
-    <ngGridColumn name="someName35" [type]="type" header="Benutzer" [value]="row.userid" width='25%'></ngGridColumn>
-    <ngGridColumn name="someName44" [type]="type" header="ID" [value]="row.id"></ngGridColumn>
+    <ngGridColumn name="someName44" [type]="type" header="ID" [value]="row.Id"></ngGridColumn>
+    <ngGridColumn name="someName14" [type]="type" header="Bild" [value]="row.Image" width='25%'></ngGridColumn>
+    <ngGridColumn name="someName35" [type]="type" header="Bezeichnung" [value]="row.Bezeichnung" width='25%'></ngGridColumn>
   </ng-template>
 </ngGrid>

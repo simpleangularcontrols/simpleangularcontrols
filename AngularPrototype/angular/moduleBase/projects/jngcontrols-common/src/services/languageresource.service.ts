@@ -92,6 +92,10 @@ export class InternalLanguageResourceService extends LanguageResourceService {
     this.data.get('de').set('VALIDATION_ERROR_MULTILANGUAGEREQUIRED', 'Es müssen alle Sprachen erfasst sein.');
     this.data.get('de').set('VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED', 'Feld "{{FIELD}}" muss alle Sprachen erfasst haben.');
 
+    this.data.get('de').set('PAGING_PAGEOFTEXT', 'Seite {{CURRENTPAGE}} von {{TOTALPAGES}}');
+    this.data.get('de').set('PAGING_PAGEENTRIESTEXT', 'Einträge pro Seite');
+
+
     // EN
     this.data.set('en', new Map<string, string>());
 

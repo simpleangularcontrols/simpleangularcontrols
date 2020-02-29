@@ -1,4 +1,4 @@
-import { ElementRef, EventEmitter, Injector, Input, NgZone, OnDestroy, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, Injector, Input, NgZone, OnDestroy, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { UploadState, UploadxOptions, UploadxService } from 'ngx-uploadx';
 import { NgFormularCommon } from '../controls/form/form';
@@ -24,6 +24,7 @@ export class NgUploadFile {
 /**
  * Base Klasse für Uploader Control
  */
+@Directive()
 export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> implements OnInit, OnDestroy {
 
   uploads: NgUploadFile[];

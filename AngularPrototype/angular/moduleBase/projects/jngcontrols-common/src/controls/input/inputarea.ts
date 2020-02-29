@@ -1,9 +1,10 @@
-import { Input } from '@angular/core';
+import { Directive, Input } from '@angular/core';
 import { NgInputCommon } from './input';
 
 /**
  * Basis Komponente für NgInputArea
  */
+@Directive()
 export class NgInputAreaCommon extends NgInputCommon {
 
   /**

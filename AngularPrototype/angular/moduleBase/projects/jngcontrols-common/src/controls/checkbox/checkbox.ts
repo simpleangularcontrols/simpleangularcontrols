@@ -1,10 +1,11 @@
-import { Input } from '@angular/core';
+import { Input, Directive } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { NgBaseModelControl } from '../../common/basemodelcontrol';
 
 /**
  * Basis Komponente für NgCheckboxCommon. Extends NgBaseModelControl
  */
+@Directive()
 export class NgCheckboxCommon extends NgBaseModelControl<boolean> {
 
   /**

@@ -1,10 +1,11 @@
-import { ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { NgGridCommon } from './grid';
 import { SortOrder } from './model';
 
 /**
  * Base Komponente für GridColumn
  */
+@Directive()
 export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
 
   /**

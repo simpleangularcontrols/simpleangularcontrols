@@ -1,9 +1,10 @@
-import { ChangeDetectorRef, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
+import { ChangeDetectorRef, Directive, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
 import { PagerData, SortDescriptor, SortOrder } from './model';
 
 /**
  *Basis Komponente für NgGrid
  */
+@Directive()
 export abstract class NgGridCommon {
 
   constructor(private cd: ChangeDetectorRef) { }

@@ -64,22 +64,10 @@ abstract class HTMLCollection {
   abstract item(_: number): HTMLOption;
 }
 
-
-// @Component({
-//   selector: 'ngListbox',
-//   templateUrl: './listbox.html',
-//   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-//   providers: [
-//     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgListbox },
-//     { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgListbox) }
-//   ],
-//   // View Provider, damit das Formular an das Control gebunden werden kann
-//   viewProviders: [{ provide: ControlContainer, useExisting: NgFormular }]
-// })
-
 /**
  * Komponente für NgListboxCommon. Extends NgBaseSelectControl
  */
+@Directive()
 export class NgListboxCommon extends NgBaseSelectControl<Array<string>> {
   /**
    * Anzahl der Zeilen

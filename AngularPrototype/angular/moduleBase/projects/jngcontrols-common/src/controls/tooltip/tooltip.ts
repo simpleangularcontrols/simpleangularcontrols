@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Directive, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { convertToBoolean } from '../../utilities/convertion';
 import { TooltipPosition } from '../../utilities/enums';
 
@@ -13,6 +13,7 @@ import { TooltipPosition } from '../../utilities/enums';
  * kann der Tooltip dann über die CSS visibility angezeigt werden. Wird dies nicht so gemacht, kann es bei gewissen Browsern zu einem Flacker Effekt führen.
  *
  */
+@Directive()
 export class NgTooltipCommon implements OnInit, OnDestroy {
   /**
    * Property für Enum in Angular HTML Template

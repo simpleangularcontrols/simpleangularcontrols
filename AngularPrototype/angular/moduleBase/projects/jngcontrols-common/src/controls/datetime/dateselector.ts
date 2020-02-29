@@ -1,4 +1,4 @@
-import { EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { EventEmitter, Input, OnInit, Output, Directive } from '@angular/core';
 import * as moment_ from 'moment';
 // Import Moment.JS
 import { Moment } from 'moment';
@@ -61,13 +61,10 @@ class DateSelectorItem {
 
 // #endregion
 
-// @Component({
-//   selector: 'ngDateSelector',
-//   templateUrl: './dateselector.html',
-// })
 /**
  *Basis Komponente für NgDateSelector
  */
+@Directive()
 export class NgDateSelectorCommon implements OnInit {
 
   /**

@@ -1,8 +1,9 @@
-import { ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
+import { ContentChild, Directive, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 
 /**
  * Basis Komponente für NgTreeView
  */
+@Directive()
 export class NgTreeViewCommon implements OnInit {
 
   /**

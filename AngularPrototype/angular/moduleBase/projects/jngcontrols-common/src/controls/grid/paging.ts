@@ -1,13 +1,13 @@
-import { EventEmitter, Injector, Input, Output } from '@angular/core';
+import { Directive, EventEmitter, Injector, Input, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ILanguageResourceService } from '../../interfaces/ILanguageResource';
 import { InternalLanguageResourceService, LANGUAGERESOURCE_SERVICE } from '../../services/LanguageResource.Service';
-import { Interpolation } from '../../utilities/interpolation';
 import { PagerData, PagerRequest } from './model';
 
 /**
  * Basiskomponente für Paging
  */
+@Directive()
 export abstract class NgPagingCommon {
   /**
    * Service für Error Localisation

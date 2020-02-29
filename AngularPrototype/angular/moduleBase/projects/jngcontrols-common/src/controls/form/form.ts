@@ -1,4 +1,4 @@
-import { Input } from '@angular/core';
+import { Directive, Input } from '@angular/core';
 import { AbstractControl, FormGroup, NgForm } from '@angular/forms';
 import { convertToBoolean } from '../../utilities/Convertion';
 
@@ -10,6 +10,7 @@ export type FormHooks = 'change' | 'blur' | 'submit';
 /**
  * Base Komponente für NgFormular
  */
+@Directive()
 export class NgFormularCommon {
 
   /**

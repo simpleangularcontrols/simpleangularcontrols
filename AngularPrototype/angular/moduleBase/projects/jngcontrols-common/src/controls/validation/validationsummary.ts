@@ -1,4 +1,4 @@
-import { Injector, Input } from '@angular/core';
+import { Directive, Injector, Input } from '@angular/core';
 import { AbstractControl, FormArray, NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
@@ -9,6 +9,7 @@ import { NgFormularCommon } from '../form/form';
 /**
  * Basis Komponente für NgValidationSummary
  */
+@Directive()
 export class NgValidationSummaryCommon {
   /**
    * Name-Property

@@ -1,8 +1,9 @@
-import { ChangeDetectorRef, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild, Directive } from '@angular/core';
 
 /**
  * Base Komponente für Dialog
  */
+@Directive()
 export class NgDialogCommon {
 
   /**

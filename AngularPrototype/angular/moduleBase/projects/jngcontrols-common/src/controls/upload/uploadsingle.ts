@@ -1,9 +1,11 @@
+import { Directive } from '@angular/core';
 import { UploadState } from 'ngx-uploadx';
 import { NgUploadBase } from '../../common/baseuploadcontrol';
 
 /**
  * Upload Komponente für ein einzelnes File
  */
+@Directive()
 export class NgUploadSingleCommon extends NgUploadBase<string>  {
 
   /**

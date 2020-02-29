@@ -1,9 +1,10 @@
-import { AfterContentInit, Input, TemplateRef } from '@angular/core';
+import { AfterContentInit, Directive, Input, TemplateRef } from '@angular/core';
 import { NgTabItemCommon } from './tabitem';
 
 /**
  *Basis Komponente für NgTab
  */
+@Directive()
 export abstract class NgTabCommon implements AfterContentInit {
 
   /**

@@ -1,4 +1,4 @@
-import { Input } from '@angular/core';
+import { Directive, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { Validation } from '../../validation';
 import { NgInputCommon } from './input';
@@ -6,6 +6,7 @@ import { NgInputCommon } from './input';
 /**
  * Basis Komponente für NgInputEmail
  */
+@Directive()
 export class NgInputEmailCommon extends NgInputCommon {
 
   /**

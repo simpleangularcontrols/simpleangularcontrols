@@ -1,16 +1,17 @@
-import { Host, Injector, Input } from '@angular/core';
+import { Directive, Host, Injector, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { NgInputBase } from '../../common/baseinputcontrol';
+import { IconType } from '../../enums/IconType';
 import { ILanguageService } from '../../interfaces/ilanguageservice';
 import { LanguageModel } from '../../models/languagemodel';
 import { InternalLanguageService, LANGUAGE_SERVICE } from '../../services/Language.Service';
 import { Validation } from '../../validation';
 import { NgFormularCommon } from '../form/form';
-import { IconType } from '../../enums/IconType';
 
 /**
  * Base Klasse für Multi Language Textarea Control
  */
+@Directive()
 export class NgMultilanguageInputAreaCommon extends NgInputBase<any> {
 
   /**

@@ -8,10 +8,11 @@ var gulp = require('gulp');
 var shell = require('child_process');
 
 var plugins = {
-    sass: require('gulp-sass')
-}
+    sass: require('gulp-sass'),
+    svgSprite: require('gulp-svg-sprite')
+};
 
-gulp.task('default', function (cb) {
+gulp.task('default', function (done) {
     const options = {
         encoding: 'utf8',
         timeout: 0,
@@ -24,13 +25,14 @@ gulp.task('default', function (cb) {
     shell.exec("ng build", options, function (err, stdout, stderr) {
         console.log(stdout);
         console.log(stderr);
-        cb(err);
+        done(err);
         console.log('Build Complete');
-    })
+    });
+
+    done();
 });
 
-
-gulp.task('buildAngularApp-Dev', function (cb) {
+gulp.task('buildAngularApp-Dev', function (done) {
     const options = {
         cwd: 'angualar/moduleBase',
         env: process.env
@@ -57,10 +59,10 @@ gulp.task('buildAngularApp-Dev', function (cb) {
     output.on('error', function (code) {
         console.log('error: ' + code.toString());
     });
+    done();
 });
 
-
-gulp.task('buildAngularApp-Prod', function (cb) {
+gulp.task('buildAngularApp-Prod', function (done) {
     const options = {
         cwd: 'angualar/moduleBase',
         env: process.env
@@ -87,13 +89,10 @@ gulp.task('buildAngularApp-Prod', function (cb) {
     output.on('error', function (code) {
         console.log('error: ' + code.toString());
     });
+    done();
 });
 
-
-gulp.task('sass-build', function () {
-    gulp.src('./Layout/scss/bootstrap/nativestyles.scss')
-        .pipe(plugins.sass())
-        .pipe(gulp.dest('./Layout/css/'));
+gulp.task('sass-build', function (done) {
 
     gulp.src('./Layout/scss/style.scss')
         .pipe(plugins.sass())
@@ -106,4 +105,53 @@ gulp.task('sass-build', function () {
     gulp.src('./Layout/scss/nativestyles.scss')
         .pipe(plugins.sass())
         .pipe(gulp.dest('./Layout/css/'));
+    done();
+});
+
+
+gulp.task('svgsprite', function (done) {
+    // Basic configuration example
+    config = {
+        //shape: {
+        //    transform: [{
+        //        custom: function (shape, sprite, callback) {
+        //            //console.log(shape);
+        //            //console.log('------------------------------');
+        //            // console.log(sprite);
+        //            callback(null);
+        //        }
+        //    }]
+        //},
+        //svg: {
+        //    transform: [function (svg) {
+        //        svg = svg.replace(new RegExp('fill="#252525"', 'g'), 'fill="#252525" fill-opacity="0.4"');
+        //        // console.log(svg);
+
+        //        return svg;
+        //    }]
+        //},
+        mode: {
+            stack: {
+                dest: './',
+                sprite: "output/sprite.view.svg",
+                bust: false,
+                example: {
+                    dest: 'output/template/template.html',
+                    template: 'icons/template.html.mustache'
+                },
+                render: {
+                    scss: {
+                        dest: 'output/sprite.scss',
+                        template: 'icons/template.scss.mustache'
+                    }
+                }
+            }
+        }
+    };
+
+    gulp.src('**/*.svg', { cwd: 'icons/svg' })
+        .pipe(plugins.svgSprite(config))
+        .pipe(gulp.dest('icons'));
+
+    done();
 });

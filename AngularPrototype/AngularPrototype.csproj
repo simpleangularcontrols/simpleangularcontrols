@@ -253,6 +253,11 @@
     <Content Include="icons\dialog\stop.png" />
     <Content Include="icons\dialog\unknown.png" />
     <Content Include="icons\dialog\warning.png" />
+    <Content Include="icons\output\sprite.view.svg" />
+    <Content Include="icons\output\template\template.html" />
+    <Content Include="icons\template.html.mustache" />
+    <Content Include="icons\output\sprite.scss" />
+    <None Include="icons\template.scss.mustache" />
     <Content Include="Layout\css\bootstrap.css" />
     <Content Include="Layout\css\font-awesome.min.css" />
     <Content Include="Layout\css\nativestyles.css" />
@@ -725,6 +730,7 @@
   <ItemGroup>
     <Folder Include="angular\moduleBase\projects\jngcontrols-bootstrap3\src\services\" />
     <Folder Include="App_Data\" />
+    <Folder Include="icons\svg\" />
     <Folder Include="Layout\cssextensions\" />
   </ItemGroup>
   <ItemGroup>

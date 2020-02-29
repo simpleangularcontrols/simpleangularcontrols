@@ -1,0 +1,8 @@
+﻿{{#shapes}}{{#selector.dimensions}}{{expression}}{{^last}},
+{{/last}}{{/selector.dimensions}} {
+    background-image: url('{{{example}}}#{{name}}');
+	width: {{width.outer}}px;
+	height: {{height.outer}}px;
+}
+
+{{/shapes}}

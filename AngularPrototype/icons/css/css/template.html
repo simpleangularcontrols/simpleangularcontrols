@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<title>SVG CSS sprite preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+		<style>i{text-indent:200%;white-space:nowrap;overflow:hidden;display:inline-block;background-size:4096px 3072px!important}</style>
+
+<!--
+
+Sprite CSS
+====================================================================================================
+This is an all-in-one inline version of the CSS necessary to use the SVG sprite.
+
+-->
+
+<style type="text/css">
+.svg-3d_glasses {
+	background: url("../svg/sprite.css-7baf0ce8.svg") 0 0 no-repeat;
+	width: 1024px;
+	height: 1024px;
+}
+.svg-about {
+	background: url("../svg/sprite.css-7baf0ce8.svg") 33.333333333333336% 0 no-repeat;
+	width: 1024px;
+	height: 1024px;
+}
+.svg-add {
+	background: url("../svg/sprite.css-7baf0ce8.svg") 0 50% no-repeat;
+	width: 1024px;
+	height: 1024px;
+}
+.svg-address_book2 {
+	background: url("../svg/sprite.css-7baf0ce8.svg") 33.333333333333336% 50% no-repeat;
+	width: 1024px;
+	height: 1024px;
+}
+.svg-adhesive_tape {
+	background: url("../svg/sprite.css-7baf0ce8.svg") 66.66666666666667% 0 no-repeat;
+	width: 1024px;
+	height: 1024px;
+}
+.svg-air_tube_carrier {
+	background: url("../svg/sprite.css-7baf0ce8.svg") 66.66666666666667% 50% no-repeat;
+	width: 1024px;
+	height: 1024px;
+}
+.svg-airbrush {
+	background: url("../svg/sprite.css-7baf0ce8.svg") 0 100% no-repeat;
+	width: 1024px;
+	height: 1024px;
+}
+.svg-airplane {
+	background: url("../svg/sprite.css-7baf0ce8.svg") 33.333333333333336% 100% no-repeat;
+	width: 1024px;
+	height: 1024px;
+}
+.svg-airplane2 {
+	background: url("../svg/sprite.css-7baf0ce8.svg") 66.66666666666667% 100% no-repeat;
+	width: 1024px;
+	height: 1024px;
+}
+.svg-airplane2_landing {
+	background: url("../svg/sprite.css-7baf0ce8.svg") 100% 0 no-repeat;
+	width: 1024px;
+	height: 1024px;
+}
+.svg-airplane2_starting {
+	background: url("../svg/sprite.css-7baf0ce8.svg") 100% 50% no-repeat;
+	width: 1024px;
+	height: 1024px;
+}
+.svg-airship {
+	background: url("../svg/sprite.css-7baf0ce8.svg") 100% 100% no-repeat;
+	width: 1024px;
+	height: 1024px;
+}
+</style>
+
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+		<header>
+			<h1>SVG CSS sprite preview</h1>
+			<p>This preview features the generated SVG file as a conventional CSS sprite. The shapes are displayed as background images of several <code>&lt;i&gt;</code> elements.</p>
+		</header>
+		<section>
+
+<!--
+
+Conventional CSS sprite
+====================================================================================================
+This technique uses CSS classes to display portions of the sprite as background image of
+appropriately sized elements.
+
+-->
+
+			<ul>
+				<li title="3d_glasses">
+					<div class="icon-box">
+
+						<!-- 3d_glasses -->
+						<i class="svg-3d_glasses">3d_glasses</i>
+
+					</div>
+					<h2>3d_glasses</h2>
+				</li>
+				<li title="about">
+					<div class="icon-box">
+
+						<!-- about -->
+						<i class="svg-about">about</i>
+
+					</div>
+					<h2>about</h2>
+				</li>
+				<li title="add">
+					<div class="icon-box">
+
+						<!-- add -->
+						<i class="svg-add">add</i>
+
+					</div>
+					<h2>add</h2>
+				</li>
+				<li title="address_book2">
+					<div class="icon-box">
+
+						<!-- address_book2 -->
+						<i class="svg-address_book2">address_book2</i>
+
+					</div>
+					<h2>address_book2</h2>
+				</li>
+				<li title="adhesive_tape">
+					<div class="icon-box">
+
+						<!-- adhesive_tape -->
+						<i class="svg-adhesive_tape">adhesive_tape</i>
+
+					</div>
+					<h2>adhesive_tape</h2>
+				</li>
+				<li title="air_tube_carrier">
+					<div class="icon-box">
+
+						<!-- air_tube_carrier -->
+						<i class="svg-air_tube_carrier">air_tube_carrier</i>
+
+					</div>
+					<h2>air_tube_carrier</h2>
+				</li>
+				<li title="airbrush">
+					<div class="icon-box">
+
+						<!-- airbrush -->
+						<i class="svg-airbrush">airbrush</i>
+
+					</div>
+					<h2>airbrush</h2>
+				</li>
+				<li title="airplane">
+					<div class="icon-box">
+
+						<!-- airplane -->
+						<i class="svg-airplane">airplane</i>
+
+					</div>
+					<h2>airplane</h2>
+				</li>
+				<li title="airplane2">
+					<div class="icon-box">
+
+						<!-- airplane2 -->
+						<i class="svg-airplane2">airplane2</i>
+
+					</div>
+					<h2>airplane2</h2>
+				</li>
+				<li title="airplane2_landing">
+					<div class="icon-box">
+
+						<!-- airplane2_landing -->
+						<i class="svg-airplane2_landing">airplane2_landing</i>
+
+					</div>
+					<h2>airplane2_landing</h2>
+				</li>
+				<li title="airplane2_starting">
+					<div class="icon-box">
+
+						<!-- airplane2_starting -->
+						<i class="svg-airplane2_starting">airplane2_starting</i>
+
+					</div>
+					<h2>airplane2_starting</h2>
+				</li>
+				<li title="airship">
+					<div class="icon-box">
+
+						<!-- airship -->
+						<i class="svg-airship">airship</i>
+
+					</div>
+					<h2>airship</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Fri, 28 Feb 2020 20:50:01 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>

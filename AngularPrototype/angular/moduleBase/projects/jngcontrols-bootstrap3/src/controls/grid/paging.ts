@@ -1,4 +1,4 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component, forwardRef, Injector } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { NgPagingCommon } from '@jnetwork/jngcontrols-common';
 
@@ -17,8 +17,6 @@ export class NgPagingComponent extends NgPagingCommon {
   /**
    * Konstruktor
    */
-  constructor() {
-    super();
-  }
+  constructor(injector: Injector) { super(injector); }
 
 }

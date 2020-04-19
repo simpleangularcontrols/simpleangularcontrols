@@ -27,6 +27,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -218,6 +219,8 @@
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\tabs\tab.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\tabs\tabitem.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\tinymce\tinymce.html" />
+    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\upload\upload.html" />
+    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\upload\uploadmultiple.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\validation\validationsummary.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\wizard\wizard.html" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\wizard\wizarditem.html" />
@@ -229,6 +232,7 @@
     <Content Include="angular\moduleBase\src\app\controls\grid.html" />
     <Content Include="angular\moduleBase\src\app\controls\multilanguageinput.component.html" />
     <Content Include="angular\moduleBase\src\app\controls\subform.component.html" />
+    <Content Include="angular\moduleBase\src\app\controls\upload.component.html" />
     <Content Include="angular\moduleBase\src\app\modules\UserComponent.html" />
     <Content Include="angular\moduleBase\src\index.html" />
     <Content Include="Contact.aspx" />
@@ -257,6 +261,7 @@
     <Content Include="icons\output\template\template.html" />
     <Content Include="icons\template.html.mustache" />
     <Content Include="icons\output\sprite.scss" />
+    <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\upload\upload.scss" />
     <None Include="icons\template.scss.mustache" />
     <Content Include="Layout\css\bootstrap.css" />
     <Content Include="Layout\css\font-awesome.min.css" />
@@ -606,6 +611,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="upload\temp\readme.txt" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -653,6 +659,9 @@
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\static\staticlabel.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\tabs\index.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\tinymce\index.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\upload\upload.module.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\upload\upload.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\upload\uploadmultiple.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\validation\index.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\wizard\index.ts" />
     <TypeScriptCompile Include="angular\moduleBase\projects\jngcontrols-common\src\controls\grid\gridimage.ts" />
@@ -676,7 +685,10 @@
     <Compile Include="Api\Model\GridItemDto.cs" />
     <Compile Include="Api\Model\GridRequest.cs" />
     <Compile Include="Api\Model\GridResultDto.cs" />
+    <Compile Include="Api\Model\UploadFileDto.cs" />
+    <Compile Include="Api\Model\UploadRegistration.cs" />
     <Compile Include="Api\Services\GridController.cs" />
+    <Compile Include="Api\Services\UploadController.cs" />
     <Compile Include="Api\WebApiConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -920,6 +932,7 @@
     <TypeScriptCompile Include="angular\moduleBase\src\app\controls\grid.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\controls\multilanguageinput.component.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\controls\subform.component.ts" />
+    <TypeScriptCompile Include="angular\moduleBase\src\app\controls\upload.component.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\models\GridItemDto.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\models\GridRequestDto.ts" />
     <TypeScriptCompile Include="angular\moduleBase\src\app\models\GridResultDto.ts" />

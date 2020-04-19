@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 // Third Party Extensions
 import { ToastrModule } from 'ngx-toastr';
 import { TextMaskModule } from 'angular2-text-mask';
+import { UploadxModule } from 'ngx-uploadx';
 
 // Internal Components and Services
 import { UserComponent } from './modules/UserComponent';
@@ -24,6 +25,7 @@ import { ExampleGridComponent, TempDirective } from './controls/grid';
 import { ExampleDialogComponent } from './controls/dialog';
 import { SubFormComponent } from './controls/subform.component';
 import { ExampleMultiLanguageInputComponent } from './controls/multilanguageinput.component';
+import { ExampleUploadComponent } from './controls/upload.component';
 
 import { LANGUAGE_SERVICE } from '@jnetwork/jngcontrols-common';
 import { ControlsLanguageService } from './services/language.service';
@@ -32,7 +34,7 @@ import { ControlsLanguageService } from './services/language.service';
 const NgDirectives = [
   AppComponent, UserComponent,
 
-  ExampleGridComponent, ExampleDialogComponent, SubFormComponent, ExampleMultiLanguageInputComponent, TempDirective
+  ExampleGridComponent, ExampleDialogComponent, ExampleUploadComponent, ExampleMultiLanguageInputComponent, TempDirective, SubFormComponent
 ];
 
 // import {
@@ -68,13 +70,9 @@ import {
   // JNetworkBootstrap4StaticLabelModule,
   JNetworkBootstrap4WizardModule,
   JNetworkBootstrap4ConfirmModule,
-  // JNetworkBootstrap4UploadModule,
+  JNetworkBootstrap4UploadModule,
   JNetworkBootstrap4MultilanguageModule
 } from '@jnetwork/jngcontrols-bootstrap4';
-
-import { UploadxModule } from 'ngx-uploadx';
-
-
 
 @NgModule({
   declarations: [
@@ -120,7 +118,7 @@ import { UploadxModule } from 'ngx-uploadx';
     JNetworkBootstrap4GridModule,
     // JNetworkBootstrap4StaticLabelModule,
     JNetworkBootstrap4WizardModule,
-    // JNetworkBootstrap4UploadModule,
+    JNetworkBootstrap4UploadModule,
     JNetworkBootstrap4MultilanguageModule,
     JNetworkBootstrap4ConfirmModule.forRoot(),
 

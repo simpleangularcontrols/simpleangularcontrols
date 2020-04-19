@@ -17,7 +17,6 @@ export class NgUploadSingleCommon extends NgUploadBase<string>  {
     return true;
   }
 
-
   /**
    * Setzt die File ID des hochgeladen Files in das Model
    *

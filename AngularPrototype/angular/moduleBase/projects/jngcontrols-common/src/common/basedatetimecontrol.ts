@@ -96,6 +96,9 @@ export abstract class NgBaseDateTimeControl extends NgBaseModelControl<Date> imp
    */
   writeValue(value: Date | string) {
     if (value === '' || value === null || value === undefined) {
+      // Reset Value String, damit beim Update des Models auch das Input Feld geleert wird.
+      this._valueAsString = '';
+      // Set Internal Property
       this._value = null;
     } else {
       this._value = this.getDate(value).toDate();

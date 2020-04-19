@@ -94,7 +94,7 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
   @Output('onfileerror') onfileerror = new EventEmitter<string>();
 
   // File Input Control
-  @ViewChild('files')
+  @ViewChild('files', { static: true })
   private uploadInput: ElementRef;
   // Listener für Files
   listenerFn: () => void;
@@ -334,7 +334,7 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
   onUpload(ufile: UploadState) {
     const index = this.uploads.findIndex(f => f.uploadId === ufile.uploadId);
 
-    if (ufile.status === 'added') {
+    if (ufile.status === 'added' || (ufile.status === 'queue' && index < 0)) {
       if (this.isExtensionValid(ufile.name) && this.isFileSizeValid(ufile.size) && this.CustomAddValidation(ufile)) {
         this.uploads.push(new NgUploadFile(ufile));
       } else {

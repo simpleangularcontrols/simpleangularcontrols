@@ -1,0 +1,43 @@
+.upload-component {
+  .custom-file {
+    .custom-file-input {
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+    }
+  }
+
+  &.upload-multiple {
+    .upload-progress {
+      .progress {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+
+  &.upload-single {
+    .upload-progress {
+      .progress {
+        border-radius: 0;
+      }
+    }
+  }
+
+  .upload-progress {
+    padding: 0;
+    border: 0;
+
+    .progress {
+      height: calc(2.25rem + 2px);
+
+      .progress-text {
+        position: absolute;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+}

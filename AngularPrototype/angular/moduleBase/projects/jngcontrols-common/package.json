@@ -2,8 +2,8 @@
   "name": "@jnetwork/jngcontrols-common",
   "version": "1.1.15",
   "peerDependencies": {
-    "@angular/common": "9.0.1",
-    "@angular/core": "9.0.1",
+    "@angular/common": "9.1.2",
+    "@angular/core": "9.1.2",
     "moment": "2.24.0",
     "angular2-text-mask": "9.0.0",
     "ngx-uploadx": "3.3.5"

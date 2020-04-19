@@ -64,6 +64,13 @@
             <code>projects/jngcontrols-common/src/controls/tinymce/events.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>interface. Enthielt properties event von type T und editor von type any</p>
+
+            </p>
 
 
         <section>
@@ -122,6 +129,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>property typ any</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -151,6 +164,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>property typ T</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -158,13 +177,26 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Output, EventEmitter } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, EventEmitter, Output } from &#x27;@angular/core&#x27;;
 
+/**
+ * interface. Enthielt properties event von type T und editor von type any
+ */
 export interface EventObj&lt;T&gt; {
+  /**
+   * property typ T
+   */
   event: T;
+  /**
+   * property typ any
+   */
   editor: any;
 }
 
+/**
+ * Klasse EVents. Еnthalt verchiedene Outputs
+ */
+@Directive()
 export class Events {
   @Output() onBeforePaste: EventEmitter&lt;EventObj&lt;ClipboardEvent&gt;&gt; &#x3D; new EventEmitter();
   @Output() onBlur: EventEmitter&lt;EventObj&lt;FocusEvent&gt;&gt; &#x3D; new EventEmitter();
@@ -232,6 +264,9 @@ export class Events {
   @Output() onVisualAid: EventEmitter&lt;EventObj&lt;any&gt;&gt; &#x3D; new EventEmitter();
 }
 
+/**
+ * Enthielt key words von alle Events für Tiny MCE
+ */
 export const validEvents: (keyof Events)[] &#x3D; [
   &#x27;onActivate&#x27;,
   &#x27;onAddUndo&#x27;,
@@ -301,6 +336,7 @@ export const validEvents: (keyof Events)[] &#x3D; [
 </div>
 
 
+                   
 
 
 
@@ -323,6 +359,7 @@ export const validEvents: (keyof Events)[] &#x3D; [
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
             var COMPODOC_CURRENT_PAGE_URL = 'EventObj.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

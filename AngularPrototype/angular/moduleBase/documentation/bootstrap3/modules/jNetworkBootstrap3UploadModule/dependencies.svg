@@ -21,70 +21,70 @@
 <polygon fill="#fb8072" stroke="transparent" points="406,-10 406,-30 426,-30 426,-10 406,-10"/>
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
-<title>cluster_jNetworkBootstrap3UploadModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="121,-70 121,-268 375,-268 375,-70 121,-70"/>
+<title>cluster_JNetworkBootstrap3UploadModule</title>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="55.5,-70 55.5,-268 440.5,-268 440.5,-70 55.5,-70"/>
 </g>
 <g id="clust2" class="cluster">
-<title>cluster_jNetworkBootstrap3UploadModule_declarations</title>
-<polygon fill="none" stroke="#000000" points="133,-78 133,-130 363,-130 363,-78 133,-78"/>
+<title>cluster_JNetworkBootstrap3UploadModule_declarations</title>
+<polygon fill="none" stroke="#000000" points="66.5,-78 66.5,-130 428.5,-130 428.5,-78 66.5,-78"/>
 </g>
 <g id="clust6" class="cluster">
-<title>cluster_jNetworkBootstrap3UploadModule_exports</title>
-<polygon fill="none" stroke="#000000" points="129,-208 129,-260 367,-260 367,-208 129,-208"/>
+<title>cluster_JNetworkBootstrap3UploadModule_exports</title>
+<polygon fill="none" stroke="#000000" points="63.5,-208 63.5,-260 432.5,-260 432.5,-208 63.5,-208"/>
 </g>
-<!-- NgUpload -->
+<!-- NgUploadComponent -->
 <g id="node1" class="node">
-<title>NgUpload</title>
-<polygon fill="#ffffb3" stroke="#000000" points="355.3191,-122 280.6809,-122 280.6809,-86 355.3191,-86 355.3191,-122"/>
-<text text-anchor="middle" x="318" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgUpload</text>
+<title>NgUploadComponent</title>
+<polygon fill="#ffffb3" stroke="#000000" points="420.1512,-122 280.8488,-122 280.8488,-86 420.1512,-86 420.1512,-122"/>
+<text text-anchor="middle" x="350.5" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgUploadComponent</text>
 </g>
-<!-- jNetworkBootstrap3UploadModule -->
+<!-- JNetworkBootstrap3UploadModule -->
 <g id="node3" class="node">
-<title>jNetworkBootstrap3UploadModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="355.5688,-187 352.5688,-191 331.5688,-191 328.5688,-187 140.4312,-187 140.4312,-151 355.5688,-151 355.5688,-187"/>
-<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">jNetworkBootstrap3UploadModule</text>
+<title>JNetworkBootstrap3UploadModule</title>
+<polygon fill="#8dd3c7" stroke="#000000" points="355.6231,-187 352.6231,-191 331.6231,-191 328.6231,-187 139.3769,-187 139.3769,-151 355.6231,-151 355.6231,-187"/>
+<text text-anchor="middle" x="247.5" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">JNetworkBootstrap3UploadModule</text>
 </g>
-<!-- NgUpload&#45;&gt;jNetworkBootstrap3UploadModule -->
+<!-- NgUploadComponent&#45;&gt;JNetworkBootstrap3UploadModule -->
 <g id="edge1" class="edge">
-<title>NgUpload&#45;&gt;jNetworkBootstrap3UploadModule</title>
-<path fill="none" stroke="#000000" d="M318,-122.1061C318,-122.1061 318,-140.991 318,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="314.5001,-140.9909 318,-150.991 321.5001,-140.991 314.5001,-140.9909"/>
+<title>NgUploadComponent&#45;&gt;JNetworkBootstrap3UploadModule</title>
+<path fill="none" stroke="#000000" d="M318.243,-122.1061C318.243,-122.1061 318.243,-140.991 318.243,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="314.7431,-140.9909 318.243,-150.991 321.7431,-140.991 314.7431,-140.9909"/>
 </g>
-<!-- NgUploadMultiple -->
+<!-- NgUploadMultipleComponent -->
 <g id="node2" class="node">
-<title>NgUploadMultiple</title>
-<polygon fill="#ffffb3" stroke="#000000" points="263.0409,-122 140.9591,-122 140.9591,-86 263.0409,-86 263.0409,-122"/>
-<text text-anchor="middle" x="202" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgUploadMultiple</text>
+<title>NgUploadMultipleComponent</title>
+<polygon fill="#ffffb3" stroke="#000000" points="262.3724,-122 74.6276,-122 74.6276,-86 262.3724,-86 262.3724,-122"/>
+<text text-anchor="middle" x="168.5" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgUploadMultipleComponent</text>
 </g>
-<!-- NgUploadMultiple&#45;&gt;jNetworkBootstrap3UploadModule -->
+<!-- NgUploadMultipleComponent&#45;&gt;JNetworkBootstrap3UploadModule -->
 <g id="edge2" class="edge">
-<title>NgUploadMultiple&#45;&gt;jNetworkBootstrap3UploadModule</title>
-<path fill="none" stroke="#000000" d="M202,-122.1061C202,-122.1061 202,-140.991 202,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="198.5001,-140.9909 202,-150.991 205.5001,-140.991 198.5001,-140.9909"/>
+<title>NgUploadMultipleComponent&#45;&gt;JNetworkBootstrap3UploadModule</title>
+<path fill="none" stroke="#000000" d="M200.8124,-122.1061C200.8124,-122.1061 200.8124,-140.991 200.8124,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="197.3125,-140.9909 200.8124,-150.991 204.3125,-140.991 197.3125,-140.9909"/>
 </g>
-<!-- NgUpload  -->
+<!-- NgUploadComponent  -->
 <g id="node4" class="node">
-<title>NgUpload </title>
-<polygon fill="#fb8072" stroke="#000000" points="358.8186,-252 281.1814,-252 281.1814,-216 358.8186,-216 358.8186,-252"/>
-<text text-anchor="middle" x="320" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgUpload </text>
+<title>NgUploadComponent </title>
+<polygon fill="#fb8072" stroke="#000000" points="424.1509,-252 280.8491,-252 280.8491,-216 424.1509,-216 424.1509,-252"/>
+<text text-anchor="middle" x="352.5" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgUploadComponent </text>
 </g>
-<!-- jNetworkBootstrap3UploadModule&#45;&gt;NgUpload  -->
+<!-- JNetworkBootstrap3UploadModule&#45;&gt;NgUploadComponent  -->
 <g id="edge3" class="edge">
-<title>jNetworkBootstrap3UploadModule&#45;&gt;NgUpload </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M318.3126,-187.1061C318.3126,-187.1061 318.3126,-205.991 318.3126,-205.991"/>
-<polygon fill="#000000" stroke="#000000" points="314.8127,-205.9909 318.3126,-215.991 321.8127,-205.991 314.8127,-205.9909"/>
+<title>JNetworkBootstrap3UploadModule&#45;&gt;NgUploadComponent </title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M318.368,-187.1061C318.368,-187.1061 318.368,-205.991 318.368,-205.991"/>
+<polygon fill="#000000" stroke="#000000" points="314.8681,-205.9909 318.368,-215.991 321.8681,-205.991 314.8681,-205.9909"/>
 </g>
-<!-- NgUploadMultiple  -->
+<!-- NgUploadMultipleComponent  -->
 <g id="node5" class="node">
-<title>NgUploadMultiple </title>
-<polygon fill="#fb8072" stroke="#000000" points="263.04,-252 136.96,-252 136.96,-216 263.04,-216 263.04,-252"/>
-<text text-anchor="middle" x="200" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgUploadMultiple </text>
+<title>NgUploadMultipleComponent </title>
+<polygon fill="#fb8072" stroke="#000000" points="263.3728,-252 71.6272,-252 71.6272,-216 263.3728,-216 263.3728,-252"/>
+<text text-anchor="middle" x="167.5" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgUploadMultipleComponent </text>
 </g>
-<!-- jNetworkBootstrap3UploadModule&#45;&gt;NgUploadMultiple  -->
+<!-- JNetworkBootstrap3UploadModule&#45;&gt;NgUploadMultipleComponent  -->
 <g id="edge4" class="edge">
-<title>jNetworkBootstrap3UploadModule&#45;&gt;NgUploadMultiple </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M201.7428,-187.1061C201.7428,-187.1061 201.7428,-205.991 201.7428,-205.991"/>
-<polygon fill="#000000" stroke="#000000" points="198.2429,-205.9909 201.7428,-215.991 205.2429,-205.991 198.2429,-205.9909"/>
+<title>JNetworkBootstrap3UploadModule&#45;&gt;NgUploadMultipleComponent </title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M201.1874,-187.1061C201.1874,-187.1061 201.1874,-205.991 201.1874,-205.991"/>
+<polygon fill="#000000" stroke="#000000" points="197.6875,-205.9909 201.1874,-215.991 204.6875,-205.991 197.6875,-205.9909"/>
 </g>
 </g>
 </svg>

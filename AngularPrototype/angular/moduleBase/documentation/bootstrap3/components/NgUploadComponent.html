@@ -1,0 +1,389 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Bootstrap 3 Angular Controls</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>NgUploadComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>projects/jngcontrols-bootstrap3/src/controls/upload/upload.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                <code><a href="../miscellaneous/variables.html#load" target="_self" >NgUploadSingleCommon</a></code>
+    </p>
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                                <code><a href="../components/NgUploadComponent.html" target="_self" >{ provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgUploadComponent }</a></code>
+                                <code><a href="../components/NgUploadComponent.html" target="_self" >{ provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgUploadComponent) }</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ng-upload,ngUpload</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./upload.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(parent: NgFormularDirective, injector: <a href="https://angular.io/api/core/Injector" target="_blank">Injector</a>, renderer: <a href="https://angular.io/api/core/Renderer2" target="_blank">Renderer2</a>, ngZone: <a href="https://angular.io/api/core/NgZone" target="_blank">NgZone</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/jngcontrols-bootstrap3/src/controls/upload/upload.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>parent</td>
+                                                  
+                                                        <td>
+                                                                    <code>NgFormularDirective</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/Injector" target="_blank" >Injector</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>renderer</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/Renderer2" target="_blank" >Renderer2</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ngZone</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/NgZone" target="_blank" >NgZone</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Host, forwardRef, Injector, Renderer2 } from &#x27;@angular/core&#x27;;
+import { NgUploadSingleCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
+import { NgFormularDirective } from &#x27;../form/form&#x27;;
+import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from &#x27;@angular/forms&#x27;;
+import { NgZone } from &#x27;@angular/core&#x27;;
+
+// https://github.com/kukhariev/ngx-uploadx/
+
+@Component({
+  selector: &#x27;ng-upload,ngUpload&#x27;,
+  templateUrl: &#x27;./upload.html&#x27;,
+  providers: [
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgUploadComponent },
+    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgUploadComponent) }
+  ]
+})
+export class NgUploadComponent extends NgUploadSingleCommon {
+
+  constructor( @Host() parent: NgFormularDirective, injector: Injector, renderer: Renderer2, ngZone: NgZone) {
+    super(parent, injector, renderer, ngZone);
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;form-group&quot; [ngClass]&#x3D;&quot;{&#x27;has-error&#x27;: invalid &amp;&amp; (dirty || touched)}&quot;&gt;
+  &lt;label *ngIf&#x3D;&quot;_disablelabel &#x3D;&#x3D;&#x3D; false &amp;&amp; !_isadaptivelabel&quot; id&#x3D;&quot;{{_name}}_label&quot; for&#x3D;&quot;{{_name}}&quot; class&#x3D;&quot;control-label&quot; [ngClass]&#x3D;&quot;[_labelsize !&#x3D;&#x3D; 12 ?  &#x27;col-md-&#x27; + _labelsize : &#x27;sr-only&#x27;]&quot; [class.required]&#x3D;&quot;_isrequired&quot;&gt;{{_label}}&lt;/label&gt;
+  &lt;div [ngClass]&#x3D;&quot;[_disablelabel &#x3D;&#x3D;&#x3D; false ? &#x27;col-md-&#x27; + _inputsize : &#x27;col-md-12&#x27;]&quot;&gt;
+
+    &lt;div class&#x3D;&quot;input-group upload-component&quot;&gt;
+      &lt;div class&#x3D;&quot;input-group-btn&quot;&gt;
+        &lt;!-- image-preview-input --&gt;
+        &lt;div class&#x3D;&quot;btn upload-input&quot; [class.disabled]&#x3D;&quot;HasQueueItem()&quot;
+             [class.btn-default]&#x3D;&quot;!(invalid &amp;&amp; (dirty || touched))&quot; [class.btn-danger]&#x3D;&quot;invalid &amp;&amp; (dirty || touched)&quot;&gt;
+          &lt;i class&#x3D;&quot;glyphicon glyphicon-folder-open&quot;&gt;&lt;/i&gt;
+          &lt;span class&#x3D;&quot;upload-browse&quot;&gt;Browse&lt;/span&gt;
+          &lt;input type&#x3D;&quot;file&quot; class&#x3D;&quot;custom-file-input&quot; #files (click)&#x3D;&quot;files.value &#x3D; &#x27;&#x27;&quot;
+                 (uploadxState)&#x3D;&quot;onUpload($event)&quot; multiple [disabled]&#x3D;&quot;HasQueueItem()&quot;&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;form-control upload-progress&quot;&gt;
+        &lt;div class&#x3D;&quot;progress&quot;&gt;
+          &lt;div class&#x3D;&quot;progress-bar&quot; [class.progress-bar-success]&#x3D;&quot;Progress()&#x3D;&#x3D;&#x3D;100&quot; role&#x3D;&quot;progressbar&quot; [attr.aria-valuenow]&#x3D;&quot;Progress()&quot;
+               aria-valuemin&#x3D;&quot;0&quot; aria-valuemax&#x3D;&quot;100&quot; [style.width.%]&#x3D;&quot;Progress()&quot;&gt;
+            &lt;span&gt;{{ Filename() }}&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;!-- &lt;input type&#x3D;&quot;textimage-preview-filename&quot; class&#x3D;&quot;form-control image-preview-filename&quot; disabled&#x3D;&quot;disabled&quot;&gt; --&gt;&lt;!-- don&#x27;t give a name &#x3D;&#x3D;&#x3D; doesn&#x27;t send on POST/GET --&gt;
+      &lt;div class&#x3D;&quot;input-group-btn&quot;&gt;
+        &lt;!-- image-preview-clear button --&gt;
+        &lt;a class&#x3D;&quot;btn&quot; (click)&#x3D;&quot;cancelAll()&quot; [attr.disabled]&#x3D;&quot;HasQueueItem() &#x3D;&#x3D;&#x3D; false ? &#x27;disabled&#x27; : null&quot;
+           [class.btn-default]&#x3D;&quot;!(invalid &amp;&amp; (dirty || touched))&quot; [class.btn-danger]&#x3D;&quot;invalid &amp;&amp; (dirty || touched)&quot;&gt;
+          &lt;span class&#x3D;&quot;glyphicon glyphicon-remove&quot;&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a *ngIf&#x3D;&quot;(autoupload &#x3D;&#x3D;&#x3D; false &amp;&amp; enablepause) || (autoupload &amp;&amp; enablepause &amp;&amp; IsPaused() &#x3D;&#x3D; false)&quot; class&#x3D;&quot;btn&quot; (click)&#x3D;&quot;pauseAll()&quot; [attr.disabled]&#x3D;&quot;IsUploading() &#x3D;&#x3D;&#x3D; false ? &#x27;disabled&#x27; : null&quot;
+           [class.btn-default]&#x3D;&quot;!(invalid &amp;&amp; (dirty || touched))&quot; [class.btn-danger]&#x3D;&quot;invalid &amp;&amp; (dirty || touched)&quot;&gt;
+          &lt;span class&#x3D;&quot;glyphicon glyphicon-pause&quot;&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a *ngIf&#x3D;&quot;autoupload &amp;&amp; enablepause &amp;&amp; IsPaused()&quot; class&#x3D;&quot;btn&quot; (click)&#x3D;&quot;uploadAll()&quot;
+           [class.btn-default]&#x3D;&quot;!(invalid &amp;&amp; (dirty || touched))&quot; [class.btn-danger]&#x3D;&quot;invalid &amp;&amp; (dirty || touched)&quot;&gt;
+          &lt;span class&#x3D;&quot;glyphicon glyphicon-play&quot;&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a *ngIf&#x3D;&quot;autoupload &#x3D;&#x3D;&#x3D; false&quot; class&#x3D;&quot;btn&quot; (click)&#x3D;&quot;uploadAll()&quot; [attr.disabled]&#x3D;&quot;IsStateToUpload() &#x3D;&#x3D;&#x3D; false ?  &#x27;disabled&#x27; : null&quot;
+           [class.btn-default]&#x3D;&quot;!(invalid &amp;&amp; (dirty || touched))&quot; [class.btn-danger]&#x3D;&quot;invalid &amp;&amp; (dirty || touched)&quot;&gt;
+          &lt;span class&#x3D;&quot;glyphicon glyphicon-upload&quot;&gt;&lt;/span&gt; Upload
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;help-block help-block-error&quot; *ngIf&#x3D;&quot;IsInlineErrorEnabled &amp;&amp; invalid &amp;&amp; (dirty || touched)&quot;&gt;{{ GetErrorMessage() | async }}&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="form-group" [ngClass]="{\'has-error\': invalid && (dirty || touched)}">  <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="control-label" [ngClass]="[_labelsize !== 12 ?  \'col-md-\' + _labelsize : \'sr-only\']" [class.required]="_isrequired">{{_label}}</label>  <div [ngClass]="[_disablelabel === false ? \'col-md-\' + _inputsize : \'col-md-12\']">    <div class="input-group upload-component">      <div class="input-group-btn">        <!-- image-preview-input -->        <div class="btn upload-input" [class.disabled]="HasQueueItem()"             [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">          <i class="glyphicon glyphicon-folder-open"></i>          <span class="upload-browse">Browse</span>          <input type="file" class="custom-file-input" #files (click)="files.value = \'\'"                 (uploadxState)="onUpload($event)" multiple [disabled]="HasQueueItem()">        </div>      </div>      <div class="form-control upload-progress">        <div class="progress">          <div class="progress-bar" [class.progress-bar-success]="Progress()===100" role="progressbar" [attr.aria-valuenow]="Progress()"               aria-valuemin="0" aria-valuemax="100" [style.width.%]="Progress()">            <span>{{ Filename() }}</span>          </div>        </div>      </div>      <!-- <input type="textimage-preview-filename" class="form-control image-preview-filename" disabled="disabled"> --><!-- don\'t give a name === doesn\'t send on POST/GET -->      <div class="input-group-btn">        <!-- image-preview-clear button -->        <a class="btn" (click)="cancelAll()" [attr.disabled]="HasQueueItem() === false ? \'disabled\' : null"           [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">          <span class="glyphicon glyphicon-remove"></span>        </a>        <a *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && IsPaused() == false)" class="btn" (click)="pauseAll()" [attr.disabled]="IsUploading() === false ? \'disabled\' : null"           [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">          <span class="glyphicon glyphicon-pause"></span>        </a>        <a *ngIf="autoupload && enablepause && IsPaused()" class="btn" (click)="uploadAll()"           [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">          <span class="glyphicon glyphicon-play"></span>        </a>        <a *ngIf="autoupload === false" class="btn" (click)="uploadAll()" [attr.disabled]="IsStateToUpload() === false ?  \'disabled\' : null"           [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">          <span class="glyphicon glyphicon-upload"></span> Upload        </a>      </div>    </div>    <div class="help-block help-block-error" *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)">{{ GetErrorMessage() | async }}</div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'NgButtonComponent', 'selector': 'ng-button,ngButton'},{'name': 'NgCheckboxComponent', 'selector': 'ng-checkbox,ngCheckbox'},{'name': 'NgConfirmComponent', 'selector': 'ng-confirm,ngConfirm'},{'name': 'NgDateComponent', 'selector': 'ng-date,ngDate'},{'name': 'NgDateSelectorComponent', 'selector': 'ng-dateselector,ngDateSelector'},{'name': 'NgDateTimeComponent', 'selector': 'ng-datetime,ngDateTime'},{'name': 'NgDialogComponent', 'selector': 'ng-dialog,ngDialog'},{'name': 'NgDropdownComponent', 'selector': 'ng-dropdown,ngDropdown'},{'name': 'NgGridButtonComponent', 'selector': 'ng-gridbutton,ngGridButton'},{'name': 'NgGridColumnActionComponent', 'selector': 'ng-gridcolumnaction,ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgGridColumnComponent', 'selector': 'ng-gridcolumn,ngGridColumn,[ngGridColumn]'},{'name': 'NgGridComponent', 'selector': 'ng-grid,ngGrid'},{'name': 'NgGridImageComponent', 'selector': 'ng-gridimage,ngGridImage'},{'name': 'NgInputAreaComponent', 'selector': 'ng-inputarea,ngInputArea'},{'name': 'NgInputComponent', 'selector': 'ng-input,ngInput'},{'name': 'NgInputCurrencyComponent', 'selector': 'ng-inputcurrency,ngInputCurrency'},{'name': 'NgInputDecimalComponent', 'selector': 'ng-inputdecimal,ngInputDecimal'},{'name': 'NgInputEmailComponent', 'selector': 'ng-inputemail,ngInputEmail'},{'name': 'NgInputIntegerComponent', 'selector': 'ng-inputinteger,ngInputInteger'},{'name': 'NgInputPasswordComponent', 'selector': 'ng-inputpassword,ngInputPassword'},{'name': 'NgInputSearchComponent', 'selector': 'ng-inputsearch,ngInputSearch'},{'name': 'NgListboxComponent', 'selector': 'ng-listbox,ngListbox'},{'name': 'NgPagingComponent', 'selector': 'ng-paging,ngPaging'},{'name': 'NgRadiobuttonComponent', 'selector': 'ng-radiobutton,ngRadiobutton'},{'name': 'NgRadiobuttonsComponent', 'selector': 'ng-radiobuttons,ngRadiobuttons'},{'name': 'NgStaticFormContainerComponent', 'selector': 'ng-staticformcontainer,ngStaticFormContainer'},{'name': 'NgStaticLabelComponent', 'selector': 'ng-staticlabel,ngStaticLabel'},{'name': 'NgTabComponent', 'selector': 'ng-tab,ngTab'},{'name': 'NgTabItemComponent', 'selector': 'ng-tabitem,ngTabItem'},{'name': 'NgTimeComponent', 'selector': 'ng-time,ngTime'},{'name': 'NgTinyMceComponent', 'selector': 'ng-tinymce,ngTinymce'},{'name': 'NgTinyMceEditorComponent', 'selector': 'ngTinyMceEditor'},{'name': 'NgTooltipComponent', 'selector': 'ng-tooltip,ngTooltip'},{'name': 'NgTreeItemActionComponent', 'selector': 'ng-treeitemaction,ngTreeItemAction'},{'name': 'NgTreeViewChildComponent', 'selector': 'ng-treeviewchild,ngTreeViewChild'},{'name': 'NgTreeViewComponent', 'selector': 'ng-treeview,ngTreeView'},{'name': 'NgUploadComponent', 'selector': 'ng-upload,ngUpload'},{'name': 'NgUploadMultipleComponent', 'selector': 'ng-uploadmultiple,ngUploadMultiple'},{'name': 'NgValidationSummaryComponent', 'selector': 'ng-validationsummary,ngValidationSummary'},{'name': 'NgWizardComponent', 'selector': 'ng-wizard,ngWizard'},{'name': 'NgWizardItemComponent', 'selector': 'ng-wizarditem,ngWizardItem'}];
+    var DIRECTIVES = [{'name': 'NgDropdownOptionDirective', 'selector': 'option,[ngOption]'},{'name': 'NgFormularDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgListboxOptionDirective', 'selector': '[ngOption], option'},{'name': 'ProvideParentNgFormularDirective', 'selector': '[ngInheritForm][inherit-form]'}];
+    var ACTUAL_COMPONENT = {'name': 'NgUploadComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'NgUploadComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -308,7 +308,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ElementRef, EventEmitter, Injector, Input, NgZone, OnDestroy, OnInit, Output, Renderer2, ViewChild } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, ElementRef, EventEmitter, Injector, Input, NgZone, OnDestroy, OnInit, Output, Renderer2, ViewChild } from &#x27;@angular/core&#x27;;
 import { AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
 import { UploadState, UploadxOptions, UploadxService } from &#x27;ngx-uploadx&#x27;;
 import { NgFormularCommon } from &#x27;../controls/form/form&#x27;;
@@ -334,6 +334,7 @@ export class NgUploadFile {
 /**
  * Base Klasse für Uploader Control
  */
+@Directive()
 export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VALUE&gt; implements OnInit, OnDestroy {
 
   uploads: NgUploadFile[];
@@ -403,7 +404,7 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
   @Output(&#x27;onfileerror&#x27;) onfileerror &#x3D; new EventEmitter&lt;string&gt;();
 
   // File Input Control
-  @ViewChild(&#x27;files&#x27;)
+  @ViewChild(&#x27;files&#x27;, { static: true })
   private uploadInput: ElementRef;
   // Listener für Files
   listenerFn: () &#x3D;&gt; void;
@@ -643,7 +644,7 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
   onUpload(ufile: UploadState) {
     const index &#x3D; this.uploads.findIndex(f &#x3D;&gt; f.uploadId &#x3D;&#x3D;&#x3D; ufile.uploadId);
 
-    if (ufile.status &#x3D;&#x3D;&#x3D; &#x27;added&#x27;) {
+    if (ufile.status &#x3D;&#x3D;&#x3D; &#x27;added&#x27; || (ufile.status &#x3D;&#x3D;&#x3D; &#x27;queue&#x27; &amp;&amp; index &lt; 0)) {
       if (this.isExtensionValid(ufile.name) &amp;&amp; this.isFileSizeValid(ufile.size) &amp;&amp; this.CustomAddValidation(ufile)) {
         this.uploads.push(new NgUploadFile(ufile));
       } else {

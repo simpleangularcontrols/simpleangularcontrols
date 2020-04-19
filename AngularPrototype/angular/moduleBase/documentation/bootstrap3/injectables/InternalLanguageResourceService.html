@@ -56,7 +56,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/jngcontrols-common/src/services/languageresource.service.ts</code>
+            <code>projects/jngcontrols-common/src/services/LanguageResource.Service.ts</code>
         </p>
 
             <p class="comment">
@@ -133,7 +133,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/jngcontrols-common/src/services/languageresource.service.ts:48</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">projects/jngcontrols-common/src/services/LanguageResource.Service.ts:54</a></div>
                             </td>
                         </tr>
 
@@ -176,8 +176,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="113"
-                            class="link-to-prism">projects/jngcontrols-common/src/services/languageresource.service.ts:113</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="127"
+                            class="link-to-prism">projects/jngcontrols-common/src/services/LanguageResource.Service.ts:127</a></div>
                 </td>
             </tr>
 
@@ -268,7 +268,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/LanguageResourceService.html#source" target="_self" >LanguageResourceService:36</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/LanguageResourceService.html#source" target="_self" >LanguageResourceService:42</a></code>
 </div>
                 </td>
             </tr>
@@ -276,6 +276,8 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Die Methode übersetzt den eingegebenen Wort/Begriff. Verlangt key und optionell params</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -359,7 +361,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/jngcontrols-common/src/services/languageresource.service.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">projects/jngcontrols-common/src/services/LanguageResource.Service.ts:54</a></div>
                             </td>
                         </tr>
 
@@ -378,15 +380,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, InjectionToken } from &quot;@angular/core&quot;;
-import { ILanguageResourceService } from &quot;../interfaces/ilanguageresource&quot;;
-import { Interpolation } from &quot;../utilities/interpolation&quot;;
-import { Observable } from &quot;rxjs&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, InjectionToken } from &#x27;@angular/core&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { ILanguageResourceService } from &#x27;../interfaces/ilanguageresource&#x27;;
+import { Interpolation } from &#x27;../utilities/interpolation&#x27;;
 
 /**
  * Injection Token für Language Resource Service
  */
-export const LANGUAGE_SERVICE &#x3D; new InjectionToken&lt;LanguageResourceService&gt;(&#x27;LanguageResourceService&#x27;);
+export const LANGUAGERESOURCE_SERVICE &#x3D; new InjectionToken&lt;LanguageResourceService&gt;(&#x27;LanguageResourceService&#x27;);
 
 /**
  * Base Service für Localisation von Fehlermeldungen
@@ -394,7 +396,6 @@ export const LANGUAGE_SERVICE &#x3D; new InjectionToken&lt;LanguageResourceServi
  * @example
  *
  * // Eigene Beispielimplementierung für Application mit ngx-translate
- * 
  * (at)Injectable()
  * export class ControlsLocalisation extends LanguageResourceService {
  *
@@ -411,8 +412,15 @@ export const LANGUAGE_SERVICE &#x3D; new InjectionToken&lt;LanguageResourceServi
  *  }
  *
  */
+
+/**
+* Service für interne Übersetzungen
+* */
 @Injectable({ providedIn: &#x27;root&#x27; })
 export abstract class LanguageResourceService implements ILanguageResourceService {
+  /**
+   * Die Methode übersetzt den eingegebenen Wort/Begriff. Verlangt key und optionell params
+   */
   abstract GetString(key: string, params?: any): Observable&lt;string&gt;;
 }
 
@@ -431,6 +439,7 @@ export class InternalLanguageResourceService extends LanguageResourceService {
    * Konstruktor
    * */
   constructor() {
+
     super();
 
     // Set Languages
@@ -460,6 +469,13 @@ export class InternalLanguageResourceService extends LanguageResourceService {
     this.data.get(&#x27;de&#x27;).set(&#x27;VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT&#x27;, &#x27;Feld &quot;{{FIELD}}&quot; ist kein gültiges Datum.&#x27;);
     this.data.get(&#x27;de&#x27;).set(&#x27;VALIDATION_ERROR_FILESMIN&#x27;, &#x27;Es müssen min. {{MINFILES}} Dateien hochgeladen sein.&#x27;);
     this.data.get(&#x27;de&#x27;).set(&#x27;VALIDATION_ERROR_SUMMARY_FILESMIN&#x27;, &#x27;Feld &quot;{{FIELD}}&quot; muss min. {{MINFILES}} Dateien hochgeladen haben.&#x27;);
+    this.data.get(&#x27;de&#x27;).set(&#x27;VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY&#x27;, &#x27;Es muss min. 1 Sprache erfasst sein.&#x27;);
+    this.data.get(&#x27;de&#x27;).set(&#x27;VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY&#x27;, &#x27;Feld &quot;{{FIELD}}&quot; muss min. 1 Sprache erfasst haben.&#x27;);
+    this.data.get(&#x27;de&#x27;).set(&#x27;VALIDATION_ERROR_MULTILANGUAGEREQUIRED&#x27;, &#x27;Es müssen alle Sprachen erfasst sein.&#x27;);
+    this.data.get(&#x27;de&#x27;).set(&#x27;VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED&#x27;, &#x27;Feld &quot;{{FIELD}}&quot; muss alle Sprachen erfasst haben.&#x27;);
+
+    this.data.get(&#x27;de&#x27;).set(&#x27;PAGING_PAGEOFTEXT&#x27;, &#x27;Seite {{CURRENTPAGE}} von {{TOTALPAGES}}&#x27;);
+    this.data.get(&#x27;de&#x27;).set(&#x27;PAGING_PAGEENTRIESTEXT&#x27;, &#x27;Einträge pro Seite&#x27;);
 
 
     // EN
@@ -478,7 +494,7 @@ export class InternalLanguageResourceService extends LanguageResourceService {
    * Die Funktion ergibt die ausgewählte Sprache.
    */
   private GetLanguage(): string {
-    let language: string &#x3D; navigator.language;
+    const language: string &#x3D; navigator.language;
 
     if (language.indexOf(&#x27;-&#x27;) &gt;&#x3D; 0) {
       return language.split(&#x27;-&#x27;)[0];
@@ -507,14 +523,13 @@ export class InternalLanguageResourceService extends LanguageResourceService {
       }
 
       if (this.data.get(language).has(key)) {
-        let resource &#x3D; this.data.get(language).get(key);
+        const resource &#x3D; this.data.get(language).get(key);
         if (params !&#x3D;&#x3D; undefined &amp;&amp; params !&#x3D;&#x3D; null) {
-          let formatter: Interpolation &#x3D; new Interpolation();
+          const formatter: Interpolation &#x3D; new Interpolation();
           observer.next(formatter.interpolateString(resource, params));
           observer.complete();
           return;
-        }
-        else {
+        } else {
           observer.next(resource);
           observer.complete();
           return;
@@ -525,7 +540,7 @@ export class InternalLanguageResourceService extends LanguageResourceService {
         observer.complete();
         return;
       }
-    })
+    });
   }
 }
 </code></pre>
@@ -539,6 +554,7 @@ export class InternalLanguageResourceService extends LanguageResourceService {
 
 
 
+                   
 
 
 
@@ -561,6 +577,7 @@ export class InternalLanguageResourceService extends LanguageResourceService {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
             var COMPODOC_CURRENT_PAGE_URL = 'InternalLanguageResourceService.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

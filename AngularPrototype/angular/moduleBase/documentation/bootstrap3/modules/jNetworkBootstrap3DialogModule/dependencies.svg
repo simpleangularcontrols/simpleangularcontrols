@@ -21,44 +21,44 @@
 <polygon fill="#fb8072" stroke="transparent" points="406,-10 406,-30 426,-30 426,-10 406,-10"/>
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
-<title>cluster_jNetworkBootstrap3DialogModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="134,-70 134,-268 362,-268 362,-70 134,-70"/>
+<title>cluster_JNetworkBootstrap3DialogModule</title>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="133,-70 133,-268 363,-268 363,-70 133,-70"/>
 </g>
 <g id="clust2" class="cluster">
-<title>cluster_jNetworkBootstrap3DialogModule_declarations</title>
-<polygon fill="none" stroke="#000000" points="204,-78 204,-130 292,-130 292,-78 204,-78"/>
+<title>cluster_JNetworkBootstrap3DialogModule_declarations</title>
+<polygon fill="none" stroke="#000000" points="172,-78 172,-130 324,-130 324,-78 172,-78"/>
 </g>
 <g id="clust5" class="cluster">
-<title>cluster_jNetworkBootstrap3DialogModule_exports</title>
-<polygon fill="none" stroke="#000000" points="203,-208 203,-260 293,-260 293,-208 203,-208"/>
+<title>cluster_JNetworkBootstrap3DialogModule_exports</title>
+<polygon fill="none" stroke="#000000" points="170,-208 170,-260 326,-260 326,-208 170,-208"/>
 </g>
-<!-- NgDialog -->
+<!-- NgDialogComponent -->
 <g id="node1" class="node">
-<title>NgDialog</title>
-<polygon fill="#ffffb3" stroke="#000000" points="283.7093,-122 212.2907,-122 212.2907,-86 283.7093,-86 283.7093,-122"/>
-<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgDialog</text>
+<title>NgDialogComponent</title>
+<polygon fill="#ffffb3" stroke="#000000" points="316.0422,-122 179.9578,-122 179.9578,-86 316.0422,-86 316.0422,-122"/>
+<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgDialogComponent</text>
 </g>
-<!-- jNetworkBootstrap3DialogModule -->
+<!-- JNetworkBootstrap3DialogModule -->
 <g id="node2" class="node">
-<title>jNetworkBootstrap3DialogModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="353.9594,-187 350.9594,-191 329.9594,-191 326.9594,-187 142.0406,-187 142.0406,-151 353.9594,-151 353.9594,-187"/>
-<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">jNetworkBootstrap3DialogModule</text>
+<title>JNetworkBootstrap3DialogModule</title>
+<polygon fill="#8dd3c7" stroke="#000000" points="354.514,-187 351.514,-191 330.514,-191 327.514,-187 141.486,-187 141.486,-151 354.514,-151 354.514,-187"/>
+<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">JNetworkBootstrap3DialogModule</text>
 </g>
-<!-- NgDialog&#45;&gt;jNetworkBootstrap3DialogModule -->
+<!-- NgDialogComponent&#45;&gt;JNetworkBootstrap3DialogModule -->
 <g id="edge1" class="edge">
-<title>NgDialog&#45;&gt;jNetworkBootstrap3DialogModule</title>
+<title>NgDialogComponent&#45;&gt;JNetworkBootstrap3DialogModule</title>
 <path fill="none" stroke="#000000" d="M248,-122.1061C248,-122.1061 248,-140.991 248,-140.991"/>
 <polygon fill="#000000" stroke="#000000" points="244.5001,-140.9909 248,-150.991 251.5001,-140.991 244.5001,-140.9909"/>
 </g>
-<!-- NgDialog  -->
+<!-- NgDialogComponent  -->
 <g id="node3" class="node">
-<title>NgDialog </title>
-<polygon fill="#fb8072" stroke="#000000" points="285.2096,-252 210.7904,-252 210.7904,-216 285.2096,-216 285.2096,-252"/>
-<text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgDialog </text>
+<title>NgDialogComponent </title>
+<polygon fill="#fb8072" stroke="#000000" points="318.0414,-252 177.9586,-252 177.9586,-216 318.0414,-216 318.0414,-252"/>
+<text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">NgDialogComponent </text>
 </g>
-<!-- jNetworkBootstrap3DialogModule&#45;&gt;NgDialog  -->
+<!-- JNetworkBootstrap3DialogModule&#45;&gt;NgDialogComponent  -->
 <g id="edge2" class="edge">
-<title>jNetworkBootstrap3DialogModule&#45;&gt;NgDialog </title>
+<title>JNetworkBootstrap3DialogModule&#45;&gt;NgDialogComponent </title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M248,-187.1061C248,-187.1061 248,-205.991 248,-205.991"/>
 <polygon fill="#000000" stroke="#000000" points="244.5001,-205.9909 248,-215.991 251.5001,-205.991 244.5001,-205.9909"/>
 </g>

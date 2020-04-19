@@ -88,7 +88,7 @@
                         <td class="col-md-9">
                             <code>
                                 {
-    provide: NgFormular, useFactory: NGFORMULAR_FACTORY, deps: [[new SkipSelf(), NgFormular]]
+    provide: NgFormularDirective, useFactory: NGFORMULAR_FACTORY, deps: [[new SkipSelf(), NgFormularDirective]]
 }
                                 {
     provide: ControlContainer, useFactory: NGFORM_FACTORY, deps: [NgForm]
@@ -99,7 +99,7 @@
 
                     <tr>
                         <td class="col-md-3">Selector</td>
-                        <td class="col-md-9"><code>[inherit-form]</code></td>
+                        <td class="col-md-9"><code>[ngInheritForm][inherit-form]</code></td>
                     </tr>
 
                 </tbody>
@@ -120,23 +120,21 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive } from &#x27;@angular/core&#x27;;
-import { NgFormular } from &#x27;./form&#x27;;
+import { NgFormularDirective } from &#x27;./form&#x27;;
 import { SkipSelf } from &#x27;@angular/core&#x27;;
 import { NgForm } from &#x27;@angular/forms&#x27;;
 import { ControlContainer } from &#x27;@angular/forms&#x27;;
 
 /**
  * Factory Methode für NgFormular
- * 
  * @param form NgFormular
  */
-export function NGFORMULAR_FACTORY(form: NgFormular) {
+export function NGFORMULAR_FACTORY(form: NgFormularDirective) {
   return form;
 }
 
 /**
  * Factory Methode für NgForm
- * 
  * @param form NgForm
  */
 export function NGFORM_FACTORY(form: NgForm) {
@@ -177,15 +175,12 @@ export function NGFORM_FACTORY(form: NgForm) {
  *
  */
 @Directive({
-  selector: &#x27;[inherit-form]&#x27;,
+  selector: &#x27;[ngInheritForm][inherit-form]&#x27;,
   providers: [
     {
-      provide: NgFormular,
+      provide: NgFormularDirective,
       useFactory: NGFORMULAR_FACTORY,
-      //useFactory: (form: NgFormular) &#x3D;&gt; {
-      //  return form;
-      //},
-      deps: [[new SkipSelf(), NgFormular]]
+      deps: [[new SkipSelf(), NgFormularDirective]]
     }, {
       provide: ControlContainer,
       useFactory: NGFORM_FACTORY,
@@ -206,6 +201,7 @@ export class ProvideParentNgFormularDirective { }
 
 
 
+                   
 
 
 
@@ -228,6 +224,7 @@ export class ProvideParentNgFormularDirective { }
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'directive';
             var COMPODOC_CURRENT_PAGE_URL = 'ProvideParentNgFormularDirective.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

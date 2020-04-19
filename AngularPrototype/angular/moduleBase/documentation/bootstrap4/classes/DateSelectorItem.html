@@ -498,7 +498,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EventEmitter, Input, OnInit, Output } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EventEmitter, Input, OnInit, Output, Directive } from &#x27;@angular/core&#x27;;
 import * as moment_ from &#x27;moment&#x27;;
 // Import Moment.JS
 import { Moment } from &#x27;moment&#x27;;
@@ -561,13 +561,10 @@ class DateSelectorItem {
 
 // #endregion
 
-// @Component({
-//   selector: &#x27;ngDateSelector&#x27;,
-//   templateUrl: &#x27;./dateselector.html&#x27;,
-// })
 /**
  *Basis Komponente für NgDateSelector
  */
+@Directive()
 export class NgDateSelectorCommon implements OnInit {
 
   /**

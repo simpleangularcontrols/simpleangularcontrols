@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/jngcontrols-common/src/interfaces/iconfirmcomponent.ts</code>
+            <code>projects/jngcontrols-common/src/interfaces/IConfirmComponent.ts</code>
         </p>
 
             <p class="comment">
@@ -139,8 +139,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">projects/jngcontrols-common/src/interfaces/iconfirmcomponent.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">projects/jngcontrols-common/src/interfaces/IConfirmComponent.ts:20</a></div>
                 </td>
             </tr>
 
@@ -180,8 +180,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">projects/jngcontrols-common/src/interfaces/iconfirmcomponent.ts:10</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">projects/jngcontrols-common/src/interfaces/IConfirmComponent.ts:16</a></div>
                 </td>
             </tr>
 
@@ -243,12 +243,18 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EventEmitter } from &quot;@angular/core&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EventEmitter } from &#x27;@angular/core&#x27;;
 
 /**
  * Interface für Comfirm Dialog implementation
  */
 export interface IConfirmComponent {
+
+  /**
+   * EventEmitter beim Bestätigen
+   */
+  onconfirm: EventEmitter&lt;string&gt;;
+
   /**
    * Anzeigen
    */
@@ -257,16 +263,13 @@ export interface IConfirmComponent {
    * Ausblenden
    */
   hide(): void;
-  /**
-   * EventEmitter beim Bestätigen
-   */
-  onconfirm: EventEmitter&lt;string&gt;;
 }
 </code></pre>
     </div>
 </div>
 
 
+                   
 
 
 
@@ -289,6 +292,7 @@ export interface IConfirmComponent {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
             var COMPODOC_CURRENT_PAGE_URL = 'IConfirmComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

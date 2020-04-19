@@ -116,7 +116,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/model.ts:51</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/model.ts:78</a></div>
                             </td>
                         </tr>
 
@@ -202,7 +202,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/model.ts:65</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/model.ts:92</a></div>
                             </td>
                         </tr>
 
@@ -235,7 +235,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/model.ts:70</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/model.ts:97</a></div>
                             </td>
                         </tr>
 
@@ -268,7 +268,7 @@
    * @param CurrentPageIndex Aktuelle Seite
    * @param TotalRowCount Total Rows in Datenbank
    */
-  constructor(PageSize?: number, CurrentPageIndex?: number, TotalRowCount?: number) {
+  constructor(PageSize: number, CurrentPageIndex: number, TotalRowCount: number) {
     this.PageSize &#x3D; PageSize;
     this.CurrentPageIndex &#x3D; CurrentPageIndex;
     this.TotalRowCount &#x3D; TotalRowCount;
@@ -277,17 +277,44 @@
   /**
    * Gesamte Anzahl der Zeilen
   */
-  TotalRowCount: number &#x3D; 0;
+  TotalRowCount &#x3D; 0;
 
   /**
    * Aktueller Index der Seite
    */
-  CurrentPageIndex: number &#x3D; 0;
+  CurrentPageIndex &#x3D; 0;
 
   /**
    * PageSize
    */
+  PageSize &#x3D; 20;
+}
+
+/**
+ * Model wenn Seite geändert werden soll
+ */
+export class PagerRequest {
+
+  /**
+   * Konstruktor
+   * @param PageSize Seitegrösse / Anzahl Elemente pro Seite
+   * @param NewPageIndex Neuer Seitenindex
+   */
+  constructor(PageSize: number, NewPageIndex: number) {
+    this.PageSize &#x3D; PageSize;
+    this.NewPageIndex &#x3D; NewPageIndex;
+  }
+
+  /**
+   * Aktueller Index der Seite
+   */
   PageSize: number &#x3D; 0;
+
+  /**
+   * PageSize
+   */
+  NewPageIndex: number &#x3D; 0;
+
 }
 
 /**

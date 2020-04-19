@@ -207,13 +207,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/JNetworkBootstrap4GridModule.html" data-type="entity-link">JNetworkBootstrap4GridModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-JNetworkBootstrap4GridModule-67eb0939ea2c55d0e29f5c63c1b125fb"' : 'data-target="#xs-components-links-module-JNetworkBootstrap4GridModule-67eb0939ea2c55d0e29f5c63c1b125fb"' }>
+                                            'data-target="#components-links-module-JNetworkBootstrap4GridModule-b838bb99461e3a6ba71fc70d6b0681b5"' : 'data-target="#xs-components-links-module-JNetworkBootstrap4GridModule-b838bb99461e3a6ba71fc70d6b0681b5"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-JNetworkBootstrap4GridModule-67eb0939ea2c55d0e29f5c63c1b125fb"' :
-                                            'id="xs-components-links-module-JNetworkBootstrap4GridModule-67eb0939ea2c55d0e29f5c63c1b125fb"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-JNetworkBootstrap4GridModule-b838bb99461e3a6ba71fc70d6b0681b5"' :
+                                            'id="xs-components-links-module-JNetworkBootstrap4GridModule-b838bb99461e3a6ba71fc70d6b0681b5"' }>
                                             <li class="link">
                                                 <a href="components/NgGridButtonComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">NgGridButtonComponent</a>
@@ -409,6 +409,28 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                             </li>
                             <li class="link">
+                                <a href="modules/JNetworkBootstrap4UploadModule.html" data-type="entity-link">JNetworkBootstrap4UploadModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                            'data-target="#components-links-module-JNetworkBootstrap4UploadModule-3208635c60cf4bb2e60d5ad33d85b176"' : 'data-target="#xs-components-links-module-JNetworkBootstrap4UploadModule-3208635c60cf4bb2e60d5ad33d85b176"' }>
+                                            <span class="icon ion-md-cog"></span>
+                                            <span>Components</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-JNetworkBootstrap4UploadModule-3208635c60cf4bb2e60d5ad33d85b176"' :
+                                            'id="xs-components-links-module-JNetworkBootstrap4UploadModule-3208635c60cf4bb2e60d5ad33d85b176"' }>
+                                            <li class="link">
+                                                <a href="components/NgUploadComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">NgUploadComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/NgUploadMultipleComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">NgUploadMultipleComponent</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                            </li>
+                            <li class="link">
                                 <a href="modules/JNetworkBootstrap4ValidationSummaryModule.html" data-type="entity-link">JNetworkBootstrap4ValidationSummaryModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
@@ -513,166 +535,22 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/LanguageModel.html" data-type="entity-link">LanguageModel</a>
                             </li>
                             <li class="link">
-                                <a href="classes/NgBaseDateTimeControl.html" data-type="entity-link">NgBaseDateTimeControl</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgBaseListControl.html" data-type="entity-link">NgBaseListControl</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgBaseModelControl.html" data-type="entity-link">NgBaseModelControl</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgBaseSelectControl.html" data-type="entity-link">NgBaseSelectControl</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgButtonCommon.html" data-type="entity-link">NgButtonCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgCheckboxCommon.html" data-type="entity-link">NgCheckboxCommon</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/NgConfirmButton.html" data-type="entity-link">NgConfirmButton</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgConfirmCommon.html" data-type="entity-link">NgConfirmCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgDateCommon.html" data-type="entity-link">NgDateCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgDateSelectorCommon.html" data-type="entity-link">NgDateSelectorCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgDateTimeCommon.html" data-type="entity-link">NgDateTimeCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgDialogCommon.html" data-type="entity-link">NgDialogCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgDropdownCommon.html" data-type="entity-link">NgDropdownCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgDropdownOptionCommon.html" data-type="entity-link">NgDropdownOptionCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgFormularCommon.html" data-type="entity-link">NgFormularCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgGridButtonCommon.html" data-type="entity-link">NgGridButtonCommon</a>
                             </li>
                             <li class="link">
                                 <a href="classes/NgGridColumnActionCommon.html" data-type="entity-link">NgGridColumnActionCommon</a>
                             </li>
                             <li class="link">
-                                <a href="classes/NgGridColumnBaseCommon.html" data-type="entity-link">NgGridColumnBaseCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgGridColumnCommon.html" data-type="entity-link">NgGridColumnCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgGridCommon.html" data-type="entity-link">NgGridCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgGridImageCommon.html" data-type="entity-link">NgGridImageCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgInputAreaCommon.html" data-type="entity-link">NgInputAreaCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgInputBase.html" data-type="entity-link">NgInputBase</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgInputCommon.html" data-type="entity-link">NgInputCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgInputCurrencyCommon.html" data-type="entity-link">NgInputCurrencyCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgInputDecimalCommon.html" data-type="entity-link">NgInputDecimalCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgInputEmailCommon.html" data-type="entity-link">NgInputEmailCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgInputIntegerCommon.html" data-type="entity-link">NgInputIntegerCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgInputPasswordCommon.html" data-type="entity-link">NgInputPasswordCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgInputSearchCommon.html" data-type="entity-link">NgInputSearchCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgListboxCommon.html" data-type="entity-link">NgListboxCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgMultilanguageInputAreaCommon.html" data-type="entity-link">NgMultilanguageInputAreaCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgMultilanguageInputCommon.html" data-type="entity-link">NgMultilanguageInputCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgPagingCommon.html" data-type="entity-link">NgPagingCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgRadiobuttonCommon.html" data-type="entity-link">NgRadiobuttonCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgRadiobuttonsCommon.html" data-type="entity-link">NgRadiobuttonsCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgStaticFormContainerCommon.html" data-type="entity-link">NgStaticFormContainerCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgStaticLabelCommon.html" data-type="entity-link">NgStaticLabelCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgTabCommon.html" data-type="entity-link">NgTabCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgTabItemCommon.html" data-type="entity-link">NgTabItemCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgTimeCommon.html" data-type="entity-link">NgTimeCommon</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/NgTinyMceCommon.html" data-type="entity-link">NgTinyMceCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgTooltipCommon.html" data-type="entity-link">NgTooltipCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgTreeItemActionCommon.html" data-type="entity-link">NgTreeItemActionCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgTreeViewChildCommon.html" data-type="entity-link">NgTreeViewChildCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgTreeViewCommon.html" data-type="entity-link">NgTreeViewCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgUploadBase.html" data-type="entity-link">NgUploadBase</a>
                             </li>
                             <li class="link">
                                 <a href="classes/NgUploadFile.html" data-type="entity-link">NgUploadFile</a>
                             </li>
                             <li class="link">
-                                <a href="classes/NgUploadMultipleCommon.html" data-type="entity-link">NgUploadMultipleCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgUploadSingleCommon.html" data-type="entity-link">NgUploadSingleCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgValidationSummaryCommon.html" data-type="entity-link">NgValidationSummaryCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgWizardCommon.html" data-type="entity-link">NgWizardCommon</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgWizardItemCommon.html" data-type="entity-link">NgWizardItemCommon</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/PagerData.html" data-type="entity-link">PagerData</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/PagerRequest.html" data-type="entity-link">PagerRequest</a>
                             </li>
                             <li class="link">
                                 <a href="classes/ServiceConfirmCommon.html" data-type="entity-link">ServiceConfirmCommon</a>

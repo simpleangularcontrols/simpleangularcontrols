@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/jngcontrols-common/src/interfaces/idatetimecontrol.ts</code>
+            <code>projects/jngcontrols-common/src/interfaces/IDateTimeControl.ts</code>
         </p>
 
             <p class="comment">
@@ -139,8 +139,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">projects/jngcontrols-common/src/interfaces/idatetimecontrol.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">projects/jngcontrols-common/src/interfaces/IDateTimeControl.ts:17</a></div>
                 </td>
             </tr>
 
@@ -180,8 +180,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">projects/jngcontrols-common/src/interfaces/idatetimecontrol.ts:8</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">projects/jngcontrols-common/src/interfaces/IDateTimeControl.ts:13</a></div>
                 </td>
             </tr>
 
@@ -245,6 +245,11 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface IDateTimeControl {
   /**
+   * Wert
+   */
+  readonly value: any;
+
+  /**
    * Methode ergibt boolean, ob das Datum valid ist
    */
   IsDateValid(): boolean;
@@ -252,10 +257,6 @@
    * Methode ergibt Datum-Format vom String
    */
   GetDateTimeFormatString(): string;
-  /**
-   * Wert
-   */
-  readonly value: any;
 }
 
 </code></pre>
@@ -263,6 +264,7 @@
 </div>
 
 
+                   
 
 
 
@@ -285,6 +287,7 @@
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
             var COMPODOC_CURRENT_PAGE_URL = 'IDateTimeControl.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

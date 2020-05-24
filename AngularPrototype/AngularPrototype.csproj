@@ -262,6 +262,10 @@
     <Content Include="icons\template.html.mustache" />
     <Content Include="icons\output\sprite.scss" />
     <Content Include="angular\moduleBase\projects\jngcontrols-bootstrap4\src\controls\upload\upload.scss" />
+    <Content Include="angular\moduleBase\run.common.bat" />
+    <Content Include="angular\moduleBase\run.bootstrap4.bat" />
+    <Content Include="angular\moduleBase\run.app.bat" />
+    <Content Include="angular\moduleBase\run.bootstrap3.bat" />
     <None Include="icons\template.scss.mustache" />
     <Content Include="Layout\css\bootstrap.css" />
     <Content Include="Layout\css\font-awesome.min.css" />

@@ -1,8 +1,18 @@
-﻿{{#shapes}}{{#selector.dimensions}}{{expression}}{{^last}},
-{{/last}}{{/selector.dimensions}} {
-    background-image: url('{{{example}}}#{{name}}');
-	width: {{width.outer}}px;
-	height: {{height.outer}}px;
-}
+﻿{{#shapes}}
+{{#selector.dimensions}}{{expression}}{{^last}},
+{{/last}}{{/selector.dimensions}}-32 {
+    display: inline-block;
+    vertical-align: middle;
+    background: url('{{{example}}}#{{name}}');
+    min-width: 32px;
+    max-width: 32px;
+    width:32px;
+    min-height: 32px;
+    max-height: 32px;
+    height: 32px;
 
+    &.disabled {
+        background: url('{{{example}}}#{{name}}-disabled');
+    }
+}
 {{/shapes}}

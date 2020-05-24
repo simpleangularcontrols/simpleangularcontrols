@@ -9,7 +9,8 @@ var shell = require('child_process');
 
 var plugins = {
     sass: require('gulp-sass'),
-    svgSprite: require('gulp-svg-sprite')
+    svgSprite: require('gulp-svg-sprite'),
+    xmlTransformer: require("gulp-xml-transformer")
 };
 
 gulp.task('default', function (done) {
@@ -115,8 +116,8 @@ gulp.task('svgsprite', function (done) {
         //shape: {
         //    transform: [{
         //        custom: function (shape, sprite, callback) {
-        //            //console.log(shape);
-        //            //console.log('------------------------------');
+        //            console.log(sprite);
+        //            console.log('------------------------------');
         //            // console.log(sprite);
         //            callback(null);
         //        }
@@ -125,7 +126,7 @@ gulp.task('svgsprite', function (done) {
         //svg: {
         //    transform: [function (svg) {
         //        svg = svg.replace(new RegExp('fill="#252525"', 'g'), 'fill="#252525" fill-opacity="0.4"');
-        //        // console.log(svg);
+        //        console.log('File\r\n');
 
         //        return svg;
         //    }]
@@ -150,8 +151,20 @@ gulp.task('svgsprite', function (done) {
     };
 
     gulp.src('**/*.svg', { cwd: 'icons/svg' })
-        .pipe(plugins.svgSprite(config))
-        .pipe(gulp.dest('icons'));
+        .pipe(plugins.xmlTransformer((xml, libxmljs) => {
+            // 'libxmljs' is libxmljs object. you can call any libxmljs function.
+            var child = new libxmljs.Element(xml, 'note');
+            child.text('some text');
+            xml.get('//svg').addChild(child);
+
+            // must return libxmljs Document object.
+            return Promise.resolve(xml);
+        }))
+        .pipe(gulp.dest('icons/svg-disabled'));
+
+    //gulp.src('**/*.svg', { cwd: 'icons/svg' })
+    //    .pipe(plugins.svgSprite(config))
+    //    .pipe(gulp.dest('icons'));
 
     done();
 });

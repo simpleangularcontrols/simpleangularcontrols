@@ -1,72 +1,180 @@
-﻿.svg-3d_glasses-dims {
-    background-image: url('../sprite.view.svg#3d_glasses');
-	width: 1024px;
-	height: 1024px;
-}
+.svg-3d_glasses-dims-32 {
+    display: inline-block;
+    vertical-align: middle;
+    background: url('../sprite.view.svg#3d_glasses');
+    min-width: 32px;
+    max-width: 32px;
+    width:32px;
+    min-height: 32px;
+    max-height: 32px;
+    height: 32px;
 
-.svg-about-dims {
-    background-image: url('../sprite.view.svg#about');
-	width: 1024px;
-	height: 1024px;
+    &.disabled {
+        background: url('../sprite.view.svg#3d_glasses-disabled');
+    }
 }
+.svg-about-dims-32 {
+    display: inline-block;
+    vertical-align: middle;
+    background: url('../sprite.view.svg#about');
+    min-width: 32px;
+    max-width: 32px;
+    width:32px;
+    min-height: 32px;
+    max-height: 32px;
+    height: 32px;
 
-.svg-add-dims {
-    background-image: url('../sprite.view.svg#add');
-	width: 1024px;
-	height: 1024px;
+    &.disabled {
+        background: url('../sprite.view.svg#about-disabled');
+    }
 }
+.svg-add-dims-32 {
+    display: inline-block;
+    vertical-align: middle;
+    background: url('../sprite.view.svg#add');
+    min-width: 32px;
+    max-width: 32px;
+    width:32px;
+    min-height: 32px;
+    max-height: 32px;
+    height: 32px;
 
-.svg-address_book2-dims {
-    background-image: url('../sprite.view.svg#address_book2');
-	width: 1024px;
-	height: 1024px;
+    &.disabled {
+        background: url('../sprite.view.svg#add-disabled');
+    }
 }
+.svg-address_book2-dims-32 {
+    display: inline-block;
+    vertical-align: middle;
+    background: url('../sprite.view.svg#address_book2');
+    min-width: 32px;
+    max-width: 32px;
+    width:32px;
+    min-height: 32px;
+    max-height: 32px;
+    height: 32px;
 
-.svg-adhesive_tape-dims {
-    background-image: url('../sprite.view.svg#adhesive_tape');
-	width: 1024px;
-	height: 1024px;
+    &.disabled {
+        background: url('../sprite.view.svg#address_book2-disabled');
+    }
 }
+.svg-adhesive_tape-dims-32 {
+    display: inline-block;
+    vertical-align: middle;
+    background: url('../sprite.view.svg#adhesive_tape');
+    min-width: 32px;
+    max-width: 32px;
+    width:32px;
+    min-height: 32px;
+    max-height: 32px;
+    height: 32px;
 
-.svg-air_tube_carrier-dims {
-    background-image: url('../sprite.view.svg#air_tube_carrier');
-	width: 1024px;
-	height: 1024px;
+    &.disabled {
+        background: url('../sprite.view.svg#adhesive_tape-disabled');
+    }
 }
+.svg-air_tube_carrier-dims-32 {
+    display: inline-block;
+    vertical-align: middle;
+    background: url('../sprite.view.svg#air_tube_carrier');
+    min-width: 32px;
+    max-width: 32px;
+    width:32px;
+    min-height: 32px;
+    max-height: 32px;
+    height: 32px;
 
-.svg-airbrush-dims {
-    background-image: url('../sprite.view.svg#airbrush');
-	width: 1024px;
-	height: 1024px;
+    &.disabled {
+        background: url('../sprite.view.svg#air_tube_carrier-disabled');
+    }
 }
+.svg-airbrush-dims-32 {
+    display: inline-block;
+    vertical-align: middle;
+    background: url('../sprite.view.svg#airbrush');
+    min-width: 32px;
+    max-width: 32px;
+    width:32px;
+    min-height: 32px;
+    max-height: 32px;
+    height: 32px;
 
-.svg-airplane-dims {
-    background-image: url('../sprite.view.svg#airplane');
-	width: 1024px;
-	height: 1024px;
+    &.disabled {
+        background: url('../sprite.view.svg#airbrush-disabled');
+    }
 }
+.svg-airplane-dims-32 {
+    display: inline-block;
+    vertical-align: middle;
+    background: url('../sprite.view.svg#airplane');
+    min-width: 32px;
+    max-width: 32px;
+    width:32px;
+    min-height: 32px;
+    max-height: 32px;
+    height: 32px;
 
-.svg-airplane2-dims {
-    background-image: url('../sprite.view.svg#airplane2');
-	width: 1024px;
-	height: 1024px;
+    &.disabled {
+        background: url('../sprite.view.svg#airplane-disabled');
+    }
 }
+.svg-airplane2-dims-32 {
+    display: inline-block;
+    vertical-align: middle;
+    background: url('../sprite.view.svg#airplane2');
+    min-width: 32px;
+    max-width: 32px;
+    width:32px;
+    min-height: 32px;
+    max-height: 32px;
+    height: 32px;
 
-.svg-airplane2_landing-dims {
-    background-image: url('../sprite.view.svg#airplane2_landing');
-	width: 1024px;
-	height: 1024px;
+    &.disabled {
+        background: url('../sprite.view.svg#airplane2-disabled');
+    }
 }
+.svg-airplane2_landing-dims-32 {
+    display: inline-block;
+    vertical-align: middle;
+    background: url('../sprite.view.svg#airplane2_landing');
+    min-width: 32px;
+    max-width: 32px;
+    width:32px;
+    min-height: 32px;
+    max-height: 32px;
+    height: 32px;
 
-.svg-airplane2_starting-dims {
-    background-image: url('../sprite.view.svg#airplane2_starting');
-	width: 1024px;
-	height: 1024px;
+    &.disabled {
+        background: url('../sprite.view.svg#airplane2_landing-disabled');
+    }
 }
+.svg-airplane2_starting-dims-32 {
+    display: inline-block;
+    vertical-align: middle;
+    background: url('../sprite.view.svg#airplane2_starting');
+    min-width: 32px;
+    max-width: 32px;
+    width:32px;
+    min-height: 32px;
+    max-height: 32px;
+    height: 32px;
 
-.svg-airship-dims {
-    background-image: url('../sprite.view.svg#airship');
-	width: 1024px;
-	height: 1024px;
+    &.disabled {
+        background: url('../sprite.view.svg#airplane2_starting-disabled');
+    }
 }
+.svg-airship-dims-32 {
+    display: inline-block;
+    vertical-align: middle;
+    background: url('../sprite.view.svg#airship');
+    min-width: 32px;
+    max-width: 32px;
+    width:32px;
+    min-height: 32px;
+    max-height: 32px;
+    height: 32px;
 
+    &.disabled {
+        background: url('../sprite.view.svg#airship-disabled');
+    }
+}

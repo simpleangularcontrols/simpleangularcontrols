@@ -13,5 +13,9 @@
     "email": "info@jnetwork.ch",
     "url": "https://www.jnetwork.ch"
   },
+  "scripts": {
+    "postinstall": "ngcc"
+
+  },
   "description": "Core Library für Angular Controls"
 }

@@ -15,5 +15,9 @@
     "email": "info@jnetwork.ch",
     "url": "https://www.jnetwork.ch"
   },
+  "scripts": {
+    "postinstall": "ngcc"
+
+  },
   "description": "Bootstrap 4 Controls Library"
 }

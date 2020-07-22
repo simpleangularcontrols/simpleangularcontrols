@@ -2,8 +2,8 @@
   "name": "@jnetwork/jngcontrols-bootstrap3",
   "version": "1.2.0",
   "peerDependencies": {
-    "@angular/common": "9.1.9",
-    "@angular/core": "9.1.9",
+    "@angular/common": "10.0.4",
+    "@angular/core": "10.0.4",
     "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common"
   },
   "scripts": {
@@ -17,7 +17,7 @@
     "email": "info@jnetwork.ch",
     "url": "https://www.jnetwork.ch"
   },
-  "description": "Bootstrap 3 Controls Library",
+  "description": "Bootstrap 3 Controls Library",
   "dependencies": {
     "tslib": "^2.0.0"
   }

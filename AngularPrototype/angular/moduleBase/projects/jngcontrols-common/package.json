@@ -17,5 +17,8 @@
     "postinstall": "ngcc"
 
   },
-  "description": "Core Library für Angular Controls"
+  "description": "Core Library für Angular Controls",
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
 }

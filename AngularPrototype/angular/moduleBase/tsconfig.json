@@ -1,47 +1,35 @@
+/*
+  This is a "Solution Style" tsconfig.json file, and is used by editors and TypeScript’s language server to improve development experience.
+  It is not intended to be used to perform a compilation.
+
+  To learn more about this file see: https://angular.io/config/solution-tsconfig.
+*/
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "downlevelIteration": true,
-    "importHelpers": true,
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2017",
-      "dom"
-    ],
-    "module": "esnext",
-    "baseUrl": "./",
-    "paths": {
-      "@jnetwork/jngcontrols-common": [
-        "dist/jngcontrols-common"
-      ],
-      "@jnetwork/jngcontrols-common/*": [
-        "dist/jngcontrols-common/*"
-      ],
-      "@jnetwork/jngcontrols-bootstrap4": [
-        "dist/jngcontrols-bootstrap4"
-      ],
-      "@jnetwork/jngcontrols-bootstrap4/*": [
-        "dist/jngcontrols-bootstrap4/*"
-      ],
-      "@jnetwork/jngcontrols-bootstrap3": [
-        "dist/jngcontrols-bootstrap3"
-      ],
-      "@jnetwork/jngcontrols-bootstrap3/*": [
-        "dist/jngcontrols-bootstrap3/*"
-      ]
+  "files": [],
+  "references": [
+    {
+      "path": "./src/tsconfig.app.json"
+    },
+    {
+      "path": "./src/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/jngcontrols-common/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/jngcontrols-common/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/jngcontrols-bootstrap4/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/jngcontrols-bootstrap4/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/jngcontrols-bootstrap3/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/jngcontrols-bootstrap3/tsconfig.spec.json"
     }
-  },
-  "angularCompilerOptions": {
-    "enableIvy": false,
-    "allowEmptyCodegenFiles": true
-  }
+  ]
 }

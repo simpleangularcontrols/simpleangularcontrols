@@ -17,5 +17,8 @@
     "email": "info@jnetwork.ch",
     "url": "https://www.jnetwork.ch"
   },
-  "description": "Bootstrap 3 Controls Library"
+  "description": "Bootstrap 3 Controls Library",
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
 }

@@ -1,10 +1,11 @@
-import { ElementRef } from '@angular/core';
+import { ElementRef, Directive } from '@angular/core';
 import { NgGridCommon } from './grid';
 import { NgGridColumnBaseCommon } from './gridcolumnbase';
 
 /**
  * Komponente für NgGridColumnActionCommon. Extends NgGridColumnBaseCommon
  */
+@Directive()
 export class NgGridColumnActionCommon extends NgGridColumnBaseCommon {
 
   /**

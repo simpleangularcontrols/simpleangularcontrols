@@ -1,4 +1,4 @@
-import { Input } from "@angular/core";
+import { Input, Directive } from "@angular/core";
 import { AbstractControl, ValidationErrors } from "@angular/forms";
 import { NgInputBase } from "../../common/baseinputcontrol";
 import { Validation } from "../../validation";
@@ -6,6 +6,7 @@ import { Validation } from "../../validation";
 /**
  * Komponente für NgTinyMceCommon. Extends NgInputBase
  */
+@Directive()
 export class NgTinyMceCommon extends NgInputBase<string> {
   /**
    * TextBox Placeholder

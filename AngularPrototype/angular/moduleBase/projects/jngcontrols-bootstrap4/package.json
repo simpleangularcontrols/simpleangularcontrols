@@ -19,5 +19,8 @@
     "postinstall": "ngcc"
 
   },
-  "description": "Bootstrap 4 Controls Library"
+  "description": "Bootstrap 4 Controls Library",
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
 }

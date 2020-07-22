@@ -195,9 +195,9 @@ export class NgDialogCommon {
    */
   @HostListener('document:keydown', ['$event'])
   onKeydownHandler(event: KeyboardEvent) {
-    const ESCAPE_KEYCODE = 27;
-
-    if (this._allowesc === true && event.keyCode === ESCAPE_KEYCODE) {
+    const ESCAPE_KEYCODE = 'Escape';
+    console.log(event.key);
+    if (this._allowesc === true && event.key === ESCAPE_KEYCODE) {
       this.hide();
     }
   }

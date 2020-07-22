@@ -42,7 +42,7 @@ export class NgInputAreaCommon extends NgInputCommon {
       return true;
     }
 
-    if (this._currentLength >= this._maxlength || ((event.keyCode === 13 || event.keyCode === 10) && this._currentLength + 1 >= this._maxlength)) {
+    if (this._currentLength >= this._maxlength || ((event.key === 'Enter' || event.key === ' ') && this._currentLength + 1 >= this._maxlength)) {
       event.preventDefault();
     }
   }

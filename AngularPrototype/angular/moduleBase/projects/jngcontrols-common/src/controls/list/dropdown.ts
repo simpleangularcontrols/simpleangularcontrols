@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Host, Injector, Input, OnDestroy, Renderer2, ɵlooseIdentical as looseIdentical } from '@angular/core';
+import { Directive, ElementRef, Host, Injector, Input, OnDestroy, Renderer2 } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { NgBaseSelectControl } from '../../common/baseselectcontrol';
 import { Validation } from '../../validation';
@@ -40,7 +40,7 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
   /**
    * compareWith-Funktion
    */
-  private _compareWith: (o1: any, o2: any) => boolean = looseIdentical;
+  private _compareWith: (o1: any, o2: any) => boolean = Object.is;
 
   /**
    * Label Text für Empty Item
@@ -77,7 +77,7 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
    * @param _renderer Render Engine
    * @param _elementRef Referenz von HTML Element
    */
-  constructor( @Host() parent: NgFormularCommon, injector: Injector, private _renderer: Renderer2, private _elementRef: ElementRef) {
+  constructor(@Host() parent: NgFormularCommon, injector: Injector, private _renderer: Renderer2, private _elementRef: ElementRef) {
     super(parent, injector);
   }
 

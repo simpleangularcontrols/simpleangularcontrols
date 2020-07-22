@@ -60,13 +60,13 @@ export abstract class NgInputBase<VALUE> extends NgBaseModelControl<VALUE> {
     }
 
     // Validate Input
-    const character = String.fromCharCode(event.charCode);
+    const character = event.key;
     // Zeichen in Allowed Chars nicht gefunden, Event nicht weitergeben
     if (this._allowedchars.indexOf(character) < 0) {
       event.preventDefault();
     }
 
-    const inputControl = event.srcElement as HTMLInputElement;
+    const inputControl = event.target as HTMLInputElement;
 
     if (!this.OnKeyPressValidation(inputControl.selectionStart, character)) {
       event.preventDefault();

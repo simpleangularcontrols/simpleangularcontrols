@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgCheckboxComponent } from './checkbox';
 import { NgRadiobuttonComponent } from './radiobutton';
 import { NgRadiobuttonsComponent } from './radiobuttons';
@@ -7,7 +7,7 @@ import { NgRadiobuttonsComponent } from './radiobuttons';
 @NgModule({
   declarations: [NgCheckboxComponent, NgRadiobuttonComponent, NgRadiobuttonsComponent],
   imports: [
-    BrowserModule
+    CommonModule
   ],
   exports: [NgCheckboxComponent, NgRadiobuttonComponent, NgRadiobuttonsComponent]
 })

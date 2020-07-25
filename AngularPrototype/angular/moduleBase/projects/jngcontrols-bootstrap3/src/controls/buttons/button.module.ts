@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { NgButtonComponent } from './button';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [NgButtonComponent],
   imports: [
-    BrowserModule
+    CommonModule
   ],
   exports: [NgButtonComponent]
 })

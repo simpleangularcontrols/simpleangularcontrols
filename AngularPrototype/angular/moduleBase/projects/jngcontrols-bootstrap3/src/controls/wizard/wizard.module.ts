@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgWizardComponent } from './wizard';
 import { NgWizardItemComponent } from './wizarditem';
 
 @NgModule({
   declarations: [NgWizardComponent, NgWizardItemComponent],
   imports: [
-    BrowserModule
+    CommonModule
   ],
   exports: [NgWizardComponent, NgWizardItemComponent]
 })

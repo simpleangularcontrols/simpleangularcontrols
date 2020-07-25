@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { NgGridComponent } from './grid';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgGridColumnComponent } from './gridcolumn';
 import { NgGridButtonComponent } from './gridbutton';
 import { NgPagingComponent } from './paging';
@@ -11,7 +11,7 @@ import { NgGridImageComponent } from './gridimage';
 @NgModule({
   declarations: [NgGridComponent, NgGridColumnComponent, NgGridColumnActionComponent, NgPagingComponent, NgGridButtonComponent, NgGridImageComponent],
   imports: [
-    BrowserModule
+    CommonModule
   ],
   exports: [NgGridComponent, NgGridColumnComponent, NgGridColumnActionComponent, NgPagingComponent, NgGridButtonComponent, NgGridImageComponent]
 })

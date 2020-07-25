@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { NgFormularDirective } from './form';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProvideParentNgFormularDirective } from './ngformularinherit.directive';
 
 @NgModule({
   declarations: [NgFormularDirective, ProvideParentNgFormularDirective],
   imports: [
-    BrowserModule,
+    CommonModule,
     FormsModule
   ],
   exports: [

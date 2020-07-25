@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgTooltipComponent } from './tooltip';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { NgTooltipComponent } from './tooltip';
 
 @NgModule({
   declarations: [NgTooltipComponent],
   imports: [
-    BrowserModule, CommonModule
+    CommonModule, CommonModule
   ],
   exports: [NgTooltipComponent]
 })

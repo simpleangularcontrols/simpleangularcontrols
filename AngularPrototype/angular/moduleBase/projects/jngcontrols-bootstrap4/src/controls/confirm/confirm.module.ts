@@ -1,5 +1,5 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { ServiceConfirm } from './confirm.service';
 import { NgConfirmComponent } from './confirm';
 import { JNetworkBootstrap4DialogModule } from '../dialog/dialog.module';
@@ -13,7 +13,7 @@ import { JNetworkBootstrap4ButtonModule } from '../buttons/button.module';
  */
 @NgModule({
   declarations: [NgConfirmComponent],
-  imports: [BrowserModule, JNetworkBootstrap4DialogModule, JNetworkBootstrap4ButtonModule],
+  imports: [CommonModule, JNetworkBootstrap4DialogModule, JNetworkBootstrap4ButtonModule],
   exports: [NgConfirmComponent],
   entryComponents: [NgConfirmComponent]
 })

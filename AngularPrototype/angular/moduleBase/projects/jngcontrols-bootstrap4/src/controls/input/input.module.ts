@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgInputComponent } from './input';
 import { NgInputEmailComponent } from './inputemail';
 import { NgInputAreaComponent } from './inputarea';
@@ -13,7 +13,7 @@ import { NgInputSearchComponent } from './inputsearch';
 @NgModule({
   declarations: [NgInputComponent, NgInputAreaComponent, NgInputCurrencyComponent, NgInputDecimalComponent, NgInputEmailComponent, NgInputIntegerComponent, NgInputPasswordComponent, NgInputSearchComponent],
   imports: [
-    BrowserModule
+    CommonModule
   ],
   exports: [NgInputComponent, NgInputAreaComponent, NgInputCurrencyComponent, NgInputDecimalComponent, NgInputEmailComponent, NgInputIntegerComponent, NgInputPasswordComponent, NgInputSearchComponent]
 })

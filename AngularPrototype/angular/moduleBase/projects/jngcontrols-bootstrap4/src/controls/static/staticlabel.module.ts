@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgStaticLabelComponent } from './staticlabel';
 import { NgStaticFormContainerComponent } from './formcontainer';
 
 @NgModule({
   declarations: [NgStaticLabelComponent, NgStaticFormContainerComponent],
   imports: [
-    BrowserModule
+    CommonModule
   ],
   exports: [NgStaticLabelComponent, NgStaticFormContainerComponent]
 })

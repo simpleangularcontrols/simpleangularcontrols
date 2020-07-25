@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgDropdownComponent, NgDropdownOptionDirective } from './dropdown';
 import { NgListboxComponent } from './listbox';
 
 @NgModule({
   declarations: [NgDropdownComponent, NgDropdownOptionDirective, NgListboxComponent],
   imports: [
-    BrowserModule
+    CommonModule
   ],
   exports: [NgDropdownComponent, NgDropdownOptionDirective, NgListboxComponent]
 })

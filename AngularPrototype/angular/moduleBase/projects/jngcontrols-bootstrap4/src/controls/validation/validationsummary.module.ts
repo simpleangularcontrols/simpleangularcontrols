@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { NgValidationSummaryComponent } from './validationsummary';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [NgValidationSummaryComponent],
   imports: [
-    BrowserModule
+    CommonModule
   ],
   exports: [NgValidationSummaryComponent]
 })

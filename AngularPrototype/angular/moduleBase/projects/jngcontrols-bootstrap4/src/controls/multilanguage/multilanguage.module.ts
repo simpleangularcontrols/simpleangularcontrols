@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgMultilanguageInputComponent } from './multilanguageinput';
 import { NgMultilanguageInputAreaComponent } from './multilanguageinputarea';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
@@ -7,7 +7,7 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [NgMultilanguageInputComponent, NgMultilanguageInputAreaComponent],
   imports: [
-    BrowserModule, NgbDropdownModule
+    CommonModule, NgbDropdownModule
   ],
   exports: [NgMultilanguageInputComponent, NgMultilanguageInputAreaComponent]
 })

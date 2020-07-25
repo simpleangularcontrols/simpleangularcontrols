@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgTreeViewComponent } from './treeview';
 import { NgTreeViewChildComponent } from './treeviewchild';
 import { NgTreeItemActionComponent } from './ngtreeitemaction';
@@ -7,7 +7,7 @@ import { NgTreeItemActionComponent } from './ngtreeitemaction';
 @NgModule({
   declarations: [NgTreeViewComponent, NgTreeViewChildComponent, NgTreeItemActionComponent],
   imports: [
-    BrowserModule
+    CommonModule
   ],
   exports: [NgTreeViewComponent, NgTreeViewChildComponent, NgTreeItemActionComponent]
 })

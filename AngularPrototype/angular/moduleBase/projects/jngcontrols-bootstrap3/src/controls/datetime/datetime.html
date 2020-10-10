@@ -4,9 +4,9 @@
     <div style="position: relative; width: 180px;">
 
       <div id="{{_name}}" class="datetime-textbox input-group">
-        <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [textMask]="_mask" [attr.placeholder]="_placeholder"
+        <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [imask]="imaskDate" [attr.placeholder]="_placeholder"
                [value]="valuestring" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()"
-               (input)="setValueString($event.target.value)" [disabled]="isdisabled" (click)="showDateSelector()" />
+               (accept)="setValueString($event)" [disabled]="isdisabled" (click)="showDateSelector()" />
         <span class="input-group-btn">
           <button class="btn btn-default" type="button" (click)="showDateSelector()" [disabled]="isdisabled">
             <i class="glyphicon glyphicon-calendar"></i>

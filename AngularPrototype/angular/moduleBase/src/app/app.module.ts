@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 // Third Party Extensions
 import { ToastrModule } from 'ngx-toastr';
-import { TextMaskModule } from 'angular2-text-mask';
 import { UploadxModule } from 'ngx-uploadx';
 
 // Internal Components and Services
@@ -124,7 +123,6 @@ import {
 
 
     // Third Party Modules
-    TextMaskModule,
     UploadxModule
   ],
   providers: [UserService, AuthenticationService, GridService, {

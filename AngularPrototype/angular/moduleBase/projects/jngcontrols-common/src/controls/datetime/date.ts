@@ -1,6 +1,8 @@
 import { ElementRef, HostListener, Injector, Input, Directive } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import * as moment_ from 'moment';
+import * as IMask from 'imask';
+
 // Import Moment.JS
 import { Moment } from 'moment';
 import { NgBaseDateTimeControl } from '../../common/basedatetimecontrol';
@@ -23,10 +25,36 @@ export class NgDateCommon extends NgBaseDateTimeControl {
    * Format des Datums
    */
   readonly DATEFORMAT: string = 'DD.MM.YYYY';
+
   /**
    * Maske
    */
-  readonly _mask = { mask: [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/], guide: true, placeholderChar: '_', keepCharPositions: true };
+  public readonly imaskDate = {
+    mask: this.DATEFORMAT,
+    blocks: {
+      DD: {
+        mask: IMask.MaskedRange,
+        from: 1,
+        to: 31,
+        maxLength: 2,
+      },
+      MM: {
+        mask: IMask.MaskedRange,
+        from: 1,
+        to: 12,
+        maxLength: 2,
+      },
+      YYYY: {
+        mask: IMask.MaskedRange,
+        from: 1,
+        to: 9999,
+      }
+    },
+    placeholderChar: '_',
+    autofix: true,
+    lazy: false,
+    overwrite: true
+  };
 
   // #endregion
 

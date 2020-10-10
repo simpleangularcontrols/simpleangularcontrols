@@ -5,6 +5,7 @@
     "entryFile": "src/public_api.ts",
     "umdModuleIds": {
       "moment": "moment",
+      "imask": "IMask",
       "ngx-uploadx": "ngxUploadx"
     }
   }

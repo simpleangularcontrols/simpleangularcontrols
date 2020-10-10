@@ -2,8 +2,8 @@
   <label for="{{_name}}" class="col-12 col-form-label" [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]">{{_label}}</label>
   <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
     <div class="input-group input-group-sm">
-      <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [textMask]="_mask" [attr.placeholder]="_placeholder" [value]="valuestring" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()"
-             (input)="setValueString($event.target.value)" [disabled]="isdisabled" />
+      <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [imask]="imaskDate" [attr.placeholder]="_placeholder" [value]="valuestring" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()"
+             (accept)="setValueString($event)" [disabled]="isdisabled" />
       <div class="input-group-append">
         <button class="btn btn-secondary" type="button" (click)="showDateSelector()" [disabled]="isdisabled">
           <i class="fa fa-calendar"></i>

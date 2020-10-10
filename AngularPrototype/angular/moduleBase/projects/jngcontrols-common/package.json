@@ -5,7 +5,7 @@
     "@angular/common": "10.0.4",
     "@angular/core": "10.0.4",
     "moment": "2.24.0",
-    "angular2-text-mask": "9.0.0",
+    "angular-imask": "6.0.5",
     "ngx-uploadx": "3.3.5"
   },
   "author": {

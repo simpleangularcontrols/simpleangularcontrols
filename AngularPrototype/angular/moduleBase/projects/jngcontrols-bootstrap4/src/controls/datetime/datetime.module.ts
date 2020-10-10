@@ -4,12 +4,12 @@ import { NgDateComponent } from './date';
 import { NgDateTimeComponent } from './datetime';
 import { NgDateSelectorComponent } from './dateselector';
 import { NgTimeComponent } from './time';
-import { TextMaskModule } from 'angular2-text-mask';
+import { IMaskModule } from 'angular-imask';
 
 @NgModule({
   declarations: [NgDateComponent, NgDateTimeComponent, NgTimeComponent, NgDateSelectorComponent],
   imports: [
-    CommonModule, TextMaskModule
+    CommonModule, IMaskModule
   ],
   exports: [NgDateComponent, NgDateTimeComponent, NgTimeComponent, NgDateSelectorComponent]
 })

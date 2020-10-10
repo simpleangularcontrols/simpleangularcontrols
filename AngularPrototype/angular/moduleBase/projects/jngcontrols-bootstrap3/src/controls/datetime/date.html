@@ -4,9 +4,9 @@
     <div style="position: relative; width: 140px;">
       <div id="{{_name}}" class="datetime-textbox input-group">
         <!-- this class comes in the div above when disabled [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']" -->
-        <input name="{{_name}}" type="text" class="form-control date-control" [textMask]="_mask" placeholder="dd.mm.yyyy"
+        <input name="{{_name}}" type="text" class="form-control date-control" [imask]="imaskDate" placeholder="dd.mm.yyyy"
                [attr.placeholder]="_placeholder" [value]="valuestring" maxlength="10" size="10"
-               (blur)="onTouch()" (input)="setValueString($event.target.value)" [disabled]="isdisabled" (click)="showDateSelector()" />
+               (blur)="onTouch()" (accept)="setValueString($event)" [disabled]="isdisabled" (click)="showDateSelector()" />
         <span class="input-group-btn">
           <button class="btn btn-default" type="button" (click)="showDateSelector()" [disabled]="isdisabled">
             <i class="glyphicon glyphicon-calendar"></i>

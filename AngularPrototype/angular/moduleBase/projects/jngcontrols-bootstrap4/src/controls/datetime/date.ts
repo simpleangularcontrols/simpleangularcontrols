@@ -24,8 +24,4 @@ export class NgDateComponent extends NgDateCommon {
   constructor(@Host() parent: NgFormularDirective, injector: Injector, _elementRef: ElementRef) {
     super(parent, injector, _elementRef);
   }
-
-  public onAccept(result: any) {
-    console.log(result);
-  }
 }

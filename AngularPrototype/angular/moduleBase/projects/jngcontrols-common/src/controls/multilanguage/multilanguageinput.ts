@@ -122,7 +122,11 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
         return '';
       }
 
-      return this.value[currentIsoCode];
+      if (this.value[currentIsoCode] === undefined) {
+        return '';
+      } else {
+        return this.value[currentIsoCode];
+      }
     } else {
       return '';
     }

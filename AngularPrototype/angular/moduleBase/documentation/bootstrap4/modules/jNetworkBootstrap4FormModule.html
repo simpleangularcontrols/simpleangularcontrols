@@ -199,14 +199,14 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { NgFormularDirective } from &#x27;./form&#x27;;
-import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
 import { FormsModule, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
 import { ProvideParentNgFormularDirective } from &#x27;./ngformularinherit.directive&#x27;;
 
 @NgModule({
   declarations: [NgFormularDirective, ProvideParentNgFormularDirective],
   imports: [
-    BrowserModule,
+    CommonModule,
     FormsModule
   ],
   exports: [

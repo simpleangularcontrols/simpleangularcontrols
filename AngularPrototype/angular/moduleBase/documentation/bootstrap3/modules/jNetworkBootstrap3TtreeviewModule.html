@@ -228,7 +228,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
 import { NgTreeViewComponent } from &#x27;./treeview&#x27;;
 import { NgTreeViewChildComponent } from &#x27;./treeviewchild&#x27;;
 import { NgTreeItemActionComponent } from &#x27;./ngtreeitemaction&#x27;;
@@ -236,7 +236,7 @@ import { NgTreeItemActionComponent } from &#x27;./ngtreeitemaction&#x27;;
 @NgModule({
   declarations: [NgTreeViewComponent, NgTreeViewChildComponent, NgTreeItemActionComponent],
   imports: [
-    BrowserModule
+    CommonModule
   ],
   exports: [NgTreeViewComponent, NgTreeViewChildComponent, NgTreeItemActionComponent]
 })

@@ -251,7 +251,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
 import { NgStaticLabelComponent } from &#x27;./staticlabel&#x27;;
 import { NgStaticFormContainerComponent } from &#x27;./formcontainer&#x27;;
 import { JNetworkBootstrap3TooltipModule } from &#x27;../tooltip/tooltip.module&#x27;;
@@ -259,7 +259,7 @@ import { JNetworkBootstrap3TooltipModule } from &#x27;../tooltip/tooltip.module&
 @NgModule({
   declarations: [NgStaticLabelComponent, NgStaticFormContainerComponent],
   imports: [
-    BrowserModule, JNetworkBootstrap3TooltipModule
+    CommonModule, JNetworkBootstrap3TooltipModule
   ],
   exports: [NgStaticLabelComponent, NgStaticFormContainerComponent]
 })

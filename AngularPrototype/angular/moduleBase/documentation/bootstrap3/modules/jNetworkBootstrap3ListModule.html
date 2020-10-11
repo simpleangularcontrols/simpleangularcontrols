@@ -281,7 +281,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
 import { NgDropdownComponent, NgDropdownOptionDirective } from &#x27;./dropdown&#x27;;
 import { NgListboxComponent } from &#x27;./listbox&#x27;;
 import { JNetworkCommonListboxOptionModule } from &#x27;@jnetwork/jngcontrols-common&#x27;;
@@ -290,7 +290,7 @@ import { FormsModule } from &#x27;@angular/forms&#x27;;
 @NgModule({
   declarations: [NgDropdownComponent, NgDropdownOptionDirective, NgListboxComponent],
   imports: [
-    BrowserModule, JNetworkCommonListboxOptionModule, FormsModule
+    CommonModule, JNetworkCommonListboxOptionModule, FormsModule
   ],
   exports: [NgDropdownComponent, NgDropdownOptionDirective, NgListboxComponent]
 })

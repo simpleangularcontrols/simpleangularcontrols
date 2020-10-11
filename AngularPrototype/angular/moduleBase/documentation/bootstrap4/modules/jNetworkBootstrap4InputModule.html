@@ -378,7 +378,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
 import { NgInputComponent } from &#x27;./input&#x27;;
 import { NgInputEmailComponent } from &#x27;./inputemail&#x27;;
 import { NgInputAreaComponent } from &#x27;./inputarea&#x27;;
@@ -392,7 +392,7 @@ import { NgInputSearchComponent } from &#x27;./inputsearch&#x27;;
 @NgModule({
   declarations: [NgInputComponent, NgInputAreaComponent, NgInputCurrencyComponent, NgInputDecimalComponent, NgInputEmailComponent, NgInputIntegerComponent, NgInputPasswordComponent, NgInputSearchComponent],
   imports: [
-    BrowserModule
+    CommonModule
   ],
   exports: [NgInputComponent, NgInputAreaComponent, NgInputCurrencyComponent, NgInputDecimalComponent, NgInputEmailComponent, NgInputIntegerComponent, NgInputPasswordComponent, NgInputSearchComponent]
 })

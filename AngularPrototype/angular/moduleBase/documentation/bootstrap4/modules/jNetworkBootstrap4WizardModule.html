@@ -198,14 +198,14 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
 import { NgWizardComponent } from &#x27;./wizard&#x27;;
 import { NgWizardItemComponent } from &#x27;./wizarditem&#x27;;
 
 @NgModule({
   declarations: [NgWizardComponent, NgWizardItemComponent],
   imports: [
-    BrowserModule
+    CommonModule
   ],
   exports: [NgWizardComponent, NgWizardItemComponent]
 })

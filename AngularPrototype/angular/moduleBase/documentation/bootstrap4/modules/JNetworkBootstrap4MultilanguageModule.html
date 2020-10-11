@@ -198,7 +198,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
 import { NgMultilanguageInputComponent } from &#x27;./multilanguageinput&#x27;;
 import { NgMultilanguageInputAreaComponent } from &#x27;./multilanguageinputarea&#x27;;
 import { NgbDropdownModule } from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
@@ -206,7 +206,7 @@ import { NgbDropdownModule } from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
 @NgModule({
   declarations: [NgMultilanguageInputComponent, NgMultilanguageInputAreaComponent],
   imports: [
-    BrowserModule, NgbDropdownModule
+    CommonModule, NgbDropdownModule
   ],
   exports: [NgMultilanguageInputComponent, NgMultilanguageInputAreaComponent]
 })

@@ -194,13 +194,13 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { jNetworkTinyMceEditorModule } from &#x27;@jnetwork/jngcontrols-common&#x27;;
-import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
 import { NgTinyMceComponent } from &#x27;./tinymce&#x27;;
 
 @NgModule({
   declarations: [NgTinyMceComponent],
   imports: [
-    BrowserModule, jNetworkTinyMceEditorModule
+    CommonModule, jNetworkTinyMceEditorModule
   ],
   exports: [NgTinyMceComponent]
 })

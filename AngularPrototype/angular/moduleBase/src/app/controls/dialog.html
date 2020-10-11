@@ -1,6 +1,7 @@
 <form #formDialog labelsize="3">
 
   <div>
+    <div>Dialog ohne Backdrop und ohne ESC</div>
     <ngButton name="modalOpen1" text="Modal öffnen" (onclick)="modal1dialog.show()"></ngButton>
     <ngDialog #modal1dialog [allowesc]="false" [backdrop]="false" title="Leerer Dialog">
       <div dialogbody><p>Hello World</p></div>
@@ -11,6 +12,7 @@
   </div>
 
   <div>
+    <div>Dialog mit Backdrop und ESC</div>
     <ngButton name="modalOpen2" text="Modal öffnen" (onclick)="modal2dialog.show()"></ngButton>
     <ngDialog #modal2dialog title="Dialog mit Backdrop und ESC">
       <div dialogbody><p>Hello World</p></div>
@@ -21,6 +23,7 @@
   </div>
 
   <div>
+    <div>Dialog in Dialog mit Backdrop und ESC</div>
     <ngButton name="modalOpen3" text="Modal öffnen" (onclick)="modal3dialog.show()"></ngButton>
     <ngDialog #modal3dialog title="Dialog mit Backdrop und ESC">
       <div dialogbody>
@@ -45,6 +48,7 @@
 
   </div>
   <div>
+    <div>Confirm Dialog</div>
     <ngButton text="Confirm" (onclick)="confirmExample()"></ngButton>
   </div>
 

@@ -1,0 +1,2720 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>module-base documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">module-base documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li>Validation</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/jngcontrols-common/src/validation/validators.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Klasse mit Standard Validatoren</p>
+
+            </p>
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#email">email</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#GetValidationErrorItem">GetValidationErrorItem</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#isValidDate">isValidDate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#maxDate">maxDate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#maxTime">maxTime</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#maxValue">maxValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#minDate">minDate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#minFiles">minFiles</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#minLength">minLength</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#minTime">minTime</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#minValue">minValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#multilanguageRequired">multilanguageRequired</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#multilanguageRequiredAny">multilanguageRequiredAny</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#patternValidator">patternValidator</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#required">required</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="email"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            email
+                        </b>
+                        <a href="#email"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>email(control: <a href="https://angular.io/api/forms/AbstractControl" target="_blank">AbstractControl</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="167"
+                            class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:167</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Validiert Feld auf E-Mail Adresse</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>control</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/AbstractControl" target="_blank" >AbstractControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Control das Valdiert werden soll</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>fieldName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Label des Controls</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessage</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessageSummary</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GetValidationErrorItem"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            GetValidationErrorItem
+                        </b>
+                        <a href="#GetValidationErrorItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>GetValidationErrorItem(errorType: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, errorMessageKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, errorMessageValidationSummaryKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, parameters: Map<string | any>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:70</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Die Methode ist von jedem Validator aufgerufen. Die setzt sowohl den errorType des gerpüfte Item, als auch die ErrorMessage (gemäss von errorType, FieldName und Parameters).</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>errorType</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        <p>Typ den Fehler</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>errorMessageKey</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        <p>Error Message Key</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>errorMessageValidationSummaryKey</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        <p>Error Message Key für Validation Summary</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>fieldName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        <p>Label oder Name des Feldes</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>parameters</td>
+                                    <td>
+                                            <code>Map&lt;string | any&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>new Map&lt;string, any&gt;()</code>
+                                    </td>
+
+                                    <td>
+                                        <p>Parametern die in den Meldungen als Platzhalter verwendet werden können</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isValidDate"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            isValidDate
+                        </b>
+                        <a href="#isValidDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isValidDate(control: <a href="../interfaces/IDateTimeControl.html">IDateTimeControl</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="299"
+                            class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:299</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Validator der prüft ob der Wert ein Datum ist.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>control</td>
+                                    <td>
+                                                <code><a href="../interfaces/IDateTimeControl.html" target="_self" >IDateTimeControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Control mit IDateTimeControl Interface implementierung</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>fieldName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Label des Controls</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessage</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die beim Control angezeigt wird</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessageSummary</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="maxDate"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            maxDate
+                        </b>
+                        <a href="#maxDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>maxDate(control: <a href="../interfaces/IDateTimeControl.html">IDateTimeControl</a>, maxDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="228"
+                            class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:228</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Validiert ob das Datum älter als maxDate ist</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>control</td>
+                                    <td>
+                                                <code><a href="../interfaces/IDateTimeControl.html" target="_self" >IDateTimeControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Control das Validiert werden soll. Muss IDateTimeControl implementiert haben</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>maxDate</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>max. Datum</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>fieldName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Label des Controls</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessage</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessageSummary</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="maxTime"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            maxTime
+                        </b>
+                        <a href="#maxTime"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>maxTime(control: <a href="../interfaces/IDateTimeControl.html">IDateTimeControl</a>, maxTime: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="276"
+                            class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:276</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Validiert ob die Zeit früher als maxTime ist.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>control</td>
+                                    <td>
+                                                <code><a href="../interfaces/IDateTimeControl.html" target="_self" >IDateTimeControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Control das Validiert werden soll. Muss IDateTimeControl implementiert haben</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>maxTime</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Min. Zeit</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>fieldName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Label des Controls</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessage</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessageSummary</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="maxValue"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            maxValue
+                        </b>
+                        <a href="#maxValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>maxValue(control: <a href="https://angular.io/api/forms/AbstractControl" target="_blank">AbstractControl</a>, maxvalue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="147"
+                            class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:147</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Validator für Max Value</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>control</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/AbstractControl" target="_blank" >AbstractControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Control das Validiert werden soll</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>maxvalue</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Max. Wert</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>fieldName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Label des Controls</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessage</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessageSummary</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="minDate"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            minDate
+                        </b>
+                        <a href="#minDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>minDate(control: <a href="../interfaces/IDateTimeControl.html">IDateTimeControl</a>, minDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="204"
+                            class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:204</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Validiert ob das Datum neuer als minDate ist</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>control</td>
+                                    <td>
+                                                <code><a href="../interfaces/IDateTimeControl.html" target="_self" >IDateTimeControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Control das Validiert werden soll. Muss IDateTimeControl implementiert haben</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>minDate</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Min. Datum</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>fieldName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Label des Controls</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessage</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessageSummary</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="minFiles"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            minFiles
+                        </b>
+                        <a href="#minFiles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>minFiles(control: <a href="../interfaces/IUploadControl.html">IUploadControl</a>, minFiles: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="316"
+                            class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:316</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Validator für min. Anzahl von Uploads</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>control</td>
+                                    <td>
+                                                <code><a href="../interfaces/IUploadControl.html" target="_self" >IUploadControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Control das Validatiert werden soll. Control muss IUploadControl implementiert haben</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>minFiles</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Min. Anzahl Files die hochgeladen werden müssen</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>fieldName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Label des Controls</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessage</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die unterhalb des Controls angezeigt wird</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessageSummary</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="minLength"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            minLength
+                        </b>
+                        <a href="#minLength"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>minLength(control: <a href="https://angular.io/api/forms/AbstractControl" target="_blank">AbstractControl</a>, minlength: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="183"
+                            class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:183</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Validiert auf die Länge des Wertes im Control</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>control</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/AbstractControl" target="_blank" >AbstractControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Control das Validiert werden soll</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>minlength</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Min. Länge des Wertes</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>fieldName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Label des Controls</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessage</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessageSummary</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="minTime"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            minTime
+                        </b>
+                        <a href="#minTime"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>minTime(control: <a href="../interfaces/IDateTimeControl.html">IDateTimeControl</a>, minTime: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="252"
+                            class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:252</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Validiert ob die Zeit später als minTime ist.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>control</td>
+                                    <td>
+                                                <code><a href="../interfaces/IDateTimeControl.html" target="_self" >IDateTimeControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Control das Validiert werden soll. Muss IDateTimeControl implementiert haben</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>minTime</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Min. Zeit</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>fieldName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Label des Controls</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessage</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessageSummary</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="minValue"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            minValue
+                        </b>
+                        <a href="#minValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>minValue(control: <a href="https://angular.io/api/forms/AbstractControl" target="_blank">AbstractControl</a>, minvalue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="105"
+                            class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:105</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Validator für Min Value</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>control</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/AbstractControl" target="_blank" >AbstractControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Control das Validiert wird</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>minvalue</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Min. Value</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>fieldName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Label des Controls</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessage</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessageSummary</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="multilanguageRequired"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            multilanguageRequired
+                        </b>
+                        <a href="#multilanguageRequired"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>multilanguageRequired(control: <a href="https://angular.io/api/forms/AbstractControl" target="_blank">AbstractControl</a>, languages: <a href="../classes/LanguageModel.html">LanguageModel[]</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="341"
+                            class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:341</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Validator für MultiLanguage Control, welcher überprüft ob alle Sprachen erfasst sind.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>control</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/AbstractControl" target="_blank" >AbstractControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Control das Validatiert werden soll</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>languages</td>
+                                    <td>
+                                                <code><a href="../classes/LanguageModel.html" target="_self" >LanguageModel[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Sprachen die im Control erfasst werden können.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>fieldName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Label des Controls</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessage</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die unterhalb des Controls angezeigt wird</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessageSummary</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="multilanguageRequiredAny"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            multilanguageRequiredAny
+                        </b>
+                        <a href="#multilanguageRequiredAny"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>multilanguageRequiredAny(control: <a href="https://angular.io/api/forms/AbstractControl" target="_blank">AbstractControl</a>, languages: <a href="../classes/LanguageModel.html">LanguageModel[]</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="367"
+                            class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:367</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Validator für MultiLanguage Control, welcher überprüft ob min. ein Wert erfasst wurde</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>control</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/AbstractControl" target="_blank" >AbstractControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Control das Validatiert werden soll</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>languages</td>
+                                    <td>
+                                                <code><a href="../classes/LanguageModel.html" target="_self" >LanguageModel[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Sprachen die im Control erfasst werden können.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>fieldName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Label des Controls</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessage</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die unterhalb des Controls angezeigt wird</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessageSummary</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="patternValidator"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            patternValidator
+                        </b>
+                        <a href="#patternValidator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>patternValidator(control: <a href="https://angular.io/api/forms/AbstractControl" target="_blank">AbstractControl</a>, pattern: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="126"
+                            class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:126</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Validierung mit einem RegEx Pattern</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>control</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/AbstractControl" target="_blank" >AbstractControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Control das validiert werden soll.</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>pattern</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>RegEx Pattern</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>fieldName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Label des Controls</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessage</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessageSummary</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="required"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Static</span>
+                            required
+                        </b>
+                        <a href="#required"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>required(control: <a href="https://angular.io/api/forms/AbstractControl" target="_blank">AbstractControl</a>, fieldName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="89"
+                            class="link-to-prism">projects/jngcontrols-common/src/validation/validators.ts:89</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Validator für Required State</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>control</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/AbstractControl" target="_blank" >AbstractControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Control das Validiert wird</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>fieldName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Label des Controls</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessage</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>validationMessageSummary</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AbstractControl, ValidationErrors, ValidatorFn, Validators } from &#x27;@angular/forms&#x27;;
+import * as moment_ from &#x27;moment&#x27;;
+import { IDateTimeControl } from &#x27;../interfaces/idatetimecontrol&#x27;;
+import { IUploadControl } from &#x27;../interfaces/iuploadcontrol&#x27;;
+import { LanguageModel } from &#x27;../models/languagemodel&#x27;;
+/**
+ * Moment
+ */
+const moment &#x3D; moment_;
+
+/**
+ * Klasse für Validierungsfehler
+ * */
+export class ValidationErrorItem {
+
+  /**
+   * Konstruktor
+   * @param errorType Type des Fehlers
+   * @param errorMessageKey Key für Fehlermeldung
+   * @param errorMessageSummaryKey Key für Fehlermeldung in Validation Summary
+   * @param fieldName Name des Labels oder Bezeichnung des Feldes
+   */
+  constructor(errorType: string, errorMessageKey: string, errorMessageSummaryKey: string, fieldName: string) {
+    this.errorType &#x3D; errorType;
+    this.errorMessageKey &#x3D; errorMessageKey;
+    this.errorMessageValidationSummaryKey &#x3D; errorMessageSummaryKey;
+    this.fieldName &#x3D; fieldName;
+  }
+
+  /**
+   * Typ den Fehler
+   */
+  public errorType: string;
+
+  /**
+   * Error Message Key
+   */
+  public errorMessageKey: string;
+
+  /**
+   * Error Message Key für Validation Summary
+   */
+  public errorMessageValidationSummaryKey: string;
+
+  /**
+   * Label oder Name des Feldes
+   */
+  public fieldName: string;
+
+  /**
+   * Map mit Parametern die in den Meldungen als Platzhalter verwendet werden können
+   */
+  public parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+
+}
+
+/**
+ * Klasse mit Standard Validatoren
+ */
+export class Validation {
+
+  /**
+   * Die Methode ist von jedem Validator aufgerufen. Die setzt sowohl den errorType des gerpüfte Item, als auch die ErrorMessage (gemäss von errorType, FieldName und Parameters).
+   * @param errorType Typ den Fehler
+   * @param errorMessageKey Error Message Key
+   * @param errorMessageValidationSummaryKey Error Message Key für Validation Summary
+   * @param fieldName  Label oder Name des Feldes
+   * @param parameters Parametern die in den Meldungen als Platzhalter verwendet werden können
+   */
+  static GetValidationErrorItem(errorType: string, errorMessageKey: string, errorMessageValidationSummaryKey: string, fieldName: string, parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;()): any {
+    const item: ValidationErrorItem &#x3D; new ValidationErrorItem(errorType, errorMessageKey, errorMessageValidationSummaryKey, fieldName);
+
+    if (parameters !&#x3D;&#x3D; null &amp;&amp; parameters !&#x3D;&#x3D; undefined &amp;&amp; parameters.size &gt; 0) {
+      parameters.forEach((v, k) &#x3D;&gt; {
+        item.parameters.set(k, v);
+      });
+    }
+
+    return { [errorType]: item };
+  }
+
+  /**
+   * Validator für Required State
+   * @param control Control das Validiert wird
+   * @param fieldName Label des Controls
+   * @param validationMessage Validierungsmeldung die
+   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+   */
+  static required(control: AbstractControl, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
+    if (Validators.required(control) !&#x3D;&#x3D; null) {
+      return Validation.GetValidationErrorItem(&#x27;required&#x27;, validationMessage, validationMessageSummary, fieldName);
+    } else {
+      return null;
+    }
+  }
+
+  /**
+   * Validator für Min Value
+   * @param control Control das Validiert wird
+   * @param minvalue Min. Value
+   * @param fieldName Label des Controls
+   * @param validationMessage Validierungsmeldung die
+   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+   */
+  static minValue(control: AbstractControl, minvalue: number, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
+    const validator: ValidatorFn &#x3D; Validators.min(minvalue);
+
+    if (validator(control) !&#x3D;&#x3D; null) {
+      const parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+      parameters.set(&#x27;MINVALUE&#x27;, minvalue);
+
+      return Validation.GetValidationErrorItem(&#x27;minvalue&#x27;, validationMessage, validationMessageSummary, fieldName, parameters);
+    } else {
+      return null;
+    }
+  }
+
+  /**
+   * Validierung mit einem RegEx Pattern
+   * @param control Control das validiert werden soll.
+   * @param pattern RegEx Pattern
+   * @param fieldName Label des Controls
+   * @param validationMessage Validierungsmeldung die
+   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+   */
+  static patternValidator(control: AbstractControl, pattern: string, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
+    const validator: ValidatorFn &#x3D; Validators.pattern(pattern);
+
+    if (validator(control) !&#x3D;&#x3D; null) {
+      const parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+      parameters.set(&#x27;PATTERN&#x27;, pattern);
+
+      return Validation.GetValidationErrorItem(&#x27;pattern&#x27;, validationMessage, validationMessageSummary, fieldName, parameters);
+    } else {
+      return null;
+    }
+  }
+
+  /**
+   * Validator für Max Value
+   * @param control Control das Validiert werden soll
+   * @param maxvalue Max. Wert
+   * @param fieldName Label des Controls
+   * @param validationMessage Validierungsmeldung die
+   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+   */
+  static maxValue(control: AbstractControl, maxvalue: number, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
+    const validator: ValidatorFn &#x3D; Validators.max(maxvalue);
+
+    if (validator(control) !&#x3D;&#x3D; null) {
+      const parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+      parameters.set(&#x27;MAXVALUE&#x27;, maxvalue);
+
+      return Validation.GetValidationErrorItem(&#x27;maxvalue&#x27;, validationMessage, validationMessageSummary, fieldName, parameters);
+    } else {
+      return null;
+    }
+  }
+
+  /**
+   * Validiert Feld auf E-Mail Adresse
+   * @param control Control das Valdiert werden soll
+   * @param fieldName Label des Controls
+   * @param validationMessage Validierungsmeldung die
+   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+   */
+  static email(control: AbstractControl, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
+    if (Validators.email(control) !&#x3D;&#x3D; null) {
+      return Validation.GetValidationErrorItem(&#x27;email&#x27;, validationMessage, validationMessageSummary, fieldName);
+    } else {
+      return null;
+    }
+  }
+
+  /**
+   * Validiert auf die Länge des Wertes im Control
+   * @param control Control das Validiert werden soll
+   * @param minlength Min. Länge des Wertes
+   * @param fieldName Label des Controls
+   * @param validationMessage Validierungsmeldung die
+   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+   */
+  static minLength(control: AbstractControl, minlength: number, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
+    const validator: ValidatorFn &#x3D; Validators.minLength(minlength);
+
+    if (minlength !&#x3D;&#x3D; null &amp;&amp; minlength !&#x3D;&#x3D; undefined &amp;&amp; control.value !&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; control.value !&#x3D;&#x3D; undefined &amp;&amp; control.value !&#x3D; null &amp;&amp; validator(control) !&#x3D; null) {
+      const parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+      parameters.set(&#x27;MINLENGTH&#x27;, minlength);
+
+      return Validation.GetValidationErrorItem(&#x27;minlength&#x27;, validationMessage, validationMessageSummary, fieldName, parameters);
+    } else {
+      return null;
+    }
+  }
+
+  /**
+   * Validiert ob das Datum neuer als minDate ist
+   * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
+   * @param minDate Min. Datum
+   * @param fieldName Label des Controls
+   * @param validationMessage Validierungsmeldung die
+   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+   */
+  static minDate(control: IDateTimeControl, minDate: Date, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
+    // Check abbrechen, wenn kein gültiges Datum
+    if (!control.IsDateValid() || minDate &#x3D;&#x3D;&#x3D; null) {
+      return null;
+    }
+
+    if (minDate &gt; control.value) {
+      const parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+      parameters.set(&#x27;MINDATE&#x27;, moment(minDate).format(control.GetDateTimeFormatString()));
+
+      return Validation.GetValidationErrorItem(&#x27;datemin&#x27;, validationMessage, validationMessageSummary, fieldName, parameters);
+    } else {
+      return null;
+    }
+  }
+
+  /**
+   * Validiert ob das Datum älter als maxDate ist
+   * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
+   * @param maxDate max. Datum
+   * @param fieldName Label des Controls
+   * @param validationMessage Validierungsmeldung die
+   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+   */
+  static maxDate(control: IDateTimeControl, maxDate: Date, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
+    // Check abbrechen, wenn kein gültiges Datum
+    if (!control.IsDateValid() || maxDate &#x3D;&#x3D;&#x3D; null) {
+      return null;
+    }
+
+    if (maxDate &lt; control.value) {
+      const parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+      parameters.set(&#x27;MAXDATE&#x27;, moment(maxDate).format(control.GetDateTimeFormatString()));
+
+      return Validation.GetValidationErrorItem(&#x27;datemax&#x27;, validationMessage, validationMessageSummary, fieldName, parameters);
+    } else {
+      return null;
+    }
+  }
+
+  /**
+   * Validiert ob die Zeit später als minTime ist.
+   * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
+   * @param minTime Min. Zeit
+   * @param fieldName Label des Controls
+   * @param validationMessage Validierungsmeldung die
+   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+   */
+  static minTime(control: IDateTimeControl, minTime: Date, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
+    // Check abbrechen, wenn kein gültiges Datum
+    if (!control.IsDateValid() || minTime &#x3D;&#x3D;&#x3D; null) {
+      return null;
+    }
+
+    if (control.value !&#x3D;&#x3D; null &amp;&amp; minTime &gt; control.value) {
+      const parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+      parameters.set(&#x27;MINTIME&#x27;, moment(minTime).format(control.GetDateTimeFormatString()));
+
+      return Validation.GetValidationErrorItem(&#x27;timemin&#x27;, validationMessage, validationMessageSummary, fieldName, parameters);
+    } else {
+      return null;
+    }
+  }
+
+  /**
+   * Validiert ob die Zeit früher als maxTime ist.
+   * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
+   * @param maxTime Min. Zeit
+   * @param fieldName Label des Controls
+   * @param validationMessage Validierungsmeldung die
+   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+   */
+  static maxTime(control: IDateTimeControl, maxTime: Date, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
+    // Check abbrechen, wenn kein gültiges Datum
+    if (!control.IsDateValid() || maxTime &#x3D;&#x3D;&#x3D; null) {
+      return null;
+    }
+
+    if (control.value !&#x3D;&#x3D; null &amp;&amp; maxTime &lt; control.value) {
+      const parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+      parameters.set(&#x27;MAXTIME&#x27;, moment(maxTime).format(control.GetDateTimeFormatString()));
+
+      return Validation.GetValidationErrorItem(&#x27;timemax&#x27;, validationMessage, validationMessageSummary, fieldName, parameters);
+    } else {
+      return null;
+    }
+  }
+
+  /**
+   * Validator der prüft ob der Wert ein Datum ist.
+   * @param control Control mit IDateTimeControl Interface implementierung
+   * @param fieldName Label des Controls
+   * @param validationMessage Validierungsmeldung die beim Control angezeigt wird
+   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+   */
+  static isValidDate(control: IDateTimeControl, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
+    if (!control.IsDateValid()) {
+      return Validation.GetValidationErrorItem(&#x27;dateformat&#x27;, validationMessage, validationMessageSummary, fieldName);
+      // return { &#x27;dateformat&#x27;: true, &#x27;message&#x27;: &#x27;Feld &quot;&#x27; + fieldName + &#x27;&quot; ist kein gültiges Datum&#x27; };
+    } else {
+      return null;
+    }
+  }
+
+  /**
+   * Validator für min. Anzahl von Uploads
+   * @param control Control das Validatiert werden soll. Control muss IUploadControl implementiert haben
+   * @param minFiles Min. Anzahl Files die hochgeladen werden müssen
+   * @param fieldName Label des Controls
+   * @param validationMessage Validierungsmeldung die unterhalb des Controls angezeigt wird
+   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+   */
+  static minFiles(control: IUploadControl, minFiles: number, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
+    // Check abbrechen, wenn Min Files nicht gesetzt oder 0
+    if (minFiles &#x3D;&#x3D;&#x3D; null || minFiles &#x3D;&#x3D;&#x3D; 0) {
+      return null;
+    }
+
+    if (control.UploadedFileCount() !&#x3D;&#x3D; null &amp;&amp; minFiles &gt; control.UploadedFileCount()) {
+      const parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+      parameters.set(&#x27;MINFILES&#x27;, minFiles);
+
+      return Validation.GetValidationErrorItem(&#x27;dateformat&#x27;, validationMessage, validationMessageSummary, fieldName, parameters);
+    } else {
+      return null;
+    }
+  }
+
+
+  /**
+   * Validator für MultiLanguage Control, welcher überprüft ob alle Sprachen erfasst sind.
+   * @param control Control das Validatiert werden soll
+   * @param languages Sprachen die im Control erfasst werden können.
+   * @param fieldName Label des Controls
+   * @param validationMessage Validierungsmeldung die unterhalb des Controls angezeigt wird
+   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+   */
+  static multilanguageRequired(control: AbstractControl, languages: LanguageModel[], fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
+    let found &#x3D; false;
+
+    languages.forEach((item: LanguageModel) &#x3D;&gt; {
+      if (control.value) {
+        if (control.value[item.IsoCode] &#x3D;&#x3D;&#x3D; undefined || control.value[item.IsoCode] &#x3D;&#x3D;&#x3D; null || control.value[item.IsoCode] &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+          found &#x3D; true;
+        }
+      }
+    });
+
+    if (found) {
+      return Validation.GetValidationErrorItem(&#x27;required&#x27;, validationMessage, validationMessageSummary, fieldName);
+    } else {
+      return null;
+    }
+  }
+
+  /**
+   * Validator für MultiLanguage Control, welcher überprüft ob min. ein Wert erfasst wurde
+   * @param control Control das Validatiert werden soll
+   * @param languages Sprachen die im Control erfasst werden können.
+   * @param fieldName Label des Controls
+   * @param validationMessage Validierungsmeldung die unterhalb des Controls angezeigt wird
+   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+   */
+  static multilanguageRequiredAny(control: AbstractControl, languages: LanguageModel[], fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
+    let found &#x3D; false;
+
+    languages.forEach((item: LanguageModel) &#x3D;&gt; {
+
+      if (control.value) {
+        if (control.value[item.IsoCode] !&#x3D;&#x3D; undefined &amp;&amp; control.value[item.IsoCode] !&#x3D;&#x3D; null &amp;&amp; control.value[item.IsoCode] !&#x3D;&#x3D; &#x27;&#x27;) {
+          found &#x3D; true;
+        }
+      }
+
+    });
+
+    if (!found) {
+      return Validation.GetValidationErrorItem(&#x27;requiredany&#x27;, validationMessage, validationMessageSummary, fieldName);
+    } else {
+      return null;
+    }
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'Validation.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,11 +1,60 @@
 # Create Documentation
 
+## Bootstrap 3
+```
 npm run-script compodoc-bs3
+```
+## Boostrap 4
+```
 npm run-script compodoc-bs4
+```
 
-oder 
-
+## Full Documentation Build
+```
 build.compodoc.bat
+```
+
+# Debug
+
+## Common Library
+```
+npm run run-common
+```
+
+## Bootstrap 3
+```
+npm run run-bs3
+```
+
+## Bootstrap 4
+```
+npm run run-bs4
+```
+
+# Build
+
+## Common Library
+```
+npm run build-common
+```
+
+## Bootstrap 3
+```
+npm run build-bs3
+```
+
+## Bootstrap 4
+```
+npm run build-bs4
+```
+
+# Release
+
+Folgendes Script ausführen
+
+```
+build.package.bat
+```
 
 # ModuleBase
 

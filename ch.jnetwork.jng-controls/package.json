@@ -1,5 +1,5 @@
 {
-  "name": "module-base",
+  "name": "jng-controls",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -9,6 +9,12 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "build-common": "ng build --project jngcontrols-common",
+    "build-bs3": "ng build --project jngcontrols-bootstrap3",
+    "build-bs4": "ng build --project jngcontrols-bootstrap4",
+    "run-common": "ng build --project jngcontrols-common --watch",
+    "run-bs3": "ng build --project jngcontrols-bootstrap3 --watch",
+    "run-bs4": "ng build --project jngcontrols-bootstrap4 --watch",
     "compodoc-bs3": "npx compodoc -c bootstrap3.compodocrc.json",
     "compodoc-bs4": "npx compodoc -c bootstrap4.compodocrc.json"
   },
@@ -24,10 +30,10 @@
     "@angular/platform-browser-dynamic": "10.1.5",
     "@angular/router": "10.1.5",
     "@compodoc/compodoc": "^1.1.11",
+    "@ng-bootstrap/ng-bootstrap": "7.0.0",
     "@jnetwork/jngcontrols-bootstrap3": "file:dist/jngcontrols-bootstrap3",
     "@jnetwork/jngcontrols-bootstrap4": "file:dist/jngcontrols-bootstrap4",
     "@jnetwork/jngcontrols-common": "file:dist/jngcontrols-common",
-    "@ng-bootstrap/ng-bootstrap": "7.0.0",
     "angular-imask": "6.0.5",
     "core-js": "^3.6.5",
     "jquery": "3.5.1",

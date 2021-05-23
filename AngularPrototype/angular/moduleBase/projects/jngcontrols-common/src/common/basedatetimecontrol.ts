@@ -15,10 +15,6 @@ const moment = moment_;
  */
 @Directive()
 export abstract class NgBaseDateTimeControl extends NgBaseModelControl<Date> implements IDateTimeControl {
-  /**
-   * value. Typ: any
-   */
-  value: any;
 
   // #region Constructor
 

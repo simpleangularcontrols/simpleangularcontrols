@@ -1,0 +1,195 @@
+<h2>Input</h2>
+<form #myForm="NgFormular" labelsize="3">
+  <div class="mb-2">
+    <ngButton (onclick)="debugAction()" text="Validate"></ngButton>
+  </div>
+  <ngValidationSummary></ngValidationSummary>
+
+  <div ngModelGroup="Group1">
+    <ngInputSearch
+      name="field4search"
+      label="Feld 4 Search"
+      [(ngModel)]="values.field4"
+      buttontext="Suchen"
+    ></ngInputSearch>
+    <ngInputSearch
+      name="field4search2"
+      disablelabel="true"
+      label="Feld 4 Search"
+      [(ngModel)]="values.field4"
+      buttontext="Suchen"
+    ></ngInputSearch>
+    <ngInput
+      name="field1"
+      label="Feld 1"
+      labelsize="2"
+      isrequired="true"
+      [(ngModel)]="values.field1"
+    ></ngInput>
+    <ngInput
+      name="field2"
+      disablelabel="true"
+      [(ngModel)]="values.field2"
+    ></ngInput>
+    <ngInput
+      name="field3"
+      label="Feld 3"
+      labelsize="4"
+      [(ngModel)]="values.field3"
+    ></ngInput>
+    <ngInput name="field4" label="Feld 4" [(ngModel)]="values.field4"></ngInput>
+    <ngInput
+      name="field5"
+      label="Feld 5"
+      placeholder="Feld 5"
+      [(ngModel)]="values.field5"
+    ></ngInput>
+    <ngInput
+      name="field6"
+      label="Feld 6 (Max 10)"
+      [(ngModel)]="values.field6"
+      [maxlength]="10"
+    ></ngInput>
+    <ngInput
+      name="field7"
+      label="Feld 7"
+      [(ngModel)]="values.field7"
+      disabled="true"
+    ></ngInput>
+  </div>
+
+  <div ngModelGroup="Group2">
+    <ngInputDecimal
+      name="fieldd1"
+      label="Decimal 1 (Decimal)"
+      disablelabel="true"
+      [(ngModel)]="values.fieldd1"
+    ></ngInputDecimal>
+    <ngInputDecimal
+      name="fieldd2"
+      label="Decimal 2 (Decimal with Negativ)"
+      [(ngModel)]="values.fieldd2"
+      [allownegativ]="true"
+    ></ngInputDecimal>
+    <ngInputDecimal
+      name="fieldd3"
+      label="Decimal 3 (Decimal with Negativ (10-20))"
+      [(ngModel)]="values.fieldd3"
+      [allownegativ]="true"
+      isrequired="true"
+      [minvalue]="10"
+      [maxvalue]="20"
+    ></ngInputDecimal>
+    <ngInputDecimal
+      name="fieldd4"
+      label="Decimal 4 (Decimal)"
+      [(ngModel)]="values.fieldd1"
+      disabled="true"
+    ></ngInputDecimal>
+
+    <ngInputInteger
+      name="fieldi1"
+      label="Integer 1 (Integer)"
+      [(ngModel)]="values.fieldi1"
+    ></ngInputInteger>
+    <ngInputInteger
+      name="fieldi2"
+      label="Integer 2 (Integer with Negativ)"
+      [(ngModel)]="values.fieldi2"
+      [allownegativ]="true"
+    ></ngInputInteger>
+    <ngInputInteger
+      name="fieldi3"
+      label="Integer 3 (Integer with Negativ (10-20))"
+      [(ngModel)]="values.fieldi3"
+      [allownegativ]="true"
+      isrequired="true"
+      [minvalue]="10"
+      [maxvalue]="20"
+    ></ngInputInteger>
+    <ngInputInteger
+      name="fieldi4"
+      label="Integer 1 (Integer)"
+      [(ngModel)]="values.fieldi1"
+      disabled="true"
+    ></ngInputInteger>
+
+    <ngInputCurrency
+      name="fieldcurrency1"
+      label="Preis"
+      [(ngModel)]="values.fieldcurrency1"
+    ></ngInputCurrency>
+    <ngInputCurrency
+      name="fieldcurrency2"
+      label="Preis"
+      [(ngModel)]="values.fieldcurrency2"
+      disabled="true"
+    ></ngInputCurrency>
+
+    <ngInputEmail
+      name="fieldemail1"
+      label="E-Mail 1"
+      [(ngModel)]="values.fieldemail1"
+    ></ngInputEmail>
+    <ngInputEmail
+      name="fieldemail2"
+      label="E-Mail 2 (Max 10)"
+      [(ngModel)]="values.fieldemail2"
+      [maxlength]="10"
+    ></ngInputEmail>
+    <ngInputEmail
+      name="fieldemail3"
+      label="E-Mail 3"
+      [(ngModel)]="values.fieldemail3"
+      disabled="true"
+    ></ngInputEmail>
+
+    <ngInputPassword
+      name="fieldpassword1"
+      label="Passwort 1"
+      [(ngModel)]="values.fieldpassword1"
+    ></ngInputPassword>
+    <ngInputPassword
+      name="fieldpassword2"
+      label="Passwort 2"
+      [(ngModel)]="values.fieldpassword2"
+    ></ngInputPassword>
+    <ngInputPassword
+      name="fieldpassword3"
+      label="Passwort 3 (Max 10)"
+      [(ngModel)]="values.fieldpassword3"
+      [maxlength]="10"
+    ></ngInputPassword>
+    <ngInputPassword
+      name="fieldpassword4"
+      label="Passwort 4"
+      [(ngModel)]="values.fieldpassword4"
+      disabled="disabled"
+    ></ngInputPassword>
+
+    <ngInputArea
+      name="fieldarea1"
+      label="Area 1"
+      [(ngModel)]="values.fieldarea1"
+    ></ngInputArea>
+    <ngInputArea
+      name="fieldarea2"
+      label="Area 2"
+      [(ngModel)]="values.fieldarea2"
+      isrequired="true"
+      rows="10"
+    ></ngInputArea>
+    <ngInputArea
+      name="fieldarea3"
+      label="Area 3 (Max 50)"
+      [(ngModel)]="values.fieldarea3"
+      maxlength="50"
+    ></ngInputArea>
+    <ngInputArea
+      name="fieldarea4"
+      label="Area 4"
+      [(ngModel)]="values.fieldarea4"
+      disabled="true"
+    ></ngInputArea>
+  </div>
+</form>

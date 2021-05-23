@@ -9,6 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "demo-bs": "ng serve demo-bootstrap4",
     "build-common": "ng build --project jngcontrols-common",
     "build-bs3": "ng build --project jngcontrols-bootstrap3",
     "build-bs4": "ng build --project jngcontrols-bootstrap4",

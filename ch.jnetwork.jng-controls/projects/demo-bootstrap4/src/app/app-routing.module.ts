@@ -45,6 +45,18 @@ const routes: Routes = [
     loadChildren: () => import('./grid/grid.module').then((m) => m.GridModule),
   },
   {
+    path: 'uploader',
+    loadChildren: () =>
+      import('./uploader/uploader.module').then((m) => m.UploaderModule),
+  },
+  {
+    path: 'multilanguage',
+    loadChildren: () =>
+      import('./multilanguage/multilanguage.module').then(
+        (m) => m.MultilanguageModule
+      ),
+  },
+  {
     path: '**',
     redirectTo: '/input',
   },

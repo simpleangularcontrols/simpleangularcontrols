@@ -44,7 +44,12 @@ namespace AngularPrototype.Api.Services
 
             // URL für Upload zurücksenden
             string uploadUrl = this.Url.Link("UploadApi", new { Controller = "Upload", Action = "file", Id = guid.ToString() });
+            
+            // HACK: Replace Port für Angular Inside Apps
+            uploadUrl = uploadUrl.Replace(":55768/", ":4200/");
+            
             response.Headers.Add("Location", uploadUrl);
+
             return response;
         }
 

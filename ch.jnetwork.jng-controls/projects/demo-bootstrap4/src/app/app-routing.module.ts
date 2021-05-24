@@ -27,6 +27,24 @@ const routes: Routes = [
     loadChildren: () => import('./list/list.module').then((m) => m.ListModule),
   },
   {
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs.module').then((m) => m.TabsModule),
+  },
+  {
+    path: 'confirm',
+    loadChildren: () =>
+      import('./confirm/confirm.module').then((m) => m.ConfirmModule),
+  },
+  {
+    path: 'dialog',
+    loadChildren: () =>
+      import('./dialog/dialog.module').then((m) => m.DialogModule),
+  },
+  {
+    path: 'grid',
+    loadChildren: () => import('./grid/grid.module').then((m) => m.GridModule),
+  },
+  {
     path: '**',
     redirectTo: '/input',
   },

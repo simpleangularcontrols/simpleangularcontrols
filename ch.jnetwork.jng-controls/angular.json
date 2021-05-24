@@ -17,10 +17,7 @@
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
-            "assets": [
-              "src/assets",
-              "src/favicon.ico"
-            ],
+            "assets": ["src/assets", "src/favicon.ico"],
             "styles": [],
             "scripts": []
           },
@@ -77,22 +74,14 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [],
-            "assets": [
-              "src/assets",
-              "src/favicon.ico"
-            ]
+            "assets": ["src/assets", "src/favicon.ico"]
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -112,12 +101,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "tsConfig": ["e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -197,9 +182,7 @@
               "projects/jngcontrols-bootstrap4/tsconfig.lib.json",
               "projects/jngcontrols-bootstrap4/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -237,9 +220,7 @@
               "projects/jngcontrols-bootstrap3/tsconfig.lib.json",
               "projects/jngcontrols-bootstrap3/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -292,9 +273,7 @@
               "projects/demo-bootstrap4/src/favicon.ico",
               "projects/demo-bootstrap4/src/assets"
             ],
-            "styles": [
-              "projects/demo-bootstrap4/src/styles.scss"
-            ],
+            "styles": ["projects/demo-bootstrap4/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -331,7 +310,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "demo-bootstrap4:build"
+            "browserTarget": "demo-bootstrap4:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {

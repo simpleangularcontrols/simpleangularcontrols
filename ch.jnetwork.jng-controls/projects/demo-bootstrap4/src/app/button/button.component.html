@@ -1,0 +1,62 @@
+<h2>Input</h2>
+<form #myForm="NgFormular" labelsize="3">
+  <div>Default Button</div>
+  <ngButton (onclick)="debugAction1()" text="Validate"></ngButton>
+  <div>Disabled Button</div>
+  <ngButton
+    (onclick)="debugAction1()"
+    text="Validate"
+    [isdisabled]="true"
+  ></ngButton>
+  <div>Icon Button</div>
+  <ngButton
+    (onclick)="debugAction1()"
+    text="Validate"
+    icon="bi bi-calendar3"
+  ></ngButton>
+  <div>Primary Button</div>
+  <ngButton
+    (onclick)="debugAction1()"
+    text="Validate"
+    role="primary"
+  ></ngButton>
+  <div>Success Button</div>
+  <ngButton
+    (onclick)="debugAction1()"
+    text="Validate"
+    role="success"
+  ></ngButton>
+  <div>Danger Button</div>
+  <ngButton (onclick)="debugAction1()" text="Validate" role="danger"></ngButton>
+  <div>Warning Button</div>
+  <ngButton
+    (onclick)="debugAction1()"
+    text="Validate"
+    role="warning"
+  ></ngButton>
+  <div>Info Button</div>
+  <ngButton (onclick)="debugAction1()" text="Validate" role="info"></ngButton>
+  <div>Link Button</div>
+  <ngButton (onclick)="debugAction1()" text="Validate" role="link"></ngButton>
+  <div>Button Group</div>
+  <div class="form-row form-group">
+    <ngButton
+      name="button1"
+      text="Button 1"
+      (onclick)="debugAction1()"
+      class="mr-2"
+    ></ngButton>
+    <ngButton
+      name="button2"
+      text="Button 2"
+      (onclick)="debugAction1()"
+      class="mr-2"
+    ></ngButton>
+    <ngButton
+      name="button3"
+      text="Button 3"
+      (onclick)="debugAction1()"
+      class="mr-2"
+    ></ngButton>
+  </div>
+</form>

@@ -1,0 +1,134 @@
+<h2>Input</h2>
+<form #myForm="NgFormular" labelsize="3">
+  <div class="mb-2">
+    <ngButton (onclick)="debugAction()" text="Validate"></ngButton>
+  </div>
+  <ngValidationSummary></ngValidationSummary>
+
+  <ngDropdown
+    name="dropdown1"
+    label="Dropdown 1"
+    [(ngModel)]="values.dropdown1"
+    [options]="values.dropdownitems"
+  ></ngDropdown>
+
+  <ngDropdown
+    name="dropdown2"
+    label="Dropdown 2"
+    [(ngModel)]="values.dropdown2"
+    [options]="values.dropdownitems"
+    optionlabel="text"
+  ></ngDropdown>
+  <ngDropdown
+    name="dropdown3"
+    label="Dropdown 3"
+    [(ngModel)]="values.dropdown3"
+    [options]="values.dropdownitems"
+  >
+    <option value="x4">Inject Value</option>
+  </ngDropdown>
+  <ngDropdown
+    name="dropdown4"
+    label="Dropdown 4"
+    [(ngModel)]="values.dropdown4"
+    [options]="values.dropdownitems2"
+    optionlabel="text"
+    optionenabled="enabled"
+  ></ngDropdown>
+  <ngDropdown
+    name="dropdown5"
+    label="Dropdown 5"
+    [(ngModel)]="values.dropdown5"
+    [options]="values.dropdownitems2"
+    optionlabel="text"
+  ></ngDropdown>
+  <ngDropdown
+    name="dropdown6"
+    label="Dropdown 6"
+    [(ngModel)]="values.dropdown6"
+    [options]="values.groupitems"
+    groupitems="items"
+  ></ngDropdown>
+  <ngDropdown
+    name="dropdown7"
+    label="Dropdown 7"
+    [(ngModel)]="values.dropdown7"
+    [options]="values.dropdownitems"
+    isrequired="true"
+  >
+    <option value="">Select Value</option>
+  </ngDropdown>
+  <ngDropdown
+    name="dropdown8"
+    label="Dropdown 8"
+    [(ngModel)]="values.dropdown8"
+    [options]="values.dropdownitems"
+    isrequired="true"
+  ></ngDropdown>
+  <ngDropdown
+    name="dropdown9"
+    label="Dropdown 9"
+    [(ngModel)]="values.dropdown9"
+    [options]="values.dropdownitems"
+    emptylabel="Please select item"
+  ></ngDropdown>
+  <ngDropdown
+    name="dropdown10"
+    label="Dropdown 10"
+    [(ngModel)]="values.dropdown10"
+    [options]="values.groupitems"
+    groupitems="items"
+    disablelabel="true"
+  ></ngDropdown>
+  <ngDropdown
+    name="dropdown11"
+    label="Dropdown 11"
+    [(ngModel)]="values.dropdown11"
+    [options]="values.dropdownitems"
+    disabled="true"
+  ></ngDropdown>
+  <ngDropdown
+    name="dropdown12"
+    label="Dropdown 12"
+    [(ngModel)]="values.dropdown12"
+    [options]="values.dropdownitems3"
+    optionlabel="text"
+    optionid="value"
+  ></ngDropdown>
+
+  <ngListbox
+    name="listbox1"
+    label="Listbox 1"
+    [options]="values.dropdownitems"
+    [(ngModel)]="values.listbox1"
+  ></ngListbox>
+  <ngListbox
+    name="listbox2"
+    label="Listbox 2"
+    [(ngModel)]="values.listbox2"
+    [options]="values.dropdownitems"
+  ></ngListbox>
+  <ngListbox
+    name="listbox3"
+    label="Listbox 3"
+    [(ngModel)]="values.listbox3"
+    [options]="values.dropdownitems"
+    isrequired="true"
+    labelsize="6"
+    rowsize="6"
+  ></ngListbox>
+  <ngListbox
+    name="listbox4"
+    label="Listbox 4"
+    [(ngModel)]="values.listbox4"
+    [options]="values.dropdownitems"
+    isrequired="true"
+  ></ngListbox>
+  <ngListbox
+    name="listbox5"
+    label="Listbox 5"
+    [(ngModel)]="values.listbox5"
+    [options]="values.dropdownitems"
+    disabled="true"
+  ></ngListbox>
+</form>

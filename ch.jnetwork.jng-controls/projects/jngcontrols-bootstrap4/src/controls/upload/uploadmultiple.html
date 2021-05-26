@@ -28,7 +28,7 @@
                  [class.btn-secondary]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
                 <span class="fa fa-play"></span>
               </button>
-              <button *ngIf="autoupload === false" class="btn" (click)="uploadAll()" [attr.disabled]="IsStateToUpload() === false ?  'disabled' : null"
+              <button *ngIf="autoupload === false" class="btn text-nowrap" (click)="uploadAll()" [attr.disabled]="IsStateToUpload() === false ?  'disabled' : null"
                  [class.btn-secondary]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
                 <span class="fa fa-upload pr-2"></span>Upload
               </button>
@@ -61,7 +61,7 @@
                [class.btn-secondary]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
               <span class="fa fa-play"></span>
             </button>
-            <button *ngIf="autoupload === false" class="btn" (click)="upload(file.uploadId)" [attr.disabled]="file.status !== 'added' && file.status !== 'paused' ?  'disabled' : null"
+            <button *ngIf="autoupload === false" class="btn text-nowrap" (click)="upload(file.uploadId)" [attr.disabled]="file.status !== 'added' && file.status !== 'paused' ?  'disabled' : null"
                [class.btn-secondary]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
               <span class="fa fa-upload pr-2"></span>Upload
             </button>

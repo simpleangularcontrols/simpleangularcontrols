@@ -128,7 +128,28 @@
     name="listbox5"
     label="Listbox 5"
     [(ngModel)]="values.listbox5"
-    [options]="values.dropdownitems"
+    [options]="values.dropdownitems3"
     disabled="true"
   ></ngListbox>
+  <ngListbox
+  name="listbox6"
+  label="Listbox 6"
+  [(ngModel)]="values.listbox6"
+  [options]="values.dropdownitems3"
+  disabled="true"
+></ngListbox>
+  <ngListbox name="listbox7" label="Listbox 7" [(ngModel)]="values.listbox4"
+    >
+    <option value="v1">Value 1</option>
+    <option value="v2">Value 2</option>
+    <option value="v3">Value 4</option>
+  </ngListbox>
+  <ngListbox name="listbox8" label="Listbox 8" [(ngModel)]="values.listbox6"
+  >
+  <option [ngValue]="1">Value 1</option>
+  <option [ngValue]="2">Value 2</option>
+  <option [ngValue]="3">Value 4</option>
+</ngListbox>
+
+  {{ values | json }}
 </form>

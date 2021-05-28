@@ -201,6 +201,7 @@ export class NgDropdownOptionCommon implements OnDestroy {
       this.id = this._dropdown.registerOption();
     }
   }
+  
   /**
    * Option ngValue
    */

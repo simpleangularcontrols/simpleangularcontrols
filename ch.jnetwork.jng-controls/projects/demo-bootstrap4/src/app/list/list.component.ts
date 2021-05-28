@@ -44,6 +44,7 @@ export class DemoListComponent {
     listbox3: null,
     listbox4: ['v2', 'v3'],
     listbox5: null,
+    listbox6: [1, 3],
     dropdownitems: [
       { label: 'Wert 1', value: 'v1', text: 'Text 1' },
       { label: 'Wert 2', value: 'v2', text: 'Text 2' },

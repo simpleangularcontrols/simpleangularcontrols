@@ -9,7 +9,7 @@ export { NgRadiobuttonCommon } from './controls/checkbox/radiobutton';
 export { NgRadiobuttonsCommon } from './controls/checkbox/radiobuttons';
 export { NgFormularCommon } from './controls/form/form';
 export { NgDropdownCommon, NgDropdownOptionCommon } from './controls/list/dropdown';
-export { NgListboxCommon, NgListboxOptionDirective } from './controls/list/listbox';
+export { NgListboxCommon, NgListboxOptionCommon } from './controls/list/listbox';
 export { NgValidationSummaryCommon } from './controls/validation/validationsummary';
 export { NgTabCommon } from './controls/tabs/tab';
 export { NgTabItemCommon } from './controls/tabs/tabitem';

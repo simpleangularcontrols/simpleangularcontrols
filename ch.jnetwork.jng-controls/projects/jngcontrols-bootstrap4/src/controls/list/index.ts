@@ -1,2 +1,2 @@
 export { NgDropdownComponent, NgDropdownOptionDirective } from './dropdown';
-export { NgListboxComponent } from './listbox';
+export { NgListboxComponent, NgListboxOptionDirective } from './listbox';

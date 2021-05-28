@@ -1,7 +1,7 @@
-import { Component, Host, forwardRef, Injector } from '@angular/core';
+import { Component, Host, forwardRef, Injector, Directive, Renderer2, ElementRef, Optional } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
 import { NgFormularDirective } from '../form/form';
-import { NgListboxCommon } from '@jnetwork/jngcontrols-common';
+import { NgListboxCommon, NgListboxOptionCommon } from '@jnetwork/jngcontrols-common';
 
 
 @Component({
@@ -22,3 +22,15 @@ export class NgListboxComponent extends NgListboxCommon {
   }
 
 }
+
+
+@Directive({ selector: '[ngOption],option' })
+export class NgListboxOptionDirective extends NgListboxOptionCommon {
+
+  constructor(_elementRef: ElementRef, _renderer: Renderer2, @Optional() @Host() listbox: NgListboxComponent) {
+    super(_elementRef, _renderer, listbox);
+    console.log('Init Component');
+  }
+
+}
+

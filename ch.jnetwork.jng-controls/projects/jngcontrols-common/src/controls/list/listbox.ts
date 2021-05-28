@@ -1,38 +1,77 @@
-import { Directive, ElementRef, Input, QueryList, Renderer2, ViewChildren } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Input,
+  OnDestroy,
+  QueryList,
+  Renderer2,
+  ViewChild,
+  ViewChildren,
+} from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { NgBaseSelectControl } from '../../common/baseselectcontrol';
 import { Validation } from '../../validation';
 
-
 /**
- *  Element für Access auf Option Field
- * @selector option
+ * Basis Komponente für NgListboxOption
  */
-@Directive({ selector: '[ngOption], option' })
-
-/**
- *Basis Komponente für NgListboxOption
- */
-export class NgListboxOptionDirective {
+@Directive()
+export class NgListboxOptionCommon implements OnDestroy {
+  /**
+   * Value von Selected Option Item
+   */
+  private _value: any = null;
 
   /**
    * Konstruktor
    * @param _element: ElementRef
    * @param _renderer: Renderer2
    */
-  constructor(private _element: ElementRef, private _renderer: Renderer2) { }
+  constructor(
+    private _element: ElementRef,
+    private _renderer: Renderer2,
+    private _listbox: NgListboxCommon
+  ) {
+    if (this._listbox) {
+      this._listbox.registerOption(this);
+    }
+  }
+
+  get value(): any {
+    return this._value;
+  }
+  @Input('value')
+  set value(value: any) {
+    if (this._listbox) {
+      this._value = value;
+    }
+  }
+
+  @Input('ngValue')
+  set ngValue(value: any) {
+    if (this._listbox) {
+      this._value = value;
+    }
+  }
 
   /**
-   * Wert des Controls
+   * OnDestroy Event
    */
-  @Input('value')
-  _value: string;
+  ngOnDestroy(): void {
+    if (this._listbox) {
+      this._listbox.unregisterOption(this);
+    }
+  }
 
   /**
    * Methode ergibt den Status der Elemente, die selektiert wurden
    */
   _setSelected(selected: boolean) {
-    this._renderer.setProperty(this._element.nativeElement, 'selected', selected);
+    this._renderer.setProperty(
+      this._element.nativeElement,
+      'selected',
+      selected
+    );
   }
 }
 
@@ -70,26 +109,32 @@ abstract class HTMLCollection {
 @Directive()
 export class NgListboxCommon extends NgBaseSelectControl<Array<string>> {
   /**
+   * OptionMap
+   */
+  optionlist: Array<NgListboxOptionCommon> = new Array<NgListboxOptionCommon>();
+
+  /**
    * Anzahl der Zeilen
    */
   @Input('rowsize') _rowsize: number = 5;
 
-
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input('validationmessagerequired') _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
+  @Input('validationmessagerequired') _validationMessageRequired: string =
+    'VALIDATION_ERROR_REQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input('validationmessagesummaryrequired') _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
-
+  @Input('validationmessagesummaryrequired')
+  _validationMessageRequiredSummary: string =
+    'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
   /**
    * ViewChildren Methode
    */
-  @ViewChildren(NgListboxOptionDirective)
-  contentOptions: QueryList<NgListboxOptionDirective>;
+  @ViewChildren(NgListboxOptionCommon)
+  contentOptions: QueryList<NgListboxOptionCommon>;
 
   /**
    * Getter für selektierte Elemente
@@ -103,7 +148,8 @@ export class NgListboxCommon extends NgBaseSelectControl<Array<string>> {
         const opt: HTMLOption = options.item(i);
         selectedValues.push(opt.value);
       }
-    } else { // Degrade on IE
+    } else {
+      // Degrade on IE
       const options: HTMLCollection = <HTMLCollection>selectelement.options;
       for (let i = 0; i < options.length; i++) {
         const opt: HTMLOption = options.item(i);
@@ -120,9 +166,11 @@ export class NgListboxCommon extends NgBaseSelectControl<Array<string>> {
    * Methode schreibt neuen Wert
    */
   writeValue(value: Array<string>) {
-    if (this.contentOptions && value) {
-      this.contentOptions.forEach(itm => {
-        itm._setSelected(value.indexOf(itm._value) >= 0);
+    if (this.optionlist && value) {
+      this.optionlist.forEach((itm) => {
+        if (value.indexOf(itm.value) >= 0) {
+          itm._setSelected(true);
+        }
       });
     }
 
@@ -136,10 +184,23 @@ export class NgListboxCommon extends NgBaseSelectControl<Array<string>> {
     let error: ValidationErrors | null = null;
 
     if (this._isrequired) {
-      error = Validation.required(c, this._label, this._validationMessageRequired, this._validationMessageRequiredSummary);
+      error = Validation.required(
+        c,
+        this._label,
+        this._validationMessageRequired,
+        this._validationMessageRequiredSummary
+      );
     }
 
     return error;
+  }
 
+  public registerOption(option: NgListboxOptionCommon): void {
+    this.optionlist.push(option);
+  }
+
+  public unregisterOption(option: NgListboxOptionCommon): void {
+    const index = this.optionlist.indexOf(option);
+    this.optionlist.splice(index, 1);
   }
 }

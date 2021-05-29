@@ -1,0 +1,71 @@
+<h2>Checkbox</h2>
+<form #myForm="NgFormular" labelsize="3">
+  <div class="mb-2">
+    <ngButton (onclick)="debugAction()" text="Validate"></ngButton>
+  </div>
+  <ngValidationSummary></ngValidationSummary>
+
+  <div ngModelGroup="Group1">
+    <ngCheckbox
+      name="checkbox1"
+      label="Checkbox 1"
+      [(ngModel)]="values.checkbox1"
+    ></ngCheckbox>
+    <ngCheckbox
+      name="checkbox2"
+      label="Checkbox 2"
+      labelsize="2"
+      [(ngModel)]="values.checkbox2"
+    ></ngCheckbox>
+    <ngCheckbox
+      name="checkbox3"
+      label="Checkbox 3"
+      disablelabel="true"
+      [(ngModel)]="values.checkbox3"
+    ></ngCheckbox>
+    <ngCheckbox
+      name="checkbox4"
+      label="Checkbox 4"
+      [(ngModel)]="values.checkbox4"
+      disabled="true"
+    ></ngCheckbox>
+    <ngCheckbox
+      name="checkbox5"
+      label="Checkbox 5"
+      [(ngModel)]="values.checkbox5"
+      disabled="true"
+      checkboxtext="Dies ist ein Text"
+    ></ngCheckbox>
+
+    <ngRadiobuttons
+      name="radiobuttons1"
+      label="Radiobuttons 1"
+      [(ngModel)]="values.radiobuttons1"
+    >
+      <ngRadiobutton name="rb1" value="1" label="Wert 1"></ngRadiobutton>
+      <ngRadiobutton name="rb2" value="2" label="Wert 2"></ngRadiobutton>
+      <ngRadiobutton name="rb3" value="3" label="Wert 3"></ngRadiobutton>
+    </ngRadiobuttons>
+
+    <ngRadiobuttons
+      name="radiobuttons2"
+      label="Radiobuttons 2"
+      [(ngModel)]="values.radiobuttons2"
+    >
+      <ngRadiobutton name="rb1" value="1" label="Wert 1"></ngRadiobutton>
+      <ngRadiobutton name="rb2" value="2" label="Wert 2"></ngRadiobutton>
+      <ngRadiobutton name="rb3" value="3" label="Wert 3"></ngRadiobutton>
+    </ngRadiobuttons>
+
+    <ngRadiobuttons
+      name="radiobuttons3"
+      label="Radiobuttons 3"
+      [(ngModel)]="values.radiobuttons2"
+      [disabled]="true"
+    >
+      <ngRadiobutton name="rb1" value="1" label="Wert 1"></ngRadiobutton>
+      <ngRadiobutton name="rb2" value="2" label="Wert 2"></ngRadiobutton>
+      <ngRadiobutton name="rb3" value="3" label="Wert 3"></ngRadiobutton>
+    </ngRadiobuttons>
+  </div>
+</form>

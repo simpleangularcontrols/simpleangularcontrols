@@ -1,0 +1,47 @@
+<h2>DateTime</h2>
+<form #myForm="NgFormular" labelsize="3">
+  <div class="mb-2">
+    <ngButton (onclick)="debugAction()" text="Validate"></ngButton>
+  </div>
+  <ngValidationSummary></ngValidationSummary>
+
+  <div ngModelGroup="Group1">
+  
+
+    <ngDate name="datum1" label="Datum 1" [(ngModel)]="values.datum1"></ngDate>
+
+    <ngDate name="datum2" label="Datum 2" [(ngModel)]="values.datum2" [isrequired]="true"></ngDate>
+
+    <ngDate name="datum3" label="Datum 3 (Min 01.01.2018)" [(ngModel)]="values.datum3" mindate="01.01.2018"></ngDate>
+
+    <ngDate name="datum4" label="Datum 4 (Max 31.12.2018)" [(ngModel)]="values.datum4" maxdate="31.12.2018"></ngDate>
+
+    <ngDate name="datum5" label="Datum 5" [(ngModel)]="values.datum5" disabled="true"></ngDate>
+
+    <ngTime name="time1" label="Zeit 1" [(ngModel)]="values.time1"></ngTime>
+
+    <ngTime name="time2" label="Zeit 2 (Min. 10:00)" [(ngModel)]="values.time2" mintime="10:00"></ngTime>
+
+    <ngTime name="time3" label="Zeit 3 (Max. 18:00)" [(ngModel)]="values.time3" maxtime="18:00"></ngTime>
+
+    <ngTime name="time4" label="Zeit 4 (10:00 - 18:00)" [(ngModel)]="values.time4" mintime="10:00" maxtime="18:00"></ngTime>
+
+    <ngTime name="time5" label="Zeit 5 (Disabled)" [(ngModel)]="values.time5" disabled="true"></ngTime>
+
+    <ngTime name="time6" label="Zeit 5 (Required)" [(ngModel)]="values.time6" [isrequired]="true"></ngTime>
+
+    <ngDateTime name="datetime1" label="Datum & Zeit 1" [(ngModel)]="values.datumzeit1"></ngDateTime>
+
+    <ngDateTime name="datetime2" label="Datum & Zeit 2 (Min. 19.08.2018 14:00)" [(ngModel)]="values.datumzeit2" mindate="19.08.2018 14:00"></ngDateTime>
+
+    <ngDateTime name="datetime3" label="Datum & Zeit 3 (Max. 19.08.2018 17:00)" [(ngModel)]="values.datumzeit3" maxdate="19.08.2018 17:00"></ngDateTime>
+
+    <ngDateTime name="datetime4" label="Datum & Zeit 4 (Required)" [(ngModel)]="values.datumzeit4" [isrequired]="true"></ngDateTime>
+
+    <ngDateTime name="datetime5" label="Datum & Zeit 5 (Disabled)" [(ngModel)]="values.datumzeit5" disabled="true"></ngDateTime>
+
+    <ngDateSelector name="selector1" dateselection="true" timeselection="true"></ngDateSelector>
+
+
+  </div>
+</form>

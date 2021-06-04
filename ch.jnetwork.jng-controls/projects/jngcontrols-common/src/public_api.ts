@@ -8,8 +8,14 @@ export { NgCheckboxCommon } from './controls/checkbox/checkbox';
 export { NgRadiobuttonCommon } from './controls/checkbox/radiobutton';
 export { NgRadiobuttonsCommon } from './controls/checkbox/radiobuttons';
 export { NgFormularCommon } from './controls/form/form';
-export { NgDropdownCommon, NgDropdownOptionCommon } from './controls/list/dropdown';
-export { NgListboxCommon, NgListboxOptionCommon } from './controls/list/listbox';
+export {
+  NgDropdownCommon,
+  NgDropdownOptionCommon,
+} from './controls/list/dropdown';
+export {
+  NgListboxCommon,
+  NgListboxOptionCommon,
+} from './controls/list/listbox';
 export { NgValidationSummaryCommon } from './controls/validation/validationsummary';
 export { NgTabCommon } from './controls/tabs/tab';
 export { NgTabItemCommon } from './controls/tabs/tabitem';
@@ -64,6 +70,8 @@ export { NgTooltipCommon } from './controls/tooltip/tooltip';
 // Upload
 export { NgUploadSingleCommon } from './controls/upload/uploadsingle';
 export { NgUploadMultipleCommon } from './controls/upload/uploadmultiple';
+export { NgDropzoneSingleCommon } from './controls/upload/dropzonesingle';
+export { NgDropzoneMultipleCommon } from './controls/upload/dropzonemultiple';
 export { NgUploadFile } from './common/baseuploadcontrol';
 
 // MultiLanguage classes
@@ -79,7 +87,12 @@ export * from './interfaces/iconfirmcomponent';
 // Services
 export * from './interfaces/ilanguageresource';
 export * from './interfaces/ilanguageservice';
-export { LanguageResourceService, LANGUAGERESOURCE_SERVICE, LanguageService, LANGUAGE_SERVICE } from './services';
+export {
+  LanguageResourceService,
+  LANGUAGERESOURCE_SERVICE,
+  LanguageService,
+  LANGUAGE_SERVICE,
+} from './services';
 
 // Export Models
 export * from './models/LanguageModel';
@@ -98,4 +111,3 @@ export * from './utilities/Convertion';
 export * from './utilities/enums';
 export * from './utilities/datatypes';
 export * from './utilities/interpolation';
-

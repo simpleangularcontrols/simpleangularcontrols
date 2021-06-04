@@ -107,16 +107,34 @@
   ></ngUploadMultiple>
 
   <ngDropzoneSingle
+    label="dropzonesingle1"
     endpoint="/api/upload/register"
     name="dropzone1"
     [(ngModel)]="values.dropzone1"
     >Drop file here</ngDropzoneSingle
   >
 
-  <ngDropzoneMultiple
+  <ngDropzoneSingle
+    [disablelabel]="true"
     endpoint="/api/upload/register"
     name="dropzone2"
     [(ngModel)]="values.dropzone2"
+    >Drop file here</ngDropzoneSingle
+  >
+
+  <ngDropzoneMultiple
+    label="dropzonemultiple1"
+    endpoint="/api/upload/register"
+    name="dropzone3"
+    [(ngModel)]="values.dropzone3"
+    >Drop files here</ngDropzoneMultiple
+  >
+
+  <ngDropzoneMultiple
+    [disablelabel]="true"
+    endpoint="/api/upload/register"
+    name="dropzone4"
+    [(ngModel)]="values.dropzone4"
     >Drop files here</ngDropzoneMultiple
   >
 </form>

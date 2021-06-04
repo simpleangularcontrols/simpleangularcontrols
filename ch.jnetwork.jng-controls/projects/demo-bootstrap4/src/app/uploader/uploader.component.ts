@@ -40,6 +40,12 @@ export class DemoUploaderComponent {
     fieldmultipleupload3: null,
     fieldmultipleupload4: null,
     dropzone1: null,
+    dropzone2: null,
+    dropzone3: null,
+    dropzone4: null,
+    dropzone5: null,
+    dropzone6: null,
+    dropzone7: null,
   };
 
   @ViewChild('myForm') myForm: NgFormularDirective;

@@ -1,5 +1,16 @@
-<div class="row form-group">
-  <div class="col">
+<div class="row form-group" [class.no-gutters]="_disablelabel">
+  <label
+    *ngIf="_disablelabel === false && !_isadaptivelabel"
+    id="{{_name}}_label"
+    for="{{_name}}"
+    class="col-12 col-form-label"
+    [ngClass]="[_labelsize !== 12 ?  'col-md-' + _labelsize : 'sr-only']"
+    >{{_label}}</label
+  >
+  <div
+    class="col-12"
+    [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']"
+  >
     <div
       class="dropzone d-flex justify-content-center"
       (drop)="dropHandler($event)"

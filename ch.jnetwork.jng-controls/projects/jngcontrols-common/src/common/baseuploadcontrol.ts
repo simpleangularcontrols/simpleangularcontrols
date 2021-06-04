@@ -1,9 +1,12 @@
 import { Directive, ElementRef, EventEmitter, Injector, Input, NgZone, OnDestroy, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { UploadState, UploadxOptions, UploadxService } from 'ngx-uploadx';
+import { InternalLanguageResourceService, LANGUAGERESOURCE_SERVICE } from '../services/languageresource.service';
 import { NgFormularCommon } from '../controls/form/form';
+import { ILanguageResourceService } from '../interfaces/ilanguageresource';
 import { Validation } from '../validation';
 import { NgBaseModelControl } from './basemodelcontrol';
+import { Observable, of } from 'rxjs';
 
 export class NgUploadFile {
   name: string;
@@ -29,11 +32,15 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
 
   uploads: NgUploadFile[];
   private options: UploadxOptions = {};
-  private uploadService: UploadxService;
+  protected uploadService: UploadxService;
   private _allowedtypes: string = '*';
   private _autoupload: boolean = false;
   private _enablepause: boolean = true;
   private _endpoint: string = null;
+  /**
+  * Service für Error Localisation
+  */
+  protected lngResourceService: ILanguageResourceService;
 
   //#region Properties
 
@@ -105,6 +112,8 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
   constructor(parent: NgFormularCommon, injector: Injector, private renderer: Renderer2, private ngZone: NgZone) {
     super(parent, injector);
 
+    this.lngResourceService = injector.get(LANGUAGERESOURCE_SERVICE, new InternalLanguageResourceService());
+
     this.uploads = [];
 
     this.options.allowedTypes = '*';
@@ -142,7 +151,7 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
 
     this.uploadService.connect(this.options);
   }
-
+  
   /**
    * Destroy des Controls
    */
@@ -232,11 +241,11 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
     return this.uploads.filter(itm => itm.status === 'paused').length > 0;
   }
 
-  Filename(): string {
+  Filename(): Observable<string> {
     if (this.uploads.length > 0) {
-      return this.uploads[0].name;
+      return of(this.uploads[0].name);
     } else {
-      return 'Keine Datei ausgewählt';
+      return this.lngResourceService.GetString('UPLOAD_NO_FILE_SELECTED');
     }
   }
 
@@ -278,7 +287,11 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
    * @param types Erlaubte File Extensions
    */
   private setAllowedTypes(types: string) {
-    this.renderer.setAttribute(this.uploadInput.nativeElement, 'accept', types);
+    // Prüfen UploadInput bereits geladen, ist NULL wenn Extension im Markup nach NgModel gesetzt wird.
+    if (this.uploadInput && this.uploadInput.nativeElement) {
+      this.renderer.setAttribute(this.uploadInput.nativeElement, 'accept', types);
+    }
+
     this.options.allowedTypes = types;
   }
 
@@ -302,10 +315,10 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
     }
 
     let isValid: boolean = false;
-    const extensions: string[] = this._allowedtypes.split('|');
+    const extensions: string[] = this._allowedtypes.split(',');
 
     extensions.forEach(itm => {
-      if (filename.endsWith(itm)) {
+      if (filename.toLowerCase().endsWith(itm.toLowerCase())) {
         isValid = true;
       }
     });

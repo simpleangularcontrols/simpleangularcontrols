@@ -9,8 +9,10 @@ import { Validation } from '../../validation';
  * Upload Componente für mehrere Files
  */
 @Directive()
-export class NgUploadMultipleCommon extends NgUploadBase<string[]> implements IUploadControl {
-
+export class NgUploadMultipleCommon
+  extends NgUploadBase<string[]>
+  implements IUploadControl
+{
   @Input('maxfiles')
   public maxfiles: number = 0;
 
@@ -18,13 +20,28 @@ export class NgUploadMultipleCommon extends NgUploadBase<string[]> implements IU
   public minfiles: number = 0;
 
   /**
+   * Label für Browse Button
+   */
+  @Input()
+  buttonbrowse: string = 'Browse';
+
+  /**
+   * Label für Upload Button
+   */
+  @Input()
+  buttonupload: string = 'Upload';
+
+  /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input('validationmessageminfiles') _validationMessageMinFiles: string = 'VALIDATION_ERROR_FILESMIN';
+  @Input('validationmessageminfiles') _validationMessageMinFiles: string =
+    'VALIDATION_ERROR_FILESMIN';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input('validationmessagesummaryminfiles') _validationMessageMinFilesSummary: string = 'VALIDATION_ERROR_SUMMARY_FILESMIN';
+  @Input('validationmessagesummaryminfiles')
+  _validationMessageMinFilesSummary: string =
+    'VALIDATION_ERROR_SUMMARY_FILESMIN';
 
   /**
    * Prüft ob die max. Files in der Queue nicht überschritten werden
@@ -50,28 +67,36 @@ export class NgUploadMultipleCommon extends NgUploadBase<string[]> implements IU
     if (file === null) {
       documentid = null;
     } else {
-      if (file.response !== undefined && file.response !== null && file.response.documentid !== null && file.response.documentid !== undefined) {
+      if (
+        file.response !== undefined &&
+        file.response !== null &&
+        file.response.documentid !== null &&
+        file.response.documentid !== undefined
+      ) {
         documentid = file.response.documentid;
       } else {
         documentid = file.uploadId;
       }
 
       // Document ID aktualisieren, damit Wert von Server in Model gesetzt werden kann.
-      this.uploads.filter(itm => itm !== null && itm.uploadId === file.uploadId).forEach(itm => {
-        itm.documentid = documentid;
-      });
+      this.uploads
+        .filter((itm) => itm !== null && itm.uploadId === file.uploadId)
+        .forEach((itm) => {
+          itm.documentid = documentid;
+        });
     }
-
 
     // List of Files
     const fileIds: string[] = [];
 
     // Add all Items with Uploaded State to Model
-    this.uploads.filter(itm => itm.status === 'complete').forEach(itm => {
-      if (itm.documentid !== null && itm.documentid !== undefined) {
-        fileIds.push(itm.documentid);
-      }
-    });
+    this.uploads
+      .filter((itm) => itm.status === 'complete')
+      .forEach((itm) => {
+        if (itm.documentid !== null && itm.documentid !== undefined) {
+          fileIds.push(itm.documentid);
+        }
+      });
 
     if (fileIds.length > 0) {
       super.setValue(fileIds);
@@ -84,7 +109,7 @@ export class NgUploadMultipleCommon extends NgUploadBase<string[]> implements IU
    * Gibt die Anzahl der komplett hochgeladenen Files zurück
    */
   UploadedFileCount(): number {
-    return this.uploads.filter(itm => itm.status === 'complete').length;
+    return this.uploads.filter((itm) => itm.status === 'complete').length;
   }
 
   /**
@@ -96,10 +121,15 @@ export class NgUploadMultipleCommon extends NgUploadBase<string[]> implements IU
     let error: ValidationErrors | null = super.validateData(c);
 
     if (error === null) {
-      error = Validation.minFiles(this, this.minfiles, this._label, this._validationMessageMinFiles, this._validationMessageMinFilesSummary);
+      error = Validation.minFiles(
+        this,
+        this.minfiles,
+        this._label,
+        this._validationMessageMinFiles,
+        this._validationMessageMinFilesSummary
+      );
     }
 
     return error;
   }
-
 }

@@ -29,7 +29,6 @@ export class NgListboxOptionDirective extends NgListboxOptionCommon {
 
   constructor(_elementRef: ElementRef, _renderer: Renderer2, @Optional() @Host() listbox: NgListboxComponent) {
     super(_elementRef, _renderer, listbox);
-    console.log('Init Component');
   }
 
 }

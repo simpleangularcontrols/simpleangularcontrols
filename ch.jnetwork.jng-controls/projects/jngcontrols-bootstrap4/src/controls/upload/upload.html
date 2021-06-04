@@ -17,7 +17,7 @@
         <div class="progress">
           <div class="progress-bar" [class.progress-bar-success]="Progress()===100" role="progressbar" [attr.aria-valuenow]="Progress()"
                aria-valuemin="0" aria-valuemax="100" [style.width.%]="Progress()">
-            <span class="progress-text text-dark">{{ Filename() }}</span>
+            <span class="progress-text text-dark">{{ Filename() | async }}</span>
           </div>
         </div>
       </div>

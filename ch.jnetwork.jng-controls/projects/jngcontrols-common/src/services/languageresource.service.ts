@@ -63,6 +63,7 @@ export class InternalLanguageResourceService extends LanguageResourceService {
     // Set Languages
     this.data.set('de', new Map<string, string>());
 
+    // Validation
     this.data.get('de').set('VALIDATION_ERROR_REQUIRED', 'Feld ist erforderlich.');
     this.data.get('de').set('VALIDATION_ERROR_SUMMARY_REQUIRED', 'Feld "{{FIELD}}" ist erforderlich.');
     this.data.get('de').set('VALIDATION_ERROR_MINVALUE', 'Wert darf nicht kleiner als {{MINVALUE}} sein.');
@@ -92,8 +93,12 @@ export class InternalLanguageResourceService extends LanguageResourceService {
     this.data.get('de').set('VALIDATION_ERROR_MULTILANGUAGEREQUIRED', 'Es müssen alle Sprachen erfasst sein.');
     this.data.get('de').set('VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED', 'Feld "{{FIELD}}" muss alle Sprachen erfasst haben.');
 
+    // Grid Component
     this.data.get('de').set('PAGING_PAGEOFTEXT', 'Seite {{CURRENTPAGE}} von {{TOTALPAGES}}');
     this.data.get('de').set('PAGING_PAGEENTRIESTEXT', 'Einträge pro Seite');
+
+    // Upload Component
+    this.data.get('de').set('UPLOAD_NO_FILE_SELECTED','Keine Datei ausgewählt');
 
 
     // EN

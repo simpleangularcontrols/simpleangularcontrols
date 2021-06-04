@@ -122,6 +122,17 @@
     >Drop file here</ngDropzoneSingle
   >
 
+  <ngDropzoneSingle
+    label="dropzone single max Size (pdf and zip)"
+    endpoint="/api/upload/register"
+    name="dropzone3"
+    maxfilesize="200000"
+    allowedtypes=".pdf,.zip"
+    [(ngModel)]="values.dropzone5"
+    (onfileerror)="showmessage($event)"
+    >Drop file here</ngDropzoneSingle
+  >
+
   <ngDropzoneMultiple
     label="dropzonemultiple1"
     endpoint="/api/upload/register"

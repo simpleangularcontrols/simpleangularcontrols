@@ -1,0 +1,14 @@
+echo off
+CHCP 1252
+SETLOCAL
+Echo ******** WAMS BUILD PROCESS
+Echo.
+Echo ** Build Angular Controls Library
+
+cd ..\exanic.ch.controls.angular\application
+
+call npm run-script doc-bootstrap3
+
+call npm run-script doc-bootstrap4
+
+

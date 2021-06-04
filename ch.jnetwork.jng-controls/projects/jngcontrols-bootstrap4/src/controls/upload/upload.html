@@ -1,6 +1,6 @@
 <div class="row form-group" [class.no-gutters]="_disablelabel">
   <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="col-12 col-form-label" [ngClass]="[_labelsize !== 12 ?  'col-md-' + _labelsize : 'sr-only']">{{_label}}</label>
-  <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
+  <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
 
     <div class="input-group upload-component upload-single">
       <div class="input-group-prepend">
@@ -17,7 +17,7 @@
         <div class="progress">
           <div class="progress-bar" [class.progress-bar-success]="Progress()===100" role="progressbar" [attr.aria-valuenow]="Progress()"
                aria-valuemin="0" aria-valuemax="100" [style.width.%]="Progress()">
-            <span class="progress-text text-dark">{{ Filename() }}</span>
+            <span class="progress-text text-dark">{{ Filename() | async }}</span>
           </div>
         </div>
       </div>

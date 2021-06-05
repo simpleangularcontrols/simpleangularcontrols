@@ -500,11 +500,19 @@
     <Compile Include="AdminLte.Master.designer.cs">
       <DependentUpon>AdminLte.Master</DependentUpon>
     </Compile>
+    <Compile Include="Api\Model\BrowserFile.cs" />
+    <Compile Include="Api\Model\BrowserNode.cs" />
+    <Compile Include="Api\Model\BrowserNodeRequest.cs" />
     <Compile Include="Api\Model\GridItemDto.cs" />
     <Compile Include="Api\Model\GridRequest.cs" />
     <Compile Include="Api\Model\GridResultDto.cs" />
+    <Compile Include="Api\Model\IBrowserFile.cs" />
+    <Compile Include="Api\Model\IBrowserNode.cs" />
+    <Compile Include="Api\Model\IBrowserNodeRequest.cs" />
+    <Compile Include="Api\Model\IBrowserUploadComplete.cs" />
     <Compile Include="Api\Model\UploadFileDto.cs" />
     <Compile Include="Api\Model\UploadRegistration.cs" />
+    <Compile Include="Api\Services\BrowserController.cs" />
     <Compile Include="Api\Services\GridController.cs" />
     <Compile Include="Api\Services\UploadController.cs" />
     <Compile Include="Api\WebApiConfig.cs" />

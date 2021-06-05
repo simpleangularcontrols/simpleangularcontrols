@@ -4,7 +4,10 @@
 
 export * from './controls/buttons/button.module';
 export * from './controls/checkbox/checkbox.module';
-export { JNetworkBootstrap4ConfirmModule, ServiceConfirm } from './controls/confirm/confirm.module';
+export {
+  JNetworkBootstrap4ConfirmModule,
+  ServiceConfirm,
+} from './controls/confirm/confirm.module';
 export * from './controls/datetime/datetime.module';
 export * from './controls/dialog/dialog.module';
 export * from './controls/form/form';
@@ -19,4 +22,4 @@ export * from './controls/tinymce/tinymce.module';
 export * from './controls/validation/validationsummary.module';
 export * from './controls/wizard/wizard.module';
 export * from './controls/upload/upload.module';
-
+export * from './controls/browser/browser.module';

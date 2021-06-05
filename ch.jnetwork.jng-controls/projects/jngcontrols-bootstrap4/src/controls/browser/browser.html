@@ -1,0 +1,68 @@
+<div>File Browser</div>
+
+<div>Selected Path: {{ selectedNode ? selectedNode.Path : ''}}</div>
+<div>Selected File: {{ selectedFile}}</div>
+<div class="row">
+  <div class="col-12 col-md-4">
+    <ul class="list-group list-group-flush">
+      <ng-template
+        [ngTemplateOutlet]="treeItem"
+        [ngTemplateOutletContext]="{node: rootNode, deep: 0}"
+      ></ng-template>
+    </ul>
+
+    <ng-template #treeItem let-node="node" let-deep="deep">
+      <li
+        class="list-group-item py-1 px-2"
+        [class.list-group-item-secondary]="node === selectedNode"
+        (click)="selectNode(node)"
+      >
+        <span class="mx-3" *ngFor="let i of count(deep)"></span>
+        <span
+          (click)="switchExpandNode(node);$event.stopPropagation();"
+          class="fa mr-2"
+          [class.fa-folder]="node.ChildNodes.length === 0"
+          [class.fa-folder-plus]="!node.IsExpanded && node.ChildNodes.length > 0"
+          [class.fa-folder-open]="node.IsExpanded && node.ChildNodes.length > 0"
+        ></span>
+        <span>{{ node.Name }}</span>
+      </li>
+
+      <ng-container *ngIf="node.IsExpanded">
+        <ng-template
+          *ngFor="let child of node.ChildNodes"
+          [ngTemplateOutlet]="treeItem"
+          [ngTemplateOutletContext]="{node: child, deep: deep + 1}"
+        ></ng-template>
+      </ng-container>
+    </ng-template>
+  </div>
+  <div class="col-12 col-md-8">
+    <ng-container *ngIf="selectedNode && selectedNode.Files">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <th>File</th>
+            <th>Size</th>
+          </thead>
+          <tbody>
+            <ng-container *ngIf="selectedNode.Files.length === 0">
+              <tr>
+                <td colspan="2">Keine Dateien vorhanden</td>
+              </tr>
+            </ng-container>
+            <ng-container *ngIf="selectedNode.Files.length > 0">
+              <tr
+                *ngFor="let item of selectedNode.Files"
+                (click)="selectFile(item)"
+              >
+                <td>{{ item.Filename }}</td>
+                <td>{{ item.Size}}</td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </ng-container>
+  </div>
+</div>

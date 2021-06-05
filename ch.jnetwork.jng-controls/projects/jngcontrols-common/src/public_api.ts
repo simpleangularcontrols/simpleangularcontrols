@@ -1,7 +1,6 @@
 /*
  * Public API Surface of jNetwork-controls-common
  */
-
 export { NgButtonCommon } from './controls/buttons/button';
 export { NgDialogCommon } from './controls/dialog/dialog';
 export { NgCheckboxCommon } from './controls/checkbox/checkbox';
@@ -83,6 +82,9 @@ export * from './controls/confirm/confirm.service';
 export { NgConfirmCommon } from './controls/confirm/confirm';
 export { NgConfirmButton } from './controls/confirm/confirm.button';
 export * from './interfaces/iconfirmcomponent';
+
+// File Browser
+export { NgFileBrowserCommon } from './controls/browser/browser';
 
 // Services
 export * from './interfaces/ilanguageresource';

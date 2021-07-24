@@ -1,0 +1,36 @@
+<h2>Button</h2>
+<form #myForm="NgFormular" labelsize="3">
+  <div>Context Menü</div>
+
+  <p>Default Menu</p>
+  <div>
+    <ngContextmenu>
+      <ngContextmenuButton text="Action 1"></ngContextmenuButton>
+      <ngContextmenuButton text="Action 2"></ngContextmenuButton>
+      <ngContextmenuButton text="Action 3"></ngContextmenuButton>
+    </ngContextmenu>
+  </div>
+
+  <p>Button Right Aligned</p>
+  <div class="d-flex flex-row-reverse">
+    <div>
+      <ngContextmenu>
+        <ngContextmenuButton text="Action 1"></ngContextmenuButton>
+        <ngContextmenuButton text="Action 2"></ngContextmenuButton>
+        <ngContextmenuButton text="Action 3"></ngContextmenuButton>
+      </ngContextmenu>
+    </div>
+  </div>
+
+  <p>Button Center Aligned</p>
+  <div class="d-flex justify-content-center">
+    <div>
+      <ngContextmenu>
+        <ngContextmenuButton text="Action 1"></ngContextmenuButton>
+        <ngContextmenuButton text="Action 2"></ngContextmenuButton>
+        <ngContextmenuSplitter></ngContextmenuSplitter>
+        <ngContextmenuButton text="Action 3"></ngContextmenuButton>
+      </ngContextmenu>
+    </div>
+  </div>
+</form>

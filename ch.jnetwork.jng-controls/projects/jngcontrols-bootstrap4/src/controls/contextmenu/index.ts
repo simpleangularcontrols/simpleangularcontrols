@@ -1,0 +1,1 @@
+export { NgContextmenuComponent } from './contextmenu';

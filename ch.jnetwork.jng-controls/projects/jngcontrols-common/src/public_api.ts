@@ -83,8 +83,17 @@ export { NgConfirmCommon } from './controls/confirm/confirm';
 export { NgConfirmButton } from './controls/confirm/confirm.button';
 export * from './interfaces/iconfirmcomponent';
 
+// Context Menu
+export * from './controls/contextmenu/contextmenu';
+export * from './controls/contextmenu/contextmenuitem';
+export * from './controls/contextmenu/contextmenuitembutton';
+export * from './controls/contextmenu/contextmenuanchor';
+export * from './controls/contextmenu/contextmenucontainer';
+
 // File Browser
 export { NgFileBrowserCommon } from './controls/browser/browser';
+export { IBrowserFile } from './controls/browser/models/browserfile';
+export { IBrowserNode } from './controls/browser/models/browsernode';
 
 // Services
 export * from './interfaces/ilanguageresource';
@@ -113,3 +122,4 @@ export * from './utilities/Convertion';
 export * from './utilities/enums';
 export * from './utilities/datatypes';
 export * from './utilities/interpolation';
+export * from './utilities/positioning'

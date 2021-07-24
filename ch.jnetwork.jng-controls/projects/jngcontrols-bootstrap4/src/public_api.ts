@@ -23,3 +23,4 @@ export * from './controls/validation/validationsummary.module';
 export * from './controls/wizard/wizard.module';
 export * from './controls/upload/upload.module';
 export * from './controls/browser/browser.module';
+export * from './controls/contextmenu/contextmenu.module';

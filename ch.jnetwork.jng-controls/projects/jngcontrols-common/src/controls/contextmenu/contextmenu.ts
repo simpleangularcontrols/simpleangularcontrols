@@ -38,6 +38,12 @@ export class NgContextmenuCommon implements OnDestroy {
   public isopen: boolean = false;
 
   /**
+   * Extra CSS Klassen für das Control
+   */
+  @Input()
+  public cssclass: string = '';
+
+  /**
    * Custom HTML Template für Dropdown Button. Button muss den Marker "ngContextmenuAnchor" beinhalten, damit das Control korrekt funktioniert.
    */
   @Input()

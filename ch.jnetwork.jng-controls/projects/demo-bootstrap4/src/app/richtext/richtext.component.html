@@ -1,0 +1,32 @@
+<h2>RichText Editor</h2>
+<form #myForm="NgFormular" labelsize="3">
+  <div class="mb-4">
+    <quill-editor (onEditorCreated)="onStartet($event)"></quill-editor>
+  </div>
+  <div>
+    <editor [init]="config"></editor>
+  </div>
+
+  <ngDialog
+    #modal1dialog
+    [allowesc]="false"
+    [backdrop]="true"
+    [(isvisible)]="showdialog"
+    title="Leerer Dialog"
+    size="large"
+  >
+    <div dialogbody>
+      <ngFileBrowser
+        apiurl="api/browser"
+        (file)="setSelectedFile($event)"
+      ></ngFileBrowser>
+    </div>
+    <div dialogfooter>
+      <ngButton
+        name="modalClose1"
+        text="Schliessen"
+        (onclick)="setImage()"
+      ></ngButton>
+    </div>
+  </ngDialog>
+</form>

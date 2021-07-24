@@ -7,4 +7,6 @@ export interface IBrowserNode {
 
   Path: string;
   IsExpanded: boolean;
+  IsEditMode: boolean;
+  IsNewNode: boolean;
 }

@@ -20,9 +20,14 @@ namespace AngularPrototype.Api.Services
         /// </summary>
         public BrowserController()
         {
-            this.basePath = HttpContext.Current.Server.MapPath("~/layout");
+            this.basePath = HttpContext.Current.Server.MapPath("~/icons");
         }
 
+        /// <summary>
+        /// Get Nodes
+        /// </summary>
+        /// <param name="request">Node Request</param>
+        /// <returns>Node Item</returns>
         [ActionName("node")]
         [HttpPost()]
         public IBrowserNode GetNode([FromBody] BrowserNodeRequest request)

@@ -1,6 +1,8 @@
-<div class="dropdown">
-  <ng-container  [ngTemplateOutlet]="buttonTemplate || defaultButtonTemplate"></ng-container>
- 
+<div class="dropdown" [ngClass]="cssclass">
+  <ng-container
+    [ngTemplateOutlet]="buttonTemplate || defaultButtonTemplate"
+  ></ng-container>
+
   <div
     class="dropdown-menu dropdown-menu-right"
     ngContextmenuContainer
@@ -12,11 +14,11 @@
 
 <ng-template #defaultButtonTemplate>
   <button
-  ngContextmenuAnchor
-  class="btn btn-sm btn-link text-secondary text-decoration-none"
-  type="button"
-  (click)="toggle()"
->
-  <i class="fas fa-ellipsis-v"></i>
-</button>
+    ngContextmenuAnchor
+    class="btn btn-sm btn-link text-secondary text-decoration-none"
+    type="button"
+    (click)="toggle()"
+  >
+    <i class="fas fa-ellipsis-v"></i>
+  </button>
 </ng-template>

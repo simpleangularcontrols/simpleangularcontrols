@@ -15,9 +15,28 @@
   <div class="d-flex flex-row-reverse">
     <div>
       <ngContextmenu>
-        <ngContextmenuButton text="Action 1"></ngContextmenuButton>
-        <ngContextmenuButton text="Action 2"></ngContextmenuButton>
-        <ngContextmenuButton text="Action 3"></ngContextmenuButton>
+        <ngContextmenuButton
+          text="Action 1"
+          image="/icons/de.png"
+        ></ngContextmenuButton>
+        <ngContextmenuButton
+          text="Action 1"
+          image="/icons/en.png"
+        ></ngContextmenuButton>
+        <ngContextmenuButton
+          text="Action 1"
+          image="/icons/fr.png"
+        ></ngContextmenuButton>
+        <ngContextmenuButton
+          text="Action 2"
+          icon="fa-pen"
+          iconstyle="fas"
+        ></ngContextmenuButton>
+        <ngContextmenuButton
+          text="Action 3"
+          icon="fa-pen"
+        ></ngContextmenuButton>
+        <ngContextmenuButton text="Action 4"></ngContextmenuButton>
       </ngContextmenu>
     </div>
   </div>
@@ -29,8 +48,35 @@
         <ngContextmenuButton text="Action 1"></ngContextmenuButton>
         <ngContextmenuButton text="Action 2"></ngContextmenuButton>
         <ngContextmenuSplitter></ngContextmenuSplitter>
-        <ngContextmenuButton text="Action 3"></ngContextmenuButton>
+        <ngContextmenuButton
+          text="Action 3"
+          [isdisabled]="true"
+        ></ngContextmenuButton>
       </ngContextmenu>
     </div>
+  </div>
+  <p>Menu without Icon Colum</p>
+  <div>
+    <ngContextmenu>
+      <ngContextmenuButton
+        text="Action 1"
+        isicondisabled="true"
+      ></ngContextmenuButton>
+      <ngContextmenuButton
+        text="Action 2"
+        [isicondisabled]="true"
+      ></ngContextmenuButton>
+      <ngContextmenuSplitter></ngContextmenuSplitter>
+      <ngContextmenuButton
+        text="Action 3"
+        isdisabled="true"
+        isicondisabled="true"
+      ></ngContextmenuButton>
+      <ngContextmenuButton
+        text="Action 4"
+        [isdisabled]="true"
+        [isicondisabled]="true"
+      ></ngContextmenuButton>
+    </ngContextmenu>
   </div>
 </form>

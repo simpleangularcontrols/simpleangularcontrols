@@ -21,16 +21,27 @@ export class NgContextmenuItemButtonCommon extends NgContextmenuItemCommon {
   protected _isdisabled: boolean = false;
 
   /**
+   * Icon Column in Menü ist deaktiviert
+   */
+  protected _isicondisabled: boolean = false;
+
+  /**
    * Icon für Menü
    */
   @Input()
   public icon: string;
 
   /**
-   * Input Property für Styling des Buttons. Deffiniert die Css Klassen des Buttons
+   * Input Property für Styling des Buttons. Definiert die Css Klassen des Buttons
    */
   @Input('iconstyle')
-  public iconstyle: string = '';
+  public iconstyle: string = 'fas';
+
+  /**
+   * Image für Menü. Wird benötigt wenn das Icon für den Button ein File und nicht ein Icon Font ist.
+   */
+  @Input()
+  public image: string;
 
   /**
    * Menu Item ist deaktiviert
@@ -48,6 +59,24 @@ export class NgContextmenuItemButtonCommon extends NgContextmenuItemCommon {
    */
   public get isdisabled(): boolean | string {
     return this._isdisabled;
+  }
+
+  /**
+   * Icon Column in Menü ist deaktiviert
+   */
+  @Input()
+  public set isicondisabled(v: boolean | string) {
+    if (v === null || v === undefined || typeof v === 'boolean') {
+      this._isicondisabled = v as boolean;
+    } else {
+      this._isicondisabled = v === 'true';
+    }
+  }
+  /**
+   * Icon Column in Menü ist deaktiviert
+   */
+  public get isicondisabled(): boolean | string {
+    return this._isicondisabled;
   }
 
   /**

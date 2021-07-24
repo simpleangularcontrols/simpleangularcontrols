@@ -1,4 +1,10 @@
-import { Directive, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Directive,
+  EventEmitter,
+  HostListener,
+  Input,
+  Output,
+} from '@angular/core';
 import { NgContextmenuCommon } from './contextmenu';
 import { NgContextmenuItemCommon } from './contextmenuitem';
 

@@ -79,4 +79,40 @@
       ></ngContextmenuButton>
     </ngContextmenu>
   </div>
+  <p>Menu with Custom Button</p>
+  <div>
+    <ngContextmenu [buttonTemplate]="customButton" #contextmenu>
+      <ng-template #customButton>
+        <button
+          type="button"
+          ngContextmenuAnchor
+          class="btn btn-secondary dropdown-toggle"
+          (click)="contextmenu.toggle()"
+        >
+          Custom Button
+        </button>
+      </ng-template>
+
+      <ngContextmenuButton
+        text="Action 1"
+        isicondisabled="true"
+        (onclick)="debugAction1()"
+      ></ngContextmenuButton>
+      <ngContextmenuButton
+        text="Action 2"
+        [isicondisabled]="true"
+      ></ngContextmenuButton>
+      <ngContextmenuSplitter></ngContextmenuSplitter>
+      <ngContextmenuButton
+        text="Action 3"
+        isdisabled="true"
+        isicondisabled="true"
+      ></ngContextmenuButton>
+      <ngContextmenuButton
+        text="Action 4"
+        [isdisabled]="true"
+        [isicondisabled]="true"
+      ></ngContextmenuButton>
+    </ngContextmenu>
+  </div>
 </form>

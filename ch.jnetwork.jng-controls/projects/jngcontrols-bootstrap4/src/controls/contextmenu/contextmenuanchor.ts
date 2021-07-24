@@ -1,5 +1,8 @@
 import { Directive, ElementRef, forwardRef } from '@angular/core';
-import { NgContextmenuAnchorCommon } from '@jnetwork/jngcontrols-common';
+import {
+  NgContextmenuAnchorCommon,
+  NgContextmenuCommon,
+} from '@jnetwork/jngcontrols-common';
 
 /**
  * Anker Komponente für Context Menü. Wird zum positionieren des Context Menü in der Page benötigt.

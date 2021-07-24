@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import {
+  ContentChild,
   Directive,
   ElementRef,
   HostListener,
@@ -8,6 +9,7 @@ import {
   NgZone,
   OnDestroy,
   Renderer2,
+  TemplateRef,
   ViewChild,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -34,6 +36,12 @@ export class NgContextmenuCommon implements OnDestroy {
    */
   @Input()
   public isopen: boolean = false;
+
+  /**
+   * Custom HTML Template für Dropdown Button. Button muss den Marker "ngContextmenuAnchor" beinhalten, damit das Control korrekt funktioniert.
+   */
+  @Input()
+  public buttonTemplate: TemplateRef<any>;
 
   /**
    * Container an welchem die Position ausgerichtet wird. Aktuell wird nun Body Supported
@@ -69,9 +77,12 @@ export class NgContextmenuCommon implements OnDestroy {
    * Click Event
    */
   public onClick(targetElement) {
+    const anchor: NgContextmenuAnchorCommon =
+      this._anchor || this._anchorTemplate;
+
     if (
       !this._menu.nativeElement.contains(targetElement) &&
-      !this._anchor.nativeElement.contains(targetElement)
+      !anchor.nativeElement.contains(targetElement)
     ) {
       this.close();
     }
@@ -82,6 +93,12 @@ export class NgContextmenuCommon implements OnDestroy {
    */
   @ViewChild(NgContextmenuAnchorCommon, { static: false })
   private _anchor: NgContextmenuAnchorCommon;
+
+  /**
+   * Button für Open/Close Event aus Template
+   */
+  @ContentChild(NgContextmenuAnchorCommon, { static: false })
+  private _anchorTemplate: NgContextmenuAnchorCommon;
 
   /**
    * Container Element für Dropdown
@@ -145,12 +162,17 @@ export class NgContextmenuCommon implements OnDestroy {
    * Setzt die Position des Menüs im Markup
    */
   protected _positionMenu() {
-    positionElements(
-      this._anchor.nativeElement,
-      this.bodyContainer || this._menu.nativeElement,
-      this.placement,
-      this.container === 'body'
-    );
+    const anchor: NgContextmenuAnchorCommon =
+      this._anchor || this._anchorTemplate;
+
+    if (anchor) {
+      positionElements(
+        anchor.nativeElement,
+        this.bodyContainer || this._menu.nativeElement,
+        this.placement,
+        this.container === 'body'
+      );
+    }
   }
 
   /**

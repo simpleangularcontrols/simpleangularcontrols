@@ -57,6 +57,31 @@ export abstract class NgFileBrowserCommon implements OnInit {
    */
   private browserService: IFileBrowserService;
 
+  private preselecedfile: string | null = null;
+  /**
+   * Setzt den Seleced Node über den Pfad
+   */
+  @Input()
+  public set selectedfile(v: string | null) {
+    const selectednode = this.findSelectedNodeByPath(this.rootNode, v);
+
+    if (selectednode !== null) {
+      this.selectNode(selectednode);
+    }
+
+    this.preselecedfile = v;
+  }
+  /**
+   * Getter für Selected File. Ist an Input Property gebunden
+   */
+  public get selectedfile(): string | null {
+    if (this.selectFile && this.selectFile.length > 0) {
+      return this.selectedFile;
+    } else {
+      return null;
+    }
+  }
+
   /**
    * URL für Backend API
    */
@@ -123,6 +148,11 @@ export abstract class NgFileBrowserCommon implements OnInit {
 
         this.setPathToAllNodes();
         this.selectedNode = this.rootNode;
+
+        // Selected File erneut setzen, wenn Property gesetzt wurde bevor Daten vom Service geladen wurden.
+        if (this.preselecedfile !== null && this.preselecedfile.length > 0) {
+          this.selectedfile = this.preselecedfile;
+        }
       });
   }
 
@@ -156,6 +186,16 @@ export abstract class NgFileBrowserCommon implements OnInit {
         .subscribe((result: IBrowserFileResponse) => {
           node.Files = result.Files;
           this.selectedNode = node;
+
+          if (this.preselecedfile !== null && this.preselecedfile.length > 0) {
+            const filename = this.preselecedfile.substring(
+              this.preselecedfile.lastIndexOf('/') + 1
+            );
+            const file = node.Files.find((itm) => itm.Filename === filename);
+            if (file) {
+              this.selectFile(file);
+            }
+          }
         });
     } else {
       this.selectedNode = node;
@@ -459,5 +499,43 @@ export abstract class NgFileBrowserCommon implements OnInit {
     this.rootNode.ChildNodes.forEach((itm) => {
       this.fillPath(itm, '');
     });
+  }
+
+  private findSelectedNodeByPath(
+    node: IBrowserNode,
+    path: string
+  ): IBrowserNode {
+    // Cancel wenn Pfad nicht definiert
+    if (path === undefined || path === null) {
+      return null;
+    }
+
+    // Pfad in Array splitten und Root Foldername setzen
+    const pathArray = path.split('/');
+    pathArray[0] = this.rootNode.Name;
+
+    return this.findSelectedNodeByPathArray(node, pathArray, 0);
+  }
+
+  private findSelectedNodeByPathArray(
+    node: IBrowserNode,
+    path: string[],
+    index: number
+  ): IBrowserNode {
+    // Check ob Ordner korrekt. Letzer Ordner zurückgeben. Path Last Index ist der Filename
+    if (node.Name === path[index] && path.length - 2 === index) {
+      return node;
+    } else if (node.Name === path[index]) {
+      // Expand Node
+      node.IsExpanded = true;
+      for (const item of node.ChildNodes) {
+        const result = this.findSelectedNodeByPathArray(item, path, index + 1);
+
+        if (result !== null) {
+          return result;
+        }
+      }
+    }
+    return null;
   }
 }

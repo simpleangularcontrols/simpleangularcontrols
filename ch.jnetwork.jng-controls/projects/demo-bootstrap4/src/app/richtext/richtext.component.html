@@ -17,8 +17,10 @@
   >
     <div dialogbody>
       <ngFileBrowser
+        *ngIf="showdialog"
         apiurl="api/browser"
         (file)="setSelectedFile($event)"
+        [selectedfile]="selectedfile"
       ></ngFileBrowser>
     </div>
     <div dialogfooter>

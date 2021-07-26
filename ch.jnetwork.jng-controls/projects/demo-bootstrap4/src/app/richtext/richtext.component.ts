@@ -11,6 +11,7 @@ export class DemoRichtextComponent implements OnInit {
   private quill: Quill;
 
   public showdialog = false;
+  public selectedfile = null;
 
   public settings: any;
 
@@ -45,10 +46,14 @@ export class DemoRichtextComponent implements OnInit {
     angular: this,
   };
 
-  public showImageDialog(callback, value, meta): void {
+  public showImageDialog(callback, value: string, meta): void {
     this.settings.angular.ngZone.runOutsideAngular(() => {
       this.settings.angular.ngZone.run(() => {
         this.settings.angular.showdialog = true;
+        this.settings.angular.selectedfile = value.replace(
+          'upload/browser',
+          ''
+        );
         this.settings.angular.imageSetter = {
           callback: callback,
           value: value,
@@ -62,7 +67,7 @@ export class DemoRichtextComponent implements OnInit {
 
   public setImage(): void {
     if (this.selectedFile) {
-      this.imageSetter.callback('/icons' + this.selectedFile);
+      this.imageSetter.callback('upload/browser' + this.selectedFile);
     }
     this.showdialog = false;
   }

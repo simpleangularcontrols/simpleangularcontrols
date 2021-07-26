@@ -275,6 +275,7 @@ namespace AngularPrototype.Api.Services
             // HACK: Replace Port für Angular Inside Apps
             uploadUrl = uploadUrl.Replace(":55768/", ":4200/");
 
+            response.StatusCode = HttpStatusCode.Created;
             response.Headers.Add("Location", uploadUrl);
             return response;
         }

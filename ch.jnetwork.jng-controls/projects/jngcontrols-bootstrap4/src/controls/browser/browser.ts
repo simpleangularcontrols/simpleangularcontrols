@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Injector } from '@angular/core';
+import { Component, Injector, ViewChild } from '@angular/core';
 import {
   IBrowserFile,
-  IBrowserNode, NgFileBrowserCommon
+  IBrowserNode,
+  NgFileBrowserCommon,
 } from '@jnetwork/jngcontrols-common';
+import { NgDropzoneMultipleComponent } from '../upload/dropzonemultiple';
 import { Observable } from 'rxjs';
 import { ServiceConfirm } from '../confirm/confirm.service';
 
@@ -13,6 +15,9 @@ import { ServiceConfirm } from '../confirm/confirm.service';
   providers: [ServiceConfirm],
 })
 export class NgBrowserComponent extends NgFileBrowserCommon {
+  @ViewChild(NgDropzoneMultipleComponent, { static: false })
+  private uploadComponent: NgDropzoneMultipleComponent;
+
   constructor(
     httpClient: HttpClient,
     injector: Injector,
@@ -53,5 +58,15 @@ export class NgBrowserComponent extends NgFileBrowserCommon {
           observer.complete();
         });
     });
+  }
+
+  uploadedFileMoved(uploadid: string): void {
+    const item = this.uploadComponent.uploads.find(
+      (itm) => itm.documentid === uploadid
+    );
+    
+    if (item) {
+      this.uploadComponent.cancel(item.uploadId);
+    }
   }
 }

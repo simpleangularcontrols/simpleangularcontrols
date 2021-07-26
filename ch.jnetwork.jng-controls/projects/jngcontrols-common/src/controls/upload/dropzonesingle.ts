@@ -1,4 +1,4 @@
-import { Directive, OnInit } from '@angular/core';
+import { Directive, Input, OnInit } from '@angular/core';
 import { UploadState } from 'ngx-uploadx';
 import { NgUploadBase } from '../../common/baseuploadcontrol';
 
@@ -10,6 +10,9 @@ export class NgDropzoneSingleCommon
   extends NgUploadBase<string>
   implements OnInit
 {
+  @Input()
+  public uploadheight: string = null;
+
   /**
    * Property wenn Drag Event aktiv ist (Maus über Zone)
    */

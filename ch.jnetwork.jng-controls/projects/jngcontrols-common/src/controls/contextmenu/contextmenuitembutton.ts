@@ -95,15 +95,16 @@ export class NgContextmenuItemButtonCommon extends NgContextmenuItemCommon {
    * Event wenn auf den Button geklickt wird
    */
   @Output('onclick')
-  clickaction: EventEmitter<any> = new EventEmitter<any>();
+  clickaction: EventEmitter<void> = new EventEmitter<void>();
 
   /**
    * Die Methode wird das cklickaction Emitter aktivieren
    */
-  public callaction() {
+  public callaction(event: MouseEvent) {
     if (!this._isdisabled) {
-      this.clickaction.emit(this.iconstyle);
+      this.clickaction.emit();
       this.contextmenu.close();
     }
+    event.stopPropagation();
   }
 }

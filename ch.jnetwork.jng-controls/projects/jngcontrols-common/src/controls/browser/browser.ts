@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { findNode } from '@angular/compiler';
 import {
   Directive,
   EventEmitter,
@@ -15,7 +16,9 @@ import {
   InternalFileBrowserService,
 } from '../../services/filebrowser.service';
 import { IBrowserFile } from './models/browserfile';
+import { IBrowserFileResponse } from './models/browserfileresponse';
 import { IBrowserNode } from './models/browsernode';
+import { IBrowserNodeResponse } from './models/browsernoderesponse';
 
 @Directive()
 export abstract class NgFileBrowserCommon implements OnInit {
@@ -45,6 +48,11 @@ export abstract class NgFileBrowserCommon implements OnInit {
   };
 
   /**
+   * Liste von Uploads
+   */
+  public uploads: string[] = [];
+
+  /**
    * Service für File Browser Zugriff (Backend)
    */
   private browserService: IFileBrowserService;
@@ -60,21 +68,29 @@ export abstract class NgFileBrowserCommon implements OnInit {
    */
   @Output()
   public file: EventEmitter<string> = new EventEmitter<string>();
-  
+
   /**
    * HostListener welcher den Edit Mode bei allen Files und Nodes beendet.
    */
-   @HostListener('document:click', ['$event.target'])
-   /**
-    * Click Event
-    */
-   exitEditMode(targetElement): void {
-     if (this.selectNode) {
-       this.selectedNode.Files.forEach((itm) => (itm.IsEditMode = false));
-     }
- 
-     this.resetNodeEditMode(null);
-   }
+  @HostListener('document:click', ['$event.target'])
+  /**
+   * Click Event
+   */
+  exitEditMode(targetElement): void {
+    if (this.selectNode) {
+      this.selectedNode.Files.forEach((itm) => (itm.IsEditMode = false));
+
+      if (
+        !this.selectedNode ||
+        this.selectedNode.Name === null ||
+        this.selectedNode.Name.length === 0
+      ) {
+        this.clearNewChildNodes(this.rootNode);
+      }
+    }
+
+    this.resetNodeEditMode(null);
+  }
 
   /**
    * Konstruktor
@@ -92,23 +108,22 @@ export abstract class NgFileBrowserCommon implements OnInit {
    * Init Event der Komponente
    */
   ngOnInit(): void {
-    this.browserService.GetNode(this.apiurl, '').subscribe((result) => {
-      this.rootNode = {
-        Name: result.Name,
-        Files: result.Files,
-        ChildNodes: result.ChildNodes,
-        IsExpanded: true,
-        IsEditMode: false,
-        IsNewNode: false,
-        Path: '/',
-      };
+    this.browserService
+      .GetNode(this.apiurl, '')
+      .subscribe((result: IBrowserNodeResponse) => {
+        this.rootNode = {
+          Name: result.Node.Name,
+          Files: result.Node.Files,
+          ChildNodes: result.Node.ChildNodes,
+          IsExpanded: true,
+          IsEditMode: false,
+          IsNewNode: false,
+          Path: '/',
+        };
 
-      this.rootNode.ChildNodes.forEach((itm) => {
-        this.fillPath(itm, '');
+        this.setPathToAllNodes();
+        this.selectedNode = this.rootNode;
       });
-
-      this.selectedNode = this.rootNode;
-    });
   }
 
   /**
@@ -138,13 +153,31 @@ export abstract class NgFileBrowserCommon implements OnInit {
     if (!node.Files) {
       this.browserService
         .GetFiles(this.apiurl, node.Path)
-        .subscribe((result) => {
-          node.Files = result;
+        .subscribe((result: IBrowserFileResponse) => {
+          node.Files = result.Files;
           this.selectedNode = node;
         });
     } else {
       this.selectedNode = node;
     }
+  }
+
+  /**
+   * Aktualisiert den Node
+   */
+  public refreshNode(node: IBrowserNode): void {
+    if (!node.IsExpanded) {
+      this.switchExpandNode(node);
+    }
+
+    this.browserService
+      .GetNode(this.apiurl, node.Path)
+      .subscribe((result: IBrowserNodeResponse) => {
+        node.ChildNodes = result.Node.ChildNodes;
+        node.Files = result.Node.Files;
+
+        this.setPathToAllNodes();
+      });
   }
 
   /**
@@ -174,8 +207,13 @@ export abstract class NgFileBrowserCommon implements OnInit {
       }
 
       if (node.Name !== newFoldername) {
-        node.Name = newFoldername;
-        window.alert('Rename Folder');
+        this.browserService
+          .RenameNode(this.apiurl, node.Path, newFoldername)
+          .subscribe((result: IBrowserNodeResponse) => {
+            node.Name = result.Node.Name;
+
+            this.setPathToAllNodes();
+          });
       }
     } else {
       if (
@@ -189,7 +227,14 @@ export abstract class NgFileBrowserCommon implements OnInit {
 
       node.Name = newFoldername;
       node.IsNewNode = false;
-      alert('Add Folder');
+      this.browserService
+        .SaveNode(this.apiurl, node.Path, newFoldername)
+        .subscribe((result: IBrowserNodeResponse) => {
+          node.Name = result.Node.Name;
+          node.Files = result.Node.Files;
+
+          this.setPathToAllNodes();
+        });
     }
   }
 
@@ -201,7 +246,7 @@ export abstract class NgFileBrowserCommon implements OnInit {
     const item: IBrowserNode = {
       ChildNodes: [],
       Files: [],
-      IsEditMode: true,
+      IsEditMode: false,
       IsExpanded: false,
       Name: '',
       Path: node.Path,
@@ -209,6 +254,8 @@ export abstract class NgFileBrowserCommon implements OnInit {
     };
 
     node.ChildNodes.push(item);
+    this.selectNode(item);
+    this.editNode(item);
   }
 
   /**
@@ -218,7 +265,18 @@ export abstract class NgFileBrowserCommon implements OnInit {
   public deleteNode(node: IBrowserNode): void {
     this.confirmDeleteNode(node).subscribe((result) => {
       if (result) {
-        alert('Delete Folder');
+        this.browserService
+          .DeleteNode(this.apiurl, node.Path)
+          .subscribe((result: IBrowserNodeResponse) => {
+            const parentNode = this.findParentNode(this.rootNode, node);
+            parentNode.ChildNodes = result.Node.ChildNodes;
+
+            this.rootNode.ChildNodes.forEach((itm) => {
+              this.fillPath(itm, '');
+            });
+
+            this.selectNode(parentNode);
+          });
       }
     });
   }
@@ -249,7 +307,11 @@ export abstract class NgFileBrowserCommon implements OnInit {
   public deleteFile(file: IBrowserFile): void {
     this.confirmDeleteFile(file).subscribe((result) => {
       if (result) {
-        alert('Delete File');
+        this.browserService
+          .DeleteFile(this.apiurl, this.selectedNode.Path + '/' + file.Filename)
+          .subscribe((result: IBrowserFileResponse) => {
+            this.selectedNode.Files = result.Files;
+          });
       }
     });
   }
@@ -276,8 +338,39 @@ export abstract class NgFileBrowserCommon implements OnInit {
     }
 
     if (file.Filename !== newFilename) {
-      file.Filename = newFilename;
-      window.alert('Rename File');
+      this.browserService
+        .RenameFile(
+          this.apiurl,
+          this.selectedNode.Path + '/' + file.Filename,
+          newFilename
+        )
+        .subscribe((result: IBrowserFileResponse) => {
+          this.selectedNode.Files = result.Files;
+        });
+    }
+  }
+
+  /**
+   * Methode die Aufgerufen werden muss, wenn ein Upload beendet ist.
+   * @param param Parameter des hochgeladenen Files
+   */
+  public uploadComplete(node: IBrowserNode, uploadIdList: string[]): void {
+    if (uploadIdList !== null) {
+      uploadIdList.forEach((element) => {
+        if (this.uploads.indexOf(element) < 0) {
+          this.uploads.push(element);
+        }
+      });
+    }
+
+    const id = this.uploads.pop();
+    if (id) {
+      this.browserService
+        .SaveFile(this.apiurl, node.Path, id)
+        .subscribe((result: IBrowserFileResponse) => {
+          this.selectedNode.Files = result.Files;
+          this.uploadedFileMoved(id);
+        });
     }
   }
 
@@ -294,6 +387,13 @@ export abstract class NgFileBrowserCommon implements OnInit {
    * @param folder Ordern für welchen ein Delete Confirm eingefordert werden soll.
    */
   public abstract confirmDeleteNode(folder: IBrowserNode): Observable<boolean>;
+
+  /**
+   * Abstrakte Methode die Aufgerufen wird, wenn das Hochgeladene File aus dem Temp Folder in die
+   * Struktur verschoben wurde.
+   * @param uploadid ID des Uploads
+   */
+  public abstract uploadedFileMoved(uploadid: string): void;
 
   /**
    * Methode welche den Pfad für einen Node erzeugt
@@ -335,5 +435,29 @@ export abstract class NgFileBrowserCommon implements OnInit {
     });
 
     node.ChildNodes.forEach((itm) => this.clearNewChildNodes(itm));
+  }
+
+  private findParentNode(
+    node: IBrowserNode,
+    nodeToFind: IBrowserNode
+  ): IBrowserNode {
+    if (node.ChildNodes.indexOf(nodeToFind) >= 0) {
+      return node;
+    }
+
+    for (const child of node.ChildNodes) {
+      const result = this.findParentNode(child, nodeToFind);
+      if (result !== null) {
+        return result;
+      }
+    }
+
+    return null;
+  }
+
+  private setPathToAllNodes() {
+    this.rootNode.ChildNodes.forEach((itm) => {
+      this.fillPath(itm, '');
+    });
   }
 }

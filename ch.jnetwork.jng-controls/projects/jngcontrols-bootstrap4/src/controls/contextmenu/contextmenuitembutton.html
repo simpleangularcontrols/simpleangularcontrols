@@ -1,6 +1,7 @@
 <button
+  type="button"
   class="dropdown-item"
-  (click)="callaction()"
+  (click)="callaction($event)"
   [class.disabled]="isdisabled"
   [attr.disabled]="isdisabled ? 'disabled' : null"
 >

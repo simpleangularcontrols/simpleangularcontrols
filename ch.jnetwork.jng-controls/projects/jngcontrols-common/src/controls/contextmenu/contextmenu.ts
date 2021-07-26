@@ -87,6 +87,7 @@ export class NgContextmenuCommon implements OnDestroy {
       this._anchor || this._anchorTemplate;
 
     if (
+      this._menu &&
       !this._menu.nativeElement.contains(targetElement) &&
       !anchor.nativeElement.contains(targetElement)
     ) {
@@ -171,7 +172,7 @@ export class NgContextmenuCommon implements OnDestroy {
     const anchor: NgContextmenuAnchorCommon =
       this._anchor || this._anchorTemplate;
 
-    if (anchor) {
+    if (anchor && this._menu) {
       positionElements(
         anchor.nativeElement,
         this.bodyContainer || this._menu.nativeElement,

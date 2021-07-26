@@ -17,6 +17,7 @@
       (dragover)="onDragOver($event)"
       (dragleave)="onDragLeave($event)"
       [class.active]="active"
+      [style.min-height]="uploadheight"
       [class.validation-error]="invalid && (dirty || touched)"
     >
       <div

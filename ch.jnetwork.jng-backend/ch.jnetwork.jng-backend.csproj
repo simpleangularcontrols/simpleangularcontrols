@@ -500,16 +500,31 @@
     <Compile Include="AdminLte.Master.designer.cs">
       <DependentUpon>AdminLte.Master</DependentUpon>
     </Compile>
-    <Compile Include="Api\Model\BrowserFile.cs" />
-    <Compile Include="Api\Model\BrowserNode.cs" />
-    <Compile Include="Api\Model\BrowserNodeRequest.cs" />
+    <Compile Include="Api\Model\Browser\BrowserFile.cs" />
+    <Compile Include="Api\Model\Browser\BrowserFileDeleteRequest.cs" />
+    <Compile Include="Api\Model\Browser\BrowserFileRenameRequest.cs" />
+    <Compile Include="Api\Model\Browser\BrowserFileSaveRequest.cs" />
+    <Compile Include="Api\Model\Browser\BrowserFilesResponse.cs" />
+    <Compile Include="Api\Model\Browser\BrowserNode.cs" />
+    <Compile Include="Api\Model\Browser\BrowserNodeDeleteRequest.cs" />
+    <Compile Include="Api\Model\Browser\BrowserNodeNewRequest.cs" />
+    <Compile Include="Api\Model\Browser\BrowserNodeRenameRequest.cs" />
+    <Compile Include="Api\Model\Browser\BrowserNodeRequest.cs" />
+    <Compile Include="Api\Model\Browser\BrowserNodeResponse.cs" />
+    <Compile Include="Api\Model\Browser\BrowserUploadRegisterRequest.cs" />
+    <Compile Include="Api\Model\Browser\BrowserUploadStateResponse.cs" />
+    <Compile Include="Api\Model\Browser\IBrowserFileSaveRequest.cs" />
+    <Compile Include="Api\Model\Browser\IBrowserFilesResponse.cs" />
+    <Compile Include="Api\Model\Browser\IBrowserNodeResponse.cs" />
+    <Compile Include="Api\Model\Browser\IBrowserUploadRegisterRequest.cs" />
+    <Compile Include="Api\Model\Browser\IBrowserUploadStateResponse.cs" />
     <Compile Include="Api\Model\GridItemDto.cs" />
     <Compile Include="Api\Model\GridRequest.cs" />
     <Compile Include="Api\Model\GridResultDto.cs" />
-    <Compile Include="Api\Model\IBrowserFile.cs" />
-    <Compile Include="Api\Model\IBrowserNode.cs" />
-    <Compile Include="Api\Model\IBrowserNodeRequest.cs" />
-    <Compile Include="Api\Model\IBrowserUploadComplete.cs" />
+    <Compile Include="Api\Model\Browser\IBrowserFile.cs" />
+    <Compile Include="Api\Model\Browser\IBrowserNode.cs" />
+    <Compile Include="Api\Model\Browser\IBrowserNodeRequest.cs" />
+    <Compile Include="Api\Model\Browser\IBrowserUploadComplete.cs" />
     <Compile Include="Api\Model\UploadFileDto.cs" />
     <Compile Include="Api\Model\UploadRegistration.cs" />
     <Compile Include="Api\Services\BrowserController.cs" />
@@ -569,6 +584,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="icons\svg\" />
     <Folder Include="Layout\cssextensions\" />
+    <Folder Include="upload\browser\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

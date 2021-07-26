@@ -37,6 +37,7 @@
               [ngModel]="node.Name"
               [ngModelOptions]="{updateOn: 'blur'}"
               (ngModelChange)="renameNode(node, $event)"
+              (keydown.enter)="$event.target.blur();false;"
               (blur)="renameNode(node, null)"
               (click)="$event.stopPropagation()"
             />
@@ -44,6 +45,7 @@
         </ng-container>
         <div class="ml-auto">
           <a
+            *ngIf="node.Path !== '/'"
             class="btn btn-sm btn-link text-secondary"
             (click)="editNode(node);$event.stopPropagation();"
           >
@@ -57,10 +59,18 @@
               (onclick)="newNode(node)"
             ></ngContextmenuButton>
             <ngContextmenuButton
+              *ngIf="node.Path !== '/'"
               text="Löschen"
               iconstyle="fas"
               icon="fa-trash"
               (onclick)="deleteNode(node)"
+            ></ngContextmenuButton>
+            <ngContextmenuSplitter></ngContextmenuSplitter>
+            <ngContextmenuButton
+              text="Aktualisieren"
+              iconstyle="fas"
+              icon="fa-sync-alt"
+              (onclick)="refreshNode(node)"
             ></ngContextmenuButton>
           </ngContextmenu>
         </div>
@@ -77,6 +87,17 @@
   </div>
   <div class="col-12 col-md-8">
     <ng-container *ngIf="selectedNode && selectedNode.Files">
+      <div ngForm>
+        <ngDropzoneMultiple
+          [disablelabel]="true"
+          [endpoint]="apiurl + '/uploadregister'"
+          name="upload"
+          uploadheight="5rem"
+          [ngModel]="uploads"
+          (ngModelChange)="uploadComplete(selectedNode,$event)"
+          >Drop files here</ngDropzoneMultiple
+        >
+      </div>
       <div class="table-responsive">
         <table class="table table-striped table-hover align-middle">
           <thead>
@@ -101,13 +122,14 @@
                     {{ item.Filename }}
                   </ng-container>
                   <ng-container *ngIf="item.IsEditMode">
-                    <div ngForm>
+                    <div>
                       <input
                         name="editFolder"
                         class="form-control form-control-sm"
                         [ngModel]="item.Filename"
                         [ngModelOptions]="{updateOn: 'blur'}"
                         (ngModelChange)="renameFile(item, $event)"
+                        (keydown.enter)="$event.target.blur();false"
                         (blur)="renameFile(item, null)"
                         (click)="$event.stopPropagation();"
                       />

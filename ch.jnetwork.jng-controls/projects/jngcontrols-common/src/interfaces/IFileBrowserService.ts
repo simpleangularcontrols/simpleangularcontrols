@@ -1,7 +1,6 @@
 import { Observable } from 'rxjs';
-import { IBrowserFileResponse } from '../controls/browser/models/browserfileresponse';
-import { IBrowserNodeResponse } from '../controls/browser/models/browsernoderesponse';
-import { IBrowserNode } from '../public_api';
+import { IBrowserFileResponse } from '../components/browser/models/browserfileresponse';
+import { IBrowserNodeResponse } from '../components/browser/models/browsernoderesponse';
 
 export interface IFileBrowserService {
   GetFiles(apiurl: string, path: string): Observable<IBrowserFileResponse>;

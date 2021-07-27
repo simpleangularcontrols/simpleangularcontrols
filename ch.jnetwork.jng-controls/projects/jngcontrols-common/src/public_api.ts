@@ -91,9 +91,9 @@ export * from './controls/contextmenu/contextmenuanchor';
 export * from './controls/contextmenu/contextmenucontainer';
 
 // File Browser
-export { NgFileBrowserCommon } from './controls/browser/browser';
-export { IBrowserFile } from './controls/browser/models/browserfile';
-export { IBrowserNode } from './controls/browser/models/browsernode';
+export { NgFileBrowserCommon } from './components/browser/browser';
+export { IBrowserFile } from './components/browser/models/browserfile';
+export { IBrowserNode } from './components/browser/models/browsernode';
 
 // Services
 export * from './interfaces/ilanguageresource';

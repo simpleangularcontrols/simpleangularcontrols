@@ -5,9 +5,9 @@ import {
   IBrowserNode,
   NgFileBrowserCommon,
 } from '@jnetwork/jngcontrols-common';
-import { NgDropzoneMultipleComponent } from '../upload/dropzonemultiple';
+import { NgDropzoneMultipleComponent } from '../../controls/upload/dropzonemultiple';
 import { Observable } from 'rxjs';
-import { ServiceConfirm } from '../confirm/confirm.service';
+import { ServiceConfirm } from '../../controls/confirm/confirm.service';
 
 @Component({
   selector: 'ng-filebrowser,ngFileBrowser',

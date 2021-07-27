@@ -2,10 +2,10 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { JNetworkBootstrap4ConfirmModule } from '../confirm/confirm.module';
-import { JNetworkBootstrap4ContextmenuModule } from '../contextmenu/contextmenu.module';
-import { JNetworkBootstrap4FormModule } from '../form/form.module';
-import { JNetworkBootstrap4UploadModule } from '../upload/upload.module';
+import { JNetworkBootstrap4ConfirmModule } from '../../controls/confirm/confirm.module';
+import { JNetworkBootstrap4ContextmenuModule } from '../../controls/contextmenu/contextmenu.module';
+import { JNetworkBootstrap4FormModule } from '../../controls/form/form.module';
+import { JNetworkBootstrap4UploadModule } from '../../controls/upload/upload.module';
 import { NgBrowserComponent } from './browser';
 
 @NgModule({

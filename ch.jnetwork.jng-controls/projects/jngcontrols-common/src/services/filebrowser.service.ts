@@ -1,17 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IBrowserFile } from '../controls/browser/models/browserfile';
-import { BrowserFileDeleteRequest } from '../controls/browser/models/browserfiledeleterequest';
-import { BrowserFileRenameRequest } from '../controls/browser/models/browserfilerenamerequest';
-import { IBrowserFileResponse } from '../controls/browser/models/browserfileresponse';
-import { BrowserFileSaveRequest } from '../controls/browser/models/browserfilesaverequest';
-import { IBrowserNode } from '../controls/browser/models/browsernode';
-import { BrowserNodeDeleteRequest } from '../controls/browser/models/browsernodedeleterequest';
-import { BrowserNodeNewRequest } from '../controls/browser/models/browsernodenewrequest';
-import { BrowserNodeRenameRequest } from '../controls/browser/models/browsernoderenamerequest';
-import { BrowserNodeRequest } from '../controls/browser/models/browsernoderequest';
-import { IBrowserNodeResponse } from '../controls/browser/models/browsernoderesponse';
+import { BrowserFileDeleteRequest } from '../components/browser/models/browserfiledeleterequest';
+import { BrowserFileRenameRequest } from '../components/browser/models/browserfilerenamerequest';
+import { IBrowserFileResponse } from '../components/browser/models/browserfileresponse';
+import { BrowserFileSaveRequest } from '../components/browser/models/browserfilesaverequest';
+import { BrowserNodeDeleteRequest } from '../components/browser/models/browsernodedeleterequest';
+import { BrowserNodeNewRequest } from '../components/browser/models/browsernodenewrequest';
+import { BrowserNodeRenameRequest } from '../components/browser/models/browsernoderenamerequest';
+import { BrowserNodeRequest } from '../components/browser/models/browsernoderequest';
+import { IBrowserNodeResponse } from '../components/browser/models/browsernoderesponse';
 import { IFileBrowserService } from '../interfaces/IFileBrowserService';
 
 /**

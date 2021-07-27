@@ -32,6 +32,24 @@ export class NgContextmenuCommon implements OnDestroy {
   private bodyContainer: HTMLElement | null = null;
 
   /**
+   * Button für Open/Close Event
+   */
+  @ViewChild(NgContextmenuAnchorCommon, { static: false })
+  private _anchor: NgContextmenuAnchorCommon;
+
+  /**
+   * Button für Open/Close Event aus Template
+   */
+  @ContentChild(NgContextmenuAnchorCommon, { static: false })
+  private _anchorTemplate: NgContextmenuAnchorCommon;
+
+  /**
+   * Container Element für Dropdown
+   */
+  @ViewChild(NgContextMenuContrainerCommon, { static: false })
+  private _menu: NgContextMenuContrainerCommon;
+
+  /**
    * Definiert ob das Dropdown offen ist.
    */
   @Input()
@@ -94,24 +112,6 @@ export class NgContextmenuCommon implements OnDestroy {
       this.close();
     }
   }
-
-  /**
-   * Button für Open/Close Event
-   */
-  @ViewChild(NgContextmenuAnchorCommon, { static: false })
-  private _anchor: NgContextmenuAnchorCommon;
-
-  /**
-   * Button für Open/Close Event aus Template
-   */
-  @ContentChild(NgContextmenuAnchorCommon, { static: false })
-  private _anchorTemplate: NgContextmenuAnchorCommon;
-
-  /**
-   * Container Element für Dropdown
-   */
-  @ViewChild(NgContextMenuContrainerCommon, { static: false })
-  private _menu: NgContextMenuContrainerCommon;
 
   /**
    * Konstruktor

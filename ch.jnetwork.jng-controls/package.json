@@ -16,6 +16,8 @@
     "run-common": "ng build --project jngcontrols-common --watch",
     "run-bs3": "ng build --project jngcontrols-bootstrap3 --watch",
     "run-bs4": "ng build --project jngcontrols-bootstrap4 --watch",
+    "lint-common": "ng lint jngcontrols-common",
+    "lint-bs4": "ng lint jngcontrols-bootstrap4",
     "compodoc-bs3": "npx compodoc -c bootstrap3.compodocrc.json",
     "compodoc-bs4": "npx compodoc -c bootstrap4.compodocrc.json"
   },

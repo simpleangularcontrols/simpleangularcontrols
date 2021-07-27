@@ -122,4 +122,4 @@ export * from './utilities/Convertion';
 export * from './utilities/enums';
 export * from './utilities/datatypes';
 export * from './utilities/interpolation';
-export * from './utilities/positioning'
+export * from './utilities/positioning';

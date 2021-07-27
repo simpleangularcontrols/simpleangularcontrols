@@ -151,7 +151,7 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
 
     this.uploadService.connect(this.options);
   }
-  
+
   /**
    * Destroy des Controls
    */

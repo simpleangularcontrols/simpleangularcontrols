@@ -303,8 +303,8 @@ export abstract class NgFileBrowserCommon implements OnInit {
    * @param node Node welcher gelöscht werden soll
    */
   public deleteNode(node: IBrowserNode): void {
-    this.confirmDeleteNode(node).subscribe((result) => {
-      if (result) {
+    this.confirmDeleteNode(node).subscribe((confirm) => {
+      if (confirm) {
         this.browserService
           .DeleteNode(this.apiurl, node.Path)
           .subscribe((result: IBrowserNodeResponse) => {
@@ -345,8 +345,8 @@ export abstract class NgFileBrowserCommon implements OnInit {
    * @param file File welches gelöscht werden soll
    */
   public deleteFile(file: IBrowserFile): void {
-    this.confirmDeleteFile(file).subscribe((result) => {
-      if (result) {
+    this.confirmDeleteFile(file).subscribe((confirm) => {
+      if (confirm) {
         this.browserService
           .DeleteFile(this.apiurl, this.selectedNode.Path + '/' + file.Filename)
           .subscribe((result: IBrowserFileResponse) => {

@@ -42,7 +42,7 @@ export class NgDropzoneSingleCommon
       event.preventDefault();
       this.active = false;
 
-      if (event.dataTransfer.files.length == 1) {
+      if (event.dataTransfer.files.length === 1) {
         this.uploadService.handleFileList(event.dataTransfer.files);
       } else {
         this.onfileerror.emit('INVALID_DRAGDROP_MAXFILES');

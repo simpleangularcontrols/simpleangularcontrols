@@ -1,25 +1,25 @@
 import { NgModule } from '@angular/core';
 import { NgContextmenuComponent } from './contextmenu';
 import { CommonModule } from '@angular/common';
-import { NgContextmenuItemButton } from './contextmenuitembutton';
-import { NgContextmenuItemSplitter } from './contextmenuitemsplitter';
-import { NgContextmenuAnchor } from './contextmenuanchor';
-import { NgContextmenuContainer } from './contextmenucontainer';
+import { NgContextmenuItemButtonComponent } from './contextmenuitembutton';
+import { NgContextmenuItemSplitterComponent } from './contextmenuitemsplitter';
+import { NgContextmenuAnchorDirective } from './contextmenuanchor';
+import { NgContextmenuContainerDirective } from './contextmenucontainer';
 
 @NgModule({
   declarations: [
     NgContextmenuComponent,
-    NgContextmenuItemButton,
-    NgContextmenuItemSplitter,
-    NgContextmenuAnchor,
-    NgContextmenuContainer,
+    NgContextmenuItemButtonComponent,
+    NgContextmenuItemSplitterComponent,
+    NgContextmenuAnchorDirective,
+    NgContextmenuContainerDirective,
   ],
   imports: [CommonModule],
   exports: [
     NgContextmenuComponent,
-    NgContextmenuItemButton,
-    NgContextmenuItemSplitter,
-    NgContextmenuAnchor,
+    NgContextmenuItemButtonComponent,
+    NgContextmenuItemSplitterComponent,
+    NgContextmenuAnchorDirective,
   ],
 })
 export class JNetworkBootstrap4ContextmenuModule {}

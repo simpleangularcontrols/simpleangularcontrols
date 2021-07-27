@@ -1,9 +1,5 @@
-<div>File Browser</div>
-
-<div>Selected Path: {{ selectedNode ? selectedNode.Path : ''}}</div>
-<div>Selected File: {{ selectedFile}}</div>
 <div class="row">
-  <div class="col-12 col-md-4">
+  <div class="col-12 col-md-5 col-lg-4">
     <ul class="list-group list-group-flush">
       <ng-template
         [ngTemplateOutlet]="treeItem"
@@ -27,10 +23,10 @@
           [class.fa-folder-open]="node.IsExpanded && node.ChildNodes.length > 0"
         ></div>
         <ng-container *ngIf="!node.IsEditMode">
-          <div>{{ node.Name }}</div>
+          <div class="flex-grow-1">{{ node.Name }}</div>
         </ng-container>
         <ng-container *ngIf="node.IsEditMode">
-          <div ngForm>
+          <div class="flex-grow-1" ngForm>
             <input
               name="editFolder"
               class="form-control form-control-sm"
@@ -43,7 +39,7 @@
             />
           </div>
         </ng-container>
-        <div class="ml-auto">
+        <div class="flex-shrink-0">
           <a
             *ngIf="node.Path !== '/'"
             class="btn btn-sm btn-link text-secondary"
@@ -85,7 +81,7 @@
       </ng-container>
     </ng-template>
   </div>
-  <div class="col-12 col-md-8">
+  <div class="col-12 col-md-7 col-lg-8">
     <ng-container *ngIf="selectedNode && selectedNode.Files">
       <div ngForm>
         <ngDropzoneMultiple

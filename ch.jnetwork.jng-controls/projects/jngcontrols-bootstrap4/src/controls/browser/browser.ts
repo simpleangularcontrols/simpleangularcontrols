@@ -64,7 +64,7 @@ export class NgBrowserComponent extends NgFileBrowserCommon {
     const item = this.uploadComponent.uploads.find(
       (itm) => itm.documentid === uploadid
     );
-    
+
     if (item) {
       this.uploadComponent.cancel(item.uploadId);
     }

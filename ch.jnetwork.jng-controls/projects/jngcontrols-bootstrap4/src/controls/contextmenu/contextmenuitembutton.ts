@@ -11,7 +11,7 @@ import {
   selector: 'ng-contextmenubutton,ngContextmenuButton',
   templateUrl: './contextmenuitembutton.html',
 })
-export class NgContextmenuItemButton extends NgContextmenuItemButtonCommon {
+export class NgContextmenuItemButtonComponent extends NgContextmenuItemButtonCommon {
   /**
    * Constructor
    * @param contextmenu Instance von Context Menü

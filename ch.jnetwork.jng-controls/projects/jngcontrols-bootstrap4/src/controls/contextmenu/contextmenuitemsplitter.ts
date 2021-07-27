@@ -8,4 +8,4 @@ import { NgContextmenuItemCommon } from '@jnetwork/jngcontrols-common';
   selector: 'ng-contextmenusplitter,ngContextmenuSplitter',
   templateUrl: './contextmenuitemsplitter.html',
 })
-export class NgContextmenuItemSplitter extends NgContextmenuItemCommon {}
+export class NgContextmenuItemSplitterComponent extends NgContextmenuItemCommon {}

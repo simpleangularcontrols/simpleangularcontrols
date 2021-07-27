@@ -9,11 +9,11 @@ import { NgContextMenuContrainerCommon } from '@jnetwork/jngcontrols-common';
   providers: [
     {
       provide: NgContextMenuContrainerCommon,
-      useExisting: forwardRef(() => NgContextmenuContainer),
+      useExisting: forwardRef(() => NgContextmenuContainerDirective),
     },
   ],
 })
-export class NgContextmenuContainer extends NgContextMenuContrainerCommon {
+export class NgContextmenuContainerDirective extends NgContextMenuContrainerCommon {
   constructor(_elementRef: ElementRef<HTMLElement>) {
     super(_elementRef);
   }

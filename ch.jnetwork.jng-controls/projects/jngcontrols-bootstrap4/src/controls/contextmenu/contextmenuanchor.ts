@@ -12,11 +12,11 @@ import {
   providers: [
     {
       provide: NgContextmenuAnchorCommon,
-      useExisting: forwardRef(() => NgContextmenuAnchor),
+      useExisting: forwardRef(() => NgContextmenuAnchorDirective),
     },
   ],
 })
-export class NgContextmenuAnchor extends NgContextmenuAnchorCommon {
+export class NgContextmenuAnchorDirective extends NgContextmenuAnchorCommon {
   constructor(_elementRef: ElementRef<HTMLElement>) {
     super(_elementRef);
   }

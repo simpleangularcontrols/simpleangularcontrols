@@ -1,11 +1,19 @@
-import { ChangeDetectorRef, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild, Directive } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Input,
+  Output,
+  ViewChild,
+  Directive,
+} from '@angular/core';
 
 /**
  * Base Komponente für Dialog
  */
 @Directive()
 export class NgDialogCommon {
-
   /**
    * Name des Containers für den Dialog
    */
@@ -41,8 +49,7 @@ export class NgDialogCommon {
    * Konstruktor
    * Inject des Formulars
    */
-  constructor(private cdRef: ChangeDetectorRef) {
-  }
+  constructor(private cdRef: ChangeDetectorRef) {}
 
   // #endregion
 
@@ -85,6 +92,12 @@ export class NgDialogCommon {
   public width: string = null;
 
   /**
+   * Definiert eine feste Höhe beim Dialog.
+   */
+  @Input()
+  public height: string = null;
+
+  /**
    * Das Input akzeptiert sowohl default size-css-Klassen als auch custom Klassen.
    * case insensitive.
    * Die akzeptabel default-size-Klassen sind: 'small', 'large', 'extralarge', 'medium', ''.
@@ -103,17 +116,19 @@ export class NgDialogCommon {
   isVisibleEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   /**
-  * Setter. Erhält das boolen Wert des _show property
-  */
+   * Setter. Erhält das boolen Wert des _show property
+   */
   @Input('isvisible')
   set visible(v: boolean) {
     this._show = v;
 
-
     if (this._show && !document.body.classList.contains('modal-open')) {
       document.body.classList.add('modal-open');
     }
-    if (this._show === false && document.body.classList.contains('modal-open')) {
+    if (
+      this._show === false &&
+      document.body.classList.contains('modal-open')
+    ) {
       document.body.classList.remove('modal-open');
     }
   }
@@ -132,11 +147,21 @@ export class NgDialogCommon {
     let result: boolean = false;
 
     switch (this._size) {
-      case 'small': result = true; break;
-      case 'medium': result = true; break;
-      case 'large': result = true; break;
-      case 'extralarge': result = true; break;
-      case '': result = true; break;
+      case 'small':
+        result = true;
+        break;
+      case 'medium':
+        result = true;
+        break;
+      case 'large':
+        result = true;
+        break;
+      case 'extralarge':
+        result = true;
+        break;
+      case '':
+        result = true;
+        break;
     }
 
     return result;
@@ -162,7 +187,10 @@ export class NgDialogCommon {
    */
   public hide(): void {
     this._show = false;
-    if (this._show === false && document.body.classList.contains('modal-open')) {
+    if (
+      this._show === false &&
+      document.body.classList.contains('modal-open')
+    ) {
       document.body.classList.remove('modal-open');
     }
     this.isVisibleEmitter.emit(this._show);
@@ -184,7 +212,12 @@ export class NgDialogCommon {
    */
   @HostListener('click', ['$event'])
   onClick(event: any): void {
-    if (this._allowesc === false || (this.dialogElement !== null && this.dialogElement !== undefined && event.target !== this.dialogElement.nativeElement)) {
+    if (
+      this._allowesc === false ||
+      (this.dialogElement !== null &&
+        this.dialogElement !== undefined &&
+        event.target !== this.dialogElement.nativeElement)
+    ) {
       return;
     }
     this.hide();
@@ -204,4 +237,3 @@ export class NgDialogCommon {
 
   // #endregion
 }
-

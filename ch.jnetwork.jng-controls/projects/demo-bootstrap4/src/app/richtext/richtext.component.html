@@ -14,12 +14,19 @@
     [(isvisible)]="showdialog"
     title="Leerer Dialog"
     size="large"
+    height="500px"
   >
     <div dialogbody>
       <ngFileBrowser
         *ngIf="showdialog"
         apiurl="api/browser"
         (file)="setSelectedFile($event)"
+        [allowfoldercreate]="false"
+        [allowfolderrename]="false"
+        [allowfolderdelete]="false"
+        [allowfileupload]="false"
+        [allowfilerename]="true"
+        [allowfiledelete]="false"
         [selectedfile]="selectedfile"
       ></ngFileBrowser>
     </div>

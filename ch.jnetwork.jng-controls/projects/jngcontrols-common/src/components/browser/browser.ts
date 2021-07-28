@@ -89,6 +89,42 @@ export abstract class NgFileBrowserCommon implements OnInit {
   public apiurl: string;
 
   /**
+   * Erlaubt das Umbenennen eines Ordners
+   */
+  @Input()
+  public allowfolderrename: boolean = true;
+
+  /**
+   * Erlaubt das löschen eines Ordners
+   */
+  @Input()
+  public allowfolderdelete: boolean = true;
+
+  /**
+   * Erlaubt das erstellen eines neuen Ordners
+   */
+  @Input()
+  public allowfoldercreate: boolean = true;
+  
+  /**
+   * Erlaubt den Upload von Dateien
+   */
+  @Input()
+  public allowfileupload: boolean = true;
+  
+  /**
+   * Erlaubt das umbenennen einer Datei
+   */
+  @Input()
+  public allowfilerename: boolean = true;
+
+  /**
+   * Erlaubt das löschen einer Datei
+   */
+  @Input()
+  public allowfiledelete: boolean = true;
+
+  /**
    * Output Emitter wenn File selektiert wird.
    */
   @Output()

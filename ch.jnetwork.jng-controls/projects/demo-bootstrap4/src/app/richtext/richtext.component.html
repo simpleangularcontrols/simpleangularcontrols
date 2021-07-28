@@ -25,13 +25,14 @@
         [allowfilerename]="true"
         [allowfiledelete]="false"
         [selectedfile]="selectedfile"
+        [allowedtypes]="allowedtypes"
       ></ngFileBrowser>
     </div>
     <div dialogfooter>
       <ngButton
         name="modalClose1"
         text="Schliessen"
-        (onclick)="setImage()"
+        (onclick)="setResult()"
       ></ngButton>
     </div>
   </ngDialog>

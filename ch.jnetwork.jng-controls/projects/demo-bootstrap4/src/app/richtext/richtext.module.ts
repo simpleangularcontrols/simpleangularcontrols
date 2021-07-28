@@ -8,7 +8,6 @@ import {
   JNetworkBootstrap4ValidationSummaryModule
 } from '@jnetwork/jngcontrols-bootstrap4';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
-import { QuillModule } from 'ngx-quill';
 import { RichtextRoutingModule } from './richtext-routing.module';
 import { DemoRichtextComponent } from './richtext.component';
 @NgModule({
@@ -22,7 +21,6 @@ import { DemoRichtextComponent } from './richtext.component';
     JNetworkBootstrap4DialogModule,
     JNetworkBootstrap4ButtonModule,
     JNetworkBootstrap4BrowserModule,
-    QuillModule,
     EditorModule,
   ],
   providers: [

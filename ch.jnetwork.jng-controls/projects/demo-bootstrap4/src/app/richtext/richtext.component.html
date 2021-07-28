@@ -1,8 +1,5 @@
 <h2>RichText Editor</h2>
 <form #myForm="NgFormular" labelsize="3">
-  <div class="mb-4">
-    <quill-editor (onEditorCreated)="onStartet($event)"></quill-editor>
-  </div>
   <div>
     <editor [init]="config"></editor>
   </div>

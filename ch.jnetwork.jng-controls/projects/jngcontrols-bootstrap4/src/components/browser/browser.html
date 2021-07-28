@@ -94,6 +94,7 @@
           uploadheight="5rem"
           [ngModel]="uploads"
           (ngModelChange)="uploadComplete(selectedNode,$event)"
+          [allowedtypes]="allowedtypes"
           >Drop files here</ngDropzoneMultiple
         >
       </div>

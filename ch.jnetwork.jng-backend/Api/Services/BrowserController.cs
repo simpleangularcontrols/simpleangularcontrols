@@ -1,6 +1,7 @@
 ﻿using AngularPrototype.Api.Model.Browser;
 using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -47,10 +48,11 @@ namespace AngularPrototype.Api.Services
             string path = Path.Combine(basePath, request.Path);
 
             DirectoryInfo directory = new DirectoryInfo(path);
+            Func<FileInfo, bool> filter = this.GetExtensionFilter(this.CreateExtensionList(request.AllowedTypes));
 
             return new BrowserFilesResponse()
             {
-                Files = directory.GetFiles().Select(x => new BrowserFile()
+                Files = directory.GetFiles().Where(filter).Select(x => new BrowserFile()
                 {
                     Filename = x.Name,
                     Size = x.Length
@@ -79,7 +81,8 @@ namespace AngularPrototype.Api.Services
 
             return GetFiles(new BrowserNodeRequest()
             {
-                Path = Path.GetDirectoryName(request.Path)
+                Path = Path.GetDirectoryName(request.Path),
+                AllowedTypes = request.AllowedTypes
             });
         }
 
@@ -106,7 +109,8 @@ namespace AngularPrototype.Api.Services
 
             return GetFiles(new BrowserNodeRequest()
             {
-                Path = Path.GetDirectoryName(request.Path)
+                Path = Path.GetDirectoryName(request.Path),
+                AllowedTypes = request.AllowedTypes
             });
         }
 
@@ -134,8 +138,9 @@ namespace AngularPrototype.Api.Services
 
             browserNode.Name = directory.Name;
             this.FillChilds(directory, browserNode);
+            Func<FileInfo, bool> filter = this.GetExtensionFilter(this.CreateExtensionList(request.AllowedTypes));
 
-            browserNode.Files = directory.GetFiles().Select(x => new BrowserFile()
+            browserNode.Files = directory.GetFiles().Where(filter).Select(x => new BrowserFile()
             {
                 Filename = x.Name,
                 Size = x.Length
@@ -427,7 +432,8 @@ namespace AngularPrototype.Api.Services
 
             return GetFiles(new BrowserNodeRequest()
             {
-                Path = request.Path
+                Path = request.Path,
+                AllowedTypes = request.AllowedTypes
             });
         }
 
@@ -541,6 +547,24 @@ namespace AngularPrototype.Api.Services
             }
 
             return newFolder;
+        }
+
+        private string[] CreateExtensionList(string allowedExtensions)
+        {
+            if (string.IsNullOrWhiteSpace(allowedExtensions))
+                return new string[0];
+            else
+            {
+                return allowedExtensions.Split(new char[] { ',', '|' });
+            }
+        }
+
+        private Func<FileInfo, bool> GetExtensionFilter(string[] allowedExtensions)
+        {
+            if (allowedExtensions.Length == 0)
+                return x => true;
+            else
+                return x => allowedExtensions.Select(filter => filter.ToLower()).Contains(x.Extension.ToLower());
         }
     }
 }

@@ -3,20 +3,34 @@ import { IBrowserFileResponse } from '../components/browser/models/browserfilere
 import { IBrowserNodeResponse } from '../components/browser/models/browsernoderesponse';
 
 export interface IFileBrowserService {
-  GetFiles(apiurl: string, path: string): Observable<IBrowserFileResponse>;
+  GetFiles(
+    apiurl: string,
+    path: string,
+    allowedextensions: string
+  ): Observable<IBrowserFileResponse>;
   SaveFile(
     apiurl: string,
     path: string,
-    uploadid: string
+    uploadid: string,
+    allowedextensions: string
   ): Observable<IBrowserFileResponse>;
   RenameFile(
     apiurl: string,
     path: string,
-    newFilename: string
+    newFilename: string,
+    allowedextensions: string
   ): Observable<IBrowserFileResponse>;
-  DeleteFile(apiurl: string, path: string): Observable<IBrowserFileResponse>;
+  DeleteFile(
+    apiurl: string,
+    path: string,
+    allowedextensions: string
+  ): Observable<IBrowserFileResponse>;
 
-  GetNode(apiurl: string, path: string): Observable<IBrowserNodeResponse>;
+  GetNode(
+    apiurl: string,
+    path: string,
+    allowedextensions: string
+  ): Observable<IBrowserNodeResponse>;
   SaveNode(
     apiurl: string,
     path: string,

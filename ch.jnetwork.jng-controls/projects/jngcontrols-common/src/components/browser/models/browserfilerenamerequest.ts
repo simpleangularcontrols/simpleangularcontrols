@@ -5,4 +5,5 @@ export class BrowserFileRenameRequest {
 
   Path: string;
   NewFilename: string;
+  AllowedTypes: string;
 }

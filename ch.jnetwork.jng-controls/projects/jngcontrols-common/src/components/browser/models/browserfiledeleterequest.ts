@@ -4,4 +4,5 @@ export class BrowserFileDeleteRequest {
   }
 
   Path: string;
+  AllowedTypes: string;
 }

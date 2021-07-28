@@ -4,4 +4,5 @@ export class BrowserNodeRequest {
   }
 
   public Path: string;
+  public AllowedTypes: string;
 }

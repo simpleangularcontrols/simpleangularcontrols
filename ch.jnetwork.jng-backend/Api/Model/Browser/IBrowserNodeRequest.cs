@@ -9,5 +9,9 @@
         /// Pfad welcher geladen werden soll
         /// </summary>
         string Path { get; set; }
+        /// <summary>
+        /// Erlaubte Dateierweiterungen
+        /// </summary>
+        string AllowedTypes { get; set; }
     }
 }

@@ -25,7 +25,8 @@ export const FILEBROWSER_SERVICE = new InjectionToken<IFileBrowserService>(
 export abstract class FileBrowserService implements IFileBrowserService {
   abstract GetNode(
     apiurl: string,
-    path: string
+    path: string,
+    allowedextensions: string
   ): Observable<IBrowserNodeResponse>;
   abstract SaveNode(
     apiurl: string,
@@ -44,21 +45,25 @@ export abstract class FileBrowserService implements IFileBrowserService {
 
   abstract GetFiles(
     apiurl: string,
-    path: string
+    path: string,
+    allowedextensions: string
   ): Observable<IBrowserFileResponse>;
   abstract SaveFile(
     apiurl: string,
     path: string,
-    id: string
+    id: string,
+    allowedextensions: string
   ): Observable<IBrowserFileResponse>;
   abstract RenameFile(
     apiurl: string,
     path: string,
-    newFilename: string
+    newFilename: string,
+    allowedextensions: string
   ): Observable<IBrowserFileResponse>;
   abstract DeleteFile(
     apiurl: string,
-    path: string
+    path: string,
+    allowedextensions: string
   ): Observable<IBrowserFileResponse>;
 }
 
@@ -72,7 +77,8 @@ export class InternalFileBrowserService extends FileBrowserService {
 
   public GetNode(
     apiurl: string,
-    path: string
+    path: string,
+    allowedextensions: string
   ): Observable<IBrowserNodeResponse> {
     const url = `${apiurl}/getnodes`;
 
@@ -82,6 +88,7 @@ export class InternalFileBrowserService extends FileBrowserService {
 
     const request = new BrowserNodeRequest({
       Path: path,
+      AllowedTypes: allowedextensions,
     });
 
     return this.httpclient.post<IBrowserNodeResponse>(url, request, {
@@ -152,7 +159,8 @@ export class InternalFileBrowserService extends FileBrowserService {
 
   public GetFiles(
     apiurl: string,
-    path: string
+    path: string,
+    allowedextensions: string
   ): Observable<IBrowserFileResponse> {
     const url = `${apiurl}/getfiles`;
 
@@ -162,6 +170,7 @@ export class InternalFileBrowserService extends FileBrowserService {
 
     const request = new BrowserNodeRequest({
       Path: path,
+      AllowedTypes: allowedextensions,
     });
 
     return this.httpclient.post<IBrowserFileResponse>(url, request, {
@@ -172,7 +181,8 @@ export class InternalFileBrowserService extends FileBrowserService {
   public SaveFile(
     apiurl: string,
     path: string,
-    id: string
+    id: string,
+    allowedextensions: string
   ): Observable<IBrowserFileResponse> {
     const url = `${apiurl}/uploadfile`;
 
@@ -183,6 +193,7 @@ export class InternalFileBrowserService extends FileBrowserService {
     const request = new BrowserFileSaveRequest({
       Path: path,
       UploadId: id,
+      AllowedTypes: allowedextensions,
     });
 
     return this.httpclient.post<IBrowserFileResponse>(url, request, {
@@ -192,7 +203,8 @@ export class InternalFileBrowserService extends FileBrowserService {
 
   public DeleteFile(
     apiurl: string,
-    path: string
+    path: string,
+    allowedextensions: string
   ): Observable<IBrowserFileResponse> {
     const url = `${apiurl}/deletefile`;
 
@@ -202,6 +214,7 @@ export class InternalFileBrowserService extends FileBrowserService {
 
     const request = new BrowserFileDeleteRequest({
       Path: path,
+      AllowedTypes: allowedextensions,
     });
 
     return this.httpclient.post<IBrowserFileResponse>(url, request, {
@@ -212,7 +225,8 @@ export class InternalFileBrowserService extends FileBrowserService {
   public RenameFile(
     apiurl: string,
     path: string,
-    newFilename: string
+    newFilename: string,
+    allowedextensions: string
   ): Observable<IBrowserFileResponse> {
     const url = `${apiurl}/renamefile`;
 
@@ -223,6 +237,7 @@ export class InternalFileBrowserService extends FileBrowserService {
     const request = new BrowserFileRenameRequest({
       Path: path,
       NewFilename: newFilename,
+      AllowedTypes: allowedextensions,
     });
 
     return this.httpclient.put<IBrowserFileResponse>(url, request, {

@@ -13,5 +13,10 @@
         /// Neuer Dateiname
         /// </summary>
         public string NewFilename { get; set; }
+        /// <summary>
+        /// Filter nach Datei Erweiterung
+        /// </summary>
+        public string AllowedTypes { get; set; }
+
     }
 }

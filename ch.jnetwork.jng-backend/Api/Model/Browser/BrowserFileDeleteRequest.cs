@@ -8,5 +8,10 @@
       /// File welches gelöscht werden soll
       /// </summary>
         public string Path { get; set; }
+        /// <summary>
+        /// Filter nach Datei Erweiterung
+        /// </summary>
+        public string AllowedTypes { get; set; }
+
     }
 }

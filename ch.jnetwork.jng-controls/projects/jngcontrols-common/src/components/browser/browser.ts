@@ -105,13 +105,13 @@ export abstract class NgFileBrowserCommon implements OnInit {
    */
   @Input()
   public allowfoldercreate: boolean = true;
-  
+
   /**
    * Erlaubt den Upload von Dateien
    */
   @Input()
   public allowfileupload: boolean = true;
-  
+
   /**
    * Erlaubt das umbenennen einer Datei
    */
@@ -123,6 +123,13 @@ export abstract class NgFileBrowserCommon implements OnInit {
    */
   @Input()
   public allowfiledelete: boolean = true;
+
+  /**
+   * Erlaubte Dateierweiterungen für Fileauswahl und Upload. Dateierweiterung mit Punkt und
+   * getrennt durch Komma für mehr als eine Erweiterung (Example: ".jpg,.gif")
+   */
+  @Input()
+  public allowedtypes: string = '';
 
   /**
    * Output Emitter wenn File selektiert wird.
@@ -170,7 +177,7 @@ export abstract class NgFileBrowserCommon implements OnInit {
    */
   ngOnInit(): void {
     this.browserService
-      .GetNode(this.apiurl, '')
+      .GetNode(this.apiurl, '', this.allowedtypes)
       .subscribe((result: IBrowserNodeResponse) => {
         this.rootNode = {
           Name: result.Node.Name,
@@ -218,7 +225,7 @@ export abstract class NgFileBrowserCommon implements OnInit {
 
     if (!node.Files) {
       this.browserService
-        .GetFiles(this.apiurl, node.Path)
+        .GetFiles(this.apiurl, node.Path, this.allowedtypes)
         .subscribe((result: IBrowserFileResponse) => {
           node.Files = result.Files;
           this.selectedNode = node;
@@ -247,7 +254,7 @@ export abstract class NgFileBrowserCommon implements OnInit {
     }
 
     this.browserService
-      .GetNode(this.apiurl, node.Path)
+      .GetNode(this.apiurl, node.Path, this.allowedtypes)
       .subscribe((result: IBrowserNodeResponse) => {
         node.ChildNodes = result.Node.ChildNodes;
         node.Files = result.Node.Files;
@@ -384,7 +391,11 @@ export abstract class NgFileBrowserCommon implements OnInit {
     this.confirmDeleteFile(file).subscribe((confirm) => {
       if (confirm) {
         this.browserService
-          .DeleteFile(this.apiurl, this.selectedNode.Path + '/' + file.Filename)
+          .DeleteFile(
+            this.apiurl,
+            this.selectedNode.Path + '/' + file.Filename,
+            this.allowedtypes
+          )
           .subscribe((result: IBrowserFileResponse) => {
             this.selectedNode.Files = result.Files;
           });
@@ -418,7 +429,8 @@ export abstract class NgFileBrowserCommon implements OnInit {
         .RenameFile(
           this.apiurl,
           this.selectedNode.Path + '/' + file.Filename,
-          newFilename
+          newFilename,
+          this.allowedtypes
         )
         .subscribe((result: IBrowserFileResponse) => {
           this.selectedNode.Files = result.Files;
@@ -442,7 +454,7 @@ export abstract class NgFileBrowserCommon implements OnInit {
     const id = this.uploads.pop();
     if (id) {
       this.browserService
-        .SaveFile(this.apiurl, node.Path, id)
+        .SaveFile(this.apiurl, node.Path, id, this.allowedtypes)
         .subscribe((result: IBrowserFileResponse) => {
           this.selectedNode.Files = result.Files;
           this.uploadedFileMoved(id);

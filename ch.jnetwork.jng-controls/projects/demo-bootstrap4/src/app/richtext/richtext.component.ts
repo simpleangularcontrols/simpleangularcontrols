@@ -20,8 +20,6 @@ export class DemoRichtextComponent implements OnInit {
 
   public config = {
     base_url: '/tinymce',
-    skin: 'bootstrap',
-    icons: 'bootstrap',
     branding: false,
     height: '400px',
     suffix: '.min',

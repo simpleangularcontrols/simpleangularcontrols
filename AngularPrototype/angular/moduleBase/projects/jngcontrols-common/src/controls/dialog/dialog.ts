@@ -1,21 +1,28 @@
-import { Input, ElementRef, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
-import { HostListener } from '@angular/core';
-import { ViewChild } from '@angular/core';
+import {
+  Input,
+  ElementRef,
+  Output,
+  EventEmitter,
+  ChangeDetectorRef,
+} from "@angular/core";
+import { HostListener } from "@angular/core";
+import { ViewChild } from "@angular/core";
 
 /**
  * Base Komponente für Dialog
  */
 export class NgDialogCommon {
-
   /**
    * Name des Containers für den Dialog
    */
   dialogElement: ElementRef;
 
+  private hasSetBodyTag = false;
+
   /**
    * Implementation als Setter, da mit ngIf das Element bei Unsichtbarkeit UNDEFINED ist.
    */
-  @ViewChild('dialog')
+  @ViewChild("dialog")
   set dialogElementSetter(content: ElementRef) {
     this.dialogElement = content;
 
@@ -31,10 +38,10 @@ export class NgDialogCommon {
   _show: boolean = false;
 
   /**
-   * Das property enthielt (wenn überhaupt gesetzt) entweder keywords für sizing oder custom css Klassen. 
-   * Die akzeptabel keywordssind: "small", "large", "extralarge", "medium", "". 
+   * Das property enthielt (wenn überhaupt gesetzt) entweder keywords für sizing oder custom css Klassen.
+   * Die akzeptabel keywordssind: "small", "large", "extralarge", "medium", "".
    */
-  _size: string = '';
+  _size: string = "";
 
   // #region Constructor
 
@@ -42,8 +49,7 @@ export class NgDialogCommon {
    * Konstruktor
    * Inject des Formulars
    */
-  constructor(private cdRef: ChangeDetectorRef) {
-  }
+  constructor(private cdRef: ChangeDetectorRef) {}
 
   // #endregion
 
@@ -67,8 +73,6 @@ export class NgDialogCommon {
   @Input("backdrop")
   public _backdrop: boolean = true;
 
-
-
   /**
    * Input Property. Erhält den Namen des Dialog - benutzt für das ID. Default Value: ""
    */
@@ -88,9 +92,9 @@ export class NgDialogCommon {
   public width: string = null;
 
   /**
-   * Das Input akzeptiert sowohl default size-css-Klassen als auch custom Klassen. 
+   * Das Input akzeptiert sowohl default size-css-Klassen als auch custom Klassen.
    * case insensitive.
-   * Die akzeptabel default-size-Klassen sind: "small", "large", "extralarge", "medium", "". 
+   * Die akzeptabel default-size-Klassen sind: "small", "large", "extralarge", "medium", "".
    * Wenn size ist NICHT gesetzt (oder "medium" oder ""), default ist in medium size: max-width 500px.
    */
   @Input("size")
@@ -99,24 +103,31 @@ export class NgDialogCommon {
     this._size = v;
   }
 
-
   /**
    * Die Funktion prüft ob es ein default css classe für Size des Dialog durch den size Input gesetzt wurde.
    */
   issetdefaultsize(): boolean {
-    let result: boolean = false
+    let result: boolean = false;
 
     switch (this._size) {
-      case 'small': result = true; break;
-      case 'medium': result = true; break;
-      case 'large': result = true; break;
-      case 'extralarge': result = true; break;
-      case '': result = true; break;
+      case "small":
+        result = true;
+        break;
+      case "medium":
+        result = true;
+        break;
+      case "large":
+        result = true;
+        break;
+      case "extralarge":
+        result = true;
+        break;
+      case "":
+        result = true;
+        break;
     }
-    return result
+    return result;
   }
-
-
 
   /**
    * Output Emitter. Wird aufgerufen, wenn das Wert des _show property geändert ist - damait das Dialog geöfnet/geschlossen wird.
@@ -125,22 +136,30 @@ export class NgDialogCommon {
   isVisibleEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   /**
-  * Setter. Erhält das boolen Wert des _show property
-  */
+   * Setter. Erhält das boolen Wert des _show property
+   */
   @Input("isvisible")
   set visible(v: boolean) {
-    this._show = v;
-
-
-    if (this._show && !document.body.classList.contains("modal-open")) {
+    if (
+      v &&
+      !this.hasSetBodyTag &&
+      !document.body.classList.contains("modal-open")
+    ) {
       document.body.classList.add("modal-open");
+      this.hasSetBodyTag = true;
     }
-    if (this._show === false && document.body.classList.contains("modal-open")) {
+
+    if (
+      !v &&
+      this.hasSetBodyTag &&
+      document.body.classList.contains("modal-open")
+    ) {
       document.body.classList.remove("modal-open");
+      this.hasSetBodyTag = false;
     }
+
+    this._show = v;
   }
-
-
 
   /**
    * Getter. Ergibt das boolen Wert des _show property
@@ -158,9 +177,15 @@ export class NgDialogCommon {
    */
   public show(): void {
     this._show = true;
-    if (this._show && !document.body.classList.contains("modal-open")) {
+
+    if (
+      !this.hasSetBodyTag &&
+      !document.body.classList.contains("modal-open")
+    ) {
       document.body.classList.add("modal-open");
+      this.hasSetBodyTag = true;
     }
+
     this.isVisibleEmitter.emit(this._show);
   }
 
@@ -168,10 +193,12 @@ export class NgDialogCommon {
    * Die Methode setz den Wert des _show property auf false
    */
   public hide(): void {
-    this._show = false;
-    if (this._show === false && document.body.classList.contains("modal-open")) {
+    if (this.hasSetBodyTag && document.body.classList.contains("modal-open")) {
       document.body.classList.remove("modal-open");
+      this.hasSetBodyTag = false;
     }
+
+    this._show = false;
     this.isVisibleEmitter.emit(this._show);
   }
 
@@ -189,9 +216,14 @@ export class NgDialogCommon {
   /**
    * Allow Close by Click outside Dialog
    */
-  @HostListener('click', ['$event'])
+  @HostListener("click", ["$event"])
   onClick(event: any): void {
-    if (this._allowesc === false || (this.dialogElement !== null && this.dialogElement !== undefined && event.target !== this.dialogElement.nativeElement)) {
+    if (
+      this._allowesc === false ||
+      (this.dialogElement !== null &&
+        this.dialogElement !== undefined &&
+        event.target !== this.dialogElement.nativeElement)
+    ) {
       return;
     }
     this.hide();
@@ -200,7 +232,7 @@ export class NgDialogCommon {
   /**
    * Allow Close by ESC
    */
-  @HostListener('document:keydown', ['$event'])
+  @HostListener("document:keydown", ["$event"])
   onKeydownHandler(event: KeyboardEvent) {
     const ESCAPE_KEYCODE = 27;
 
@@ -211,4 +243,3 @@ export class NgDialogCommon {
 
   // #endregion
 }
-

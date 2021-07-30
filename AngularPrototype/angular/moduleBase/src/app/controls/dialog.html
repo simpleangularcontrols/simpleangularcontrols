@@ -44,6 +44,21 @@
 
 
   </div>
+
+  <div>
+    <ngButton name="modalOpen5" text="Modal öffnen" (onclick)="showdialog()"></ngButton>
+    <ngDialog title="Dialog mit Backdrop und ESC" [(isvisible)]="isdialogvisible">
+      <div dialogbody>
+
+        <div>Content</div>
+
+      </div>
+      <div dialogfooter>
+        <ngButton name="modalClose5" text="Schliessen" (onclick)="hidedialog()"></ngButton>
+      </div>
+    </ngDialog>
+  </div>
+
   <div>
     <ngButton text="Confirm" (onclick)="confirmExample()"></ngButton>
   </div>

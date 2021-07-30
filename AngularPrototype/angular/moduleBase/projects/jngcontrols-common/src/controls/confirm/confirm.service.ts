@@ -1,20 +1,25 @@
-import { Injector, ApplicationRef, ViewContainerRef, Inject, ComponentFactoryResolver, EventEmitter } from '@angular/core';
-import { ComponentFactory } from '@angular/core';
-import { ComponentRef } from '@angular/core';
-import { IConfirmComponent } from '../../interfaces/iconfirmcomponent';
+import {
+  Injector,
+  ApplicationRef,
+  ViewContainerRef,
+  Inject,
+  ComponentFactoryResolver,
+  EventEmitter,
+} from "@angular/core";
+import { ComponentFactory } from "@angular/core";
+import { ComponentRef } from "@angular/core";
+import { IConfirmComponent } from "../../interfaces/iconfirmcomponent";
 
 /**
  * Basis Klasse für Confirm Service implementation
  */
 export abstract class ServiceConfirmCommon {
-
   /**
    * Konstruktor
    * @param appRef ApplicationRef zum Anhängen des Dialogs an den Content
    * @param injector Injector um die Instanz zu erzeuge
    */
-  constructor(private appRef: ApplicationRef, private injector: Injector) {
-  }
+  constructor(private appRef: ApplicationRef, private injector: Injector) {}
 
   //#region Properties
 
@@ -47,7 +52,8 @@ export abstract class ServiceConfirmCommon {
    */
   protected CreateInstance(): void {
     // ComponentFactory aus Service laden
-    const factory: ComponentFactory<IConfirmComponent> = this.GetComponentFactory();
+    const factory: ComponentFactory<IConfirmComponent> =
+      this.GetComponentFactory();
 
     // Instanz der Komponente erzeugen und an die View anhängen
     this.component = factory.create(this.injector);
@@ -55,8 +61,8 @@ export abstract class ServiceConfirmCommon {
   }
 
   /**
-    * Entfernt die Instanz des Dialogs
-    */
+   * Entfernt die Instanz des Dialogs
+   */
   protected DestroyInstance(): void {
     // Dialog aus View entfernen und Komponenten löschen
     this.appRef.detachView(this.component.hostView);
@@ -95,14 +101,21 @@ export abstract class ServiceConfirmCommon {
     const confirmTask: EventEmitter<string> = new EventEmitter<string>(true);
 
     // Callback wenn Dialog bestätigt wurde
-    instance.onconfirm.subscribe(value => {
-      // Dialog entfernen
-      this.CloseDialog();
-      this.DestroyInstance();
+    instance.onconfirm.subscribe(
+      (value) => {
+        // Dialog entfernen
+        this.CloseDialog();
 
-      // Emit auf Service auslösen
-      confirmTask.emit(value);
-    });
+        // Emit auf Service auslösen
+        confirmTask.emit(value);
+      },
+      (err) => {
+        // Do nothing on Error
+      },
+      () => {
+        this.DestroyInstance();
+      }
+    );
 
     // Confirm Emitter für Result zurückgeben
     return confirmTask;

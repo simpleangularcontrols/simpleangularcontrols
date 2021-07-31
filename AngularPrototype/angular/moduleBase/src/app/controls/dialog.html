@@ -1,60 +1,127 @@
 <form #formDialog labelsize="3">
-
   <div>
-    <ngButton name="modalOpen1" text="Modal öffnen" (onclick)="modal1dialog.show()"></ngButton>
-    <ngDialog #modal1dialog [allowesc]="false" [backdrop]="false" title="Leerer Dialog">
+    <ngButton
+      name="modalOpen1"
+      text="Modal öffnen"
+      (onclick)="modal1dialog.show()"
+    ></ngButton>
+    <ngDialog
+      #modal1dialog
+      [allowesc]="false"
+      [backdrop]="false"
+      title="Leerer Dialog"
+    >
       <div dialogbody><p>Hello World</p></div>
       <div dialogfooter>
-        <ngButton name="modalClose1" text="Schliessen" (onclick)="modal1dialog.hide()"></ngButton>
+        <ngButton
+          name="modalClose1"
+          text="Schliessen"
+          (onclick)="modal1dialog.hide()"
+        ></ngButton>
       </div>
     </ngDialog>
   </div>
 
   <div>
-    <ngButton name="modalOpen2" text="Modal öffnen" (onclick)="modal2dialog.show()"></ngButton>
+    <ngButton
+      name="modalOpen2"
+      text="Modal öffnen"
+      (onclick)="modal2dialog.show()"
+    ></ngButton>
     <ngDialog #modal2dialog title="Dialog mit Backdrop und ESC">
       <div dialogbody><p>Hello World</p></div>
       <div dialogfooter>
-        <ngButton name="modalClose2" text="Schliessen" (onclick)="modal2dialog.hide()"></ngButton>
+        <ngButton
+          name="modalClose2"
+          text="Schliessen"
+          (onclick)="modal2dialog.hide()"
+        ></ngButton>
       </div>
     </ngDialog>
   </div>
 
   <div>
-    <ngButton name="modalOpen3" text="Modal öffnen" (onclick)="modal3dialog.show()"></ngButton>
+    <ngButton
+      name="modalOpen3"
+      text="Modal öffnen"
+      (onclick)="modal3dialog.show()"
+    ></ngButton>
     <ngDialog #modal3dialog title="Dialog mit Backdrop und ESC">
       <div dialogbody>
-
-        <ngButton name="modalOpen4" text="Modal öffnen" (onclick)="modal4dialog.show()"></ngButton>
-
+        <ngButton
+          name="modalOpen4"
+          text="Modal öffnen"
+          (onclick)="modal4dialog.show()"
+        ></ngButton>
       </div>
       <div dialogfooter>
-        <ngButton name="modalClose3" text="Schliessen" (onclick)="modal3dialog.hide()"></ngButton>
+        <ngButton
+          name="modalClose3"
+          text="Schliessen"
+          (onclick)="modal3dialog.hide()"
+        ></ngButton>
       </div>
     </ngDialog>
 
-    <ngDialog #modal4dialog title="Inner Dialog mit Backdrop und ESC" [backdrop]="false">
-      <div dialogbody>
-        Inner Dialog
-      </div>
+    <ngDialog
+      #modal4dialog
+      title="Inner Dialog mit Backdrop und ESC"
+      [backdrop]="false"
+    >
+      <div dialogbody>Inner Dialog</div>
       <div dialogfooter>
-        <ngButton name="modalClose4" text="Schliessen" (onclick)="modal4dialog.hide()"></ngButton>
+        <ngButton
+          name="modalClose4"
+          text="Schliessen"
+          (onclick)="modal4dialog.hide()"
+        ></ngButton>
       </div>
     </ngDialog>
-
-
   </div>
 
   <div>
-    <ngButton name="modalOpen5" text="Modal öffnen" (onclick)="showdialog()"></ngButton>
-    <ngDialog title="Dialog mit Backdrop und ESC" [(isvisible)]="isdialogvisible">
+    <ngButton
+      name="modalOpen5"
+      text="Modal öffnen"
+      (onclick)="showdialog()"
+    ></ngButton>
+    <ngDialog
+      title="Dialog mit Backdrop und ESC"
+      [(isvisible)]="isdialogvisible"
+    >
       <div dialogbody>
-
         <div>Content</div>
-
       </div>
       <div dialogfooter>
-        <ngButton name="modalClose5" text="Schliessen" (onclick)="hidedialog()"></ngButton>
+        <ngButton
+          name="modalClose5"
+          text="Schliessen"
+          (onclick)="hidedialog()"
+        ></ngButton>
+      </div>
+    </ngDialog>
+  </div>
+
+  <div>
+    <ngButton
+      name="modalOpen6"
+      text="Modal öffnen"
+      (onclick)="showdialog2()"
+    ></ngButton>
+    <ngDialog
+      *ngIf="isdialogvisible2"
+      title="Dialog mit Backdrop und ESC"
+      [(isvisible)]="isdialogvisible2"
+    >
+      <div dialogbody>
+        <div>Content</div>
+      </div>
+      <div dialogfooter>
+        <ngButton
+          name="modalClose6"
+          text="Schliessen"
+          (onclick)="hidedialog2()"
+        ></ngButton>
       </div>
     </ngDialog>
   </div>
@@ -62,5 +129,4 @@
   <div>
     <ngButton text="Confirm" (onclick)="confirmExample()"></ngButton>
   </div>
-
 </form>

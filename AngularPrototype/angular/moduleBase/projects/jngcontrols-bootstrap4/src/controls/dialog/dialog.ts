@@ -1,11 +1,17 @@
-import { Component, ElementRef, ChangeDetectorRef } from '@angular/core';
-import { NgDialogCommon } from '@jnetwork/jngcontrols-common';
+import {
+  Component,
+  ElementRef,
+  ChangeDetectorRef,
+  OnDestroy,
+  OnInit,
+} from "@angular/core";
+import { NgDialogCommon } from "@jnetwork/jngcontrols-common";
 
 @Component({
-  selector: 'ngDialog',
-  templateUrl: './dialog.html'
+  selector: "ngDialog",
+  templateUrl: "./dialog.html",
 })
-export class NgDialog extends NgDialogCommon {
+export class NgDialog extends NgDialogCommon implements OnInit, OnDestroy {
   // DOM Element
   private element: any;
 
@@ -15,7 +21,6 @@ export class NgDialog extends NgDialogCommon {
     this.element = el.nativeElement;
   }
 
-
   ngOnInit() {
     // Element an Body für korrektes Styling unter Bootstrap 3 verschieben
     document.body.appendChild(this.element);
@@ -23,6 +28,6 @@ export class NgDialog extends NgDialogCommon {
 
   ngOnDestroy() {
     document.body.removeChild(this.element);
+    super.ngOnDestroy();
   }
 }
-

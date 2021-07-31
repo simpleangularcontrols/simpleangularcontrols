@@ -26,4 +26,13 @@ export class ExampleDialog {
   public hidedialog() {
     this.isdialogvisible = false;
   }
+
+  public isdialogvisible2 = false;
+
+  public showdialog2() {
+    this.isdialogvisible2 = true;
+  }
+  public hidedialog2() {
+    this.isdialogvisible2 = false;
+  }
 }

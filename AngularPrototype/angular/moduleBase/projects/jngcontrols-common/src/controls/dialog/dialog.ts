@@ -4,6 +4,7 @@ import {
   Output,
   EventEmitter,
   ChangeDetectorRef,
+  OnDestroy,
 } from "@angular/core";
 import { HostListener } from "@angular/core";
 import { ViewChild } from "@angular/core";
@@ -11,7 +12,7 @@ import { ViewChild } from "@angular/core";
 /**
  * Base Komponente für Dialog
  */
-export class NgDialogCommon {
+export class NgDialogCommon implements OnDestroy {
   /**
    * Name des Containers für den Dialog
    */
@@ -52,6 +53,16 @@ export class NgDialogCommon {
   constructor(private cdRef: ChangeDetectorRef) {}
 
   // #endregion
+
+  /**
+   * Methode wenn Componente entfernt wird
+   */
+  ngOnDestroy(): void {
+    if (this.hasSetBodyTag && document.body.classList.contains("modal-open")) {
+      document.body.classList.remove("modal-open");
+      this.hasSetBodyTag = false;
+    }
+  }
 
   // #region Properties
 

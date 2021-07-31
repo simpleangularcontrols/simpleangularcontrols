@@ -49,6 +49,7 @@ export class NgDialog extends NgDialogCommon implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     document.body.removeChild(this.element);
+    super.ngOnDestroy();
   }
 }
 

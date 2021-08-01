@@ -13,11 +13,13 @@ import {
  * Base Komponente für Dialog
  */
 @Directive()
-export class NgDialogCommon {
+export class NgDialogCommon implements OnDestroy {
   /**
    * Name des Containers für den Dialog
    */
   dialogElement: ElementRef;
+
+  private hasSetBodyTag = false;
 
   /**
    * Implementation als Setter, da mit ngIf das Element bei Unsichtbarkeit UNDEFINED ist.
@@ -41,7 +43,7 @@ export class NgDialogCommon {
    * Das property enthielt (wenn überhaupt gesetzt) entweder keywords für sizing oder custom css Klassen.
    * Die akzeptabel keywordssind: 'small', 'large', 'extralarge', 'medium', ''.
    */
-  _size: string = '';
+  _size: string = "";
 
   // #region Constructor
 
@@ -52,6 +54,16 @@ export class NgDialogCommon {
   constructor(private cdRef: ChangeDetectorRef) {}
 
   // #endregion
+
+  /**
+   * Methode wenn Componente entfernt wird
+   */
+  ngOnDestroy(): void {
+    if (this.hasSetBodyTag && document.body.classList.contains("modal-open")) {
+      document.body.classList.remove("modal-open");
+      this.hasSetBodyTag = false;
+    }
+  }
 
   // #region Properties
 
@@ -120,17 +132,25 @@ export class NgDialogCommon {
    */
   @Input('isvisible')
   set visible(v: boolean) {
-    this._show = v;
-
-    if (this._show && !document.body.classList.contains('modal-open')) {
-      document.body.classList.add('modal-open');
-    }
     if (
-      this._show === false &&
+      v &&
+      !this.hasSetBodyTag &&
+      !document.body.classList.contains('modal-open')
+    ) {
+      document.body.classList.add('modal-open');
+      this.hasSetBodyTag = true;
+    }
+
+    if (
+      !v &&
+      this.hasSetBodyTag &&
       document.body.classList.contains('modal-open')
     ) {
       document.body.classList.remove('modal-open');
+      this.hasSetBodyTag = false;
     }
+
+    this._show = v;
   }
 
   /**
@@ -176,9 +196,15 @@ export class NgDialogCommon {
    */
   public show(): void {
     this._show = true;
-    if (this._show && !document.body.classList.contains('modal-open')) {
+
+    if (
+      !this.hasSetBodyTag &&
+      !document.body.classList.contains('modal-open')
+    ) {
       document.body.classList.add('modal-open');
+      this.hasSetBodyTag = true;
     }
+
     this.isVisibleEmitter.emit(this._show);
   }
 
@@ -186,13 +212,12 @@ export class NgDialogCommon {
    * Die Methode setz den Wert des _show property auf false
    */
   public hide(): void {
-    this._show = false;
-    if (
-      this._show === false &&
-      document.body.classList.contains('modal-open')
-    ) {
+    if (this.hasSetBodyTag && document.body.classList.contains('modal-open')) {
       document.body.classList.remove('modal-open');
+      this.hasSetBodyTag = false;
     }
+
+    this._show = false;
     this.isVisibleEmitter.emit(this._show);
   }
 
@@ -210,7 +235,7 @@ export class NgDialogCommon {
   /**
    * Allow Close by Click outside Dialog
    */
-  @HostListener('click', ['$event'])
+  @HostListener("click", ["$event"])
   onClick(event: any): void {
     if (
       this._allowesc === false ||
@@ -226,7 +251,7 @@ export class NgDialogCommon {
   /**
    * Allow Close by ESC
    */
-  @HostListener('document:keydown', ['$event'])
+  @HostListener("document:keydown", ["$event"])
   onKeydownHandler(event: KeyboardEvent) {
     const ESCAPE_KEYCODE = 'Escape';
 

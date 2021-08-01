@@ -7,6 +7,7 @@ import {
   Output,
   ViewChild,
   Directive,
+  OnDestroy
 } from '@angular/core';
 
 /**

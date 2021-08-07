@@ -1,7 +1,7 @@
 <h2>Dialog</h2>
 <form #myForm="NgFormular" labelsize="3">
   <div>
-    <div>Dialog ohne Backdrop und ohne ESC</div>
+    <h2>Dialog ohne Backdrop und ohne ESC</h2>
     <ngButton
       name="modalOpen1"
       text="Modal öffnen"
@@ -25,7 +25,7 @@
   </div>
 
   <div>
-    <div>Dialog mit Backdrop und ESC</div>
+    <h2>Dialog mit Backdrop und ESC</h2>
     <ngButton
       name="modalOpen2"
       text="Modal öffnen"
@@ -44,7 +44,7 @@
   </div>
 
   <div>
-    <div>Dialog in Dialog mit Backdrop und ESC</div>
+    <h2>Dialog in Dialog mit Backdrop und ESC</h2>
     <ngButton
       name="modalOpen3"
       text="Modal öffnen"
@@ -78,6 +78,44 @@
           name="modalClose4"
           text="Schliessen"
           (onclick)="modal4dialog.hide()"
+        ></ngButton>
+      </div>
+    </ngDialog>
+  </div>
+
+  <div>
+    <h2>Dialog open über Property</h2>
+    <ngButton
+      name="modalOpen5"
+      text="Modal öffnen"
+      (onclick)="showVisibile1()"
+    ></ngButton>
+    <ngDialog title="Dialog mit Binding Property" [(isvisible)]="isvisible1">
+      <div dialogbody>Content</div>
+      <div dialogfooter>
+        <ngButton
+          name="modalClose5"
+          text="Schliessen"
+          (onclick)="hideVisibile1()"
+        ></ngButton>
+      </div>
+    </ngDialog>
+  </div>
+
+  <div>
+    <h2>Dialog open über Property und ngIf</h2>
+    <ngButton
+      name="modalOpen6"
+      text="Modal öffnen"
+      (onclick)="showVisibile2()"
+    ></ngButton>
+    <ngDialog title="Dialog mit Binding Property" [(isvisible)]="isvisible2">
+      <div dialogbody>Content</div>
+      <div dialogfooter>
+        <ngButton
+          name="modalClose6"
+          text="Schliessen"
+          (onclick)="hideVisibile2()"
         ></ngButton>
       </div>
     </ngDialog>

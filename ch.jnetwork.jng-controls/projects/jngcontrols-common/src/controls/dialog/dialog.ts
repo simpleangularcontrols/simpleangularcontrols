@@ -27,13 +27,7 @@ export class NgDialogCommon implements OnDestroy {
    */
   @ViewChild('dialog', { static: false })
   set dialogElementSetter(content: ElementRef) {
-    console.log('Debug: ' + content);
     this.dialogElement = content;
-
-    /**
-     * Detect Changes ausführen, da beim Einblenden/Ausblenden des Dialogs Parameter und Properties ändern können diese ausserhalb der Standart ChangeDetection geändert würden.
-     */
-    // this.cdRef.detectChanges();
   }
 
   /**

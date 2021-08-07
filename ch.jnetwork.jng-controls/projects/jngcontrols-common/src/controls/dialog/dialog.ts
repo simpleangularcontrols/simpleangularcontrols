@@ -7,7 +7,7 @@ import {
   Output,
   ViewChild,
   Directive,
-  OnDestroy
+  OnDestroy,
 } from '@angular/core';
 
 /**
@@ -25,8 +25,9 @@ export class NgDialogCommon implements OnDestroy {
   /**
    * Implementation als Setter, da mit ngIf das Element bei Unsichtbarkeit UNDEFINED ist.
    */
-  @ViewChild('dialog', { static: true })
+  @ViewChild('dialog', { static: false })
   set dialogElementSetter(content: ElementRef) {
+    console.log('Debug: ' + content);
     this.dialogElement = content;
 
     /**
@@ -44,7 +45,7 @@ export class NgDialogCommon implements OnDestroy {
    * Das property enthielt (wenn überhaupt gesetzt) entweder keywords für sizing oder custom css Klassen.
    * Die akzeptabel keywordssind: 'small', 'large', 'extralarge', 'medium', ''.
    */
-  _size: string = "";
+  _size: string = '';
 
   // #region Constructor
 
@@ -60,8 +61,8 @@ export class NgDialogCommon implements OnDestroy {
    * Methode wenn Componente entfernt wird
    */
   ngOnDestroy(): void {
-    if (this.hasSetBodyTag && document.body.classList.contains("modal-open")) {
-      document.body.classList.remove("modal-open");
+    if (this.hasSetBodyTag && document.body.classList.contains('modal-open')) {
+      document.body.classList.remove('modal-open');
       this.hasSetBodyTag = false;
     }
   }
@@ -236,7 +237,7 @@ export class NgDialogCommon implements OnDestroy {
   /**
    * Allow Close by Click outside Dialog
    */
-  @HostListener("click", ["$event"])
+  @HostListener('click', ['$event'])
   onClick(event: any): void {
     if (
       this._allowesc === false ||
@@ -252,7 +253,7 @@ export class NgDialogCommon implements OnDestroy {
   /**
    * Allow Close by ESC
    */
-  @HostListener("document:keydown", ["$event"])
+  @HostListener('document:keydown', ['$event'])
   onKeydownHandler(event: KeyboardEvent) {
     const ESCAPE_KEYCODE = 'Escape';
 

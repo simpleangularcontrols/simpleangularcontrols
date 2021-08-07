@@ -239,6 +239,13 @@ export class InternalLanguageResourceService extends LanguageResourceService {
       .get('de')
       .set('UPLOAD_NO_FILE_SELECTED', 'Keine Datei ausgewählt');
 
+    // Upload Component
+    this.data.get('de').set('TINYMCE_FILESELECT_OK', 'OK');
+    this.data.get('de').set('TINYMCE_FILESELECT_CANCEL', 'Abbrechen');
+    this.data
+      .get('de')
+      .set('TINYMCE_FILESELECT_DIALOGTITLE', 'Datei auswählen');
+
     // EN
     this.data.set('en', new Map<string, string>());
   }

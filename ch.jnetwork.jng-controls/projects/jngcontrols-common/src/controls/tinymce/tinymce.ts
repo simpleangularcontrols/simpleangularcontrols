@@ -10,6 +10,9 @@ import {
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { NgBaseModelControl } from '../../common/basemodelcontrol';
 import { NgFormularCommon } from '../../controls/form/form';
+import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
+import { LANGUAGERESOURCE_SERVICE } from '../../services';
+import { InternalLanguageResourceService } from '../../services/languageresource.service';
 import { Validation } from '../../validation';
 import { TinyMceDialogSettings } from './tinymcedialogsettings';
 import { TinyMceDialogSettingsMeta } from './tinymcedialogsettingsmeta';
@@ -34,6 +37,12 @@ export class NgTinyMceCommon
     file_picker_callback: this.showSelectDialog,
     save_onsavecallback: () => {},
   };
+
+  /**
+   * Service für Error Localisation
+   */
+  public lngResourceService: ILanguageResourceService;
+
   /**
    * Settings Instanz für Dialog
    */
@@ -141,6 +150,12 @@ export class NgTinyMceCommon
     protected ngZone: NgZone
   ) {
     super(parent, injector);
+
+    this.lngResourceService = injector.get(
+      LANGUAGERESOURCE_SERVICE,
+      new InternalLanguageResourceService()
+    );
+
     this.config = {};
   }
 

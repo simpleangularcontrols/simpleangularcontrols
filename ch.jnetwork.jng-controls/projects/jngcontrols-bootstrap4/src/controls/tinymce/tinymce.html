@@ -27,11 +27,11 @@
   [allowesc]="false"
   [backdrop]="true"
   [(isvisible)]="selectdialogvisible"
-  title="Leerer Dialog"
+  title="{{ lngResourceService.GetString('TINYMCE_FILESELECT_DIALOGTITLE') | async }}"
   size="large"
   height="500px"
 >
-  <div dialogbody>
+  <ng-container dialogbody>
     <ngFileBrowser
       [apiurl]="filebrowserapiurl"
       (file)="selectDialogSettings.value = $event"
@@ -44,17 +44,18 @@
       [selectedfile]="selectDialogSettings.value"
       [allowedtypes]="selectDialogSettings.allowedtypes"
     ></ngFileBrowser>
-  </div>
-  <div dialogfooter>
+  </ng-container>
+  <ng-container dialogfooter>
     <ngButton
+      role="primary"
       [name]="_name + '_modalOk'"
-      text="OK"
+      text="{{ lngResourceService.GetString('TINYMCE_FILESELECT_OK') | async }}"
       (onclick)="setSelectDialogResult()"
     ></ngButton>
     <ngButton
       [name]="_name + '_modalClose'"
-      text="Abbrechen"
+      text="{{ lngResourceService.GetString('TINYMCE_FILESELECT_CANCEL') | async }}"
       (onclick)="closeSelectDialog()"
     ></ngButton>
-  </div>
+  </ng-container>
 </ngDialog>

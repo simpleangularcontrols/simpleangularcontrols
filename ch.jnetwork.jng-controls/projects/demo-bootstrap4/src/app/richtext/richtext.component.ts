@@ -49,6 +49,13 @@ export class DemoRichtextComponent implements OnInit {
     ],
   };
 
+  public value1 = '';
+  public config1 = {
+    plugins: 'image,code,link,media',
+    toolbar: 'image media link | code',
+    document_base_url: '/upload/browser/',
+  };
+
   public showImageDialog(callback, value: string, meta: any): void {
     this.settings.angular.ngZone.runOutsideAngular(() => {
       this.settings.angular.ngZone.run(() => {

@@ -1,5 +1,5 @@
-<h2>RichText Editor</h2>
 <form #myForm="NgFormular" labelsize="3">
+  <h2>RichText Editor</h2>
   <div>
     <editor [init]="config"></editor>
   </div>
@@ -36,4 +36,16 @@
       ></ngButton>
     </div>
   </ngDialog>
+
+  <h2>RichtText Component</h2>
+  <ngTinymce
+    label="Inhalt"
+    name="tinymce1"
+    [config]="config1"
+    [(ngModel)]="value1"
+    height="250px"
+    filebrowserapiurl="api/browser"
+  ></ngTinymce>
+  <div>Output</div>
+  <div>{{ value1 | json }}</div>
 </form>

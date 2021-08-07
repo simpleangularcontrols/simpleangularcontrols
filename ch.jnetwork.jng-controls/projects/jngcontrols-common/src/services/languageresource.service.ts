@@ -248,6 +248,29 @@ export class InternalLanguageResourceService extends LanguageResourceService {
       .get('de')
       .set('TINYMCE_FILESELECT_DIALOGTITLE', 'Datei auswählen');
 
+    // Browser Component
+    this.data.get('de').set('FILEBROWSER_NO_FILES', 'Keine Dateien vorhanden');
+    this.data.get('de').set('FILEBROWSER_GRID_FILE', 'Dateiname');
+    this.data.get('de').set('FILEBROWSER_GRID_SIZE', 'Grösse');
+    this.data
+      .get('de')
+      .set(
+        'FILEBROWSER_UPLOAD',
+        'Legen Sie Dateien hier ab um Sie hochzuladen'
+      );
+    this.data.get('de').set('FILEBROWSER_NEWFOLDER', 'Neuer Ordner');
+    this.data.get('de').set('FILEBROWSER_REFRESH', 'Aktualisieren');
+    this.data.get('de').set('FILEBROWSER_DELETE', 'Löschen');
+    this.data
+      .get('de')
+      .set(
+        'FILEBROWSER_CONFIRM_DELETEFOLDER',
+        'Soll der Ordner gelöscht werden?'
+      );
+    this.data
+      .get('de')
+      .set('FILEBROWSER_CONFIRM_DELETEFILE', 'Soll die Datei gelöscht werden?');
+
     // EN
     this.data.set('en', new Map<string, string>());
   }

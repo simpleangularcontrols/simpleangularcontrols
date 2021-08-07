@@ -6,7 +6,7 @@ import {
   NgFileBrowserCommon,
 } from '@jnetwork/jngcontrols-common';
 import { NgDropzoneMultipleComponent } from '../../controls/upload/dropzonemultiple';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { ServiceConfirm } from '../../controls/confirm/confirm.service';
 
 @Component({
@@ -32,31 +32,41 @@ export class NgBrowserComponent extends NgFileBrowserCommon {
 
   confirmDeleteFile(file: IBrowserFile): Observable<boolean> {
     return new Observable<boolean>((observer) => {
-      this.confirmService
-        .ConfirmMessage('Löschen', 'Soll die Datei gelöscht werden')
-        .subscribe((result) => {
-          if (result === 'yes') {
-            observer.next(true);
-          } else {
-            observer.next(false);
-          }
-          observer.complete();
-        });
+      forkJoin({
+        title: this.lngResourceService.GetString('FILEBROWSER_DELETE'),
+        message: this.lngResourceService.GetString('FILEBROWSER_CONFIRM_DELETEFILE'),
+      }).subscribe((text) => {
+        this.confirmService
+          .ConfirmMessage(text.title, text.message)
+          .subscribe((result) => {
+            if (result === 'yes') {
+              observer.next(true);
+            } else {
+              observer.next(false);
+            }
+            observer.complete();
+          });
+      });
     });
   }
 
   confirmDeleteNode(file: IBrowserNode): Observable<boolean> {
     return new Observable<boolean>((observer) => {
-      this.confirmService
-        .ConfirmMessage('Löschen', 'Soll der Ordner gelöscht werden')
-        .subscribe((result) => {
-          if (result === 'yes') {
-            observer.next(true);
-          } else {
-            observer.next(false);
-          }
-          observer.complete();
-        });
+      forkJoin({
+        title: this.lngResourceService.GetString('FILEBROWSER_DELETE'),
+        message: this.lngResourceService.GetString('FILEBROWSER_CONFIRM_DELETEFOLDER'),
+      }).subscribe((text) => {
+        this.confirmService
+          .ConfirmMessage(text.title, text.message)
+          .subscribe((result) => {
+            if (result === 'yes') {
+              observer.next(true);
+            } else {
+              observer.next(false);
+            }
+            observer.complete();
+          });
+      });
     });
   }
 

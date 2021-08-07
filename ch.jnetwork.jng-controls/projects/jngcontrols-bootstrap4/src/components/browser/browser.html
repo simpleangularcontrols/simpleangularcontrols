@@ -50,14 +50,14 @@
           <ngContextmenu cssclass="d-inline-block">
             <ngContextmenuButton
               *ngIf="allowfoldercreate"
-              text="Neuer Ordner"
+              text="{{ lngResourceService.GetString('FILEBROWSER_NEWFOLDER') | async }}"
               iconstyle="far"
               icon="fa-folder"
               (onclick)="newNode(node)"
             ></ngContextmenuButton>
             <ngContextmenuButton
               *ngIf="node.Path !== '/' && allowfolderdelete"
-              text="Löschen"
+              text="{{ lngResourceService.GetString('FILEBROWSER_DELETE') | async }}"
               iconstyle="fas"
               icon="fa-trash"
               (onclick)="deleteNode(node)"
@@ -66,7 +66,7 @@
               *ngIf="allowfoldercreate || (node.Path !== '/' && allowfolderdelete)"
             ></ngContextmenuSplitter>
             <ngContextmenuButton
-              text="Aktualisieren"
+              text="{{ lngResourceService.GetString('FILEBROWSER_REFRESH') | async }}"
               iconstyle="fas"
               icon="fa-sync-alt"
               (onclick)="refreshNode(node)"
@@ -95,20 +95,20 @@
           [ngModel]="uploads"
           (ngModelChange)="uploadComplete(selectedNode,$event)"
           [allowedtypes]="allowedtypes"
-          >Drop files here</ngDropzoneMultiple
+          >{{ lngResourceService.GetString('FILEBROWSER_UPLOAD') | async }}</ngDropzoneMultiple
         >
       </div>
       <div class="table-responsive">
         <table class="table table-striped table-hover align-middle">
           <thead>
-            <th>File</th>
-            <th>Size</th>
+            <th>{{ lngResourceService.GetString('FILEBROWSER_GRID_FILE') | async }}</th>
+            <th>{{ lngResourceService.GetString('FILEBROWSER_GRID_SIZE') | async }}</th>
             <th style="width: 80px"></th>
           </thead>
           <tbody>
             <ng-container *ngIf="selectedNode.Files.length === 0">
               <tr>
-                <td colspan="3">Keine Dateien vorhanden</td>
+                <td colspan="3">{{ lngResourceService.GetString('FILEBROWSER_NO_FILES') | async }}</td>
               </tr>
             </ng-container>
             <ng-container *ngIf="selectedNode.Files.length > 0">

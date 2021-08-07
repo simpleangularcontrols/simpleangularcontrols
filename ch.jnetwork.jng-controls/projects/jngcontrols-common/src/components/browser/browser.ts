@@ -11,10 +11,13 @@ import {
 } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IFileBrowserService } from '../../interfaces/IFileBrowserService';
+import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
+import { LANGUAGERESOURCE_SERVICE } from '../../services';
 import {
   FILEBROWSER_SERVICE,
   InternalFileBrowserService,
 } from '../../services/filebrowser.service';
+import { InternalLanguageResourceService } from '../../services/languageresource.service';
 import { IBrowserFile } from './models/browserfile';
 import { IBrowserFileResponse } from './models/browserfileresponse';
 import { IBrowserNode } from './models/browsernode';
@@ -51,6 +54,10 @@ export abstract class NgFileBrowserCommon implements OnInit {
    * Liste von Uploads
    */
   public uploads: string[] = [];
+  /**
+   * Service für Error Localisation
+   */
+  public lngResourceService: ILanguageResourceService;
 
   /**
    * Service für File Browser Zugriff (Backend)
@@ -165,10 +172,15 @@ export abstract class NgFileBrowserCommon implements OnInit {
    * @param httpclient Angular HTTP Client
    * @param injector Service Injector
    */
-  constructor(private httpclient: HttpClient, injector: Injector) {
+  constructor(httpclient: HttpClient, injector: Injector) {
     this.browserService = injector.get(
       FILEBROWSER_SERVICE,
       new InternalFileBrowserService(httpclient)
+    );
+
+    this.lngResourceService = injector.get(
+      LANGUAGERESOURCE_SERVICE,
+      new InternalLanguageResourceService()
     );
   }
 

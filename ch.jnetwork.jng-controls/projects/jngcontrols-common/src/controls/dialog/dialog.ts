@@ -41,26 +41,6 @@ export class NgDialogCommon implements OnDestroy {
    */
   _size: string = '';
 
-  // #region Constructor
-
-  /**
-   * Konstruktor
-   * Inject des Formulars
-   */
-  constructor(private cdRef: ChangeDetectorRef) {}
-
-  // #endregion
-
-  /**
-   * Methode wenn Componente entfernt wird
-   */
-  ngOnDestroy(): void {
-    if (this.hasSetBodyTag && document.body.classList.contains('modal-open')) {
-      document.body.classList.remove('modal-open');
-      this.hasSetBodyTag = false;
-    }
-  }
-
   // #region Properties
 
   /**
@@ -184,6 +164,26 @@ export class NgDialogCommon implements OnDestroy {
   }
 
   // #endregion
+
+  // #region Constructor
+
+  /**
+   * Konstruktor
+   * Inject des Formulars
+   */
+  constructor(private cdRef: ChangeDetectorRef) {}
+
+  // #endregion
+
+  /**
+   * Methode wenn Componente entfernt wird
+   */
+  ngOnDestroy(): void {
+    if (this.hasSetBodyTag && document.body.classList.contains('modal-open')) {
+      document.body.classList.remove('modal-open');
+      this.hasSetBodyTag = false;
+    }
+  }
 
   // #region Methods
 

@@ -12,9 +12,12 @@
     <editor
       [id]="_name + '_tinymce'"
       [init]="_config"
+      [initialValue]="value"
       ngModel
       [ngModelOptions]="{standalone: true}"
       (ngModelChange)="setValue($event)"
+      (onSaveContent)="save($event.event.content)"
+      [disabled]="_disabledControl"
     ></editor>
   </div>
 </div>

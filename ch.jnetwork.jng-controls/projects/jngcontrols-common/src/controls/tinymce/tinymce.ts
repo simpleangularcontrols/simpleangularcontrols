@@ -1,4 +1,12 @@
-import { Host, Injector, Input, NgZone, OnDestroy } from '@angular/core';
+import {
+  EventEmitter,
+  Host,
+  Injector,
+  Input,
+  NgZone,
+  OnDestroy,
+  Output,
+} from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { NgBaseModelControl } from '../../common/basemodelcontrol';
 import { NgFormularCommon } from '../../controls/form/form';
@@ -24,6 +32,7 @@ export class NgTinyMceCommon
     angular: this,
     file_picker_types: 'file media image',
     file_picker_callback: this.showSelectDialog,
+    save_onsavecallback: () => {},
   };
   /**
    * Settings Instanz für Dialog
@@ -73,13 +82,26 @@ export class NgTinyMceCommon
   public allowfileupload = false;
   @Input()
   public allowfilerename = false;
+  /**
+   * Files im Dateibrowser können gelöscht werden
+   */
   @Input()
   public allowfiledelete = false;
 
+  /**
+   * File Extensions für Images (Format: .xxx,.yyy,.eee)
+   */
   @Input()
   public filetypesimages = '.gif,.jpeg,.jpg,.png,.tif,.tiff,.bmp';
+  /**
+   * File Extensions für Media (Format: .xxx,.yyy,.eee)
+   */
   @Input()
   public filetypesvideo = '.mp4,.m4v,.ogv,.webm,.mov';
+
+  /**
+   * File Extensions für Links (Format: .xxx,.yyy,.eee)
+   */
   @Input()
   public filetypesfiles = '';
 
@@ -103,6 +125,9 @@ export class NgTinyMceCommon
   get config(): any {
     return this._config;
   }
+
+  @Output()
+  public onsave: EventEmitter<string> = new EventEmitter<string>();
 
   /**
    *
@@ -177,6 +202,10 @@ export class NgTinyMceCommon
   }
 
   //#endregion
+
+  public save(content: any): void {
+    this.onsave.emit(content);
+  }
 
   /**
    * Validiert das Control

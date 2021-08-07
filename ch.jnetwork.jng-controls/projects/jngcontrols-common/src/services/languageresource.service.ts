@@ -238,8 +238,10 @@ export class InternalLanguageResourceService extends LanguageResourceService {
     this.data
       .get('de')
       .set('UPLOAD_NO_FILE_SELECTED', 'Keine Datei ausgewählt');
+    this.data.get('de').set('UPLOAD_BUTTON_UPLOAD', 'Upload');
+    this.data.get('de').set('UPLOAD_BUTTON_BROWSE', 'Browse...');
 
-    // Upload Component
+    // TinyMCE Component
     this.data.get('de').set('TINYMCE_FILESELECT_OK', 'OK');
     this.data.get('de').set('TINYMCE_FILESELECT_CANCEL', 'Abbrechen');
     this.data

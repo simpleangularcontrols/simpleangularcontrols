@@ -40,8 +40,8 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
   /**
   * Service für Error Localisation
   */
-  protected lngResourceService: ILanguageResourceService;
-
+  public lngResourceService: ILanguageResourceService;
+  
   //#region Properties
 
   /**

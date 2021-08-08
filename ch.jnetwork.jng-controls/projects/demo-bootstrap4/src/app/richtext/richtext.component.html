@@ -1,0 +1,66 @@
+<form #myForm="NgFormular" labelsize="3">
+  <h2>RichtText Component</h2>
+  <ngTinymce
+    label="Inhalt"
+    name="tinymce1"
+    [config]="config1"
+    [(ngModel)]="value1"
+  ></ngTinymce>
+  <div>Output</div>
+  <div>{{ value1 | json }}</div>
+
+  <h2>RichtText Component mit File Dialog</h2>
+  <ngTinymce
+    label="Inhalt"
+    name="tinymce2"
+    [config]="config2"
+    [(ngModel)]="value2"
+    height="450px"
+    filebrowserapiurl="api/browser"
+  ></ngTinymce>
+  <div>Output</div>
+  <div>{{ value2 | json }}</div>
+
+  <h2>RichtText Component ohne Label</h2>
+  <ngTinymce
+    [disablelabel]="true"
+    name="tinymce3"
+    [config]="config3"
+    [(ngModel)]="value3"
+    filebrowserapiurl="api/browser"
+  ></ngTinymce>
+  <div>Output</div>
+  <div>{{ value3 | json }}</div>
+
+  <h2>RichtText Component Disabled</h2>
+  <ngTinymce
+    [disablelabel]="true"
+    name="tinymce4"
+    [config]="config4"
+    [(ngModel)]="value4"
+    [disabled]="true"
+  ></ngTinymce>
+  <div>Output</div>
+  <div>{{ value4 | json }}</div>
+
+  <h2>RichtText Component Inline</h2>
+  <ngTinymce
+    label="Edit Text Inline"
+    name="tinymce5"
+    [config]="config5"
+    [(ngModel)]="value5"
+  ></ngTinymce>
+  <div>Output</div>
+  <div>{{ value5 | json }}</div>
+
+  <h2>RichtText Component Save Action</h2>
+  <ngTinymce
+    label="Edit Text Save Action"
+    name="tinymce6"
+    [config]="config6"
+    [(ngModel)]="value6"
+    (onsave)="save6($event)"
+  ></ngTinymce>
+  <div>Output</div>
+  <div>{{ value6 | json }}</div>
+</form>

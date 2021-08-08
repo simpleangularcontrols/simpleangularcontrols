@@ -263,3 +263,6 @@ __pycache__/
 
 #NPM
 package-lock.json
+
+# Angular Dist Folder
+/AngularPrototype/angular/moduleBase/dist

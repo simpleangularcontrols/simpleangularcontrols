@@ -1,0 +1,118 @@
+<h2>Button</h2>
+<form #myForm="NgFormular" labelsize="3">
+  <div>Context Menü</div>
+
+  <p>Default Menu</p>
+  <div>
+    <ngContextmenu>
+      <ngContextmenuButton text="Action 1"></ngContextmenuButton>
+      <ngContextmenuButton text="Action 2"></ngContextmenuButton>
+      <ngContextmenuButton text="Action 3"></ngContextmenuButton>
+    </ngContextmenu>
+  </div>
+
+  <p>Button Right Aligned</p>
+  <div class="d-flex flex-row-reverse">
+    <div>
+      <ngContextmenu>
+        <ngContextmenuButton
+          text="Action 1"
+          image="/icons/de.png"
+        ></ngContextmenuButton>
+        <ngContextmenuButton
+          text="Action 1"
+          image="/icons/en.png"
+        ></ngContextmenuButton>
+        <ngContextmenuButton
+          text="Action 1"
+          image="/icons/fr.png"
+        ></ngContextmenuButton>
+        <ngContextmenuButton
+          text="Action 2"
+          icon="fa-pen"
+          iconstyle="fas"
+        ></ngContextmenuButton>
+        <ngContextmenuButton
+          text="Action 3"
+          icon="fa-pen"
+        ></ngContextmenuButton>
+        <ngContextmenuButton text="Action 4"></ngContextmenuButton>
+      </ngContextmenu>
+    </div>
+  </div>
+
+  <p>Button Center Aligned</p>
+  <div class="d-flex justify-content-center">
+    <div>
+      <ngContextmenu>
+        <ngContextmenuButton text="Action 1"></ngContextmenuButton>
+        <ngContextmenuButton text="Action 2"></ngContextmenuButton>
+        <ngContextmenuSplitter></ngContextmenuSplitter>
+        <ngContextmenuButton
+          text="Action 3"
+          [isdisabled]="true"
+        ></ngContextmenuButton>
+      </ngContextmenu>
+    </div>
+  </div>
+  <p>Menu without Icon Colum</p>
+  <div>
+    <ngContextmenu>
+      <ngContextmenuButton
+        text="Action 1"
+        isicondisabled="true"
+      ></ngContextmenuButton>
+      <ngContextmenuButton
+        text="Action 2"
+        [isicondisabled]="true"
+      ></ngContextmenuButton>
+      <ngContextmenuSplitter></ngContextmenuSplitter>
+      <ngContextmenuButton
+        text="Action 3"
+        isdisabled="true"
+        isicondisabled="true"
+      ></ngContextmenuButton>
+      <ngContextmenuButton
+        text="Action 4"
+        [isdisabled]="true"
+        [isicondisabled]="true"
+      ></ngContextmenuButton>
+    </ngContextmenu>
+  </div>
+  <p>Menu with Custom Button</p>
+  <div>
+    <ngContextmenu [buttonTemplate]="customButton" #contextmenu>
+      <ng-template #customButton>
+        <button
+          type="button"
+          ngContextmenuAnchor
+          class="btn btn-secondary dropdown-toggle"
+          (click)="contextmenu.toggle()"
+        >
+          Custom Button
+        </button>
+      </ng-template>
+
+      <ngContextmenuButton
+        text="Action 1"
+        isicondisabled="true"
+        (onclick)="debugAction1()"
+      ></ngContextmenuButton>
+      <ngContextmenuButton
+        text="Action 2"
+        [isicondisabled]="true"
+      ></ngContextmenuButton>
+      <ngContextmenuSplitter></ngContextmenuSplitter>
+      <ngContextmenuButton
+        text="Action 3"
+        isdisabled="true"
+        isicondisabled="true"
+      ></ngContextmenuButton>
+      <ngContextmenuButton
+        text="Action 4"
+        [isdisabled]="true"
+        [isicondisabled]="true"
+      ></ngContextmenuButton>
+    </ngContextmenu>
+  </div>
+</form>

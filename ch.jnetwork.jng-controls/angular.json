@@ -271,10 +271,18 @@
             "aot": true,
             "assets": [
               "projects/demo-bootstrap4/src/favicon.ico",
-              "projects/demo-bootstrap4/src/assets"
+              "projects/demo-bootstrap4/src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/tinymce",
+                "output": "/tinymce/"
+              }
             ],
             "styles": ["projects/demo-bootstrap4/src/styles.scss"],
-            "scripts": []
+            "scripts": [
+              "./node_modules/quill/dist/quill.min.js",
+              "./node_modules/tinymce/tinymce.min.js"
+            ]
           },
           "configurations": {
             "production": {

@@ -8,7 +8,7 @@
         <div class="btn upload-input custom-file" [class.disabled]="HasQueueItem()"
              [class.btn-secondary]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
           <i class="fa fa-folder-open pr-2"></i>
-          <span class="upload-browse">Browse</span>
+          <span class="upload-browse">{{ lngResourceService.GetString('UPLOAD_BUTTON_BROWSE') | async }}</span>
           <input type="file" class="custom-file-input" #files (click)="files.value = ''"
                  (uploadxState)="onUpload($event)" multiple [disabled]="HasQueueItem()">
         </div>
@@ -27,7 +27,7 @@
         <button class="btn" (click)="cancelAll()"
                 [attr.disabled]="HasQueueItem() === false ? 'disabled' : null" [class.disabled]="HasQueueItem() === false ? 'disabled' : null"
                 [class.btn-secondary]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
-          <span class="fa fa-remove"></span>
+          <span class="fa fa-times"></span>
         </button>
         <button *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && IsPaused() == false)" class="btn" (click)="pauseAll()"
                 [attr.disabled]="IsUploading() === false ? 'disabled' : null" [class.disabled]="IsUploading() === false ? 'disabled' : null"
@@ -41,7 +41,7 @@
         <button *ngIf="autoupload === false" class="btn text-nowrap" (click)="uploadAll()"
                 [attr.disabled]="IsStateToUpload() === false ?  'disabled' : null" [class.disabled]="IsStateToUpload() === false ?  'disabled' : null"
                 [class.btn-secondary]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
-          <span class="fa fa-upload pr-2"></span>Upload
+          <span class="fa fa-upload pr-2"></span>{{ lngResourceService.GetString('UPLOAD_BUTTON_UPLOAD') | async }}
         </button>
       </div>
     </div>

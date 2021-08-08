@@ -18,6 +18,12 @@ export class NgDropzoneMultipleCommon
    */
   public active = false;
 
+  /**
+   * Höhe des Upload Controls
+   */
+  @Input()
+  public uploadheight: string = null;
+
   @Input('maxfiles')
   public maxfiles: number = 0;
 

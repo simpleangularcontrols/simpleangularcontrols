@@ -57,6 +57,21 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'browser',
+    loadChildren: () =>
+      import('./browser/browser.module').then((m) => m.BrowserModule),
+  },
+  {
+    path: 'richtext',
+    loadChildren: () =>
+      import('./richtext/richtext.module').then((m) => m.RichtextModule),
+  },
+  {
+    path: 'contextmenu',
+    loadChildren: () =>
+      import('./contextmenu/contextmenu.module').then((m) => m.ContextmenuModule),
+  },
+  {
     path: '**',
     redirectTo: '/input',
   },

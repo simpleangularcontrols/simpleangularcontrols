@@ -1,0 +1,15 @@
+<button
+  type="button"
+  class="dropdown-item"
+  (click)="callaction($event)"
+  [class.disabled]="isdisabled"
+  [attr.disabled]="isdisabled ? 'disabled' : null"
+>
+  <div class="d-flex">
+    <div *ngIf="!isicondisabled" style="min-width: 1.5rem">
+      <img *ngIf="image" [src]="image" class="align-baseline" />
+      <i *ngIf="icon" [class]="iconstyle + ' ' + icon"></i>
+    </div>
+    <div class="flex-grow-1">{{ text }}</div>
+  </div>
+</button>

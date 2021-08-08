@@ -40,8 +40,8 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
   /**
   * Service für Error Localisation
   */
-  protected lngResourceService: ILanguageResourceService;
-
+  public lngResourceService: ILanguageResourceService;
+  
   //#region Properties
 
   /**
@@ -151,7 +151,7 @@ export abstract class NgUploadBase<VALUE> extends NgBaseModelControl<VALUE> impl
 
     this.uploadService.connect(this.options);
   }
-  
+
   /**
    * Destroy des Controls
    */

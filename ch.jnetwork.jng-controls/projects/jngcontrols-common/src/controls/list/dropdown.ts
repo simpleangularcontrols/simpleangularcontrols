@@ -1,4 +1,12 @@
-import { Directive, ElementRef, Host, Injector, Input, OnDestroy, Renderer2 } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Host,
+  Injector,
+  Input,
+  OnDestroy,
+  Renderer2,
+} from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { NgBaseSelectControl } from '../../common/baseselectcontrol';
 import { Validation } from '../../validation';
@@ -56,19 +64,24 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
   @Input('compareWith')
   set compareWith(fn: (o1: any, o2: any) => boolean) {
     if (typeof fn !== 'function') {
-      throw new Error(`compareWith must be a function, but received ${JSON.stringify(fn)}`);
+      throw new Error(
+        `compareWith must be a function, but received ${JSON.stringify(fn)}`
+      );
     }
     this._compareWith = fn;
   }
 
   /**
- * Resource Key für Validation Message Required bei Control
- */
-  @Input('validationmessagerequired') _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
+   * Resource Key für Validation Message Required bei Control
+   */
+  @Input('validationmessagerequired') _validationMessageRequired: string =
+    'VALIDATION_ERROR_REQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input('validationmessagesummaryrequired') _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
+  @Input('validationmessagesummaryrequired')
+  _validationMessageRequiredSummary: string =
+    'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
   /**
    * Konstruktor
@@ -77,7 +90,12 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
    * @param _renderer Render Engine
    * @param _elementRef Referenz von HTML Element
    */
-  constructor(@Host() parent: NgFormularCommon, injector: Injector, private _renderer: Renderer2, private _elementRef: ElementRef) {
+  constructor(
+    @Host() parent: NgFormularCommon,
+    injector: Injector,
+    private _renderer: Renderer2,
+    private _elementRef: ElementRef
+  ) {
     super(parent, injector);
   }
 
@@ -124,7 +142,8 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
    */
   private setSelectedValue(value: any): void {
     // Select Item aus Control lesen
-    const selectItem: any = this._elementRef.nativeElement.getElementsByTagName('select')[0];
+    const selectItem: any =
+      this._elementRef.nativeElement.getElementsByTagName('select')[0];
     /**
      * Id vom Select Item
      */
@@ -174,7 +193,12 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
     let error: ValidationErrors | null = null;
 
     if (this._isrequired) {
-      error = Validation.required(c, this._label, this._validationMessageRequired, this._validationMessageRequiredSummary);
+      error = Validation.required(
+        c,
+        this._label,
+        this._validationMessageRequired,
+        this._validationMessageRequiredSummary
+      );
     }
     return error;
   }
@@ -195,19 +219,21 @@ export class NgDropdownOptionCommon implements OnDestroy {
    * @param _renderer Render Engine
    * @param _dropdown Dropdown Instanz
    */
-  constructor(private _element: ElementRef, private _renderer: Renderer2, private _dropdown: NgDropdownCommon) {
-
+  constructor(
+    private _element: ElementRef,
+    private _renderer: Renderer2,
+    private _dropdown: NgDropdownCommon
+  ) {
     if (this._dropdown) {
       this.id = this._dropdown.registerOption();
     }
   }
-  
+
   /**
    * Option ngValue
    */
   @Input('ngValue')
   set ngValue(value: any) {
-
     // Cancel wenn kein Parent Dropdown vorhanden
     if (this._dropdown == null) {
       return;

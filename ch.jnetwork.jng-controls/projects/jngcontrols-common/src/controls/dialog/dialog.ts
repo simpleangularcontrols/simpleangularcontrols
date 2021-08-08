@@ -1,11 +1,20 @@
-import { ChangeDetectorRef, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild, Directive, OnDestroy } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Input,
+  Output,
+  ViewChild,
+  Directive,
+  OnDestroy,
+} from '@angular/core';
 
 /**
  * Base Komponente für Dialog
  */
 @Directive()
 export class NgDialogCommon implements OnDestroy {
-
   /**
    * Name des Containers für den Dialog
    */
@@ -16,14 +25,9 @@ export class NgDialogCommon implements OnDestroy {
   /**
    * Implementation als Setter, da mit ngIf das Element bei Unsichtbarkeit UNDEFINED ist.
    */
-  @ViewChild('dialog', { static: true })
+  @ViewChild('dialog', { static: false })
   set dialogElementSetter(content: ElementRef) {
     this.dialogElement = content;
-
-    /**
-     * Detect Changes ausführen, da beim Einblenden/Ausblenden des Dialogs Parameter und Properties ändern können diese ausserhalb der Standart ChangeDetection geändert würden.
-     */
-    // this.cdRef.detectChanges();
   }
 
   /**
@@ -35,27 +39,7 @@ export class NgDialogCommon implements OnDestroy {
    * Das property enthielt (wenn überhaupt gesetzt) entweder keywords für sizing oder custom css Klassen.
    * Die akzeptabel keywordssind: 'small', 'large', 'extralarge', 'medium', ''.
    */
-  _size: string = "";
-
-  // #region Constructor
-
-  /**
-   * Konstruktor
-   * Inject des Formulars
-   */
-  constructor(private cdRef: ChangeDetectorRef) {}
-
-  // #endregion
-
-  /**
-   * Methode wenn Componente entfernt wird
-   */
-  ngOnDestroy(): void {
-    if (this.hasSetBodyTag && document.body.classList.contains("modal-open")) {
-      document.body.classList.remove("modal-open");
-      this.hasSetBodyTag = false;
-    }
-  }
+  _size: string = '';
 
   // #region Properties
 
@@ -96,6 +80,12 @@ export class NgDialogCommon implements OnDestroy {
   public width: string = null;
 
   /**
+   * Definiert eine feste Höhe beim Dialog.
+   */
+  @Input()
+  public height: string = null;
+
+  /**
    * Das Input akzeptiert sowohl default size-css-Klassen als auch custom Klassen.
    * case insensitive.
    * Die akzeptabel default-size-Klassen sind: 'small', 'large', 'extralarge', 'medium', ''.
@@ -114,8 +104,8 @@ export class NgDialogCommon implements OnDestroy {
   isVisibleEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   /**
-  * Setter. Erhält das boolen Wert des _show property
-  */
+   * Setter. Erhält das boolen Wert des _show property
+   */
   @Input('isvisible')
   set visible(v: boolean) {
     if (
@@ -153,17 +143,47 @@ export class NgDialogCommon implements OnDestroy {
     let result: boolean = false;
 
     switch (this._size) {
-      case 'small': result = true; break;
-      case 'medium': result = true; break;
-      case 'large': result = true; break;
-      case 'extralarge': result = true; break;
-      case '': result = true; break;
+      case 'small':
+        result = true;
+        break;
+      case 'medium':
+        result = true;
+        break;
+      case 'large':
+        result = true;
+        break;
+      case 'extralarge':
+        result = true;
+        break;
+      case '':
+        result = true;
+        break;
     }
 
     return result;
   }
 
   // #endregion
+
+  // #region Constructor
+
+  /**
+   * Konstruktor
+   * Inject des Formulars
+   */
+  constructor(private cdRef: ChangeDetectorRef) {}
+
+  // #endregion
+
+  /**
+   * Methode wenn Componente entfernt wird
+   */
+  ngOnDestroy(): void {
+    if (this.hasSetBodyTag && document.body.classList.contains('modal-open')) {
+      document.body.classList.remove('modal-open');
+      this.hasSetBodyTag = false;
+    }
+  }
 
   // #region Methods
 
@@ -211,7 +231,7 @@ export class NgDialogCommon implements OnDestroy {
   /**
    * Allow Close by Click outside Dialog
    */
-  @HostListener("click", ["$event"])
+  @HostListener('click', ['$event'])
   onClick(event: any): void {
     if (
       this._allowesc === false ||
@@ -227,7 +247,7 @@ export class NgDialogCommon implements OnDestroy {
   /**
    * Allow Close by ESC
    */
-  @HostListener("document:keydown", ["$event"])
+  @HostListener('document:keydown', ['$event'])
   onKeydownHandler(event: KeyboardEvent) {
     const ESCAPE_KEYCODE = 'Escape';
 

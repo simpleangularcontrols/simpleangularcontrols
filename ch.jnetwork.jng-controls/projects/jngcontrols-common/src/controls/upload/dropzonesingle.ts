@@ -1,4 +1,4 @@
-import { Directive, OnInit } from '@angular/core';
+import { Directive, Input, OnInit } from '@angular/core';
 import { UploadState } from 'ngx-uploadx';
 import { NgUploadBase } from '../../common/baseuploadcontrol';
 
@@ -10,6 +10,9 @@ export class NgDropzoneSingleCommon
   extends NgUploadBase<string>
   implements OnInit
 {
+  @Input()
+  public uploadheight: string = null;
+
   /**
    * Property wenn Drag Event aktiv ist (Maus über Zone)
    */
@@ -39,7 +42,7 @@ export class NgDropzoneSingleCommon
       event.preventDefault();
       this.active = false;
 
-      if (event.dataTransfer.files.length == 1) {
+      if (event.dataTransfer.files.length === 1) {
         this.uploadService.handleFileList(event.dataTransfer.files);
       } else {
         this.onfileerror.emit('INVALID_DRAGDROP_MAXFILES');

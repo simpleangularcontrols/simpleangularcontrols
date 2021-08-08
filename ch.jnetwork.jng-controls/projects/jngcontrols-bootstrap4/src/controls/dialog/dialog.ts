@@ -1,11 +1,20 @@
-import { Component, ElementRef, ChangeDetectorRef, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  ChangeDetectorRef,
+  OnInit,
+  OnDestroy,
+} from '@angular/core';
 import { NgDialogCommon } from '@jnetwork/jngcontrols-common';
 
 @Component({
   selector: 'ng-dialog,ngDialog',
-  templateUrl: './dialog.html'
+  templateUrl: './dialog.html',
 })
-export class NgDialogComponent extends NgDialogCommon implements OnInit, OnDestroy {
+export class NgDialogComponent
+  extends NgDialogCommon
+  implements OnInit, OnDestroy
+{
   // DOM Element
   private element: any;
 
@@ -22,7 +31,9 @@ export class NgDialogComponent extends NgDialogCommon implements OnInit, OnDestr
 
   ngOnDestroy() {
     this.hide();
-    document.body.removeChild(this.element);
+    if (document.body.contains(this.element)) {
+      document.body.removeChild(this.element);
+    }
     super.ngOnDestroy();
   }
 }

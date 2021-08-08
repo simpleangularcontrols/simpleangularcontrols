@@ -15,7 +15,6 @@
   },
   "scripts": {
     "postinstall": "ngcc"
-
   },
   "description": "Core Library für Angular Controls",
   "dependencies": {

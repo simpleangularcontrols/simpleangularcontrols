@@ -1,15 +1,61 @@
 <div class="form-row form-group">
-  <div class="col" [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only' ]">
+  <div
+    class="col"
+    [ngClass]="[_disablelabel === false ?  'col-md-' + _labelsize : 'sr-only' ]"
+  >
     <label for="{{_name}}" class="form-control-label">{{_label}}</label>
   </div>
-  <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
-    <ngTinyMceEditor id="tinymce_{{_name}}" hostUrl="/exanic.ch.wams.template.website/js/angular/assets/tinymce/tinymce.min.js"
-    [value]="value" (onEditorContentChange)="setValue($event.getContent())"
-    plugins="elektro code" toolbar="undo redo | bold italic | elektro | code"
-    [init]="{ external_plugins: { 'elektro': '/exanic.ch.wams.template.website/js/angular/assets/tinymceplugins/elektro/plugin.js' },
-            extended_valid_elements: 'elektro'}"                
-    >
-
-    </ngTinyMceEditor>
+  <div
+    class="col-12"
+    [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"
+  >
+    <editor
+      [id]="_name + '_tinymce'"
+      [init]="_config"
+      [initialValue]="value"
+      ngModel
+      [ngModelOptions]="{standalone: true}"
+      (ngModelChange)="setValue($event)"
+      (onSaveContent)="save($event.event.content)"
+      [disabled]="_disabledControl"
+    ></editor>
   </div>
 </div>
+
+<ngDialog
+  *ngIf="selectdialogvisible"
+  [allowesc]="false"
+  [backdrop]="true"
+  [(isvisible)]="selectdialogvisible"
+  title="{{ lngResourceService.GetString('TINYMCE_FILESELECT_DIALOGTITLE') | async }}"
+  size="large"
+  height="500px"
+>
+  <ng-container dialogbody>
+    <ngFileBrowser
+      [apiurl]="filebrowserapiurl"
+      (file)="selectDialogSettings.value = $event"
+      [allowfoldercreate]="allowfoldercreate"
+      [allowfolderrename]="allowfolderrename"
+      [allowfolderdelete]="allowfolderdelete"
+      [allowfileupload]="allowfileupload"
+      [allowfilerename]="allowfilerename"
+      [allowfiledelete]="allowfiledelete"
+      [selectedfile]="selectDialogSettings.value"
+      [allowedtypes]="selectDialogSettings.allowedtypes"
+    ></ngFileBrowser>
+  </ng-container>
+  <ng-container dialogfooter>
+    <ngButton
+      role="primary"
+      [name]="_name + '_modalOk'"
+      text="{{ lngResourceService.GetString('TINYMCE_FILESELECT_OK') | async }}"
+      (onclick)="setSelectDialogResult()"
+    ></ngButton>
+    <ngButton
+      [name]="_name + '_modalClose'"
+      text="{{ lngResourceService.GetString('TINYMCE_FILESELECT_CANCEL') | async }}"
+      (onclick)="closeSelectDialog()"
+    ></ngButton>
+  </ng-container>
+</ngDialog>

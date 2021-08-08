@@ -13,9 +13,15 @@ export class NgUploadMultipleCommon
   extends NgUploadBase<string[]>
   implements IUploadControl
 {
+  /**
+   * Max. Files die hochgeladen werden können. 0 deaktiviert das Limit
+   */
   @Input('maxfiles')
   public maxfiles: number = 0;
 
+  /**
+   * Min. Files die hochgeladen werden müssen. 0 deaktiviert das Limit
+   */
   @Input('minfiles')
   public minfiles: number = 0;
 

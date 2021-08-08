@@ -144,7 +144,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">projects/jngcontrols-common/src/controls/list/listbox.ts:99</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">projects/jngcontrols-common/src/controls/list/listbox.ts:106</a></div>
                         </td>
                     </tr>
 
@@ -186,8 +186,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="103"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/list/listbox.ts:103</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/list/listbox.ts:110</a></div>
                 </td>
             </tr>
 
@@ -285,16 +285,22 @@ export class NgListboxOptionCommon implements OnDestroy {
     }
   }
 
-  get value(): any {
-    return this._value;
-  }
+  /**
+   * Definiert den Wert der Listbox
+   */
   @Input(&#x27;value&#x27;)
   set value(value: any) {
     if (this._listbox) {
       this._value &#x3D; value;
     }
   }
+  get value(): any {
+    return this._value;
+  }
 
+  /**
+   * NgValue des Controls. Wird für die Mehrfachauswahl benötigt
+   */
   @Input(&#x27;ngValue&#x27;)
   set ngValue(value: any) {
     if (this._listbox) {
@@ -313,6 +319,7 @@ export class NgListboxOptionCommon implements OnDestroy {
 
   /**
    * Methode ergibt den Status der Elemente, die selektiert wurden
+   * @param selected Element ist selektiert
    */
   _setSelected(selected: boolean) {
     this._renderer.setProperty(
@@ -443,10 +450,18 @@ export class NgListboxCommon extends NgBaseSelectControl&lt;Array&lt;string&gt;&
     return error;
   }
 
+  /**
+   * Registriert ein Listbox Element
+   * @param option Listbox Option Item das registriert werden soll
+   */
   public registerOption(option: NgListboxOptionCommon): void {
     this.optionlist.push(option);
   }
 
+  /**
+   * Hebt die Registration eines Listbox Items auf
+   * @param option Listbox Option Item das deregistriert werden soll
+   */
   public unregisterOption(option: NgListboxOptionCommon): void {
     const index &#x3D; this.optionlist.indexOf(option);
     this.optionlist.splice(index, 1);

@@ -37,16 +37,22 @@ export class NgListboxOptionCommon implements OnDestroy {
     }
   }
 
-  get value(): any {
-    return this._value;
-  }
+  /**
+   * Definiert den Wert der Listbox
+   */
   @Input('value')
   set value(value: any) {
     if (this._listbox) {
       this._value = value;
     }
   }
+  get value(): any {
+    return this._value;
+  }
 
+  /**
+   * NgValue des Controls. Wird für die Mehrfachauswahl benötigt
+   */
   @Input('ngValue')
   set ngValue(value: any) {
     if (this._listbox) {
@@ -65,6 +71,7 @@ export class NgListboxOptionCommon implements OnDestroy {
 
   /**
    * Methode ergibt den Status der Elemente, die selektiert wurden
+   * @param selected Element ist selektiert
    */
   _setSelected(selected: boolean) {
     this._renderer.setProperty(
@@ -195,10 +202,18 @@ export class NgListboxCommon extends NgBaseSelectControl<Array<string>> {
     return error;
   }
 
+  /**
+   * Registriert ein Listbox Element
+   * @param option Listbox Option Item das registriert werden soll
+   */
   public registerOption(option: NgListboxOptionCommon): void {
     this.optionlist.push(option);
   }
 
+  /**
+   * Hebt die Registration eines Listbox Items auf
+   * @param option Listbox Option Item das deregistriert werden soll
+   */
   public unregisterOption(option: NgListboxOptionCommon): void {
     const index = this.optionlist.indexOf(option);
     this.optionlist.splice(index, 1);

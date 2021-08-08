@@ -23,6 +23,9 @@ import { IBrowserFileResponse } from './models/browserfileresponse';
 import { IBrowserNode } from './models/browsernode';
 import { IBrowserNodeResponse } from './models/browsernoderesponse';
 
+/**
+ * Base Component für File Browser
+ */
 @Directive()
 export abstract class NgFileBrowserCommon implements OnInit {
   /**
@@ -63,7 +66,9 @@ export abstract class NgFileBrowserCommon implements OnInit {
    * Service für File Browser Zugriff (Backend)
    */
   private browserService: IFileBrowserService;
-
+  /**
+   * File welches beim starten des Browsers bereits selektiert ist
+   */
   private preselecedfile: string | null = null;
   /**
    * Setzt den Seleced Node über den Pfad
@@ -537,6 +542,12 @@ export abstract class NgFileBrowserCommon implements OnInit {
     node.ChildNodes.forEach((itm) => this.clearNewChildNodes(itm));
   }
 
+  /**
+   * Sucht den übergeordneten Node im Tree
+   * @param node Aktueller Node
+   * @param nodeToFind Node welcher gefunden werden soll
+   * @returns Node wenn er gefunden wurde, ansonsten wird NULL zurückgegeben
+   */
   private findParentNode(
     node: IBrowserNode,
     nodeToFind: IBrowserNode
@@ -555,12 +566,21 @@ export abstract class NgFileBrowserCommon implements OnInit {
     return null;
   }
 
+  /**
+   * Setzt den Pfad in allen Nodes
+   */
   private setPathToAllNodes() {
     this.rootNode.ChildNodes.forEach((itm) => {
       this.fillPath(itm, '');
     });
   }
 
+  /**
+   * Sucht einen Node gem. einem URL Pfad
+   * @param node Node in welchem gesucht werden soll
+   * @param path Pfad nach welchem gesucht wird
+   * @returns Node welcher zum gesuchten Pfad passt. Wenn kein Node gefunden wird, wird NULL zurückgegeben
+   */
   private findSelectedNodeByPath(
     node: IBrowserNode,
     path: string
@@ -577,6 +597,13 @@ export abstract class NgFileBrowserCommon implements OnInit {
     return this.findSelectedNodeByPathArray(node, pathArray, 0);
   }
 
+  /**
+   * Sucht einen Node gem. einem Array von Node Namen
+   * @param node Node in welchem gesucht werden soll
+   * @param path Array von Node Namen, welche die Hirarchy des Pfades abbilden
+   * @param index Aktueller Index im PATH Array
+   * @returns Node wenn einer gefunden wurde, ansonsten NULL
+   */
   private findSelectedNodeByPathArray(
     node: IBrowserNode,
     path: string[],

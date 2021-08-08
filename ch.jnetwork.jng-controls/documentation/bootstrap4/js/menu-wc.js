@@ -656,6 +656,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="directives/NgTimeCommon.html" data-type="entity-link" >NgTimeCommon</a>
                                 </li>
                                 <li class="link">
+                                    <a href="directives/NgTinyMceCommon.html" data-type="entity-link" >NgTinyMceCommon</a>
+                                </li>
+                                <li class="link">
                                     <a href="directives/NgTooltipCommon.html" data-type="entity-link" >NgTooltipCommon</a>
                                 </li>
                                 <li class="link">
@@ -736,9 +739,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/NgConfirmButton.html" data-type="entity-link" >NgConfirmButton</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NgTinyMceCommon.html" data-type="entity-link" >NgTinyMceCommon</a>
                             </li>
                             <li class="link">
                                 <a href="classes/NgUploadFile.html" data-type="entity-link" >NgUploadFile</a>

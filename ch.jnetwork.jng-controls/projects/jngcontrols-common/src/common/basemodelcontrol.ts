@@ -247,6 +247,8 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
 
   /**
    * Method can Overwriten in Parent Classes
+   * @param value Wert welcher in den korrekten Typ konvertiert werden soll
+   * @returns Wert im korrekten Typ
    */
   protected ConvertInputValue(value: VALUE): VALUE {
     return value;
@@ -351,16 +353,19 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
     return this.lngResourceService.GetString(errorItem.errorMessageKey, parameters);
   }
 
+  /**
+   * Aktualisiert den NgModel Wert und die Gültigkeit des Validators des Controls
+   */
   protected UpdateValueAndValidity(): void {
     if (this.ngControl) {
       this.ngControl.control.updateValueAndValidity({ onlySelf: true });
     }
   }
 
-  @Input('inlineerrorenabled')
   /**
    * Aktiviert oder Deaktiviert die Inline Errors für das Control
    */
+   @Input('inlineerrorenabled')
   set inlineerrorenabled(value: boolean | null) {
     if (value === null || value === undefined) {
       this._inlineerrorenabled = null;
@@ -368,9 +373,6 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
       this._inlineerrorenabled = convertToBoolean(value);
     }
   }
-  /**
-   * Aktiviert oder Deaktiviert die Inline Errors für das Control
-   */
   get inlineerrorenabled(): boolean | null {
     return this._inlineerrorenabled;
   }

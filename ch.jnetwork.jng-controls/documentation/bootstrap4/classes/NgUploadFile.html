@@ -65,6 +65,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Klasse für den Upload einer Datei in der Upload Component</p>
+
+            </p>
 
 
 
@@ -120,12 +127,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/jngcontrols-common/src/common/baseuploadcontrol.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/jngcontrols-common/src/common/baseuploadcontrol.ts:49</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -134,6 +143,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -148,6 +158,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Upload Status</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -182,10 +196,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/jngcontrols-common/src/common/baseuploadcontrol.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/jngcontrols-common/src/common/baseuploadcontrol.ts:49</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Document ID</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -208,10 +228,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/jngcontrols-common/src/common/baseuploadcontrol.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/jngcontrols-common/src/common/baseuploadcontrol.ts:33</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Dateiname</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -234,10 +260,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/jngcontrols-common/src/common/baseuploadcontrol.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/jngcontrols-common/src/common/baseuploadcontrol.ts:41</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Upload Fortschritt</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -260,10 +292,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/jngcontrols-common/src/common/baseuploadcontrol.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/jngcontrols-common/src/common/baseuploadcontrol.ts:45</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Upload Status</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -286,10 +324,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/jngcontrols-common/src/common/baseuploadcontrol.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/jngcontrols-common/src/common/baseuploadcontrol.ts:37</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Upload ID</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -305,23 +349,60 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, ElementRef, EventEmitter, Injector, Input, NgZone, OnDestroy, OnInit, Output, Renderer2, ViewChild } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Directive,
+  ElementRef,
+  EventEmitter,
+  Injector,
+  Input,
+  NgZone,
+  OnDestroy,
+  OnInit,
+  Output,
+  Renderer2,
+  ViewChild,
+} from &#x27;@angular/core&#x27;;
 import { AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
 import { UploadState, UploadxOptions, UploadxService } from &#x27;ngx-uploadx&#x27;;
-import { InternalLanguageResourceService, LANGUAGERESOURCE_SERVICE } from &#x27;../services/languageresource.service&#x27;;
+import {
+  InternalLanguageResourceService,
+  LANGUAGERESOURCE_SERVICE,
+} from &#x27;../services/languageresource.service&#x27;;
 import { NgFormularCommon } from &#x27;../controls/form/form&#x27;;
 import { ILanguageResourceService } from &#x27;../interfaces/ilanguageresource&#x27;;
 import { Validation } from &#x27;../validation&#x27;;
 import { NgBaseModelControl } from &#x27;./basemodelcontrol&#x27;;
 import { Observable, of } from &#x27;rxjs&#x27;;
 
+/**
+ * Klasse für den Upload einer Datei in der Upload Component
+ */
 export class NgUploadFile {
+  /**
+   * Dateiname
+   */
   name: string;
+  /**
+   * Upload ID
+   */
   uploadId: string;
+  /**
+   * Upload Fortschritt
+   */
   progress: number;
+  /**
+   * Upload Status
+   */
   status: string;
+  /**
+   * Document ID
+   */
   documentid: string;
 
+  /**
+   * Konstruktor
+   * @param ufile Upload Status
+   */
   constructor(ufile: UploadState) {
     this.uploadId &#x3D; ufile.uploadId;
     this.name &#x3D; ufile.name;
@@ -335,8 +416,10 @@ export class NgUploadFile {
  * Base Klasse für Uploader Control
  */
 @Directive()
-export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VALUE&gt; implements OnInit, OnDestroy {
-
+export abstract class NgUploadBase&lt;VALUE&gt;
+  extends NgBaseModelControl&lt;VALUE&gt;
+  implements OnInit, OnDestroy
+{
   uploads: NgUploadFile[];
   private options: UploadxOptions &#x3D; {};
   protected uploadService: UploadxService;
@@ -345,21 +428,26 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
   private _enablepause: boolean &#x3D; true;
   private _endpoint: string &#x3D; null;
   /**
-  * Service für Error Localisation
-  */
+   * Service für Error Localisation
+   */
   public lngResourceService: ILanguageResourceService;
-  
+
   //#region Properties
 
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input(&#x27;validationmessagerequired&#x27;) _validationMessageRequired: string &#x3D; &#x27;VALIDATION_ERROR_REQUIRED&#x27;;
+  @Input(&#x27;validationmessagerequired&#x27;) _validationMessageRequired: string &#x3D;
+    &#x27;VALIDATION_ERROR_REQUIRED&#x27;;
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input(&#x27;validationmessagesummaryrequired&#x27;) _validationMessageRequiredSummary: string &#x3D; &#x27;VALIDATION_ERROR_SUMMARY_REQUIRED&#x27;;
-
+  @Input(&#x27;validationmessagesummaryrequired&#x27;)
+  _validationMessageRequiredSummary: string &#x3D;
+    &#x27;VALIDATION_ERROR_SUMMARY_REQUIRED&#x27;;
+  /**
+   * Erlaubte Dateitypen für den Upload. Format: &quot;.xxx,.yyy,.zzz&quot;
+   */
   @Input(&#x27;allowedtypes&#x27;)
   set allowedtypes(types: string) {
     this._allowedtypes &#x3D; types;
@@ -368,7 +456,9 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
   get allowedtypes(): string {
     return this._allowedtypes;
   }
-
+  /**
+   * Files nach der Auswahl automatisch hochladen
+   */
   @Input(&#x27;autoupload&#x27;)
   set autoupload(v: boolean) {
     this._autoupload &#x3D; v;
@@ -379,6 +469,9 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
     return this._autoupload;
   }
 
+  /**
+   * Uploads können unterbrochen werden
+   */
   @Input(&#x27;enablepause&#x27;)
   set enablepause(v: boolean) {
     this._enablepause &#x3D; v;
@@ -387,12 +480,18 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
     return this._enablepause;
   }
 
+  /**
+   * Max. Dateigrösse für Files die hochgeladen werden können. 0 deaktiviert den Filter
+   */
   @Input(&#x27;maxfilesize&#x27;) maxfilesize: number &#x3D; 0;
 
-  // Definiert das Control als Required
+  /**
+   * Definiert das Control als Required
+   */
   @Input(&#x27;isrequired&#x27;) _isrequired: boolean &#x3D; false;
 
   //#endregion
+
   /**
    * Definiert den Registration Endpoint für Uploads.
    */
@@ -405,21 +504,40 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
     return this._endpoint;
   }
 
+  /**
+   * Event wenn ein Error in der Komponente ausgelöst wird.
+   */
   @Output(&#x27;onfileerror&#x27;) onfileerror &#x3D; new EventEmitter&lt;string&gt;();
 
-  // File Input Control
+  /**
+   * File Input Control
+   */
   @ViewChild(&#x27;files&#x27;, { static: true })
   private uploadInput: ElementRef;
-  // Listener für Files
+  /**
+   * Listener für Files
+   */
   listenerFn: () &#x3D;&gt; void;
 
   /**
    * Constructor
+   * @param parent Formular Component
+   * @param injector Injector für Komponenten Injection
+   * @param renderer Rendering Engine
+   * @param ngZone NgZone
    */
-  constructor(parent: NgFormularCommon, injector: Injector, private renderer: Renderer2, private ngZone: NgZone) {
+  constructor(
+    parent: NgFormularCommon,
+    injector: Injector,
+    private renderer: Renderer2,
+    private ngZone: NgZone
+  ) {
     super(parent, injector);
 
-    this.lngResourceService &#x3D; injector.get(LANGUAGERESOURCE_SERVICE, new InternalLanguageResourceService());
+    this.lngResourceService &#x3D; injector.get(
+      LANGUAGERESOURCE_SERVICE,
+      new InternalLanguageResourceService()
+    );
 
     this.uploads &#x3D; [];
 
@@ -430,7 +548,7 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
     this.options.withCredentials &#x3D; true;
     this.options.chunkSize &#x3D; 1024 * 16 * 8;
     this.options.headers &#x3D; (f: File) &#x3D;&gt; ({
-      &#x27;Content-Disposition&#x27;: &#x60;filename&#x3D;${encodeURI(f.name)}&#x60;
+      &#x27;Content-Disposition&#x27;: &#x60;filename&#x3D;${encodeURI(f.name)}&#x60;,
     });
 
     // Init new Service Instance
@@ -438,7 +556,9 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
     this.uploadService.init(this.options);
 
     // Subscripe Event for State changes
-    this.uploadService.events.subscribe((ufile: UploadState) &#x3D;&gt; this.onUpload(ufile));
+    this.uploadService.events.subscribe((ufile: UploadState) &#x3D;&gt;
+      this.onUpload(ufile)
+    );
   }
 
   /**
@@ -447,7 +567,11 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
   ngOnInit() {
     super.ngOnInit();
     // Init Event Listener for Input File Control and Handling Files
-    this.listenerFn &#x3D; this.renderer.listen(this.uploadInput.nativeElement, &#x27;change&#x27;, this.fileListener);
+    this.listenerFn &#x3D; this.renderer.listen(
+      this.uploadInput.nativeElement,
+      &#x27;change&#x27;,
+      this.fileListener
+    );
 
     this.setAllowedTypes(this._allowedtypes);
     this.setEndpoint(this._endpoint);
@@ -467,7 +591,6 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
       this.listenerFn();
     }
   }
-
 
   //#region All File Events
 
@@ -510,7 +633,6 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
     this.uploadService.control({ action: &#x27;cancel&#x27;, uploadId: uploadId });
   }
 
-
   /**
    * Cancel Single File
    * @param uploadId ID of File to Cancel
@@ -532,22 +654,46 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
 
   //#region UI Property Helper
 
+  /**
+   * Gibt an ob Queue Elemente beinhaltet
+   * @returns Elemente in der Queue
+   */
   HasQueueItem(): boolean {
     return this.uploads.length &gt; 0;
   }
 
+  /**
+   * Prüft ob in der Queue Elemente die zum Upload bereit sind vorhanden sind.
+   * @returns Elemente für Upload vorhanden
+   */
   IsStateToUpload(): boolean {
-    return this.uploads.filter(itm &#x3D;&gt; itm.status &#x3D;&#x3D;&#x3D; &#x27;added&#x27; || itm.status &#x3D;&#x3D;&#x3D; &#x27;paused&#x27;).length &gt; 0;
+    return (
+      this.uploads.filter(
+        (itm) &#x3D;&gt; itm.status &#x3D;&#x3D;&#x3D; &#x27;added&#x27; || itm.status &#x3D;&#x3D;&#x3D; &#x27;paused&#x27;
+      ).length &gt; 0
+    );
   }
 
+  /**
+   * Prüft ob ein Upload eines Files am laufen ist
+   * @returns Upload ist am laufen
+   */
   IsUploading(): boolean {
-    return this.uploads.filter(itm &#x3D;&gt; itm.status &#x3D;&#x3D;&#x3D; &#x27;uploading&#x27;).length &gt; 0;
+    return this.uploads.filter((itm) &#x3D;&gt; itm.status &#x3D;&#x3D;&#x3D; &#x27;uploading&#x27;).length &gt; 0;
   }
 
+  /**
+   * Prüft ob ein Upload pausiert
+   * @returns Pausierter Upload ist vorhanden
+   */
   IsPaused(): boolean {
-    return this.uploads.filter(itm &#x3D;&gt; itm.status &#x3D;&#x3D;&#x3D; &#x27;paused&#x27;).length &gt; 0;
+    return this.uploads.filter((itm) &#x3D;&gt; itm.status &#x3D;&#x3D;&#x3D; &#x27;paused&#x27;).length &gt; 0;
   }
 
+  /**
+   * Name der Datei die Hochgeladen wird
+   * @returns Observable des Dateinamens.
+   */
   Filename(): Observable&lt;string&gt; {
     if (this.uploads.length &gt; 0) {
       return of(this.uploads[0].name);
@@ -556,14 +702,24 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
     }
   }
 
+  /**
+   * Gibt an ob ein Upload abgeschlossen ist
+   * @returns Upload erfolgreich
+   */
   HasSuccessUpload(): boolean {
     if (this.uploads.length &gt; 0) {
-      return this.uploads.filter(itm &#x3D;&gt; itm.status !&#x3D;&#x3D; &#x27;complete&#x27;).length &#x3D;&#x3D;&#x3D; 0;
+      return (
+        this.uploads.filter((itm) &#x3D;&gt; itm.status !&#x3D;&#x3D; &#x27;complete&#x27;).length &#x3D;&#x3D;&#x3D; 0
+      );
     } else {
       return false;
     }
   }
 
+  /**
+   * Gibt den Uploadfortschritt zurück
+   * @returns Upload Fortschritt. Wert von 0-100
+   */
   Progress(): number {
     if (this.uploads.length &gt; 0) {
       return this.uploads[0].progress;
@@ -576,11 +732,20 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
 
   //#region Validation
 
+  /**
+   * Validiert das Upload Control
+   * @param c Control das validiert werden soll
+   */
   validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null &#x3D; null;
 
     if (this._isrequired) {
-      error &#x3D; Validation.required(c, this._label, this._validationMessageRequired, this._validationMessageRequiredSummary);
+      error &#x3D; Validation.required(
+        c,
+        this._label,
+        this._validationMessageRequired,
+        this._validationMessageRequiredSummary
+      );
     }
 
     return error;
@@ -596,7 +761,11 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
   private setAllowedTypes(types: string) {
     // Prüfen UploadInput bereits geladen, ist NULL wenn Extension im Markup nach NgModel gesetzt wird.
     if (this.uploadInput &amp;&amp; this.uploadInput.nativeElement) {
-      this.renderer.setAttribute(this.uploadInput.nativeElement, &#x27;accept&#x27;, types);
+      this.renderer.setAttribute(
+        this.uploadInput.nativeElement,
+        &#x27;accept&#x27;,
+        types
+      );
     }
 
     this.options.allowedTypes &#x3D; types;
@@ -616,7 +785,6 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
    * @param filename Dateiname
    */
   private isExtensionValid(filename: string): boolean {
-
     if (this._allowedtypes &#x3D;&#x3D;&#x3D; &#x27;*&#x27;) {
       return true;
     }
@@ -624,7 +792,7 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
     let isValid: boolean &#x3D; false;
     const extensions: string[] &#x3D; this._allowedtypes.split(&#x27;,&#x27;);
 
-    extensions.forEach(itm &#x3D;&gt; {
+    extensions.forEach((itm) &#x3D;&gt; {
       if (filename.toLowerCase().endsWith(itm.toLowerCase())) {
         isValid &#x3D; true;
       }
@@ -652,10 +820,14 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
    * @param uploadsOutStream Upload Item
    */
   onUpload(ufile: UploadState) {
-    const index &#x3D; this.uploads.findIndex(f &#x3D;&gt; f.uploadId &#x3D;&#x3D;&#x3D; ufile.uploadId);
+    const index &#x3D; this.uploads.findIndex((f) &#x3D;&gt; f.uploadId &#x3D;&#x3D;&#x3D; ufile.uploadId);
 
     if (ufile.status &#x3D;&#x3D;&#x3D; &#x27;added&#x27; || (ufile.status &#x3D;&#x3D;&#x3D; &#x27;queue&#x27; &amp;&amp; index &lt; 0)) {
-      if (this.isExtensionValid(ufile.name) &amp;&amp; this.isFileSizeValid(ufile.size) &amp;&amp; this.CustomAddValidation(ufile)) {
+      if (
+        this.isExtensionValid(ufile.name) &amp;&amp;
+        this.isFileSizeValid(ufile.size) &amp;&amp;
+        this.CustomAddValidation(ufile)
+      ) {
         this.uploads.push(new NgUploadFile(ufile));
       } else {
         this.cancel(ufile.uploadId);
@@ -691,7 +863,7 @@ export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VA
     if (this.uploadInput.nativeElement.files) {
       this.uploadService.handleFileList(this.uploadInput.nativeElement.files);
     }
-  }
+  };
 
   /**
    * Methode welche die Upload ID&#x27;s in das Model setzt oder löscht

@@ -4,7 +4,10 @@ import { NgInputBase } from '../../common/baseinputcontrol';
 import { IconType } from '../../enums/IconType';
 import { ILanguageService } from '../../interfaces/ilanguageservice';
 import { LanguageModel } from '../../models/languagemodel';
-import { InternalLanguageService, LANGUAGE_SERVICE } from '../../services/Language.Service';
+import {
+  InternalLanguageService,
+  LANGUAGE_SERVICE,
+} from '../../services/Language.Service';
 import { Validation } from '../../validation';
 import { NgFormularCommon } from '../form/form';
 
@@ -13,10 +16,9 @@ import { NgFormularCommon } from '../form/form';
  */
 @Directive()
 export class NgMultilanguageInputCommon extends NgInputBase<any> {
-
   /**
-  * Max länge an Zeichen für Eingabefeld
-  */
+   * Max länge an Zeichen für Eingabefeld
+   */
   @Input('maxlength') _maxlength: number = null;
 
   /**
@@ -29,50 +31,58 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
    */
   @Input('requiredany') _anyrequired: boolean = false;
 
-
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input('validationmessagerequired') _validationMessageRequired: string = 'VALIDATION_ERROR_MULTILANGUAGEREQUIRED';
+  @Input('validationmessagerequired') _validationMessageRequired: string =
+    'VALIDATION_ERROR_MULTILANGUAGEREQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input('validationmessagesummaryrequired') _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED';
+  @Input('validationmessagesummaryrequired')
+  _validationMessageRequiredSummary: string =
+    'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED';
 
   /**
    * Resource Key für Validation Message Pattern bei Control
    */
-  @Input('validationmessagerequiredany') _validationMessageRequiredAny: string = 'VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY';
+  @Input('validationmessagerequiredany') _validationMessageRequiredAny: string =
+    'VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY';
   /**
    * Resource Key für Validation Message Pattern in Validation Summary
    */
-  @Input('validationmessagesummaryrequiredany') _validationMessageRequiredAnySummary: string = 'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY';
-
+  @Input('validationmessagesummaryrequiredany')
+  _validationMessageRequiredAnySummary: string =
+    'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY';
 
   /**
-  * Service für Error Localisation
-  */
+   * Service für Error Localisation
+   */
   protected lngLanguageService: ILanguageService;
 
   /**
-  * Konstruktor
-  * Inject des Formulars
-  */
+   * Konstruktor
+   * Inject des Formulars
+   */
   constructor(@Host() parent: NgFormularCommon, injector: Injector) {
     super(parent, injector);
 
-    this.lngLanguageService = injector.get(LANGUAGE_SERVICE, new InternalLanguageService());
+    this.lngLanguageService = injector.get(
+      LANGUAGE_SERVICE,
+      new InternalLanguageService()
+    );
 
-    this.lngLanguageService.GetLanguages().subscribe((result: LanguageModel[]) => {
-      this.languages = result;
+    this.lngLanguageService
+      .GetLanguages()
+      .subscribe((result: LanguageModel[]) => {
+        this.languages = result;
 
-      if (this.languages.length > 0) {
-        this.selectedLanguage = this.languages[0];
-        // Control Validierung ausführen, da Wert potentiell bereits gesetzt sein kann
-        this.UpdateValueAndValidity();
-      }
-
-    });
+        if (this.languages.length > 0) {
+          this.selectedLanguage = this.languages[0];
+          // Control Validierung ausführen, da Wert potentiell bereits gesetzt sein kann
+          this.UpdateValueAndValidity();
+        }
+      });
   }
 
   /**
@@ -113,9 +123,14 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
     }
   }
 
+  /**
+   * Gibt den Wert der aktuell ausgewählten Sprache zurück
+   */
   get LanguageValue(): string {
     if (this.value) {
-      const currentIsoCode: string = this.selectedLanguage ? this.selectedLanguage.IsoCode : null;
+      const currentIsoCode: string = this.selectedLanguage
+        ? this.selectedLanguage.IsoCode
+        : null;
 
       // Fallback falls keine Selektierte Sprache
       if (currentIsoCode === null) {
@@ -132,9 +147,16 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
     }
   }
 
-  public SetLanguageValue(value: string) {
+  /**
+   *
+   * @param value    * Setzt den Wert für die aktuell gewählte Sprache
+   * @param value Wert welcher gesetzt werden soll
+   */
+  public SetLanguageValue(value: string): void {
     if (this.value) {
-      const currentIsoCode: string = this.selectedLanguage ? this.selectedLanguage.IsoCode : null;
+      const currentIsoCode: string = this.selectedLanguage
+        ? this.selectedLanguage.IsoCode
+        : null;
 
       // Fallback falls keine Selektierte Sprache
       if (currentIsoCode === null) {
@@ -146,10 +168,19 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
     }
   }
 
+  /**
+   * Selektiert die Sprache
+   * @param language Sprache die selektiert werden soll
+   */
   public SelectLanguage(language: LanguageModel) {
     this.selectedLanguage = language;
   }
 
+  /**
+   * Prüft ob in einer bestimmten Sprache ein Wert vorhanden ist.
+   * @param sprache Sprache in welcher der Wert geprüft werden soll
+   * @returns Wert ist vorhanden
+   */
   public IsEmpty(sprache: LanguageModel): boolean {
     if (this.value) {
       // Fallback falls keine Selektierte Sprache
@@ -157,24 +188,35 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
         return true;
       }
 
-      return this.value[sprache.IsoCode] === undefined || this.value[sprache.IsoCode] === '' || this.value[sprache.IsoCode] === null;
+      return (
+        this.value[sprache.IsoCode] === undefined ||
+        this.value[sprache.IsoCode] === '' ||
+        this.value[sprache.IsoCode] === null
+      );
     } else {
       return true;
     }
   }
 
+  /**
+   * Prüft ob in irgendeiner Sprache kein Wert definiert wurde
+   * @returns Leerwert ist vorhanden
+   */
   public IsAnyEmpty(): boolean {
     let found = false;
 
     if (this.value) {
       this.languages.forEach((itm: LanguageModel) => {
-
         if (itm === null) {
           found = true;
           return;
         }
 
-        if (this.value[itm.IsoCode] === undefined || this.value[itm.IsoCode] === '' || this.value[itm.IsoCode] === null) {
+        if (
+          this.value[itm.IsoCode] === undefined ||
+          this.value[itm.IsoCode] === '' ||
+          this.value[itm.IsoCode] === null
+        ) {
           found = true;
           return;
         }
@@ -186,15 +228,41 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
   /**
    * Methode validiert, ob der Wert den gegebenen Kriterien entspricht
    */
-  validateData(c: AbstractControl): { [key: string]: any; } {
+  validateData(c: AbstractControl): { [key: string]: any } {
     let error: ValidationErrors | null = null;
 
-    if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._isrequired !== undefined && this._isrequired === true) {
-      error = Validation.multilanguageRequired(c, this.languages, this._label, this._validationMessageRequired, this._validationMessageRequiredSummary);
+    if (
+      error === null &&
+      c.value !== null &&
+      c.value !== undefined &&
+      c.value !== '' &&
+      this._isrequired !== undefined &&
+      this._isrequired === true
+    ) {
+      error = Validation.multilanguageRequired(
+        c,
+        this.languages,
+        this._label,
+        this._validationMessageRequired,
+        this._validationMessageRequiredSummary
+      );
     }
 
-    if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._anyrequired !== undefined && this._anyrequired === true) {
-      error = Validation.multilanguageRequiredAny(c, this.languages, this._label, this._validationMessageRequiredAny, this._validationMessageRequiredAnySummary);
+    if (
+      error === null &&
+      c.value !== null &&
+      c.value !== undefined &&
+      c.value !== '' &&
+      this._anyrequired !== undefined &&
+      this._anyrequired === true
+    ) {
+      error = Validation.multilanguageRequiredAny(
+        c,
+        this.languages,
+        this._label,
+        this._validationMessageRequiredAny,
+        this._validationMessageRequiredAnySummary
+      );
     }
 
     return error;

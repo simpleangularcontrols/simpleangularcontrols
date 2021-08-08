@@ -1,4 +1,5 @@
 import {
+  Directive,
   EventEmitter,
   Host,
   Injector,
@@ -21,6 +22,7 @@ import { TinyMceInstance } from './tinymceinstance';
 /**
  * Basis Komponente für TinyMCE Editor
  */
+@Directive()
 export class NgTinyMceCommon
   extends NgBaseModelControl<string>
   implements OnDestroy
@@ -81,18 +83,33 @@ export class NgTinyMceCommon
   @Input()
   public filebrowserapiurl: string = null;
 
+  /**
+   * Erlaubt im Filebrowser das anlegen eines Ordners
+   */
   @Input()
   public allowfoldercreate = false;
+  /**
+   * Erlaubt im Filebrowser das umbennen eines Ordners
+   */
   @Input()
   public allowfolderrename = false;
+  /**
+   * Erlaubt im Filebrowser das löschen eines Ordners
+   */
   @Input()
   public allowfolderdelete = false;
+  /**
+   * Erlaubt im Filebrowser das hochladen von Files
+   */
   @Input()
   public allowfileupload = false;
+  /**
+   * Erlaubt im Filebrowser das umbennen von Dateien
+   */
   @Input()
   public allowfilerename = false;
   /**
-   * Files im Dateibrowser können gelöscht werden
+   * Erlaubt im Filebrowser das löschen von Dateien
    */
   @Input()
   public allowfiledelete = false;
@@ -127,6 +144,10 @@ export class NgTinyMceCommon
   _validationMessageRequiredSummary: string =
     'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
+  /**
+   * TinyMCE Konfiguration
+   * @see https://www.tiny.cloud/docs/configure/
+   */
   @Input()
   set config(v: any) {
     this._config = { ...this.getDynamicSettings(), ...this.baseConfig, ...v };
@@ -135,14 +156,17 @@ export class NgTinyMceCommon
     return this._config;
   }
 
+  /**
+   * Event wenn Save Action in TinyMCE ausgelöst wird
+   */
   @Output()
   public onsave: EventEmitter<string> = new EventEmitter<string>();
 
   /**
-   *
-   * @param parent
-   * @param injector
-   * @param ngZone
+   * Konstruktor
+   * @param parent Instanz vom Formular
+   * @param injector Injector Service
+   * @param ngZone NgZone für Javascript in TinyMCE
    */
   constructor(
     @Host() parent: NgFormularCommon,
@@ -218,6 +242,10 @@ export class NgTinyMceCommon
 
   //#endregion
 
+  /**
+   * Löst die Speichern Action aus
+   * @param content Content als String
+   */
   public save(content: any): void {
     this.onsave.emit(content);
   }
@@ -247,6 +275,10 @@ export class NgTinyMceCommon
    */
   ngOnDestroy(): void {}
 
+  /**
+   * Gibt die TinyMCE Settings zurück, die aus den Properties der Angular Komponenten erzeugt werden
+   * @returns Objekt mit Settings
+   */
   private getDynamicSettings(): any {
     let settings = {
       selector: '#' + this._name + '_tinymce',

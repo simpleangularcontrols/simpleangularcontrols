@@ -116,6 +116,8 @@
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -124,6 +126,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -138,6 +141,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Refernz auf das HTML welcher als Anker für das Context Menü verwendet wird</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -199,6 +206,11 @@
 @Directive()
 export class NgContextmenuAnchorCommon {
   nativeElement: HTMLElement;
+
+  /**
+   * Konstruktor
+   * @param _elementRef Refernz auf das HTML welcher als Anker für das Context Menü verwendet wird
+   */
   constructor(_elementRef: ElementRef&lt;HTMLElement&gt;) {
     this.nativeElement &#x3D; _elementRef.nativeElement;
   }

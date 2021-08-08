@@ -118,6 +118,10 @@ export class NgMultilanguageInputAreaCommon extends NgInputBase<any> {
     }
   }
 
+  /**
+   * Getter welcher den Wert der Component in der gewählten Sprache zurückgibt. Wenn keine Sprache selektiert ist, wird ein leerer Wert zurückgegeben.
+   * Ist in der Component kein Wert gespeichert wird ein leerer Wert zurückgegeben
+   */
   get LanguageValue(): string {
     if (this.value) {
       const currentIsoCode: string = this.selectedLanguage ? this.selectedLanguage.IsoCode : null;
@@ -133,6 +137,10 @@ export class NgMultilanguageInputAreaCommon extends NgInputBase<any> {
     }
   }
 
+  /**
+   * Speichert einen Wert zur aktuell gewählten Sprache
+   * @param value Wert welcher gespeichert werden soll
+   */
   public SetLanguageValue(value: string) {
     if (this.value) {
       const currentIsoCode: string = this.selectedLanguage ? this.selectedLanguage.IsoCode : null;
@@ -147,10 +155,19 @@ export class NgMultilanguageInputAreaCommon extends NgInputBase<any> {
     }
   }
 
+  /**
+   * Selektiert die Sprache der Komponente
+   * @param language Sprache die selektiert werden soll
+   */
   public SelectLanguage(language: LanguageModel) {
     this.selectedLanguage = language;
   }
 
+  /**
+   * Gibt an, ob in einer bestimmten Sprache ein Wert definiert ist
+   * @param sprache Sprache in welcher der Wert geprüft werden soll
+   * @returns Wert ist vorhanden
+   */
   public IsEmpty(sprache: LanguageModel): boolean {
     if (this.value) {
       // Fallback falls keine Selektierte Sprache
@@ -164,6 +181,10 @@ export class NgMultilanguageInputAreaCommon extends NgInputBase<any> {
     }
   }
 
+  /**
+   * Prüft, ob in einer beliebigen Sprache der Kompontente kein Wert definiert ist.
+   * @returns Gibt an ob ein Leeres Element vorhanden ist
+   */
   public IsAnyEmpty(): boolean {
     let found = false;
 
@@ -186,6 +207,7 @@ export class NgMultilanguageInputAreaCommon extends NgInputBase<any> {
 
   /**
    * Methode validiert, ob der Wert den gegebenen Kriterien entspricht
+   * @param c Controls das validiert wird
    */
   validateData(c: AbstractControl): { [key: string]: any; } {
     let error: ValidationErrors | null = null;

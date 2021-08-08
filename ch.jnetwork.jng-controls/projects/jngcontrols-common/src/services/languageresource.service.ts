@@ -43,6 +43,108 @@ export abstract class LanguageResourceService
    * Die Methode übersetzt den eingegebenen Wort/Begriff. Verlangt key und optionell params
    */
   abstract GetString(key: string, params?: any): Observable<string>;
+
+  //#region Required Resources
+
+  protected abstract get VALIDATION_ERROR_REQUIRED(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_SUMMARY_REQUIRED(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_MINVALUE(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_SUMMARY_MINVALUE(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_PATTERN(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_SUMMARY_PATTERN(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_MAXVALUE(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_SUMMARY_MAXVALUE(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_EMAIL(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_SUMMARY_EMAIL(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_MINLENGTH(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_SUMMARY_MINLENGTH(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_MINDATE(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_SUMMARY_MINDATE(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_MAXDATE(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_SUMMARY_MAXDATE(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_MINTIME(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_SUMMARY_MINTIME(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_MAXTIME(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_SUMMARY_MAXTIME(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_DATETIMEFORMAT(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_FILESMIN(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_SUMMARY_FILESMIN(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_MULTILANGUAGEREQUIRED(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED(): Map<
+    string,
+    string
+  >;
+
+  protected abstract get PAGING_PAGEOFTEXT(): Map<string, string>;
+  protected abstract get PAGING_PAGEENTRIESTEXT(): Map<string, string>;
+
+  protected abstract get UPLOAD_NO_FILE_SELECTED(): Map<string, string>;
+  protected abstract get UPLOAD_BUTTON_UPLOAD(): Map<string, string>;
+  protected abstract get UPLOAD_BUTTON_BROWSE(): Map<string, string>;
+
+  protected abstract get TINYMCE_FILESELECT_OK(): Map<string, string>;
+  protected abstract get TINYMCE_FILESELECT_CANCEL(): Map<string, string>;
+  protected abstract get TINYMCE_FILESELECT_DIALOGTITLE(): Map<string, string>;
+
+  protected abstract get FILEBROWSER_NO_FILES(): Map<string, string>;
+  protected abstract get FILEBROWSER_GRID_FILE(): Map<string, string>;
+  protected abstract get FILEBROWSER_GRID_SIZE(): Map<string, string>;
+  protected abstract get FILEBROWSER_UPLOAD(): Map<string, string>;
+  protected abstract get FILEBROWSER_NEWFOLDER(): Map<string, string>;
+  protected abstract get FILEBROWSER_REFRESH(): Map<string, string>;
+  protected abstract get FILEBROWSER_DELETE(): Map<string, string>;
+  protected abstract get FILEBROWSER_CONFIRM_DELETEFOLDER(): Map<
+    string,
+    string
+  >;
+  protected abstract get FILEBROWSER_CONFIRM_DELETEFILE(): Map<string, string>;
+
+  //#endregion
 }
 
 /**
@@ -70,206 +172,225 @@ export class InternalLanguageResourceService extends LanguageResourceService {
     // Validation
     this.data
       .get('de')
-      .set('VALIDATION_ERROR_REQUIRED', 'Feld ist erforderlich.');
+      .set(
+        'VALIDATION_ERROR_REQUIRED',
+        this.VALIDATION_ERROR_REQUIRED.get('de')
+      );
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_SUMMARY_REQUIRED',
-        'Feld "{{FIELD}}" ist erforderlich.'
+        this.VALIDATION_ERROR_SUMMARY_REQUIRED.get('de')
       );
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_MINVALUE',
-        'Wert darf nicht kleiner als {{MINVALUE}} sein.'
+        this.VALIDATION_ERROR_MINVALUE.get('de')
       );
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_SUMMARY_MINVALUE',
-        'Feld "{{FIELD}}" darf nicht kleiner als {{MINVALUE}} sein.'
+        this.VALIDATION_ERROR_SUMMARY_MINVALUE.get('de')
       );
     this.data
       .get('de')
-      .set(
-        'VALIDATION_ERROR_PATTERN',
-        'Wert entspricht nicht der Format Vorlage.'
-      );
+      .set('VALIDATION_ERROR_PATTERN', this.VALIDATION_ERROR_PATTERN.get('de'));
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_SUMMARY_PATTERN',
-        'Feld "{{FIELD}}" entspricht nicht der Format Vorlage.'
+        this.VALIDATION_ERROR_SUMMARY_PATTERN.get('de')
       );
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_MAXVALUE',
-        'Wert darf nicht grösser als {{MAXVALUE}} sein.'
+        this.VALIDATION_ERROR_MAXVALUE.get('de')
       );
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_SUMMARY_MAXVALUE',
-        'Feld "{{FIELD}}" darf nicht grösser als {{MAXVALUE}} sein.'
+        this.VALIDATION_ERROR_SUMMARY_MAXVALUE.get('de')
       );
     this.data
       .get('de')
-      .set('VALIDATION_ERROR_EMAIL', 'Feld ist keine E-Mail Adresse');
+      .set('VALIDATION_ERROR_EMAIL', this.VALIDATION_ERROR_EMAIL.get('de'));
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_SUMMARY_EMAIL',
-        'Feld "{{FIELD}}" ist keine E-Mail Adresse'
+        this.VALIDATION_ERROR_SUMMARY_EMAIL.get('de')
       );
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_MINLENGTH',
-        'Feld erfordert min. {{MINLENGTH}} Zeichen.'
+        this.VALIDATION_ERROR_MINLENGTH.get('de')
       );
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_SUMMARY_MINLENGTH',
-        'Feld "{{FIELD}}" erfordert min. {{MINLENGTH}} Zeichen.'
+        this.VALIDATION_ERROR_SUMMARY_MINLENGTH.get('de')
       );
     this.data
       .get('de')
-      .set(
-        'VALIDATION_ERROR_MINDATE',
-        'Feld muss neuer oder gleich {{MINDATE}} sein.'
-      );
+      .set('VALIDATION_ERROR_MINDATE', this.VALIDATION_ERROR_MINDATE.get('de'));
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_SUMMARY_MINDATE',
-        'Feld "{{FIELD}}" muss neuer oder gleich {{MINDATE}} sein.'
+        this.VALIDATION_ERROR_SUMMARY_MINDATE.get('de')
       );
     this.data
       .get('de')
-      .set(
-        'VALIDATION_ERROR_MAXDATE',
-        'Feld muss älter oder gleich {{MAXDATE}} sein.'
-      );
+      .set('VALIDATION_ERROR_MAXDATE', this.VALIDATION_ERROR_MAXDATE.get('de'));
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_SUMMARY_MAXDATE',
-        'Feld "{{FIELD}}" muss älter oder gleich {{MAXDATE}} sein.'
+        this.VALIDATION_ERROR_SUMMARY_MAXDATE.get('de')
       );
     this.data
       .get('de')
-      .set(
-        'VALIDATION_ERROR_MINTIME',
-        'Feld muss neuer oder gleich {{MINTIME}} sein.'
-      );
+      .set('VALIDATION_ERROR_MINTIME', this.VALIDATION_ERROR_MINTIME.get('de'));
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_SUMMARY_MINTIME',
-        'Feld "{{FIELD}}" muss neuer oder gleich {{MINTIME}} sein.'
+        this.VALIDATION_ERROR_SUMMARY_MINTIME.get('de')
       );
     this.data
       .get('de')
-      .set(
-        'VALIDATION_ERROR_MAXTIME',
-        'Feld muss älter oder gleich {{MAXTIME}} sein.'
-      );
+      .set('VALIDATION_ERROR_MAXTIME', this.VALIDATION_ERROR_MAXTIME.get('de'));
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_SUMMARY_MAXTIME',
-        'Feld "{{FIELD}}" muss älter oder gleich {{MAXTIME}} sein.'
+        this.VALIDATION_ERROR_SUMMARY_MAXTIME.get('de')
       );
     this.data
       .get('de')
-      .set('VALIDATION_ERROR_DATETIMEFORMAT', 'Feld ist kein gültiges Datum.');
+      .set(
+        'VALIDATION_ERROR_DATETIMEFORMAT',
+        this.VALIDATION_ERROR_DATETIMEFORMAT.get('de')
+      );
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT',
-        'Feld "{{FIELD}}" ist kein gültiges Datum.'
+        this.VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT.get('de')
       );
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_FILESMIN',
-        'Es müssen min. {{MINFILES}} Dateien hochgeladen sein.'
+        this.VALIDATION_ERROR_FILESMIN.get('de')
       );
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_SUMMARY_FILESMIN',
-        'Feld "{{FIELD}}" muss min. {{MINFILES}} Dateien hochgeladen haben.'
+        this.VALIDATION_ERROR_SUMMARY_FILESMIN.get('de')
       );
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY',
-        'Es muss min. 1 Sprache erfasst sein.'
+        this.VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY.get('de')
       );
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY',
-        'Feld "{{FIELD}}" muss min. 1 Sprache erfasst haben.'
+        this.VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY.get('de')
       );
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_MULTILANGUAGEREQUIRED',
-        'Es müssen alle Sprachen erfasst sein.'
+        this.VALIDATION_ERROR_MULTILANGUAGEREQUIRED.get('de')
       );
     this.data
       .get('de')
       .set(
         'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED',
-        'Feld "{{FIELD}}" muss alle Sprachen erfasst haben.'
+        this.VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED.get('de')
       );
 
     // Grid Component
     this.data
       .get('de')
-      .set('PAGING_PAGEOFTEXT', 'Seite {{CURRENTPAGE}} von {{TOTALPAGES}}');
-    this.data.get('de').set('PAGING_PAGEENTRIESTEXT', 'Einträge pro Seite');
+      .set('PAGING_PAGEOFTEXT', this.PAGING_PAGEOFTEXT.get('de'));
+    this.data
+      .get('de')
+      .set('PAGING_PAGEENTRIESTEXT', this.PAGING_PAGEENTRIESTEXT.get('de'));
 
     // Upload Component
     this.data
       .get('de')
-      .set('UPLOAD_NO_FILE_SELECTED', 'Keine Datei ausgewählt');
-    this.data.get('de').set('UPLOAD_BUTTON_UPLOAD', 'Upload');
-    this.data.get('de').set('UPLOAD_BUTTON_BROWSE', 'Browse...');
-
-    // TinyMCE Component
-    this.data.get('de').set('TINYMCE_FILESELECT_OK', 'OK');
-    this.data.get('de').set('TINYMCE_FILESELECT_CANCEL', 'Abbrechen');
+      .set('UPLOAD_NO_FILE_SELECTED', this.UPLOAD_NO_FILE_SELECTED.get('de'));
     this.data
       .get('de')
-      .set('TINYMCE_FILESELECT_DIALOGTITLE', 'Datei auswählen');
+      .set('UPLOAD_BUTTON_UPLOAD', this.UPLOAD_BUTTON_UPLOAD.get('de'));
+    this.data
+      .get('de')
+      .set('UPLOAD_BUTTON_BROWSE', this.UPLOAD_BUTTON_BROWSE.get('de'));
 
-    // Browser Component
-    this.data.get('de').set('FILEBROWSER_NO_FILES', 'Keine Dateien vorhanden');
-    this.data.get('de').set('FILEBROWSER_GRID_FILE', 'Dateiname');
-    this.data.get('de').set('FILEBROWSER_GRID_SIZE', 'Grösse');
+    // TinyMCE Component
+    this.data
+      .get('de')
+      .set('TINYMCE_FILESELECT_OK', this.TINYMCE_FILESELECT_OK.get('de'));
     this.data
       .get('de')
       .set(
-        'FILEBROWSER_UPLOAD',
-        'Legen Sie Dateien hier ab um Sie hochzuladen'
+        'TINYMCE_FILESELECT_CANCEL',
+        this.TINYMCE_FILESELECT_CANCEL.get('de')
       );
-    this.data.get('de').set('FILEBROWSER_NEWFOLDER', 'Neuer Ordner');
-    this.data.get('de').set('FILEBROWSER_REFRESH', 'Aktualisieren');
-    this.data.get('de').set('FILEBROWSER_DELETE', 'Löschen');
+    this.data
+      .get('de')
+      .set(
+        'TINYMCE_FILESELECT_DIALOGTITLE',
+        this.TINYMCE_FILESELECT_DIALOGTITLE.get('de')
+      );
+
+    // Browser Component
+    this.data
+      .get('de')
+      .set('FILEBROWSER_NO_FILES', this.FILEBROWSER_NO_FILES.get('de'));
+    this.data
+      .get('de')
+      .set('FILEBROWSER_GRID_FILE', this.FILEBROWSER_GRID_FILE.get('de'));
+    this.data
+      .get('de')
+      .set('FILEBROWSER_GRID_SIZE', this.FILEBROWSER_GRID_SIZE.get('de'));
+    this.data
+      .get('de')
+      .set('FILEBROWSER_UPLOAD', this.FILEBROWSER_UPLOAD.get('de'));
+    this.data
+      .get('de')
+      .set('FILEBROWSER_NEWFOLDER', this.FILEBROWSER_NEWFOLDER.get('de'));
+    this.data
+      .get('de')
+      .set('FILEBROWSER_REFRESH', this.FILEBROWSER_REFRESH.get('de'));
+    this.data
+      .get('de')
+      .set('FILEBROWSER_DELETE', this.FILEBROWSER_DELETE.get('de'));
     this.data
       .get('de')
       .set(
         'FILEBROWSER_CONFIRM_DELETEFOLDER',
-        'Soll der Ordner gelöscht werden?'
+        this.FILEBROWSER_CONFIRM_DELETEFOLDER.get('de')
       );
     this.data
       .get('de')
-      .set('FILEBROWSER_CONFIRM_DELETEFILE', 'Soll die Datei gelöscht werden?');
+      .set(
+        'FILEBROWSER_CONFIRM_DELETEFILE',
+        this.FILEBROWSER_CONFIRM_DELETEFILE.get('de')
+      );
 
     // EN
     this.data.set('en', new Map<string, string>());
@@ -331,5 +452,211 @@ export class InternalLanguageResourceService extends LanguageResourceService {
         return;
       }
     });
+  }
+
+  protected get VALIDATION_ERROR_REQUIRED(): Map<string, string> {
+    return new Map<string, string>([['de', 'Feld ist erforderlich.']]);
+  }
+  protected get VALIDATION_ERROR_SUMMARY_REQUIRED(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" ist erforderlich.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_MINVALUE(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Wert darf nicht kleiner als {{MINVALUE}} sein.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_SUMMARY_MINVALUE(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" darf nicht kleiner als {{MINVALUE}} sein.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_PATTERN(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Wert entspricht nicht der Format Vorlage.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_SUMMARY_PATTERN(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" entspricht nicht der Format Vorlage.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_SUMMARY_MAXVALUE(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Wert darf nicht grösser als {{MAXVALUE}} sein.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_MAXVALUE(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" darf nicht grösser als {{MAXVALUE}} sein.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_EMAIL(): Map<string, string> {
+    return new Map<string, string>([['de', 'Feld ist keine E-Mail Adresse']]);
+  }
+  protected get VALIDATION_ERROR_SUMMARY_EMAIL(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" ist keine E-Mail Adresse'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_MINLENGTH(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld erfordert min. {{MINLENGTH}} Zeichen.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_SUMMARY_MINLENGTH(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" erfordert min. {{MINLENGTH}} Zeichen.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_MINDATE(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld muss neuer oder gleich {{MINDATE}} sein.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_SUMMARY_MINDATE(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" muss neuer oder gleich {{MINDATE}} sein.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_MAXDATE(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld muss älter oder gleich {{MAXDATE}} sein.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_SUMMARY_MAXDATE(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" muss älter oder gleich {{MAXDATE}} sein.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_MINTIME(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld muss neuer oder gleich {{MINTIME}} sein.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_SUMMARY_MINTIME(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" muss neuer oder gleich {{MINTIME}} sein.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_MAXTIME(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld muss älter oder gleich {{MAXTIME}} sein.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_SUMMARY_MAXTIME(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" muss älter oder gleich {{MAXTIME}} sein.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_DATETIMEFORMAT(): Map<string, string> {
+    return new Map<string, string>([['de', 'Feld ist kein gültiges Datum.']]);
+  }
+  protected get VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" ist kein gültiges Datum.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_FILESMIN(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Es müssen min. {{MINFILES}} Dateien hochgeladen sein.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_SUMMARY_FILESMIN(): Map<string, string> {
+    return new Map<string, string>([
+      [
+        'de',
+        'Feld "{{FIELD}}" muss min. {{MINFILES}} Dateien hochgeladen haben.',
+      ],
+    ]);
+  }
+  protected get VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY(): Map<
+    string,
+    string
+  > {
+    return new Map<string, string>([
+      ['de', 'Es muss min. 1 Sprache erfasst sein.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY(): Map<
+    string,
+    string
+  > {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" muss min. 1 Sprache erfasst haben.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_MULTILANGUAGEREQUIRED(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Es müssen alle Sprachen erfasst sein.'],
+    ]);
+  }
+  protected get VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED(): Map<
+    string,
+    string
+  > {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" muss alle Sprachen erfasst haben.'],
+    ]);
+  }
+
+  protected get PAGING_PAGEOFTEXT(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Seite {{CURRENTPAGE}} von {{TOTALPAGES}}'],
+    ]);
+  }
+  protected get PAGING_PAGEENTRIESTEXT(): Map<string, string> {
+    return new Map<string, string>([['de', 'Einträge pro Seite']]);
+  }
+
+  protected get UPLOAD_NO_FILE_SELECTED(): Map<string, string> {
+    return new Map<string, string>([['de', 'Keine Datei ausgewählt']]);
+  }
+  protected get UPLOAD_BUTTON_UPLOAD(): Map<string, string> {
+    return new Map<string, string>([['de', 'Upload']]);
+  }
+  protected get UPLOAD_BUTTON_BROWSE(): Map<string, string> {
+    return new Map<string, string>([['de', 'Browse...']]);
+  }
+  protected get TINYMCE_FILESELECT_OK(): Map<string, string> {
+    return new Map<string, string>([['de', 'OK']]);
+  }
+  protected get TINYMCE_FILESELECT_CANCEL(): Map<string, string> {
+    return new Map<string, string>([['de', 'Abbrechen']]);
+  }
+  protected get TINYMCE_FILESELECT_DIALOGTITLE(): Map<string, string> {
+    return new Map<string, string>([['de', 'Datei auswählen']]);
+  }
+  protected get FILEBROWSER_NO_FILES(): Map<string, string> {
+    return new Map<string, string>([['de', 'Keine Dateien vorhanden']]);
+  }
+  protected get FILEBROWSER_GRID_FILE(): Map<string, string> {
+    return new Map<string, string>([['de', 'Dateiname']]);
+  }
+  protected get FILEBROWSER_GRID_SIZE(): Map<string, string> {
+    return new Map<string, string>([['de', 'Grösse']]);
+  }
+  protected get FILEBROWSER_UPLOAD(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Legen Sie Dateien hier ab um Sie hochzuladen'],
+    ]);
+  }
+  protected get FILEBROWSER_NEWFOLDER(): Map<string, string> {
+    return new Map<string, string>([['de', 'Neuer Ordner']]);
+  }
+  protected get FILEBROWSER_REFRESH(): Map<string, string> {
+    return new Map<string, string>([['de', 'Aktualisieren']]);
+  }
+  protected get FILEBROWSER_DELETE(): Map<string, string> {
+    return new Map<string, string>([['de', 'Löschen']]);
+  }
+  protected get FILEBROWSER_CONFIRM_DELETEFOLDER(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Soll der Ordner gelöscht werden?'],
+    ]);
+  }
+  protected get FILEBROWSER_CONFIRM_DELETEFILE(): Map<string, string> {
+    return new Map<string, string>([['de', 'Soll die Datei gelöscht werden?']]);
   }
 }

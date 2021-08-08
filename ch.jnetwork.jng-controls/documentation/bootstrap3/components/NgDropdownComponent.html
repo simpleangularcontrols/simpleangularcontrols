@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>NgDropdownComponent</li>
+  <li
+  >
+  NgDropdownComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,11 +65,12 @@
 </p>
 
 
+
     <p class="comment">
         <h3>Extends</h3>
     </p>
     <p class="comment">
-            <code>NgDropdownCommon</code>
+                <code><a href="../directives/NgDropdownCommon.html" target="_self" >NgDropdownCommon</a></code>
     </p>
 
 
@@ -117,6 +121,89 @@
     </table>
 </section>
 
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#_optionIdCounter" >_optionIdCounter</a>
+                            </li>
+                            <li>
+                                <a href="#_optionMap" >_optionMap</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#registerOption" >registerOption</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setOptionMap" >setOptionMap</a>
+                            </li>
+                            <li>
+                                <a href="#setValue" >setValue</a>
+                            </li>
+                            <li>
+                                <a href="#validateData" >validateData</a>
+                            </li>
+                            <li>
+                                <a href="#writeValue" >writeValue</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#compareWith" >compareWith</a>
+                            </li>
+                            <li>
+                                <a href="#emptylabel" >emptylabel</a>
+                            </li>
+                            <li>
+                                <a href="#emptyvalue" >emptyvalue</a>
+                            </li>
+                            <li>
+                                <a href="#validationmessagerequired" >validationmessagerequired</a>
+                            </li>
+                            <li>
+                                <a href="#validationmessagesummaryrequired" >validationmessagesummaryrequired</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
 
     <section>
     <h3 id="constructor">Constructor</h3>
@@ -124,7 +211,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(parent: NgFormularDirective, injector: <a href="https://angular.io/api/core/Injector" target="_blank">Injector</a>, _renderer: <a href="https://angular.io/api/core/Renderer2" target="_blank">Renderer2</a>, _elementRef: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>)</code>
+<code>constructor(parent: <a href="../directives/NgFormularDirective.html" target="_self">NgFormularDirective</a>, injector: <a href="https://angular.io/api/core/Injector" target="_blank">Injector</a>, _renderer: <a href="https://angular.io/api/core/Renderer2" target="_blank">Renderer2</a>, _elementRef: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -150,7 +237,7 @@
                                                         <td>parent</td>
                                                   
                                                         <td>
-                                                                    <code>NgFormularDirective</code>
+                                                                        <code><a href="../directives/NgFormularDirective.html" target="_self" >NgFormularDirective</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -203,11 +290,693 @@
         </table>
 </section>
 
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="compareWith"></a>
+                        <b>compareWith</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDropdownCommon.html" target="_self" >NgDropdownCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDropdownCommon.html#source" target="_self" >NgDropdownCommon:65</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>compareWith-Funktion</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="emptylabel"></a>
+                        <b>emptylabel</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDropdownCommon.html" target="_self" >NgDropdownCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDropdownCommon.html#source" target="_self" >NgDropdownCommon:56</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Label Text für Empty Item</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="emptyvalue"></a>
+                        <b>emptyvalue</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDropdownCommon.html" target="_self" >NgDropdownCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDropdownCommon.html#source" target="_self" >NgDropdownCommon:60</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Option Value für Empty Item</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="validationmessagerequired"></a>
+                        <b>validationmessagerequired</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;VALIDATION_ERROR_REQUIRED&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDropdownCommon.html" target="_self" >NgDropdownCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDropdownCommon.html#source" target="_self" >NgDropdownCommon:77</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Resource Key für Validation Message Required bei Control</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="validationmessagesummaryrequired"></a>
+                        <b>validationmessagesummaryrequired</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;VALIDATION_ERROR_SUMMARY_REQUIRED&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDropdownCommon.html" target="_self" >NgDropdownCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDropdownCommon.html#source" target="_self" >NgDropdownCommon:83</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Resource Key für Validation Message Required in Validation Summary</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
 
 
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerOption"></a>
+                    <span class="name">
+                        <span ><b>registerOption</b></span>
+                        <a href="#registerOption"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>registerOption()</code>
+                </td>
+            </tr>
 
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDropdownCommon.html" target="_self" >NgDropdownCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDropdownCommon.html#source" target="_self" >NgDropdownCommon:121</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Registriert das OptionID-Counter als String</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setOptionMap"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>setOptionMap</b></span>
+                        <a href="#setOptionMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setOptionMap(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDropdownCommon.html" target="_self" >NgDropdownCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDropdownCommon.html#source" target="_self" >NgDropdownCommon:130</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Methode die von Options aufgerufen wird, um das Mapping zwischen Dropdown Value und Value herzustellen.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>: Id aus Options</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>: Value</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setValue"></a>
+                    <span class="name">
+                        <span ><b>setValue</b></span>
+                        <a href="#setValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setValue(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDropdownCommon.html" target="_self" >NgDropdownCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDropdownCommon.html#source" target="_self" >NgDropdownCommon:106</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Wert einstellen</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>Wert</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateData"></a>
+                    <span class="name">
+                        <span ><b>validateData</b></span>
+                        <a href="#validateData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateData(c: <a href="https://angular.io/api/forms/AbstractControl" target="_blank">AbstractControl</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDropdownCommon.html" target="_self" >NgDropdownCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDropdownCommon.html#source" target="_self" >NgDropdownCommon:192</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Validator</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>c</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/AbstractControl" target="_blank" >AbstractControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Control Instanz</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="writeValue"></a>
+                    <span class="name">
+                        <span ><b>writeValue</b></span>
+                        <a href="#writeValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>writeValue(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDropdownCommon.html" target="_self" >NgDropdownCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDropdownCommon.html#source" target="_self" >NgDropdownCommon:114</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Wert schreiben</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>Wert</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_optionIdCounter"></a>
+                    <span class="name">
+                        <span ><b>_optionIdCounter</b></span>
+                        <a href="#_optionIdCounter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../directives/NgDropdownCommon.html" target="_self" >NgDropdownCommon</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgDropdownCommon.html#source" target="_self" >NgDropdownCommon:43</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Counter vom OptionID; default Wert = 0</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_optionMap"></a>
+                    <span class="name">
+                        <span ><b>_optionMap</b></span>
+                        <a href="#_optionMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Map&lt;string | any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;string, any&gt;()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../directives/NgDropdownCommon.html" target="_self" >NgDropdownCommon</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgDropdownCommon.html#source" target="_self" >NgDropdownCommon:47</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>OptionMap</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
 
 </div>
 
@@ -317,8 +1086,8 @@ export class NgDropdownOptionDirective extends NgDropdownOptionCommon {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="form-group" [ngClass]="{\'has-error\': invalid && (dirty || touched)}">  <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="control-label" [ngClass]="[_labelsize !== 12 ?  \'col-md-\' + _labelsize : \'sr-only\']" [class.required]="_isrequired">{{_label}}</label>  <div [ngClass]="[_disablelabel === false ? \'col-md-\' + _inputsize : \'col-md-12\']">    <select #dropdownitem id="{{_name}}" name="{{_name}}" class="form-control"            (blur)="onTouch()" (change)="setValue(dropdownitem.value)" [disabled]="isdisabled">      <option *ngIf="_emptylabel !== \'\'" [ngValue]="_emptyoptionvalue">{{_emptylabel}}</option>      <ng-content></ng-content>      <ng-container *ngIf="_fieldGroupItems === \'\'">        <option *ngFor="let item of options" [ngValue]="_fieldValue ? item[_fieldValue] : item"                [disabled]="_fieldEnabled !== \'\' && item[_fieldEnabled] === false">          <ng-template *ngTemplateOutlet="displayValueTemplate || defaultItemLabelTemplate;context:{ label: item[_fieldLabel], item: item }">          </ng-template>        </option>      </ng-container>      <ng-container *ngIf="_fieldGroupItems !== \'\'">        <optgroup *ngFor="let group of options" [attr.label]="group[_fieldGroupLabel]">          <option *ngFor="let item of group[_fieldGroupItems]" [ngValue]="_fieldValue ? item[_fieldValue] : item"                  [disabled]="_fieldEnabled !== \'\' && item[_fieldEnabled] === false">            <ng-template *ngTemplateOutlet="displayValueTemplate || defaultItemLabelTemplate;context:{ label: item[_fieldLabel], item: item }">            </ng-template>          </option>        </optgroup>      </ng-container>    </select>    <div class="help-block help-block-error" *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)">{{ GetErrorMessage() | async }}</div>  </div></div><ng-template #defaultItemLabelTemplate let-label="label">  {{label}}</ng-template></div>'
-    var COMPONENTS = [{'name': 'NgButtonComponent', 'selector': 'ng-button,ngButton'},{'name': 'NgCheckboxComponent', 'selector': 'ng-checkbox,ngCheckbox'},{'name': 'NgConfirmComponent', 'selector': 'ng-confirm,ngConfirm'},{'name': 'NgDateComponent', 'selector': 'ng-date,ngDate'},{'name': 'NgDateSelectorComponent', 'selector': 'ng-dateselector,ngDateSelector'},{'name': 'NgDateTimeComponent', 'selector': 'ng-datetime,ngDateTime'},{'name': 'NgDialogComponent', 'selector': 'ng-dialog,ngDialog'},{'name': 'NgDropdownComponent', 'selector': 'ng-dropdown,ngDropdown'},{'name': 'NgGridButtonComponent', 'selector': 'ng-gridbutton,ngGridButton'},{'name': 'NgGridColumnActionComponent', 'selector': 'ng-gridcolumnaction,ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgGridColumnComponent', 'selector': 'ng-gridcolumn,ngGridColumn,[ngGridColumn]'},{'name': 'NgGridComponent', 'selector': 'ng-grid,ngGrid'},{'name': 'NgGridImageComponent', 'selector': 'ng-gridimage,ngGridImage'},{'name': 'NgInputAreaComponent', 'selector': 'ng-inputarea,ngInputArea'},{'name': 'NgInputComponent', 'selector': 'ng-input,ngInput'},{'name': 'NgInputCurrencyComponent', 'selector': 'ng-inputcurrency,ngInputCurrency'},{'name': 'NgInputDecimalComponent', 'selector': 'ng-inputdecimal,ngInputDecimal'},{'name': 'NgInputEmailComponent', 'selector': 'ng-inputemail,ngInputEmail'},{'name': 'NgInputIntegerComponent', 'selector': 'ng-inputinteger,ngInputInteger'},{'name': 'NgInputPasswordComponent', 'selector': 'ng-inputpassword,ngInputPassword'},{'name': 'NgInputSearchComponent', 'selector': 'ng-inputsearch,ngInputSearch'},{'name': 'NgListboxComponent', 'selector': 'ng-listbox,ngListbox'},{'name': 'NgPagingComponent', 'selector': 'ng-paging,ngPaging'},{'name': 'NgRadiobuttonComponent', 'selector': 'ng-radiobutton,ngRadiobutton'},{'name': 'NgRadiobuttonsComponent', 'selector': 'ng-radiobuttons,ngRadiobuttons'},{'name': 'NgStaticFormContainerComponent', 'selector': 'ng-staticformcontainer,ngStaticFormContainer'},{'name': 'NgStaticLabelComponent', 'selector': 'ng-staticlabel,ngStaticLabel'},{'name': 'NgTabComponent', 'selector': 'ng-tab,ngTab'},{'name': 'NgTabItemComponent', 'selector': 'ng-tabitem,ngTabItem'},{'name': 'NgTimeComponent', 'selector': 'ng-time,ngTime'},{'name': 'NgTinyMceComponent', 'selector': 'ng-tinymce,ngTinymce'},{'name': 'NgTinyMceEditorComponent', 'selector': 'ngTinyMceEditor'},{'name': 'NgTooltipComponent', 'selector': 'ng-tooltip,ngTooltip'},{'name': 'NgTreeItemActionComponent', 'selector': 'ng-treeitemaction,ngTreeItemAction'},{'name': 'NgTreeViewChildComponent', 'selector': 'ng-treeviewchild,ngTreeViewChild'},{'name': 'NgTreeViewComponent', 'selector': 'ng-treeview,ngTreeView'},{'name': 'NgUploadComponent', 'selector': 'ng-upload,ngUpload'},{'name': 'NgUploadMultipleComponent', 'selector': 'ng-uploadmultiple,ngUploadMultiple'},{'name': 'NgValidationSummaryComponent', 'selector': 'ng-validationsummary,ngValidationSummary'},{'name': 'NgWizardComponent', 'selector': 'ng-wizard,ngWizard'},{'name': 'NgWizardItemComponent', 'selector': 'ng-wizarditem,ngWizardItem'}];
-    var DIRECTIVES = [{'name': 'NgDropdownOptionDirective', 'selector': 'option,[ngOption]'},{'name': 'NgFormularDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgListboxOptionDirective', 'selector': '[ngOption], option'},{'name': 'ProvideParentNgFormularDirective', 'selector': '[ngInheritForm][inherit-form]'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppNavigationComponent', 'selector': 'app-navigation'},{'name': 'DemoBrowserComponent', 'selector': 'app-browser'},{'name': 'DemoButtonComponent', 'selector': 'app-button'},{'name': 'DemoCheckboxComponent', 'selector': 'app-checkbox'},{'name': 'DemoConfirmComponent', 'selector': 'app-confirm'},{'name': 'DemoContextmenuComponent', 'selector': 'app-contextmenu'},{'name': 'DemoDatetimeComponent', 'selector': 'app-datetime'},{'name': 'DemoDialogComponent', 'selector': 'app-dialog'},{'name': 'DemoGridComponent', 'selector': 'app-grid'},{'name': 'DemoInputComponent', 'selector': 'app-input'},{'name': 'DemoListComponent', 'selector': 'app-list'},{'name': 'DemoMultilanguageComponent', 'selector': 'app-multilanguage'},{'name': 'DemoRichtextComponent', 'selector': 'app-richtext'},{'name': 'DemoTabsComponent', 'selector': 'app-tabs'},{'name': 'DemoUploaderComponent', 'selector': 'app-uploader'},{'name': 'NgButtonComponent', 'selector': 'ng-button,ngButton'},{'name': 'NgCheckboxComponent', 'selector': 'ng-checkbox,ngCheckbox'},{'name': 'NgConfirmComponent', 'selector': 'ng-confirm,ngConfirm'},{'name': 'NgDateComponent', 'selector': 'ng-date,ngDate'},{'name': 'NgDateSelectorComponent', 'selector': 'ng-dateselector,ngDateSelector'},{'name': 'NgDateTimeComponent', 'selector': 'ng-datetime,ngDateTime'},{'name': 'NgDialogComponent', 'selector': 'ng-dialog,ngDialog'},{'name': 'NgDropdownComponent', 'selector': 'ng-dropdown,ngDropdown'},{'name': 'NgGridButtonComponent', 'selector': 'ng-gridbutton,ngGridButton'},{'name': 'NgGridColumnActionComponent', 'selector': 'ng-gridcolumnaction,ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgGridColumnComponent', 'selector': 'ng-gridcolumn,ngGridColumn,[ngGridColumn]'},{'name': 'NgGridComponent', 'selector': 'ng-grid,ngGrid'},{'name': 'NgGridImageComponent', 'selector': 'ng-gridimage,ngGridImage'},{'name': 'NgInputAreaComponent', 'selector': 'ng-inputarea,ngInputArea'},{'name': 'NgInputComponent', 'selector': 'ng-input,ngInput'},{'name': 'NgInputCurrencyComponent', 'selector': 'ng-inputcurrency,ngInputCurrency'},{'name': 'NgInputDecimalComponent', 'selector': 'ng-inputdecimal,ngInputDecimal'},{'name': 'NgInputEmailComponent', 'selector': 'ng-inputemail,ngInputEmail'},{'name': 'NgInputIntegerComponent', 'selector': 'ng-inputinteger,ngInputInteger'},{'name': 'NgInputPasswordComponent', 'selector': 'ng-inputpassword,ngInputPassword'},{'name': 'NgInputSearchComponent', 'selector': 'ng-inputsearch,ngInputSearch'},{'name': 'NgListboxComponent', 'selector': 'ng-listbox,ngListbox'},{'name': 'NgPagingComponent', 'selector': 'ng-paging,ngPaging'},{'name': 'NgRadiobuttonComponent', 'selector': 'ng-radiobutton,ngRadiobutton'},{'name': 'NgRadiobuttonsComponent', 'selector': 'ng-radiobuttons,ngRadiobuttons'},{'name': 'NgStaticFormContainerComponent', 'selector': 'ng-staticformcontainer,ngStaticFormContainer'},{'name': 'NgStaticLabelComponent', 'selector': 'ng-staticlabel,ngStaticLabel'},{'name': 'NgTabComponent', 'selector': 'ng-tab,ngTab'},{'name': 'NgTabItemComponent', 'selector': 'ng-tabitem,ngTabItem'},{'name': 'NgTimeComponent', 'selector': 'ng-time,ngTime'},{'name': 'NgTinyMceComponent', 'selector': 'ng-tinymce,ngTinymce'},{'name': 'NgTooltipComponent', 'selector': 'ng-tooltip,ngTooltip'},{'name': 'NgTreeItemActionComponent', 'selector': 'ng-treeitemaction,ngTreeItemAction'},{'name': 'NgTreeViewChildComponent', 'selector': 'ng-treeviewchild,ngTreeViewChild'},{'name': 'NgTreeViewComponent', 'selector': 'ng-treeview,ngTreeView'},{'name': 'NgUploadComponent', 'selector': 'ng-upload,ngUpload'},{'name': 'NgUploadMultipleComponent', 'selector': 'ng-uploadmultiple,ngUploadMultiple'},{'name': 'NgValidationSummaryComponent', 'selector': 'ng-validationsummary,ngValidationSummary'},{'name': 'NgWizardComponent', 'selector': 'ng-wizard,ngWizard'},{'name': 'NgWizardItemComponent', 'selector': 'ng-wizarditem,ngWizardItem'}];
+    var DIRECTIVES = [{'name': 'NgBaseDateTimeControl', 'selector': ''},{'name': 'NgBaseListControl', 'selector': ''},{'name': 'NgBaseModelControl', 'selector': ''},{'name': 'NgBaseSelectControl', 'selector': ''},{'name': 'NgButtonCommon', 'selector': ''},{'name': 'NgCheckboxCommon', 'selector': ''},{'name': 'NgConfirmCommon', 'selector': ''},{'name': 'NgContextmenuAnchorCommon', 'selector': ''},{'name': 'NgContextmenuCommon', 'selector': ''},{'name': 'NgContextMenuContrainerCommon', 'selector': ''},{'name': 'NgContextmenuItemButtonCommon', 'selector': ''},{'name': 'NgContextmenuItemCommon', 'selector': ''},{'name': 'NgDateCommon', 'selector': ''},{'name': 'NgDateSelectorCommon', 'selector': ''},{'name': 'NgDateTimeCommon', 'selector': ''},{'name': 'NgDialogCommon', 'selector': ''},{'name': 'NgDropdownCommon', 'selector': ''},{'name': 'NgDropdownOptionCommon', 'selector': ''},{'name': 'NgDropdownOptionDirective', 'selector': 'option,[ngOption]'},{'name': 'NgDropzoneMultipleCommon', 'selector': ''},{'name': 'NgDropzoneSingleCommon', 'selector': ''},{'name': 'NgFileBrowserCommon', 'selector': ''},{'name': 'NgFormularCommon', 'selector': ''},{'name': 'NgFormularDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgGridButtonCommon', 'selector': ''},{'name': 'NgGridColumnActionCommon', 'selector': ''},{'name': 'NgGridColumnBaseCommon', 'selector': ''},{'name': 'NgGridColumnCommon', 'selector': ''},{'name': 'NgGridCommon', 'selector': ''},{'name': 'NgGridImageCommon', 'selector': ''},{'name': 'NgInputAreaCommon', 'selector': ''},{'name': 'NgInputBase', 'selector': ''},{'name': 'NgInputCommon', 'selector': ''},{'name': 'NgInputCurrencyCommon', 'selector': ''},{'name': 'NgInputDecimalCommon', 'selector': ''},{'name': 'NgInputEmailCommon', 'selector': ''},{'name': 'NgInputIntegerCommon', 'selector': ''},{'name': 'NgInputPasswordCommon', 'selector': ''},{'name': 'NgInputSearchCommon', 'selector': ''},{'name': 'NgListboxCommon', 'selector': ''},{'name': 'NgListboxOptionCommon', 'selector': ''},{'name': 'NgMultilanguageInputAreaCommon', 'selector': ''},{'name': 'NgMultilanguageInputCommon', 'selector': ''},{'name': 'NgPagingCommon', 'selector': ''},{'name': 'NgRadiobuttonCommon', 'selector': ''},{'name': 'NgRadiobuttonsCommon', 'selector': ''},{'name': 'NgStaticFormContainerCommon', 'selector': ''},{'name': 'NgStaticLabelCommon', 'selector': ''},{'name': 'NgTabCommon', 'selector': ''},{'name': 'NgTabItemCommon', 'selector': ''},{'name': 'NgTimeCommon', 'selector': ''},{'name': 'NgTooltipCommon', 'selector': ''},{'name': 'NgTreeItemActionCommon', 'selector': ''},{'name': 'NgTreeViewChildCommon', 'selector': ''},{'name': 'NgTreeViewCommon', 'selector': ''},{'name': 'NgUploadBase', 'selector': ''},{'name': 'NgUploadMultipleCommon', 'selector': ''},{'name': 'NgUploadSingleCommon', 'selector': ''},{'name': 'NgValidationSummaryCommon', 'selector': ''},{'name': 'NgWizardCommon', 'selector': ''},{'name': 'NgWizardItemCommon', 'selector': ''},{'name': 'ProvideParentNgFormularDirective', 'selector': '[ngInheritForm][inherit-form]'}];
     var ACTUAL_COMPONENT = {'name': 'NgDropdownComponent'};
 </script>
 <script src="../js/tree.js"></script>
@@ -360,9 +1129,9 @@ export class NgDropdownOptionDirective extends NgDropdownOptionCommon {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

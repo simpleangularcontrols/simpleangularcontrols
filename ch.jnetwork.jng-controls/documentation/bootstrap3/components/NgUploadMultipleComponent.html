@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>NgUploadMultipleComponent</li>
+  <li
+  >
+  NgUploadMultipleComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,11 +65,12 @@
 </p>
 
 
+
     <p class="comment">
         <h3>Extends</h3>
     </p>
     <p class="comment">
-                <code><a href="../miscellaneous/variables.html#load" target="_self" >NgUploadMultipleCommon</a></code>
+                <code><a href="../directives/NgUploadMultipleCommon.html" target="_self" >NgUploadMultipleCommon</a></code>
     </p>
 
 
@@ -117,6 +121,71 @@
     </table>
 </section>
 
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#CustomAddValidation" >CustomAddValidation</a>
+                            </li>
+                            <li>
+                                <a href="#SetUploadValue" >SetUploadValue</a>
+                            </li>
+                            <li>
+                                <a href="#UploadedFileCount" >UploadedFileCount</a>
+                            </li>
+                            <li>
+                                <a href="#validateData" >validateData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#buttonbrowse" >buttonbrowse</a>
+                            </li>
+                            <li>
+                                <a href="#buttonupload" >buttonupload</a>
+                            </li>
+                            <li>
+                                <a href="#maxfiles" >maxfiles</a>
+                            </li>
+                            <li>
+                                <a href="#minfiles" >minfiles</a>
+                            </li>
+                            <li>
+                                <a href="#validationmessageminfiles" >validationmessageminfiles</a>
+                            </li>
+                            <li>
+                                <a href="#validationmessagesummaryminfiles" >validationmessagesummaryminfiles</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
 
     <section>
     <h3 id="constructor">Constructor</h3>
@@ -124,7 +193,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(parent: NgFormularDirective, injector: <a href="https://angular.io/api/core/Injector" target="_blank">Injector</a>, renderer: <a href="https://angular.io/api/core/Renderer2" target="_blank">Renderer2</a>, ngZone: <a href="https://angular.io/api/core/NgZone" target="_blank">NgZone</a>)</code>
+<code>constructor(parent: <a href="../directives/NgFormularDirective.html" target="_self">NgFormularDirective</a>, injector: <a href="https://angular.io/api/core/Injector" target="_blank">Injector</a>, renderer: <a href="https://angular.io/api/core/Renderer2" target="_blank">Renderer2</a>, ngZone: <a href="https://angular.io/api/core/NgZone" target="_blank">NgZone</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -150,7 +219,7 @@
                                                         <td>parent</td>
                                                   
                                                         <td>
-                                                                    <code>NgFormularDirective</code>
+                                                                        <code><a href="../directives/NgFormularDirective.html" target="_self" >NgFormularDirective</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -203,11 +272,528 @@
         </table>
 </section>
 
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="buttonbrowse"></a>
+                        <b>buttonbrowse</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Browse&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgUploadMultipleCommon.html" target="_self" >NgUploadMultipleCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgUploadMultipleCommon.html#source" target="_self" >NgUploadMultipleCommon:26</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Label für Browse Button</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="buttonupload"></a>
+                        <b>buttonupload</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Upload&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgUploadMultipleCommon.html" target="_self" >NgUploadMultipleCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgUploadMultipleCommon.html#source" target="_self" >NgUploadMultipleCommon:32</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Label für Upload Button</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="maxfiles"></a>
+                        <b>maxfiles</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgUploadMultipleCommon.html" target="_self" >NgUploadMultipleCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgUploadMultipleCommon.html#source" target="_self" >NgUploadMultipleCommon:17</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="minfiles"></a>
+                        <b>minfiles</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgUploadMultipleCommon.html" target="_self" >NgUploadMultipleCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgUploadMultipleCommon.html#source" target="_self" >NgUploadMultipleCommon:20</a></code>
+</div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="validationmessageminfiles"></a>
+                        <b>validationmessageminfiles</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;VALIDATION_ERROR_FILESMIN&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgUploadMultipleCommon.html" target="_self" >NgUploadMultipleCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgUploadMultipleCommon.html#source" target="_self" >NgUploadMultipleCommon:37</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Resource Key für Validation Message Required bei Control</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="validationmessagesummaryminfiles"></a>
+                        <b>validationmessagesummaryminfiles</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;VALIDATION_ERROR_SUMMARY_FILESMIN&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgUploadMultipleCommon.html" target="_self" >NgUploadMultipleCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgUploadMultipleCommon.html#source" target="_self" >NgUploadMultipleCommon:43</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Resource Key für Validation Message Required in Validation Summary</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
 
 
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CustomAddValidation"></a>
+                    <span class="name">
+                        <span ><b>CustomAddValidation</b></span>
+                        <a href="#CustomAddValidation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>CustomAddValidation(file: UploadState)</code>
+                </td>
+            </tr>
 
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgUploadMultipleCommon.html" target="_self" >NgUploadMultipleCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgUploadMultipleCommon.html#source" target="_self" >NgUploadMultipleCommon:51</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Prüft ob die max. Files in der Queue nicht überschritten werden</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>file</td>
+                                    <td>
+                                            <code>UploadState</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>File das hinzugefügt wurde</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SetUploadValue"></a>
+                    <span class="name">
+                        <span ><b>SetUploadValue</b></span>
+                        <a href="#SetUploadValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>SetUploadValue(file: UploadState)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgUploadMultipleCommon.html" target="_self" >NgUploadMultipleCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgUploadMultipleCommon.html#source" target="_self" >NgUploadMultipleCommon:65</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Setzt die File ID&#39;s der hochgeladen Files in das Model</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>file</td>
+                                    <td>
+                                            <code>UploadState</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>ID des Files welches hochgeladen wurde.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UploadedFileCount"></a>
+                    <span class="name">
+                        <span ><b>UploadedFileCount</b></span>
+                        <a href="#UploadedFileCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>UploadedFileCount()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgUploadMultipleCommon.html" target="_self" >NgUploadMultipleCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgUploadMultipleCommon.html#source" target="_self" >NgUploadMultipleCommon:111</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gibt die Anzahl der komplett hochgeladenen Files zurück</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateData"></a>
+                    <span class="name">
+                        <span ><b>validateData</b></span>
+                        <a href="#validateData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateData(c: <a href="https://angular.io/api/forms/AbstractControl" target="_blank">AbstractControl</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgUploadMultipleCommon.html" target="_self" >NgUploadMultipleCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgUploadMultipleCommon.html#source" target="_self" >NgUploadMultipleCommon:120</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Validiert das Control</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>c</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/AbstractControl" target="_blank" >AbstractControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Control</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
 </div>
 
@@ -345,8 +931,8 @@ export class NgUploadMultipleComponent extends NgUploadMultipleCommon {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="form-group" [ngClass]="{\'has-error\': invalid && (dirty || touched)}">  <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="control-label" [ngClass]="[_labelsize !== 12 ?  \'col-md-\' + _labelsize : \'sr-only\']" [class.required]="_isrequired">{{_label}}</label>  <div [ngClass]="[_disablelabel === false ? \'col-md-\' + _inputsize : \'col-md-12\']">    <div class="upload-component">      <div class="row">        <div class="col-xs-12">          <div class="btn-toolbar">            <div class="btn upload-input" [class.disabled]="maxfiles > 0 &&  uploads.length >= maxfiles"                 [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">              <i class="glyphicon glyphicon-folder-open"></i>              <span class="upload-browse">Browse</span>              <input type="file" class="custom-file-input" #files (click)="files.value = \'\'"                     (uploadxState)="onUpload($event)" multiple [disabled]="maxfiles > 0 &&  uploads.length >= maxfiles">            </div>            <div class="btn-group">              <!-- image-preview-clear button -->              <a class="btn" (click)="cancelAll()" [attr.disabled]="HasQueueItem() === false ? \'disabled\' : null"                 [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">                <span class="glyphicon glyphicon-remove"></span>              </a>              <a *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && IsPaused() == false)" class="btn" (click)="pauseAll()" [attr.disabled]="IsUploading() === false ? \'disabled\' : null"                 [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">                <span class="glyphicon glyphicon-pause"></span>              </a>              <a *ngIf="autoupload && enablepause && IsPaused() == true" class="btn" (click)="uploadAll()"                 [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">                <span class="glyphicon glyphicon-play"></span>              </a>              <a *ngIf="autoupload === false" class="btn" (click)="uploadAll()" [attr.disabled]="IsStateToUpload() === false ?  \'disabled\' : null"                 [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">                <span class="glyphicon glyphicon-upload"></span> Upload              </a>            </div>          </div>        </div>      </div>      <div *ngFor="let file of uploads" style="margin-top: 5px;">        <div class="input-group upload-component">          <div class="form-control upload-progress">            <div class="progress">              <div class="progress-bar" [class.progress-bar-success]="file.progress===100" role="progressbar" [attr.aria-valuenow]="file.progress"                   aria-valuemin="0" aria-valuemax="100" [style.width.%]="file.progress">                <span>{{ file.name }}</span>              </div>            </div>          </div>          <div class="input-group-btn">            <!-- image-preview-clear button -->            <a class="btn" (click)="cancel(file.uploadId)"               [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">              <span class="glyphicon glyphicon-remove"></span>            </a>            <a *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && file.status !== \'paused\')" class="btn" (click)="pause(file.uploadId)" [attr.disabled]="file.status !== \'uploading\' ? \'disabled\' : null"               [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">              <span class="glyphicon glyphicon-pause"></span>            </a>            <a *ngIf="autoupload && enablepause && file.status === \'paused\'" class="btn" (click)="upload(file.uploadId)"               [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">              <span class="glyphicon glyphicon-play"></span>            </a>            <a *ngIf="autoupload === false" class="btn" (click)="upload(file.uploadId)" [attr.disabled]="file.status !== \'added\' && file.status !== \'paused\' ?  \'disabled\' : null"               [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">              <span class="glyphicon glyphicon-upload"></span> Upload            </a>          </div>        </div>      </div>    </div>    <div class="help-block help-block-error" *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)">{{ GetErrorMessage() | async }}</div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'NgButtonComponent', 'selector': 'ng-button,ngButton'},{'name': 'NgCheckboxComponent', 'selector': 'ng-checkbox,ngCheckbox'},{'name': 'NgConfirmComponent', 'selector': 'ng-confirm,ngConfirm'},{'name': 'NgDateComponent', 'selector': 'ng-date,ngDate'},{'name': 'NgDateSelectorComponent', 'selector': 'ng-dateselector,ngDateSelector'},{'name': 'NgDateTimeComponent', 'selector': 'ng-datetime,ngDateTime'},{'name': 'NgDialogComponent', 'selector': 'ng-dialog,ngDialog'},{'name': 'NgDropdownComponent', 'selector': 'ng-dropdown,ngDropdown'},{'name': 'NgGridButtonComponent', 'selector': 'ng-gridbutton,ngGridButton'},{'name': 'NgGridColumnActionComponent', 'selector': 'ng-gridcolumnaction,ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgGridColumnComponent', 'selector': 'ng-gridcolumn,ngGridColumn,[ngGridColumn]'},{'name': 'NgGridComponent', 'selector': 'ng-grid,ngGrid'},{'name': 'NgGridImageComponent', 'selector': 'ng-gridimage,ngGridImage'},{'name': 'NgInputAreaComponent', 'selector': 'ng-inputarea,ngInputArea'},{'name': 'NgInputComponent', 'selector': 'ng-input,ngInput'},{'name': 'NgInputCurrencyComponent', 'selector': 'ng-inputcurrency,ngInputCurrency'},{'name': 'NgInputDecimalComponent', 'selector': 'ng-inputdecimal,ngInputDecimal'},{'name': 'NgInputEmailComponent', 'selector': 'ng-inputemail,ngInputEmail'},{'name': 'NgInputIntegerComponent', 'selector': 'ng-inputinteger,ngInputInteger'},{'name': 'NgInputPasswordComponent', 'selector': 'ng-inputpassword,ngInputPassword'},{'name': 'NgInputSearchComponent', 'selector': 'ng-inputsearch,ngInputSearch'},{'name': 'NgListboxComponent', 'selector': 'ng-listbox,ngListbox'},{'name': 'NgPagingComponent', 'selector': 'ng-paging,ngPaging'},{'name': 'NgRadiobuttonComponent', 'selector': 'ng-radiobutton,ngRadiobutton'},{'name': 'NgRadiobuttonsComponent', 'selector': 'ng-radiobuttons,ngRadiobuttons'},{'name': 'NgStaticFormContainerComponent', 'selector': 'ng-staticformcontainer,ngStaticFormContainer'},{'name': 'NgStaticLabelComponent', 'selector': 'ng-staticlabel,ngStaticLabel'},{'name': 'NgTabComponent', 'selector': 'ng-tab,ngTab'},{'name': 'NgTabItemComponent', 'selector': 'ng-tabitem,ngTabItem'},{'name': 'NgTimeComponent', 'selector': 'ng-time,ngTime'},{'name': 'NgTinyMceComponent', 'selector': 'ng-tinymce,ngTinymce'},{'name': 'NgTinyMceEditorComponent', 'selector': 'ngTinyMceEditor'},{'name': 'NgTooltipComponent', 'selector': 'ng-tooltip,ngTooltip'},{'name': 'NgTreeItemActionComponent', 'selector': 'ng-treeitemaction,ngTreeItemAction'},{'name': 'NgTreeViewChildComponent', 'selector': 'ng-treeviewchild,ngTreeViewChild'},{'name': 'NgTreeViewComponent', 'selector': 'ng-treeview,ngTreeView'},{'name': 'NgUploadComponent', 'selector': 'ng-upload,ngUpload'},{'name': 'NgUploadMultipleComponent', 'selector': 'ng-uploadmultiple,ngUploadMultiple'},{'name': 'NgValidationSummaryComponent', 'selector': 'ng-validationsummary,ngValidationSummary'},{'name': 'NgWizardComponent', 'selector': 'ng-wizard,ngWizard'},{'name': 'NgWizardItemComponent', 'selector': 'ng-wizarditem,ngWizardItem'}];
-    var DIRECTIVES = [{'name': 'NgDropdownOptionDirective', 'selector': 'option,[ngOption]'},{'name': 'NgFormularDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgListboxOptionDirective', 'selector': '[ngOption], option'},{'name': 'ProvideParentNgFormularDirective', 'selector': '[ngInheritForm][inherit-form]'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppNavigationComponent', 'selector': 'app-navigation'},{'name': 'DemoBrowserComponent', 'selector': 'app-browser'},{'name': 'DemoButtonComponent', 'selector': 'app-button'},{'name': 'DemoCheckboxComponent', 'selector': 'app-checkbox'},{'name': 'DemoConfirmComponent', 'selector': 'app-confirm'},{'name': 'DemoContextmenuComponent', 'selector': 'app-contextmenu'},{'name': 'DemoDatetimeComponent', 'selector': 'app-datetime'},{'name': 'DemoDialogComponent', 'selector': 'app-dialog'},{'name': 'DemoGridComponent', 'selector': 'app-grid'},{'name': 'DemoInputComponent', 'selector': 'app-input'},{'name': 'DemoListComponent', 'selector': 'app-list'},{'name': 'DemoMultilanguageComponent', 'selector': 'app-multilanguage'},{'name': 'DemoRichtextComponent', 'selector': 'app-richtext'},{'name': 'DemoTabsComponent', 'selector': 'app-tabs'},{'name': 'DemoUploaderComponent', 'selector': 'app-uploader'},{'name': 'NgButtonComponent', 'selector': 'ng-button,ngButton'},{'name': 'NgCheckboxComponent', 'selector': 'ng-checkbox,ngCheckbox'},{'name': 'NgConfirmComponent', 'selector': 'ng-confirm,ngConfirm'},{'name': 'NgDateComponent', 'selector': 'ng-date,ngDate'},{'name': 'NgDateSelectorComponent', 'selector': 'ng-dateselector,ngDateSelector'},{'name': 'NgDateTimeComponent', 'selector': 'ng-datetime,ngDateTime'},{'name': 'NgDialogComponent', 'selector': 'ng-dialog,ngDialog'},{'name': 'NgDropdownComponent', 'selector': 'ng-dropdown,ngDropdown'},{'name': 'NgGridButtonComponent', 'selector': 'ng-gridbutton,ngGridButton'},{'name': 'NgGridColumnActionComponent', 'selector': 'ng-gridcolumnaction,ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgGridColumnComponent', 'selector': 'ng-gridcolumn,ngGridColumn,[ngGridColumn]'},{'name': 'NgGridComponent', 'selector': 'ng-grid,ngGrid'},{'name': 'NgGridImageComponent', 'selector': 'ng-gridimage,ngGridImage'},{'name': 'NgInputAreaComponent', 'selector': 'ng-inputarea,ngInputArea'},{'name': 'NgInputComponent', 'selector': 'ng-input,ngInput'},{'name': 'NgInputCurrencyComponent', 'selector': 'ng-inputcurrency,ngInputCurrency'},{'name': 'NgInputDecimalComponent', 'selector': 'ng-inputdecimal,ngInputDecimal'},{'name': 'NgInputEmailComponent', 'selector': 'ng-inputemail,ngInputEmail'},{'name': 'NgInputIntegerComponent', 'selector': 'ng-inputinteger,ngInputInteger'},{'name': 'NgInputPasswordComponent', 'selector': 'ng-inputpassword,ngInputPassword'},{'name': 'NgInputSearchComponent', 'selector': 'ng-inputsearch,ngInputSearch'},{'name': 'NgListboxComponent', 'selector': 'ng-listbox,ngListbox'},{'name': 'NgPagingComponent', 'selector': 'ng-paging,ngPaging'},{'name': 'NgRadiobuttonComponent', 'selector': 'ng-radiobutton,ngRadiobutton'},{'name': 'NgRadiobuttonsComponent', 'selector': 'ng-radiobuttons,ngRadiobuttons'},{'name': 'NgStaticFormContainerComponent', 'selector': 'ng-staticformcontainer,ngStaticFormContainer'},{'name': 'NgStaticLabelComponent', 'selector': 'ng-staticlabel,ngStaticLabel'},{'name': 'NgTabComponent', 'selector': 'ng-tab,ngTab'},{'name': 'NgTabItemComponent', 'selector': 'ng-tabitem,ngTabItem'},{'name': 'NgTimeComponent', 'selector': 'ng-time,ngTime'},{'name': 'NgTinyMceComponent', 'selector': 'ng-tinymce,ngTinymce'},{'name': 'NgTooltipComponent', 'selector': 'ng-tooltip,ngTooltip'},{'name': 'NgTreeItemActionComponent', 'selector': 'ng-treeitemaction,ngTreeItemAction'},{'name': 'NgTreeViewChildComponent', 'selector': 'ng-treeviewchild,ngTreeViewChild'},{'name': 'NgTreeViewComponent', 'selector': 'ng-treeview,ngTreeView'},{'name': 'NgUploadComponent', 'selector': 'ng-upload,ngUpload'},{'name': 'NgUploadMultipleComponent', 'selector': 'ng-uploadmultiple,ngUploadMultiple'},{'name': 'NgValidationSummaryComponent', 'selector': 'ng-validationsummary,ngValidationSummary'},{'name': 'NgWizardComponent', 'selector': 'ng-wizard,ngWizard'},{'name': 'NgWizardItemComponent', 'selector': 'ng-wizarditem,ngWizardItem'}];
+    var DIRECTIVES = [{'name': 'NgBaseDateTimeControl', 'selector': ''},{'name': 'NgBaseListControl', 'selector': ''},{'name': 'NgBaseModelControl', 'selector': ''},{'name': 'NgBaseSelectControl', 'selector': ''},{'name': 'NgButtonCommon', 'selector': ''},{'name': 'NgCheckboxCommon', 'selector': ''},{'name': 'NgConfirmCommon', 'selector': ''},{'name': 'NgContextmenuAnchorCommon', 'selector': ''},{'name': 'NgContextmenuCommon', 'selector': ''},{'name': 'NgContextMenuContrainerCommon', 'selector': ''},{'name': 'NgContextmenuItemButtonCommon', 'selector': ''},{'name': 'NgContextmenuItemCommon', 'selector': ''},{'name': 'NgDateCommon', 'selector': ''},{'name': 'NgDateSelectorCommon', 'selector': ''},{'name': 'NgDateTimeCommon', 'selector': ''},{'name': 'NgDialogCommon', 'selector': ''},{'name': 'NgDropdownCommon', 'selector': ''},{'name': 'NgDropdownOptionCommon', 'selector': ''},{'name': 'NgDropdownOptionDirective', 'selector': 'option,[ngOption]'},{'name': 'NgDropzoneMultipleCommon', 'selector': ''},{'name': 'NgDropzoneSingleCommon', 'selector': ''},{'name': 'NgFileBrowserCommon', 'selector': ''},{'name': 'NgFormularCommon', 'selector': ''},{'name': 'NgFormularDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgGridButtonCommon', 'selector': ''},{'name': 'NgGridColumnActionCommon', 'selector': ''},{'name': 'NgGridColumnBaseCommon', 'selector': ''},{'name': 'NgGridColumnCommon', 'selector': ''},{'name': 'NgGridCommon', 'selector': ''},{'name': 'NgGridImageCommon', 'selector': ''},{'name': 'NgInputAreaCommon', 'selector': ''},{'name': 'NgInputBase', 'selector': ''},{'name': 'NgInputCommon', 'selector': ''},{'name': 'NgInputCurrencyCommon', 'selector': ''},{'name': 'NgInputDecimalCommon', 'selector': ''},{'name': 'NgInputEmailCommon', 'selector': ''},{'name': 'NgInputIntegerCommon', 'selector': ''},{'name': 'NgInputPasswordCommon', 'selector': ''},{'name': 'NgInputSearchCommon', 'selector': ''},{'name': 'NgListboxCommon', 'selector': ''},{'name': 'NgListboxOptionCommon', 'selector': ''},{'name': 'NgMultilanguageInputAreaCommon', 'selector': ''},{'name': 'NgMultilanguageInputCommon', 'selector': ''},{'name': 'NgPagingCommon', 'selector': ''},{'name': 'NgRadiobuttonCommon', 'selector': ''},{'name': 'NgRadiobuttonsCommon', 'selector': ''},{'name': 'NgStaticFormContainerCommon', 'selector': ''},{'name': 'NgStaticLabelCommon', 'selector': ''},{'name': 'NgTabCommon', 'selector': ''},{'name': 'NgTabItemCommon', 'selector': ''},{'name': 'NgTimeCommon', 'selector': ''},{'name': 'NgTooltipCommon', 'selector': ''},{'name': 'NgTreeItemActionCommon', 'selector': ''},{'name': 'NgTreeViewChildCommon', 'selector': ''},{'name': 'NgTreeViewCommon', 'selector': ''},{'name': 'NgUploadBase', 'selector': ''},{'name': 'NgUploadMultipleCommon', 'selector': ''},{'name': 'NgUploadSingleCommon', 'selector': ''},{'name': 'NgValidationSummaryCommon', 'selector': ''},{'name': 'NgWizardCommon', 'selector': ''},{'name': 'NgWizardItemCommon', 'selector': ''},{'name': 'ProvideParentNgFormularDirective', 'selector': '[ngInheritForm][inherit-form]'}];
     var ACTUAL_COMPONENT = {'name': 'NgUploadMultipleComponent'};
 </script>
 <script src="../js/tree.js"></script>
@@ -388,9 +974,9 @@ export class NgUploadMultipleComponent extends NgUploadMultipleCommon {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

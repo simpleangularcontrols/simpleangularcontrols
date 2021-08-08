@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -38,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>LanguageService</li>
+  <li >LanguageService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -59,23 +60,27 @@
             <code>projects/jngcontrols-common/src/services/Language.Service.ts</code>
         </p>
 
+
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
                 <p>Base Service für Localisation von Fehlermeldungen</p>
+<p>// Eigene Beispielimplementierung für Application</p>
+<p>(at)Injectable()
+export class ControlsLanguageService extends LanguageService {</p>
+<p>  constructor(private http: HttpClient) {
+    super();
+  }</p>
+<p>   configUrl = &#39;assets/languages.json&#39;;</p>
+<p>   public GetLanguages(): Observable&lt;LanguageModel[]&gt; {
+     return this.http.get(this.configUrl);
+   }
+ }</p>
 
             </p>
 
 
-            <p class="comment">
-                <h3>Example</h3>
-            </p>
-            <div class="io-description">
-                        <div>
-                            <pre class="line-numbers"><code class="language-html">// Eigene Beispielimplementierung für Application(at)Injectable()export class ControlsLanguageService extends LanguageService {   constructor(private http: HttpClient) {     super();   }    configUrl = 'assets/languages.json';    public GetLanguages(): Observable&lt;LanguageModel[]&gt; {      return this.http.get(this.configUrl);    }  }</code></pre>
-                        </div>
-            </div>
 
             <section>
     <h3 id="index">Index</h3>
@@ -92,7 +97,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Abstract</span>
-                                <a href="#GetLanguages">GetLanguages</a>
+                                <a href="#GetLanguages" >GetLanguages</a>
                             </li>
                         </ul>
                     </td>
@@ -118,10 +123,8 @@
                 <td class="col-md-4">
                     <a name="GetLanguages"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Abstract</span>
-                            GetLanguages
-                        </b>
+                        <span class="modifier">Abstract</span>
+                        <span ><b>GetLanguages</b></span>
                         <a href="#GetLanguages"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -268,9 +271,9 @@ export class InternalLanguageService extends LanguageService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

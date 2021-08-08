@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>NgTreeViewChildComponent</li>
+  <li
+  >
+  NgTreeViewChildComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,11 +65,12 @@
 </p>
 
 
+
     <p class="comment">
         <h3>Extends</h3>
     </p>
     <p class="comment">
-            <code>NgTreeViewChildCommon</code>
+                <code><a href="../directives/NgTreeViewChildCommon.html" target="_self" >NgTreeViewChildCommon</a></code>
     </p>
 
 
@@ -110,13 +114,91 @@
     </table>
 </section>
 
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
 
 
 
 
 
 
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
 
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgTreeViewChildCommon.html" target="_self" >NgTreeViewChildCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewChildCommon.html#source" target="_self" >NgTreeViewChildCommon:13</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>A lifecycle hook that is called after Angular has initialized all data-bound properties of a directive.
+Define an ngOnInit() method to handle any additional initialization tasks.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
 </div>
 
@@ -203,8 +285,8 @@ export class NgTreeViewChildComponent extends NgTreeViewChildCommon {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><ul class="jstree-children" *ngIf="nodes && nodes.length">  <li *ngFor="let node of nodes; let last = last" class="jstree-node"   [ngClass]="{    \'jstree-open\': !node[collapseAttr] && node[childrenAttr] && node[childrenAttr].length,    \'jstree-closed\': node[collapseAttr]  && node[childrenAttr] && node[childrenAttr].length,    \'jstree-leaf\': !node[childrenAttr].length,    \'jstree-last\': last      }"       [id]="node[idAttr]" >    <div unselectable="on" role="presentation" class="jstree-wholerow" (mouseover)="node.hover=true" (mouseout)="node.hover=false"      [ngClass]="{\'jstree-wholerow-clicked\': node == selectedNode, \'jstree-wholerow-hovered\': node.hover}"      >&nbsp;    </div>    <i class="jstree-icon jstree-ocl" role="presentation" (click)="onCollapseClick(node)" (mouseover)="node.hover=true" (mouseout)="node.hover=false"></i>    <a class="jstree-anchor" (click)="onClick(node)"      [ngClass]="{\'jstree-clicked\': node == selectedNode, \'jstreehovered\': node.hover}" (mouseover)="node.hover=true" (mouseout)="node.hover=false">      <ng-container *ngTemplateOutlet="treefileicon; context { item: node }"; content></ng-container>         {{node[textAttr]}}    </a>    <ng-container *ngTemplateOutlet="templateTree; context { item: node }"></ng-container>        <ngTreeViewChild *ngIf="node[childrenAttr] && node[childrenAttr].length" [fileicontemplate]="fileicontemplate"  [template]="templateTree" [collapseAll]="_collapseAll"      [ngClass]="(node[collapseAttr]==true)?\'collapse\':\'show\'" [data]="node[childrenAttr]" [idAttr]="idAttr"      [parentAttr]="parentAttr" [textAttr]="textAttr" [prepareData]="false" (onselecteditem)="sendMsgToParent($event)" [(selectedId)]="selectedId">    </ngTreeViewChild>  </li></ul></div>'
-    var COMPONENTS = [{'name': 'NgButtonComponent', 'selector': 'ng-button,ngButton'},{'name': 'NgCheckboxComponent', 'selector': 'ng-checkbox,ngCheckbox'},{'name': 'NgConfirmComponent', 'selector': 'ng-confirm,ngConfirm'},{'name': 'NgDateComponent', 'selector': 'ng-date,ngDate'},{'name': 'NgDateSelectorComponent', 'selector': 'ng-dateselector,ngDateSelector'},{'name': 'NgDateTimeComponent', 'selector': 'ng-datetime,ngDateTime'},{'name': 'NgDialogComponent', 'selector': 'ng-dialog,ngDialog'},{'name': 'NgDropdownComponent', 'selector': 'ng-dropdown,ngDropdown'},{'name': 'NgGridButtonComponent', 'selector': 'ng-gridbutton,ngGridButton'},{'name': 'NgGridColumnActionComponent', 'selector': 'ng-gridcolumnaction,ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgGridColumnComponent', 'selector': 'ng-gridcolumn,ngGridColumn,[ngGridColumn]'},{'name': 'NgGridComponent', 'selector': 'ng-grid,ngGrid'},{'name': 'NgGridImageComponent', 'selector': 'ng-gridimage,ngGridImage'},{'name': 'NgInputAreaComponent', 'selector': 'ng-inputarea,ngInputArea'},{'name': 'NgInputComponent', 'selector': 'ng-input,ngInput'},{'name': 'NgInputCurrencyComponent', 'selector': 'ng-inputcurrency,ngInputCurrency'},{'name': 'NgInputDecimalComponent', 'selector': 'ng-inputdecimal,ngInputDecimal'},{'name': 'NgInputEmailComponent', 'selector': 'ng-inputemail,ngInputEmail'},{'name': 'NgInputIntegerComponent', 'selector': 'ng-inputinteger,ngInputInteger'},{'name': 'NgInputPasswordComponent', 'selector': 'ng-inputpassword,ngInputPassword'},{'name': 'NgInputSearchComponent', 'selector': 'ng-inputsearch,ngInputSearch'},{'name': 'NgListboxComponent', 'selector': 'ng-listbox,ngListbox'},{'name': 'NgPagingComponent', 'selector': 'ng-paging,ngPaging'},{'name': 'NgRadiobuttonComponent', 'selector': 'ng-radiobutton,ngRadiobutton'},{'name': 'NgRadiobuttonsComponent', 'selector': 'ng-radiobuttons,ngRadiobuttons'},{'name': 'NgStaticFormContainerComponent', 'selector': 'ng-staticformcontainer,ngStaticFormContainer'},{'name': 'NgStaticLabelComponent', 'selector': 'ng-staticlabel,ngStaticLabel'},{'name': 'NgTabComponent', 'selector': 'ng-tab,ngTab'},{'name': 'NgTabItemComponent', 'selector': 'ng-tabitem,ngTabItem'},{'name': 'NgTimeComponent', 'selector': 'ng-time,ngTime'},{'name': 'NgTinyMceComponent', 'selector': 'ng-tinymce,ngTinymce'},{'name': 'NgTinyMceEditorComponent', 'selector': 'ngTinyMceEditor'},{'name': 'NgTooltipComponent', 'selector': 'ng-tooltip,ngTooltip'},{'name': 'NgTreeItemActionComponent', 'selector': 'ng-treeitemaction,ngTreeItemAction'},{'name': 'NgTreeViewChildComponent', 'selector': 'ng-treeviewchild,ngTreeViewChild'},{'name': 'NgTreeViewComponent', 'selector': 'ng-treeview,ngTreeView'},{'name': 'NgUploadComponent', 'selector': 'ng-upload,ngUpload'},{'name': 'NgUploadMultipleComponent', 'selector': 'ng-uploadmultiple,ngUploadMultiple'},{'name': 'NgValidationSummaryComponent', 'selector': 'ng-validationsummary,ngValidationSummary'},{'name': 'NgWizardComponent', 'selector': 'ng-wizard,ngWizard'},{'name': 'NgWizardItemComponent', 'selector': 'ng-wizarditem,ngWizardItem'}];
-    var DIRECTIVES = [{'name': 'NgDropdownOptionDirective', 'selector': 'option,[ngOption]'},{'name': 'NgFormularDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgListboxOptionDirective', 'selector': '[ngOption], option'},{'name': 'ProvideParentNgFormularDirective', 'selector': '[ngInheritForm][inherit-form]'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppNavigationComponent', 'selector': 'app-navigation'},{'name': 'DemoBrowserComponent', 'selector': 'app-browser'},{'name': 'DemoButtonComponent', 'selector': 'app-button'},{'name': 'DemoCheckboxComponent', 'selector': 'app-checkbox'},{'name': 'DemoConfirmComponent', 'selector': 'app-confirm'},{'name': 'DemoContextmenuComponent', 'selector': 'app-contextmenu'},{'name': 'DemoDatetimeComponent', 'selector': 'app-datetime'},{'name': 'DemoDialogComponent', 'selector': 'app-dialog'},{'name': 'DemoGridComponent', 'selector': 'app-grid'},{'name': 'DemoInputComponent', 'selector': 'app-input'},{'name': 'DemoListComponent', 'selector': 'app-list'},{'name': 'DemoMultilanguageComponent', 'selector': 'app-multilanguage'},{'name': 'DemoRichtextComponent', 'selector': 'app-richtext'},{'name': 'DemoTabsComponent', 'selector': 'app-tabs'},{'name': 'DemoUploaderComponent', 'selector': 'app-uploader'},{'name': 'NgButtonComponent', 'selector': 'ng-button,ngButton'},{'name': 'NgCheckboxComponent', 'selector': 'ng-checkbox,ngCheckbox'},{'name': 'NgConfirmComponent', 'selector': 'ng-confirm,ngConfirm'},{'name': 'NgDateComponent', 'selector': 'ng-date,ngDate'},{'name': 'NgDateSelectorComponent', 'selector': 'ng-dateselector,ngDateSelector'},{'name': 'NgDateTimeComponent', 'selector': 'ng-datetime,ngDateTime'},{'name': 'NgDialogComponent', 'selector': 'ng-dialog,ngDialog'},{'name': 'NgDropdownComponent', 'selector': 'ng-dropdown,ngDropdown'},{'name': 'NgGridButtonComponent', 'selector': 'ng-gridbutton,ngGridButton'},{'name': 'NgGridColumnActionComponent', 'selector': 'ng-gridcolumnaction,ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgGridColumnComponent', 'selector': 'ng-gridcolumn,ngGridColumn,[ngGridColumn]'},{'name': 'NgGridComponent', 'selector': 'ng-grid,ngGrid'},{'name': 'NgGridImageComponent', 'selector': 'ng-gridimage,ngGridImage'},{'name': 'NgInputAreaComponent', 'selector': 'ng-inputarea,ngInputArea'},{'name': 'NgInputComponent', 'selector': 'ng-input,ngInput'},{'name': 'NgInputCurrencyComponent', 'selector': 'ng-inputcurrency,ngInputCurrency'},{'name': 'NgInputDecimalComponent', 'selector': 'ng-inputdecimal,ngInputDecimal'},{'name': 'NgInputEmailComponent', 'selector': 'ng-inputemail,ngInputEmail'},{'name': 'NgInputIntegerComponent', 'selector': 'ng-inputinteger,ngInputInteger'},{'name': 'NgInputPasswordComponent', 'selector': 'ng-inputpassword,ngInputPassword'},{'name': 'NgInputSearchComponent', 'selector': 'ng-inputsearch,ngInputSearch'},{'name': 'NgListboxComponent', 'selector': 'ng-listbox,ngListbox'},{'name': 'NgPagingComponent', 'selector': 'ng-paging,ngPaging'},{'name': 'NgRadiobuttonComponent', 'selector': 'ng-radiobutton,ngRadiobutton'},{'name': 'NgRadiobuttonsComponent', 'selector': 'ng-radiobuttons,ngRadiobuttons'},{'name': 'NgStaticFormContainerComponent', 'selector': 'ng-staticformcontainer,ngStaticFormContainer'},{'name': 'NgStaticLabelComponent', 'selector': 'ng-staticlabel,ngStaticLabel'},{'name': 'NgTabComponent', 'selector': 'ng-tab,ngTab'},{'name': 'NgTabItemComponent', 'selector': 'ng-tabitem,ngTabItem'},{'name': 'NgTimeComponent', 'selector': 'ng-time,ngTime'},{'name': 'NgTinyMceComponent', 'selector': 'ng-tinymce,ngTinymce'},{'name': 'NgTooltipComponent', 'selector': 'ng-tooltip,ngTooltip'},{'name': 'NgTreeItemActionComponent', 'selector': 'ng-treeitemaction,ngTreeItemAction'},{'name': 'NgTreeViewChildComponent', 'selector': 'ng-treeviewchild,ngTreeViewChild'},{'name': 'NgTreeViewComponent', 'selector': 'ng-treeview,ngTreeView'},{'name': 'NgUploadComponent', 'selector': 'ng-upload,ngUpload'},{'name': 'NgUploadMultipleComponent', 'selector': 'ng-uploadmultiple,ngUploadMultiple'},{'name': 'NgValidationSummaryComponent', 'selector': 'ng-validationsummary,ngValidationSummary'},{'name': 'NgWizardComponent', 'selector': 'ng-wizard,ngWizard'},{'name': 'NgWizardItemComponent', 'selector': 'ng-wizarditem,ngWizardItem'}];
+    var DIRECTIVES = [{'name': 'NgBaseDateTimeControl', 'selector': ''},{'name': 'NgBaseListControl', 'selector': ''},{'name': 'NgBaseModelControl', 'selector': ''},{'name': 'NgBaseSelectControl', 'selector': ''},{'name': 'NgButtonCommon', 'selector': ''},{'name': 'NgCheckboxCommon', 'selector': ''},{'name': 'NgConfirmCommon', 'selector': ''},{'name': 'NgContextmenuAnchorCommon', 'selector': ''},{'name': 'NgContextmenuCommon', 'selector': ''},{'name': 'NgContextMenuContrainerCommon', 'selector': ''},{'name': 'NgContextmenuItemButtonCommon', 'selector': ''},{'name': 'NgContextmenuItemCommon', 'selector': ''},{'name': 'NgDateCommon', 'selector': ''},{'name': 'NgDateSelectorCommon', 'selector': ''},{'name': 'NgDateTimeCommon', 'selector': ''},{'name': 'NgDialogCommon', 'selector': ''},{'name': 'NgDropdownCommon', 'selector': ''},{'name': 'NgDropdownOptionCommon', 'selector': ''},{'name': 'NgDropdownOptionDirective', 'selector': 'option,[ngOption]'},{'name': 'NgDropzoneMultipleCommon', 'selector': ''},{'name': 'NgDropzoneSingleCommon', 'selector': ''},{'name': 'NgFileBrowserCommon', 'selector': ''},{'name': 'NgFormularCommon', 'selector': ''},{'name': 'NgFormularDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgGridButtonCommon', 'selector': ''},{'name': 'NgGridColumnActionCommon', 'selector': ''},{'name': 'NgGridColumnBaseCommon', 'selector': ''},{'name': 'NgGridColumnCommon', 'selector': ''},{'name': 'NgGridCommon', 'selector': ''},{'name': 'NgGridImageCommon', 'selector': ''},{'name': 'NgInputAreaCommon', 'selector': ''},{'name': 'NgInputBase', 'selector': ''},{'name': 'NgInputCommon', 'selector': ''},{'name': 'NgInputCurrencyCommon', 'selector': ''},{'name': 'NgInputDecimalCommon', 'selector': ''},{'name': 'NgInputEmailCommon', 'selector': ''},{'name': 'NgInputIntegerCommon', 'selector': ''},{'name': 'NgInputPasswordCommon', 'selector': ''},{'name': 'NgInputSearchCommon', 'selector': ''},{'name': 'NgListboxCommon', 'selector': ''},{'name': 'NgListboxOptionCommon', 'selector': ''},{'name': 'NgMultilanguageInputAreaCommon', 'selector': ''},{'name': 'NgMultilanguageInputCommon', 'selector': ''},{'name': 'NgPagingCommon', 'selector': ''},{'name': 'NgRadiobuttonCommon', 'selector': ''},{'name': 'NgRadiobuttonsCommon', 'selector': ''},{'name': 'NgStaticFormContainerCommon', 'selector': ''},{'name': 'NgStaticLabelCommon', 'selector': ''},{'name': 'NgTabCommon', 'selector': ''},{'name': 'NgTabItemCommon', 'selector': ''},{'name': 'NgTimeCommon', 'selector': ''},{'name': 'NgTooltipCommon', 'selector': ''},{'name': 'NgTreeItemActionCommon', 'selector': ''},{'name': 'NgTreeViewChildCommon', 'selector': ''},{'name': 'NgTreeViewCommon', 'selector': ''},{'name': 'NgUploadBase', 'selector': ''},{'name': 'NgUploadMultipleCommon', 'selector': ''},{'name': 'NgUploadSingleCommon', 'selector': ''},{'name': 'NgValidationSummaryCommon', 'selector': ''},{'name': 'NgWizardCommon', 'selector': ''},{'name': 'NgWizardItemCommon', 'selector': ''},{'name': 'ProvideParentNgFormularDirective', 'selector': '[ngInheritForm][inherit-form]'}];
     var ACTUAL_COMPONENT = {'name': 'NgTreeViewChildComponent'};
 </script>
 <script src="../js/tree.js"></script>
@@ -246,9 +328,9 @@ export class NgTreeViewChildComponent extends NgTreeViewChildCommon {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

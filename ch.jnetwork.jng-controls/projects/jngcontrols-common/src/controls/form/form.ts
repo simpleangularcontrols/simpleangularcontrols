@@ -12,10 +12,9 @@ export type FormHooks = 'change' | 'blur' | 'submit';
  */
 @Directive()
 export class NgFormularCommon {
-
   /**
-  * Inline Errors für das Formular
-  */
+   * Inline Errors für das Formular
+   */
   private _inlineerrorenabled: boolean | null = null;
 
   /**
@@ -37,6 +36,9 @@ export class NgFormularCommon {
    */
   @Input('orientation') orientation: string = 'horizontal';
 
+  /**
+   * Standardwert wann die Werte via NgModel aktualisiert werden
+   */
   private _updateon: FormHooks = 'change';
 
   /**
@@ -51,10 +53,10 @@ export class NgFormularCommon {
     return this._updateon;
   }
 
-  @Input('inlineerrorenabled')
   /**
    * Aktiviert oder Deaktiviert die Inline Errors für das Control
    */
+  @Input('inlineerrorenabled')
   set inlineerrorenabled(value: boolean) {
     if (value === null || value === undefined) {
       this._inlineerrorenabled = null;
@@ -81,7 +83,9 @@ export class NgFormularCommon {
       case 'none':
         return 'none';
       default:
-        throw new Error('Invalid formtype at ngFormularCommon. Valid values are horizontal, vertical, none');
+        throw new Error(
+          'Invalid formtype at ngFormularCommon. Valid values are horizontal, vertical, none'
+        );
     }
   }
 
@@ -145,7 +149,9 @@ export class NgFormularCommon {
    * Aktualisiert die Werte und die gültigkeit des Formulars
    * @param controls Controls Collection
    */
-  private updateValueAndValidityInternal(controls: { [key: string]: AbstractControl }) {
+  private updateValueAndValidityInternal(controls: {
+    [key: string]: AbstractControl;
+  }) {
     const keyList: string[] = Object.keys(controls);
 
     for (const field of keyList) {
@@ -164,5 +170,4 @@ export class NgFormularCommon {
   public get IsInlineErrorEnabled(): boolean {
     return this._inlineerrorenabled !== false;
   }
-
 }

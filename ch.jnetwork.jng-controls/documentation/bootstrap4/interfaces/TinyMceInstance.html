@@ -68,6 +68,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interace für den Zugriff von TinyMCE auf die Angular Component</p>
+
+            </p>
 
 
         <section>
@@ -130,6 +137,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Instanz von Angular Component</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -139,7 +152,13 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgTinyMceCommon } from &#x27;./tinymce&#x27;;
 
+/**
+ * Interace für den Zugriff von TinyMCE auf die Angular Component
+ */
 export interface TinyMceInstance {
+  /**
+   * Instanz von Angular Component
+   */
   angular: NgTinyMceCommon;
 }
 </code></pre>

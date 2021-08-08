@@ -88,26 +88,31 @@ export class NgTinyMceCommon
    */
   @Input()
   public allowfoldercreate = false;
+ 
   /**
    * Erlaubt im Filebrowser das umbennen eines Ordners
    */
   @Input()
   public allowfolderrename = false;
+ 
   /**
    * Erlaubt im Filebrowser das löschen eines Ordners
    */
   @Input()
   public allowfolderdelete = false;
+
   /**
    * Erlaubt im Filebrowser das hochladen von Files
    */
   @Input()
   public allowfileupload = false;
+ 
   /**
    * Erlaubt im Filebrowser das umbennen von Dateien
    */
   @Input()
   public allowfilerename = false;
+ 
   /**
    * Erlaubt im Filebrowser das löschen von Dateien
    */
@@ -119,6 +124,7 @@ export class NgTinyMceCommon
    */
   @Input()
   public filetypesimages = '.gif,.jpeg,.jpg,.png,.tif,.tiff,.bmp';
+ 
   /**
    * File Extensions für Media (Format: .xxx,.yyy,.eee)
    */
@@ -146,12 +152,15 @@ export class NgTinyMceCommon
 
   /**
    * TinyMCE Konfiguration
-   * @see https://www.tiny.cloud/docs/configure/
+   * @link https://www.tiny.cloud/docs/configure/
    */
   @Input()
   set config(v: any) {
     this._config = { ...this.getDynamicSettings(), ...this.baseConfig, ...v };
   }
+  /**
+   * TinyMCE Konfiguration
+   */
   get config(): any {
     return this._config;
   }
@@ -185,6 +194,12 @@ export class NgTinyMceCommon
 
   //#region Integration Select Dialog für Fileauswahl
 
+  /**
+   * Zeigt den Dateiauswahl Dialog an
+   * @param callback Callback Methode welche aufgerufen wird, wenn der Dialog geschlossen wird
+   * @param value Wert aus dem Datei Dialog
+   * @param meta Meta Daten zur Datei
+   */
   public showSelectDialog(
     callback,
     value: string,
@@ -220,6 +235,9 @@ export class NgTinyMceCommon
     });
   }
 
+  /**
+   * Setzt das Resultat aus dem Dateiauswahl Dialog
+   */
   public setSelectDialogResult(): void {
     if (this.selectDialogSettings.value) {
       if (
@@ -236,6 +254,9 @@ export class NgTinyMceCommon
     this.closeSelectDialog();
   }
 
+  /**
+   * Schliesst den Dateiauswahl Dialog
+   */
   public closeSelectDialog(): void {
     this.selectdialogvisible = false;
   }

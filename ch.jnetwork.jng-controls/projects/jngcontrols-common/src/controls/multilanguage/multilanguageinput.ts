@@ -36,6 +36,7 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
    */
   @Input('validationmessagerequired') _validationMessageRequired: string =
     'VALIDATION_ERROR_MULTILANGUAGEREQUIRED';
+
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
@@ -48,6 +49,7 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
    */
   @Input('validationmessagerequiredany') _validationMessageRequiredAny: string =
     'VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY';
+
   /**
    * Resource Key für Validation Message Pattern in Validation Summary
    */
@@ -148,8 +150,7 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
   }
 
   /**
-   *
-   * @param value    * Setzt den Wert für die aktuell gewählte Sprache
+   * Setzt den Wert für die aktuell gewählte Sprache
    * @param value Wert welcher gesetzt werden soll
    */
   public SetLanguageValue(value: string): void {
@@ -227,6 +228,7 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
 
   /**
    * Methode validiert, ob der Wert den gegebenen Kriterien entspricht
+   * @param c Control das validiert wird
    */
   validateData(c: AbstractControl): { [key: string]: any } {
     let error: ValidationErrors | null = null;

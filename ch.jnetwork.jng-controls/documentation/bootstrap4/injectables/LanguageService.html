@@ -139,17 +139,25 @@ export class ControlsLanguageService extends LanguageService {</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">projects/jngcontrols-common/src/services/Language.Service.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">projects/jngcontrols-common/src/services/Language.Service.ts:41</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Gibt alle verfügbaren Sprachen zurück</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/LanguageModel.html" target="_self" >Observable&lt;LanguageModel[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Observable von allen Sprachen</p>
 
                     </div>
                 </td>
@@ -170,7 +178,9 @@ import { LanguageModel } from &#x27;../models/languagemodel&#x27;;
 /**
  * Injection Token für Language Service
  */
-export const LANGUAGE_SERVICE &#x3D; new InjectionToken&lt;ILanguageService&gt;(&#x27;LanguageService&#x27;);
+export const LANGUAGE_SERVICE &#x3D; new InjectionToken&lt;ILanguageService&gt;(
+  &#x27;LanguageService&#x27;
+);
 
 /**
  * Base Service für Localisation von Fehlermeldungen
@@ -196,9 +206,11 @@ export const LANGUAGE_SERVICE &#x3D; new InjectionToken&lt;ILanguageService&gt;(
  */
 @Injectable({ providedIn: &#x27;root&#x27; })
 export abstract class LanguageService implements ILanguageService {
-
+  /**
+   * Gibt alle verfügbaren Sprachen zurück
+   * @returns Observable von allen Sprachen
+   */
   abstract GetLanguages(): Observable&lt;LanguageModel[]&gt;;
-
 }
 
 /**
@@ -206,11 +218,12 @@ export abstract class LanguageService implements ILanguageService {
  * */
 @Injectable({ providedIn: &#x27;root&#x27; })
 export class InternalLanguageService extends LanguageService {
-
+  /**
+   * Gibt alle verfügbaren Sprachen zurück
+   * @returns Observable von allen Sprachen
+   */
   public GetLanguages(): Observable&lt;LanguageModel[]&gt; {
-
     return new Observable&lt;LanguageModel[]&gt;((observer) &#x3D;&gt; {
-
       const result: LanguageModel[] &#x3D; [];
 
       const de: LanguageModel &#x3D; new LanguageModel();
@@ -228,7 +241,6 @@ export class InternalLanguageService extends LanguageService {
 
       observer.next(result);
       observer.complete();
-
     });
   }
 }

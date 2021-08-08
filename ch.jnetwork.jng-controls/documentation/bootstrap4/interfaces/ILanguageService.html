@@ -68,6 +68,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface für Language Service</p>
+
+            </p>
 
 
         <section>
@@ -120,14 +127,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="6"
-                            class="link-to-prism">projects/jngcontrols-common/src/interfaces/ILanguageService.ts:6</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">projects/jngcontrols-common/src/interfaces/ILanguageService.ts:12</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Gibt die möglichen Sprachen zurück</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/LanguageModel.html" target="_self" >Observable&lt;LanguageModel[]&gt;</a></code>
@@ -146,10 +155,15 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Observable } from &#x27;rxjs&#x27;;
 import { LanguageModel } from &#x27;../models/languagemodel&#x27;;
 
+/**
+ * Interface für Language Service
+ */
 export interface ILanguageService {
+  /**
+   * Gibt die möglichen Sprachen zurück
+   */
 
   GetLanguages(): Observable&lt;LanguageModel[]&gt;;
-
 }
 </code></pre>
     </div>

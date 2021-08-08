@@ -5,6 +5,9 @@ import { Directive, ElementRef } from '@angular/core';
  */
 @Directive()
 export class NgContextmenuAnchorCommon {
+  /**
+   * Referenz auf das Native HTML Element
+   */
   nativeElement: HTMLElement;
 
   /**

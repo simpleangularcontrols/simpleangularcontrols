@@ -24,9 +24,15 @@ export class NgDropzoneMultipleCommon
   @Input()
   public uploadheight: string = null;
 
+  /**
+   * Max. Anzahl Files die hochgeladen werden können
+   */
   @Input('maxfiles')
   public maxfiles: number = 0;
 
+  /**
+   * Min. Anzahl Files die hochgeladen werden müssen
+   */
   @Input('minfiles')
   public minfiles: number = 0;
 

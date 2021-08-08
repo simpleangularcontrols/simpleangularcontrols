@@ -69,13 +69,34 @@ export abstract class NgUploadBase<VALUE>
   extends NgBaseModelControl<VALUE>
   implements OnInit, OnDestroy
 {
-  uploads: NgUploadFile[];
+  /**
+   * Upload Settings
+   */
   private options: UploadxOptions = {};
-  protected uploadService: UploadxService;
+  /**
+   * Erlaubte Dateitypen
+   */
   private _allowedtypes: string = '*';
+  /**
+   * Files automatisch hochladen
+   */
   private _autoupload: boolean = false;
+  /**
+   * Pausieren von Uploads erlauben
+   */
   private _enablepause: boolean = true;
+  /**
+   * API Endpoint
+   */
   private _endpoint: string = null;
+  /**
+   * Array von Uploads
+   */
+  uploads: NgUploadFile[];
+  /**
+   * Upload Service
+   */
+  protected uploadService: UploadxService;
   /**
    * Service für Error Localisation
    */
@@ -519,12 +540,13 @@ export abstract class NgUploadBase<VALUE>
    *
    * @param file Type von File ID's
    */
-  abstract SetUploadValue(file: UploadState);
+  abstract SetUploadValue(file: UploadState): void;
 
   /**
    * Methode kann für Controls verwendet werden, zusätzliche Validierungen bei hinzufügen der Files zu machen
    *
    * @param file File das hinzugefügt wurde.
+   * @returns Valdierung ist erfolgreich
    */
   abstract CustomAddValidation(file: UploadState): boolean;
 }

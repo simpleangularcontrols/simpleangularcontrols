@@ -10,6 +10,9 @@ export class NgDropzoneSingleCommon
   extends NgUploadBase<string>
   implements OnInit
 {
+  /**
+   * Höhe der Dropzone. Wert wird mit Einheit angegeben.
+   */
   @Input()
   public uploadheight: string = null;
 

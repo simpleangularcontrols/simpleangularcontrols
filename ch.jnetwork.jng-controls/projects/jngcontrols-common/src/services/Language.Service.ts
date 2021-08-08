@@ -6,7 +6,9 @@ import { LanguageModel } from '../models/languagemodel';
 /**
  * Injection Token für Language Service
  */
-export const LANGUAGE_SERVICE = new InjectionToken<ILanguageService>('LanguageService');
+export const LANGUAGE_SERVICE = new InjectionToken<ILanguageService>(
+  'LanguageService'
+);
 
 /**
  * Base Service für Localisation von Fehlermeldungen
@@ -32,9 +34,11 @@ export const LANGUAGE_SERVICE = new InjectionToken<ILanguageService>('LanguageSe
  */
 @Injectable({ providedIn: 'root' })
 export abstract class LanguageService implements ILanguageService {
-
+  /**
+   * Gibt alle verfügbaren Sprachen zurück
+   * @returns Observable von allen Sprachen
+   */
   abstract GetLanguages(): Observable<LanguageModel[]>;
-
 }
 
 /**
@@ -42,11 +46,12 @@ export abstract class LanguageService implements ILanguageService {
  * */
 @Injectable({ providedIn: 'root' })
 export class InternalLanguageService extends LanguageService {
-
+  /**
+   * Gibt alle verfügbaren Sprachen zurück
+   * @returns Observable von allen Sprachen
+   */
   public GetLanguages(): Observable<LanguageModel[]> {
-
     return new Observable<LanguageModel[]>((observer) => {
-
       const result: LanguageModel[] = [];
 
       const de: LanguageModel = new LanguageModel();
@@ -64,7 +69,6 @@ export class InternalLanguageService extends LanguageService {
 
       observer.next(result);
       observer.complete();
-
     });
   }
 }

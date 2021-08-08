@@ -19,47 +19,105 @@ export const FILEBROWSER_SERVICE = new InjectionToken<IFileBrowserService>(
   'FileBrowserService'
 );
 
+/**
+ * Abstrakte Implementierung des File Service für die Browser Component
+ */
 @Injectable({
   providedIn: 'root',
 })
 export abstract class FileBrowserService implements IFileBrowserService {
+  /**
+   * Gibt einen Node zurück
+   * @param apiurl URL zu API Service
+   * @param path Pfad des Node welcher angefordert wird
+   * @param allowedextensions Erlaubte Extensions die angezeigt werden dürfen
+   */
   abstract GetNode(
     apiurl: string,
     path: string,
     allowedextensions: string
   ): Observable<IBrowserNodeResponse>;
+
+  /**
+   * Speichert einen Node
+   * @param apiurl URL zu API Service
+   * @param path Pfad in welchem der Node gespeichert werden soll
+   * @param newFoldername Name des neuen Nodes
+   */
   abstract SaveNode(
     apiurl: string,
     path: string,
     newFoldername: string
   ): Observable<IBrowserNodeResponse>;
+
+  /**
+   * Rename eines Nodes
+   * @param apiurl URL zu API Service
+   * @param path Pfad des Nodes welcher umbenannt werden soll
+   * @param newFoldername Neuer Name des Nodes
+   */
   abstract RenameNode(
     apiurl: string,
     path: string,
     newFoldername: string
   ): Observable<IBrowserNodeResponse>;
+
+  /**
+   * Löscht einen Node
+   * @param apiurl URL zu API Service
+   * @param path Pfad des Nodes welcher gelöscht werden soll
+   */
   abstract DeleteNode(
     apiurl: string,
     path: string
   ): Observable<IBrowserNodeResponse>;
 
+  /**
+   * Methode welche die Dateien eines Nodes ausliest
+   * @param apiurl URL zu API Service
+   * @param path Pfad des Nodes in welchem die Files gelesen werden sollen
+   * @param allowedextensions Erlaubte File Extensions
+   */
   abstract GetFiles(
     apiurl: string,
     path: string,
     allowedextensions: string
   ): Observable<IBrowserFileResponse>;
+
+  /**
+   * Speichert eine Hochgeladene Datei in der Struktur
+   * @param apiurl URL zu API Service
+   * @param path Pfad in welchem das neue File gespeichert werden soll
+   * @param id ID des Uploads
+   * @param allowedextensions Erlaubte Extensions für den Upload
+   */
   abstract SaveFile(
     apiurl: string,
     path: string,
     id: string,
     allowedextensions: string
   ): Observable<IBrowserFileResponse>;
+
+  /**
+   * Methode welche eine Datei umbenannt
+   * @param apiurl URL zu API Service
+   * @param path Pfad zum File welches umbenannt werden soll
+   * @param newFilename Neuer Dateiname
+   * @param allowedextensions Erlaubte Extension für Files
+   */
   abstract RenameFile(
     apiurl: string,
     path: string,
     newFilename: string,
     allowedextensions: string
   ): Observable<IBrowserFileResponse>;
+
+  /**
+   * Löscht eine Datei
+   * @param apiurl URL zu API Service
+   * @param path Pfad des Files welches gelöscht werden soll
+   * @param allowedextensions Erlaubte Extensions für Files
+   */
   abstract DeleteFile(
     apiurl: string,
     path: string,
@@ -67,14 +125,27 @@ export abstract class FileBrowserService implements IFileBrowserService {
   ): Observable<IBrowserFileResponse>;
 }
 
+/**
+ * Standardimplementierung des Backend Service für die File Browser Component
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class InternalFileBrowserService extends FileBrowserService {
+  /**
+   * Konstruktor
+   * @param httpclient HTTP Client Service
+   */
   constructor(private httpclient: HttpClient) {
     super();
   }
 
+  /**
+   * Gibt einen Node zurück
+   * @param apiurl URL zu API Service
+   * @param path Pfad des Node welcher angefordert wird
+   * @param allowedextensions Erlaubte Extensions die angezeigt werden dürfen
+   */
   public GetNode(
     apiurl: string,
     path: string,
@@ -96,6 +167,12 @@ export class InternalFileBrowserService extends FileBrowserService {
     });
   }
 
+  /**
+   * Speichert einen Node
+   * @param apiurl URL zu API Service
+   * @param path Pfad in welchem der Node gespeichert werden soll
+   * @param newFoldername Name des neuen Nodes
+   */
   public SaveNode(
     apiurl: string,
     path: string,
@@ -117,6 +194,12 @@ export class InternalFileBrowserService extends FileBrowserService {
     });
   }
 
+  /**
+   * Rename eines Nodes
+   * @param apiurl URL zu API Service
+   * @param path Pfad des Nodes welcher umbenannt werden soll
+   * @param newFoldername Neuer Name des Nodes
+   */
   public RenameNode(
     apiurl: string,
     path: string,
@@ -138,6 +221,11 @@ export class InternalFileBrowserService extends FileBrowserService {
     });
   }
 
+  /**
+   * Löscht einen Node
+   * @param apiurl URL zu API Service
+   * @param path Pfad des Nodes welcher gelöscht werden soll
+   */
   public DeleteNode(
     apiurl: string,
     path: string
@@ -157,6 +245,12 @@ export class InternalFileBrowserService extends FileBrowserService {
     });
   }
 
+  /**
+   * Methode welche die Dateien eines Nodes ausliest
+   * @param apiurl URL zu API Service
+   * @param path Pfad des Nodes in welchem die Files gelesen werden sollen
+   * @param allowedextensions Erlaubte File Extensions
+   */
   public GetFiles(
     apiurl: string,
     path: string,
@@ -178,6 +272,13 @@ export class InternalFileBrowserService extends FileBrowserService {
     });
   }
 
+  /**
+   * Speichert eine Hochgeladene Datei in der Struktur
+   * @param apiurl URL zu API Service
+   * @param path Pfad in welchem das neue File gespeichert werden soll
+   * @param id ID des Uploads
+   * @param allowedextensions Erlaubte Extensions für den Upload
+   */
   public SaveFile(
     apiurl: string,
     path: string,
@@ -201,6 +302,12 @@ export class InternalFileBrowserService extends FileBrowserService {
     });
   }
 
+  /**
+   * Löscht eine Datei
+   * @param apiurl URL zu API Service
+   * @param path Pfad des Files welches gelöscht werden soll
+   * @param allowedextensions Erlaubte Extensions für Files
+   */
   public DeleteFile(
     apiurl: string,
     path: string,
@@ -222,6 +329,13 @@ export class InternalFileBrowserService extends FileBrowserService {
     });
   }
 
+  /**
+   * Methode welche eine Datei umbenannt
+   * @param apiurl URL zu API Service
+   * @param path Pfad zum File welches umbenannt werden soll
+   * @param newFilename Neuer Dateiname
+   * @param allowedextensions Erlaubte Extension für Files
+   */
   public RenameFile(
     apiurl: string,
     path: string,

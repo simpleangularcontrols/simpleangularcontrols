@@ -65,6 +65,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Klasse für API Request zum anlegen eines neuen Nodes</p>
+
+            </p>
 
 
 
@@ -111,12 +118,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="1" class="link-to-prism">projects/jngcontrols-common/src/components/browser/models/browsernodenewrequest.ts:1</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">projects/jngcontrols-common/src/components/browser/models/browsernodenewrequest.ts:4</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -125,6 +134,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -139,6 +149,10 @@
                                                             Yes
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Initiale Werte</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -173,10 +187,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">projects/jngcontrols-common/src/components/browser/models/browsernodenewrequest.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/jngcontrols-common/src/components/browser/models/browsernodenewrequest.ts:20</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Name des neuen Nodes</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -199,10 +219,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">projects/jngcontrols-common/src/components/browser/models/browsernodenewrequest.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/jngcontrols-common/src/components/browser/models/browsernodenewrequest.ts:16</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Pfad</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -219,11 +245,21 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class BrowserNodeNewRequest {
+  /**
+   * Konstruktor
+   * @param init Initiale Werte
+   */
   constructor(init?: Partial&lt;BrowserNodeNewRequest&gt;) {
     Object.assign(this, init);
   }
 
+  /**
+   * Pfad
+   */
   Path: string;
+  /**
+   * Name des neuen Nodes
+   */
   NewFoldername: string;
 }
 </code></pre>

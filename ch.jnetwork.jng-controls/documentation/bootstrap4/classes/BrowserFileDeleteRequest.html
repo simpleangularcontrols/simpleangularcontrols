@@ -65,6 +65,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Klasse für API Request zum löschen eines Files</p>
+
+            </p>
 
 
 
@@ -111,12 +118,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="1" class="link-to-prism">projects/jngcontrols-common/src/components/browser/models/browserfiledeleterequest.ts:1</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">projects/jngcontrols-common/src/components/browser/models/browserfiledeleterequest.ts:4</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -125,6 +134,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -139,6 +149,10 @@
                                                             Yes
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Initale Werte der Klasse</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -173,10 +187,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">projects/jngcontrols-common/src/components/browser/models/browserfiledeleterequest.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/jngcontrols-common/src/components/browser/models/browserfiledeleterequest.ts:20</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Erlaubte Dateitypen</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -199,10 +219,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">projects/jngcontrols-common/src/components/browser/models/browserfiledeleterequest.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/jngcontrols-common/src/components/browser/models/browserfiledeleterequest.ts:16</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Pfad</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -219,11 +245,21 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class BrowserFileDeleteRequest {
+  /**
+   * Konstruktor
+   * @param init Initale Werte der Klasse
+   */
   constructor(init?: Partial&lt;BrowserFileDeleteRequest&gt;) {
     Object.assign(this, init);
   }
 
+  /**
+   * Pfad
+   */
   Path: string;
+  /**
+   * Erlaubte Dateitypen
+   */
   AllowedTypes: string;
 }
 </code></pre>

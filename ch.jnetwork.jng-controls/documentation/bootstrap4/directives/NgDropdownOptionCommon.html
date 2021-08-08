@@ -1,0 +1,881 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Bootstrap 4 Angular Controls</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content directive">
+                   <div class="content-data">
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Directives</li>
+  <li >NgDropdownOptionCommon</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/jngcontrols-common/src/controls/list/dropdown.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>ngDropdownOption-Klasse</p>
+
+            </p>
+
+            <p class="comment">
+                <h3>Implements</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+            </p>
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#_setElementValue" >_setElementValue</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngValue" >ngValue</a>
+                            </li>
+                            <li>
+                                <a href="#value" >value</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#ngValue" >ngValue</a>
+                                </li>
+                                <li>
+                                    <a href="#value" >value</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_element: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, _renderer: <a href="https://angular.io/api/core/Renderer2" target="_blank">Renderer2</a>, _dropdown: <a href="../directives/NgDropdownCommon.html" target="_self">NgDropdownCommon</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="215" class="link-to-prism">projects/jngcontrols-common/src/controls/list/dropdown.ts:215</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_element</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>Referenz auf HTML Element</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>_renderer</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/Renderer2" target="_blank" >Renderer2</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>Render Engine</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>_dropdown</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../directives/NgDropdownCommon.html" target="_self" >NgDropdownCommon</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>Dropdown Instanz</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngValue"></a>
+                        <b>ngValue</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="236" class="link-to-prism">projects/jngcontrols-common/src/controls/list/dropdown.ts:236</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Option ngValue</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="value"></a>
+                        <b>value</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="251" class="link-to-prism">projects/jngcontrols-common/src/controls/list/dropdown.ts:251</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Wert-Setter</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_setElementValue"></a>
+                    <span class="name">
+                        <span ><b>_setElementValue</b></span>
+                        <a href="#_setElementValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>_setElementValue(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="258"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/list/dropdown.ts:258</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Den Wert vom Option-Element einstellen</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Wert</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="264"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/list/dropdown.ts:264</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>OnDestroy Event</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngValue"></a>
+                        <span class="name"><b>ngValue</b><a href="#ngValue"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>ngValue(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="236" class="link-to-prism">projects/jngcontrols-common/src/controls/list/dropdown.ts:236</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Option ngValue</p>
+</div>
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>value</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="value"></a>
+                        <span class="name"><b>value</b><a href="#value"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>value(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="251" class="link-to-prism">projects/jngcontrols-common/src/controls/list/dropdown.ts:251</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Wert-Setter</p>
+</div>
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>value</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Directive,
+  ElementRef,
+  Host,
+  Injector,
+  Input,
+  OnDestroy,
+  Renderer2,
+} from &#x27;@angular/core&#x27;;
+import { AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
+import { NgBaseSelectControl } from &#x27;../../common/baseselectcontrol&#x27;;
+import { Validation } from &#x27;../../validation&#x27;;
+import { NgFormularCommon } from &#x27;../form/form&#x27;;
+
+/**
+ * Function um ein Key Value Pair für das Dropdown zu erzeugen
+ * @param id ID
+ * @param value Wert der an das Element gebunden werden soll
+ */
+export function _buildValueString(id: string | null, value: any): string {
+  // Wenn ID null ist Object zurückgeben
+  if (id &#x3D;&#x3D; null) {
+    return &#x60;${value}&#x60;;
+  }
+
+  // Mapping Objekt zu String
+  if (value &amp;&amp; typeof value &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
+    value &#x3D; &#x27;Object&#x27;;
+  }
+
+  // String als ID
+  return &#x60;${id}: ${value}&#x60;.slice(0, 50);
+}
+
+/**
+ * Base Dropdown Komponente
+ */
+@Directive()
+export class NgDropdownCommon extends NgBaseSelectControl&lt;any&gt; {
+  /**
+   * Counter vom OptionID; default Wert &#x3D; 0
+   */
+  _optionIdCounter: number &#x3D; 0;
+  /**
+   * OptionMap
+   */
+  _optionMap: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+  /**
+   * compareWith-Funktion
+   */
+  private _compareWith: (o1: any, o2: any) &#x3D;&gt; boolean &#x3D; Object.is;
+
+  /**
+   * Label Text für Empty Item
+   */
+  @Input(&#x27;emptylabel&#x27;) _emptylabel: string &#x3D; &#x27;&#x27;;
+  /**
+   * Option Value für Empty Item
+   */
+  @Input(&#x27;emptyvalue&#x27;) _emptyoptionvalue: string &#x3D; null;
+  /**
+   * compareWith-Funktion
+   */
+  @Input(&#x27;compareWith&#x27;)
+  set compareWith(fn: (o1: any, o2: any) &#x3D;&gt; boolean) {
+    if (typeof fn !&#x3D;&#x3D; &#x27;function&#x27;) {
+      throw new Error(
+        &#x60;compareWith must be a function, but received ${JSON.stringify(fn)}&#x60;
+      );
+    }
+    this._compareWith &#x3D; fn;
+  }
+
+  /**
+   * Resource Key für Validation Message Required bei Control
+   */
+  @Input(&#x27;validationmessagerequired&#x27;) _validationMessageRequired: string &#x3D;
+    &#x27;VALIDATION_ERROR_REQUIRED&#x27;;
+  /**
+   * Resource Key für Validation Message Required in Validation Summary
+   */
+  @Input(&#x27;validationmessagesummaryrequired&#x27;)
+  _validationMessageRequiredSummary: string &#x3D;
+    &#x27;VALIDATION_ERROR_SUMMARY_REQUIRED&#x27;;
+
+  /**
+   * Konstruktor
+   * @param parent Übergeordnetes HTML Element
+   * @param injector Injector für Services
+   * @param _renderer Render Engine
+   * @param _elementRef Referenz von HTML Element
+   */
+  constructor(
+    @Host() parent: NgFormularCommon,
+    injector: Injector,
+    private _renderer: Renderer2,
+    private _elementRef: ElementRef
+  ) {
+    super(parent, injector);
+  }
+
+  /**
+   * Wert einstellen
+   * @param value - Wert
+   */
+  setValue(value: string) {
+    super.setValue(this.getOptionValue(value));
+  }
+
+  /**
+   * Wert schreiben
+   * @param value - Wert
+   */
+  writeValue(value: any) {
+    this.setSelectedValue(value);
+    super.writeValue(value);
+  }
+  /**
+   * Registriert das OptionID-Counter als String
+   */
+  registerOption(): string {
+    return (this._optionIdCounter++).toString();
+  }
+
+  /**
+   * Methode die von Options aufgerufen wird, um das Mapping zwischen Dropdown Value und Value herzustellen.
+   * @param id: Id aus Options
+   * @param value: Value
+   */
+  public setOptionMap(id: string, value: any): void {
+    this._optionMap.set(id, value);
+
+    // Selected Value auf Control aktualisieren, wenn Value dem SelectedValue entspricht
+    if (this.value &#x3D;&#x3D;&#x3D; value) {
+      this.setSelectedValue(value);
+    }
+  }
+
+  /**
+   * Setzt den Selected Value auf dem Control
+   * @param value Value
+   */
+  private setSelectedValue(value: any): void {
+    // Select Item aus Control lesen
+    const selectItem: any &#x3D;
+      this._elementRef.nativeElement.getElementsByTagName(&#x27;select&#x27;)[0];
+    /**
+     * Id vom Select Item
+     */
+    const id: string | null &#x3D; this.getOptionId(value);
+    /**
+     * Value String
+     */
+    const valueString &#x3D; _buildValueString(id, value);
+
+    if (selectItem !&#x3D;&#x3D; undefined) {
+      this._renderer.setProperty(selectItem, &#x27;value&#x27;, valueString);
+    }
+  }
+
+  /**
+   * Nimmt das ID vom Option
+   * @param value
+   */
+  private getOptionId(value: any): string | null {
+    for (const id of Array.from(this._optionMap.keys())) {
+      if (this._compareWith(this._optionMap.get(id), value)) {
+        return id;
+      }
+    }
+    return null;
+  }
+  /**
+   * Nimmt den String-Wert vom Option
+   * @param valueString
+   */
+  private getOptionValue(valueString: string): any {
+    const id: string &#x3D; this.extractId(valueString);
+    return this._optionMap.has(id) ? this._optionMap.get(id) : valueString;
+  }
+  /**
+   * ID extrahieren
+   * @param valueString String bei welchem die ID Extrahiert werden soll
+   */
+  private extractId(valueString: string): string {
+    return valueString.split(&#x27;:&#x27;)[0];
+  }
+  /**
+   * Validator
+   * @param c Control Instanz
+   */
+  validateData(c: AbstractControl): ValidationErrors | null {
+    let error: ValidationErrors | null &#x3D; null;
+
+    if (this._isrequired) {
+      error &#x3D; Validation.required(
+        c,
+        this._label,
+        this._validationMessageRequired,
+        this._validationMessageRequiredSummary
+      );
+    }
+    return error;
+  }
+}
+
+/**
+ * ngDropdownOption-Klasse
+ */
+@Directive()
+export class NgDropdownOptionCommon implements OnDestroy {
+  /**
+   * ID-String
+   */
+  private id: string &#x3D; null;
+  /**
+   * Konstruktor
+   * @param _element Referenz auf HTML Element
+   * @param _renderer Render Engine
+   * @param _dropdown Dropdown Instanz
+   */
+  constructor(
+    private _element: ElementRef,
+    private _renderer: Renderer2,
+    private _dropdown: NgDropdownCommon
+  ) {
+    if (this._dropdown) {
+      this.id &#x3D; this._dropdown.registerOption();
+    }
+  }
+
+  /**
+   * Option ngValue
+   */
+  @Input(&#x27;ngValue&#x27;)
+  set ngValue(value: any) {
+    // Cancel wenn kein Parent Dropdown vorhanden
+    if (this._dropdown &#x3D;&#x3D; null) {
+      return;
+    }
+
+    this._dropdown.setOptionMap(this.id, value);
+    this._setElementValue(_buildValueString(this.id, value));
+
+    this._dropdown.writeValue(this._dropdown.value);
+  }
+  /**
+   * Wert-Setter
+   */
+  @Input(&#x27;value&#x27;)
+  set value(value: any) {
+    this._setElementValue(value);
+  }
+  /**
+   * Den Wert vom Option-Element einstellen
+   * @param value Wert
+   */
+  _setElementValue(value: string): void {
+    this._renderer.setProperty(this._element.nativeElement, &#x27;value&#x27;, value);
+  }
+  /**
+   * OnDestroy Event
+   */
+  ngOnDestroy(): void {
+    if (this._dropdown) {
+      this._dropdown._optionMap.delete(this.id);
+    }
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'directive';
+            var COMPODOC_CURRENT_PAGE_URL = 'NgDropdownOptionCommon.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

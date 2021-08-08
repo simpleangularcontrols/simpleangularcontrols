@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -58,10 +59,13 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#callbackFn" title="projects/jngcontrols-common/src/controls/tinymce/scriptLoader.ts"><b>callbackFn</b>&nbsp;&nbsp;&nbsp;(projects/.../scriptLoader.ts)</a>
+                            <a href="#FormHooks" title="projects/jngcontrols-common/src/controls/form/form.ts" ><b>FormHooks</b>&nbsp;&nbsp;&nbsp;(projects/.../form.ts)</a>
                         </li>
                         <li>
-                            <a href="#FormHooks" title="projects/jngcontrols-common/src/controls/form/form.ts"><b>FormHooks</b>&nbsp;&nbsp;&nbsp;(projects/.../form.ts)</a>
+                            <a href="#Placement" title="projects/jngcontrols-common/src/utilities/positioning.ts" ><b>Placement</b>&nbsp;&nbsp;&nbsp;(projects/.../positioning.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PlacementArray" title="projects/jngcontrols-common/src/utilities/positioning.ts" ><b>PlacementArray</b>&nbsp;&nbsp;&nbsp;(projects/.../positioning.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -70,32 +74,14 @@
     </table>
 </section>
 
-    <h3>projects/jngcontrols-common/src/controls/tinymce/scriptLoader.ts</h3>
-    <section>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="callbackFn"></a>
-                    <span class="name"><b>callbackFn</b><a href="#callbackFn"><span class="icon ion-ios-link"></span></a></span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <code>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
-</code>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>    <h3>projects/jngcontrols-common/src/controls/form/form.ts</h3>
+    <h3>projects/jngcontrols-common/src/controls/form/form.ts</h3>
     <section>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
                     <a name="FormHooks"></a>
-                    <span class="name"><b>FormHooks</b><a href="#FormHooks"><span class="icon ion-ios-link"></span></a></span>
+                    <span class="name "><b>FormHooks</b><a href="#FormHooks"><span class="icon ion-ios-link"></span></a></span>
                 </td>
             </tr>
             <tr>
@@ -107,6 +93,40 @@
             <tr>
                 <td class="col-md-4">
                     <code>    <code>&quot;change&quot; | &quot;blur&quot; | &quot;submit&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>projects/jngcontrols-common/src/utilities/positioning.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Placement"></a>
+                    <span class="name "><b>Placement</b><a href="#Placement"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;auto&quot; | &quot;top&quot; | &quot;bottom&quot; | &quot;left&quot; | &quot;right&quot; | &quot;top-left&quot; | &quot;top-right&quot; | &quot;bottom-left&quot; | &quot;bottom-right&quot; | &quot;left-top&quot; | &quot;left-bottom&quot; | &quot;right-top&quot; | &quot;right-bottom&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PlacementArray"></a>
+                    <span class="name "><b>PlacementArray</b><a href="#PlacementArray"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#Placement" target="_self" >Placement | Array&lt;Placement&gt; | string</a></code>
 </code>
                 </td>
             </tr>
@@ -138,9 +158,9 @@
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

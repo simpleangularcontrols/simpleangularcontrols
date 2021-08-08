@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>NgDialogComponent</li>
+  <li
+  >
+  NgDialogComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,11 +65,12 @@
 </p>
 
 
+
     <p class="comment">
         <h3>Extends</h3>
     </p>
     <p class="comment">
-            <code>NgDialogCommon</code>
+                <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
     </p>
 
     <p class="comment">
@@ -121,6 +125,26 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#_show" >_show</a>
+                            </li>
+                            <li>
+                                <a href="#_size" >_size</a>
+                            </li>
+                            <li>
+                                <a href="#dialogElement" >dialogElement</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -131,18 +155,104 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
                             </li>
                             <li>
-                                <a href="#ngOnInit">ngOnInit</a>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#hide" >hide</a>
+                            </li>
+                            <li>
+                                <a href="#issetdefaultsize" >issetdefaultsize</a>
+                            </li>
+                            <li>
+                                <a href="#onClick" >onClick</a>
+                            </li>
+                            <li>
+                                <a href="#onKeydownHandler" >onKeydownHandler</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#show" >show</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#allowesc" >allowesc</a>
+                            </li>
+                            <li>
+                                <a href="#backdrop" >backdrop</a>
+                            </li>
+                            <li>
+                                <a href="#closebutton" >closebutton</a>
+                            </li>
+                            <li>
+                                <a href="#height" >height</a>
+                            </li>
+                            <li>
+                                <a href="#isvisible" >isvisible</a>
+                            </li>
+                            <li>
+                                <a href="#name" >name</a>
+                            </li>
+                            <li>
+                                <a href="#size" >size</a>
+                            </li>
+                            <li>
+                                <a href="#title" >title</a>
+                            </li>
+                            <li>
+                                <a href="#width" >width</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isvisibleChange" >isvisibleChange</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
 
 
-
-
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>HostListeners</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#click" >click</a>
+                            </li>
+                            <li>
+                                <a href="#document:keydown" >document:keydown</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
         </tbody>
     </table>
@@ -159,7 +269,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/dialog/dialog.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/dialog/dialog.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -209,10 +319,485 @@
         </table>
 </section>
 
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allowesc"></a>
+                        <b>allowesc</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:56</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch ESC geschlossen werden. Default ist true.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="backdrop"></a>
+                        <b>backdrop</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:62</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch click außerhalb des Dialog-Fenster geschlossen werden. Default ist true.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="closebutton"></a>
+                        <b>closebutton</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:74</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Steuert ob im Header des Dialogs ein Button angezeigt wird.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="height"></a>
+                        <b>height</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:86</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Definiert eine feste Höhe beim Dialog.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isvisible"></a>
+                        <b>isvisible</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:110</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Setter. Erhält das boolen Wert des _show property</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="name"></a>
+                        <b>name</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:68</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Input Property. Erhält den Namen des Dialog - benutzt für das ID. Default Value: &#39;&#39;</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="size"></a>
+                        <b>size</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:95</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Das Input akzeptiert sowohl default size-css-Klassen als auch custom Klassen.
+case insensitive.
+Die akzeptabel default-size-Klassen sind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#39;, &#39;medium&#39;, &#39;&#39;.
+Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist in medium size: max-width 500px.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="title"></a>
+                        <b>title</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Dialog&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:50</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Input Property. Erhält den Title des Dialog. Default Value: &#39;Dialog&#39;.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="width"></a>
+                        <b>width</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:80</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Input Property. Erhält die Breite des Dialog</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isvisibleChange"></a>
+                        <b>isvisibleChange</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:104</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Output Emitter. Wird aufgerufen, wenn das Wert des _show property geändert ist - damait das Dialog geöfnet/geschlossen wird.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3>HostListeners</h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="click"></a>
+                    <span class="name">
+                        <span ><b>click</b></span>
+                        <a href="#click"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <i>Arguments : </i><code>'$event' </code>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>click(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
 
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:235</a></code>
+</div>
+                </td>
+            </tr>
 
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Allow Close by Click outside Dialog</p>
+</div>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="document:keydown"></a>
+                    <span class="name">
+                        <span ><b>document:keydown</b></span>
+                        <a href="#document:keydown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <i>Arguments : </i><code>'$event' </code>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>document:keydown(event: KeyboardEvent)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:251</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Allow Close by ESC</p>
+</div>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
     <section>
     
     <h3 id="methods">
@@ -224,9 +809,7 @@
                 <td class="col-md-4">
                     <a name="ngOnDestroy"></a>
                     <span class="name">
-                        <b>
-                            ngOnDestroy
-                        </b>
+                        <span ><b>ngOnDestroy</b></span>
                         <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -240,8 +823,14 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/dialog/dialog.ts:23</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:32</a></code>
+</div>
                 </td>
             </tr>
 
@@ -263,9 +852,7 @@
                 <td class="col-md-4">
                     <a name="ngOnInit"></a>
                     <span class="name">
-                        <b>
-                            ngOnInit
-                        </b>
+                        <span ><b>ngOnInit</b></span>
                         <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -279,8 +866,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/dialog/dialog.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/dialog/dialog.ts:27</a></div>
                 </td>
             </tr>
 
@@ -296,20 +883,468 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hide"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>hide</b></span>
+                        <a href="#hide"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>hide()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:210</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Die Methode setz den Wert des _show property auf false</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="issetdefaultsize"></a>
+                    <span class="name">
+                        <span ><b>issetdefaultsize</b></span>
+                        <a href="#issetdefaultsize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>issetdefaultsize()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:142</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Die Funktion prüft ob es ein default css classe für Size des Dialog durch den size Input gesetzt wurde.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onClick"></a>
+                    <span class="name">
+                        <span ><b>onClick</b></span>
+                        <a href="#onClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onClick(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@HostListener(&#x27;click&#x27;, [&#x27;$event&#x27;])<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:235</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Allow Close by Click outside Dialog</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onKeydownHandler"></a>
+                    <span class="name">
+                        <span ><b>onKeydownHandler</b></span>
+                        <a href="#onKeydownHandler"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onKeydownHandler(event: KeyboardEvent)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@HostListener(&#x27;document:keydown&#x27;, [&#x27;$event&#x27;])<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:251</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Allow Close by ESC</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>KeyboardEvent</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="show"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>show</b></span>
+                        <a href="#show"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>show()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:193</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Die Methode setz den Wert des _show property auf true</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_show"></a>
+                    <span class="name">
+                        <span ><b>_show</b></span>
+                        <a href="#_show"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:36</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Boolean Property definiert ob das Dialog angezeigt wird</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_size"></a>
+                    <span class="name">
+                        <span ><b>_size</b></span>
+                        <a href="#_size"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:42</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Das property enthielt (wenn überhaupt gesetzt) entweder keywords für sizing oder custom css Klassen.
+Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#39;, &#39;medium&#39;, &#39;&#39;.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dialogElement"></a>
+                    <span class="name">
+                        <span ><b>dialogElement</b></span>
+                        <a href="#dialogElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../directives/NgDialogCommon.html" target="_self" >NgDialogCommon</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgDialogCommon.html#source" target="_self" >NgDialogCommon:21</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Name des Containers für den Dialog</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
 </section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ElementRef, ChangeDetectorRef, OnInit, OnDestroy } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component,
+  ElementRef,
+  ChangeDetectorRef,
+  OnInit,
+  OnDestroy,
+} from &#x27;@angular/core&#x27;;
 import { NgDialogCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
 
 @Component({
   selector: &#x27;ng-dialog,ngDialog&#x27;,
-  templateUrl: &#x27;./dialog.html&#x27;
+  templateUrl: &#x27;./dialog.html&#x27;,
 })
-export class NgDialogComponent extends NgDialogCommon implements OnInit, OnDestroy {
+export class NgDialogComponent
+  extends NgDialogCommon
+  implements OnInit, OnDestroy
+{
   // DOM Element
   private element: any;
 
@@ -326,16 +1361,18 @@ export class NgDialogComponent extends NgDialogCommon implements OnInit, OnDestr
 
   ngOnDestroy() {
     this.hide();
-    document.body.removeChild(this.element);
+    if (document.body.contains(this.element)) {
+      document.body.removeChild(this.element);
+    }
+    super.ngOnDestroy();
   }
 }
-
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;modal show&quot; style&#x3D;&quot;display: block&quot; tabindex&#x3D;&quot;-1&quot; role&#x3D;&quot;dialog&quot; *ngIf&#x3D;&quot;_show&quot; #dialog&gt;
-  &lt;div class&#x3D;&quot;modal-dialog modal-lg modal-dialog-centered&quot; role&#x3D;&quot;document&quot;
+        <pre class="line-numbers"><code class="language-html">&lt;div #dialog class&#x3D;&quot;modal show&quot; style&#x3D;&quot;display: block&quot; tabindex&#x3D;&quot;-1&quot; role&#x3D;&quot;dialog&quot; *ngIf&#x3D;&quot;_show&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable&quot; role&#x3D;&quot;document&quot;
        [class.modal-xl]&#x3D;&quot;_size &#x3D;&#x3D;&#x3D; &#x27;extralarge&#x27;&quot;
        [class.modal-lg]&#x3D;&quot;_size &#x3D;&#x3D;&#x3D; &#x27;large&#x27;&quot;
        [class.modal-sm]&#x3D;&quot;_size &#x3D;&#x3D;&#x3D; &#x27;small&#x27;&quot;&gt;
@@ -344,7 +1381,7 @@ export class NgDialogComponent extends NgDialogCommon implements OnInit, OnDestr
         &lt;h5 class&#x3D;&quot;modal-title&quot;&gt;{{_title}}&lt;/h5&gt;
         &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;modal&quot; aria-label&#x3D;&quot;Close&quot; (click)&#x3D;&quot;hide()&quot; *ngIf&#x3D;&quot;closebutton&quot;&gt;&lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;&lt;/button&gt;
       &lt;/div&gt;
-      &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+      &lt;div class&#x3D;&quot;modal-body&quot; [style.height]&#x3D;&quot;height&quot;&gt;
         &lt;ng-content select&#x3D;&quot;[dialogbody]&quot;&gt;&lt;/ng-content&gt;
       &lt;/div&gt;
       &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
@@ -383,9 +1420,9 @@ export class NgDialogComponent extends NgDialogCommon implements OnInit, OnDestr
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="modal show" style="display: block" tabindex="-1" role="dialog" *ngIf="_show" #dialog>  <div class="modal-dialog modal-lg modal-dialog-centered" role="document"       [class.modal-xl]="_size === \'extralarge\'"       [class.modal-lg]="_size === \'large\'"       [class.modal-sm]="_size === \'small\'">    <div class="modal-content">      <div class="modal-header">        <h5 class="modal-title">{{_title}}</h5>        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="hide()" *ngIf="closebutton"><span aria-hidden="true">&times;</span></button>      </div>      <div class="modal-body">        <ng-content select="[dialogbody]"></ng-content>      </div>      <div class="modal-footer">        <ng-content select="[dialogfooter]"></ng-content>      </div>    </div><!-- /.modal-content -->  </div><!-- /.modal-dialog --></div><!-- /.modal --><div class="modal-backdrop show" *ngIf="_show && _backdrop" #backdrop></div></div>'
-    var COMPONENTS = [{'name': 'NgButtonComponent', 'selector': 'ng-button,ngButton'},{'name': 'NgCheckboxComponent', 'selector': 'ng-checkbox,ngCheckbox'},{'name': 'NgConfirmComponent', 'selector': 'ng-confirm,ngConfirm'},{'name': 'NgDateComponent', 'selector': 'ng-date,ngDate'},{'name': 'NgDateSelectorComponent', 'selector': 'ng-dateselector,ngDateSelector'},{'name': 'NgDateTimeComponent', 'selector': 'ng-datetime,ngDateTime'},{'name': 'NgDialogComponent', 'selector': 'ng-dialog,ngDialog'},{'name': 'NgDropdownComponent', 'selector': 'ng-dropdown,ngDropdown'},{'name': 'NgGridButtonComponent', 'selector': 'ng-gridbutton,ngGridButton'},{'name': 'NgGridColumnActionComponent', 'selector': 'ng-gridcolumnaction,ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgGridColumnComponent', 'selector': 'ng-gridcolumn,ngGridColumn,[ngGridColumn]'},{'name': 'NgGridComponent', 'selector': 'ng-grid,ngGrid'},{'name': 'NgGridImageComponent', 'selector': 'ng-gridimage,ngGridImage'},{'name': 'NgInputAreaComponent', 'selector': 'ng-inputarea,ngInputArea'},{'name': 'NgInputComponent', 'selector': 'ng-input,ngInput'},{'name': 'NgInputCurrencyComponent', 'selector': 'ng-inputcurrency,ngInputCurrency'},{'name': 'NgInputDecimalComponent', 'selector': 'ng-inputdecimal,ngInputDecimal'},{'name': 'NgInputEmailComponent', 'selector': 'ng-inputemail,ngInputEmail'},{'name': 'NgInputIntegerComponent', 'selector': 'ng-inputinteger,ngInputInteger'},{'name': 'NgInputPasswordComponent', 'selector': 'ng-inputpassword,ngInputPassword'},{'name': 'NgInputSearchComponent', 'selector': 'ng-inputsearch,ngInputSearch'},{'name': 'NgListboxComponent', 'selector': 'ng-listbox,ngListbox'},{'name': 'NgMultilanguageInputAreaComponent', 'selector': 'ng-multilanguageinputarea,ngMultilanguageInputArea'},{'name': 'NgMultilanguageInputComponent', 'selector': 'ng-multilanguageinput,ngMultilanguageInput'},{'name': 'NgPagingComponent', 'selector': 'ng-paging,ngPaging'},{'name': 'NgRadiobuttonComponent', 'selector': 'ng-radiobutton,ngRadiobutton'},{'name': 'NgRadiobuttonsComponent', 'selector': 'ng-radiobuttons,ngRadiobuttons'},{'name': 'NgStaticFormContainerComponent', 'selector': 'ng-staticformcontainer,ngStaticFormContainer'},{'name': 'NgStaticLabelComponent', 'selector': 'ng-staticlabel,ngStaticLabel'},{'name': 'NgTabComponent', 'selector': 'ng-tab,ngTab'},{'name': 'NgTabItemComponent', 'selector': 'ng-tabitem,ngTabItem'},{'name': 'NgTimeComponent', 'selector': 'ng-time,ngTime'},{'name': 'NgTinyMceComponent', 'selector': 'ng-tinymce,ngTinymce'},{'name': 'NgTinyMceEditorComponent', 'selector': 'ngTinyMceEditor'},{'name': 'NgUploadComponent', 'selector': 'ng-upload,ngUpload'},{'name': 'NgUploadMultipleComponent', 'selector': 'ng-uploadmultiple,ngUploadMultiple'},{'name': 'NgValidationSummaryComponent', 'selector': 'ng-validationsummary,ngValidationSummary'},{'name': 'NgWizardComponent', 'selector': 'ng-wizard,ngWizard'},{'name': 'NgWizardItemComponent', 'selector': 'ng-wizarditem,ngWizardItem'}];
-    var DIRECTIVES = [{'name': 'NgDropdownOptionDirective', 'selector': '[ngOption],option'},{'name': 'NgFormularDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgListboxOptionDirective', 'selector': '[ngOption], option'},{'name': 'ProvideParentNgFormularDirective', 'selector': '[ngInheritForm],[inherit-form]'}];
+        var COMPONENT_TEMPLATE = '<div><div #dialog class="modal show" style="display: block" tabindex="-1" role="dialog" *ngIf="_show">  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document"       [class.modal-xl]="_size === \'extralarge\'"       [class.modal-lg]="_size === \'large\'"       [class.modal-sm]="_size === \'small\'">    <div class="modal-content">      <div class="modal-header">        <h5 class="modal-title">{{_title}}</h5>        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="hide()" *ngIf="closebutton"><span aria-hidden="true">&times;</span></button>      </div>      <div class="modal-body" [style.height]="height">        <ng-content select="[dialogbody]"></ng-content>      </div>      <div class="modal-footer">        <ng-content select="[dialogfooter]"></ng-content>      </div>    </div><!-- /.modal-content -->  </div><!-- /.modal-dialog --></div><!-- /.modal --><div class="modal-backdrop show" *ngIf="_show && _backdrop" #backdrop></div></div>'
+    var COMPONENTS = [{'name': 'NgBrowserComponent', 'selector': 'ng-filebrowser,ngFileBrowser'},{'name': 'NgButtonComponent', 'selector': 'ng-button,ngButton'},{'name': 'NgCheckboxComponent', 'selector': 'ng-checkbox,ngCheckbox'},{'name': 'NgConfirmComponent', 'selector': 'ng-confirm,ngConfirm'},{'name': 'NgContextmenuComponent', 'selector': 'ng-contextmenu,ngContextmenu'},{'name': 'NgContextmenuItemButtonComponent', 'selector': 'ng-contextmenubutton,ngContextmenuButton'},{'name': 'NgContextmenuItemSplitterComponent', 'selector': 'ng-contextmenusplitter,ngContextmenuSplitter'},{'name': 'NgDateComponent', 'selector': 'ng-date,ngDate'},{'name': 'NgDateSelectorComponent', 'selector': 'ng-dateselector,ngDateSelector'},{'name': 'NgDateTimeComponent', 'selector': 'ng-datetime,ngDateTime'},{'name': 'NgDialogComponent', 'selector': 'ng-dialog,ngDialog'},{'name': 'NgDropdownComponent', 'selector': 'ng-dropdown,ngDropdown'},{'name': 'NgDropzoneMultipleComponent', 'selector': 'ng-dropzonemultiple,ngDropzoneMultiple'},{'name': 'NgDropzoneSingleComponent', 'selector': 'ng-dropzonesingle,ngDropzoneSingle'},{'name': 'NgGridButtonComponent', 'selector': 'ng-gridbutton,ngGridButton'},{'name': 'NgGridColumnActionComponent', 'selector': 'ng-gridcolumnaction,ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgGridColumnComponent', 'selector': 'ng-gridcolumn,ngGridColumn,[ngGridColumn]'},{'name': 'NgGridComponent', 'selector': 'ng-grid,ngGrid'},{'name': 'NgGridImageComponent', 'selector': 'ng-gridimage,ngGridImage'},{'name': 'NgInputAreaComponent', 'selector': 'ng-inputarea,ngInputArea'},{'name': 'NgInputComponent', 'selector': 'ng-input,ngInput'},{'name': 'NgInputCurrencyComponent', 'selector': 'ng-inputcurrency,ngInputCurrency'},{'name': 'NgInputDecimalComponent', 'selector': 'ng-inputdecimal,ngInputDecimal'},{'name': 'NgInputEmailComponent', 'selector': 'ng-inputemail,ngInputEmail'},{'name': 'NgInputIntegerComponent', 'selector': 'ng-inputinteger,ngInputInteger'},{'name': 'NgInputPasswordComponent', 'selector': 'ng-inputpassword,ngInputPassword'},{'name': 'NgInputSearchComponent', 'selector': 'ng-inputsearch,ngInputSearch'},{'name': 'NgListboxComponent', 'selector': 'ng-listbox,ngListbox'},{'name': 'NgMultilanguageInputAreaComponent', 'selector': 'ng-multilanguageinputarea,ngMultilanguageInputArea'},{'name': 'NgMultilanguageInputComponent', 'selector': 'ng-multilanguageinput,ngMultilanguageInput'},{'name': 'NgPagingComponent', 'selector': 'ng-paging,ngPaging'},{'name': 'NgRadiobuttonComponent', 'selector': 'ng-radiobutton,ngRadiobutton'},{'name': 'NgRadiobuttonsComponent', 'selector': 'ng-radiobuttons,ngRadiobuttons'},{'name': 'NgStaticFormContainerComponent', 'selector': 'ng-staticformcontainer,ngStaticFormContainer'},{'name': 'NgStaticLabelComponent', 'selector': 'ng-staticlabel,ngStaticLabel'},{'name': 'NgTabComponent', 'selector': 'ng-tab,ngTab'},{'name': 'NgTabItemComponent', 'selector': 'ng-tabitem,ngTabItem'},{'name': 'NgTimeComponent', 'selector': 'ng-time,ngTime'},{'name': 'NgTinyMceComponent', 'selector': 'ng-tinymce,ngTinymce'},{'name': 'NgUploadComponent', 'selector': 'ng-upload,ngUpload'},{'name': 'NgUploadMultipleComponent', 'selector': 'ng-uploadmultiple,ngUploadMultiple'},{'name': 'NgValidationSummaryComponent', 'selector': 'ng-validationsummary,ngValidationSummary'},{'name': 'NgWizardComponent', 'selector': 'ng-wizard,ngWizard'},{'name': 'NgWizardItemComponent', 'selector': 'ng-wizarditem,ngWizardItem'}];
+    var DIRECTIVES = [{'name': 'NgBaseDateTimeControl', 'selector': ''},{'name': 'NgBaseListControl', 'selector': ''},{'name': 'NgBaseModelControl', 'selector': ''},{'name': 'NgBaseSelectControl', 'selector': ''},{'name': 'NgButtonCommon', 'selector': ''},{'name': 'NgCheckboxCommon', 'selector': ''},{'name': 'NgConfirmCommon', 'selector': ''},{'name': 'NgContextmenuAnchorCommon', 'selector': ''},{'name': 'NgContextmenuAnchorDirective', 'selector': '[ng-contextmenuanchor],[ngContextmenuAnchor]'},{'name': 'NgContextmenuCommon', 'selector': ''},{'name': 'NgContextmenuContainerDirective', 'selector': '[ng-contextmenucontainer],[ngContextmenuContainer]'},{'name': 'NgContextMenuContrainerCommon', 'selector': ''},{'name': 'NgContextmenuItemButtonCommon', 'selector': ''},{'name': 'NgContextmenuItemCommon', 'selector': ''},{'name': 'NgDateCommon', 'selector': ''},{'name': 'NgDateSelectorCommon', 'selector': ''},{'name': 'NgDateTimeCommon', 'selector': ''},{'name': 'NgDialogCommon', 'selector': ''},{'name': 'NgDropdownCommon', 'selector': ''},{'name': 'NgDropdownOptionCommon', 'selector': ''},{'name': 'NgDropdownOptionDirective', 'selector': '[ngOption],option'},{'name': 'NgDropzoneMultipleCommon', 'selector': ''},{'name': 'NgDropzoneSingleCommon', 'selector': ''},{'name': 'NgFileBrowserCommon', 'selector': ''},{'name': 'NgFormularCommon', 'selector': ''},{'name': 'NgFormularDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgGridButtonCommon', 'selector': ''},{'name': 'NgGridColumnActionCommon', 'selector': ''},{'name': 'NgGridColumnBaseCommon', 'selector': ''},{'name': 'NgGridColumnCommon', 'selector': ''},{'name': 'NgGridCommon', 'selector': ''},{'name': 'NgGridImageCommon', 'selector': ''},{'name': 'NgInputAreaCommon', 'selector': ''},{'name': 'NgInputBase', 'selector': ''},{'name': 'NgInputCommon', 'selector': ''},{'name': 'NgInputCurrencyCommon', 'selector': ''},{'name': 'NgInputDecimalCommon', 'selector': ''},{'name': 'NgInputEmailCommon', 'selector': ''},{'name': 'NgInputIntegerCommon', 'selector': ''},{'name': 'NgInputPasswordCommon', 'selector': ''},{'name': 'NgInputSearchCommon', 'selector': ''},{'name': 'NgListboxCommon', 'selector': ''},{'name': 'NgListboxOptionCommon', 'selector': ''},{'name': 'NgListboxOptionDirective', 'selector': '[ngOption],option'},{'name': 'NgMultilanguageInputAreaCommon', 'selector': ''},{'name': 'NgMultilanguageInputCommon', 'selector': ''},{'name': 'NgPagingCommon', 'selector': ''},{'name': 'NgRadiobuttonCommon', 'selector': ''},{'name': 'NgRadiobuttonsCommon', 'selector': ''},{'name': 'NgStaticFormContainerCommon', 'selector': ''},{'name': 'NgStaticLabelCommon', 'selector': ''},{'name': 'NgTabCommon', 'selector': ''},{'name': 'NgTabItemCommon', 'selector': ''},{'name': 'NgTimeCommon', 'selector': ''},{'name': 'NgTooltipCommon', 'selector': ''},{'name': 'NgTreeItemActionCommon', 'selector': ''},{'name': 'NgTreeViewChildCommon', 'selector': ''},{'name': 'NgTreeViewCommon', 'selector': ''},{'name': 'NgUploadBase', 'selector': ''},{'name': 'NgUploadMultipleCommon', 'selector': ''},{'name': 'NgUploadSingleCommon', 'selector': ''},{'name': 'NgValidationSummaryCommon', 'selector': ''},{'name': 'NgWizardCommon', 'selector': ''},{'name': 'NgWizardItemCommon', 'selector': ''},{'name': 'ProvideParentNgFormularDirective', 'selector': '[ngInheritForm],[inherit-form]'}];
     var ACTUAL_COMPONENT = {'name': 'NgDialogComponent'};
 </script>
 <script src="../js/tree.js"></script>
@@ -427,9 +1464,9 @@ export class NgDialogComponent extends NgDialogCommon implements OnInit, OnDestr
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

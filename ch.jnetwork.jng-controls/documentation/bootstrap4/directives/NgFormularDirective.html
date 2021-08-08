@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -37,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Directives</li>
-  <li>NgFormularDirective</li>
+  <li >NgFormularDirective</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,26 +59,21 @@
             <code>projects/jngcontrols-bootstrap4/src/controls/form/form.ts</code>
         </p>
 
+
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
                 <p>Erweiterung / Hooking für automatismen in Formular. Wird als Container für alle Controls benötigt.</p>
+<div ngForm></div>
+
+
+<form></form>
+
 
             </p>
 
 
-            <p class="comment">
-                <h3>Example</h3>
-            </p>
-            <div class="io-description">
-                        <div>
-                            <pre class="line-numbers"><code class="language-html">Beispiel über Div Container&lt;div ngForm&gt;&lt;/div&gt;</code></pre>
-                        </div>
-                        <div>
-                            <pre class="line-numbers"><code class="language-html">Beispiel über Form Tag&lt;form&gt;&lt;/form&gt;</code></pre>
-                        </div>
-            </div>
 
         <section>
             <h3>Metadata</h3>
@@ -97,6 +93,20 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cssClassForm" >cssClassForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
@@ -110,19 +120,36 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#class.form">class.form</a>
+                                <a href="#class.form" >class.form</a>
                             </li>
                             <li>
-                                <a href="#class.form-horizontal">class.form-horizontal</a>
+                                <a href="#class.form-horizontal" >class.form-horizontal</a>
                             </li>
                             <li>
-                                <a href="#class.form-vertical">class.form-vertical</a>
+                                <a href="#class.form-vertical" >class.form-vertical</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#orientientationHorizontal" >orientientationHorizontal</a>
+                                </li>
+                                <li>
+                                    <a href="#orientientationVertical" >orientientationVertical</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
@@ -186,115 +213,235 @@
 
 
             <section>
-    <h3>HostBindings</h3>        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3>HostBindings</h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="class.form"></a>
+                    <span class="name">
+                        <span ><b>class.form</b></span>
+                        <a href="#class.form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="class.form"></a>
-                        <span class="name">
-                            <b>
-                            class.form</b>
-                            <a href="#class.form"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/form/form.ts:37</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>true</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/form/form.ts:37</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Setzt die Standard CSS Klasse für auf dem Form Container</p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Setzt die Standard CSS Klasse für auf dem Form Container</p>
 </div>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="class.form-horizontal"></a>
+                    <span class="name">
+                        <span ><b>class.form-horizontal</b></span>
+                        <a href="#class.form-horizontal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="class.form-horizontal"></a>
-                        <span class="name">
-                            <b>
-                            class.form-horizontal</b>
-                            <a href="#class.form-horizontal"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/form/form.ts:43</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/form/form.ts:43</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Setzt die CSS Klasse &#39;form-horizontal&#39; wenn die Orientation auf Horizontal eingestellt ist</p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Setzt die CSS Klasse &#39;form-horizontal&#39; wenn die Orientation auf Horizontal eingestellt ist</p>
 </div>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="class.form-vertical"></a>
+                    <span class="name">
+                        <span ><b>class.form-vertical</b></span>
+                        <a href="#class.form-vertical"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="class.form-vertical"></a>
-                        <span class="name">
-                            <b>
-                            class.form-vertical</b>
-                            <a href="#class.form-vertical"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/form/form.ts:49</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/form/form.ts:49</a></div>
-                            </td>
-                        </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Setzt die CSS Klasse &#39;form-vertical&#39; wenn die Orientation auf Vertical eingestellt ist</p>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Setzt die CSS Klasse &#39;form-vertical&#39; wenn die Orientation auf Vertical eingestellt ist</p>
 </div>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
 
 
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cssClassForm"></a>
+                    <span class="name">
+                        <span ><b>cssClassForm</b></span>
+                        <a href="#cssClassForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @HostBinding(&#x27;class.form&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/form/form.ts:37</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Setzt die Standard CSS Klasse für auf dem Form Container</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="orientientationHorizontal"></a>
+                        <span class="name"><b>orientientationHorizontal</b><a href="#orientientationHorizontal"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>orientientationHorizontal()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/form/form.ts:43</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Setzt die CSS Klasse &#39;form-horizontal&#39; wenn die Orientation auf Horizontal eingestellt ist</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="orientientationVertical"></a>
+                        <span class="name"><b>orientientationVertical</b><a href="#orientientationVertical"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>orientientationVertical()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/form/form.ts:49</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Setzt die CSS Klasse &#39;form-vertical&#39; wenn die Orientation auf Vertical eingestellt ist</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+</section>
 
     </div>
 
@@ -391,9 +538,9 @@ export class NgFormularDirective extends NgFormularCommon {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

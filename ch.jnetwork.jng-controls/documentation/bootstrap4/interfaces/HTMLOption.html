@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -43,7 +44,9 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>HTMLOption</li>
+  <li
+  >
+  HTMLOption</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,6 +66,7 @@
         <p class="comment">
             <code>projects/jngcontrols-common/src/controls/list/listbox.ts</code>
         </p>
+
 
             <p class="comment">
                 <h3>Description</h3>
@@ -86,10 +90,16 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#selected">selected</a>
+                                        <a href="#selected" 
+>
+                                            selected
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#value">value</a>
+                                        <a href="#value" 
+>
+                                            value
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -107,7 +117,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="selected"></a>
-                                        <span class="name"><b>selected</b><a href="#selected"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>selected</b>
+                                            <a href="#selected">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -142,7 +156,11 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="value"></a>
-                                        <span class="name"><b>value</b><a href="#value"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>value</b>
+                                            <a href="#value">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -177,41 +195,80 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, ElementRef, Input, QueryList, Renderer2, ViewChildren } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Directive,
+  ElementRef,
+  Input,
+  OnDestroy,
+  QueryList,
+  Renderer2,
+  ViewChild,
+  ViewChildren,
+} from &#x27;@angular/core&#x27;;
 import { AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
 import { NgBaseSelectControl } from &#x27;../../common/baseselectcontrol&#x27;;
 import { Validation } from &#x27;../../validation&#x27;;
 
-
 /**
- *  Element für Access auf Option Field
- * @selector option
+ * Basis Komponente für NgListboxOption
  */
-@Directive({ selector: &#x27;[ngOption], option&#x27; })
-
-/**
- *Basis Komponente für NgListboxOption
- */
-export class NgListboxOptionDirective {
+@Directive()
+export class NgListboxOptionCommon implements OnDestroy {
+  /**
+   * Value von Selected Option Item
+   */
+  private _value: any &#x3D; null;
 
   /**
    * Konstruktor
    * @param _element: ElementRef
    * @param _renderer: Renderer2
    */
-  constructor(private _element: ElementRef, private _renderer: Renderer2) { }
+  constructor(
+    private _element: ElementRef,
+    private _renderer: Renderer2,
+    private _listbox: NgListboxCommon
+  ) {
+    if (this._listbox) {
+      this._listbox.registerOption(this);
+    }
+  }
+
+  get value(): any {
+    return this._value;
+  }
+  @Input(&#x27;value&#x27;)
+  set value(value: any) {
+    if (this._listbox) {
+      this._value &#x3D; value;
+    }
+  }
+
+  @Input(&#x27;ngValue&#x27;)
+  set ngValue(value: any) {
+    if (this._listbox) {
+      this._value &#x3D; value;
+    }
+  }
 
   /**
-   * Wert des Controls
+   * OnDestroy Event
    */
-  @Input(&#x27;value&#x27;)
-  _value: string;
+  ngOnDestroy(): void {
+    if (this._listbox) {
+      this._listbox.unregisterOption(this);
+    }
+  }
 
   /**
    * Methode ergibt den Status der Elemente, die selektiert wurden
    */
   _setSelected(selected: boolean) {
-    this._renderer.setProperty(this._element.nativeElement, &#x27;selected&#x27;, selected);
+    this._renderer.setProperty(
+      this._element.nativeElement,
+      &#x27;selected&#x27;,
+      selected
+    );
   }
 }
 
@@ -249,26 +306,32 @@ abstract class HTMLCollection {
 @Directive()
 export class NgListboxCommon extends NgBaseSelectControl&lt;Array&lt;string&gt;&gt; {
   /**
+   * OptionMap
+   */
+  optionlist: Array&lt;NgListboxOptionCommon&gt; &#x3D; new Array&lt;NgListboxOptionCommon&gt;();
+
+  /**
    * Anzahl der Zeilen
    */
   @Input(&#x27;rowsize&#x27;) _rowsize: number &#x3D; 5;
 
-
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input(&#x27;validationmessagerequired&#x27;) _validationMessageRequired: string &#x3D; &#x27;VALIDATION_ERROR_REQUIRED&#x27;;
+  @Input(&#x27;validationmessagerequired&#x27;) _validationMessageRequired: string &#x3D;
+    &#x27;VALIDATION_ERROR_REQUIRED&#x27;;
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input(&#x27;validationmessagesummaryrequired&#x27;) _validationMessageRequiredSummary: string &#x3D; &#x27;VALIDATION_ERROR_SUMMARY_REQUIRED&#x27;;
-
+  @Input(&#x27;validationmessagesummaryrequired&#x27;)
+  _validationMessageRequiredSummary: string &#x3D;
+    &#x27;VALIDATION_ERROR_SUMMARY_REQUIRED&#x27;;
 
   /**
    * ViewChildren Methode
    */
-  @ViewChildren(NgListboxOptionDirective)
-  contentOptions: QueryList&lt;NgListboxOptionDirective&gt;;
+  @ViewChildren(NgListboxOptionCommon)
+  contentOptions: QueryList&lt;NgListboxOptionCommon&gt;;
 
   /**
    * Getter für selektierte Elemente
@@ -282,7 +345,8 @@ export class NgListboxCommon extends NgBaseSelectControl&lt;Array&lt;string&gt;&
         const opt: HTMLOption &#x3D; options.item(i);
         selectedValues.push(opt.value);
       }
-    } else { // Degrade on IE
+    } else {
+      // Degrade on IE
       const options: HTMLCollection &#x3D; &lt;HTMLCollection&gt;selectelement.options;
       for (let i &#x3D; 0; i &lt; options.length; i++) {
         const opt: HTMLOption &#x3D; options.item(i);
@@ -299,9 +363,11 @@ export class NgListboxCommon extends NgBaseSelectControl&lt;Array&lt;string&gt;&
    * Methode schreibt neuen Wert
    */
   writeValue(value: Array&lt;string&gt;) {
-    if (this.contentOptions &amp;&amp; value) {
-      this.contentOptions.forEach(itm &#x3D;&gt; {
-        itm._setSelected(value.indexOf(itm._value) &gt;&#x3D; 0);
+    if (this.optionlist &amp;&amp; value) {
+      this.optionlist.forEach((itm) &#x3D;&gt; {
+        if (value.indexOf(itm.value) &gt;&#x3D; 0) {
+          itm._setSelected(true);
+        }
       });
     }
 
@@ -315,11 +381,24 @@ export class NgListboxCommon extends NgBaseSelectControl&lt;Array&lt;string&gt;&
     let error: ValidationErrors | null &#x3D; null;
 
     if (this._isrequired) {
-      error &#x3D; Validation.required(c, this._label, this._validationMessageRequired, this._validationMessageRequiredSummary);
+      error &#x3D; Validation.required(
+        c,
+        this._label,
+        this._validationMessageRequired,
+        this._validationMessageRequiredSummary
+      );
     }
 
     return error;
+  }
 
+  public registerOption(option: NgListboxOptionCommon): void {
+    this.optionlist.push(option);
+  }
+
+  public unregisterOption(option: NgListboxOptionCommon): void {
+    const index &#x3D; this.optionlist.indexOf(option);
+    this.optionlist.splice(index, 1);
   }
 }
 </code></pre>
@@ -355,9 +434,9 @@ export class NgListboxCommon extends NgBaseSelectControl&lt;Array&lt;string&gt;&
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

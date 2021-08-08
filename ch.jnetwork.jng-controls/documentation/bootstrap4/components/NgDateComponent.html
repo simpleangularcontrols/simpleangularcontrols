@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>NgDateComponent</li>
+  <li
+  >
+  NgDateComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,11 +65,12 @@
 </p>
 
 
+
     <p class="comment">
         <h3>Extends</h3>
     </p>
     <p class="comment">
-            <code>NgDateCommon</code>
+                <code><a href="../directives/NgDateCommon.html" target="_self" >NgDateCommon</a></code>
     </p>
 
 
@@ -110,7 +114,7 @@
                 <td class="col-md-3">viewProviders</td>
                 <td class="col-md-9">
                     <code>
-                            <code>{ provide: ControlContainer, useExisting: NgFormularDirective }</code>
+                                <code><a href="../directives/NgFormularDirective.html" target="_self" >{ provide: ControlContainer, useExisting: NgFormularDirective }</a></code>
                     </code>
                 </td>
             </tr>
@@ -125,6 +129,121 @@
     </table>
 </section>
 
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#_maxdate" >_maxdate</a>
+                            </li>
+                            <li>
+                                <a href="#_mindate" >_mindate</a>
+                            </li>
+                            <li>
+                                <a href="#_showselector" >_showselector</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#DATEFORMAT" >DATEFORMAT</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#imaskDate" >imaskDate</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#dateselect" >dateselect</a>
+                            </li>
+                            <li>
+                                <a href="#GetDateTimeFormatString" >GetDateTimeFormatString</a>
+                            </li>
+                            <li>
+                                <a href="#ModifyParsedDateTimeValue" >ModifyParsedDateTimeValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#onClick" >onClick</a>
+                            </li>
+                            <li>
+                                <a href="#showDateSelector" >showDateSelector</a>
+                            </li>
+                            <li>
+                                <a href="#validateData" >validateData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#maxdate" >maxdate</a>
+                            </li>
+                            <li>
+                                <a href="#mindate" >mindate</a>
+                            </li>
+                            <li>
+                                <a href="#validationmessagemaxdate" >validationmessagemaxdate</a>
+                            </li>
+                            <li>
+                                <a href="#validationmessagemindate" >validationmessagemindate</a>
+                            </li>
+                            <li>
+                                <a href="#validationmessagesummarymaxdate" >validationmessagesummarymaxdate</a>
+                            </li>
+                            <li>
+                                <a href="#validationmessagesummarymindate" >validationmessagesummarymindate</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>HostListeners</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#document:click" >document:click</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+        </tbody>
+    </table>
+</section>
 
     <section>
     <h3 id="constructor">Constructor</h3>
@@ -132,7 +251,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(parent: NgFormularDirective, injector: <a href="https://angular.io/api/core/Injector" target="_blank">Injector</a>, _elementRef: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>)</code>
+<code>constructor(parent: <a href="../directives/NgFormularDirective.html" target="_self">NgFormularDirective</a>, injector: <a href="https://angular.io/api/core/Injector" target="_blank">Injector</a>, _elementRef: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -158,7 +277,7 @@
                                                         <td>parent</td>
                                                   
                                                         <td>
-                                                                    <code>NgFormularDirective</code>
+                                                                        <code><a href="../directives/NgFormularDirective.html" target="_self" >NgFormularDirective</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -199,11 +318,930 @@
         </table>
 </section>
 
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="maxdate"></a>
+                        <b>maxdate</b>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDateCommon.html" target="_self" >NgDateCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDateCommon.html#source" target="_self" >NgDateCommon:85</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Min Date</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="mindate"></a>
+                        <b>mindate</b>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDateCommon.html" target="_self" >NgDateCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDateCommon.html#source" target="_self" >NgDateCommon:67</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Min Date</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="validationmessagemaxdate"></a>
+                        <b>validationmessagemaxdate</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;VALIDATION_ERROR_MAXDATE&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDateCommon.html" target="_self" >NgDateCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDateCommon.html#source" target="_self" >NgDateCommon:116</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Resource Key für Validation Message MaxDate bei Control</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="validationmessagemindate"></a>
+                        <b>validationmessagemindate</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;VALIDATION_ERROR_MINDATE&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDateCommon.html" target="_self" >NgDateCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDateCommon.html#source" target="_self" >NgDateCommon:107</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Resource Key für Validation Message MinDate bei Control</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="validationmessagesummarymaxdate"></a>
+                        <b>validationmessagesummarymaxdate</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;VALIDATION_ERROR_SUMMARY_MAXDATE&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDateCommon.html" target="_self" >NgDateCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDateCommon.html#source" target="_self" >NgDateCommon:120</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Resource Key für Validation Message MaxDate in Validation Summary</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="validationmessagesummarymindate"></a>
+                        <b>validationmessagesummarymindate</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;VALIDATION_ERROR_SUMMARY_MINDATE&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgDateCommon.html" target="_self" >NgDateCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgDateCommon.html#source" target="_self" >NgDateCommon:111</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Resource Key für Validation Message MinDate in Validation Summary</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
 
+    <section>
+    <h3>HostListeners</h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="document:click"></a>
+                    <span class="name">
+                        <span ><b>document:click</b></span>
+                        <a href="#document:click"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <i>Arguments : </i><code>'$event.target' </code>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>document:click(targetElement)</code>
+                </td>
+            </tr>
 
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDateCommon.html" target="_self" >NgDateCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDateCommon.html#source" target="_self" >NgDateCommon:176</a></code>
+</div>
+                </td>
+            </tr>
 
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>HostListener</p>
+</div>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dateselect"></a>
+                    <span class="name">
+                        <span ><b>dateselect</b></span>
+                        <a href="#dateselect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dateselect(v: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDateCommon.html" target="_self" >NgDateCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDateCommon.html#source" target="_self" >NgDateCommon:186</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Date Selector</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>v</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GetDateTimeFormatString"></a>
+                    <span class="name">
+                        <span ><b>GetDateTimeFormatString</b></span>
+                        <a href="#GetDateTimeFormatString"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>GetDateTimeFormatString()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDateCommon.html" target="_self" >NgDateCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDateCommon.html#source" target="_self" >NgDateCommon:140</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Methode ergibt Datum-Format vom String</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ModifyParsedDateTimeValue"></a>
+                    <span class="name">
+                        <span ><b>ModifyParsedDateTimeValue</b></span>
+                        <a href="#ModifyParsedDateTimeValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ModifyParsedDateTimeValue(v: Moment)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDateCommon.html" target="_self" >NgDateCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDateCommon.html#source" target="_self" >NgDateCommon:147</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Methode ergibt Datum - Moment</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>v</td>
+                                    <td>
+                                            <code>Moment</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Moment</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onClick"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>onClick</b></span>
+                        <a href="#onClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onClick(targetElement)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@HostListener(&#x27;document:click&#x27;, [&#x27;$event.target&#x27;])<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDateCommon.html" target="_self" >NgDateCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDateCommon.html#source" target="_self" >NgDateCommon:176</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>HostListener</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>targetElement</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showDateSelector"></a>
+                    <span class="name">
+                        <span ><b>showDateSelector</b></span>
+                        <a href="#showDateSelector"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showDateSelector()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDateCommon.html" target="_self" >NgDateCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDateCommon.html#source" target="_self" >NgDateCommon:158</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Zeigt Date Selector an</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateData"></a>
+                    <span class="name">
+                        <span ><b>validateData</b></span>
+                        <a href="#validateData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateData(c: <a href="https://angular.io/api/forms/AbstractControl" target="_blank">AbstractControl</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../directives/NgDateCommon.html" target="_self" >NgDateCommon</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDateCommon.html#source" target="_self" >NgDateCommon:201</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Validator</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>c</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/AbstractControl" target="_blank" >AbstractControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_maxdate"></a>
+                    <span class="name">
+                        <span ><b>_maxdate</b></span>
+                        <a href="#_maxdate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../directives/NgDateCommon.html" target="_self" >NgDateCommon</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgDateCommon.html#source" target="_self" >NgDateCommon:97</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Min Date</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_mindate"></a>
+                    <span class="name">
+                        <span ><b>_mindate</b></span>
+                        <a href="#_mindate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../directives/NgDateCommon.html" target="_self" >NgDateCommon</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgDateCommon.html#source" target="_self" >NgDateCommon:79</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Min Date</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_showselector"></a>
+                    <span class="name">
+                        <span ><b>_showselector</b></span>
+                        <a href="#_showselector"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../directives/NgDateCommon.html" target="_self" >NgDateCommon</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgDateCommon.html#source" target="_self" >NgDateCommon:102</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Definiert ob der Date Selector angezeigt wird</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DATEFORMAT"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>DATEFORMAT</b></span>
+                        <a href="#DATEFORMAT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;DD.MM.YYYY&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../directives/NgDateCommon.html" target="_self" >NgDateCommon</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgDateCommon.html#source" target="_self" >NgDateCommon:27</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Format des Datums</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="imaskDate"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>imaskDate</b></span>
+                        <a href="#imaskDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    mask: this.DATEFORMAT,
+    blocks: {
+      DD: {
+        mask: IMask.MaskedRange,
+        from: 1,
+        to: 31,
+        maxLength: 2,
+      },
+      MM: {
+        mask: IMask.MaskedRange,
+        from: 1,
+        to: 12,
+        maxLength: 2,
+      },
+      YYYY: {
+        mask: IMask.MaskedRange,
+        from: 1,
+        to: 9999,
+      }
+    },
+    placeholderChar: &#x27;_&#x27;,
+    autofix: true,
+    lazy: false,
+    overwrite: true
+  }</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../directives/NgDateCommon.html" target="_self" >NgDateCommon</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgDateCommon.html#source" target="_self" >NgDateCommon:32</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Maske</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
 
 </div>
 
@@ -294,8 +1332,8 @@ export class NgDateComponent extends NgDateCommon {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="row form-group" [class.no-gutters]="_disablelabel">  <label for="{{_name}}" class="col-12 col-form-label" [ngClass]="[_disablelabel === false ?  \'col-sm-\' + _labelsize : \'sr-only\' ]">{{_label}}</label>  <div class="col-12" [ngClass]="[_disablelabel === false ? \'col-sm-\' + _inputsize : \'col-sm-12\']">    <div class="input-group input-group-sm">      <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [imask]="imaskDate" [attr.placeholder]="_placeholder" [value]="valuestring" [ngClass]="{\'is-invalid\': invalid && (dirty || touched) }" (blur)="onTouch()"             (accept)="setValueString($event)" [disabled]="isdisabled" />      <div class="input-group-append">        <button class="btn btn-sm btn-secondary" type="button" (click)="showDateSelector()" [disabled]="isdisabled">          <i class="fa fa-calendar"></i>        </button>      </div>    </div>    <div class="popover fade bs-popover-bottom show" role="tooltip" *ngIf="_showselector"         style="display:block; left:unset; right: 0px; top: 34px; max-width: 325px;">      <div class="arrow" style="left: unset; right: 12px;"></div>      <h3 class="popover-header" style="display: none;"></h3>      <div class="popover-body">        <ngDateSelector [initialValue]="value" (onSelect)="dateselect($event)" dateselection="true"></ngDateSelector>      </div>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'NgButtonComponent', 'selector': 'ng-button,ngButton'},{'name': 'NgCheckboxComponent', 'selector': 'ng-checkbox,ngCheckbox'},{'name': 'NgConfirmComponent', 'selector': 'ng-confirm,ngConfirm'},{'name': 'NgDateComponent', 'selector': 'ng-date,ngDate'},{'name': 'NgDateSelectorComponent', 'selector': 'ng-dateselector,ngDateSelector'},{'name': 'NgDateTimeComponent', 'selector': 'ng-datetime,ngDateTime'},{'name': 'NgDialogComponent', 'selector': 'ng-dialog,ngDialog'},{'name': 'NgDropdownComponent', 'selector': 'ng-dropdown,ngDropdown'},{'name': 'NgGridButtonComponent', 'selector': 'ng-gridbutton,ngGridButton'},{'name': 'NgGridColumnActionComponent', 'selector': 'ng-gridcolumnaction,ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgGridColumnComponent', 'selector': 'ng-gridcolumn,ngGridColumn,[ngGridColumn]'},{'name': 'NgGridComponent', 'selector': 'ng-grid,ngGrid'},{'name': 'NgGridImageComponent', 'selector': 'ng-gridimage,ngGridImage'},{'name': 'NgInputAreaComponent', 'selector': 'ng-inputarea,ngInputArea'},{'name': 'NgInputComponent', 'selector': 'ng-input,ngInput'},{'name': 'NgInputCurrencyComponent', 'selector': 'ng-inputcurrency,ngInputCurrency'},{'name': 'NgInputDecimalComponent', 'selector': 'ng-inputdecimal,ngInputDecimal'},{'name': 'NgInputEmailComponent', 'selector': 'ng-inputemail,ngInputEmail'},{'name': 'NgInputIntegerComponent', 'selector': 'ng-inputinteger,ngInputInteger'},{'name': 'NgInputPasswordComponent', 'selector': 'ng-inputpassword,ngInputPassword'},{'name': 'NgInputSearchComponent', 'selector': 'ng-inputsearch,ngInputSearch'},{'name': 'NgListboxComponent', 'selector': 'ng-listbox,ngListbox'},{'name': 'NgMultilanguageInputAreaComponent', 'selector': 'ng-multilanguageinputarea,ngMultilanguageInputArea'},{'name': 'NgMultilanguageInputComponent', 'selector': 'ng-multilanguageinput,ngMultilanguageInput'},{'name': 'NgPagingComponent', 'selector': 'ng-paging,ngPaging'},{'name': 'NgRadiobuttonComponent', 'selector': 'ng-radiobutton,ngRadiobutton'},{'name': 'NgRadiobuttonsComponent', 'selector': 'ng-radiobuttons,ngRadiobuttons'},{'name': 'NgStaticFormContainerComponent', 'selector': 'ng-staticformcontainer,ngStaticFormContainer'},{'name': 'NgStaticLabelComponent', 'selector': 'ng-staticlabel,ngStaticLabel'},{'name': 'NgTabComponent', 'selector': 'ng-tab,ngTab'},{'name': 'NgTabItemComponent', 'selector': 'ng-tabitem,ngTabItem'},{'name': 'NgTimeComponent', 'selector': 'ng-time,ngTime'},{'name': 'NgTinyMceComponent', 'selector': 'ng-tinymce,ngTinymce'},{'name': 'NgTinyMceEditorComponent', 'selector': 'ngTinyMceEditor'},{'name': 'NgUploadComponent', 'selector': 'ng-upload,ngUpload'},{'name': 'NgUploadMultipleComponent', 'selector': 'ng-uploadmultiple,ngUploadMultiple'},{'name': 'NgValidationSummaryComponent', 'selector': 'ng-validationsummary,ngValidationSummary'},{'name': 'NgWizardComponent', 'selector': 'ng-wizard,ngWizard'},{'name': 'NgWizardItemComponent', 'selector': 'ng-wizarditem,ngWizardItem'}];
-    var DIRECTIVES = [{'name': 'NgDropdownOptionDirective', 'selector': '[ngOption],option'},{'name': 'NgFormularDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgListboxOptionDirective', 'selector': '[ngOption], option'},{'name': 'ProvideParentNgFormularDirective', 'selector': '[ngInheritForm],[inherit-form]'}];
+    var COMPONENTS = [{'name': 'NgBrowserComponent', 'selector': 'ng-filebrowser,ngFileBrowser'},{'name': 'NgButtonComponent', 'selector': 'ng-button,ngButton'},{'name': 'NgCheckboxComponent', 'selector': 'ng-checkbox,ngCheckbox'},{'name': 'NgConfirmComponent', 'selector': 'ng-confirm,ngConfirm'},{'name': 'NgContextmenuComponent', 'selector': 'ng-contextmenu,ngContextmenu'},{'name': 'NgContextmenuItemButtonComponent', 'selector': 'ng-contextmenubutton,ngContextmenuButton'},{'name': 'NgContextmenuItemSplitterComponent', 'selector': 'ng-contextmenusplitter,ngContextmenuSplitter'},{'name': 'NgDateComponent', 'selector': 'ng-date,ngDate'},{'name': 'NgDateSelectorComponent', 'selector': 'ng-dateselector,ngDateSelector'},{'name': 'NgDateTimeComponent', 'selector': 'ng-datetime,ngDateTime'},{'name': 'NgDialogComponent', 'selector': 'ng-dialog,ngDialog'},{'name': 'NgDropdownComponent', 'selector': 'ng-dropdown,ngDropdown'},{'name': 'NgDropzoneMultipleComponent', 'selector': 'ng-dropzonemultiple,ngDropzoneMultiple'},{'name': 'NgDropzoneSingleComponent', 'selector': 'ng-dropzonesingle,ngDropzoneSingle'},{'name': 'NgGridButtonComponent', 'selector': 'ng-gridbutton,ngGridButton'},{'name': 'NgGridColumnActionComponent', 'selector': 'ng-gridcolumnaction,ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgGridColumnComponent', 'selector': 'ng-gridcolumn,ngGridColumn,[ngGridColumn]'},{'name': 'NgGridComponent', 'selector': 'ng-grid,ngGrid'},{'name': 'NgGridImageComponent', 'selector': 'ng-gridimage,ngGridImage'},{'name': 'NgInputAreaComponent', 'selector': 'ng-inputarea,ngInputArea'},{'name': 'NgInputComponent', 'selector': 'ng-input,ngInput'},{'name': 'NgInputCurrencyComponent', 'selector': 'ng-inputcurrency,ngInputCurrency'},{'name': 'NgInputDecimalComponent', 'selector': 'ng-inputdecimal,ngInputDecimal'},{'name': 'NgInputEmailComponent', 'selector': 'ng-inputemail,ngInputEmail'},{'name': 'NgInputIntegerComponent', 'selector': 'ng-inputinteger,ngInputInteger'},{'name': 'NgInputPasswordComponent', 'selector': 'ng-inputpassword,ngInputPassword'},{'name': 'NgInputSearchComponent', 'selector': 'ng-inputsearch,ngInputSearch'},{'name': 'NgListboxComponent', 'selector': 'ng-listbox,ngListbox'},{'name': 'NgMultilanguageInputAreaComponent', 'selector': 'ng-multilanguageinputarea,ngMultilanguageInputArea'},{'name': 'NgMultilanguageInputComponent', 'selector': 'ng-multilanguageinput,ngMultilanguageInput'},{'name': 'NgPagingComponent', 'selector': 'ng-paging,ngPaging'},{'name': 'NgRadiobuttonComponent', 'selector': 'ng-radiobutton,ngRadiobutton'},{'name': 'NgRadiobuttonsComponent', 'selector': 'ng-radiobuttons,ngRadiobuttons'},{'name': 'NgStaticFormContainerComponent', 'selector': 'ng-staticformcontainer,ngStaticFormContainer'},{'name': 'NgStaticLabelComponent', 'selector': 'ng-staticlabel,ngStaticLabel'},{'name': 'NgTabComponent', 'selector': 'ng-tab,ngTab'},{'name': 'NgTabItemComponent', 'selector': 'ng-tabitem,ngTabItem'},{'name': 'NgTimeComponent', 'selector': 'ng-time,ngTime'},{'name': 'NgTinyMceComponent', 'selector': 'ng-tinymce,ngTinymce'},{'name': 'NgUploadComponent', 'selector': 'ng-upload,ngUpload'},{'name': 'NgUploadMultipleComponent', 'selector': 'ng-uploadmultiple,ngUploadMultiple'},{'name': 'NgValidationSummaryComponent', 'selector': 'ng-validationsummary,ngValidationSummary'},{'name': 'NgWizardComponent', 'selector': 'ng-wizard,ngWizard'},{'name': 'NgWizardItemComponent', 'selector': 'ng-wizarditem,ngWizardItem'}];
+    var DIRECTIVES = [{'name': 'NgBaseDateTimeControl', 'selector': ''},{'name': 'NgBaseListControl', 'selector': ''},{'name': 'NgBaseModelControl', 'selector': ''},{'name': 'NgBaseSelectControl', 'selector': ''},{'name': 'NgButtonCommon', 'selector': ''},{'name': 'NgCheckboxCommon', 'selector': ''},{'name': 'NgConfirmCommon', 'selector': ''},{'name': 'NgContextmenuAnchorCommon', 'selector': ''},{'name': 'NgContextmenuAnchorDirective', 'selector': '[ng-contextmenuanchor],[ngContextmenuAnchor]'},{'name': 'NgContextmenuCommon', 'selector': ''},{'name': 'NgContextmenuContainerDirective', 'selector': '[ng-contextmenucontainer],[ngContextmenuContainer]'},{'name': 'NgContextMenuContrainerCommon', 'selector': ''},{'name': 'NgContextmenuItemButtonCommon', 'selector': ''},{'name': 'NgContextmenuItemCommon', 'selector': ''},{'name': 'NgDateCommon', 'selector': ''},{'name': 'NgDateSelectorCommon', 'selector': ''},{'name': 'NgDateTimeCommon', 'selector': ''},{'name': 'NgDialogCommon', 'selector': ''},{'name': 'NgDropdownCommon', 'selector': ''},{'name': 'NgDropdownOptionCommon', 'selector': ''},{'name': 'NgDropdownOptionDirective', 'selector': '[ngOption],option'},{'name': 'NgDropzoneMultipleCommon', 'selector': ''},{'name': 'NgDropzoneSingleCommon', 'selector': ''},{'name': 'NgFileBrowserCommon', 'selector': ''},{'name': 'NgFormularCommon', 'selector': ''},{'name': 'NgFormularDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgGridButtonCommon', 'selector': ''},{'name': 'NgGridColumnActionCommon', 'selector': ''},{'name': 'NgGridColumnBaseCommon', 'selector': ''},{'name': 'NgGridColumnCommon', 'selector': ''},{'name': 'NgGridCommon', 'selector': ''},{'name': 'NgGridImageCommon', 'selector': ''},{'name': 'NgInputAreaCommon', 'selector': ''},{'name': 'NgInputBase', 'selector': ''},{'name': 'NgInputCommon', 'selector': ''},{'name': 'NgInputCurrencyCommon', 'selector': ''},{'name': 'NgInputDecimalCommon', 'selector': ''},{'name': 'NgInputEmailCommon', 'selector': ''},{'name': 'NgInputIntegerCommon', 'selector': ''},{'name': 'NgInputPasswordCommon', 'selector': ''},{'name': 'NgInputSearchCommon', 'selector': ''},{'name': 'NgListboxCommon', 'selector': ''},{'name': 'NgListboxOptionCommon', 'selector': ''},{'name': 'NgListboxOptionDirective', 'selector': '[ngOption],option'},{'name': 'NgMultilanguageInputAreaCommon', 'selector': ''},{'name': 'NgMultilanguageInputCommon', 'selector': ''},{'name': 'NgPagingCommon', 'selector': ''},{'name': 'NgRadiobuttonCommon', 'selector': ''},{'name': 'NgRadiobuttonsCommon', 'selector': ''},{'name': 'NgStaticFormContainerCommon', 'selector': ''},{'name': 'NgStaticLabelCommon', 'selector': ''},{'name': 'NgTabCommon', 'selector': ''},{'name': 'NgTabItemCommon', 'selector': ''},{'name': 'NgTimeCommon', 'selector': ''},{'name': 'NgTooltipCommon', 'selector': ''},{'name': 'NgTreeItemActionCommon', 'selector': ''},{'name': 'NgTreeViewChildCommon', 'selector': ''},{'name': 'NgTreeViewCommon', 'selector': ''},{'name': 'NgUploadBase', 'selector': ''},{'name': 'NgUploadMultipleCommon', 'selector': ''},{'name': 'NgUploadSingleCommon', 'selector': ''},{'name': 'NgValidationSummaryCommon', 'selector': ''},{'name': 'NgWizardCommon', 'selector': ''},{'name': 'NgWizardItemCommon', 'selector': ''},{'name': 'ProvideParentNgFormularDirective', 'selector': '[ngInheritForm],[inherit-form]'}];
     var ACTUAL_COMPONENT = {'name': 'NgDateComponent'};
 </script>
 <script src="../js/tree.js"></script>
@@ -337,9 +1375,9 @@ export class NgDateComponent extends NgDateCommon {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

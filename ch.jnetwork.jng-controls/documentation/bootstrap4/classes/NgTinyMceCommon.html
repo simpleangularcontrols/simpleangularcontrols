@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -42,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>NgTinyMceCommon</li>
+  <li >NgTinyMceCommon</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,11 +64,12 @@
             <code>projects/jngcontrols-common/src/controls/tinymce/tinymce.ts</code>
         </p>
 
+
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Komponente für NgTinyMceCommon. Extends NgInputBase</p>
+                <p>Basis Komponente für TinyMCE Editor</p>
 
             </p>
 
@@ -75,15 +77,52 @@
                 <h3>Extends</h3>
             </p>
             <p class="comment">
-                    <code>NgInputBase</code>
+                        <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
             </p>
 
+            <p class="comment">
+                <h3>Implements</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+            </p>
 
 
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_config" >_config</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#lngResourceService" >lngResourceService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectDialogSettings" >selectDialogSettings</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectdialogvisible" >selectdialogvisible</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#settings" >settings</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -94,7 +133,26 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#validateData">validateData</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#closeSelectDialog" >closeSelectDialog</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#save" >save</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setSelectDialogResult" >setSelectDialogResult</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#showSelectDialog" >showSelectDialog</a>
+                            </li>
+                            <li>
+                                <a href="#validateData" >validateData</a>
                             </li>
                         </ul>
                     </td>
@@ -109,13 +167,64 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#maxlength">maxlength</a>
+                                <a href="#allowfiledelete" >allowfiledelete</a>
                             </li>
                             <li>
-                                <a href="#validationmessagerequired">validationmessagerequired</a>
+                                <a href="#allowfilerename" >allowfilerename</a>
                             </li>
                             <li>
-                                <a href="#validationmessagesummaryrequired">validationmessagesummaryrequired</a>
+                                <a href="#allowfileupload" >allowfileupload</a>
+                            </li>
+                            <li>
+                                <a href="#allowfoldercreate" >allowfoldercreate</a>
+                            </li>
+                            <li>
+                                <a href="#allowfolderdelete" >allowfolderdelete</a>
+                            </li>
+                            <li>
+                                <a href="#allowfolderrename" >allowfolderrename</a>
+                            </li>
+                            <li>
+                                <a href="#config" >config</a>
+                            </li>
+                            <li>
+                                <a href="#filebrowserapiurl" >filebrowserapiurl</a>
+                            </li>
+                            <li>
+                                <a href="#filetypesfiles" >filetypesfiles</a>
+                            </li>
+                            <li>
+                                <a href="#filetypesimages" >filetypesimages</a>
+                            </li>
+                            <li>
+                                <a href="#filetypesvideo" >filetypesvideo</a>
+                            </li>
+                            <li>
+                                <a href="#height" >height</a>
+                            </li>
+                            <li>
+                                <a href="#isrequired" >isrequired</a>
+                            </li>
+                            <li>
+                                <a href="#validationmessagerequired" >validationmessagerequired</a>
+                            </li>
+                            <li>
+                                <a href="#validationmessagesummaryrequired" >validationmessagesummaryrequired</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onsave" >onsave</a>
                             </li>
                         </ul>
                     </td>
@@ -123,12 +232,272 @@
 
 
 
-
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#config" >config</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
 
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(parent: <a href="../directives/NgFormularCommon.html" target="_self">NgFormularCommon</a>, injector: <a href="https://angular.io/api/core/Injector" target="_blank">Injector</a>, ngZone: <a href="https://angular.io/api/core/NgZone" target="_blank">NgZone</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:139</a></div>
+                            </td>
+                        </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>parent</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../directives/NgFormularCommon.html" target="_self" >NgFormularCommon</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/Injector" target="_blank" >Injector</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ngZone</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/NgZone" target="_blank" >NgZone</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_config"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>_config</b></span>
+                        <a href="#_config"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:54</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>TinyMCE Config</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lngResourceService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>lngResourceService</b></span>
+                        <a href="#lngResourceService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/LanguageResourceService.html" target="_self" >ILanguageResourceService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:44</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Service für Error Localisation</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectDialogSettings"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>selectDialogSettings</b></span>
+                        <a href="#selectDialogSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/TinyMceDialogSettings.html" target="_self" >TinyMceDialogSettings</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:49</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Settings Instanz für Dialog</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectdialogvisible"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>selectdialogvisible</b></span>
+                        <a href="#selectdialogvisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:59</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Der Select Dialog wird angezeigt</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="settings"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>settings</b></span>
+                        <a href="#settings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/TinyMceInstance.html" target="_self" >TinyMceInstance</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:64</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Instanz auf TinyMCE Settings. Wird durch TinyMCE gesetzt und wird für den Callback des Dialog benötigt</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
 
             <section>
     
@@ -139,34 +508,110 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="validateData"></a>
+                    <a name="closeSelectDialog"></a>
                     <span class="name">
-                        <b>
-                            validateData
-                        </b>
-                        <a href="#validateData"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Public</span>
+                        <span ><b>closeSelectDialog</b></span>
+                        <a href="#closeSelectDialog"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>validateData(c: <a href="https://angular.io/api/forms/AbstractControl" target="_blank">AbstractControl</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>closeSelectDialog()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="215"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:215</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Validator </p>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="248"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:248</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Methode wenn die Control Instanz zerstört wird</p>
 </div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="save"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>save</b></span>
+                        <a href="#save"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>save(content: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="221"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:221</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -180,9 +625,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>c</td>
+                                    <td>content</td>
                                     <td>
-                                                <code><a href="https://angular.io/api/forms/AbstractControl" target="_blank" >AbstractControl</a></code>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
                                     </td>
 
                                     <td>
@@ -197,11 +642,219 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
                         
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setSelectDialogResult"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>setSelectDialogResult</b></span>
+                        <a href="#setSelectDialogResult"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setSelectDialogResult()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="199"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:199</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showSelectDialog"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>showSelectDialog</b></span>
+                        <a href="#showSelectDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>showSelectDialog(callback, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, meta: <a href="../interfaces/TinyMceDialogSettingsMeta.html" target="_self">TinyMceDialogSettingsMeta</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="164"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:164</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>callback</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>meta</td>
+                                    <td>
+                                                <code><a href="../interfaces/TinyMceDialogSettingsMeta.html" target="_self" >TinyMceDialogSettingsMeta</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateData"></a>
+                    <span class="name">
+                        <span ><b>validateData</b></span>
+                        <a href="#validateData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateData(c: <a href="https://angular.io/api/forms/AbstractControl" target="_blank">AbstractControl</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="230"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:230</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Validiert das Control</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>c</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/AbstractControl" target="_blank" >AbstractControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Control Instanz die valdidiert wird</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Gibt eine Fehlermeldung oder NULL zurück</p>
+
                     </div>
                 </td>
             </tr>
@@ -215,13 +868,196 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="maxlength"></a>
-                        <b>maxlength</b>
+                        <a name="allowfiledelete"></a>
+                        <b>allowfiledelete</b>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:98</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Files im Dateibrowser können gelöscht werden</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allowfilerename"></a>
+                        <b>allowfilerename</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:93</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allowfileupload"></a>
+                        <b>allowfileupload</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:91</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allowfoldercreate"></a>
+                        <b>allowfoldercreate</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:85</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allowfolderdelete"></a>
+                        <b>allowfolderdelete</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:89</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allowfolderrename"></a>
+                        <b>allowfolderrename</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:87</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="config"></a>
+                        <b>config</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:131</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filebrowserapiurl"></a>
+                        <b>filebrowserapiurl</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                     </td>
                 </tr>
@@ -232,12 +1068,172 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:82</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>TextBox Placeholder</p>
+                        <div class="io-description"><p>URL zu Filebrowser Backend</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filetypesfiles"></a>
+                        <b>filetypesfiles</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="115" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:115</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>File Extensions für Links (Format: .xxx,.yyy,.eee)</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filetypesimages"></a>
+                        <b>filetypesimages</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;.gif,.jpeg,.jpg,.png,.tif,.tiff,.bmp&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:104</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>File Extensions für Images (Format: .xxx,.yyy,.eee)</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="filetypesvideo"></a>
+                        <b>filetypesvideo</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;.mp4,.m4v,.ogv,.webm,.mov&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:109</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>File Extensions für Media (Format: .xxx,.yyy,.eee)</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="height"></a>
+                        <b>height</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>undefined</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:76</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Höhe des Editors</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isrequired"></a>
+                        <b>isrequired</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:70</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Definiert das Control als Required</p>
 </div>
                     </td>
                 </tr>
@@ -264,7 +1260,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="120" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:120</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -296,7 +1292,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:127</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -308,49 +1304,366 @@
             </tbody>
         </table>
 </section>
+            <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onsave"></a>
+                        <b>onsave</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;string&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:139</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
 
 
+            <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="config"></a>
+                        <span class="name"><b>config</b><a href="#config"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>config()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:134</a></div>
+                                </td>
+                            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>config(v: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">projects/jngcontrols-common/src/controls/tinymce/tinymce.ts:131</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>v</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Input } from &quot;@angular/core&quot;;
-import { AbstractControl, ValidationErrors } from &quot;@angular/forms&quot;;
-import { NgInputBase } from &quot;../../common/baseinputcontrol&quot;;
-import { Validation } from &quot;../../validation&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  EventEmitter,
+  Host,
+  Injector,
+  Input,
+  NgZone,
+  OnDestroy,
+  Output,
+} from &#x27;@angular/core&#x27;;
+import { AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
+import { NgBaseModelControl } from &#x27;../../common/basemodelcontrol&#x27;;
+import { NgFormularCommon } from &#x27;../../controls/form/form&#x27;;
+import { ILanguageResourceService } from &#x27;../../interfaces/ilanguageresource&#x27;;
+import { LANGUAGERESOURCE_SERVICE } from &#x27;../../services&#x27;;
+import { InternalLanguageResourceService } from &#x27;../../services/languageresource.service&#x27;;
+import { Validation } from &#x27;../../validation&#x27;;
+import { TinyMceDialogSettings } from &#x27;./tinymcedialogsettings&#x27;;
+import { TinyMceDialogSettingsMeta } from &#x27;./tinymcedialogsettingsmeta&#x27;;
+import { TinyMceInstance } from &#x27;./tinymceinstance&#x27;;
 
 /**
- * Komponente für NgTinyMceCommon. Extends NgInputBase
+ * Basis Komponente für TinyMCE Editor
  */
-export class NgTinyMceCommon extends NgInputBase&lt;string&gt; {
+export class NgTinyMceCommon
+  extends NgBaseModelControl&lt;string&gt;
+  implements OnDestroy
+{
   /**
-   * TextBox Placeholder
+   * Default Config mit Standardwerten für TinyMCE
    */
-  @Input(&quot;maxlength&quot;) _maxlength: number &#x3D; null;
+  private baseConfig: any &#x3D; {
+    base_url: &#x27;/tinymce&#x27;,
+    suffix: &#x27;.min&#x27;,
+    branding: false,
+    angular: this,
+    file_picker_types: &#x27;file media image&#x27;,
+    file_picker_callback: this.showSelectDialog,
+    save_onsavecallback: () &#x3D;&gt; {},
+  };
 
+  /**
+   * Service für Error Localisation
+   */
+  public lngResourceService: ILanguageResourceService;
+
+  /**
+   * Settings Instanz für Dialog
+   */
+  public selectDialogSettings: TinyMceDialogSettings;
+
+  /**
+   * TinyMCE Config
+   */
+  public _config: any &#x3D; {};
+
+  /**
+   * Der Select Dialog wird angezeigt
+   */
+  public selectdialogvisible &#x3D; false;
+
+  /**
+   * Instanz auf TinyMCE Settings. Wird durch TinyMCE gesetzt und wird für den Callback des Dialog benötigt
+   */
+  public settings: TinyMceInstance;
+
+  /**
+   * Definiert das Control als Required
+   */
+  @Input()
+  public isrequired: boolean &#x3D; false;
+
+  /**
+   * Höhe des Editors
+   */
+  @Input()
+  public height: string &#x3D; undefined;
+
+  /**
+   * URL zu Filebrowser Backend
+   */
+  @Input()
+  public filebrowserapiurl: string &#x3D; null;
+
+  @Input()
+  public allowfoldercreate &#x3D; false;
+  @Input()
+  public allowfolderrename &#x3D; false;
+  @Input()
+  public allowfolderdelete &#x3D; false;
+  @Input()
+  public allowfileupload &#x3D; false;
+  @Input()
+  public allowfilerename &#x3D; false;
+  /**
+   * Files im Dateibrowser können gelöscht werden
+   */
+  @Input()
+  public allowfiledelete &#x3D; false;
+
+  /**
+   * File Extensions für Images (Format: .xxx,.yyy,.eee)
+   */
+  @Input()
+  public filetypesimages &#x3D; &#x27;.gif,.jpeg,.jpg,.png,.tif,.tiff,.bmp&#x27;;
+  /**
+   * File Extensions für Media (Format: .xxx,.yyy,.eee)
+   */
+  @Input()
+  public filetypesvideo &#x3D; &#x27;.mp4,.m4v,.ogv,.webm,.mov&#x27;;
+
+  /**
+   * File Extensions für Links (Format: .xxx,.yyy,.eee)
+   */
+  @Input()
+  public filetypesfiles &#x3D; &#x27;&#x27;;
 
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input(&quot;validationmessagerequired&quot;) _validationMessageRequired: string &#x3D; &#x27;VALIDATION_ERROR_REQUIRED&#x27;;
+  @Input(&#x27;validationmessagerequired&#x27;) _validationMessageRequired: string &#x3D;
+    &#x27;VALIDATION_ERROR_REQUIRED&#x27;;
+
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input(&quot;validationmessagesummaryrequired&quot;) _validationMessageRequiredSummary: string &#x3D; &#x27;VALIDATION_ERROR_SUMMARY_REQUIRED&#x27;;
+  @Input(&#x27;validationmessagesummaryrequired&#x27;)
+  _validationMessageRequiredSummary: string &#x3D;
+    &#x27;VALIDATION_ERROR_SUMMARY_REQUIRED&#x27;;
 
+  @Input()
+  set config(v: any) {
+    this._config &#x3D; { ...this.getDynamicSettings(), ...this.baseConfig, ...v };
+  }
+  get config(): any {
+    return this._config;
+  }
+
+  @Output()
+  public onsave: EventEmitter&lt;string&gt; &#x3D; new EventEmitter&lt;string&gt;();
 
   /**
-   * Validator 
+   *
+   * @param parent
+   * @param injector
+   * @param ngZone
    */
-  validateData(c: AbstractControl): ValidationErrors | null {
+  constructor(
+    @Host() parent: NgFormularCommon,
+    injector: Injector,
+    protected ngZone: NgZone
+  ) {
+    super(parent, injector);
+
+    this.lngResourceService &#x3D; injector.get(
+      LANGUAGERESOURCE_SERVICE,
+      new InternalLanguageResourceService()
+    );
+
+    this.config &#x3D; {};
+  }
+
+  //#region Integration Select Dialog für Fileauswahl
+
+  public showSelectDialog(
+    callback,
+    value: string,
+    meta: TinyMceDialogSettingsMeta
+  ): void {
+    this.settings.angular.ngZone.runOutsideAngular(() &#x3D;&gt; {
+      this.settings.angular.ngZone.run(() &#x3D;&gt; {
+        this.settings.angular.selectdialogvisible &#x3D; true;
+
+        // Set Dialog Settings
+        this.settings.angular.selectDialogSettings &#x3D; new TinyMceDialogSettings({
+          callback: callback,
+          value: value,
+          meta: meta,
+          allowedtypes: &#x27;&#x27;,
+        });
+
+        switch (meta.filetype) {
+          case &#x27;image&#x27;:
+            this.settings.angular.selectDialogSettings.allowedtypes &#x3D;
+              this.settings.angular.filetypesimages;
+            break;
+          case &#x27;media&#x27;:
+            this.settings.angular.selectDialogSettings.allowedtypes &#x3D;
+              this.settings.angular.filetypesvideo;
+            break;
+          default:
+            this.settings.angular.selectDialogSettings.allowedtypes &#x3D;
+              this.settings.angular.filetypesfiles;
+            break;
+        }
+      });
+    });
+  }
+
+  public setSelectDialogResult(): void {
+    if (this.selectDialogSettings.value) {
+      if (
+        this.selectDialogSettings.value.startsWith(&#x27;/&#x27;) ||
+        this.selectDialogSettings.value.startsWith(&#x27;\\&#x27;)
+      ) {
+        this.selectDialogSettings.value &#x3D;
+          this.selectDialogSettings.value.substring(1);
+      }
+
+      this.selectDialogSettings.callback(this.selectDialogSettings.value);
+    }
+
+    this.closeSelectDialog();
+  }
+
+  public closeSelectDialog(): void {
+    this.selectdialogvisible &#x3D; false;
+  }
+
+  //#endregion
+
+  public save(content: any): void {
+    this.onsave.emit(content);
+  }
+
+  /**
+   * Validiert das Control
+   * @param c Control Instanz die valdidiert wird
+   * @returns Gibt eine Fehlermeldung oder NULL zurück
+   */
+  validateData(c: AbstractControl): ValidationErrors {
     let error: ValidationErrors | null &#x3D; null;
 
-    if (this._isrequired) {
-      error &#x3D; Validation.required(c, this._label, this._validationMessageRequired, this._validationMessageRequiredSummary);
+    if (this.isrequired) {
+      error &#x3D; Validation.required(
+        c,
+        this._label,
+        this._validationMessageRequired,
+        this._validationMessageRequiredSummary
+      );
     }
 
     return error;
+  }
+
+  /**
+   * Methode wenn die Control Instanz zerstört wird
+   */
+  ngOnDestroy(): void {}
+
+  private getDynamicSettings(): any {
+    let settings &#x3D; {
+      selector: &#x27;#&#x27; + this._name + &#x27;_tinymce&#x27;,
+      height: this.height,
+    };
+
+    return settings;
   }
 }
 </code></pre>
@@ -387,9 +1700,9 @@ export class NgTinyMceCommon extends NgInputBase&lt;string&gt; {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

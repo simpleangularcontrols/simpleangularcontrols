@@ -1,0 +1,922 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Bootstrap 4 Angular Controls</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content directive">
+                   <div class="content-data">
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Directives</li>
+  <li >NgInputDecimalCommon</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/jngcontrols-common/src/controls/input/inputdecimal.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Basis Komponente für NgInputDecimal</p>
+
+            </p>
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#ConvertInputValue" >ConvertInputValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#OnClassInit" >OnClassInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#OnKeyPressValidation" >OnKeyPressValidation</a>
+                            </li>
+                            <li>
+                                <a href="#validateData" >validateData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#allownegativ" >allownegativ</a>
+                            </li>
+                            <li>
+                                <a href="#maxvalue" >maxvalue</a>
+                            </li>
+                            <li>
+                                <a href="#minvalue" >minvalue</a>
+                            </li>
+                            <li>
+                                <a href="#validationmessagemaxvalue" >validationmessagemaxvalue</a>
+                            </li>
+                            <li>
+                                <a href="#validationmessageminvalue" >validationmessageminvalue</a>
+                            </li>
+                            <li>
+                                <a href="#validationmessagerequired" >validationmessagerequired</a>
+                            </li>
+                            <li>
+                                <a href="#validationmessagesummarymaxvalue" >validationmessagesummarymaxvalue</a>
+                            </li>
+                            <li>
+                                <a href="#validationmessagesummaryminvalue" >validationmessagesummaryminvalue</a>
+                            </li>
+                            <li>
+                                <a href="#validationmessagesummaryrequired" >validationmessagesummaryrequired</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allownegativ"></a>
+                        <b>allownegativ</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/jngcontrols-common/src/controls/input/inputdecimal.ts:15</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Definiert das Negative Werte erlaubt sind</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="maxvalue"></a>
+                        <b>maxvalue</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>undefined</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/jngcontrols-common/src/controls/input/inputdecimal.ts:23</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Definiert den maximalen Wert</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="minvalue"></a>
+                        <b>minvalue</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>undefined</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/jngcontrols-common/src/controls/input/inputdecimal.ts:19</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Definiert den minimalen Wert</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="validationmessagemaxvalue"></a>
+                        <b>validationmessagemaxvalue</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;VALIDATION_ERROR_MAXVALUE&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/jngcontrols-common/src/controls/input/inputdecimal.ts:48</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Resource Key für Validation Message MaxValue bei Control</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="validationmessageminvalue"></a>
+                        <b>validationmessageminvalue</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;VALIDATION_ERROR_MINVALUE&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/jngcontrols-common/src/controls/input/inputdecimal.ts:39</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Resource Key für Validation Message MinValue bei Control</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="validationmessagerequired"></a>
+                        <b>validationmessagerequired</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;VALIDATION_ERROR_REQUIRED&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/jngcontrols-common/src/controls/input/inputdecimal.ts:29</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Resource Key für Validation Message Required bei Control</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="validationmessagesummarymaxvalue"></a>
+                        <b>validationmessagesummarymaxvalue</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;VALIDATION_ERROR_SUMMARY_MAXVALUE&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">projects/jngcontrols-common/src/controls/input/inputdecimal.ts:52</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Resource Key für Validation Message MaxValue in Validation Summary</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="validationmessagesummaryminvalue"></a>
+                        <b>validationmessagesummaryminvalue</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;VALIDATION_ERROR_SUMMARY_MINVALUE&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/jngcontrols-common/src/controls/input/inputdecimal.ts:43</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Resource Key für Validation Message MinValue in Validation Summary</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="validationmessagesummaryrequired"></a>
+                        <b>validationmessagesummaryrequired</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;VALIDATION_ERROR_SUMMARY_REQUIRED&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/jngcontrols-common/src/controls/input/inputdecimal.ts:33</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Resource Key für Validation Message Required in Validation Summary</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ConvertInputValue"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>ConvertInputValue</b></span>
+                        <a href="#ConvertInputValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ConvertInputValue(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/input/inputdecimal.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Konvertiert den Wert des Inputs</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnClassInit"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>OnClassInit</b></span>
+                        <a href="#OnClassInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>OnClassInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/input/inputdecimal.ts:57</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Methode die erzeugt den Control in Abhängigkeit davon, ob negative Were erlaubt sing oder nicht</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OnKeyPressValidation"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span ><b>OnKeyPressValidation</b></span>
+                        <a href="#OnKeyPressValidation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>OnKeyPressValidation(position: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, character: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/input/inputdecimal.ts:90</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Methode validiert ob der Wert entspricht den gegebenen Kriterien wenn ein Key gedrückt wird</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>position</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>character</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateData"></a>
+                    <span class="name">
+                        <span ><b>validateData</b></span>
+                        <a href="#validateData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateData(c: <a href="https://angular.io/api/forms/AbstractControl" target="_blank">AbstractControl</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">projects/jngcontrols-common/src/controls/input/inputdecimal.ts:110</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Methode validiert ob der Wert entspricht den gegebenen Kriterien</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>c</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/AbstractControl" target="_blank" >AbstractControl</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, Input } from &#x27;@angular/core&#x27;;
+import { AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
+import { NgInputBase } from &#x27;../../common/baseinputcontrol&#x27;;
+import { Validation } from &#x27;../../validation&#x27;;
+
+/**
+ * Basis Komponente für NgInputDecimal
+ */
+@Directive()
+export class NgInputDecimalCommon extends NgInputBase&lt;number&gt; {
+
+  /**
+   * Definiert das Negative Werte erlaubt sind
+   */
+  @Input(&#x27;allownegativ&#x27;) _allownegativ: boolean &#x3D; false;
+  /**
+   * Definiert den minimalen Wert
+   */
+  @Input(&#x27;minvalue&#x27;) _minvalue: number &#x3D; undefined;
+  /**
+   * Definiert den maximalen Wert
+   */
+  @Input(&#x27;maxvalue&#x27;) _maxvalue: number &#x3D; undefined;
+
+
+  /**
+   * Resource Key für Validation Message Required bei Control
+   */
+  @Input(&#x27;validationmessagerequired&#x27;) _validationMessageRequired: string &#x3D; &#x27;VALIDATION_ERROR_REQUIRED&#x27;;
+  /**
+   * Resource Key für Validation Message Required in Validation Summary
+   */
+  @Input(&#x27;validationmessagesummaryrequired&#x27;) _validationMessageRequiredSummary: string &#x3D; &#x27;VALIDATION_ERROR_SUMMARY_REQUIRED&#x27;;
+
+
+  /**
+   * Resource Key für Validation Message MinValue bei Control
+   */
+  @Input(&#x27;validationmessageminvalue&#x27;) _validationMessageMinValue: string &#x3D; &#x27;VALIDATION_ERROR_MINVALUE&#x27;;
+  /**
+   * Resource Key für Validation Message MinValue in Validation Summary
+   */
+  @Input(&#x27;validationmessagesummaryminvalue&#x27;) _validationMessageMinValueSummary: string &#x3D; &#x27;VALIDATION_ERROR_SUMMARY_MINVALUE&#x27;;
+
+  /**
+   * Resource Key für Validation Message MaxValue bei Control
+   */
+  @Input(&#x27;validationmessagemaxvalue&#x27;) _validationMessageMaxValue: string &#x3D; &#x27;VALIDATION_ERROR_MAXVALUE&#x27;;
+  /**
+   * Resource Key für Validation Message MaxValue in Validation Summary
+   */
+  @Input(&#x27;validationmessagesummarymaxvalue&#x27;) _validationMessageMaxValueSummary: string &#x3D; &#x27;VALIDATION_ERROR_SUMMARY_MAXVALUE&#x27;;
+
+  /**
+   * Methode die erzeugt den Control in Abhängigkeit davon, ob negative Were erlaubt sing oder nicht
+   */
+  protected OnClassInit(): void {
+    super.OnClassInit();
+
+    /**
+     * Definiert die Werte die erlaubt sind
+     */
+    this._allowedchars &#x3D; &#x27;0123456789&#x27; + this.GetDecimalSymbol();
+
+    if (this._allownegativ) {
+      this._allowedchars &#x3D; this._allowedchars + &#x27;-&#x27;;
+    }
+  }
+
+  /**
+   * Konvertiert den Wert des Inputs
+   */
+  protected ConvertInputValue(value: any): any {
+    if (value &#x3D;&#x3D;&#x3D; &#x27;&#x27; || value &#x3D;&#x3D;&#x3D; null) {
+      return null;
+    } else {
+      if (this._allownegativ &#x3D;&#x3D;&#x3D; true &amp;&amp; value &#x3D;&#x3D;&#x3D; &#x27;-&#x27;) {
+        return &#x27;-&#x27;;
+      } else if (value &#x3D;&#x3D;&#x3D; &#x27;.&#x27;) {
+        return &#x27;0.&#x27;;
+      } else {
+        return parseFloat(value);
+      }
+    }
+  }
+
+  /**
+   * Methode validiert ob der Wert entspricht den gegebenen Kriterien wenn ein Key gedrückt wird
+   */
+  protected OnKeyPressValidation(position: number, character: string): boolean {
+    if (this._allownegativ &#x3D;&#x3D;&#x3D; false &amp;&amp; character &#x3D;&#x3D;&#x3D; &#x27;-&#x27; || this._allownegativ &#x3D;&#x3D;&#x3D; true &amp;&amp; position &gt; 0 &amp;&amp; character &#x3D;&#x3D;&#x3D; &#x27;-&#x27;) {
+      return false;
+    }
+
+    // Verhindern von Doppelpunkt Eingabe (45..545)
+    if (this._value !&#x3D;&#x3D; null &amp;&amp; this._value.toString().length &lt; position &amp;&amp; character &#x3D;&#x3D;&#x3D; &#x27;.&#x27;) {
+      return false;
+    }
+
+    if (character &#x3D;&#x3D;&#x3D; this.GetDecimalSymbol() &amp;&amp; this._value !&#x3D;&#x3D; null &amp;&amp; this._value.toString().indexOf(this.GetDecimalSymbol()) &gt;&#x3D; 0) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  /**
+   * Methode validiert ob der Wert entspricht den gegebenen Kriterien
+   */
+  validateData(c: AbstractControl): ValidationErrors | null {
+    /**
+     * Error Meldung, die angezeigt wird, wenn die Kriterien nicht erfüllt sind
+     */
+    let error: ValidationErrors | null &#x3D; null;
+
+    if (this._isrequired) {
+      error &#x3D; Validation.required(c, this._label, this._validationMessageRequired, this._validationMessageRequiredSummary);
+    }
+
+    if (error &#x3D;&#x3D;&#x3D; null &amp;&amp; this._minvalue !&#x3D;&#x3D; undefined &amp;&amp; this._minvalue !&#x3D;&#x3D; null) {
+      error &#x3D; Validation.minValue(c, this._minvalue, this._label, this._validationMessageMinValue, this._validationMessageMinValueSummary);
+    }
+
+    if (error &#x3D;&#x3D;&#x3D; null &amp;&amp; this._maxvalue !&#x3D;&#x3D; undefined &amp;&amp; this._maxvalue !&#x3D;&#x3D; null) {
+      error &#x3D; Validation.maxValue(c, this._maxvalue, this._label, this._validationMessageMaxValue, this._validationMessageMaxValueSummary);
+    }
+
+    return error;
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'directive';
+            var COMPODOC_CURRENT_PAGE_URL = 'NgInputDecimalCommon.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -43,7 +44,9 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>IUploadControl</li>
+  <li
+  >
+  IUploadControl</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,8 +64,9 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/jngcontrols-common/src/interfaces/IUploadControl.ts</code>
+            <code>projects/jngcontrols-common/src/interfaces/iuploadcontrol.ts</code>
         </p>
+
 
 
 
@@ -79,7 +83,10 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#UploadedFileCount">UploadedFileCount</a>
+                                    <a href="#UploadedFileCount" 
+>
+                                        UploadedFileCount
+                                    </a>
                                 </li>
                             </ul>
                         </td>
@@ -99,9 +106,7 @@
                 <td class="col-md-4">
                     <a name="UploadedFileCount"></a>
                     <span class="name">
-                        <b>
-                            UploadedFileCount
-                        </b>
+                        <span ><b>UploadedFileCount</b></span>
                         <a href="#UploadedFileCount"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -116,7 +121,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="2"
-                            class="link-to-prism">projects/jngcontrols-common/src/interfaces/IUploadControl.ts:2</a></div>
+                            class="link-to-prism">projects/jngcontrols-common/src/interfaces/iuploadcontrol.ts:2</a></div>
                 </td>
             </tr>
 
@@ -175,9 +180,9 @@
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

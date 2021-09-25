@@ -1,17 +1,41 @@
-// Source: https://github.com/ng-bootstrap/ng-bootstrap/blob/master/src/util/positioning.ts
+/**
+ * Position Utility Klasse
+ * @see https://github.com/ng-bootstrap/ng-bootstrap/blob/master/src/util/positioning.ts
+ */
 export class Positioning {
+  /**
+   * Get all Styles of Element
+   * @param element HTML Element
+   * @returns All Styles of element
+   */
   private getAllStyles(element: HTMLElement) {
     return window.getComputedStyle(element);
   }
 
+  /**
+   * Get Style value of element
+   * @param element HTML Element
+   * @param prop Style
+   * @returns Value of Style
+   */
   private getStyle(element: HTMLElement, prop: string): string {
     return this.getAllStyles(element)[prop];
   }
 
+  /**
+   * Check if the element has an static position
+   * @param element HTML Element
+   * @returns Item has a static position
+   */
   private isStaticPositioned(element: HTMLElement): boolean {
     return (this.getStyle(element, 'position') || 'static') === 'static';
   }
 
+  /**
+   * Get the Offset of the parent element
+   * @param element HTML Element
+   * @returns HTML ELement
+   */
   private offsetParent(element: HTMLElement): HTMLElement {
     let offsetParentEl =
       <HTMLElement>element.offsetParent || document.documentElement;
@@ -27,6 +51,12 @@ export class Positioning {
     return offsetParentEl || document.documentElement;
   }
 
+  /**
+   * Get Element Position
+   * @param element HTML Element for Position
+   * @param round Round Values
+   * @returns Position Values
+   */
   position(element: HTMLElement, round = true): ClientRect {
     let elPosition: ClientRect;
     let parentOffset: ClientRect = {
@@ -76,6 +106,12 @@ export class Positioning {
     return elPosition;
   }
 
+  /**
+   * Get Offset of Item
+   * @param element HTML Element for Offset
+   * @param round Round the Values
+   * @returns Return Offset Position
+   */
   offset(element: HTMLElement, round = true): ClientRect {
     const elBcr = element.getBoundingClientRect();
     const viewportOffset = {
@@ -104,9 +140,10 @@ export class Positioning {
     return elOffset;
   }
 
-  /*
-      Return false if the element to position is outside the viewport
-    */
+  /**
+   * Return false if the element to position is outside the viewport
+   * @returns position is inside viewport
+   */
   positionElements(
     hostElement: HTMLElement,
     targetElement: HTMLElement,
@@ -203,10 +240,12 @@ export class Positioning {
   }
 }
 
+/**
+ * Placement Separator Regex
+ */
 const placementSeparator = /\s+/;
-export const positionService = new Positioning();
 
-/*
+/**
  * Accept the placement array and applies the appropriate placement dependent on the viewport.
  * Returns the applied placement.
  * In case of auto placement, placements are selected in order
@@ -215,7 +254,7 @@ export const positionService = new Positioning();
  *   'bottom-left', 'bottom-right',
  *   'left-top', 'left-bottom',
  *   'right-top', 'right-bottom'.
- * */
+ */
 export function positionElements(
   hostElement: HTMLElement,
   targetElement: HTMLElement,
@@ -325,6 +364,9 @@ export function positionElements(
   return testPlacement;
 }
 
+/**
+ * Placement Typen
+ */
 export type Placement =
   | 'auto'
   | 'top'
@@ -340,4 +382,7 @@ export type Placement =
   | 'right-top'
   | 'right-bottom';
 
+/**
+ * Placement Array
+ */
 export type PlacementArray = Placement | Array<Placement> | string;

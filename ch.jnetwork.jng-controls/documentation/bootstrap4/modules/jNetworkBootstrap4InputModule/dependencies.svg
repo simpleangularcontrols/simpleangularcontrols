@@ -14,13 +14,13 @@
 <title>cluster_JNetworkBootstrap4InputModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-32.8 8,-230.8 1509,-230.8 1509,-32.8 8,-32.8"/>
 </g>
-<g id="clust12" class="cluster">
-<title>cluster_JNetworkBootstrap4InputModule_exports</title>
-<polygon fill="none" stroke="black" points="16,-170.8 16,-222.8 1501,-222.8 1501,-170.8 16,-170.8"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_JNetworkBootstrap4InputModule_declarations</title>
 <polygon fill="none" stroke="black" points="32,-40.8 32,-92.8 1491,-92.8 1491,-40.8 32,-40.8"/>
+</g>
+<g id="clust12" class="cluster">
+<title>cluster_JNetworkBootstrap4InputModule_exports</title>
+<polygon fill="none" stroke="black" points="16,-170.8 16,-222.8 1501,-222.8 1501,-170.8 16,-170.8"/>
 </g>
 <!-- NgInputAreaComponent -->
 <g id="node1" class="node">

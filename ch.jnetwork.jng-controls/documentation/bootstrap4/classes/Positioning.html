@@ -65,6 +65,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Position Utility Klasse</p>
+
+            </p>
 
 
 
@@ -130,14 +137,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="79"
-                            class="link-to-prism">projects/jngcontrols-common/src/utilities/positioning.ts:79</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="115"
+                            class="link-to-prism">projects/jngcontrols-common/src/utilities/positioning.ts:115</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Get Offset of Item</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -148,6 +157,7 @@
                                     <td>Type</td>
                                     <td>Optional</td>
                                     <td>Default value</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -164,6 +174,10 @@
                                     <td>
                                     </td>
 
+                                    <td>
+                                        <p>HTML Element for Offset</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>round</td>
@@ -178,6 +192,10 @@
                                         <code>true</code>
                                     </td>
 
+                                    <td>
+                                        <p>Round the Values</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -189,7 +207,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>Return Offset Position</p>
+
                     </div>
                 </td>
             </tr>
@@ -215,14 +234,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">projects/jngcontrols-common/src/utilities/positioning.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">projects/jngcontrols-common/src/utilities/positioning.ts:60</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Get Element Position</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -233,6 +254,7 @@
                                     <td>Type</td>
                                     <td>Optional</td>
                                     <td>Default value</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -249,6 +271,10 @@
                                     <td>
                                     </td>
 
+                                    <td>
+                                        <p>HTML Element for Position</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>round</td>
@@ -263,6 +289,10 @@
                                         <code>true</code>
                                     </td>
 
+                                    <td>
+                                        <p>Round Values</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -274,7 +304,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>Position Values</p>
+
                     </div>
                 </td>
             </tr>
@@ -300,14 +331,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="110"
-                            class="link-to-prism">projects/jngcontrols-common/src/utilities/positioning.ts:110</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="147"
+                            class="link-to-prism">projects/jngcontrols-common/src/utilities/positioning.ts:147</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Return false if the element to position is outside the viewport</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -378,7 +411,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>position is inside viewport</p>
+
                     </div>
                 </td>
             </tr>
@@ -395,18 +429,39 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class Positioning {
+  /**
+   * Get all Styles of Element
+   * @param element HTML Element
+   * @returns All Styles of element
+   */
   private getAllStyles(element: HTMLElement) {
     return window.getComputedStyle(element);
   }
 
+  /**
+   * Get Style value of element
+   * @param element HTML Element
+   * @param prop Style
+   * @returns Value of Style
+   */
   private getStyle(element: HTMLElement, prop: string): string {
     return this.getAllStyles(element)[prop];
   }
 
+  /**
+   * Check if the element has an static position
+   * @param element HTML Element
+   * @returns Item has a static position
+   */
   private isStaticPositioned(element: HTMLElement): boolean {
     return (this.getStyle(element, &#x27;position&#x27;) || &#x27;static&#x27;) &#x3D;&#x3D;&#x3D; &#x27;static&#x27;;
   }
 
+  /**
+   * Get the Offset of the parent element
+   * @param element HTML Element
+   * @returns HTML ELement
+   */
   private offsetParent(element: HTMLElement): HTMLElement {
     let offsetParentEl &#x3D;
       &lt;HTMLElement&gt;element.offsetParent || document.documentElement;
@@ -422,6 +477,12 @@
     return offsetParentEl || document.documentElement;
   }
 
+  /**
+   * Get Element Position
+   * @param element HTML Element for Position
+   * @param round Round Values
+   * @returns Position Values
+   */
   position(element: HTMLElement, round &#x3D; true): ClientRect {
     let elPosition: ClientRect;
     let parentOffset: ClientRect &#x3D; {
@@ -471,6 +532,12 @@
     return elPosition;
   }
 
+  /**
+   * Get Offset of Item
+   * @param element HTML Element for Offset
+   * @param round Round the Values
+   * @returns Return Offset Position
+   */
   offset(element: HTMLElement, round &#x3D; true): ClientRect {
     const elBcr &#x3D; element.getBoundingClientRect();
     const viewportOffset &#x3D; {
@@ -499,9 +566,10 @@
     return elOffset;
   }
 
-  /*
-      Return false if the element to position is outside the viewport
-    */
+  /**
+   * Return false if the element to position is outside the viewport
+   * @returns position is inside viewport
+   */
   positionElements(
     hostElement: HTMLElement,
     targetElement: HTMLElement,
@@ -598,10 +666,12 @@
   }
 }
 
+/**
+ * Placement Separator Regex
+ */
 const placementSeparator &#x3D; /\s+/;
-export const positionService &#x3D; new Positioning();
 
-/*
+/**
  * Accept the placement array and applies the appropriate placement dependent on the viewport.
  * Returns the applied placement.
  * In case of auto placement, placements are selected in order
@@ -610,7 +680,7 @@ export const positionService &#x3D; new Positioning();
  *   &#x27;bottom-left&#x27;, &#x27;bottom-right&#x27;,
  *   &#x27;left-top&#x27;, &#x27;left-bottom&#x27;,
  *   &#x27;right-top&#x27;, &#x27;right-bottom&#x27;.
- * */
+ */
 export function positionElements(
   hostElement: HTMLElement,
   targetElement: HTMLElement,
@@ -720,6 +790,9 @@ export function positionElements(
   return testPlacement;
 }
 
+/**
+ * Placement Typen
+ */
 export type Placement &#x3D;
   | &#x27;auto&#x27;
   | &#x27;top&#x27;
@@ -735,6 +808,9 @@ export type Placement &#x3D;
   | &#x27;right-top&#x27;
   | &#x27;right-bottom&#x27;;
 
+/**
+ * Placement Array
+ */
 export type PlacementArray &#x3D; Placement | Array&lt;Placement&gt; | string;
 </code></pre>
     </div>

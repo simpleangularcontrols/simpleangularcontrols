@@ -17,6 +17,10 @@ import {
   ],
 })
 export class NgContextmenuAnchorDirective extends NgContextmenuAnchorCommon {
+  /**
+   * Konstruktor
+   * @param _elementRef HTML DOM Referenz
+   */
   constructor(_elementRef: ElementRef<HTMLElement>) {
     super(_elementRef);
   }

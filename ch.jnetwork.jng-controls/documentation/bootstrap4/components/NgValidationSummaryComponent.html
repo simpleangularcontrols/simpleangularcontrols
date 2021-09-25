@@ -65,6 +65,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Validation Summary Kompontente</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -92,7 +99,7 @@
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
                                 <code><a href="../classes/Validation.html" target="_self" >{
-    provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgValidationSummaryComponent
+    provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgValidationSummaryComponent,
 }</a></code>
                 </td>
             </tr>
@@ -188,12 +195,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/validation/validationsummary.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/validation/validationsummary.ts:25</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -202,6 +211,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -216,6 +226,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Formular</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>injector</td>
@@ -228,6 +242,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Angular Dependency Injection Service</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -376,11 +394,13 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Host, Injector } from &#x27;@angular/core&#x27;;
-import { NG_VALUE_ACCESSOR, ControlContainer } from &#x27;@angular/forms&#x27;;
+import { ControlContainer, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
 import { NgValidationSummaryCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
 import { NgFormularDirective } from &#x27;../form/form&#x27;;
 
-
+/**
+ * Validation Summary Kompontente
+ */
 @Component({
   selector: &#x27;ng-validationsummary,ngValidationSummary&#x27;,
   templateUrl: &#x27;./validationsummary.html&#x27;,
@@ -389,20 +409,24 @@ import { NgFormularDirective } from &#x27;../form/form&#x27;;
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NgValidationSummaryComponent
-    }
+      useExisting: NgValidationSummaryComponent,
+    },
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormularDirective }]
+  viewProviders: [
+    { provide: ControlContainer, useExisting: NgFormularDirective },
+  ],
 })
 export class NgValidationSummaryComponent extends NgValidationSummaryCommon {
-
-  constructor( @Host() parent: NgFormularDirective, injector: Injector) {
+  /**
+   * Konstruktor
+   * @param parent Formular
+   * @param injector Angular Dependency Injection Service
+   */
+  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
     super(parent, injector);
   }
-
 }
-
 </code></pre>
     </div>
 

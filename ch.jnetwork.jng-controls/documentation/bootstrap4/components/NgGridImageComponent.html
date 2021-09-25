@@ -65,6 +65,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Image Item für Grid</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -225,17 +232,25 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/grid/gridimage.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/grid/gridimage.ts:17</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Gibt die CSS Klassen für Sprite Images zurück</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>CSS Klasse</p>
 
                     </div>
                 </td>
@@ -251,14 +266,19 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, Output, EventEmitter, ElementRef } from &#x27;@angular/core&#x27;;
 import { NgGridCommon, NgGridImageCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
 
-
+/**
+ * Image Item für Grid
+ */
 @Component({
   selector: &#x27;ng-gridimage,ngGridImage&#x27;,
   templateUrl: &#x27;./gridimage.html&#x27;
 })
 export class NgGridImageComponent extends NgGridImageCommon {
 
-
+  /**
+   * Gibt die CSS Klassen für Sprite Images zurück
+   * @returns CSS Klasse
+   */
   public getIconClass(): string {
     switch (this.iconstyle) {
       case &#x27;edit&#x27;:

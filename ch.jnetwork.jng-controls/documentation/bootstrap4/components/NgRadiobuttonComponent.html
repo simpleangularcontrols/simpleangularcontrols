@@ -65,6 +65,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Radiobutton Komponente</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -214,12 +221,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/checkbox/radiobutton.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/checkbox/radiobutton.ts:12</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -228,6 +237,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -242,6 +252,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Radio Buttons Group Komponente</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -649,16 +663,21 @@
 import { NgRadiobuttonCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
 import { NgRadiobuttonsComponent } from &#x27;./radiobuttons&#x27;;
 
+/**
+ * Radiobutton Komponente
+ */
 @Component({
   selector: &#x27;ng-radiobutton,ngRadiobutton&#x27;,
   templateUrl: &#x27;./radiobutton.html&#x27;,
 })
 export class NgRadiobuttonComponent extends NgRadiobuttonCommon {
-
+  /**
+   * Konstruktor
+   * @param ngRadioButtons Radio Buttons Group Komponente
+   */
   constructor(@Host() ngRadioButtons: NgRadiobuttonsComponent) {
     super(ngRadioButtons);
   }
-
 }
 </code></pre>
     </div>

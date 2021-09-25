@@ -60,6 +60,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Direktive für Dropdown Option List</p>
+
+            </p>
 
 
 
@@ -89,12 +96,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/list/dropdown.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/list/dropdown.ts:60</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -103,6 +112,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -117,6 +127,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Referenz auf HTML DOM Element</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>_renderer</td>
@@ -129,6 +143,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Angular Rendering Engine</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>dropdownList</td>
@@ -141,6 +159,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Referenz auf DropDown Komponente</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -162,35 +184,79 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Host, forwardRef, Directive, ElementRef, Renderer2, Optional, Injector } from &#x27;@angular/core&#x27;;
-import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from &#x27;@angular/forms&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component,
+  Directive,
+  ElementRef,
+  forwardRef,
+  Host,
+  Injector,
+  Optional,
+  Renderer2,
+} from &#x27;@angular/core&#x27;;
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
+import {
+  NgDropdownCommon,
+  NgDropdownOptionCommon,
+} from &#x27;@jnetwork/jngcontrols-common&#x27;;
 import { NgFormularDirective } from &#x27;../form/form&#x27;;
-import { NgDropdownCommon, NgDropdownOptionCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
 
+/**
+ * Dropdown Komponente
+ */
 @Component({
   selector: &#x27;ng-dropdown,ngDropdown&#x27;,
   templateUrl: &#x27;./dropdown.html&#x27;,
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgDropdownComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgDropdownComponent) }
-  ]
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: NgDropdownComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() &#x3D;&gt; NgDropdownComponent),
+    },
+  ],
 })
 export class NgDropdownComponent extends NgDropdownCommon {
-
-  constructor( @Host() parent: NgFormularDirective, injector: Injector, _renderer: Renderer2, _elementRef: ElementRef) {
+  /**
+   * Konstruktor
+   * @param parent Formular
+   * @param injector Dependency Injection Service
+   * @param _renderer Angular Rendering Engine
+   * @param _elementRef Referenz auf HTML DOM Element
+   */
+  constructor(
+    @Host() parent: NgFormularDirective,
+    injector: Injector,
+    _renderer: Renderer2,
+    _elementRef: ElementRef
+  ) {
     super(parent, injector, _renderer, _elementRef);
   }
-
 }
 
+/**
+ * Direktive für Dropdown Option List
+ */
 @Directive({ selector: &#x27;[ngOption],option&#x27; })
 export class NgDropdownOptionDirective extends NgDropdownOptionCommon {
-
-  constructor(_elementRef: ElementRef, _renderer: Renderer2, @Optional() @Host() dropdownList: NgDropdownComponent) {
+  /**
+   * Konstruktor
+   * @param _elementRef Referenz auf HTML DOM Element
+   * @param _renderer Angular Rendering Engine
+   * @param dropdownList Referenz auf DropDown Komponente
+   */
+  constructor(
+    _elementRef: ElementRef,
+    _renderer: Renderer2,
+    @Optional() @Host() dropdownList: NgDropdownComponent
+  ) {
     super(_elementRef, _renderer, dropdownList);
   }
-
 }
 </code></pre>
     </div>

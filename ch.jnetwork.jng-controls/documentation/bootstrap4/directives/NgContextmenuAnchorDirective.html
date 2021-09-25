@@ -112,6 +112,8 @@
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -120,6 +122,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -134,6 +137,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>HTML DOM Referenz</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -174,6 +181,10 @@ import {
   ],
 })
 export class NgContextmenuAnchorDirective extends NgContextmenuAnchorCommon {
+  /**
+   * Konstruktor
+   * @param _elementRef HTML DOM Referenz
+   */
   constructor(_elementRef: ElementRef&lt;HTMLElement&gt;) {
     super(_elementRef);
   }

@@ -14,13 +14,13 @@
 <title>cluster_JNetworkBootstrap4ValidationSummaryModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-32.8 8,-230.8 312,-230.8 312,-32.8 8,-32.8"/>
 </g>
-<g id="clust5" class="cluster">
-<title>cluster_JNetworkBootstrap4ValidationSummaryModule_exports</title>
-<polygon fill="none" stroke="black" points="44,-170.8 44,-222.8 276,-222.8 276,-170.8 44,-170.8"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_JNetworkBootstrap4ValidationSummaryModule_declarations</title>
 <polygon fill="none" stroke="black" points="46,-40.8 46,-92.8 274,-92.8 274,-40.8 46,-40.8"/>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_JNetworkBootstrap4ValidationSummaryModule_exports</title>
+<polygon fill="none" stroke="black" points="44,-170.8 44,-222.8 276,-222.8 276,-170.8 44,-170.8"/>
 </g>
 <!-- NgValidationSummaryComponent -->
 <g id="node1" class="node">

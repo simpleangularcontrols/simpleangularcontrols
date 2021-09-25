@@ -11,8 +11,10 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { NgDropzoneSingleCommon } from '@jnetwork/jngcontrols-common';
 import { NgFormularDirective } from '../form/form';
 
-// https://github.com/kukhariev/ngx-uploadx/
-
+/**
+ * Dropzone Komponente für den Upload eines Files
+ * @see https://github.com/kukhariev/ngx-uploadx/
+ */
 @Component({
   selector: 'ng-dropzonesingle,ngDropzoneSingle',
   templateUrl: './dropzonesingle.html',
@@ -34,6 +36,13 @@ export class NgDropzoneSingleComponent
   extends NgDropzoneSingleCommon
   implements OnInit
 {
+  /**
+   * Konstruktor
+   * @param parent Formular
+   * @param injector Angular Dependency Injection Service
+   * @param renderer Angular Rendering Engine
+   * @param ngZone ngZone
+   */
   constructor(
     @Host() parent: NgFormularDirective,
     injector: Injector,

@@ -112,6 +112,8 @@
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -120,6 +122,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -134,6 +137,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Referenz auf DOM Element</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -171,6 +178,10 @@ import { NgContextMenuContrainerCommon } from &#x27;@jnetwork/jngcontrols-common
   ],
 })
 export class NgContextmenuContainerDirective extends NgContextMenuContrainerCommon {
+  /**
+   * Konstruktor
+   * @param _elementRef Referenz auf DOM Element
+   */
   constructor(_elementRef: ElementRef&lt;HTMLElement&gt;) {
     super(_elementRef);
   }

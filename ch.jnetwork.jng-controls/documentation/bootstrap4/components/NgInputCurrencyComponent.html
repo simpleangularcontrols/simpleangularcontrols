@@ -65,6 +65,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Input Control für Währungen</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -91,8 +98,12 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                                <code><a href="../components/NgInputCurrencyComponent.html" target="_self" >{ provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgInputCurrencyComponent }</a></code>
-                                <code><a href="../components/NgInputCurrencyComponent.html" target="_self" >{ provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgInputCurrencyComponent) }</a></code>
+                                <code><a href="../components/NgInputCurrencyComponent.html" target="_self" >{
+    provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgInputCurrencyComponent,
+}</a></code>
+                                <code><a href="../components/NgInputCurrencyComponent.html" target="_self" >{
+    provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgInputCurrencyComponent),
+}</a></code>
                 </td>
             </tr>
 
@@ -141,12 +152,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/input/inputcurrency.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/input/inputcurrency.ts:34</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -155,6 +168,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -169,6 +183,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Formular</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>injector</td>
@@ -181,6 +199,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Angular Dependency Injection Service</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -201,29 +223,48 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from &#x27;@angular/forms&#x27;;
-import { Component, forwardRef, Host, Injector } from &#x27;@angular/core&#x27;;
-import { NgFormularDirective } from &#x27;../form/form&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, forwardRef, Host, Injector } from &#x27;@angular/core&#x27;;
+import {
+  ControlContainer,
+  NG_VALIDATORS,
+  NG_VALUE_ACCESSOR,
+} from &#x27;@angular/forms&#x27;;
 import { NgInputCurrencyCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
+import { NgFormularDirective } from &#x27;../form/form&#x27;;
 
-
+/**
+ * Input Control für Währungen
+ */
 @Component({
   selector: &#x27;ng-inputcurrency,ngInputCurrency&#x27;,
   templateUrl: &#x27;./inputcurrency.html&#x27;,
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgInputCurrencyComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgInputCurrencyComponent) }
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: NgInputCurrencyComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() &#x3D;&gt; NgInputCurrencyComponent),
+    },
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormularDirective }]
+  viewProviders: [
+    { provide: ControlContainer, useExisting: NgFormularDirective },
+  ],
 })
 export class NgInputCurrencyComponent extends NgInputCurrencyCommon {
-
+  /**
+   * Konstruktor
+   * @param parent Formular
+   * @param injector Angular Dependency Injection Service
+   */
   constructor(@Host() parent: NgFormularDirective, injector: Injector) {
     super(parent, injector);
   }
-
 }
 </code></pre>
     </div>

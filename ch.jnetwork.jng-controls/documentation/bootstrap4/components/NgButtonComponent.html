@@ -46,6 +46,9 @@
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
         <li >
+            <a href="#readme" role="tab" id="readme-tab" data-toggle="tab" data-link="readme">README</a>
+        </li>
+        <li >
             <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
         </li>
         <li >
@@ -53,6 +56,9 @@
         </li>
         <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+        <li >
+            <a href="#example" role="tab" id="example-tab" data-toggle="tab" data-link="example">Examples</a>
         </li>
 </ul>
 
@@ -65,6 +71,14 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Button Component</p>
+<p><example-url><a href="http://localhost/demo/mysample.component.html">http://localhost/demo/mysample.component.html</a></example-url></p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -596,11 +610,21 @@
 
 </div>
 
+    <div class="tab-pane fade " id="c-readme">
+        <p><h1 id="examples">Examples</h1>
+<h2 id="default-button">Default Button</h2>
+<div><pre class="line-numbers"><code class="language-none">&lt;ngButton (onclick)=&quot;action()&quot; text=&quot;My Button&quot;&gt;&lt;/ngButton&gt;</code></pre></div></p>
+    </div>
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component} from &#x27;@angular/core&#x27;;
 import { NgButtonCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
 
+/**
+ * Button Component
+ * 
+ * &lt;example-url&gt;http://localhost/demo/mysample.component.html&lt;/example-url&gt;
+ */
 @Component({
   selector: &#x27;ng-button,ngButton&#x27;,
   templateUrl: &#x27;./button.html&#x27;,
@@ -644,6 +668,11 @@ export class NgButtonComponent extends NgButtonCommon {
         </div>
     </div>
 
+    <div class="tab-pane fade " id="c-example">
+            <iframe class="exampleContainer" src="http://localhost/demo/mysample.component.html">
+                <p>no-iframes</p>
+            </iframe>
+    </div>
     
 </div>
 

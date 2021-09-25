@@ -65,6 +65,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Grid Komponente</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -92,7 +99,9 @@
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
                                 <code><a href="../components/NgGridComponent.html" target="_self" >{ provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgGridComponent }</a></code>
-                                <code><a href="../components/NgGridComponent.html" target="_self" >{ provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgGridComponent) }</a></code>
+                                <code><a href="../components/NgGridComponent.html" target="_self" >{
+    provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgGridComponent),
+}</a></code>
                 </td>
             </tr>
 
@@ -281,7 +290,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/grid/grid.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/grid/grid.ts:37</a></div>
                             </td>
                         </tr>
 
@@ -1110,10 +1119,16 @@ Folgende Interpolation Texte sind vorhanden:
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/grid/grid.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/grid/grid.ts:37</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Setzt die Ellipsis Funktion auf der Column</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1145,10 +1160,16 @@ Folgende Interpolation Texte sind vorhanden:
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/grid/grid.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/grid/grid.ts:32</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Referenz auf Column Template</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -1468,24 +1489,42 @@ Folgende Interpolation Texte sind vorhanden:
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ContentChild, forwardRef, TemplateRef, ChangeDetectorRef } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  ChangeDetectorRef,
+  Component,
+  ContentChild,
+  forwardRef,
+  TemplateRef,
+} from &#x27;@angular/core&#x27;;
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
 import { NgGridCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
 
+/**
+ * Grid Komponente
+ */
 @Component({
   selector: &#x27;ng-grid,ngGrid&#x27;,
   templateUrl: &#x27;./grid.html&#x27;,
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgGridComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgGridComponent) }
-  ]
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() &#x3D;&gt; NgGridComponent),
+    },
+  ],
 })
 export class NgGridComponent extends NgGridCommon {
-
+  /**
+   * Referenz auf Column Template
+   */
   @ContentChild(TemplateRef, { static: false })
   template: TemplateRef&lt;any&gt;;
 
+  /**
+   * Setzt die Ellipsis Funktion auf der Column
+   */
   ellipsis: boolean &#x3D; false;
 
   /**

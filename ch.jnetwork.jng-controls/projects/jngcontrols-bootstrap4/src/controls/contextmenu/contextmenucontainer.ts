@@ -14,6 +14,10 @@ import { NgContextMenuContrainerCommon } from '@jnetwork/jngcontrols-common';
   ],
 })
 export class NgContextmenuContainerDirective extends NgContextMenuContrainerCommon {
+  /**
+   * Konstruktor
+   * @param _elementRef Referenz auf DOM Element
+   */
   constructor(_elementRef: ElementRef<HTMLElement>) {
     super(_elementRef);
   }

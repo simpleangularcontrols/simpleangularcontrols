@@ -65,6 +65,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Wizard Komponente</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -400,7 +407,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgWizardCommon.html#source" target="_self" >NgWizardCommon:20</a></code>
+                        <div class="io-line">Defined in         <code><a href="../directives/NgWizardCommon.html#source" target="_self" >NgWizardCommon:31</a></code>
 </div>
                 </td>
             </tr>
@@ -408,9 +415,17 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Gibt die Wizard Items zurück</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../directives/NgWizardItemCommon.html" target="_self" >QueryList&lt;NgWizardItemCommon&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Collection von WizardItems</p>
 
                     </div>
                 </td>
@@ -887,10 +902,16 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/wizard/wizard.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/wizard/wizard.ts:25</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Wizard Items</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -990,27 +1011,37 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ContentChildren, QueryList } from &#x27;@angular/core&#x27;;
 import { NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
-import { NgWizardCommon, NgWizardItemCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
+import {
+  NgWizardCommon,
+  NgWizardItemCommon,
+} from &#x27;@jnetwork/jngcontrols-common&#x27;;
 import { NgWizardItemComponent } from &#x27;./wizarditem&#x27;;
 
+/**
+ * Wizard Komponente
+ */
 @Component({
   selector: &#x27;ng-wizard,ngWizard&#x27;,
   templateUrl: &#x27;./wizard.html&#x27;,
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgWizardComponent }
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgWizardComponent },
   ],
 })
-
 export class NgWizardComponent extends NgWizardCommon {
-
+  /**
+   * Wizard Items
+   */
   @ContentChildren(NgWizardItemComponent)
   _wizardItems: QueryList&lt;NgWizardItemComponent&gt;;
 
+  /**
+   * Gibt die Wizard Items zurück
+   * @returns Collection von WizardItems
+   */
   wizardItems(): QueryList&lt;NgWizardItemCommon&gt; {
     return this._wizardItems as QueryList&lt;NgWizardItemCommon&gt;;
   }
-
 }
 </code></pre>
     </div>

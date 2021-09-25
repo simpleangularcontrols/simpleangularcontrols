@@ -65,6 +65,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Grid Action Komponent</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -91,7 +98,9 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                                <code><a href="../components/NgGridColumnActionComponent.html" target="_self" >{ provide: NgGridColumnBaseCommon, useExisting: forwardRef(() &#x3D;&gt; NgGridColumnActionComponent) }</a></code>
+                                <code><a href="../components/NgGridColumnActionComponent.html" target="_self" >{
+    provide: NgGridColumnBaseCommon, useExisting: forwardRef(() &#x3D;&gt; NgGridColumnActionComponent),
+}</a></code>
                 </td>
             </tr>
 
@@ -132,12 +141,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/grid/gridcolumnaction.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/grid/gridcolumnaction.ts:21</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -146,6 +157,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -160,6 +172,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Referenz auf Grid</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>el</td>
@@ -172,6 +188,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>HTML Element Referenz</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -192,17 +212,32 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Input, EventEmitter, Output, TemplateRef, Component, forwardRef, ElementRef } from &#x27;@angular/core&#x27;;
-import { NgGridColumnActionCommon, NgGridColumnBaseCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ElementRef, forwardRef } from &#x27;@angular/core&#x27;;
+import {
+  NgGridColumnActionCommon,
+  NgGridColumnBaseCommon,
+} from &#x27;@jnetwork/jngcontrols-common&#x27;;
 import { NgGridComponent } from &#x27;./grid&#x27;;
 
+/**
+ * Grid Action Komponent
+ */
 @Component({
   selector: &#x27;ng-gridcolumnaction,ngGridColumnAction,[ngGridColumnAction]&#x27;,
   templateUrl: &#x27;./gridcolumnaction.html&#x27;,
-  providers: [{ provide: NgGridColumnBaseCommon, useExisting: forwardRef(() &#x3D;&gt; NgGridColumnActionComponent) }]
+  providers: [
+    {
+      provide: NgGridColumnBaseCommon,
+      useExisting: forwardRef(() &#x3D;&gt; NgGridColumnActionComponent),
+    },
+  ],
 })
 export class NgGridColumnActionComponent extends NgGridColumnActionCommon {
-
+  /**
+   * Konstruktor
+   * @param grid Referenz auf Grid
+   * @param el HTML Element Referenz
+   */
   constructor(grid: NgGridComponent, el: ElementRef) {
     super(grid, el);
 

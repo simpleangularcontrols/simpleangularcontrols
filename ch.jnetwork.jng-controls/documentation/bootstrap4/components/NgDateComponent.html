@@ -65,6 +65,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Komponente für Datumauswahl</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -91,8 +98,12 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                                <code><a href="../components/NgDateComponent.html" target="_self" >{ provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgDateComponent) }</a></code>
-                                <code><a href="../components/NgDateComponent.html" target="_self" >{ provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgDateComponent) }</a></code>
+                                <code><a href="../components/NgDateComponent.html" target="_self" >{
+    provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgDateComponent),
+}</a></code>
+                                <code><a href="../components/NgDateComponent.html" target="_self" >{
+    provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgDateComponent),
+}</a></code>
                 </td>
             </tr>
 
@@ -256,12 +267,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/datetime/date.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/datetime/date.ts:47</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -270,6 +283,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -284,6 +298,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Formular</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>injector</td>
@@ -296,6 +314,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Angular Dependency Injection Service</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>_elementRef</td>
@@ -308,6 +330,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Referenz auf HTML DOM Element</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -1247,30 +1273,64 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ElementRef, forwardRef, Host, Injector } from &#x27;@angular/core&#x27;;
-import { ControlContainer, NG_VALIDATORS, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component,
+  ElementRef,
+  forwardRef,
+  Host,
+  Injector,
+} from &#x27;@angular/core&#x27;;
+import {
+  ControlContainer,
+  NG_VALIDATORS,
+  NG_VALUE_ACCESSOR,
+} from &#x27;@angular/forms&#x27;;
 import { NgDateCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
 // Import Moment.JS
 import * as moment_ from &#x27;moment&#x27;;
 import { NgFormularDirective } from &#x27;../form/form&#x27;;
 
+/**
+ * Referenz auf Moment.JS
+ */
 const moment &#x3D; moment_;
 
-
+/**
+ * Komponente für Datumauswahl
+ */
 @Component({
   selector: &#x27;ng-date,ngDate&#x27;,
   templateUrl: &#x27;./date.html&#x27;,
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgDateComponent) },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgDateComponent) }
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: forwardRef(() &#x3D;&gt; NgDateComponent),
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() &#x3D;&gt; NgDateComponent),
+    },
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormularDirective }]
+  viewProviders: [
+    { provide: ControlContainer, useExisting: NgFormularDirective },
+  ],
 })
-
 export class NgDateComponent extends NgDateCommon {
-  constructor(@Host() parent: NgFormularDirective, injector: Injector, _elementRef: ElementRef) {
+  /**
+   * Konstruktor
+   * @param parent Formular
+   * @param injector Angular Dependency Injection Service
+   * @param _elementRef Referenz auf HTML DOM Element
+   */
+  constructor(
+    @Host() parent: NgFormularDirective,
+    injector: Injector,
+    _elementRef: ElementRef
+  ) {
     super(parent, injector, _elementRef);
   }
 }

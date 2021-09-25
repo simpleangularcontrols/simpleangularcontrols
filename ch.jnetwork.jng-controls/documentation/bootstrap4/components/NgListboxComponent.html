@@ -65,6 +65,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Listbox Komponente</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -223,12 +230,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/list/listbox.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/list/listbox.ts:46</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -237,6 +246,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -251,6 +261,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Formular</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>injector</td>
@@ -263,6 +277,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Angular Dependiency Injection Service</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -920,6 +938,9 @@ import {
   NgListboxOptionCommon,
 } from &#x27;@jnetwork/jngcontrols-common&#x27;;
 
+/**
+ * Listbox Komponente
+ */
 @Component({
   selector: &#x27;ng-listbox,ngListbox&#x27;,
   templateUrl: &#x27;./listbox.html&#x27;,
@@ -942,13 +963,27 @@ import {
   ],
 })
 export class NgListboxComponent extends NgListboxCommon {
+  /**
+   * Konstruktor
+   * @param parent Formular
+   * @param injector Angular Dependiency Injection Service
+   */
   constructor(@Host() parent: NgFormularDirective, injector: Injector) {
     super(parent, injector);
   }
 }
 
+/**
+ * Option Item in Listbox
+ */
 @Directive({ selector: &#x27;[ngOption],option&#x27; })
 export class NgListboxOptionDirective extends NgListboxOptionCommon {
+  /**
+   * Konstruktor
+   * @param _elementRef Referenz auf DOM Element
+   * @param _renderer Angular Rendering Engine
+   * @param listbox Referenz auf Listbox Komponente
+   */
   constructor(
     _elementRef: ElementRef,
     _renderer: Renderer2,

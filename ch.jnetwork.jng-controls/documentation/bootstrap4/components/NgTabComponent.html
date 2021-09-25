@@ -65,6 +65,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Komponente für Tabs</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -336,7 +343,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgTabCommon.html#source" target="_self" >NgTabCommon:14</a></code>
+                        <div class="io-line">Defined in         <code><a href="../directives/NgTabCommon.html#source" target="_self" >NgTabCommon:23</a></code>
 </div>
                 </td>
             </tr>
@@ -344,9 +351,17 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Gibt die TabItems zurück</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../components/NgTabItemComponent.html" target="_self" >NgTabItemComponent[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Array von TabItems</p>
 
                     </div>
                 </td>
@@ -591,10 +606,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/tabs/tab.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/tabs/tab.ts:17</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Collection von TabItems</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -608,25 +629,27 @@
 import { NgTabCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
 import { NgTabItemComponent } from &#x27;./tabitem&#x27;;
 
+/**
+ * Komponente für Tabs
+ */
 @Component({
   selector: &#x27;ng-tab,ngTab&#x27;,
-  templateUrl: &#x27;./tab.html&#x27;
+  templateUrl: &#x27;./tab.html&#x27;,
 })
 export class NgTabComponent extends NgTabCommon {
-
+  /**
+   * Collection von TabItems
+   */
   @ContentChildren(NgTabItemComponent)
   _tabItems: QueryList&lt;NgTabItemComponent&gt;;
 
+  /**
+   * Gibt die TabItems zurück
+   * @returns Array von TabItems
+   */
   tabItems(): NgTabItemComponent[] {
     return this._tabItems.toArray() as Array&lt;NgTabItemComponent&gt;;
   }
-  // protected contentRadiobuttons() : NgRadiobuttonCommon[] {
-  //   return this._contentRadiobuttons.toArray() as Array&lt;NgRadiobuttonCommon&gt;;
-  // }
-
-
-
-
 }
 </code></pre>
     </div>

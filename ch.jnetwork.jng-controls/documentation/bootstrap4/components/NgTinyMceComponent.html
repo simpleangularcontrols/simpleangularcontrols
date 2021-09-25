@@ -65,6 +65,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>TinyMCE Komponente</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -292,12 +299,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/tinymce/tinymce.ts:31</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/tinymce/tinymce.ts:34</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -306,6 +315,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -320,6 +330,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Formular</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>injector</td>
@@ -332,6 +346,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Angular Dependency Injection Service</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>ngZone</td>
@@ -344,6 +362,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>ngZone</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -1615,15 +1637,18 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgTinyMceCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
-import { NgFormularDirective } from &#x27;../form/form&#x27;;
-import { Component, forwardRef, Host, Injector, NgZone } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, forwardRef, Host, Injector, NgZone } from &#x27;@angular/core&#x27;;
 import {
-  NG_VALUE_ACCESSOR,
-  NG_VALIDATORS,
   ControlContainer,
+  NG_VALIDATORS,
+  NG_VALUE_ACCESSOR,
 } from &#x27;@angular/forms&#x27;;
+import { NgTinyMceCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
+import { NgFormularDirective } from &#x27;../form/form&#x27;;
 
+/**
+ * TinyMCE Komponente
+ */
 @Component({
   selector: &#x27;ng-tinymce,ngTinymce&#x27;,
   templateUrl: &#x27;./tinymce.html&#x27;,
@@ -1646,6 +1671,12 @@ import {
   ],
 })
 export class NgTinyMceComponent extends NgTinyMceCommon {
+  /**
+   * Konstruktor
+   * @param parent Formular
+   * @param injector Angular Dependency Injection Service
+   * @param ngZone ngZone
+   */
   constructor(
     @Host() parent: NgFormularDirective,
     injector: Injector,

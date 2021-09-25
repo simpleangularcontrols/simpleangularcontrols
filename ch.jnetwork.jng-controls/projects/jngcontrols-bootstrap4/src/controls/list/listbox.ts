@@ -19,6 +19,9 @@ import {
   NgListboxOptionCommon,
 } from '@jnetwork/jngcontrols-common';
 
+/**
+ * Listbox Komponente
+ */
 @Component({
   selector: 'ng-listbox,ngListbox',
   templateUrl: './listbox.html',
@@ -41,13 +44,27 @@ import {
   ],
 })
 export class NgListboxComponent extends NgListboxCommon {
+  /**
+   * Konstruktor
+   * @param parent Formular
+   * @param injector Angular Dependiency Injection Service
+   */
   constructor(@Host() parent: NgFormularDirective, injector: Injector) {
     super(parent, injector);
   }
 }
 
+/**
+ * Option Item in Listbox
+ */
 @Directive({ selector: '[ngOption],option' })
 export class NgListboxOptionDirective extends NgListboxOptionCommon {
+  /**
+   * Konstruktor
+   * @param _elementRef Referenz auf DOM Element
+   * @param _renderer Angular Rendering Engine
+   * @param listbox Referenz auf Listbox Komponente
+   */
   constructor(
     _elementRef: ElementRef,
     _renderer: Renderer2,

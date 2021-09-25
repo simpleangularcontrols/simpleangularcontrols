@@ -1,9 +1,11 @@
 import { Component, Host, Injector } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlContainer } from '@angular/forms';
+import { ControlContainer, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { NgValidationSummaryCommon } from '@jnetwork/jngcontrols-common';
 import { NgFormularDirective } from '../form/form';
 
-
+/**
+ * Validation Summary Kompontente
+ */
 @Component({
   selector: 'ng-validationsummary,ngValidationSummary',
   templateUrl: './validationsummary.html',
@@ -12,17 +14,21 @@ import { NgFormularDirective } from '../form/form';
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NgValidationSummaryComponent
-    }
+      useExisting: NgValidationSummaryComponent,
+    },
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormularDirective }]
+  viewProviders: [
+    { provide: ControlContainer, useExisting: NgFormularDirective },
+  ],
 })
 export class NgValidationSummaryComponent extends NgValidationSummaryCommon {
-
-  constructor( @Host() parent: NgFormularDirective, injector: Injector) {
+  /**
+   * Konstruktor
+   * @param parent Formular
+   * @param injector Angular Dependency Injection Service
+   */
+  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
     super(parent, injector);
   }
-
 }
-

@@ -68,6 +68,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Upload Komponente für den Upload mehrer Files</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -94,8 +101,12 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                                <code><a href="../components/NgUploadMultipleComponent.html" target="_self" >{ provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgUploadMultipleComponent }</a></code>
-                                <code><a href="../components/NgUploadMultipleComponent.html" target="_self" >{ provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgUploadMultipleComponent) }</a></code>
+                                <code><a href="../components/NgUploadMultipleComponent.html" target="_self" >{
+    provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgUploadMultipleComponent,
+}</a></code>
+                                <code><a href="../components/NgUploadMultipleComponent.html" target="_self" >{
+    provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgUploadMultipleComponent),
+}</a></code>
                 </td>
             </tr>
 
@@ -205,12 +216,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/upload/uploadmultiple.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/upload/uploadmultiple.ts:34</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -219,6 +232,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -233,6 +247,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Formular</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>injector</td>
@@ -245,6 +263,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Angular Dependency Injection Service</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>renderer</td>
@@ -257,6 +279,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Angular Rendering Engine</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>ngZone</td>
@@ -269,6 +295,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>ngZone</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -818,28 +848,55 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, forwardRef, Host, Injector, NgZone, Renderer2 } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component,
+  forwardRef,
+  Host,
+  Injector,
+  NgZone,
+  Renderer2,
+} from &#x27;@angular/core&#x27;;
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
 import { NgUploadMultipleCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
 import { NgFormularDirective } from &#x27;../form/form&#x27;;
 
-// https://github.com/kukhariev/ngx-uploadx/
-
+/**
+ * Upload Komponente für den Upload mehrer Files
+ * @see https://github.com/kukhariev/ngx-uploadx/
+ */
 @Component({
   selector: &#x27;ng-uploadmultiple,ngUploadMultiple&#x27;,
   templateUrl: &#x27;./uploadmultiple.html&#x27;,
   styleUrls: [&#x27;./upload.scss&#x27;],
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgUploadMultipleComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; NgUploadMultipleComponent) }
-  ]
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: NgUploadMultipleComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() &#x3D;&gt; NgUploadMultipleComponent),
+    },
+  ],
 })
 export class NgUploadMultipleComponent extends NgUploadMultipleCommon {
-
-  constructor(@Host() parent: NgFormularDirective, injector: Injector, renderer: Renderer2, ngZone: NgZone) {
+  /**
+   * Konstruktor
+   * @param parent Formular
+   * @param injector Angular Dependency Injection Service
+   * @param renderer Angular Rendering Engine
+   * @param ngZone ngZone
+   */
+  constructor(
+    @Host() parent: NgFormularDirective,
+    injector: Injector,
+    renderer: Renderer2,
+    ngZone: NgZone
+  ) {
     super(parent, injector, renderer, ngZone);
   }
-
 }
 </code></pre>
     </div>

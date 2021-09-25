@@ -65,6 +65,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Checkbox Kompontente</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -91,8 +98,12 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                                <code><a href="../components/NgCheckboxComponent.html" target="_self" >{ provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgCheckboxComponent }</a></code>
-                                <code><a href="../components/NgCheckboxComponent.html" target="_self" >{ provide: NG_VALIDATORS, useExisting: forwardRef(() &#x3D;&gt; NgCheckboxComponent), multi: true }</a></code>
+                                <code><a href="../components/NgCheckboxComponent.html" target="_self" >{
+    provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgCheckboxComponent,
+}</a></code>
+                                <code><a href="../components/NgCheckboxComponent.html" target="_self" >{
+    provide: NG_VALIDATORS, useExisting: forwardRef(() &#x3D;&gt; NgCheckboxComponent), multi: true,
+}</a></code>
                 </td>
             </tr>
 
@@ -185,12 +196,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/checkbox/checkbox.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/checkbox/checkbox.ts:35</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -199,6 +212,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -213,6 +227,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Formular</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>injector</td>
@@ -225,6 +243,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Angular Dependency Injection Service</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -401,30 +423,50 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Host,  forwardRef, Injector } from &#x27;@angular/core&#x27;;
-import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from &#x27;@angular/forms&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, forwardRef, Host, Injector } from &#x27;@angular/core&#x27;;
+import {
+  ControlContainer,
+  NG_VALIDATORS,
+  NG_VALUE_ACCESSOR,
+} from &#x27;@angular/forms&#x27;;
 // import { NgBaseModelControl } from &#x27;../../common/basemodelcontrol&#x27;;
 import { NgCheckboxCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
-import {  NgFormularDirective } from &#x27;../form/form&#x27;;
+import { NgFormularDirective } from &#x27;../form/form&#x27;;
 
-
+/**
+ * Checkbox Kompontente
+ */
 @Component({
   selector: &#x27;ng-checkbox,ngCheckbox&#x27;,
   templateUrl: &#x27;./checkbox.html&#x27;,
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgCheckboxComponent },
-    { provide: NG_VALIDATORS, useExisting: forwardRef(() &#x3D;&gt; NgCheckboxComponent), multi: true }
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: NgCheckboxComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() &#x3D;&gt; NgCheckboxComponent),
+      multi: true,
+    },
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormularDirective }]
+  viewProviders: [
+    { provide: ControlContainer, useExisting: NgFormularDirective },
+  ],
 })
 export class NgCheckboxComponent extends NgCheckboxCommon {
+  /**
+   * Konstruktor
+   * @param parent Formular
+   * @param injector Angular Dependency Injection Service
+   */
   constructor(@Host() parent: NgFormularDirective, injector: Injector) {
     super(parent, injector);
   }
 }
-
 </code></pre>
     </div>
 

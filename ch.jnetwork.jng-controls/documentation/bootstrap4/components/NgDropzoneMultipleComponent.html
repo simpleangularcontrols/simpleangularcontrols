@@ -68,6 +68,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Dropzone Komponente für mehrere Uploads</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -239,12 +246,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/upload/dropzonemultiple.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/jngcontrols-bootstrap4/src/controls/upload/dropzonemultiple.ts:38</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -253,6 +262,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -267,6 +277,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Formular</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>injector</td>
@@ -279,6 +293,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Angular Dependency Injection Service</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>renderer</td>
@@ -291,6 +309,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Angular Rendering Engine</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>ngZone</td>
@@ -303,6 +325,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>ngZone</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -545,7 +571,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgDropzoneMultipleCommon.html#source" target="_self" >NgDropzoneMultipleCommon:49</a></code>
+                        <div class="io-line">Defined in         <code><a href="../directives/NgDropzoneMultipleCommon.html#source" target="_self" >NgDropzoneMultipleCommon:58</a></code>
 </div>
                 </td>
             </tr>
@@ -1159,8 +1185,10 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
 import { NgDropzoneMultipleCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
 import { NgFormularDirective } from &#x27;../form/form&#x27;;
 
-// https://github.com/kukhariev/ngx-uploadx/
-
+/**
+ * Dropzone Komponente für mehrere Uploads
+ * @see https://github.com/kukhariev/ngx-uploadx/
+ */
 @Component({
   selector: &#x27;ng-dropzonemultiple,ngDropzoneMultiple&#x27;,
   templateUrl: &#x27;./dropzonemultiple.html&#x27;,
@@ -1182,6 +1210,13 @@ export class NgDropzoneMultipleComponent
   extends NgDropzoneMultipleCommon
   implements OnInit
 {
+  /**
+   * Konstruktor
+   * @param parent Formular
+   * @param injector Angular Dependency Injection Service
+   * @param renderer Angular Rendering Engine
+   * @param ngZone ngZone
+   */
   constructor(
     @Host() parent: NgFormularDirective,
     injector: Injector,

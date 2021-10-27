@@ -244,6 +244,10 @@ export class Positioning {
  * Placement Separator Regex
  */
 const placementSeparator = /\s+/;
+/**
+ * Global Position Service
+ */
+export const positionService = new Positioning();
 
 /**
  * Accept the placement array and applies the appropriate placement dependent on the viewport.

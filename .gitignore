@@ -266,3 +266,6 @@ package-lock.json
 
 # Angular Dist Folder
 /AngularPrototype/angular/moduleBase/dist
+
+# Cake Tools Folder
+/tools/**

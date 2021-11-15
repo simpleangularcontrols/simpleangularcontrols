@@ -269,3 +269,4 @@ package-lock.json
 
 # Cake Tools Folder
 /tools/**
+/ch.jnetwork.jng-controls/projects/jngcontrols-bootstrap4/cypress/videos/controls/input

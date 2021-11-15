@@ -22,7 +22,8 @@
     "compodoc-bs4": "npx compodoc -c bootstrap4.compodocrc.json",
     "doc-bs3": "start http://localhost:8080 & npx compodoc -s -d ./documentation/bootstrap3",
     "doc-bs4": "start http://localhost:8080 & npx compodoc -s -d ./documentation/bootstrap4",
-    "cypress-edit": "npx cypress open-ct --project projects/jngcontrols-bootstrap4"
+    "test-edit": "npx cypress open-ct --project projects/jngcontrols-bootstrap4",
+    "test-run": "npx cypress run-ct --project projects/jngcontrols-bootstrap4"
   },
   "private": true,
   "dependencies": {

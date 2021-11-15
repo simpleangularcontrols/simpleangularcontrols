@@ -48,6 +48,27 @@ npm run build-bs3
 npm run build-bs4
 ```
 
+# Testing
+
+## Create/Edit Tests
+
+Um Tests zu erstellen oder zu bearbeiten folgendes Command ausführen
+
+```
+npm run test-edit
+```
+
+Das nötige NPM Packet für die die Angular Component tests ist hier https://www.npmjs.com/package/@jscutlery/cypress-angular
+
+
+## Run Tests
+
+Um die Tests zu starten
+
+```
+npm run test-run
+```
+
 # Builds
 
 ## Requirements

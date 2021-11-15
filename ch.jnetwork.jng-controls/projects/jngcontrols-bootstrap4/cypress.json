@@ -4,5 +4,7 @@
   "component": {
     "testFiles": "**/*.cy-spec.{js,ts,jsx,tsx}",
     "componentFolder": "./src"
-  }
+  },
+  "viewportWidth": 1024,
+  "viewportHeight": 768
 }

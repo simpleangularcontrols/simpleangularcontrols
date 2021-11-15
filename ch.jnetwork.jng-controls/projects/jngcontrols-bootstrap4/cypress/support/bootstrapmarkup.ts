@@ -2,8 +2,8 @@ declare namespace Cypress {
   interface Chainable {
     shouldNotHaveLabel(): Chainable;
     shouldHaveLabel(label: string): Chainable;
-    shouldBeValid(): Chainable;
-    shouldBeInvalid(): Chainable;
+    shouldBeValid(tagName?: string): Chainable;
+    shouldBeInvalid(tagName?: string): Chainable;
   }
 }
 
@@ -15,12 +15,12 @@ Cypress.Commands.add('shouldHaveLabel', (label: string) => {
   cy.get('label').contains(label);
 });
 
-Cypress.Commands.add('shouldBeValid', () => {
-  cy.get('input').focus().blur();
-  cy.get('input').should('not.have.class', 'is-invalid');
+Cypress.Commands.add('shouldBeValid', (tagName: string = 'input') => {
+  cy.get(tagName).focus().blur();
+  cy.get(tagName).should('not.have.class', 'is-invalid');
 });
 
-Cypress.Commands.add('shouldBeInvalid', () => {
-  cy.get('input').focus().blur();
-  cy.get('input').should('have.class', 'is-invalid');
+Cypress.Commands.add('shouldBeInvalid', (tagName: string = 'input') => {
+  cy.get(tagName).focus().blur();
+  cy.get(tagName).should('have.class', 'is-invalid');
 });

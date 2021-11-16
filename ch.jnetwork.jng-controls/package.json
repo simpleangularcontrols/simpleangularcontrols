@@ -23,7 +23,8 @@
     "doc-bs3": "start http://localhost:8080 & npx compodoc -s -d ./documentation/bootstrap3",
     "doc-bs4": "start http://localhost:8080 & npx compodoc -s -d ./documentation/bootstrap4",
     "test-edit": "npx cypress open-ct --project projects/jngcontrols-bootstrap4",
-    "test-run": "npx cypress run-ct --project projects/jngcontrols-bootstrap4"
+    "test-run": "npx cypress run-ct --project projects/jngcontrols-bootstrap4",
+    "ngcc": "ngcc"
   },
   "private": true,
   "dependencies": {
@@ -37,7 +38,6 @@
     "@angular/platform-browser-dynamic": "12.2.12",
     "@angular/router": "12.2.12",
     "@compodoc/compodoc": "^1.1.14",
-    "@jscutlery/cypress-angular": "^0.8.3",
     "@ng-bootstrap/ng-bootstrap": "10.0.0",
     "@tinymce/tinymce-angular": "^4.2.4",
     "angular-imask": "6.0.5",
@@ -59,7 +59,8 @@
     "@angular/cli": "12.2.12",
     "@angular/compiler-cli": "12.2.12",
     "@angular/language-service": "12.2.12",
-    "@nrwl/cypress": "^13.1.0",
+    "@jscutlery/cypress-angular": "^0.8.4",
+    "@nrwl/cypress": "^13.1.4",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "^2.0.6",
     "@types/jquery": "3.3.38",

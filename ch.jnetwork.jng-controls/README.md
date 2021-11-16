@@ -69,6 +69,16 @@ Um die Tests zu starten
 npm run test-run
 ```
 
+## Problems
+
+### Type DynamicModule does not have 'ɵmod' property.
+
+Wenn diese Fehlermeldungen bei einem Test angezeigt wird muss der NGCC neu ausgeführt werden. Dazu folgendes Command ausführen.
+
+```
+npm run ngcc
+```
+
 # Builds
 
 ## Requirements

@@ -156,7 +156,7 @@ export abstract class NgFileBrowserCommon implements OnInit {
    * Click Event
    */
   exitEditMode(targetElement): void {
-    if (this.selectNode) {
+    if (this.selectedNode) {
       this.selectedNode.Files.forEach((itm) => (itm.IsEditMode = false));
 
       if (

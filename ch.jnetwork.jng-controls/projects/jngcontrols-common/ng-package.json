@@ -2,11 +2,6 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/jngcontrols-common",
   "lib": {
-    "entryFile": "src/public_api.ts",
-    "umdModuleIds": {
-      "moment": "moment",
-      "imask": "IMask",
-      "ngx-uploadx": "ngxUploadx"
-    }
+    "entryFile": "src/public_api.ts"
   }
 }

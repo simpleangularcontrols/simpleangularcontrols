@@ -8,9 +8,10 @@
     "declaration": false,
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "target": "es2015",
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2020",
     "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "dom"],
+    "lib": ["ES2020", "dom"],
     "module": "es2020",
     "baseUrl": "./",
     "paths": {
@@ -20,7 +21,7 @@
     }
   },
   "angularCompilerOptions": {
-    "enableIvy": false,
-    "allowEmptyCodegenFiles": true
+    "compilationMode": "partial",
+    "allowEmptyCodegenFiles": true,
   }
 }

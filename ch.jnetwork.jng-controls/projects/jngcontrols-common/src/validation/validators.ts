@@ -6,7 +6,7 @@ import { LanguageModel } from '../models/languagemodel';
 /**
  * Moment
  */
-const moment = moment_;
+const moment = moment_["default"];
 
 /**
  * Klasse für Validierungsfehler

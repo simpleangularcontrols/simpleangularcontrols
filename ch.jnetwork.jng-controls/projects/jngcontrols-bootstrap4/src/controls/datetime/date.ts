@@ -18,7 +18,7 @@ import { NgFormularDirective } from '../form/form';
 /**
  * Referenz auf Moment.JS
  */
-const moment = moment_;
+const moment = moment_["default"];
 
 /**
  * Komponente für Datumauswahl

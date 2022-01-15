@@ -12,10 +12,9 @@ import { JNetworkBootstrap3ButtonModule } from '../buttons/button.module';
  *
  */
 @NgModule({
-  declarations: [NgConfirmComponent],
-  imports: [CommonModule, JNetworkBootstrap3DialogModule, JNetworkBootstrap3ButtonModule],
-  exports: [NgConfirmComponent],
-  entryComponents: [NgConfirmComponent]
+    declarations: [NgConfirmComponent],
+    imports: [CommonModule, JNetworkBootstrap3DialogModule, JNetworkBootstrap3ButtonModule],
+    exports: [NgConfirmComponent]
 })
 export class JNetworkBootstrap3ConfirmModule {
   static forRoot(): ModuleWithProviders<JNetworkBootstrap3ConfirmModule> {

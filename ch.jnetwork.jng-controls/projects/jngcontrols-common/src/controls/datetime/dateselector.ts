@@ -5,7 +5,7 @@ import { Moment } from 'moment';
 /**
  * Moment
  */
-const moment = moment_;
+const moment = moment_["default"];
 
 
 

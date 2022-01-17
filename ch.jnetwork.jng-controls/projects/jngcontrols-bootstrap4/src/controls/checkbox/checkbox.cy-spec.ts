@@ -36,9 +36,6 @@ export class NgCheckboxComponentTest {
   @Input()
   public disabled = false;
 
-  @Input()
-  public isprimary = false;
-
   private _value = false;
 
   @Input()

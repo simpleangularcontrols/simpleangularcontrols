@@ -18,13 +18,13 @@
 <title>cluster_JNetworkBootstrap4ConfirmModule_declarations</title>
 <polygon fill="none" stroke="black" points="486,-40.8 486,-92.8 648,-92.8 648,-40.8 486,-40.8"/>
 </g>
-<g id="clust4" class="cluster">
-<title>cluster_JNetworkBootstrap4ConfirmModule_imports</title>
-<polygon fill="none" stroke="black" points="16,-40.8 16,-92.8 478,-92.8 478,-40.8 16,-40.8"/>
-</g>
 <g id="clust5" class="cluster">
 <title>cluster_JNetworkBootstrap4ConfirmModule_exports</title>
 <polygon fill="none" stroke="black" points="280,-170.8 280,-222.8 446,-222.8 446,-170.8 280,-170.8"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_JNetworkBootstrap4ConfirmModule_imports</title>
+<polygon fill="none" stroke="black" points="16,-40.8 16,-92.8 478,-92.8 478,-40.8 16,-40.8"/>
 </g>
 <!-- NgConfirmComponent -->
 <g id="node1" class="node">

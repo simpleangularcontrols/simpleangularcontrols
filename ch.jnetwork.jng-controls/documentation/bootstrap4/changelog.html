@@ -9,7 +9,7 @@
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
 	   <link rel="stylesheet" href="./styles/style.css">
-        <link rel="stylesheet" href="./styles/dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="./styles/dark.css">
     </head>
     <body>
 
@@ -34,14 +34,14 @@
 <h1 id="v110">V.1.1.0</h1>
 <h2 id="breaking-changes">Breaking Changes</h2>
 <ul>
-<li>Tag &quot;&lt;ngFormular&gt;&quot; muss durch Tag &quot;&lt;form&gt;&quot; oder Tag &quot;&lt;div ngForm&gt;&lt;/div&gt;&quot; ersetzt werden.
+<li><p>Tag &quot;&lt;ngFormular&gt;&quot; muss durch Tag &quot;&lt;form&gt;&quot; oder Tag &quot;&lt;div ngForm&gt;&lt;/div&gt;&quot; ersetzt werden.
 Grund ist, dass die Kompatibilität zu Reactive Forms nicht gewährleistet wurde und das bei Template Forms
 keine Gruppierung der Formulare durch die Direktive &quot;ngModelGroup&quot; möglich war.
 Wenn in einer Kompontene über @ViewChild auf die NgFormular Komponente zugegriffen wird, muss das Attribute auf dem Form auf folgenden Code
-angepasst werden &#39;#myForm=&quot;NgFormular&quot;&#39;.</li>
-</ul>
-<ul>
-<li>Das Property &quot;form&quot; in NgFormular ist neu Private. Auf &quot;form&quot; kann über die Methode &quot;getForm()&quot; zugegriffen werden.</li>
+angepasst werden &#39;#myForm=&quot;NgFormular&quot;&#39;.</p>
+</li>
+<li><p>Das Property &quot;form&quot; in NgFormular ist neu Private. Auf &quot;form&quot; kann über die Methode &quot;getForm()&quot; zugegriffen werden.</p>
+</li>
 </ul>
 <h1 id="v111">V.1.1.1</h1>
 <h2 id="breaking-changes-1">Breaking Changes</h2>
@@ -64,14 +64,15 @@ das Icon im Property &quot;icon&quot;.</li>
 
 
 
-                   
+
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -83,6 +84,15 @@ das Icon im Property &quot;icon&quot;.</li>
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
@@ -92,8 +102,8 @@ das Icon im Property &quot;icon&quot;.</li>
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       
-       <script type="module" src="./js/menu-wc.js" defer></script>
+
+       <script src="./js/menu-wc.js" defer></script>
        <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>

@@ -9,7 +9,7 @@
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
 	   <link rel="stylesheet" href="./styles/style.css">
-        <link rel="stylesheet" href="./styles/dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="./styles/dark.css">
     </head>
     <body>
 
@@ -43,9 +43,35 @@
 <h2 id="common-library-1">Common Library</h2>
 <div><pre class="line-numbers"><code class="language-none">npm run build-common</code></pre></div><h2 id="bootstrap-3-2">Bootstrap 3</h2>
 <div><pre class="line-numbers"><code class="language-none">npm run build-bs3</code></pre></div><h2 id="bootstrap-4-1">Bootstrap 4</h2>
-<div><pre class="line-numbers"><code class="language-none">npm run build-bs4</code></pre></div><h1 id="release">Release</h1>
-<p>Folgendes Script ausführen</p>
-<div><pre class="line-numbers"><code class="language-none">build.package.bat</code></pre></div><h1 id="modulebase">ModuleBase</h1>
+<div><pre class="line-numbers"><code class="language-none">npm run build-bs4</code></pre></div><h1 id="testing">Testing</h1>
+<h2 id="createedit-tests">Create/Edit Tests</h2>
+<p>Um Tests zu erstellen oder zu bearbeiten folgendes Command ausführen</p>
+<div><pre class="line-numbers"><code class="language-none">npm run test-edit</code></pre></div><p>Das nötige NPM Packet für die die Angular Component tests ist hier <a href="https://www.npmjs.com/package/@jscutlery/cypress-angular">https://www.npmjs.com/package/@jscutlery/cypress-angular</a></p>
+<h2 id="run-tests">Run Tests</h2>
+<p>Um die Tests zu starten</p>
+<div><pre class="line-numbers"><code class="language-none">npm run test-run</code></pre></div><h2 id="problems">Problems</h2>
+<h3 id="type-dynamicmodule-does-not-have-ɵmod-property">Type DynamicModule does not have &#39;ɵmod&#39; property.</h3>
+<p>Wenn diese Fehlermeldungen bei einem Test angezeigt wird muss der NGCC neu ausgeführt werden. Dazu folgendes Command ausführen.</p>
+<div><pre class="line-numbers"><code class="language-none">npm run ngcc</code></pre></div><h1 id="builds">Builds</h1>
+<h2 id="requirements">Requirements</h2>
+<p>Damit das Powershell Script ausgeführt werden kann muss folgendes Command ausgeführt werden:</p>
+<div><pre class="line-numbers"><code class="language-none">Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</code></pre></div><p>Sonst wird folgender Fehler ausgegeben:</p>
+<div><pre class="line-numbers"><code class="language-none">./build.ps1 : File C:\Daten\jNetwork\ch.jnetwork.angularcontrols\build.ps1 cannot be loaded because running scripts is disabled    
+on this system. For more information, see about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
+At line:1 char:1
++ ./build.ps1
++ ~~~~~~~~~~~
+    + CategoryInfo          : SecurityError: (:) [], PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess</code></pre></div><h2 id="build-erzeugen">Build erzeugen</h2>
+<p>Powershell Konsole im Solution Verzeichnis öffnen. Danach build.ps1 starten</p>
+<div><pre class="line-numbers"><code class="language-none">build.ps1</code></pre></div><h2 id="test-run">Test Run</h2>
+<p>Powershell Konsole im Solution Verzeichnis öffnen. Danach build.ps1 starten</p>
+<div><pre class="line-numbers"><code class="language-none">build.ps1 --target=test</code></pre></div><h2 id="release-erstellen">Release erstellen</h2>
+<p>Powershell Konsole öffnen. Danach build.ps1 starten</p>
+<h3 id="patch">Patch</h3>
+<div><pre class="line-numbers"><code class="language-none">.\build.ps1 --target=release --patch</code></pre></div><h3 id="minor">Minor</h3>
+<div><pre class="line-numbers"><code class="language-none">.\build.ps1 --target=release --minor</code></pre></div><h3 id="major">Major</h3>
+<div><pre class="line-numbers"><code class="language-none">.\build.ps1 --target=release --major</code></pre></div><h1 id="modulebase">ModuleBase</h1>
 <p>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 1.5.0.</p>
 <h2 id="development-server">Development server</h2>
 <p>Run <code>ng serve</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The app will automatically reload if you change any of the source files.</p>
@@ -73,14 +99,15 @@
 
 
 
-                   
+
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -92,6 +119,15 @@
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
@@ -101,8 +137,8 @@
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       
-       <script type="module" src="./js/menu-wc.js" defer></script>
+
+       <script src="./js/menu-wc.js" defer></script>
        <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>

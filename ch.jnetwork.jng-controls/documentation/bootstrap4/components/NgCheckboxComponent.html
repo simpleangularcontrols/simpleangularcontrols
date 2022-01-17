@@ -9,7 +9,7 @@
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
 
@@ -84,7 +84,7 @@
 
 <section>
     <h3>Metadata</h3>
-    <table class="table table-sm table-hover">
+    <table class="table table-sm table-hover metadata">
         <tbody>
 
 
@@ -228,8 +228,8 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <code><p>Formular</p>
-</code>
+                                                                <p>Formular</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -244,8 +244,8 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <code><p>Angular Dependency Injection Service</p>
-</code>
+                                                                <p>Angular Dependency Injection Service</p>
+
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -380,6 +380,7 @@
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -472,17 +473,19 @@ export class NgCheckboxComponent extends NgCheckboxCommon {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;row form-group&quot; [class.no-gutters]&#x3D;&quot;_disablelabel&quot;&gt;
-  &lt;div class&#x3D;&quot;col-12&quot; [ngClass]&#x3D;&quot;[_disablelabel &#x3D;&#x3D;&#x3D; false ?  &#x27;col-sm-&#x27; + _labelsize : &#x27;sr-only&#x27; ]&quot;&gt;{{_label}}&lt;/div&gt;
+  &lt;div class&#x3D;&quot;col-12&quot; [ngClass]&#x3D;&quot;[_disablelabel &#x3D;&#x3D;&#x3D; false ?  &#x27;col-sm-&#x27; + _labelsize : &#x27;sr-only&#x27; ]&quot;&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;!_disablelabel&quot;&gt;{{_label}}&lt;/ng-container&gt;
+  &lt;/div&gt;
   &lt;div class&#x3D;&quot;col-12&quot; [ngClass]&#x3D;&quot;[_disablelabel &#x3D;&#x3D;&#x3D; false ? &#x27;col-sm-&#x27; + _inputsize : &#x27;col-sm-12&#x27;]&quot;&gt;
     &lt;div class&#x3D;&quot;form-check&quot;&gt;
-      &lt;input class&#x3D;&quot;form-check-input&quot; id&#x3D;&quot;{{_name}}&quot; name&#x3D;&quot;{{_name}}&quot; type&#x3D;&quot;checkbox&quot; [checked]&#x3D;&quot;value&quot; (blur)&#x3D;&quot;onTouch()&quot; (change)&#x3D;&quot;setValue($event.target.checked)&quot; [disabled]&#x3D;&quot;isdisabled&quot; /&gt;
+      &lt;input class&#x3D;&quot;form-check-input&quot; id&#x3D;&quot;{{_name}}&quot; name&#x3D;&quot;{{_name}}&quot; type&#x3D;&quot;checkbox&quot; [checked]&#x3D;&quot;value&quot;
+        (blur)&#x3D;&quot;onTouch()&quot; (change)&#x3D;&quot;setValue($event.target.checked)&quot; [disabled]&#x3D;&quot;isdisabled&quot; /&gt;
       &lt;label for&#x3D;&quot;{{_name}}&quot; class&#x3D;&quot;form-check-label&quot;&gt;
         &lt;ng-container *ngIf&#x3D;&quot;_checkboxtext&quot;&gt;{{_checkboxtext}}&lt;/ng-container&gt;
       &lt;/label&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+&lt;/div&gt;</code></pre>
     </div>
 
 
@@ -511,7 +514,7 @@ export class NgCheckboxComponent extends NgCheckboxCommon {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="row form-group" [class.no-gutters]="_disablelabel">  <div class="col-12" [ngClass]="[_disablelabel === false ?  \'col-sm-\' + _labelsize : \'sr-only\' ]">{{_label}}</div>  <div class="col-12" [ngClass]="[_disablelabel === false ? \'col-sm-\' + _inputsize : \'col-sm-12\']">    <div class="form-check">      <input class="form-check-input" id="{{_name}}" name="{{_name}}" type="checkbox" [checked]="value" (blur)="onTouch()" (change)="setValue($event.target.checked)" [disabled]="isdisabled" />      <label for="{{_name}}" class="form-check-label">        <ng-container *ngIf="_checkboxtext">{{_checkboxtext}}</ng-container>      </label>    </div>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="row form-group" [class.no-gutters]="_disablelabel">  <div class="col-12" [ngClass]="[_disablelabel === false ?  \'col-sm-\' + _labelsize : \'sr-only\' ]">    <ng-container *ngIf="!_disablelabel">{{_label}}</ng-container>  </div>  <div class="col-12" [ngClass]="[_disablelabel === false ? \'col-sm-\' + _inputsize : \'col-sm-12\']">    <div class="form-check">      <input class="form-check-input" id="{{_name}}" name="{{_name}}" type="checkbox" [checked]="value"        (blur)="onTouch()" (change)="setValue($event.target.checked)" [disabled]="isdisabled" />      <label for="{{_name}}" class="form-check-label">        <ng-container *ngIf="_checkboxtext">{{_checkboxtext}}</ng-container>      </label>    </div>  </div></div></div>'
     var COMPONENTS = [{'name': 'NgBrowserComponent', 'selector': 'ng-filebrowser,ngFileBrowser'},{'name': 'NgButtonComponent', 'selector': 'ng-button,ngButton'},{'name': 'NgCheckboxComponent', 'selector': 'ng-checkbox,ngCheckbox'},{'name': 'NgConfirmComponent', 'selector': 'ng-confirm,ngConfirm'},{'name': 'NgContextmenuComponent', 'selector': 'ng-contextmenu,ngContextmenu'},{'name': 'NgContextmenuItemButtonComponent', 'selector': 'ng-contextmenubutton,ngContextmenuButton'},{'name': 'NgContextmenuItemSplitterComponent', 'selector': 'ng-contextmenusplitter,ngContextmenuSplitter'},{'name': 'NgDateComponent', 'selector': 'ng-date,ngDate'},{'name': 'NgDateSelectorComponent', 'selector': 'ng-dateselector,ngDateSelector'},{'name': 'NgDateTimeComponent', 'selector': 'ng-datetime,ngDateTime'},{'name': 'NgDialogComponent', 'selector': 'ng-dialog,ngDialog'},{'name': 'NgDropdownComponent', 'selector': 'ng-dropdown,ngDropdown'},{'name': 'NgDropzoneMultipleComponent', 'selector': 'ng-dropzonemultiple,ngDropzoneMultiple'},{'name': 'NgDropzoneSingleComponent', 'selector': 'ng-dropzonesingle,ngDropzoneSingle'},{'name': 'NgGridButtonComponent', 'selector': 'ng-gridbutton,ngGridButton'},{'name': 'NgGridColumnActionComponent', 'selector': 'ng-gridcolumnaction,ngGridColumnAction,[ngGridColumnAction]'},{'name': 'NgGridColumnComponent', 'selector': 'ng-gridcolumn,ngGridColumn,[ngGridColumn]'},{'name': 'NgGridComponent', 'selector': 'ng-grid,ngGrid'},{'name': 'NgGridImageComponent', 'selector': 'ng-gridimage,ngGridImage'},{'name': 'NgInputAreaComponent', 'selector': 'ng-inputarea,ngInputArea'},{'name': 'NgInputComponent', 'selector': 'ng-input,ngInput'},{'name': 'NgInputCurrencyComponent', 'selector': 'ng-inputcurrency,ngInputCurrency'},{'name': 'NgInputDecimalComponent', 'selector': 'ng-inputdecimal,ngInputDecimal'},{'name': 'NgInputEmailComponent', 'selector': 'ng-inputemail,ngInputEmail'},{'name': 'NgInputIntegerComponent', 'selector': 'ng-inputinteger,ngInputInteger'},{'name': 'NgInputPasswordComponent', 'selector': 'ng-inputpassword,ngInputPassword'},{'name': 'NgInputSearchComponent', 'selector': 'ng-inputsearch,ngInputSearch'},{'name': 'NgListboxComponent', 'selector': 'ng-listbox,ngListbox'},{'name': 'NgMultilanguageInputAreaComponent', 'selector': 'ng-multilanguageinputarea,ngMultilanguageInputArea'},{'name': 'NgMultilanguageInputComponent', 'selector': 'ng-multilanguageinput,ngMultilanguageInput'},{'name': 'NgPagingComponent', 'selector': 'ng-paging,ngPaging'},{'name': 'NgRadiobuttonComponent', 'selector': 'ng-radiobutton,ngRadiobutton'},{'name': 'NgRadiobuttonsComponent', 'selector': 'ng-radiobuttons,ngRadiobuttons'},{'name': 'NgStaticFormContainerComponent', 'selector': 'ng-staticformcontainer,ngStaticFormContainer'},{'name': 'NgStaticLabelComponent', 'selector': 'ng-staticlabel,ngStaticLabel'},{'name': 'NgTabComponent', 'selector': 'ng-tab,ngTab'},{'name': 'NgTabItemComponent', 'selector': 'ng-tabitem,ngTabItem'},{'name': 'NgTimeComponent', 'selector': 'ng-time,ngTime'},{'name': 'NgTinyMceComponent', 'selector': 'ng-tinymce,ngTinymce'},{'name': 'NgUploadComponent', 'selector': 'ng-upload,ngUpload'},{'name': 'NgUploadMultipleComponent', 'selector': 'ng-uploadmultiple,ngUploadMultiple'},{'name': 'NgValidationSummaryComponent', 'selector': 'ng-validationsummary,ngValidationSummary'},{'name': 'NgWizardComponent', 'selector': 'ng-wizard,ngWizard'},{'name': 'NgWizardItemComponent', 'selector': 'ng-wizarditem,ngWizardItem'}];
     var DIRECTIVES = [{'name': 'NgBaseDateTimeControl', 'selector': ''},{'name': 'NgBaseListControl', 'selector': ''},{'name': 'NgBaseModelControl', 'selector': ''},{'name': 'NgBaseSelectControl', 'selector': ''},{'name': 'NgButtonCommon', 'selector': ''},{'name': 'NgCheckboxCommon', 'selector': ''},{'name': 'NgConfirmCommon', 'selector': ''},{'name': 'NgContextmenuAnchorCommon', 'selector': ''},{'name': 'NgContextmenuAnchorDirective', 'selector': '[ng-contextmenuanchor],[ngContextmenuAnchor]'},{'name': 'NgContextmenuCommon', 'selector': ''},{'name': 'NgContextmenuContainerDirective', 'selector': '[ng-contextmenucontainer],[ngContextmenuContainer]'},{'name': 'NgContextMenuContrainerCommon', 'selector': ''},{'name': 'NgContextmenuItemButtonCommon', 'selector': ''},{'name': 'NgContextmenuItemCommon', 'selector': ''},{'name': 'NgDateCommon', 'selector': ''},{'name': 'NgDateSelectorCommon', 'selector': ''},{'name': 'NgDateTimeCommon', 'selector': ''},{'name': 'NgDialogCommon', 'selector': ''},{'name': 'NgDropdownCommon', 'selector': ''},{'name': 'NgDropdownOptionCommon', 'selector': ''},{'name': 'NgDropdownOptionDirective', 'selector': '[ngOption],option'},{'name': 'NgDropzoneMultipleCommon', 'selector': ''},{'name': 'NgDropzoneSingleCommon', 'selector': ''},{'name': 'NgFileBrowserCommon', 'selector': ''},{'name': 'NgFormularCommon', 'selector': ''},{'name': 'NgFormularDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgGridButtonCommon', 'selector': ''},{'name': 'NgGridColumnActionCommon', 'selector': ''},{'name': 'NgGridColumnBaseCommon', 'selector': ''},{'name': 'NgGridColumnCommon', 'selector': ''},{'name': 'NgGridCommon', 'selector': ''},{'name': 'NgGridImageCommon', 'selector': ''},{'name': 'NgInputAreaCommon', 'selector': ''},{'name': 'NgInputBase', 'selector': ''},{'name': 'NgInputCommon', 'selector': ''},{'name': 'NgInputCurrencyCommon', 'selector': ''},{'name': 'NgInputDecimalCommon', 'selector': ''},{'name': 'NgInputEmailCommon', 'selector': ''},{'name': 'NgInputIntegerCommon', 'selector': ''},{'name': 'NgInputPasswordCommon', 'selector': ''},{'name': 'NgInputSearchCommon', 'selector': ''},{'name': 'NgListboxCommon', 'selector': ''},{'name': 'NgListboxOptionCommon', 'selector': ''},{'name': 'NgListboxOptionDirective', 'selector': '[ngOption],option'},{'name': 'NgMultilanguageInputAreaCommon', 'selector': ''},{'name': 'NgMultilanguageInputCommon', 'selector': ''},{'name': 'NgPagingCommon', 'selector': ''},{'name': 'NgRadiobuttonCommon', 'selector': ''},{'name': 'NgRadiobuttonsCommon', 'selector': ''},{'name': 'NgStaticFormContainerCommon', 'selector': ''},{'name': 'NgStaticLabelCommon', 'selector': ''},{'name': 'NgTabCommon', 'selector': ''},{'name': 'NgTabItemCommon', 'selector': ''},{'name': 'NgTimeCommon', 'selector': ''},{'name': 'NgTinyMceCommon', 'selector': ''},{'name': 'NgTooltipCommon', 'selector': ''},{'name': 'NgTreeItemActionCommon', 'selector': ''},{'name': 'NgTreeViewChildCommon', 'selector': ''},{'name': 'NgTreeViewCommon', 'selector': ''},{'name': 'NgUploadBase', 'selector': ''},{'name': 'NgUploadMultipleCommon', 'selector': ''},{'name': 'NgUploadSingleCommon', 'selector': ''},{'name': 'NgValidationSummaryCommon', 'selector': ''},{'name': 'NgWizardCommon', 'selector': ''},{'name': 'NgWizardItemCommon', 'selector': ''},{'name': 'ProvideParentNgFormularDirective', 'selector': '[ngInheritForm],[inherit-form]'}];
     var ACTUAL_COMPONENT = {'name': 'NgCheckboxComponent'};
@@ -527,14 +530,15 @@ export class NgCheckboxComponent extends NgCheckboxCommon {
 
 
 
-                   
+
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -546,6 +550,15 @@ export class NgCheckboxComponent extends NgCheckboxCommon {
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
@@ -555,8 +568,8 @@ export class NgCheckboxComponent extends NgCheckboxCommon {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       
-       <script type="module" src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/menu-wc.js" defer></script>
        <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>

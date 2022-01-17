@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { mount } from '@jscutlery/cypress-angular/mount';
-import { InputRoutingModule } from 'projects/demo-bootstrap4/src/app/input/input-routing.module';
 import { JNetworkBootstrap4FormModule } from '../form/form.module';
 import { JNetworkBootstrap4ButtonModule } from './button.module';
 

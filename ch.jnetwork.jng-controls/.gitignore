@@ -41,3 +41,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+
+# Project Specific Excludes
+/ch.jnetwork.jng-controls/projects/jngcontrols-bootstrap4/cypress/videos/

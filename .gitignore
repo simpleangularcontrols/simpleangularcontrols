@@ -269,4 +269,8 @@ package-lock.json
 
 # Cake Tools Folder
 /tools/**
-/ch.jnetwork.jng-controls/projects/jngcontrols-bootstrap4/cypress/videos/controls/input
+
+# Project Specific Excludes
+/ch.jnetwork.jng-controls/projects/jngcontrols-bootstrap4/cypress/videos/
+/ch.jnetwork.jng-controls/projects/jngcontrols-bootstrap4/coverage/
+/ch.jnetwork.jng-controls/projects/jngcontrols-bootstrap4/.nyc_output/

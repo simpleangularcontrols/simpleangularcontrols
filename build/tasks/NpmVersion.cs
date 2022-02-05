@@ -42,6 +42,10 @@ namespace Build.tasks
                 case ReleaseType.Major:
                     settings.Version = "major";
                     break;
+
+                case ReleaseType.PreRelease:
+                    settings.Version = "prerelease --preid=rc";
+                    break;
             }
 
             context.Log.Information($"Change Version with Mode for '{project}': {context.ReleaseType}");

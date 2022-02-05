@@ -18,5 +18,9 @@ public enum ReleaseType
     /// <summary>
     /// Version als Major Release deklarieren
     /// </summary>
-    Major
+    Major,
+    /// <summary>
+    /// Version als PreRelease markieren
+    /// </summary>
+    PreRelease
 }

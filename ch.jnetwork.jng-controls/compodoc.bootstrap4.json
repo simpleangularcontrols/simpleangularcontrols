@@ -3,6 +3,8 @@
   "exclude": [
     "projects/demo-*/**",
     "projects/jngcontrols-bootstrap3/**",
+    "projects/jngcontrols-bootstrap4/cypress/**",
+    "projects/jngcontrols-bootstrap4/**/*.cy-spec.ts",
     "src/**"
   ]
 }

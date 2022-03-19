@@ -37,5 +37,10 @@ namespace Build.tasks
 
             context.Log.Information("Cypress run done");
         }
+
+        public override bool ShouldRun(BuildContext context)
+        {
+            return !context.Arguments.HasArgument("notest");
+        }
     }
 }

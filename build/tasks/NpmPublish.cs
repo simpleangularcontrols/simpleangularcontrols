@@ -34,6 +34,9 @@ namespace Build.tasks
             PackNpm(context, "./dist/jngcontrols-bootstrap4");
 
             // Publish Package
+            if (context.Arguments.HasArgument("nopublish"))
+                return;
+
             PublishNpm(context, "./dist/jngcontrols-common");
             PublishNpm(context, "./dist/jngcontrols-bootstrap4");
         }

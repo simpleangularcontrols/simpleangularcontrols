@@ -139,3 +139,18 @@ Powershell Konsole öffnen. Danach build.ps1 starten
 ```
 .\build.ps1 --target=release --major
 ```
+
+### Release Preview
+```
+.\build.ps1 --target=release --prerelease
+```
+
+### Optionale Parameter
+
+`--nopublish`
+
+Veröffentlicht das Packet nicht in der NPM Registry
+
+`--notest` 
+
+Deaktiviert die Cypress Tests

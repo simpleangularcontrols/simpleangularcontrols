@@ -104,7 +104,7 @@ export {
 } from './services';
 
 // Export Models
-export * from './models/LanguageModel';
+export * from './models/languagemodel';
 
 // Export Enums
 export * from './enums/IconType';

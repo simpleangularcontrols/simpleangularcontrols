@@ -1,4 +1,36 @@
-# Create Documentation
+# Development
+
+Zum Entwicklen von Komponenten wie folg vorgehen.
+
+1. Common Library starten
+2. Bootstrap 4 Library starten
+3. Bootstrap 4 Demo Project starten
+
+## Common Library
+```
+npm run run-common
+```
+
+## Bootstrap 3
+> Project wird nicht mehr weiterentwickeln
+```
+npm run run-bs3
+```
+
+## Bootstrap 4
+```
+npm run run-bs4
+```
+
+
+## Bootstrap 4 Demo Projekt
+
+```
+npm run demo-bs
+```
+
+
+# Documentation
 
 ## Bootstrap 3
 ```
@@ -12,23 +44,6 @@ npm run-script compodoc-bs4
 ## Full Documentation Build
 ```
 build.compodoc.bat
-```
-
-# Debug
-
-## Common Library
-```
-npm run run-common
-```
-
-## Bootstrap 3
-```
-npm run run-bs3
-```
-
-## Bootstrap 4
-```
-npm run run-bs4
 ```
 
 # Build

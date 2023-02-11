@@ -37,6 +37,4 @@ export class NgTabItemCommon {
    */
   @ContentChild(TemplateRef, { static: true })
   templateRef: TemplateRef<any>;
-
 }
-

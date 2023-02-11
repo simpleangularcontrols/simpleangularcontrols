@@ -2016,7 +2016,7 @@ export class NgUploadFile {
 /**
  * Base Klasse für Uploader Control
  */
-@Directive()
+@Component({ template: '' })
 export abstract class NgUploadBase&lt;VALUE&gt; extends NgBaseModelControl&lt;VALUE&gt; implements OnInit, OnDestroy {
 
   uploads: NgUploadFile[];

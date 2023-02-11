@@ -14,13 +14,13 @@
 <title>cluster_JNetworkBootstrap4ContextmenuModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-32.8 8,-230.8 1182,-230.8 1182,-32.8 8,-32.8"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_JNetworkBootstrap4ContextmenuModule_declarations</title>
-<polygon fill="none" stroke="black" points="16,-40.8 16,-92.8 1174,-92.8 1174,-40.8 16,-40.8"/>
-</g>
 <g id="clust9" class="cluster">
 <title>cluster_JNetworkBootstrap4ContextmenuModule_exports</title>
 <polygon fill="none" stroke="black" points="132,-170.8 132,-222.8 1071,-222.8 1071,-170.8 132,-170.8"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_JNetworkBootstrap4ContextmenuModule_declarations</title>
+<polygon fill="none" stroke="black" points="16,-40.8 16,-92.8 1174,-92.8 1174,-40.8 16,-40.8"/>
 </g>
 <!-- NgContextmenuAnchorDirective -->
 <g id="node1" class="node">

@@ -67,14 +67,12 @@
             </p>
             <p class="comment">
                 <p>Service für Confirm Messages in TypeScript Code</p>
-<p>// Beispiel für ConfirmMessage mit Standard Buttons (Ja / Nein).
-confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;).subscribe(action =&gt; { // Action Code });</p>
-<p>// Beispiel für ConfirmMessage mit eigenen Buttons
+<div><pre class="line-numbers"><code class="language-html">// Beispiel für ConfirmMessage mit Standard Buttons (Ja / Nein).
+confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;).subscribe(action =&gt; { // Action Code });</code></pre></div><div><pre class="line-numbers"><code class="language-html">// Beispiel für ConfirmMessage mit eigenen Buttons
 let buttons: NgConfirmButton[] = [];
 buttons.push(new NgConfirmButton(&#39;ActionKey&#39;,&#39;Text Primary&#39;));
 buttons.push(new NgConfirmButton(&#39;ActionKey2&#39;,&#39;Text Button 2&#39;));
-confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscribe(action =&gt; { // Action Code });</p>
-
+confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscribe(action =&gt; { // Action Code });</code></pre></div>
             </p>
 
             <p class="comment">
@@ -879,6 +877,7 @@ export class ServiceConfirm extends ServiceConfirmCommon {
     </div>
 
 </div>
+
 
 
 

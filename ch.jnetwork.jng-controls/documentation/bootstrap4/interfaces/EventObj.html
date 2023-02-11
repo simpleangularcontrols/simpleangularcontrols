@@ -196,7 +196,7 @@ export interface EventObj&lt;T&gt; {
 /**
  * Klasse EVents. Еnthalt verchiedene Outputs
  */
-@Directive()
+@Component({ template: '' })
 export class Events {
   @Output() onBeforePaste: EventEmitter&lt;EventObj&lt;ClipboardEvent&gt;&gt; &#x3D; new EventEmitter();
   @Output() onBlur: EventEmitter&lt;EventObj&lt;FocusEvent&gt;&gt; &#x3D; new EventEmitter();

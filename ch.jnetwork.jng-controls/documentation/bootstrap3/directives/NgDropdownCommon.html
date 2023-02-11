@@ -990,7 +990,7 @@ export function _buildValueString(id: string | null, value: any): string {
 /**
  * Base Dropdown Komponente
  */
-@Directive()
+@Component({ template: '' })
 export class NgDropdownCommon extends NgBaseSelectControl&lt;any&gt; {
   /**
    * Counter vom OptionID; default Wert &#x3D; 0
@@ -1162,7 +1162,7 @@ export class NgDropdownCommon extends NgBaseSelectControl&lt;any&gt; {
 /**
  * ngDropdownOption-Klasse
  */
-@Directive()
+@Component({ template: '' })
 export class NgDropdownOptionCommon implements OnDestroy {
   /**
    * ID-String

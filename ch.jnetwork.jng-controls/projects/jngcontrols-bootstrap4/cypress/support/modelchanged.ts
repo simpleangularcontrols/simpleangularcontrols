@@ -5,7 +5,7 @@ declare namespace Cypress {
 }
 
 Cypress.Commands.add('validateValueChanged', (requiredCount: number) => {
-  cy.get('@valueChange').should('have.been.called');
-  cy.get('@valueChange').its('callCount').should('equal', requiredCount);
+  cy.get('@valueSpy').should('have.been.called');
+  cy.get('@valueSpy').its('callCount').should('equal', requiredCount);
 });
 

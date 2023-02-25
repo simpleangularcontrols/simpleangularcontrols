@@ -24,7 +24,9 @@
     "doc-bs4": "start http://localhost:8888 & npx compodoc -r 8888 -s -d ./documentation/bootstrap4",
     "test-edit": "npx cypress open --project projects/jngcontrols-bootstrap4",
     "test-run": "npx cypress run --component --project projects/jngcontrols-bootstrap4",
-    "ngcc": "ngcc"
+    "ngcc": "ngcc",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "private": true,
   "dependencies": {
@@ -56,6 +58,7 @@
     "@angular/compiler-cli": "13.1.2",
     "@angular/language-service": "13.1.2",
     "@compodoc/compodoc": "1.1.19",
+    "@cypress/schematic": "^2.4.0",
     "@types/node": "^14.0.5",
     "codelyzer": "^6.0.0",
     "cypress": "^12.5.1",

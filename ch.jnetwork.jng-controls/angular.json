@@ -114,6 +114,53 @@
           "options": {
             "browserTarget": "demo-bootstrap4:build"
           }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "demo-bootstrap4:serve",
+            "configFile": "projects/demo-bootstrap4/cypress.config.js"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "demo-bootstrap4:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false,
+            "configFile": "projects/demo-bootstrap4/cypress.config.js"
+          }
+        },
+        "ct": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "demo-bootstrap4:serve",
+            "watch": true,
+            "headless": false,
+            "testingType": "component"
+          },
+          "configurations": {
+            "development": {
+              "devServerTarget": "demo-bootstrap4:serve:development"
+            }
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "demo-bootstrap4:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "demo-bootstrap4:serve:production"
+            }
+          }
         }
       }
     },
@@ -141,6 +188,53 @@
             "main": "projects/jngcontrols-bootstrap3/src/test.ts",
             "tsConfig": "projects/jngcontrols-bootstrap3/tsconfig.spec.json",
             "karmaConfig": "projects/jngcontrols-bootstrap3/karma.conf.js"
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "jngcontrols-bootstrap3:serve",
+            "configFile": "projects/jngcontrols-bootstrap3/cypress.config.js"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "jngcontrols-bootstrap3:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false,
+            "configFile": "projects/jngcontrols-bootstrap3/cypress.config.js"
+          }
+        },
+        "ct": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "jngcontrols-bootstrap3:serve",
+            "watch": true,
+            "headless": false,
+            "testingType": "component"
+          },
+          "configurations": {
+            "development": {
+              "devServerTarget": "jngcontrols-bootstrap3:serve:development"
+            }
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "jngcontrols-bootstrap3:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "jngcontrols-bootstrap3:serve:production"
+            }
           }
         }
       }
@@ -172,11 +266,50 @@
           }
         },
         "ct": {
-          "builder": "@nrwl/cypress:cypress",
+          "builder": "@cypress/schematic:cypress",
           "options": {
-            "cypressConfig": "projects\\jngcontrols-bootstrap4\\cypress.json",
-            "tsConfig": "projects\\jngcontrols-bootstrap4\\tsconfig.cypress.json",
+            "devServerTarget": "jngcontrols-bootstrap4:serve",
+            "watch": true,
+            "headless": false,
             "testingType": "component"
+          },
+          "configurations": {
+            "development": {
+              "devServerTarget": "jngcontrols-bootstrap4:serve:development"
+            }
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "jngcontrols-bootstrap4:serve",
+            "configFile": "projects/jngcontrols-bootstrap4/cypress.config.js"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "jngcontrols-bootstrap4:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false,
+            "configFile": "projects/jngcontrols-bootstrap4/cypress.config.js"
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "jngcontrols-bootstrap4:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "jngcontrols-bootstrap4:serve:production"
+            }
           }
         }
       }
@@ -205,6 +338,53 @@
             "main": "projects/jngcontrols-common/src/test.ts",
             "tsConfig": "projects/jngcontrols-common/tsconfig.spec.json",
             "karmaConfig": "projects/jngcontrols-common/karma.conf.js"
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "jngcontrols-common:serve",
+            "configFile": "projects/jngcontrols-common/cypress.config.js"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "jngcontrols-common:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false,
+            "configFile": "projects/jngcontrols-common/cypress.config.js"
+          }
+        },
+        "ct": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "jngcontrols-common:serve",
+            "watch": true,
+            "headless": false,
+            "testingType": "component"
+          },
+          "configurations": {
+            "development": {
+              "devServerTarget": "jngcontrols-common:serve:development"
+            }
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "jngcontrols-common:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "jngcontrols-common:serve:production"
+            }
           }
         }
       }
@@ -292,6 +472,51 @@
               "src/favicon.ico"
             ]
           }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "module-base:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "module-base:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "ct": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "module-base:serve",
+            "watch": true,
+            "headless": false,
+            "testingType": "component"
+          },
+          "configurations": {
+            "development": {
+              "devServerTarget": "module-base:serve:development"
+            }
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "module-base:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "module-base:serve:production"
+            }
+          }
         }
       }
     },
@@ -301,10 +526,50 @@
       "projectType": "application",
       "architect": {
         "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
+          "builder": "@cypress/schematic:cypress",
           "options": {
-            "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "module-base:serve"
+            "devServerTarget": "module-base-e2e:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "module-base-e2e:serve:production"
+            }
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "module-base-e2e:serve",
+            "configFile": "e2e/cypress.config.js"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "module-base-e2e:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false,
+            "configFile": "e2e/cypress.config.js"
+          }
+        },
+        "ct": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "module-base-e2e:serve",
+            "watch": true,
+            "headless": false,
+            "testingType": "component"
+          },
+          "configurations": {
+            "development": {
+              "devServerTarget": "module-base-e2e:serve:development"
+            }
           }
         }
       }

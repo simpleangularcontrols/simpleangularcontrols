@@ -144,6 +144,11 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
                                     <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/jngcontrols-common/src/controls/tabs/tabitem.ts:12</a></div>
@@ -344,7 +349,7 @@ export class NgTabItemCommon {
    * Boolean Property prüft ob das Tab aktiv ist
    */
   @Input(&#x27;active&#x27;)
-  _active: boolean;
+  _active: boolean &#x3D; false;
   /**
    * Boolean Property prüft ob das Tab disabled ist
    */

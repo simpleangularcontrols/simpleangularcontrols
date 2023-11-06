@@ -2,7 +2,13 @@
   "extends": "..\\..\\tsconfig.json",
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "types": ["cypress"]
+    "types": [
+      "cypress",
+      "node"
+    ]
   },
-  "include": ["cypress/support/**/*.ts", "**/*.cy.ts"]
+  "include": [
+    "cypress/support/**/*.ts",
+    "**/*.cy.ts"
+  ]
 }

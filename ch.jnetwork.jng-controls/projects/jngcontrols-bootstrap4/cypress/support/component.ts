@@ -20,6 +20,7 @@ import './commands'
 // require('./commands')
 
 import { mount } from 'cypress/angular'
+import '@cypress/code-coverage/support'
 
 // Augment the Cypress namespace to include type definitions for
 // your custom command.

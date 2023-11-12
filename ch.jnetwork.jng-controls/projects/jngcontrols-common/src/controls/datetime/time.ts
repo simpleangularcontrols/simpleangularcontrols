@@ -11,7 +11,7 @@ import { NgFormularCommon } from '../form/form';
 /**
  * Moment
  */
-const moment = moment_;
+const moment = moment_["default"];
 
 /**
  * Komponente für NgTimeCommon. Extends NgBaseDateTimeControl

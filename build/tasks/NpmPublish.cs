@@ -34,6 +34,9 @@ namespace Build.tasks
             PackNpm(context, "./dist/jngcontrols-bootstrap4");
 
             // Publish Package
+            if (context.Arguments.HasArgument("nopublish"))
+                return;
+
             PublishNpm(context, "./dist/jngcontrols-common");
             PublishNpm(context, "./dist/jngcontrols-bootstrap4");
         }
@@ -73,6 +76,10 @@ namespace Build.tasks
 
             JObject boostrap4Json = context.ParseJsonFromFile(boostrap4Package);
             string bootstrap4Version = boostrap4Json["version"].Value<string>();
+
+            // Remove NYC Part
+            if (boostrap4Json.ContainsKey("nyc"))
+                boostrap4Json.Remove("nyc");
 
             context.Log.Information($"Common Version is {commonVersion}");
             context.Log.Information($"Bootstrap 4 Version is {bootstrap4Version}");

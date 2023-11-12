@@ -2,8 +2,8 @@
   "name": "@jnetwork/jngcontrols-bootstrap3",
   "version": "1.4.1",
   "peerDependencies": {
-    "@angular/common": "10.1.5",
-    "@angular/core": "10.1.5",
+    "@angular/common": "^13.2.0",
+    "@angular/core": "^13.2.0",
     "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common"
   },
   "scripts": {

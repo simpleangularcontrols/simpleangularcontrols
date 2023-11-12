@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import {
   JNetworkBootstrap4FormModule,
   JNetworkBootstrap4ListModule,
+  JNetworkBootstrap4DropdownModule,
   JNetworkBootstrap4ButtonModule,
   JNetworkBootstrap4ValidationSummaryModule,
 } from '@jnetwork/jngcontrols-bootstrap4';
@@ -19,6 +20,7 @@ import { DemoListComponent } from './list.component';
     JNetworkBootstrap4ButtonModule,
     JNetworkBootstrap4ValidationSummaryModule,
     JNetworkBootstrap4ListModule,
+    JNetworkBootstrap4DropdownModule,
   ],
 })
 export class ListModule {}

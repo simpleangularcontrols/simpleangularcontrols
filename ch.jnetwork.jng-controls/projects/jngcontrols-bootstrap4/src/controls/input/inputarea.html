@@ -1,7 +1,29 @@
 <div class="form-group row">
-  <label for="{{_name}}" class="col-12 col-form-label" [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]">{{_label}}</label>
-  <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
-    <textarea id="{{_name}}" name="{{_name}}" type="" class="form-control form-control-sm" [value]="value" [attr.placeholder]="_placeholder" (blur)="onTouch()" (input)="setValue($event.target.value)"
-              (keypress)="onKeyPress($event)" [attr.rows]="_rows" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" [disabled]="isdisabled"></textarea>
+  <label
+    for="{{_name}}"
+    class="col-12 col-form-label"
+    [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]"
+    >{{_label}}</label
+  >
+  <div
+    class="col-12"
+    [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']"
+  >
+    <textarea
+      id="{{_name}}"
+      name="{{_name}}"
+      type=""
+      class="form-control form-control-sm"
+      [value]="value"
+      [attr.placeholder]="_placeholder"
+      (blur)="onTouch()"
+      (input)="setValue($event.target.value)"
+      (keypress)="onKeyPress($event)"
+      [attr.rows]="_rows"
+      [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
+      [disabled]="isdisabled"
+      [attr.maxlength]="_maxlength"
+      [readonly]="_readonly"
+    ></textarea>
   </div>
 </div>

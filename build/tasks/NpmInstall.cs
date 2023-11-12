@@ -9,6 +9,7 @@ namespace Build.tasks
 {
     [TaskName("NpmInstall")]
     [TaskDescription("Install NPM Packages")]
+    [IsDependentOn(typeof(CleanBeforeTask))]
     public class NpmInstall : FrostingTask<BuildContext>
     {
         /// <summary>

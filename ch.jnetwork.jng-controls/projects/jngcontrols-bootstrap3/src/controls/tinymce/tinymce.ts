@@ -1,6 +1,6 @@
 import { NgTinyMceCommon } from '@jnetwork/jngcontrols-common';
 import { NgFormularDirective } from '../form/form';
-import { Component, forwardRef, Host, Injector } from '@angular/core';
+import { Component, forwardRef, Host, Injector, NgZone } from '@angular/core';
 import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/forms';
 
 @Component({
@@ -13,7 +13,17 @@ import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/for
   ]
 })
 export class NgTinyMceComponent extends NgTinyMceCommon {
-  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
-    super(parent, injector);
+ /**
+   * Konstruktor
+   * @param parent Formular
+   * @param injector Angular Dependency Injection Service
+   * @param ngZone ngZone
+   */
+  constructor(
+    @Host() parent: NgFormularDirective,
+    injector: Injector,
+    ngZone: NgZone
+  ) {
+    super(parent, injector, ngZone);
   }
 }

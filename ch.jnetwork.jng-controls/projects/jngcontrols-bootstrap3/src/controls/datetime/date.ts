@@ -4,7 +4,7 @@ import { NgFormularDirective } from '../form/form';
 // Import Moment.JS
 import * as moment_ from 'moment';
 import { NgDateCommon } from '@jnetwork/jngcontrols-common';
-const moment = moment_;
+const moment = moment_["default"];
 
 
 @Component({

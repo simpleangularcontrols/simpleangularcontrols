@@ -199,6 +199,10 @@ export abstract class NgBaseModelControl<VALUE> implements ControlValueAccessor,
    */
   @Input('value')
   set value(v: VALUE) {
+    if (this._disabledControl) {
+      return;
+    }
+
     this._value = this.ConvertInputValue(v);
     this.propagateChange(this._value);
   }

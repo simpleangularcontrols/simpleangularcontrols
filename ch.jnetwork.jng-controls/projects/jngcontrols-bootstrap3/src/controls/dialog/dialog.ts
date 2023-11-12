@@ -1,6 +1,5 @@
 import { Component, ElementRef, OnInit, OnDestroy, Input, ChangeDetectorRef } from '@angular/core';
 import { NgDialogCommon } from '@jnetwork/jngcontrols-common';
-import { Promise } from 'q';
 
 @Component({
   selector: 'ng-dialog,ngDialog',

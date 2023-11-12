@@ -547,7 +547,7 @@ import { Validation } from &#x27;../../validation&#x27;;
 /**
  * Basis Komponente für NgListboxOption
  */
-@Directive()
+@Component({ template: '' })
 export class NgListboxOptionCommon implements OnDestroy {
   /**
    * Value von Selected Option Item
@@ -638,7 +638,7 @@ abstract class HTMLCollection {
 /**
  * Komponente für NgListboxCommon. Extends NgBaseSelectControl
  */
-@Directive()
+@Component({ template: '' })
 export class NgListboxCommon extends NgBaseSelectControl&lt;Array&lt;string&gt;&gt; {
   /**
    * OptionMap

@@ -1,6 +1,6 @@
 import { Directive, EventEmitter, Injector, Input, Output } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ILanguageResourceService } from '../../interfaces/ILanguageResource';
+import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
 import { InternalLanguageResourceService, LANGUAGERESOURCE_SERVICE } from '../../services/LanguageResource.Service';
 import { PagerData, PagerRequest } from './model';
 

@@ -1,4 +1,11 @@
-import { Directive, EventEmitter, Input, OnDestroy, Output, TemplateRef } from '@angular/core';
+import {
+  Directive,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  Output,
+  TemplateRef,
+} from '@angular/core';
 import { NgRadiobuttonsCommon } from './radiobuttons';
 
 /**
@@ -6,7 +13,6 @@ import { NgRadiobuttonsCommon } from './radiobuttons';
  */
 @Directive()
 export abstract class NgRadiobuttonCommon implements OnDestroy {
-
   /**
    * Konstruktor
    * @param ngRadioButtons
@@ -78,8 +84,6 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
     return this._hidden;
   }
 
-
-
   /**
    * Unique Index für RadioButton
    */
@@ -89,7 +93,11 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
    * Getter für Unique Index
    */
   get getIndex(): number {
-    if (this._index === null && this.ngRadioButtons !== null && this.ngRadioButtons !== undefined) {
+    if (
+      this._index === null &&
+      this.ngRadioButtons !== null &&
+      this.ngRadioButtons !== undefined
+    ) {
       this._index = this.ngRadioButtons.GetRadionButtonIndex();
     }
 
@@ -129,7 +137,9 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
    * Event bei Änderungen
    */
   public ChangeEvent(): void {
-    this.ngRadioButtons.SelectItem(this._value);
-    this.onselectitem.emit();
+    if (!this._disabled) {
+      this.ngRadioButtons.SelectItem(this._value);
+      this.onselectitem.emit();
+    }
   }
 }

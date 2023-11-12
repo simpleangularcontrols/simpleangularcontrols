@@ -1,12 +1,12 @@
 {
   "name": "@jnetwork/jngcontrols-common",
-  "version": "1.4.1",
+  "version": "2.0.0-rc.7",
   "peerDependencies": {
-    "@angular/common": "10.1.5",
-    "@angular/core": "10.1.5",
+    "@angular/common": "^13.2.0",
+    "@angular/core": "^13.2.0",
     "moment": "2.29.1",
-    "angular-imask": "6.0.5",
-    "ngx-uploadx": "3.5.2"
+    "angular-imask": "6.2.2",
+    "ngx-uploadx": "5.0.0"
   },
   "author": {
     "name": "jNetwork GmbH",

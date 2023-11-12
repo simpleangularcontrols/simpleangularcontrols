@@ -12,7 +12,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { UploadState, UploadxOptions, UploadxService } from 'ngx-uploadx';
+import { IdService, UploadState, UploadxOptions, UploadxService, UPLOADX_AJAX, UPLOADX_FACTORY_OPTIONS, UPLOADX_OPTIONS } from 'ngx-uploadx';
 import {
   InternalLanguageResourceService,
   LANGUAGERESOURCE_SERVICE,
@@ -222,7 +222,7 @@ export abstract class NgUploadBase<VALUE>
     });
 
     // Init new Service Instance
-    this.uploadService = new UploadxService(this.ngZone);
+    this.uploadService = new UploadxService(injector.get(UPLOADX_OPTIONS, null), injector.get(UPLOADX_FACTORY_OPTIONS), injector.get(UPLOADX_AJAX), this.ngZone, injector.get(IdService));
     this.uploadService.init(this.options);
 
     // Subscripe Event for State changes
@@ -269,7 +269,8 @@ export abstract class NgUploadBase<VALUE>
    */
   cancelAll() {
     if (this.HasQueueItem() === true) {
-      this.uploadService.control({ action: 'cancelAll' });
+
+      this.uploadService.control({ action: 'cancel' });
     }
   }
 
@@ -278,7 +279,7 @@ export abstract class NgUploadBase<VALUE>
    */
   uploadAll() {
     if (this.IsStateToUpload() === true) {
-      this.uploadService.control({ action: 'uploadAll' });
+      this.uploadService.control({ action: 'upload' });
     }
   }
 
@@ -287,7 +288,7 @@ export abstract class NgUploadBase<VALUE>
    */
   pauseAll() {
     if (this.IsUploading() === true) {
-      this.uploadService.control({ action: 'pauseAll' });
+      this.uploadService.control({ action: 'pause' });
     }
   }
 
@@ -531,7 +532,7 @@ export abstract class NgUploadBase<VALUE>
    */
   fileListener = () => {
     if (this.uploadInput.nativeElement.files) {
-      this.uploadService.handleFileList(this.uploadInput.nativeElement.files);
+      this.uploadService.handleFiles(this.uploadInput.nativeElement.files);
     }
   };
 

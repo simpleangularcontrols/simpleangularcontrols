@@ -9,7 +9,7 @@ import { NgBaseModelControl } from './basemodelcontrol';
 /**
  * Moment
  */
-const moment = moment_;
+const moment = moment_["default"];
 /**
  * Base Klasse für Date/Time Controls
  */

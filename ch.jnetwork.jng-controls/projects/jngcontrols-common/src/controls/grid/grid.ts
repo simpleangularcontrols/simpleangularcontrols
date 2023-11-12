@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Directive, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
-import { PagerData, SortDescriptor, SortOrder } from './model';
+import { PagerData, PagerRequest, SortDescriptor, SortOrder } from './model';
 
 /**
  * Basis Komponente für NgGrid
@@ -116,7 +116,7 @@ export abstract class NgGridCommon {
   /**
    * Output EventEmitter. Wird aufgerufen wenn das Pager geklickt ist.
    */
-  @Output('onpaging') _pagingEvent: EventEmitter<number> = new EventEmitter();
+  @Output('onpaging') _pagingEvent: EventEmitter<PagerRequest> = new EventEmitter<PagerRequest>();
 
   /**
    * Output EventEmitter. Wird aufgerufen wenn ein Header geklickt ist, damit das Column soritert wird.

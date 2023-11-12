@@ -1,4 +1,36 @@
-# Create Documentation
+# Development
+
+Zum Entwicklen von Komponenten wie folg vorgehen.
+
+1. Common Library starten
+2. Bootstrap 4 Library starten
+3. Bootstrap 4 Demo Project starten
+
+## Common Library
+```
+npm run run-common
+```
+
+## Bootstrap 3
+> Project wird nicht mehr weiterentwickeln
+```
+npm run run-bs3
+```
+
+## Bootstrap 4
+```
+npm run run-bs4
+```
+
+
+## Bootstrap 4 Demo Projekt
+
+```
+npm run demo-bs
+```
+
+
+# Documentation
 
 ## Bootstrap 3
 ```
@@ -12,23 +44,6 @@ npm run-script compodoc-bs4
 ## Full Documentation Build
 ```
 build.compodoc.bat
-```
-
-# Debug
-
-## Common Library
-```
-npm run run-common
-```
-
-## Bootstrap 3
-```
-npm run run-bs3
-```
-
-## Bootstrap 4
-```
-npm run run-bs4
 ```
 
 # Build
@@ -46,6 +61,37 @@ npm run build-bs3
 ## Bootstrap 4
 ```
 npm run build-bs4
+```
+
+# Testing
+
+## Create/Edit Tests
+
+Um Tests zu erstellen oder zu bearbeiten folgendes Command ausführen
+
+```
+npm run test-edit
+```
+
+Das nötige NPM Packet für die die Angular Component tests ist hier https://www.npmjs.com/package/@jscutlery/cypress-angular
+
+
+## Run Tests
+
+Um die Tests zu starten
+
+```
+npm run test-run
+```
+
+## Problems
+
+### Type DynamicModule does not have 'ɵmod' property.
+
+Wenn diese Fehlermeldungen bei einem Test angezeigt wird muss der NGCC neu ausgeführt werden. Dazu folgendes Command ausführen.
+
+```
+npm run ngcc
 ```
 
 # Builds
@@ -109,31 +155,17 @@ Powershell Konsole öffnen. Danach build.ps1 starten
 .\build.ps1 --target=release --major
 ```
 
+### Release Preview
+```
+.\build.ps1 --target=release --prerelease
+```
 
-# ModuleBase
+### Optionale Parameter
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
+`--nopublish`
 
-## Development server
+Veröffentlicht das Packet nicht in der NPM Registry
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+`--notest` 
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Deaktiviert die Cypress Tests

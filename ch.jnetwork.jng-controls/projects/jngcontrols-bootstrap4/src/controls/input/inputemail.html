@@ -1,10 +1,33 @@
 <div class="form-group row">
-  <label for="{{_name}}" class="col-12 col-form-label" [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]">{{_label}}</label>
-  <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
+  <label
+    for="{{_name}}"
+    class="col-12 col-form-label"
+    [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]"
+    >{{_label}}</label
+  >
+  <div
+    class="col-12"
+    [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']"
+  >
     <div class="input-group input-group-sm">
-      <div class="input-group-prepend"><span class="input-group-text">@</span></div>
-      <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [value]="value" (blur)="onTouch()" (input)="setValue($event.target.value)" [attr.placeholder]="_placeholder"
-             [attr.maxlength]="_maxlength" autocomplete="email" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" [disabled]="isdisabled" />
+      <div class="input-group-prepend">
+        <span class="input-group-text">@</span>
+      </div>
+      <input
+        id="{{_name}}"
+        name="{{_name}}"
+        type="text"
+        class="form-control"
+        [value]="value"
+        (blur)="onTouch()"
+        (input)="setValue($event.target.value)"
+        [attr.placeholder]="_placeholder"
+        [attr.maxlength]="_maxlength"
+        autocomplete="email"
+        [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
+        [disabled]="isdisabled"
+        [readonly]="_readonly"
+      />
     </div>
   </div>
 </div>

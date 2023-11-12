@@ -70,7 +70,7 @@ export class NgDropzoneMultipleCommon
       event.stopPropagation();
       event.preventDefault();
       this.active = false;
-      this.uploadService.handleFileList(event.dataTransfer.files);
+      this.uploadService.handleFiles(event.dataTransfer.files);
     }
   }
 

@@ -9,7 +9,7 @@ export class NgTabItemCommon {
    * Boolean Property prüft ob das Tab aktiv ist
    */
   @Input('active')
-  _active: boolean;
+  _active: boolean = false;
   /**
    * Boolean Property prüft ob das Tab disabled ist
    */
@@ -37,6 +37,4 @@ export class NgTabItemCommon {
    */
   @ContentChild(TemplateRef, { static: true })
   templateRef: TemplateRef<any>;
-
 }
-

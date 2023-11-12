@@ -9,7 +9,7 @@
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
 
@@ -30,6 +30,7 @@
                <!-- START CONTENT -->
                <div class="content class">
                    <div class="content-data">
+
 
 
 
@@ -69,7 +70,8 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Position Utility Klasse</p>
+                <p>Position Utility Klasse
+See <a href="https://github.com/ng-bootstrap/ng-bootstrap/blob/master/src/util/positioning.ts">https://github.com/ng-bootstrap/ng-bootstrap/blob/master/src/util/positioning.ts</a></p>
 
             </p>
 
@@ -137,8 +139,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="115"
-                            class="link-to-prism">projects/jngcontrols-common/src/utilities/positioning.ts:115</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="124"
+                            class="link-to-prism">projects/jngcontrols-common/src/utilities/positioning.ts:124</a></div>
                 </td>
             </tr>
 
@@ -150,6 +152,7 @@
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -203,7 +206,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>ClientRect</code>
+                        <b>Returns : </b>        <code><a href="../interfaces/ClientRect.html" target="_self" >ClientRect</a></code>
 
                     </div>
                     <div class="io-description">
@@ -234,8 +237,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">projects/jngcontrols-common/src/utilities/positioning.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">projects/jngcontrols-common/src/utilities/positioning.ts:69</a></div>
                 </td>
             </tr>
 
@@ -247,6 +250,7 @@
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -300,7 +304,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>ClientRect</code>
+                        <b>Returns : </b>        <code><a href="../interfaces/ClientRect.html" target="_self" >ClientRect</a></code>
 
                     </div>
                     <div class="io-description">
@@ -331,8 +335,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="147"
-                            class="link-to-prism">projects/jngcontrols-common/src/utilities/positioning.ts:147</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="156"
+                            class="link-to-prism">projects/jngcontrols-common/src/utilities/positioning.ts:156</a></div>
                 </td>
             </tr>
 
@@ -344,6 +348,7 @@
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -428,7 +433,20 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class Positioning {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">interface ClientRect {
+  top: number;
+  bottom: number;
+  left: number;
+  right: number;
+  height: number;
+  width: number;
+}
+
+/**
+ * Position Utility Klasse
+ * @see https://github.com/ng-bootstrap/ng-bootstrap/blob/master/src/util/positioning.ts
+ */
+export class Positioning {
   /**
    * Get all Styles of Element
    * @param element HTML Element
@@ -670,6 +688,10 @@
  * Placement Separator Regex
  */
 const placementSeparator &#x3D; /\s+/;
+/**
+ * Global Position Service
+ */
+export const positionService &#x3D; new Positioning();
 
 /**
  * Accept the placement array and applies the appropriate placement dependent on the viewport.
@@ -818,14 +840,15 @@ export type PlacementArray &#x3D; Placement | Array&lt;Placement&gt; | string;
 
 
 
-                   
+
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -837,6 +860,15 @@ export type PlacementArray &#x3D; Placement | Array&lt;Placement&gt; | string;
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
@@ -846,8 +878,8 @@ export type PlacementArray &#x3D; Placement | Array&lt;Placement&gt; | string;
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       
-       <script type="module" src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/menu-wc.js" defer></script>
        <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>

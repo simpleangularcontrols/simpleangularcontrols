@@ -27,19 +27,6 @@ namespace Build.tasks
         }
 
         /// <summary>
-        /// Build Common Library
-        /// </summary>
-        /// <param name="context">Buildcontext</param>
-        private void BuildCommon(BuildContext context)
-        {
-            NpmRunScriptSettings settings = new NpmRunScriptSettings();
-            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
-            settings.ScriptName = "build-common";
-
-            context.NpmRunScript(settings);
-        }
-
-        /// <summary>
         /// Build Bootstrap 4 Library
         /// </summary>
         /// <param name="context">Buildcontext</param>
@@ -48,6 +35,19 @@ namespace Build.tasks
             NpmRunScriptSettings settings = new NpmRunScriptSettings();
             settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
             settings.ScriptName = "build-bs4";
+
+            context.NpmRunScript(settings);
+        }
+
+        /// <summary>
+        /// Build Common Library
+        /// </summary>
+        /// <param name="context">Buildcontext</param>
+        internal static void BuildCommon(BuildContext context)
+        {
+            NpmRunScriptSettings settings = new NpmRunScriptSettings();
+            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+            settings.ScriptName = "build-common";
 
             context.NpmRunScript(settings);
         }

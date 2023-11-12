@@ -19,6 +19,9 @@ namespace Build.context
 
             if (context.Arguments.HasArgument("major"))
                 ReleaseType = ReleaseType.Major;
+
+            if (context.Arguments.HasArgument("prerelease"))
+                ReleaseType = ReleaseType.PreRelease;
         }
 
         public string ApiKey { get; } = "api:qqJa0eV7ziNiH80Con_A".ToBase64();

@@ -1,5 +1,4 @@
 import { HttpClient } from '@angular/common/http';
-import { findNode } from '@angular/compiler';
 import {
   Directive,
   EventEmitter,
@@ -157,7 +156,7 @@ export abstract class NgFileBrowserCommon implements OnInit {
    * Click Event
    */
   exitEditMode(targetElement): void {
-    if (this.selectNode) {
+    if (this.selectedNode) {
       this.selectedNode.Files.forEach((itm) => (itm.IsEditMode = false));
 
       if (

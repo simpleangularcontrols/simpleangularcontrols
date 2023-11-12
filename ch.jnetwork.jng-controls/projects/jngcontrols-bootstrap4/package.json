@@ -1,12 +1,12 @@
 {
   "name": "@jnetwork/jngcontrols-bootstrap4",
-  "version": "1.4.1",
+  "version": "2.0.0-rc.7",
   "peerDependencies": {
-    "@angular/common": "10.1.5",
-    "@angular/core": "10.1.5",
-    "@ng-bootstrap/ng-bootstrap": "7.0.0",
-    "@tinymce/tinymce-angular": "4.2.4",
-    "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common"
+    "@angular/common": "^13.2.0",
+    "@angular/core": "^13.2.0",
+    "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common",
+    "@ng-bootstrap/ng-bootstrap": "^11.0.0",
+    "@tinymce/tinymce-angular": "5.0.0"
   },
   "devDependencies": {
     "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common"
@@ -22,5 +22,8 @@
   "description": "Bootstrap 4 Controls Library",
   "dependencies": {
     "tslib": "^2.0.0"
+  },
+  "nyc": {
+    "report-dir": "../../coverage/bootstrap4"
   }
 }

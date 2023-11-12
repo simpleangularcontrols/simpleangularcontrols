@@ -1,3 +1,12 @@
+interface ClientRect {
+  top: number;
+  bottom: number;
+  left: number;
+  right: number;
+  height: number;
+  width: number;
+}
+
 /**
  * Position Utility Klasse
  * @see https://github.com/ng-bootstrap/ng-bootstrap/blob/master/src/util/positioning.ts

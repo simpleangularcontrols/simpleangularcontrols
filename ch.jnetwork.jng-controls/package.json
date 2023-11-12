@@ -23,10 +23,11 @@
     "doc-bs3": "start http://localhost:8888 & npx compodoc -r 8888 -s -d ./documentation/bootstrap3",
     "doc-bs4": "start http://localhost:8888 & npx compodoc -r 8888 -s -d ./documentation/bootstrap4",
     "test-edit": "npx cypress open --project projects/jngcontrols-bootstrap4 --env coverage=true",
-    "test-run": "npx cypress run --component --project projects/jngcontrols-bootstrap4 --env coverage=true --spec projects/jngcontrols-bootstrap4/src/controls/buttons/button.cy.ts",
+    "test-bs4": "npm run build-common && npm run instrument-common && npx cypress run --component --project projects/jngcontrols-bootstrap4 --env coverage=true",
     "ngcc": "ngcc",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "instrument-common":"npx nyc instrument ./dist/jngcontrols-common --in-place"
   },
   "private": true,
   "dependencies": {

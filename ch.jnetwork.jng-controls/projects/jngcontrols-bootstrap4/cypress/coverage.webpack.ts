@@ -10,16 +10,7 @@ export default {
           },
         },
         enforce: 'post',
-        include: [
-          require('path').join(__dirname, '..', 'src'),
-          require('path').join(
-            __dirname,
-            '..',
-            '..',
-            'jngcontrols-common',
-            'src'
-          ),
-        ],
+        include: [require('path').join(__dirname, '..', 'src')],
         exclude: [/node_modules/, /cypress/, /(ngfactory|ngstyle)\.js/],
       },
     ],

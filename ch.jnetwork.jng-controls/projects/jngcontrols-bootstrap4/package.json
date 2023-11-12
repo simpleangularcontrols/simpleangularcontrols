@@ -24,6 +24,6 @@
     "tslib": "^2.0.0"
   },
   "nyc": {
-    "report-dir": "coverage-component"
+    "report-dir": "../../coverage/bootstrap4"
   }
 }

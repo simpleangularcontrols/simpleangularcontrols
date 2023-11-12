@@ -31,7 +31,7 @@ namespace Build.tasks
 
             NpmRunScriptSettings runSettings = new NpmRunScriptSettings();
             runSettings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
-            runSettings.ScriptName = "test-run";
+            runSettings.ScriptName = "test-bs4";
 
             context.NpmRunScript(runSettings);
 

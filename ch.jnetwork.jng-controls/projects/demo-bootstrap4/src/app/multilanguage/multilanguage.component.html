@@ -1,38 +1,38 @@
 <h2>Multilanguage</h2>
 <form #myForm="NgFormular" labelsize="3">
   <div class="mb-2">
-    <ngButton (onclick)="debugAction()" text="Validate"></ngButton>
+    <sac-button (onclick)="debugAction()" text="Validate"></sac-button>
   </div>
-  <ngValidationSummary></ngValidationSummary>
+  <sac-validationsummary></sac-validationsummary>
 
-  <ngMultilanguageInput
+  <sac-multilanguageinput
     name="mlInput1"
     [(ngModel)]="values.Model1"
     label="Input 1"
-  ></ngMultilanguageInput>
-  <ngMultilanguageInput
+  ></sac-multilanguageinput>
+  <sac-multilanguageinput
     name="mlInput2"
     [(ngModel)]="values.Model2"
     [requiredany]="true"
     label="Input 2"
-  ></ngMultilanguageInput>
-  <ngMultilanguageInput
+  ></sac-multilanguageinput>
+  <sac-multilanguageinput
     name="mlInput3"
     [(ngModel)]="values.Model3"
     [isrequired]="true"
     label="Input 3"
-  ></ngMultilanguageInput>
-  <ngMultilanguageInput
+  ></sac-multilanguageinput>
+  <sac-multilanguageinput
     name="mlInput4"
     [(ngModel)]="values.Model4"
     [isrequired]="true"
     label="Input 4"
     [disabled]="true"
-  ></ngMultilanguageInput>
-  <ngMultilanguageInputArea
+  ></sac-multilanguageinput>
+  <sac-multilanguageinputarea
     name="mlInput5"
     [(ngModel)]="values.Model5"
     [requiredany]="true"
     label="Area 5"
-  ></ngMultilanguageInputArea>
+  ></sac-multilanguageinputarea>
 </form>

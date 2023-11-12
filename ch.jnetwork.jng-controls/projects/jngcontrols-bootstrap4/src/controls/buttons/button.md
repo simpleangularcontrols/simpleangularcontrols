@@ -3,5 +3,5 @@
 ## Default Button
 
 ```
-<ngButton (onclick)="action()" text="My Button"></ngButton>
+<sac-button (onclick)="action()" text="My Button"></sac-button>
 ```

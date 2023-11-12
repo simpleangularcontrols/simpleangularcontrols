@@ -5,7 +5,7 @@ import { NgConfirmCommon } from '@jnetwork/jngcontrols-common';
  * Confirm Komponente
  */
 @Component({
-  selector: 'ng-confirm,ngConfirm',
+  selector: 'sac-confirm',
   templateUrl: './confirm.html',
 })
 export class NgConfirmComponent extends NgConfirmCommon {}

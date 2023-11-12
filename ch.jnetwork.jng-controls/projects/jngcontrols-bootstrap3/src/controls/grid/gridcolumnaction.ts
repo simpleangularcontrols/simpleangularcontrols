@@ -3,7 +3,7 @@ import { NgGridColumnActionCommon, NgGridColumnBaseCommon } from '@jnetwork/jngc
 import { NgGridComponent } from './grid';
 
 @Component({
-  selector: 'ng-gridcolumnaction,ngGridColumnAction,[ngGridColumnAction]',
+  selector: 'sac-gridcolumnaction',
   templateUrl: './gridcolumnaction.html',
   providers: [{ provide: NgGridColumnBaseCommon, useExisting: forwardRef(() => NgGridColumnActionComponent) }]
 })

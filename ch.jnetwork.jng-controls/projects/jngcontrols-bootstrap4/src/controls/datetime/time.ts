@@ -17,7 +17,7 @@ import { NgFormularDirective } from '../form/form';
  * Time Auswahl Komponente
  */
 @Component({
-  selector: 'ng-time,ngTime',
+  selector: 'sac-time',
   templateUrl: './time.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

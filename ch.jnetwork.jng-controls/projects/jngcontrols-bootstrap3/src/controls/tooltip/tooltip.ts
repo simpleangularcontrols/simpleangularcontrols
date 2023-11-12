@@ -21,7 +21,7 @@ import { Component, ChangeDetectorRef, ElementRef } from '@angular/core';
  *
  */
 @Component({
-  selector: 'ng-tooltip,ngTooltip',
+  selector: 'sac-tooltip',
   templateUrl: './tooltip.html',
 })
 export class NgTooltipComponent extends NgTooltipCommon {

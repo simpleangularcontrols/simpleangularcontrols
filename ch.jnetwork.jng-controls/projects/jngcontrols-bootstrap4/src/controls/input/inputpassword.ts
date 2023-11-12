@@ -11,7 +11,7 @@ import { NgFormularDirective } from '../form/form';
  * Input Box für Passwörter
  */
 @Component({
-  selector: 'ng-inputpassword,ngInputPassword',
+  selector: 'sac-inputpassword',
   templateUrl: './inputpassword.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

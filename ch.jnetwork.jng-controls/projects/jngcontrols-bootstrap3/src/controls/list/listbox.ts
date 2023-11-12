@@ -7,7 +7,7 @@ import { NgListboxCommon } from '@jnetwork/jngcontrols-common';
 
 
 @Component({
-  selector: 'ng-listbox,ngListbox',
+  selector: 'sac-listbox',
   templateUrl: './listbox.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

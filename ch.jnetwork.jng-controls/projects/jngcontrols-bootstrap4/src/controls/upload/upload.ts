@@ -15,7 +15,7 @@ import { NgFormularDirective } from '../form/form';
  * @see https://github.com/kukhariev/ngx-uploadx/
  */
 @Component({
-  selector: 'ng-upload,ngUpload',
+  selector: 'sac-upload',
   templateUrl: './upload.html',
   styleUrls: ['./upload.scss'],
   providers: [

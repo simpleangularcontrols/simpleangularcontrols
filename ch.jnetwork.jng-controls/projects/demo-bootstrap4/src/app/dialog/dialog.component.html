@@ -2,12 +2,12 @@
 <form #myForm="NgFormular" labelsize="3">
   <div>
     <h2>Dialog ohne Backdrop und ohne ESC</h2>
-    <ngButton
+    <sac-button
       name="modalOpen1"
       text="Modal öffnen"
       (onclick)="modal1dialog.show()"
-    ></ngButton>
-    <ngDialog
+    ></sac-button>
+    <sac-dialog
       #modal1dialog
       [allowesc]="false"
       [backdrop]="false"
@@ -15,109 +15,109 @@
     >
       <div dialogbody><p>Hello World</p></div>
       <div dialogfooter>
-        <ngButton
+        <sac-button
           name="modalClose1"
           text="Schliessen"
           (onclick)="modal1dialog.hide()"
-        ></ngButton>
+        ></sac-button>
       </div>
-    </ngDialog>
+    </sac-dialog>
   </div>
 
   <div>
     <h2>Dialog mit Backdrop und ESC</h2>
-    <ngButton
+    <sac-button
       name="modalOpen2"
       text="Modal öffnen"
       (onclick)="modal2dialog.show()"
-    ></ngButton>
-    <ngDialog #modal2dialog title="Dialog mit Backdrop und ESC">
+    ></sac-button>
+    <sac-dialog #modal2dialog title="Dialog mit Backdrop und ESC">
       <div dialogbody><p>Hello World</p></div>
       <div dialogfooter>
-        <ngButton
+        <sac-button
           name="modalClose2"
           text="Schliessen"
           (onclick)="modal2dialog.hide()"
-        ></ngButton>
+        ></sac-button>
       </div>
-    </ngDialog>
+    </sac-dialog>
   </div>
 
   <div>
     <h2>Dialog in Dialog mit Backdrop und ESC</h2>
-    <ngButton
+    <sac-button
       name="modalOpen3"
       text="Modal öffnen"
       (onclick)="modal3dialog.show()"
-    ></ngButton>
-    <ngDialog #modal3dialog title="Dialog mit Backdrop und ESC">
+    ></sac-button>
+    <sac-dialog #modal3dialog title="Dialog mit Backdrop und ESC">
       <div dialogbody>
-        <ngButton
+        <sac-button
           name="modalOpen4"
           text="Modal öffnen"
           (onclick)="modal4dialog.show()"
-        ></ngButton>
+        ></sac-button>
       </div>
       <div dialogfooter>
-        <ngButton
+        <sac-button
           name="modalClose3"
           text="Schliessen"
           (onclick)="modal3dialog.hide()"
-        ></ngButton>
+        ></sac-button>
       </div>
-    </ngDialog>
+    </sac-dialog>
 
-    <ngDialog
+    <sac-dialog
       #modal4dialog
       title="Inner Dialog mit Backdrop und ESC"
       [backdrop]="false"
     >
       <div dialogbody>Inner Dialog</div>
       <div dialogfooter>
-        <ngButton
+        <sac-button
           name="modalClose4"
           text="Schliessen"
           (onclick)="modal4dialog.hide()"
-        ></ngButton>
+        ></sac-button>
       </div>
-    </ngDialog>
+    </sac-dialog>
   </div>
 
   <div>
     <h2>Dialog open über Property</h2>
-    <ngButton
+    <sac-button
       name="modalOpen5"
       text="Modal öffnen"
       (onclick)="showVisibile1()"
-    ></ngButton>
-    <ngDialog title="Dialog mit Binding Property" [(isvisible)]="isvisible1">
+    ></sac-button>
+    <sac-dialog title="Dialog mit Binding Property" [(isvisible)]="isvisible1">
       <div dialogbody>Content</div>
       <div dialogfooter>
-        <ngButton
+        <sac-button
           name="modalClose5"
           text="Schliessen"
           (onclick)="hideVisibile1()"
-        ></ngButton>
+        ></sac-button>
       </div>
-    </ngDialog>
+    </sac-dialog>
   </div>
 
   <div>
     <h2>Dialog open über Property und ngIf</h2>
-    <ngButton
+    <sac-button
       name="modalOpen6"
       text="Modal öffnen"
       (onclick)="showVisibile2()"
-    ></ngButton>
-    <ngDialog title="Dialog mit Binding Property" [(isvisible)]="isvisible2">
+    ></sac-button>
+    <sac-dialog title="Dialog mit Binding Property" [(isvisible)]="isvisible2">
       <div dialogbody>Content</div>
       <div dialogfooter>
-        <ngButton
+        <sac-button
           name="modalClose6"
           text="Schliessen"
           (onclick)="hideVisibile2()"
-        ></ngButton>
+        ></sac-button>
       </div>
-    </ngDialog>
+    </sac-dialog>
   </div>
 </form>

@@ -5,7 +5,7 @@ import { NgWizardItemCommon } from '@jnetwork/jngcontrols-common';
  * Wizard Komponente Item
  */
 @Component({
-  selector: 'ng-wizarditem,ngWizardItem',
+  selector: 'sac-wizarditem',
   templateUrl: './wizarditem.html',
 })
 export class NgWizardItemComponent extends NgWizardItemCommon {}

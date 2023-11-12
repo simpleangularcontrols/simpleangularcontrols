@@ -22,7 +22,7 @@
   </div>
 </div>
 
-<ngDialog
+<sac-dialog
   *ngIf="selectdialogvisible"
   [allowesc]="false"
   [backdrop]="true"
@@ -32,7 +32,7 @@
   height="500px"
 >
   <ng-container dialogbody>
-    <ngFileBrowser
+    <sac-filebrowser
       [apiurl]="filebrowserapiurl"
       (file)="selectDialogSettings.value = $event"
       [allowfoldercreate]="allowfoldercreate"
@@ -43,19 +43,19 @@
       [allowfiledelete]="allowfiledelete"
       [selectedfile]="selectDialogSettings.value"
       [allowedtypes]="selectDialogSettings.allowedtypes"
-    ></ngFileBrowser>
+    ></sac-filebrowser>
   </ng-container>
   <ng-container dialogfooter>
-    <ngButton
+    <sac-button
       role="primary"
       [name]="_name + '_modalOk'"
       text="{{ lngResourceService.GetString('TINYMCE_FILESELECT_OK') | async }}"
       (onclick)="setSelectDialogResult()"
-    ></ngButton>
-    <ngButton
+    ></sac-button>
+    <sac-button
       [name]="_name + '_modalClose'"
       text="{{ lngResourceService.GetString('TINYMCE_FILESELECT_CANCEL') | async }}"
       (onclick)="closeSelectDialog()"
-    ></ngButton>
+    ></sac-button>
   </ng-container>
-</ngDialog>
+</sac-dialog>

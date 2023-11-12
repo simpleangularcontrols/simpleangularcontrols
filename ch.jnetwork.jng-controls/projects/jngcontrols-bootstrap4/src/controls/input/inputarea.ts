@@ -11,7 +11,7 @@ import { NgFormularDirective } from '../form/form';
  * Input Box für lange Texte
  */
 @Component({
-  selector: 'ng-inputarea,ngInputArea',
+  selector: 'sac-inputarea',
   templateUrl: './inputarea.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

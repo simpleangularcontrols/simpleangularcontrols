@@ -4,7 +4,7 @@ import { NgRadiobuttonsComponent } from './radiobuttons';
 
 
 @Component({
-  selector: 'ng-radiobutton,ngRadiobutton',
+  selector: 'sac-radiobutton',
   templateUrl: './radiobutton.html',
 })
 export class NgRadiobuttonComponent extends NgRadiobuttonCommon {

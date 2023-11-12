@@ -8,7 +8,7 @@ import {
  * Component für Menü Eintrag in Context Menü
  */
 @Component({
-  selector: 'ng-contextmenubutton,ngContextmenuButton',
+  selector: 'sac-contextmenubutton',
   templateUrl: './contextmenuitembutton.html',
 })
 export class NgContextmenuItemButtonComponent extends NgContextmenuItemButtonCommon {

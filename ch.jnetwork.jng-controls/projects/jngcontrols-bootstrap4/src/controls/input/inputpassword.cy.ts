@@ -7,8 +7,8 @@ describe('ngInputPasswordComponent', () => {
   it('should show label and text', () => {
     cy.mount(
       `<form>
-      <ngInputPassword name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputPassword>
+      <sac-inputpassword name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputpassword>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputPasswordComponent],
@@ -28,8 +28,8 @@ describe('ngInputPasswordComponent', () => {
   it('should show required', () => {
     cy.mount(
       `<form>
-      <ngInputPassword name="field" [label]="label" [isrequired]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputPassword>
+      <sac-inputpassword name="field" [label]="label" [isrequired]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputpassword>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputPasswordComponent],
@@ -56,8 +56,8 @@ describe('ngInputPasswordComponent', () => {
   it('should hide label', () => {
     cy.mount(
       `<form>
-      <ngInputPassword name="field" [label]="label" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputPassword>
+      <sac-inputpassword name="field" [label]="label" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputpassword>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputPasswordComponent],
@@ -77,8 +77,8 @@ describe('ngInputPasswordComponent', () => {
   it('should have placeholder', () => {
     cy.mount(
       `<form>
-      <ngInputPassword name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputPassword>
+      <sac-inputpassword name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputpassword>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputPasswordComponent],
@@ -97,8 +97,8 @@ describe('ngInputPasswordComponent', () => {
   it('should have be readonly', () => {
     cy.mount(
       `<form>
-      <ngInputPassword name="field" [label]="label" [readonly]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputPassword>
+      <sac-inputpassword name="field" [label]="label" [readonly]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputpassword>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputPasswordComponent],
@@ -117,8 +117,8 @@ describe('ngInputPasswordComponent', () => {
   it('should have be disabled', () => {
     cy.mount(
       `<form>
-      <ngInputPassword name="field" [label]="label" [disabled]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputPassword>
+      <sac-inputpassword name="field" [label]="label" [disabled]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputpassword>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputPasswordComponent],
@@ -137,8 +137,8 @@ describe('ngInputPasswordComponent', () => {
   it('should handle model binding', () => {
     cy.mount(
       `<form>
-      <ngInputPassword name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputPassword>
+      <sac-inputpassword name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputpassword>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputPasswordComponent],
@@ -160,8 +160,8 @@ describe('ngInputPasswordComponent', () => {
   it('should limit string', () => {
     cy.mount(
       `<form>
-      <ngInputPassword name="field" [label]="label" [maxlength]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputPassword>
+      <sac-inputpassword name="field" [label]="label" [maxlength]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputpassword>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputPasswordComponent],
@@ -182,8 +182,8 @@ describe('ngInputPasswordComponent', () => {
   it('should have min string', () => {
     cy.mount(
       `<form>
-      <ngInputPassword name="field" [label]="label" [minlength]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputPassword>
+      <sac-inputpassword name="field" [label]="label" [minlength]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputpassword>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputPasswordComponent],

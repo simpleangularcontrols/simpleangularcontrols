@@ -11,7 +11,7 @@ import { NgFormularDirective } from '../form/form';
  * Input Komponente
  */
 @Component({
-  selector: 'ng-input,ngInput',
+  selector: 'sac-input',
   templateUrl: './input.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

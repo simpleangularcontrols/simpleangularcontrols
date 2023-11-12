@@ -47,31 +47,31 @@
           >
             <i class="fas fa-pen"></i>
           </a>
-          <ngContextmenu cssclass="d-inline-block">
-            <ngContextmenuButton
+          <sac-contextmenu cssclass="d-inline-block">
+            <sac-contextmenubutton
               *ngIf="allowfoldercreate"
               text="{{ lngResourceService.GetString('FILEBROWSER_NEWFOLDER') | async }}"
               iconstyle="far"
               icon="fa-folder"
               (onclick)="newNode(node)"
-            ></ngContextmenuButton>
-            <ngContextmenuButton
+            ></sac-contextmenubutton>
+            <sac-contextmenubutton
               *ngIf="node.Path !== '/' && allowfolderdelete"
               text="{{ lngResourceService.GetString('FILEBROWSER_DELETE') | async }}"
               iconstyle="fas"
               icon="fa-trash"
               (onclick)="deleteNode(node)"
-            ></ngContextmenuButton>
-            <ngContextmenuSplitter
+            ></sac-contextmenubutton>
+            <sac-contextmenusplitter
               *ngIf="allowfoldercreate || (node.Path !== '/' && allowfolderdelete)"
-            ></ngContextmenuSplitter>
-            <ngContextmenuButton
+            ></sac-contextmenusplitter>
+            <sac-contextmenubutton
               text="{{ lngResourceService.GetString('FILEBROWSER_REFRESH') | async }}"
               iconstyle="fas"
               icon="fa-sync-alt"
               (onclick)="refreshNode(node)"
-            ></ngContextmenuButton>
-          </ngContextmenu>
+            ></sac-contextmenubutton>
+          </sac-contextmenu>
         </div>
       </li>
 
@@ -87,7 +87,7 @@
   <div class="col-12 col-md-7 col-lg-8">
     <ng-container *ngIf="selectedNode && selectedNode.Files">
       <div *ngIf="allowfileupload" ngForm>
-        <ngDropzoneMultiple
+        <sac-dropzonemultiple
           [disablelabel]="true"
           [endpoint]="apiurl + '/uploadregister'"
           name="upload"
@@ -95,7 +95,7 @@
           [ngModel]="uploads"
           (ngModelChange)="uploadComplete(selectedNode,$event)"
           [allowedtypes]="allowedtypes"
-          >{{ lngResourceService.GetString('FILEBROWSER_UPLOAD') | async }}</ngDropzoneMultiple
+          >{{ lngResourceService.GetString('FILEBROWSER_UPLOAD') | async }}</sac-dropzonemultiple
         >
       </div>
       <div class="table-responsive">

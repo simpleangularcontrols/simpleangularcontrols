@@ -1,55 +1,55 @@
 <h2>List</h2>
 <form #myForm="NgFormular" labelsize="3">
   <div class="mb-2">
-    <ngButton (onclick)="debugAction()" text="Validate"></ngButton>
+    <sac-button (onclick)="debugAction()" text="Validate"></sac-button>
   </div>
-  <ngValidationSummary></ngValidationSummary>
+  <sac-validationsummary></sac-validationsummary>
 
-  <ngDropdown
+  <sac-dropdown
     name="dropdown1"
     label="Dropdown 1"
     [(ngModel)]="values.dropdown1"
     [options]="values.dropdownitems"
-  ></ngDropdown>
+  ></sac-dropdown>
 
-  <ngDropdown
+  <sac-dropdown
     name="dropdown2"
     label="Dropdown 2"
     [(ngModel)]="values.dropdown2"
     [options]="values.dropdownitems"
     optionlabel="text"
-  ></ngDropdown>
-  <ngDropdown
+  ></sac-dropdown>
+  <sac-dropdown
     name="dropdown3"
     label="Dropdown 3"
     [(ngModel)]="values.dropdown3"
     [options]="values.dropdownitems"
   >
     <option value="x4">Inject Value</option>
-  </ngDropdown>
-  <ngDropdown
+  </sac-dropdown>
+  <sac-dropdown
     name="dropdown4"
     label="Dropdown 4"
     [(ngModel)]="values.dropdown4"
     [options]="values.dropdownitems2"
     optionlabel="text"
     optionenabled="enabled"
-  ></ngDropdown>
-  <ngDropdown
+  ></sac-dropdown>
+  <sac-dropdown
     name="dropdown5"
     label="Dropdown 5"
     [(ngModel)]="values.dropdown5"
     [options]="values.dropdownitems2"
     optionlabel="text"
-  ></ngDropdown>
-  <ngDropdown
+  ></sac-dropdown>
+  <sac-dropdown
     name="dropdown6"
     label="Dropdown 6"
     [(ngModel)]="values.dropdown6"
     [options]="values.groupitems"
     groupitems="items"
-  ></ngDropdown>
-  <ngDropdown
+  ></sac-dropdown>
+  <sac-dropdown
     name="dropdown7"
     label="Dropdown 7"
     [(ngModel)]="values.dropdown7"
@@ -57,58 +57,58 @@
     isrequired="true"
   >
     <option value="">Select Value</option>
-  </ngDropdown>
-  <ngDropdown
+  </sac-dropdown>
+  <sac-dropdown
     name="dropdown8"
     label="Dropdown 8"
     [(ngModel)]="values.dropdown8"
     [options]="values.dropdownitems"
     isrequired="true"
-  ></ngDropdown>
-  <ngDropdown
+  ></sac-dropdown>
+  <sac-dropdown
     name="dropdown9"
     label="Dropdown 9"
     [(ngModel)]="values.dropdown9"
     [options]="values.dropdownitems"
     emptylabel="Please select item"
-  ></ngDropdown>
-  <ngDropdown
+  ></sac-dropdown>
+  <sac-dropdown
     name="dropdown10"
     label="Dropdown 10"
     [(ngModel)]="values.dropdown10"
     [options]="values.groupitems"
     groupitems="items"
     disablelabel="true"
-  ></ngDropdown>
-  <ngDropdown
+  ></sac-dropdown>
+  <sac-dropdown
     name="dropdown11"
     label="Dropdown 11"
     [(ngModel)]="values.dropdown11"
     [options]="values.dropdownitems"
     disabled="true"
-  ></ngDropdown>
-  <ngDropdown
+  ></sac-dropdown>
+  <sac-dropdown
     name="dropdown12"
     label="Dropdown 12"
     [(ngModel)]="values.dropdown12"
     [options]="values.dropdownitems3"
     optionlabel="text"
     optionid="value"
-  ></ngDropdown>
+  ></sac-dropdown>
 
-  <ngListbox
+  <sac-listbox
     name="listbox1"
     label="Listbox 1"
     [options]="values.dropdownitems"
     [(ngModel)]="values.listbox1"
-  ></ngListbox>
-  <ngListbox
+  ></sac-listbox>
+  <sac-listbox
     name="listbox2"
     label="Listbox 2"
     [(ngModel)]="values.listbox2"
     [options]="values.dropdownitems"
-  ></ngListbox>
-  <ngListbox
+  ></sac-listbox>
+  <sac-listbox
     name="listbox3"
     label="Listbox 3"
     [(ngModel)]="values.listbox3"
@@ -116,40 +116,40 @@
     isrequired="true"
     labelsize="6"
     rowsize="6"
-  ></ngListbox>
-  <ngListbox
+  ></sac-listbox>
+  <sac-listbox
     name="listbox4"
     label="Listbox 4"
     [(ngModel)]="values.listbox4"
     [options]="values.dropdownitems"
     isrequired="true"
-  ></ngListbox>
-  <ngListbox
+  ></sac-listbox>
+  <sac-listbox
     name="listbox5"
     label="Listbox 5"
     [(ngModel)]="values.listbox5"
     [options]="values.dropdownitems3"
     disabled="true"
-  ></ngListbox>
-  <ngListbox
+  ></sac-listbox>
+  <sac-listbox
   name="listbox6"
   label="Listbox 6"
   [(ngModel)]="values.listbox6"
   [options]="values.dropdownitems3"
   disabled="true"
-></ngListbox>
-  <ngListbox name="listbox7" label="Listbox 7" [(ngModel)]="values.listbox4"
+></sac-listbox>
+  <sac-listbox name="listbox7" label="Listbox 7" [(ngModel)]="values.listbox4"
     >
     <option value="v1">Value 1</option>
     <option value="v2">Value 2</option>
     <option value="v3">Value 4</option>
-  </ngListbox>
-  <ngListbox name="listbox8" label="Listbox 8" [(ngModel)]="values.listbox6"
+  </sac-listbox>
+  <sac-listbox name="listbox8" label="Listbox 8" [(ngModel)]="values.listbox6"
   >
   <option [ngValue]="1">Value 1</option>
   <option [ngValue]="2">Value 2</option>
   <option [ngValue]="3">Value 4</option>
-</ngListbox>
+</sac-listbox>
 
   {{ values | json }}
 </form>

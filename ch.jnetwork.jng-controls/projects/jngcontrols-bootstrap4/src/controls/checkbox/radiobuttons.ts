@@ -11,7 +11,7 @@ import { NgFormularDirective } from '../form/form';
  * Radiobuttons Group Komponente
  */
 @Component({
-  selector: 'ng-radiobuttons,ngRadiobuttons',
+  selector: 'sac-radiobuttons',
   templateUrl: './radiobuttons.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

@@ -7,7 +7,7 @@ import { NgZone } from '@angular/core';
 // https://github.com/kukhariev/ngx-uploadx/
 
 @Component({
-  selector: 'ng-upload,ngUpload',
+  selector: 'sac-upload',
   templateUrl: './upload.html',
   providers: [
     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgUploadComponent },

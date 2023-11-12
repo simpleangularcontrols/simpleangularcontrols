@@ -3,7 +3,7 @@ import { NgTreeItemActionCommon } from '@jnetwork/jngcontrols-common';
 
 
 @Component({
-  selector: 'ng-treeitemaction,ngTreeItemAction',
+  selector: 'sac-treeitemaction',
   templateUrl: './ngtreeitemaction.html'
 })
 export class NgTreeItemActionComponent extends NgTreeItemActionCommon {

@@ -7,7 +7,7 @@ import { NgFormularDirective } from '../form/form';
 
 
 @Component({
-  selector: 'ng-validationsummary,ngValidationSummary',
+  selector: 'sac-validationsummary',
   templateUrl: './validationsummary.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

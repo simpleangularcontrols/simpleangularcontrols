@@ -5,7 +5,7 @@ import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/for
 import { NgPagingComponent } from './paging';
 
 @Component({
-  selector: 'ng-grid,ngGrid',
+  selector: 'sac-grid',
   templateUrl: './grid.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

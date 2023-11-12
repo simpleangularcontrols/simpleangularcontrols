@@ -4,7 +4,7 @@ import { NgFormularDirective } from '../form/form';
 import { NgInputDecimalCommon } from '@jnetwork/jngcontrols-common';
 
 @Component({
-  selector: 'ng-inputdecimal,ngInputDecimal',
+  selector: 'sac-inputdecimal',
   templateUrl: './inputdecimal.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

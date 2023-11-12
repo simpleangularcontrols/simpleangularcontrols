@@ -1,24 +1,24 @@
 <h2>Input</h2>
 <form #myForm="NgFormular" labelsize="3">
   <div class="mb-2">
-    <ngButton (onclick)="debugAction()" text="Validate"></ngButton>
+    <sac-button (onclick)="debugAction()" text="Validate"></sac-button>
   </div>
-  <ngValidationSummary></ngValidationSummary>
+  <sac-validationsummary></sac-validationsummary>
 
   <div ngModelGroup="Group1">
-    <ngInputSearch
+    <sac-inputsearch
       name="field4search"
       label="Feld 4 Search"
       [(ngModel)]="values.field4"
       buttontext="Suchen"
-    ></ngInputSearch>
-    <ngInputSearch
+    ></sac-inputsearch>
+    <sac-inputsearch
       name="field4search2"
       disablelabel="true"
       label="Feld 4 Search"
       [(ngModel)]="values.field4"
       buttontext="Suchen"
-    ></ngInputSearch>
+    ></sac-inputsearch>
     <ngInput
       name="field1"
       label="Feld 1"
@@ -59,19 +59,19 @@
   </div>
 
   <div ngModelGroup="Group2">
-    <ngInputDecimal
+    <sac-inputdecimal
       name="fieldd1"
       label="Decimal 1 (Decimal)"
       disablelabel="true"
       [(ngModel)]="values.fieldd1"
-    ></ngInputDecimal>
-    <ngInputDecimal
+    ></sac-inputdecimal>
+    <sac-inputdecimal
       name="fieldd2"
       label="Decimal 2 (Decimal with Negativ)"
       [(ngModel)]="values.fieldd2"
       [allownegativ]="true"
-    ></ngInputDecimal>
-    <ngInputDecimal
+    ></sac-inputdecimal>
+    <sac-inputdecimal
       name="fieldd3"
       label="Decimal 3 (Decimal with Negativ (10-20))"
       [(ngModel)]="values.fieldd3"
@@ -79,26 +79,26 @@
       isrequired="true"
       [minvalue]="10"
       [maxvalue]="20"
-    ></ngInputDecimal>
-    <ngInputDecimal
+    ></sac-inputdecimal>
+    <sac-inputdecimal
       name="fieldd4"
       label="Decimal 4 (Decimal)"
       [(ngModel)]="values.fieldd1"
       disabled="true"
-    ></ngInputDecimal>
+    ></sac-inputdecimal>
 
-    <ngInputInteger
+    <sac-inputinteger
       name="fieldi1"
       label="Integer 1 (Integer)"
       [(ngModel)]="values.fieldi1"
-    ></ngInputInteger>
-    <ngInputInteger
+    ></sac-inputinteger>
+    <sac-inputinteger
       name="fieldi2"
       label="Integer 2 (Integer with Negativ)"
       [(ngModel)]="values.fieldi2"
       [allownegativ]="true"
-    ></ngInputInteger>
-    <ngInputInteger
+    ></sac-inputinteger>
+    <sac-inputinteger
       name="fieldi3"
       label="Integer 3 (Integer with Negativ (10-20))"
       [(ngModel)]="values.fieldi3"
@@ -106,25 +106,25 @@
       isrequired="true"
       [minvalue]="10"
       [maxvalue]="20"
-    ></ngInputInteger>
-    <ngInputInteger
+    ></sac-inputinteger>
+    <sac-inputinteger
       name="fieldi4"
       label="Integer 1 (Integer)"
       [(ngModel)]="values.fieldi1"
       disabled="true"
-    ></ngInputInteger>
+    ></sac-inputinteger>
 
-    <ngInputCurrency
+    <sac-inputcurrency
       name="fieldcurrency1"
       label="Preis"
       [(ngModel)]="values.fieldcurrency1"
-    ></ngInputCurrency>
-    <ngInputCurrency
+    ></sac-inputcurrency>
+    <sac-inputcurrency
       name="fieldcurrency2"
       label="Preis"
       [(ngModel)]="values.fieldcurrency2"
       disabled="true"
-    ></ngInputCurrency>
+    ></sac-inputcurrency>
 
     <ngInputEmail
       name="fieldemail1"

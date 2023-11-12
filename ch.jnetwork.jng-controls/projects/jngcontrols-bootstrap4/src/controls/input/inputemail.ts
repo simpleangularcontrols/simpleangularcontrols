@@ -11,7 +11,7 @@ import { NgFormularDirective } from '../form/form';
  * Input Box für E-Mail Adressen
  */
 @Component({
-  selector: 'ng-inputemail,ngInputEmail',
+  selector: 'sac-inputemail',
   templateUrl: './inputemail.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

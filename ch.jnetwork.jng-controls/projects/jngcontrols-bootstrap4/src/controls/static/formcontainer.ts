@@ -1,5 +1,9 @@
 import { Component, Host, forwardRef, Injector } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
+import {
+  NG_VALUE_ACCESSOR,
+  ControlContainer,
+  NG_VALIDATORS,
+} from '@angular/forms';
 import { NgFormularDirective } from '../form/form';
 import { NgStaticFormContainerCommon } from '@jnetwork/jngcontrols-common';
 
@@ -18,24 +22,29 @@ import { NgStaticFormContainerCommon } from '@jnetwork/jngcontrols-common';
  *
  **/
 @Component({
-  selector: 'ng-staticformcontainer,ngStaticFormContainer',
+  selector: 'sac-staticformcontainer',
   templateUrl: './formcontainer.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgStaticFormContainerComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgStaticFormContainerComponent) }
-  ]
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: NgStaticFormContainerComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => NgStaticFormContainerComponent),
+    },
+  ],
 })
-
 export class NgStaticFormContainerComponent extends NgStaticFormContainerCommon {
-
   /**
    * Konsturktor
    * @param parent Parent NgFormular Instanz
    * @param injector Injector Instanz
    */
-  constructor( @Host() parent: NgFormularDirective, injector: Injector) {
+  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
     super(parent, injector);
   }
-
 }

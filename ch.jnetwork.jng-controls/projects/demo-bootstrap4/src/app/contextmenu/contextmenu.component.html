@@ -4,88 +4,88 @@
 
   <p>Default Menu</p>
   <div>
-    <ngContextmenu>
-      <ngContextmenuButton text="Action 1"></ngContextmenuButton>
-      <ngContextmenuButton text="Action 2"></ngContextmenuButton>
-      <ngContextmenuButton text="Action 3"></ngContextmenuButton>
-    </ngContextmenu>
+    <sac-contextmenu>
+      <sac-contextmenubutton text="Action 1"></sac-contextmenubutton>
+      <sac-contextmenubutton text="Action 2"></sac-contextmenubutton>
+      <sac-contextmenubutton text="Action 3"></sac-contextmenubutton>
+    </sac-contextmenu>
   </div>
 
   <p>Button Right Aligned</p>
   <div class="d-flex flex-row-reverse">
     <div>
-      <ngContextmenu>
-        <ngContextmenuButton
+      <sac-contextmenu>
+        <sac-contextmenubutton
           text="Action 1"
           image="/icons/de.png"
-        ></ngContextmenuButton>
-        <ngContextmenuButton
+        ></sac-contextmenubutton>
+        <sac-contextmenubutton
           text="Action 1"
           image="/icons/en.png"
-        ></ngContextmenuButton>
-        <ngContextmenuButton
+        ></sac-contextmenubutton>
+        <sac-contextmenubutton
           text="Action 1"
           image="/icons/fr.png"
-        ></ngContextmenuButton>
-        <ngContextmenuButton
+        ></sac-contextmenubutton>
+        <sac-contextmenubutton
           text="Action 2"
           icon="fa-pen"
           iconstyle="fas"
-        ></ngContextmenuButton>
-        <ngContextmenuButton
+        ></sac-contextmenubutton>
+        <sac-contextmenubutton
           text="Action 3"
           icon="fa-pen"
-        ></ngContextmenuButton>
-        <ngContextmenuButton text="Action 4"></ngContextmenuButton>
-      </ngContextmenu>
+        ></sac-contextmenubutton>
+        <sac-contextmenubutton text="Action 4"></sac-contextmenubutton>
+      </sac-contextmenu>
     </div>
   </div>
 
   <p>Button Center Aligned</p>
   <div class="d-flex justify-content-center">
     <div>
-      <ngContextmenu>
-        <ngContextmenuButton text="Action 1"></ngContextmenuButton>
-        <ngContextmenuButton text="Action 2"></ngContextmenuButton>
-        <ngContextmenuSplitter></ngContextmenuSplitter>
-        <ngContextmenuButton
+      <sac-contextmenu>
+        <sac-contextmenubutton text="Action 1"></sac-contextmenubutton>
+        <sac-contextmenubutton text="Action 2"></sac-contextmenubutton>
+        <sac-contextmenusplitter></sac-contextmenusplitter>
+        <sac-contextmenubutton
           text="Action 3"
           [isdisabled]="true"
-        ></ngContextmenuButton>
-      </ngContextmenu>
+        ></sac-contextmenubutton>
+      </sac-contextmenu>
     </div>
   </div>
   <p>Menu without Icon Colum</p>
   <div>
-    <ngContextmenu>
-      <ngContextmenuButton
+    <sac-contextmenu>
+      <sac-contextmenubutton
         text="Action 1"
         isicondisabled="true"
-      ></ngContextmenuButton>
-      <ngContextmenuButton
+      ></sac-contextmenubutton>
+      <sac-contextmenubutton
         text="Action 2"
         [isicondisabled]="true"
-      ></ngContextmenuButton>
-      <ngContextmenuSplitter></ngContextmenuSplitter>
-      <ngContextmenuButton
+      ></sac-contextmenubutton>
+      <sac-contextmenusplitter></sac-contextmenusplitter>
+      <sac-contextmenubutton
         text="Action 3"
         isdisabled="true"
         isicondisabled="true"
-      ></ngContextmenuButton>
-      <ngContextmenuButton
+      ></sac-contextmenubutton>
+      <sac-contextmenubutton
         text="Action 4"
         [isdisabled]="true"
         [isicondisabled]="true"
-      ></ngContextmenuButton>
-    </ngContextmenu>
+      ></sac-contextmenubutton>
+    </sac-contextmenu>
   </div>
   <p>Menu with Custom Button</p>
   <div>
-    <ngContextmenu [buttonTemplate]="customButton" #contextmenu>
+    <sac-contextmenu [buttonTemplate]="customButton" #contextmenu>
       <ng-template #customButton>
         <button
           type="button"
-          ngContextmenuAnchor
+          sac-contextmenuAnchor
           class="btn btn-secondary dropdown-toggle"
           (click)="contextmenu.toggle()"
         >
@@ -93,26 +93,26 @@
         </button>
       </ng-template>
 
-      <ngContextmenuButton
+      <sac-contextmenubutton
         text="Action 1"
         isicondisabled="true"
         (onclick)="debugAction1()"
-      ></ngContextmenuButton>
-      <ngContextmenuButton
+      ></sac-contextmenubutton>
+      <sac-contextmenubutton
         text="Action 2"
         [isicondisabled]="true"
-      ></ngContextmenuButton>
-      <ngContextmenuSplitter></ngContextmenuSplitter>
-      <ngContextmenuButton
+      ></sac-contextmenubutton>
+      <sac-contextmenusplitter></sac-contextmenusplitter>
+      <sac-contextmenubutton
         text="Action 3"
         isdisabled="true"
         isicondisabled="true"
-      ></ngContextmenuButton>
-      <ngContextmenuButton
+      ></sac-contextmenubutton>
+      <sac-contextmenubutton
         text="Action 4"
         [isdisabled]="true"
         [isicondisabled]="true"
-      ></ngContextmenuButton>
-    </ngContextmenu>
+      ></sac-contextmenubutton>
+    </sac-contextmenu>
   </div>
 </form>

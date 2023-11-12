@@ -14,7 +14,7 @@ import { NgGridCommon, NgGridButtonCommon } from '@jnetwork/jngcontrols-common';
  *
  */
 @Component({
-  selector: 'ng-gridbutton,ngGridButton',
+  selector: 'sac-gridbutton',
   templateUrl: './gridbutton.html'
 })
 export class NgGridButtonComponent extends NgGridButtonCommon {

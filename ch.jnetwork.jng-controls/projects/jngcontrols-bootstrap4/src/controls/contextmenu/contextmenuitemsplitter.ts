@@ -5,7 +5,7 @@ import { NgContextmenuItemCommon } from '@jnetwork/jngcontrols-common';
  * Splitter Komponente in Context Menü
  */
 @Component({
-  selector: 'ng-contextmenusplitter,ngContextmenuSplitter',
+  selector: 'sac-contextmenusplitter',
   templateUrl: './contextmenuitemsplitter.html',
 })
 export class NgContextmenuItemSplitterComponent extends NgContextmenuItemCommon {}

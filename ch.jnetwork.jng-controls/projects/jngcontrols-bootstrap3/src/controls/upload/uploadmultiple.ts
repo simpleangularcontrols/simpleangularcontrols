@@ -7,7 +7,7 @@ import { NgZone } from '@angular/core';
 // https://github.com/kukhariev/ngx-uploadx/
 
 @Component({
-  selector: 'ng-uploadmultiple,ngUploadMultiple',
+  selector: 'sac-uploadmultiple',
   templateUrl: './uploadmultiple.html',
   providers: [
     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgUploadMultipleComponent },

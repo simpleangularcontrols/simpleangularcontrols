@@ -23,7 +23,7 @@ import {
  * Listbox Komponente
  */
 @Component({
-  selector: 'ng-listbox,ngListbox',
+  selector: 'sac-listbox',
   templateUrl: './listbox.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
@@ -57,7 +57,7 @@ export class NgListboxComponent extends NgListboxCommon {
 /**
  * Option Item in Listbox
  */
-@Directive({ selector: '[ngOption],option' })
+@Directive({ selector: '[sac-option],option' })
 export class NgListboxOptionDirective extends NgListboxOptionCommon {
   /**
    * Konstruktor

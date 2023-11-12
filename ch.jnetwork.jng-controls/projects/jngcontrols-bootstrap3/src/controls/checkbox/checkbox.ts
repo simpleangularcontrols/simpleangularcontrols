@@ -5,7 +5,7 @@ import { NgFormularDirective } from '../form/form';
 
 
 @Component({
-  selector: 'ng-checkbox,ngCheckbox',
+  selector: 'sac-checkbox',
   templateUrl: './checkbox.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

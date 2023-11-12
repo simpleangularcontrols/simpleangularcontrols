@@ -7,7 +7,7 @@ import { NgFormularDirective } from '../form/form';
  * Komponente für statischen Text in einem Formular
  */
 @Component({
-  selector: 'ng-staticlabel,ngStaticLabel',
+  selector: 'sac-staticlabel',
   templateUrl: './staticlabel.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

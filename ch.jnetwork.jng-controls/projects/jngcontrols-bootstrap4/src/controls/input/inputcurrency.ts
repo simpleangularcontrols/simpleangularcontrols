@@ -11,7 +11,7 @@ import { NgFormularDirective } from '../form/form';
  * Input Control für Währungen
  */
 @Component({
-  selector: 'ng-inputcurrency,ngInputCurrency',
+  selector: 'sac-inputcurrency',
   templateUrl: './inputcurrency.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

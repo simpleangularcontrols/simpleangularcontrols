@@ -9,7 +9,7 @@ import { NgGridComponent } from './grid';
  * Grid Action Komponent
  */
 @Component({
-  selector: 'ng-gridcolumnaction,ngGridColumnAction,[ngGridColumnAction]',
+  selector: 'sac-gridcolumnaction',
   templateUrl: './gridcolumnaction.html',
   providers: [
     {

@@ -5,7 +5,7 @@ import { NgInputCurrencyCommon } from '@jnetwork/jngcontrols-common';
 
 
 @Component({
-  selector: 'ng-inputcurrency,ngInputCurrency',
+  selector: 'sac-inputcurrency',
   templateUrl: './inputcurrency.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

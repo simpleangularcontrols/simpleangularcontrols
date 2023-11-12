@@ -24,13 +24,13 @@
 <title>cluster_JNetworkBootstrap4TinyMceModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 900,-268 900,-70 8,-70"/>
 </g>
-<g id="clust5" class="cluster">
-<title>cluster_JNetworkBootstrap4TinyMceModule_exports</title>
-<polygon fill="none" stroke="black" points="336,-208 336,-260 506,-260 506,-208 336,-208"/>
-</g>
 <g id="clust4" class="cluster">
 <title>cluster_JNetworkBootstrap4TinyMceModule_imports</title>
 <polygon fill="none" stroke="black" points="190,-78 190,-130 892,-130 892,-78 190,-78"/>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_JNetworkBootstrap4TinyMceModule_exports</title>
+<polygon fill="none" stroke="black" points="336,-208 336,-260 506,-260 506,-208 336,-208"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_JNetworkBootstrap4TinyMceModule_declarations</title>

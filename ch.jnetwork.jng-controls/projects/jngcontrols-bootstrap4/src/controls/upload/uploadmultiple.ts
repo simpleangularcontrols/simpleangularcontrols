@@ -15,7 +15,7 @@ import { NgFormularDirective } from '../form/form';
  * @see https://github.com/kukhariev/ngx-uploadx/
  */
 @Component({
-  selector: 'ng-uploadmultiple,ngUploadMultiple',
+  selector: 'sac-uploadmultiple',
   templateUrl: './uploadmultiple.html',
   styleUrls: ['./upload.scss'],
   providers: [

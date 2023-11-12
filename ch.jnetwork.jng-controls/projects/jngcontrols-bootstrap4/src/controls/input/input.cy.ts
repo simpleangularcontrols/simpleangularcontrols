@@ -7,8 +7,8 @@ describe('NgInputComponent', () => {
   it('should show label and text', () => {
     cy.mount(
       `<form>
-      <ngInput name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInput>
+      <sac-input name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-input>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputComponent],
@@ -28,8 +28,8 @@ describe('NgInputComponent', () => {
   it('should show required', () => {
     cy.mount(
       `<form>
-      <ngInput name="field" [label]="label" [isrequired]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInput>
+      <sac-input name="field" [label]="label" [isrequired]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-input>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputComponent],
@@ -56,8 +56,8 @@ describe('NgInputComponent', () => {
   it('should hide label', () => {
     cy.mount(
       `<form>
-      <ngInput name="field" [label]="label" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInput>
+      <sac-input name="field" [label]="label" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-input>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputComponent],
@@ -77,8 +77,8 @@ describe('NgInputComponent', () => {
   it('should have placeholder', () => {
     cy.mount(
       `<form>
-      <ngInput name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInput>
+      <sac-input name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-input>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputComponent],
@@ -97,8 +97,8 @@ describe('NgInputComponent', () => {
   it('should have be readonly', () => {
     cy.mount(
       `<form>
-      <ngInput name="field" [label]="label" [readonly]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInput>
+      <sac-input name="field" [label]="label" [readonly]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-input>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputComponent],
@@ -117,8 +117,8 @@ describe('NgInputComponent', () => {
   it('should have be disabled', () => {
     cy.mount(
       `<form>
-      <ngInput name="field" [label]="label" [disabled]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInput>
+      <sac-input name="field" [label]="label" [disabled]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-input>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputComponent],
@@ -137,8 +137,8 @@ describe('NgInputComponent', () => {
   it('should handle model binding', () => {
     cy.mount(
       `<form>
-      <ngInput name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInput>
+      <sac-input name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-input>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputComponent],
@@ -160,8 +160,8 @@ describe('NgInputComponent', () => {
   it('should limit string', () => {
     cy.mount(
       `<form>
-      <ngInput name="field" [label]="label" [maxlength]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInput>
+      <sac-input name="field" [label]="label" [maxlength]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-input>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputComponent],
@@ -182,8 +182,8 @@ describe('NgInputComponent', () => {
   it('should limit characters', () => {
     cy.mount(
       `<form>
-      <ngInput name="field" [label]="label" allowedchars="abc" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInput>
+      <sac-input name="field" [label]="label" allowedchars="abc" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-input>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputComponent],

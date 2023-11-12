@@ -2,8 +2,8 @@
   "name": "@jnetwork/jngcontrols-common",
   "version": "2.0.0-rc.7",
   "peerDependencies": {
-    "@angular/common": "^13.1.2",
-    "@angular/core": "^13.1.2",
+    "@angular/common": "^13.2.0",
+    "@angular/core": "^13.2.0",
     "moment": "2.29.1",
     "angular-imask": "6.2.2",
     "ngx-uploadx": "5.0.0"

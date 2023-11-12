@@ -41,8 +41,3 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-
-// Custom Commands
-import './bootstrapmarkup';
-import './htmlattributes';
-import './modelchanged';

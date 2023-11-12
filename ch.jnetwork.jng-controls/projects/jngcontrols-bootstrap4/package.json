@@ -4,9 +4,9 @@
   "peerDependencies": {
     "@angular/common": "^13.1.2",
     "@angular/core": "^13.1.2",
+    "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common",
     "@ng-bootstrap/ng-bootstrap": "^11.0.0",
-    "@tinymce/tinymce-angular": "5.0.0",
-    "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common"
+    "@tinymce/tinymce-angular": "5.0.0"
   },
   "devDependencies": {
     "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common"
@@ -22,5 +22,8 @@
   "description": "Bootstrap 4 Controls Library",
   "dependencies": {
     "tslib": "^2.0.0"
+  },
+  "nyc": {
+    "report-dir": "../../coverage/bootstrap4"
   }
 }

@@ -5,7 +5,7 @@ import { NgTabItemCommon } from '@jnetwork/jngcontrols-common';
  * Tab Item Komponente
  */
 @Component({
-  selector: 'ng-tabitem,ngTabItem',
+  selector: 'sac-tabitem',
   templateUrl: './tabitem.html',
 })
 export class NgTabItemComponent extends NgTabItemCommon {}

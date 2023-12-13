@@ -9,7 +9,7 @@
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
 
@@ -30,6 +30,7 @@
                <!-- START CONTENT -->
                <div class="content injectable">
                    <div class="content-data">
+
 
 
 
@@ -66,7 +67,7 @@
             </p>
             <p class="comment">
                 <p>Base Service für Localisation von Fehlermeldungen</p>
-<p>// Eigene Beispielimplementierung für Application</p>
+<div><pre class="line-numbers"><code class="language-html"></code></pre></div><p>// Eigene Beispielimplementierung für Application</p>
 <p>(at)Injectable()
 export class ControlsLanguageService extends LanguageService {</p>
 <p>  constructor(private http: HttpClient) {
@@ -139,17 +140,25 @@ export class ControlsLanguageService extends LanguageService {</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">projects/jngcontrols-common/src/services/Language.Service.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">projects/jngcontrols-common/src/services/Language.Service.ts:41</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Gibt alle verfügbaren Sprachen zurück</p>
+</div>
 
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/LanguageModel.html" target="_self" >Observable&lt;LanguageModel[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Observable von allen Sprachen</p>
 
                     </div>
                 </td>
@@ -170,7 +179,9 @@ import { LanguageModel } from &#x27;../models/languagemodel&#x27;;
 /**
  * Injection Token für Language Service
  */
-export const LANGUAGE_SERVICE &#x3D; new InjectionToken&lt;ILanguageService&gt;(&#x27;LanguageService&#x27;);
+export const LANGUAGE_SERVICE &#x3D; new InjectionToken&lt;ILanguageService&gt;(
+  &#x27;LanguageService&#x27;
+);
 
 /**
  * Base Service für Localisation von Fehlermeldungen
@@ -196,9 +207,11 @@ export const LANGUAGE_SERVICE &#x3D; new InjectionToken&lt;ILanguageService&gt;(
  */
 @Injectable({ providedIn: &#x27;root&#x27; })
 export abstract class LanguageService implements ILanguageService {
-
+  /**
+   * Gibt alle verfügbaren Sprachen zurück
+   * @returns Observable von allen Sprachen
+   */
   abstract GetLanguages(): Observable&lt;LanguageModel[]&gt;;
-
 }
 
 /**
@@ -206,11 +219,12 @@ export abstract class LanguageService implements ILanguageService {
  * */
 @Injectable({ providedIn: &#x27;root&#x27; })
 export class InternalLanguageService extends LanguageService {
-
+  /**
+   * Gibt alle verfügbaren Sprachen zurück
+   * @returns Observable von allen Sprachen
+   */
   public GetLanguages(): Observable&lt;LanguageModel[]&gt; {
-
     return new Observable&lt;LanguageModel[]&gt;((observer) &#x3D;&gt; {
-
       const result: LanguageModel[] &#x3D; [];
 
       const de: LanguageModel &#x3D; new LanguageModel();
@@ -228,7 +242,6 @@ export class InternalLanguageService extends LanguageService {
 
       observer.next(result);
       observer.complete();
-
     });
   }
 }
@@ -243,14 +256,15 @@ export class InternalLanguageService extends LanguageService {
 
 
 
-                   
+
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -262,6 +276,15 @@ export class InternalLanguageService extends LanguageService {
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
@@ -271,8 +294,8 @@ export class InternalLanguageService extends LanguageService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       
-       <script type="module" src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/menu-wc.js" defer></script>
        <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>

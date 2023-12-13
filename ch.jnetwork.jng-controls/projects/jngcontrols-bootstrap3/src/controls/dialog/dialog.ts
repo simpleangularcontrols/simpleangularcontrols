@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, OnDestroy, Input, ChangeDetectorRef } fr
 import { NgDialogCommon } from '@jnetwork/jngcontrols-common';
 
 @Component({
-  selector: 'ng-dialog,ngDialog',
+  selector: 'sac-dialog',
   templateUrl: './dialog.html'
 })
 export class NgDialogComponent extends NgDialogCommon implements OnInit, OnDestroy {

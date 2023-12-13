@@ -13,7 +13,7 @@ import { NgDropzoneMultipleComponent } from '../../controls/upload/dropzonemulti
  * Server File Browser Komponente
  */
 @Component({
-  selector: 'ng-filebrowser,ngFileBrowser',
+  selector: 'sac-filebrowser',
   templateUrl: './browser.html',
   providers: [ServiceConfirm],
 })

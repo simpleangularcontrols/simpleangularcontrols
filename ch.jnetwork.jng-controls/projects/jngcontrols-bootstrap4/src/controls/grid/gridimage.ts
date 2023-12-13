@@ -5,7 +5,7 @@ import { NgGridCommon, NgGridImageCommon } from '@jnetwork/jngcontrols-common';
  * Image Item für Grid
  */
 @Component({
-  selector: 'ng-gridimage,ngGridImage',
+  selector: 'sac-gridimage',
   templateUrl: './gridimage.html'
 })
 export class NgGridImageComponent extends NgGridImageCommon {

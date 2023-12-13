@@ -85,7 +85,7 @@
 
                     <tr>
                         <td class="col-md-3">Selector</td>
-                        <td class="col-md-9"><code>[ngOption],option</code></td>
+                        <td class="col-md-9"><code>[sac-option],option</code></td>
                     </tr>
 
                 </tbody>
@@ -466,7 +466,7 @@ import {
  * Listbox Komponente
  */
 @Component({
-  selector: &#x27;ng-listbox,ngListbox&#x27;,
+  selector: &#x27;sac-listbox&#x27;,
   templateUrl: &#x27;./listbox.html&#x27;,
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
@@ -500,7 +500,7 @@ export class NgListboxComponent extends NgListboxCommon {
 /**
  * Option Item in Listbox
  */
-@Directive({ selector: &#x27;[ngOption],option&#x27; })
+@Directive({ selector: &#x27;[sac-option],option&#x27; })
 export class NgListboxOptionDirective extends NgListboxOptionCommon {
   /**
    * Konstruktor

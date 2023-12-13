@@ -4,7 +4,7 @@ import { Component, forwardRef, Host, Injector, NgZone } from '@angular/core';
 import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/forms';
 
 @Component({
-  selector: 'ng-tinymce,ngTinymce',
+  selector: 'sac-tinymce',
   templateUrl: './tinymce.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

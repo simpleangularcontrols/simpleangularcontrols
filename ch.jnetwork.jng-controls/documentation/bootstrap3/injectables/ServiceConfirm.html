@@ -9,7 +9,7 @@
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	   <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
 
@@ -30,6 +30,7 @@
                <!-- START CONTENT -->
                <div class="content injectable">
                    <div class="content-data">
+
 
 
 
@@ -66,14 +67,12 @@
             </p>
             <p class="comment">
                 <p>Service für Confirm Messages in TypeScript Code</p>
-<p>// Beispiel für ConfirmMessage mit Standard Buttons (Ja / Nein).
-confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;).subscribe(action =&gt; { // Action Code });</p>
-<p>// Beispiel für ConfirmMessage mit eigenen Buttons
+<div><pre class="line-numbers"><code class="language-html">// Beispiel für ConfirmMessage mit Standard Buttons (Ja / Nein).
+confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;).subscribe(action =&gt; { // Action Code });</code></pre></div><div><pre class="line-numbers"><code class="language-html">// Beispiel für ConfirmMessage mit eigenen Buttons
 let buttons: NgConfirmButton[] = [];
 buttons.push(new NgConfirmButton(&#39;ActionKey&#39;,&#39;Text Primary&#39;));
 buttons.push(new NgConfirmButton(&#39;ActionKey2&#39;,&#39;Text Button 2&#39;));
-confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscribe(action =&gt; { // Action Code });</p>
-
+confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscribe(action =&gt; { // Action Code });</code></pre></div>
             </p>
 
             <p class="comment">
@@ -199,8 +198,8 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                                                     </td>
                                                     
                                                         <td>
-                                                                <code><p>Component Factory Resolver Instanz</p>
-</code>
+                                                                <p>Component Factory Resolver Instanz</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -215,8 +214,8 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                                                     </td>
                                                     
                                                         <td>
-                                                                <code><p>Application Referenz. Wird benötigt um den Dialog am Body anzuhängen</p>
-</code>
+                                                                <p>Application Referenz. Wird benötigt um den Dialog am Body anzuhängen</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -231,8 +230,8 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                                                     </td>
                                                     
                                                         <td>
-                                                                <code><p>Injector. Wird benötigt um den Dialog dynamisch zu erzeugen</p>
-</code>
+                                                                <p>Injector. Wird benötigt um den Dialog dynamisch zu erzeugen</p>
+
                                                         </td>
                                                 </tr>
                                         </tbody>
@@ -290,6 +289,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -367,6 +367,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -884,14 +885,15 @@ export class ServiceConfirm extends ServiceConfirmCommon {
 
 
 
-                   
+
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -903,6 +905,15 @@ export class ServiceConfirm extends ServiceConfirmCommon {
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
@@ -912,8 +923,8 @@ export class ServiceConfirm extends ServiceConfirmCommon {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       
-       <script type="module" src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/menu-wc.js" defer></script>
        <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>

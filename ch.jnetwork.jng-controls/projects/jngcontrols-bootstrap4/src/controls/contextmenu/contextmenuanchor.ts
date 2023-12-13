@@ -8,7 +8,7 @@ import {
  * Anker Komponente für Context Menü. Wird zum positionieren des Context Menü in der Page benötigt.
  */
 @Directive({
-  selector: '[ng-contextmenuanchor],[ngContextmenuAnchor]',
+  selector: '[sac-contextmenuanchor]',
   providers: [
     {
       provide: NgContextmenuAnchorCommon,

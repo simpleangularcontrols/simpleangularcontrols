@@ -11,7 +11,7 @@ import { NgDialogCommon } from '@jnetwork/jngcontrols-common';
  * Dialog Komponente
  */
 @Component({
-  selector: 'ng-dialog,ngDialog',
+  selector: 'sac-dialog',
   templateUrl: './dialog.html',
 })
 export class NgDialogComponent

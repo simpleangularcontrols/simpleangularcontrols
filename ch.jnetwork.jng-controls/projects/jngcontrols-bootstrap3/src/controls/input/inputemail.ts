@@ -5,7 +5,7 @@ import { NgInputEmailCommon } from '@jnetwork/jngcontrols-common';
 
 
 @Component({
-  selector: 'ng-inputemail,ngInputEmail',
+  selector: 'sac-inputemail',
   templateUrl: './inputemail.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

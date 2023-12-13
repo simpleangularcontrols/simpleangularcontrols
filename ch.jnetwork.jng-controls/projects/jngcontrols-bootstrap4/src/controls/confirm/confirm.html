@@ -1,4 +1,4 @@
-<ngDialog
+<sac-dialog
   [(isvisible)]="isvisible"
   [title]="title"
   [allowesc]="false"
@@ -17,11 +17,11 @@
   </div>
   <ng-container dialogfooter>
     <ng-container *ngFor="let button of buttons">
-      <ngButton
+      <sac-button
         [name]="button.key"
         [text]="button.text"
         (onclick)="confirm(button.key)"
-      ></ngButton>
+      ></sac-button>
     </ng-container>
   </ng-container>
-</ngDialog>
+</sac-dialog>

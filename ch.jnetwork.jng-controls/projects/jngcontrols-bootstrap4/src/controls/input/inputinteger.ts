@@ -11,7 +11,7 @@ import { NgFormularDirective } from '../form/form';
  * Input Komponten für Ganzzahlen
  */
 @Component({
-  selector: 'ng-inputinteger,ngInputInteger',
+  selector: 'sac-inputinteger',
   templateUrl: './inputinteger.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

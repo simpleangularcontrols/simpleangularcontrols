@@ -24,13 +24,13 @@
 <title>cluster_JNetworkBootstrap4FormModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="43,-70 43,-268 453,-268 453,-70 43,-70"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_JNetworkBootstrap4FormModule_exports</title>
-<polygon fill="none" stroke="black" points="51,-208 51,-260 445,-260 445,-208 51,-208"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_JNetworkBootstrap4FormModule_declarations</title>
 <polygon fill="none" stroke="black" points="54,-78 54,-130 442,-130 442,-78 54,-78"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_JNetworkBootstrap4FormModule_exports</title>
+<polygon fill="none" stroke="black" points="51,-208 51,-260 445,-260 445,-208 51,-208"/>
 </g>
 <!-- NgFormularDirective -->
 <g id="node1" class="node">

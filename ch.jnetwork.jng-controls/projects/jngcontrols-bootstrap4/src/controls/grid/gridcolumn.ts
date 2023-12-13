@@ -9,7 +9,7 @@ import { NgGridComponent } from './grid';
  * Grid Column Komponente
  */
 @Component({
-  selector: 'ng-gridcolumn,ngGridColumn,[ngGridColumn]',
+  selector: 'sac-gridcolumn',
   templateUrl: './gridcolumn.html',
   providers: [
     {

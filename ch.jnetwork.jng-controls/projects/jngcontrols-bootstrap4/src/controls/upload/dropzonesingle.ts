@@ -16,7 +16,7 @@ import { NgFormularDirective } from '../form/form';
  * @see https://github.com/kukhariev/ngx-uploadx/
  */
 @Component({
-  selector: 'ng-dropzonesingle,ngDropzoneSingle',
+  selector: 'sac-dropzonesingle',
   templateUrl: './dropzonesingle.html',
   styleUrls: ['./dropzone.scss'],
   providers: [

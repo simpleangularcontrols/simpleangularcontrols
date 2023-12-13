@@ -20,8 +20,8 @@
         <div class="arrow" style="left: unset; right: 10px;"></div>
         <h3 class="popover-title" style="display: none;"></h3>
         <div class="popover-content">
-          <ngDateSelector *ngIf="_showselector" [initialValue]="value" (onSelect)="dateselect($event)"
-                          autoapplyselection="true" dateselection="true" timeselection="true"></ngDateSelector>
+          <sac-dateselector *ngIf="_showselector" [initialValue]="value" (onSelect)="dateselect($event)"
+                          autoapplyselection="true" dateselection="true" timeselection="true"></sac-dateselector>
         </div>
       </div>
 

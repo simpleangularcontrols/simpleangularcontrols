@@ -3,7 +3,7 @@ import { NgTabItemComponent } from './tabitem';
 import { NgTabCommon, NgTabItemCommon } from '@jnetwork/jngcontrols-common';
 
 @Component({
-  selector: 'ng-tab,ngTab',
+  selector: 'sac-tab',
   templateUrl: './tab.html'
 })
 

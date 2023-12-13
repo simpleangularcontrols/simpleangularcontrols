@@ -78,7 +78,7 @@
 
 
 <p>(at)Component({
-selector: &#39;ngSubForm&#39;,
+selector: &#39;sac-inherit-form&#39;,
 templateUrl: &#39;./subform.component.html&#39;
 })
 export class SubFormComponent implements DoCheck {</p>
@@ -114,7 +114,7 @@ export class SubFormComponent implements DoCheck {</p>
 
                     <tr>
                         <td class="col-md-3">Selector</td>
-                        <td class="col-md-9"><code>[ngInheritForm],[inherit-form]</code></td>
+                        <td class="col-md-9"><code>[sac-inherit-form]</code></td>
                     </tr>
 
                 </tbody>
@@ -175,7 +175,7 @@ export function NGFORM_FACTORY(form: NgForm) {
  *
  *
  * (at)Component({
- * selector: &#x27;ngSubForm&#x27;,
+ * selector: &#x27;sac-inherit-form&#x27;,
  * templateUrl: &#x27;./subform.component.html&#x27;
  * })
  * export class SubFormComponent implements DoCheck {
@@ -190,7 +190,7 @@ export function NGFORM_FACTORY(form: NgForm) {
  *
  */
 @Directive({
-  selector: &#x27;[ngInheritForm],[inherit-form]&#x27;,
+  selector: &#x27;[sac-inherit-form]&#x27;,
   providers: [
     {
       provide: NgFormularDirective,

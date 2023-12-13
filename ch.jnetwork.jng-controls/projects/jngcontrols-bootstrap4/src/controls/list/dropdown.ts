@@ -19,7 +19,7 @@ import { NgFormularDirective } from '../form/form';
  * Dropdown Komponente
  */
 @Component({
-  selector: 'ng-dropdown,ngDropdown',
+  selector: 'sac-dropdown',
   templateUrl: './dropdown.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
@@ -56,7 +56,7 @@ export class NgDropdownComponent extends NgDropdownCommon {
 /**
  * Direktive für Dropdown Option List
  */
-@Directive({ selector: '[ngOption],option' })
+@Directive({ selector: '[sac-option],option' })
 export class NgDropdownOptionDirective extends NgDropdownOptionCommon {
   /**
    * Konstruktor

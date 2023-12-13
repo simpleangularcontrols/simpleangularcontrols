@@ -18,7 +18,7 @@ import { NgStaticFormContainerCommon } from '@jnetwork/jngcontrols-common';
  *
  **/
 @Component({
-  selector: 'ng-staticformcontainer,ngStaticFormContainer',
+  selector: 'sac-staticformcontainer',
   templateUrl: './formcontainer.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

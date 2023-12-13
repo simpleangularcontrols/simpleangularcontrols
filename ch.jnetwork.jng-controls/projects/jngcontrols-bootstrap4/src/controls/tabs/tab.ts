@@ -6,7 +6,7 @@ import { NgTabItemComponent } from './tabitem';
  * Komponente für Tabs
  */
 @Component({
-  selector: 'ng-tab,ngTab',
+  selector: 'sac-tab',
   templateUrl: './tab.html',
 })
 export class NgTabComponent extends NgTabCommon {

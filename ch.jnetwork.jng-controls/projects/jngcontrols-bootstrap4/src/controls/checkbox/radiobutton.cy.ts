@@ -8,10 +8,10 @@ describe('NgRadiobuttonComponent', () => {
   it('should show label and checkbox text', () => {
     cy.mount(
       `<form>
-      <ngRadiobuttons name="radiobuttons" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      <ngRadiobutton [label]="rbLabel1" [value]="1"></ngRadiobutton>
-      <ngRadiobutton [label]="rbLabel2" [value]="2"></ngRadiobutton>
-      </ngRadiobuttons>
+      <sac-radiobuttons name="radiobuttons" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      <sac-radiobutton [label]="rbLabel1" [value]="1"></sac-radiobutton>
+      <sac-radiobutton [label]="rbLabel2" [value]="2"></sac-radiobutton>
+      </sac-radiobuttons>
       </form>`,
       {
         declarations: [
@@ -44,10 +44,10 @@ describe('NgRadiobuttonComponent', () => {
   it('should be disabled', () => {
     cy.mount(
       `<form>
-      <ngRadiobuttons name="radiobuttons" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      <ngRadiobutton [label]="rbLabel1" [value]="1"></ngRadiobutton>
-      <ngRadiobutton [label]="rbLabel2" [value]="2" [disabled]="true"></ngRadiobutton>
-      </ngRadiobuttons>
+      <sac-radiobuttons name="radiobuttons" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      <sac-radiobutton [label]="rbLabel1" [value]="1"></sac-radiobutton>
+      <sac-radiobutton [label]="rbLabel2" [value]="2" [disabled]="true"></sac-radiobutton>
+      </sac-radiobuttons>
       </form>`,
       {
         declarations: [
@@ -76,10 +76,10 @@ describe('NgRadiobuttonComponent', () => {
   it('should not show label', () => {
     cy.mount(
       `<form>
-      <ngRadiobuttons name="radiobuttons" [label]="label" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      <ngRadiobutton [label]="rbLabel1" [value]="1"></ngRadiobutton>
-      <ngRadiobutton [label]="rbLabel2" [value]="2"></ngRadiobutton>
-      </ngRadiobuttons>
+      <sac-radiobuttons name="radiobuttons" [label]="label" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      <sac-radiobutton [label]="rbLabel1" [value]="1"></sac-radiobutton>
+      <sac-radiobutton [label]="rbLabel2" [value]="2"></sac-radiobutton>
+      </sac-radiobuttons>
       </form>`,
       {
         declarations: [
@@ -104,10 +104,10 @@ describe('NgRadiobuttonComponent', () => {
   it('should be work with string values', () => {
     cy.mount(
       `<form>
-      <ngRadiobuttons name="radiobuttons" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      <ngRadiobutton [label]="rbLabel1" value="item1"></ngRadiobutton>
-      <ngRadiobutton [label]="rbLabel2" value="item2"></ngRadiobutton>
-      </ngRadiobuttons>
+      <sac-radiobuttons name="radiobuttons" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      <sac-radiobutton [label]="rbLabel1" value="item1"></sac-radiobutton>
+      <sac-radiobutton [label]="rbLabel2" value="item2"></sac-radiobutton>
+      </sac-radiobuttons>
       </form>`,
       {
         declarations: [

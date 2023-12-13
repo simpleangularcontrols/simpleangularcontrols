@@ -7,8 +7,8 @@ describe('inputEmail', () => {
   it('should show label and text', () => {
     cy.mount(
       `<form>
-      <ngInputEmail name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputEmail>
+      <sac-inputemail name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputemail>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputEmailComponent],
@@ -28,8 +28,8 @@ describe('inputEmail', () => {
   it('should show required', () => {
     cy.mount(
       `<form>
-      <ngInputEmail name="field" [label]="label" [isrequired]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputEmail>
+      <sac-inputemail name="field" [label]="label" [isrequired]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputemail>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputEmailComponent],
@@ -55,8 +55,8 @@ describe('inputEmail', () => {
   it('should hide label', () => {
     cy.mount(
       `<form>
-      <ngInputEmail name="field" [label]="label" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputEmail>
+      <sac-inputemail name="field" [label]="label" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputemail>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputEmailComponent],
@@ -76,8 +76,8 @@ describe('inputEmail', () => {
   it('should have placeholder', () => {
     cy.mount(
       `<form>
-      <ngInputEmail name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputEmail>
+      <sac-inputemail name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputemail>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputEmailComponent],
@@ -96,8 +96,8 @@ describe('inputEmail', () => {
   it('should have be readonly', () => {
     cy.mount(
       `<form>
-      <ngInputEmail name="field" [label]="label" [readonly]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputEmail>
+      <sac-inputemail name="field" [label]="label" [readonly]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputemail>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputEmailComponent],
@@ -116,8 +116,8 @@ describe('inputEmail', () => {
   it('should have be disabled', () => {
     cy.mount(
       `<form>
-      <ngInputEmail name="field" [label]="label" [disabled]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputEmail>
+      <sac-inputemail name="field" [label]="label" [disabled]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputemail>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputEmailComponent],
@@ -136,8 +136,8 @@ describe('inputEmail', () => {
   it('should handle model binding', () => {
     cy.mount(
       `<form>
-      <ngInputEmail name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputEmail>
+      <sac-inputemail name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputemail>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputEmailComponent],
@@ -159,8 +159,8 @@ describe('inputEmail', () => {
   it('should email validation', () => {
     cy.mount(
       `<form>
-      <ngInputEmail name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputEmail>
+      <sac-inputemail name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputemail>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputEmailComponent],

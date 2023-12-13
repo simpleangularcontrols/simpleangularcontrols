@@ -16,7 +16,7 @@ import { NgInputAreaCommon } from '@jnetwork/jngcontrols-common';
  *
  */
 @Component({
-  selector: 'ng-inputarea,ngInputArea',
+  selector: 'sac-inputarea',
   templateUrl: './inputarea.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

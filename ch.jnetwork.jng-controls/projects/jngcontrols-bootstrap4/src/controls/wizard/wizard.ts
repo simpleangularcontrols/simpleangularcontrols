@@ -10,7 +10,7 @@ import { NgWizardItemComponent } from './wizarditem';
  * Wizard Komponente
  */
 @Component({
-  selector: 'ng-wizard,ngWizard',
+  selector: 'sac-wizard',
   templateUrl: './wizard.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

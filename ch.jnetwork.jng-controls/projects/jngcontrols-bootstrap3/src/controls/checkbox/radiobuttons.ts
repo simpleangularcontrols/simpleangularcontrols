@@ -4,7 +4,7 @@ import { NgRadiobuttonsCommon } from '@jnetwork/jngcontrols-common';
 import { NgFormularDirective } from '../form/form';
 
 @Component({
-  selector: 'ng-radiobuttons,ngRadiobuttons',
+  selector: 'sac-radiobuttons',
   templateUrl: './radiobuttons.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

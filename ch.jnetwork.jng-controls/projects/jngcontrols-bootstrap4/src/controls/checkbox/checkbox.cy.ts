@@ -3,12 +3,12 @@ import { createOutputSpy } from 'cypress/angular';
 import { NgFormularDirective } from '../form';
 import { NgCheckboxComponent } from './checkbox';
 
-describe('NgCheckboxComponent', () => {
+describe('sac-checkboxComponent', () => {
   it('should show label and checkbox text', () => {
     cy.mount(
       `<form>
-      <ngCheckbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngCheckbox>
+      <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-checkbox>
       </form>`,
       {
         declarations: [NgFormularDirective, NgCheckboxComponent],
@@ -34,8 +34,8 @@ describe('NgCheckboxComponent', () => {
   it('should be disabled', () => {
     cy.mount(
       `<form>
-      <ngCheckbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [disabled]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngCheckbox>
+      <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [disabled]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-checkbox>
       </form>`,
       {
         declarations: [NgFormularDirective, NgCheckboxComponent],
@@ -58,8 +58,8 @@ describe('NgCheckboxComponent', () => {
   it('should not show label', () => {
     cy.mount(
       `<form>
-      <ngCheckbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngCheckbox>
+      <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-checkbox>
       </form>`,
       {
         declarations: [NgFormularDirective, NgCheckboxComponent],
@@ -82,8 +82,8 @@ describe('NgCheckboxComponent', () => {
   it('should be work with true string', () => {
     cy.mount(
       `<form>
-      <ngCheckbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngCheckbox>
+      <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-checkbox>
       </form>`,
       {
         declarations: [NgFormularDirective, NgCheckboxComponent],

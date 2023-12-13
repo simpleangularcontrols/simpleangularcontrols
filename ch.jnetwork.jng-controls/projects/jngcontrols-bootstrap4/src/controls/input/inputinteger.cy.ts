@@ -7,8 +7,8 @@ describe('ngInputIntegerComponent', () => {
   it('should show label and text', () => {
     cy.mount(
       `<form>
-      <ngInputInteger name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputInteger>
+      <sac-inputinteger name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputinteger>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputIntegerComponent],
@@ -28,8 +28,8 @@ describe('ngInputIntegerComponent', () => {
   it('should show required', () => {
     cy.mount(
       `<form>
-      <ngInputInteger name="field" [label]="label" [isrequired]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputInteger>
+      <sac-inputinteger name="field" [label]="label" [isrequired]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputinteger>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputIntegerComponent],
@@ -56,8 +56,8 @@ describe('ngInputIntegerComponent', () => {
   it('should hide label', () => {
     cy.mount(
       `<form>
-      <ngInputInteger name="field" [label]="label" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputInteger>
+      <sac-inputinteger name="field" [label]="label" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputinteger>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputIntegerComponent],
@@ -77,8 +77,8 @@ describe('ngInputIntegerComponent', () => {
   it('should have placeholder', () => {
     cy.mount(
       `<form>
-      <ngInputInteger name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputInteger>
+      <sac-inputinteger name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputinteger>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputIntegerComponent],
@@ -97,8 +97,8 @@ describe('ngInputIntegerComponent', () => {
   it('should have be readonly', () => {
     cy.mount(
       `<form>
-      <ngInputInteger name="field" [label]="label" [readonly]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputInteger>
+      <sac-inputinteger name="field" [label]="label" [readonly]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputinteger>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputIntegerComponent],
@@ -117,8 +117,8 @@ describe('ngInputIntegerComponent', () => {
   it('should have be disabled', () => {
     cy.mount(
       `<form>
-      <ngInputInteger name="field" [label]="label" [disabled]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputInteger>
+      <sac-inputinteger name="field" [label]="label" [disabled]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputinteger>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputIntegerComponent],
@@ -137,8 +137,8 @@ describe('ngInputIntegerComponent', () => {
   it('should handle model binding', () => {
     cy.mount(
       `<form>
-      <ngInputInteger name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputInteger>
+      <sac-inputinteger name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputinteger>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputIntegerComponent],
@@ -160,8 +160,8 @@ describe('ngInputIntegerComponent', () => {
   it('should use maxvalue', () => {
     cy.mount(
       `<form>
-      <ngInputInteger name="field" [label]="label" [maxvalue]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputInteger>
+      <sac-inputinteger name="field" [label]="label" [maxvalue]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputinteger>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputIntegerComponent],
@@ -186,8 +186,8 @@ describe('ngInputIntegerComponent', () => {
   it('should use minvalue', () => {
     cy.mount(
       `<form>
-      <ngInputInteger name="field" [label]="label" [minvalue]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputInteger>
+      <sac-inputinteger name="field" [label]="label" [minvalue]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputinteger>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputIntegerComponent],
@@ -212,8 +212,8 @@ describe('ngInputIntegerComponent', () => {
   it('should allow negativ numbers', () => {
     cy.mount(
       `<form>
-      <ngInputInteger name="field" [label]="label" [allownegativ]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputInteger>
+      <sac-inputinteger name="field" [label]="label" [allownegativ]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputinteger>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputIntegerComponent],
@@ -238,8 +238,8 @@ describe('ngInputIntegerComponent', () => {
   it('should allow only positiv numbers', () => {
     cy.mount(
       `<form>
-      <ngInputInteger name="field" [label]="label" [allownegativ]="false" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputInteger>
+      <sac-inputinteger name="field" [label]="label" [allownegativ]="false" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputinteger>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputIntegerComponent],
@@ -264,8 +264,8 @@ describe('ngInputIntegerComponent', () => {
   it('should not allow chars', () => {
     cy.mount(
       `<form>
-      <ngInputInteger name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputInteger>
+      <sac-inputinteger name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputinteger>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputIntegerComponent],
@@ -288,8 +288,8 @@ describe('ngInputIntegerComponent', () => {
   it('should not allow decimal char', () => {
     cy.mount(
       `<form>
-      <ngInputInteger name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </ngInputInteger>
+      <sac-inputinteger name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputinteger>
       </form>`,
       {
         declarations: [NgFormularDirective, NgInputIntegerComponent],

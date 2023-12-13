@@ -4,7 +4,7 @@ import { NgPagingCommon } from '@jnetwork/jngcontrols-common';
 
 
 @Component({
-  selector: 'ng-paging,ngPaging',
+  selector: 'sac-paging',
   templateUrl: './paging.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

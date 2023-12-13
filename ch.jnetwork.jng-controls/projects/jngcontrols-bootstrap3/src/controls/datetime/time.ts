@@ -4,7 +4,7 @@ import { NgFormularDirective } from '../form/form';
 import { NgTimeCommon } from '@jnetwork/jngcontrols-common';
 
 @Component({
-  selector: 'ng-time,ngTime',
+  selector: 'sac-time',
   templateUrl: './time.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

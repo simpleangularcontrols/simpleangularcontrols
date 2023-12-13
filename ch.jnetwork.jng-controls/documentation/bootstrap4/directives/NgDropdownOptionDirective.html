@@ -85,7 +85,7 @@
 
                     <tr>
                         <td class="col-md-3">Selector</td>
-                        <td class="col-md-9"><code>[ngOption],option</code></td>
+                        <td class="col-md-9"><code>[sac-option],option</code></td>
                     </tr>
 
                 </tbody>
@@ -462,7 +462,7 @@ import { NgFormularDirective } from &#x27;../form/form&#x27;;
  * Dropdown Komponente
  */
 @Component({
-  selector: &#x27;ng-dropdown,ngDropdown&#x27;,
+  selector: &#x27;sac-dropdown&#x27;,
   templateUrl: &#x27;./dropdown.html&#x27;,
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
@@ -499,7 +499,7 @@ export class NgDropdownComponent extends NgDropdownCommon {
 /**
  * Direktive für Dropdown Option List
  */
-@Directive({ selector: &#x27;[ngOption],option&#x27; })
+@Directive({ selector: &#x27;[sac-option],option&#x27; })
 export class NgDropdownOptionDirective extends NgDropdownOptionCommon {
   /**
    * Konstruktor

@@ -8,7 +8,7 @@ const moment = moment_["default"];
 
 
 @Component({
-  selector: 'ng-date,ngDate',
+  selector: 'sac-date',
   templateUrl: './date.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

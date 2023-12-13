@@ -4,7 +4,7 @@ import { NgFormularDirective } from '../form/form';
 import { NgStaticLabelCommon } from '@jnetwork/jngcontrols-common';
 
 @Component({
-  selector: 'ng-staticlabel,ngStaticLabel',
+  selector: 'sac-staticlabel',
   templateUrl: './staticlabel.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

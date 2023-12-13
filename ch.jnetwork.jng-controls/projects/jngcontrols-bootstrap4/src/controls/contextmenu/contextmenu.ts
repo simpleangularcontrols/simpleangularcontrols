@@ -13,7 +13,7 @@ import { NgContextmenuCommon } from '@jnetwork/jngcontrols-common';
  * Component für Contextmenü
  */
 @Component({
-  selector: 'ng-contextmenu,ngContextmenu',
+  selector: 'sac-contextmenu',
   templateUrl: './contextmenu.html',
   providers: [
     {

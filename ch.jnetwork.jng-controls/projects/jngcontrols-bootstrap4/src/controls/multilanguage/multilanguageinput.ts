@@ -14,7 +14,7 @@ import { NgFormularDirective } from '../form/form';
  * Componente für Mehrsprache Texte
  */
 @Component({
-  selector: 'ng-multilanguageinput,ngMultilanguageInput',
+  selector: 'sac-multilanguageinput',
   templateUrl: './multilanguageinput.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

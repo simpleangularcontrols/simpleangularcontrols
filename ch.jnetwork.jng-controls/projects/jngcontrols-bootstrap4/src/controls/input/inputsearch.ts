@@ -7,7 +7,7 @@ import { NgFormularDirective } from '../form/form';
  * Input Box für Suche
  */
 @Component({
-  selector: 'ng-inputsearch,ngInputSearch',
+  selector: 'sac-inputsearch',
   templateUrl: './inputsearch.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [

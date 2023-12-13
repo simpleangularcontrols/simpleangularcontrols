@@ -5,7 +5,6 @@ import { Directive, EventEmitter, Input, Output } from '@angular/core';
  */
 @Directive()
 export class NgGridButtonCommon {
-
   /**
    * Input Property für Styling des Buttons. Deffiniert die Css Klassen des Buttons
    */
@@ -13,8 +12,8 @@ export class NgGridButtonCommon {
   public iconstyle: string = '';
 
   /**
- * Icon Name aus Sprite
- */
+   * Icon Name aus Sprite
+   */
   @Input('icon')
   public icon: string;
 
@@ -41,17 +40,17 @@ export class NgGridButtonCommon {
   }
 
   /**
-  * Event wenn auf den Button geklickt wird
-  */
-  @Output('onclick')
-  clickaction: EventEmitter<any> = new EventEmitter<any>();
+   * Event wenn auf den Button geklickt wird
+   */
+  @Output()
+  clicked: EventEmitter<any> = new EventEmitter<any>();
 
   /**
    * Die Methode wird das cklickaction Emitter aktivieren
    */
   public callaction() {
     if (!this._isdisabledvalue) {
-      this.clickaction.emit(this.iconstyle);
+      this.clicked.emit(this.iconstyle);
     }
   }
 }

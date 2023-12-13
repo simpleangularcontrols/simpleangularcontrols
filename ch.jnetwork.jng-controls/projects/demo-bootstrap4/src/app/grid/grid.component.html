@@ -3,10 +3,10 @@
         [pagerdata]="pagerDefault">
   <ng-template let-row="row" let-type="type">
     <sac-gridcolumnaction name="editCol" [type]="type" width="78px">
-      <sac-gridbutton icon="edit" (onclick)="action($event)" [isdisabled]="true"></sac-gridbutton>
-      <sac-gridbutton icon="delete" (onclick)="action($event)"></sac-gridbutton>
-      <sac-gridbutton iconstyle="sprite" icon="icon-sprite-base-main_info" (onclick)="action('info')"></sac-gridbutton>
-      <sac-gridbutton iconstyle="sprite" icon="icon-sprite-base-main_info" isdisabled="true" (onclick)="action('info')"></sac-gridbutton>
+      <sac-gridbutton icon="edit" (clicked)="action($event)" [isdisabled]="true"></sac-gridbutton>
+      <sac-gridbutton icon="delete" (clicked)="action($event)"></sac-gridbutton>
+      <sac-gridbutton iconstyle="sprite" icon="icon-sprite-base-main_info" (clicked)="action('info')"></sac-gridbutton>
+      <sac-gridbutton iconstyle="sprite" icon="icon-sprite-base-main_info" isdisabled="true" (clicked)="action('info')"></sac-gridbutton>
       <sac-gridImage iconstyle="sprite icon-sprite-base-main_info"></sac-gridImage>
     </sac-gridcolumnaction>
     <sac-gridColumn name="someName44" [type]="type" header="ID" [value]="row.Id"></sac-gridColumn>
@@ -20,10 +20,10 @@
         [pagerdata]="pagerPageSize">
   <ng-template let-row="row" let-type="type">
     <sac-gridcolumnaction name="editCol" [type]="type" width="78px">
-      <sac-gridbutton icon="edit" (onclick)="action($event)" [isdisabled]="true"></sac-gridbutton>
-      <sac-gridbutton icon="delete" (onclick)="action($event)"></sac-gridbutton>
-      <sac-gridbutton iconstyle="sprite" icon="icon-sprite-base-main_info" (onclick)="action('info')"></sac-gridbutton>
-      <sac-gridbutton iconstyle="sprite" icon="icon-sprite-base-main_info" isdisabled="true" (onclick)="action('info')"></sac-gridbutton>
+      <sac-gridbutton icon="edit" (clicked)="action($event)" [isdisabled]="true"></sac-gridbutton>
+      <sac-gridbutton icon="delete" (clicked)="action($event)"></sac-gridbutton>
+      <sac-gridbutton iconstyle="sprite" icon="icon-sprite-base-main_info" (clicked)="action('info')"></sac-gridbutton>
+      <sac-gridbutton iconstyle="sprite" icon="icon-sprite-base-main_info" isdisabled="true" (clicked)="action('info')"></sac-gridbutton>
       <sac-gridImage iconstyle="sprite icon-sprite-base-main_info"></sac-gridImage>
     </sac-gridcolumnaction>
     <sac-gridColumn name="someName44" [type]="type" header="ID" [value]="row.Id"></sac-gridColumn>
@@ -37,10 +37,10 @@
         [pagerdata]="pagerPageSizeDisabled">
   <ng-template let-row="row" let-type="type">
     <sac-gridcolumnaction name="editCol" [type]="type" width="78px">
-      <sac-gridbutton icon="edit" (onclick)="action($event)" [isdisabled]="true"></sac-gridbutton>
-      <sac-gridbutton icon="delete" (onclick)="action($event)"></sac-gridbutton>
-      <sac-gridbutton iconstyle="sprite" icon="icon-sprite-base-main_info" (onclick)="action('info')"></sac-gridbutton>
-      <sac-gridbutton iconstyle="sprite" icon="icon-sprite-base-main_info" isdisabled="true" (onclick)="action('info')"></sac-gridbutton>
+      <sac-gridbutton icon="edit" (clicked)="action($event)" [isdisabled]="true"></sac-gridbutton>
+      <sac-gridbutton icon="delete" (clicked)="action($event)"></sac-gridbutton>
+      <sac-gridbutton iconstyle="sprite" icon="icon-sprite-base-main_info" (clicked)="action('info')"></sac-gridbutton>
+      <sac-gridbutton iconstyle="sprite" icon="icon-sprite-base-main_info" isdisabled="true" (clicked)="action('info')"></sac-gridbutton>
       <sac-gridImage iconstyle="sprite icon-sprite-base-main_info"></sac-gridImage>
     </sac-gridcolumnaction>
     <sac-gridColumn name="someName44" [type]="type" header="ID" [value]="row.Id"></sac-gridColumn>
@@ -53,10 +53,10 @@
 <sac-grid name='gridSorting' [value]="dataSorting" (onpaging)="pagingSorting($event)" (onsorting)="sortingSort($event)" [pagerdata]="pagerSorting" [sortdata]="sortSorting">
   <ng-template let-row="row" let-type="type">
     <sac-gridcolumnaction name="editCol" [type]="type" width="78px">
-      <sac-gridbutton icon="edit" (onclick)="action($event)" [isdisabled]="true"></sac-gridbutton>
-      <sac-gridbutton icon="delete" (onclick)="action($event)"></sac-gridbutton>
-      <sac-gridbutton iconstyle="sprite" icon="icon-sprite-base-main_info" (onclick)="action('info')"></sac-gridbutton>
-      <sac-gridbutton iconstyle="sprite" icon="icon-sprite-base-main_info" isdisabled="true" (onclick)="action('info')"></sac-gridbutton>
+      <sac-gridbutton icon="edit" (clicked)="action($event)" [isdisabled]="true"></sac-gridbutton>
+      <sac-gridbutton icon="delete" (clicked)="action($event)"></sac-gridbutton>
+      <sac-gridbutton iconstyle="sprite" icon="icon-sprite-base-main_info" (clicked)="action('info')"></sac-gridbutton>
+      <sac-gridbutton iconstyle="sprite" icon="icon-sprite-base-main_info" isdisabled="true" (clicked)="action('info')"></sac-gridbutton>
       <sac-gridImage iconstyle="sprite icon-sprite-base-main_info"></sac-gridImage>
     </sac-gridcolumnaction>
     <sac-gridColumn name="someName44" [type]="type" header="ID" [value]="row.Id" sortkey="Id"></sac-gridColumn>

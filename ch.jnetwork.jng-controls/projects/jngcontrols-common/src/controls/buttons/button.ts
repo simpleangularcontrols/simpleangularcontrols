@@ -121,14 +121,14 @@ export class NgButtonCommon {
    * Output Event Emitter
    */
   @Output()
-  onclick = new EventEmitter();
+  clicked = new EventEmitter();
 
   /**
    * Die Methode wird ein Event aufrufen, wenn das Button geklickt wird UND das Button nicht disabled ODER isloading ist.
    */
   buttonClick() {
     if (this._isdisabled === false && this._isloadingvalue === false) {
-      this.onclick.emit();
+      this.clicked.emit();
     }
   }
 

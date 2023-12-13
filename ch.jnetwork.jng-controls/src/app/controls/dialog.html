@@ -3,7 +3,7 @@
     <sac-button
       name="modalOpen1"
       text="Modal öffnen"
-      (onclick)="modal1dialog.show()"
+      (clicked)="modal1dialog.show()"
     ></sac-button>
     <sac-dialog
       #modal1dialog
@@ -16,7 +16,7 @@
         <sac-button
           name="modalClose1"
           text="Schliessen"
-          (onclick)="modal1dialog.hide()"
+          (clicked)="modal1dialog.hide()"
         ></sac-button>
       </div>
     </sac-dialog>
@@ -26,7 +26,7 @@
     <sac-button
       name="modalOpen2"
       text="Modal öffnen"
-      (onclick)="modal2dialog.show()"
+      (clicked)="modal2dialog.show()"
     ></sac-button>
     <sac-dialog #modal2dialog title="Dialog mit Backdrop und ESC">
       <div dialogbody><p>Hello World</p></div>
@@ -34,7 +34,7 @@
         <sac-button
           name="modalClose2"
           text="Schliessen"
-          (onclick)="modal2dialog.hide()"
+          (clicked)="modal2dialog.hide()"
         ></sac-button>
       </div>
     </sac-dialog>
@@ -44,21 +44,21 @@
     <sac-button
       name="modalOpen3"
       text="Modal öffnen"
-      (onclick)="modal3dialog.show()"
+      (clicked)="modal3dialog.show()"
     ></sac-button>
     <sac-dialog #modal3dialog title="Dialog mit Backdrop und ESC">
       <div dialogbody>
         <sac-button
           name="modalOpen4"
           text="Modal öffnen"
-          (onclick)="modal4dialog.show()"
+          (clicked)="modal4dialog.show()"
         ></sac-button>
       </div>
       <div dialogfooter>
         <sac-button
           name="modalClose3"
           text="Schliessen"
-          (onclick)="modal3dialog.hide()"
+          (clicked)="modal3dialog.hide()"
         ></sac-button>
       </div>
     </sac-dialog>
@@ -73,7 +73,7 @@
         <sac-button
           name="modalClose4"
           text="Schliessen"
-          (onclick)="modal4dialog.hide()"
+          (clicked)="modal4dialog.hide()"
         ></sac-button>
       </div>
     </sac-dialog>
@@ -83,7 +83,7 @@
     <sac-button
       name="modalOpen5"
       text="Modal öffnen"
-      (onclick)="showdialog()"
+      (clicked)="showdialog()"
     ></sac-button>
     <sac-dialog
       title="Dialog mit Backdrop und ESC"
@@ -96,7 +96,7 @@
         <sac-button
           name="modalClose5"
           text="Schliessen"
-          (onclick)="hidedialog()"
+          (clicked)="hidedialog()"
         ></sac-button>
       </div>
     </sac-dialog>
@@ -106,7 +106,7 @@
     <sac-button
       name="modalOpen6"
       text="Modal öffnen"
-      (onclick)="showdialog2()"
+      (clicked)="showdialog2()"
     ></sac-button>
     <sac-dialog
       *ngIf="isdialogvisible2"
@@ -120,7 +120,7 @@
         <sac-button
           name="modalClose6"
           text="Schliessen"
-          (onclick)="hidedialog2()"
+          (clicked)="hidedialog2()"
         ></sac-button>
       </div>
     </sac-dialog>
@@ -128,6 +128,6 @@
 
   <div>
     <div>Confirm Dialog</div>
-    <sac-button text="Confirm" (onclick)="confirmExample()"></sac-button>
+    <sac-button text="Confirm" (clicked)="confirmExample()"></sac-button>
   </div>
 </form>

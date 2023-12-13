@@ -50,12 +50,12 @@
       role="primary"
       [name]="_name + '_modalOk'"
       text="{{ lngResourceService.GetString('TINYMCE_FILESELECT_OK') | async }}"
-      (onclick)="setSelectDialogResult()"
+      (clicked)="setSelectDialogResult()"
     ></sac-button>
     <sac-button
       [name]="_name + '_modalClose'"
       text="{{ lngResourceService.GetString('TINYMCE_FILESELECT_CANCEL') | async }}"
-      (onclick)="closeSelectDialog()"
+      (clicked)="closeSelectDialog()"
     ></sac-button>
   </ng-container>
 </sac-dialog>

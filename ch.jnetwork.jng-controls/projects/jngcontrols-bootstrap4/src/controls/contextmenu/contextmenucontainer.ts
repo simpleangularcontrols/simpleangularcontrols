@@ -5,7 +5,7 @@ import { NgContextMenuContrainerCommon } from '@jnetwork/jngcontrols-common';
  * Marker Komponente für Context Menü
  */
 @Directive({
-  selector: '[sac-contextmenucontainer]',
+  selector: '[sacContextMenuContainer]',
   providers: [
     {
       provide: NgContextMenuContrainerCommon,

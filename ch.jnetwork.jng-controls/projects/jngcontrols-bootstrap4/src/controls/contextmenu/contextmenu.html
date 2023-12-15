@@ -5,7 +5,7 @@
 
   <div
     class="dropdown-menu dropdown-menu-right"
-    sac-contextmenucontainer
+    sacContextMenuContainer
     [class.show]="isopen"
   >
     <ng-content></ng-content>
@@ -14,7 +14,7 @@
 
 <ng-template #defaultButtonTemplate>
   <button
-    sac-contextmenuanchor
+    sacContextMenuAnchor
     class="btn btn-sm btn-link text-secondary text-decoration-none"
     type="button"
     (click)="toggle()"

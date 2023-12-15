@@ -20,7 +20,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "jnc",
+            "prefix": "sac",
             "style": "camelCase"
           }
         ],
@@ -28,7 +28,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "jnc",
+            "prefix": "sac",
             "style": "kebab-case"
           }
         ]

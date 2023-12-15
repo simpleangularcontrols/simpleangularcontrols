@@ -177,7 +177,7 @@
       "root": "projects/jngcontrols-bootstrap3",
       "sourceRoot": "projects/jngcontrols-bootstrap3/src",
       "projectType": "library",
-      "prefix": "jnc",
+      "prefix": "sac",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -261,7 +261,7 @@
       "root": "projects/jngcontrols-bootstrap4",
       "sourceRoot": "projects/jngcontrols-bootstrap4/src",
       "projectType": "library",
-      "prefix": "jnc",
+      "prefix": "sac",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -345,7 +345,7 @@
       "root": "projects/jngcontrols-common",
       "sourceRoot": "projects/jngcontrols-common/src",
       "projectType": "library",
-      "prefix": "jnc",
+      "prefix": "sac",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

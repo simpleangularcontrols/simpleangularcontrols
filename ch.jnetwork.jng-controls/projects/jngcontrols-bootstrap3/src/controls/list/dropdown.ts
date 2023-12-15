@@ -19,7 +19,7 @@ export class NgDropdownComponent extends NgDropdownCommon {
   }
 }
 
-@Directive({ selector: 'option,[sac-option]' })
+@Directive({ selector: 'option,[sacOption]' })
 export class NgDropdownOptionDirective extends NgDropdownOptionCommon {
 
   constructor(_elementRef: ElementRef, _renderer: Renderer2, @Optional() @Host() dropdownList: NgDropdownComponent) {

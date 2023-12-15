@@ -19,11 +19,11 @@
                  [class.btn-secondary]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
                 <span class="fa fa-times"></span>
               </button>
-              <button *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && IsPaused() == false)" class="btn" (click)="pauseAll()" [attr.disabled]="IsUploading() === false ? 'disabled' : null"
+              <button *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && IsPaused() === false)" class="btn" (click)="pauseAll()" [attr.disabled]="IsUploading() === false ? 'disabled' : null"
                  [class.btn-secondary]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
                 <span class="fa fa-pause"></span>
               </button>
-              <button *ngIf="autoupload && enablepause && IsPaused() == true" class="btn" (click)="uploadAll()"
+              <button *ngIf="autoupload && enablepause && IsPaused() === true" class="btn" (click)="uploadAll()"
                  [class.btn-secondary]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
                 <span class="fa fa-play"></span>
               </button>

@@ -25,7 +25,6 @@ import { TinyMceInstance } from './tinymceinstance';
 @Directive()
 export class NgTinyMceCommon
   extends NgBaseModelControl<string>
-  implements OnDestroy
 {
   /**
    * Default Config mit Standardwerten für TinyMCE
@@ -88,13 +87,13 @@ export class NgTinyMceCommon
    */
   @Input()
   public allowfoldercreate = false;
- 
+
   /**
    * Erlaubt im Filebrowser das umbennen eines Ordners
    */
   @Input()
   public allowfolderrename = false;
- 
+
   /**
    * Erlaubt im Filebrowser das löschen eines Ordners
    */
@@ -106,13 +105,13 @@ export class NgTinyMceCommon
    */
   @Input()
   public allowfileupload = false;
- 
+
   /**
    * Erlaubt im Filebrowser das umbennen von Dateien
    */
   @Input()
   public allowfilerename = false;
- 
+
   /**
    * Erlaubt im Filebrowser das löschen von Dateien
    */
@@ -124,7 +123,7 @@ export class NgTinyMceCommon
    */
   @Input()
   public filetypesimages = '.gif,.jpeg,.jpg,.png,.tif,.tiff,.bmp';
- 
+
   /**
    * File Extensions für Media (Format: .xxx,.yyy,.eee)
    */
@@ -140,14 +139,13 @@ export class NgTinyMceCommon
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input('validationmessagerequired') _validationMessageRequired: string =
-    'VALIDATION_ERROR_REQUIRED';
+  @Input() validationmessagerequired: string = 'VALIDATION_ERROR_REQUIRED';
 
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input('validationmessagesummaryrequired')
-  _validationMessageRequiredSummary: string =
+  @Input()
+  validationmessagesummaryrequired: string =
     'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
   /**
@@ -282,9 +280,9 @@ export class NgTinyMceCommon
     if (this.isrequired) {
       error = Validation.required(
         c,
-        this._label,
-        this._validationMessageRequired,
-        this._validationMessageRequiredSummary
+        this.label,
+        this.validationmessagerequired,
+        this.validationmessagesummaryrequired
       );
     }
 
@@ -292,17 +290,12 @@ export class NgTinyMceCommon
   }
 
   /**
-   * Methode wenn die Control Instanz zerstört wird
-   */
-  ngOnDestroy(): void {}
-
-  /**
    * Gibt die TinyMCE Settings zurück, die aus den Properties der Angular Komponenten erzeugt werden
    * @returns Objekt mit Settings
    */
   private getDynamicSettings(): any {
     let settings = {
-      selector: '#' + this._name + '_tinymce',
+      selector: '#' + this.name + '_tinymce',
       height: this.height,
     };
 

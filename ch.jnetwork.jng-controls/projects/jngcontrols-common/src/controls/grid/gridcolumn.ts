@@ -23,7 +23,7 @@ export class NgGridColumnCommon extends NgGridColumnBaseCommon {
   /**
    * Input Parameter für das css Class ellipsis. Das Setter setzt das boolean Wert auf das private property _ellipsis
    */
-  @Input('ellipsis')
+  @Input()
   public set ellipsis(v: string | boolean) {
     this._ellipsis = convertToBoolean(v);
   }

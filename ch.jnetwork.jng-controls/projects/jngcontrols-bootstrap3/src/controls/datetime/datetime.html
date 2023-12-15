@@ -1,10 +1,10 @@
 <div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
-  <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="control-label" [ngClass]="[_labelsize !== 12 ?  'col-md-' + _labelsize : 'sr-only']" [class.required]="_isrequired">{{_label}}</label>
-  <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
+  <label *ngIf="disablelabel === false && !isadaptivelabel" id="{{name}}label" for="{{name}}" class="control-label" [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']" [class.required]="isrequired">{{label}}</label>
+  <div [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <div style="position: relative; width: 180px;">
 
-      <div id="{{_name}}" class="datetime-textbox input-group">
-        <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [imask]="imaskDate" [attr.placeholder]="_placeholder"
+      <div id="{{name}}" class="datetime-textbox input-group">
+        <input id="{{name}}" name="{{name}}" type="text" class="form-control" [imask]="imaskDate" [attr.placeholder]="placeholder"
                [value]="valuestring" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()"
                (accept)="setValueString($event)" [disabled]="isdisabled" (click)="showDateSelector()" />
         <span class="input-group-btn">
@@ -20,7 +20,7 @@
         <div class="arrow" style="left: unset; right: 10px;"></div>
         <h3 class="popover-title" style="display: none;"></h3>
         <div class="popover-content">
-          <sac-dateselector *ngIf="_showselector" [initialValue]="value" (onSelect)="dateselect($event)"
+          <sac-dateselector *ngIf="_showselector" [initialvalue]="value" (onSelect)="dateselect($event)"
                           autoapplyselection="true" dateselection="true" timeselection="true"></sac-dateselector>
         </div>
       </div>

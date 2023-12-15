@@ -1,15 +1,15 @@
-<div class="row form-group" [class.no-gutters]="_disablelabel">
+<div class="row form-group" [class.no-gutters]="disablelabel">
   <label
-    *ngIf="_disablelabel === false && !_isadaptivelabel"
-    id="{{_name}}_label"
-    for="{{_name}}"
+    *ngIf="disablelabel === false && !isadaptivelabel"
+    id="{{name}}_label"
+    for="{{name}}"
     class="col-12 col-form-label"
-    [ngClass]="[_labelsize !== 12 ?  'col-md-' + _labelsize : 'sr-only']"
-    >{{_label}}</label
+    [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']"
+    >{{label}}</label
   >
   <div
     class="col-12"
-    [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"
+    [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"
   >
     <div
       class="dropzone d-flex justify-content-center"
@@ -65,7 +65,7 @@
       </div>
       <input
         #files
-        id="{{ _name }}_uploadinput"
+        id="{{ name }}_uploadinput"
         type="file"
         class="custom-file-input"
         (click)="files.value = ''"

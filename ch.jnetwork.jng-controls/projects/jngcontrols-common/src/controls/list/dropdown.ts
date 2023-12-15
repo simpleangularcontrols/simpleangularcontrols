@@ -53,16 +53,16 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
   /**
    * Label Text für Empty Item
    */
-  @Input('emptylabel') _emptylabel: string = '';
+  @Input() emptylabel: string = '';
   /**
    * Option Value für Empty Item
    */
-  @Input('emptyvalue') _emptyoptionvalue: string = null;
+  @Input() emptyvalue: string = null;
   /**
    * compareWith-Funktion
    */
-  @Input('compareWith')
-  set compareWith(fn: (o1: any, o2: any) => boolean) {
+  @Input()
+  set comparewith(fn: (o1: any, o2: any) => boolean) {
     if (typeof fn !== 'function') {
       throw new Error(
         `compareWith must be a function, but received ${JSON.stringify(fn)}`
@@ -74,13 +74,13 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input('validationmessagerequired') _validationMessageRequired: string =
+  @Input() validationmessagerequired: string =
     'VALIDATION_ERROR_REQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input('validationmessagesummaryrequired')
-  _validationMessageRequiredSummary: string =
+  @Input()
+  validationmessagesummaryrequired: string =
     'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
   /**
@@ -192,12 +192,12 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
   validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = null;
 
-    if (this._isrequired) {
+    if (this.isrequired) {
       error = Validation.required(
         c,
-        this._label,
-        this._validationMessageRequired,
-        this._validationMessageRequiredSummary
+        this.label,
+        this.validationmessagerequired,
+        this.validationmessagesummaryrequired
       );
     }
     return error;
@@ -232,7 +232,7 @@ export class NgDropdownOptionCommon implements OnDestroy {
   /**
    * Option ngValue
    */
-  @Input('ngValue')
+  @Input()
   set ngValue(value: any) {
     // Cancel wenn kein Parent Dropdown vorhanden
     if (this._dropdown == null) {
@@ -247,7 +247,7 @@ export class NgDropdownOptionCommon implements OnDestroy {
   /**
    * Wert-Setter
    */
-  @Input('value')
+  @Input()
   set value(value: any) {
     this._setElementValue(value);
   }

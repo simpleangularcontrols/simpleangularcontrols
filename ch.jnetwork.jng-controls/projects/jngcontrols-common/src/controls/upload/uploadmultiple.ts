@@ -16,13 +16,13 @@ export class NgUploadMultipleCommon
   /**
    * Max. Files die hochgeladen werden können. 0 deaktiviert das Limit
    */
-  @Input('maxfiles')
+  @Input()
   public maxfiles: number = 0;
 
   /**
    * Min. Files die hochgeladen werden müssen. 0 deaktiviert das Limit
    */
-  @Input('minfiles')
+  @Input()
   public minfiles: number = 0;
 
   /**
@@ -40,13 +40,13 @@ export class NgUploadMultipleCommon
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input('validationmessageminfiles') _validationMessageMinFiles: string =
+  @Input() validationmessageminfiles: string =
     'VALIDATION_ERROR_FILESMIN';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input('validationmessagesummaryminfiles')
-  _validationMessageMinFilesSummary: string =
+  @Input()
+  validationmessagesummaryminfiles: string =
     'VALIDATION_ERROR_SUMMARY_FILESMIN';
 
   /**
@@ -130,9 +130,9 @@ export class NgUploadMultipleCommon
       error = Validation.minFiles(
         this,
         this.minfiles,
-        this._label,
-        this._validationMessageMinFiles,
-        this._validationMessageMinFilesSummary
+        this.label,
+        this.validationmessageminfiles,
+        this.validationmessagesummaryminfiles
       );
     }
 

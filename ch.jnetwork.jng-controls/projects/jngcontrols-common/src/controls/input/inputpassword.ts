@@ -8,20 +8,20 @@ import { NgInputCommon } from './input';
  */
 @Directive()
 export class NgInputPasswordCommon extends NgInputCommon {
-
   /**
    * Resource Key für Validation Message MinLength bei Control
    */
-  @Input('validationmessageminlength') _validationMessageMinLength: string = 'VALIDATION_ERROR_MINLENGTH';
+  @Input() validationmessageminlength: string = 'VALIDATION_ERROR_MINLENGTH';
   /**
    * Resource Key für Validation Message MinLength in Validation Summary
    */
-  @Input('validationmessagesummaryminlength') _validationMessageMinLengthSummary: string = 'VALIDATION_ERROR_SUMMARY_MINLENGTH';
+  @Input() validationmessagesummaryminlength: string =
+    'VALIDATION_ERROR_SUMMARY_MINLENGTH';
 
   /**
    * Min. Textlänge
    */
-  @Input('minlength') _minlength: number = 5;
+  @Input() minlength: number = 5;
 
   /**
    * Methode validiert, ob der Wert den gegebenen Kriteriten entspricht
@@ -30,7 +30,13 @@ export class NgInputPasswordCommon extends NgInputCommon {
     let error: ValidationErrors | null = super.validateData(c);
 
     if (error === null) {
-      error = Validation.minLength(c, this._minlength, this._label, this._validationMessageMinLength, this._validationMessageMinLengthSummary);
+      error = Validation.minLength(
+        c,
+        this.minlength,
+        this.label,
+        this.validationmessageminlength,
+        this.validationmessagesummaryminlength
+      );
     }
 
     return error;

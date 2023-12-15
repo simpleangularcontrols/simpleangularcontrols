@@ -40,14 +40,14 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
    *
    * Wert 'auto' kann mit einem anderen Wert kombiniert werden.
    */
-  @Input('position')
-  _position: string = 'right|auto';
+  @Input()
+  position: string = 'right|auto';
 
   /**
    * Text für ToolTip
    */
-  @Input('tooltiptext')
-  _tooltiptext: string;
+  @Input()
+  tooltiptext: string;
 
   /**
    * Inline Mode für Tooltip
@@ -62,7 +62,7 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
   /**
    * Setter für Inline Mode für Tooltip
    */
-  @Input('inlinemode')
+  @Input()
   set inlinemode(value: boolean) {
     this._inlinemode = convertToBoolean(value);
   }
@@ -321,7 +321,7 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
    * Definiert ob AutoPosition aktiv ist
    */
   private IsAutoPosition(): boolean {
-    const positions = this._position.split('|');
+    const positions = this.position.split('|');
     return positions.indexOf('auto') >= 0;
   }
 
@@ -329,7 +329,7 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
    * Gibt die definierte Position für den Tooltip zurück
    */
   private GetPosition(): TooltipPosition {
-    const positions = this._position.split('|');
+    const positions = this.position.split('|');
 
     if (this.HasPosition(TooltipPosition.left)) {
       return TooltipPosition.left;
@@ -357,7 +357,7 @@ export class NgTooltipCommon implements OnInit, OnDestroy {
    * @param position Position auf welche geprüft wird
    */
   private HasPosition(position: TooltipPosition): boolean {
-    const positions = this._position.split('|');
+    const positions = this.position.split('|');
 
     if (position === TooltipPosition.right && positions.indexOf('right') >= 0) {
       return true;

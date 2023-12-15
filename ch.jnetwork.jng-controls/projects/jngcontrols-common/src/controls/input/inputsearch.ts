@@ -9,11 +9,11 @@ export class NgInputSearchCommon extends NgInputCommon {
   /**
    * Name des Such-Icons
    */
-  @Input('iconname') _searchIconName: string = '';
+  @Input() iconname: string = '';
   /**
    * Text welcher auf dem Button angezeigt wird
    */
-  @Input('buttontext') _buttontext: string = '';
+  @Input() buttontext: string = '';
 
   /**
    * Event wenn auf das Such-Icon geclickt wird

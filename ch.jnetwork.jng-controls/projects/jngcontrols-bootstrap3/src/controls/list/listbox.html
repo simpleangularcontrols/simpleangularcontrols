@@ -1,23 +1,23 @@
 <div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
-  <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="control-label" [ngClass]="[_labelsize !== 12 ?  'col-md-' + _labelsize : 'sr-only']" [class.required]="_isrequired">{{_label}}</label>
-  <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
-    <!-- <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"> -->
-    <select multiple id="{{_name}}" name="{{_name}}" class="form-control" [size]="_rowsize"
+  <label *ngIf="disablelabel === false && !isadaptivelabel" id="{{name}}label" for="{{name}}" class="control-label" [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']" [class.required]="isrequired">{{label}}</label>
+  <div [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
+    <!-- <div class="col-12" [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"> -->
+    <select multiple id="{{name}}" name="{{name}}" class="form-control" [size]="rowsize"
             (blur)="onTouch()" (change)="getSelectedItems($event.target)" [disabled]="isdisabled">
       <ng-content></ng-content>
-      <ng-container *ngIf="_fieldGroupItems === ''">
-        <option *ngFor="let option of options" [value]="option[_fieldValue]" [disabled]="_fieldEnabled !== '' && option[_fieldEnabled] === false">
+      <ng-container *ngIf="groupitems === ''">
+        <option *ngFor="let option of options" [value]="option[optionvalue]" [disabled]="optionenabled !== '' && option[optionenabled] === false">
 
-          <ng-template *ngTemplateOutlet="displayValueTemplate || defaultItemLabelTemplate;context:{ label: option[_fieldLabel] }">
+          <ng-template *ngTemplateOutlet="optionlabeltemplate || defaultItemLabelTemplate;context:{ label: option[optionlabel] }">
           </ng-template>
 
         </option>
       </ng-container>
-      <ng-container *ngIf="_fieldGroupItems !== ''">
-        <optgroup *ngFor="let option of options" [attr.label]="option[_fieldGroupLabel]">
-          <option *ngFor="let item of option[_fieldGroupItems]" [value]="item[_fieldValue]" [disabled]="_fieldEnabled !== '' && item[_fieldEnabled] === false">
+      <ng-container *ngIf="groupitems !== ''">
+        <optgroup *ngFor="let option of options" [attr.label]="option[grouplabel]">
+          <option *ngFor="let item of option[groupitems]" [value]="item[optionvalue]" [disabled]="optionenabled !== '' && item[optionenabled] === false">
 
-            <ng-template *ngTemplateOutlet="displayValueTemplate || defaultItemLabelTemplate;context:{ label: item[_fieldLabel] }">
+            <ng-template *ngTemplateOutlet="optionlabeltemplate || defaultItemLabelTemplate;context:{ label: item[optionlabel] }">
             </ng-template>
 
           </option>

@@ -19,43 +19,43 @@
       [(ngModel)]="values.field4"
       buttontext="Suchen"
     ></sac-inputsearch>
-    <ngInput
+    <sac-input
       name="field1"
       label="Feld 1"
       labelsize="2"
       isrequired="true"
       [(ngModel)]="values.field1"
-    ></ngInput>
-    <ngInput
+    ></sac-input>
+    <sac-input
       name="field2"
       disablelabel="true"
       [(ngModel)]="values.field2"
-    ></ngInput>
-    <ngInput
+    ></sac-input>
+    <sac-input
       name="field3"
       label="Feld 3"
       labelsize="4"
       [(ngModel)]="values.field3"
-    ></ngInput>
-    <ngInput name="field4" label="Feld 4" [(ngModel)]="values.field4"></ngInput>
-    <ngInput
+    ></sac-input>
+    <sac-input name="field4" label="Feld 4" [(ngModel)]="values.field4"></sac-input>
+    <sac-input
       name="field5"
       label="Feld 5"
       placeholder="Feld 5"
       [(ngModel)]="values.field5"
-    ></ngInput>
-    <ngInput
+    ></sac-input>
+    <sac-input
       name="field6"
       label="Feld 6 (Max 10)"
       [(ngModel)]="values.field6"
       [maxlength]="10"
-    ></ngInput>
-    <ngInput
+    ></sac-input>
+    <sac-input
       name="field7"
       label="Feld 7"
       [(ngModel)]="values.field7"
       disabled="true"
-    ></ngInput>
+    ></sac-input>
   </div>
 
   <div ngModelGroup="Group2">
@@ -126,70 +126,70 @@
       disabled="true"
     ></sac-inputcurrency>
 
-    <ngInputEmail
+    <sac-inputemail
       name="fieldemail1"
       label="E-Mail 1"
       [(ngModel)]="values.fieldemail1"
-    ></ngInputEmail>
-    <ngInputEmail
+    ></sac-inputemail>
+    <sac-inputemail
       name="fieldemail2"
       label="E-Mail 2 (Max 10)"
       [(ngModel)]="values.fieldemail2"
       [maxlength]="10"
-    ></ngInputEmail>
-    <ngInputEmail
+    ></sac-inputemail>
+    <sac-inputemail
       name="fieldemail3"
       label="E-Mail 3"
       [(ngModel)]="values.fieldemail3"
       disabled="true"
-    ></ngInputEmail>
+    ></sac-inputemail>
 
-    <ngInputPassword
+    <sac-inputpassword
       name="fieldpassword1"
       label="Passwort 1"
       [(ngModel)]="values.fieldpassword1"
-    ></ngInputPassword>
-    <ngInputPassword
+    ></sac-inputpassword>
+    <sac-inputpassword
       name="fieldpassword2"
       label="Passwort 2"
       [(ngModel)]="values.fieldpassword2"
-    ></ngInputPassword>
-    <ngInputPassword
+    ></sac-inputpassword>
+    <sac-inputpassword
       name="fieldpassword3"
       label="Passwort 3 (Max 10)"
       [(ngModel)]="values.fieldpassword3"
       [maxlength]="10"
-    ></ngInputPassword>
-    <ngInputPassword
+    ></sac-inputpassword>
+    <sac-inputpassword
       name="fieldpassword4"
       label="Passwort 4"
       [(ngModel)]="values.fieldpassword4"
       disabled="disabled"
-    ></ngInputPassword>
+    ></sac-inputpassword>
 
-    <ngInputArea
+    <sac-inputarea
       name="fieldarea1"
       label="Area 1"
       [(ngModel)]="values.fieldarea1"
-    ></ngInputArea>
-    <ngInputArea
+    ></sac-inputarea>
+    <sac-inputarea
       name="fieldarea2"
       label="Area 2"
       [(ngModel)]="values.fieldarea2"
       isrequired="true"
       rows="10"
-    ></ngInputArea>
-    <ngInputArea
+    ></sac-inputarea>
+    <sac-inputarea
       name="fieldarea3"
       label="Area 3 (Max 50)"
       [(ngModel)]="values.fieldarea3"
       maxlength="50"
-    ></ngInputArea>
-    <ngInputArea
+    ></sac-inputarea>
+    <sac-inputarea
       name="fieldarea4"
       label="Area 4"
       [(ngModel)]="values.fieldarea4"
       disabled="true"
-    ></ngInputArea>
+    ></sac-inputarea>
   </div>
 </form>

@@ -1,10 +1,10 @@
-<div [id]="_name" *ngIf="_show" [ngStyle]="{'z-index': zindex}">
+<div [id]="name" *ngIf="_show" [ngStyle]="{'z-index': zindex}">
   <div class="modal in" style="display: block;" tabindex="-1" role="dialog" #dialog>
     <div class="modal-dialog" role="document" [style.width]="width">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="hide()" *ngIf="closebutton"><span aria-hidden="true">&times;</span></button>
-          <span class="modal-title">{{_title}}</span>
+          <span class="modal-title">{{title}}</span>
         </div>
         <div class="modal-body">
           <ng-content select="[dialogbody]"></ng-content>
@@ -16,4 +16,4 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 </div>
-<div class="modal-backdrop in" *ngIf="_show && _backdrop" #backdrop></div>
+<div class="modal-backdrop in" *ngIf="show && backdrop" #backdrop></div>

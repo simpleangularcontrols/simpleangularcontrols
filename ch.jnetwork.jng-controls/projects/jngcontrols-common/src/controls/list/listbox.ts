@@ -40,7 +40,7 @@ export class NgListboxOptionCommon implements OnDestroy {
   /**
    * Definiert den Wert der Listbox
    */
-  @Input('value')
+  @Input()
   set value(value: any) {
     if (this._listbox) {
       this._value = value;
@@ -53,8 +53,8 @@ export class NgListboxOptionCommon implements OnDestroy {
   /**
    * NgValue des Controls. Wird für die Mehrfachauswahl benötigt
    */
-  @Input('ngValue')
-  set ngValue(value: any) {
+  @Input()
+  set ngvalue(value: any) {
     if (this._listbox) {
       this._value = value;
     }
@@ -123,18 +123,18 @@ export class NgListboxCommon extends NgBaseSelectControl<Array<string>> {
   /**
    * Anzahl der Zeilen
    */
-  @Input('rowsize') _rowsize: number = 5;
+  @Input() rowsize: number = 5;
 
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input('validationmessagerequired') _validationMessageRequired: string =
+  @Input() validationmessagerequired: string =
     'VALIDATION_ERROR_REQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input('validationmessagesummaryrequired')
-  _validationMessageRequiredSummary: string =
+  @Input()
+  validationmessagesummaryrequired: string =
     'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
   /**
@@ -190,12 +190,12 @@ export class NgListboxCommon extends NgBaseSelectControl<Array<string>> {
   validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = null;
 
-    if (this._isrequired) {
+    if (this.isrequired) {
       error = Validation.required(
         c,
-        this._label,
-        this._validationMessageRequired,
-        this._validationMessageRequiredSummary
+        this.label,
+        this.validationmessagerequired,
+        this.validationmessagesummaryrequired
       );
     }
 

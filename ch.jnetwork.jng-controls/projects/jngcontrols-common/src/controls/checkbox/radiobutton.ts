@@ -25,26 +25,26 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
   /**
    * Wert
    */
-  @Input('value')
-  public _value: any;
+  @Input()
+  public value: any;
 
   /**
    * Label Text
    */
-  @Input('label')
-  public _label: string;
+  @Input()
+  public label: string;
 
   /**
    * Boolean Property, ob Radiobutton checked ist
    */
-  @Input('checked')
-  public _checked: boolean;
+  @Input()
+  public checked: boolean;
 
   /**
    * Boolean Property, ob Radiobutton disabled ist
    */
-  @Input('disabled')
-  public _disabled: boolean;
+  @Input()
+  public disabled: boolean;
 
   /**
    * Output Event
@@ -56,7 +56,7 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
    * Methode ergibt Boolean, ob Control disabled ist
    */
   get isDisabled(): boolean {
-    return this._disabled || this.ngRadioButtons._disabledControl;
+    return this.disabled || this.ngRadioButtons.disabled;
   }
 
   /**
@@ -67,7 +67,7 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
   /**
    * Setter für hidden Property
    */
-  @Input('hidden')
+  @Input()
   set hidden(v: boolean | string) {
     if (v === null || v === undefined || typeof v === 'boolean') {
       this._hidden = v as boolean;
@@ -76,7 +76,7 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
     }
 
     // Model Reset falls RadioButton selektiert war
-    if (this._hidden && this._checked) {
+    if (this._hidden && this.checked) {
       this.ngRadioButtons.SelectItem(null);
     }
   }
@@ -108,7 +108,7 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
    * Parent Control Name
    */
   get getName(): string {
-    return this.ngRadioButtons._name;
+    return this.ngRadioButtons.name;
   }
 
   //#region Control Templates
@@ -116,8 +116,8 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
   /**
    * Template für Value Element
    */
-  @Input('labeltemplate')
-  displayValueTemplate: TemplateRef<any>;
+  @Input()
+  labeltemplate: TemplateRef<any>;
 
   //#endregion
 
@@ -137,8 +137,8 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
    * Event bei Änderungen
    */
   public ChangeEvent(): void {
-    if (!this._disabled) {
-      this.ngRadioButtons.SelectItem(this._value);
+    if (!this.disabled) {
+      this.ngRadioButtons.SelectItem(this.value);
       this.onselectitem.emit();
     }
   }

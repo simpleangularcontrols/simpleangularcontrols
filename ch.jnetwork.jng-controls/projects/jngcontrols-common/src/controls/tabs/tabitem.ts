@@ -8,29 +8,29 @@ export class NgTabItemCommon {
   /**
    * Boolean Property prüft ob das Tab aktiv ist
    */
-  @Input('active')
-  _active: boolean = false;
+  @Input()
+  active: boolean = false;
   /**
    * Boolean Property prüft ob das Tab disabled ist
    */
-  @Input('disabled')
-  _disabled: boolean = false;
+  @Input()
+  disabled: boolean = false;
   /**
    * ID-String
    */
-  @Input('id')
-  _id: string;
+  @Input()
+  id: string;
   /**
    * Label Text vom Control
    */
-  @Input('label')
-  _label: string;
+  @Input()
+  label: string;
 
   /**
    * Das Input property ekzeptiert boolen Wert. Default ist true. Definiert, ob die Komponente hidden sein sollte.
    */
-  @Input('unloadwhenhidden')
-  _unloadwhenhidden: boolean = true;
+  @Input()
+  unloadwhenhidden: boolean = true;
 
   /**
    * ContentChild Decorator

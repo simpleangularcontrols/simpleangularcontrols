@@ -18,7 +18,7 @@ import { NgFormularDirective } from '../form/form';
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NgInputCurrencyComponent,
+      useExisting: forwardRef(() => NgInputCurrencyComponent),
     },
     {
       provide: NG_VALIDATORS,

@@ -81,11 +81,11 @@
   </div>
   <p>Menu with Custom Button</p>
   <div>
-    <sac-contextmenu [buttonTemplate]="customButton" #contextmenu>
+    <sac-contextmenu [buttontemplate]="customButton" #contextmenu>
       <ng-template #customButton>
         <button
           type="button"
-          sac-contextmenuAnchor
+          sac-contextmenuanchor
           class="btn btn-secondary dropdown-toggle"
           (click)="contextmenu.toggle()"
         >

@@ -386,6 +386,15 @@
               "devServerTarget": "jngcontrols-common:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/jngcontrols-common/**/*.ts",
+              "projects/jngcontrols-common/**/*.html"
+            ]
+          }
         }
       }
     },

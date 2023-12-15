@@ -1,9 +1,9 @@
 <div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
-  <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="control-label" [ngClass]="[_labelsize !== 12 ?  'col-md-' + _labelsize : 'sr-only']" [class.required]="_isrequired">{{_label}}</label>
-  <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
-    <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [value]="value"
-           [attr.placeholder]="_placeholder" (blur)="onTouch()" (input)="setValue($event.target.value)" (keypress)="onKeyPress($event)" [disabled]="isdisabled" [readonly]="_readonly" />
-    <label for="{{_name}}" class="form-label-adaptive form-label-fixed" [ngClass]="{ 'required': _isrequired }" *ngIf="_isadaptivelabel && !_disablelabel">{{_label}}</label>
+  <label *ngIf="disablelabel === false && !isadaptivelabel" id="{{name}}label" for="{{name}}" class="control-label" [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']" [class.required]="isrequired">{{label}}</label>
+  <div [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
+    <input id="{{name}}" name="{{name}}" type="text" class="form-control" [value]="value"
+           [attr.placeholder]="placeholder" (blur)="onTouch()" (input)="setValue($event.target.value)" (keypress)="onKeyPress($event)" [disabled]="isdisabled" [readonly]="readonly" />
+    <label for="{{name}}" class="form-label-adaptive form-label-fixed" [ngClass]="{ 'required': isrequired }" *ngIf="isadaptivelabel && !disablelabel">{{label}}</label>
     <div class="help-block help-block-error" *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)">{{ GetErrorMessage() | async }}</div>
   </div>
 </div>

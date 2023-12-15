@@ -8,13 +8,13 @@ export class NgGridButtonCommon {
   /**
    * Input Property für Styling des Buttons. Deffiniert die Css Klassen des Buttons
    */
-  @Input('iconstyle')
+  @Input()
   public iconstyle: string = '';
 
   /**
    * Icon Name aus Sprite
    */
-  @Input('icon')
+  @Input()
   public icon: string;
 
   /**
@@ -27,7 +27,7 @@ export class NgGridButtonCommon {
    * @param v Deaktiviert den Button
    * @return Definiert ob der Button deaktiviert ist
    */
-  @Input('isdisabled')
+  @Input()
   set isdisabled(v: boolean | string) {
     if (v === null || v === undefined || typeof v === 'boolean') {
       this._isdisabledvalue = v as boolean;

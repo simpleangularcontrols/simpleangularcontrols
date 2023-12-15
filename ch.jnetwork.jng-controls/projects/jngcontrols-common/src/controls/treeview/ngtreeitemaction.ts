@@ -35,17 +35,17 @@ export class NgTreeItemActionCommon implements OnInit {
   /**
    *Input Property. Akzeptiert das Wert des Object.
    */
-  @Input('item') node: any;
+  @Input() item: any;
 
   /**
    * Input Property für Title des TreeItemAction
    */
-  @Input('title') _title: string;
+  @Input() title: string;
 
   /**
    * Input Property für Styling des Icon. Deffiniert die Css Klassen des Icon
    */
-  @Input('iconstyle') iconstyle: string;
+  @Input() iconstyle: string;
 
   /**
    * Event wenn auf das Icon geclickt wird

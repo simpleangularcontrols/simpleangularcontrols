@@ -12,44 +12,44 @@ export class NgInputDecimalCommon extends NgInputBase<number> {
   /**
    * Definiert das Negative Werte erlaubt sind
    */
-  @Input('allownegativ') _allownegativ: boolean = false;
+  @Input() allownegativ: boolean = false;
   /**
    * Definiert den minimalen Wert
    */
-  @Input('minvalue') _minvalue: number = undefined;
+  @Input() minvalue: number = undefined;
   /**
    * Definiert den maximalen Wert
    */
-  @Input('maxvalue') _maxvalue: number = undefined;
+  @Input() maxvalue: number = undefined;
 
 
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input('validationmessagerequired') _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
+  @Input() validationmessagerequired: string = 'VALIDATION_ERROR_REQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input('validationmessagesummaryrequired') _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
+  @Input() validationmessagesummaryrequired: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
 
   /**
    * Resource Key für Validation Message MinValue bei Control
    */
-  @Input('validationmessageminvalue') _validationMessageMinValue: string = 'VALIDATION_ERROR_MINVALUE';
+  @Input() validationmessageminvalue: string = 'VALIDATION_ERROR_MINVALUE';
   /**
    * Resource Key für Validation Message MinValue in Validation Summary
    */
-  @Input('validationmessagesummaryminvalue') _validationMessageMinValueSummary: string = 'VALIDATION_ERROR_SUMMARY_MINVALUE';
+  @Input() validationmessagesummaryminvalue: string = 'VALIDATION_ERROR_SUMMARY_MINVALUE';
 
   /**
    * Resource Key für Validation Message MaxValue bei Control
    */
-  @Input('validationmessagemaxvalue') _validationMessageMaxValue: string = 'VALIDATION_ERROR_MAXVALUE';
+  @Input() validationmessagemaxvalue: string = 'VALIDATION_ERROR_MAXVALUE';
   /**
    * Resource Key für Validation Message MaxValue in Validation Summary
    */
-  @Input('validationmessagesummarymaxvalue') _validationMessageMaxValueSummary: string = 'VALIDATION_ERROR_SUMMARY_MAXVALUE';
+  @Input() validationmessagesummarymaxvalue: string = 'VALIDATION_ERROR_SUMMARY_MAXVALUE';
 
   /**
    * Methode die erzeugt den Control in Abhängigkeit davon, ob negative Were erlaubt sing oder nicht
@@ -60,10 +60,10 @@ export class NgInputDecimalCommon extends NgInputBase<number> {
     /**
      * Definiert die Werte die erlaubt sind
      */
-    this._allowedchars = '0123456789' + this.GetDecimalSymbol();
+    this.allowedchars = '0123456789' + this.GetDecimalSymbol();
 
-    if (this._allownegativ) {
-      this._allowedchars = this._allowedchars + '-';
+    if (this.allownegativ) {
+      this.allowedchars = this.allowedchars + '-';
     }
   }
 
@@ -74,7 +74,7 @@ export class NgInputDecimalCommon extends NgInputBase<number> {
     if (value === '' || value === null) {
       return null;
     } else {
-      if (this._allownegativ === true && value === '-') {
+      if (this.allownegativ === true && value === '-') {
         return '-';
       } else if (value === '.') {
         return '0.';
@@ -88,7 +88,7 @@ export class NgInputDecimalCommon extends NgInputBase<number> {
    * Methode validiert ob der Wert entspricht den gegebenen Kriterien wenn ein Key gedrückt wird
    */
   protected OnKeyPressValidation(position: number, character: string): boolean {
-    if (this._allownegativ === false && character === '-' || this._allownegativ === true && position > 0 && character === '-') {
+    if (this.allownegativ === false && character === '-' || this.allownegativ === true && position > 0 && character === '-') {
       return false;
     }
 
@@ -113,16 +113,16 @@ export class NgInputDecimalCommon extends NgInputBase<number> {
      */
     let error: ValidationErrors | null = null;
 
-    if (this._isrequired) {
-      error = Validation.required(c, this._label, this._validationMessageRequired, this._validationMessageRequiredSummary);
+    if (this.isrequired) {
+      error = Validation.required(c, this.label, this.validationmessagerequired, this.validationmessagesummaryrequired);
     }
 
-    if (error === null && this._minvalue !== undefined && this._minvalue !== null) {
-      error = Validation.minValue(c, this._minvalue, this._label, this._validationMessageMinValue, this._validationMessageMinValueSummary);
+    if (error === null && this.minvalue !== undefined && this.minvalue !== null) {
+      error = Validation.minValue(c, this.minvalue, this.label, this.validationmessageminvalue, this.validationmessagesummaryminvalue);
     }
 
-    if (error === null && this._maxvalue !== undefined && this._maxvalue !== null) {
-      error = Validation.maxValue(c, this._maxvalue, this._label, this._validationMessageMaxValue, this._validationMessageMaxValueSummary);
+    if (error === null && this.maxvalue !== undefined && this.maxvalue !== null) {
+      error = Validation.maxValue(c, this.maxvalue, this.label, this.validationmessagemaxvalue, this.validationmessagesummarymaxvalue);
     }
 
     return error;

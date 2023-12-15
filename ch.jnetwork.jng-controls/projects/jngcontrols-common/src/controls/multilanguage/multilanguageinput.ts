@@ -19,42 +19,42 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
   /**
    * Max länge an Zeichen für Eingabefeld
    */
-  @Input('maxlength') _maxlength: number = null;
+  @Input() maxlength: number = null;
 
   /**
    * Fix breite für das Control definieren.
    */
-  @Input('controlwidth') _controlwidth: string = null;
+  @Input() controlwidth: string = null;
 
   /**
    * Aktiviert den Validator, das min. eine Sprache erfasst sein muss
    */
-  @Input('requiredany') _anyrequired: boolean = false;
+  @Input() requiredany: boolean = false;
 
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input('validationmessagerequired') _validationMessageRequired: string =
+  @Input() validationmessagerequired: string =
     'VALIDATION_ERROR_MULTILANGUAGEREQUIRED';
 
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input('validationmessagesummaryrequired')
-  _validationMessageRequiredSummary: string =
+  @Input()
+  validationmessagesummaryrequired: string =
     'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED';
 
   /**
    * Resource Key für Validation Message Pattern bei Control
    */
-  @Input('validationmessagerequiredany') _validationMessageRequiredAny: string =
+  @Input() validationmessagerequiredany: string =
     'VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY';
 
   /**
    * Resource Key für Validation Message Pattern in Validation Summary
    */
-  @Input('validationmessagesummaryrequiredany')
-  _validationMessageRequiredAnySummary: string =
+  @Input()
+  validationmessagesummaryrequiredany: string =
     'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY';
 
   /**
@@ -238,15 +238,15 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
       c.value !== null &&
       c.value !== undefined &&
       c.value !== '' &&
-      this._isrequired !== undefined &&
-      this._isrequired === true
+      this.isrequired !== undefined &&
+      this.isrequired === true
     ) {
       error = Validation.multilanguageRequired(
         c,
         this.languages,
-        this._label,
-        this._validationMessageRequired,
-        this._validationMessageRequiredSummary
+        this.label,
+        this.validationmessagerequired,
+        this.validationmessagesummaryrequired
       );
     }
 
@@ -255,15 +255,15 @@ export class NgMultilanguageInputCommon extends NgInputBase<any> {
       c.value !== null &&
       c.value !== undefined &&
       c.value !== '' &&
-      this._anyrequired !== undefined &&
-      this._anyrequired === true
+      this.requiredany !== undefined &&
+      this.requiredany === true
     ) {
       error = Validation.multilanguageRequiredAny(
         c,
         this.languages,
-        this._label,
-        this._validationMessageRequiredAny,
-        this._validationMessageRequiredAnySummary
+        this.label,
+        this.validationmessagerequiredany,
+        this.validationmessagesummaryrequiredany
       );
     }
 

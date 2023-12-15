@@ -65,7 +65,7 @@ export class NgContextmenuCommon implements OnDestroy {
    * Custom HTML Template für Dropdown Button. Button muss den Marker "ngContextmenuAnchor" beinhalten, damit das Control korrekt funktioniert.
    */
   @Input()
-  public buttonTemplate: TemplateRef<any>;
+  public buttontemplate: TemplateRef<any>;
 
   /**
    * Container an welchem die Position ausgerichtet wird. Aktuell wird nun Body Supported

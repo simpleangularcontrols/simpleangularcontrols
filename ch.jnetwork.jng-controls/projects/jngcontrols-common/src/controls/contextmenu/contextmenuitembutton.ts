@@ -40,7 +40,7 @@ export class NgContextmenuItemButtonCommon extends NgContextmenuItemCommon {
   /**
    * Input Property für Styling des Buttons. Definiert die Css Klassen des Buttons
    */
-  @Input('iconstyle')
+  @Input()
   public iconstyle: string = 'fas';
 
   /**

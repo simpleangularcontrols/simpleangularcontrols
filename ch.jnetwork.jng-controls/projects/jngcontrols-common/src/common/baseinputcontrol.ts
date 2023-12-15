@@ -13,37 +13,37 @@ export abstract class NgInputBase<VALUE> extends NgBaseModelControl<VALUE> {
   /**
    * Definiert das Control als Required
    */
-  @Input('isrequired') _isrequired: boolean = false;
+  @Input() isrequired: boolean = false;
 
   /**
    * TextBox Placeholder
    */
-  @Input('placeholder') _placeholder: string = null;
+  @Input() placeholder: string = null;
 
   /**
    * Erlaubte Zeichen bei der Eingabe
    */
-  @Input('allowedchars') _allowedchars: string = '';
+  @Input() allowedchars: string = '';
 
   /**
    * Macht das Input readonly
    */
-  @Input('readonly') _readonly: boolean = false;
+  @Input() readonly: boolean = false;
 
   /**
    * Definiert das Feld als valid/invalid von eingegebenen regex-pattern
    */
-  @Input('regexvalidation') _pattern: string;
+  @Input() regexvalidation: string;
 
   /**
    * Text welcher als Tooltip angezeigt wird.
    */
-  @Input('tooltiptext') _tooltiptext: string = '';
+  @Input() tooltiptext: string = '';
 
   /**
    * Autofill aktivieren oder deaktivieren
    */
-  @Input('disableautocomplete') _disableautocomplete: boolean = false;
+  @Input() disableautocomplete: boolean = false;
 
 
   // #endregion
@@ -56,14 +56,14 @@ export abstract class NgInputBase<VALUE> extends NgBaseModelControl<VALUE> {
   public onKeyPress(event: KeyboardEvent): Boolean {
 
     // Cancel wenn _allowedChars leer ist.
-    if (this._allowedchars.length === 0) {
+    if (this.allowedchars.length === 0) {
       return true;
     }
 
     // Validate Input
     const character = event.key;
     // Zeichen in Allowed Chars nicht gefunden, Event nicht weitergeben
-    if (this._allowedchars.indexOf(character) < 0) {
+    if (this.allowedchars.indexOf(character) < 0) {
       event.preventDefault();
     }
 

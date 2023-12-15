@@ -12,7 +12,7 @@
         </ng-container>
       </tr>
     </ng-container>
-    <tr *ngIf="value === undefined || value === null || value.length==0">
+    <tr *ngIf="value === undefined || value === null || value.length === 0">
       <td [attr.colspan]="ColumnCount">{{emptytext}}</td>
     </tr>
     <tr>

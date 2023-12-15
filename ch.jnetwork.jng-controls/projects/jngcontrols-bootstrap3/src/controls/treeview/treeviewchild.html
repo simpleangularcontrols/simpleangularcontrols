@@ -16,7 +16,7 @@
       class="jstree-wholerow"
       (mouseover)="node.hover=true"
       (mouseout)="node.hover=false"
-      [ngClass]="{'jstree-wholerow-clicked': node == selectedNode, 'jstree-wholerow-hovered': node.hover}"
+      [ngClass]="{'jstree-wholerow-clicked': node === selectedNode, 'jstree-wholerow-hovered': node.hover}"
     >
       &nbsp;
     </div>
@@ -32,7 +32,7 @@
     <a
       class="jstree-anchor"
       (click)="onClick(node)"
-      [ngClass]="{'jstree-clicked': node == selectedNode, 'jstreehovered': node.hover}"
+      [ngClass]="{'jstree-clicked': node === selectedNode, 'jstreehovered': node.hover}"
       (mouseover)="node.hover=true"
       (mouseout)="node.hover=false"
     >
@@ -54,7 +54,7 @@
       [fileicontemplate]="fileicontemplate"
       [template]="template"
       [collapseall]="collapseall"
-      [ngClass]="(node[collapseAttr]==true)?'collapse':'show'"
+      [ngClass]="(node[collapseAttr]===true)?'collapse':'show'"
       [data]="node[childrenAttr]"
       [idAttr]="idAttr"
       [parentAttr]="parentAttr"

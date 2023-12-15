@@ -161,6 +161,15 @@
               "devServerTarget": "demo-bootstrap4:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/demo-bootstrap4/**/*.ts",
+              "projects/demo-bootstrap4/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -236,6 +245,15 @@
               "devServerTarget": "jngcontrols-bootstrap3:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/jngcontrols-bootstrap3/**/*.ts",
+              "projects/jngcontrols-bootstrap3/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -310,6 +328,15 @@
             "production": {
               "devServerTarget": "jngcontrols-bootstrap4:serve:production"
             }
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/jngcontrols-bootstrap4/**/*.ts",
+              "projects/jngcontrols-bootstrap4/**/*.html"
+            ]
           }
         }
       }

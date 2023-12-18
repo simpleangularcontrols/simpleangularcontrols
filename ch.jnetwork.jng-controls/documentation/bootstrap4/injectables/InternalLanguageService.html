@@ -122,7 +122,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/jngcontrols-common/src/services/Language.Service.ts</code>
+            <code>projects/sac-common/src/services/Language.Service.ts</code>
         </p>
 
 
@@ -205,7 +205,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../injectables/LanguageService.html#source" target="_self" >LanguageService:51</a></code>
+                                <div class="io-line">Defined in         <code><a href="../injectables/LanguageService.html#source" target="_self" >LanguageService:53</a></code>
 </div>
                         </td>
                     </tr>
@@ -250,21 +250,23 @@ export const LANGUAGE_SERVICE &#x3D; new InjectionToken&lt;ILanguageService&gt;(
  * Base Service für Localisation von Fehlermeldungen
  *
  * @example
- * &#x60;&#x60;&#x60;
- *   @Injectable()
- *   export class ControlsLanguageService extends LanguageService {
- *   
+ *
+ * // Eigene Beispielimplementierung für Application
+ *
+ * (at)Injectable()
+ * export class ControlsLanguageService extends LanguageService {
+ *
  *   constructor(private http: HttpClient) {
  *     super();
  *   }
- *   
- *   configUrl &#x3D; &#x27;assets/languages.json&#x27;;
- *   
- *   public GetLanguages(): Observable&lt;LanguageModel[]&gt; {
- *     return this.http.get(this.configUrl);
- *   }
- * }
- * &#x60;&#x60;&#x60;
+ *
+ *    configUrl &#x3D; &#x27;assets/languages.json&#x27;;
+ *
+ *    public GetLanguages(): Observable&lt;LanguageModel[]&gt; {
+ *      return this.http.get(this.configUrl);
+ *    }
+ *  }
+ *
  */
 @Injectable({ providedIn: &#x27;root&#x27; })
 export abstract class LanguageService implements ILanguageService {

@@ -10,8 +10,8 @@
       ],
       "parserOptions": {
         "project": [
-          "projects/jngcontrols-bootstrap4/tsconfig.lib.json",
-          "projects/jngcontrols-bootstrap4/tsconfig.spec.json"
+          "projects/sac-bootstrap4/tsconfig.lib.json",
+          "projects/sac-bootstrap4/tsconfig.spec.json"
         ],
         "createDefaultProgram": true
       },

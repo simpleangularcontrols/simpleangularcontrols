@@ -16,7 +16,7 @@ module.exports = function (config) {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, '../../coverage/jngcontrols-common'),
+      dir: require('path').join(__dirname, '../../coverage/sac-bootstrap4'),
       reports: ['html', 'lcovonly'],
       fixWebpackSourcePaths: true
     },

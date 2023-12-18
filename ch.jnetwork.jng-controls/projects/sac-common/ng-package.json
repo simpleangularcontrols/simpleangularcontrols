@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/jngcontrols-bootstrap3",
+  "dest": "../../dist/sac-common",
   "lib": {
     "entryFile": "src/public_api.ts"
   }

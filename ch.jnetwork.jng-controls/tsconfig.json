@@ -15,9 +15,9 @@
     "module": "es2020",
     "baseUrl": "./",
     "paths": {
-      "@jnetwork/jngcontrols-common": ["dist/jngcontrols-common"],
-      "@jnetwork/jngcontrols-bootstrap4": ["dist/jngcontrols-bootstrap4"],
-      "@jnetwork/jngcontrols-bootstrap3": ["dist/jngcontrols-bootstrap3"]
+      "@jnetwork/jngcontrols-common": ["dist/sac-common"],
+      "@jnetwork/jngcontrols-bootstrap4": ["dist/sac-bootstrap4"],
+      "@jnetwork/jngcontrols-bootstrap3": ["dist/sac-bootstrap3"]
     }
   },
   "angularCompilerOptions": {

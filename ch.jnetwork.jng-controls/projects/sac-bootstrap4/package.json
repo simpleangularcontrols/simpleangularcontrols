@@ -4,12 +4,12 @@
   "peerDependencies": {
     "@angular/common": "^13.2.0",
     "@angular/core": "^13.2.0",
-    "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common",
+    "@jnetwork/jngcontrols-common": "file:../../dist/sac-common",
     "@ng-bootstrap/ng-bootstrap": "^11.0.0",
     "@tinymce/tinymce-angular": "5.0.0"
   },
   "devDependencies": {
-    "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common"
+    "@jnetwork/jngcontrols-common": "file:../../dist/sac-common"
   },
   "author": {
     "name": "jNetwork GmbH",

@@ -17,10 +17,10 @@ export default defineConfig({
       webpackConfig: coverageWebpack,
       options: {
         projectConfig: {
-          root: 'projects/jngcontrols-bootstrap4',
-          sourceRoot: 'projects/jngcontrols-bootstrap4/src',
+          root: 'projects/sac-bootstrap4',
+          sourceRoot: 'projects/sac-bootstrap4/src',
           buildOptions: {
-            outputPath: 'dist/jngcontrols-bootstrap4',
+            outputPath: 'dist/sac-bootstrap4',
             main: 'src/entrypoint-cypress.ts',
             tsConfig: 'tsconfig.lib.json',
           },

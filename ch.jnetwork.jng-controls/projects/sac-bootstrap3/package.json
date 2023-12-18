@@ -4,13 +4,13 @@
   "peerDependencies": {
     "@angular/common": "^13.2.0",
     "@angular/core": "^13.2.0",
-    "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common"
+    "@jnetwork/jngcontrols-common": "file:../../dist/sac-common"
   },
   "scripts": {
     "postinstall": "ngcc"
   },
   "devDependencies": {
-    "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common"
+    "@jnetwork/jngcontrols-common": "file:../../dist/sac-common"
   },
   "author": {
     "name": "jNetwork GmbH",

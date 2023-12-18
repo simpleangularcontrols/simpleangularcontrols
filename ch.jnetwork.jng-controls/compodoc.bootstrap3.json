@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "exclude": [
     "projects/demo-*/**",
-    "projects/jngcontrols-bootstrap4/**",
+    "projects/sac-bootstrap4/**",
     "src/**"
   ]
 }

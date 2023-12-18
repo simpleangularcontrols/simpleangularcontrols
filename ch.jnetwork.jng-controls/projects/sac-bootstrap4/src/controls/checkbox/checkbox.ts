@@ -5,7 +5,7 @@ import {
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
 // import { NgBaseModelControl } from '../../common/basemodelcontrol';
-import { NgCheckboxCommon } from '@jnetwork/jngcontrols-common';
+import { NgCheckboxCommon } from '@jnetwork/sac-common';
 import { NgFormularDirective } from '../form/form';
 
 /**

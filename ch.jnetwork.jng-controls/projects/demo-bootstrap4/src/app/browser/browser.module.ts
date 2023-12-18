@@ -5,7 +5,7 @@ import {
   JNetworkBootstrap4FormModule,
   JNetworkBootstrap4BrowserModule,
   JNetworkBootstrap4ValidationSummaryModule,
-} from '@jnetwork/jngcontrols-bootstrap4';
+} from '@jnetwork/sac-bootstrap4';
 import { BrowserRoutingModule } from './browser-routing.module';
 import { DemoBrowserComponent } from './browser.component';
 @NgModule({

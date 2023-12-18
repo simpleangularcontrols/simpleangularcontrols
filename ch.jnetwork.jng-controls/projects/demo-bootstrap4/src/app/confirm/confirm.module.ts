@@ -6,7 +6,7 @@ import {
   JNetworkBootstrap4ConfirmModule,
   JNetworkBootstrap4FormModule,
   JNetworkBootstrap4ValidationSummaryModule,
-} from '@jnetwork/jngcontrols-bootstrap4';
+} from '@jnetwork/sac-bootstrap4';
 import { ConfirmRoutingModule } from './confirm-routing.module';
 import { DemoConfirmComponent } from './confirm.component';
 @NgModule({

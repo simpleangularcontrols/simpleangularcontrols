@@ -1,6 +1,6 @@
 import { Directive, HostBinding } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { NgFormularCommon } from '@jnetwork/jngcontrols-common';
+import { NgFormularCommon } from '@jnetwork/sac-common';
 
 
 /**

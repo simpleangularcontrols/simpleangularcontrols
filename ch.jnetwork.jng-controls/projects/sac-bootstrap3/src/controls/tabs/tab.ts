@@ -1,6 +1,6 @@
 import { Component, ContentChildren, QueryList } from '@angular/core';
 import { NgTabItemComponent } from './tabitem';
-import { NgTabCommon, NgTabItemCommon } from '@jnetwork/jngcontrols-common';
+import { NgTabCommon, NgTabItemCommon } from '@jnetwork/sac-common';
 
 @Component({
   selector: 'sac-tab',

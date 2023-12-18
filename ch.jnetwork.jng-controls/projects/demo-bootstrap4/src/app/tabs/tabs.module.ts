@@ -5,7 +5,7 @@ import {
   JNetworkBootstrap4TabsModule,
   JNetworkBootstrap4FormModule,
   JNetworkBootstrap4ValidationSummaryModule,
-} from '@jnetwork/jngcontrols-bootstrap4';
+} from '@jnetwork/sac-bootstrap4';
 import { TabsRoutingModule } from './tabs-routing.module';
 import { DemoTabsComponent } from './tabs.component';
 @NgModule({

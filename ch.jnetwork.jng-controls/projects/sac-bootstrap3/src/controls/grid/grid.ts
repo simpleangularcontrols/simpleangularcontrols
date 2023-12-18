@@ -1,5 +1,5 @@
 import { Component, Directive, QueryList, ContentChildren, forwardRef, TemplateRef, ContentChild, ViewChildren, ElementRef } from '@angular/core';
-import { NgGridCommon, NgGridColumnBaseCommon, PagerData } from '@jnetwork/jngcontrols-common';
+import { NgGridCommon, NgGridColumnBaseCommon, PagerData } from '@jnetwork/sac-common';
 import { NgFormularDirective } from '../form/form';
 import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/forms';
 import { NgPagingComponent } from './paging';

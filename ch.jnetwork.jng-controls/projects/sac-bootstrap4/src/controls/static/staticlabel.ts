@@ -1,6 +1,6 @@
 import { Component, forwardRef, Host, Injector } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { NgStaticLabelCommon } from '@jnetwork/jngcontrols-common';
+import { NgStaticLabelCommon } from '@jnetwork/sac-common';
 import { NgFormularDirective } from '../form/form';
 
 /**

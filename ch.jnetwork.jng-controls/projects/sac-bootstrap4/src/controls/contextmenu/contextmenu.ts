@@ -7,7 +7,7 @@ import {
   NgZone,
   Renderer2,
 } from '@angular/core';
-import { NgContextmenuCommon } from '@jnetwork/jngcontrols-common';
+import { NgContextmenuCommon } from '@jnetwork/sac-common';
 
 /**
  * Component für Contextmenü

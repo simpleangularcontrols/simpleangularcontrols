@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { NgButtonCommon } from '@jnetwork/jngcontrols-common';
+import { NgButtonCommon } from '@jnetwork/sac-common';
 
 /**
  * Button Component

@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
-import { NgGridCommon, NgGridImageCommon } from '@jnetwork/jngcontrols-common';
+import { NgGridCommon, NgGridImageCommon } from '@jnetwork/sac-common';
 
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, Renderer2, ElementRef, OnInit, forwardRef } from '@angular/core';
-import { NgGridColumnCommon, NgGridColumnBaseCommon } from '@jnetwork/jngcontrols-common';
+import { NgGridColumnCommon, NgGridColumnBaseCommon } from '@jnetwork/sac-common';
 import { NgGridComponent } from './grid';
 
 @Component({

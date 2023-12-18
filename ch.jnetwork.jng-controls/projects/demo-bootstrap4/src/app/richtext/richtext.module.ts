@@ -8,7 +8,7 @@ import {
   JNetworkBootstrap4FormModule,
   JNetworkBootstrap4TinyMceModule,
   JNetworkBootstrap4ValidationSummaryModule,
-} from '@jnetwork/jngcontrols-bootstrap4';
+} from '@jnetwork/sac-bootstrap4';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { JNetworkBootstrap4TinyMceModuleNgFactory } from 'dist/sac-bootstrap4/controls/tinymce/tinymce.module.ngfactory';
 import { RichtextRoutingModule } from './richtext-routing.module';

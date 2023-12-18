@@ -1,10 +1,10 @@
 import { Component, Directive, TemplateRef, OnInit } from '@angular/core';
-import { PagerData, SortDescriptor, SortOrder } from '@jnetwork/jngcontrols-common';
+import { PagerData, SortDescriptor, SortOrder } from '@jnetwork/sac-common';
 import { GridItemDto } from '../models/GridItemDto';
 import { GridService } from '../services/GridService';
 import { GridResultDto } from '../models/GridResultDto';
 import { GridRequestDto } from '../models/GridRequestDto';
-import { PagerRequest } from '@jnetwork/jngcontrols-common';
+import { PagerRequest } from '@jnetwork/sac-common';
 
 @Directive({
   selector: '[appGridTemplate]'

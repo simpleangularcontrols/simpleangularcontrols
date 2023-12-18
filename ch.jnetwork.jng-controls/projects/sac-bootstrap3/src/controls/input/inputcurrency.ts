@@ -1,7 +1,7 @@
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
 import { Component, forwardRef, Host, Injector } from '@angular/core';
 import { NgFormularDirective } from '../form/form';
-import { NgInputCurrencyCommon } from '@jnetwork/jngcontrols-common';
+import { NgInputCurrencyCommon } from '@jnetwork/sac-common';
 
 
 @Component({

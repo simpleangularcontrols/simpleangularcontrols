@@ -6,7 +6,7 @@ import {
   JNetworkBootstrap4DialogModule,
   JNetworkBootstrap4FormModule,
   JNetworkBootstrap4ValidationSummaryModule
-} from '@jnetwork/jngcontrols-bootstrap4';
+} from '@jnetwork/sac-bootstrap4';
 import { DialogRoutingModule } from './dialog-routing.module';
 import { DemoDialogComponent } from './dialog.component';
 @NgModule({

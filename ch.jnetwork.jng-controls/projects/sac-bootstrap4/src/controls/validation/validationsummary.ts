@@ -1,6 +1,6 @@
 import { Component, Host, Injector } from '@angular/core';
 import { ControlContainer, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { NgValidationSummaryCommon } from '@jnetwork/jngcontrols-common';
+import { NgValidationSummaryCommon } from '@jnetwork/sac-common';
 import { NgFormularDirective } from '../form/form';
 
 /**

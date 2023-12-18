@@ -1,5 +1,5 @@
 import { Injectable, Type, ComponentFactoryResolver, ApplicationRef, Injector, Inject, ComponentFactory } from '@angular/core';
-import { ServiceConfirmCommon, NgConfirmButton, isDefined } from '@jnetwork/jngcontrols-common';
+import { ServiceConfirmCommon, NgConfirmButton, isDefined } from '@jnetwork/sac-common';
 import { NgConfirmComponent } from './confirm';
 import { EventEmitter } from '@angular/core';
 

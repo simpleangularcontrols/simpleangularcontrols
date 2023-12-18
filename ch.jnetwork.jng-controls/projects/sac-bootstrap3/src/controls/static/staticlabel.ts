@@ -1,7 +1,7 @@
 import { Component, Host, forwardRef, Injector } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
 import { NgFormularDirective } from '../form/form';
-import { NgStaticLabelCommon } from '@jnetwork/jngcontrols-common';
+import { NgStaticLabelCommon } from '@jnetwork/sac-common';
 
 @Component({
   selector: 'sac-staticlabel',

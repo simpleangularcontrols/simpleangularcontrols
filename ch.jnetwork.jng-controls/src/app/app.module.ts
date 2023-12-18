@@ -26,7 +26,7 @@ import { SubFormComponent } from './controls/subform.component';
 import { ExampleMultiLanguageInputComponent } from './controls/multilanguageinput.component';
 import { ExampleUploadComponent } from './controls/upload.component';
 
-import { LANGUAGE_SERVICE } from '@jnetwork/jngcontrols-common';
+import { LANGUAGE_SERVICE } from '@jnetwork/sac-common';
 import { ControlsLanguageService } from './services/language.service';
 // import localeDeCh from '@angular/common/locales/de-CH';
 
@@ -52,7 +52,7 @@ const NgDirectives = [
 //  JNetworkBootstrap3WizardModule,
 //  JNetworkBootstrap3ConfirmModule,
 //  JNetworkBootstrap3UploadModule
-// } from '@jnetwork/jngcontrols-bootstrap3';
+// } from '@jnetwork/sac-bootstrap3';
 
 import {
   JNetworkBootstrap4FormModule,
@@ -71,7 +71,7 @@ import {
   JNetworkBootstrap4ConfirmModule,
   JNetworkBootstrap4UploadModule,
   JNetworkBootstrap4MultilanguageModule
-} from '@jnetwork/jngcontrols-bootstrap4';
+} from '@jnetwork/sac-bootstrap4';
 
 @NgModule({
   declarations: [

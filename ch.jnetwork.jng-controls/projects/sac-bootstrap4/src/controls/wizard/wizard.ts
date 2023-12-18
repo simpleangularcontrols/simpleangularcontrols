@@ -3,7 +3,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
   NgWizardCommon,
   NgWizardItemCommon,
-} from '@jnetwork/jngcontrols-common';
+} from '@jnetwork/sac-common';
 import { NgWizardItemComponent } from './wizarditem';
 
 /**

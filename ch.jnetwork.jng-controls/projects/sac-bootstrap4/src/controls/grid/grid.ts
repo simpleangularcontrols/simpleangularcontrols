@@ -6,7 +6,7 @@ import {
   TemplateRef,
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { NgGridCommon } from '@jnetwork/jngcontrols-common';
+import { NgGridCommon } from '@jnetwork/sac-common';
 
 /**
  * Grid Komponente

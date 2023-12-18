@@ -1,7 +1,7 @@
 import { Component, Host, forwardRef, Injector } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
 import { NgFormularDirective } from '../form/form';
-import { NgStaticFormContainerCommon } from '@jnetwork/jngcontrols-common';
+import { NgStaticFormContainerCommon } from '@jnetwork/sac-common';
 
 /**
  * Component für einbindung eines beliebigen Controls in die Form Struktur

@@ -5,7 +5,7 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { NgDialogCommon } from '@jnetwork/jngcontrols-common';
+import { NgDialogCommon } from '@jnetwork/sac-common';
 
 /**
  * Dialog Komponente

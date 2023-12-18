@@ -12,7 +12,7 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
   NgDropdownCommon,
   NgDropdownOptionCommon,
-} from '@jnetwork/jngcontrols-common';
+} from '@jnetwork/sac-common';
 import { NgFormularDirective } from '../form/form';
 
 /**

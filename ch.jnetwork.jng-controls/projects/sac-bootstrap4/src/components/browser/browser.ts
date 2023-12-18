@@ -4,7 +4,7 @@ import {
   IBrowserFile,
   IBrowserNode,
   NgFileBrowserCommon,
-} from '@jnetwork/jngcontrols-common';
+} from '@jnetwork/sac-common';
 import { forkJoin, Observable } from 'rxjs';
 import { ServiceConfirm } from '../../controls/confirm/confirm.service';
 import { NgDropzoneMultipleComponent } from '../../controls/upload/dropzonemultiple';

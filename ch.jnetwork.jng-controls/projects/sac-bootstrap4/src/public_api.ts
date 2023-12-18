@@ -1,5 +1,5 @@
 /*
- * Public API Surface of jngcontrols-bootstrap4
+ * Public API Surface of sac-bootstrap4
  */
 export * from './components/browser/browser.module';
 export * from './controls/buttons/button.module';

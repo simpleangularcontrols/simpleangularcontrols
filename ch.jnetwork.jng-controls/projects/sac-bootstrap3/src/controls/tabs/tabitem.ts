@@ -1,5 +1,5 @@
 import { Component, } from '@angular/core';
-import { NgTabItemCommon } from '@jnetwork/jngcontrols-common';
+import { NgTabItemCommon } from '@jnetwork/sac-common';
 
 @Component({
   selector: 'sac-tabitem',

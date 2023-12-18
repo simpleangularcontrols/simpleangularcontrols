@@ -1,5 +1,5 @@
 import { Component, Host, Injector, forwardRef, Output, EventEmitter, Input } from '@angular/core';
-import { NgInputSearchCommon } from '@jnetwork/jngcontrols-common';
+import { NgInputSearchCommon } from '@jnetwork/sac-common';
 import { NgFormularDirective } from '../form/form';
 import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/forms';
 

@@ -7,7 +7,7 @@ import {
   Renderer2,
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { NgUploadMultipleCommon } from '@jnetwork/jngcontrols-common';
+import { NgUploadMultipleCommon } from '@jnetwork/sac-common';
 import { NgFormularDirective } from '../form/form';
 
 /**

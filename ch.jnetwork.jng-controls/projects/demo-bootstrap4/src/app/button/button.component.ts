@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NgFormularDirective } from '@jnetwork/jngcontrols-bootstrap4';
+import { NgFormularDirective } from '@jnetwork/sac-bootstrap4';
 
 @Component({
   selector: 'app-button',

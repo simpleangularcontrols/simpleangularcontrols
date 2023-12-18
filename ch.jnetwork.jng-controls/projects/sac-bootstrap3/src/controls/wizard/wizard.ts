@@ -1,7 +1,7 @@
 import { Component, ContentChildren, QueryList } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { NgWizardItemComponent } from './wizarditem';
-import { NgWizardCommon, NgWizardItemCommon } from '@jnetwork/jngcontrols-common';
+import { NgWizardCommon, NgWizardItemCommon } from '@jnetwork/sac-common';
 
 @Component({
   selector: 'sac-wizard',

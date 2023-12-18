@@ -1,5 +1,5 @@
 import { HostBinding, Input } from '@angular/core';
-import { NgFormularCommon } from '@jnetwork/jngcontrols-common';
+import { NgFormularCommon } from '@jnetwork/sac-common';
 import { ControlContainer, NgForm } from '@angular/forms';
 import { Directive } from '@angular/core';
 

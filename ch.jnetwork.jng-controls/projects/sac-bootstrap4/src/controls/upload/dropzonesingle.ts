@@ -8,7 +8,7 @@ import {
   Renderer2,
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { NgDropzoneSingleCommon } from '@jnetwork/jngcontrols-common';
+import { NgDropzoneSingleCommon } from '@jnetwork/sac-common';
 import { NgFormularDirective } from '../form/form';
 
 /**

@@ -24,13 +24,13 @@
 <title>cluster_JNetworkBootstrap3WizardModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="67,-70 67,-268 429,-268 429,-70 67,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_JNetworkBootstrap3WizardModule_declarations</title>
-<polygon fill="none" stroke="black" points="78,-78 78,-130 417,-130 417,-78 78,-78"/>
-</g>
 <g id="clust6" class="cluster">
 <title>cluster_JNetworkBootstrap3WizardModule_exports</title>
 <polygon fill="none" stroke="black" points="75,-208 75,-260 421,-260 421,-208 75,-208"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_JNetworkBootstrap3WizardModule_declarations</title>
+<polygon fill="none" stroke="black" points="78,-78 78,-130 417,-130 417,-78 78,-78"/>
 </g>
 <!-- NgWizardComponent -->
 <g id="node1" class="node">

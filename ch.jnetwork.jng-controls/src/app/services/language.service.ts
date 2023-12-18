@@ -1,7 +1,7 @@
-import { LanguageService } from '@jnetwork/jngcontrols-common';
+import { LanguageService } from '@jnetwork/sac-common';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LanguageModel } from '@jnetwork/jngcontrols-common';
+import { LanguageModel } from '@jnetwork/sac-common';
 import { HttpClient } from '@angular/common/http';
 import { shareReplay } from 'rxjs/operators';
 

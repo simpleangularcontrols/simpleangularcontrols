@@ -5,7 +5,7 @@ import {
   JNetworkBootstrap4FormModule,
   JNetworkBootstrap4ButtonModule,
   JNetworkBootstrap4ValidationSummaryModule,
-} from '@jnetwork/jngcontrols-bootstrap4';
+} from '@jnetwork/sac-bootstrap4';
 import { ButtonRoutingModule } from './button-routing.module';
 import { DemoButtonComponent } from './button.component';
 @NgModule({

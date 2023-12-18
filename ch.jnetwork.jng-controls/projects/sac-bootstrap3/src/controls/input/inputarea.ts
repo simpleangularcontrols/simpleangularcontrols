@@ -1,7 +1,7 @@
 import { ControlContainer, NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
 import { NgFormularDirective } from '../form/form';
 import { Component, forwardRef, Host, Injector } from '@angular/core';
-import { NgInputAreaCommon } from '@jnetwork/jngcontrols-common';
+import { NgInputAreaCommon } from '@jnetwork/sac-common';
 
 /**
  * Komponente für TextArea

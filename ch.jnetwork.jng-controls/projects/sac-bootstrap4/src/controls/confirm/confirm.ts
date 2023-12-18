@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgConfirmCommon } from '@jnetwork/jngcontrols-common';
+import { NgConfirmCommon } from '@jnetwork/sac-common';
 
 /**
  * Confirm Komponente

@@ -6,7 +6,7 @@ import {
   JNetworkBootstrap4CheckboxModule,
   JNetworkBootstrap4ButtonModule,
   JNetworkBootstrap4ValidationSummaryModule,
-} from '@jnetwork/jngcontrols-bootstrap4';
+} from '@jnetwork/sac-bootstrap4';
 import { CheckboxRoutingModule } from './checkbox-routing.module';
 import { DemoCheckboxComponent } from './checkbox.component';
 @NgModule({

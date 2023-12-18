@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgDateSelectorCommon } from '@jnetwork/jngcontrols-common';
+import { NgDateSelectorCommon } from '@jnetwork/sac-common';
 
 
 @Component({

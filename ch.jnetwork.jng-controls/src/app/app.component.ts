@@ -1,7 +1,7 @@
 import { Component, ViewChild, HostListener } from '@angular/core';
 import { NgForm, FormGroup, FormControl } from '@angular/forms';
 import { CurrencyPipe } from '@angular/common';
-import { NgFormularDirective } from '@jnetwork/jngcontrols-bootstrap4';
+import { NgFormularDirective } from '@jnetwork/sac-bootstrap4';
 
 
 interface KeyValue {

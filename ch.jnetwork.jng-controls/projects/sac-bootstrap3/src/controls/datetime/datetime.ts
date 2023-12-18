@@ -1,7 +1,7 @@
 import { Component, forwardRef, ElementRef, Host, Injector } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
 import { NgFormularDirective } from '../form/form';
-import { NgDateTimeCommon } from '@jnetwork/jngcontrols-common';
+import { NgDateTimeCommon } from '@jnetwork/sac-common';
 
 
 @Component({

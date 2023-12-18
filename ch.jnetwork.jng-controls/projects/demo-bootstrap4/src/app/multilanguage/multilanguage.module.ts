@@ -6,7 +6,7 @@ import {
   JNetworkBootstrap4MultilanguageModule,
   JNetworkBootstrap4ButtonModule,
   JNetworkBootstrap4ValidationSummaryModule,
-} from '@jnetwork/jngcontrols-bootstrap4';
+} from '@jnetwork/sac-bootstrap4';
 import { MultilanguageRoutingModule } from './multilanguage-routing.module';
 import { DemoMultilanguageComponent } from './multilanguage.component';
 @NgModule({

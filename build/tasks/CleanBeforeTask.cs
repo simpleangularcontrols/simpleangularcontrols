@@ -30,7 +30,7 @@ namespace Build.tasks
                 });
             }
 
-            DirectoryPath nycDirectory = context.Environment.WorkingDirectory.Combine(new DirectoryPath(context.ProjectDirectory)).Combine(new DirectoryPath("projects/jngcontrols-bootstrap4/.nyc_output"));
+            DirectoryPath nycDirectory = context.Environment.WorkingDirectory.Combine(new DirectoryPath(context.ProjectDirectory)).Combine(new DirectoryPath("projects/sac-bootstrap4/.nyc_output"));
 
             if (context.DirectoryExists(nycDirectory))
             {

@@ -1,5 +1,5 @@
 import { Component, Host } from '@angular/core';
-import { NgRadiobuttonCommon } from '@jnetwork/jngcontrols-common';
+import { NgRadiobuttonCommon } from '@jnetwork/sac-common';
 import { NgRadiobuttonsComponent } from './radiobuttons';
 
 

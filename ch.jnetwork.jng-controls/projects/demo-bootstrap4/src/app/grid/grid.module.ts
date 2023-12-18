@@ -7,7 +7,7 @@ import {
   JNetworkBootstrap4FormModule,
   JNetworkBootstrap4GridModule,
   JNetworkBootstrap4ValidationSummaryModule,
-} from '@jnetwork/jngcontrols-bootstrap4';
+} from '@jnetwork/sac-bootstrap4';
 import { GridRoutingModule } from './grid-routing.module';
 import { DemoGridComponent } from './grid.component';
 import { GridService } from './services/GridService';

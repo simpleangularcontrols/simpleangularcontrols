@@ -6,7 +6,7 @@ import {
   JNetworkBootstrap4UploadModule,
   JNetworkBootstrap4ButtonModule,
   JNetworkBootstrap4ValidationSummaryModule,
-} from '@jnetwork/jngcontrols-bootstrap4';
+} from '@jnetwork/sac-bootstrap4';
 import { UploaderRoutingModule } from './uploader-routing.module';
 import { DemoUploaderComponent } from './uploader.component';
 @NgModule({

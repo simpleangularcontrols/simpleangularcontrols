@@ -1,6 +1,6 @@
 import { Component, Host, forwardRef, Injector } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
-import { NgRadiobuttonsCommon } from '@jnetwork/jngcontrols-common';
+import { NgRadiobuttonsCommon } from '@jnetwork/sac-common';
 import { NgFormularDirective } from '../form/form';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
-import { NgGridCommon, NgGridButtonCommon } from '@jnetwork/jngcontrols-common';
+import { NgGridCommon, NgGridButtonCommon } from '@jnetwork/sac-common';
 
 /**
  * Grid Action Button

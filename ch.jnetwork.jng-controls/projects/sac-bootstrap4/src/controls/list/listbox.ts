@@ -17,7 +17,7 @@ import { NgFormularDirective } from '../form/form';
 import {
   NgListboxCommon,
   NgListboxOptionCommon,
-} from '@jnetwork/jngcontrols-common';
+} from '@jnetwork/sac-common';
 
 /**
  * Listbox Komponente

@@ -1,4 +1,4 @@
-import { NgTooltipCommon } from '@jnetwork/jngcontrols-common';
+import { NgTooltipCommon } from '@jnetwork/sac-common';
 import { Component, ChangeDetectorRef, ElementRef } from '@angular/core';
 
 /**

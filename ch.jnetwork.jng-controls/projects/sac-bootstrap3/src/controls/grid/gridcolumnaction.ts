@@ -1,5 +1,5 @@
 import { Input, EventEmitter, Output, TemplateRef, Component, forwardRef, ElementRef } from '@angular/core';
-import { NgGridColumnActionCommon, NgGridColumnBaseCommon } from '@jnetwork/jngcontrols-common';
+import { NgGridColumnActionCommon, NgGridColumnBaseCommon } from '@jnetwork/sac-common';
 import { NgGridComponent } from './grid';
 
 @Component({

@@ -30,15 +30,15 @@ namespace Build.tasks
             RegisterRepo(context);
 
             // Create Packages
-            PackNpm(context, "./dist/jngcontrols-common");
-            PackNpm(context, "./dist/jngcontrols-bootstrap4");
+            PackNpm(context, "./dist/sac-common");
+            PackNpm(context, "./dist/sac-bootstrap4");
 
             // Publish Package
             if (context.Arguments.HasArgument("nopublish"))
                 return;
 
-            PublishNpm(context, "./dist/jngcontrols-common");
-            PublishNpm(context, "./dist/jngcontrols-bootstrap4");
+            PublishNpm(context, "./dist/sac-common");
+            PublishNpm(context, "./dist/sac-bootstrap4");
         }
 
         private void PackNpm(BuildContext context, string distFolder)
@@ -68,8 +68,8 @@ namespace Build.tasks
 
         private void SetPackageVersions(BuildContext context)
         {
-            FilePath commonPackage = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath()).CombineWithFilePath(new FilePath("./dist/jngcontrols-common/package.json"));
-            FilePath boostrap4Package = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath()).CombineWithFilePath(new FilePath("./dist/jngcontrols-bootstrap4/package.json"));
+            FilePath commonPackage = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath()).CombineWithFilePath(new FilePath("./dist/sac-common/package.json"));
+            FilePath boostrap4Package = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath()).CombineWithFilePath(new FilePath("./dist/sac-bootstrap4/package.json"));
 
             JObject commonJson = context.ParseJsonFromFile(commonPackage);
             string commonVersion = commonJson["version"].Value<string>();
@@ -84,7 +84,7 @@ namespace Build.tasks
             context.Log.Information($"Common Version is {commonVersion}");
             context.Log.Information($"Bootstrap 4 Version is {bootstrap4Version}");
 
-            boostrap4Json["peerDependencies"]["@jnetwork/jngcontrols-common"] = commonVersion;
+            boostrap4Json["peerDependencies"]["@jnetwork/sac-common"] = commonVersion;
             context.SerializeJsonToPrettyFile<JObject>(boostrap4Package, boostrap4Json);
         }
     }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ServiceConfirm } from '@jnetwork/jngcontrols-bootstrap4';
+import { ServiceConfirm } from '@jnetwork/sac-bootstrap4';
 
 @Component({
   selector: 'app-confirm',

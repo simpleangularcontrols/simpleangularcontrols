@@ -10,7 +10,7 @@ import {
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
-import { NgDateTimeCommon } from '@jnetwork/jngcontrols-common';
+import { NgDateTimeCommon } from '@jnetwork/sac-common';
 import { NgFormularDirective } from '../form/form';
 
 /**

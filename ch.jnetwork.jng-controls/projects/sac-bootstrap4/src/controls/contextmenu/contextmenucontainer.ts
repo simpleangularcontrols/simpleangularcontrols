@@ -1,5 +1,5 @@
 import { Directive, ElementRef, forwardRef } from '@angular/core';
-import { NgContextMenuContrainerCommon } from '@jnetwork/jngcontrols-common';
+import { NgContextMenuContrainerCommon } from '@jnetwork/sac-common';
 
 /**
  * Marker Komponente für Context Menü

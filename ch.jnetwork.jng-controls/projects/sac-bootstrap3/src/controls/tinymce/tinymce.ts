@@ -1,4 +1,4 @@
-import { NgTinyMceCommon } from '@jnetwork/jngcontrols-common';
+import { NgTinyMceCommon } from '@jnetwork/sac-common';
 import { NgFormularDirective } from '../form/form';
 import { Component, forwardRef, Host, Injector, NgZone } from '@angular/core';
 import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/forms';

@@ -4,7 +4,7 @@ import {
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR
 } from '@angular/forms';
-import { NgInputCommon } from '@jnetwork/jngcontrols-common';
+import { NgInputCommon } from '@jnetwork/sac-common';
 import { NgFormularDirective } from '../form/form';
 
 /**

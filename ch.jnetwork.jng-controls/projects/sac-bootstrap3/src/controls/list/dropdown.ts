@@ -1,7 +1,7 @@
 import { Component, forwardRef, Renderer2, ElementRef, Host, Optional, Directive, Injector } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
 import { NgFormularDirective } from '../form/form';
-import { NgDropdownCommon, NgDropdownOptionCommon } from '@jnetwork/jngcontrols-common';
+import { NgDropdownCommon, NgDropdownOptionCommon } from '@jnetwork/sac-common';
 
 @Component({
   selector: 'sac-dropdown',

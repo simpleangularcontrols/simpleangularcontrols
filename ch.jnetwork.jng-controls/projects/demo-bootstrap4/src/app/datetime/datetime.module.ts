@@ -6,7 +6,7 @@ import {
   JNetworkBootstrap4DateTimeModule,
   JNetworkBootstrap4ButtonModule,
   JNetworkBootstrap4ValidationSummaryModule,
-} from '@jnetwork/jngcontrols-bootstrap4';
+} from '@jnetwork/sac-bootstrap4';
 import { DatetimeRoutingModule } from './datetime-routing.module';
 import { DemoDatetimeComponent } from './datetime.component';
 @NgModule({

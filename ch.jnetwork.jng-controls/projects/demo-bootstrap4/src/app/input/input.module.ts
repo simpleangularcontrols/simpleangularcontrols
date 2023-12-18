@@ -6,7 +6,7 @@ import {
   JNetworkBootstrap4InputModule,
   JNetworkBootstrap4ButtonModule,
   JNetworkBootstrap4ValidationSummaryModule,
-} from '@jnetwork/jngcontrols-bootstrap4';
+} from '@jnetwork/sac-bootstrap4';
 import { InputRoutingModule } from './input-routing.module';
 import { DemoInputComponent } from './input.component';
 @NgModule({

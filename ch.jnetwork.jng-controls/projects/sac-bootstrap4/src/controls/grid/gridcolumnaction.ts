@@ -2,7 +2,7 @@ import { Component, ElementRef, forwardRef } from '@angular/core';
 import {
   NgGridColumnActionCommon,
   NgGridColumnBaseCommon,
-} from '@jnetwork/jngcontrols-common';
+} from '@jnetwork/sac-common';
 import { NgGridComponent } from './grid';
 
 /**

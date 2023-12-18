@@ -10,7 +10,7 @@ import {
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
-import { NgDateCommon } from '@jnetwork/jngcontrols-common';
+import { NgDateCommon } from '@jnetwork/sac-common';
 // Import Moment.JS
 import * as moment_ from 'moment';
 import { NgFormularDirective } from '../form/form';

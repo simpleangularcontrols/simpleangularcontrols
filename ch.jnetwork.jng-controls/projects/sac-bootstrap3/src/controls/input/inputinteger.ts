@@ -1,7 +1,7 @@
 import { Component, Host, forwardRef, Injector } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
 import { NgFormularDirective } from '../form/form';
-import { NgInputIntegerCommon } from '@jnetwork/jngcontrols-common';
+import { NgInputIntegerCommon } from '@jnetwork/sac-common';
 
 @Component({
   selector: 'sac-inputinteger',

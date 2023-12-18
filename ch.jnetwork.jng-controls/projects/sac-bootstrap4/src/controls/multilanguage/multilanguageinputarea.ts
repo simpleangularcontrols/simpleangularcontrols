@@ -7,7 +7,7 @@ import {
 import {
   IconType,
   NgMultilanguageInputAreaCommon,
-} from '@jnetwork/jngcontrols-common';
+} from '@jnetwork/sac-common';
 import { NgFormularDirective } from '../form/form';
 
 /**

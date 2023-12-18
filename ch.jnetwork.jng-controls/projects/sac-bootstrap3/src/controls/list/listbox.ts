@@ -3,7 +3,7 @@ import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/for
 // import { NgBaseSelectControl } from '../../common/baseselectcontrol';
 import { NgFormularDirective } from '../form/form';
 // import { Validation } from '../../validation';
-import { NgListboxCommon } from '@jnetwork/jngcontrols-common';
+import { NgListboxCommon } from '@jnetwork/sac-common';
 
 
 @Component({

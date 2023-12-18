@@ -1,4 +1,4 @@
-import { SortOrder } from '@jnetwork/jngcontrols-common';
+import { SortOrder } from '@jnetwork/sac-common';
 
 export class GridRequestDto {
   public NewPageIndex: number;

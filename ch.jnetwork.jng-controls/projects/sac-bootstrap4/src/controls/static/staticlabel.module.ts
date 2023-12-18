@@ -10,4 +10,4 @@ import { NgStaticFormContainerComponent } from './formcontainer';
   ],
   exports: [NgStaticLabelComponent, NgStaticFormContainerComponent]
 })
-export class JNetworkBootstrap4StaticLabelModule { }
+export class SACBootstrap4StaticLabelModule { }

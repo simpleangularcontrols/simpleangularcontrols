@@ -9,4 +9,4 @@ import { CommonModule } from '@angular/common';
   ],
   exports: [NgValidationSummaryComponent]
 })
-export class JNetworkBootstrap3ValidationSummaryModule { }
+export class SACBootstrap3ValidationSummaryModule { }

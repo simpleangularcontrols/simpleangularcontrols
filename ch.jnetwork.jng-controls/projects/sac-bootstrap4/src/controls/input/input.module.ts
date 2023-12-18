@@ -17,4 +17,4 @@ import { NgInputSearchComponent } from './inputsearch';
   ],
   exports: [NgInputComponent, NgInputAreaComponent, NgInputCurrencyComponent, NgInputDecimalComponent, NgInputEmailComponent, NgInputIntegerComponent, NgInputPasswordComponent, NgInputSearchComponent]
 })
-export class JNetworkBootstrap4InputModule { }
+export class SACBootstrap4InputModule { }

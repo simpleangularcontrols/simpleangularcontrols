@@ -16,5 +16,5 @@ import { NgPagingComponent } from './paging';
   ],
   exports: [NgGridComponent, NgGridColumnComponent, NgGridColumnActionComponent, NgPagingComponent, NgGridButtonComponent, NgGridImageComponent]
 })
-export class JNetworkBootstrap4GridModule { }
+export class SACBootstrap4GridModule { }
 

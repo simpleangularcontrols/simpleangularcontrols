@@ -14,4 +14,4 @@ import { ProvideParentNgFormularDirective } from './ngformularinherit.directive'
     NgFormularDirective, ProvideParentNgFormularDirective
   ]
 })
-export class JNetworkBootstrap4FormModule { }
+export class SACBootstrap4FormModule { }

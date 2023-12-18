@@ -9,4 +9,4 @@ import { NgDialogComponent } from './dialog';
   ],
   exports: [NgDialogComponent]
 })
-export class JNetworkBootstrap4DialogModule { }
+export class SACBootstrap4DialogModule { }

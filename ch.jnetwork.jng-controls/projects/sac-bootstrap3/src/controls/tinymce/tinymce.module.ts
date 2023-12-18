@@ -9,4 +9,4 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule, EditorModule],
   exports: [NgTinyMceComponent],
 })
-export class JNetworkBootstrap3TinyMceModule {}
+export class SACBootstrap3TinyMceModule {}

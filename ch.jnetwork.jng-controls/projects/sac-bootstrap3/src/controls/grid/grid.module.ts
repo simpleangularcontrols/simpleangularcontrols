@@ -15,5 +15,5 @@ import { NgGridImageComponent } from './gridimage';
   ],
   exports: [NgGridComponent, NgGridColumnComponent, NgGridColumnActionComponent, NgPagingComponent, NgGridButtonComponent, NgGridImageComponent]
 })
-export class JNetworkBootstrap3GridModule { }
+export class SACBootstrap3GridModule { }
 

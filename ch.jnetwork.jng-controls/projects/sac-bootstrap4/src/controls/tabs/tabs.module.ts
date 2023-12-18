@@ -10,4 +10,4 @@ import { NgTabItemComponent } from './tabitem';
   ],
   exports: [NgTabComponent, NgTabItemComponent]
 })
-export class JNetworkBootstrap4TabsModule { }
+export class SACBootstrap4TabsModule { }

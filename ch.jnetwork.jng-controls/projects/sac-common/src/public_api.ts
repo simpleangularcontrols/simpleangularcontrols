@@ -1,5 +1,5 @@
 /*
- * Public API Surface of jNetwork-controls-common
+ * Public API Surface of sac-controls-common
  */
 export { NgButtonCommon } from './controls/buttons/button';
 export { NgDialogCommon } from './controls/dialog/dialog';

@@ -5,7 +5,7 @@ export * from './components/browser/browser.module';
 export * from './controls/buttons/button.module';
 export * from './controls/checkbox/checkbox.module';
 export {
-  JNetworkBootstrap4ConfirmModule,
+  SACBootstrap4ConfirmModule,
   ServiceConfirm
 } from './controls/confirm/confirm.module';
 export * from './controls/contextmenu/contextmenu.module';

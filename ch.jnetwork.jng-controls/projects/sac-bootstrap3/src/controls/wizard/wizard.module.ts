@@ -10,4 +10,4 @@ import { NgWizardItemComponent } from './wizarditem';
   ],
   exports: [NgWizardComponent, NgWizardItemComponent]
 })
-export class JNetworkBootstrap3WizardModule { }
+export class SACBootstrap3WizardModule { }

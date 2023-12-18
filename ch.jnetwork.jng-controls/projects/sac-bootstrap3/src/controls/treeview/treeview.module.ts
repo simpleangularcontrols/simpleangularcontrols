@@ -11,4 +11,4 @@ import { NgTreeItemActionComponent } from './ngtreeitemaction';
   ],
   exports: [NgTreeViewComponent, NgTreeViewChildComponent, NgTreeItemActionComponent]
 })
-export class JNetworkBootstrap3TtreeviewModule { }
+export class SACBootstrap3TtreeviewModule { }

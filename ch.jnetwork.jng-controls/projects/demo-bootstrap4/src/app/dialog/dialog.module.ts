@@ -2,10 +2,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  JNetworkBootstrap4ButtonModule,
-  JNetworkBootstrap4DialogModule,
-  JNetworkBootstrap4FormModule,
-  JNetworkBootstrap4ValidationSummaryModule
+  SACBootstrap4ButtonModule,
+  SACBootstrap4DialogModule,
+  SACBootstrap4FormModule,
+  SACBootstrap4ValidationSummaryModule
 } from '@jnetwork/sac-bootstrap4';
 import { DialogRoutingModule } from './dialog-routing.module';
 import { DemoDialogComponent } from './dialog.component';
@@ -15,11 +15,11 @@ import { DemoDialogComponent } from './dialog.component';
     CommonModule,
     FormsModule,
     DialogRoutingModule,
-    JNetworkBootstrap4FormModule,
-    JNetworkBootstrap4DialogModule,
-    JNetworkBootstrap4ValidationSummaryModule,
-    JNetworkBootstrap4ButtonModule,
-    JNetworkBootstrap4DialogModule,
+    SACBootstrap4FormModule,
+    SACBootstrap4DialogModule,
+    SACBootstrap4ValidationSummaryModule,
+    SACBootstrap4ButtonModule,
+    SACBootstrap4DialogModule,
   ],
 })
 export class DialogModule {}

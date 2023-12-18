@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  JNetworkBootstrap4FormModule,
-  JNetworkBootstrap4ContextmenuModule,
+  SACBootstrap4FormModule,
+  SACBootstrap4ContextmenuModule,
 } from '@jnetwork/sac-bootstrap4';
 import { ContextmenuRoutingModule } from './contextmenu-routing.module';
 import { DemoContextmenuComponent } from './contextmenu.component';
@@ -13,8 +13,8 @@ import { DemoContextmenuComponent } from './contextmenu.component';
     CommonModule,
     FormsModule,
     ContextmenuRoutingModule,
-    JNetworkBootstrap4FormModule,
-    JNetworkBootstrap4ContextmenuModule,
+    SACBootstrap4FormModule,
+    SACBootstrap4ContextmenuModule,
   ],
 })
 export class ContextmenuModule {}

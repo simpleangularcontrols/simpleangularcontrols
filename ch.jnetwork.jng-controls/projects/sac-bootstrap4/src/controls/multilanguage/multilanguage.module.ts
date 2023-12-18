@@ -11,4 +11,4 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   exports: [NgMultilanguageInputComponent, NgMultilanguageInputAreaComponent]
 })
-export class JNetworkBootstrap4MultilanguageModule { }
+export class SACBootstrap4MultilanguageModule { }

@@ -2,8 +2,8 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ServiceConfirm } from './confirm.service';
 import { NgConfirmComponent } from './confirm';
-import { JNetworkBootstrap3DialogModule } from '../dialog/dialog.module';
-import { JNetworkBootstrap3ButtonModule } from '../buttons/button.module';
+import { SACBootstrap3DialogModule } from '../dialog/dialog.module';
+import { SACBootstrap3ButtonModule } from '../buttons/button.module';
 
 /**
  *  Module für Confirm Messages
@@ -13,13 +13,13 @@ import { JNetworkBootstrap3ButtonModule } from '../buttons/button.module';
  */
 @NgModule({
     declarations: [NgConfirmComponent],
-    imports: [CommonModule, JNetworkBootstrap3DialogModule, JNetworkBootstrap3ButtonModule],
+    imports: [CommonModule, SACBootstrap3DialogModule, SACBootstrap3ButtonModule],
     exports: [NgConfirmComponent]
 })
-export class JNetworkBootstrap3ConfirmModule {
-  static forRoot(): ModuleWithProviders<JNetworkBootstrap3ConfirmModule> {
+export class SACBootstrap3ConfirmModule {
+  static forRoot(): ModuleWithProviders<SACBootstrap3ConfirmModule> {
     return {
-      ngModule: JNetworkBootstrap3ConfirmModule,
+      ngModule: SACBootstrap3ConfirmModule,
       providers: [ServiceConfirm]
     };
   }

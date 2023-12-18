@@ -21,4 +21,4 @@ import { NgUploadMultipleComponent } from './uploadmultiple';
     NgDropzoneMultipleComponent,
   ],
 })
-export class JNetworkBootstrap4UploadModule {}
+export class SACBootstrap4UploadModule {}

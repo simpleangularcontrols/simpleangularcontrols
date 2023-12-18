@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { JNetworkBootstrap3TooltipModule } from '../tooltip/tooltip.module';
+import { SACBootstrap3TooltipModule } from '../tooltip/tooltip.module';
 import { NgInputComponent } from './input';
 import { NgInputAreaComponent } from './inputarea';
 import { NgInputCurrencyComponent } from './inputcurrency';
@@ -15,8 +15,8 @@ import { NgInputSearchComponent } from './inputsearch';
 @NgModule({
   declarations: [NgInputComponent, NgInputAreaComponent, NgInputCurrencyComponent, NgInputDecimalComponent, NgInputEmailComponent, NgInputIntegerComponent, NgInputPasswordComponent, NgInputSearchComponent],
   imports: [
-    CommonModule, CommonModule, FormsModule, JNetworkBootstrap3TooltipModule
+    CommonModule, CommonModule, FormsModule, SACBootstrap3TooltipModule
   ],
   exports: [NgInputComponent, NgInputAreaComponent, NgInputCurrencyComponent, NgInputDecimalComponent, NgInputEmailComponent, NgInputIntegerComponent, NgInputPasswordComponent, NgInputSearchComponent]
 })
-export class JNetworkBootstrap3InputModule { }
+export class SACBootstrap3InputModule { }

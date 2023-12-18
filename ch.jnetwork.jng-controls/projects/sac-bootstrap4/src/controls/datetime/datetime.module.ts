@@ -13,4 +13,4 @@ import { IMaskModule } from 'angular-imask';
   ],
   exports: [NgDateComponent, NgDateTimeComponent, NgTimeComponent, NgDateSelectorComponent]
 })
-export class JNetworkBootstrap4DateTimeModule { }
+export class SACBootstrap4DateTimeModule { }

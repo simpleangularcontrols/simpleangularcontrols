@@ -1,5 +1,5 @@
 /*
- * Public API Surface of jNetwork-controls-bootstrap3
+ * Public API Surface of sac-bootstrap3
  */
 
 export * from './controls/buttons/button.module';
@@ -15,7 +15,7 @@ export * from './controls/static/staticlabel.module';
 export * from './controls/wizard/wizard.module';
 export * from './controls/tooltip/tooltip.module';
 export * from './controls/upload/upload.module';
-export { JNetworkBootstrap3ConfirmModule, ServiceConfirm } from './controls/confirm/confirm.module';
+export { SACBootstrap3ConfirmModule, ServiceConfirm } from './controls/confirm/confirm.module';
 
 // Form Module and Classes
 export * from './controls/form/form.module';

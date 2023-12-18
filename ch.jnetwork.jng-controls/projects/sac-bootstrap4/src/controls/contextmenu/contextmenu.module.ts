@@ -22,4 +22,4 @@ import { NgContextmenuContainerDirective } from './contextmenucontainer';
     NgContextmenuAnchorDirective,
   ],
 })
-export class JNetworkBootstrap4ContextmenuModule {}
+export class SACBootstrap4ContextmenuModule {}

@@ -2,15 +2,15 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  JNetworkBootstrap4BrowserModule,
-  JNetworkBootstrap4ButtonModule,
-  JNetworkBootstrap4DialogModule,
-  JNetworkBootstrap4FormModule,
-  JNetworkBootstrap4TinyMceModule,
-  JNetworkBootstrap4ValidationSummaryModule,
+  SACBootstrap4BrowserModule,
+  SACBootstrap4ButtonModule,
+  SACBootstrap4DialogModule,
+  SACBootstrap4FormModule,
+  SACBootstrap4TinyMceModule,
+  SACBootstrap4ValidationSummaryModule,
 } from '@jnetwork/sac-bootstrap4';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
-import { JNetworkBootstrap4TinyMceModuleNgFactory } from 'dist/sac-bootstrap4/controls/tinymce/tinymce.module.ngfactory';
+import { SACBootstrap4TinyMceModuleNgFactory } from 'dist/sac-bootstrap4/controls/tinymce/tinymce.module.ngfactory';
 import { RichtextRoutingModule } from './richtext-routing.module';
 import { DemoRichtextComponent } from './richtext.component';
 @NgModule({
@@ -19,12 +19,12 @@ import { DemoRichtextComponent } from './richtext.component';
     CommonModule,
     FormsModule,
     RichtextRoutingModule,
-    JNetworkBootstrap4FormModule,
-    JNetworkBootstrap4ValidationSummaryModule,
-    JNetworkBootstrap4DialogModule,
-    JNetworkBootstrap4ButtonModule,
-    JNetworkBootstrap4BrowserModule,
-    JNetworkBootstrap4TinyMceModule,
+    SACBootstrap4FormModule,
+    SACBootstrap4ValidationSummaryModule,
+    SACBootstrap4DialogModule,
+    SACBootstrap4ButtonModule,
+    SACBootstrap4BrowserModule,
+    SACBootstrap4TinyMceModule,
     EditorModule,
   ],
   providers: [

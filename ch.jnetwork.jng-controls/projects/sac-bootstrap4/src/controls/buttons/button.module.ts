@@ -9,4 +9,4 @@ import { CommonModule } from '@angular/common';
   ],
   exports: [NgButtonComponent]
 })
-export class JNetworkBootstrap4ButtonModule { }
+export class SACBootstrap4ButtonModule { }

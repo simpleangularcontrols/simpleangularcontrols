@@ -9,4 +9,4 @@ import { NgTooltipComponent } from './tooltip';
   ],
   exports: [NgTooltipComponent]
 })
-export class JNetworkBootstrap3TooltipModule { }
+export class SACBootstrap3TooltipModule { }

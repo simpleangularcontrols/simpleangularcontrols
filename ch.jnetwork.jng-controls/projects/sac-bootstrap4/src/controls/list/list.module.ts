@@ -7,4 +7,4 @@ import { NgListboxComponent, NgListboxOptionDirective } from './listbox';
   imports: [CommonModule],
   exports: [NgListboxComponent, NgListboxOptionDirective],
 })
-export class JNetworkBootstrap4ListModule {}
+export class SACBootstrap4ListModule {}

@@ -2,9 +2,9 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  JNetworkBootstrap4TabsModule,
-  JNetworkBootstrap4FormModule,
-  JNetworkBootstrap4ValidationSummaryModule,
+  SACBootstrap4TabsModule,
+  SACBootstrap4FormModule,
+  SACBootstrap4ValidationSummaryModule,
 } from '@jnetwork/sac-bootstrap4';
 import { TabsRoutingModule } from './tabs-routing.module';
 import { DemoTabsComponent } from './tabs.component';
@@ -14,10 +14,10 @@ import { DemoTabsComponent } from './tabs.component';
     CommonModule,
     FormsModule,
     TabsRoutingModule,
-    JNetworkBootstrap4FormModule,
-    JNetworkBootstrap4TabsModule,
-    JNetworkBootstrap4ValidationSummaryModule,
-    JNetworkBootstrap4TabsModule,
+    SACBootstrap4FormModule,
+    SACBootstrap4TabsModule,
+    SACBootstrap4ValidationSummaryModule,
+    SACBootstrap4TabsModule,
   ],
 })
 export class TabsModule {}

@@ -11,4 +11,4 @@ import { FormsModule } from '@angular/forms';
   ],
   exports: [NgUploadComponent, NgUploadMultipleComponent]
 })
-export class JNetworkBootstrap3UploadModule { }
+export class SACBootstrap3UploadModule { }

@@ -13,4 +13,4 @@ import { NgDropdownComponent, NgDropdownOptionDirective } from './dropdown';
     NgDropdownOptionDirective,
   ],
 })
-export class JNetworkBootstrap4DropdownModule {}
+export class SACBootstrap4DropdownModule {}

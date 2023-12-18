@@ -12,8 +12,66 @@
         <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -38,21 +96,27 @@
 
 
 <ol class="breadcrumb">
-  <li>Directives</li>
-  <li >NgListboxOptionCommon</li>
+  <li class="breadcrumb-item">Directives</li>
+  <li class="breadcrumb-item" >NgListboxOptionCommon</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -74,12 +138,12 @@
                 <h3>Implements</h3>
             </p>
             <p class="comment">
-                            <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+                        <code>OnDestroy</code>
             </p>
 
 
 
-            <section>
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -111,7 +175,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#ngValue" >ngValue</a>
+                                <a href="#ngvalue" >ngvalue</a>
                             </li>
                             <li>
                                 <a href="#value" >value</a>
@@ -135,7 +199,7 @@
                                     <a href="#value" >value</a>
                                 </li>
                                 <li>
-                                    <a href="#ngValue" >ngValue</a>
+                                    <a href="#ngvalue" >ngvalue</a>
                                 </li>
                             </ul>
                         </td>
@@ -144,13 +208,13 @@
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-constructor">
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(_element: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, _renderer: <a href="https://angular.io/api/core/Renderer2" target="_blank">Renderer2</a>, _listbox: <a href="../directives/NgListboxCommon.html" target="_self">NgListboxCommon</a>)</code>
+<code>constructor(_element: ElementRef, _renderer: Renderer2, _listbox: <a href="../directives/NgListboxCommon.html" target="_self">NgListboxCommon</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -179,7 +243,7 @@
                                                         <td>_element</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                                                                    <code>ElementRef</code>
                                                         </td>
                                                   
                                                     <td>
@@ -195,7 +259,7 @@
                                                         <td>_renderer</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://angular.io/api/core/Renderer2" target="_blank" >Renderer2</a></code>
+                                                                    <code>Renderer2</code>
                                                         </td>
                                                   
                                                     <td>
@@ -230,14 +294,14 @@
         </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-inputs">
     <h3 id="inputs">Inputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="ngValue"></a>
-                        <b>ngValue</b>
+                        <a name="ngvalue"></a>
+                        <b>ngvalue</b>
                     </td>
                 </tr>
                 <tr>
@@ -290,7 +354,7 @@
 
 
 
-            <section>
+            <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -313,60 +377,58 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/list/listbox.ts:76</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/list/listbox.ts:76</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Methode ergibt den Status der Elemente, die selektiert wurden</p>
+                        <div class="io-description"><p>Methode ergibt den Status der Elemente, die selektiert wurden</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>selected</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selected</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>Element ist selektiert</p>
+                                            <td>
+                                                    <p>Element ist selektiert</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -389,30 +451,30 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/list/listbox.ts:66</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="66"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/list/listbox.ts:66</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>OnDestroy Event</p>
+                        <div class="io-description"><p>OnDestroy Event</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-accessors">
     <h3 id="accessors">
         Accessors
     </h3>
@@ -491,15 +553,15 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="ngValue"></a>
-                        <span class="name"><b>ngValue</b><a href="#ngValue"><span class="icon ion-ios-link"></span></a></span>
+                        <a name="ngvalue"></a>
+                        <span class="name"><b>ngvalue</b><a href="#ngvalue"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
 
 
                 <tr>
                     <td class="col-md-4">
-                        <span class="accessor"><b>set</b><code>ngValue(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code></span>
+                        <span class="accessor"><b>set</b><code>ngvalue(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code></span>
                     </td>
                 </tr>
                             <tr>
@@ -553,7 +615,7 @@
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
   Directive,
   ElementRef,
@@ -596,7 +658,7 @@ export class NgListboxOptionCommon implements OnDestroy {
   /**
    * Definiert den Wert der Listbox
    */
-  @Input(&#x27;value&#x27;)
+  @Input()
   set value(value: any) {
     if (this._listbox) {
       this._value &#x3D; value;
@@ -609,8 +671,8 @@ export class NgListboxOptionCommon implements OnDestroy {
   /**
    * NgValue des Controls. Wird für die Mehrfachauswahl benötigt
    */
-  @Input(&#x27;ngValue&#x27;)
-  set ngValue(value: any) {
+  @Input()
+  set ngvalue(value: any) {
     if (this._listbox) {
       this._value &#x3D; value;
     }
@@ -679,18 +741,18 @@ export class NgListboxCommon extends NgBaseSelectControl&lt;Array&lt;string&gt;&
   /**
    * Anzahl der Zeilen
    */
-  @Input(&#x27;rowsize&#x27;) _rowsize: number &#x3D; 5;
+  @Input() rowsize: number &#x3D; 5;
 
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input(&#x27;validationmessagerequired&#x27;) _validationMessageRequired: string &#x3D;
+  @Input() validationmessagerequired: string &#x3D;
     &#x27;VALIDATION_ERROR_REQUIRED&#x27;;
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input(&#x27;validationmessagesummaryrequired&#x27;)
-  _validationMessageRequiredSummary: string &#x3D;
+  @Input()
+  validationmessagesummaryrequired: string &#x3D;
     &#x27;VALIDATION_ERROR_SUMMARY_REQUIRED&#x27;;
 
   /**
@@ -746,12 +808,12 @@ export class NgListboxCommon extends NgBaseSelectControl&lt;Array&lt;string&gt;&
   validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null &#x3D; null;
 
-    if (this._isrequired) {
+    if (this.isrequired) {
       error &#x3D; Validation.required(
         c,
-        this._label,
-        this._validationMessageRequired,
-        this._validationMessageRequiredSummary
+        this.label,
+        this.validationmessagerequired,
+        this.validationmessagesummaryrequired
       );
     }
 

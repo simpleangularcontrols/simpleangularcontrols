@@ -12,8 +12,66 @@
         <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -38,21 +96,27 @@
 
 
 <ol class="breadcrumb">
-  <li>Directives</li>
-  <li >NgDialogCommon</li>
+  <li class="breadcrumb-item">Directives</li>
+  <li class="breadcrumb-item" >NgDialogCommon</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -74,12 +138,12 @@
                 <h3>Implements</h3>
             </p>
             <p class="comment">
-                            <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+                        <code>OnDestroy</code>
             </p>
 
 
 
-            <section>
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -123,9 +187,11 @@
                                 <a href="#ngOnDestroy" >ngOnDestroy</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#onClick" >onClick</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#onKeydownHandler" >onKeydownHandler</a>
                             </li>
                             <li>
@@ -221,13 +287,10 @@
                                     <a href="#dialogElementSetter" >dialogElementSetter</a>
                                 </li>
                                 <li>
-                                    <a href="#defineSize" >defineSize</a>
+                                    <a href="#size" >size</a>
                                 </li>
                                 <li>
-                                    <a href="#visible" >visible</a>
-                                </li>
-                                <li>
-                                    <a href="#isVisible" >isVisible</a>
+                                    <a href="#isvisible" >isvisible</a>
                                 </li>
                                 <li>
                                     <a href="#ChangeDetector" >ChangeDetector</a>
@@ -239,13 +302,13 @@
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-constructor">
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(cdRef: <a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank">ChangeDetectorRef</a>)</code>
+<code>constructor(cdRef: ChangeDetectorRef)</code>
                     </td>
                 </tr>
                         <tr>
@@ -274,7 +337,7 @@ Inject des Formulars</p>
                                                         <td>cdRef</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank" >ChangeDetectorRef</a></code>
+                                                                    <code>ChangeDetectorRef</code>
                                                         </td>
                                                   
                                                     <td>
@@ -291,7 +354,7 @@ Inject des Formulars</p>
         </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-inputs">
     <h3 id="inputs">Inputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -575,7 +638,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
             </tbody>
         </table>
 </section>
-            <section>
+            <section data-compodoc="block-outputs">
     <h3 id="outputs">Outputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -606,7 +669,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
         </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-host-listener">
     <h3>HostListeners</h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -682,7 +745,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
         </tbody>
     </table>
 </section>
-            <section>
+            <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -693,7 +756,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                 <td class="col-md-4">
                     <a name="hide"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                            <span class="modifier">Public</span>
                         <span ><b>hide</b></span>
                         <a href="#hide"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -701,29 +764,29 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>hide()</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="210"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:210</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="210"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:210</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Die Methode setz den Wert des _show property auf false</p>
+                        <div class="io-description"><p>Die Methode setz den Wert des _show property auf false</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -746,23 +809,23 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="142"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:142</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="142"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:142</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Die Funktion prüft ob es ein default css classe für Size des Dialog durch den size Input gesetzt wurde.</p>
+                        <div class="io-description"><p>Die Funktion prüft ob es ein default css classe für Size des Dialog durch den size Input gesetzt wurde.</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -785,23 +848,23 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="181"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:181</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="181"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:181</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Methode wenn Componente entfernt wird</p>
+                        <div class="io-description"><p>Methode wenn Componente entfernt wird</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -812,6 +875,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                 <td class="col-md-4">
                     <a name="onClick"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>onClick</b></span>
                         <a href="#onClick"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -819,7 +883,8 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>onClick(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onClick(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                 </td>
             </tr>
 
@@ -831,55 +896,53 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                 </td>
             </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="235"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:235</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="235"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:235</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Allow Close by Click outside Dialog</p>
+                        <div class="io-description"><p>Allow Close by Click outside Dialog</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>event</td>
-                                    <td>
-                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -890,6 +953,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                 <td class="col-md-4">
                     <a name="onKeydownHandler"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>onKeydownHandler</b></span>
                         <a href="#onKeydownHandler"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -897,7 +961,8 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>onKeydownHandler(event: KeyboardEvent)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onKeydownHandler(event: KeyboardEvent)</code>
                 </td>
             </tr>
 
@@ -909,55 +974,53 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                 </td>
             </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="251"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:251</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="251"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:251</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Allow Close by ESC</p>
+                        <div class="io-description"><p>Allow Close by ESC</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>event</td>
-                                    <td>
-                                            <code>KeyboardEvent</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>KeyboardEvent</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -968,7 +1031,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                 <td class="col-md-4">
                     <a name="show"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                            <span class="modifier">Public</span>
                         <span ><b>show</b></span>
                         <a href="#show"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -976,35 +1039,35 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>show()</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="193"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:193</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="193"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:193</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Die Methode setz den Wert des _show property auf true</p>
+                        <div class="io-description"><p>Die Methode setz den Wert des _show property auf true</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
     </table>
 </section>
-            <section>
+            <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
@@ -1097,7 +1160,7 @@ Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                        <i>Type : </i>    <code>ElementRef</code>
 
                     </td>
                 </tr>
@@ -1118,7 +1181,7 @@ Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-accessors">
     <h3 id="accessors">
         Accessors
     </h3>
@@ -1134,7 +1197,7 @@ Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#
 
                 <tr>
                     <td class="col-md-4">
-                        <span class="accessor"><b>set</b><code>dialogElementSetter(content: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>)</code></span>
+                        <span class="accessor"><b>set</b><code>dialogElementSetter(content: ElementRef)</code></span>
                     </td>
                 </tr>
                             <tr>
@@ -1162,7 +1225,7 @@ Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#
                                                             <td>content</td>
                                                     
                                                             <td>
-                                                                            <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                                                                        <code>ElementRef</code>
                                                             </td>
                                                     
                                                         <td>
@@ -1187,15 +1250,15 @@ Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="defineSize"></a>
-                        <span class="name"><b>defineSize</b><a href="#defineSize"><span class="icon ion-ios-link"></span></a></span>
+                        <a name="size"></a>
+                        <span class="name"><b>size</b><a href="#size"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
 
 
                 <tr>
                     <td class="col-md-4">
-                        <span class="accessor"><b>set</b><code>defineSize(v: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code></span>
+                        <span class="accessor"><b>set</b><code>size(v: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code></span>
                     </td>
                 </tr>
                             <tr>
@@ -1251,15 +1314,36 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="visible"></a>
-                        <span class="name"><b>visible</b><a href="#visible"><span class="icon ion-ios-link"></span></a></span>
+                        <a name="isvisible"></a>
+                        <span class="name"><b>isvisible</b><a href="#isvisible"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>isvisible()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:135</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Getter. Ergibt das boolen Wert des _show property</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <span class="accessor"><b>set</b><code>visible(v: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code></span>
+                        <span class="accessor"><b>set</b><code>isvisible(v: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code></span>
                     </td>
                 </tr>
                             <tr>
@@ -1312,39 +1396,6 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="isVisible"></a>
-                        <span class="name"><b>isVisible</b><a href="#isVisible"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <span class="accessor"><b>get</b><code>isVisible()</code></span>
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">projects/jngcontrols-common/src/controls/dialog/dialog.ts:135</a></div>
-                                </td>
-                            </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-description"><p>Getter. Ergibt das boolen Wert des _show property</p>
-</div>
-
-                                <div class="io-description">
-                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                                </div>
-                        </td>
-                    </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
                         <a name="ChangeDetector"></a>
                         <span class="name"><b>ChangeDetector</b><a href="#ChangeDetector"><span class="icon ion-ios-link"></span></a></span>
                     </td>
@@ -1366,7 +1417,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
 </div>
 
                                 <div class="io-description">
-                                    <b>Returns : </b>        <code><a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank" >ChangeDetectorRef</a></code>
+                                    <b>Returns : </b>    <code>ChangeDetectorRef</code>
 
                                 </div>
                         </td>
@@ -1379,7 +1430,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
   ChangeDetectorRef,
   ElementRef,
@@ -1428,37 +1479,37 @@ export class NgDialogCommon implements OnDestroy {
   /**
    * Input Property. Erhält den Title des Dialog. Default Value: &#x27;Dialog&#x27;.
    */
-  @Input(&#x27;title&#x27;)
-  public _title: string &#x3D; &#x27;Dialog&#x27;;
+  @Input()
+  public title: string &#x3D; &#x27;Dialog&#x27;;
 
   /**
    * Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch ESC geschlossen werden. Default ist true.
    */
-  @Input(&#x27;allowesc&#x27;)
-  public _allowesc: boolean &#x3D; true;
+  @Input()
+  public allowesc: boolean &#x3D; true;
 
   /**
    * Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch click außerhalb des Dialog-Fenster geschlossen werden. Default ist true.
    */
-  @Input(&#x27;backdrop&#x27;)
-  public _backdrop: boolean &#x3D; true;
+  @Input()
+  public backdrop: boolean &#x3D; true;
 
   /**
    * Input Property. Erhält den Namen des Dialog - benutzt für das ID. Default Value: &#x27;&#x27;
    */
-  @Input(&#x27;name&#x27;)
-  public _name: string &#x3D; &#x27;&#x27;;
+  @Input()
+  public name: string &#x3D; &#x27;&#x27;;
 
   /**
    * Steuert ob im Header des Dialogs ein Button angezeigt wird.
    */
-  @Input(&#x27;closebutton&#x27;)
+  @Input()
   public closebutton: boolean &#x3D; true;
 
   /**
    * Input Property. Erhält die Breite des Dialog
    */
-  @Input(&#x27;width&#x27;)
+  @Input()
   public width: string &#x3D; null;
 
   /**
@@ -1473,8 +1524,8 @@ export class NgDialogCommon implements OnDestroy {
    * Die akzeptabel default-size-Klassen sind: &#x27;small&#x27;, &#x27;large&#x27;, &#x27;extralarge&#x27;, &#x27;medium&#x27;, &#x27;&#x27;.
    * Wenn size ist NICHT gesetzt (oder &#x27;medium&#x27; oder &#x27;&#x27;), default ist in medium size: max-width 500px.
    */
-  @Input(&#x27;size&#x27;)
-  set defineSize(v: string) {
+  @Input()
+  set size(v: string) {
     v &#x3D; v.toLowerCase();
     this._size &#x3D; v;
   }
@@ -1482,14 +1533,14 @@ export class NgDialogCommon implements OnDestroy {
   /**
    * Output Emitter. Wird aufgerufen, wenn das Wert des _show property geändert ist - damait das Dialog geöfnet/geschlossen wird.
    */
-  @Output(&#x27;isvisibleChange&#x27;)
-  isVisibleEmitter: EventEmitter&lt;boolean&gt; &#x3D; new EventEmitter&lt;boolean&gt;();
+  @Output()
+  isvisibleChange: EventEmitter&lt;boolean&gt; &#x3D; new EventEmitter&lt;boolean&gt;();
 
   /**
    * Setter. Erhält das boolen Wert des _show property
    */
-  @Input(&#x27;isvisible&#x27;)
-  set visible(v: boolean) {
+  @Input()
+  set isvisible(v: boolean) {
     if (
       v &amp;&amp;
       !this.hasSetBodyTag &amp;&amp;
@@ -1514,7 +1565,7 @@ export class NgDialogCommon implements OnDestroy {
   /**
    * Getter. Ergibt das boolen Wert des _show property
    */
-  get isVisible(): boolean {
+  get isvisible(): boolean {
     return this._show;
   }
 
@@ -1583,7 +1634,7 @@ export class NgDialogCommon implements OnDestroy {
       this.hasSetBodyTag &#x3D; true;
     }
 
-    this.isVisibleEmitter.emit(this._show);
+    this.isvisibleChange.emit(this._show);
   }
 
   /**
@@ -1596,7 +1647,7 @@ export class NgDialogCommon implements OnDestroy {
     }
 
     this._show &#x3D; false;
-    this.isVisibleEmitter.emit(this._show);
+    this.isvisibleChange.emit(this._show);
   }
 
   /**
@@ -1616,7 +1667,7 @@ export class NgDialogCommon implements OnDestroy {
   @HostListener(&#x27;click&#x27;, [&#x27;$event&#x27;])
   onClick(event: any): void {
     if (
-      this._allowesc &#x3D;&#x3D;&#x3D; false ||
+      this.allowesc &#x3D;&#x3D;&#x3D; false ||
       (this.dialogElement !&#x3D;&#x3D; null &amp;&amp;
         this.dialogElement !&#x3D;&#x3D; undefined &amp;&amp;
         event.target !&#x3D;&#x3D; this.dialogElement.nativeElement)
@@ -1633,7 +1684,7 @@ export class NgDialogCommon implements OnDestroy {
   onKeydownHandler(event: KeyboardEvent) {
     const ESCAPE_KEYCODE &#x3D; &#x27;Escape&#x27;;
 
-    if (this._allowesc &#x3D;&#x3D;&#x3D; true &amp;&amp; event.key &#x3D;&#x3D;&#x3D; ESCAPE_KEYCODE) {
+    if (this.allowesc &#x3D;&#x3D;&#x3D; true &amp;&amp; event.key &#x3D;&#x3D;&#x3D; ESCAPE_KEYCODE) {
       this.hide();
     }
   }

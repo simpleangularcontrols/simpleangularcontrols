@@ -28,13 +28,13 @@
 <title>cluster_JNetworkBootstrap4StaticLabelModule_declarations</title>
 <polygon fill="none" stroke="black" points="246,-189.59 246,-241.59 658,-241.59 658,-189.59 246,-189.59"/>
 </g>
-<g id="clust3" class="cluster">
-<title>cluster_JNetworkBootstrap4StaticLabelModule_NgStaticFormContainerComponent_providers</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-176.59 1796,-176.59 1796,-78 16,-78"/>
-</g>
 <g id="clust6" class="cluster">
 <title>cluster_JNetworkBootstrap4StaticLabelModule_exports</title>
 <polygon fill="none" stroke="black" points="111,-319.59 111,-371.59 531,-371.59 531,-319.59 111,-319.59"/>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_JNetworkBootstrap4StaticLabelModule_NgStaticFormContainerComponent_providers</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-176.59 1796,-176.59 1796,-78 16,-78"/>
 </g>
 <!-- NgStaticFormContainerComponent -->
 <g id="node1" class="node">

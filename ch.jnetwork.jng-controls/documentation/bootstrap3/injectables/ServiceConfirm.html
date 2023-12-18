@@ -12,8 +12,66 @@
         <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -39,21 +97,27 @@
 
 
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li >ServiceConfirm</li>
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >ServiceConfirm</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -67,8 +131,8 @@
             </p>
             <p class="comment">
                 <p>Service für Confirm Messages in TypeScript Code</p>
-<div><pre class="line-numbers"><code class="language-html">// Beispiel für ConfirmMessage mit Standard Buttons (Ja / Nein).
-confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;).subscribe(action =&gt; { // Action Code });</code></pre></div><div><pre class="line-numbers"><code class="language-html">// Beispiel für ConfirmMessage mit eigenen Buttons
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">// Beispiel für ConfirmMessage mit Standard Buttons (Ja / Nein).
+confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;).subscribe(action =&gt; { // Action Code });</code></pre></div><b>Example :</b><div><pre class="line-numbers"><code class="language-html">// Beispiel für ConfirmMessage mit eigenen Buttons
 let buttons: NgConfirmButton[] = [];
 buttons.push(new NgConfirmButton(&#39;ActionKey&#39;,&#39;Text Primary&#39;));
 buttons.push(new NgConfirmButton(&#39;ActionKey2&#39;,&#39;Text Button 2&#39;));
@@ -79,11 +143,11 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                 <h3>Extends</h3>
             </p>
             <p class="comment">
-                        <code><a href="../injectables/ServiceConfirm.html" target="_self" >ServiceConfirmCommon</a></code>
+                            <code><a href="../classes/ServiceConfirmCommon.html" target="_self" >ServiceConfirmCommon</a></code>
             </p>
 
 
-            <section>
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -155,13 +219,13 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-constructor">
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(componentFactoryResolver: <a href="https://angular.io/api/core/ComponentFactoryResolver" target="_blank">ComponentFactoryResolver</a>, appRef: <a href="https://angular.io/api/core/ApplicationRef" target="_blank">ApplicationRef</a>, injector: <a href="https://angular.io/api/core/Injector" target="_blank">Injector</a>)</code>
+<code>constructor(componentFactoryResolver: ComponentFactoryResolver, appRef: ApplicationRef, injector: Injector)</code>
                     </td>
                 </tr>
                         <tr>
@@ -190,7 +254,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                                                         <td>componentFactoryResolver</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://angular.io/api/core/ComponentFactoryResolver" target="_blank" >ComponentFactoryResolver</a></code>
+                                                                    <code>ComponentFactoryResolver</code>
                                                         </td>
                                                   
                                                     <td>
@@ -206,7 +270,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                                                         <td>appRef</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://angular.io/api/core/ApplicationRef" target="_blank" >ApplicationRef</a></code>
+                                                                    <code>ApplicationRef</code>
                                                         </td>
                                                   
                                                     <td>
@@ -222,7 +286,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                                                         <td>injector</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://angular.io/api/core/Injector" target="_blank" >Injector</a></code>
+                                                                    <code>Injector</code>
                                                         </td>
                                                   
                                                     <td>
@@ -243,7 +307,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
         </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -254,7 +318,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                 <td class="col-md-4">
                     <a name="ConfigureDialog"></a>
                     <span class="name">
-                        <span class="modifier">Protected</span>
+                            <span class="modifier">Protected</span>
                         <span ><b>ConfigureDialog</b></span>
                         <a href="#ConfigureDialog"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -262,72 +326,70 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>ConfigureDialog(instance: <a href="../components/NgConfirmComponent.html" target="_self">NgConfirmComponent</a>)</code>
                 </td>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/ServiceConfirmCommon.html" target="_self" >ServiceConfirmCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:59</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/ServiceConfirm.html" target="_self" >ServiceConfirmCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/ServiceConfirm.html#source" target="_self" >ServiceConfirmCommon:59</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Konfiguration des Dialogs</p>
+                        <div class="io-description"><p>Konfiguration des Dialogs</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>instance</td>
-                                    <td>
-                                                <code><a href="../components/NgConfirmComponent.html" target="_self" >NgConfirmComponent</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>instance</td>
+                                            <td>
+                                                            <code><a href="../components/NgConfirmComponent.html" target="_self" >NgConfirmComponent</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>Instanz eines NgConfirm Dialogs</p>
+                                            <td>
+                                                    <p>Instanz eines NgConfirm Dialogs</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -338,7 +400,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                 <td class="col-md-4">
                     <a name="ConfirmMessage"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                            <span class="modifier">Public</span>
                         <span ><b>ConfirmMessage</b></span>
                         <a href="#ConfirmMessage"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -346,103 +408,101 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>ConfirmMessage(title: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, buttons: <a href="../classes/NgConfirmButton.html" target="_self">NgConfirmButton[]</a>)</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">projects/jngcontrols-bootstrap3/src/controls/confirm/confirm.service.ts:72</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">projects/jngcontrols-bootstrap3/src/controls/confirm/confirm.service.ts:72</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Confirm Dialog anzeigen</p>
+                        <div class="io-description"><p>Confirm Dialog anzeigen</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Default value</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>title</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>title</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
-                                    <td>
-                                    </td>
+                                            <td>
+                                            </td>
 
-                                    <td>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>message</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>message</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
-                                    <td>
-                                    </td>
+                                            <td>
+                                            </td>
 
-                                    <td>
-                                        <p>Nachricht die angezeigt werden soll.</p>
+                                            <td>
+                                                    <p>Nachricht die angezeigt werden soll.</p>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>buttons</td>
-                                    <td>
-                                                <code><a href="../classes/NgConfirmButton.html" target="_self" >NgConfirmButton[]</a></code>
-                                    </td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>buttons</td>
+                                            <td>
+                                                            <code><a href="../classes/NgConfirmButton.html" target="_self" >NgConfirmButton[]</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
-                                    <td>
-                                        <code>null</code>
-                                    </td>
+                                            <td>
+                                                    <code>null</code>
+                                            </td>
 
-                                    <td>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>EventEmitter&lt;string&gt;</code>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>EventEmitter&lt;string&gt;</code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>EventEmitter mit Key des Buttons, welcher geklickt wurde.</p>
+                        </div>
+                            <div class="io-description">
+                                <p>EventEmitter mit Key des Buttons, welcher geklickt wurde.</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -453,7 +513,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                 <td class="col-md-4">
                     <a name="GetComponentFactory"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                            <span class="modifier">Public</span>
                         <span ><b>GetComponentFactory</b></span>
                         <a href="#GetComponentFactory"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -461,35 +521,35 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>GetComponentFactory()</code>
                 </td>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/ServiceConfirmCommon.html" target="_self" >ServiceConfirmCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:51</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/ServiceConfirm.html" target="_self" >ServiceConfirmCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/ServiceConfirm.html#source" target="_self" >ServiceConfirmCommon:51</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Erzeugen einer Component Factory für einen Dialog</p>
+                        <div class="io-description"><p>Erzeugen einer Component Factory für einen Dialog</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../components/NgConfirmComponent.html" target="_self" >ComponentFactory&lt;NgConfirmComponent&gt;</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../components/NgConfirmComponent.html" target="_self" >ComponentFactory&lt;NgConfirmComponent&gt;</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -500,7 +560,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                 <td class="col-md-4">
                     <a name="CloseDialog"></a>
                     <span class="name">
-                        <span class="modifier">Protected</span>
+                            <span class="modifier">Protected</span>
                         <span ><b>CloseDialog</b></span>
                         <a href="#CloseDialog"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -508,35 +568,35 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>CloseDialog()</code>
                 </td>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/ServiceConfirmCommon.html" target="_self" >ServiceConfirmCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:75</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/ServiceConfirm.html" target="_self" >ServiceConfirmCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/ServiceConfirm.html#source" target="_self" >ServiceConfirmCommon:75</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Blendet den Dialog aus</p>
+                        <div class="io-description"><p>Blendet den Dialog aus</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -547,7 +607,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                 <td class="col-md-4">
                     <a name="Confirm"></a>
                     <span class="name">
-                        <span class="modifier">Protected</span>
+                            <span class="modifier">Protected</span>
                         <span ><b>Confirm</b></span>
                         <a href="#Confirm"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -555,35 +615,35 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>Confirm()</code>
                 </td>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/ServiceConfirmCommon.html" target="_self" >ServiceConfirmCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:83</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/ServiceConfirm.html" target="_self" >ServiceConfirmCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/ServiceConfirm.html#source" target="_self" >ServiceConfirmCommon:83</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Interne Methode für die Implementation des Confirm Dialogs. Steuert die Feedbacks, die Erzeugung und Anzeige des Dialogs</p>
+                        <div class="io-description"><p>Interne Methode für die Implementation des Confirm Dialogs. Steuert die Feedbacks, die Erzeugung und Anzeige des Dialogs</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>EventEmitter&lt;string&gt;</code>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>EventEmitter&lt;string&gt;</code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -594,7 +654,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                 <td class="col-md-4">
                     <a name="CreateInstance"></a>
                     <span class="name">
-                        <span class="modifier">Protected</span>
+                            <span class="modifier">Protected</span>
                         <span ><b>CreateInstance</b></span>
                         <a href="#CreateInstance"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -602,35 +662,35 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>CreateInstance()</code>
                 </td>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/ServiceConfirmCommon.html" target="_self" >ServiceConfirmCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:44</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/ServiceConfirm.html" target="_self" >ServiceConfirmCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/ServiceConfirm.html#source" target="_self" >ServiceConfirmCommon:44</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Erzeugt eine Instanz für den Dialog</p>
+                        <div class="io-description"><p>Erzeugt eine Instanz für den Dialog</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -641,7 +701,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                 <td class="col-md-4">
                     <a name="DestroyInstance"></a>
                     <span class="name">
-                        <span class="modifier">Protected</span>
+                            <span class="modifier">Protected</span>
                         <span ><b>DestroyInstance</b></span>
                         <a href="#DestroyInstance"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -649,35 +709,35 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>DestroyInstance()</code>
                 </td>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/ServiceConfirmCommon.html" target="_self" >ServiceConfirmCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:57</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/ServiceConfirm.html" target="_self" >ServiceConfirmCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/ServiceConfirm.html#source" target="_self" >ServiceConfirmCommon:57</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Entfernt die Instanz des Dialogs</p>
+                        <div class="io-description"><p>Entfernt die Instanz des Dialogs</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -688,7 +748,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                 <td class="col-md-4">
                     <a name="OpenDialog"></a>
                     <span class="name">
-                        <span class="modifier">Protected</span>
+                            <span class="modifier">Protected</span>
                         <span ><b>OpenDialog</b></span>
                         <a href="#OpenDialog"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -696,41 +756,41 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>OpenDialog()</code>
                 </td>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/ServiceConfirmCommon.html" target="_self" >ServiceConfirmCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:66</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/ServiceConfirm.html" target="_self" >ServiceConfirmCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/ServiceConfirm.html#source" target="_self" >ServiceConfirmCommon:66</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Zeigt den Dialog an</p>
+                        <div class="io-description"><p>Zeigt den Dialog an</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/IConfirmComponent.html" target="_self" >IConfirmComponent</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/IConfirmComponent.html" target="_self" >IConfirmComponent</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
     </table>
 </section>
-            <section>
+            <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
@@ -760,13 +820,13 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../injectables/ServiceConfirm.html" target="_self" >ServiceConfirmCommon</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../classes/ServiceConfirmCommon.html" target="_self" >ServiceConfirmCommon</a></code>
 </div>
                             </td>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../injectables/ServiceConfirm.html#source" target="_self" >ServiceConfirmCommon:20</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:20</a></code>
 </div>
                         </td>
                     </tr>
@@ -785,7 +845,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Type, ComponentFactoryResolver, ApplicationRef, Injector, Inject, ComponentFactory } from &#x27;@angular/core&#x27;;
 import { ServiceConfirmCommon, NgConfirmButton, isDefined } from &#x27;@jnetwork/jngcontrols-common&#x27;;
 import { NgConfirmComponent } from &#x27;./confirm&#x27;;

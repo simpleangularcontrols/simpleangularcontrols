@@ -12,8 +12,66 @@
         <link rel="stylesheet" href="./styles/dark.css">
     </head>
     <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="./" class="navbar-brand">Bootstrap 3 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -31,8 +89,8 @@
                <div class="content getting-started">
                    <div class="content-data">
 
-<h1 id="v110">V.1.1.0</h1>
-<h2 id="breaking-changes">Breaking Changes</h2>
+<h1>V.1.1.0</h1>
+<h2>Breaking Changes</h2>
 <ul>
 <li><p>Tag &quot;&lt;ngFormular&gt;&quot; muss durch Tag &quot;&lt;form&gt;&quot; oder Tag &quot;&lt;div ngForm&gt;&lt;/div&gt;&quot; ersetzt werden.
 Grund ist, dass die Kompatibilität zu Reactive Forms nicht gewährleistet wurde und das bei Template Forms
@@ -43,8 +101,8 @@ angepasst werden &#39;#myForm=&quot;NgFormular&quot;&#39;.</p>
 <li><p>Das Property &quot;form&quot; in NgFormular ist neu Private. Auf &quot;form&quot; kann über die Methode &quot;getForm()&quot; zugegriffen werden.</p>
 </li>
 </ul>
-<h1 id="v111">V.1.1.1</h1>
-<h2 id="breaking-changes-1">Breaking Changes</h2>
+<h1>V.1.1.1</h1>
+<h2>Breaking Changes</h2>
 <ul>
 <li>Beim Tag &quot;&lt;ngGridButton&gt;&quot; wurde das Property &quot;iconstyle&quot; in 2 Properties &quot;iconstyle&quot; und &quot;icon&quot; aufgeteilt. Werden die Standard Icons verwendet,
 muss das Property von &quot;inconstyle&quot; auf &quot;icon&quot; umbenannt werden. Werden Custom Icons verwendet, muss das Sprite Set im Property &quot;iconstyle&quot; angegeben werden und

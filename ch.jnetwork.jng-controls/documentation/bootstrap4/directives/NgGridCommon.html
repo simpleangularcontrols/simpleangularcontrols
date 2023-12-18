@@ -12,8 +12,66 @@
         <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -38,21 +96,27 @@
 
 
 <ol class="breadcrumb">
-  <li>Directives</li>
-  <li >NgGridCommon</li>
+  <li class="breadcrumb-item">Directives</li>
+  <li class="breadcrumb-item" >NgGridCommon</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -73,7 +137,7 @@
 
 
 
-            <section>
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -201,10 +265,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#onpaging" >onpaging</a>
+                                <a href="#paging" >paging</a>
                             </li>
                             <li>
-                                <a href="#onsorting" >onsorting</a>
+                                <a href="#sorting" >sorting</a>
                             </li>
                         </ul>
                     </td>
@@ -221,7 +285,7 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#ApplySort" >ApplySort</a>
+                                    <a href="#sortdata" >sortdata</a>
                                 </li>
                             </ul>
                         </td>
@@ -230,13 +294,13 @@
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-constructor">
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(cd: <a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank">ChangeDetectorRef</a>)</code>
+<code>constructor(cd: ChangeDetectorRef)</code>
                     </td>
                 </tr>
                         <tr>
@@ -265,7 +329,7 @@
                                                         <td>cd</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank" >ChangeDetectorRef</a></code>
+                                                                    <code>ChangeDetectorRef</code>
                                                         </td>
                                                   
                                                     <td>
@@ -286,7 +350,7 @@
         </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-inputs">
     <h3 id="inputs">Inputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -639,14 +703,14 @@ Folgende Interpolation Texte sind vorhanden:
             </tbody>
         </table>
 </section>
-            <section>
+            <section data-compodoc="block-outputs">
     <h3 id="outputs">Outputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="onpaging"></a>
-                        <b>onpaging</b>
+                        <a name="paging"></a>
+                        <b>paging</b>
                     </td>
                 </tr>
                 <tr>
@@ -672,8 +736,8 @@ Folgende Interpolation Texte sind vorhanden:
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="onsorting"></a>
-                        <b>onsorting</b>
+                        <a name="sorting"></a>
+                        <b>sorting</b>
                     </td>
                 </tr>
                 <tr>
@@ -698,7 +762,7 @@ Folgende Interpolation Texte sind vorhanden:
 </section>
 
 
-            <section>
+            <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -721,56 +785,54 @@ Folgende Interpolation Texte sind vorhanden:
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="142"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:142</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="142"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:142</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Setzt die neue Seite</p>
+                        <div class="io-description"><p>Setzt die neue Seite</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>newStartIndex</td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>newStartIndex</td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>Neuer Seiten Index (Zero-Based)</p>
+                                            <td>
+                                                    <p>Neuer Seiten Index (Zero-Based)</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -781,7 +843,7 @@ Folgende Interpolation Texte sind vorhanden:
                 <td class="col-md-4">
                     <a name="RegisterColumn"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                            <span class="modifier">Public</span>
                         <span ><b>RegisterColumn</b></span>
                         <a href="#RegisterColumn"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -789,29 +851,29 @@ Folgende Interpolation Texte sind vorhanden:
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>RegisterColumn()</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="149"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:149</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="149"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:149</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Die Methode erhöht die Column-Stücke um eins</p>
+                        <div class="io-description"><p>Die Methode erhöht die Column-Stücke um eins</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -822,7 +884,7 @@ Folgende Interpolation Texte sind vorhanden:
                 <td class="col-md-4">
                     <a name="SortBy"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                            <span class="modifier">Public</span>
                         <span ><b>SortBy</b></span>
                         <a href="#SortBy"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -830,57 +892,55 @@ Folgende Interpolation Texte sind vorhanden:
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>SortBy(command)</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="165"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:165</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="165"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:165</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Die Methode deffiniert das Sortierung Flow</p>
+                        <div class="io-description"><p>Die Methode deffiniert das Sortierung Flow</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>command</td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>command</td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -891,7 +951,7 @@ Folgende Interpolation Texte sind vorhanden:
                 <td class="col-md-4">
                     <a name="UnregisterColumn"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                            <span class="modifier">Public</span>
                         <span ><b>UnregisterColumn</b></span>
                         <a href="#UnregisterColumn"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -899,35 +959,35 @@ Folgende Interpolation Texte sind vorhanden:
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>UnregisterColumn()</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="158"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:158</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="158"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/grid/grid.ts:158</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Die Methode verringert die Column-Stücke um eins</p>
+                        <div class="io-description"><p>Die Methode verringert die Column-Stücke um eins</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
     </table>
 </section>
-            <section>
+            <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
@@ -1195,7 +1255,7 @@ Folgende Interpolation Texte sind vorhanden:
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-accessors">
     <h3 id="accessors">
         Accessors
     </h3>
@@ -1203,15 +1263,15 @@ Folgende Interpolation Texte sind vorhanden:
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="ApplySort"></a>
-                        <span class="name"><b>ApplySort</b><a href="#ApplySort"><span class="icon ion-ios-link"></span></a></span>
+                        <a name="sortdata"></a>
+                        <span class="name"><b>sortdata</b><a href="#sortdata"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
 
 
                 <tr>
                     <td class="col-md-4">
-                        <span class="accessor"><b>set</b><code>ApplySort(sortDescription: <a href="../classes/SortDescriptor.html" target="_self">SortDescriptor</a>)</code></span>
+                        <span class="accessor"><b>set</b><code>sortdata(sortDescription: <a href="../classes/SortDescriptor.html" target="_self">SortDescriptor</a>)</code></span>
                     </td>
                 </tr>
                             <tr>
@@ -1270,7 +1330,7 @@ Folgende Interpolation Texte sind vorhanden:
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectorRef, Directive, EventEmitter, Input, Output, TemplateRef } from &#x27;@angular/core&#x27;;
 import { PagerData, PagerRequest, SortDescriptor, SortOrder } from &#x27;./model&#x27;;
 
@@ -1319,7 +1379,7 @@ export abstract class NgGridCommon {
   /**
    * Grid Daten
    */
-  @Input(&#x27;value&#x27;)
+  @Input()
   public value: any;
 
   /**
@@ -1327,20 +1387,20 @@ export abstract class NgGridCommon {
    *
    * Pager kann ausgeschaltet werden, in dem PagerData auf NULL gesetzt wird.
    */
-  @Input(&#x27;pagerdata&#x27;)
+  @Input()
   public pagerdata: PagerData;
 
   /**
    * Input property für Name.
    */
-  @Input(&#x27;name&#x27;)
+  @Input()
   public name: string;
 
   /**
    * Text welcher angezeigt wird, wenn keine Rows verfügbar sind.
    */
-  @Input(&#x27;emptytext&#x27;)
-  public _emptytext: string;
+  @Input()
+  public emptytext: string;
 
   /**
    * Text in Pager für &#x27;Seite x von y&#x27;.
@@ -1348,53 +1408,53 @@ export abstract class NgGridCommon {
    * {{CURRENTPAGE}}: Aktuelle Seite
    * {{TOTALPAGES}}: Anzahl Seiten
    */
-  @Input(&#x27;pagingtext&#x27;)
-  public pagingText: string &#x3D; &#x27;PAGING_PAGEOFTEXT&#x27;;
+  @Input()
+  public pagingtext: string &#x3D; &#x27;PAGING_PAGEOFTEXT&#x27;;
 
   /**
    * Text in Page für Anzahl Seitenelemente pro Seite
    * Folgende Interpolation Texte sind vorhanden:
    * {{PAGESIZE}}: Anzahl Elemente pro Seite
    */
-  @Input(&#x27;pagesizetext&#x27;)
-  public pageSizeText: string &#x3D; &#x27;PAGING_PAGEENTRIESTEXT&#x27;;
+  @Input()
+  public pagesizetext: string &#x3D; &#x27;PAGING_PAGEENTRIESTEXT&#x27;;
 
   /**
    * Definiert die Anzahl der Elemente pro Seite die ausgewählt werden können
    */
-  @Input(&#x27;pagesizes&#x27;)
-  public pageSizes: string &#x3D; &#x27;20|50|100&#x27;;
+  @Input()
+  public pagesizes: string &#x3D; &#x27;20|50|100&#x27;;
 
   /**
    * Deaktiviert die Auswahl der PageSize im Pager
    */
-  @Input(&#x27;pagesizedisabled&#x27;)
-  public pageSizeDisabled: boolean &#x3D; false;
+  @Input()
+  public pagesizedisabled: boolean &#x3D; false;
 
   /**
    * Input property für die maximalle Seiten die sichtbar sind. Type: number.
    */
-  @Input(&#x27;maxvisiblepagenumbers&#x27;) _maxvisiblepagenumbers: number;
+  @Input() maxvisiblepagenumbers: number;
 
   /**
    * Input property für headers. Type: TemplateRef&lt;any&gt;.
    */
-  @Input(&#x27;headers&#x27;) _headers: TemplateRef&lt;any&gt;;
+  @Input() headers: TemplateRef&lt;any&gt;;
 
   /**
    * Input property für body. Type: TemplateRef&lt;any&gt;.
    */
-  @Input(&#x27;body&#x27;) _body: TemplateRef&lt;any&gt;;
+  @Input() body: TemplateRef&lt;any&gt;;
 
   /**
    * Output EventEmitter. Wird aufgerufen wenn das Pager geklickt ist.
    */
-  @Output(&#x27;onpaging&#x27;) _pagingEvent: EventEmitter&lt;PagerRequest&gt; &#x3D; new EventEmitter&lt;PagerRequest&gt;();
+  @Output() paging: EventEmitter&lt;PagerRequest&gt; &#x3D; new EventEmitter&lt;PagerRequest&gt;();
 
   /**
    * Output EventEmitter. Wird aufgerufen wenn ein Header geklickt ist, damit das Column soritert wird.
    */
-  @Output(&#x27;onsorting&#x27;) _sortingevent: EventEmitter&lt;SortDescriptor&gt; &#x3D; new EventEmitter&lt;SortDescriptor&gt;();
+  @Output() sorting: EventEmitter&lt;SortDescriptor&gt; &#x3D; new EventEmitter&lt;SortDescriptor&gt;();
 
   //#endregion
 
@@ -1413,7 +1473,7 @@ export abstract class NgGridCommon {
    * @param newStartIndex Neuer Seiten Index (Zero-Based)
    */
   pageChange(newStartIndex) {
-    this._pagingEvent.emit(newStartIndex);
+    this.paging.emit(newStartIndex);
   }
 
   /**
@@ -1458,15 +1518,15 @@ export abstract class NgGridCommon {
     result.SortColumn &#x3D; command;
     result.SortOrder &#x3D; direction;
 
-    this._sortingevent.emit(result);
+    this.sorting.emit(result);
   }
 
   /**
    * Model für Sortierung
    * @param sortDescription Settings für aktuelle sortierung
    */
-  @Input(&#x27;sortdata&#x27;)
-  public set ApplySort(sortDescription: SortDescriptor) {
+  @Input()
+  public set sortdata(sortDescription: SortDescriptor) {
     this.sortColumn &#x3D; sortDescription.SortColumn;
     this.sortDirection &#x3D; sortDescription.SortOrder;
   }

@@ -24,13 +24,13 @@
 <title>cluster_JNetworkBootstrap4DateTimeModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-379.59 1696,-379.59 1696,-70 8,-70"/>
 </g>
-<g id="clust8" class="cluster">
-<title>cluster_JNetworkBootstrap4DateTimeModule_exports</title>
-<polygon fill="none" stroke="black" points="344,-319.59 344,-371.59 1006,-371.59 1006,-319.59 344,-319.59"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_JNetworkBootstrap4DateTimeModule_declarations</title>
 <polygon fill="none" stroke="black" points="352,-189.59 352,-241.59 1000,-241.59 1000,-189.59 352,-189.59"/>
+</g>
+<g id="clust8" class="cluster">
+<title>cluster_JNetworkBootstrap4DateTimeModule_exports</title>
+<polygon fill="none" stroke="black" points="344,-319.59 344,-371.59 1006,-371.59 1006,-319.59 344,-319.59"/>
 </g>
 <g id="clust3" class="cluster">
 <title>cluster_JNetworkBootstrap4DateTimeModule_NgDateComponent_providers</title>

@@ -12,8 +12,66 @@
         <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -38,21 +96,27 @@
 
 
 <ol class="breadcrumb">
-  <li>Directives</li>
-  <li >NgPagingCommon</li>
+  <li class="breadcrumb-item">Directives</li>
+  <li class="breadcrumb-item" >NgPagingCommon</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -73,7 +137,7 @@
 
 
 
-            <section>
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -191,7 +255,7 @@
                                 <a href="#pagerdata" >pagerdata</a>
                             </li>
                             <li>
-                                <a href="#pageSizeDisabled" >pageSizeDisabled</a>
+                                <a href="#pagesizedisabled" >pagesizedisabled</a>
                             </li>
                             <li>
                                 <a href="#pagesizes" >pagesizes</a>
@@ -215,7 +279,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#onpaging" >onpaging</a>
+                                <a href="#paging" >paging</a>
                             </li>
                         </ul>
                     </td>
@@ -250,13 +314,13 @@
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-constructor">
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(injector: <a href="https://angular.io/api/core/Injector" target="_blank">Injector</a>)</code>
+<code>constructor(injector: Injector)</code>
                     </td>
                 </tr>
                         <tr>
@@ -285,7 +349,7 @@ Inject des Formulars</p>
                                                         <td>injector</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://angular.io/api/core/Injector" target="_blank" >Injector</a></code>
+                                                                    <code>Injector</code>
                                                         </td>
                                                   
                                                     <td>
@@ -302,7 +366,7 @@ Inject des Formulars</p>
         </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-inputs">
     <h3 id="inputs">Inputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -362,8 +426,8 @@ Inject des Formulars</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="pageSizeDisabled"></a>
-                        <b>pageSizeDisabled</b>
+                        <a name="pagesizedisabled"></a>
+                        <b>pagesizedisabled</b>
                     </td>
                 </tr>
                 <tr>
@@ -494,14 +558,14 @@ Folgende Interpolation Texte sind vorhanden:
             </tbody>
         </table>
 </section>
-            <section>
+            <section data-compodoc="block-outputs">
     <h3 id="outputs">Outputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="onpaging"></a>
-                        <b>onpaging</b>
+                        <a name="paging"></a>
+                        <b>paging</b>
                     </td>
                 </tr>
                 <tr>
@@ -526,7 +590,7 @@ Folgende Interpolation Texte sind vorhanden:
 </section>
 
 
-            <section>
+            <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -537,7 +601,7 @@ Folgende Interpolation Texte sind vorhanden:
                 <td class="col-md-4">
                     <a name="changePage"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                            <span class="modifier">Public</span>
                         <span ><b>changePage</b></span>
                         <a href="#changePage"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -545,66 +609,64 @@ Folgende Interpolation Texte sind vorhanden:
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>changePage(newPageIndex: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="212"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:212</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="212"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:212</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Andert die Seite auf den neuen Index</p>
+                        <div class="io-description"><p>Andert die Seite auf den neuen Index</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>newPageIndex</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>newPageIndex</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>Seiten Index. Dies entspricht der Seitenzahl - 1.</p>
+                                            <td>
+                                                    <p>Seiten Index. Dies entspricht der Seitenzahl - 1.</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -615,7 +677,7 @@ Folgende Interpolation Texte sind vorhanden:
                 <td class="col-md-4">
                     <a name="changePageSize"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                            <span class="modifier">Public</span>
                         <span ><b>changePageSize</b></span>
                         <a href="#changePageSize"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -623,66 +685,64 @@ Folgende Interpolation Texte sind vorhanden:
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>changePageSize(newSize: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="222"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:222</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="222"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:222</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Ändert die Seitengrösse im Pager</p>
+                        <div class="io-description"><p>Ändert die Seitengrösse im Pager</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>newSize</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>newSize</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>Neue Anzahl Elemente pro Seite</p>
+                                            <td>
+                                                    <p>Neue Anzahl Elemente pro Seite</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -693,7 +753,7 @@ Folgende Interpolation Texte sind vorhanden:
                 <td class="col-md-4">
                     <a name="createPager"></a>
                     <span class="name">
-                        <span class="modifier">Protected</span>
+                            <span class="modifier">Protected</span>
                         <span ><b>createPager</b></span>
                         <a href="#createPager"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -701,29 +761,29 @@ Folgende Interpolation Texte sind vorhanden:
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>createPager()</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="132"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:132</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="132"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:132</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Erzeugt die Pager Daten</p>
+                        <div class="io-description"><p>Erzeugt die Pager Daten</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -734,7 +794,7 @@ Folgende Interpolation Texte sind vorhanden:
                 <td class="col-md-4">
                     <a name="firstPage"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                            <span class="modifier">Public</span>
                         <span ><b>firstPage</b></span>
                         <a href="#firstPage"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -742,29 +802,29 @@ Folgende Interpolation Texte sind vorhanden:
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>firstPage()</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="248"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:248</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="248"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:248</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Paging auf 1. Seite</p>
+                        <div class="io-description"><p>Paging auf 1. Seite</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -775,7 +835,7 @@ Folgende Interpolation Texte sind vorhanden:
                 <td class="col-md-4">
                     <a name="getCurrentPageNumber"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                            <span class="modifier">Public</span>
                         <span ><b>getCurrentPageNumber</b></span>
                         <a href="#getCurrentPageNumber"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -783,29 +843,29 @@ Folgende Interpolation Texte sind vorhanden:
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>getCurrentPageNumber()</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="266"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:266</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="266"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:266</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Gibt die aktuelle Seitenzahl zurück</p>
+                        <div class="io-description"><p>Gibt die aktuelle Seitenzahl zurück</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -816,7 +876,7 @@ Folgende Interpolation Texte sind vorhanden:
                 <td class="col-md-4">
                     <a name="getEndPageIndex"></a>
                     <span class="name">
-                        <span class="modifier">Protected</span>
+                            <span class="modifier">Protected</span>
                         <span ><b>getEndPageIndex</b></span>
                         <a href="#getEndPageIndex"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -824,66 +884,64 @@ Folgende Interpolation Texte sind vorhanden:
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>getEndPageIndex(totalPageCount: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="192"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:192</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="192"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:192</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Gibt den letzten Seitenindex zurück.</p>
+                        <div class="io-description"><p>Gibt den letzten Seitenindex zurück.</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>totalPageCount</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>totalPageCount</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>Total Anzahl Seiten</p>
+                                            <td>
+                                                    <p>Total Anzahl Seiten</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -894,7 +952,7 @@ Folgende Interpolation Texte sind vorhanden:
                 <td class="col-md-4">
                     <a name="getStartPageIndex"></a>
                     <span class="name">
-                        <span class="modifier">Protected</span>
+                            <span class="modifier">Protected</span>
                         <span ><b>getStartPageIndex</b></span>
                         <a href="#getStartPageIndex"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -902,66 +960,64 @@ Folgende Interpolation Texte sind vorhanden:
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>getStartPageIndex(totalPageCount: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="173"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:173</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:173</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Gibt den Start Index zurück</p>
+                        <div class="io-description"><p>Gibt den Start Index zurück</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>totalPageCount</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>totalPageCount</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>Total Anzahl Seiten</p>
+                                            <td>
+                                                    <p>Total Anzahl Seiten</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -972,7 +1028,7 @@ Folgende Interpolation Texte sind vorhanden:
                 <td class="col-md-4">
                     <a name="getTotalPageNumber"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                            <span class="modifier">Public</span>
                         <span ><b>getTotalPageNumber</b></span>
                         <a href="#getTotalPageNumber"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -980,29 +1036,29 @@ Folgende Interpolation Texte sind vorhanden:
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>getTotalPageNumber()</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="273"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:273</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="273"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:273</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Gibt die totale Anzahl Seiten zurück</p>
+                        <div class="io-description"><p>Gibt die totale Anzahl Seiten zurück</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -1013,7 +1069,7 @@ Folgende Interpolation Texte sind vorhanden:
                 <td class="col-md-4">
                     <a name="lastPage"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                            <span class="modifier">Public</span>
                         <span ><b>lastPage</b></span>
                         <a href="#lastPage"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -1021,29 +1077,29 @@ Folgende Interpolation Texte sind vorhanden:
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>lastPage()</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="257"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:257</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="257"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:257</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Paging auf letzter Seite</p>
+                        <div class="io-description"><p>Paging auf letzter Seite</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -1054,7 +1110,7 @@ Folgende Interpolation Texte sind vorhanden:
                 <td class="col-md-4">
                     <a name="nextPage"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                            <span class="modifier">Public</span>
                         <span ><b>nextPage</b></span>
                         <a href="#nextPage"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -1062,29 +1118,29 @@ Folgende Interpolation Texte sind vorhanden:
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>nextPage()</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="230"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:230</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="230"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:230</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Paging auf nächste Seite</p>
+                        <div class="io-description"><p>Paging auf nächste Seite</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -1095,7 +1151,7 @@ Folgende Interpolation Texte sind vorhanden:
                 <td class="col-md-4">
                     <a name="paged"></a>
                     <span class="name">
-                        <span class="modifier">Protected</span>
+                            <span class="modifier">Protected</span>
                         <span ><b>paged</b></span>
                         <a href="#paged"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -1103,61 +1159,59 @@ Folgende Interpolation Texte sind vorhanden:
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>paged(newPageIndex: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="164"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:164</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="164"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:164</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Methode löst den Event aus, dass ein Paging stattgefunden hat</p>
+                        <div class="io-description"><p>Methode löst den Event aus, dass ein Paging stattgefunden hat</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>newPageIndex</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>newPageIndex</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1168,7 +1222,7 @@ Folgende Interpolation Texte sind vorhanden:
                 <td class="col-md-4">
                     <a name="previousPage"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                            <span class="modifier">Public</span>
                         <span ><b>previousPage</b></span>
                         <a href="#previousPage"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -1176,35 +1230,35 @@ Folgende Interpolation Texte sind vorhanden:
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>previousPage()</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="239"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:239</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="239"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/grid/paging.ts:239</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Paging eine Seite zurück</p>
+                        <div class="io-description"><p>Paging eine Seite zurück</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
     </table>
 </section>
-            <section>
+            <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
@@ -1337,7 +1391,7 @@ Folgende Interpolation Texte sind vorhanden:
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../injectables/LanguageResourceService.html" target="_self" >ILanguageResourceService</a></code>
+                        <i>Type : </i>        <code><a href="../interfaces/ILanguageResourceService.html" target="_self" >ILanguageResourceService</a></code>
 
                     </td>
                 </tr>
@@ -1471,7 +1525,7 @@ Folgende Interpolation Texte sind vorhanden:
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-accessors">
     <h3 id="accessors">
         Accessors
     </h3>
@@ -1640,7 +1694,7 @@ Folgende Interpolation Texte sind vorhanden:
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, EventEmitter, Injector, Input, Output } from &#x27;@angular/core&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { ILanguageResourceService } from &#x27;../../interfaces/ilanguageresource&#x27;;
@@ -1704,7 +1758,7 @@ export abstract class NgPagingCommon {
   /**
    * Property für Pager Data
    */
-  @Input(&#x27;pagerdata&#x27;)
+  @Input()
   set pagerdata(p: PagerData) {
     if (p !&#x3D; null) {
       this.totalRowCount &#x3D; p.TotalRowCount;
@@ -1721,49 +1775,49 @@ export abstract class NgPagingCommon {
    * {{CURRENTPAGE}}: Aktuelle Seite
    * {{TOTALPAGES}}: Anzahl Seiten
    */
-  @Input(&#x27;pagingtext&#x27;)
-  public pagingText: string &#x3D; &#x27;PAGING_PAGEOFTEXT&#x27;;
+  @Input()
+  public pagingtext: string &#x3D; &#x27;PAGING_PAGEOFTEXT&#x27;;
 
   /**
    * Text in Page für Anzahl Seitenelemente pro Seite
    * Folgende Interpolation Texte sind vorhanden:
    * {{PAGESIZE}}: Anzahl Elemente pro Seite
    */
-  @Input(&#x27;pagesizetext&#x27;)
-  public pageSizeText: string &#x3D; &#x27;PAGING_PAGEENTRIESTEXT&#x27;;
+  @Input()
+  public pagesizetext: string &#x3D; &#x27;PAGING_PAGEENTRIESTEXT&#x27;;
 
   /**
    * Text in Page für Anzahl Seitenelemente pro Seite
    * Folgende Interpolation Texte sind vorhanden:
    * {{PAGESIZE}}: Anzahl Elemente pro Seite
    */
-  @Input(&#x27;pagesizes&#x27;)
-  public pageSizes: string &#x3D; &#x27;20|50|100&#x27;;
+  @Input()
+  public pagesizes: string &#x3D; &#x27;20|50|100&#x27;;
 
   /**
    * Auswahl der Seitengrösse deaktivieren
    */
-  @Input(&#x27;pageSizeDisabled&#x27;)
+  @Input()
   public pagesizedisabled: boolean &#x3D; false;
 
   /**
    * Gibt die Page Sizes als Number Array zurück
    */
   public get getPageSizes(): number[] {
-    return this.pageSizes.split(&#x27;|&#x27;).map(itm &#x3D;&gt; Number(itm));
+    return this.pagesizes.split(&#x27;|&#x27;).map(itm &#x3D;&gt; Number(itm));
   }
 
   /**
   * Name des Grids. Wird für ID und Name Bezeichnungen verwendet
   */
-  @Input(&#x27;name&#x27;)
+  @Input()
   public name: string;
 
   /**
    * Event wenn im Grid die Seite geändert wird. Als Parameter wird der neue PageIndex mitgegeben.
    */
-  @Output(&#x27;onpaging&#x27;)
-  pagingEvent: EventEmitter&lt;PagerRequest&gt; &#x3D; new EventEmitter&lt;PagerRequest&gt;();
+  @Output()
+  paging: EventEmitter&lt;PagerRequest&gt; &#x3D; new EventEmitter&lt;PagerRequest&gt;();
 
   //#endregion
 
@@ -1806,7 +1860,7 @@ export abstract class NgPagingCommon {
    */
   protected paged(newPageIndex: number) {
     const pagerData: PagerRequest &#x3D; new PagerRequest(this.pageSize, newPageIndex);
-    this.pagingEvent.emit(pagerData);
+    this.paging.emit(pagerData);
   }
 
   /**
@@ -1864,7 +1918,7 @@ export abstract class NgPagingCommon {
    */
   public changePageSize(newSize: number) {
     const pagerData: PagerRequest &#x3D; new PagerRequest(newSize, this.activePageIndex);
-    this.pagingEvent.emit(pagerData);
+    this.paging.emit(pagerData);
   }
 
   /**
@@ -1921,14 +1975,14 @@ export abstract class NgPagingCommon {
    * Text mit Aktueller Seite und Total Seiten
    */
   public get PagingText(): Observable&lt;string&gt; {
-    return this.lngResourceService.GetString(this.pagingText, { CURRENTPAGE: this.getCurrentPageNumber(), TOTALPAGES: this.getTotalPageNumber() });
+    return this.lngResourceService.GetString(this.pagingtext, { CURRENTPAGE: this.getCurrentPageNumber(), TOTALPAGES: this.getTotalPageNumber() });
   }
 
   /**
    * Property mit Text für Total Einträge in Seite
    */
   public get PageSizeText(): Observable&lt;string&gt; {
-    return this.lngResourceService.GetString(this.pageSizeText);
+    return this.lngResourceService.GetString(this.pagesizetext);
   }
 
 

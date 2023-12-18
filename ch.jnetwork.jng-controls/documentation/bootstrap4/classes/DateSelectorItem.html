@@ -12,8 +12,66 @@
         <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -43,21 +101,27 @@
 
 
 <ol class="breadcrumb">
-  <li>Classes</li>
-  <li >DateSelectorItem</li>
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >DateSelectorItem</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -77,7 +141,7 @@
 
 
 
-            <section>
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -120,7 +184,7 @@
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-constructor">
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -256,7 +320,7 @@
         </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
@@ -494,7 +558,7 @@
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EventEmitter, Input, OnInit, Output, Directive } from &#x27;@angular/core&#x27;;
 import * as moment_ from &#x27;moment&#x27;;
 // Import Moment.JS
@@ -577,32 +641,32 @@ export class NgDateSelectorCommon implements OnInit {
   /**
    * Datum Selector
    */
-  @Input(&#x27;dateselection&#x27;)
-  _dateselection: boolean &#x3D; false;
+  @Input()
+  dateselection: boolean &#x3D; false;
 
   /**
    * Time Selector
    */
-  @Input(&#x27;timeselection&#x27;)
-  _timeselection: boolean &#x3D; false;
+  @Input()
+  timeselection: boolean &#x3D; false;
 
   /**
    * Monat
    */
-  @Input(&#x27;month&#x27;)
-  _month: number &#x3D; 4;
+  @Input()
+  month: number &#x3D; 4;
 
   /**
    * Jahr
    */
-  @Input(&#x27;year&#x27;)
-  _year: number &#x3D; 2018;
+  @Input()
+  year: number &#x3D; 2018;
 
   /**
    * Boolean Property für automatische Selektierung; default Wert - false
    */
-  @Input(&#x27;autoapplyselection&#x27;)
-  _autoapplyselection &#x3D; false;
+  @Input()
+  autoapplyselection &#x3D; false;
 
   /**
    * Aktuell gewähltes Datum
@@ -617,11 +681,11 @@ export class NgDateSelectorCommon implements OnInit {
   /**
    * Input für ursprüngliches Datum
    */
-  @Input(&#x27;initialValue&#x27;)
-  get initialValue(): Date {
+  @Input()
+  get initialvalue(): Date {
     return this._initialValue.toDate();
   }
-  set initialValue(v: Date | null) {
+  set initialvalue(v: Date | null) {
     if (v &#x3D;&#x3D;&#x3D; null || v &#x3D;&#x3D;&#x3D; undefined) {
       this._initialValue &#x3D; null;
     } else {
@@ -640,8 +704,8 @@ export class NgDateSelectorCommon implements OnInit {
   /**
    * Output Event beim Datum Selektieren
    */
-  @Output(&#x27;onSelect&#x27;)
-  onSelectDate &#x3D; new EventEmitter&lt;any&gt;();
+  @Output()
+  selectdate &#x3D; new EventEmitter&lt;any&gt;();
 
   /**
    * Ursprünglicher Kalender
@@ -651,8 +715,8 @@ export class NgDateSelectorCommon implements OnInit {
     /**
      * Monat und Jahr setzen
      */
-    this._month &#x3D; v.month();
-    this._year &#x3D; v.year();
+    this.month &#x3D; v.month();
+    this.year &#x3D; v.year();
 
     /**
      * Daten für Kalender initialiseren
@@ -668,7 +732,7 @@ export class NgDateSelectorCommon implements OnInit {
      * Init Initial Date if Empty
      */
     if (this._initialValue &#x3D;&#x3D;&#x3D; undefined) {
-      this.initialValue &#x3D; null;
+      this.initialvalue &#x3D; null;
     }
 
     this.initDates();
@@ -678,10 +742,10 @@ export class NgDateSelectorCommon implements OnInit {
    * Initial Datum
    */
   private initDates(): void {
-    const currentMonth &#x3D; moment(new Date(this._year, this._month, 1));
-    const lastMonth &#x3D; moment(new Date(this._year, this._month, 1));
+    const currentMonth &#x3D; moment(new Date(this.year, this.month, 1));
+    const lastMonth &#x3D; moment(new Date(this.year, this.month, 1));
     lastMonth.add({ months: -1 });
-    const nextMonths &#x3D; moment(new Date(this._year, this._month, 1));
+    const nextMonths &#x3D; moment(new Date(this.year, this.month, 1));
     nextMonths.add({ months: 1 });
 
     const weekdayBegin: number &#x3D; currentMonth.weekday();
@@ -710,19 +774,19 @@ export class NgDateSelectorCommon implements OnInit {
 
       let isSelectedDate: boolean &#x3D; false;
       let isNewDate: boolean &#x3D; false;
-      const isCurrentDate: boolean &#x3D; moment().month() &#x3D;&#x3D;&#x3D; this._month &amp;&amp; moment().year() &#x3D;&#x3D;&#x3D; this._year &amp;&amp; moment().date() &#x3D;&#x3D;&#x3D; dayinmonth;
+      const isCurrentDate: boolean &#x3D; moment().month() &#x3D;&#x3D;&#x3D; this.month &amp;&amp; moment().year() &#x3D;&#x3D;&#x3D; this.year &amp;&amp; moment().date() &#x3D;&#x3D;&#x3D; dayinmonth;
 
       // Initial Wert setzen, falls vorhanden
       if (this._initialValue !&#x3D;&#x3D; null) {
-        isSelectedDate &#x3D; this._initialValue.month() &#x3D;&#x3D;&#x3D; this._month &amp;&amp; this._initialValue.year() &#x3D;&#x3D;&#x3D; this._year &amp;&amp; this._initialValue.date() &#x3D;&#x3D;&#x3D; dayinmonth;
+        isSelectedDate &#x3D; this._initialValue.month() &#x3D;&#x3D;&#x3D; this.month &amp;&amp; this._initialValue.year() &#x3D;&#x3D;&#x3D; this.year &amp;&amp; this._initialValue.date() &#x3D;&#x3D;&#x3D; dayinmonth;
       }
 
       // Selected Date Wert setzen, falls Wert gesetzt
       if (this._selectedValue !&#x3D;&#x3D; null) {
-        isNewDate &#x3D; this._selectedValue.month() &#x3D;&#x3D;&#x3D; this._month &amp;&amp; this._selectedValue.year() &#x3D;&#x3D;&#x3D; this._year &amp;&amp; this._selectedValue.date() &#x3D;&#x3D;&#x3D; dayinmonth;
+        isNewDate &#x3D; this._selectedValue.month() &#x3D;&#x3D;&#x3D; this.month &amp;&amp; this._selectedValue.year() &#x3D;&#x3D;&#x3D; this.year &amp;&amp; this._selectedValue.date() &#x3D;&#x3D;&#x3D; dayinmonth;
       }
 
-      daysInCalendar.push(new DateSelectorItem(dayinmonth.toString(), moment([this._year, this._month, dayinmonth]).toDate(), true, isSelectedDate, isCurrentDate, isNewDate));
+      daysInCalendar.push(new DateSelectorItem(dayinmonth.toString(), moment([this.year, this.month, dayinmonth]).toDate(), true, isSelectedDate, isCurrentDate, isNewDate));
     }
 
     let endOfCalender: number;
@@ -776,11 +840,11 @@ export class NgDateSelectorCommon implements OnInit {
    * Vorheriger Monat
    */
   monthBack(): void {
-    this._month &#x3D; this._month - 1;
+    this.month &#x3D; this.month - 1;
 
-    if (this._month &lt; 0) {
-      this._month &#x3D; 11;
-      this._year &#x3D; this._year - 1;
+    if (this.month &lt; 0) {
+      this.month &#x3D; 11;
+      this.year &#x3D; this.year - 1;
     }
 
     this.initDates();
@@ -790,11 +854,11 @@ export class NgDateSelectorCommon implements OnInit {
    * Nächster Monat
    */
   monthNext(): void {
-    this._month &#x3D; this._month + 1;
+    this.month &#x3D; this.month + 1;
 
-    if (this._month &gt; 11) {
-      this._month &#x3D; 0;
-      this._year &#x3D; this._year + 1;
+    if (this.month &gt; 11) {
+      this.month &#x3D; 0;
+      this.year &#x3D; this.year + 1;
     }
 
     this.initDates();
@@ -828,7 +892,7 @@ export class NgDateSelectorCommon implements OnInit {
       dateValue.millisecond(0);
       this._selectedValue &#x3D; dateValue;
 
-      if (this._autoapplyselection) {
+      if (this.autoapplyselection) {
         this.applySelection();
       }
     }
@@ -937,11 +1001,11 @@ export class NgDateSelectorCommon implements OnInit {
     /**
      * Kalender Daten initialisieren falls Kalender angezeigt
      */
-    if (this._dateselection) {
+    if (this.dateselection) {
       this.initCalendar(this._selectedValue);
     }
 
-    if (this._autoapplyselection) {
+    if (this.autoapplyselection) {
       this.applySelection();
     }
   }
@@ -951,14 +1015,14 @@ export class NgDateSelectorCommon implements OnInit {
    */
   applySelection(): void {
 
-    if (this._timeselection &#x3D;&#x3D;&#x3D; false &amp;&amp; this._selectedValue !&#x3D;&#x3D; null) {
+    if (this.timeselection &#x3D;&#x3D;&#x3D; false &amp;&amp; this._selectedValue !&#x3D;&#x3D; null) {
       this._selectedValue.hour(0);
       this._selectedValue.minute(0);
       this._selectedValue.second(0);
       this._selectedValue.millisecond(0);
     }
 
-    if (this._dateselection &#x3D;&#x3D;&#x3D; false &amp;&amp; this._selectedValue !&#x3D;&#x3D; null) {
+    if (this.dateselection &#x3D;&#x3D;&#x3D; false &amp;&amp; this._selectedValue !&#x3D;&#x3D; null) {
       const tempValue: Moment &#x3D; this._selectedValue.local();
       tempValue.date(1);
       tempValue.month(0);
@@ -966,7 +1030,7 @@ export class NgDateSelectorCommon implements OnInit {
       this._selectedValue &#x3D; tempValue.utc();
     }
 
-    this.onSelectDate.emit({
+    this.selectdate.emit({
       date: this._selectedValue
     });
   }
@@ -975,7 +1039,7 @@ export class NgDateSelectorCommon implements OnInit {
    * Selektierung resetten
    */
   resetSelection(): void {
-    this.onSelectDate.emit({
+    this.selectdate.emit({
       date: null
     });
   }

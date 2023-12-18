@@ -12,8 +12,66 @@
         <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -35,29 +93,33 @@
 
 
 <ol class="breadcrumb">
-  <li>Components</li>
-  <li
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
   >
   NgTabComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
         </li>
-        <li >
-            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
     <h3>File</h3>
 </p>
 <p class="comment">
@@ -77,15 +139,16 @@
         <h3>Extends</h3>
     </p>
     <p class="comment">
-                <code><a href="../directives/NgTabCommon.html" target="_self" >NgTabCommon</a></code>
+                    <code><a href="../directives/NgTabCommon.html" target="_self" >NgTabCommon</a></code>
     </p>
 
 
 
-<section>
+<section data-compodoc="block-metadata">
     <h3>Metadata</h3>
     <table class="table table-sm table-hover metadata">
         <tbody>
+
 
 
 
@@ -101,6 +164,8 @@
                 <td class="col-md-3">selector</td>
                 <td class="col-md-9"><code>sac-tab</code></td>
             </tr>
+
+
 
 
 
@@ -121,7 +186,7 @@
     </table>
 </section>
 
-    <section>
+    <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -134,6 +199,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier"></span>
                                 <a href="#_tabItems" >_tabItems</a>
                             </li>
                         </ul>
@@ -194,7 +260,7 @@
 </section>
 
 
-    <section>
+    <section data-compodoc="block-inputs">
     <h3 id="inputs">Inputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -312,7 +378,7 @@
 
 
 
-    <section>
+    <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -335,35 +401,33 @@
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgTabCommon.html" target="_self" >NgTabCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgTabCommon.html#source" target="_self" >NgTabCommon:23</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgTabCommon.html" target="_self" >NgTabCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgTabCommon.html#source" target="_self" >NgTabCommon:23</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Gibt die TabItems zurück</p>
+                        <div class="io-description"><p>Gibt die TabItems zurück</p>
 </div>
 
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../components/NgTabItemComponent.html" target="_self" >NgTabItemComponent[]</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../components/NgTabItemComponent.html" target="_self" >NgTabItemComponent[]</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>Array von TabItems</p>
+                        </div>
+                            <div class="io-description">
+                                <p>Array von TabItems</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -374,7 +438,7 @@
                 <td class="col-md-4">
                     <a name="GetTabItemButtonId"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                            <span class="modifier">Public</span>
                         <span ><b>GetTabItemButtonId</b></span>
                         <a href="#GetTabItemButtonId"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -382,72 +446,70 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>GetTabItemButtonId(tabitemid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgTabCommon.html" target="_self" >NgTabCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgTabCommon.html#source" target="_self" >NgTabCommon:79</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgTabCommon.html" target="_self" >NgTabCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgTabCommon.html#source" target="_self" >NgTabCommon:79</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Ergibt das ID vom Tab-Button</p>
+                        <div class="io-description"><p>Ergibt das ID vom Tab-Button</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>tabitemid</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tabitemid</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>ID des Tabs</p>
+                                            <td>
+                                                    <p>ID des Tabs</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -470,29 +532,29 @@
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgTabCommon.html" target="_self" >NgTabCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgTabCommon.html#source" target="_self" >NgTabCommon:38</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgTabCommon.html" target="_self" >NgTabCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgTabCommon.html#source" target="_self" >NgTabCommon:38</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>AfterContentInit Event</p>
+                        <div class="io-description"><p>AfterContentInit Event</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -515,67 +577,65 @@
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgTabCommon.html" target="_self" >NgTabCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgTabCommon.html#source" target="_self" >NgTabCommon:65</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgTabCommon.html" target="_self" >NgTabCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgTabCommon.html#source" target="_self" >NgTabCommon:65</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Tab selektieren</p>
+                        <div class="io-description"><p>Tab selektieren</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>tab</td>
-                                    <td>
-                                                <code><a href="../directives/NgTabItemCommon.html" target="_self" >NgTabItemCommon</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tab</td>
+                                            <td>
+                                                            <code><a href="../directives/NgTabItemCommon.html" target="_self" >NgTabItemCommon</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
     </table>
 </section>
-    <section>
+    <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
@@ -586,6 +646,7 @@
                 <td class="col-md-4">
                     <a name="_tabItems"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                         <span ><b>_tabItems</b></span>
                         <a href="#_tabItems"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -626,7 +687,7 @@
 </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ContentChildren, QueryList } from &#x27;@angular/core&#x27;;
 import { NgTabCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
 import { NgTabItemComponent } from &#x27;./tabitem&#x27;;
@@ -656,11 +717,11 @@ export class NgTabComponent extends NgTabCommon {
 </code></pre>
     </div>
 
-    <div class="tab-pane fade " id="c-templateData">
+    <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;!-- Nav tabs --&gt;
 &lt;div class&#x3D;&quot;nav nav-tabs&quot; role&#x3D;&quot;tablist&quot;&gt;
-  &lt;a *ngFor&#x3D;&quot;let item of _tabItems&quot; role&#x3D;&quot;tab&quot; class&#x3D;&quot;nav-item nav-link active&quot; data-toggle&#x3D;&quot;tab&quot; [ngClass]&#x3D;&quot;{ &#x27;active show&#x27;: item._active, &#x27;disabled&#x27;: item._disabled }&quot; (click)&#x3D;&quot;selectTab(item)&quot;
-     [ngStyle]&#x3D;&quot;{&#x27;cursor&#x27;: item._disabled ? &#x27;not-allowed&#x27; : &#x27;pointer&#x27;}&quot;&gt;{{item._label}}&lt;/a&gt;
+  &lt;a *ngFor&#x3D;&quot;let item of _tabItems&quot; role&#x3D;&quot;tab&quot; class&#x3D;&quot;nav-item nav-link active&quot; data-toggle&#x3D;&quot;tab&quot; [ngClass]&#x3D;&quot;{ &#x27;active show&#x27;: item.active, &#x27;disabled&#x27;: item.disabled }&quot; (click)&#x3D;&quot;selectTab(item)&quot;
+     [ngStyle]&#x3D;&quot;{&#x27;cursor&#x27;: item.disabled ? &#x27;not-allowed&#x27; : &#x27;pointer&#x27;}&quot;&gt;{{item.label}}&lt;/a&gt;
 &lt;/div&gt;
 
 &lt;!-- Tab panes --&gt;
@@ -671,7 +732,7 @@ export class NgTabComponent extends NgTabCommon {
     </div>
 
 
-    <div class="tab-pane fade " id="c-tree">
+    <div class="tab-pane fade " id="tree">
         <div id="tree-container"></div>
         <div class="tree-legend">
             <div class="title">
@@ -696,9 +757,9 @@ export class NgTabComponent extends NgTabCommon {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- Nav tabs --><div class="nav nav-tabs" role="tablist">  <a *ngFor="let item of _tabItems" role="tab" class="nav-item nav-link active" data-toggle="tab" [ngClass]="{ \'active show\': item._active, \'disabled\': item._disabled }" (click)="selectTab(item)"     [ngStyle]="{\'cursor\': item._disabled ? \'not-allowed\' : \'pointer\'}">{{item._label}}</a></div><!-- Tab panes --><div class="tab-content pl-3 pt-2">  <ng-content></ng-content></div></div>'
+        var COMPONENT_TEMPLATE = '<div><!-- Nav tabs --><div class="nav nav-tabs" role="tablist">  <a *ngFor="let item of _tabItems" role="tab" class="nav-item nav-link active" data-toggle="tab" [ngClass]="{ \'active show\': item.active, \'disabled\': item.disabled }" (click)="selectTab(item)"     [ngStyle]="{\'cursor\': item.disabled ? \'not-allowed\' : \'pointer\'}">{{item.label}}</a></div><!-- Tab panes --><div class="tab-content pl-3 pt-2">  <ng-content></ng-content></div></div>'
     var COMPONENTS = [{'name': 'NgBrowserComponent', 'selector': 'sac-filebrowser'},{'name': 'NgButtonComponent', 'selector': 'sac-button'},{'name': 'NgCheckboxComponent', 'selector': 'sac-checkbox'},{'name': 'NgConfirmComponent', 'selector': 'sac-confirm'},{'name': 'NgContextmenuComponent', 'selector': 'sac-contextmenu'},{'name': 'NgContextmenuItemButtonComponent', 'selector': 'sac-contextmenubutton'},{'name': 'NgContextmenuItemSplitterComponent', 'selector': 'sac-contextmenusplitter'},{'name': 'NgDateComponent', 'selector': 'sac-date'},{'name': 'NgDateSelectorComponent', 'selector': 'sac-dateselector'},{'name': 'NgDateTimeComponent', 'selector': 'sac-datetime'},{'name': 'NgDialogComponent', 'selector': 'sac-dialog'},{'name': 'NgDropdownComponent', 'selector': 'sac-dropdown'},{'name': 'NgDropzoneMultipleComponent', 'selector': 'sac-dropzonemultiple'},{'name': 'NgDropzoneSingleComponent', 'selector': 'sac-dropzonesingle'},{'name': 'NgGridButtonComponent', 'selector': 'sac-gridbutton'},{'name': 'NgGridColumnActionComponent', 'selector': 'sac-gridcolumnaction'},{'name': 'NgGridColumnComponent', 'selector': 'sac-gridcolumn'},{'name': 'NgGridComponent', 'selector': 'sac-grid'},{'name': 'NgGridImageComponent', 'selector': 'sac-gridimage'},{'name': 'NgInputAreaComponent', 'selector': 'sac-inputarea'},{'name': 'NgInputComponent', 'selector': 'sac-input'},{'name': 'NgInputCurrencyComponent', 'selector': 'sac-inputcurrency'},{'name': 'NgInputDecimalComponent', 'selector': 'sac-inputdecimal'},{'name': 'NgInputEmailComponent', 'selector': 'sac-inputemail'},{'name': 'NgInputIntegerComponent', 'selector': 'sac-inputinteger'},{'name': 'NgInputPasswordComponent', 'selector': 'sac-inputpassword'},{'name': 'NgInputSearchComponent', 'selector': 'sac-inputsearch'},{'name': 'NgListboxComponent', 'selector': 'sac-listbox'},{'name': 'NgMultilanguageInputAreaComponent', 'selector': 'sac-multilanguageinputarea'},{'name': 'NgMultilanguageInputComponent', 'selector': 'sac-multilanguageinput'},{'name': 'NgPagingComponent', 'selector': 'sac-paging'},{'name': 'NgRadiobuttonComponent', 'selector': 'sac-radiobutton'},{'name': 'NgRadiobuttonsComponent', 'selector': 'sac-radiobuttons'},{'name': 'NgStaticFormContainerComponent', 'selector': 'sac-staticformcontainer'},{'name': 'NgStaticLabelComponent', 'selector': 'sac-staticlabel'},{'name': 'NgTabComponent', 'selector': 'sac-tab'},{'name': 'NgTabItemComponent', 'selector': 'sac-tabitem'},{'name': 'NgTimeComponent', 'selector': 'sac-time'},{'name': 'NgTinyMceComponent', 'selector': 'sac-tinymce'},{'name': 'NgUploadComponent', 'selector': 'sac-upload'},{'name': 'NgUploadMultipleComponent', 'selector': 'sac-uploadmultiple'},{'name': 'NgValidationSummaryComponent', 'selector': 'sac-validationsummary'},{'name': 'NgWizardComponent', 'selector': 'sac-wizard'},{'name': 'NgWizardItemComponent', 'selector': 'sac-wizarditem'}];
-    var DIRECTIVES = [{'name': 'NgBaseDateTimeControl', 'selector': ''},{'name': 'NgBaseListControl', 'selector': ''},{'name': 'NgBaseModelControl', 'selector': ''},{'name': 'NgBaseSelectControl', 'selector': ''},{'name': 'NgButtonCommon', 'selector': ''},{'name': 'NgCheckboxCommon', 'selector': ''},{'name': 'NgConfirmCommon', 'selector': ''},{'name': 'NgContextmenuAnchorCommon', 'selector': ''},{'name': 'NgContextmenuAnchorDirective', 'selector': '[sac-contextmenuanchor]'},{'name': 'NgContextmenuCommon', 'selector': ''},{'name': 'NgContextmenuContainerDirective', 'selector': '[sac-contextmenucontainer]'},{'name': 'NgContextMenuContrainerCommon', 'selector': ''},{'name': 'NgContextmenuItemButtonCommon', 'selector': ''},{'name': 'NgContextmenuItemCommon', 'selector': ''},{'name': 'NgDateCommon', 'selector': ''},{'name': 'NgDateSelectorCommon', 'selector': ''},{'name': 'NgDateTimeCommon', 'selector': ''},{'name': 'NgDialogCommon', 'selector': ''},{'name': 'NgDropdownCommon', 'selector': ''},{'name': 'NgDropdownOptionCommon', 'selector': ''},{'name': 'NgDropdownOptionDirective', 'selector': '[sac-option],option'},{'name': 'NgDropzoneMultipleCommon', 'selector': ''},{'name': 'NgDropzoneSingleCommon', 'selector': ''},{'name': 'NgFileBrowserCommon', 'selector': ''},{'name': 'NgFormularCommon', 'selector': ''},{'name': 'NgFormularDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgGridButtonCommon', 'selector': ''},{'name': 'NgGridColumnActionCommon', 'selector': ''},{'name': 'NgGridColumnBaseCommon', 'selector': ''},{'name': 'NgGridColumnCommon', 'selector': ''},{'name': 'NgGridCommon', 'selector': ''},{'name': 'NgGridImageCommon', 'selector': ''},{'name': 'NgInputAreaCommon', 'selector': ''},{'name': 'NgInputBase', 'selector': ''},{'name': 'NgInputCommon', 'selector': ''},{'name': 'NgInputCurrencyCommon', 'selector': ''},{'name': 'NgInputDecimalCommon', 'selector': ''},{'name': 'NgInputEmailCommon', 'selector': ''},{'name': 'NgInputIntegerCommon', 'selector': ''},{'name': 'NgInputPasswordCommon', 'selector': ''},{'name': 'NgInputSearchCommon', 'selector': ''},{'name': 'NgListboxCommon', 'selector': ''},{'name': 'NgListboxOptionCommon', 'selector': ''},{'name': 'NgListboxOptionDirective', 'selector': '[sac-option],option'},{'name': 'NgMultilanguageInputAreaCommon', 'selector': ''},{'name': 'NgMultilanguageInputCommon', 'selector': ''},{'name': 'NgPagingCommon', 'selector': ''},{'name': 'NgRadiobuttonCommon', 'selector': ''},{'name': 'NgRadiobuttonsCommon', 'selector': ''},{'name': 'NgStaticFormContainerCommon', 'selector': ''},{'name': 'NgStaticLabelCommon', 'selector': ''},{'name': 'NgTabCommon', 'selector': ''},{'name': 'NgTabItemCommon', 'selector': ''},{'name': 'NgTimeCommon', 'selector': ''},{'name': 'NgTinyMceCommon', 'selector': ''},{'name': 'NgTooltipCommon', 'selector': ''},{'name': 'NgTreeItemActionCommon', 'selector': ''},{'name': 'NgTreeViewChildCommon', 'selector': ''},{'name': 'NgTreeViewCommon', 'selector': ''},{'name': 'NgUploadBase', 'selector': ''},{'name': 'NgUploadMultipleCommon', 'selector': ''},{'name': 'NgUploadSingleCommon', 'selector': ''},{'name': 'NgValidationSummaryCommon', 'selector': ''},{'name': 'NgWizardCommon', 'selector': ''},{'name': 'NgWizardItemCommon', 'selector': ''},{'name': 'ProvideParentNgFormularDirective', 'selector': '[sac-inherit-form]'}];
+    var DIRECTIVES = [{'name': 'NgBaseDateTimeControl', 'selector': ''},{'name': 'NgBaseListControl', 'selector': ''},{'name': 'NgBaseModelControl', 'selector': ''},{'name': 'NgBaseSelectControl', 'selector': ''},{'name': 'NgButtonCommon', 'selector': ''},{'name': 'NgCheckboxCommon', 'selector': ''},{'name': 'NgConfirmCommon', 'selector': ''},{'name': 'NgContextmenuAnchorCommon', 'selector': ''},{'name': 'NgContextmenuAnchorDirective', 'selector': '[sacContextMenuAnchor]'},{'name': 'NgContextmenuCommon', 'selector': ''},{'name': 'NgContextmenuContainerDirective', 'selector': '[sacContextMenuContainer]'},{'name': 'NgContextMenuContrainerCommon', 'selector': ''},{'name': 'NgContextmenuItemButtonCommon', 'selector': ''},{'name': 'NgContextmenuItemCommon', 'selector': ''},{'name': 'NgDateCommon', 'selector': ''},{'name': 'NgDateSelectorCommon', 'selector': ''},{'name': 'NgDateTimeCommon', 'selector': ''},{'name': 'NgDialogCommon', 'selector': ''},{'name': 'NgDropdownCommon', 'selector': ''},{'name': 'NgDropdownOptionCommon', 'selector': ''},{'name': 'NgDropdownOptionDirective', 'selector': '[sacOption],option'},{'name': 'NgDropzoneMultipleCommon', 'selector': ''},{'name': 'NgDropzoneSingleCommon', 'selector': ''},{'name': 'NgFileBrowserCommon', 'selector': ''},{'name': 'NgFormularCommon', 'selector': ''},{'name': 'NgFormularDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgGridButtonCommon', 'selector': ''},{'name': 'NgGridColumnActionCommon', 'selector': ''},{'name': 'NgGridColumnBaseCommon', 'selector': ''},{'name': 'NgGridColumnCommon', 'selector': ''},{'name': 'NgGridCommon', 'selector': ''},{'name': 'NgGridImageCommon', 'selector': ''},{'name': 'NgInputAreaCommon', 'selector': ''},{'name': 'NgInputBase', 'selector': ''},{'name': 'NgInputCommon', 'selector': ''},{'name': 'NgInputCurrencyCommon', 'selector': ''},{'name': 'NgInputDecimalCommon', 'selector': ''},{'name': 'NgInputEmailCommon', 'selector': ''},{'name': 'NgInputIntegerCommon', 'selector': ''},{'name': 'NgInputPasswordCommon', 'selector': ''},{'name': 'NgInputSearchCommon', 'selector': ''},{'name': 'NgListboxCommon', 'selector': ''},{'name': 'NgListboxOptionCommon', 'selector': ''},{'name': 'NgListboxOptionDirective', 'selector': '[sacOption],option'},{'name': 'NgMultilanguageInputAreaCommon', 'selector': ''},{'name': 'NgMultilanguageInputCommon', 'selector': ''},{'name': 'NgPagingCommon', 'selector': ''},{'name': 'NgRadiobuttonCommon', 'selector': ''},{'name': 'NgRadiobuttonsCommon', 'selector': ''},{'name': 'NgStaticFormContainerCommon', 'selector': ''},{'name': 'NgStaticLabelCommon', 'selector': ''},{'name': 'NgTabCommon', 'selector': ''},{'name': 'NgTabItemCommon', 'selector': ''},{'name': 'NgTimeCommon', 'selector': ''},{'name': 'NgTinyMceCommon', 'selector': ''},{'name': 'NgTooltipCommon', 'selector': ''},{'name': 'NgTreeItemActionCommon', 'selector': ''},{'name': 'NgTreeViewChildCommon', 'selector': ''},{'name': 'NgTreeViewCommon', 'selector': ''},{'name': 'NgUploadBase', 'selector': ''},{'name': 'NgUploadMultipleCommon', 'selector': ''},{'name': 'NgUploadSingleCommon', 'selector': ''},{'name': 'NgValidationSummaryCommon', 'selector': ''},{'name': 'NgWizardCommon', 'selector': ''},{'name': 'NgWizardItemCommon', 'selector': ''},{'name': 'ProvideParentNgFormularDirective', 'selector': '[sacInheritForm]'}];
     var ACTUAL_COMPONENT = {'name': 'NgTabComponent'};
 </script>
 <script src="../js/tree.js"></script>

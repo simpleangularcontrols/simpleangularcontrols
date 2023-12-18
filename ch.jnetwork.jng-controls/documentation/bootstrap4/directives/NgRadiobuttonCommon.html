@@ -12,8 +12,66 @@
         <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -38,21 +96,27 @@
 
 
 <ol class="breadcrumb">
-  <li>Directives</li>
-  <li >NgRadiobuttonCommon</li>
+  <li class="breadcrumb-item">Directives</li>
+  <li class="breadcrumb-item" >NgRadiobuttonCommon</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -74,12 +138,12 @@
                 <h3>Implements</h3>
             </p>
             <p class="comment">
-                            <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+                        <code>OnDestroy</code>
             </p>
 
 
 
-            <section>
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -191,7 +255,7 @@
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-constructor">
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -242,7 +306,7 @@
         </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-inputs">
     <h3 id="inputs">Inputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -407,7 +471,7 @@
             </tbody>
         </table>
 </section>
-            <section>
+            <section data-compodoc="block-outputs">
     <h3 id="outputs">Outputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -419,7 +483,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+                        <i>Type : </i>    <code>EventEmitter</code>
 
                     </td>
                 </tr>
@@ -439,7 +503,7 @@
 </section>
 
 
-            <section>
+            <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -450,7 +514,7 @@
                 <td class="col-md-4">
                     <a name="ChangeEvent"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                            <span class="modifier">Public</span>
                         <span ><b>ChangeEvent</b></span>
                         <a href="#ChangeEvent"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -458,29 +522,29 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>ChangeEvent()</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="139"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/checkbox/radiobutton.ts:139</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="139"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/checkbox/radiobutton.ts:139</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Event bei Änderungen</p>
+                        <div class="io-description"><p>Event bei Änderungen</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -503,29 +567,29 @@
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/checkbox/radiobutton.ts:129</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="129"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/checkbox/radiobutton.ts:129</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Event wenn die Komponente zerstört wird</p>
+                        <div class="io-description"><p>Event wenn die Komponente zerstört wird</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
     </table>
 </section>
-            <section>
+            <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
@@ -569,7 +633,7 @@
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-accessors">
     <h3 id="accessors">
         Accessors
     </h3>
@@ -748,7 +812,7 @@
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
   Directive,
   EventEmitter,
@@ -776,26 +840,26 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
   /**
    * Wert
    */
-  @Input(&#x27;value&#x27;)
-  public _value: any;
+  @Input()
+  public value: any;
 
   /**
    * Label Text
    */
-  @Input(&#x27;label&#x27;)
-  public _label: string;
+  @Input()
+  public label: string;
 
   /**
    * Boolean Property, ob Radiobutton checked ist
    */
-  @Input(&#x27;checked&#x27;)
-  public _checked: boolean;
+  @Input()
+  public checked: boolean;
 
   /**
    * Boolean Property, ob Radiobutton disabled ist
    */
-  @Input(&#x27;disabled&#x27;)
-  public _disabled: boolean;
+  @Input()
+  public disabled: boolean;
 
   /**
    * Output Event
@@ -807,7 +871,7 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
    * Methode ergibt Boolean, ob Control disabled ist
    */
   get isDisabled(): boolean {
-    return this._disabled || this.ngRadioButtons._disabledControl;
+    return this.disabled || this.ngRadioButtons.disabled;
   }
 
   /**
@@ -818,7 +882,7 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
   /**
    * Setter für hidden Property
    */
-  @Input(&#x27;hidden&#x27;)
+  @Input()
   set hidden(v: boolean | string) {
     if (v &#x3D;&#x3D;&#x3D; null || v &#x3D;&#x3D;&#x3D; undefined || typeof v &#x3D;&#x3D;&#x3D; &#x27;boolean&#x27;) {
       this._hidden &#x3D; v as boolean;
@@ -827,7 +891,7 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
     }
 
     // Model Reset falls RadioButton selektiert war
-    if (this._hidden &amp;&amp; this._checked) {
+    if (this._hidden &amp;&amp; this.checked) {
       this.ngRadioButtons.SelectItem(null);
     }
   }
@@ -859,7 +923,7 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
    * Parent Control Name
    */
   get getName(): string {
-    return this.ngRadioButtons._name;
+    return this.ngRadioButtons.name;
   }
 
   //#region Control Templates
@@ -867,8 +931,8 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
   /**
    * Template für Value Element
    */
-  @Input(&#x27;labeltemplate&#x27;)
-  displayValueTemplate: TemplateRef&lt;any&gt;;
+  @Input()
+  labeltemplate: TemplateRef&lt;any&gt;;
 
   //#endregion
 
@@ -888,8 +952,8 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
    * Event bei Änderungen
    */
   public ChangeEvent(): void {
-    if (!this._disabled) {
-      this.ngRadioButtons.SelectItem(this._value);
+    if (!this.disabled) {
+      this.ngRadioButtons.SelectItem(this.value);
       this.onselectitem.emit();
     }
   }

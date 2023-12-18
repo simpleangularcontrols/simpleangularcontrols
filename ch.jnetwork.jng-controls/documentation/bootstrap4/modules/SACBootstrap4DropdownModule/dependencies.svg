@@ -22,69 +22,69 @@
 <text text-anchor="start" x="429.73" y="-15.4" font-family="Times-12" font-size="14.00"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_SACBootstrap4DropdownModule</title>
-<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="48,-70 48,-268 448,-268 448,-70 48,-70"/>
-</g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap4DropdownModule_declarations</title>
-<polygon fill="none" stroke="black" points="60,-78 60,-130 436,-130 436,-78 60,-78"/>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="45.5,-70 45.5,-268 450.5,-268 450.5,-70 45.5,-70"/>
 </g>
 <g id="clust6" class="cluster">
 <title>cluster_SACBootstrap4DropdownModule_exports</title>
-<polygon fill="none" stroke="black" points="56,-208 56,-260 440,-260 440,-208 56,-208"/>
+<polygon fill="none" stroke="black" points="53.5,-208 53.5,-260 442.5,-260 442.5,-208 53.5,-208"/>
 </g>
-<!-- NgDropdownComponent -->
+<g id="clust2" class="cluster">
+<title>cluster_SACBootstrap4DropdownModule_declarations</title>
+<polygon fill="none" stroke="black" points="56.5,-78 56.5,-130 439.5,-130 439.5,-78 56.5,-78"/>
+</g>
+<!-- SacDropdownComponent -->
 <g id="node1" class="node">
-<title>NgDropdownComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="428.31,-122 269.69,-122 269.69,-86 428.31,-86 428.31,-122"/>
-<text text-anchor="middle" x="349" y="-99.8" font-family="Times,serif" font-size="14.00">NgDropdownComponent</text>
+<title>SacDropdownComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="431.42,-122 269.58,-122 269.58,-86 431.42,-86 431.42,-122"/>
+<text text-anchor="middle" x="350.5" y="-99.8" font-family="Times,serif" font-size="14.00">SacDropdownComponent</text>
 </g>
 <!-- SACBootstrap4DropdownModule -->
 <g id="node3" class="node">
 <title>SACBootstrap4DropdownModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="352.09,-187 349.09,-191 328.09,-191 325.09,-187 143.91,-187 143.91,-151 352.09,-151 352.09,-187"/>
-<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00">SACBootstrap4DropdownModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="351.59,-187 348.59,-191 327.59,-191 324.59,-187 143.41,-187 143.41,-151 351.59,-151 351.59,-187"/>
+<text text-anchor="middle" x="247.5" y="-164.8" font-family="Times,serif" font-size="14.00">SACBootstrap4DropdownModule</text>
 </g>
-<!-- NgDropdownComponent&#45;&gt;SACBootstrap4DropdownModule -->
+<!-- SacDropdownComponent&#45;&gt;SACBootstrap4DropdownModule -->
 <g id="edge1" class="edge">
-<title>NgDropdownComponent&#45;&gt;SACBootstrap4DropdownModule</title>
-<path fill="none" stroke="black" d="M310.94,-122.11C310.94,-122.11 310.94,-140.99 310.94,-140.99"/>
-<polygon fill="black" stroke="black" points="307.44,-140.99 310.94,-150.99 314.44,-140.99 307.44,-140.99"/>
+<title>SacDropdownComponent&#45;&gt;SACBootstrap4DropdownModule</title>
+<path fill="none" stroke="black" d="M310.67,-122.11C310.67,-122.11 310.67,-140.99 310.67,-140.99"/>
+<polygon fill="black" stroke="black" points="307.17,-140.99 310.67,-150.99 314.17,-140.99 307.17,-140.99"/>
 </g>
-<!-- NgDropdownOptionDirective -->
+<!-- SacDropdownOptionDirective -->
 <g id="node2" class="node">
-<title>NgDropdownOptionDirective</title>
-<polygon fill="#ffffb3" stroke="black" points="251.95,-122 68.05,-122 68.05,-86 251.95,-86 251.95,-122"/>
-<text text-anchor="middle" x="160" y="-99.8" font-family="Times,serif" font-size="14.00">NgDropdownOptionDirective</text>
+<title>SacDropdownOptionDirective</title>
+<polygon fill="#ffffb3" stroke="black" points="252.06,-122 64.94,-122 64.94,-86 252.06,-86 252.06,-122"/>
+<text text-anchor="middle" x="158.5" y="-99.8" font-family="Times,serif" font-size="14.00">SacDropdownOptionDirective</text>
 </g>
-<!-- NgDropdownOptionDirective&#45;&gt;SACBootstrap4DropdownModule -->
+<!-- SacDropdownOptionDirective&#45;&gt;SACBootstrap4DropdownModule -->
 <g id="edge2" class="edge">
-<title>NgDropdownOptionDirective&#45;&gt;SACBootstrap4DropdownModule</title>
-<path fill="none" stroke="black" d="M197.97,-122.11C197.97,-122.11 197.97,-140.99 197.97,-140.99"/>
-<polygon fill="black" stroke="black" points="194.47,-140.99 197.97,-150.99 201.47,-140.99 194.47,-140.99"/>
+<title>SacDropdownOptionDirective&#45;&gt;SACBootstrap4DropdownModule</title>
+<path fill="none" stroke="black" d="M197.74,-122.11C197.74,-122.11 197.74,-140.99 197.74,-140.99"/>
+<polygon fill="black" stroke="black" points="194.24,-140.99 197.74,-150.99 201.24,-140.99 194.24,-140.99"/>
 </g>
-<!-- NgDropdownComponent  -->
+<!-- SacDropdownComponent  -->
 <g id="node4" class="node">
-<title>NgDropdownComponent </title>
-<polygon fill="#fb8072" stroke="black" points="431.81,-252 270.19,-252 270.19,-216 431.81,-216 431.81,-252"/>
-<text text-anchor="middle" x="351" y="-229.8" font-family="Times,serif" font-size="14.00">NgDropdownComponent </text>
+<title>SacDropdownComponent </title>
+<polygon fill="#fb8072" stroke="black" points="434.92,-252 270.08,-252 270.08,-216 434.92,-216 434.92,-252"/>
+<text text-anchor="middle" x="352.5" y="-229.8" font-family="Times,serif" font-size="14.00">SacDropdownComponent </text>
 </g>
-<!-- SACBootstrap4DropdownModule&#45;&gt;NgDropdownComponent  -->
+<!-- SACBootstrap4DropdownModule&#45;&gt;SacDropdownComponent  -->
 <g id="edge3" class="edge">
-<title>SACBootstrap4DropdownModule&#45;&gt;NgDropdownComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M311.07,-187.11C311.07,-187.11 311.07,-205.99 311.07,-205.99"/>
-<polygon fill="black" stroke="black" points="307.57,-205.99 311.07,-215.99 314.57,-205.99 307.57,-205.99"/>
+<title>SACBootstrap4DropdownModule&#45;&gt;SacDropdownComponent </title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M310.79,-187.11C310.79,-187.11 310.79,-205.99 310.79,-205.99"/>
+<polygon fill="black" stroke="black" points="307.29,-205.99 310.79,-215.99 314.29,-205.99 307.29,-205.99"/>
 </g>
-<!-- NgDropdownOptionDirective  -->
+<!-- SacDropdownOptionDirective  -->
 <g id="node5" class="node">
-<title>NgDropdownOptionDirective </title>
-<polygon fill="#fb8072" stroke="black" points="251.95,-252 64.05,-252 64.05,-216 251.95,-216 251.95,-252"/>
-<text text-anchor="middle" x="158" y="-229.8" font-family="Times,serif" font-size="14.00">NgDropdownOptionDirective </text>
+<title>SacDropdownOptionDirective </title>
+<polygon fill="#fb8072" stroke="black" points="251.56,-252 61.44,-252 61.44,-216 251.56,-216 251.56,-252"/>
+<text text-anchor="middle" x="156.5" y="-229.8" font-family="Times,serif" font-size="14.00">SacDropdownOptionDirective </text>
 </g>
-<!-- SACBootstrap4DropdownModule&#45;&gt;NgDropdownOptionDirective  -->
+<!-- SACBootstrap4DropdownModule&#45;&gt;SacDropdownOptionDirective  -->
 <g id="edge4" class="edge">
-<title>SACBootstrap4DropdownModule&#45;&gt;NgDropdownOptionDirective </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M197.84,-187.11C197.84,-187.11 197.84,-205.99 197.84,-205.99"/>
-<polygon fill="black" stroke="black" points="194.34,-205.99 197.84,-215.99 201.34,-205.99 194.34,-205.99"/>
+<title>SACBootstrap4DropdownModule&#45;&gt;SacDropdownOptionDirective </title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M197.62,-187.11C197.62,-187.11 197.62,-205.99 197.62,-205.99"/>
+<polygon fill="black" stroke="black" points="194.12,-205.99 197.62,-215.99 201.12,-205.99 194.12,-205.99"/>
 </g>
 </g>
 </svg>

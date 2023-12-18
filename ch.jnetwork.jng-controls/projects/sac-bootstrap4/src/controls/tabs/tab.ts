@@ -1,6 +1,6 @@
 import { Component, ContentChildren, QueryList } from '@angular/core';
-import { NgTabCommon } from '@jnetwork/sac-common';
-import { NgTabItemComponent } from './tabitem';
+import { SacTabCommon } from '@jnetwork/sac-common';
+import { SacTabItemComponent } from './tabitem';
 
 /**
  * Komponente für Tabs
@@ -9,18 +9,18 @@ import { NgTabItemComponent } from './tabitem';
   selector: 'sac-tab',
   templateUrl: './tab.html',
 })
-export class NgTabComponent extends NgTabCommon {
+export class SacTabComponent extends SacTabCommon {
   /**
    * Collection von TabItems
    */
-  @ContentChildren(NgTabItemComponent)
-  _tabItems: QueryList<NgTabItemComponent>;
+  @ContentChildren(SacTabItemComponent)
+  _tabItems: QueryList<SacTabItemComponent>;
 
   /**
    * Gibt die TabItems zurück
    * @returns Array von TabItems
    */
-  tabItems(): NgTabItemComponent[] {
-    return this._tabItems.toArray() as Array<NgTabItemComponent>;
+  tabItems(): SacTabItemComponent[] {
+    return this._tabItems.toArray() as Array<SacTabItemComponent>;
   }
 }

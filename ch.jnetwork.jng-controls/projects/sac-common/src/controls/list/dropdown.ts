@@ -8,9 +8,9 @@ import {
   Renderer2,
 } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { NgBaseSelectControl } from '../../common/baseselectcontrol';
+import { SacBaseSelectControl } from '../../common/baseselectcontrol';
 import { Validation } from '../../validation';
-import { NgFormularCommon } from '../form/form';
+import { SacFormCommon } from '../form/form';
 
 /**
  * Function um ein Key Value Pair für das Dropdown zu erzeugen
@@ -36,7 +36,7 @@ export function _buildValueString(id: string | null, value: any): string {
  * Base Dropdown Komponente
  */
 @Directive()
-export class NgDropdownCommon extends NgBaseSelectControl<any> {
+export class SacDropdownCommon extends SacBaseSelectControl<any> {
   /**
    * Counter vom OptionID; default Wert = 0
    */
@@ -91,7 +91,7 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
    * @param _elementRef Referenz von HTML Element
    */
   constructor(
-    @Host() parent: NgFormularCommon,
+    @Host() parent: SacFormCommon,
     injector: Injector,
     private _renderer: Renderer2,
     private _elementRef: ElementRef
@@ -205,10 +205,10 @@ export class NgDropdownCommon extends NgBaseSelectControl<any> {
 }
 
 /**
- * ngDropdownOption-Klasse
+ * SacDropdownOption-Klasse
  */
 @Directive()
-export class NgDropdownOptionCommon implements OnDestroy {
+export class SacDropdownOptionCommon implements OnDestroy {
   /**
    * ID-String
    */
@@ -222,7 +222,7 @@ export class NgDropdownOptionCommon implements OnDestroy {
   constructor(
     private _element: ElementRef,
     private _renderer: Renderer2,
-    private _dropdown: NgDropdownCommon
+    private _dropdown: SacDropdownCommon
   ) {
     if (this._dropdown) {
       this.id = this._dropdown.registerOption();

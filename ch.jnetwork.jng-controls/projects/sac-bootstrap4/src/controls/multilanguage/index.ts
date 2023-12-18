@@ -1,2 +1,2 @@
-export { NgMultilanguageInputComponent } from './multilanguageinput';
-export { NgMultilanguageInputAreaComponent } from './multilanguageinputarea';
+export { SacMultilanguageInputComponent } from './multilanguageinput';
+export { SacMultilanguageInputAreaComponent } from './multilanguageinputarea';

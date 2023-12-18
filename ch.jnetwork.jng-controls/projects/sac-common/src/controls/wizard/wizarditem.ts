@@ -1,10 +1,10 @@
 import { Directive, Input } from '@angular/core';
 
 /**
- * Basis Komponente für NgWizardItem
+ * Basis Komponente für SacWizardItem
  */
 @Directive()
-export class NgWizardItemCommon {
+export class SacWizardItemCommon {
   /**
    * Prüft ob der aktuelle Schritt aktiv ist.
    */

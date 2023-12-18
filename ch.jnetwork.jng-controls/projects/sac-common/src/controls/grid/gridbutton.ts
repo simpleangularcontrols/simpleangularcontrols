@@ -4,7 +4,7 @@ import { Directive, EventEmitter, Input, Output } from '@angular/core';
  * Base Grid Action Button
  */
 @Directive()
-export class NgGridButtonCommon {
+export class SacGridButtonCommon {
   /**
    * Input Property für Styling des Buttons. Deffiniert die Css Klassen des Buttons
    */

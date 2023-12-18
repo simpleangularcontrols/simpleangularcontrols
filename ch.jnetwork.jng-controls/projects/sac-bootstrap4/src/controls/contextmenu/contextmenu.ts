@@ -7,7 +7,7 @@ import {
   NgZone,
   Renderer2,
 } from '@angular/core';
-import { NgContextmenuCommon } from '@jnetwork/sac-common';
+import { SacContextmenuCommon } from '@jnetwork/sac-common';
 
 /**
  * Component für Contextmenü
@@ -17,12 +17,12 @@ import { NgContextmenuCommon } from '@jnetwork/sac-common';
   templateUrl: './contextmenu.html',
   providers: [
     {
-      provide: NgContextmenuCommon,
-      useExisting: forwardRef(() => NgContextmenuComponent),
+      provide: SacContextmenuCommon,
+      useExisting: forwardRef(() => SacContextmenuComponent),
     },
   ],
 })
-export class NgContextmenuComponent extends NgContextmenuCommon {
+export class SacContextmenuComponent extends SacContextmenuCommon {
   /**
    * Constructor
    * @param _document Referenz auf HTML Document

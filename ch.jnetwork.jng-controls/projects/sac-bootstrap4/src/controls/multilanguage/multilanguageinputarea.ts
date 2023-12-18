@@ -6,9 +6,9 @@ import {
 } from '@angular/forms';
 import {
   IconType,
-  NgMultilanguageInputAreaCommon,
+  SacMultilanguageInputAreaCommon,
 } from '@jnetwork/sac-common';
-import { NgFormularDirective } from '../form/form';
+import { SacFormDirective } from '../form/form';
 
 /**
  * Componente für Mehrsprache Texte als mehrzeiliger Text
@@ -21,20 +21,20 @@ import { NgFormularDirective } from '../form/form';
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NgMultilanguageInputAreaComponent,
+      useExisting: SacMultilanguageInputAreaComponent,
     },
     {
       provide: NG_VALIDATORS,
       multi: true,
-      useExisting: forwardRef(() => NgMultilanguageInputAreaComponent),
+      useExisting: forwardRef(() => SacMultilanguageInputAreaComponent),
     },
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [
-    { provide: ControlContainer, useExisting: NgFormularDirective },
+    { provide: ControlContainer, useExisting: SacFormDirective },
   ],
 })
-export class NgMultilanguageInputAreaComponent extends NgMultilanguageInputAreaCommon {
+export class SacMultilanguageInputAreaComponent extends SacMultilanguageInputAreaCommon {
   /**
    * Enum für IconType in HTML Template
    */
@@ -45,7 +45,7 @@ export class NgMultilanguageInputAreaComponent extends NgMultilanguageInputAreaC
    * @param parent Formular Inject
    * @param injector Default Injector
    */
-  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
+  constructor(@Host() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 }

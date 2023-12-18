@@ -1,7 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { createOutputSpy } from 'cypress/angular';
-import { NgFormularDirective } from '../form';
-import { NgInputAreaComponent } from './inputarea';
+import { SacFormDirective } from '../form';
+import { SacInputAreaComponent } from './inputarea';
 
 describe('NgInputareaComponent', () => {
   it('should show label and text', () => {
@@ -11,7 +11,7 @@ describe('NgInputareaComponent', () => {
       </sac-inputarea>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputAreaComponent],
+        declarations: [SacFormDirective, SacInputAreaComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -32,7 +32,7 @@ describe('NgInputareaComponent', () => {
       </sac-inputarea>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputAreaComponent],
+        declarations: [SacFormDirective, SacInputAreaComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -60,7 +60,7 @@ describe('NgInputareaComponent', () => {
       </sac-inputarea>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputAreaComponent],
+        declarations: [SacFormDirective, SacInputAreaComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -81,7 +81,7 @@ describe('NgInputareaComponent', () => {
       </sac-inputarea>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputAreaComponent],
+        declarations: [SacFormDirective, SacInputAreaComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -101,7 +101,7 @@ describe('NgInputareaComponent', () => {
       </sac-inputarea>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputAreaComponent],
+        declarations: [SacFormDirective, SacInputAreaComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -121,7 +121,7 @@ describe('NgInputareaComponent', () => {
       </sac-inputarea>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputAreaComponent],
+        declarations: [SacFormDirective, SacInputAreaComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -141,7 +141,7 @@ describe('NgInputareaComponent', () => {
       </sac-inputarea>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputAreaComponent],
+        declarations: [SacFormDirective, SacInputAreaComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -164,7 +164,7 @@ describe('NgInputareaComponent', () => {
       </sac-inputarea>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputAreaComponent],
+        declarations: [SacFormDirective, SacInputAreaComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',

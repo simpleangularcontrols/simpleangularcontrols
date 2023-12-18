@@ -1,17 +1,17 @@
 import { Directive, ElementRef, Input } from '@angular/core';
 import { convertToBoolean } from '../../utilities/convertion';
-import { NgGridCommon } from './grid';
-import { NgGridColumnBaseCommon } from './gridcolumnbase';
+import { SacGridCommon } from './grid';
+import { SacGridColumnBaseCommon } from './gridcolumnbase';
 
 /**
- * Komponente für NgGridColumnCommon. Extends NgGridColumnBaseCommon
+ * Komponente für SacGridColumnCommon. Extends SacGridColumnBaseCommon
  */
 @Directive()
-export class NgGridColumnCommon extends NgGridColumnBaseCommon {
+export class SacGridColumnCommon extends SacGridColumnBaseCommon {
   /**
    * Konstruktor
    */
-  constructor(grid: NgGridCommon, el: ElementRef) {
+  constructor(grid: SacGridCommon, el: ElementRef) {
     super(grid, el);
   }
 

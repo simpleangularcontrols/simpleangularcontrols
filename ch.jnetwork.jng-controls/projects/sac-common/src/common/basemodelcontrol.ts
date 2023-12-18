@@ -7,7 +7,7 @@ import {
   Validator,
 } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { NgFormularCommon } from '../controls/form/form';
+import { SacFormCommon } from '../controls/form/form';
 import { ILanguageResourceService } from '../interfaces/ilanguageresource';
 import {
   InternalLanguageResourceService,
@@ -17,10 +17,10 @@ import { convertToBoolean } from '../utilities/Convertion';
 import { ValidationErrorItem } from '../validation';
 
 /**
- * Abstract Klasse für NgBaseModelControl. Implements ControlValueAccessor, Validator, OnInit
+ * Abstract Klasse für SacBaseModelControl. Implements ControlValueAccessor, Validator, OnInit
  */
 @Directive()
-export abstract class NgBaseModelControl<VALUE>
+export abstract class SacBaseModelControl<VALUE>
   implements ControlValueAccessor, Validator, OnInit
 {
   // #region Private Variables
@@ -28,9 +28,9 @@ export abstract class NgBaseModelControl<VALUE>
   /**
    * Parent Formular
    */
-  protected parent: NgFormularCommon;
+  protected parent: SacFormCommon;
   /**
-   * NgModel Form ist disabled
+   * SacModel Form ist disabled
    */
   protected _disabledForm: boolean = false;
   /**
@@ -89,10 +89,10 @@ export abstract class NgBaseModelControl<VALUE>
   /**
    * Konstruktor
    * Inject des Formulars
-   * @parent NgFormularCommon
+   * @parent SacFormCommon
    * @injector Injector
    */
-  constructor(@Host() parent: NgFormularCommon, private injector: Injector) {
+  constructor(@Host() parent: SacFormCommon, private injector: Injector) {
     this.parent = parent;
     this.lngResourceService = injector.get(
       LANGUAGERESOURCE_SERVICE,

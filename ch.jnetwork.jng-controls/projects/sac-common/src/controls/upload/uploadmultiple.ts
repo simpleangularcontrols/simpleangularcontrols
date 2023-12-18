@@ -1,7 +1,7 @@
 import { Directive, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { UploadState } from 'ngx-uploadx';
-import { NgUploadBase } from '../../common/baseuploadcontrol';
+import { SacUploadBase } from '../../common/baseuploadcontrol';
 import { IUploadControl } from '../../interfaces/iuploadcontrol';
 import { Validation } from '../../validation';
 
@@ -9,8 +9,8 @@ import { Validation } from '../../validation';
  * Upload Componente für mehrere Files
  */
 @Directive()
-export class NgUploadMultipleCommon
-  extends NgUploadBase<string[]>
+export class SacUploadMultipleCommon
+  extends SacUploadBase<string[]>
   implements IUploadControl
 {
   /**

@@ -14,14 +14,14 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PlacementArray, positionElements } from '../../utilities/positioning';
-import { NgContextmenuAnchorCommon } from './contextmenuanchor';
-import { NgContextMenuContrainerCommon } from './contextmenucontainer';
+import { SacContextmenuAnchorCommon } from './contextmenuanchor';
+import { SacContextMenuContrainerCommon } from './contextmenucontainer';
 
 /**
  * Base Context Menü Element. Die Logik wurde aus NG-BOOTSTRAP übernommen.
  */
 @Directive()
-export class NgContextmenuCommon implements OnDestroy {
+export class SacContextmenuCommon implements OnDestroy {
   /**
    * Zone Subscription für Postitonierung des Elements
    */
@@ -34,20 +34,20 @@ export class NgContextmenuCommon implements OnDestroy {
   /**
    * Button für Open/Close Event
    */
-  @ViewChild(NgContextmenuAnchorCommon, { static: false })
-  private _anchor: NgContextmenuAnchorCommon;
+  @ViewChild(SacContextmenuAnchorCommon, { static: false })
+  private _anchor: SacContextmenuAnchorCommon;
 
   /**
    * Button für Open/Close Event aus Template
    */
-  @ContentChild(NgContextmenuAnchorCommon, { static: false })
-  private _anchorTemplate: NgContextmenuAnchorCommon;
+  @ContentChild(SacContextmenuAnchorCommon, { static: false })
+  private _anchorTemplate: SacContextmenuAnchorCommon;
 
   /**
    * Container Element für Dropdown
    */
-  @ViewChild(NgContextMenuContrainerCommon, { static: false })
-  private _menu: NgContextMenuContrainerCommon;
+  @ViewChild(SacContextMenuContrainerCommon, { static: false })
+  private _menu: SacContextMenuContrainerCommon;
 
   /**
    * Definiert ob das Dropdown offen ist.
@@ -101,7 +101,7 @@ export class NgContextmenuCommon implements OnDestroy {
    * Click Event
    */
   public onClick(targetElement) {
-    const anchor: NgContextmenuAnchorCommon =
+    const anchor: SacContextmenuAnchorCommon =
       this._anchor || this._anchorTemplate;
 
     if (
@@ -169,7 +169,7 @@ export class NgContextmenuCommon implements OnDestroy {
    * Setzt die Position des Menüs im Markup
    */
   protected _positionMenu() {
-    const anchor: NgContextmenuAnchorCommon =
+    const anchor: SacContextmenuAnchorCommon =
       this._anchor || this._anchorTemplate;
 
     if (anchor && this._menu) {

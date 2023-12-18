@@ -4,9 +4,9 @@ import {
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
-// import { NgBaseModelControl } from '../../common/basemodelcontrol';
-import { NgCheckboxCommon } from '@jnetwork/sac-common';
-import { NgFormularDirective } from '../form/form';
+// import { SacBaseModelControl } from '../../common/basemodelcontrol';
+import { SacCheckboxCommon } from '@jnetwork/sac-common';
+import { SacFormDirective } from '../form/form';
 
 /**
  * Checkbox Kompontente
@@ -19,26 +19,26 @@ import { NgFormularDirective } from '../form/form';
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NgCheckboxComponent,
+      useExisting: SacCheckboxComponent,
     },
     {
       provide: NG_VALIDATORS,
-      useExisting: forwardRef(() => NgCheckboxComponent),
+      useExisting: forwardRef(() => SacCheckboxComponent),
       multi: true,
     },
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [
-    { provide: ControlContainer, useExisting: NgFormularDirective },
+    { provide: ControlContainer, useExisting: SacFormDirective },
   ],
 })
-export class NgCheckboxComponent extends NgCheckboxCommon {
+export class SacCheckboxComponent extends SacCheckboxCommon {
   /**
    * Konstruktor
    * @param parent Formular
    * @param injector Angular Dependency Injection Service
    */
-  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
+  constructor(@Host() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 }

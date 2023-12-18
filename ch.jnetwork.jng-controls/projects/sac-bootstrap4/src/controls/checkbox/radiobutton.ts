@@ -1,6 +1,6 @@
 import { Component, Host } from '@angular/core';
-import { NgRadiobuttonCommon } from '@jnetwork/sac-common';
-import { NgRadiobuttonsComponent } from './radiobuttons';
+import { SacRadiobuttonCommon } from '@jnetwork/sac-common';
+import { SacRadiobuttonsComponent } from './radiobuttons';
 
 /**
  * Radiobutton Komponente
@@ -9,12 +9,12 @@ import { NgRadiobuttonsComponent } from './radiobuttons';
   selector: 'sac-radiobutton',
   templateUrl: './radiobutton.html',
 })
-export class NgRadiobuttonComponent extends NgRadiobuttonCommon {
+export class SacRadiobuttonComponent extends SacRadiobuttonCommon {
   /**
    * Konstruktor
-   * @param ngRadioButtons Radio Buttons Group Komponente
+   * @param SacRadioButtons Radio Buttons Group Komponente
    */
-  constructor(@Host() ngRadioButtons: NgRadiobuttonsComponent) {
-    super(ngRadioButtons);
+  constructor(@Host() sacRadioButtons: SacRadiobuttonsComponent) {
+    super(sacRadioButtons);
   }
 }

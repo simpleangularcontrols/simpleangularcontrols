@@ -1,84 +1,84 @@
 /*
  * Public API Surface of sac-controls-common
  */
-export { NgButtonCommon } from './controls/buttons/button';
-export { NgDialogCommon } from './controls/dialog/dialog';
-export { NgCheckboxCommon } from './controls/checkbox/checkbox';
-export { NgRadiobuttonCommon } from './controls/checkbox/radiobutton';
-export { NgRadiobuttonsCommon } from './controls/checkbox/radiobuttons';
-export { NgFormularCommon } from './controls/form/form';
+export { SacButtonCommon } from './controls/buttons/button';
+export { SacDialogCommon } from './controls/dialog/dialog';
+export { SacCheckboxCommon } from './controls/checkbox/checkbox';
+export { SacRadiobuttonCommon } from './controls/checkbox/radiobutton';
+export { SacRadiobuttonsCommon } from './controls/checkbox/radiobuttons';
+export { SacFormCommon } from './controls/form/form';
 export {
-  NgDropdownCommon,
-  NgDropdownOptionCommon,
+  SacDropdownCommon,
+  SacDropdownOptionCommon,
 } from './controls/list/dropdown';
 export {
-  NgListboxCommon,
-  NgListboxOptionCommon,
+  SacListboxCommon,
+  SacListboxOptionCommon,
 } from './controls/list/listbox';
-export { NgValidationSummaryCommon } from './controls/validation/validationsummary';
-export { NgTabCommon } from './controls/tabs/tab';
-export { NgTabItemCommon } from './controls/tabs/tabitem';
+export { SacValidationSummaryCommon } from './controls/validation/validationsummary';
+export { SacTabCommon } from './controls/tabs/tab';
+export { SacTabItemCommon } from './controls/tabs/tabitem';
 
 // Input classes
-export { NgInputCommon } from './controls/input/input';
-export { NgInputAreaCommon } from './controls/input/inputarea';
-export { NgInputCurrencyCommon } from './controls/input/inputcurrency';
-export { NgInputDecimalCommon } from './controls/input/inputdecimal';
-export { NgInputEmailCommon } from './controls/input/inputemail';
-export { NgInputIntegerCommon } from './controls/input/inputinteger';
-export { NgInputPasswordCommon } from './controls/input/inputpassword';
-export { NgInputSearchCommon } from './controls/input/inputsearch';
+export { SacInputCommon } from './controls/input/input';
+export { SacInputAreaCommon } from './controls/input/inputarea';
+export { SacInputCurrencyCommon } from './controls/input/inputcurrency';
+export { SacInputDecimalCommon } from './controls/input/inputdecimal';
+export { SacInputEmailCommon } from './controls/input/inputemail';
+export { SacInputIntegerCommon } from './controls/input/inputinteger';
+export { SacInputPasswordCommon } from './controls/input/inputpassword';
+export { SacInputSearchCommon } from './controls/input/inputsearch';
 
 // Grid Classes
-export { NgGridCommon } from './controls/grid/grid';
-export { NgGridColumnCommon } from './controls/grid/gridcolumn';
-export { NgGridColumnActionCommon } from './controls/grid/gridcolumnaction';
-export { NgGridColumnBaseCommon } from './controls/grid/gridcolumnbase';
-export { NgPagingCommon } from './controls/grid/paging';
-export { NgGridButtonCommon } from './controls/grid/gridbutton';
-export { NgGridImageCommon } from './controls/grid/gridimage';
+export { SacGridCommon } from './controls/grid/grid';
+export { SacGridColumnCommon } from './controls/grid/gridcolumn';
+export { SacGridColumnActionCommon } from './controls/grid/gridcolumnaction';
+export { SacGridColumnBaseCommon } from './controls/grid/gridcolumnbase';
+export { SacPagingCommon } from './controls/grid/paging';
+export { SacGridButtonCommon } from './controls/grid/gridbutton';
+export { SacGridImageCommon } from './controls/grid/gridimage';
 export * from './controls/grid/model';
 
 // Datetime classes
-export { NgDateCommon } from './controls/datetime/date';
-export { NgDateSelectorCommon } from './controls/datetime/dateselector';
-export { NgDateTimeCommon } from './controls/datetime/datetime';
-export { NgTimeCommon } from './controls/datetime/time';
+export { SacDateCommon } from './controls/datetime/date';
+export { SacDateSelectorCommon } from './controls/datetime/dateselector';
+export { SacDateTimeCommon } from './controls/datetime/datetime';
+export { SacTimeCommon } from './controls/datetime/time';
 
 // StaticLabel
-export { NgStaticLabelCommon } from './controls/static/staticlabel';
-export { NgStaticFormContainerCommon } from './controls/static/formcontainer';
+export { SacStaticLabelCommon } from './controls/static/staticlabel';
+export { SacStaticFormContainerCommon } from './controls/static/formcontainer';
 
 // Wizard
-export { NgWizardCommon } from './controls/wizard/wizard';
-export { NgWizardItemCommon } from './controls/wizard/wizarditem';
+export { SacWizardCommon } from './controls/wizard/wizard';
+export { SacWizardItemCommon } from './controls/wizard/wizarditem';
 
 // TinyMCE
-export { NgTinyMceCommon } from './controls/tinymce/tinymce';
+export { SacTinyMceCommon } from './controls/tinymce/tinymce';
 
 // TreeView
-export { NgTreeViewCommon } from './controls/treeview/treeview';
-export { NgTreeViewChildCommon } from './controls/treeview/treeviewchild';
-export { NgTreeItemActionCommon } from './controls/treeview/ngtreeitemaction';
+export { SacTreeViewCommon } from './controls/treeview/treeview';
+export { SacTreeViewChildCommon } from './controls/treeview/treeviewchild';
+export { SacTreeItemActionCommon } from './controls/treeview/ngtreeitemaction';
 
 // Tooltip
-export { NgTooltipCommon } from './controls/tooltip/tooltip';
+export { SacTooltipCommon } from './controls/tooltip/tooltip';
 
 // Upload
-export { NgUploadSingleCommon } from './controls/upload/uploadsingle';
-export { NgUploadMultipleCommon } from './controls/upload/uploadmultiple';
-export { NgDropzoneSingleCommon } from './controls/upload/dropzonesingle';
-export { NgDropzoneMultipleCommon } from './controls/upload/dropzonemultiple';
-export { NgUploadFile } from './common/baseuploadcontrol';
+export { SacUploadSingleCommon } from './controls/upload/uploadsingle';
+export { SacUploadMultipleCommon } from './controls/upload/uploadmultiple';
+export { SacDropzoneSingleCommon } from './controls/upload/dropzonesingle';
+export { SacDropzoneMultipleCommon } from './controls/upload/dropzonemultiple';
+export { SacUploadFile } from './common/baseuploadcontrol';
 
 // MultiLanguage classes
-export { NgMultilanguageInputCommon } from './controls/multilanguage/multilanguageinput';
-export { NgMultilanguageInputAreaCommon } from './controls/multilanguage/multilanguageinputarea';
+export { SacMultilanguageInputCommon } from './controls/multilanguage/multilanguageinput';
+export { SacMultilanguageInputAreaCommon } from './controls/multilanguage/multilanguageinputarea';
 
 // Confirm Service
 export * from './controls/confirm/confirm.service';
-export { NgConfirmCommon } from './controls/confirm/confirm';
-export { NgConfirmButton } from './controls/confirm/confirm.button';
+export { SacConfirmCommon } from './controls/confirm/confirm';
+export { SacConfirmButton } from './controls/confirm/confirm.button';
 export * from './interfaces/iconfirmcomponent';
 
 // Context Menu
@@ -89,7 +89,7 @@ export * from './controls/contextmenu/contextmenuanchor';
 export * from './controls/contextmenu/contextmenucontainer';
 
 // File Browser
-export { NgFileBrowserCommon } from './components/browser/browser';
+export { SacFileBrowserCommon } from './components/browser/browser';
 export { IBrowserFile } from './components/browser/models/browserfile';
 export { IBrowserNode } from './components/browser/models/browsernode';
 

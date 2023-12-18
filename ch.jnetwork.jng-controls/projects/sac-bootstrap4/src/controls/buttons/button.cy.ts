@@ -1,9 +1,9 @@
 import { createOutputSpy } from 'cypress/angular';
-import { NgButtonComponent } from './button';
+import { SacButtonComponent } from './button';
 
-describe('NgButtonComponent', () => {
+describe('SacButtonComponent', () => {
   it('should show label and click event', () => {
-    cy.mount(NgButtonComponent, {
+    cy.mount(SacButtonComponent, {
       componentProperties: {
         name: 'button',
         text: 'My Button',
@@ -18,7 +18,7 @@ describe('NgButtonComponent', () => {
   });
 
   it('should not call click event', () => {
-    cy.mount(NgButtonComponent, {
+    cy.mount(SacButtonComponent, {
       componentProperties: {
         name: 'button',
         isdisabled: true,
@@ -35,7 +35,7 @@ describe('NgButtonComponent', () => {
   });
 
   it('should has primary state', () => {
-    cy.mount(NgButtonComponent, {
+    cy.mount(SacButtonComponent, {
       componentProperties: {
         name: 'button',
         role: 'primary',
@@ -47,7 +47,7 @@ describe('NgButtonComponent', () => {
   });
 
   it('should have custom icon', () => {
-    cy.mount(NgButtonComponent, {
+    cy.mount(SacButtonComponent, {
       componentProperties: {
         name: 'button',
         icon: 'fa fa-save',

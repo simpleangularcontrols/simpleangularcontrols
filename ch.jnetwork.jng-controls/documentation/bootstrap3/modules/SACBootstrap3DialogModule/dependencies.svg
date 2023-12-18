@@ -26,17 +26,17 @@
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap3DialogModule_declarations</title>
-<polygon fill="none" stroke="black" points="172,-78 172,-130 324,-130 324,-78 172,-78"/>
+<polygon fill="none" stroke="black" points="170,-78 170,-130 326,-130 326,-78 170,-78"/>
 </g>
 <g id="clust5" class="cluster">
 <title>cluster_SACBootstrap3DialogModule_exports</title>
-<polygon fill="none" stroke="black" points="170,-208 170,-260 326,-260 326,-208 170,-208"/>
+<polygon fill="none" stroke="black" points="168,-208 168,-260 328,-260 328,-208 168,-208"/>
 </g>
-<!-- NgDialogComponent -->
+<!-- SacDialogComponent -->
 <g id="node1" class="node">
-<title>NgDialogComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="316.04,-122 179.96,-122 179.96,-86 316.04,-86 316.04,-122"/>
-<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00">NgDialogComponent</text>
+<title>SacDialogComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="317.65,-122 178.35,-122 178.35,-86 317.65,-86 317.65,-122"/>
+<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00">SacDialogComponent</text>
 </g>
 <!-- SACBootstrap3DialogModule -->
 <g id="node2" class="node">
@@ -44,21 +44,21 @@
 <polygon fill="#8dd3c7" stroke="black" points="341.32,-187 338.32,-191 317.32,-191 314.32,-187 154.68,-187 154.68,-151 341.32,-151 341.32,-187"/>
 <text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00">SACBootstrap3DialogModule</text>
 </g>
-<!-- NgDialogComponent&#45;&gt;SACBootstrap3DialogModule -->
+<!-- SacDialogComponent&#45;&gt;SACBootstrap3DialogModule -->
 <g id="edge1" class="edge">
-<title>NgDialogComponent&#45;&gt;SACBootstrap3DialogModule</title>
+<title>SacDialogComponent&#45;&gt;SACBootstrap3DialogModule</title>
 <path fill="none" stroke="black" d="M248,-122.11C248,-122.11 248,-140.99 248,-140.99"/>
 <polygon fill="black" stroke="black" points="244.5,-140.99 248,-150.99 251.5,-140.99 244.5,-140.99"/>
 </g>
-<!-- NgDialogComponent  -->
+<!-- SacDialogComponent  -->
 <g id="node3" class="node">
-<title>NgDialogComponent </title>
-<polygon fill="#fb8072" stroke="black" points="318.04,-252 177.96,-252 177.96,-216 318.04,-216 318.04,-252"/>
-<text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00">NgDialogComponent </text>
+<title>SacDialogComponent </title>
+<polygon fill="#fb8072" stroke="black" points="319.65,-252 176.35,-252 176.35,-216 319.65,-216 319.65,-252"/>
+<text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00">SacDialogComponent </text>
 </g>
-<!-- SACBootstrap3DialogModule&#45;&gt;NgDialogComponent  -->
+<!-- SACBootstrap3DialogModule&#45;&gt;SacDialogComponent  -->
 <g id="edge2" class="edge">
-<title>SACBootstrap3DialogModule&#45;&gt;NgDialogComponent </title>
+<title>SACBootstrap3DialogModule&#45;&gt;SacDialogComponent </title>
 <path fill="none" stroke="black" stroke-dasharray="5,2" d="M248,-187.11C248,-187.11 248,-205.99 248,-205.99"/>
 <polygon fill="black" stroke="black" points="244.5,-205.99 248,-215.99 251.5,-205.99 244.5,-205.99"/>
 </g>

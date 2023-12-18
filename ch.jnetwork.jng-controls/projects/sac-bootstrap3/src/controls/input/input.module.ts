@@ -2,21 +2,21 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SACBootstrap3TooltipModule } from '../tooltip/tooltip.module';
-import { NgInputComponent } from './input';
-import { NgInputAreaComponent } from './inputarea';
-import { NgInputCurrencyComponent } from './inputcurrency';
-import { NgInputDecimalComponent } from './inputdecimal';
-import { NgInputEmailComponent } from './inputemail';
-import { NgInputIntegerComponent } from './inputinteger';
-import { NgInputPasswordComponent } from './inputpassword';
-import { NgInputSearchComponent } from './inputsearch';
+import { SacInputComponent } from './input';
+import { SacInputAreaComponent } from './inputarea';
+import { SacInputCurrencyComponent } from './inputcurrency';
+import { SacInputDecimalComponent } from './inputdecimal';
+import { SacInputEmailComponent } from './inputemail';
+import { SacInputIntegerComponent } from './inputinteger';
+import { SacInputPasswordComponent } from './inputpassword';
+import { SacInputSearchComponent } from './inputsearch';
 
 
 @NgModule({
-  declarations: [NgInputComponent, NgInputAreaComponent, NgInputCurrencyComponent, NgInputDecimalComponent, NgInputEmailComponent, NgInputIntegerComponent, NgInputPasswordComponent, NgInputSearchComponent],
+  declarations: [SacInputComponent, SacInputAreaComponent, SacInputCurrencyComponent, SacInputDecimalComponent, SacInputEmailComponent, SacInputIntegerComponent, SacInputPasswordComponent, SacInputSearchComponent],
   imports: [
     CommonModule, CommonModule, FormsModule, SACBootstrap3TooltipModule
   ],
-  exports: [NgInputComponent, NgInputAreaComponent, NgInputCurrencyComponent, NgInputDecimalComponent, NgInputEmailComponent, NgInputIntegerComponent, NgInputPasswordComponent, NgInputSearchComponent]
+  exports: [SacInputComponent, SacInputAreaComponent, SacInputCurrencyComponent, SacInputDecimalComponent, SacInputEmailComponent, SacInputIntegerComponent, SacInputPasswordComponent, SacInputSearchComponent]
 })
 export class SACBootstrap3InputModule { }

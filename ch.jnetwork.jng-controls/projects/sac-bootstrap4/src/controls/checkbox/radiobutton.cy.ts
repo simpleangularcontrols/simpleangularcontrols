@@ -1,8 +1,8 @@
 import { FormsModule } from '@angular/forms';
 import { createOutputSpy } from 'cypress/angular';
-import { NgFormularDirective } from '../form';
-import { NgRadiobuttonComponent } from './radiobutton';
-import { NgRadiobuttonsComponent } from './radiobuttons';
+import { SacFormDirective } from '../form';
+import { SacRadiobuttonComponent } from './radiobutton';
+import { SacRadiobuttonsComponent } from './radiobuttons';
 
 describe('NgRadiobuttonComponent', () => {
   it('should show label and checkbox text', () => {
@@ -15,9 +15,9 @@ describe('NgRadiobuttonComponent', () => {
       </form>`,
       {
         declarations: [
-          NgFormularDirective,
-          NgRadiobuttonsComponent,
-          NgRadiobuttonComponent,
+          SacFormDirective,
+          SacRadiobuttonsComponent,
+          SacRadiobuttonComponent,
         ],
         imports: [FormsModule],
         componentProperties: {
@@ -51,9 +51,9 @@ describe('NgRadiobuttonComponent', () => {
       </form>`,
       {
         declarations: [
-          NgFormularDirective,
-          NgRadiobuttonsComponent,
-          NgRadiobuttonComponent,
+          SacFormDirective,
+          SacRadiobuttonsComponent,
+          SacRadiobuttonComponent,
         ],
         imports: [FormsModule],
         componentProperties: {
@@ -83,9 +83,9 @@ describe('NgRadiobuttonComponent', () => {
       </form>`,
       {
         declarations: [
-          NgFormularDirective,
-          NgRadiobuttonsComponent,
-          NgRadiobuttonComponent,
+          SacFormDirective,
+          SacRadiobuttonsComponent,
+          SacRadiobuttonComponent,
         ],
         imports: [FormsModule],
         componentProperties: {
@@ -111,9 +111,9 @@ describe('NgRadiobuttonComponent', () => {
       </form>`,
       {
         declarations: [
-          NgFormularDirective,
-          NgRadiobuttonsComponent,
-          NgRadiobuttonComponent,
+          SacFormDirective,
+          SacRadiobuttonsComponent,
+          SacRadiobuttonComponent,
         ],
         imports: [FormsModule],
         componentProperties: {

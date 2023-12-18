@@ -4,8 +4,8 @@ import {
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
-import { NgInputDecimalCommon } from '@jnetwork/sac-common';
-import { NgFormularDirective } from '../form/form';
+import { SacInputDecimalCommon } from '@jnetwork/sac-common';
+import { SacFormDirective } from '../form/form';
 
 /**
  * Input Komponente für Zahlen
@@ -18,26 +18,26 @@ import { NgFormularDirective } from '../form/form';
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: forwardRef(() => NgInputDecimalComponent),
+      useExisting: forwardRef(() => SacInputDecimalComponent),
     },
     {
       provide: NG_VALIDATORS,
       multi: true,
-      useExisting: forwardRef(() => NgInputDecimalComponent),
+      useExisting: forwardRef(() => SacInputDecimalComponent),
     },
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [
-    { provide: ControlContainer, useExisting: NgFormularDirective },
+    { provide: ControlContainer, useExisting: SacFormDirective },
   ],
 })
-export class NgInputDecimalComponent extends NgInputDecimalCommon {
+export class SacInputDecimalComponent extends SacInputDecimalCommon {
   /**
    * Konstruktor
    * @param parent Formular
    * @param injector Angular Dependency Injection Service
    */
-  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
+  constructor(@Host() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 }

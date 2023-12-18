@@ -5,19 +5,19 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { NgContextmenuCommon } from './contextmenu';
-import { NgContextmenuItemCommon } from './contextmenuitem';
+import { SacContextmenuCommon } from './contextmenu';
+import { SacContextmenuItemCommon } from './contextmenuitem';
 
 /**
  * Base Context Menu Button Item
  */
 @Directive()
-export class NgContextmenuItemButtonCommon extends NgContextmenuItemCommon {
+export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
   /**
    * Constructor
    * @param contextmenu Instance of Context Menü.
    */
-  constructor(protected contextmenu: NgContextmenuCommon) {
+  constructor(protected contextmenu: SacContextmenuCommon) {
     super();
   }
 

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgTreeViewComponent } from './treeview';
-import { NgTreeViewChildComponent } from './treeviewchild';
-import { NgTreeItemActionComponent } from './ngtreeitemaction';
+import { SacTreeViewComponent } from './treeview';
+import { SacTreeViewChildComponent } from './treeviewchild';
+import { SacTreeItemActionComponent } from './ngtreeitemaction';
 
 @NgModule({
-  declarations: [NgTreeViewComponent, NgTreeViewChildComponent, NgTreeItemActionComponent],
+  declarations: [SacTreeViewComponent, SacTreeViewChildComponent, SacTreeItemActionComponent],
   imports: [
     CommonModule
   ],
-  exports: [NgTreeViewComponent, NgTreeViewChildComponent, NgTreeItemActionComponent]
+  exports: [SacTreeViewComponent, SacTreeViewChildComponent, SacTreeItemActionComponent]
 })
 export class SACBootstrap3TtreeviewModule { }

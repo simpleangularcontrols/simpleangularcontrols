@@ -22,21 +22,21 @@
 <text text-anchor="start" x="429.73" y="-15.4" font-family="Times-12" font-size="14.00"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_SACBootstrap3WizardModule</title>
-<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="67,-70 67,-268 429,-268 429,-70 67,-70"/>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="64,-70 64,-268 432,-268 432,-70 64,-70"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap3WizardModule_declarations</title>
-<polygon fill="none" stroke="black" points="78,-78 78,-130 417,-130 417,-78 78,-78"/>
+<polygon fill="none" stroke="black" points="75,-78 75,-130 420,-130 420,-78 75,-78"/>
 </g>
 <g id="clust6" class="cluster">
 <title>cluster_SACBootstrap3WizardModule_exports</title>
-<polygon fill="none" stroke="black" points="75,-208 75,-260 421,-260 421,-208 75,-208"/>
+<polygon fill="none" stroke="black" points="72,-208 72,-260 424,-260 424,-208 72,-208"/>
 </g>
-<!-- NgWizardComponent -->
+<!-- SacWizardComponent -->
 <g id="node1" class="node">
-<title>NgWizardComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="408.63,-122 269.37,-122 269.37,-86 408.63,-86 408.63,-122"/>
-<text text-anchor="middle" x="339" y="-99.8" font-family="Times,serif" font-size="14.00">NgWizardComponent</text>
+<title>SacWizardComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="412.24,-122 269.76,-122 269.76,-86 412.24,-86 412.24,-122"/>
+<text text-anchor="middle" x="341" y="-99.8" font-family="Times,serif" font-size="14.00">SacWizardComponent</text>
 </g>
 <!-- SACBootstrap3WizardModule -->
 <g id="node3" class="node">
@@ -44,47 +44,47 @@
 <polygon fill="#8dd3c7" stroke="black" points="342.91,-187 339.91,-191 318.91,-191 315.91,-187 153.09,-187 153.09,-151 342.91,-151 342.91,-187"/>
 <text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00">SACBootstrap3WizardModule</text>
 </g>
-<!-- NgWizardComponent&#45;&gt;SACBootstrap3WizardModule -->
+<!-- SacWizardComponent&#45;&gt;SACBootstrap3WizardModule -->
 <g id="edge1" class="edge">
-<title>NgWizardComponent&#45;&gt;SACBootstrap3WizardModule</title>
-<path fill="none" stroke="black" d="M305.94,-122.11C305.94,-122.11 305.94,-140.99 305.94,-140.99"/>
-<polygon fill="black" stroke="black" points="302.44,-140.99 305.94,-150.99 309.44,-140.99 302.44,-140.99"/>
+<title>SacWizardComponent&#45;&gt;SACBootstrap3WizardModule</title>
+<path fill="none" stroke="black" d="M306.17,-122.11C306.17,-122.11 306.17,-140.99 306.17,-140.99"/>
+<polygon fill="black" stroke="black" points="302.67,-140.99 306.17,-150.99 309.67,-140.99 302.67,-140.99"/>
 </g>
-<!-- NgWizardItemComponent -->
+<!-- SacWizardItemComponent -->
 <g id="node2" class="node">
-<title>NgWizardItemComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="251.79,-122 86.21,-122 86.21,-86 251.79,-86 251.79,-122"/>
-<text text-anchor="middle" x="169" y="-99.8" font-family="Times,serif" font-size="14.00">NgWizardItemComponent</text>
+<title>SacWizardItemComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="251.4,-122 82.6,-122 82.6,-86 251.4,-86 251.4,-122"/>
+<text text-anchor="middle" x="167" y="-99.8" font-family="Times,serif" font-size="14.00">SacWizardItemComponent</text>
 </g>
-<!-- NgWizardItemComponent&#45;&gt;SACBootstrap3WizardModule -->
+<!-- SacWizardItemComponent&#45;&gt;SACBootstrap3WizardModule -->
 <g id="edge2" class="edge">
-<title>NgWizardItemComponent&#45;&gt;SACBootstrap3WizardModule</title>
-<path fill="none" stroke="black" d="M202.47,-122.11C202.47,-122.11 202.47,-140.99 202.47,-140.99"/>
-<polygon fill="black" stroke="black" points="198.97,-140.99 202.47,-150.99 205.97,-140.99 198.97,-140.99"/>
+<title>SacWizardItemComponent&#45;&gt;SACBootstrap3WizardModule</title>
+<path fill="none" stroke="black" d="M202.25,-122.11C202.25,-122.11 202.25,-140.99 202.25,-140.99"/>
+<polygon fill="black" stroke="black" points="198.75,-140.99 202.25,-150.99 205.75,-140.99 198.75,-140.99"/>
 </g>
-<!-- NgWizardComponent  -->
+<!-- SacWizardComponent  -->
 <g id="node4" class="node">
-<title>NgWizardComponent </title>
-<polygon fill="#fb8072" stroke="black" points="412.63,-252 269.37,-252 269.37,-216 412.63,-216 412.63,-252"/>
-<text text-anchor="middle" x="341" y="-229.8" font-family="Times,serif" font-size="14.00">NgWizardComponent </text>
+<title>SacWizardComponent </title>
+<polygon fill="#fb8072" stroke="black" points="416.24,-252 269.76,-252 269.76,-216 416.24,-216 416.24,-252"/>
+<text text-anchor="middle" x="343" y="-229.8" font-family="Times,serif" font-size="14.00">SacWizardComponent </text>
 </g>
-<!-- SACBootstrap3WizardModule&#45;&gt;NgWizardComponent  -->
+<!-- SACBootstrap3WizardModule&#45;&gt;SacWizardComponent  -->
 <g id="edge3" class="edge">
-<title>SACBootstrap3WizardModule&#45;&gt;NgWizardComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M306.07,-187.11C306.07,-187.11 306.07,-205.99 306.07,-205.99"/>
-<polygon fill="black" stroke="black" points="302.57,-205.99 306.07,-215.99 309.57,-205.99 302.57,-205.99"/>
+<title>SACBootstrap3WizardModule&#45;&gt;SacWizardComponent </title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M306.29,-187.11C306.29,-187.11 306.29,-205.99 306.29,-205.99"/>
+<polygon fill="black" stroke="black" points="302.79,-205.99 306.29,-215.99 309.79,-205.99 302.79,-205.99"/>
 </g>
-<!-- NgWizardItemComponent  -->
+<!-- SacWizardItemComponent  -->
 <g id="node5" class="node">
-<title>NgWizardItemComponent </title>
-<polygon fill="#fb8072" stroke="black" points="251.29,-252 82.71,-252 82.71,-216 251.29,-216 251.29,-252"/>
-<text text-anchor="middle" x="167" y="-229.8" font-family="Times,serif" font-size="14.00">NgWizardItemComponent </text>
+<title>SacWizardItemComponent </title>
+<polygon fill="#fb8072" stroke="black" points="251.9,-252 80.1,-252 80.1,-216 251.9,-216 251.9,-252"/>
+<text text-anchor="middle" x="166" y="-229.8" font-family="Times,serif" font-size="14.00">SacWizardItemComponent </text>
 </g>
-<!-- SACBootstrap3WizardModule&#45;&gt;NgWizardItemComponent  -->
+<!-- SACBootstrap3WizardModule&#45;&gt;SacWizardItemComponent  -->
 <g id="edge4" class="edge">
-<title>SACBootstrap3WizardModule&#45;&gt;NgWizardItemComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M202.35,-187.11C202.35,-187.11 202.35,-205.99 202.35,-205.99"/>
-<polygon fill="black" stroke="black" points="198.85,-205.99 202.35,-215.99 205.85,-205.99 198.85,-205.99"/>
+<title>SACBootstrap3WizardModule&#45;&gt;SacWizardItemComponent </title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M202.62,-187.11C202.62,-187.11 202.62,-205.99 202.62,-205.99"/>
+<polygon fill="black" stroke="black" points="199.12,-205.99 202.62,-215.99 206.12,-205.99 199.12,-205.99"/>
 </g>
 </g>
 </svg>

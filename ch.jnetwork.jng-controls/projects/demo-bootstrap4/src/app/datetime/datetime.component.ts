@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NgFormularDirective } from '@jnetwork/sac-bootstrap4';
+import { SacFormDirective } from '@jnetwork/sac-bootstrap4';
 
 @Component({
   selector: 'app-datetime',
@@ -25,7 +25,7 @@ export class DemoDatetimeComponent {
     datumzeit5: '',
   };
 
-  @ViewChild('myForm') myForm: NgFormularDirective;
+  @ViewChild('myForm') myForm: SacFormDirective;
 
   public debugAction(): void {
     this.myForm.markAsTouched();

@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgDropdownComponent, NgDropdownOptionDirective } from './dropdown';
+import { SacDropdownComponent, SacDropdownOptionDirective } from './dropdown';
 
 @NgModule({
   declarations: [
-    NgDropdownComponent,
-    NgDropdownOptionDirective,
+    SacDropdownComponent,
+    SacDropdownOptionDirective,
   ],
   imports: [CommonModule],
   exports: [
-    NgDropdownComponent,
-    NgDropdownOptionDirective,
+    SacDropdownComponent,
+    SacDropdownOptionDirective,
   ],
 })
 export class SACBootstrap4DropdownModule {}

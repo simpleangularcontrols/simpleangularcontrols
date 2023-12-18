@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgContextmenuItemCommon } from '@jnetwork/sac-common';
+import { SacContextmenuItemCommon } from '@jnetwork/sac-common';
 
 /**
  * Splitter Komponente in Context Menü
@@ -8,4 +8,4 @@ import { NgContextmenuItemCommon } from '@jnetwork/sac-common';
   selector: 'sac-contextmenusplitter',
   templateUrl: './contextmenuitemsplitter.html',
 })
-export class NgContextmenuItemSplitterComponent extends NgContextmenuItemCommon {}
+export class SacContextmenuItemSplitterComponent extends SacContextmenuItemCommon {}

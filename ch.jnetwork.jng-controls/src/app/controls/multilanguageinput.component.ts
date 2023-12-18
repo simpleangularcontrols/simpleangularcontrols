@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NgFormularDirective } from '@jnetwork/sac-bootstrap4';
+import { SacFormDirective } from '@jnetwork/sac-bootstrap4';
 
 export class MultiLangauageDataModel {
 
@@ -24,7 +24,7 @@ export class ExampleMultiLanguageInputComponent {
   };
 
   @ViewChild('formMultiLanguage', { static: true })
-  formular: NgFormularDirective;
+  formular: SacFormDirective;
 
   public save(): void {
 

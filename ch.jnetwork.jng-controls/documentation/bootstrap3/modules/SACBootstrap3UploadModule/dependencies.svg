@@ -22,69 +22,69 @@
 <text text-anchor="start" x="429.73" y="-15.4" font-family="Times-12" font-size="14.00"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_SACBootstrap3UploadModule</title>
-<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="55.5,-70 55.5,-268 440.5,-268 440.5,-70 55.5,-70"/>
-</g>
-<g id="clust6" class="cluster">
-<title>cluster_SACBootstrap3UploadModule_exports</title>
-<polygon fill="none" stroke="black" points="63.5,-208 63.5,-260 432.5,-260 432.5,-208 63.5,-208"/>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="53,-70 53,-268 443,-268 443,-70 53,-70"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap3UploadModule_declarations</title>
-<polygon fill="none" stroke="black" points="67.5,-78 67.5,-130 429.5,-130 429.5,-78 67.5,-78"/>
+<polygon fill="none" stroke="black" points="65,-78 65,-130 432,-130 432,-78 65,-78"/>
 </g>
-<!-- NgUploadComponent -->
+<g id="clust6" class="cluster">
+<title>cluster_SACBootstrap3UploadModule_exports</title>
+<polygon fill="none" stroke="black" points="61,-208 61,-260 435,-260 435,-208 61,-208"/>
+</g>
+<!-- SacUploadComponent -->
 <g id="node1" class="node">
-<title>NgUploadComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="421.15,-122 281.85,-122 281.85,-86 421.15,-86 421.15,-122"/>
-<text text-anchor="middle" x="351.5" y="-99.8" font-family="Times,serif" font-size="14.00">NgUploadComponent</text>
+<title>SacUploadComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="424.26,-122 281.74,-122 281.74,-86 424.26,-86 424.26,-122"/>
+<text text-anchor="middle" x="353" y="-99.8" font-family="Times,serif" font-size="14.00">SacUploadComponent</text>
 </g>
 <!-- SACBootstrap3UploadModule -->
 <g id="node3" class="node">
 <title>SACBootstrap3UploadModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="265.43,-187 262.43,-191 241.43,-191 238.43,-187 75.57,-187 75.57,-151 265.43,-151 265.43,-187"/>
-<text text-anchor="middle" x="170.5" y="-164.8" font-family="Times,serif" font-size="14.00">SACBootstrap3UploadModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="263.93,-187 260.93,-191 239.93,-191 236.93,-187 74.07,-187 74.07,-151 263.93,-151 263.93,-187"/>
+<text text-anchor="middle" x="169" y="-164.8" font-family="Times,serif" font-size="14.00">SACBootstrap3UploadModule</text>
 </g>
-<!-- NgUploadComponent&#45;&gt;SACBootstrap3UploadModule -->
+<!-- SacUploadComponent&#45;&gt;SACBootstrap3UploadModule -->
 <g id="edge1" class="edge">
-<title>NgUploadComponent&#45;&gt;SACBootstrap3UploadModule</title>
-<path fill="none" stroke="black" d="M374.78,-122.02C374.78,-139.37 374.78,-163 374.78,-163 374.78,-163 275.46,-163 275.46,-163"/>
-<polygon fill="black" stroke="black" points="275.46,-159.5 265.46,-163 275.46,-166.5 275.46,-159.5"/>
+<title>SacUploadComponent&#45;&gt;SACBootstrap3UploadModule</title>
+<path fill="none" stroke="black" d="M376.79,-122.02C376.79,-139.37 376.79,-163 376.79,-163 376.79,-163 273.78,-163 273.78,-163"/>
+<polygon fill="black" stroke="black" points="273.78,-159.5 263.78,-163 273.78,-166.5 273.78,-159.5"/>
 </g>
-<!-- NgUploadMultipleComponent -->
+<!-- SacUploadMultipleComponent -->
 <g id="node2" class="node">
-<title>NgUploadMultipleComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="263.37,-122 75.63,-122 75.63,-86 263.37,-86 263.37,-122"/>
-<text text-anchor="middle" x="169.5" y="-99.8" font-family="Times,serif" font-size="14.00">NgUploadMultipleComponent</text>
+<title>SacUploadMultipleComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="263.48,-122 72.52,-122 72.52,-86 263.48,-86 263.48,-122"/>
+<text text-anchor="middle" x="168" y="-99.8" font-family="Times,serif" font-size="14.00">SacUploadMultipleComponent</text>
 </g>
-<!-- NgUploadMultipleComponent&#45;&gt;SACBootstrap3UploadModule -->
+<!-- SacUploadMultipleComponent&#45;&gt;SACBootstrap3UploadModule -->
 <g id="edge2" class="edge">
-<title>NgUploadMultipleComponent&#45;&gt;SACBootstrap3UploadModule</title>
-<path fill="none" stroke="black" d="M169.61,-122.11C169.61,-122.11 169.61,-140.99 169.61,-140.99"/>
-<polygon fill="black" stroke="black" points="166.11,-140.99 169.61,-150.99 173.11,-140.99 166.11,-140.99"/>
+<title>SacUploadMultipleComponent&#45;&gt;SACBootstrap3UploadModule</title>
+<path fill="none" stroke="black" d="M168.89,-122.11C168.89,-122.11 168.89,-140.99 168.89,-140.99"/>
+<polygon fill="black" stroke="black" points="165.39,-140.99 168.89,-150.99 172.39,-140.99 165.39,-140.99"/>
 </g>
-<!-- NgUploadComponent  -->
+<!-- SacUploadComponent  -->
 <g id="node4" class="node">
-<title>NgUploadComponent </title>
-<polygon fill="#fb8072" stroke="black" points="424.15,-252 280.85,-252 280.85,-216 424.15,-216 424.15,-252"/>
-<text text-anchor="middle" x="352.5" y="-229.8" font-family="Times,serif" font-size="14.00">NgUploadComponent </text>
+<title>SacUploadComponent </title>
+<polygon fill="#fb8072" stroke="black" points="427.26,-252 280.74,-252 280.74,-216 427.26,-216 427.26,-252"/>
+<text text-anchor="middle" x="354" y="-229.8" font-family="Times,serif" font-size="14.00">SacUploadComponent </text>
 </g>
-<!-- SACBootstrap3UploadModule&#45;&gt;NgUploadComponent  -->
+<!-- SACBootstrap3UploadModule&#45;&gt;SacUploadComponent  -->
 <g id="edge3" class="edge">
-<title>SACBootstrap3UploadModule&#45;&gt;NgUploadComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M265.43,-175C298.84,-175 328.22,-175 328.22,-175 328.22,-175 328.22,-205.98 328.22,-205.98"/>
-<polygon fill="black" stroke="black" points="324.72,-205.98 328.22,-215.98 331.72,-205.98 324.72,-205.98"/>
+<title>SACBootstrap3UploadModule&#45;&gt;SacUploadComponent </title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M264.04,-175C298.54,-175 329.21,-175 329.21,-175 329.21,-175 329.21,-205.98 329.21,-205.98"/>
+<polygon fill="black" stroke="black" points="325.71,-205.98 329.21,-215.98 332.71,-205.98 325.71,-205.98"/>
 </g>
-<!-- NgUploadMultipleComponent  -->
+<!-- SacUploadMultipleComponent  -->
 <g id="node5" class="node">
-<title>NgUploadMultipleComponent </title>
-<polygon fill="#fb8072" stroke="black" points="263.37,-252 71.63,-252 71.63,-216 263.37,-216 263.37,-252"/>
-<text text-anchor="middle" x="167.5" y="-229.8" font-family="Times,serif" font-size="14.00">NgUploadMultipleComponent </text>
+<title>SacUploadMultipleComponent </title>
+<polygon fill="#fb8072" stroke="black" points="263.48,-252 68.52,-252 68.52,-216 263.48,-216 263.48,-252"/>
+<text text-anchor="middle" x="166" y="-229.8" font-family="Times,serif" font-size="14.00">SacUploadMultipleComponent </text>
 </g>
-<!-- SACBootstrap3UploadModule&#45;&gt;NgUploadMultipleComponent  -->
+<!-- SACBootstrap3UploadModule&#45;&gt;SacUploadMultipleComponent  -->
 <g id="edge4" class="edge">
-<title>SACBootstrap3UploadModule&#45;&gt;NgUploadMultipleComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M169.49,-187.11C169.49,-187.11 169.49,-205.99 169.49,-205.99"/>
-<polygon fill="black" stroke="black" points="165.99,-205.99 169.49,-215.99 172.99,-205.99 165.99,-205.99"/>
+<title>SACBootstrap3UploadModule&#45;&gt;SacUploadMultipleComponent </title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M168.76,-187.11C168.76,-187.11 168.76,-205.99 168.76,-205.99"/>
+<polygon fill="black" stroke="black" points="165.26,-205.99 168.76,-215.99 172.26,-205.99 165.26,-205.99"/>
 </g>
 </g>
 </svg>

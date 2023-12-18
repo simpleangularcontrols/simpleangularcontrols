@@ -6,7 +6,7 @@ import {
   TemplateRef,
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { NgGridCommon } from '@jnetwork/sac-common';
+import { SacGridCommon } from '@jnetwork/sac-common';
 
 /**
  * Grid Komponente
@@ -16,15 +16,15 @@ import { NgGridCommon } from '@jnetwork/sac-common';
   templateUrl: './grid.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgGridComponent },
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacGridComponent },
     {
       provide: NG_VALIDATORS,
       multi: true,
-      useExisting: forwardRef(() => NgGridComponent),
+      useExisting: forwardRef(() => SacGridComponent),
     },
   ],
 })
-export class NgGridComponent extends NgGridCommon {
+export class SacGridComponent extends SacGridCommon {
   /**
    * Referenz auf Column Template
    */

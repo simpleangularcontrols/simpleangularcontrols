@@ -2,10 +2,10 @@ import { ChangeDetectorRef, Directive, EventEmitter, Input, Output, TemplateRef 
 import { PagerData, PagerRequest, SortDescriptor, SortOrder } from './model';
 
 /**
- * Basis Komponente für NgGrid
+ * Basis Komponente für SacGrid
  */
 @Directive()
-export abstract class NgGridCommon {
+export abstract class SacGridCommon {
 
   /**
    * Konstruktor

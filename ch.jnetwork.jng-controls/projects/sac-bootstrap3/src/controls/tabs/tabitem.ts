@@ -1,11 +1,11 @@
 import { Component, } from '@angular/core';
-import { NgTabItemCommon } from '@jnetwork/sac-common';
+import { SacTabItemCommon } from '@jnetwork/sac-common';
 
 @Component({
   selector: 'sac-tabitem',
   templateUrl: './tabitem.html'
 })
-export class NgTabItemComponent extends NgTabItemCommon {
+export class SacTabItemComponent extends SacTabItemCommon {
 
 }
 

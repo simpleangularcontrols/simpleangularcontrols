@@ -1,10 +1,10 @@
 import { Component, ContentChildren, QueryList } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
-  NgWizardCommon,
-  NgWizardItemCommon,
+  SacWizardCommon,
+  SacWizardItemCommon,
 } from '@jnetwork/sac-common';
-import { NgWizardItemComponent } from './wizarditem';
+import { SacWizardItemComponent } from './wizarditem';
 
 /**
  * Wizard Komponente
@@ -14,21 +14,21 @@ import { NgWizardItemComponent } from './wizarditem';
   templateUrl: './wizard.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgWizardComponent },
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacWizardComponent },
   ],
 })
-export class NgWizardComponent extends NgWizardCommon {
+export class SacWizardComponent extends SacWizardCommon {
   /**
    * Wizard Items
    */
-  @ContentChildren(NgWizardItemComponent)
-  _wizardItems: QueryList<NgWizardItemComponent>;
+  @ContentChildren(SacWizardItemComponent)
+  _wizardItems: QueryList<SacWizardItemComponent>;
 
   /**
    * Gibt die Wizard Items zurück
    * @returns Collection von WizardItems
    */
-  wizardItems(): QueryList<NgWizardItemCommon> {
-    return this._wizardItems as QueryList<NgWizardItemCommon>;
+  wizardItems(): QueryList<SacWizardItemCommon> {
+    return this._wizardItems as QueryList<SacWizardItemCommon>;
   }
 }

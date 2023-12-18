@@ -1,7 +1,7 @@
 import { Component, forwardRef, Host, Injector } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { NgInputSearchCommon } from '@jnetwork/sac-common';
-import { NgFormularDirective } from '../form/form';
+import { SacInputSearchCommon } from '@jnetwork/sac-common';
+import { SacFormDirective } from '../form/form';
 
 /**
  * Input Box für Suche
@@ -14,22 +14,22 @@ import { NgFormularDirective } from '../form/form';
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NgInputSearchComponent,
+      useExisting: SacInputSearchComponent,
     },
     {
       provide: NG_VALIDATORS,
       multi: true,
-      useExisting: forwardRef(() => NgInputSearchComponent),
+      useExisting: forwardRef(() => SacInputSearchComponent),
     },
   ],
 })
-export class NgInputSearchComponent extends NgInputSearchCommon {
+export class SacInputSearchComponent extends SacInputSearchCommon {
   /**
    * Konstruktor
    * @param parent Formular
    * @param injector Angular Dependency Injection Service
    */
-  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
+  constructor(@Host() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 }

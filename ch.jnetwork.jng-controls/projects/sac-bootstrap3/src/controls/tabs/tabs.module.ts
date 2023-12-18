@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgTabComponent } from './tab';
-import { NgTabItemComponent } from './tabitem';
+import { SacTabComponent } from './tab';
+import { SacTabItemComponent } from './tabitem';
 
 @NgModule({
-  declarations: [NgTabComponent, NgTabItemComponent],
+  declarations: [SacTabComponent, SacTabItemComponent],
   imports: [
     CommonModule
   ],
-  exports: [NgTabComponent, NgTabItemComponent]
+  exports: [SacTabComponent, SacTabItemComponent]
 })
 export class SACBootstrap3TabsModule { }

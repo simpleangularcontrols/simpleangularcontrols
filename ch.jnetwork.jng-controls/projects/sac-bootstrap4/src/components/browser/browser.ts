@@ -3,11 +3,11 @@ import { Component, Injector, ViewChild } from '@angular/core';
 import {
   IBrowserFile,
   IBrowserNode,
-  NgFileBrowserCommon,
+  SacFileBrowserCommon,
 } from '@jnetwork/sac-common';
 import { forkJoin, Observable } from 'rxjs';
 import { ServiceConfirm } from '../../controls/confirm/confirm.service';
-import { NgDropzoneMultipleComponent } from '../../controls/upload/dropzonemultiple';
+import { SacDropzoneMultipleComponent } from '../../controls/upload/dropzonemultiple';
 
 /**
  * Server File Browser Komponente
@@ -17,12 +17,12 @@ import { NgDropzoneMultipleComponent } from '../../controls/upload/dropzonemulti
   templateUrl: './browser.html',
   providers: [ServiceConfirm],
 })
-export class NgBrowserComponent extends NgFileBrowserCommon {
+export class SacBrowserComponent extends SacFileBrowserCommon {
   /**
    * Referenz auf Upload Component
    */
-  @ViewChild(NgDropzoneMultipleComponent, { static: false })
-  private uploadComponent: NgDropzoneMultipleComponent;
+  @ViewChild(SacDropzoneMultipleComponent, { static: false })
+  private uploadComponent: SacDropzoneMultipleComponent;
 
   /**
    * Konstruktor

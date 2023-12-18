@@ -1,11 +1,11 @@
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
-import { NgInputCommon } from './input';
+import { SacInputCommon } from './input';
 
 /**
- * Basis Komponente für NgInputSearch
+ * Basis Komponente für SacInputSearch
  */
 @Directive()
-export class NgInputSearchCommon extends NgInputCommon {
+export class SacInputSearchCommon extends SacInputCommon {
   /**
    * Name des Such-Icons
    */

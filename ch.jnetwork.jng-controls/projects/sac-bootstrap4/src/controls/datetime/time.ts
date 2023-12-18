@@ -10,8 +10,8 @@ import {
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR
 } from '@angular/forms';
-import { NgTimeCommon } from '@jnetwork/sac-common';
-import { NgFormularDirective } from '../form/form';
+import { SacTimeCommon } from '@jnetwork/sac-common';
+import { SacFormDirective } from '../form/form';
 
 /**
  * Time Auswahl Komponente
@@ -24,20 +24,20 @@ import { NgFormularDirective } from '../form/form';
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: forwardRef(() => NgTimeComponent),
+      useExisting: forwardRef(() => SacTimeComponent),
     },
     {
       provide: NG_VALIDATORS,
       multi: true,
-      useExisting: forwardRef(() => NgTimeComponent),
+      useExisting: forwardRef(() => SacTimeComponent),
     },
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [
-    { provide: ControlContainer, useExisting: NgFormularDirective },
+    { provide: ControlContainer, useExisting: SacFormDirective },
   ],
 })
-export class NgTimeComponent extends NgTimeCommon {
+export class SacTimeComponent extends SacTimeCommon {
   /**
    * Konstruktor
    * @param parent Formular
@@ -45,7 +45,7 @@ export class NgTimeComponent extends NgTimeCommon {
    * @param _elementRef DOM Element Referenz
    */
   constructor(
-    @Host() parent: NgFormularDirective,
+    @Host() parent: SacFormDirective,
     injector: Injector,
     _elementRef: ElementRef
   ) {

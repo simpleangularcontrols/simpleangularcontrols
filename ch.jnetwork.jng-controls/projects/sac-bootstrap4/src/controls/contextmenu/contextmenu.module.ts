@@ -1,25 +1,25 @@
 import { NgModule } from '@angular/core';
-import { NgContextmenuComponent } from './contextmenu';
+import { SacContextmenuComponent } from './contextmenu';
 import { CommonModule } from '@angular/common';
-import { NgContextmenuItemButtonComponent } from './contextmenuitembutton';
-import { NgContextmenuItemSplitterComponent } from './contextmenuitemsplitter';
-import { NgContextmenuAnchorDirective } from './contextmenuanchor';
-import { NgContextmenuContainerDirective } from './contextmenucontainer';
+import { SacContextmenuItemButtonComponent } from './contextmenuitembutton';
+import { SacContextmenuItemSplitterComponent } from './contextmenuitemsplitter';
+import { SacContextmenuAnchorDirective } from './contextmenuanchor';
+import { SacContextmenuContainerDirective } from './contextmenucontainer';
 
 @NgModule({
   declarations: [
-    NgContextmenuComponent,
-    NgContextmenuItemButtonComponent,
-    NgContextmenuItemSplitterComponent,
-    NgContextmenuAnchorDirective,
-    NgContextmenuContainerDirective,
+    SacContextmenuComponent,
+    SacContextmenuItemButtonComponent,
+    SacContextmenuItemSplitterComponent,
+    SacContextmenuAnchorDirective,
+    SacContextmenuContainerDirective,
   ],
   imports: [CommonModule],
   exports: [
-    NgContextmenuComponent,
-    NgContextmenuItemButtonComponent,
-    NgContextmenuItemSplitterComponent,
-    NgContextmenuAnchorDirective,
+    SacContextmenuComponent,
+    SacContextmenuItemButtonComponent,
+    SacContextmenuItemSplitterComponent,
+    SacContextmenuAnchorDirective,
   ],
 })
 export class SACBootstrap4ContextmenuModule {}

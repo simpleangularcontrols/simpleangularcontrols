@@ -2,10 +2,10 @@ import { Directive, ElementRef, Injector, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import * as moment_ from 'moment';
 import { Moment } from 'moment';
-import { NgFormularCommon } from '../controls/form/form';
+import { SacFormCommon } from '../controls/form/form';
 import { IDateTimeControl } from '../interfaces/idatetimecontrol';
 import { Validation } from '../validation';
-import { NgBaseModelControl } from './basemodelcontrol';
+import { SacBaseModelControl } from './basemodelcontrol';
 /**
  * Moment
  */
@@ -14,17 +14,17 @@ const moment = moment_["default"];
  * Base Klasse für Date/Time Controls
  */
 @Directive()
-export abstract class NgBaseDateTimeControl extends NgBaseModelControl<Date> implements IDateTimeControl {
+export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> implements IDateTimeControl {
 
   // #region Constructor
 
   /**
    * Konstruktor
-   * @param parent typ NgFormularCommon
+   * @param parent typ SacFormCommon
    * @param injector typ Injector
    * @param _elementRef typ ElementRef
    */
-  constructor(parent: NgFormularCommon, injector: Injector, protected _elementRef: ElementRef) {
+  constructor(parent: SacFormCommon, injector: Injector, protected _elementRef: ElementRef) {
     super(parent, injector);
   }
 

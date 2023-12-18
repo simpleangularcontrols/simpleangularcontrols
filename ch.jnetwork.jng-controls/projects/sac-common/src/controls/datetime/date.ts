@@ -5,19 +5,19 @@ import * as IMask from 'imask';
 
 // Import Moment.JS
 import { Moment } from 'moment';
-import { NgBaseDateTimeControl } from '../../common/basedatetimecontrol';
+import { SacBaseDateTimeControl } from '../../common/basedatetimecontrol';
 import { Validation } from '../../validation';
-import { NgFormularCommon } from '../form/form';
+import { SacFormCommon } from '../form/form';
 /**
  * Moment
  */
 const moment = moment_["default"];
 
 /**
- * Komponente für NgDateCommon. Extends NgBaseDateTimeControl
+ * Komponente für SacDateCommon. Extends SacBaseDateTimeControl
  */
 @Directive()
-export class NgDateCommon extends NgBaseDateTimeControl {
+export class SacDateCommon extends SacBaseDateTimeControl {
 
   // #region Constants
 
@@ -124,11 +124,11 @@ export class NgDateCommon extends NgBaseDateTimeControl {
 
   /**
    * Konstruktor
-   * @param parent typ NgFormularCommon
+   * @param parent typ SacFormCommon
    * @param injector typ Injector
    * @param _elementRef typ ElementRef
    */
-  constructor(parent: NgFormularCommon, injector: Injector, protected _elementRef: ElementRef) {
+  constructor(parent: SacFormCommon, injector: Injector, protected _elementRef: ElementRef) {
     super(parent, injector, _elementRef);
   }
 

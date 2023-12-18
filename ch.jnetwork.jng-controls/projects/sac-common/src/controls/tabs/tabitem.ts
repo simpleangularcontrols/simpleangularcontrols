@@ -1,10 +1,10 @@
 import { ContentChild, Directive, Input, TemplateRef } from '@angular/core';
 
 /**
- * Die Basis Komponente für NgTabItem
+ * Die Basis Komponente für SacTabItem
  */
 @Directive()
-export class NgTabItemCommon {
+export class SacTabItemCommon {
   /**
    * Boolean Property prüft ob das Tab aktiv ist
    */

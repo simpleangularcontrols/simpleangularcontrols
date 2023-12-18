@@ -1,6 +1,6 @@
-<sac-button name="login" text="Login" (click)="login()"></sac-button>
+<sac-button name="login" text="Login" (clicked)="login()"></sac-button>
 <sac-button name="logout" text="Logout"></sac-button>
-<sac-button name="load" text="Load Users" (click)="loadusers()"></sac-button>
+<sac-button name="load" text="Load Users" (clicked)="loadusers()"></sac-button>
 <div>
   <div>Benutzerliste 1</div>
   <div *ngFor="let user of users">{{user}}</div>

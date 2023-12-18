@@ -25,16 +25,16 @@ import {
   InternalLanguageResourceService,
   LANGUAGERESOURCE_SERVICE,
 } from '../services/languageresource.service';
-import { NgFormularCommon } from '../controls/form/form';
+import { SacFormCommon } from '../controls/form/form';
 import { ILanguageResourceService } from '../interfaces/ilanguageresource';
 import { Validation } from '../validation';
-import { NgBaseModelControl } from './basemodelcontrol';
+import { SacBaseModelControl } from './basemodelcontrol';
 import { Observable, of } from 'rxjs';
 
 /**
  * Klasse für den Upload einer Datei in der Upload Component
  */
-export class NgUploadFile {
+export class SacUploadFile {
   /**
    * Dateiname
    */
@@ -73,8 +73,8 @@ export class NgUploadFile {
  * Base Klasse für Uploader Control
  */
 @Directive()
-export abstract class NgUploadBase<VALUE>
-  extends NgBaseModelControl<VALUE>
+export abstract class SacUploadBase<VALUE>
+  extends SacBaseModelControl<VALUE>
   implements OnInit, OnDestroy
 {
   /**
@@ -100,7 +100,7 @@ export abstract class NgUploadBase<VALUE>
   /**
    * Array von Uploads
    */
-  uploads: NgUploadFile[];
+  uploads: SacUploadFile[];
   /**
    * Upload Service
    */
@@ -204,7 +204,7 @@ export abstract class NgUploadBase<VALUE>
    * @param ngZone NgZone
    */
   constructor(
-    parent: NgFormularCommon,
+    parent: SacFormCommon,
     injector: Injector,
     private renderer: Renderer2,
     private ngZone: NgZone
@@ -511,7 +511,7 @@ export abstract class NgUploadBase<VALUE>
         this.isFileSizeValid(ufile.size) &&
         this.CustomAddValidation(ufile)
       ) {
-        this.uploads.push(new NgUploadFile(ufile));
+        this.uploads.push(new SacUploadFile(ufile));
       } else {
         this.cancel(ufile.uploadId);
 

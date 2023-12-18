@@ -14,7 +14,7 @@ import {
  * Base Komponente für Dialog
  */
 @Directive()
-export class NgDialogCommon implements OnDestroy {
+export class SacDialogCommon implements OnDestroy {
   /**
    * Name des Containers für den Dialog
    */

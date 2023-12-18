@@ -1,7 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { createOutputSpy } from 'cypress/angular';
-import { NgFormularDirective } from '../form';
-import { NgCheckboxComponent } from './checkbox';
+import { SacFormDirective } from '../form';
+import { SacCheckboxComponent } from './checkbox';
 
 describe('sac-checkboxComponent', () => {
   it('should show label and checkbox text', () => {
@@ -11,7 +11,7 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgCheckboxComponent],
+        declarations: [SacFormDirective, SacCheckboxComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'Control Label',
@@ -38,7 +38,7 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgCheckboxComponent],
+        declarations: [SacFormDirective, SacCheckboxComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'Control Label',
@@ -62,7 +62,7 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgCheckboxComponent],
+        declarations: [SacFormDirective, SacCheckboxComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'Control Label',
@@ -86,7 +86,7 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgCheckboxComponent],
+        declarations: [SacFormDirective, SacCheckboxComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'Control Label',

@@ -1,17 +1,17 @@
 import { Directive, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
-import { NgGridCommon } from './grid';
+import { SacGridCommon } from './grid';
 import { SortOrder } from './model';
 
 /**
  * Base Komponente für GridColumn
  */
 @Directive()
-export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
+export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
 
   /**
    * Konstruktor
    */
-  constructor(private grid: NgGridCommon, private el: ElementRef) { }
+  constructor(private grid: SacGridCommon, private el: ElementRef) { }
 
   //#region Input / Outputs
 

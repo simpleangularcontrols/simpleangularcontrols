@@ -1,1 +1,1 @@
-export { NgDialogComponent } from './dialog';
+export { SacDialogComponent } from './dialog';

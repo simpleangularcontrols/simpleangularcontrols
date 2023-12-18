@@ -4,8 +4,8 @@ import {
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
-import { NgInputAreaCommon } from '@jnetwork/sac-common';
-import { NgFormularDirective } from '../form/form';
+import { SacInputAreaCommon } from '@jnetwork/sac-common';
+import { SacFormDirective } from '../form/form';
 
 /**
  * Input Box für lange Texte
@@ -18,26 +18,26 @@ import { NgFormularDirective } from '../form/form';
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: forwardRef(() => NgInputAreaComponent),
+      useExisting: forwardRef(() => SacInputAreaComponent),
     },
     {
       provide: NG_VALIDATORS,
       multi: true,
-      useExisting: forwardRef(() => NgInputAreaComponent),
+      useExisting: forwardRef(() => SacInputAreaComponent),
     },
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [
-    { provide: ControlContainer, useExisting: NgFormularDirective },
+    { provide: ControlContainer, useExisting: SacFormDirective },
   ],
 })
-export class NgInputAreaComponent extends NgInputAreaCommon {
+export class SacInputAreaComponent extends SacInputAreaCommon {
   /**
    * Konstruktor
    * @param parent Formular
    * @param injector Angular Dependency Injection Service
    */
-  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
+  constructor(@Host() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 }

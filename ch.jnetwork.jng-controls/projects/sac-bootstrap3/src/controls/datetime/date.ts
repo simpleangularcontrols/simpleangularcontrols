@@ -1,9 +1,9 @@
 import { Component, forwardRef, Host, ElementRef, Injector } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
-import { NgFormularDirective } from '../form/form';
+import { SacFormDirective } from '../form/form';
 // Import Moment.JS
 import * as moment_ from 'moment';
-import { NgDateCommon } from '@jnetwork/sac-common';
+import { SacDateCommon } from '@jnetwork/sac-common';
 const moment = moment_["default"];
 
 
@@ -12,13 +12,13 @@ const moment = moment_["default"];
   templateUrl: './date.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => NgDateComponent) },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgDateComponent) }
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => SacDateComponent) },
+    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => SacDateComponent) }
   ]
 })
 
-export class NgDateComponent extends NgDateCommon {
-  constructor( @Host() parent: NgFormularDirective, injector: Injector, _elementRef: ElementRef) {
+export class SacDateComponent extends SacDateCommon {
+  constructor( @Host() parent: SacFormDirective, injector: Injector, _elementRef: ElementRef) {
     super(parent, injector, _elementRef);
   }
 }

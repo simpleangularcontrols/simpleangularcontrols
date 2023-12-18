@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { NgButtonCommon } from '@jnetwork/sac-common';
+import { SacButtonCommon } from '@jnetwork/sac-common';
 
 /**
  * Button Component
@@ -10,6 +10,6 @@ import { NgButtonCommon } from '@jnetwork/sac-common';
   selector: 'sac-button',
   templateUrl: './button.html',
 })
-export class NgButtonComponent extends NgButtonCommon {
+export class SacButtonComponent extends SacButtonCommon {
 
 }

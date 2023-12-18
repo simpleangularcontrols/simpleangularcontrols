@@ -4,7 +4,7 @@ import { Directive, ElementRef } from '@angular/core';
  * Base Context Menu Anchor Component für Open/Close Event
  */
 @Directive()
-export class NgContextmenuAnchorCommon {
+export class SacContextmenuAnchorCommon {
   /**
    * Referenz auf das Native HTML Element
    */

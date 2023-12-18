@@ -1,6 +1,6 @@
 import { Component, Host, forwardRef, Injector, Renderer2 } from '@angular/core';
-import { NgUploadMultipleCommon } from '@jnetwork/sac-common';
-import { NgFormularDirective } from '../form/form';
+import { SacUploadMultipleCommon } from '@jnetwork/sac-common';
+import { SacFormDirective } from '../form/form';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
 import { NgZone } from '@angular/core';
 
@@ -10,13 +10,13 @@ import { NgZone } from '@angular/core';
   selector: 'sac-uploadmultiple',
   templateUrl: './uploadmultiple.html',
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgUploadMultipleComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgUploadMultipleComponent) }
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacUploadMultipleComponent },
+    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => SacUploadMultipleComponent) }
   ]
 })
-export class NgUploadMultipleComponent extends NgUploadMultipleCommon {
+export class SacUploadMultipleComponent extends SacUploadMultipleCommon {
 
-  constructor( @Host() parent: NgFormularDirective, injector: Injector, renderer: Renderer2, ngZone: NgZone) {
+  constructor( @Host() parent: SacFormDirective, injector: Injector, renderer: Renderer2, ngZone: NgZone) {
     super(parent, injector, renderer, ngZone);
   }
 

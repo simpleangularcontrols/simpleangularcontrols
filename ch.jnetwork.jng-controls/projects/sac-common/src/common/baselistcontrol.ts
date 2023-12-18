@@ -1,13 +1,13 @@
 import { Directive, Input, TemplateRef } from '@angular/core';
-import { NgBaseModelControl } from './basemodelcontrol';
+import { SacBaseModelControl } from './basemodelcontrol';
 
 /**
- * Abstract Klasse für NgBaseListControl. Extendes NgBaseModelControl
+ * Abstract Klasse für SacBaseListControl. Extendes SacBaseModelControl
  */
 @Directive()
-export abstract class NgBaseListControl<
+export abstract class SacBaseListControl<
   VALUE
-> extends NgBaseModelControl<VALUE> {
+> extends SacBaseModelControl<VALUE> {
   /**
    * options. Typ: any
    */

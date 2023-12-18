@@ -1,7 +1,7 @@
 import { Directive, Input, OnInit } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { UploadState } from 'ngx-uploadx';
-import { NgUploadBase } from '../../common/baseuploadcontrol';
+import { SacUploadBase } from '../../common/baseuploadcontrol';
 import { IUploadControl } from '../../interfaces/iuploadcontrol';
 import { Validation } from '../../validation';
 
@@ -9,8 +9,8 @@ import { Validation } from '../../validation';
  * Upload Komponente für ein einzelnes File
  */
 @Directive()
-export class NgDropzoneMultipleCommon
-  extends NgUploadBase<string[]>
+export class SacDropzoneMultipleCommon
+  extends SacUploadBase<string[]>
   implements OnInit, IUploadControl
 {
   /**
@@ -50,7 +50,7 @@ export class NgDropzoneMultipleCommon
   /**
    * Ervent wenn das Control initialisert wird
    */
-  ngOnInit() {
+  SacOnInit() {
     super.ngOnInit();
 
     this.autoupload = true;

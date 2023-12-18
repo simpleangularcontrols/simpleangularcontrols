@@ -4,8 +4,8 @@ import {
   ControlContainer,
   NG_VALIDATORS,
 } from '@angular/forms';
-import { NgFormularDirective } from '../form/form';
-import { NgStaticFormContainerCommon } from '@jnetwork/sac-common';
+import { SacFormDirective } from '../form/form';
+import { SacStaticFormContainerCommon } from '@jnetwork/sac-common';
 
 /**
  * Component für einbindung eines beliebigen Controls in die Form Struktur
@@ -29,22 +29,22 @@ import { NgStaticFormContainerCommon } from '@jnetwork/sac-common';
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NgStaticFormContainerComponent,
+      useExisting: SacStaticFormContainerComponent,
     },
     {
       provide: NG_VALIDATORS,
       multi: true,
-      useExisting: forwardRef(() => NgStaticFormContainerComponent),
+      useExisting: forwardRef(() => SacStaticFormContainerComponent),
     },
   ],
 })
-export class NgStaticFormContainerComponent extends NgStaticFormContainerCommon {
+export class SacStaticFormContainerComponent extends SacStaticFormContainerCommon {
   /**
    * Konsturktor
-   * @param parent Parent NgFormular Instanz
+   * @param parent Parent SacFormular Instanz
    * @param injector Injector Instanz
    */
-  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
+  constructor(@Host() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 }

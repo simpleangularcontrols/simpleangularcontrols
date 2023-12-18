@@ -13,10 +13,10 @@ import {
   ControlContainer,
   NG_VALIDATORS,
 } from '@angular/forms';
-import { NgFormularDirective } from '../form/form';
+import { SacFormDirective } from '../form/form';
 import {
-  NgListboxCommon,
-  NgListboxOptionCommon,
+  SacListboxCommon,
+  SacListboxOptionCommon,
 } from '@jnetwork/sac-common';
 
 /**
@@ -30,26 +30,26 @@ import {
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NgListboxComponent,
+      useExisting: SacListboxComponent,
     },
     {
       provide: NG_VALIDATORS,
       multi: true,
-      useExisting: forwardRef(() => NgListboxComponent),
+      useExisting: forwardRef(() => SacListboxComponent),
     },
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [
-    { provide: ControlContainer, useExisting: NgFormularDirective },
+    { provide: ControlContainer, useExisting: SacFormDirective },
   ],
 })
-export class NgListboxComponent extends NgListboxCommon {
+export class SacListboxComponent extends SacListboxCommon {
   /**
    * Konstruktor
    * @param parent Formular
    * @param injector Angular Dependiency Injection Service
    */
-  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
+  constructor(@Host() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 }
@@ -58,7 +58,7 @@ export class NgListboxComponent extends NgListboxCommon {
  * Option Item in Listbox
  */
 @Directive({ selector: '[sacOption],option' })
-export class NgListboxOptionDirective extends NgListboxOptionCommon {
+export class SacListboxOptionDirective extends SacListboxOptionCommon {
   /**
    * Konstruktor
    * @param _elementRef Referenz auf DOM Element
@@ -68,7 +68,7 @@ export class NgListboxOptionDirective extends NgListboxOptionCommon {
   constructor(
     _elementRef: ElementRef,
     _renderer: Renderer2,
-    @Optional() @Host() listbox: NgListboxComponent
+    @Optional() @Host() listbox: SacListboxComponent
   ) {
     super(_elementRef, _renderer, listbox);
   }

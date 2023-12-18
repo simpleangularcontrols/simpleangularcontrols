@@ -1,12 +1,12 @@
 import { AfterContentInit, Directive, EventEmitter, Input, Output, QueryList } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
-import { NgWizardItemCommon } from './wizarditem';
+import { SacWizardItemCommon } from './wizarditem';
 
 /**
- * Base Komponente für NgWizardCommon
+ * Base Komponente für SacWizardCommon
  */
 @Directive()
-export abstract class NgWizardCommon implements AfterContentInit, ControlValueAccessor {
+export abstract class SacWizardCommon implements AfterContentInit, ControlValueAccessor {
 
   /**
   * Aktueller Schritt im Wizard
@@ -44,9 +44,9 @@ export abstract class NgWizardCommon implements AfterContentInit, ControlValueAc
 
 
   /**
-   * Abstrakte QueryList von NgWizardItemCommon
+   * Abstrakte QueryList von SacWizardItemCommon
    */
-  abstract wizardItems(): QueryList<NgWizardItemCommon>;
+  abstract wizardItems(): QueryList<SacWizardItemCommon>;
 
   private setStepInternal(step: string): void {
     this._currentstep = step;
@@ -68,7 +68,7 @@ export abstract class NgWizardCommon implements AfterContentInit, ControlValueAc
     const activeStep = this.wizardItems().filter((step) => step.active);
 
     if (activeStep.length === 0) {
-      const initStep: NgWizardItemCommon = this.wizardItems().toArray()[0];
+      const initStep: SacWizardItemCommon = this.wizardItems().toArray()[0];
       this.selectStep(initStep);
       initStep.disabled = false;
       this.setStepInternal(initStep.id);
@@ -81,7 +81,7 @@ export abstract class NgWizardCommon implements AfterContentInit, ControlValueAc
    * Schritt selektieren
    * @param step Step welcher selektiert werden soll
    */
-  selectStep(step: NgWizardItemCommon): void {
+  selectStep(step: SacWizardItemCommon): void {
 
     // Cancel if Navigation disabled
     if (this.disablenavigation) {
@@ -100,12 +100,12 @@ export abstract class NgWizardCommon implements AfterContentInit, ControlValueAc
       return;
     }
 
-    const wizardItemsArray: NgWizardItemCommon[] = this.wizardItems().toArray();
+    const wizardItemsArray: SacWizardItemCommon[] = this.wizardItems().toArray();
     const itemsCount: number = wizardItemsArray.length;
     const currentItemIndex = wizardItemsArray.findIndex(itm => itm.id === step);
 
     for (let i: number = 0; i < itemsCount; i++) {
-      const item: NgWizardItemCommon = wizardItemsArray[i];
+      const item: SacWizardItemCommon = wizardItemsArray[i];
 
       if (i < currentItemIndex) {
         item.iscomplete = true;

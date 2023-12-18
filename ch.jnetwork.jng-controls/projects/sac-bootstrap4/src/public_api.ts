@@ -36,7 +36,7 @@ export * from './controls/contextmenu/contextmenuitembutton';
 export * from './controls/contextmenu/contextmenuitemsplitter';
 export * from './controls/contextmenu/contextmenuanchor';
 export * from './controls/form/form';
-export * from './controls/form/ngformularinherit.directive';
+export * from './controls/form/inheritform.directive';
 export * from './controls/upload/dropzonemultiple';
 export * from './controls/upload/dropzonesingle';
 export * from './controls/upload/upload';

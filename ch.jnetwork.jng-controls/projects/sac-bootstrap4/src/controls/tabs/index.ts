@@ -1,2 +1,2 @@
-export { NgTabComponent } from './tab';
-export { NgTabItemComponent } from './tabitem';
+export { SacTabComponent } from './tab';
+export { SacTabItemComponent } from './tabitem';

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NgFormularDirective } from '@jnetwork/sac-bootstrap4';
+import { SacFormDirective } from '@jnetwork/sac-bootstrap4';
 
 interface KeyValue {
   label: string;
@@ -75,7 +75,7 @@ export class DemoListComponent {
     ],
   };
 
-  @ViewChild('myForm') myForm: NgFormularDirective;
+  @ViewChild('myForm') myForm: SacFormDirective;
 
   public debugAction(): void {
     this.myForm.markAsTouched();

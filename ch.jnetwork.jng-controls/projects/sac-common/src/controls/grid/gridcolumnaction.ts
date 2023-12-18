@@ -1,19 +1,19 @@
 import { ElementRef, Directive } from '@angular/core';
-import { NgGridCommon } from './grid';
-import { NgGridColumnBaseCommon } from './gridcolumnbase';
+import { SacGridCommon } from './grid';
+import { SacGridColumnBaseCommon } from './gridcolumnbase';
 
 /**
- * Komponente für NgGridColumnActionCommon. Extends NgGridColumnBaseCommon
+ * Komponente für SacGridColumnActionCommon. Extends SacGridColumnBaseCommon
  */
 @Directive()
-export class NgGridColumnActionCommon extends NgGridColumnBaseCommon {
+export class SacGridColumnActionCommon extends SacGridColumnBaseCommon {
 
   /**
   * Konstruktor
   * @param el Element Referenz
-  * @param grid NgGridCommon
+  * @param grid SacGridCommon
   */
-  constructor(grid: NgGridCommon, el: ElementRef) {
+  constructor(grid: SacGridCommon, el: ElementRef) {
     super(grid, el);
   }
 }

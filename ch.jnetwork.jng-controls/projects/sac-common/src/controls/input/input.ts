@@ -1,13 +1,13 @@
 import { Directive, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { NgInputBase } from '../../common/baseinputcontrol';
+import { SacInputBase } from '../../common/baseinputcontrol';
 import { Validation } from '../../validation';
 
 /**
- * Basis Komponente für NgInput
+ * Basis Komponente für SacInput
  */
 @Directive()
-export class NgInputCommon extends NgInputBase<string> {
+export class SacInputCommon extends SacInputBase<string> {
   /**
    * Max länge an Zeichen für Eingabefeld
    */

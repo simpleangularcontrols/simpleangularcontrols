@@ -1,11 +1,11 @@
 import { Directive, Input } from '@angular/core';
-import { NgInputCommon } from './input';
+import { SacInputCommon } from './input';
 
 /**
- * Basis Komponente für NgInputArea
+ * Basis Komponente für SacInputArea
  */
 @Directive()
-export class NgInputAreaCommon extends NgInputCommon {
+export class SacInputAreaCommon extends SacInputCommon {
 
   /**
    * Definiert die Höhe der TextArea Box.

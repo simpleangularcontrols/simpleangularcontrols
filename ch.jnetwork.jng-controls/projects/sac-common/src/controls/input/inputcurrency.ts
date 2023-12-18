@@ -1,10 +1,10 @@
 import { Directive } from '@angular/core';
-import { NgInputDecimalCommon } from './inputdecimal';
+import { SacInputDecimalCommon } from './inputdecimal';
 
 /**
- * Basis Komponente für NgInputCurrency
+ * Basis Komponente für SacInputCurrency
  */
 @Directive()
-export class NgInputCurrencyCommon extends NgInputDecimalCommon {
+export class SacInputCurrencyCommon extends SacInputDecimalCommon {
 
 }

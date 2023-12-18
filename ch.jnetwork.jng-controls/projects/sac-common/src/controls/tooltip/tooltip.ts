@@ -14,7 +14,7 @@ import { TooltipPosition } from '../../utilities/enums';
  *
  */
 @Directive()
-export class NgTooltipCommon implements OnInit, OnDestroy {
+export class SacTooltipCommon implements OnInit, OnDestroy {
   /**
    * Property für Enum in Angular HTML Template
    */

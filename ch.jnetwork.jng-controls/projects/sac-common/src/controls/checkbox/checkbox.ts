@@ -1,12 +1,12 @@
 import { Input, Directive } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { NgBaseModelControl } from '../../common/basemodelcontrol';
+import { SacBaseModelControl } from '../../common/basemodelcontrol';
 
 /**
- * Basis Komponente für NgCheckboxCommon. Extends NgBaseModelControl
+ * Basis Komponente für SacCheckboxCommon. Extends SacBaseModelControl
  */
 @Directive()
-export class NgCheckboxCommon extends NgBaseModelControl<boolean> {
+export class SacCheckboxCommon extends SacBaseModelControl<boolean> {
 
   /**
   * Text welcher als Tooltip angezeigt wird.

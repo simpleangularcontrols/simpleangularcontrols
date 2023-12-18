@@ -1,11 +1,11 @@
 import { Component, ElementRef, OnInit, OnDestroy, Input, ChangeDetectorRef } from '@angular/core';
-import { NgDialogCommon } from '@jnetwork/sac-common';
+import { SacDialogCommon } from '@jnetwork/sac-common';
 
 @Component({
   selector: 'sac-dialog',
   templateUrl: './dialog.html'
 })
-export class NgDialogComponent extends NgDialogCommon implements OnInit, OnDestroy {
+export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDestroy {
   // DOM Element
   private element: any;
 

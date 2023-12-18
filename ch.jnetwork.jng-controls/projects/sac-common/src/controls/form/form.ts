@@ -8,10 +8,10 @@ import { convertToBoolean } from '../../utilities/Convertion';
 export type FormHooks = 'change' | 'blur' | 'submit';
 
 /**
- * Base Komponente für NgFormular
+ * Base Komponente für SacFormular
  */
 @Directive()
-export class NgFormularCommon {
+export class SacFormCommon {
   /**
    * Inline Errors für das Formular
    */
@@ -21,7 +21,7 @@ export class NgFormularCommon {
    * Form Control
    */
   @Input()
-  ngFormular: string;
+  SacFormular: string;
 
   /**
    * Default Label Size for Form
@@ -84,7 +84,7 @@ export class NgFormularCommon {
         return 'none';
       default:
         throw new Error(
-          'Invalid formtype at ngFormularCommon. Valid values are horizontal, vertical, none'
+          'Invalid formtype at SacFormCommon. Valid values are horizontal, vertical, none'
         );
     }
   }

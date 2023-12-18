@@ -1,13 +1,13 @@
 import { Directive, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { NgBaseModelControl } from '../../common/basemodelcontrol';
+import { SacBaseModelControl } from '../../common/basemodelcontrol';
 import { convertToBoolean } from '../../utilities/convertion';
 
 /**
  * Common Control für Form Item Container.
  **/
 @Directive()
-export class NgStaticFormContainerCommon extends NgBaseModelControl<string> {
+export class SacStaticFormContainerCommon extends SacBaseModelControl<string> {
 
 
   /**

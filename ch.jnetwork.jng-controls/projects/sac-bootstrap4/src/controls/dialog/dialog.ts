@@ -5,7 +5,7 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { NgDialogCommon } from '@jnetwork/sac-common';
+import { SacDialogCommon } from '@jnetwork/sac-common';
 
 /**
  * Dialog Komponente
@@ -14,8 +14,8 @@ import { NgDialogCommon } from '@jnetwork/sac-common';
   selector: 'sac-dialog',
   templateUrl: './dialog.html',
 })
-export class NgDialogComponent
-  extends NgDialogCommon
+export class SacDialogComponent
+  extends SacDialogCommon
   implements OnInit, OnDestroy
 {
   /**

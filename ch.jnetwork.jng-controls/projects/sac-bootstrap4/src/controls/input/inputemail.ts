@@ -4,8 +4,8 @@ import {
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
-import { NgInputEmailCommon } from '@jnetwork/sac-common';
-import { NgFormularDirective } from '../form/form';
+import { SacInputEmailCommon } from '@jnetwork/sac-common';
+import { SacFormDirective } from '../form/form';
 
 /**
  * Input Box für E-Mail Adressen
@@ -18,26 +18,26 @@ import { NgFormularDirective } from '../form/form';
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: forwardRef(() => NgInputEmailComponent),
+      useExisting: forwardRef(() => SacInputEmailComponent),
     },
     {
       provide: NG_VALIDATORS,
       multi: true,
-      useExisting: forwardRef(() => NgInputEmailComponent),
+      useExisting: forwardRef(() => SacInputEmailComponent),
     },
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [
-    { provide: ControlContainer, useExisting: NgFormularDirective },
+    { provide: ControlContainer, useExisting: SacFormDirective },
   ],
 })
-export class NgInputEmailComponent extends NgInputEmailCommon {
+export class SacInputEmailComponent extends SacInputEmailCommon {
   /**
    * Konstruktor
    * @param parent Formular
    * @param injector Angular Dependency Injection Service
    */
-  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
+  constructor(@Host() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 }

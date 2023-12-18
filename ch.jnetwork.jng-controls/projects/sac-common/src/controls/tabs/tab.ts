@@ -1,11 +1,11 @@
 import { AfterContentInit, Directive, Input, TemplateRef } from '@angular/core';
-import { NgTabItemCommon } from './tabitem';
+import { SacTabItemCommon } from './tabitem';
 
 /**
- *Basis Komponente für NgTab
+ *Basis Komponente für SacTab
  */
 @Directive()
-export abstract class NgTabCommon implements AfterContentInit {
+export abstract class SacTabCommon implements AfterContentInit {
 
   /**
    * Name des Controls
@@ -28,7 +28,7 @@ export abstract class NgTabCommon implements AfterContentInit {
   /**
    * Array von TabItems
    */
-  abstract tabItems(): NgTabItemCommon[];
+  abstract tabItems(): SacTabItemCommon[];
 
   // #region Control initialisieren
 
@@ -62,7 +62,7 @@ export abstract class NgTabCommon implements AfterContentInit {
    * Tab selektieren
    * @param tab
    */
-  selectTab(tab: NgTabItemCommon): void {
+  selectTab(tab: SacTabItemCommon): void {
     // Cancel if Selected Tab is disabled
     if (tab.disabled) {
       return;

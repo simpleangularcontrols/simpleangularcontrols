@@ -1,7 +1,7 @@
 import { Component, Host, forwardRef, Injector } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS, NgControl } from '@angular/forms';
-import { NgFormularDirective } from '../form/form';
-import { NgInputCommon } from '@jnetwork/sac-common';
+import { SacFormDirective } from '../form/form';
+import { SacInputCommon } from '@jnetwork/sac-common';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -9,14 +9,14 @@ import { NgForm } from '@angular/forms';
   templateUrl: './input.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgInputComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgInputComponent) }
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacInputComponent },
+    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => SacInputComponent) }
   ]
 })
 
-export class NgInputComponent extends NgInputCommon {
+export class SacInputComponent extends SacInputCommon {
 
-  constructor( @Host() parent: NgFormularDirective, injector: Injector) {
+  constructor( @Host() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 }

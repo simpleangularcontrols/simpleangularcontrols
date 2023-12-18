@@ -1,12 +1,12 @@
 import { Input, Directive } from '@angular/core';
 import { convertToObject } from 'typescript';
-import { NgBaseModelControl } from './basemodelcontrol';
+import { SacBaseModelControl } from './basemodelcontrol';
 
 /**
- * Abstract Klasse für NgInputBase. Extendes NgBaseModelControl
+ * Abstract Klasse für SacInputBase. Extendes SacBaseModelControl
  */
 @Directive()
-export abstract class NgInputBase<VALUE> extends NgBaseModelControl<VALUE> {
+export abstract class SacInputBase<VALUE> extends SacBaseModelControl<VALUE> {
 
   // #region Properties
 

@@ -1,6 +1,6 @@
 <div>Debug:</div>
 <div>{{ ValuesItem | json}}</div>
-<form #formMultiLanguage="NgFormular" labelsize="3">
+<form #formMultiLanguage="sacform" labelsize="3">
   <sac-validationsummary></sac-validationsummary>
   <sac-multilanguageinput name="mlInput1" [(ngModel)]="ValuesItem.Model1" label="Input 1"></sac-multilanguageinput>
   <sac-multilanguageinput name="mlInput2" [(ngModel)]="ValuesItem.Model2" [requiredany]="true" label="Input 2"></sac-multilanguageinput>

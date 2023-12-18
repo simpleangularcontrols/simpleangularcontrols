@@ -1,7 +1,7 @@
 import { Component, Host, Injector } from '@angular/core';
 import { ControlContainer, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { NgValidationSummaryCommon } from '@jnetwork/sac-common';
-import { NgFormularDirective } from '../form/form';
+import { SacValidationSummaryCommon } from '@jnetwork/sac-common';
+import { SacFormDirective } from '../form/form';
 
 /**
  * Validation Summary Kompontente
@@ -14,21 +14,21 @@ import { NgFormularDirective } from '../form/form';
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NgValidationSummaryComponent,
+      useExisting: SacValidationSummaryComponent,
     },
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [
-    { provide: ControlContainer, useExisting: NgFormularDirective },
+    { provide: ControlContainer, useExisting: SacFormDirective },
   ],
 })
-export class NgValidationSummaryComponent extends NgValidationSummaryCommon {
+export class SacValidationSummaryComponent extends SacValidationSummaryCommon {
   /**
    * Konstruktor
    * @param parent Formular
    * @param injector Angular Dependency Injection Service
    */
-  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
+  constructor(@Host() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 }

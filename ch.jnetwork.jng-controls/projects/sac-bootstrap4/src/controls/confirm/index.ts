@@ -1,1 +1,1 @@
-export { NgConfirmComponent } from './confirm';
+export { SacConfirmComponent } from './confirm';

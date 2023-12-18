@@ -1,6 +1,6 @@
 import { Directive, HostBinding } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { NgFormularCommon } from '@jnetwork/sac-common';
+import { SacFormCommon } from '@jnetwork/sac-common';
 
 
 /**
@@ -18,9 +18,9 @@ import { NgFormularCommon } from '@jnetwork/sac-common';
 /* eslint @angular-eslint/directive-selector: 0 */
 @Directive({
   selector: 'form:not([ngNoForm]):not([formGroup]),[ngForm]',
-  exportAs: 'NgFormular'
+  exportAs: 'sacform'
 })
-export class NgFormularDirective extends NgFormularCommon {
+export class SacFormDirective extends SacFormCommon {
 
   /**
    * Konstruktor

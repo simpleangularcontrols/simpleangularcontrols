@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {
-  NgContextmenuCommon,
-  NgContextmenuItemButtonCommon,
+  SacContextmenuCommon,
+  SacContextmenuItemButtonCommon,
 } from '@jnetwork/sac-common';
 
 /**
@@ -11,12 +11,12 @@ import {
   selector: 'sac-contextmenubutton',
   templateUrl: './contextmenuitembutton.html',
 })
-export class NgContextmenuItemButtonComponent extends NgContextmenuItemButtonCommon {
+export class SacContextmenuItemButtonComponent extends SacContextmenuItemButtonCommon {
   /**
    * Constructor
    * @param contextmenu Instance von Context Menü
    */
-  constructor(contextmenu: NgContextmenuCommon) {
+  constructor(contextmenu: SacContextmenuCommon) {
     super(contextmenu);
   }
 }

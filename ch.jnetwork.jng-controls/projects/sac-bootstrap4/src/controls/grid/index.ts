@@ -1,6 +1,6 @@
-export { NgGridComponent } from './grid';
-export { NgGridButtonComponent } from './gridbutton';
-export { NgGridColumnComponent } from './gridcolumn';
-export { NgGridColumnActionComponent } from './gridcolumnaction';
-export { NgGridImageComponent } from './gridimage';
-export { NgPagingComponent } from './paging';
+export { SacGridComponent } from './grid';
+export { SacGridButtonComponent } from './gridbutton';
+export { SacGridColumnComponent } from './gridcolumn';
+export { SacGridColumnActionComponent } from './gridcolumnaction';
+export { SacGridImageComponent } from './gridimage';
+export { SacPagingComponent } from './paging';

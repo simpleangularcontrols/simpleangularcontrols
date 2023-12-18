@@ -1,9 +1,9 @@
 import { Component, ElementRef, forwardRef } from '@angular/core';
 import {
-  NgGridColumnBaseCommon,
-  NgGridColumnCommon,
+  SacGridColumnBaseCommon,
+  SacGridColumnCommon,
 } from '@jnetwork/sac-common';
-import { NgGridComponent } from './grid';
+import { SacGridComponent } from './grid';
 
 /**
  * Grid Column Komponente
@@ -13,18 +13,18 @@ import { NgGridComponent } from './grid';
   templateUrl: './gridcolumn.html',
   providers: [
     {
-      provide: NgGridColumnBaseCommon,
-      useExisting: forwardRef(() => NgGridColumnComponent),
+      provide: SacGridColumnBaseCommon,
+      useExisting: forwardRef(() => SacGridColumnComponent),
     },
   ],
 })
-export class NgGridColumnComponent extends NgGridColumnCommon {
+export class SacGridColumnComponent extends SacGridColumnCommon {
   /**
    * Konstruktor
    * @param grid Grid Referenz
    * @param el HTML DOM Element
    */
-  constructor(grid: NgGridComponent, el: ElementRef) {
+  constructor(grid: SacGridComponent, el: ElementRef) {
     super(grid, el);
   }
 }

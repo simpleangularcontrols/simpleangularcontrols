@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NgFormularDirective } from '@jnetwork/sac-bootstrap4';
+import { SacFormDirective } from '@jnetwork/sac-bootstrap4';
 
 export class MultiLanguageDataModel {
   public de: string = '';
@@ -19,7 +19,7 @@ export class DemoMultilanguageComponent {
     Model5: { de: 'Wert Deutsch', en: 'Wert Englisch' },
   };
 
-  @ViewChild('myForm') myForm: NgFormularDirective;
+  @ViewChild('myForm') myForm: SacFormDirective;
 
   public debugAction(): void {
     this.myForm.markAsTouched();

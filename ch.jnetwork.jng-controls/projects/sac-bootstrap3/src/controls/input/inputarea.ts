@@ -1,7 +1,7 @@
 import { ControlContainer, NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
-import { NgFormularDirective } from '../form/form';
+import { SacFormDirective } from '../form/form';
 import { Component, forwardRef, Host, Injector } from '@angular/core';
-import { NgInputAreaCommon } from '@jnetwork/sac-common';
+import { SacInputAreaCommon } from '@jnetwork/sac-common';
 
 /**
  * Komponente für TextArea
@@ -20,14 +20,14 @@ import { NgInputAreaCommon } from '@jnetwork/sac-common';
   templateUrl: './inputarea.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgInputAreaComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgInputAreaComponent) }
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacInputAreaComponent },
+    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => SacInputAreaComponent) }
   ]
 })
 
-export class NgInputAreaComponent extends NgInputAreaCommon {
+export class SacInputAreaComponent extends SacInputAreaCommon {
 
-  constructor( @Host() parent: NgFormularDirective, injector: Injector) {
+  constructor( @Host() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 

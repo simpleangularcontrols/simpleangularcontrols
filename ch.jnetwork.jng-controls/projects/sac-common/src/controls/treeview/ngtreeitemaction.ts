@@ -8,10 +8,10 @@ import {
 } from '@angular/core';
 
 /**
- *Basis Komponente für NgTreeItemAction
+ *Basis Komponente für SacTreeItemAction
  */
 @Directive()
-export class NgTreeItemActionCommon implements OnInit {
+export class SacTreeItemActionCommon implements OnInit {
   /**
    * Konstruktor
    * @param el Element Referenz

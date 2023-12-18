@@ -1,7 +1,6 @@
-import { Component, ViewChild, HostListener } from '@angular/core';
-import { NgForm, FormGroup, FormControl } from '@angular/forms';
-import { CurrencyPipe } from '@angular/common';
-import { NgFormularDirective } from '@jnetwork/sac-bootstrap4';
+import { Component, HostListener, ViewChild } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { SacFormDirective } from '@jnetwork/sac-bootstrap4';
 
 
 interface KeyValue {
@@ -197,12 +196,12 @@ export class AppComponent {
   MannschaftsModel: DropdownModel = new DropdownModel();
   SpielerModel: DropdownModel = new DropdownModel();
 
-  @ViewChild('form') myForm: NgFormularDirective;
-  @ViewChild('form2') form2: NgFormularDirective;
-  @ViewChild('form3') form3: NgFormularDirective;
-  @ViewChild('formTemp') formTemp: NgFormularDirective;
-  @ViewChild('formDateTime') formDateTime: NgFormularDirective;
-  @ViewChild('formExampleUpload') formUpload: NgFormularDirective;
+  @ViewChild('form') myForm: SacFormDirective;
+  @ViewChild('form2') form2: SacFormDirective;
+  @ViewChild('form3') form3: SacFormDirective;
+  @ViewChild('formTemp') formTemp: SacFormDirective;
+  @ViewChild('formDateTime') formDateTime: SacFormDirective;
+  @ViewChild('formExampleUpload') formUpload: SacFormDirective;
 
   changeRequired() {
     this.testrequired = !this.testrequired;

@@ -1,7 +1,7 @@
 /**
  * Klasse für Button Templates in Confirm Button
  */
-export class NgConfirmButton {
+export class SacConfirmButton {
   /**
    * Konstruktor
    * @param key Key für Button

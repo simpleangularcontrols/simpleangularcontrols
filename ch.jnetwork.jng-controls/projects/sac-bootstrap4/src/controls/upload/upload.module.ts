@@ -1,24 +1,24 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgDropzoneMultipleComponent } from './dropzonemultiple';
-import { NgDropzoneSingleComponent } from './dropzonesingle';
-import { NgUploadComponent } from './upload';
-import { NgUploadMultipleComponent } from './uploadmultiple';
+import { SacDropzoneMultipleComponent } from './dropzonemultiple';
+import { SacDropzoneSingleComponent } from './dropzonesingle';
+import { SacUploadComponent } from './upload';
+import { SacUploadMultipleComponent } from './uploadmultiple';
 
 @NgModule({
   declarations: [
-    NgUploadComponent,
-    NgUploadMultipleComponent,
-    NgDropzoneSingleComponent,
-    NgDropzoneMultipleComponent,
+    SacUploadComponent,
+    SacUploadMultipleComponent,
+    SacDropzoneSingleComponent,
+    SacDropzoneMultipleComponent,
   ],
   imports: [CommonModule, FormsModule],
   exports: [
-    NgUploadComponent,
-    NgUploadMultipleComponent,
-    NgDropzoneSingleComponent,
-    NgDropzoneMultipleComponent,
+    SacUploadComponent,
+    SacUploadMultipleComponent,
+    SacDropzoneSingleComponent,
+    SacDropzoneMultipleComponent,
   ],
 })
 export class SACBootstrap4UploadModule {}

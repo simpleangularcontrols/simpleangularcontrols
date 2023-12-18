@@ -7,7 +7,7 @@
 <sac-tab>
   <sac-tabitem id="login" label="Login">
     <ng-template>
-      <app-usercomponent></app-usercomponent>
+      <!-- <app-usercomponent></app-usercomponent> -->
     </ng-template>
   </sac-tabitem>
 
@@ -24,7 +24,7 @@
         <sac-input name="testname1a" label="Eingabe 1" [(ngModel)]="testname1" [isrequired]="testrequired"></sac-input>
       </form>
 
-      <form #myform="NgFormular" orientation="vertical">
+      <form #myform="sacform" orientation="vertical">
         <sac-validationsummary></sac-validationsummary>
 
         <sac-input name="testname1" label="Eingabe 1" [(ngModel)]="testname1" [isrequired]="testrequired"></sac-input>
@@ -42,7 +42,7 @@
   <sac-tabitem id="formTemp" label="Temp">
     <ng-template>
       <div>Example Form</div>
-      <form #formTemp="NgFormular" labelsize="3">
+      <form #formTemp="sacform" labelsize="3">
         <sac-validationsummary></sac-validationsummary>
 
         <sac-radiobuttons name="radiobuttons3" label="Radiobuttons 1" [(ngModel)]="values.radiobuttons1">
@@ -57,7 +57,7 @@
 
       </form>
 
-      <form #formTemp2="NgFormular">
+      <form #formTemp2="sacform">
 
         <sac-dropdown name="mannschaft" label="RAPPORT_MANNSCHAFT" [(ngModel)]="MannschaftsModel.SelectedId" [options]="MannschaftsModel.Items" optionlabel="Displaytext" optionvalue="Id" (ngModelChange)="FilterChanged(true)"
                     [emptyvalue]="null" emptylabel="RAPPOR_FILTER_ALLE"></sac-dropdown>
@@ -88,7 +88,7 @@
   <sac-tabitem id="tabInput" label="Input">
     <ng-template>
       <div>Example Form</div>
-      <form #form2="NgFormular" labelsize="3">
+      <form #form2="sacform" labelsize="3">
         <sac-button (clicked)="debugAction()" text="Action Debug"></sac-button>
         <sac-validationsummary></sac-validationsummary>
 
@@ -249,7 +249,7 @@
 
   <sac-tabitem id="tabDate" label="Date & Time">
     <ng-template>
-      <form #formDateTime="NgFormular" labelsize="3">
+      <form #formDateTime="sacform" labelsize="3">
         <sac-validationsummary></sac-validationsummary>
 
         <sac-date name="datum1" label="Datum 1" [(ngModel)]="valuesDateTime.datum1"></sac-date>

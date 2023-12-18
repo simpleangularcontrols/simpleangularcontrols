@@ -1,13 +1,13 @@
 import { Directive, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { Validation } from '../../validation';
-import { NgInputCommon } from './input';
+import { SacInputCommon } from './input';
 
 /**
- * Basis Komponente für NgInputPassword
+ * Basis Komponente für SacInputPassword
  */
 @Directive()
-export class NgInputPasswordCommon extends NgInputCommon {
+export class SacInputPasswordCommon extends SacInputCommon {
   /**
    * Resource Key für Validation Message MinLength bei Control
    */

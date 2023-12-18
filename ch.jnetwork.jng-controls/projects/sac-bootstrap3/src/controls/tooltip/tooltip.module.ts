@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { NgTooltipComponent } from './tooltip';
+import { SacTooltipComponent } from './tooltip';
 
 @NgModule({
-  declarations: [NgTooltipComponent],
+  declarations: [SacTooltipComponent],
   imports: [
     CommonModule, CommonModule
   ],
-  exports: [NgTooltipComponent]
+  exports: [SacTooltipComponent]
 })
 export class SACBootstrap3TooltipModule { }

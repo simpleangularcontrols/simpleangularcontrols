@@ -31,9 +31,15 @@ import { ControlsLanguageService } from './services/language.service';
 // import localeDeCh from '@angular/common/locales/de-CH';
 
 const NgDirectives = [
-  AppComponent, UserComponent,
+  AppComponent,
+  UserComponent,
 
-  ExampleGridComponent, ExampleDialogComponent, ExampleUploadComponent, ExampleMultiLanguageInputComponent, TempDirective, SubFormComponent
+  ExampleGridComponent,
+  ExampleDialogComponent,
+  ExampleUploadComponent,
+  ExampleMultiLanguageInputComponent,
+  TempDirective,
+  SubFormComponent,
 ];
 
 // import {
@@ -70,13 +76,11 @@ import {
   SACBootstrap4WizardModule,
   SACBootstrap4ConfirmModule,
   SACBootstrap4UploadModule,
-  SACBootstrap4MultilanguageModule
+  SACBootstrap4MultilanguageModule,
 } from '@jnetwork/sac-bootstrap4';
 
 @NgModule({
-  declarations: [
-    NgDirectives
-  ],
+  declarations: [NgDirectives],
   imports: [
     BrowserModule,
     FormsModule,
@@ -121,16 +125,20 @@ import {
     SACBootstrap4MultilanguageModule,
     SACBootstrap4ConfirmModule.forRoot(),
 
-
     // Third Party Modules
-    UploadxModule
+    UploadxModule,
   ],
-  providers: [UserService, AuthenticationService, GridService, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi: true
-  },
-    { provide: LANGUAGE_SERVICE, useClass: ControlsLanguageService }], // /*{ provide: LOCALE_ID, useValue: 'de-CH' }*/],
-  bootstrap: [AppComponent]
+  providers: [
+    UserService,
+    AuthenticationService,
+    GridService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    },
+    { provide: LANGUAGE_SERVICE, useClass: ControlsLanguageService },
+  ], // /*{ provide: LOCALE_ID, useValue: 'de-CH' }*/],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

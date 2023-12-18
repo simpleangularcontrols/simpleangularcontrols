@@ -8,7 +8,7 @@ import { PagerData, PagerRequest } from './model';
  * Basiskomponente für Paging
  */
 @Directive()
-export abstract class NgPagingCommon {
+export abstract class SacPagingCommon {
   /**
    * Service für Error Localisation
    */
@@ -19,7 +19,7 @@ export abstract class NgPagingCommon {
   /**
    * Konstruktor
    * Inject des Formulars
-   * @parent NgFormularCommon
+   * @parent SacFormCommon
    * @injector Injector
    */
   constructor(private injector: Injector) {

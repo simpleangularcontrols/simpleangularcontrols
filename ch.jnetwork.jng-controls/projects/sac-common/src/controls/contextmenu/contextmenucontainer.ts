@@ -4,7 +4,7 @@ import { Directive, ElementRef } from '@angular/core';
  * Common Marker Klasse für den Menü Container
  */
 @Directive()
-export class NgContextMenuContrainerCommon {
+export class SacContextMenuContrainerCommon {
   /**
    * Referenz auf das HTML Element des Menü Containers
    */

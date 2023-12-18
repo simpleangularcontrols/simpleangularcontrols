@@ -1,13 +1,13 @@
 import { Directive, Input, OnInit } from '@angular/core';
 import { UploadState } from 'ngx-uploadx';
-import { NgUploadBase } from '../../common/baseuploadcontrol';
+import { SacUploadBase } from '../../common/baseuploadcontrol';
 
 /**
  * Upload Komponente für ein einzelnes File
  */
 @Directive()
-export class NgDropzoneSingleCommon
-  extends NgUploadBase<string>
+export class SacDropzoneSingleCommon
+  extends SacUploadBase<string>
   implements OnInit
 {
   /**
@@ -24,7 +24,7 @@ export class NgDropzoneSingleCommon
   /**
    * Ervent wenn das Control initialisert wird
    */
-  ngOnInit() {
+  SacOnInit() {
     super.ngOnInit();
 
     this.autoupload = true;

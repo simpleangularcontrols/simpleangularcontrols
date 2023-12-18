@@ -9,10 +9,10 @@ import {
 } from '@angular/core';
 
 /**
- * Basis Komponente für NgTreeView
+ * Basis Komponente für SacTreeView
  */
 @Directive()
-export class NgTreeViewCommon implements OnInit {
+export class SacTreeViewCommon implements OnInit {
   /**
    * Das Property enthielt boolean Wert und deffiniert, ob alle Items collapsed sind. Default value: undefined/null
    */

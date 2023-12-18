@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
-import { NgGridCommon, NgGridButtonCommon } from '@jnetwork/sac-common';
+import { SacGridCommon, SacGridButtonCommon } from '@jnetwork/sac-common';
 
 /**
  * Grid Action Button
@@ -17,7 +17,7 @@ import { NgGridCommon, NgGridButtonCommon } from '@jnetwork/sac-common';
   selector: 'sac-gridbutton',
   templateUrl: './gridbutton.html'
 })
-export class NgGridButtonComponent extends NgGridButtonCommon {
+export class SacGridButtonComponent extends SacGridButtonCommon {
 
   /**
    * Gibt das Icon für den Button zurück

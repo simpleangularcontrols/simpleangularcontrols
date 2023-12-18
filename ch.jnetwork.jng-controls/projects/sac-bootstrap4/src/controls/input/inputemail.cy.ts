@@ -1,7 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { createOutputSpy } from 'cypress/angular';
-import { NgFormularDirective } from '../form';
-import { NgInputEmailComponent } from './inputemail';
+import { SacFormDirective } from '../form';
+import { SacInputEmailComponent } from './inputemail';
 
 describe('inputEmail', () => {
   it('should show label and text', () => {
@@ -11,7 +11,7 @@ describe('inputEmail', () => {
       </sac-inputemail>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputEmailComponent],
+        declarations: [SacFormDirective, SacInputEmailComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -32,7 +32,7 @@ describe('inputEmail', () => {
       </sac-inputemail>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputEmailComponent],
+        declarations: [SacFormDirective, SacInputEmailComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -59,7 +59,7 @@ describe('inputEmail', () => {
       </sac-inputemail>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputEmailComponent],
+        declarations: [SacFormDirective, SacInputEmailComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -80,7 +80,7 @@ describe('inputEmail', () => {
       </sac-inputemail>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputEmailComponent],
+        declarations: [SacFormDirective, SacInputEmailComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -100,7 +100,7 @@ describe('inputEmail', () => {
       </sac-inputemail>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputEmailComponent],
+        declarations: [SacFormDirective, SacInputEmailComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -120,7 +120,7 @@ describe('inputEmail', () => {
       </sac-inputemail>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputEmailComponent],
+        declarations: [SacFormDirective, SacInputEmailComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -140,7 +140,7 @@ describe('inputEmail', () => {
       </sac-inputemail>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputEmailComponent],
+        declarations: [SacFormDirective, SacInputEmailComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -163,7 +163,7 @@ describe('inputEmail', () => {
       </sac-inputemail>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputEmailComponent],
+        declarations: [SacFormDirective, SacInputEmailComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',

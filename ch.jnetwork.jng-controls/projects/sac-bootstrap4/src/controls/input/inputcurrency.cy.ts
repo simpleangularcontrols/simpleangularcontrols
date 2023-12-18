@@ -1,7 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { createOutputSpy } from 'cypress/angular';
-import { NgFormularDirective } from '../form';
-import { NgInputCurrencyComponent } from './inputcurrency';
+import { SacFormDirective } from '../form';
+import { SacInputCurrencyComponent } from './inputcurrency';
 
 describe('ngInputCurrencyComponent', () => {
   it('should show label and text', () => {
@@ -11,7 +11,7 @@ describe('ngInputCurrencyComponent', () => {
       </sac-inputcurrency>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputCurrencyComponent],
+        declarations: [SacFormDirective, SacInputCurrencyComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -32,7 +32,7 @@ describe('ngInputCurrencyComponent', () => {
       </sac-inputcurrency>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputCurrencyComponent],
+        declarations: [SacFormDirective, SacInputCurrencyComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -60,7 +60,7 @@ describe('ngInputCurrencyComponent', () => {
       </sac-inputcurrency>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputCurrencyComponent],
+        declarations: [SacFormDirective, SacInputCurrencyComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -81,7 +81,7 @@ describe('ngInputCurrencyComponent', () => {
       </sac-inputcurrency>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputCurrencyComponent],
+        declarations: [SacFormDirective, SacInputCurrencyComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -101,7 +101,7 @@ describe('ngInputCurrencyComponent', () => {
       </sac-inputcurrency>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputCurrencyComponent],
+        declarations: [SacFormDirective, SacInputCurrencyComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -121,7 +121,7 @@ describe('ngInputCurrencyComponent', () => {
       </sac-inputcurrency>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputCurrencyComponent],
+        declarations: [SacFormDirective, SacInputCurrencyComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -141,7 +141,7 @@ describe('ngInputCurrencyComponent', () => {
       </sac-inputcurrency>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputCurrencyComponent],
+        declarations: [SacFormDirective, SacInputCurrencyComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -164,7 +164,7 @@ describe('ngInputCurrencyComponent', () => {
       </sac-inputcurrency>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputCurrencyComponent],
+        declarations: [SacFormDirective, SacInputCurrencyComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -190,7 +190,7 @@ describe('ngInputCurrencyComponent', () => {
       </sac-inputcurrency>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputCurrencyComponent],
+        declarations: [SacFormDirective, SacInputCurrencyComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -216,7 +216,7 @@ describe('ngInputCurrencyComponent', () => {
       </sac-inputcurrency>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputCurrencyComponent],
+        declarations: [SacFormDirective, SacInputCurrencyComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -242,7 +242,7 @@ describe('ngInputCurrencyComponent', () => {
       </sac-inputcurrency>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputCurrencyComponent],
+        declarations: [SacFormDirective, SacInputCurrencyComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -268,7 +268,7 @@ describe('ngInputCurrencyComponent', () => {
       </sac-inputcurrency>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputCurrencyComponent],
+        declarations: [SacFormDirective, SacInputCurrencyComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -292,7 +292,7 @@ describe('ngInputCurrencyComponent', () => {
       </sac-inputcurrency>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputCurrencyComponent],
+        declarations: [SacFormDirective, SacInputCurrencyComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',
@@ -316,7 +316,7 @@ describe('ngInputCurrencyComponent', () => {
       </sac-inputcurrency>
       </form>`,
       {
-        declarations: [NgFormularDirective, NgInputCurrencyComponent],
+        declarations: [SacFormDirective, SacInputCurrencyComponent],
         imports: [FormsModule],
         componentProperties: {
           label: 'My Label',

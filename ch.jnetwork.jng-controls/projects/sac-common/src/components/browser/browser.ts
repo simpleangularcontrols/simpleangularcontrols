@@ -26,7 +26,7 @@ import { IBrowserNodeResponse } from './models/browsernoderesponse';
  * Base Component für File Browser
  */
 @Directive()
-export abstract class NgFileBrowserCommon implements OnInit {
+export abstract class SacFileBrowserCommon implements OnInit {
   /**
    * Selected File Name
    */

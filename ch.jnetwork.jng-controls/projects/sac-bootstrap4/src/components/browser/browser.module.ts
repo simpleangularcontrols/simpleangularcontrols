@@ -6,10 +6,10 @@ import { SACBootstrap4ConfirmModule } from '../../controls/confirm/confirm.modul
 import { SACBootstrap4ContextmenuModule } from '../../controls/contextmenu/contextmenu.module';
 import { SACBootstrap4FormModule } from '../../controls/form/form.module';
 import { SACBootstrap4UploadModule } from '../../controls/upload/upload.module';
-import { NgBrowserComponent } from './browser';
+import { SacBrowserComponent } from './browser';
 
 @NgModule({
-  declarations: [NgBrowserComponent],
+  declarations: [SacBrowserComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -19,7 +19,7 @@ import { NgBrowserComponent } from './browser';
     SACBootstrap4FormModule,
     FormsModule,
   ],
-  exports: [NgBrowserComponent],
-  bootstrap: [NgBrowserComponent],
+  exports: [SacBrowserComponent],
+  bootstrap: [SacBrowserComponent],
 })
 export class SACBootstrap4BrowserModule {}

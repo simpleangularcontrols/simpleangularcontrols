@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 
-import { NgGridComponent } from './grid';
+import { SacGridComponent } from './grid';
 import { CommonModule } from '@angular/common';
-import { NgGridColumnComponent } from './gridcolumn';
-import { NgGridButtonComponent } from './gridbutton';
-import { NgPagingComponent } from './paging';
-import { NgGridColumnActionComponent } from './gridcolumnaction';
-import { NgGridImageComponent } from './gridimage';
+import { SacGridColumnComponent } from './gridcolumn';
+import { SacGridButtonComponent } from './gridbutton';
+import { SacPagingComponent } from './paging';
+import { SacGridColumnActionComponent } from './gridcolumnaction';
+import { SacGridImageComponent } from './gridimage';
 
 @NgModule({
-  declarations: [NgGridComponent, NgGridColumnComponent, NgGridColumnActionComponent, NgPagingComponent, NgGridButtonComponent, NgGridImageComponent],
+  declarations: [SacGridComponent, SacGridColumnComponent, SacGridColumnActionComponent, SacPagingComponent, SacGridButtonComponent, SacGridImageComponent],
   imports: [
     CommonModule
   ],
-  exports: [NgGridComponent, NgGridColumnComponent, NgGridColumnActionComponent, NgPagingComponent, NgGridButtonComponent, NgGridImageComponent]
+  exports: [SacGridComponent, SacGridColumnComponent, SacGridColumnActionComponent, SacPagingComponent, SacGridButtonComponent, SacGridImageComponent]
 })
 export class SACBootstrap3GridModule { }
 

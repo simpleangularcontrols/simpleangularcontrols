@@ -32,7 +32,7 @@ export * from './controls/confirm/confirm';
 export * from './controls/dialog/dialog';
 export * from './controls/buttons/button';
 export * from './controls/form/form';
-export * from './controls/form/ngformularinherit.directive';
+export * from './controls/form/inheritform.directive';
 export * from './controls/upload/upload';
 export * from './controls/upload/uploadmultiple';
 export * from './controls/list/dropdown';

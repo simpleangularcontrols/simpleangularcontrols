@@ -1,5 +1,5 @@
 import { Directive, ElementRef, forwardRef } from '@angular/core';
-import { NgContextMenuContrainerCommon } from '@jnetwork/sac-common';
+import { SacContextMenuContrainerCommon } from '@jnetwork/sac-common';
 
 /**
  * Marker Komponente für Context Menü
@@ -8,12 +8,12 @@ import { NgContextMenuContrainerCommon } from '@jnetwork/sac-common';
   selector: '[sacContextMenuContainer]',
   providers: [
     {
-      provide: NgContextMenuContrainerCommon,
-      useExisting: forwardRef(() => NgContextmenuContainerDirective),
+      provide: SacContextMenuContrainerCommon,
+      useExisting: forwardRef(() => SacContextmenuContainerDirective),
     },
   ],
 })
-export class NgContextmenuContainerDirective extends NgContextMenuContrainerCommon {
+export class SacContextmenuContainerDirective extends SacContextMenuContrainerCommon {
   /**
    * Konstruktor
    * @param _elementRef Referenz auf DOM Element

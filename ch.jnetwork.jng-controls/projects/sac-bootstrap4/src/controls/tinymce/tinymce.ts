@@ -4,8 +4,8 @@ import {
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
-import { NgTinyMceCommon } from '@jnetwork/sac-common';
-import { NgFormularDirective } from '../form/form';
+import { SacTinyMceCommon } from '@jnetwork/sac-common';
+import { SacFormDirective } from '../form/form';
 
 /**
  * TinyMCE Komponente
@@ -18,20 +18,20 @@ import { NgFormularDirective } from '../form/form';
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NgTinyMceComponent,
+      useExisting: SacTinyMceComponent,
     },
     {
       provide: NG_VALIDATORS,
-      useExisting: forwardRef(() => NgTinyMceComponent),
+      useExisting: forwardRef(() => SacTinyMceComponent),
       multi: true,
     },
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [
-    { provide: ControlContainer, useExisting: NgFormularDirective },
+    { provide: ControlContainer, useExisting: SacFormDirective },
   ],
 })
-export class NgTinyMceComponent extends NgTinyMceCommon {
+export class SacTinyMceComponent extends SacTinyMceCommon {
   /**
    * Konstruktor
    * @param parent Formular
@@ -39,7 +39,7 @@ export class NgTinyMceComponent extends NgTinyMceCommon {
    * @param ngZone ngZone
    */
   constructor(
-    @Host() parent: NgFormularDirective,
+    @Host() parent: SacFormDirective,
     injector: Injector,
     ngZone: NgZone
   ) {

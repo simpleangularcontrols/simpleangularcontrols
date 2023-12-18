@@ -4,13 +4,13 @@ import { Observable } from 'rxjs';
 import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
 import { InternalLanguageResourceService, LANGUAGERESOURCE_SERVICE } from '../../services/languageresource.service';
 import { ValidationErrorItem } from '../../validation';
-import { NgFormularCommon } from '../form/form';
+import { SacFormCommon } from '../form/form';
 
 /**
- * Basis Komponente für NgValidationSummary
+ * Basis Komponente für SacValidationSummary
  */
 @Directive()
-export class NgValidationSummaryCommon {
+export class SacValidationSummaryCommon {
   /**
    * Name-Property
    */
@@ -22,7 +22,7 @@ export class NgValidationSummaryCommon {
   /**
    * Parent Formular
    */
-  protected parent: NgFormularCommon;
+  protected parent: SacFormCommon;
   /**
   * Service für Error Localisation
   */
@@ -36,7 +36,7 @@ export class NgValidationSummaryCommon {
    * Konstruktor
    * Inject des Formulars
    */
-  constructor(parent: NgFormularCommon, injector: Injector) {
+  constructor(parent: SacFormCommon, injector: Injector) {
     this.parent = parent;
     this.lngResourceService = injector.get(LANGUAGERESOURCE_SERVICE, new InternalLanguageResourceService());
   }

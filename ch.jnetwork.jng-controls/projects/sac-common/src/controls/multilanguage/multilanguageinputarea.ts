@@ -1,6 +1,6 @@
 import { Directive, Host, Injector, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { NgInputBase } from '../../common/baseinputcontrol';
+import { SacInputBase } from '../../common/baseinputcontrol';
 import { IconType } from '../../enums/IconType';
 import { ILanguageService } from '../../interfaces/ilanguageservice';
 import { LanguageModel } from '../../models/languagemodel';
@@ -9,13 +9,13 @@ import {
   LANGUAGE_SERVICE,
 } from '../../services/Language.Service';
 import { Validation } from '../../validation';
-import { NgFormularCommon } from '../form/form';
+import { SacFormCommon } from '../form/form';
 
 /**
  * Base Klasse für Multi Language Textarea Control
  */
 @Directive()
-export class NgMultilanguageInputAreaCommon extends NgInputBase<any> {
+export class SacMultilanguageInputAreaCommon extends SacInputBase<any> {
   /**
    * Max länge an Zeichen für Eingabefeld
    */
@@ -67,7 +67,7 @@ export class NgMultilanguageInputAreaCommon extends NgInputBase<any> {
    * Konstruktor
    * Inject des Formulars
    */
-  constructor(@Host() parent: NgFormularCommon, injector: Injector) {
+  constructor(@Host() parent: SacFormCommon, injector: Injector) {
     super(parent, injector);
 
     this.lngLanguageService = injector.get(

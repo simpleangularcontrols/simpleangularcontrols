@@ -1,21 +1,21 @@
 import { Component, Host, forwardRef, Injector } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
-import { NgFormularDirective } from '../form/form';
-import { NgStaticLabelCommon } from '@jnetwork/sac-common';
+import { SacFormDirective } from '../form/form';
+import { SacStaticLabelCommon } from '@jnetwork/sac-common';
 
 @Component({
   selector: 'sac-staticlabel',
   templateUrl: './staticlabel.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgStaticLabelComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgStaticLabelComponent) }
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacStaticLabelComponent },
+    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => SacStaticLabelComponent) }
   ]
 })
 
-export class NgStaticLabelComponent extends NgStaticLabelCommon {
+export class SacStaticLabelComponent extends SacStaticLabelCommon {
 
-  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
+  constructor(@Host() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgListboxComponent, NgListboxOptionDirective } from './listbox';
+import { SacListboxComponent, SacListboxOptionDirective } from './listbox';
 
 @NgModule({
-  declarations: [NgListboxComponent, NgListboxOptionDirective],
+  declarations: [SacListboxComponent, SacListboxOptionDirective],
   imports: [CommonModule],
-  exports: [NgListboxComponent, NgListboxOptionDirective],
+  exports: [SacListboxComponent, SacListboxOptionDirective],
 })
 export class SACBootstrap4ListModule {}

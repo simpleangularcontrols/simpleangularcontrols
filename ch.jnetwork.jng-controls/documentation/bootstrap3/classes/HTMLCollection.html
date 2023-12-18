@@ -321,14 +321,14 @@
   ViewChildren,
 } from &#x27;@angular/core&#x27;;
 import { AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
-import { NgBaseSelectControl } from &#x27;../../common/baseselectcontrol&#x27;;
+import { SacBaseSelectControl } from &#x27;../../common/baseselectcontrol&#x27;;
 import { Validation } from &#x27;../../validation&#x27;;
 
 /**
- * Basis Komponente für NgListboxOption
+ * Basis Komponente für SacListboxOption
  */
 @Directive()
-export class NgListboxOptionCommon implements OnDestroy {
+export class SacListboxOptionCommon implements OnDestroy {
   /**
    * Value von Selected Option Item
    */
@@ -342,7 +342,7 @@ export class NgListboxOptionCommon implements OnDestroy {
   constructor(
     private _element: ElementRef,
     private _renderer: Renderer2,
-    private _listbox: NgListboxCommon
+    private _listbox: SacListboxCommon
   ) {
     if (this._listbox) {
       this._listbox.registerOption(this);
@@ -423,14 +423,14 @@ abstract class HTMLCollection {
 }
 
 /**
- * Komponente für NgListboxCommon. Extends NgBaseSelectControl
+ * Komponente für SacListboxCommon. Extends SacBaseSelectControl
  */
 @Directive()
-export class NgListboxCommon extends NgBaseSelectControl&lt;Array&lt;string&gt;&gt; {
+export class SacListboxCommon extends SacBaseSelectControl&lt;Array&lt;string&gt;&gt; {
   /**
    * OptionMap
    */
-  optionlist: Array&lt;NgListboxOptionCommon&gt; &#x3D; new Array&lt;NgListboxOptionCommon&gt;();
+  optionlist: Array&lt;SacListboxOptionCommon&gt; &#x3D; new Array&lt;SacListboxOptionCommon&gt;();
 
   /**
    * Anzahl der Zeilen
@@ -452,8 +452,8 @@ export class NgListboxCommon extends NgBaseSelectControl&lt;Array&lt;string&gt;&
   /**
    * ViewChildren Methode
    */
-  @ViewChildren(NgListboxOptionCommon)
-  contentOptions: QueryList&lt;NgListboxOptionCommon&gt;;
+  @ViewChildren(SacListboxOptionCommon)
+  contentOptions: QueryList&lt;SacListboxOptionCommon&gt;;
 
   /**
    * Getter für selektierte Elemente
@@ -518,7 +518,7 @@ export class NgListboxCommon extends NgBaseSelectControl&lt;Array&lt;string&gt;&
    * Registriert ein Listbox Element
    * @param option Listbox Option Item das registriert werden soll
    */
-  public registerOption(option: NgListboxOptionCommon): void {
+  public registerOption(option: SacListboxOptionCommon): void {
     this.optionlist.push(option);
   }
 
@@ -526,7 +526,7 @@ export class NgListboxCommon extends NgBaseSelectControl&lt;Array&lt;string&gt;&
    * Hebt die Registration eines Listbox Items auf
    * @param option Listbox Option Item das deregistriert werden soll
    */
-  public unregisterOption(option: NgListboxOptionCommon): void {
+  public unregisterOption(option: SacListboxOptionCommon): void {
     const index &#x3D; this.optionlist.indexOf(option);
     this.optionlist.splice(index, 1);
   }

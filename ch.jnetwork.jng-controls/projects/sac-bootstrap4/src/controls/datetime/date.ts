@@ -10,10 +10,10 @@ import {
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
-import { NgDateCommon } from '@jnetwork/sac-common';
+import { SacDateCommon } from '@jnetwork/sac-common';
 // Import Moment.JS
 import * as moment_ from 'moment';
-import { NgFormularDirective } from '../form/form';
+import { SacFormDirective } from '../form/form';
 
 /**
  * Referenz auf Moment.JS
@@ -31,20 +31,20 @@ const moment = moment_["default"];
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: forwardRef(() => NgDateComponent),
+      useExisting: forwardRef(() => SacDateComponent),
     },
     {
       provide: NG_VALIDATORS,
       multi: true,
-      useExisting: forwardRef(() => NgDateComponent),
+      useExisting: forwardRef(() => SacDateComponent),
     },
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [
-    { provide: ControlContainer, useExisting: NgFormularDirective },
+    { provide: ControlContainer, useExisting: SacFormDirective },
   ],
 })
-export class NgDateComponent extends NgDateCommon {
+export class SacDateComponent extends SacDateCommon {
   /**
    * Konstruktor
    * @param parent Formular
@@ -52,7 +52,7 @@ export class NgDateComponent extends NgDateCommon {
    * @param _elementRef Referenz auf HTML DOM Element
    */
   constructor(
-    @Host() parent: NgFormularDirective,
+    @Host() parent: SacFormDirective,
     injector: Injector,
     _elementRef: ElementRef
   ) {

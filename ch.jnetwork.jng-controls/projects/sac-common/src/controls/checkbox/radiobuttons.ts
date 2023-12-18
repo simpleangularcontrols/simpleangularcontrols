@@ -1,15 +1,15 @@
 import { Host, Injector, Input, Directive } from '@angular/core';
 import { AbstractControl, ValidationErrors, Validator } from '@angular/forms';
-import { NgBaseModelControl } from '../../common/basemodelcontrol';
+import { SacBaseModelControl } from '../../common/basemodelcontrol';
 import { Validation } from '../../validation';
-import { NgFormularCommon } from '../form/form';
-import { NgRadiobuttonCommon } from './radiobutton';
+import { SacFormCommon } from '../form/form';
+import { SacRadiobuttonCommon } from './radiobutton';
 
 /**
- * Basis Komponente für NgRadiobuttonsCommon. Extends NgBaseModelControl
+ * Basis Komponente für SacRadiobuttonsCommon. Extends SacBaseModelControl
  */
 @Directive()
-export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> implements Validator {
+export abstract class SacRadiobuttonsCommon extends SacBaseModelControl<any> implements Validator {
 
   /**
    * Radio Button Index
@@ -20,7 +20,7 @@ export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> imple
    * Konstruktor
    * Inject des Formulars
    */
-  constructor( @Host() parent: NgFormularCommon, injector: Injector) {
+  constructor( @Host() parent: SacFormCommon, injector: Injector) {
     super(parent, injector);
   }
 
@@ -39,19 +39,19 @@ export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> imple
   /**
    * Radio Buttons Content
    */
-  private contentRadiobuttons: NgRadiobuttonCommon[] = [];
+  private contentRadiobuttons: SacRadiobuttonCommon[] = [];
 
   /**
    * Erstellung des RadioButton
    */
-  public RegisterRadioButton(radioButton: NgRadiobuttonCommon) {
+  public RegisterRadioButton(radioButton: SacRadiobuttonCommon) {
     this.contentRadiobuttons.push(radioButton);
   }
 
   /**
    * Löschen des Radio Button
    */
-  public UnregisterRadioButton(radioButton: NgRadiobuttonCommon) {
+  public UnregisterRadioButton(radioButton: SacRadiobuttonCommon) {
     const index: number = this.contentRadiobuttons.indexOf(radioButton);
 
     if (index >= 0) {
@@ -100,7 +100,7 @@ export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> imple
    * Methode prüft ob Item checked ist
    */
   public HasCheckedItem(): boolean {
-    const radioButtons: NgRadiobuttonCommon[] = this.contentRadiobuttons;
+    const radioButtons: SacRadiobuttonCommon[] = this.contentRadiobuttons;
 
     if (radioButtons === undefined || radioButtons === null) {
       return false;

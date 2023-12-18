@@ -10,10 +10,10 @@ import {
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
-  NgDropdownCommon,
-  NgDropdownOptionCommon,
+  SacDropdownCommon,
+  SacDropdownOptionCommon,
 } from '@jnetwork/sac-common';
-import { NgFormularDirective } from '../form/form';
+import { SacFormDirective } from '../form/form';
 
 /**
  * Dropdown Komponente
@@ -26,16 +26,16 @@ import { NgFormularDirective } from '../form/form';
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NgDropdownComponent,
+      useExisting: SacDropdownComponent,
     },
     {
       provide: NG_VALIDATORS,
       multi: true,
-      useExisting: forwardRef(() => NgDropdownComponent),
+      useExisting: forwardRef(() => SacDropdownComponent),
     },
   ],
 })
-export class NgDropdownComponent extends NgDropdownCommon {
+export class SacDropdownComponent extends SacDropdownCommon {
   /**
    * Konstruktor
    * @param parent Formular
@@ -44,7 +44,7 @@ export class NgDropdownComponent extends NgDropdownCommon {
    * @param _elementRef Referenz auf HTML DOM Element
    */
   constructor(
-    @Host() parent: NgFormularDirective,
+    @Host() parent: SacFormDirective,
     injector: Injector,
     _renderer: Renderer2,
     _elementRef: ElementRef
@@ -57,7 +57,7 @@ export class NgDropdownComponent extends NgDropdownCommon {
  * Direktive für Dropdown Option List
  */
 @Directive({ selector: '[sacOption],option' })
-export class NgDropdownOptionDirective extends NgDropdownOptionCommon {
+export class SacDropdownOptionDirective extends SacDropdownOptionCommon {
   /**
    * Konstruktor
    * @param _elementRef Referenz auf HTML DOM Element
@@ -67,7 +67,7 @@ export class NgDropdownOptionDirective extends NgDropdownOptionCommon {
   constructor(
     _elementRef: ElementRef,
     _renderer: Renderer2,
-    @Optional() @Host() dropdownList: NgDropdownComponent
+    @Optional() @Host() dropdownList: SacDropdownComponent
   ) {
     super(_elementRef, _renderer, dropdownList);
   }

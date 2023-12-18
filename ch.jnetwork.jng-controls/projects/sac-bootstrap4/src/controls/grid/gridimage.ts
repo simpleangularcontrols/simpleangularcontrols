@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
-import { NgGridCommon, NgGridImageCommon } from '@jnetwork/sac-common';
+import { SacGridCommon, SacGridImageCommon } from '@jnetwork/sac-common';
 
 /**
  * Image Item für Grid
@@ -8,7 +8,7 @@ import { NgGridCommon, NgGridImageCommon } from '@jnetwork/sac-common';
   selector: 'sac-gridimage',
   templateUrl: './gridimage.html'
 })
-export class NgGridImageComponent extends NgGridImageCommon {
+export class SacGridImageComponent extends SacGridImageCommon {
 
   /**
    * Gibt die CSS Klassen für Sprite Images zurück

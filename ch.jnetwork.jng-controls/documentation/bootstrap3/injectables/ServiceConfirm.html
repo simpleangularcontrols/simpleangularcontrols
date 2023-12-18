@@ -133,9 +133,9 @@
                 <p>Service für Confirm Messages in TypeScript Code</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-html">// Beispiel für ConfirmMessage mit Standard Buttons (Ja / Nein).
 confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;).subscribe(action =&gt; { // Action Code });</code></pre></div><b>Example :</b><div><pre class="line-numbers"><code class="language-html">// Beispiel für ConfirmMessage mit eigenen Buttons
-let buttons: NgConfirmButton[] = [];
-buttons.push(new NgConfirmButton(&#39;ActionKey&#39;,&#39;Text Primary&#39;));
-buttons.push(new NgConfirmButton(&#39;ActionKey2&#39;,&#39;Text Button 2&#39;));
+let buttons: SacConfirmButton[] = [];
+buttons.push(new SacConfirmButton(&#39;ActionKey&#39;,&#39;Text Primary&#39;));
+buttons.push(new SacConfirmButton(&#39;ActionKey2&#39;,&#39;Text Button 2&#39;));
 confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscribe(action =&gt; { // Action Code });</code></pre></div>
             </p>
 
@@ -327,7 +327,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>ConfigureDialog(instance: <a href="../components/NgConfirmComponent.html" target="_self">NgConfirmComponent</a>)</code>
+                    <code>ConfigureDialog(instance: <a href="../components/SacConfirmComponent.html" target="_self">SacConfirmComponent</a>)</code>
                 </td>
             </tr>
 
@@ -367,7 +367,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                                         <tr>
                                                 <td>instance</td>
                                             <td>
-                                                            <code><a href="../components/NgConfirmComponent.html" target="_self" >NgConfirmComponent</a></code>
+                                                            <code><a href="../components/SacConfirmComponent.html" target="_self" >SacConfirmComponent</a></code>
                                             </td>
 
                                             <td>
@@ -376,7 +376,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
 
 
                                             <td>
-                                                    <p>Instanz eines NgConfirm Dialogs</p>
+                                                    <p>Instanz eines SacConfirm Dialogs</p>
 
                                             </td>
                                         </tr>
@@ -409,7 +409,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>ConfirmMessage(title: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, buttons: <a href="../classes/NgConfirmButton.html" target="_self">NgConfirmButton[]</a>)</code>
+                    <code>ConfirmMessage(title: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, buttons: <a href="../classes/SacConfirmButton.html" target="_self">SacConfirmButton[]</a>)</code>
                 </td>
             </tr>
 
@@ -478,7 +478,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                                         <tr>
                                                 <td>buttons</td>
                                             <td>
-                                                            <code><a href="../classes/NgConfirmButton.html" target="_self" >NgConfirmButton[]</a></code>
+                                                            <code><a href="../classes/SacConfirmButton.html" target="_self" >SacConfirmButton[]</a></code>
                                             </td>
 
                                             <td>
@@ -547,7 +547,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
 </div>
 
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../components/NgConfirmComponent.html" target="_self" >ComponentFactory&lt;NgConfirmComponent&gt;</a></code>
+                            <b>Returns : </b>        <code><a href="../components/SacConfirmComponent.html" target="_self" >ComponentFactory&lt;SacConfirmComponent&gt;</a></code>
 
                         </div>
                 </td>
@@ -847,8 +847,8 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Type, ComponentFactoryResolver, ApplicationRef, Injector, Inject, ComponentFactory } from &#x27;@angular/core&#x27;;
-import { ServiceConfirmCommon, NgConfirmButton, isDefined } from &#x27;@jnetwork/sac-common&#x27;;
-import { NgConfirmComponent } from &#x27;./confirm&#x27;;
+import { ServiceConfirmCommon, SacConfirmButton, isDefined } from &#x27;@jnetwork/sac-common&#x27;;
+import { SacConfirmComponent } from &#x27;./confirm&#x27;;
 import { EventEmitter } from &#x27;@angular/core&#x27;;
 
 /**
@@ -860,9 +860,9 @@ import { EventEmitter } from &#x27;@angular/core&#x27;;
  *
  * @example
  * // Beispiel für ConfirmMessage mit eigenen Buttons
- * let buttons: NgConfirmButton[] &#x3D; [];
- * buttons.push(new NgConfirmButton(&#x27;ActionKey&#x27;,&#x27;Text Primary&#x27;));
- * buttons.push(new NgConfirmButton(&#x27;ActionKey2&#x27;,&#x27;Text Button 2&#x27;));
+ * let buttons: SacConfirmButton[] &#x3D; [];
+ * buttons.push(new SacConfirmButton(&#x27;ActionKey&#x27;,&#x27;Text Primary&#x27;));
+ * buttons.push(new SacConfirmButton(&#x27;ActionKey2&#x27;,&#x27;Text Button 2&#x27;));
  * confirmService.ConfirmMessage(&#x27;titel&#x27;, &#x27;frage&#x27;, buttons).subscribe(action &#x3D;&gt; { // Action Code });
  */
 @Injectable()
@@ -881,7 +881,7 @@ export class ServiceConfirm extends ServiceConfirmCommon {
   /**
    * Collection von Buttons die angezeigt werden müssen.
    */
-  private buttons: NgConfirmButton[] &#x3D; [];
+  private buttons: SacConfirmButton[] &#x3D; [];
 
   /**
    * Konstruktor
@@ -896,15 +896,15 @@ export class ServiceConfirm extends ServiceConfirmCommon {
   /**
    * Erzeugen einer Component Factory für einen Dialog
    */
-  public GetComponentFactory(): ComponentFactory&lt;NgConfirmComponent&gt; {
-    return this.componentFactoryResolver.resolveComponentFactory(NgConfirmComponent);
+  public GetComponentFactory(): ComponentFactory&lt;SacConfirmComponent&gt; {
+    return this.componentFactoryResolver.resolveComponentFactory(SacConfirmComponent);
   }
 
   /**
    * Konfiguration des Dialogs
-   * @param instance Instanz eines NgConfirm Dialogs
+   * @param instance Instanz eines SacConfirm Dialogs
    */
-  protected ConfigureDialog(instance: NgConfirmComponent) {
+  protected ConfigureDialog(instance: SacConfirmComponent) {
     // Text in Dialog setzen
     instance.title &#x3D; this.title;
     instance.message &#x3D; this.message;
@@ -917,7 +917,7 @@ export class ServiceConfirm extends ServiceConfirmCommon {
    * @param message Nachricht die angezeigt werden soll.
    * @returns EventEmitter mit Key des Buttons, welcher geklickt wurde.
    */
-  public ConfirmMessage(title: string, message: string, buttons: NgConfirmButton[] &#x3D; null): EventEmitter&lt;string&gt; {
+  public ConfirmMessage(title: string, message: string, buttons: SacConfirmButton[] &#x3D; null): EventEmitter&lt;string&gt; {
     this.title &#x3D; title;
     this.message &#x3D; message;
 
@@ -925,8 +925,8 @@ export class ServiceConfirm extends ServiceConfirmCommon {
     if (!isDefined(buttons)) {
       // TODO: Text von Localisation Service beziehen
       this.buttons &#x3D; [];
-      this.buttons.push(new NgConfirmButton(&#x27;yes&#x27;, &#x27;Ja&#x27;));
-      this.buttons.push(new NgConfirmButton(&#x27;no&#x27;, &#x27;Nein&#x27;));
+      this.buttons.push(new SacConfirmButton(&#x27;yes&#x27;, &#x27;Ja&#x27;));
+      this.buttons.push(new SacConfirmButton(&#x27;no&#x27;, &#x27;Nein&#x27;));
     } else {
       this.buttons &#x3D; buttons;
     }

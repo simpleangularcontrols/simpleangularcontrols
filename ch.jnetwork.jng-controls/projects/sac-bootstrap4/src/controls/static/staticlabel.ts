@@ -1,7 +1,7 @@
 import { Component, forwardRef, Host, Injector } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { NgStaticLabelCommon } from '@jnetwork/sac-common';
-import { NgFormularDirective } from '../form/form';
+import { SacStaticLabelCommon } from '@jnetwork/sac-common';
+import { SacFormDirective } from '../form/form';
 
 /**
  * Komponente für statischen Text in einem Formular
@@ -14,22 +14,22 @@ import { NgFormularDirective } from '../form/form';
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NgStaticLabelComponent,
+      useExisting: SacStaticLabelComponent,
     },
     {
       provide: NG_VALIDATORS,
       multi: true,
-      useExisting: forwardRef(() => NgStaticLabelComponent),
+      useExisting: forwardRef(() => SacStaticLabelComponent),
     },
   ],
 })
-export class NgStaticLabelComponent extends NgStaticLabelCommon {
+export class SacStaticLabelComponent extends SacStaticLabelCommon {
   /**
    * Konstruktor
    * @param parent Formular
    * @param injector Angular Dependency Injection Service
    */
-  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
+  constructor(@Host() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 }

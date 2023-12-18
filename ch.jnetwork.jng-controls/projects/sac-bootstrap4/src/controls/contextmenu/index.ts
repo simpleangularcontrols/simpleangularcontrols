@@ -1,1 +1,1 @@
-export { NgContextmenuComponent } from './contextmenu';
+export { SacContextmenuComponent } from './contextmenu';

@@ -4,8 +4,8 @@ import {
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
-import { NgRadiobuttonsCommon } from '@jnetwork/sac-common';
-import { NgFormularDirective } from '../form/form';
+import { SacRadiobuttonsCommon } from '@jnetwork/sac-common';
+import { SacFormDirective } from '../form/form';
 
 /**
  * Radiobuttons Group Komponente
@@ -17,27 +17,27 @@ import { NgFormularDirective } from '../form/form';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => NgRadiobuttonsComponent),
+      useExisting: forwardRef(() => SacRadiobuttonsComponent),
       multi: true,
     },
     {
       provide: NG_VALIDATORS,
-      useExisting: forwardRef(() => NgRadiobuttonsComponent),
+      useExisting: forwardRef(() => SacRadiobuttonsComponent),
       multi: true,
     },
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [
-    { provide: ControlContainer, useExisting: NgFormularDirective },
+    { provide: ControlContainer, useExisting: SacFormDirective },
   ],
 })
-export class NgRadiobuttonsComponent extends NgRadiobuttonsCommon {
+export class SacRadiobuttonsComponent extends SacRadiobuttonsCommon {
   /**
    * Konstruktor
    * @param parent Formular
    * @param injector Angular Dependency Injection Service
    */
-  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
+  constructor(@Host() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 }

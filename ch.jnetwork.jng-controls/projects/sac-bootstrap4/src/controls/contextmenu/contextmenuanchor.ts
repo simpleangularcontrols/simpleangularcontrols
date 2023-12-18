@@ -1,7 +1,7 @@
 import { Directive, ElementRef, forwardRef } from '@angular/core';
 import {
-  NgContextmenuAnchorCommon,
-  NgContextmenuCommon,
+  SacContextmenuAnchorCommon,
+  SacContextmenuCommon,
 } from '@jnetwork/sac-common';
 
 /**
@@ -11,12 +11,12 @@ import {
   selector: '[sacContextMenuAnchor]',
   providers: [
     {
-      provide: NgContextmenuAnchorCommon,
-      useExisting: forwardRef(() => NgContextmenuAnchorDirective),
+      provide: SacContextmenuAnchorCommon,
+      useExisting: forwardRef(() => SacContextmenuAnchorDirective),
     },
   ],
 })
-export class NgContextmenuAnchorDirective extends NgContextmenuAnchorCommon {
+export class SacContextmenuAnchorDirective extends SacContextmenuAnchorCommon {
   /**
    * Konstruktor
    * @param _elementRef HTML DOM Referenz

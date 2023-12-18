@@ -1,4 +1,4 @@
-import { NgTooltipCommon } from '@jnetwork/sac-common';
+import { SacTooltipCommon } from '@jnetwork/sac-common';
 import { Component, ChangeDetectorRef, ElementRef } from '@angular/core';
 
 /**
@@ -24,11 +24,11 @@ import { Component, ChangeDetectorRef, ElementRef } from '@angular/core';
   selector: 'sac-tooltip',
   templateUrl: './tooltip.html',
 })
-export class NgTooltipComponent extends NgTooltipCommon {
+export class SacTooltipComponent extends SacTooltipCommon {
 
   /**
    * Konstrukor
-   * @param parent NgFormular Instanz
+   * @param parent SacFormular Instanz
    * @param injector Component Injector
    */
   constructor(cdRef: ChangeDetectorRef, ref: ElementRef) {

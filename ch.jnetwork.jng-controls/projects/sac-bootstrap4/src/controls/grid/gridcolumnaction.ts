@@ -1,9 +1,9 @@
 import { Component, ElementRef, forwardRef } from '@angular/core';
 import {
-  NgGridColumnActionCommon,
-  NgGridColumnBaseCommon,
+  SacGridColumnActionCommon,
+  SacGridColumnBaseCommon,
 } from '@jnetwork/sac-common';
-import { NgGridComponent } from './grid';
+import { SacGridComponent } from './grid';
 
 /**
  * Grid Action Komponent
@@ -13,18 +13,18 @@ import { NgGridComponent } from './grid';
   templateUrl: './gridcolumnaction.html',
   providers: [
     {
-      provide: NgGridColumnBaseCommon,
-      useExisting: forwardRef(() => NgGridColumnActionComponent),
+      provide: SacGridColumnBaseCommon,
+      useExisting: forwardRef(() => SacGridColumnActionComponent),
     },
   ],
 })
-export class NgGridColumnActionComponent extends NgGridColumnActionCommon {
+export class SacGridColumnActionComponent extends SacGridColumnActionCommon {
   /**
    * Konstruktor
    * @param grid Referenz auf Grid
    * @param el HTML Element Referenz
    */
-  constructor(grid: NgGridComponent, el: ElementRef) {
+  constructor(grid: SacGridComponent, el: ElementRef) {
     super(grid, el);
 
     this.width = '60px';

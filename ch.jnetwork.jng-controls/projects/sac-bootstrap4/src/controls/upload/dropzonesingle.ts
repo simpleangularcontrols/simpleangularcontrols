@@ -8,8 +8,8 @@ import {
   Renderer2,
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { NgDropzoneSingleCommon } from '@jnetwork/sac-common';
-import { NgFormularDirective } from '../form/form';
+import { SacDropzoneSingleCommon } from '@jnetwork/sac-common';
+import { SacFormDirective } from '../form/form';
 
 /**
  * Dropzone Komponente für den Upload eines Files
@@ -23,17 +23,17 @@ import { NgFormularDirective } from '../form/form';
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NgDropzoneSingleComponent,
+      useExisting: SacDropzoneSingleComponent,
     },
     {
       provide: NG_VALIDATORS,
       multi: true,
-      useExisting: forwardRef(() => NgDropzoneSingleComponent),
+      useExisting: forwardRef(() => SacDropzoneSingleComponent),
     },
   ],
 })
-export class NgDropzoneSingleComponent
-  extends NgDropzoneSingleCommon
+export class SacDropzoneSingleComponent
+  extends SacDropzoneSingleCommon
   implements OnInit
 {
   /**
@@ -44,7 +44,7 @@ export class NgDropzoneSingleComponent
    * @param ngZone ngZone
    */
   constructor(
-    @Host() parent: NgFormularDirective,
+    @Host() parent: SacFormDirective,
     injector: Injector,
     renderer: Renderer2,
     ngZone: NgZone

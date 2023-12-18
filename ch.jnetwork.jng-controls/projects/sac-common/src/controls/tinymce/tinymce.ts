@@ -9,8 +9,8 @@ import {
   Output,
 } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { NgBaseModelControl } from '../../common/basemodelcontrol';
-import { NgFormularCommon } from '../../controls/form/form';
+import { SacBaseModelControl } from '../../common/basemodelcontrol';
+import { SacFormCommon } from '../../controls/form/form';
 import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
 import { LANGUAGERESOURCE_SERVICE } from '../../services';
 import { InternalLanguageResourceService } from '../../services/languageresource.service';
@@ -23,8 +23,8 @@ import { TinyMceInstance } from './tinymceinstance';
  * Basis Komponente für TinyMCE Editor
  */
 @Directive()
-export class NgTinyMceCommon
-  extends NgBaseModelControl<string>
+export class SacTinyMceCommon
+  extends SacBaseModelControl<string>
 {
   /**
    * Default Config mit Standardwerten für TinyMCE
@@ -176,7 +176,7 @@ export class NgTinyMceCommon
    * @param ngZone NgZone für Javascript in TinyMCE
    */
   constructor(
-    @Host() parent: NgFormularCommon,
+    @Host() parent: SacFormCommon,
     injector: Injector,
     protected ngZone: NgZone
   ) {

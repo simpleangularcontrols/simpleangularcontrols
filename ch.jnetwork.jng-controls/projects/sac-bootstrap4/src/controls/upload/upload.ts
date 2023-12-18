@@ -7,8 +7,8 @@ import {
   Renderer2,
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { NgUploadSingleCommon } from '@jnetwork/sac-common';
-import { NgFormularDirective } from '../form/form';
+import { SacUploadSingleCommon } from '@jnetwork/sac-common';
+import { SacFormDirective } from '../form/form';
 
 /**
  * Upload Komponten
@@ -19,15 +19,15 @@ import { NgFormularDirective } from '../form/form';
   templateUrl: './upload.html',
   styleUrls: ['./upload.scss'],
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgUploadComponent },
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacUploadComponent },
     {
       provide: NG_VALIDATORS,
       multi: true,
-      useExisting: forwardRef(() => NgUploadComponent),
+      useExisting: forwardRef(() => SacUploadComponent),
     },
   ],
 })
-export class NgUploadComponent extends NgUploadSingleCommon {
+export class SacUploadComponent extends SacUploadSingleCommon {
   /**
    * Konstruktor
    * @param parent Formular
@@ -36,7 +36,7 @@ export class NgUploadComponent extends NgUploadSingleCommon {
    * @param ngZone ngZone Referenz
    */
   constructor(
-    @Host() parent: NgFormularDirective,
+    @Host() parent: SacFormDirective,
     injector: Injector,
     renderer: Renderer2,
     ngZone: NgZone

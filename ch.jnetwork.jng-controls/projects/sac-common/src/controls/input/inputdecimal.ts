@@ -1,13 +1,13 @@
 import { Directive, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { NgInputBase } from '../../common/baseinputcontrol';
+import { SacInputBase } from '../../common/baseinputcontrol';
 import { Validation } from '../../validation';
 
 /**
- * Basis Komponente für NgInputDecimal
+ * Basis Komponente für SacInputDecimal
  */
 @Directive()
-export class NgInputDecimalCommon extends NgInputBase<number> {
+export class SacInputDecimalCommon extends SacInputBase<number> {
 
   /**
    * Definiert das Negative Werte erlaubt sind

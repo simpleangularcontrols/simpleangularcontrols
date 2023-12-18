@@ -13,6 +13,10 @@ const routes: Routes = [
       import('./button/button.module').then((m) => m.ButtonModule),
   },
   {
+    path: 'form',
+    loadChildren: () => import('./form/form.module').then((m) => m.FormModule),
+  },
+  {
     path: 'checkbox',
     loadChildren: () =>
       import('./checkbox/checkbox.module').then((m) => m.CheckboxModule),
@@ -69,7 +73,9 @@ const routes: Routes = [
   {
     path: 'contextmenu',
     loadChildren: () =>
-      import('./contextmenu/contextmenu.module').then((m) => m.ContextmenuModule),
+      import('./contextmenu/contextmenu.module').then(
+        (m) => m.ContextmenuModule
+      ),
   },
   {
     path: '**',

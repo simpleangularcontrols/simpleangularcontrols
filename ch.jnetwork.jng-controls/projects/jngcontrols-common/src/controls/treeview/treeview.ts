@@ -1,11 +1,18 @@
-import { ContentChild, Directive, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
+import {
+  ContentChild,
+  Directive,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  TemplateRef,
+} from '@angular/core';
 
 /**
  * Basis Komponente für NgTreeView
  */
 @Directive()
 export class NgTreeViewCommon implements OnInit {
-
   /**
    * Das Property enthielt boolean Wert und deffiniert, ob alle Items collapsed sind. Default value: undefined/null
    */
@@ -32,13 +39,9 @@ export class NgTreeViewCommon implements OnInit {
   public selectAttr = 'isSelected';
 
   /**
-  * Das Property enthielt node attribute: 'isIndeterminate'. Es wird benutzt beim Vorbereitung des Data des TreeView
-  */
+   * Das Property enthielt node attribute: 'isIndeterminate'. Es wird benutzt beim Vorbereitung des Data des TreeView
+   */
   public inDeterminateAttr = 'isIndeterminate';
-
-
-
-
 
   /**
    * Providen data for tree.
@@ -55,57 +58,51 @@ export class NgTreeViewCommon implements OnInit {
   /**
    * Input Property für Data des TreeView
    */
-  @Input('data')
+  @Input()
   set data(value: any[]) {
-
-
     this._data = value;
     this.nodes = value;
 
-    // this.nodes.forEach(node => node["typeId"] = "13")    
+    // this.nodes.forEach(node => node["typeId"] = "13")
 
     this.LoadTree();
 
-
     if (this._collapseAll !== undefined) {
-      this.collapseAllNode(this._collapseAll)
+      this.collapseAllNode(this._collapseAll);
     }
-
   }
 
   /**
    * Input Property für template des TreeView. Type: TemplateRef<any>.
    */
-  @Input("template")
-  templateTree: TemplateRef<any>;
-
+  @Input()
+  template: TemplateRef<any>;
 
   /**
    * Die Directive erhält die actions für das TreeView
    */
-  @ContentChild("actions", { static: true })
+  @ContentChild('actions', { static: true })
   public set treeviewTemplate(v: TemplateRef<any>) {
-    this.templateTree = v;
+    this.template = v;
   }
 
   /**
    * Getter für das TreeView Template
    */
   public get treeviewTemplate(): TemplateRef<any> {
-    return this.templateTree;
+    return this.template;
   }
-
 
   /**
    * Input property erhält Icon für das Template
    */
-  @Input('fileicontemplate')
+  @Input()
   fileicontemplate: TemplateRef<any>;
 
   /**
    * Setter property. Deffiniert das FileIcon für das TreeView
    */
-  @ContentChild("treefileicon", { static: true })
+  @ContentChild('treefileicon', { static: true })
   public set treefileicon(v: TemplateRef<any>) {
     this.fileicontemplate = v;
   }
@@ -114,17 +111,14 @@ export class NgTreeViewCommon implements OnInit {
    * Getter property. Ergibt das FileIcon für das TreeView
    */
   public get treefileicon(): TemplateRef<any> {
-    return this.fileicontemplate
+    return this.fileicontemplate;
   }
-
 
   /**
    * Input property für den Namen des TreeView. Type string. Default value: ""
    */
-  @Input("name")
-  _name: string = "";
-
-
+  @Input()
+  name: string = '';
 
   /**
    * A flag indicating data is flatten in array and prepare is required.(Default
@@ -155,24 +149,19 @@ export class NgTreeViewCommon implements OnInit {
   /**
    * Title des Treeview
    */
-  @Input("title") _title;
+  @Input() title;
 
   // @Input("titleAction") _titleAction: string
 
   /**
    * Collapse or expand all parent nodes.
    */
-  @Input('collapseAll')
-  set collapseAll(value: boolean) {
-
-
-    this._collapseAll = value
+  @Input()
+  set collapseall(value: boolean) {
+    this._collapseAll = value;
     if (this.nodes && this.nodes.length && this.nodes.length > 0) {
-
-      this.collapseAllNode(this._collapseAll)
-
+      this.collapseAllNode(this._collapseAll);
     }
-
 
     // this._recursiveEdit(
     //   this.nodes, this.childrenAttr, this.collapseAttr, this._collapseAll);
@@ -183,28 +172,30 @@ export class NgTreeViewCommon implements OnInit {
   /**
    * Getter für das collapse property. Ergibt boolean Wert, ob die Items collapsed/expand sind.
    */
-  get collapseAll(): boolean {
-    return this._collapseAll
+  get collapseall(): boolean {
+    return this._collapseAll;
   }
-
-
 
   /**
    * Select or deselect all nodes.
    */
-  @Input('selectAll')
-  set selectAll(value: boolean) {
+  @Input()
+  set selectall(value: boolean) {
     this._selectAll = value;
     this._recursiveEdit(this.nodes, this.childrenAttr, this.selectAttr, value);
     this._recursiveEdit(
-      this.nodes, this.childrenAttr, this.inDeterminateAttr, false);
+      this.nodes,
+      this.childrenAttr,
+      this.inDeterminateAttr,
+      false
+    );
   }
 
   /**
    * Input property - setter. Deffiniert das ID des selektierten Item(node)
    */
-  @Input("selectedId")
-  set selectedId(v: any) {
+  @Input()
+  set selectedid(v: any) {
     this.selectedNode = this.findNode(this.nodes, v, this.idAttr);
 
     // if (this.selectedNode) {
@@ -232,8 +223,8 @@ export class NgTreeViewCommon implements OnInit {
     this._selectedNode = v;
 
     if (this._selectedNode) {
-      this.selectedIdEmitter.emit(this.selectedId);
-      this.selectedTextEmitter.emit(v[this.textAttr]);
+      this.selectedidchange.emit(this.selectedId);
+      this.selectedtextchanged.emit(v[this.textAttr]);
     }
   }
 
@@ -247,32 +238,29 @@ export class NgTreeViewCommon implements OnInit {
   /**
    * Output Emitter. Emit das ID des selected Node.
    */
-  @Output("selectedIdChange")
-  selectedIdEmitter: EventEmitter<any> = new EventEmitter<any>();
+  @Output()
+  selectedidchange: EventEmitter<any> = new EventEmitter<any>();
 
   /**
    * Output Emitter. Emit das TextAttr des selected Node.
    */
-  @Output("selectedTextChanged")
-  selectedTextEmitter: EventEmitter<string> = new EventEmitter<string>();
+  @Output()
+  selectedtextchanged: EventEmitter<string> = new EventEmitter<string>();
 
   /**
-   * Output Emitter. Emit wenn ein Node selektiert wird. 
+   * Output Emitter. Emit wenn ein Node selektiert wird.
    */
-  @Output("onselecteditem")
-  selectedItemEmitter: EventEmitter<string> = new EventEmitter<string>();
-
+  @Output()
+  selecteditem: EventEmitter<string> = new EventEmitter<string>();
 
   /**
-   * A lifecycle hook that is called after Angular has initialized all data-bound properties of a directive. 
+   * A lifecycle hook that is called after Angular has initialized all data-bound properties of a directive.
    * Define an ngOnInit() method to handle any additional initialization tasks.
    */
   ngOnInit() {
+    this.collapseAllNode(this._collapseAll);
 
-    this.collapseAllNode(this._collapseAll)
-
-    if (this.selectedId)
-      this.openSelectedNode(this.nodes);
+    if (this.selectedId) this.openSelectedNode(this.nodes);
   }
 
   /**
@@ -282,7 +270,10 @@ export class NgTreeViewCommon implements OnInit {
   private openSelectedNode(data): boolean {
     let result: boolean = false;
     for (let i = 0; i < data.length; i++) {
-      if (data[i][this.childrenAttr].length && data[i][this.idAttr] != this.selectedId)
+      if (
+        data[i][this.childrenAttr].length &&
+        data[i][this.idAttr] != this.selectedId
+      )
         result = this.openSelectedNode(data[i][this.childrenAttr]);
       if (result || data[i][this.idAttr] == this.selectedId) {
         data[i][this.collapseAttr] = false;
@@ -296,9 +287,8 @@ export class NgTreeViewCommon implements OnInit {
    * Die Methode vorbereitet die Daten für das TreeView. Die Funktion sollte geändert werden abhängig von dem kommenden Daten (wenn array)
    */
   private LoadTree() {
-
     //if the tree structure require array the function below should be changed
-    const cloned = this._data.map(x => Object.assign({}, x));
+    const cloned = this._data.map((x) => Object.assign({}, x));
 
     // If data is flat, prepare data with recursive function.
     this.nodes = this.prepareData ? this._getPreparedData(cloned) : this._data;
@@ -314,51 +304,39 @@ export class NgTreeViewCommon implements OnInit {
   }
 
   /**
-   * Die Methode set den selektierten Node und emit es. 
+   * Die Methode set den selektierten Node und emit es.
    */
   onClick(node) {
-
     this.selectedNode = node;
-    this.selectedItemEmitter.emit(this.selectedNode)
+    this.selecteditem.emit(this.selectedNode);
     // this.cd.detectChanges();
-
   }
 
   /**
    * Die Methode wird ein event mit Meldung zu Parent emit-en.
    */
   sendMsgToParent(msg) {
-    this.selectedItemEmitter.emit(msg)
+    this.selecteditem.emit(msg);
   }
-
-
 
   /**
    * Die Methode wird alle Nodes collapse
    */
   collapseAllNode(command) {
-    this.nodes.forEach(node => {
+    this.nodes.forEach((node) => {
       if (node[this.childrenAttr].length) {
-        collapseAllHIdden(node, this.collapseAttr, command, this.childrenAttr)
+        collapseAllHIdden(node, this.collapseAttr, command, this.childrenAttr);
       }
-    }
-    )
+    });
     function collapseAllHIdden(node, collapseAttr, command, childrenAttr) {
-
-
       node[collapseAttr] = command;
       node.children.forEach((child: any) => {
         if (child[childrenAttr].length) {
           collapseAllHIdden(child, collapseAttr, command, childrenAttr);
         }
       });
-
-
     }
   }
-
-
-
 
   /**
    * Funktion gibt node aus der liste zurück, welches das Value auf dem gewünschten Attribut hat
@@ -370,22 +348,23 @@ export class NgTreeViewCommon implements OnInit {
   private findNode(data, searchValue, attr): any {
     let result: any = null;
     for (let i = 0; i < data.length; i++) {
-      if (data[i][attr] == searchValue)
-        result = data[i];
+      if (data[i][attr] == searchValue) result = data[i];
       else {
         if (data[i][this.childrenAttr].length) {
-          let recursiveResult = this.findNode(data[i][this.childrenAttr], searchValue, attr);
-          if (recursiveResult)
-            result = recursiveResult;
+          let recursiveResult = this.findNode(
+            data[i][this.childrenAttr],
+            searchValue,
+            attr
+          );
+          if (recursiveResult) result = recursiveResult;
         }
       }
     }
     return result;
   }
 
-
   /**
-   * Die Methode editiert (recursive) alle eingegebene Nodes abhängig von gegebenen Attibute und Value Kriterien. 
+   * Die Methode editiert (recursive) alle eingegebene Nodes abhängig von gegebenen Attibute und Value Kriterien.
    */
   private _recursiveEdit(list, childrenAttr, attr, value) {
     if (Array.isArray(list)) {
@@ -402,8 +381,8 @@ export class NgTreeViewCommon implements OnInit {
    * Die Methode erstellt eine standarte Sicht-Liste von Nodes
    */
   private _getPreparedData(list) {
-
-    const tree = [], lookup = {};
+    const tree = [],
+      lookup = {};
     for (let i = 0, len = list.length; i < len; i++) {
       lookup[list[i][this.idAttr]] = list[i];
       list[i][this.childrenAttr] = [];

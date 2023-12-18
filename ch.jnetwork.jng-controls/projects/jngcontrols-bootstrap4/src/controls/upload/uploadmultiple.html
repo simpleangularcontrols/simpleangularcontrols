@@ -1,6 +1,6 @@
-<div class="row form-group" [class.no-gutters]="_disablelabel">
-  <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="col-12 col-form-label" [ngClass]="[_labelsize !== 12 ?  'col-md-' + _labelsize : 'sr-only']">{{_label}}</label>
-  <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-sm-12']">
+<div class="row form-group" [class.no-gutters]="disablelabel">
+  <label *ngIf="disablelabel === false && !isadaptivelabel" id="{{name}}_label" for="{{name}}" class="col-12 col-form-label" [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']">{{label}}</label>
+  <div class="col-12" [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-sm-12']">
     <div class="upload-component">
       <div class="row">
         <div class="col-12">
@@ -19,11 +19,11 @@
                  [class.btn-secondary]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
                 <span class="fa fa-times"></span>
               </button>
-              <button *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && IsPaused() == false)" class="btn" (click)="pauseAll()" [attr.disabled]="IsUploading() === false ? 'disabled' : null"
+              <button *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && IsPaused() === false)" class="btn" (click)="pauseAll()" [attr.disabled]="IsUploading() === false ? 'disabled' : null"
                  [class.btn-secondary]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
                 <span class="fa fa-pause"></span>
               </button>
-              <button *ngIf="autoupload && enablepause && IsPaused() == true" class="btn" (click)="uploadAll()"
+              <button *ngIf="autoupload && enablepause && IsPaused() === true" class="btn" (click)="uploadAll()"
                  [class.btn-secondary]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
                 <span class="fa fa-play"></span>
               </button>

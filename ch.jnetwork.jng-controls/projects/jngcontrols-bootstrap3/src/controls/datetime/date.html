@@ -1,11 +1,11 @@
 <div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
-  <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="control-label" [ngClass]="[_labelsize !== 12 ?  'col-md-' + _labelsize : 'sr-only']" [class.required]="_isrequired">{{_label}}</label>
-  <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
+  <label *ngIf="disablelabel === false && !isadaptivelabel" id="{{name}}label" for="{{name}}" class="control-label" [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']" [class.required]="isrequired">{{label}}</label>
+  <div [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <div style="position: relative; width: 140px;">
-      <div id="{{_name}}" class="datetime-textbox input-group">
-        <!-- this class comes in the div above when disabled [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']" -->
-        <input name="{{_name}}" type="text" class="form-control date-control" [imask]="imaskDate" placeholder="dd.mm.yyyy"
-               [attr.placeholder]="_placeholder" [value]="valuestring" maxlength="10" size="10"
+      <div id="{{name}}" class="datetime-textbox input-group">
+        <!-- this class comes in the div above when disabled [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']" -->
+        <input name="{{name}}" type="text" class="form-control date-control" [imask]="imaskDate" placeholder="dd.mm.yyyy"
+               [attr.placeholder]="placeholder" [value]="valuestring" maxlength="10" size="10"
                (blur)="onTouch()" (accept)="setValueString($event)" [disabled]="isdisabled" (click)="showDateSelector()" />
         <span class="input-group-btn">
           <button class="btn btn-default" type="button" (click)="showDateSelector()" [disabled]="isdisabled">
@@ -20,7 +20,7 @@
         <div class="arrow" style="left: unset; right: 10px;"></div>
         <h3 class="popover-title" style="display: none;"></h3>
         <div class="popover-content">
-          <sac-dateselector *ngIf="_showselector" [initialValue]="value" (onSelect)="dateselect($event)" autoapplyselection="true" dateselection="true"></sac-dateselector>
+          <sac-dateselector *ngIf="_showselector" [initialvalue]="value" (onSelect)="dateselect($event)" autoapplyselection="true" dateselection="true"></sac-dateselector>
         </div>
       </div>
 

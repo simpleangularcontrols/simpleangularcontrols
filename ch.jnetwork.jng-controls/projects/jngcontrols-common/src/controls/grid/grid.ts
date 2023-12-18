@@ -46,7 +46,7 @@ export abstract class NgGridCommon {
   /**
    * Grid Daten
    */
-  @Input('value')
+  @Input()
   public value: any;
 
   /**
@@ -54,20 +54,20 @@ export abstract class NgGridCommon {
    *
    * Pager kann ausgeschaltet werden, in dem PagerData auf NULL gesetzt wird.
    */
-  @Input('pagerdata')
+  @Input()
   public pagerdata: PagerData;
 
   /**
    * Input property für Name.
    */
-  @Input('name')
+  @Input()
   public name: string;
 
   /**
    * Text welcher angezeigt wird, wenn keine Rows verfügbar sind.
    */
-  @Input('emptytext')
-  public _emptytext: string;
+  @Input()
+  public emptytext: string;
 
   /**
    * Text in Pager für 'Seite x von y'.
@@ -75,53 +75,53 @@ export abstract class NgGridCommon {
    * {{CURRENTPAGE}}: Aktuelle Seite
    * {{TOTALPAGES}}: Anzahl Seiten
    */
-  @Input('pagingtext')
-  public pagingText: string = 'PAGING_PAGEOFTEXT';
+  @Input()
+  public pagingtext: string = 'PAGING_PAGEOFTEXT';
 
   /**
    * Text in Page für Anzahl Seitenelemente pro Seite
    * Folgende Interpolation Texte sind vorhanden:
    * {{PAGESIZE}}: Anzahl Elemente pro Seite
    */
-  @Input('pagesizetext')
-  public pageSizeText: string = 'PAGING_PAGEENTRIESTEXT';
+  @Input()
+  public pagesizetext: string = 'PAGING_PAGEENTRIESTEXT';
 
   /**
    * Definiert die Anzahl der Elemente pro Seite die ausgewählt werden können
    */
-  @Input('pagesizes')
-  public pageSizes: string = '20|50|100';
+  @Input()
+  public pagesizes: string = '20|50|100';
 
   /**
    * Deaktiviert die Auswahl der PageSize im Pager
    */
-  @Input('pagesizedisabled')
-  public pageSizeDisabled: boolean = false;
+  @Input()
+  public pagesizedisabled: boolean = false;
 
   /**
    * Input property für die maximalle Seiten die sichtbar sind. Type: number.
    */
-  @Input('maxvisiblepagenumbers') _maxvisiblepagenumbers: number;
+  @Input() maxvisiblepagenumbers: number;
 
   /**
    * Input property für headers. Type: TemplateRef<any>.
    */
-  @Input('headers') _headers: TemplateRef<any>;
+  @Input() headers: TemplateRef<any>;
 
   /**
    * Input property für body. Type: TemplateRef<any>.
    */
-  @Input('body') _body: TemplateRef<any>;
+  @Input() body: TemplateRef<any>;
 
   /**
    * Output EventEmitter. Wird aufgerufen wenn das Pager geklickt ist.
    */
-  @Output('onpaging') _pagingEvent: EventEmitter<PagerRequest> = new EventEmitter<PagerRequest>();
+  @Output() paging: EventEmitter<PagerRequest> = new EventEmitter<PagerRequest>();
 
   /**
    * Output EventEmitter. Wird aufgerufen wenn ein Header geklickt ist, damit das Column soritert wird.
    */
-  @Output('onsorting') _sortingevent: EventEmitter<SortDescriptor> = new EventEmitter<SortDescriptor>();
+  @Output() sorting: EventEmitter<SortDescriptor> = new EventEmitter<SortDescriptor>();
 
   //#endregion
 
@@ -140,7 +140,7 @@ export abstract class NgGridCommon {
    * @param newStartIndex Neuer Seiten Index (Zero-Based)
    */
   pageChange(newStartIndex) {
-    this._pagingEvent.emit(newStartIndex);
+    this.paging.emit(newStartIndex);
   }
 
   /**
@@ -185,15 +185,15 @@ export abstract class NgGridCommon {
     result.SortColumn = command;
     result.SortOrder = direction;
 
-    this._sortingevent.emit(result);
+    this.sorting.emit(result);
   }
 
   /**
    * Model für Sortierung
    * @param sortDescription Settings für aktuelle sortierung
    */
-  @Input('sortdata')
-  public set ApplySort(sortDescription: SortDescriptor) {
+  @Input()
+  public set sortdata(sortDescription: SortDescriptor) {
     this.sortColumn = sortDescription.SortColumn;
     this.sortDirection = sortDescription.SortOrder;
   }

@@ -13,13 +13,13 @@
           </ng-container>
         </tr>
       </ng-container>
-      <tr *ngIf="value === undefined || value === null || value.length==0">
-        <td [attr.colspan]="ColumnCount">{{_emptytext}}</td>
+      <tr *ngIf="value === undefined || value === null || value.length===0">
+        <td [attr.colspan]="ColumnCount">{{emptytext}}</td>
       </tr>
       <tr>
         <td [attr.colspan]="ColumnCount">
           <div class="container-fluid">
-            <sac-paging name="{{name}}Paging" (onpaging)="pageChange($event)" [pagerdata]="pagerdata" [pagesizes]="pageSizes" [pagingtext]="pagingText" [pagesizetext]="pageSizeText" [pageSizeDisabled]="pageSizeDisabled"></sac-paging>
+            <sac-paging name="{{name}}Paging" (paging)="pageChange($event)" [pagerdata]="pagerdata" [pagesizes]="pagesizes" [pagingtext]="pagingtext" [pagesizetext]="pagesizetext" [pagesizedisabled]="pagesizedisabled"></sac-paging>
           </div>
         </td>
       </tr>

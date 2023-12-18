@@ -57,7 +57,7 @@ export class NgListboxComponent extends NgListboxCommon {
 /**
  * Option Item in Listbox
  */
-@Directive({ selector: '[sac-option],option' })
+@Directive({ selector: '[sacOption],option' })
 export class NgListboxOptionDirective extends NgListboxOptionCommon {
   /**
    * Konstruktor

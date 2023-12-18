@@ -1,13 +1,13 @@
 <div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
-  <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="control-label" [ngClass]="[_labelsize !== 12 ?  'col-md-' + _labelsize : 'sr-only']" [class.required]="_isrequired">{{_label}}</label>
-  <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
+  <label *ngIf="disablelabel === false && !isadaptivelabel" id="{{name}}label" for="{{name}}" class="control-label" [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']" [class.required]="isrequired">{{label}}</label>
+  <div [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <div class="input-group">
-      <input id="{{_name}}" name="{{_name}}" type="text" class="form-control"
-             [value]="value" [attr.placeholder]="_placeholder"
+      <input id="{{name}}" name="{{name}}" type="text" class="form-control"
+             [value]="value" [attr.placeholder]="placeholder"
              (blur)="onTouch()" (input)="setValue($event.target.value)"
-             [attr.maxlength]="_maxlength" [ngClass]="{'language-specific': _islanguagespecific }" [disabled]="isdisabled" [readonly]="_readonly" />
+             [attr.maxlength]="maxlength" [ngClass]="{'language-specific': islanguagespecific }" [disabled]="isdisabled" [readonly]="readonly" />
       <span class="input-group-btn">
-        <input type="submit" class="btn btn-default" id="{{_name}}_search" (click)="searchClick()" [value]="_buttontext" />
+        <input type="submit" class="btn btn-default" id="{{name}}_search" (click)="searchClick()" [value]="buttontext" />
       </span>
     </div>
   </div>

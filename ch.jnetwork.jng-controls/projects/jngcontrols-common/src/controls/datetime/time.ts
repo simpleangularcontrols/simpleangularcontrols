@@ -57,7 +57,7 @@ export class NgTimeCommon extends NgBaseDateTimeControl {
   /**
    * Min Time
    */
-  @Input('mintime')
+  @Input()
   set mintime(v: string | Date | null) {
     let time = moment(v, [this.TIMEFORMAT], true);
 
@@ -77,7 +77,7 @@ export class NgTimeCommon extends NgBaseDateTimeControl {
   /**
    * Max Time
    */
-  @Input('maxtime')
+  @Input()
   set maxtime(v: string | Date | null) {
     let time = moment(v, [this.TIMEFORMAT], true);
 
@@ -102,20 +102,20 @@ export class NgTimeCommon extends NgBaseDateTimeControl {
   /**
    * Resource Key für Validation Message MinTime bei Control
    */
-  @Input('validationmessagemintime') _validationMessageMinTime: string = 'VALIDATION_ERROR_MINTIME';
+  @Input() validationmessagemintime: string = 'VALIDATION_ERROR_MINTIME';
   /**
    * Resource Key für Validation Message MinTime in Validation Summary
    */
-  @Input('validationmessagesummarymintime') _validationMessageMinTimeSummary: string = 'VALIDATION_ERROR_SUMMARY_MINTIME';
+  @Input() validationmessagesummarymintime: string = 'VALIDATION_ERROR_SUMMARY_MINTIME';
 
   /**
    * Resource Key für Validation Message MinTime bei Control
    */
-  @Input('validationmessagemaxtime') _validationMessageMaxTime: string = 'VALIDATION_ERROR_MAXTIME';
+  @Input() validationmessagemaxtime: string = 'VALIDATION_ERROR_MAXTIME';
   /**
    * Resource Key für Validation Message MinTime in Validation Summary
    */
-  @Input('validationmessagesummarymaxtime') _validationMessageMaxTimeSummary: string = 'VALIDATION_ERROR_SUMMARY_MAXTIME';
+  @Input() validationmessagesummarymaxtime: string = 'VALIDATION_ERROR_SUMMARY_MAXTIME';
 
   // #endregion
 
@@ -204,11 +204,11 @@ export class NgTimeCommon extends NgBaseDateTimeControl {
     error = super.validateData(c);
 
     if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._mintime !== undefined && this._mintime !== null) {
-      error = Validation.minTime(this, this._mintime, this._label, this._validationMessageMinTime, this._validationMessageMinTimeSummary);
+      error = Validation.minTime(this, this._mintime, this.label, this.validationmessagemintime, this.validationmessagesummarymintime);
     }
 
     if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._maxtime !== undefined && this._maxtime !== null) {
-      error = Validation.maxTime(this, this._maxtime, this._label, this._validationMessageMaxTime, this._validationMessageMaxTimeSummary);
+      error = Validation.maxTime(this, this._maxtime, this.label, this.validationmessagemaxtime, this.validationmessagesummarymaxtime);
     }
 
     return error;

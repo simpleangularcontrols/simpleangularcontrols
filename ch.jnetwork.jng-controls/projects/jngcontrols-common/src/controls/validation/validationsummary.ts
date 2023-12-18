@@ -14,8 +14,8 @@ export class NgValidationSummaryCommon {
   /**
    * Name-Property
    */
-  @Input('name')
-  _name: string = '';
+  @Input()
+  name: string = '';
 
   // #region Private Variables
 

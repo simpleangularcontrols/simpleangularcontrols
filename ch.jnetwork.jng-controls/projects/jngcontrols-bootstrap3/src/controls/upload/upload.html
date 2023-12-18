@@ -1,6 +1,6 @@
 <div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
-  <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="control-label" [ngClass]="[_labelsize !== 12 ?  'col-md-' + _labelsize : 'sr-only']" [class.required]="_isrequired">{{_label}}</label>
-  <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
+  <label *ngIf="disablelabel === false && !isadaptivelabel" id="{{name}}label" for="{{name}}" class="control-label" [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']" [class.required]="isrequired">{{label}}</label>
+  <div [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
 
     <div class="input-group upload-component">
       <div class="input-group-btn">
@@ -28,7 +28,7 @@
            [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
           <span class="glyphicon glyphicon-remove"></span>
         </a>
-        <a *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && IsPaused() == false)" class="btn" (click)="pauseAll()" [attr.disabled]="IsUploading() === false ? 'disabled' : null"
+        <a *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && IsPaused() === false)" class="btn" (click)="pauseAll()" [attr.disabled]="IsUploading() === false ? 'disabled' : null"
            [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
           <span class="glyphicon glyphicon-pause"></span>
         </a>

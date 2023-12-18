@@ -5,7 +5,7 @@
        [class.modal-sm]="_size === 'small'">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">{{_title}}</h5>
+        <h5 class="modal-title">{{title}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="hide()" *ngIf="closebutton"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body" [style.height]="height">
@@ -17,4 +17,4 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<div class="modal-backdrop show" *ngIf="_show && _backdrop" #backdrop></div>
+<div class="modal-backdrop show" *ngIf="_show && backdrop" #backdrop></div>

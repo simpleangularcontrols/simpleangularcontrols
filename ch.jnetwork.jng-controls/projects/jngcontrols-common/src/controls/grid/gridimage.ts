@@ -9,7 +9,7 @@ export class NgGridImageCommon {
   /**
    * das Input property akypetiert string value für style des Icon
    */
-  @Input('iconstyle')
+  @Input()
   public iconstyle: string;
 
 }

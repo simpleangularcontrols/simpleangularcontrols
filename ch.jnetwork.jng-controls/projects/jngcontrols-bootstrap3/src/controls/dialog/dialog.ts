@@ -17,7 +17,7 @@ export class NgDialogComponent extends NgDialogCommon implements OnInit, OnDestr
 
   //#region Bootstrap 3 Spezifische Properites
 
-  @Input('zindex')
+  @Input()
   zindex: number = 20002;
 
   private _lastDialogMarginTop: number = 0;

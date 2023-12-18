@@ -63,7 +63,7 @@ export class NgDateCommon extends NgBaseDateTimeControl {
   /**
    * Min Date
    */
-  @Input('mindate')
+  @Input()
   set mindate(v: string | Date | null) {
     const date = moment(v, [this.DATEFORMAT], true);
 
@@ -81,7 +81,7 @@ export class NgDateCommon extends NgBaseDateTimeControl {
   /**
    * Min Date
    */
-  @Input('maxdate')
+  @Input()
   set maxdate(v: string | Date | null) {
     const date = moment(v, [this.DATEFORMAT], true);
 
@@ -104,20 +104,20 @@ export class NgDateCommon extends NgBaseDateTimeControl {
   /**
    * Resource Key für Validation Message MinDate bei Control
    */
-  @Input('validationmessagemindate') _validationMessageMinDate: string = 'VALIDATION_ERROR_MINDATE';
+  @Input() validationmessagemindate: string = 'VALIDATION_ERROR_MINDATE';
   /**
    * Resource Key für Validation Message MinDate in Validation Summary
    */
-  @Input('validationmessagesummarymindate') _validationMessageMinDateSummary: string = 'VALIDATION_ERROR_SUMMARY_MINDATE';
+  @Input() validationmessagesummarymindate: string = 'VALIDATION_ERROR_SUMMARY_MINDATE';
 
   /**
    * Resource Key für Validation Message MaxDate bei Control
    */
-  @Input('validationmessagemaxdate') _validationMessageMaxDate: string = 'VALIDATION_ERROR_MAXDATE';
+  @Input() validationmessagemaxdate: string = 'VALIDATION_ERROR_MAXDATE';
   /**
    * Resource Key für Validation Message MaxDate in Validation Summary
    */
-  @Input('validationmessagesummarymaxdate') _validationMessageMaxDateSummary: string = 'VALIDATION_ERROR_SUMMARY_MAXDATE';
+  @Input() validationmessagesummarymaxdate: string = 'VALIDATION_ERROR_SUMMARY_MAXDATE';
 
 
   // #endregion
@@ -204,11 +204,11 @@ export class NgDateCommon extends NgBaseDateTimeControl {
     error = super.validateData(c);
 
     if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._mindate !== undefined && this._mindate !== null) {
-      error = Validation.minDate(this, this._mindate, this._label, this._validationMessageMinDate, this._validationMessageMinDateSummary);
+      error = Validation.minDate(this, this._mindate, this.label, this.validationmessagemindate, this.validationmessagesummarymindate);
     }
 
     if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._maxdate !== undefined && this._maxdate !== null) {
-      error = Validation.maxDate(this, this._maxdate, this._label, this._validationMessageMaxDate, this._validationMessageMaxDateSummary);
+      error = Validation.maxDate(this, this._maxdate, this.label, this.validationmessagemaxdate, this.validationmessagesummarymaxdate);
     }
 
     return error;

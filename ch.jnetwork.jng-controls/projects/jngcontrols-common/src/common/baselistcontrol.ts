@@ -1,12 +1,13 @@
-import { Input, TemplateRef, Directive } from '@angular/core';
+import { Directive, Input, TemplateRef } from '@angular/core';
 import { NgBaseModelControl } from './basemodelcontrol';
 
 /**
  * Abstract Klasse für NgBaseListControl. Extendes NgBaseModelControl
  */
 @Directive()
-export abstract class NgBaseListControl<VALUE> extends NgBaseModelControl<VALUE> {
-
+export abstract class NgBaseListControl<
+  VALUE
+> extends NgBaseModelControl<VALUE> {
   /**
    * options. Typ: any
    */
@@ -15,40 +16,38 @@ export abstract class NgBaseListControl<VALUE> extends NgBaseModelControl<VALUE>
   /**
    * Template für Value Element
    */
-  @Input('optionlabeltemplate')
-  displayValueTemplate: TemplateRef<any>;
+  @Input()
+  optionlabeltemplate: TemplateRef<any>;
 
   /**
    * Definiert das Label für das Option Element
    */
-  @Input('optionlabel') _fieldLabel: string = 'label';
-
+  @Input() optionlabel: string = 'label';
 
   /**
    * Definiert den Wert für das Option Element
    */
-  @Input('optionvalue') _fieldValue: string = 'value';
-
+  @Input() optionvalue: string = 'value';
 
   /**
    * Definiert, ob das Option Element aktiv ist
    */
-  @Input('optionenabled') _fieldEnabled: string = '';
+  @Input() optionenabled: string = '';
 
   /**
    * Definiert das Control als Required
    */
-  @Input('isrequired') _isrequired: boolean = false;
+  @Input() isrequired: boolean = false;
 
   /**
    * Style Breite für List Control Element
    */
-  @Input('width') _width: string = null;
+  @Input() width: string = null;
 
   /**
    * Input property für options
    */
-  @Input('options') get options(): any[] {
+  @Input() get options(): any[] {
     return this._options;
   }
 

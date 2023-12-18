@@ -1,11 +1,11 @@
 <div style="min-width: 265px;">
-  <table class="table-condensed" style="width:100%;" *ngIf="_dateselection">
+  <table class="table-condensed" style="width:100%;" *ngIf="dateselection">
     <thead>
       <tr>
         <th class="prev text-left" (click)="monthBack()">
           <i class="glyphicon glyphicon-arrow-left"></i>
         </th>
-        <th colspan="5" class="switch text-center">{{_month+1}}/{{_year}}</th>
+        <th colspan="5" class="switch text-center">{{month+1}}/{{year}}</th>
         <th class="next text-right" (click)="monthNext()">
           <i class="glyphicon glyphicon-arrow-right"></i>
         </th>
@@ -32,7 +32,7 @@
       </ng-container>
     </tbody>
   </table>
-  <div class="container" *ngIf="_timeselection" style="margin-top: 10px;">
+  <div class="container" *ngIf="timeselection" style="margin-top: 10px;">
     <div class="row">
       <div class="col-md-6" style="padding-right:20px;">
         <div class="form-group">

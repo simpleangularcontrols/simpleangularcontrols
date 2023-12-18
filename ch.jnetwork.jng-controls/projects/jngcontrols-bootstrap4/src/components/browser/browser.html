@@ -53,14 +53,14 @@
               text="{{ lngResourceService.GetString('FILEBROWSER_NEWFOLDER') | async }}"
               iconstyle="far"
               icon="fa-folder"
-              (onclick)="newNode(node)"
+              (clicked)="newNode(node)"
             ></sac-contextmenubutton>
             <sac-contextmenubutton
               *ngIf="node.Path !== '/' && allowfolderdelete"
               text="{{ lngResourceService.GetString('FILEBROWSER_DELETE') | async }}"
               iconstyle="fas"
               icon="fa-trash"
-              (onclick)="deleteNode(node)"
+              (clicked)="deleteNode(node)"
             ></sac-contextmenubutton>
             <sac-contextmenusplitter
               *ngIf="allowfoldercreate || (node.Path !== '/' && allowfolderdelete)"
@@ -69,7 +69,7 @@
               text="{{ lngResourceService.GetString('FILEBROWSER_REFRESH') | async }}"
               iconstyle="fas"
               icon="fa-sync-alt"
-              (onclick)="refreshNode(node)"
+              (clicked)="refreshNode(node)"
             ></sac-contextmenubutton>
           </sac-contextmenu>
         </div>

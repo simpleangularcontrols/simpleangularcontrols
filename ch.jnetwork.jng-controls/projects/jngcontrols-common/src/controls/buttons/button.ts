@@ -36,7 +36,7 @@ export class NgButtonCommon {
   /**
    * Das Input property. Definiert der Status des islaoding property. Es ist benutzt für Aktivation des Spinner des Button.
    */
-  @Input('isloading')
+  @Input()
   set isloading(v: boolean | string) {
     if (v === null || v === undefined || typeof v === 'boolean') {
       this._isloadingvalue = v as boolean;
@@ -53,7 +53,7 @@ export class NgButtonCommon {
    * @param v Deaktiviert den Button
    * @return Definiert ob der Button deaktiviert ist
    */
-  @Input('isdisabled')
+  @Input()
   set isdisabled(v: boolean | string) {
     if (v === null || v === undefined || typeof v === 'boolean') {
       this._isdisabledvalue = v as boolean;
@@ -76,7 +76,7 @@ export class NgButtonCommon {
    * Folgende Typen sind Supported: primary, secondary, success, danger, warning, info, light, dark, link, default
    * @returns  Type des Buttons
    */
-  @Input('role')
+  @Input()
   set role(v: string) {
     // Validation of Input
     switch (v) {
@@ -121,14 +121,14 @@ export class NgButtonCommon {
    * Output Event Emitter
    */
   @Output()
-  onclick = new EventEmitter();
+  clicked = new EventEmitter();
 
   /**
    * Die Methode wird ein Event aufrufen, wenn das Button geklickt wird UND das Button nicht disabled ODER isloading ist.
    */
   buttonClick() {
     if (this._isdisabled === false && this._isloadingvalue === false) {
-      this.onclick.emit();
+      this.clicked.emit();
     }
   }
 

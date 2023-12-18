@@ -1,7 +1,6 @@
-import { HostBinding, Input } from '@angular/core';
+import { Directive, HostBinding } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { NgFormularCommon } from '@jnetwork/jngcontrols-common';
-import { ControlContainer, NgForm } from '@angular/forms';
-import { Directive } from '@angular/core';
 
 
 /**
@@ -16,6 +15,7 @@ import { Directive } from '@angular/core';
  * <form></form>
  *
  */
+/* eslint @angular-eslint/directive-selector: 0 */
 @Directive({
   selector: 'form:not([ngNoForm]):not([formGroup]),[ngForm]',
   exportAs: 'NgFormular'

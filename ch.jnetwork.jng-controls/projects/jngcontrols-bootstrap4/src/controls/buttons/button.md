@@ -3,5 +3,5 @@
 ## Default Button
 
 ```
-<sac-button (onclick)="action()" text="My Button"></sac-button>
+<sac-button (clicked)="action()" text="My Button"></sac-button>
 ```

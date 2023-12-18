@@ -1,5 +1,10 @@
-import { Component } from '@angular/core';
-import { PagerData, PagerRequest, SortDescriptor, SortOrder } from '@jnetwork/jngcontrols-common';
+import { Component, OnInit } from '@angular/core';
+import {
+  PagerData,
+  PagerRequest,
+  SortDescriptor,
+  SortOrder,
+} from '@jnetwork/jngcontrols-common';
 import { GridItemDto } from './models/GridItemDto';
 import { GridRequestDto } from './models/GridRequestDto';
 import { GridResultDto } from './models/GridResultDto';
@@ -9,7 +14,7 @@ import { GridService } from './services/GridService';
   selector: 'app-grid',
   templateUrl: './grid.component.html',
 })
-export class DemoGridComponent {
+export class DemoGridComponent implements OnInit {
   dataDefault: GridItemDto[] = [];
   pagerDefault: PagerData = {
     TotalRowCount: 0,

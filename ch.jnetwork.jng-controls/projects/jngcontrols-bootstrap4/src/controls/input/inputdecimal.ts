@@ -18,7 +18,7 @@ import { NgFormularDirective } from '../form/form';
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NgInputDecimalComponent,
+      useExisting: forwardRef(() => NgInputDecimalComponent),
     },
     {
       provide: NG_VALIDATORS,

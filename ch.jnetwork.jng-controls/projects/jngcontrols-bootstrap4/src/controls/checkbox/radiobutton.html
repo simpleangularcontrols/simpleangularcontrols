@@ -1,8 +1,8 @@
 <div class="form-check" *ngIf="hidden===false">
-  <input id="{{getName}}_{{getIndex}}" name="{{getName}}" type="radio" class="form-check-input" [value]="_value"
-    [checked]="_checked" (change)="ChangeEvent()" [disabled]="isDisabled" />
+  <input id="{{getName}}_{{getIndex}}" name="{{getName}}" type="radio" class="form-check-input" [value]="value"
+    [checked]="checked" (change)="ChangeEvent()" [disabled]="isDisabled" />
   <label for="{{getName}}_{{getIndex}}" class="form-check-label">
-    <ng-template *ngTemplateOutlet="displayValueTemplate || defaultItemLabelTemplate;context:{ label: _label }">
+    <ng-template *ngTemplateOutlet="labeltemplate || defaultItemLabelTemplate;context:{ label: label }">
     </ng-template>
   </label>
 </div>

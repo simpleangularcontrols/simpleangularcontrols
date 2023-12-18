@@ -1,36 +1,68 @@
 <ul class="jstree-children" *ngIf="nodes && nodes.length">
-  <li *ngFor="let node of nodes; let last = last" class="jstree-node" 
-  [ngClass]="{
+  <li
+    *ngFor="let node of nodes; let last = last"
+    class="jstree-node"
+    [ngClass]="{
     'jstree-open': !node[collapseAttr] && node[childrenAttr] && node[childrenAttr].length,
     'jstree-closed': node[collapseAttr]  && node[childrenAttr] && node[childrenAttr].length,
     'jstree-leaf': !node[childrenAttr].length,
     'jstree-last': last
-      }" 
-      [id]="node[idAttr]" >
-
-
-    <div unselectable="on" role="presentation" class="jstree-wholerow" (mouseover)="node.hover=true" (mouseout)="node.hover=false"
-      [ngClass]="{'jstree-wholerow-clicked': node == selectedNode, 'jstree-wholerow-hovered': node.hover}"
-      >&nbsp;
+      }"
+    [id]="node[idAttr]"
+  >
+    <div
+      unselectable="on"
+      role="presentation"
+      class="jstree-wholerow"
+      (mouseover)="node.hover=true"
+      (mouseout)="node.hover=false"
+      [ngClass]="{'jstree-wholerow-clicked': node === selectedNode, 'jstree-wholerow-hovered': node.hover}"
+    >
+      &nbsp;
     </div>
 
-    <i class="jstree-icon jstree-ocl" role="presentation" (click)="onCollapseClick(node)" (mouseover)="node.hover=true" (mouseout)="node.hover=false"></i>
+    <i
+      class="jstree-icon jstree-ocl"
+      role="presentation"
+      (click)="onCollapseClick(node)"
+      (mouseover)="node.hover=true"
+      (mouseout)="node.hover=false"
+    ></i>
 
-    <a class="jstree-anchor" (click)="onClick(node)"
-      [ngClass]="{'jstree-clicked': node == selectedNode, 'jstreehovered': node.hover}" (mouseover)="node.hover=true" (mouseout)="node.hover=false">
+    <a
+      class="jstree-anchor"
+      (click)="onClick(node)"
+      [ngClass]="{'jstree-clicked': node === selectedNode, 'jstreehovered': node.hover}"
+      (mouseover)="node.hover=true"
+      (mouseout)="node.hover=false"
+    >
+      <ng-container
+        *ngTemplateOutlet="treefileicon; context { item: node }"
+        ;
+        content
+      ></ng-container>
 
-      <ng-container *ngTemplateOutlet="treefileicon; context { item: node }"; content></ng-container>
-   
       {{node[textAttr]}}
     </a>
 
-    <ng-container *ngTemplateOutlet="templateTree; context { item: node }"></ng-container>
-    
+    <ng-container
+      *ngTemplateOutlet="template; context { item: node }"
+    ></ng-container>
 
-    <sac-treeviewchild *ngIf="node[childrenAttr] && node[childrenAttr].length" [fileicontemplate]="fileicontemplate"  [template]="templateTree" [collapseAll]="_collapseAll"
-      [ngClass]="(node[collapseAttr]==true)?'collapse':'show'" [data]="node[childrenAttr]" [idAttr]="idAttr"
-      [parentAttr]="parentAttr" [textAttr]="textAttr" [prepareData]="false" (onselecteditem)="sendMsgToParent($event)" [(selectedId)]="selectedId">
+    <sac-treeviewchild
+      *ngIf="node[childrenAttr] && node[childrenAttr].length"
+      [fileicontemplate]="fileicontemplate"
+      [template]="template"
+      [collapseall]="collapseall"
+      [ngClass]="(node[collapseAttr]===true)?'collapse':'show'"
+      [data]="node[childrenAttr]"
+      [idAttr]="idAttr"
+      [parentAttr]="parentAttr"
+      [textAttr]="textAttr"
+      [prepareData]="false"
+      (onselecteditem)="sendMsgToParent($event)"
+      [(selectedid)]="selectedid"
+    >
     </sac-treeviewchild>
-
   </li>
 </ul>

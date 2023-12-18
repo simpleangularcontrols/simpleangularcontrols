@@ -7,14 +7,14 @@ describe('NgButtonComponent', () => {
       componentProperties: {
         name: 'button',
         text: 'My Button',
-        onclick: createOutputSpy('onclickSpy'),
+        clicked: createOutputSpy('clickedSpy'),
       },
     });
 
     cy.get('#button').should('have.text', 'My Button\n');
     cy.get('#button').should('have.class', 'btn-secondary');
     cy.get('#button').click();
-    cy.get('@onclickSpy').should('be.calledOnce');
+    cy.get('@clickedSpy').should('be.calledOnce');
   });
 
   it('should not call click event', () => {
@@ -23,7 +23,7 @@ describe('NgButtonComponent', () => {
         name: 'button',
         isdisabled: true,
         text: 'My Button',
-        onclick: createOutputSpy('onclickSpy'),
+        clicked: createOutputSpy('clickedSpy'),
       },
     });
 
@@ -31,7 +31,7 @@ describe('NgButtonComponent', () => {
     cy.get('#button').should('have.class', 'btn-secondary');
     cy.get('#button').should('be.disabled');
     cy.get('#button').click({ force: true });
-    cy.get('@onclickSpy').should('not.have.been.called');
+    cy.get('@clickedSpy').should('not.have.been.called');
   });
 
   it('should has primary state', () => {

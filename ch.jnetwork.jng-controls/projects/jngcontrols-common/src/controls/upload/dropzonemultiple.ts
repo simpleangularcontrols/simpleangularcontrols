@@ -27,25 +27,24 @@ export class NgDropzoneMultipleCommon
   /**
    * Max. Anzahl Files die hochgeladen werden können
    */
-  @Input('maxfiles')
+  @Input()
   public maxfiles: number = 0;
 
   /**
    * Min. Anzahl Files die hochgeladen werden müssen
    */
-  @Input('minfiles')
+  @Input()
   public minfiles: number = 0;
 
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input('validationmessageminfiles') _validationMessageMinFiles: string =
-    'VALIDATION_ERROR_FILESMIN';
+  @Input() validationmessageminfiles: string = 'VALIDATION_ERROR_FILESMIN';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input('validationmessagesummaryminfiles')
-  _validationMessageMinFilesSummary: string =
+  @Input()
+  validationmessagesummaryminfiles: string =
     'VALIDATION_ERROR_SUMMARY_FILESMIN';
 
   /**
@@ -181,9 +180,9 @@ export class NgDropzoneMultipleCommon
       error = Validation.minFiles(
         this,
         this.minfiles,
-        this._label,
-        this._validationMessageMinFiles,
-        this._validationMessageMinFilesSummary
+        this.label,
+        this.validationmessageminfiles,
+        this.validationmessagesummaryminfiles
       );
     }
 

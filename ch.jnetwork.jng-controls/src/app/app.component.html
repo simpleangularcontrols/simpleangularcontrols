@@ -51,9 +51,9 @@
           <sac-radiobutton name="rb3" value="3" label="Wert 3"></sac-radiobutton>
         </sac-radiobuttons>
 
-        <sac-button name="setDisabledState2" text="Set Disabled" (onclick)="formTemp.form.form.disabled ? formTemp.form.form.enable() : formTemp.form.form.disable()"></sac-button>
+        <sac-button name="setDisabledState2" text="Set Disabled" (clicked)="formTemp.form.form.disabled ? formTemp.form.form.enable() : formTemp.form.form.disable()"></sac-button>
 
-        <sac-button name="fButton1" text="Speichern" [isdisabled]="formTemp.form.invalid" (onclick)="t3Save()"></sac-button>
+        <sac-button name="fButton1" text="Speichern" [isdisabled]="formTemp.form.invalid" (clicked)="t3Save()"></sac-button>
 
       </form>
 
@@ -65,7 +65,7 @@
         <sac-dropdown name="spieler" label="RAPPORT_SPIELER" [(ngModel)]="SpielerModel.SelectedId" [options]="SpielerModel.Items" optionlabel="Displaytext" optionvalue="Id" (ngModelChange)="FilterChanged(true)"
                     [emptyvalue]="null" emptylabel="RAPPOR_FILTER_ALLE"></sac-dropdown>
 
-        <sac-button name="bLoadDropdown" text="Load Dropdown" (onclick)="LoadDropdownModels()"></sac-button>
+        <sac-button name="bLoadDropdown" text="Load Dropdown" (clicked)="LoadDropdownModels()"></sac-button>
 
         <div>{{ MannschaftsModel | json }}</div>
 
@@ -89,7 +89,7 @@
     <ng-template>
       <div>Example Form</div>
       <form #form2="NgFormular" labelsize="3">
-        <sac-button (onclick)="debugAction()" text="Action Debug"></sac-button>
+        <sac-button (clicked)="debugAction()" text="Action Debug"></sac-button>
         <sac-validationsummary></sac-validationsummary>
 
         <div ngModelGroup="Group1">
@@ -155,9 +155,9 @@
 
 
           <div class="form-row form-group">
-            <sac-button name="radio1Add" text="Add Radiobutton" (onclick)="radio1Add()"></sac-button>
-            <sac-button name="radio1Remove" text="Remove Radiobutton" (onclick)="radio1Remove()"></sac-button>
-            <sac-button name="radio1ChangeProperty" text="Change Property" (onclick)="radio1ChangeProperty()"></sac-button>
+            <sac-button name="radio1Add" text="Add Radiobutton" (clicked)="radio1Add()"></sac-button>
+            <sac-button name="radio1Remove" text="Remove Radiobutton" (clicked)="radio1Remove()"></sac-button>
+            <sac-button name="radio1ChangeProperty" text="Change Property" (clicked)="radio1ChangeProperty()"></sac-button>
           </div>
 
 
@@ -180,7 +180,7 @@
           <sac-dropdown name="dropdown11" label="Dropdown 11" [(ngModel)]="values.dropdown11" [options]="values.dropdownitems" disabled="true"></sac-dropdown>
           <sac-dropdown name="dropdown12" label="Dropdown 12" [(ngModel)]="values.dropdown12" [options]="values.dropdownitems3" optionlabel="text" optionid="value"></sac-dropdown>
 
-          <sac-button name="dropdownbutton12" text="Load" (onclick)="SetDropdownProperties()"></sac-button>
+          <sac-button name="dropdownbutton12" text="Load" (clicked)="SetDropdownProperties()"></sac-button>
 
           <sac-listbox name="listbox1" label="Listbox 1" [(ngModel)]="values.listbox1" [options]="values.dropdownitems"></sac-listbox>
           <sac-listbox name="listbox2" label="Listbox 2" [(ngModel)]="values.listbox2" [options]="values.dropdownitems"></sac-listbox>
@@ -188,8 +188,8 @@
           <sac-listbox name="listbox4" label="Listbox 4" [(ngModel)]="values.listbox4" [options]="values.dropdownitems" isrequired="true"></sac-listbox>
           <sac-listbox name="listbox5" label="Listbox 5" [(ngModel)]="values.listbox5" [options]="values.dropdownitems" disabled="true"></sac-listbox>
 
-          <sac-button name="button1" text="Speichern" [isdisabled]="form2.form.invalid" (onclick)="t3Save()"></sac-button>
-          <sac-button name="setDisabledState" text="Set Disabled" (onclick)="form2.form.form.disabled ? form2.form.form.enable() : form2.form.form.disable()"></sac-button>
+          <sac-button name="button1" text="Speichern" [isdisabled]="form2.form.invalid" (clicked)="t3Save()"></sac-button>
+          <sac-button name="setDisabledState" text="Set Disabled" (clicked)="form2.form.form.disabled ? form2.form.form.enable() : form2.form.form.disable()"></sac-button>
 
           <sac-tab>
             <sac-tabitem id="home" label="Home">
@@ -221,7 +221,7 @@
           </div>
         </div>
 
-        <sac-button (onclick)="debugAction()" text="Action Debug"></sac-button>
+        <sac-button (clicked)="debugAction()" text="Action Debug"></sac-button>
       </form>
     </ng-template>
   </sac-tabitem>
@@ -242,7 +242,7 @@
         </div>
 
         <div>Valid: {{ formSubForm.valid }}</div>
-        <sac-button (onclick)="debugAction()" text="Action Debug"></sac-button>
+        <sac-button (clicked)="debugAction()" text="Action Debug"></sac-button>
       </div>
     </ng-template>
   </sac-tabitem>
@@ -286,7 +286,7 @@
 
         <sac-dateselector name="selector1" dateselection="true" timeselection="true"></sac-dateselector>
 
-        <sac-button name="bDateTimeSave" text="Speichern" [isdisabled]="formDateTime.form.invalid" (onclick)="dateTimeSave()"></sac-button>
+        <sac-button name="bDateTimeSave" text="Speichern" [isdisabled]="formDateTime.form.invalid" (clicked)="dateTimeSave()"></sac-button>
 
       </form>
     </ng-template>

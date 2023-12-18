@@ -12,7 +12,15 @@ import {
   ViewChild,
 } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { IdService, UploadState, UploadxOptions, UploadxService, UPLOADX_AJAX, UPLOADX_FACTORY_OPTIONS, UPLOADX_OPTIONS } from 'ngx-uploadx';
+import {
+  IdService,
+  UploadState,
+  UploadxOptions,
+  UploadxService,
+  UPLOADX_AJAX,
+  UPLOADX_FACTORY_OPTIONS,
+  UPLOADX_OPTIONS,
+} from 'ngx-uploadx';
 import {
   InternalLanguageResourceService,
   LANGUAGERESOURCE_SERVICE,
@@ -107,18 +115,17 @@ export abstract class NgUploadBase<VALUE>
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input('validationmessagerequired') _validationMessageRequired: string =
-    'VALIDATION_ERROR_REQUIRED';
+  @Input() validationmessagerequired: string = 'VALIDATION_ERROR_REQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input('validationmessagesummaryrequired')
-  _validationMessageRequiredSummary: string =
+  @Input()
+  validationmessagesummaryrequired: string =
     'VALIDATION_ERROR_SUMMARY_REQUIRED';
   /**
    * Erlaubte Dateitypen für den Upload. Format: ".xxx,.yyy,.zzz"
    */
-  @Input('allowedtypes')
+  @Input()
   set allowedtypes(types: string) {
     this._allowedtypes = types;
     this.setAllowedTypes(types);
@@ -129,7 +136,7 @@ export abstract class NgUploadBase<VALUE>
   /**
    * Files nach der Auswahl automatisch hochladen
    */
-  @Input('autoupload')
+  @Input()
   set autoupload(v: boolean) {
     this._autoupload = v;
     this.options.autoUpload = v;
@@ -142,7 +149,7 @@ export abstract class NgUploadBase<VALUE>
   /**
    * Uploads können unterbrochen werden
    */
-  @Input('enablepause')
+  @Input()
   set enablepause(v: boolean) {
     this._enablepause = v;
   }
@@ -153,19 +160,19 @@ export abstract class NgUploadBase<VALUE>
   /**
    * Max. Dateigrösse für Files die hochgeladen werden können. 0 deaktiviert den Filter
    */
-  @Input('maxfilesize') maxfilesize: number = 0;
+  @Input() maxfilesize: number = 0;
 
   /**
    * Definiert das Control als Required
    */
-  @Input('isrequired') _isrequired: boolean = false;
+  @Input() isrequired: boolean = false;
 
   //#endregion
 
   /**
    * Definiert den Registration Endpoint für Uploads.
    */
-  @Input('endpoint')
+  @Input()
   set endpoint(v: string) {
     this._endpoint = v;
     this.setEndpoint(v);
@@ -177,7 +184,7 @@ export abstract class NgUploadBase<VALUE>
   /**
    * Event wenn ein Error in der Komponente ausgelöst wird.
    */
-  @Output('onfileerror') onfileerror = new EventEmitter<string>();
+  @Output() onfileerror = new EventEmitter<string>();
 
   /**
    * File Input Control
@@ -222,7 +229,13 @@ export abstract class NgUploadBase<VALUE>
     });
 
     // Init new Service Instance
-    this.uploadService = new UploadxService(injector.get(UPLOADX_OPTIONS, null), injector.get(UPLOADX_FACTORY_OPTIONS), injector.get(UPLOADX_AJAX), this.ngZone, injector.get(IdService));
+    this.uploadService = new UploadxService(
+      injector.get(UPLOADX_OPTIONS, null),
+      injector.get(UPLOADX_FACTORY_OPTIONS),
+      injector.get(UPLOADX_AJAX),
+      this.ngZone,
+      injector.get(IdService)
+    );
     this.uploadService.init(this.options);
 
     // Subscripe Event for State changes
@@ -269,7 +282,6 @@ export abstract class NgUploadBase<VALUE>
    */
   cancelAll() {
     if (this.HasQueueItem() === true) {
-
       this.uploadService.control({ action: 'cancel' });
     }
   }
@@ -410,12 +422,12 @@ export abstract class NgUploadBase<VALUE>
   validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = null;
 
-    if (this._isrequired) {
+    if (this.isrequired) {
       error = Validation.required(
         c,
-        this._label,
-        this._validationMessageRequired,
-        this._validationMessageRequiredSummary
+        this.label,
+        this.validationmessagerequired,
+        this.validationmessagesummaryrequired
       );
     }
 

@@ -11,8 +11,8 @@ export class NgStaticLabelCommon extends NgInputBase<string> {
   /**
    * Erlaubt HTML Content in der Anzeige des Wertes
    */
-  @Input('allowhtml')
-  _allowhtml: boolean = false;
+  @Input()
+  allowhtml: boolean = false;
 
   /**
    * Validierung des Controls

@@ -46,37 +46,37 @@ export class NgDialogCommon implements OnDestroy {
   /**
    * Input Property. Erhält den Title des Dialog. Default Value: 'Dialog'.
    */
-  @Input('title')
-  public _title: string = 'Dialog';
+  @Input()
+  public title: string = 'Dialog';
 
   /**
    * Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch ESC geschlossen werden. Default ist true.
    */
-  @Input('allowesc')
-  public _allowesc: boolean = true;
+  @Input()
+  public allowesc: boolean = true;
 
   /**
    * Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch click außerhalb des Dialog-Fenster geschlossen werden. Default ist true.
    */
-  @Input('backdrop')
-  public _backdrop: boolean = true;
+  @Input()
+  public backdrop: boolean = true;
 
   /**
    * Input Property. Erhält den Namen des Dialog - benutzt für das ID. Default Value: ''
    */
-  @Input('name')
-  public _name: string = '';
+  @Input()
+  public name: string = '';
 
   /**
    * Steuert ob im Header des Dialogs ein Button angezeigt wird.
    */
-  @Input('closebutton')
+  @Input()
   public closebutton: boolean = true;
 
   /**
    * Input Property. Erhält die Breite des Dialog
    */
-  @Input('width')
+  @Input()
   public width: string = null;
 
   /**
@@ -91,8 +91,8 @@ export class NgDialogCommon implements OnDestroy {
    * Die akzeptabel default-size-Klassen sind: 'small', 'large', 'extralarge', 'medium', ''.
    * Wenn size ist NICHT gesetzt (oder 'medium' oder ''), default ist in medium size: max-width 500px.
    */
-  @Input('size')
-  set defineSize(v: string) {
+  @Input()
+  set size(v: string) {
     v = v.toLowerCase();
     this._size = v;
   }
@@ -100,14 +100,14 @@ export class NgDialogCommon implements OnDestroy {
   /**
    * Output Emitter. Wird aufgerufen, wenn das Wert des _show property geändert ist - damait das Dialog geöfnet/geschlossen wird.
    */
-  @Output('isvisibleChange')
-  isVisibleEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output()
+  isvisibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   /**
    * Setter. Erhält das boolen Wert des _show property
    */
-  @Input('isvisible')
-  set visible(v: boolean) {
+  @Input()
+  set isvisible(v: boolean) {
     if (
       v &&
       !this.hasSetBodyTag &&
@@ -132,7 +132,7 @@ export class NgDialogCommon implements OnDestroy {
   /**
    * Getter. Ergibt das boolen Wert des _show property
    */
-  get isVisible(): boolean {
+  get isvisible(): boolean {
     return this._show;
   }
 
@@ -201,7 +201,7 @@ export class NgDialogCommon implements OnDestroy {
       this.hasSetBodyTag = true;
     }
 
-    this.isVisibleEmitter.emit(this._show);
+    this.isvisibleChange.emit(this._show);
   }
 
   /**
@@ -214,7 +214,7 @@ export class NgDialogCommon implements OnDestroy {
     }
 
     this._show = false;
-    this.isVisibleEmitter.emit(this._show);
+    this.isvisibleChange.emit(this._show);
   }
 
   /**
@@ -234,7 +234,7 @@ export class NgDialogCommon implements OnDestroy {
   @HostListener('click', ['$event'])
   onClick(event: any): void {
     if (
-      this._allowesc === false ||
+      this.allowesc === false ||
       (this.dialogElement !== null &&
         this.dialogElement !== undefined &&
         event.target !== this.dialogElement.nativeElement)
@@ -251,7 +251,7 @@ export class NgDialogCommon implements OnDestroy {
   onKeydownHandler(event: KeyboardEvent) {
     const ESCAPE_KEYCODE = 'Escape';
 
-    if (this._allowesc === true && event.key === ESCAPE_KEYCODE) {
+    if (this.allowesc === true && event.key === ESCAPE_KEYCODE) {
       this.hide();
     }
   }

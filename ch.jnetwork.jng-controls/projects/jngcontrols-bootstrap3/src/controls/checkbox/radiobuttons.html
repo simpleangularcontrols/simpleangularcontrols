@@ -1,6 +1,6 @@
 <div class="form-group">
-  <label *ngIf="_disablelabel === false" for="{{_name}}" class="control-label" [ngClass]="[_labelsize !== 12 ?  'col-md-' + _labelsize : 'sr-only']">{{_label}}</label>
-  <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
+  <label *ngIf="disablelabel === false" for="{{name}}" class="control-label" [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']">{{label}}</label>
+  <div [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
     <div>
       <ng-content></ng-content>
     </div>

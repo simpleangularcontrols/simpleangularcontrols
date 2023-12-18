@@ -26,15 +26,15 @@ export class NgFormularCommon {
   /**
    * Default Label Size for Form
    */
-  @Input('labelsize') labelsize: number = 3;
+  @Input() labelsize: number = 3;
   /**
    * Kontroliert, ob das Label adaptive ist
    */
-  @Input('isadaptivelabel') isadaptivelabel: boolean = false;
+  @Input() isadaptivelabel: boolean = false;
   /**
    * Type des Forms
    */
-  @Input('orientation') orientation: string = 'horizontal';
+  @Input() orientation: string = 'horizontal';
 
   /**
    * Standardwert wann die Werte via NgModel aktualisiert werden
@@ -44,7 +44,7 @@ export class NgFormularCommon {
   /**
    * Definiert, wenn das Model geupdatet wird
    */
-  @Input('updateon')
+  @Input()
   set updateon(v: FormHooks) {
     this._updateon = v;
     this.form.options.updateOn = v;
@@ -56,7 +56,7 @@ export class NgFormularCommon {
   /**
    * Aktiviert oder Deaktiviert die Inline Errors für das Control
    */
-  @Input('inlineerrorenabled')
+  @Input()
   set inlineerrorenabled(value: boolean) {
     if (value === null || value === undefined) {
       this._inlineerrorenabled = null;

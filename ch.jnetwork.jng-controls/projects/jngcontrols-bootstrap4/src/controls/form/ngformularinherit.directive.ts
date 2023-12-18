@@ -39,7 +39,7 @@ export function NGFORM_FACTORY(form: NgForm) {
  *
  *
  * (at)Component({
- * selector: 'sac-inherit-form',
+ * selector: 'sacInheritForm',
  * templateUrl: './subform.component.html'
  * })
  * export class SubFormComponent implements DoCheck {
@@ -54,7 +54,7 @@ export function NGFORM_FACTORY(form: NgForm) {
  *
  */
 @Directive({
-  selector: '[sac-inherit-form]',
+  selector: '[sacInheritForm]',
   providers: [
     {
       provide: NgFormularDirective,

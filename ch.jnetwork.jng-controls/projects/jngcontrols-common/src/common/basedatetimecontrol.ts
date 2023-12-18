@@ -40,30 +40,30 @@ export abstract class NgBaseDateTimeControl extends NgBaseModelControl<Date> imp
   /**
    * Definiert das Control als Required
    */
-  @Input('isrequired') _isrequired: boolean = false;
+  @Input() isrequired: boolean = false;
 
   /**
    * TextBox Placeholder
    */
-  @Input('placeholder') _placeholder: string = null;
+  @Input() placeholder: string = null;
 
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input('validationmessagerequired') _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
+  @Input() validationmessagerequired: string = 'VALIDATION_ERROR_REQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input('validationmessagesummaryrequired') _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
+  @Input() validationmessagerequiredsummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
   /**
    * Resource Key für Validation Message DateTimeFormat bei Control
    */
-  @Input('validationmessagedatetimeformat') _validationMessageDateTimeFormat: string = 'VALIDATION_ERROR_DATETIMEFORMAT';
+  @Input() validationmessagedatetimeformat: string = 'VALIDATION_ERROR_DATETIMEFORMAT';
   /**
    * Resource Key für Validation Message DateTimeFormat in Validation Summary
    */
-  @Input('validationmessagesummarydatetimeformat') _validationMessageDateTimeFormatSummary: string = 'VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT';
+  @Input() validationmessagedatetimeformatsummary: string = 'VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT';
 
   /**
    * Die methode returns dateTime in string
@@ -125,7 +125,7 @@ export abstract class NgBaseDateTimeControl extends NgBaseModelControl<Date> imp
   /**
    * Das Input bekommt das value von typ string
    */
-  @Input('valuestring')
+  @Input()
   set valuestring(v: string) {
     this._valueAsString = v;
     let date: Moment = moment(v, [this.GetDateTimeFormatString()], true);
@@ -183,10 +183,10 @@ export abstract class NgBaseDateTimeControl extends NgBaseModelControl<Date> imp
   validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = null;
 
-    error = Validation.isValidDate(this, this._label, this._validationMessageDateTimeFormat, this._validationMessageDateTimeFormatSummary);
+    error = Validation.isValidDate(this, this.label, this.validationmessagedatetimeformat, this.validationmessagedatetimeformatsummary);
 
-    if (this._isrequired) {
-      error = Validation.required(c, this._label, this._validationMessageRequired, this._validationMessageRequiredSummary);
+    if (this.isrequired) {
+      error = Validation.required(c, this.label, this.validationmessagerequired, this.validationmessagerequiredsummary);
     }
 
     return error;

@@ -56,7 +56,7 @@ export class NgDropdownComponent extends NgDropdownCommon {
 /**
  * Direktive für Dropdown Option List
  */
-@Directive({ selector: '[sac-option],option' })
+@Directive({ selector: '[sacOption],option' })
 export class NgDropdownOptionDirective extends NgDropdownOptionCommon {
   /**
    * Konstruktor

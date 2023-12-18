@@ -18,7 +18,7 @@ export class NgStaticFormContainerCommon extends NgBaseModelControl<string> {
   /**
    * Text welcher als Tooltip angezeigt wird.
    */
-  @Input('tooltiptext') _tooltiptext: string = '';
+  @Input() tooltiptext: string = '';
 
   /**
    * Definiert den Container als Required Form Item
@@ -29,7 +29,7 @@ export class NgStaticFormContainerCommon extends NgBaseModelControl<string> {
   /**
    * Definiert den Container als Required Form Item
    */
-  @Input('isrequired')
+  @Input()
   set isrequired(v: boolean) {
     this._isrequired = convertToBoolean(v);
   }

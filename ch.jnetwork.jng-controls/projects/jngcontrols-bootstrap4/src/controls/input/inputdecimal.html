@@ -1,24 +1,24 @@
-<div class="row form-group" [class.no-gutters]="_disablelabel">
+<div class="row form-group" [class.no-gutters]="disablelabel">
   <label
-    for="{{_name}}"
+    for="{{name}}"
     class="col-12 col-form-label"
-    [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]"
-    >{{_label}}</label
+    [ngClass]="[disablelabel === false ?  'col-sm-' + labelsize : 'sr-only' ]"
+    >{{label}}</label
   >
   <div
     class="col-12"
-    [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']"
+    [ngClass]="[disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']"
   >
     <input
-      id="{{_name}}"
-      name="{{_name}}"
+      id="{{name}}"
+      name="{{name}}"
       type="text"
       class="form-control form-control-sm"
       [value]="value"
       (blur)="onTouch()"
       (input)="setValue($event.target.value)"
-      [attr.placeholder]="_placeholder"
-      [readonly]="_readonly"
+      [attr.placeholder]="placeholder"
+      [readonly]="readonly"
       (keypress)="onKeyPress($event)"
       [disabled]="isdisabled"
       [ngClass]="{'is-invalid': invalid && (dirty || touched) }"

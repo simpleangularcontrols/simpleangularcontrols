@@ -1,15 +1,15 @@
-<div class="row form-group" [class.no-gutters]="_disablelabel">
-  <label for="{{_name}}" class="col-12 col-form-label" [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]">{{_label}}</label>
-  <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
-    <select multiple id="{{_name}}" name="{{_name}}" class="form-control form-control-sm" [size]="_rowsize" [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
+<div class="row form-group" [class.no-gutters]="disablelabel">
+  <label for="{{name}}" class="col-12 col-form-label" [ngClass]="[disablelabel === false ?  'col-sm-' + labelsize : 'sr-only' ]">{{label}}</label>
+  <div class="col-12" [ngClass]="[disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
+    <select multiple id="{{name}}" name="{{name}}" class="form-control form-control-sm" [size]="rowsize" [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
             (blur)="onTouch()" (change)="getSelectedItems($event.target)" [disabled]="isdisabled">
       <ng-content></ng-content>
-      <ng-container *ngIf="_fieldGroupItems === ''">
-        <option *ngFor="let option of options" [value]="option[_fieldValue]" [disabled]="_fieldEnabled !== '' && option[_fieldEnabled] === false">{{option[_fieldLabel]}}</option>
+      <ng-container *ngIf="groupitems === ''">
+        <option *ngFor="let option of options" [value]="option[optionvalue]" [disabled]="optionenabled !== '' && option[optionenabled] === false">{{option[optionlabel]}}</option>
       </ng-container>
-      <ng-container *ngIf="_fieldGroupItems !== ''">
-        <optgroup *ngFor="let option of options" [attr.label]="option[_fieldGroupLabel]">
-          <option *ngFor="let item of option[_fieldGroupItems]" [value]="item[_fieldValue]" [disabled]="_fieldEnabled !== '' && item[_fieldEnabled] === false">{{item[_fieldLabel]}}</option>
+      <ng-container *ngIf="groupitems !== ''">
+        <optgroup *ngFor="let option of options" [attr.label]="option[grouplabel]">
+          <option *ngFor="let item of option[groupitems]" [value]="item[optionvalue]" [disabled]="optionenabled !== '' && item[optionenabled] === false">{{item[optionlabel]}}</option>
         </optgroup>
       </ng-container>
     </select>

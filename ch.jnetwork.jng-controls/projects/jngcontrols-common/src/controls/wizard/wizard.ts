@@ -16,19 +16,19 @@ export abstract class NgWizardCommon implements AfterContentInit, ControlValueAc
   /**
    * Name des Controls
    */
-  @Input('name')
-  _name: string = '';
+  @Input()
+  name: string = '';
 
   /**
    * Boolean Property prüft ob Navigation im Wizard disabled ist; default Wert - false
    */
-  @Input('disablenavigation')
-  _disableNavigation: boolean = false;
+  @Input()
+  disablenavigation: boolean = false;
 
   /**
    * Setter und Getter für aktueller Schritt
    */
-  @Input('currentstep')
+  @Input()
   set currentstep(v: string | null) {
     this.changeStep(v);
     this.propagateChange(this._currentstep);
@@ -39,8 +39,8 @@ export abstract class NgWizardCommon implements AfterContentInit, ControlValueAc
   /**
    * EventEmitter wenn der Schritt geändert wird
    */
-  @Output('stepchanged')
-  _onStepChanged: EventEmitter<string> = new EventEmitter<string>();
+  @Output()
+  stepchanged: EventEmitter<string> = new EventEmitter<string>();
 
 
   /**
@@ -65,13 +65,13 @@ export abstract class NgWizardCommon implements AfterContentInit, ControlValueAc
    * Ursprünglicher Schritt wird selektiert
    */
   private initSteps(): void {
-    const activeStep = this.wizardItems().filter((step) => step._active);
+    const activeStep = this.wizardItems().filter((step) => step.active);
 
     if (activeStep.length === 0) {
       const initStep: NgWizardItemCommon = this.wizardItems().toArray()[0];
       this.selectStep(initStep);
-      initStep._disabled = false;
-      this.setStepInternal(initStep._id);
+      initStep.disabled = false;
+      this.setStepInternal(initStep.id);
     }
   }
 
@@ -84,11 +84,11 @@ export abstract class NgWizardCommon implements AfterContentInit, ControlValueAc
   selectStep(step: NgWizardItemCommon): void {
 
     // Cancel if Navigation disabled
-    if (this._disableNavigation) {
+    if (this.disablenavigation) {
       return;
     }
 
-    this.changeStep(step._id);
+    this.changeStep(step.id);
   }
 
   /**
@@ -102,32 +102,32 @@ export abstract class NgWizardCommon implements AfterContentInit, ControlValueAc
 
     const wizardItemsArray: NgWizardItemCommon[] = this.wizardItems().toArray();
     const itemsCount: number = wizardItemsArray.length;
-    const currentItemIndex = wizardItemsArray.findIndex(itm => itm._id === step);
+    const currentItemIndex = wizardItemsArray.findIndex(itm => itm.id === step);
 
     for (let i: number = 0; i < itemsCount; i++) {
       const item: NgWizardItemCommon = wizardItemsArray[i];
 
       if (i < currentItemIndex) {
-        item._iscomplete = true;
+        item.iscomplete = true;
       } else {
-        item._iscomplete = false;
+        item.iscomplete = false;
       }
 
       if (i > currentItemIndex + 1) {
-        item._disabled = true;
+        item.disabled = true;
       } else {
-        item._disabled = false;
+        item.disabled = false;
       }
 
       if (i === currentItemIndex) {
-        item._active = true;
+        item.active = true;
       } else {
-        item._active = false;
+        item.active = false;
       }
     }
 
     this.setStepInternal(step);
-    this._onStepChanged.emit(step);
+    this.stepchanged.emit(step);
   }
 
   /**

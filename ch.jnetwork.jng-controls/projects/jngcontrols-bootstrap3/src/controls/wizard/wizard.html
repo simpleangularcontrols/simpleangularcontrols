@@ -1,4 +1,4 @@
-<ul [id]="_name" class="nav nav-wizard" role="tablist">
+<ul [id]="name" class="nav nav-wizard" role="tablist">
   <li *ngFor="let item of _wizardItems" class="nav-item" [ngClass]="{ 'active': item._active, 'disabled': item._disabled, 'success': item._iscomplete }"
       [ngStyle]="{'cursor': item._disabled ? 'not-allowed' : 'pointer'}">
     <a role="tab" (click)="selectStep(item)">
@@ -7,7 +7,7 @@
       </div>
     </a>
     <div class="info">
-      <a (click)="selectStep(item)">{{item._label}}</a>
+      <a (click)="selectStep(item)">{{item.label}}</a>
     </div>
   </li>
 </ul>

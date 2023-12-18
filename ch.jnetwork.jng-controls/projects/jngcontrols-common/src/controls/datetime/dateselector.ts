@@ -80,32 +80,32 @@ export class NgDateSelectorCommon implements OnInit {
   /**
    * Datum Selector
    */
-  @Input('dateselection')
-  _dateselection: boolean = false;
+  @Input()
+  dateselection: boolean = false;
 
   /**
    * Time Selector
    */
-  @Input('timeselection')
-  _timeselection: boolean = false;
+  @Input()
+  timeselection: boolean = false;
 
   /**
    * Monat
    */
-  @Input('month')
-  _month: number = 4;
+  @Input()
+  month: number = 4;
 
   /**
    * Jahr
    */
-  @Input('year')
-  _year: number = 2018;
+  @Input()
+  year: number = 2018;
 
   /**
    * Boolean Property für automatische Selektierung; default Wert - false
    */
-  @Input('autoapplyselection')
-  _autoapplyselection = false;
+  @Input()
+  autoapplyselection = false;
 
   /**
    * Aktuell gewähltes Datum
@@ -120,11 +120,11 @@ export class NgDateSelectorCommon implements OnInit {
   /**
    * Input für ursprüngliches Datum
    */
-  @Input('initialValue')
-  get initialValue(): Date {
+  @Input()
+  get initialvalue(): Date {
     return this._initialValue.toDate();
   }
-  set initialValue(v: Date | null) {
+  set initialvalue(v: Date | null) {
     if (v === null || v === undefined) {
       this._initialValue = null;
     } else {
@@ -143,8 +143,8 @@ export class NgDateSelectorCommon implements OnInit {
   /**
    * Output Event beim Datum Selektieren
    */
-  @Output('onSelect')
-  onSelectDate = new EventEmitter<any>();
+  @Output()
+  selectdate = new EventEmitter<any>();
 
   /**
    * Ursprünglicher Kalender
@@ -154,8 +154,8 @@ export class NgDateSelectorCommon implements OnInit {
     /**
      * Monat und Jahr setzen
      */
-    this._month = v.month();
-    this._year = v.year();
+    this.month = v.month();
+    this.year = v.year();
 
     /**
      * Daten für Kalender initialiseren
@@ -171,7 +171,7 @@ export class NgDateSelectorCommon implements OnInit {
      * Init Initial Date if Empty
      */
     if (this._initialValue === undefined) {
-      this.initialValue = null;
+      this.initialvalue = null;
     }
 
     this.initDates();
@@ -181,10 +181,10 @@ export class NgDateSelectorCommon implements OnInit {
    * Initial Datum
    */
   private initDates(): void {
-    const currentMonth = moment(new Date(this._year, this._month, 1));
-    const lastMonth = moment(new Date(this._year, this._month, 1));
+    const currentMonth = moment(new Date(this.year, this.month, 1));
+    const lastMonth = moment(new Date(this.year, this.month, 1));
     lastMonth.add({ months: -1 });
-    const nextMonths = moment(new Date(this._year, this._month, 1));
+    const nextMonths = moment(new Date(this.year, this.month, 1));
     nextMonths.add({ months: 1 });
 
     const weekdayBegin: number = currentMonth.weekday();
@@ -213,19 +213,19 @@ export class NgDateSelectorCommon implements OnInit {
 
       let isSelectedDate: boolean = false;
       let isNewDate: boolean = false;
-      const isCurrentDate: boolean = moment().month() === this._month && moment().year() === this._year && moment().date() === dayinmonth;
+      const isCurrentDate: boolean = moment().month() === this.month && moment().year() === this.year && moment().date() === dayinmonth;
 
       // Initial Wert setzen, falls vorhanden
       if (this._initialValue !== null) {
-        isSelectedDate = this._initialValue.month() === this._month && this._initialValue.year() === this._year && this._initialValue.date() === dayinmonth;
+        isSelectedDate = this._initialValue.month() === this.month && this._initialValue.year() === this.year && this._initialValue.date() === dayinmonth;
       }
 
       // Selected Date Wert setzen, falls Wert gesetzt
       if (this._selectedValue !== null) {
-        isNewDate = this._selectedValue.month() === this._month && this._selectedValue.year() === this._year && this._selectedValue.date() === dayinmonth;
+        isNewDate = this._selectedValue.month() === this.month && this._selectedValue.year() === this.year && this._selectedValue.date() === dayinmonth;
       }
 
-      daysInCalendar.push(new DateSelectorItem(dayinmonth.toString(), moment([this._year, this._month, dayinmonth]).toDate(), true, isSelectedDate, isCurrentDate, isNewDate));
+      daysInCalendar.push(new DateSelectorItem(dayinmonth.toString(), moment([this.year, this.month, dayinmonth]).toDate(), true, isSelectedDate, isCurrentDate, isNewDate));
     }
 
     let endOfCalender: number;
@@ -279,11 +279,11 @@ export class NgDateSelectorCommon implements OnInit {
    * Vorheriger Monat
    */
   monthBack(): void {
-    this._month = this._month - 1;
+    this.month = this.month - 1;
 
-    if (this._month < 0) {
-      this._month = 11;
-      this._year = this._year - 1;
+    if (this.month < 0) {
+      this.month = 11;
+      this.year = this.year - 1;
     }
 
     this.initDates();
@@ -293,11 +293,11 @@ export class NgDateSelectorCommon implements OnInit {
    * Nächster Monat
    */
   monthNext(): void {
-    this._month = this._month + 1;
+    this.month = this.month + 1;
 
-    if (this._month > 11) {
-      this._month = 0;
-      this._year = this._year + 1;
+    if (this.month > 11) {
+      this.month = 0;
+      this.year = this.year + 1;
     }
 
     this.initDates();
@@ -331,7 +331,7 @@ export class NgDateSelectorCommon implements OnInit {
       dateValue.millisecond(0);
       this._selectedValue = dateValue;
 
-      if (this._autoapplyselection) {
+      if (this.autoapplyselection) {
         this.applySelection();
       }
     }
@@ -440,11 +440,11 @@ export class NgDateSelectorCommon implements OnInit {
     /**
      * Kalender Daten initialisieren falls Kalender angezeigt
      */
-    if (this._dateselection) {
+    if (this.dateselection) {
       this.initCalendar(this._selectedValue);
     }
 
-    if (this._autoapplyselection) {
+    if (this.autoapplyselection) {
       this.applySelection();
     }
   }
@@ -454,14 +454,14 @@ export class NgDateSelectorCommon implements OnInit {
    */
   applySelection(): void {
 
-    if (this._timeselection === false && this._selectedValue !== null) {
+    if (this.timeselection === false && this._selectedValue !== null) {
       this._selectedValue.hour(0);
       this._selectedValue.minute(0);
       this._selectedValue.second(0);
       this._selectedValue.millisecond(0);
     }
 
-    if (this._dateselection === false && this._selectedValue !== null) {
+    if (this.dateselection === false && this._selectedValue !== null) {
       const tempValue: Moment = this._selectedValue.local();
       tempValue.date(1);
       tempValue.month(0);
@@ -469,7 +469,7 @@ export class NgDateSelectorCommon implements OnInit {
       this._selectedValue = tempValue.utc();
     }
 
-    this.onSelectDate.emit({
+    this.selectdate.emit({
       date: this._selectedValue
     });
   }
@@ -478,7 +478,7 @@ export class NgDateSelectorCommon implements OnInit {
    * Selektierung resetten
    */
   resetSelection(): void {
-    this.onSelectDate.emit({
+    this.selectdate.emit({
       date: null
     });
   }

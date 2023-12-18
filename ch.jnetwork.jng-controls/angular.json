@@ -115,51 +115,13 @@
             "browserTarget": "demo-bootstrap4:build"
           }
         },
-        "cypress-run": {
-          "builder": "@cypress/schematic:cypress",
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "devServerTarget": "demo-bootstrap4:serve",
-            "configFile": "projects/demo-bootstrap4/cypress.config.js"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "demo-bootstrap4:serve:production"
-            }
-          }
-        },
-        "cypress-open": {
-          "builder": "@cypress/schematic:cypress",
-          "options": {
-            "watch": true,
-            "headless": false,
-            "configFile": "projects/demo-bootstrap4/cypress.config.js"
-          }
-        },
-        "ct": {
-          "builder": "@cypress/schematic:cypress",
-          "options": {
-            "devServerTarget": "demo-bootstrap4:serve",
-            "watch": true,
-            "headless": false,
-            "testingType": "component"
-          },
-          "configurations": {
-            "development": {
-              "devServerTarget": "demo-bootstrap4:serve:development"
-            }
-          }
-        },
-        "e2e": {
-          "builder": "@cypress/schematic:cypress",
-          "options": {
-            "devServerTarget": "demo-bootstrap4:serve",
-            "watch": true,
-            "headless": false
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "demo-bootstrap4:serve:production"
-            }
+            "lintFilePatterns": [
+              "projects/demo-bootstrap4/**/*.ts",
+              "projects/demo-bootstrap4/**/*.html"
+            ]
           }
         }
       }
@@ -168,7 +130,7 @@
       "root": "projects/jngcontrols-bootstrap3",
       "sourceRoot": "projects/jngcontrols-bootstrap3/src",
       "projectType": "library",
-      "prefix": "jnc",
+      "prefix": "sac",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -236,6 +198,15 @@
               "devServerTarget": "jngcontrols-bootstrap3:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/jngcontrols-bootstrap3/**/*.ts",
+              "projects/jngcontrols-bootstrap3/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -243,7 +214,7 @@
       "root": "projects/jngcontrols-bootstrap4",
       "sourceRoot": "projects/jngcontrols-bootstrap4/src",
       "projectType": "library",
-      "prefix": "jnc",
+      "prefix": "sac",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -311,6 +282,15 @@
               "devServerTarget": "jngcontrols-bootstrap4:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/jngcontrols-bootstrap4/**/*.ts",
+              "projects/jngcontrols-bootstrap4/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -318,7 +298,7 @@
       "root": "projects/jngcontrols-common",
       "sourceRoot": "projects/jngcontrols-common/src",
       "projectType": "library",
-      "prefix": "jnc",
+      "prefix": "sac",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -385,6 +365,15 @@
             "production": {
               "devServerTarget": "jngcontrols-common:serve:production"
             }
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/jngcontrols-common/**/*.ts",
+              "projects/jngcontrols-common/**/*.html"
+            ]
           }
         }
       }

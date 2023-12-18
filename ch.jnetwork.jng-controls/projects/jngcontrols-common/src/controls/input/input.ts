@@ -11,31 +11,31 @@ export class NgInputCommon extends NgInputBase<string> {
   /**
    * Max länge an Zeichen für Eingabefeld
    */
-  @Input('maxlength') _maxlength: number = null;
+  @Input() maxlength: number = null;
 
   /**
    * Fix breite für das Control definieren.
    */
-  @Input('controlwidth') _controlwidth: string = null;
+  @Input() controlwidth: string = null;
 
 
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input('validationmessagerequired') _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
+  @Input() validationmessagerequired: string = 'VALIDATION_ERROR_REQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input('validationmessagesummaryrequired') _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
+  @Input() validationmessagesummaryrequired: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
   /**
    * Resource Key für Validation Message Pattern bei Control
    */
-  @Input('validationmessagepattern') _validationMessagePattern: string = 'VALIDATION_ERROR_PATTERN';
+  @Input() validationmessagepattern: string = 'VALIDATION_ERROR_PATTERN';
   /**
    * Resource Key für Validation Message Pattern in Validation Summary
    */
-  @Input('validationmessagesummarypattern') _validationMessagePatternSummary: string = 'VALIDATION_ERROR_SUMMARY_PATTERN';
+  @Input() validationmessagesummarypattern: string = 'VALIDATION_ERROR_SUMMARY_PATTERN';
 
 
   /**
@@ -44,12 +44,12 @@ export class NgInputCommon extends NgInputBase<string> {
   validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = null;
 
-    if (this._isrequired) {
-      error = Validation.required(c, this._label, this._validationMessageRequired, this._validationMessageRequiredSummary);
+    if (this.isrequired) {
+      error = Validation.required(c, this.label, this.validationmessagerequired, this.validationmessagesummaryrequired);
     }
 
-    if (error === null && this._pattern !== undefined && this._pattern !== null) {
-      error = Validation.patternValidator(c, this._pattern, this._label, this._validationMessagePattern, this._validationMessagePatternSummary);
+    if (error === null && this.regexvalidation !== undefined && this.regexvalidation !== null) {
+      error = Validation.patternValidator(c, this.regexvalidation, this.label, this.validationmessagepattern, this.validationmessagesummarypattern);
     }
     return error;
   }

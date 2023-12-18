@@ -9,7 +9,7 @@
   </div>
   <div dialogfooter>
     <ng-container *ngFor="let button of buttons">
-      <sac-button [name]="button.key" [text]="button.text" (onclick)="confirm(button.key)" style="margin-left: 15px;"></sac-button>
+      <sac-button [name]="button.key" [text]="button.text" (clicked)="confirm(button.key)" style="margin-left: 15px;"></sac-button>
     </ng-container>
   </div>
 </sac-dialog>

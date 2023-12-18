@@ -18,38 +18,38 @@ export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
   /**
   * Das Input property erhält den Namen des Column
   */
-  @Input('name')
+  @Input()
   public name: any;
 
   /**
   * Das Input property erhält das Value des Column
   */
-  @Input('value')
+  @Input()
   public value: any;
 
   /**
    * Das Input property erhält das Header des Column
    */
-  @Input('header')
+  @Input()
   public header: string;
 
   /**
    * Das Input property erhält die Breite des Column
    */
-  @Input('width')
+  @Input()
   public width: string;
 
   /**
    * Das Input property erhält das Type des Column
    */
-  @Input('type')
+  @Input()
   public type: string;
 
   /**
    * Das Input property erhält das Column- Key-Word, damit das Column sortiert werden kann.
    */
-  @Input('sortkey')
-  public SortKey: string;
+  @Input()
+  public sortkey: string;
 
   //#endregion
 
@@ -113,8 +113,8 @@ export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
    * Die Methode deffiniert wie das Grid sortiert wird, abhängig von gekligte Column
    */
   public SortByColumn() {
-    if (this.SortKey !== undefined && this.SortKey !== null && this.SortKey !== '') {
-      return this.grid.SortBy(this.SortKey);
+    if (this.sortkey !== undefined && this.sortkey !== null && this.sortkey !== '') {
+      return this.grid.SortBy(this.sortkey);
     }
   }
 
@@ -122,7 +122,7 @@ export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
    * die Methode ergibt boolean Wert und definiert, ob das Column für Sortierung aktiviert ist, gemäß eingegebene sortKey
    */
   public IsSortedColumn(): boolean {
-    return this.grid.sortColumn === this.SortKey;
+    return this.grid.sortColumn === this.sortkey;
   }
 
   /**

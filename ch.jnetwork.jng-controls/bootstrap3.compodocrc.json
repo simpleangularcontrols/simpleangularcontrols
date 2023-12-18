@@ -5,5 +5,13 @@
   "includesName": "Dokumentation",
   "disablePrivate": true,
   "disableRoutesGraph": true,
-  "output": "documentation/bootstrap3"
+  "output": "documentation/bootstrap3",
+  "navTabConfig": [
+    { "id": "info", "label": "Info" },
+    { "id": "readme", "label": "Example" },
+    { "id": "source", "label": "Source" },
+    { "id": "templateData", "label": "Template" },
+    { "id": "tree", "label": "DOM Tree" },
+    { "id": "example", "label": "Live-Examples" }
+  ]
 }

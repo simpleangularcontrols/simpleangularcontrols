@@ -12,8 +12,66 @@
         <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -38,21 +96,27 @@
 
 
 <ol class="breadcrumb">
-  <li>Directives</li>
-  <li >NgTimeCommon</li>
+  <li class="breadcrumb-item">Directives</li>
+  <li class="breadcrumb-item" >NgTimeCommon</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -73,13 +137,13 @@
                 <h3>Extends</h3>
             </p>
             <p class="comment">
-                        <code><a href="../directives/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
+                            <code><a href="../directives/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
             </p>
 
 
 
 
-            <section>
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -166,6 +230,7 @@
                                 <a href="#ModifyParsedDateTimeValue" >ModifyParsedDateTimeValue</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                     <span class="modifier">Public</span>
                                 <a href="#onClick" >onClick</a>
                             </li>
@@ -273,13 +338,13 @@
                                 <a href="#validationmessagedatetimeformat" >validationmessagedatetimeformat</a>
                             </li>
                             <li>
+                                <a href="#validationmessagedatetimeformatsummary" >validationmessagedatetimeformatsummary</a>
+                            </li>
+                            <li>
                                 <a href="#validationmessagerequired" >validationmessagerequired</a>
                             </li>
                             <li>
-                                <a href="#validationmessagesummarydatetimeformat" >validationmessagesummarydatetimeformat</a>
-                            </li>
-                            <li>
-                                <a href="#validationmessagesummaryrequired" >validationmessagesummaryrequired</a>
+                                <a href="#validationmessagerequiredsummary" >validationmessagerequiredsummary</a>
                             </li>
                             <li>
                                 <a href="#valuestring" >valuestring</a>
@@ -353,13 +418,13 @@
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-constructor">
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(parent: <a href="../directives/NgFormularCommon.html" target="_self">NgFormularCommon</a>, injector: <a href="https://angular.io/api/core/Injector" target="_blank">Injector</a>, _elementRef: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>)</code>
+<code>constructor(parent: <a href="../directives/NgFormularCommon.html" target="_self">NgFormularCommon</a>, injector: Injector, _elementRef: ElementRef)</code>
                     </td>
                 </tr>
                         <tr>
@@ -404,7 +469,7 @@
                                                         <td>injector</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://angular.io/api/core/Injector" target="_blank" >Injector</a></code>
+                                                                    <code>Injector</code>
                                                         </td>
                                                   
                                                     <td>
@@ -420,7 +485,7 @@
                                                         <td>_elementRef</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                                                                    <code>ElementRef</code>
                                                         </td>
                                                   
                                                     <td>
@@ -441,7 +506,7 @@
         </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-inputs">
     <h3 id="inputs">Inputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -746,6 +811,45 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="validationmessagedatetimeformatsummary"></a>
+                        <b>validationmessagedatetimeformatsummary</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:66</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Resource Key für Validation Message DateTimeFormat in Validation Summary</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="validationmessagerequired"></a>
                         <b>validationmessagerequired</b>
                     </td>
@@ -785,47 +889,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="validationmessagesummarydatetimeformat"></a>
-                        <b>validationmessagesummarydatetimeformat</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT&#x27;</code>
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4" colspan="2">
-                                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
-</div>
-                                </td>
-                            </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:66</a></code>
-</div>
-                            </td>
-                        </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Resource Key für Validation Message DateTimeFormat in Validation Summary</p>
-</div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="validationmessagesummaryrequired"></a>
-                        <b>validationmessagesummaryrequired</b>
+                        <a name="validationmessagerequiredsummary"></a>
+                        <b>validationmessagerequiredsummary</b>
                     </td>
                 </tr>
                 <tr>
@@ -920,7 +985,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:58</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:68</a></code>
 </div>
                             </td>
                         </tr>
@@ -959,7 +1024,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:54</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:64</a></code>
 </div>
                             </td>
                         </tr>
@@ -993,7 +1058,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:373</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:396</a></code>
 </div>
                             </td>
                         </tr>
@@ -1032,7 +1097,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:62</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:72</a></code>
 </div>
                             </td>
                         </tr>
@@ -1071,7 +1136,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:66</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:76</a></code>
 </div>
                             </td>
                         </tr>
@@ -1110,7 +1175,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:46</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:56</a></code>
 </div>
                             </td>
                         </tr>
@@ -1149,7 +1214,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:50</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:60</a></code>
 </div>
                             </td>
                         </tr>
@@ -1188,7 +1253,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:42</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:52</a></code>
 </div>
                             </td>
                         </tr>
@@ -1222,7 +1287,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:201</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:214</a></code>
 </div>
                             </td>
                         </tr>
@@ -1238,7 +1303,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 </section>
 
 
-            <section>
+            <section data-compodoc="block-host-listener">
     <h3>HostListeners</h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -1277,7 +1342,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
         </tbody>
     </table>
 </section>
-            <section>
+            <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -1300,29 +1365,29 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:137</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:137</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Methode ergibt Datum-Format vom String</p>
+                        <div class="io-description"><p>Methode ergibt Datum-Format vom String</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -1345,61 +1410,59 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:144</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:144</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Methode ergibt Datum - Moment</p>
+                        <div class="io-description"><p>Methode ergibt Datum - Moment</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>v</td>
-                                    <td>
-                                            <code>Moment</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>v</td>
+                                            <td>
+                                                        <code>Moment</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Moment</code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Moment</code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1410,7 +1473,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                 <td class="col-md-4">
                     <a name="onClick"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Public</span>
                         <span ><b>onClick</b></span>
                         <a href="#onClick"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -1418,7 +1482,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>onClick(targetElement)</code>
                 </td>
             </tr>
@@ -1431,51 +1495,49 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                 </td>
             </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="176"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/time.ts:176</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="176"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/time.ts:176</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>HostListener</p>
+                        <div class="io-description"><p>HostListener</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>targetElement</td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>targetElement</td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1498,23 +1560,23 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="158"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/time.ts:158</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="158"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/time.ts:158</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Zeigt Date Selector an</p>
+                        <div class="io-description"><p>Zeigt Date Selector an</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -1537,55 +1599,53 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="186"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/time.ts:186</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="186"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/datetime/time.ts:186</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Time Selector</p>
+                        <div class="io-description"><p>Time Selector</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>v</td>
-                                    <td>
-                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>v</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1603,66 +1663,64 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>validateData(c: <a href="https://angular.io/api/forms/AbstractControl" target="_blank">AbstractControl</a>)</code>
+<code>validateData(c: AbstractControl)</code>
                 </td>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:201</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:201</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Validator</p>
+                        <div class="io-description"><p>Validator</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>c</td>
-                                    <td>
-                                                <code><a href="https://angular.io/api/forms/AbstractControl" target="_blank" >AbstractControl</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>c</td>
+                                            <td>
+                                                        <code>AbstractControl</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1685,57 +1743,55 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:109</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:109</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>JSON Date String in ein UTC DateTime Object konvertieren, welches vom Control verwendete werden kann</p>
+                        <div class="io-description"><p>JSON Date String in ein UTC DateTime Object konvertieren, welches vom Control verwendete werden kann</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>timestamp</td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>timestamp</td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1758,29 +1814,29 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:168</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:168</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>prüft ob das Date ist valid</p>
+                        <div class="io-description"><p>prüft ob das Date ist valid</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -1803,61 +1859,59 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:157</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseDateTimeControl.html" target="_self" >NgBaseDateTimeControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseDateTimeControl.html#source" target="_self" >NgBaseDateTimeControl:157</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>setzt das value von typ string zu property valuestring</p>
+                        <div class="io-description"><p>setzt das value von typ string zu property valuestring</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>v</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>v</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1880,61 +1934,59 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:93</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:93</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Overwrite WriteValue to Set correct Date Object</p>
+                        <div class="io-description"><p>Overwrite WriteValue to Set correct Date Object</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>value</td>
-                                    <td>
-                                            <code>Date | string</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                        <code>Date | string</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1945,7 +1997,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                 <td class="col-md-4">
                     <a name="ConvertInputValue"></a>
                     <span class="name">
-                        <span class="modifier">Protected</span>
+                            <span class="modifier">Protected</span>
                         <span ><b>ConvertInputValue</b></span>
                         <a href="#ConvertInputValue"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -1953,73 +2005,71 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>ConvertInputValue(value: VALUE)</code>
                 </td>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:269</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:257</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Method can Overwriten in Parent Classes</p>
+                        <div class="io-description"><p>Method can Overwriten in Parent Classes</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>value</td>
-                                    <td>
-                                            <code>VALUE</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                        <code>VALUE</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                    <td>
-                                        <p>Wert welcher in den korrekten Typ konvertiert werden soll</p>
+                                            <td>
+                                                    <p>Wert welcher in den korrekten Typ konvertiert werden soll</p>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>VALUE</code>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>VALUE</code>
 
-                    </div>
-                    <div class="io-description">
-                        <p>Wert im korrekten Typ</p>
+                        </div>
+                            <div class="io-description">
+                                <p>Wert im korrekten Typ</p>
 
-                    </div>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2030,7 +2080,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                 <td class="col-md-4">
                     <a name="GetDecimalSymbol"></a>
                     <span class="name">
-                        <span class="modifier">Protected</span>
+                            <span class="modifier">Protected</span>
                         <span ><b>GetDecimalSymbol</b></span>
                         <a href="#GetDecimalSymbol"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -2038,35 +2088,35 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>GetDecimalSymbol()</code>
                 </td>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:260</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:248</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Methode ergibt Decimal Symbol</p>
+                        <div class="io-description"><p>Methode ergibt Decimal Symbol</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -2089,29 +2139,29 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:340</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:320</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Methode ergibt Error anhand von gegebenen Kriterien</p>
+                        <div class="io-description"><p>Methode ergibt Error anhand von gegebenen Kriterien</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;string&gt;</code>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;string&gt;</code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -2134,29 +2184,29 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:135</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:122</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Init Event</p>
+                        <div class="io-description"><p>Init Event</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -2167,7 +2217,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                 <td class="col-md-4">
                     <a name="OnClassInit"></a>
                     <span class="name">
-                        <span class="modifier">Protected</span>
+                            <span class="modifier">Protected</span>
                         <span ><b>OnClassInit</b></span>
                         <a href="#OnClassInit"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -2175,35 +2225,35 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>OnClassInit()</code>
                 </td>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:255</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:242</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Method can be used to Set Properties at Class Init</p>
+                        <div class="io-description"><p>Method can be used to Set Properties at Class Init</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -2226,29 +2276,29 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:332</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:312</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Methode ergibt boolean touched = true</p>
+                        <div class="io-description"><p>Methode ergibt boolean touched = true</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -2271,62 +2321,60 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
 </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:167</a></code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:180</a></code>
 </div>
-                </td>
-            </tr>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Methode, damit andere Controls änderungen im Control mitbekommen können
+                        <div class="io-description"><p>Methode, damit andere Controls änderungen im Control mitbekommen können
 Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>fn</td>
-                                    <td>
-                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fn</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2349,61 +2397,59 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:187</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:174</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Methode, damit andere Controls änderungen mitbekommen, wenn das Control aktiviert (Focus) wird.</p>
+                        <div class="io-description"><p>Methode, damit andere Controls änderungen mitbekommen, wenn das Control aktiviert (Focus) wird.</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>fn</td>
-                                    <td>
-                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fn</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2426,61 +2472,59 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:293</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:281</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Methode registriert Änderungen bei der Validierung</p>
+                        <div class="io-description"><p>Methode registriert Änderungen bei der Validierung</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>fn</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fn</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2503,61 +2547,59 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:201</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:188</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Setzt das Control auf Disabled</p>
+                        <div class="io-description"><p>Setzt das Control auf Disabled</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>isDisabled</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isDisabled</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2580,61 +2622,59 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:233</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:220</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Methode die den Wert des Inputs setzt</p>
+                        <div class="io-description"><p>Methode die den Wert des Inputs setzt</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>v</td>
-                                    <td>
-                                            <code>VALUE</code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>v</td>
+                                            <td>
+                                                        <code>VALUE</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2645,7 +2685,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                 <td class="col-md-4">
                     <a name="UpdateValueAndValidity"></a>
                     <span class="name">
-                        <span class="modifier">Protected</span>
+                            <span class="modifier">Protected</span>
                         <span ><b>UpdateValueAndValidity</b></span>
                         <a href="#UpdateValueAndValidity"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -2653,35 +2693,35 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>UpdateValueAndValidity()</code>
                 </td>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:386</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:363</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Aktualisiert den NgModel Wert und die Gültigkeit des Validators des Controls</p>
+                        <div class="io-description"><p>Aktualisiert den NgModel Wert und die Gültigkeit des Validators des Controls</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -2699,72 +2739,70 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>validate(c: <a href="https://angular.io/api/forms/AbstractControl" target="_blank">AbstractControl</a>)</code>
+<code>validate(c: AbstractControl)</code>
                 </td>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:280</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgBaseModelControl.html" target="_self" >NgBaseModelControl</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:268</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Validator Methode</p>
+                        <div class="io-description"><p>Validator Methode</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>c</td>
-                                    <td>
-                                                <code><a href="https://angular.io/api/forms/AbstractControl" target="_blank" >AbstractControl</a></code>
-                                    </td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>c</td>
+                                            <td>
+                                                        <code>AbstractControl</code>
+                                            </td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Validation.html" target="_self" >ValidationErrors | null</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
     </table>
 </section>
-            <section>
+            <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
@@ -3053,7 +3091,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:103</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:116</a></code>
 </div>
                         </td>
                     </tr>
@@ -3098,7 +3136,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:25</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:35</a></code>
 </div>
                         </td>
                     </tr>
@@ -3138,7 +3176,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:98</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:111</a></code>
 </div>
                         </td>
                     </tr>
@@ -3183,7 +3221,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:108</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:121</a></code>
 </div>
                         </td>
                     </tr>
@@ -3228,7 +3266,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:93</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:106</a></code>
 </div>
                         </td>
                     </tr>
@@ -3256,7 +3294,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../injectables/LanguageResourceService.html" target="_self" >ILanguageResourceService</a></code>
+                        <i>Type : </i>        <code><a href="../interfaces/ILanguageResourceService.html" target="_self" >ILanguageResourceService</a></code>
 
                     </td>
                 </tr>
@@ -3268,7 +3306,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:33</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:43</a></code>
 </div>
                         </td>
                     </tr>
@@ -3308,7 +3346,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:21</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:31</a></code>
 </div>
                         </td>
                     </tr>
@@ -3352,7 +3390,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:157</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:170</a></code>
 </div>
                         </td>
                     </tr>
@@ -3396,7 +3434,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:161</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/NgBaseModelControl.html#source" target="_self" >NgBaseModelControl:174</a></code>
 </div>
                         </td>
                     </tr>
@@ -3412,7 +3450,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-accessors">
     <h3 id="accessors">
         Accessors
     </h3>
@@ -3543,7 +3581,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ElementRef, HostListener, Injector, Input, Directive } from &#x27;@angular/core&#x27;;
 import { AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
 import * as moment_ from &#x27;moment&#x27;;
@@ -3603,7 +3641,7 @@ export class NgTimeCommon extends NgBaseDateTimeControl {
   /**
    * Min Time
    */
-  @Input(&#x27;mintime&#x27;)
+  @Input()
   set mintime(v: string | Date | null) {
     let time &#x3D; moment(v, [this.TIMEFORMAT], true);
 
@@ -3623,7 +3661,7 @@ export class NgTimeCommon extends NgBaseDateTimeControl {
   /**
    * Max Time
    */
-  @Input(&#x27;maxtime&#x27;)
+  @Input()
   set maxtime(v: string | Date | null) {
     let time &#x3D; moment(v, [this.TIMEFORMAT], true);
 
@@ -3648,20 +3686,20 @@ export class NgTimeCommon extends NgBaseDateTimeControl {
   /**
    * Resource Key für Validation Message MinTime bei Control
    */
-  @Input(&#x27;validationmessagemintime&#x27;) _validationMessageMinTime: string &#x3D; &#x27;VALIDATION_ERROR_MINTIME&#x27;;
+  @Input() validationmessagemintime: string &#x3D; &#x27;VALIDATION_ERROR_MINTIME&#x27;;
   /**
    * Resource Key für Validation Message MinTime in Validation Summary
    */
-  @Input(&#x27;validationmessagesummarymintime&#x27;) _validationMessageMinTimeSummary: string &#x3D; &#x27;VALIDATION_ERROR_SUMMARY_MINTIME&#x27;;
+  @Input() validationmessagesummarymintime: string &#x3D; &#x27;VALIDATION_ERROR_SUMMARY_MINTIME&#x27;;
 
   /**
    * Resource Key für Validation Message MinTime bei Control
    */
-  @Input(&#x27;validationmessagemaxtime&#x27;) _validationMessageMaxTime: string &#x3D; &#x27;VALIDATION_ERROR_MAXTIME&#x27;;
+  @Input() validationmessagemaxtime: string &#x3D; &#x27;VALIDATION_ERROR_MAXTIME&#x27;;
   /**
    * Resource Key für Validation Message MinTime in Validation Summary
    */
-  @Input(&#x27;validationmessagesummarymaxtime&#x27;) _validationMessageMaxTimeSummary: string &#x3D; &#x27;VALIDATION_ERROR_SUMMARY_MAXTIME&#x27;;
+  @Input() validationmessagesummarymaxtime: string &#x3D; &#x27;VALIDATION_ERROR_SUMMARY_MAXTIME&#x27;;
 
   // #endregion
 
@@ -3750,11 +3788,11 @@ export class NgTimeCommon extends NgBaseDateTimeControl {
     error &#x3D; super.validateData(c);
 
     if (error &#x3D;&#x3D;&#x3D; null &amp;&amp; c.value !&#x3D;&#x3D; null &amp;&amp; c.value !&#x3D;&#x3D; undefined &amp;&amp; c.value !&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; this._mintime !&#x3D;&#x3D; undefined &amp;&amp; this._mintime !&#x3D;&#x3D; null) {
-      error &#x3D; Validation.minTime(this, this._mintime, this._label, this._validationMessageMinTime, this._validationMessageMinTimeSummary);
+      error &#x3D; Validation.minTime(this, this._mintime, this.label, this.validationmessagemintime, this.validationmessagesummarymintime);
     }
 
     if (error &#x3D;&#x3D;&#x3D; null &amp;&amp; c.value !&#x3D;&#x3D; null &amp;&amp; c.value !&#x3D;&#x3D; undefined &amp;&amp; c.value !&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; this._maxtime !&#x3D;&#x3D; undefined &amp;&amp; this._maxtime !&#x3D;&#x3D; null) {
-      error &#x3D; Validation.maxTime(this, this._maxtime, this._label, this._validationMessageMaxTime, this._validationMessageMaxTimeSummary);
+      error &#x3D; Validation.maxTime(this, this._maxtime, this.label, this.validationmessagemaxtime, this.validationmessagesummarymaxtime);
     }
 
     return error;

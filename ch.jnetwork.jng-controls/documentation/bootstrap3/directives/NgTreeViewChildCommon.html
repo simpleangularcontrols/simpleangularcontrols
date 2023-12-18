@@ -12,8 +12,66 @@
         <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -38,21 +96,27 @@
 
 
 <ol class="breadcrumb">
-  <li>Directives</li>
-  <li >NgTreeViewChildCommon</li>
+  <li class="breadcrumb-item">Directives</li>
+  <li class="breadcrumb-item" >NgTreeViewChildCommon</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -73,13 +137,19 @@
                 <h3>Extends</h3>
             </p>
             <p class="comment">
-                        <code><a href="../directives/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+                            <code><a href="../directives/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+            </p>
+
+            <p class="comment">
+                <h3>Implements</h3>
+            </p>
+            <p class="comment">
+                        <code>OnInit</code>
             </p>
 
 
 
-
-            <section>
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -154,7 +224,7 @@
                                 <a href="#childrenAttr" >childrenAttr</a>
                             </li>
                             <li>
-                                <a href="#collapseAll" >collapseAll</a>
+                                <a href="#collapseall" >collapseall</a>
                             </li>
                             <li>
                                 <a href="#data" >data</a>
@@ -175,10 +245,10 @@
                                 <a href="#prepareData" >prepareData</a>
                             </li>
                             <li>
-                                <a href="#selectAll" >selectAll</a>
+                                <a href="#selectall" >selectall</a>
                             </li>
                             <li>
-                                <a href="#selectedId" >selectedId</a>
+                                <a href="#selectedid" >selectedid</a>
                             </li>
                             <li>
                                 <a href="#template" >template</a>
@@ -202,13 +272,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#onselecteditem" >onselecteditem</a>
+                                <a href="#selectedidchange" >selectedidchange</a>
                             </li>
                             <li>
-                                <a href="#selectedIdChange" >selectedIdChange</a>
+                                <a href="#selecteditem" >selecteditem</a>
                             </li>
                             <li>
-                                <a href="#selectedTextChanged" >selectedTextChanged</a>
+                                <a href="#selectedtextchanged" >selectedtextchanged</a>
                             </li>
                         </ul>
                     </td>
@@ -221,7 +291,7 @@
 </section>
 
 
-            <section>
+            <section data-compodoc="block-inputs">
     <h3 id="inputs">Inputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -250,7 +320,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:153</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:147</a></code>
 </div>
                             </td>
                         </tr>
@@ -266,8 +336,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="collapseAll"></a>
-                        <b>collapseAll</b>
+                        <a name="collapseall"></a>
+                        <b>collapseall</b>
                     </td>
                 </tr>
                 <tr>
@@ -284,7 +354,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:166</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:160</a></code>
 </div>
                             </td>
                         </tr>
@@ -318,7 +388,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:59</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:62</a></code>
 </div>
                             </td>
                         </tr>
@@ -352,7 +422,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:103</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:100</a></code>
 </div>
                             </td>
                         </tr>
@@ -391,7 +461,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:143</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:137</a></code>
 </div>
                             </td>
                         </tr>
@@ -419,7 +489,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&quot;&quot;</code>
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
                     </td>
                 </tr>
                             <tr>
@@ -430,7 +500,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:125</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:121</a></code>
 </div>
                             </td>
                         </tr>
@@ -469,7 +539,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:148</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:142</a></code>
 </div>
                             </td>
                         </tr>
@@ -508,7 +578,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:133</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:127</a></code>
 </div>
                             </td>
                         </tr>
@@ -525,8 +595,8 @@ is false).</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="selectAll"></a>
-                        <b>selectAll</b>
+                        <a name="selectall"></a>
+                        <b>selectall</b>
                     </td>
                 </tr>
                 <tr>
@@ -543,7 +613,7 @@ is false).</p>
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:196</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:183</a></code>
 </div>
                             </td>
                         </tr>
@@ -559,8 +629,8 @@ is false).</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="selectedId"></a>
-                        <b>selectedId</b>
+                        <a name="selectedid"></a>
+                        <b>selectedid</b>
                     </td>
                 </tr>
                 <tr>
@@ -577,7 +647,7 @@ is false).</p>
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:207</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:198</a></code>
 </div>
                             </td>
                         </tr>
@@ -611,7 +681,7 @@ is false).</p>
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:80</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:79</a></code>
 </div>
                             </td>
                         </tr>
@@ -650,7 +720,7 @@ is false).</p>
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:138</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:132</a></code>
 </div>
                             </td>
                         </tr>
@@ -684,7 +754,7 @@ is false).</p>
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:158</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:152</a></code>
 </div>
                             </td>
                         </tr>
@@ -697,48 +767,14 @@ is false).</p>
             </tbody>
         </table>
 </section>
-            <section>
+            <section data-compodoc="block-outputs">
     <h3 id="outputs">Outputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="onselecteditem"></a>
-                        <b>onselecteditem</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>EventEmitter&lt;string&gt;</code>
-
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4" colspan="2">
-                                    <div class="io-line">Inherited from         <code><a href="../directives/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
-</div>
-                                </td>
-                            </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:263</a></code>
-</div>
-                            </td>
-                        </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Output Emitter. Emit wenn ein Node selektiert wird.</p>
-</div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="selectedIdChange"></a>
-                        <b>selectedIdChange</b>
+                        <a name="selectedidchange"></a>
+                        <b>selectedidchange</b>
                     </td>
                 </tr>
                 <tr>
@@ -755,7 +791,7 @@ is false).</p>
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:251</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:242</a></code>
 </div>
                             </td>
                         </tr>
@@ -771,8 +807,8 @@ is false).</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="selectedTextChanged"></a>
-                        <b>selectedTextChanged</b>
+                        <a name="selecteditem"></a>
+                        <b>selecteditem</b>
                     </td>
                 </tr>
                 <tr>
@@ -789,7 +825,41 @@ is false).</p>
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:257</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:254</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Output Emitter. Emit wenn ein Node selektiert wird.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedtextchanged"></a>
+                        <b>selectedtextchanged</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;string&gt;</code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:248</a></code>
 </div>
                             </td>
                         </tr>
@@ -804,7 +874,7 @@ is false).</p>
 </section>
 
 
-            <section>
+            <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -827,30 +897,30 @@ is false).</p>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
 </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:13</a></code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:13</a></code>
 </div>
-                </td>
-            </tr>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>A lifecycle hook that is called after Angular has initialized all data-bound properties of a directive.
+                        <div class="io-description"><p>A lifecycle hook that is called after Angular has initialized all data-bound properties of a directive.
 Define an ngOnInit() method to handle any additional initialization tasks.</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -873,57 +943,55 @@ Define an ngOnInit() method to handle any additional initialization tasks.</p>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:325</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:339</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Die Methode wird alle Nodes collapse</p>
+                        <div class="io-description"><p>Die Methode wird alle Nodes collapse</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>command</td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>command</td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -946,57 +1014,55 @@ Define an ngOnInit() method to handle any additional initialization tasks.</p>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:309</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:319</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Die Methode set den selektierten Node und emit es.</p>
+                        <div class="io-description"><p>Die Methode set den selektierten Node und emit es.</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>node</td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>node</td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1019,57 +1085,55 @@ Define an ngOnInit() method to handle any additional initialization tasks.</p>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:300</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:310</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Die Methode collapse/expand den selectierten Node</p>
+                        <div class="io-description"><p>Die Methode collapse/expand den selectierten Node</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>node</td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>node</td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1092,63 +1156,61 @@ Define an ngOnInit() method to handle any additional initialization tasks.</p>
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:318</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgTreeViewCommon.html" target="_self" >NgTreeViewCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:330</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Die Methode wird ein event mit Meldung zu Parent emit-en.</p>
+                        <div class="io-description"><p>Die Methode wird ein event mit Meldung zu Parent emit-en.</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>msg</td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>msg</td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
     </table>
 </section>
-            <section>
+            <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
@@ -1179,7 +1241,7 @@ Define an ngOnInit() method to handle any additional initialization tasks.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:12</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:19</a></code>
 </div>
                         </td>
                     </tr>
@@ -1224,7 +1286,7 @@ Define an ngOnInit() method to handle any additional initialization tasks.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:27</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:34</a></code>
 </div>
                         </td>
                     </tr>
@@ -1269,7 +1331,7 @@ Define an ngOnInit() method to handle any additional initialization tasks.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:37</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:44</a></code>
 </div>
                         </td>
                     </tr>
@@ -1314,7 +1376,7 @@ Define an ngOnInit() method to handle any additional initialization tasks.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:22</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:29</a></code>
 </div>
                         </td>
                     </tr>
@@ -1359,7 +1421,7 @@ Define an ngOnInit() method to handle any additional initialization tasks.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:32</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/NgTreeViewCommon.html#source" target="_self" >NgTreeViewCommon:39</a></code>
 </div>
                         </td>
                     </tr>
@@ -1379,21 +1441,21 @@ Define an ngOnInit() method to handle any additional initialization tasks.</p>
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive } from &#x27;@angular/core&#x27;;
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, OnInit } from &#x27;@angular/core&#x27;;
 import { NgTreeViewCommon } from &#x27;./treeview&#x27;;
 
 /**
  * Komponente für NgTreeViewChildCommon. Extends NgTreeViewCommon 
  */
 @Directive()
-export class NgTreeViewChildCommon extends NgTreeViewCommon {
+export class NgTreeViewChildCommon extends NgTreeViewCommon implements OnInit {
   /**
    * A lifecycle hook that is called after Angular has initialized all data-bound properties of a directive. 
    * Define an ngOnInit() method to handle any additional initialization tasks.
    */
   ngOnInit(){    
-    this.collapseAllNode(this.collapseAll)
+    this.collapseAllNode(this.collapseall)
   }
 }
 

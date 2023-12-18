@@ -24,71 +24,71 @@
 <title>cluster_JNetworkBootstrap4ConfirmModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 656,-268 656,-70 8,-70"/>
 </g>
-<g id="clust4" class="cluster">
-<title>cluster_JNetworkBootstrap4ConfirmModule_imports</title>
-<polygon fill="none" stroke="black" points="186,-78 186,-130 648,-130 648,-78 186,-78"/>
+<g id="clust5" class="cluster">
+<title>cluster_JNetworkBootstrap4ConfirmModule_exports</title>
+<polygon fill="none" stroke="black" points="280,-208 280,-260 446,-260 446,-208 280,-208"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_JNetworkBootstrap4ConfirmModule_declarations</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-130 178,-130 178,-78 16,-78"/>
+<polygon fill="none" stroke="black" points="486,-78 486,-130 648,-130 648,-78 486,-78"/>
 </g>
-<g id="clust5" class="cluster">
-<title>cluster_JNetworkBootstrap4ConfirmModule_exports</title>
-<polygon fill="none" stroke="black" points="218,-208 218,-260 384,-260 384,-208 218,-208"/>
+<g id="clust4" class="cluster">
+<title>cluster_JNetworkBootstrap4ConfirmModule_imports</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 478,-130 478,-78 16,-78"/>
 </g>
 <!-- NgConfirmComponent -->
 <g id="node1" class="node">
 <title>NgConfirmComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="169.88,-122 24.12,-122 24.12,-86 169.88,-86 169.88,-122"/>
-<text text-anchor="middle" x="97" y="-99.8" font-family="Times,serif" font-size="14.00">NgConfirmComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="639.88,-122 494.12,-122 494.12,-86 639.88,-86 639.88,-122"/>
+<text text-anchor="middle" x="567" y="-99.8" font-family="Times,serif" font-size="14.00">NgConfirmComponent</text>
 </g>
 <!-- JNetworkBootstrap4ConfirmModule -->
 <g id="node2" class="node">
 <title>JNetworkBootstrap4ConfirmModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="412.35,-187 409.35,-191 388.35,-191 385.35,-187 189.65,-187 189.65,-151 412.35,-151 412.35,-187"/>
-<text text-anchor="middle" x="301" y="-164.8" font-family="Times,serif" font-size="14.00">JNetworkBootstrap4ConfirmModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="474.35,-187 471.35,-191 450.35,-191 447.35,-187 251.65,-187 251.65,-151 474.35,-151 474.35,-187"/>
+<text text-anchor="middle" x="363" y="-164.8" font-family="Times,serif" font-size="14.00">JNetworkBootstrap4ConfirmModule</text>
 </g>
 <!-- NgConfirmComponent&#45;&gt;JNetworkBootstrap4ConfirmModule -->
 <g id="edge1" class="edge">
 <title>NgConfirmComponent&#45;&gt;JNetworkBootstrap4ConfirmModule</title>
-<path fill="none" stroke="black" d="M97,-122.11C97,-141.34 97,-169 97,-169 97,-169 179.45,-169 179.45,-169"/>
-<polygon fill="black" stroke="black" points="179.45,-172.5 189.45,-169 179.45,-165.5 179.45,-172.5"/>
+<path fill="none" stroke="black" d="M567,-122.11C567,-141.34 567,-169 567,-169 567,-169 484.55,-169 484.55,-169"/>
+<polygon fill="black" stroke="black" points="484.55,-165.5 474.55,-169 484.55,-172.5 484.55,-165.5"/>
 </g>
 <!-- NgConfirmComponent  -->
 <g id="node5" class="node">
 <title>NgConfirmComponent </title>
-<polygon fill="#fb8072" stroke="black" points="375.88,-252 226.12,-252 226.12,-216 375.88,-216 375.88,-252"/>
-<text text-anchor="middle" x="301" y="-229.8" font-family="Times,serif" font-size="14.00">NgConfirmComponent </text>
+<polygon fill="#fb8072" stroke="black" points="437.88,-252 288.12,-252 288.12,-216 437.88,-216 437.88,-252"/>
+<text text-anchor="middle" x="363" y="-229.8" font-family="Times,serif" font-size="14.00">NgConfirmComponent </text>
 </g>
 <!-- JNetworkBootstrap4ConfirmModule&#45;&gt;NgConfirmComponent  -->
 <g id="edge4" class="edge">
 <title>JNetworkBootstrap4ConfirmModule&#45;&gt;NgConfirmComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M301,-187.11C301,-187.11 301,-205.99 301,-205.99"/>
-<polygon fill="black" stroke="black" points="297.5,-205.99 301,-215.99 304.5,-205.99 297.5,-205.99"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M363,-187.11C363,-187.11 363,-205.99 363,-205.99"/>
+<polygon fill="black" stroke="black" points="359.5,-205.99 363,-215.99 366.5,-205.99 359.5,-205.99"/>
 </g>
 <!-- JNetworkBootstrap4ButtonModule -->
 <g id="node3" class="node">
 <title>JNetworkBootstrap4ButtonModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="639.53,-122 636.53,-126 615.53,-126 612.53,-122 426.47,-122 426.47,-86 639.53,-86 639.53,-122"/>
-<text text-anchor="middle" x="533" y="-99.8" font-family="Times,serif" font-size="14.00">JNetworkBootstrap4ButtonModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="469.53,-122 466.53,-126 445.53,-126 442.53,-122 256.47,-122 256.47,-86 469.53,-86 469.53,-122"/>
+<text text-anchor="middle" x="363" y="-99.8" font-family="Times,serif" font-size="14.00">JNetworkBootstrap4ButtonModule</text>
 </g>
 <!-- JNetworkBootstrap4ButtonModule&#45;&gt;JNetworkBootstrap4ConfirmModule -->
 <g id="edge2" class="edge">
 <title>JNetworkBootstrap4ButtonModule&#45;&gt;JNetworkBootstrap4ConfirmModule</title>
-<path fill="none" stroke="black" d="M533,-122.11C533,-141.34 533,-169 533,-169 533,-169 422.58,-169 422.58,-169"/>
-<polygon fill="black" stroke="black" points="422.58,-165.5 412.58,-169 422.58,-172.5 422.58,-165.5"/>
+<path fill="none" stroke="black" d="M363,-122.11C363,-122.11 363,-140.99 363,-140.99"/>
+<polygon fill="black" stroke="black" points="359.5,-140.99 363,-150.99 366.5,-140.99 359.5,-140.99"/>
 </g>
 <!-- JNetworkBootstrap4DialogModule -->
 <g id="node4" class="node">
 <title>JNetworkBootstrap4DialogModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="407.51,-122 404.51,-126 383.51,-126 380.51,-122 194.49,-122 194.49,-86 407.51,-86 407.51,-122"/>
-<text text-anchor="middle" x="301" y="-99.8" font-family="Times,serif" font-size="14.00">JNetworkBootstrap4DialogModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="237.51,-122 234.51,-126 213.51,-126 210.51,-122 24.49,-122 24.49,-86 237.51,-86 237.51,-122"/>
+<text text-anchor="middle" x="131" y="-99.8" font-family="Times,serif" font-size="14.00">JNetworkBootstrap4DialogModule</text>
 </g>
 <!-- JNetworkBootstrap4DialogModule&#45;&gt;JNetworkBootstrap4ConfirmModule -->
 <g id="edge3" class="edge">
 <title>JNetworkBootstrap4DialogModule&#45;&gt;JNetworkBootstrap4ConfirmModule</title>
-<path fill="none" stroke="black" d="M301,-122.11C301,-122.11 301,-140.99 301,-140.99"/>
-<polygon fill="black" stroke="black" points="297.5,-140.99 301,-150.99 304.5,-140.99 297.5,-140.99"/>
+<path fill="none" stroke="black" d="M131,-122.11C131,-141.34 131,-169 131,-169 131,-169 241.42,-169 241.42,-169"/>
+<polygon fill="black" stroke="black" points="241.42,-172.5 251.42,-169 241.42,-165.5 241.42,-172.5"/>
 </g>
 </g>
 </svg>

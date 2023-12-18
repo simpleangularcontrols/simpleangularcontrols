@@ -12,8 +12,66 @@
         <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -38,21 +96,27 @@
 
 
 <ol class="breadcrumb">
-  <li>Directives</li>
-  <li >NgGridButtonCommon</li>
+  <li class="breadcrumb-item">Directives</li>
+  <li class="breadcrumb-item" >NgGridButtonCommon</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
+    <div class="tab-pane fade active in" id="info">
         <p class="comment">
             <h3>File</h3>
         </p>
@@ -73,7 +137,7 @@
 
 
 
-            <section>
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -139,7 +203,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#onclick" >onclick</a>
+                                <a href="#clicked" >clicked</a>
                             </li>
                         </ul>
                     </td>
@@ -166,7 +230,7 @@
 </section>
 
 
-            <section>
+            <section data-compodoc="block-inputs">
     <h3 id="inputs">Inputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -184,7 +248,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/gridbutton.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/gridbutton.ts:18</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -216,7 +280,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/gridbutton.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/gridbutton.ts:12</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -243,7 +307,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/gridbutton.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/gridbutton.ts:31</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -255,14 +319,14 @@
             </tbody>
         </table>
 </section>
-            <section>
+            <section data-compodoc="block-outputs">
     <h3 id="outputs">Outputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="onclick"></a>
-                        <b>onclick</b>
+                        <a name="clicked"></a>
+                        <b>clicked</b>
                     </td>
                 </tr>
                 <tr>
@@ -273,7 +337,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/gridbutton.ts:47</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/gridbutton.ts:46</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -287,7 +351,7 @@
 </section>
 
 
-            <section>
+            <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -298,7 +362,7 @@
                 <td class="col-md-4">
                     <a name="callaction"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
+                            <span class="modifier">Public</span>
                         <span ><b>callaction</b></span>
                         <a href="#callaction"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -306,35 +370,35 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
                     <code>callaction()</code>
                 </td>
             </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">projects/jngcontrols-common/src/controls/grid/gridbutton.ts:52</a></div>
-                </td>
-            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">projects/jngcontrols-common/src/controls/grid/gridbutton.ts:51</a></div>
+                        </td>
+                    </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Die Methode wird das cklickaction Emitter aktivieren</p>
+                        <div class="io-description"><p>Die Methode wird das cklickaction Emitter aktivieren</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
     </table>
 </section>
-            <section>
+            <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
@@ -364,7 +428,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/gridbutton.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/gridbutton.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -379,7 +443,7 @@
     </table>
 </section>
 
-            <section>
+            <section data-compodoc="block-accessors">
     <h3 id="accessors">
         Accessors
     </h3>
@@ -399,7 +463,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/gridbutton.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/gridbutton.ts:38</a></div>
                                 </td>
                             </tr>
 
@@ -410,7 +474,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/gridbutton.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/jngcontrols-common/src/controls/grid/gridbutton.ts:31</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -464,7 +528,7 @@
     </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, EventEmitter, Input, Output } from &#x27;@angular/core&#x27;;
 
 /**
@@ -472,17 +536,16 @@
  */
 @Directive()
 export class NgGridButtonCommon {
-
   /**
    * Input Property für Styling des Buttons. Deffiniert die Css Klassen des Buttons
    */
-  @Input(&#x27;iconstyle&#x27;)
+  @Input()
   public iconstyle: string &#x3D; &#x27;&#x27;;
 
   /**
- * Icon Name aus Sprite
- */
-  @Input(&#x27;icon&#x27;)
+   * Icon Name aus Sprite
+   */
+  @Input()
   public icon: string;
 
   /**
@@ -495,7 +558,7 @@ export class NgGridButtonCommon {
    * @param v Deaktiviert den Button
    * @return Definiert ob der Button deaktiviert ist
    */
-  @Input(&#x27;isdisabled&#x27;)
+  @Input()
   set isdisabled(v: boolean | string) {
     if (v &#x3D;&#x3D;&#x3D; null || v &#x3D;&#x3D;&#x3D; undefined || typeof v &#x3D;&#x3D;&#x3D; &#x27;boolean&#x27;) {
       this._isdisabledvalue &#x3D; v as boolean;
@@ -508,17 +571,17 @@ export class NgGridButtonCommon {
   }
 
   /**
-  * Event wenn auf den Button geklickt wird
-  */
-  @Output(&#x27;onclick&#x27;)
-  clickaction: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
+   * Event wenn auf den Button geklickt wird
+   */
+  @Output()
+  clicked: EventEmitter&lt;any&gt; &#x3D; new EventEmitter&lt;any&gt;();
 
   /**
    * Die Methode wird das cklickaction Emitter aktivieren
    */
   public callaction() {
     if (!this._isdisabledvalue) {
-      this.clickaction.emit(this.iconstyle);
+      this.clicked.emit(this.iconstyle);
     }
   }
 }

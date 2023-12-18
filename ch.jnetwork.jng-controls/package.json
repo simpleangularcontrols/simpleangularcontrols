@@ -63,7 +63,7 @@
     "@angular/cli": "~13.2.0",
     "@angular/compiler-cli": "~13.2.0",
     "@angular/language-service": "~13.2.0",
-    "@compodoc/compodoc": "1.1.19",
+    "@compodoc/compodoc": "1.1.23",
     "@cypress/code-coverage": "^3.12.8",
     "@cypress/schematic": "2.4.0",
     "@types/node": "^14.0.5",

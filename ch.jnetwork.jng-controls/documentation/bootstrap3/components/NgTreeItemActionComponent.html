@@ -12,8 +12,66 @@
         <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -35,29 +93,33 @@
 
 
 <ol class="breadcrumb">
-  <li>Components</li>
-  <li
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
   >
   NgTreeItemActionComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
         </li>
-        <li >
-            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
     <h3>File</h3>
 </p>
 <p class="comment">
@@ -70,15 +132,16 @@
         <h3>Extends</h3>
     </p>
     <p class="comment">
-                <code><a href="../directives/NgTreeItemActionCommon.html" target="_self" >NgTreeItemActionCommon</a></code>
+                    <code><a href="../directives/NgTreeItemActionCommon.html" target="_self" >NgTreeItemActionCommon</a></code>
     </p>
 
 
 
-<section>
+<section data-compodoc="block-metadata">
     <h3>Metadata</h3>
     <table class="table table-sm table-hover metadata">
         <tbody>
+
 
 
 
@@ -94,6 +157,8 @@
                 <td class="col-md-3">selector</td>
                 <td class="col-md-9"><code>sac-treeitemaction</code></td>
             </tr>
+
+
 
 
 
@@ -114,7 +179,7 @@
     </table>
 </section>
 
-    <section>
+    <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -170,7 +235,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#onclick" >onclick</a>
+                                <a href="#clicked" >clicked</a>
                             </li>
                         </ul>
                     </td>
@@ -182,13 +247,13 @@
     </table>
 </section>
 
-    <section>
+    <section data-compodoc="block-constructor">
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(el: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>)</code>
+<code>constructor(el: ElementRef)</code>
                     </td>
                 </tr>
                         <tr>
@@ -214,7 +279,7 @@
                                                         <td>el</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                                                                    <code>ElementRef</code>
                                                         </td>
                                                   
                                                     <td>
@@ -231,7 +296,7 @@
         </table>
 </section>
 
-    <section>
+    <section data-compodoc="block-inputs">
     <h3 id="inputs">Inputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -255,7 +320,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeItemActionCommon.html#source" target="_self" >NgTreeItemActionCommon:45</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeItemActionCommon.html#source" target="_self" >NgTreeItemActionCommon:48</a></code>
 </div>
                             </td>
                         </tr>
@@ -289,7 +354,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeItemActionCommon.html#source" target="_self" >NgTreeItemActionCommon:35</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeItemActionCommon.html#source" target="_self" >NgTreeItemActionCommon:38</a></code>
 </div>
                             </td>
                         </tr>
@@ -323,7 +388,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeItemActionCommon.html#source" target="_self" >NgTreeItemActionCommon:40</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeItemActionCommon.html#source" target="_self" >NgTreeItemActionCommon:43</a></code>
 </div>
                             </td>
                         </tr>
@@ -336,14 +401,14 @@
             </tbody>
         </table>
 </section>
-    <section>
+    <section data-compodoc="block-outputs">
     <h3 id="outputs">Outputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="onclick"></a>
-                        <b>onclick</b>
+                        <a name="clicked"></a>
+                        <b>clicked</b>
                     </td>
                 </tr>
                 <tr>
@@ -360,7 +425,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeItemActionCommon.html#source" target="_self" >NgTreeItemActionCommon:51</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/NgTreeItemActionCommon.html#source" target="_self" >NgTreeItemActionCommon:54</a></code>
 </div>
                             </td>
                         </tr>
@@ -375,7 +440,7 @@
 </section>
 
 
-    <section>
+    <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -398,29 +463,29 @@
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgTreeItemActionCommon.html" target="_self" >NgTreeItemActionCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgTreeItemActionCommon.html#source" target="_self" >NgTreeItemActionCommon:73</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgTreeItemActionCommon.html" target="_self" >NgTreeItemActionCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgTreeItemActionCommon.html#source" target="_self" >NgTreeItemActionCommon:70</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Die Methode wird das cklickaction Emitter aktivieren.</p>
+                        <div class="io-description"><p>Die Methode wird das cklickaction Emitter aktivieren.</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -443,29 +508,29 @@
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgTreeItemActionCommon.html" target="_self" >NgTreeItemActionCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgTreeItemActionCommon.html#source" target="_self" >NgTreeItemActionCommon:24</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgTreeItemActionCommon.html" target="_self" >NgTreeItemActionCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgTreeItemActionCommon.html#source" target="_self" >NgTreeItemActionCommon:20</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>lifecycle OnInit hook. Wird aufgeruren sobald das Komponent initialisiert ist.</p>
+                        <div class="io-description"><p>lifecycle OnInit hook. Wird aufgeruren sobald das Komponent initialisiert ist.</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
+                        </div>
                 </td>
             </tr>
         </tbody>
@@ -488,57 +553,55 @@
             </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/NgTreeItemActionCommon.html" target="_self" >NgTreeItemActionCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/NgTreeItemActionCommon.html#source" target="_self" >NgTreeItemActionCommon:59</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../directives/NgTreeItemActionCommon.html" target="_self" >NgTreeItemActionCommon</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../directives/NgTreeItemActionCommon.html#source" target="_self" >NgTreeItemActionCommon:56</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Die Methode erstellt die CSS Klasse des Icon. Akzeptiert ein Key-word und baut ein vollständige CSS Klasse.</p>
+                        <div class="io-description"><p>Die Methode erstellt die CSS Klasse des Icon. Akzeptiert ein Key-word und baut ein vollständige CSS Klasse.</p>
 </div>
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>initialClass</td>
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>initialClass</td>
 
-                                    <td>
-                                        No
-                                    </td>
+                                            <td>
+                                                    No
+                                            </td>
 
 
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -548,7 +611,7 @@
 </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ElementRef } from &#x27;@angular/core&#x27;;
 import { NgTreeItemActionCommon } from &#x27;@jnetwork/jngcontrols-common&#x27;;
 
@@ -567,12 +630,12 @@ export class NgTreeItemActionComponent extends NgTreeItemActionCommon {
 </code></pre>
     </div>
 
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;i class&#x3D;&quot;{{transformClass(iconstyle)}}&quot; (mouseover)&#x3D;&quot;node.hover&#x3D;true&quot; (mouseout)&#x3D;&quot;node.hover&#x3D;false&quot; (click)&#x3D;&quot;iconaction()&quot; &gt;&lt;/i&gt;</code></pre>
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;i class&#x3D;&quot;{{transformClass(iconstyle)}}&quot; (mouseover)&#x3D;&quot;item.hover&#x3D;true&quot; (mouseout)&#x3D;&quot;item.hover&#x3D;false&quot; (click)&#x3D;&quot;iconaction()&quot; &gt;&lt;/i&gt;</code></pre>
     </div>
 
 
-    <div class="tab-pane fade " id="c-tree">
+    <div class="tab-pane fade " id="tree">
         <div id="tree-container"></div>
         <div class="tree-legend">
             <div class="title">
@@ -597,9 +660,9 @@ export class NgTreeItemActionComponent extends NgTreeItemActionCommon {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><i class="{{transformClass(iconstyle)}}" (mouseover)="node.hover=true" (mouseout)="node.hover=false" (click)="iconaction()" ></i></div>'
+        var COMPONENT_TEMPLATE = '<div><i class="{{transformClass(iconstyle)}}" (mouseover)="item.hover=true" (mouseout)="item.hover=false" (click)="iconaction()" ></i></div>'
     var COMPONENTS = [{'name': 'NgButtonComponent', 'selector': 'sac-button'},{'name': 'NgCheckboxComponent', 'selector': 'sac-checkbox'},{'name': 'NgConfirmComponent', 'selector': 'sac-confirm'},{'name': 'NgDateComponent', 'selector': 'sac-date'},{'name': 'NgDateSelectorComponent', 'selector': 'sac-dateselector'},{'name': 'NgDateTimeComponent', 'selector': 'sac-datetime'},{'name': 'NgDialogComponent', 'selector': 'sac-dialog'},{'name': 'NgDropdownComponent', 'selector': 'sac-dropdown'},{'name': 'NgGridButtonComponent', 'selector': 'sac-gridbutton'},{'name': 'NgGridColumnActionComponent', 'selector': 'sac-gridcolumnaction'},{'name': 'NgGridColumnComponent', 'selector': 'sac-gridcolumn'},{'name': 'NgGridComponent', 'selector': 'sac-grid'},{'name': 'NgGridImageComponent', 'selector': 'sac-gridimage'},{'name': 'NgInputAreaComponent', 'selector': 'sac-inputarea'},{'name': 'NgInputComponent', 'selector': 'sac-input'},{'name': 'NgInputCurrencyComponent', 'selector': 'sac-inputcurrency'},{'name': 'NgInputDecimalComponent', 'selector': 'sac-inputdecimal'},{'name': 'NgInputEmailComponent', 'selector': 'sac-inputemail'},{'name': 'NgInputIntegerComponent', 'selector': 'sac-inputinteger'},{'name': 'NgInputPasswordComponent', 'selector': 'sac-inputpassword'},{'name': 'NgInputSearchComponent', 'selector': 'sac-inputsearch'},{'name': 'NgListboxComponent', 'selector': 'sac-listbox'},{'name': 'NgPagingComponent', 'selector': 'sac-paging'},{'name': 'NgRadiobuttonComponent', 'selector': 'sac-radiobutton'},{'name': 'NgRadiobuttonsComponent', 'selector': 'sac-radiobuttons'},{'name': 'NgStaticFormContainerComponent', 'selector': 'sac-staticformcontainer'},{'name': 'NgStaticLabelComponent', 'selector': 'sac-staticlabel'},{'name': 'NgTabComponent', 'selector': 'sac-tab'},{'name': 'NgTabItemComponent', 'selector': 'sac-tabitem'},{'name': 'NgTimeComponent', 'selector': 'sac-time'},{'name': 'NgTinyMceComponent', 'selector': 'sac-tinymce'},{'name': 'NgTooltipComponent', 'selector': 'sac-tooltip'},{'name': 'NgTreeItemActionComponent', 'selector': 'sac-treeitemaction'},{'name': 'NgTreeViewChildComponent', 'selector': 'sac-treeviewchild'},{'name': 'NgTreeViewComponent', 'selector': 'sac-treeview'},{'name': 'NgUploadComponent', 'selector': 'sac-upload'},{'name': 'NgUploadMultipleComponent', 'selector': 'sac-uploadmultiple'},{'name': 'NgValidationSummaryComponent', 'selector': 'sac-validationsummary'},{'name': 'NgWizardComponent', 'selector': 'sac-wizard'},{'name': 'NgWizardItemComponent', 'selector': 'sac-wizarditem'}];
-    var DIRECTIVES = [{'name': 'NgBaseDateTimeControl', 'selector': ''},{'name': 'NgBaseListControl', 'selector': ''},{'name': 'NgBaseModelControl', 'selector': ''},{'name': 'NgBaseSelectControl', 'selector': ''},{'name': 'NgButtonCommon', 'selector': ''},{'name': 'NgCheckboxCommon', 'selector': ''},{'name': 'NgConfirmCommon', 'selector': ''},{'name': 'NgContextmenuAnchorCommon', 'selector': ''},{'name': 'NgContextmenuCommon', 'selector': ''},{'name': 'NgContextMenuContrainerCommon', 'selector': ''},{'name': 'NgContextmenuItemButtonCommon', 'selector': ''},{'name': 'NgContextmenuItemCommon', 'selector': ''},{'name': 'NgDateCommon', 'selector': ''},{'name': 'NgDateSelectorCommon', 'selector': ''},{'name': 'NgDateTimeCommon', 'selector': ''},{'name': 'NgDialogCommon', 'selector': ''},{'name': 'NgDropdownCommon', 'selector': ''},{'name': 'NgDropdownOptionCommon', 'selector': ''},{'name': 'NgDropdownOptionDirective', 'selector': 'option,[sac-option]'},{'name': 'NgDropzoneMultipleCommon', 'selector': ''},{'name': 'NgDropzoneSingleCommon', 'selector': ''},{'name': 'NgFileBrowserCommon', 'selector': ''},{'name': 'NgFormularCommon', 'selector': ''},{'name': 'NgFormularDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgGridButtonCommon', 'selector': ''},{'name': 'NgGridColumnActionCommon', 'selector': ''},{'name': 'NgGridColumnBaseCommon', 'selector': ''},{'name': 'NgGridColumnCommon', 'selector': ''},{'name': 'NgGridCommon', 'selector': ''},{'name': 'NgGridImageCommon', 'selector': ''},{'name': 'NgInputAreaCommon', 'selector': ''},{'name': 'NgInputBase', 'selector': ''},{'name': 'NgInputCommon', 'selector': ''},{'name': 'NgInputCurrencyCommon', 'selector': ''},{'name': 'NgInputDecimalCommon', 'selector': ''},{'name': 'NgInputEmailCommon', 'selector': ''},{'name': 'NgInputIntegerCommon', 'selector': ''},{'name': 'NgInputPasswordCommon', 'selector': ''},{'name': 'NgInputSearchCommon', 'selector': ''},{'name': 'NgListboxCommon', 'selector': ''},{'name': 'NgListboxOptionCommon', 'selector': ''},{'name': 'NgMultilanguageInputAreaCommon', 'selector': ''},{'name': 'NgMultilanguageInputCommon', 'selector': ''},{'name': 'NgPagingCommon', 'selector': ''},{'name': 'NgRadiobuttonCommon', 'selector': ''},{'name': 'NgRadiobuttonsCommon', 'selector': ''},{'name': 'NgStaticFormContainerCommon', 'selector': ''},{'name': 'NgStaticLabelCommon', 'selector': ''},{'name': 'NgTabCommon', 'selector': ''},{'name': 'NgTabItemCommon', 'selector': ''},{'name': 'NgTimeCommon', 'selector': ''},{'name': 'NgTinyMceCommon', 'selector': ''},{'name': 'NgTooltipCommon', 'selector': ''},{'name': 'NgTreeItemActionCommon', 'selector': ''},{'name': 'NgTreeViewChildCommon', 'selector': ''},{'name': 'NgTreeViewCommon', 'selector': ''},{'name': 'NgUploadBase', 'selector': ''},{'name': 'NgUploadMultipleCommon', 'selector': ''},{'name': 'NgUploadSingleCommon', 'selector': ''},{'name': 'NgValidationSummaryCommon', 'selector': ''},{'name': 'NgWizardCommon', 'selector': ''},{'name': 'NgWizardItemCommon', 'selector': ''},{'name': 'ProvideParentNgFormularDirective', 'selector': '[sac-inherit-form]'}];
+    var DIRECTIVES = [{'name': 'NgBaseDateTimeControl', 'selector': ''},{'name': 'NgBaseListControl', 'selector': ''},{'name': 'NgBaseModelControl', 'selector': ''},{'name': 'NgBaseSelectControl', 'selector': ''},{'name': 'NgButtonCommon', 'selector': ''},{'name': 'NgCheckboxCommon', 'selector': ''},{'name': 'NgConfirmCommon', 'selector': ''},{'name': 'NgContextmenuAnchorCommon', 'selector': ''},{'name': 'NgContextmenuCommon', 'selector': ''},{'name': 'NgContextMenuContrainerCommon', 'selector': ''},{'name': 'NgContextmenuItemButtonCommon', 'selector': ''},{'name': 'NgContextmenuItemCommon', 'selector': ''},{'name': 'NgDateCommon', 'selector': ''},{'name': 'NgDateSelectorCommon', 'selector': ''},{'name': 'NgDateTimeCommon', 'selector': ''},{'name': 'NgDialogCommon', 'selector': ''},{'name': 'NgDropdownCommon', 'selector': ''},{'name': 'NgDropdownOptionCommon', 'selector': ''},{'name': 'NgDropdownOptionDirective', 'selector': 'option,[sacOption]'},{'name': 'NgDropzoneMultipleCommon', 'selector': ''},{'name': 'NgDropzoneSingleCommon', 'selector': ''},{'name': 'NgFileBrowserCommon', 'selector': ''},{'name': 'NgFormularCommon', 'selector': ''},{'name': 'NgFormularDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'NgGridButtonCommon', 'selector': ''},{'name': 'NgGridColumnActionCommon', 'selector': ''},{'name': 'NgGridColumnBaseCommon', 'selector': ''},{'name': 'NgGridColumnCommon', 'selector': ''},{'name': 'NgGridCommon', 'selector': ''},{'name': 'NgGridImageCommon', 'selector': ''},{'name': 'NgInputAreaCommon', 'selector': ''},{'name': 'NgInputBase', 'selector': ''},{'name': 'NgInputCommon', 'selector': ''},{'name': 'NgInputCurrencyCommon', 'selector': ''},{'name': 'NgInputDecimalCommon', 'selector': ''},{'name': 'NgInputEmailCommon', 'selector': ''},{'name': 'NgInputIntegerCommon', 'selector': ''},{'name': 'NgInputPasswordCommon', 'selector': ''},{'name': 'NgInputSearchCommon', 'selector': ''},{'name': 'NgListboxCommon', 'selector': ''},{'name': 'NgListboxOptionCommon', 'selector': ''},{'name': 'NgMultilanguageInputAreaCommon', 'selector': ''},{'name': 'NgMultilanguageInputCommon', 'selector': ''},{'name': 'NgPagingCommon', 'selector': ''},{'name': 'NgRadiobuttonCommon', 'selector': ''},{'name': 'NgRadiobuttonsCommon', 'selector': ''},{'name': 'NgStaticFormContainerCommon', 'selector': ''},{'name': 'NgStaticLabelCommon', 'selector': ''},{'name': 'NgTabCommon', 'selector': ''},{'name': 'NgTabItemCommon', 'selector': ''},{'name': 'NgTimeCommon', 'selector': ''},{'name': 'NgTinyMceCommon', 'selector': ''},{'name': 'NgTooltipCommon', 'selector': ''},{'name': 'NgTreeItemActionCommon', 'selector': ''},{'name': 'NgTreeViewChildCommon', 'selector': ''},{'name': 'NgTreeViewCommon', 'selector': ''},{'name': 'NgUploadBase', 'selector': ''},{'name': 'NgUploadMultipleCommon', 'selector': ''},{'name': 'NgUploadSingleCommon', 'selector': ''},{'name': 'NgValidationSummaryCommon', 'selector': ''},{'name': 'NgWizardCommon', 'selector': ''},{'name': 'NgWizardItemCommon', 'selector': ''},{'name': 'ProvideParentNgFormularDirective', 'selector': '[sacInheritForm]'}];
     var ACTUAL_COMPONENT = {'name': 'NgTreeItemActionComponent'};
 </script>
 <script src="../js/tree.js"></script>

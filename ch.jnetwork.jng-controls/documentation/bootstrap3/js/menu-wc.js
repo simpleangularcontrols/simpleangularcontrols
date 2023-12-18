@@ -67,8 +67,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                 </li>
                     <li class="chapter modules">
                         <a data-type="chapter-link" href="modules.html">
-                            <div class="menu-toggler linked" data-toggle="collapse" ${ isNormalMode ?
-                                'data-target="#modules-links"' : 'data-target="#xs-modules-links"' }>
+                            <div class="menu-toggler linked" data-bs-toggle="collapse" ${ isNormalMode ?
+                                'data-bs-target="#modules-links"' : 'data-bs-target="#xs-modules-links"' }>
                                 <span class="icon ion-ios-archive"></span>
                                 <span class="link-name">Modules</span>
                                 <span class="icon ion-ios-arrow-down"></span>
@@ -78,8 +78,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="modules/JNetworkBootstrap3ButtonModule.html" data-type="entity-link" >JNetworkBootstrap3ButtonModule</a>
                                     <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-JNetworkBootstrap3ButtonModule-7d40783cce09c38c8b33b2466e79f792c9383d3c9b72aef78d28a0931b650c1be58ae5a645b110a52e88a90cd3e9808ea55a7bf26121ad051a05496bedf23bbc"' : 'data-target="#xs-components-links-module-JNetworkBootstrap3ButtonModule-7d40783cce09c38c8b33b2466e79f792c9383d3c9b72aef78d28a0931b650c1be58ae5a645b110a52e88a90cd3e9808ea55a7bf26121ad051a05496bedf23bbc"' }>
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-JNetworkBootstrap3ButtonModule-7d40783cce09c38c8b33b2466e79f792c9383d3c9b72aef78d28a0931b650c1be58ae5a645b110a52e88a90cd3e9808ea55a7bf26121ad051a05496bedf23bbc"' : 'data-bs-target="#xs-components-links-module-JNetworkBootstrap3ButtonModule-7d40783cce09c38c8b33b2466e79f792c9383d3c9b72aef78d28a0931b650c1be58ae5a645b110a52e88a90cd3e9808ea55a7bf26121ad051a05496bedf23bbc"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
@@ -95,8 +95,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="modules/JNetworkBootstrap3CheckboxModule.html" data-type="entity-link" >JNetworkBootstrap3CheckboxModule</a>
                                     <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-JNetworkBootstrap3CheckboxModule-64301af2ad5a83fd2e0de9c43b5fc327cc9912d5e1bba15974e4859f95dce1b4e446f0bac9b72a05934cdf783f4a75fdafd6ad1ed36d9989f132804cc9a4569a"' : 'data-target="#xs-components-links-module-JNetworkBootstrap3CheckboxModule-64301af2ad5a83fd2e0de9c43b5fc327cc9912d5e1bba15974e4859f95dce1b4e446f0bac9b72a05934cdf783f4a75fdafd6ad1ed36d9989f132804cc9a4569a"' }>
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-JNetworkBootstrap3CheckboxModule-64301af2ad5a83fd2e0de9c43b5fc327cc9912d5e1bba15974e4859f95dce1b4e446f0bac9b72a05934cdf783f4a75fdafd6ad1ed36d9989f132804cc9a4569a"' : 'data-bs-target="#xs-components-links-module-JNetworkBootstrap3CheckboxModule-64301af2ad5a83fd2e0de9c43b5fc327cc9912d5e1bba15974e4859f95dce1b4e446f0bac9b72a05934cdf783f4a75fdafd6ad1ed36d9989f132804cc9a4569a"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
@@ -118,8 +118,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="modules/JNetworkBootstrap3ConfirmModule.html" data-type="entity-link" >JNetworkBootstrap3ConfirmModule</a>
                                     <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-JNetworkBootstrap3ConfirmModule-48c9a8afe5a7c6218492f8eb380485f25b4fa9828ce380f270acafcaf29d87293609eef044955d982a071d2b012cd45cf56131adb74c3cf14301b5bdf3d1e6be"' : 'data-target="#xs-components-links-module-JNetworkBootstrap3ConfirmModule-48c9a8afe5a7c6218492f8eb380485f25b4fa9828ce380f270acafcaf29d87293609eef044955d982a071d2b012cd45cf56131adb74c3cf14301b5bdf3d1e6be"' }>
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-JNetworkBootstrap3ConfirmModule-48c9a8afe5a7c6218492f8eb380485f25b4fa9828ce380f270acafcaf29d87293609eef044955d982a071d2b012cd45cf56131adb74c3cf14301b5bdf3d1e6be"' : 'data-bs-target="#xs-components-links-module-JNetworkBootstrap3ConfirmModule-48c9a8afe5a7c6218492f8eb380485f25b4fa9828ce380f270acafcaf29d87293609eef044955d982a071d2b012cd45cf56131adb74c3cf14301b5bdf3d1e6be"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
@@ -135,8 +135,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="modules/JNetworkBootstrap3DateTimeModule.html" data-type="entity-link" >JNetworkBootstrap3DateTimeModule</a>
                                     <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-JNetworkBootstrap3DateTimeModule-67fe2819b7b45c05f3cdeeb8c0c62ab182f4bfd8d452738aaca4c3e2ea2f17eb2ef63b80235d8b974347e65d230cd5753bcd1f782b9f5e1e4c673f2963760971"' : 'data-target="#xs-components-links-module-JNetworkBootstrap3DateTimeModule-67fe2819b7b45c05f3cdeeb8c0c62ab182f4bfd8d452738aaca4c3e2ea2f17eb2ef63b80235d8b974347e65d230cd5753bcd1f782b9f5e1e4c673f2963760971"' }>
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-JNetworkBootstrap3DateTimeModule-67fe2819b7b45c05f3cdeeb8c0c62ab182f4bfd8d452738aaca4c3e2ea2f17eb2ef63b80235d8b974347e65d230cd5753bcd1f782b9f5e1e4c673f2963760971"' : 'data-bs-target="#xs-components-links-module-JNetworkBootstrap3DateTimeModule-67fe2819b7b45c05f3cdeeb8c0c62ab182f4bfd8d452738aaca4c3e2ea2f17eb2ef63b80235d8b974347e65d230cd5753bcd1f782b9f5e1e4c673f2963760971"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
@@ -161,8 +161,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="modules/JNetworkBootstrap3DialogModule.html" data-type="entity-link" >JNetworkBootstrap3DialogModule</a>
                                     <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-JNetworkBootstrap3DialogModule-c27197661e36ddf4617fa030706497e7133a1b081bcfa173ea4b0b63f5e43bf747813e8c47243cfcc98a3800497b6931d5a0893ce57b5c75135d7e8bfe30bb86"' : 'data-target="#xs-components-links-module-JNetworkBootstrap3DialogModule-c27197661e36ddf4617fa030706497e7133a1b081bcfa173ea4b0b63f5e43bf747813e8c47243cfcc98a3800497b6931d5a0893ce57b5c75135d7e8bfe30bb86"' }>
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-JNetworkBootstrap3DialogModule-c27197661e36ddf4617fa030706497e7133a1b081bcfa173ea4b0b63f5e43bf747813e8c47243cfcc98a3800497b6931d5a0893ce57b5c75135d7e8bfe30bb86"' : 'data-bs-target="#xs-components-links-module-JNetworkBootstrap3DialogModule-c27197661e36ddf4617fa030706497e7133a1b081bcfa173ea4b0b63f5e43bf747813e8c47243cfcc98a3800497b6931d5a0893ce57b5c75135d7e8bfe30bb86"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
@@ -178,8 +178,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="modules/JNetworkBootstrap3FormModule.html" data-type="entity-link" >JNetworkBootstrap3FormModule</a>
                                 <li class="chapter inner">
-                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-JNetworkBootstrap3FormModule-ac63a1e9ca7a90bf4287ae1940229501e2c30a55629096b124e3e4c645f6c859ca37a9d6e94b0a1c0e98fcf2d95a634c1dfac2ff9149747c1636f7cbdf7269fa"' : 'data-target="#xs-directives-links-module-JNetworkBootstrap3FormModule-ac63a1e9ca7a90bf4287ae1940229501e2c30a55629096b124e3e4c645f6c859ca37a9d6e94b0a1c0e98fcf2d95a634c1dfac2ff9149747c1636f7cbdf7269fa"' }>
+                                    <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                        'data-bs-target="#directives-links-module-JNetworkBootstrap3FormModule-ac63a1e9ca7a90bf4287ae1940229501e2c30a55629096b124e3e4c645f6c859ca37a9d6e94b0a1c0e98fcf2d95a634c1dfac2ff9149747c1636f7cbdf7269fa"' : 'data-bs-target="#xs-directives-links-module-JNetworkBootstrap3FormModule-ac63a1e9ca7a90bf4287ae1940229501e2c30a55629096b124e3e4c645f6c859ca37a9d6e94b0a1c0e98fcf2d95a634c1dfac2ff9149747c1636f7cbdf7269fa"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
@@ -198,8 +198,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="modules/JNetworkBootstrap3GridModule.html" data-type="entity-link" >JNetworkBootstrap3GridModule</a>
                                     <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-JNetworkBootstrap3GridModule-b050af40a18bb95ea85a67e7b3c23e226a3ec08df0b8d20b368c43cb4fa2ba9e793d47204b3e627ed03e01277268f8eee82dad62a321cd7e2ec78e93b6d9a6fd"' : 'data-target="#xs-components-links-module-JNetworkBootstrap3GridModule-b050af40a18bb95ea85a67e7b3c23e226a3ec08df0b8d20b368c43cb4fa2ba9e793d47204b3e627ed03e01277268f8eee82dad62a321cd7e2ec78e93b6d9a6fd"' }>
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-JNetworkBootstrap3GridModule-b050af40a18bb95ea85a67e7b3c23e226a3ec08df0b8d20b368c43cb4fa2ba9e793d47204b3e627ed03e01277268f8eee82dad62a321cd7e2ec78e93b6d9a6fd"' : 'data-bs-target="#xs-components-links-module-JNetworkBootstrap3GridModule-b050af40a18bb95ea85a67e7b3c23e226a3ec08df0b8d20b368c43cb4fa2ba9e793d47204b3e627ed03e01277268f8eee82dad62a321cd7e2ec78e93b6d9a6fd"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
@@ -230,8 +230,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="modules/JNetworkBootstrap3InputModule.html" data-type="entity-link" >JNetworkBootstrap3InputModule</a>
                                     <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-JNetworkBootstrap3InputModule-6f037ecc6d7dac006d6bac72037fbd994e9a14b7a5143c140a58cb14b7b0ff5d0518dec1952bbeb693f7e91d55741534e8ff8c7788a591d2ea347d20af1c855e"' : 'data-target="#xs-components-links-module-JNetworkBootstrap3InputModule-6f037ecc6d7dac006d6bac72037fbd994e9a14b7a5143c140a58cb14b7b0ff5d0518dec1952bbeb693f7e91d55741534e8ff8c7788a591d2ea347d20af1c855e"' }>
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-JNetworkBootstrap3InputModule-6f037ecc6d7dac006d6bac72037fbd994e9a14b7a5143c140a58cb14b7b0ff5d0518dec1952bbeb693f7e91d55741534e8ff8c7788a591d2ea347d20af1c855e"' : 'data-bs-target="#xs-components-links-module-JNetworkBootstrap3InputModule-6f037ecc6d7dac006d6bac72037fbd994e9a14b7a5143c140a58cb14b7b0ff5d0518dec1952bbeb693f7e91d55741534e8ff8c7788a591d2ea347d20af1c855e"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
@@ -268,8 +268,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="modules/JNetworkBootstrap3ListModule.html" data-type="entity-link" >JNetworkBootstrap3ListModule</a>
                                     <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-JNetworkBootstrap3ListModule-ada7bfb89f7d713ebc7dd861b48d64ae2742fc7fa6053da6ffeecabcafdc55d35cf528a04186d82320d792e9287a036579f20ca2768a4a395cb1f6bd61b5e3a5"' : 'data-target="#xs-components-links-module-JNetworkBootstrap3ListModule-ada7bfb89f7d713ebc7dd861b48d64ae2742fc7fa6053da6ffeecabcafdc55d35cf528a04186d82320d792e9287a036579f20ca2768a4a395cb1f6bd61b5e3a5"' }>
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-JNetworkBootstrap3ListModule-ada7bfb89f7d713ebc7dd861b48d64ae2742fc7fa6053da6ffeecabcafdc55d35cf528a04186d82320d792e9287a036579f20ca2768a4a395cb1f6bd61b5e3a5"' : 'data-bs-target="#xs-components-links-module-JNetworkBootstrap3ListModule-ada7bfb89f7d713ebc7dd861b48d64ae2742fc7fa6053da6ffeecabcafdc55d35cf528a04186d82320d792e9287a036579f20ca2768a4a395cb1f6bd61b5e3a5"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
@@ -285,8 +285,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         </ul>
                                     </li>
                                 <li class="chapter inner">
-                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-JNetworkBootstrap3ListModule-ada7bfb89f7d713ebc7dd861b48d64ae2742fc7fa6053da6ffeecabcafdc55d35cf528a04186d82320d792e9287a036579f20ca2768a4a395cb1f6bd61b5e3a5"' : 'data-target="#xs-directives-links-module-JNetworkBootstrap3ListModule-ada7bfb89f7d713ebc7dd861b48d64ae2742fc7fa6053da6ffeecabcafdc55d35cf528a04186d82320d792e9287a036579f20ca2768a4a395cb1f6bd61b5e3a5"' }>
+                                    <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                        'data-bs-target="#directives-links-module-JNetworkBootstrap3ListModule-ada7bfb89f7d713ebc7dd861b48d64ae2742fc7fa6053da6ffeecabcafdc55d35cf528a04186d82320d792e9287a036579f20ca2768a4a395cb1f6bd61b5e3a5"' : 'data-bs-target="#xs-directives-links-module-JNetworkBootstrap3ListModule-ada7bfb89f7d713ebc7dd861b48d64ae2742fc7fa6053da6ffeecabcafdc55d35cf528a04186d82320d792e9287a036579f20ca2768a4a395cb1f6bd61b5e3a5"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
@@ -302,8 +302,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="modules/JNetworkBootstrap3StaticLabelModule.html" data-type="entity-link" >JNetworkBootstrap3StaticLabelModule</a>
                                     <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-JNetworkBootstrap3StaticLabelModule-af83b05831a43dc0dabb69a7a5b5e358d9e181eae1ed37ea27e839e47ba8ee21cb108908031fafaaebb6b6586b7eac42c121a7a9cb5ca599f9a5cc36b5b3fee9"' : 'data-target="#xs-components-links-module-JNetworkBootstrap3StaticLabelModule-af83b05831a43dc0dabb69a7a5b5e358d9e181eae1ed37ea27e839e47ba8ee21cb108908031fafaaebb6b6586b7eac42c121a7a9cb5ca599f9a5cc36b5b3fee9"' }>
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-JNetworkBootstrap3StaticLabelModule-af83b05831a43dc0dabb69a7a5b5e358d9e181eae1ed37ea27e839e47ba8ee21cb108908031fafaaebb6b6586b7eac42c121a7a9cb5ca599f9a5cc36b5b3fee9"' : 'data-bs-target="#xs-components-links-module-JNetworkBootstrap3StaticLabelModule-af83b05831a43dc0dabb69a7a5b5e358d9e181eae1ed37ea27e839e47ba8ee21cb108908031fafaaebb6b6586b7eac42c121a7a9cb5ca599f9a5cc36b5b3fee9"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
@@ -322,8 +322,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="modules/JNetworkBootstrap3TabsModule.html" data-type="entity-link" >JNetworkBootstrap3TabsModule</a>
                                     <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-JNetworkBootstrap3TabsModule-19386aeeafe6b05c881f2ed1661f489112338759fe57ddb1507e5092d4de8300a064d3bc83e4d0d7642bd32d07ac6929dfd5f4b65d9796e5c3ad68bb55a324f1"' : 'data-target="#xs-components-links-module-JNetworkBootstrap3TabsModule-19386aeeafe6b05c881f2ed1661f489112338759fe57ddb1507e5092d4de8300a064d3bc83e4d0d7642bd32d07ac6929dfd5f4b65d9796e5c3ad68bb55a324f1"' }>
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-JNetworkBootstrap3TabsModule-19386aeeafe6b05c881f2ed1661f489112338759fe57ddb1507e5092d4de8300a064d3bc83e4d0d7642bd32d07ac6929dfd5f4b65d9796e5c3ad68bb55a324f1"' : 'data-bs-target="#xs-components-links-module-JNetworkBootstrap3TabsModule-19386aeeafe6b05c881f2ed1661f489112338759fe57ddb1507e5092d4de8300a064d3bc83e4d0d7642bd32d07ac6929dfd5f4b65d9796e5c3ad68bb55a324f1"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
@@ -342,8 +342,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="modules/JNetworkBootstrap3TinyMceModule.html" data-type="entity-link" >JNetworkBootstrap3TinyMceModule</a>
                                     <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-JNetworkBootstrap3TinyMceModule-4330c31feeb63099d4e5e4995097c414a681bf9cd15673979815ddb667328ef9ef7008a9468953ae58b9686c99b4d5ca783873ec4565d6157c11734362e678ce"' : 'data-target="#xs-components-links-module-JNetworkBootstrap3TinyMceModule-4330c31feeb63099d4e5e4995097c414a681bf9cd15673979815ddb667328ef9ef7008a9468953ae58b9686c99b4d5ca783873ec4565d6157c11734362e678ce"' }>
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-JNetworkBootstrap3TinyMceModule-4330c31feeb63099d4e5e4995097c414a681bf9cd15673979815ddb667328ef9ef7008a9468953ae58b9686c99b4d5ca783873ec4565d6157c11734362e678ce"' : 'data-bs-target="#xs-components-links-module-JNetworkBootstrap3TinyMceModule-4330c31feeb63099d4e5e4995097c414a681bf9cd15673979815ddb667328ef9ef7008a9468953ae58b9686c99b4d5ca783873ec4565d6157c11734362e678ce"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
@@ -359,8 +359,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="modules/JNetworkBootstrap3TooltipModule.html" data-type="entity-link" >JNetworkBootstrap3TooltipModule</a>
                                     <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-JNetworkBootstrap3TooltipModule-228aa5da79684e2ce834a498cacc476cf2a547003dab5a01d2ba30cc71a8bdb3591bf9b438906b59b335961dc4ccc40bd8312f65ab6c2557cb9e56fcb6177a66"' : 'data-target="#xs-components-links-module-JNetworkBootstrap3TooltipModule-228aa5da79684e2ce834a498cacc476cf2a547003dab5a01d2ba30cc71a8bdb3591bf9b438906b59b335961dc4ccc40bd8312f65ab6c2557cb9e56fcb6177a66"' }>
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-JNetworkBootstrap3TooltipModule-228aa5da79684e2ce834a498cacc476cf2a547003dab5a01d2ba30cc71a8bdb3591bf9b438906b59b335961dc4ccc40bd8312f65ab6c2557cb9e56fcb6177a66"' : 'data-bs-target="#xs-components-links-module-JNetworkBootstrap3TooltipModule-228aa5da79684e2ce834a498cacc476cf2a547003dab5a01d2ba30cc71a8bdb3591bf9b438906b59b335961dc4ccc40bd8312f65ab6c2557cb9e56fcb6177a66"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
@@ -376,8 +376,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="modules/JNetworkBootstrap3TtreeviewModule.html" data-type="entity-link" >JNetworkBootstrap3TtreeviewModule</a>
                                     <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-JNetworkBootstrap3TtreeviewModule-c97d21d4d03459229285eb405c3ccd76d81b0641e9593d5c3898627972c492c37882497a6ab5b6560c16cb975bbaafeff4dbeacd36e1dd9ead1c15d5ac602f97"' : 'data-target="#xs-components-links-module-JNetworkBootstrap3TtreeviewModule-c97d21d4d03459229285eb405c3ccd76d81b0641e9593d5c3898627972c492c37882497a6ab5b6560c16cb975bbaafeff4dbeacd36e1dd9ead1c15d5ac602f97"' }>
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-JNetworkBootstrap3TtreeviewModule-c97d21d4d03459229285eb405c3ccd76d81b0641e9593d5c3898627972c492c37882497a6ab5b6560c16cb975bbaafeff4dbeacd36e1dd9ead1c15d5ac602f97"' : 'data-bs-target="#xs-components-links-module-JNetworkBootstrap3TtreeviewModule-c97d21d4d03459229285eb405c3ccd76d81b0641e9593d5c3898627972c492c37882497a6ab5b6560c16cb975bbaafeff4dbeacd36e1dd9ead1c15d5ac602f97"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
@@ -399,8 +399,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="modules/JNetworkBootstrap3UploadModule.html" data-type="entity-link" >JNetworkBootstrap3UploadModule</a>
                                     <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-JNetworkBootstrap3UploadModule-c715547a767d019ddb8ab05cc61739c66b988fba584028923e42a6430ab6bed9e7f41119acaf47bccd5690cbf5fb9511c1400870eb83eccb375ad6cdcf01319e"' : 'data-target="#xs-components-links-module-JNetworkBootstrap3UploadModule-c715547a767d019ddb8ab05cc61739c66b988fba584028923e42a6430ab6bed9e7f41119acaf47bccd5690cbf5fb9511c1400870eb83eccb375ad6cdcf01319e"' }>
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-JNetworkBootstrap3UploadModule-c715547a767d019ddb8ab05cc61739c66b988fba584028923e42a6430ab6bed9e7f41119acaf47bccd5690cbf5fb9511c1400870eb83eccb375ad6cdcf01319e"' : 'data-bs-target="#xs-components-links-module-JNetworkBootstrap3UploadModule-c715547a767d019ddb8ab05cc61739c66b988fba584028923e42a6430ab6bed9e7f41119acaf47bccd5690cbf5fb9511c1400870eb83eccb375ad6cdcf01319e"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
@@ -419,8 +419,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="modules/JNetworkBootstrap3ValidationSummaryModule.html" data-type="entity-link" >JNetworkBootstrap3ValidationSummaryModule</a>
                                     <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-JNetworkBootstrap3ValidationSummaryModule-579a6cad0ecbc26d66db8588786aef17b7beb51ddfa7b05ba7766a2b69f51128f72b8940161acb3bfeb521b175c3d7d0899f202bc9fe8c5f27650e3200048f9f"' : 'data-target="#xs-components-links-module-JNetworkBootstrap3ValidationSummaryModule-579a6cad0ecbc26d66db8588786aef17b7beb51ddfa7b05ba7766a2b69f51128f72b8940161acb3bfeb521b175c3d7d0899f202bc9fe8c5f27650e3200048f9f"' }>
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-JNetworkBootstrap3ValidationSummaryModule-579a6cad0ecbc26d66db8588786aef17b7beb51ddfa7b05ba7766a2b69f51128f72b8940161acb3bfeb521b175c3d7d0899f202bc9fe8c5f27650e3200048f9f"' : 'data-bs-target="#xs-components-links-module-JNetworkBootstrap3ValidationSummaryModule-579a6cad0ecbc26d66db8588786aef17b7beb51ddfa7b05ba7766a2b69f51128f72b8940161acb3bfeb521b175c3d7d0899f202bc9fe8c5f27650e3200048f9f"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
@@ -436,8 +436,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="modules/JNetworkBootstrap3WizardModule.html" data-type="entity-link" >JNetworkBootstrap3WizardModule</a>
                                     <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-JNetworkBootstrap3WizardModule-ddcb9e0d2bda99845310b2a4014a0ab8d512664682cb4f4a3ef132a6261d4f3e5c4987d689be810db37ead7f84b0c8e0975499c9a5d82f5bf2d97b9c222a0617"' : 'data-target="#xs-components-links-module-JNetworkBootstrap3WizardModule-ddcb9e0d2bda99845310b2a4014a0ab8d512664682cb4f4a3ef132a6261d4f3e5c4987d689be810db37ead7f84b0c8e0975499c9a5d82f5bf2d97b9c222a0617"' }>
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-JNetworkBootstrap3WizardModule-ddcb9e0d2bda99845310b2a4014a0ab8d512664682cb4f4a3ef132a6261d4f3e5c4987d689be810db37ead7f84b0c8e0975499c9a5d82f5bf2d97b9c222a0617"' : 'data-bs-target="#xs-components-links-module-JNetworkBootstrap3WizardModule-ddcb9e0d2bda99845310b2a4014a0ab8d512664682cb4f4a3ef132a6261d4f3e5c4987d689be810db37ead7f84b0c8e0975499c9a5d82f5bf2d97b9c222a0617"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
@@ -459,8 +459,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                 </ul>
                 </li>
                         <li class="chapter">
-                            <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#directives-links"' :
-                                'data-target="#xs-directives-links"' }>
+                            <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ? 'data-bs-target="#directives-links"' :
+                                'data-bs-target="#xs-directives-links"' }>
                                 <span class="icon ion-md-code-working"></span>
                                 <span>Directives</span>
                                 <span class="icon ion-ios-arrow-down"></span>
@@ -649,8 +649,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </ul>
                         </li>
                     <li class="chapter">
-                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#classes-links"' :
-                            'data-target="#xs-classes-links"' }>
+                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ? 'data-bs-target="#classes-links"' :
+                            'data-bs-target="#xs-classes-links"' }>
                             <span class="icon ion-ios-paper"></span>
                             <span>Classes</span>
                             <span class="icon ion-ios-arrow-down"></span>
@@ -725,8 +725,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </ul>
                     </li>
                         <li class="chapter">
-                            <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#injectables-links"' :
-                                'data-target="#xs-injectables-links"' }>
+                            <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ? 'data-bs-target="#injectables-links"' :
+                                'data-bs-target="#xs-injectables-links"' }>
                                 <span class="icon ion-md-arrow-round-down"></span>
                                 <span>Injectables</span>
                                 <span class="icon ion-ios-arrow-down"></span>
@@ -756,8 +756,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </ul>
                         </li>
                     <li class="chapter">
-                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#interfaces-links"' :
-                            'data-target="#xs-interfaces-links"' }>
+                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ? 'data-bs-target="#interfaces-links"' :
+                            'data-bs-target="#xs-interfaces-links"' }>
                             <span class="icon ion-md-information-circle-outline"></span>
                             <span>Interfaces</span>
                             <span class="icon ion-ios-arrow-down"></span>
@@ -811,8 +811,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </ul>
                     </li>
                     <li class="chapter">
-                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#miscellaneous-links"'
-                            : 'data-target="#xs-miscellaneous-links"' }>
+                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ? 'data-bs-target="#miscellaneous-links"'
+                            : 'data-bs-target="#xs-miscellaneous-links"' }>
                             <span class="icon ion-ios-cube"></span>
                             <span>Miscellaneous</span>
                             <span class="icon ion-ios-arrow-down"></span>

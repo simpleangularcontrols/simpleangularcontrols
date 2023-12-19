@@ -1,6 +1,6 @@
 import { Directive, Injector, Input } from '@angular/core';
 import { AbstractControl, FormArray, NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
 import {
   InternalLanguageResourceService,
@@ -20,6 +20,9 @@ export class SacValidationSummaryCommon {
    */
   @Input()
   name: string = '';
+
+  @Input()
+  form: NgForm;
 
   // #region Private Variables
 
@@ -57,11 +60,21 @@ export class SacValidationSummaryCommon {
     const collection: Array<Observable<string>> = new Array<
       Observable<string>
     >();
-    const items: Array<NgForm | FormArray> = Object.keys(
-      this.parent.getForm().controls
-    ).map((key) => {
-      return <NgForm | FormArray>this.parent.getForm().controls[key];
-    });
+
+    let form;
+    if (this.parent) {
+      form = this.parent.getForm();
+    } else if (this.form) {
+      form = this.form;
+    } else {
+      throw new Error('missing form');
+    }
+
+    const items: Array<NgForm | FormArray> = Object.keys(form.controls).map(
+      (key) => {
+        return <NgForm | FormArray>form.controls[key];
+      }
+    );
 
     this.getErrorCollection(items, collection);
 

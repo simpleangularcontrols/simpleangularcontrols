@@ -2,6 +2,9 @@ import { Directive, Host, Injector, Input, OnInit } from '@angular/core';
 import {
   AbstractControl,
   ControlValueAccessor,
+  FormControl,
+  FormControlName,
+  FormGroupDirective,
   NgControl,
   ValidationErrors,
   Validator,
@@ -9,13 +12,13 @@ import {
 import { Observable } from 'rxjs';
 import { SacFormCommon } from '../controls/form/form';
 import { ILanguageResourceService } from '../interfaces/ilanguageresource';
+import { IAbstractControlLabelExtension } from '../public_api';
 import {
   InternalLanguageResourceService,
   LANGUAGERESOURCE_SERVICE,
 } from '../services/languageresource.service';
 import { convertToBoolean } from '../utilities/Convertion';
 import { ValidationErrorItem } from '../validation';
-import { IAbstractControlLabelExtension } from '../public_api';
 
 /**
  * Abstract Klasse für SacBaseModelControl. Implements ControlValueAccessor, Validator, OnInit
@@ -37,7 +40,7 @@ export abstract class SacBaseModelControl<VALUE>
   /**
    * ngControl
    */
-  protected ngControl: NgControl;
+  protected ngControl: FormControl;
   /**
    * Service für Error Localisation
    */
@@ -146,7 +149,15 @@ export abstract class SacBaseModelControl<VALUE>
    * Init Event
    */
   ngOnInit() {
-    this.ngControl = this.injector.get(NgControl, null);
+    // receive form via formcontrolname or formcontrol instance
+    const formControl = this.injector.get(NgControl, null);
+    if (formControl instanceof FormControlName) {
+      const form = this.injector.get(FormGroupDirective, null);
+      this.ngControl = form.getControl(formControl);
+    } else {
+      this.ngControl = formControl.control as FormControl;
+    }
+
     this.UpdateLabelToControl();
 
     /**
@@ -286,11 +297,7 @@ export abstract class SacBaseModelControl<VALUE>
 
   private UpdateLabelToControl(): void {
     // HACK: Add addition property to FormControl. Can be fixed if solution for ticket: https://github.com/angular/angular/issues/19686
-    if (this.ngControl?.control) {
-      (
-        this.ngControl.control as unknown as IAbstractControlLabelExtension
-      ).controllabel = this.label;
-    } else if (this.ngControl) {
+    if (this.ngControl) {
       (
         this.ngControl as unknown as IAbstractControlLabelExtension
       ).controllabel = this.label;
@@ -414,7 +421,7 @@ export abstract class SacBaseModelControl<VALUE>
    */
   protected UpdateValueAndValidity(): void {
     if (this.ngControl) {
-      this.ngControl.control.updateValueAndValidity({ onlySelf: true });
+      this.ngControl.updateValueAndValidity({ onlySelf: true });
     }
   }
 

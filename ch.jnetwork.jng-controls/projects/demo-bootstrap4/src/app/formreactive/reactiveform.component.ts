@@ -15,5 +15,8 @@ export class DemoRectiveFormComponent {
     dropdownvalue: new FormControl(''),
     radiobuttonvalue: new FormControl('1'),
     datetimevalue: new FormControl(''),
+    partial: new FormGroup({
+      inputvalue2: new FormControl(''),
+    }),
   });
 }

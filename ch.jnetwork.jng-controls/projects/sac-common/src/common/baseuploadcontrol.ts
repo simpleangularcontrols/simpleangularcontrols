@@ -573,10 +573,7 @@ export abstract class SacUploadBase<VALUE>
 
   private UpdateFileCount(): void {
     // HACK: Add addition property to FormControl. Can be fixed if solution for ticket: https://github.com/angular/angular/issues/19686
-    if (this.ngControl?.control) {
-      (this.ngControl.control as unknown as IUploadControl).uploadedfilecount =
-        this.UploadedFileCount();
-    } else if (this.ngControl) {
+    if (this.ngControl) {
       (this.ngControl as unknown as IUploadControl).uploadedfilecount =
         this.UploadedFileCount();
     }

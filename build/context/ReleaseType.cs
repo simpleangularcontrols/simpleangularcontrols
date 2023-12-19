@@ -1,26 +1,29 @@
-﻿/// <summary>
-/// Typ des Release
-/// </summary>
-public enum ReleaseType
+﻿namespace Build.context
 {
     /// <summary>
-    /// Version nicht anpassen
+    /// Typ des Release
     /// </summary>
-    None,
-    /// <summary>
-    /// Version als Patch deklarieren
-    /// </summary>
-    Patch,
-    /// <summary>
-    /// Version als Minor Release deklarieren
-    /// </summary>
-    Minor,
-    /// <summary>
-    /// Version als Major Release deklarieren
-    /// </summary>
-    Major,
-    /// <summary>
-    /// Version als PreRelease markieren
-    /// </summary>
-    PreRelease
+    public enum ReleaseType
+    {
+        /// <summary>
+        /// Version nicht anpassen
+        /// </summary>
+        None,
+        /// <summary>
+        /// Version als Patch deklarieren
+        /// </summary>
+        Patch,
+        /// <summary>
+        /// Version als Minor Release deklarieren
+        /// </summary>
+        Minor,
+        /// <summary>
+        /// Version als Major Release deklarieren
+        /// </summary>
+        Major,
+        /// <summary>
+        /// Version als PreRelease markieren
+        /// </summary>
+        PreRelease
+    }
 }

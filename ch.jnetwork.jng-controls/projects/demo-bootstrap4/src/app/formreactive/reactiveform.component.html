@@ -1,7 +1,10 @@
 <h2>Reactive Form</h2>
 
 <div [formGroup]="baseForm">
-  <sac-validationsummary [form]="baseForm"></sac-validationsummary>
+  <sac-validationsummary
+    [form]="baseForm"
+    formGroupName="partial"
+  ></sac-validationsummary>
 
   <sac-input
     name="reactiveformfield"
@@ -13,14 +16,16 @@
   <div>Value: {{ baseForm.get('inputvalue').value }}</div>
 
   <div formGroupName="partial">
-    <sac-input
-      name="reactiveformfield2"
-      formControlName="inputvalue2"
-      label="Reactive Field 2"
-      [isrequired]="true"
-    ></sac-input>
+    <div formGroupName="part1">
+      <sac-input
+        name="reactiveformfield2"
+        formControlName="inputvalue2"
+        label="Reactive Field 2"
+        [isrequired]="true"
+      ></sac-input>
 
-    <div>Value: {{ baseForm.get('partial.inputvalue2').value }}</div>
+      <div>Value: {{ baseForm.get('partial.part1.inputvalue2').value }}</div>
+    </div>
   </div>
 
   <sac-checkbox

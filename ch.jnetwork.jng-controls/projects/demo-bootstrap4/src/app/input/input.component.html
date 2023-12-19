@@ -1,9 +1,9 @@
 <h2>Input</h2>
-<form #myForm="sacform" labelsize="3">
+<form labelsize="3">
   <div class="mb-2">
     <sac-button (clicked)="debugAction()" text="Validate"></sac-button>
   </div>
-  <sac-validationsummary></sac-validationsummary>
+  <sac-validationsummary formGroupName="Group3"></sac-validationsummary>
 
   <div ngModelGroup="Group1">
     <sac-inputsearch
@@ -19,25 +19,32 @@
       [(ngModel)]="values.field4"
       buttontext="Suchen"
     ></sac-inputsearch>
+    <div ngModelGroup="Group3">
+      <sac-input
+        name="field1"
+        label="Feld 1"
+        labelsize="2"
+        isrequired="true"
+        [(ngModel)]="values.field1"
+      ></sac-input>
+
+      <sac-input
+        name="field2"
+        disablelabel="true"
+        [(ngModel)]="values.field2"
+      ></sac-input>
+      <sac-input
+        name="field3"
+        label="Feld 3"
+        labelsize="4"
+        [(ngModel)]="values.field3"
+      ></sac-input>
+    </div>
     <sac-input
-      name="field1"
-      label="Feld 1"
-      labelsize="2"
-      isrequired="true"
-      [(ngModel)]="values.field1"
+      name="field4"
+      label="Feld 4"
+      [(ngModel)]="values.field4"
     ></sac-input>
-    <sac-input
-      name="field2"
-      disablelabel="true"
-      [(ngModel)]="values.field2"
-    ></sac-input>
-    <sac-input
-      name="field3"
-      label="Feld 3"
-      labelsize="4"
-      [(ngModel)]="values.field3"
-    ></sac-input>
-    <sac-input name="field4" label="Feld 4" [(ngModel)]="values.field4"></sac-input>
     <sac-input
       name="field5"
       label="Feld 5"

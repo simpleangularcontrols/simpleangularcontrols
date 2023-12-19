@@ -25,7 +25,7 @@ namespace Build.context
         }
 
         public string ApiKey { get; } = "api:qqJa0eV7ziNiH80Con_A".ToBase64();
-        public string ProjectDirectory { get; } = "../ch.jnetwork.jng-controls";
+        public string ProjectDirectory { get; } = "../ch.jnetwork.sac-controls";
         public ReleaseType ReleaseType { get; set; }
     }
 }

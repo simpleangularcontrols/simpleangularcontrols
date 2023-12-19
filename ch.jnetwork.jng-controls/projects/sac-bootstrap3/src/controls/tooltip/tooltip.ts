@@ -1,4 +1,4 @@
-import { SacTooltipCommon } from '@jnetwork/sac-common';
+import { SacTooltipCommon } from '@simpleangularcontrols/sac-common';
 import { Component, ChangeDetectorRef, ElementRef } from '@angular/core';
 
 /**

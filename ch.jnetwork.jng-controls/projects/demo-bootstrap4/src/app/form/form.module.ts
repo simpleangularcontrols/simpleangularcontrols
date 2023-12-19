@@ -6,7 +6,7 @@ import {
   SACBootstrap4FormModule,
   SACBootstrap4InputModule,
   SACBootstrap4ValidationSummaryModule,
-} from '@jnetwork/sac-bootstrap4';
+} from '@simpleangularcontrols/sac-bootstrap4';
 import { FormRoutingModule } from './form-routing.module';
 import { DemoFormComponent } from './form.component';
 import { DemoSubFormComponent } from './subform.component';

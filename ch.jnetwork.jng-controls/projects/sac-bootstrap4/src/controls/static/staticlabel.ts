@@ -1,6 +1,6 @@
 import { Component, forwardRef, Host, Injector, Optional } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacStaticLabelCommon } from '@jnetwork/sac-common';
+import { SacStaticLabelCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormDirective } from '../form/form';
 
 /**

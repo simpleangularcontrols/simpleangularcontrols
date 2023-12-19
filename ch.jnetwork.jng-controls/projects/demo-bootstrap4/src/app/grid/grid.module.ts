@@ -7,7 +7,7 @@ import {
   SACBootstrap4FormModule,
   SACBootstrap4GridModule,
   SACBootstrap4ValidationSummaryModule,
-} from '@jnetwork/sac-bootstrap4';
+} from '@simpleangularcontrols/sac-bootstrap4';
 import { GridRoutingModule } from './grid-routing.module';
 import { DemoGridComponent } from './grid.component';
 import { GridService } from './services/GridService';

@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
-import { SacGridCommon, SacGridButtonCommon } from '@jnetwork/sac-common';
+import { SacGridCommon, SacGridButtonCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Grid Action Button

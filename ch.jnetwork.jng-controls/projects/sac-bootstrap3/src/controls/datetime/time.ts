@@ -1,7 +1,7 @@
 import { Component, forwardRef, ElementRef, Host, Injector, Optional } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
 import { SacFormDirective } from '../form/form';
-import { SacTimeCommon } from '@jnetwork/sac-common';
+import { SacTimeCommon } from '@simpleangularcontrols/sac-common';
 
 @Component({
   selector: 'sac-time',

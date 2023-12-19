@@ -84,7 +84,7 @@ namespace Build.tasks
             context.Log.Information($"Common Version is {commonVersion}");
             context.Log.Information($"Bootstrap 4 Version is {bootstrap4Version}");
 
-            boostrap4Json["peerDependencies"]["@jnetwork/sac-common"] = commonVersion;
+            boostrap4Json["peerDependencies"]["@simpleangularcontrols/sac-common"] = commonVersion;
             context.SerializeJsonToPrettyFile<JObject>(boostrap4Package, boostrap4Json);
         }
     }

@@ -1,5 +1,5 @@
 import { Component, } from '@angular/core';
-import { SacTabItemCommon } from '@jnetwork/sac-common';
+import { SacTabItemCommon } from '@simpleangularcontrols/sac-common';
 
 @Component({
   selector: 'sac-tabitem',

@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, OnDestroy, Input, ChangeDetectorRef } from '@angular/core';
-import { SacDialogCommon } from '@jnetwork/sac-common';
+import { SacDialogCommon } from '@simpleangularcontrols/sac-common';
 
 @Component({
   selector: 'sac-dialog',

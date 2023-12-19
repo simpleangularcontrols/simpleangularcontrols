@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SacDateSelectorCommon } from '@jnetwork/sac-common';
+import { SacDateSelectorCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * DateTime Selektor Komponente

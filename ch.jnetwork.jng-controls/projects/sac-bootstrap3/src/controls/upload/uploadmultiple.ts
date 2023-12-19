@@ -1,5 +1,5 @@
 import { Component, Host, forwardRef, Injector, Renderer2, Optional } from '@angular/core';
-import { SacUploadMultipleCommon } from '@jnetwork/sac-common';
+import { SacUploadMultipleCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormDirective } from '../form/form';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
 import { NgZone } from '@angular/core';

@@ -5,7 +5,7 @@ import {
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
 // import { SacBaseModelControl } from '../../common/basemodelcontrol';
-import { SacCheckboxCommon } from '@jnetwork/sac-common';
+import { SacCheckboxCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormDirective } from '../form/form';
 
 /**

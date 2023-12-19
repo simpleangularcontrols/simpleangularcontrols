@@ -5,7 +5,7 @@ import {
   SACBootstrap4FormModule,
   SACBootstrap4ButtonModule,
   SACBootstrap4ValidationSummaryModule,
-} from '@jnetwork/sac-bootstrap4';
+} from '@simpleangularcontrols/sac-bootstrap4';
 import { ButtonRoutingModule } from './button-routing.module';
 import { DemoButtonComponent } from './button.component';
 @NgModule({

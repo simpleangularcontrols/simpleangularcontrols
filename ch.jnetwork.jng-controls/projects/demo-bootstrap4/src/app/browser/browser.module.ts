@@ -5,7 +5,7 @@ import {
   SACBootstrap4FormModule,
   SACBootstrap4BrowserModule,
   SACBootstrap4ValidationSummaryModule,
-} from '@jnetwork/sac-bootstrap4';
+} from '@simpleangularcontrols/sac-bootstrap4';
 import { BrowserRoutingModule } from './browser-routing.module';
 import { DemoBrowserComponent } from './browser.component';
 @NgModule({

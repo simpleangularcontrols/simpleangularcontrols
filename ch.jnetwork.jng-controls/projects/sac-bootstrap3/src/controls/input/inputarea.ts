@@ -1,7 +1,7 @@
 import { ControlContainer, NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
 import { SacFormDirective } from '../form/form';
 import { Component, forwardRef, Host, Injector, Optional } from '@angular/core';
-import { SacInputAreaCommon } from '@jnetwork/sac-common';
+import { SacInputAreaCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Komponente für TextArea

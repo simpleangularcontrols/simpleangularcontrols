@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {
   SacContextmenuCommon,
   SacContextmenuItemButtonCommon,
-} from '@jnetwork/sac-common';
+} from '@simpleangularcontrols/sac-common';
 
 /**
  * Component für Menü Eintrag in Context Menü

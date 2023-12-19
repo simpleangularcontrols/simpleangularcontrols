@@ -6,7 +6,7 @@ import {
   SACBootstrap4MultilanguageModule,
   SACBootstrap4ButtonModule,
   SACBootstrap4ValidationSummaryModule,
-} from '@jnetwork/sac-bootstrap4';
+} from '@simpleangularcontrols/sac-bootstrap4';
 import { MultilanguageRoutingModule } from './multilanguage-routing.module';
 import { DemoMultilanguageComponent } from './multilanguage.component';
 @NgModule({

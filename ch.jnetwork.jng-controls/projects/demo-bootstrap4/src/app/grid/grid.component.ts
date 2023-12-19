@@ -4,7 +4,7 @@ import {
   PagerRequest,
   SortDescriptor,
   SortOrder,
-} from '@jnetwork/sac-common';
+} from '@simpleangularcontrols/sac-common';
 import { GridItemDto } from './models/GridItemDto';
 import { GridRequestDto } from './models/GridRequestDto';
 import { GridResultDto } from './models/GridResultDto';

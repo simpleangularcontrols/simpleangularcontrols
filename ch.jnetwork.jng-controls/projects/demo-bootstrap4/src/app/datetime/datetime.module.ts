@@ -6,7 +6,7 @@ import {
   SACBootstrap4DateTimeModule,
   SACBootstrap4ButtonModule,
   SACBootstrap4ValidationSummaryModule,
-} from '@jnetwork/sac-bootstrap4';
+} from '@simpleangularcontrols/sac-bootstrap4';
 import { DatetimeRoutingModule } from './datetime-routing.module';
 import { DemoDatetimeComponent } from './datetime.component';
 @NgModule({

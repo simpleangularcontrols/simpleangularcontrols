@@ -6,7 +6,7 @@ import {
   SACBootstrap4CheckboxModule,
   SACBootstrap4ButtonModule,
   SACBootstrap4ValidationSummaryModule,
-} from '@jnetwork/sac-bootstrap4';
+} from '@simpleangularcontrols/sac-bootstrap4';
 import { CheckboxRoutingModule } from './checkbox-routing.module';
 import { DemoCheckboxComponent } from './checkbox.component';
 @NgModule({

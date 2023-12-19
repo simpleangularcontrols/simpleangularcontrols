@@ -2,7 +2,7 @@ import { Directive, ElementRef, forwardRef } from '@angular/core';
 import {
   SacContextmenuAnchorCommon,
   SacContextmenuCommon,
-} from '@jnetwork/sac-common';
+} from '@simpleangularcontrols/sac-common';
 
 /**
  * Anker Komponente für Context Menü. Wird zum positionieren des Context Menü in der Page benötigt.

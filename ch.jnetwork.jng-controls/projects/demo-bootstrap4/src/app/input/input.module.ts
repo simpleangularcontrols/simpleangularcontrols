@@ -6,7 +6,7 @@ import {
   SACBootstrap4InputModule,
   SACBootstrap4ButtonModule,
   SACBootstrap4ValidationSummaryModule,
-} from '@jnetwork/sac-bootstrap4';
+} from '@simpleangularcontrols/sac-bootstrap4';
 import { InputRoutingModule } from './input-routing.module';
 import { DemoInputComponent } from './input.component';
 @NgModule({

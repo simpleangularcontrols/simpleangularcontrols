@@ -15,9 +15,9 @@
     "module": "es2020",
     "baseUrl": "./",
     "paths": {
-      "@jnetwork/sac-common": ["dist/sac-common"],
-      "@jnetwork/sac-bootstrap4": ["dist/sac-bootstrap4"],
-      "@jnetwork/sac-bootstrap3": ["dist/sac-bootstrap3"]
+      "@simpleangularcontrols/sac-common": ["dist/sac-common"],
+      "@simpleangularcontrols/sac-bootstrap4": ["dist/sac-bootstrap4"],
+      "@simpleangularcontrols/sac-bootstrap3": ["dist/sac-bootstrap3"]
     }
   },
   "angularCompilerOptions": {

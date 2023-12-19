@@ -3,7 +3,7 @@ import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/for
 import { SacFormDirective } from '../form/form';
 // Import Moment.JS
 import * as moment_ from 'moment';
-import { SacDateCommon } from '@jnetwork/sac-common';
+import { SacDateCommon } from '@simpleangularcontrols/sac-common';
 const moment = moment_["default"];
 
 

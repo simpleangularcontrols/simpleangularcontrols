@@ -9,7 +9,7 @@ import {
   Renderer2,
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacDropzoneMultipleCommon } from '@jnetwork/sac-common';
+import { SacDropzoneMultipleCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormDirective } from '../form/form';
 
 /**

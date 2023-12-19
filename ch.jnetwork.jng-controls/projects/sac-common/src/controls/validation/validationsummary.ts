@@ -1,6 +1,7 @@
 import { Directive, Injector, Input } from '@angular/core';
-import { AbstractControl, FormArray, NgForm } from '@angular/forms';
-import { Observable, of } from 'rxjs';
+import { AbstractControl, FormArray, FormGroup, NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { IAbstractControlLabelExtension } from '../../interfaces/iabstractcontrollabel';
 import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
 import {
   InternalLanguageResourceService,
@@ -8,7 +9,6 @@ import {
 } from '../../services/languageresource.service';
 import { ValidationErrorItem } from '../../validation';
 import { SacFormCommon } from '../form/form';
-import { IAbstractControlLabelExtension } from '../../interfaces/iabstractcontrollabel';
 
 /**
  * Basis Komponente für SacValidationSummary
@@ -21,8 +21,19 @@ export class SacValidationSummaryCommon {
   @Input()
   name: string = '';
 
+  /**
+   * reactive form instance
+   */
   @Input()
-  form: NgForm;
+  form: FormGroup;
+
+  /**
+   * Form groupname to filter summary to formgroup
+   *
+   * Important: it works only in reactive forms mode.
+   */
+  @Input()
+  formGroupName: string;
 
   // #region Private Variables
 
@@ -61,18 +72,23 @@ export class SacValidationSummaryCommon {
       Observable<string>
     >();
 
-    let form;
+    let formBase: FormGroup;
     if (this.parent) {
-      form = this.parent.getForm();
-    } else if (this.form) {
-      form = this.form;
+      formBase = this.parent.getForm().form;
+    } else if (this.form instanceof FormGroup) {
+      formBase = this.form;
+
+      // formgroup can only be get in reactive forms mode
+      if (this.formGroupName) {
+        formBase = formBase.get(this.formGroupName) as FormGroup;
+      }
     } else {
       throw new Error('missing form');
     }
 
-    const items: Array<NgForm | FormArray> = Object.keys(form.controls).map(
+    const items: Array<NgForm | FormArray> = Object.keys(formBase.controls).map(
       (key) => {
-        return <NgForm | FormArray>form.controls[key];
+        return <NgForm | FormArray>formBase.controls[key];
       }
     );
 

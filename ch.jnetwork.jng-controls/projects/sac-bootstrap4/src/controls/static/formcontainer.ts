@@ -5,7 +5,7 @@ import {
   NG_VALIDATORS,
 } from '@angular/forms';
 import { SacFormDirective } from '../form/form';
-import { SacStaticFormContainerCommon } from '@jnetwork/sac-common';
+import { SacStaticFormContainerCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Component für einbindung eines beliebigen Controls in die Form Struktur

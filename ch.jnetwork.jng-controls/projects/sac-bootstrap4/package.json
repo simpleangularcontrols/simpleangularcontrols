@@ -1,15 +1,15 @@
 {
-  "name": "@jnetwork/sac-bootstrap4",
+  "name": "@simpleangularcontrols/sac-bootstrap4",
   "version": "2.0.0-rc.7",
   "peerDependencies": {
     "@angular/common": "^13.2.0",
     "@angular/core": "^13.2.0",
-    "@jnetwork/sac-common": "file:../../dist/sac-common",
+    "@simpleangularcontrols/sac-common": "file:../../dist/sac-common",
     "@ng-bootstrap/ng-bootstrap": "^11.0.0",
     "@tinymce/tinymce-angular": "5.0.0"
   },
   "devDependencies": {
-    "@jnetwork/sac-common": "file:../../dist/sac-common"
+    "@simpleangularcontrols/sac-common": "file:../../dist/sac-common"
   },
   "author": {
     "name": "jNetwork GmbH",

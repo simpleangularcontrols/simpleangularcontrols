@@ -1,5 +1,5 @@
 import { Component, } from '@angular/core';
-import { SacWizardItemCommon } from '@jnetwork/sac-common';
+import { SacWizardItemCommon } from '@simpleangularcontrols/sac-common';
 
 @Component({
   selector: 'sac-wizarditem',

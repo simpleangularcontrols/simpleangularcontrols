@@ -1,6 +1,6 @@
 import { Component, forwardRef, Injector } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacPagingCommon } from '@jnetwork/sac-common';
+import { SacPagingCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Paging Komponente

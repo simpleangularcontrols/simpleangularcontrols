@@ -7,7 +7,7 @@ import {
 import {
   IconType,
   SacMultilanguageInputCommon,
-} from '@jnetwork/sac-common';
+} from '@simpleangularcontrols/sac-common';
 import { SacFormDirective } from '../form/form';
 
 /**

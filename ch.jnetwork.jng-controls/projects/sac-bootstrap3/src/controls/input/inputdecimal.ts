@@ -1,7 +1,7 @@
 import { Component, Host, forwardRef, Injector, Optional } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS} from '@angular/forms';
 import { SacFormDirective } from '../form/form';
-import { SacInputDecimalCommon } from '@jnetwork/sac-common';
+import { SacInputDecimalCommon } from '@simpleangularcontrols/sac-common';
 
 @Component({
   selector: 'sac-inputdecimal',

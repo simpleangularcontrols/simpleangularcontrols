@@ -1,5 +1,5 @@
 import { Component, Renderer2, ElementRef, OnInit, forwardRef } from '@angular/core';
-import { SacGridColumnCommon, SacGridColumnBaseCommon } from '@jnetwork/sac-common';
+import { SacGridColumnCommon, SacGridColumnBaseCommon } from '@simpleangularcontrols/sac-common';
 import { SacGridComponent } from './grid';
 
 @Component({

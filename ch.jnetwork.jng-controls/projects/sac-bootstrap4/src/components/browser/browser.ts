@@ -4,7 +4,7 @@ import {
   IBrowserFile,
   IBrowserNode,
   SacFileBrowserCommon,
-} from '@jnetwork/sac-common';
+} from '@simpleangularcontrols/sac-common';
 import { forkJoin, Observable } from 'rxjs';
 import { ServiceConfirm } from '../../controls/confirm/confirm.service';
 import { SacDropzoneMultipleComponent } from '../../controls/upload/dropzonemultiple';

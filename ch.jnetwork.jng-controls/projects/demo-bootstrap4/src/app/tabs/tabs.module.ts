@@ -5,7 +5,7 @@ import {
   SACBootstrap4TabsModule,
   SACBootstrap4FormModule,
   SACBootstrap4ValidationSummaryModule,
-} from '@jnetwork/sac-bootstrap4';
+} from '@simpleangularcontrols/sac-bootstrap4';
 import { TabsRoutingModule } from './tabs-routing.module';
 import { DemoTabsComponent } from './tabs.component';
 @NgModule({

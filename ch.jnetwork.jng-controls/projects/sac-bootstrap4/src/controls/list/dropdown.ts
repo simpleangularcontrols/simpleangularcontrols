@@ -12,7 +12,7 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
   SacDropdownCommon,
   SacDropdownOptionCommon,
-} from '@jnetwork/sac-common';
+} from '@simpleangularcontrols/sac-common';
 import { SacFormDirective } from '../form/form';
 
 /**

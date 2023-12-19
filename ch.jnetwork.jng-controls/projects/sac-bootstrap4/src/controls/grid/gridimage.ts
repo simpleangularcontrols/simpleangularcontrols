@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
-import { SacGridCommon, SacGridImageCommon } from '@jnetwork/sac-common';
+import { SacGridCommon, SacGridImageCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Image Item für Grid

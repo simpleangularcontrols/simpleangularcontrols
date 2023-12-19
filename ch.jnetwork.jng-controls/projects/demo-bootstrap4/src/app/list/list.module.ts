@@ -7,7 +7,7 @@ import {
   SACBootstrap4DropdownModule,
   SACBootstrap4ButtonModule,
   SACBootstrap4ValidationSummaryModule,
-} from '@jnetwork/sac-bootstrap4';
+} from '@simpleangularcontrols/sac-bootstrap4';
 import { ListRoutingModule } from './list-routing.module';
 import { DemoListComponent } from './list.component';
 @NgModule({

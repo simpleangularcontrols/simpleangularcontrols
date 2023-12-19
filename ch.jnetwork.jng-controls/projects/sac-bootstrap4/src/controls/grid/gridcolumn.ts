@@ -2,7 +2,7 @@ import { Component, ElementRef, forwardRef } from '@angular/core';
 import {
   SacGridColumnBaseCommon,
   SacGridColumnCommon,
-} from '@jnetwork/sac-common';
+} from '@simpleangularcontrols/sac-common';
 import { SacGridComponent } from './grid';
 
 /**

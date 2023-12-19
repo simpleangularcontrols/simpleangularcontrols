@@ -1,5 +1,5 @@
 import { Injectable, Type, ComponentFactoryResolver, ApplicationRef, Injector, Inject, ComponentFactory } from '@angular/core';
-import { ServiceConfirmCommon, SacConfirmButton, isDefined } from '@jnetwork/sac-common';
+import { ServiceConfirmCommon, SacConfirmButton, isDefined } from '@simpleangularcontrols/sac-common';
 import { SacConfirmComponent } from './confirm';
 import { EventEmitter } from '@angular/core';
 

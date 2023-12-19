@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SacTreeViewChildCommon } from '@jnetwork/sac-common';
+import { SacTreeViewChildCommon } from '@simpleangularcontrols/sac-common';
 
 @Component({
   selector: 'sac-treeviewchild',

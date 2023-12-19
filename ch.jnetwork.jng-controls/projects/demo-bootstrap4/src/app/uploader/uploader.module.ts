@@ -6,7 +6,7 @@ import {
   SACBootstrap4UploadModule,
   SACBootstrap4ButtonModule,
   SACBootstrap4ValidationSummaryModule,
-} from '@jnetwork/sac-bootstrap4';
+} from '@simpleangularcontrols/sac-bootstrap4';
 import { UploaderRoutingModule } from './uploader-routing.module';
 import { DemoUploaderComponent } from './uploader.component';
 @NgModule({

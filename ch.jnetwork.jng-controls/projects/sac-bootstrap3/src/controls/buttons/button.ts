@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SacButtonCommon } from '@jnetwork/sac-common';
+import { SacButtonCommon } from '@simpleangularcontrols/sac-common';
 
 @Component({
   selector: 'sac-button',

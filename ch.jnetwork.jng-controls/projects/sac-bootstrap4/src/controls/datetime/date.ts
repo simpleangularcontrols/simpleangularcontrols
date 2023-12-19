@@ -11,7 +11,7 @@ import {
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
-import { SacDateCommon } from '@jnetwork/sac-common';
+import { SacDateCommon } from '@simpleangularcontrols/sac-common';
 // Import Moment.JS
 import * as moment_ from 'moment';
 import { SacFormDirective } from '../form/form';

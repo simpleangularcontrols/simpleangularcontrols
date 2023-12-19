@@ -17,7 +17,7 @@ import { SacFormDirective } from '../form/form';
 import {
   SacListboxCommon,
   SacListboxOptionCommon,
-} from '@jnetwork/sac-common';
+} from '@simpleangularcontrols/sac-common';
 
 /**
  * Listbox Komponente

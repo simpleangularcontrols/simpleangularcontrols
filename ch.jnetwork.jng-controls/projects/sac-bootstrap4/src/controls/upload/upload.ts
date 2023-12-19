@@ -8,7 +8,7 @@ import {
   Renderer2,
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacUploadSingleCommon } from '@jnetwork/sac-common';
+import { SacUploadSingleCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormDirective } from '../form/form';
 
 /**

@@ -1,6 +1,6 @@
 import { Component, Host, Injector, Optional } from '@angular/core';
 import { ControlContainer, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacValidationSummaryCommon } from '@jnetwork/sac-common';
+import { SacValidationSummaryCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormDirective } from '../form/form';
 
 /**

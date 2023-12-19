@@ -1,5 +1,5 @@
 import { Input, EventEmitter, Output, TemplateRef, Component, forwardRef, ElementRef } from '@angular/core';
-import { SacGridColumnActionCommon, SacGridColumnBaseCommon } from '@jnetwork/sac-common';
+import { SacGridColumnActionCommon, SacGridColumnBaseCommon } from '@simpleangularcontrols/sac-common';
 import { SacGridComponent } from './grid';
 
 @Component({

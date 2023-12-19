@@ -1,6 +1,6 @@
 import { Component, Host, forwardRef, Injector, Optional } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
-import {SacCheckboxCommon } from '@jnetwork/sac-common';
+import {SacCheckboxCommon } from '@simpleangularcontrols/sac-common';
 import {SacFormDirective } from '../form/form';
 
 

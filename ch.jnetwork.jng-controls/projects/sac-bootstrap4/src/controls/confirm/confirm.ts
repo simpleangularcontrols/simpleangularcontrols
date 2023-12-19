@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SacConfirmCommon } from '@jnetwork/sac-common';
+import { SacConfirmCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Confirm Komponente

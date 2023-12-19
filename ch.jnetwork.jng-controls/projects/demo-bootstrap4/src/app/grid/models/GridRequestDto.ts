@@ -1,4 +1,4 @@
-import { SortOrder } from '@jnetwork/sac-common';
+import { SortOrder } from '@simpleangularcontrols/sac-common';
 
 export class GridRequestDto {
   public NewPageIndex: number;

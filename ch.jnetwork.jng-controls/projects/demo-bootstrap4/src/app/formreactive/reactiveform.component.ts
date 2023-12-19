@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Validation } from '@jnetwork/sac-common';
+import { Validation } from '@simpleangularcontrols/sac-common';
 
 @Component({
   selector: 'app-reactiveform',

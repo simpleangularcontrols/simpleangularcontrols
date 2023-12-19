@@ -1,5 +1,5 @@
 import { Component, ElementRef } from '@angular/core';
-import { SacTreeItemActionCommon } from '@jnetwork/sac-common';
+import { SacTreeItemActionCommon } from '@simpleangularcontrols/sac-common';
 
 
 @Component({

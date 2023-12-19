@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import {
   SACBootstrap4FormModule,
   SACBootstrap4ContextmenuModule,
-} from '@jnetwork/sac-bootstrap4';
+} from '@simpleangularcontrols/sac-bootstrap4';
 import { ContextmenuRoutingModule } from './contextmenu-routing.module';
 import { DemoContextmenuComponent } from './contextmenu.component';
 @NgModule({

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SacContextmenuItemCommon } from '@jnetwork/sac-common';
+import { SacContextmenuItemCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Splitter Komponente in Context Menü

@@ -7,7 +7,7 @@ import {
   SACBootstrap4ValidationSummaryModule,
   SACBootstrap4CheckboxModule,
   SACBootstrap4DateTimeModule,
-} from '@jnetwork/sac-bootstrap4';
+} from '@simpleangularcontrols/sac-bootstrap4';
 import { ReactiveFormRoutingModule } from './reactiveform-routing.module';
 import { DemoRectiveFormComponent } from './reactiveform.component';
 @NgModule({

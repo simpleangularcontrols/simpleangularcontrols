@@ -6,7 +6,7 @@ import {
   SACBootstrap4ConfirmModule,
   SACBootstrap4FormModule,
   SACBootstrap4ValidationSummaryModule,
-} from '@jnetwork/sac-bootstrap4';
+} from '@simpleangularcontrols/sac-bootstrap4';
 import { ConfirmRoutingModule } from './confirm-routing.module';
 import { DemoConfirmComponent } from './confirm.component';
 @NgModule({

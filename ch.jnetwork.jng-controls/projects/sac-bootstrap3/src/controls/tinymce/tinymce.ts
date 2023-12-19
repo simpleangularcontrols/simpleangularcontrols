@@ -1,4 +1,4 @@
-import { SacTinyMceCommon } from '@jnetwork/sac-common';
+import { SacTinyMceCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormDirective } from '../form/form';
 import { Component, forwardRef, Host, Injector, NgZone, Optional } from '@angular/core';
 import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/forms';

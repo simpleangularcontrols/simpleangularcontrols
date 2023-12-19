@@ -14,7 +14,7 @@ import { SacDropdownCommon, SacDropdownOptionCommon } from '@jnetwork/sac-common
 })
 export class SacDropdownComponent extends SacDropdownCommon {
 
-  constructor(@Host() parent: SacFormDirective, injector: Injector, _renderer: Renderer2, _elementRef: ElementRef) {
+  constructor(@Host() @Optional() parent: SacFormDirective, injector: Injector, _renderer: Renderer2, _elementRef: ElementRef) {
     super(parent, injector, _renderer, _elementRef);
   }
 }

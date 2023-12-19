@@ -1,4 +1,10 @@
-import { ElementRef, HostListener, Injector, Input, Directive } from '@angular/core';
+import {
+  ElementRef,
+  HostListener,
+  Injector,
+  Input,
+  Directive,
+} from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import * as moment_ from 'moment';
 import * as IMask from 'imask';
@@ -11,14 +17,13 @@ import { SacFormCommon } from '../form/form';
 /**
  * Moment
  */
-const moment = moment_["default"];
+const moment = moment_['default'];
 
 /**
  * Komponente für SacTimeCommon. Extends SacBaseDateTimeControl
  */
 @Directive()
 export class SacTimeCommon extends SacBaseDateTimeControl {
-
   // #region Constants
 
   /**
@@ -42,12 +47,12 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
         from: 0,
         to: 59,
         maxLength: 2,
-      }
+      },
     },
     placeholderChar: '_',
     autofix: true,
     lazy: false,
-    overwrite: true
+    overwrite: true,
   };
 
   // #endregion
@@ -106,7 +111,8 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
   /**
    * Resource Key für Validation Message MinTime in Validation Summary
    */
-  @Input() validationmessagesummarymintime: string = 'VALIDATION_ERROR_SUMMARY_MINTIME';
+  @Input() validationmessagesummarymintime: string =
+    'VALIDATION_ERROR_SUMMARY_MINTIME';
 
   /**
    * Resource Key für Validation Message MinTime bei Control
@@ -115,7 +121,8 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
   /**
    * Resource Key für Validation Message MinTime in Validation Summary
    */
-  @Input() validationmessagesummarymaxtime: string = 'VALIDATION_ERROR_SUMMARY_MAXTIME';
+  @Input() validationmessagesummarymaxtime: string =
+    'VALIDATION_ERROR_SUMMARY_MAXTIME';
 
   // #endregion
 
@@ -125,7 +132,11 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
    * @param injector typ Injector
    * @param _elementRef typ ElementRef
    */
-  constructor(parent: SacFormCommon, injector: Injector, protected _elementRef: ElementRef) {
+  constructor(
+    parent: SacFormCommon,
+    injector: Injector,
+    protected _elementRef: ElementRef
+  ) {
     super(parent, injector, _elementRef);
   }
 
@@ -174,7 +185,8 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
    * Click Event
    */
   public onClick(targetElement) {
-    const clickedInside = this._elementRef.nativeElement.contains(targetElement);
+    const clickedInside =
+      this._elementRef.nativeElement.contains(targetElement);
     if (!clickedInside) {
       this._showselector = false;
     }
@@ -203,15 +215,36 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
 
     error = super.validateData(c);
 
-    if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._mintime !== undefined && this._mintime !== null) {
-      error = Validation.minTime(this, this._mintime, this.label, this.validationmessagemintime, this.validationmessagesummarymintime);
+    if (
+      error === null &&
+      c.value !== null &&
+      c.value !== undefined &&
+      c.value !== '' &&
+      this._mintime !== undefined &&
+      this._mintime !== null
+    ) {
+      error = Validation.minTime(
+        this._mintime,
+        this.validationmessagemintime,
+        this.validationmessagesummarymintime
+      )(c);
     }
 
-    if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._maxtime !== undefined && this._maxtime !== null) {
-      error = Validation.maxTime(this, this._maxtime, this.label, this.validationmessagemaxtime, this.validationmessagesummarymaxtime);
+    if (
+      error === null &&
+      c.value !== null &&
+      c.value !== undefined &&
+      c.value !== '' &&
+      this._maxtime !== undefined &&
+      this._maxtime !== null
+    ) {
+      error = Validation.maxTime(
+        this._maxtime,
+        this.validationmessagemaxtime,
+        this.validationmessagesummarymaxtime
+      )(c);
     }
 
     return error;
   }
-
 }

@@ -192,7 +192,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:57</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:58</a></div>
                             </td>
                         </tr>
 
@@ -261,7 +261,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:57</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:58</a></div>
                         </td>
                     </tr>
 
@@ -293,7 +293,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:41</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:42</a></div>
                         </td>
                     </tr>
 
@@ -325,7 +325,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:49</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:50</a></div>
                         </td>
                     </tr>
 
@@ -357,7 +357,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:53</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:54</a></div>
                         </td>
                     </tr>
 
@@ -389,7 +389,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:45</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:46</a></div>
                         </td>
                     </tr>
 
@@ -446,6 +446,7 @@ import { ILanguageResourceService } from &#x27;../interfaces/ilanguageresource&#
 import { Validation } from &#x27;../validation&#x27;;
 import { SacBaseModelControl } from &#x27;./basemodelcontrol&#x27;;
 import { Observable, of } from &#x27;rxjs&#x27;;
+import { IUploadControl } from &#x27;../interfaces/iuploadcontrol&#x27;;
 
 /**
  * Klasse für den Upload einer Datei in der Upload Component
@@ -840,11 +841,9 @@ export abstract class SacUploadBase&lt;VALUE&gt;
 
     if (this.isrequired) {
       error &#x3D; Validation.required(
-        c,
-        this.label,
         this.validationmessagerequired,
         this.validationmessagesummaryrequired
-      );
+      )(c);
     }
 
     return error;
@@ -953,6 +952,8 @@ export abstract class SacUploadBase&lt;VALUE&gt;
         this.uploads[index].status &#x3D; ufile.status;
       }
     }
+
+    this.UpdateFileCount();
   }
 
   /**
@@ -978,6 +979,24 @@ export abstract class SacUploadBase&lt;VALUE&gt;
    * @returns Valdierung ist erfolgreich
    */
   abstract CustomAddValidation(file: UploadState): boolean;
+
+  /**
+   * Returns the number of uploaded files
+   */
+  private UploadedFileCount(): number {
+    return this.uploads.filter((itm) &#x3D;&gt; itm.status &#x3D;&#x3D;&#x3D; &#x27;complete&#x27;).length;
+  }
+
+  private UpdateFileCount(): void {
+    // HACK: Add addition property to FormControl. Can be fixed if solution for ticket: https://github.com/angular/angular/issues/19686
+    if (this.ngControl?.control) {
+      (this.ngControl.control as unknown as IUploadControl).uploadedfilecount &#x3D;
+        this.UploadedFileCount();
+    } else if (this.ngControl) {
+      (this.ngControl as unknown as IUploadControl).uploadedfilecount &#x3D;
+        this.UploadedFileCount();
+    }
+  }
 }
 </code></pre>
     </div>

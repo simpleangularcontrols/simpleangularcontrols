@@ -1,4 +1,4 @@
-import { Component, Host, forwardRef, Injector } from '@angular/core';
+import { Component, Host, forwardRef, Injector, Optional } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
 import { SacFormDirective } from '../form/form';
 import { SacStaticFormContainerCommon } from '@jnetwork/sac-common';
@@ -34,7 +34,7 @@ export class SacStaticFormContainerComponent extends SacStaticFormContainerCommo
    * @param parent Parent SacFormular Instanz
    * @param injector Injector Instanz
    */
-  constructor( @Host() parent: SacFormDirective, injector: Injector) {
+  constructor( @Host() @Optional() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 

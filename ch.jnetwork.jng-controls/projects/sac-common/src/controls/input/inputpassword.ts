@@ -31,12 +31,10 @@ export class SacInputPasswordCommon extends SacInputCommon {
 
     if (error === null) {
       error = Validation.minLength(
-        c,
         this.minlength,
-        this.label,
         this.validationmessageminlength,
         this.validationmessagesummaryminlength
-      );
+      )(c);
     }
 
     return error;

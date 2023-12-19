@@ -1,4 +1,4 @@
-import { Component, Host, forwardRef, Injector } from '@angular/core';
+import { Component, Host, forwardRef, Injector, Optional } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
 // import { SacBaseSelectControl } from '../../common/baseselectcontrol';
 import { SacFormDirective } from '../form/form';
@@ -16,7 +16,7 @@ import { SacListboxCommon } from '@jnetwork/sac-common';
   ]
 })
 export class SacListboxComponent extends SacListboxCommon {
-  constructor( @Host() parent: SacFormDirective, injector: Injector) {
+  constructor( @Host() @Optional() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 }

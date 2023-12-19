@@ -1,4 +1,4 @@
-import { Component, forwardRef, Host, Injector, NgZone } from '@angular/core';
+import { Component, forwardRef, Host, Injector, NgZone, Optional } from '@angular/core';
 import {
   ControlContainer,
   NG_VALIDATORS,
@@ -39,7 +39,7 @@ export class SacTinyMceComponent extends SacTinyMceCommon {
    * @param ngZone ngZone
    */
   constructor(
-    @Host() parent: SacFormDirective,
+    @Host() @Optional() parent: SacFormDirective,
     injector: Injector,
     ngZone: NgZone
   ) {

@@ -1,4 +1,4 @@
-import { Component, Host, Injector, forwardRef, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Host, Injector, forwardRef, Output, EventEmitter, Input, Optional } from '@angular/core';
 import { SacInputSearchCommon } from '@jnetwork/sac-common';
 import { SacFormDirective } from '../form/form';
 import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/forms';
@@ -16,7 +16,7 @@ import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/for
 
 export class SacInputSearchComponent extends SacInputSearchCommon {
 
-  constructor(@Host() parent: SacFormDirective, injector: Injector) {
+  constructor(@Host() @Optional() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 

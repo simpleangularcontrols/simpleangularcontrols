@@ -30,6 +30,7 @@ import { ILanguageResourceService } from '../interfaces/ilanguageresource';
 import { Validation } from '../validation';
 import { SacBaseModelControl } from './basemodelcontrol';
 import { Observable, of } from 'rxjs';
+import { IUploadControl } from '../interfaces/iuploadcontrol';
 
 /**
  * Klasse für den Upload einer Datei in der Upload Component
@@ -424,11 +425,9 @@ export abstract class SacUploadBase<VALUE>
 
     if (this.isrequired) {
       error = Validation.required(
-        c,
-        this.label,
         this.validationmessagerequired,
         this.validationmessagesummaryrequired
-      );
+      )(c);
     }
 
     return error;
@@ -537,6 +536,8 @@ export abstract class SacUploadBase<VALUE>
         this.uploads[index].status = ufile.status;
       }
     }
+
+    this.UpdateFileCount();
   }
 
   /**
@@ -562,4 +563,22 @@ export abstract class SacUploadBase<VALUE>
    * @returns Valdierung ist erfolgreich
    */
   abstract CustomAddValidation(file: UploadState): boolean;
+
+  /**
+   * Returns the number of uploaded files
+   */
+  private UploadedFileCount(): number {
+    return this.uploads.filter((itm) => itm.status === 'complete').length;
+  }
+
+  private UpdateFileCount(): void {
+    // HACK: Add addition property to FormControl. Can be fixed if solution for ticket: https://github.com/angular/angular/issues/19686
+    if (this.ngControl?.control) {
+      (this.ngControl.control as unknown as IUploadControl).uploadedfilecount =
+        this.UploadedFileCount();
+    } else if (this.ngControl) {
+      (this.ngControl as unknown as IUploadControl).uploadedfilecount =
+        this.UploadedFileCount();
+    }
+  }
 }

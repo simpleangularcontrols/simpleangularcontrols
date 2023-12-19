@@ -1,6 +1,6 @@
 import { ControlContainer, NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
 import { SacFormDirective } from '../form/form';
-import { Component, forwardRef, Host, Injector } from '@angular/core';
+import { Component, forwardRef, Host, Injector, Optional } from '@angular/core';
 import { SacInputAreaCommon } from '@jnetwork/sac-common';
 
 /**
@@ -27,7 +27,7 @@ import { SacInputAreaCommon } from '@jnetwork/sac-common';
 
 export class SacInputAreaComponent extends SacInputAreaCommon {
 
-  constructor( @Host() parent: SacFormDirective, injector: Injector) {
+  constructor( @Host() @Optional() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 

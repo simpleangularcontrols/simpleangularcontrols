@@ -17,6 +17,13 @@ const routes: Routes = [
     loadChildren: () => import('./form/form.module').then((m) => m.FormModule),
   },
   {
+    path: 'reactiveform',
+    loadChildren: () =>
+      import('./formreactive/reactiveform.module').then(
+        (m) => m.ReactiveFormModule
+      ),
+  },
+  {
     path: 'checkbox',
     loadChildren: () =>
       import('./checkbox/checkbox.module').then((m) => m.CheckboxModule),

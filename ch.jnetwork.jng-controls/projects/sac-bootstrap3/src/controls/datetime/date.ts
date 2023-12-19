@@ -1,4 +1,4 @@
-import { Component, forwardRef, Host, ElementRef, Injector } from '@angular/core';
+import { Component, forwardRef, Host, ElementRef, Injector, Optional } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
 import { SacFormDirective } from '../form/form';
 // Import Moment.JS
@@ -18,7 +18,7 @@ const moment = moment_["default"];
 })
 
 export class SacDateComponent extends SacDateCommon {
-  constructor( @Host() parent: SacFormDirective, injector: Injector, _elementRef: ElementRef) {
+  constructor( @Host() @Optional() parent: SacFormDirective, injector: Injector, _elementRef: ElementRef) {
     super(parent, injector, _elementRef);
   }
 }

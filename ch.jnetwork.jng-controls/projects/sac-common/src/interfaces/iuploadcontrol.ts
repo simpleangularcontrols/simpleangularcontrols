@@ -1,10 +1,9 @@
 /**
- * Interface für Upload Control Validerung
+ * Interface to extend FormControl with uploadlimits for validation
  */
 export interface IUploadControl {
   /**
-   * Gibt die Anzahl hochgeladener Dateien zurück
+   * Returns the number of uploaded files
    */
-  UploadedFileCount(): number;
+  uploadedfilecount: number;
 }
-

@@ -1,4 +1,4 @@
-import { Component, forwardRef, ElementRef, Host, Injector } from '@angular/core';
+import { Component, forwardRef, ElementRef, Host, Injector, Optional } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
 import { SacFormDirective } from '../form/form';
 import { SacTimeCommon } from '@jnetwork/sac-common';
@@ -14,7 +14,7 @@ import { SacTimeCommon } from '@jnetwork/sac-common';
 })
 
 export class SacTimeComponent extends SacTimeCommon {
-  constructor( @Host() parent: SacFormDirective, injector: Injector, _elementRef: ElementRef) {
+  constructor( @Host() @Optional() parent: SacFormDirective, injector: Injector, _elementRef: ElementRef) {
     super(parent, injector, _elementRef);
   }
 }

@@ -118,7 +118,8 @@ export class SacListboxCommon extends SacBaseSelectControl<Array<string>> {
   /**
    * OptionMap
    */
-  optionlist: Array<SacListboxOptionCommon> = new Array<SacListboxOptionCommon>();
+  optionlist: Array<SacListboxOptionCommon> =
+    new Array<SacListboxOptionCommon>();
 
   /**
    * Anzahl der Zeilen
@@ -128,8 +129,7 @@ export class SacListboxCommon extends SacBaseSelectControl<Array<string>> {
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input() validationmessagerequired: string =
-    'VALIDATION_ERROR_REQUIRED';
+  @Input() validationmessagerequired: string = 'VALIDATION_ERROR_REQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
@@ -192,11 +192,9 @@ export class SacListboxCommon extends SacBaseSelectControl<Array<string>> {
 
     if (this.isrequired) {
       error = Validation.required(
-        c,
-        this.label,
         this.validationmessagerequired,
         this.validationmessagesummaryrequired
-      );
+      )(c);
     }
 
     return error;

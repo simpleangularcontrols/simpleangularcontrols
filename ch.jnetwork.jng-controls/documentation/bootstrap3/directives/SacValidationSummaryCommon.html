@@ -212,7 +212,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/sac-common/src/controls/validation/validationsummary.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/sac-common/src/controls/validation/validationsummary.ts:33</a></div>
                             </td>
                         </tr>
 
@@ -288,7 +288,7 @@ Inject des Formulars</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/sac-common/src/controls/validation/validationsummary.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/sac-common/src/controls/validation/validationsummary.ts:22</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -329,7 +329,7 @@ Inject des Formulars</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/sac-common/src/controls/validation/validationsummary.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/sac-common/src/controls/validation/validationsummary.ts:33</a></div>
                         </td>
                     </tr>
 
@@ -362,7 +362,7 @@ Inject des Formulars</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/sac-common/src/controls/validation/validationsummary.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/sac-common/src/controls/validation/validationsummary.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -397,7 +397,7 @@ Inject des Formulars</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/sac-common/src/controls/validation/validationsummary.ts:49</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">projects/sac-common/src/controls/validation/validationsummary.ts:56</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -430,7 +430,7 @@ Inject des Formulars</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">projects/sac-common/src/controls/validation/validationsummary.ts:131</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="156" class="link-to-prism">projects/sac-common/src/controls/validation/validationsummary.ts:156</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -453,9 +453,13 @@ Inject des Formulars</p>
 import { AbstractControl, FormArray, NgForm } from &#x27;@angular/forms&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { ILanguageResourceService } from &#x27;../../interfaces/ilanguageresource&#x27;;
-import { InternalLanguageResourceService, LANGUAGERESOURCE_SERVICE } from &#x27;../../services/languageresource.service&#x27;;
+import {
+  InternalLanguageResourceService,
+  LANGUAGERESOURCE_SERVICE,
+} from &#x27;../../services/languageresource.service&#x27;;
 import { ValidationErrorItem } from &#x27;../../validation&#x27;;
 import { SacFormCommon } from &#x27;../form/form&#x27;;
+import { IAbstractControlLabelExtension } from &#x27;../../interfaces/iabstractcontrollabel&#x27;;
 
 /**
  * Basis Komponente für SacValidationSummary
@@ -475,8 +479,8 @@ export class SacValidationSummaryCommon {
    */
   protected parent: SacFormCommon;
   /**
-  * Service für Error Localisation
-  */
+   * Service für Error Localisation
+   */
   protected lngResourceService: ILanguageResourceService;
 
   // #endregion
@@ -489,7 +493,10 @@ export class SacValidationSummaryCommon {
    */
   constructor(parent: SacFormCommon, injector: Injector) {
     this.parent &#x3D; parent;
-    this.lngResourceService &#x3D; injector.get(LANGUAGERESOURCE_SERVICE, new InternalLanguageResourceService());
+    this.lngResourceService &#x3D; injector.get(
+      LANGUAGERESOURCE_SERVICE,
+      new InternalLanguageResourceService()
+    );
   }
 
   // #endregion
@@ -498,30 +505,32 @@ export class SacValidationSummaryCommon {
    * Validation Methode
    */
   get formErrors(): Observable&lt;string&gt;[] {
-
-    const collection: Array&lt;Observable&lt;string&gt;&gt; &#x3D; new Array&lt;Observable&lt;string&gt;&gt;();
-    const items: Array&lt;NgForm | FormArray&gt; &#x3D; Object.keys(this.parent.getForm().controls).map(key &#x3D;&gt; {
+    const collection: Array&lt;Observable&lt;string&gt;&gt; &#x3D; new Array&lt;
+      Observable&lt;string&gt;
+    &gt;();
+    const items: Array&lt;NgForm | FormArray&gt; &#x3D; Object.keys(
+      this.parent.getForm().controls
+    ).map((key) &#x3D;&gt; {
       return &lt;NgForm | FormArray&gt;this.parent.getForm().controls[key];
     });
 
     this.getErrorCollection(items, collection);
 
-    return collection.filter(item &#x3D;&gt; item !&#x3D;&#x3D; null);
+    return collection.filter((item) &#x3D;&gt; item !&#x3D;&#x3D; null);
   }
 
   /**
    * Die Methode gibt Collection von Errors. Verlangt controls: Array&lt;NgForm | FormArray&gt; und  collection: Array&lt;Observable&lt;string&gt;&gt;
    */
-  private getErrorCollection(controls: Array&lt;NgForm | FormArray&gt;, collection: Array&lt;Observable&lt;string&gt;&gt;): void {
-    controls.forEach(ctl &#x3D;&gt; {
-
+  private getErrorCollection(
+    controls: Array&lt;NgForm | FormArray&gt;,
+    collection: Array&lt;Observable&lt;string&gt;&gt;
+  ): void {
+    controls.forEach((ctl) &#x3D;&gt; {
       if (ctl.controls &#x3D;&#x3D;&#x3D; undefined || ctl.controls &#x3D;&#x3D;&#x3D; null) {
-
         this.addErrorToCollection(&lt;AbstractControl&gt;ctl, collection);
-
       } else {
-
-        Object.keys(ctl.controls).map(controlKey &#x3D;&gt; {
+        Object.keys(ctl.controls).map((controlKey) &#x3D;&gt; {
           const control &#x3D; ctl.controls[controlKey];
 
           // Cancel Analyse wenn Item not Touched oder Valid
@@ -534,13 +543,14 @@ export class SacValidationSummaryCommon {
             this.addErrorToCollection(control, collection);
           } else {
             // Handling eines Control Containers
-            const items: Array&lt;NgForm | FormArray&gt; &#x3D; Object.keys(control.controls).map(formKey &#x3D;&gt; {
+            const items: Array&lt;NgForm | FormArray&gt; &#x3D; Object.keys(
+              control.controls
+            ).map((formKey) &#x3D;&gt; {
               return &lt;NgForm | FormArray&gt;control.controls[formKey];
             });
 
             this.getErrorCollection(items, collection);
           }
-
         });
       }
     });
@@ -551,7 +561,10 @@ export class SacValidationSummaryCommon {
    * @param ctl Fehlerhaftes Control
    * @param collection Collection aller Fehlermeldungen
    */
-  private addErrorToCollection(ctl: AbstractControl, collection: Array&lt;Observable&lt;string&gt;&gt;): void {
+  private addErrorToCollection(
+    ctl: AbstractControl,
+    collection: Array&lt;Observable&lt;string&gt;&gt;
+  ): void {
     if (ctl.errors &#x3D;&#x3D;&#x3D; null || ctl.touched &#x3D;&#x3D;&#x3D; false || ctl.valid &#x3D;&#x3D;&#x3D; true) {
       return;
     }
@@ -571,9 +584,21 @@ export class SacValidationSummaryCommon {
         parameters[k] &#x3D; v;
       });
     }
-    parameters[&#x27;FIELD&#x27;] &#x3D; errorItem.fieldName;
 
-    collection.push(this.lngResourceService.GetString(errorItem.errorMessageValidationSummaryKey, parameters));
+    if ((ctl as unknown as IAbstractControlLabelExtension)?.controllabel) {
+      parameters[&#x27;FIELD&#x27;] &#x3D; (
+        ctl as unknown as IAbstractControlLabelExtension
+      ).controllabel;
+    } else {
+      parameters[&#x27;FIELD&#x27;] &#x3D; errorItem.fieldName;
+    }
+
+    collection.push(
+      this.lngResourceService.GetString(
+        errorItem.errorMessageValidationSummaryKey,
+        parameters
+      )
+    );
   }
 
   /**
@@ -582,9 +607,7 @@ export class SacValidationSummaryCommon {
   get hasErrors() {
     return this.formErrors.length &gt; 0;
   }
-
 }
-
 </code></pre>
     </div>
 

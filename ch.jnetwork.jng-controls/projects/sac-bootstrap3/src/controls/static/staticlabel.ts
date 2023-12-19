@@ -1,4 +1,4 @@
-import { Component, Host, forwardRef, Injector } from '@angular/core';
+import { Component, Host, forwardRef, Injector, Optional } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
 import { SacFormDirective } from '../form/form';
 import { SacStaticLabelCommon } from '@jnetwork/sac-common';
@@ -15,7 +15,7 @@ import { SacStaticLabelCommon } from '@jnetwork/sac-common';
 
 export class SacStaticLabelComponent extends SacStaticLabelCommon {
 
-  constructor(@Host() parent: SacFormDirective, injector: Injector) {
+  constructor(@Host() @Optional() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 

@@ -736,7 +736,8 @@ export class SacListboxCommon extends SacBaseSelectControl&lt;Array&lt;string&gt
   /**
    * OptionMap
    */
-  optionlist: Array&lt;SacListboxOptionCommon&gt; &#x3D; new Array&lt;SacListboxOptionCommon&gt;();
+  optionlist: Array&lt;SacListboxOptionCommon&gt; &#x3D;
+    new Array&lt;SacListboxOptionCommon&gt;();
 
   /**
    * Anzahl der Zeilen
@@ -746,8 +747,7 @@ export class SacListboxCommon extends SacBaseSelectControl&lt;Array&lt;string&gt
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input() validationmessagerequired: string &#x3D;
-    &#x27;VALIDATION_ERROR_REQUIRED&#x27;;
+  @Input() validationmessagerequired: string &#x3D; &#x27;VALIDATION_ERROR_REQUIRED&#x27;;
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
@@ -810,11 +810,9 @@ export class SacListboxCommon extends SacBaseSelectControl&lt;Array&lt;string&gt
 
     if (this.isrequired) {
       error &#x3D; Validation.required(
-        c,
-        this.label,
         this.validationmessagerequired,
         this.validationmessagesummaryrequired
-      );
+      )(c);
     }
 
     return error;

@@ -126,7 +126,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/sac-common/src/validation/validators.ts</code>
+            <code>projects/sac-common/src/validation/validationerroritem.ts</code>
         </p>
 
 
@@ -197,7 +197,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/sac-common/src/validation/validators.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">projects/sac-common/src/validation/validationerroritem.ts:4</a></div>
                             </td>
                         </tr>
 
@@ -315,7 +315,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/sac-common/src/validation/validators.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/sac-common/src/validation/validationerroritem.ts:32</a></div>
                         </td>
                     </tr>
 
@@ -348,7 +348,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/sac-common/src/validation/validators.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/sac-common/src/validation/validationerroritem.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -381,7 +381,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/sac-common/src/validation/validators.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/sac-common/src/validation/validationerroritem.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -412,9 +412,14 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/sac-common/src/validation/validators.ts:48</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/sac-common/src/validation/validationerroritem.ts:42</a></div>
                         </td>
                     </tr>
 
@@ -452,7 +457,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">projects/sac-common/src/validation/validators.ts:53</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/sac-common/src/validation/validationerroritem.ts:47</a></div>
                         </td>
                     </tr>
 
@@ -477,21 +482,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AbstractControl, ValidationErrors, ValidatorFn, Validators } from &#x27;@angular/forms&#x27;;
-import * as moment_ from &#x27;moment&#x27;;
-import { IDateTimeControl } from &#x27;../interfaces/idatetimecontrol&#x27;;
-import { IUploadControl } from &#x27;../interfaces/iuploadcontrol&#x27;;
-import { LanguageModel } from &#x27;../models/languagemodel&#x27;;
-/**
- * Moment
- */
-const moment &#x3D; moment_[&quot;default&quot;];
-
-/**
- * Klasse für Validierungsfehler
- * */
-export class ValidationErrorItem {
-
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class ValidationErrorItem {
   /**
    * Konstruktor
    * @param errorType Type des Fehlers
@@ -499,7 +490,12 @@ export class ValidationErrorItem {
    * @param errorMessageSummaryKey Key für Fehlermeldung in Validation Summary
    * @param fieldName Name des Labels oder Bezeichnung des Feldes
    */
-  constructor(errorType: string, errorMessageKey: string, errorMessageSummaryKey: string, fieldName: string) {
+  constructor(
+    errorType: string,
+    errorMessageKey: string,
+    errorMessageSummaryKey: string,
+    fieldName: string &#x3D; null
+  ) {
     this.errorType &#x3D; errorType;
     this.errorMessageKey &#x3D; errorMessageKey;
     this.errorMessageValidationSummaryKey &#x3D; errorMessageSummaryKey;
@@ -524,344 +520,12 @@ export class ValidationErrorItem {
   /**
    * Label oder Name des Feldes
    */
-  public fieldName: string;
+  public fieldName: string &#x3D; null;
 
   /**
    * Map mit Parametern die in den Meldungen als Platzhalter verwendet werden können
    */
   public parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
-
-}
-
-/**
- * Klasse mit Standard Validatoren
- */
-export class Validation {
-
-  /**
-   * Die Methode ist von jedem Validator aufgerufen. Die setzt sowohl den errorType des gerpüfte Item, als auch die ErrorMessage (gemäss von errorType, FieldName und Parameters).
-   * @param errorType Typ den Fehler
-   * @param errorMessageKey Error Message Key
-   * @param errorMessageValidationSummaryKey Error Message Key für Validation Summary
-   * @param fieldName  Label oder Name des Feldes
-   * @param parameters Parametern die in den Meldungen als Platzhalter verwendet werden können
-   */
-  static GetValidationErrorItem(errorType: string, errorMessageKey: string, errorMessageValidationSummaryKey: string, fieldName: string, parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;()): any {
-    const item: ValidationErrorItem &#x3D; new ValidationErrorItem(errorType, errorMessageKey, errorMessageValidationSummaryKey, fieldName);
-
-    if (parameters !&#x3D;&#x3D; null &amp;&amp; parameters !&#x3D;&#x3D; undefined &amp;&amp; parameters.size &gt; 0) {
-      parameters.forEach((v, k) &#x3D;&gt; {
-        item.parameters.set(k, v);
-      });
-    }
-
-    return { [errorType]: item };
-  }
-
-  /**
-   * Validator für Required State
-   * @param control Control das Validiert wird
-   * @param fieldName Label des Controls
-   * @param validationMessage Validierungsmeldung die
-   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
-   */
-  static required(control: AbstractControl, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
-    if (Validators.required(control) !&#x3D;&#x3D; null) {
-      return Validation.GetValidationErrorItem(&#x27;required&#x27;, validationMessage, validationMessageSummary, fieldName);
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Validator für Min Value
-   * @param control Control das Validiert wird
-   * @param minvalue Min. Value
-   * @param fieldName Label des Controls
-   * @param validationMessage Validierungsmeldung die
-   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
-   */
-  static minValue(control: AbstractControl, minvalue: number, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
-    const validator: ValidatorFn &#x3D; Validators.min(minvalue);
-
-    if (validator(control) !&#x3D;&#x3D; null) {
-      const parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
-      parameters.set(&#x27;MINVALUE&#x27;, minvalue);
-
-      return Validation.GetValidationErrorItem(&#x27;minvalue&#x27;, validationMessage, validationMessageSummary, fieldName, parameters);
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Validierung mit einem RegEx Pattern
-   * @param control Control das validiert werden soll.
-   * @param pattern RegEx Pattern
-   * @param fieldName Label des Controls
-   * @param validationMessage Validierungsmeldung die
-   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
-   */
-  static patternValidator(control: AbstractControl, pattern: string, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
-    const validator: ValidatorFn &#x3D; Validators.pattern(pattern);
-
-    if (validator(control) !&#x3D;&#x3D; null) {
-      const parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
-      parameters.set(&#x27;PATTERN&#x27;, pattern);
-
-      return Validation.GetValidationErrorItem(&#x27;pattern&#x27;, validationMessage, validationMessageSummary, fieldName, parameters);
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Validator für Max Value
-   * @param control Control das Validiert werden soll
-   * @param maxvalue Max. Wert
-   * @param fieldName Label des Controls
-   * @param validationMessage Validierungsmeldung die
-   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
-   */
-  static maxValue(control: AbstractControl, maxvalue: number, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
-    const validator: ValidatorFn &#x3D; Validators.max(maxvalue);
-
-    if (validator(control) !&#x3D;&#x3D; null) {
-      const parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
-      parameters.set(&#x27;MAXVALUE&#x27;, maxvalue);
-
-      return Validation.GetValidationErrorItem(&#x27;maxvalue&#x27;, validationMessage, validationMessageSummary, fieldName, parameters);
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Validiert Feld auf E-Mail Adresse
-   * @param control Control das Valdiert werden soll
-   * @param fieldName Label des Controls
-   * @param validationMessage Validierungsmeldung die
-   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
-   */
-  static email(control: AbstractControl, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
-    if (Validators.email(control) !&#x3D;&#x3D; null) {
-      return Validation.GetValidationErrorItem(&#x27;email&#x27;, validationMessage, validationMessageSummary, fieldName);
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Validiert auf die Länge des Wertes im Control
-   * @param control Control das Validiert werden soll
-   * @param minlength Min. Länge des Wertes
-   * @param fieldName Label des Controls
-   * @param validationMessage Validierungsmeldung die
-   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
-   */
-  static minLength(control: AbstractControl, minlength: number, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
-    const validator: ValidatorFn &#x3D; Validators.minLength(minlength);
-
-    if (minlength !&#x3D;&#x3D; null &amp;&amp; minlength !&#x3D;&#x3D; undefined &amp;&amp; control.value !&#x3D;&#x3D; &#x27;&#x27; &amp;&amp; control.value !&#x3D;&#x3D; undefined &amp;&amp; control.value !&#x3D; null &amp;&amp; validator(control) !&#x3D; null) {
-      const parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
-      parameters.set(&#x27;MINLENGTH&#x27;, minlength);
-
-      return Validation.GetValidationErrorItem(&#x27;minlength&#x27;, validationMessage, validationMessageSummary, fieldName, parameters);
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Validiert ob das Datum neuer als minDate ist
-   * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
-   * @param minDate Min. Datum
-   * @param fieldName Label des Controls
-   * @param validationMessage Validierungsmeldung die
-   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
-   */
-  static minDate(control: IDateTimeControl, minDate: Date, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
-    // Check abbrechen, wenn kein gültiges Datum
-    if (!control.IsDateValid() || minDate &#x3D;&#x3D;&#x3D; null) {
-      return null;
-    }
-
-    if (minDate &gt; control.value) {
-      const parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
-      parameters.set(&#x27;MINDATE&#x27;, moment(minDate).format(control.GetDateTimeFormatString()));
-
-      return Validation.GetValidationErrorItem(&#x27;datemin&#x27;, validationMessage, validationMessageSummary, fieldName, parameters);
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Validiert ob das Datum älter als maxDate ist
-   * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
-   * @param maxDate max. Datum
-   * @param fieldName Label des Controls
-   * @param validationMessage Validierungsmeldung die
-   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
-   */
-  static maxDate(control: IDateTimeControl, maxDate: Date, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
-    // Check abbrechen, wenn kein gültiges Datum
-    if (!control.IsDateValid() || maxDate &#x3D;&#x3D;&#x3D; null) {
-      return null;
-    }
-
-    if (maxDate &lt; control.value) {
-      const parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
-      parameters.set(&#x27;MAXDATE&#x27;, moment(maxDate).format(control.GetDateTimeFormatString()));
-
-      return Validation.GetValidationErrorItem(&#x27;datemax&#x27;, validationMessage, validationMessageSummary, fieldName, parameters);
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Validiert ob die Zeit später als minTime ist.
-   * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
-   * @param minTime Min. Zeit
-   * @param fieldName Label des Controls
-   * @param validationMessage Validierungsmeldung die
-   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
-   */
-  static minTime(control: IDateTimeControl, minTime: Date, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
-    // Check abbrechen, wenn kein gültiges Datum
-    if (!control.IsDateValid() || minTime &#x3D;&#x3D;&#x3D; null) {
-      return null;
-    }
-
-    if (control.value !&#x3D;&#x3D; null &amp;&amp; minTime &gt; control.value) {
-      const parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
-      parameters.set(&#x27;MINTIME&#x27;, moment(minTime).format(control.GetDateTimeFormatString()));
-
-      return Validation.GetValidationErrorItem(&#x27;timemin&#x27;, validationMessage, validationMessageSummary, fieldName, parameters);
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Validiert ob die Zeit früher als maxTime ist.
-   * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
-   * @param maxTime Min. Zeit
-   * @param fieldName Label des Controls
-   * @param validationMessage Validierungsmeldung die
-   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
-   */
-  static maxTime(control: IDateTimeControl, maxTime: Date, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
-    // Check abbrechen, wenn kein gültiges Datum
-    if (!control.IsDateValid() || maxTime &#x3D;&#x3D;&#x3D; null) {
-      return null;
-    }
-
-    if (control.value !&#x3D;&#x3D; null &amp;&amp; maxTime &lt; control.value) {
-      const parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
-      parameters.set(&#x27;MAXTIME&#x27;, moment(maxTime).format(control.GetDateTimeFormatString()));
-
-      return Validation.GetValidationErrorItem(&#x27;timemax&#x27;, validationMessage, validationMessageSummary, fieldName, parameters);
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Validator der prüft ob der Wert ein Datum ist.
-   * @param control Control mit IDateTimeControl Interface implementierung
-   * @param fieldName Label des Controls
-   * @param validationMessage Validierungsmeldung die beim Control angezeigt wird
-   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
-   */
-  static isValidDate(control: IDateTimeControl, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
-    if (!control.IsDateValid()) {
-      return Validation.GetValidationErrorItem(&#x27;dateformat&#x27;, validationMessage, validationMessageSummary, fieldName);
-      // return { &#x27;dateformat&#x27;: true, &#x27;message&#x27;: &#x27;Feld &quot;&#x27; + fieldName + &#x27;&quot; ist kein gültiges Datum&#x27; };
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Validator für min. Anzahl von Uploads
-   * @param control Control das Validatiert werden soll. Control muss IUploadControl implementiert haben
-   * @param minFiles Min. Anzahl Files die hochgeladen werden müssen
-   * @param fieldName Label des Controls
-   * @param validationMessage Validierungsmeldung die unterhalb des Controls angezeigt wird
-   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
-   */
-  static minFiles(control: IUploadControl, minFiles: number, fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
-    // Check abbrechen, wenn Min Files nicht gesetzt oder 0
-    if (minFiles &#x3D;&#x3D;&#x3D; null || minFiles &#x3D;&#x3D;&#x3D; 0) {
-      return null;
-    }
-
-    if (control.UploadedFileCount() !&#x3D;&#x3D; null &amp;&amp; minFiles &gt; control.UploadedFileCount()) {
-      const parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
-      parameters.set(&#x27;MINFILES&#x27;, minFiles);
-
-      return Validation.GetValidationErrorItem(&#x27;dateformat&#x27;, validationMessage, validationMessageSummary, fieldName, parameters);
-    } else {
-      return null;
-    }
-  }
-
-
-  /**
-   * Validator für MultiLanguage Control, welcher überprüft ob alle Sprachen erfasst sind.
-   * @param control Control das Validatiert werden soll
-   * @param languages Sprachen die im Control erfasst werden können.
-   * @param fieldName Label des Controls
-   * @param validationMessage Validierungsmeldung die unterhalb des Controls angezeigt wird
-   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
-   */
-  static multilanguageRequired(control: AbstractControl, languages: LanguageModel[], fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
-    let found &#x3D; false;
-
-    languages.forEach((item: LanguageModel) &#x3D;&gt; {
-      if (control.value) {
-        if (control.value[item.IsoCode] &#x3D;&#x3D;&#x3D; undefined || control.value[item.IsoCode] &#x3D;&#x3D;&#x3D; null || control.value[item.IsoCode] &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
-          found &#x3D; true;
-        }
-      }
-    });
-
-    if (found) {
-      return Validation.GetValidationErrorItem(&#x27;required&#x27;, validationMessage, validationMessageSummary, fieldName);
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * Validator für MultiLanguage Control, welcher überprüft ob min. ein Wert erfasst wurde
-   * @param control Control das Validatiert werden soll
-   * @param languages Sprachen die im Control erfasst werden können.
-   * @param fieldName Label des Controls
-   * @param validationMessage Validierungsmeldung die unterhalb des Controls angezeigt wird
-   * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
-   */
-  static multilanguageRequiredAny(control: AbstractControl, languages: LanguageModel[], fieldName: string, validationMessage: string, validationMessageSummary): ValidationErrors | null {
-    let found &#x3D; false;
-
-    languages.forEach((item: LanguageModel) &#x3D;&gt; {
-
-      if (control.value) {
-        if (control.value[item.IsoCode] !&#x3D;&#x3D; undefined &amp;&amp; control.value[item.IsoCode] !&#x3D;&#x3D; null &amp;&amp; control.value[item.IsoCode] !&#x3D;&#x3D; &#x27;&#x27;) {
-          found &#x3D; true;
-        }
-      }
-
-    });
-
-    if (!found) {
-      return Validation.GetValidationErrorItem(&#x27;requiredany&#x27;, validationMessage, validationMessageSummary, fieldName);
-    } else {
-      return null;
-    }
-  }
 }
 </code></pre>
     </div>

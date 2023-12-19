@@ -2,9 +2,13 @@ import { Directive, Injector, Input } from '@angular/core';
 import { AbstractControl, FormArray, NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
-import { InternalLanguageResourceService, LANGUAGERESOURCE_SERVICE } from '../../services/languageresource.service';
+import {
+  InternalLanguageResourceService,
+  LANGUAGERESOURCE_SERVICE,
+} from '../../services/languageresource.service';
 import { ValidationErrorItem } from '../../validation';
 import { SacFormCommon } from '../form/form';
+import { IAbstractControlLabelExtension } from '../../interfaces/iabstractcontrollabel';
 
 /**
  * Basis Komponente für SacValidationSummary
@@ -24,8 +28,8 @@ export class SacValidationSummaryCommon {
    */
   protected parent: SacFormCommon;
   /**
-  * Service für Error Localisation
-  */
+   * Service für Error Localisation
+   */
   protected lngResourceService: ILanguageResourceService;
 
   // #endregion
@@ -38,7 +42,10 @@ export class SacValidationSummaryCommon {
    */
   constructor(parent: SacFormCommon, injector: Injector) {
     this.parent = parent;
-    this.lngResourceService = injector.get(LANGUAGERESOURCE_SERVICE, new InternalLanguageResourceService());
+    this.lngResourceService = injector.get(
+      LANGUAGERESOURCE_SERVICE,
+      new InternalLanguageResourceService()
+    );
   }
 
   // #endregion
@@ -47,30 +54,32 @@ export class SacValidationSummaryCommon {
    * Validation Methode
    */
   get formErrors(): Observable<string>[] {
-
-    const collection: Array<Observable<string>> = new Array<Observable<string>>();
-    const items: Array<NgForm | FormArray> = Object.keys(this.parent.getForm().controls).map(key => {
+    const collection: Array<Observable<string>> = new Array<
+      Observable<string>
+    >();
+    const items: Array<NgForm | FormArray> = Object.keys(
+      this.parent.getForm().controls
+    ).map((key) => {
       return <NgForm | FormArray>this.parent.getForm().controls[key];
     });
 
     this.getErrorCollection(items, collection);
 
-    return collection.filter(item => item !== null);
+    return collection.filter((item) => item !== null);
   }
 
   /**
    * Die Methode gibt Collection von Errors. Verlangt controls: Array<NgForm | FormArray> und  collection: Array<Observable<string>>
    */
-  private getErrorCollection(controls: Array<NgForm | FormArray>, collection: Array<Observable<string>>): void {
-    controls.forEach(ctl => {
-
+  private getErrorCollection(
+    controls: Array<NgForm | FormArray>,
+    collection: Array<Observable<string>>
+  ): void {
+    controls.forEach((ctl) => {
       if (ctl.controls === undefined || ctl.controls === null) {
-
         this.addErrorToCollection(<AbstractControl>ctl, collection);
-
       } else {
-
-        Object.keys(ctl.controls).map(controlKey => {
+        Object.keys(ctl.controls).map((controlKey) => {
           const control = ctl.controls[controlKey];
 
           // Cancel Analyse wenn Item not Touched oder Valid
@@ -83,13 +92,14 @@ export class SacValidationSummaryCommon {
             this.addErrorToCollection(control, collection);
           } else {
             // Handling eines Control Containers
-            const items: Array<NgForm | FormArray> = Object.keys(control.controls).map(formKey => {
+            const items: Array<NgForm | FormArray> = Object.keys(
+              control.controls
+            ).map((formKey) => {
               return <NgForm | FormArray>control.controls[formKey];
             });
 
             this.getErrorCollection(items, collection);
           }
-
         });
       }
     });
@@ -100,7 +110,10 @@ export class SacValidationSummaryCommon {
    * @param ctl Fehlerhaftes Control
    * @param collection Collection aller Fehlermeldungen
    */
-  private addErrorToCollection(ctl: AbstractControl, collection: Array<Observable<string>>): void {
+  private addErrorToCollection(
+    ctl: AbstractControl,
+    collection: Array<Observable<string>>
+  ): void {
     if (ctl.errors === null || ctl.touched === false || ctl.valid === true) {
       return;
     }
@@ -120,9 +133,21 @@ export class SacValidationSummaryCommon {
         parameters[k] = v;
       });
     }
-    parameters['FIELD'] = errorItem.fieldName;
 
-    collection.push(this.lngResourceService.GetString(errorItem.errorMessageValidationSummaryKey, parameters));
+    if ((ctl as unknown as IAbstractControlLabelExtension)?.controllabel) {
+      parameters['FIELD'] = (
+        ctl as unknown as IAbstractControlLabelExtension
+      ).controllabel;
+    } else {
+      parameters['FIELD'] = errorItem.fieldName;
+    }
+
+    collection.push(
+      this.lngResourceService.GetString(
+        errorItem.errorMessageValidationSummaryKey,
+        parameters
+      )
+    );
   }
 
   /**
@@ -131,6 +156,4 @@ export class SacValidationSummaryCommon {
   get hasErrors() {
     return this.formErrors.length > 0;
   }
-
 }
-

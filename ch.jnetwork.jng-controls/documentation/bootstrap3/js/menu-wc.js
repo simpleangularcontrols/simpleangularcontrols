@@ -773,6 +773,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/HTMLOption.html" data-type="entity-link" >HTMLOption</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/IAbstractControlLabelExtension.html" data-type="entity-link" >IAbstractControlLabelExtension</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/IBrowserFile.html" data-type="entity-link" >IBrowserFile</a>
                             </li>
                             <li class="link">

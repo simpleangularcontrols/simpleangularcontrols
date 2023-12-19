@@ -44,7 +44,7 @@ export class SacDropdownComponent extends SacDropdownCommon {
    * @param _elementRef Referenz auf HTML DOM Element
    */
   constructor(
-    @Host() parent: SacFormDirective,
+    @Host() @Optional() parent: SacFormDirective,
     injector: Injector,
     _renderer: Renderer2,
     _elementRef: ElementRef

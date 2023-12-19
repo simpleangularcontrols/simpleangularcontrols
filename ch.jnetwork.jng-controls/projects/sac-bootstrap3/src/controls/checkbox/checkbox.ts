@@ -1,4 +1,4 @@
-import { Component, Host, forwardRef, Injector } from '@angular/core';
+import { Component, Host, forwardRef, Injector, Optional } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
 import {SacCheckboxCommon } from '@jnetwork/sac-common';
 import {SacFormDirective } from '../form/form';
@@ -14,7 +14,7 @@ import {SacFormDirective } from '../form/form';
   ]
 })
 export class SacCheckboxComponent extends SacCheckboxCommon {
-  constructor(@Host() parent: SacFormDirective, injector: Injector) {
+  constructor(@Host() @Optional() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 }

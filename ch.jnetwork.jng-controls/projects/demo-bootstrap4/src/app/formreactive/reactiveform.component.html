@@ -1,0 +1,40 @@
+<h2>Reactive Form</h2>
+
+<form [formGroup]="baseForm">
+  <sac-input
+    name="reactiveformfield"
+    formControlName="inputvalue"
+    label="Reactive Field"
+    [isrequired]="true"
+  ></sac-input>
+
+  <div>Value: {{ baseForm.get('inputvalue').value }}</div>
+
+  <sac-checkbox
+    name="checkbox1"
+    label="Checkbox 1"
+    formControlName="checkboxvalue"
+  ></sac-checkbox>
+
+  <div>Value: {{ baseForm.get('checkboxvalue').value }}</div>
+
+  <sac-radiobuttons
+    name="radiobuttons1"
+    label="Radiobuttons 1"
+    formControlName="radiobuttonvalue"
+  >
+    <sac-radiobutton name="rb1" value="1" label="Wert 1"></sac-radiobutton>
+    <sac-radiobutton name="rb2" value="2" label="Wert 2"></sac-radiobutton>
+    <sac-radiobutton name="rb3" value="3" label="Wert 3"></sac-radiobutton>
+  </sac-radiobuttons>
+
+  <div>Value: {{ baseForm.get('radiobuttonvalue').value }}</div>
+
+  <sac-datetime
+    name="datetime1"
+    label="Datum & Zeit 1"
+    formControlName="datetimevalue"
+  ></sac-datetime>
+
+  <div>Value: {{ baseForm.get('datetimevalue').value }}</div>
+</form>

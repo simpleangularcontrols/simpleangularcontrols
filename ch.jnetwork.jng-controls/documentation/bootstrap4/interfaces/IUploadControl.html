@@ -137,7 +137,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Interface für Upload Control Validerung</p>
+                <p>Interface to extend FormControl with uploadlimits for validation</p>
 
             </p>
 
@@ -148,17 +148,17 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <h6><b>Methods</b></h6>
+                            <h6><b>Properties</b></h6>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#UploadedFileCount" 
+                                        <a href="#uploadedfilecount" 
 >
-                                        UploadedFileCount
-                                    </a>
+                                            uploadedfilecount
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -167,63 +167,60 @@
             </table>
         </section>
 
-            <section data-compodoc="block-methods">
-    
-    <h3 id="methods">
-        Methods
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="UploadedFileCount"></a>
-                    <span class="name">
-                        <span ><b>UploadedFileCount</b></span>
-                        <a href="#UploadedFileCount"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>UploadedFileCount()</code>
-                </td>
-            </tr>
 
 
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="8"
-                                    class="link-to-prism">projects/sac-common/src/interfaces/iuploadcontrol.ts:8</a></div>
-                        </td>
-                    </tr>
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="uploadedfilecount"></a>
+                                        <span class="name "><b>uploadedfilecount</b>
+                                            <a href="#uploadedfilecount">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>uploadedfilecount:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-description"><p>Gibt die Anzahl hochgeladener Dateien zurück</p>
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Returns the number of uploaded files</p>
 </div>
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
-
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface IUploadControl {
   /**
-   * Gibt die Anzahl hochgeladener Dateien zurück
+   * Returns the number of uploaded files
    */
-  UploadedFileCount(): number;
+  uploadedfilecount: number;
 }
-
 </code></pre>
     </div>
 </div>

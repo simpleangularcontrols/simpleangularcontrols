@@ -11,7 +11,10 @@ import { FormRoutingModule } from './form-routing.module';
 import { DemoFormComponent } from './form.component';
 import { DemoSubFormComponent } from './subform.component';
 @NgModule({
-  declarations: [DemoFormComponent, DemoSubFormComponent],
+  declarations: [
+    DemoFormComponent,
+    DemoSubFormComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,

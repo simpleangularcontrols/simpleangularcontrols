@@ -1,4 +1,4 @@
-import { Component, Host, Injector } from '@angular/core';
+import { Component, Host, Injector, Optional } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlContainer } from '@angular/forms';
 // import { SacBaseModelControl } from '../../common/basemodelcontrol';
 // import { SacFormular } from '../form/form';
@@ -22,7 +22,7 @@ import { SacFormDirective } from '../form/form';
 })
 export class SacValidationSummaryComponent extends SacValidationSummaryCommon {
 
-  constructor(@Host() parent: SacFormDirective, injector: Injector) {
+  constructor(@Host() @Optional() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 

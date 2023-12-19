@@ -24,13 +24,13 @@
 <title>cluster_SACBootstrap4DateTimeModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-379.59 1706,-379.59 1706,-70 8,-70"/>
 </g>
-<g id="clust8" class="cluster">
-<title>cluster_SACBootstrap4DateTimeModule_exports</title>
-<polygon fill="none" stroke="black" points="343,-319.59 343,-371.59 1017,-371.59 1017,-319.59 343,-319.59"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap4DateTimeModule_declarations</title>
 <polygon fill="none" stroke="black" points="349,-189.59 349,-241.59 1010,-241.59 1010,-189.59 349,-189.59"/>
+</g>
+<g id="clust8" class="cluster">
+<title>cluster_SACBootstrap4DateTimeModule_exports</title>
+<polygon fill="none" stroke="black" points="343,-319.59 343,-371.59 1017,-371.59 1017,-319.59 343,-319.59"/>
 </g>
 <g id="clust3" class="cluster">
 <title>cluster_SACBootstrap4DateTimeModule_SacDateComponent_providers</title>

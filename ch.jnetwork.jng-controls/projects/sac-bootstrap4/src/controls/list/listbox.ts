@@ -49,7 +49,7 @@ export class SacListboxComponent extends SacListboxCommon {
    * @param parent Formular
    * @param injector Angular Dependiency Injection Service
    */
-  constructor(@Host() parent: SacFormDirective, injector: Injector) {
+  constructor(@Host() @Optional() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 }

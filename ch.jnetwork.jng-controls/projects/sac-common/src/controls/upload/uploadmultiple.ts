@@ -9,10 +9,7 @@ import { Validation } from '../../validation';
  * Upload Componente für mehrere Files
  */
 @Directive()
-export class SacUploadMultipleCommon
-  extends SacUploadBase<string[]>
-  implements IUploadControl
-{
+export class SacUploadMultipleCommon extends SacUploadBase<string[]> {
   /**
    * Max. Files die hochgeladen werden können. 0 deaktiviert das Limit
    */
@@ -40,8 +37,7 @@ export class SacUploadMultipleCommon
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input() validationmessageminfiles: string =
-    'VALIDATION_ERROR_FILESMIN';
+  @Input() validationmessageminfiles: string = 'VALIDATION_ERROR_FILESMIN';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
@@ -112,13 +108,6 @@ export class SacUploadMultipleCommon
   }
 
   /**
-   * Gibt die Anzahl der komplett hochgeladenen Files zurück
-   */
-  UploadedFileCount(): number {
-    return this.uploads.filter((itm) => itm.status === 'complete').length;
-  }
-
-  /**
    * Validiert das Control
    *
    * @param c Control
@@ -128,12 +117,10 @@ export class SacUploadMultipleCommon
 
     if (error === null) {
       error = Validation.minFiles(
-        this,
         this.minfiles,
-        this.label,
         this.validationmessageminfiles,
         this.validationmessagesummaryminfiles
-      );
+      )(c);
     }
 
     return error;

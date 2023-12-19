@@ -11,7 +11,7 @@ import { Validation } from '../../validation';
 @Directive()
 export class SacDropzoneMultipleCommon
   extends SacUploadBase<string[]>
-  implements OnInit, IUploadControl
+  implements OnInit
 {
   /**
    * Property wenn Drag Event aktiv ist (Maus über Zone)
@@ -162,13 +162,6 @@ export class SacDropzoneMultipleCommon
   }
 
   /**
-   * Gibt die Anzahl der komplett hochgeladenen Files zurück
-   */
-  UploadedFileCount(): number {
-    return this.uploads.filter((itm) => itm.status === 'complete').length;
-  }
-
-  /**
    * Validiert das Control
    *
    * @param c Control
@@ -178,12 +171,10 @@ export class SacDropzoneMultipleCommon
 
     if (error === null) {
       error = Validation.minFiles(
-        this,
         this.minfiles,
-        this.label,
         this.validationmessageminfiles,
         this.validationmessagesummaryminfiles
-      );
+      )(c);
     }
 
     return error;

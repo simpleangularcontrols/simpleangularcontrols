@@ -23,9 +23,7 @@ import { TinyMceInstance } from './tinymceinstance';
  * Basis Komponente für TinyMCE Editor
  */
 @Directive()
-export class SacTinyMceCommon
-  extends SacBaseModelControl<string>
-{
+export class SacTinyMceCommon extends SacBaseModelControl<string> {
   /**
    * Default Config mit Standardwerten für TinyMCE
    */
@@ -279,11 +277,9 @@ export class SacTinyMceCommon
 
     if (this.isrequired) {
       error = Validation.required(
-        c,
-        this.label,
         this.validationmessagerequired,
         this.validationmessagesummaryrequired
-      );
+      )(c);
     }
 
     return error;

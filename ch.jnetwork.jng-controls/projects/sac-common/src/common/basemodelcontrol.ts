@@ -15,6 +15,7 @@ import {
 } from '../services/languageresource.service';
 import { convertToBoolean } from '../utilities/Convertion';
 import { ValidationErrorItem } from '../validation';
+import { IAbstractControlLabelExtension } from '../public_api';
 
 /**
  * Abstract Klasse für SacBaseModelControl. Implements ControlValueAccessor, Validator, OnInit
@@ -36,11 +37,13 @@ export abstract class SacBaseModelControl<VALUE>
   /**
    * ngControl
    */
-  private ngControl: NgControl;
+  protected ngControl: NgControl;
   /**
    * Service für Error Localisation
    */
   protected lngResourceService: ILanguageResourceService;
+
+  private _label: string = '';
 
   // #endregion
 
@@ -53,7 +56,17 @@ export abstract class SacBaseModelControl<VALUE>
   /**
    * Definiert den Label Text
    */
-  @Input() label: string = '';
+  @Input() set label(v: string) {
+    this._label = v;
+    this.UpdateLabelToControl();
+  }
+  /**
+   * Definiert den Label Text
+   */
+  get label(): string {
+    return this._label;
+  }
+
   /**
    * Definiert die Labelgröse
    */
@@ -134,12 +147,13 @@ export abstract class SacBaseModelControl<VALUE>
    */
   ngOnInit() {
     this.ngControl = this.injector.get(NgControl, null);
+    this.UpdateLabelToControl();
 
     /**
      * Label Size von Formular lesen
      */
     if (this.labelsize === undefined) {
-      if (this.parent.labelsize !== undefined) {
+      if (this.parent?.labelsize !== undefined) {
         this.labelsize = this.parent.labelsize;
       } else {
         this.labelsize = 4;
@@ -150,7 +164,7 @@ export abstract class SacBaseModelControl<VALUE>
      * Adaptive Label from Form
      */
     if (this.isadaptivelabel === undefined) {
-      if (this.parent.isadaptivelabel !== undefined) {
+      if (this.parent?.isadaptivelabel !== undefined) {
         this.isadaptivelabel = this.parent.isadaptivelabel;
       } else {
         this.isadaptivelabel = false;
@@ -270,6 +284,19 @@ export abstract class SacBaseModelControl<VALUE>
     return value;
   }
 
+  private UpdateLabelToControl(): void {
+    // HACK: Add addition property to FormControl. Can be fixed if solution for ticket: https://github.com/angular/angular/issues/19686
+    if (this.ngControl?.control) {
+      (
+        this.ngControl.control as unknown as IAbstractControlLabelExtension
+      ).controllabel = this.label;
+    } else if (this.ngControl) {
+      (
+        this.ngControl as unknown as IAbstractControlLabelExtension
+      ).controllabel = this.label;
+    }
+  }
+
   // #endregion
 
   //#region Validation Base
@@ -363,6 +390,8 @@ export abstract class SacBaseModelControl<VALUE>
       });
     }
 
+    console.log('Step4: ' + JSON.stringify(errors));
+
     const errorItem: ValidationErrorItem = errors[keys[0]];
 
     // Validation Parameters
@@ -409,7 +438,7 @@ export abstract class SacBaseModelControl<VALUE>
    */
   get IsInlineErrorEnabled(): boolean {
     if (
-      this.parent.IsInlineErrorEnabled === null ||
+      this.parent?.IsInlineErrorEnabled === null ||
       this.parent.IsInlineErrorEnabled === undefined
     ) {
       return this._inlineerrorenabled;

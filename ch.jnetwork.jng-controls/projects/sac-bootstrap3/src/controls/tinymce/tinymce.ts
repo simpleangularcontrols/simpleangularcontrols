@@ -1,6 +1,6 @@
 import { SacTinyMceCommon } from '@jnetwork/sac-common';
 import { SacFormDirective } from '../form/form';
-import { Component, forwardRef, Host, Injector, NgZone } from '@angular/core';
+import { Component, forwardRef, Host, Injector, NgZone, Optional } from '@angular/core';
 import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/forms';
 
 @Component({
@@ -20,7 +20,7 @@ export class SacTinyMceComponent extends SacTinyMceCommon {
    * @param ngZone ngZone
    */
   constructor(
-    @Host() parent: SacFormDirective,
+    @Host() @Optional() parent: SacFormDirective,
     injector: Injector,
     ngZone: NgZone
   ) {

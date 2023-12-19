@@ -8,7 +8,6 @@ import { Validation } from '../../validation';
  */
 @Directive()
 export class SacInputDecimalCommon extends SacInputBase<number> {
-
   /**
    * Definiert das Negative Werte erlaubt sind
    */
@@ -22,7 +21,6 @@ export class SacInputDecimalCommon extends SacInputBase<number> {
    */
   @Input() maxvalue: number = undefined;
 
-
   /**
    * Resource Key für Validation Message Required bei Control
    */
@@ -30,8 +28,8 @@ export class SacInputDecimalCommon extends SacInputBase<number> {
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input() validationmessagesummaryrequired: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
-
+  @Input() validationmessagesummaryrequired: string =
+    'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
   /**
    * Resource Key für Validation Message MinValue bei Control
@@ -40,7 +38,8 @@ export class SacInputDecimalCommon extends SacInputBase<number> {
   /**
    * Resource Key für Validation Message MinValue in Validation Summary
    */
-  @Input() validationmessagesummaryminvalue: string = 'VALIDATION_ERROR_SUMMARY_MINVALUE';
+  @Input() validationmessagesummaryminvalue: string =
+    'VALIDATION_ERROR_SUMMARY_MINVALUE';
 
   /**
    * Resource Key für Validation Message MaxValue bei Control
@@ -49,7 +48,8 @@ export class SacInputDecimalCommon extends SacInputBase<number> {
   /**
    * Resource Key für Validation Message MaxValue in Validation Summary
    */
-  @Input() validationmessagesummarymaxvalue: string = 'VALIDATION_ERROR_SUMMARY_MAXVALUE';
+  @Input() validationmessagesummarymaxvalue: string =
+    'VALIDATION_ERROR_SUMMARY_MAXVALUE';
 
   /**
    * Methode die erzeugt den Control in Abhängigkeit davon, ob negative Were erlaubt sing oder nicht
@@ -88,16 +88,27 @@ export class SacInputDecimalCommon extends SacInputBase<number> {
    * Methode validiert ob der Wert entspricht den gegebenen Kriterien wenn ein Key gedrückt wird
    */
   protected OnKeyPressValidation(position: number, character: string): boolean {
-    if (this.allownegativ === false && character === '-' || this.allownegativ === true && position > 0 && character === '-') {
+    if (
+      (this.allownegativ === false && character === '-') ||
+      (this.allownegativ === true && position > 0 && character === '-')
+    ) {
       return false;
     }
 
     // Verhindern von Doppelpunkt Eingabe (45..545)
-    if (this._value !== null && this._value.toString().length < position && character === '.') {
+    if (
+      this._value !== null &&
+      this._value.toString().length < position &&
+      character === '.'
+    ) {
       return false;
     }
 
-    if (character === this.GetDecimalSymbol() && this._value !== null && this._value.toString().indexOf(this.GetDecimalSymbol()) >= 0) {
+    if (
+      character === this.GetDecimalSymbol() &&
+      this._value !== null &&
+      this._value.toString().indexOf(this.GetDecimalSymbol()) >= 0
+    ) {
       return false;
     } else {
       return true;
@@ -114,15 +125,34 @@ export class SacInputDecimalCommon extends SacInputBase<number> {
     let error: ValidationErrors | null = null;
 
     if (this.isrequired) {
-      error = Validation.required(c, this.label, this.validationmessagerequired, this.validationmessagesummaryrequired);
+      error = Validation.required(
+        this.validationmessagerequired,
+        this.validationmessagesummaryrequired
+      )(c);
     }
 
-    if (error === null && this.minvalue !== undefined && this.minvalue !== null) {
-      error = Validation.minValue(c, this.minvalue, this.label, this.validationmessageminvalue, this.validationmessagesummaryminvalue);
+    if (
+      error === null &&
+      this.minvalue !== undefined &&
+      this.minvalue !== null
+    ) {
+      error = Validation.minValue(
+        this.minvalue,
+        this.validationmessageminvalue,
+        this.validationmessagesummaryminvalue
+      )(c);
     }
 
-    if (error === null && this.maxvalue !== undefined && this.maxvalue !== null) {
-      error = Validation.maxValue(c, this.maxvalue, this.label, this.validationmessagemaxvalue, this.validationmessagesummarymaxvalue);
+    if (
+      error === null &&
+      this.maxvalue !== undefined &&
+      this.maxvalue !== null
+    ) {
+      error = Validation.maxValue(
+        this.maxvalue,
+        this.validationmessagemaxvalue,
+        this.validationmessagesummarymaxvalue
+      )(c);
     }
 
     return error;

@@ -4,6 +4,7 @@ import {
   forwardRef,
   Host,
   Injector,
+  Optional,
 } from '@angular/core';
 import {
   ControlContainer,
@@ -52,7 +53,7 @@ export class SacDateComponent extends SacDateCommon {
    * @param _elementRef Referenz auf HTML DOM Element
    */
   constructor(
-    @Host() parent: SacFormDirective,
+    @Host() @Optional() parent: SacFormDirective,
     injector: Injector,
     _elementRef: ElementRef
   ) {

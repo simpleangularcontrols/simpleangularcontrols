@@ -4,6 +4,7 @@ import {
   Host,
   Injector,
   NgZone,
+  Optional,
   Renderer2,
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -40,7 +41,7 @@ export class SacUploadMultipleComponent extends SacUploadMultipleCommon {
    * @param ngZone ngZone
    */
   constructor(
-    @Host() parent: SacFormDirective,
+    @Host() @Optional() parent: SacFormDirective,
     injector: Injector,
     renderer: Renderer2,
     ngZone: NgZone

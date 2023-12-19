@@ -1,4 +1,4 @@
-import { Component, forwardRef, Host, Injector } from '@angular/core';
+import { Component, forwardRef, Host, Injector, Optional } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacStaticLabelCommon } from '@jnetwork/sac-common';
 import { SacFormDirective } from '../form/form';
@@ -29,7 +29,7 @@ export class SacStaticLabelComponent extends SacStaticLabelCommon {
    * @param parent Formular
    * @param injector Angular Dependency Injection Service
    */
-  constructor(@Host() parent: SacFormDirective, injector: Injector) {
+  constructor(@Host() @Optional() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 }

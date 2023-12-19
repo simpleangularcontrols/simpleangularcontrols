@@ -1,5 +1,5 @@
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
-import { Component, forwardRef, Host, Injector } from '@angular/core';
+import { Component, forwardRef, Host, Injector, Optional } from '@angular/core';
 import { SacFormDirective } from '../form/form';
 import { SacInputEmailCommon } from '@jnetwork/sac-common';
 
@@ -14,7 +14,7 @@ import { SacInputEmailCommon } from '@jnetwork/sac-common';
   ]
 })
 export class SacInputEmailComponent extends SacInputEmailCommon {
-  constructor(@Host() parent: SacFormDirective, injector: Injector) {
+  constructor(@Host() @Optional() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 }

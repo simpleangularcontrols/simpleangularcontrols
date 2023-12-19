@@ -1,8 +1,8 @@
-import { Component, forwardRef, Host, Injector } from '@angular/core';
+import { Component, forwardRef, Host, Injector, Optional } from '@angular/core';
 import {
   ControlContainer,
   NG_VALIDATORS,
-  NG_VALUE_ACCESSOR
+  NG_VALUE_ACCESSOR,
 } from '@angular/forms';
 import { SacInputCommon } from '@jnetwork/sac-common';
 import { SacFormDirective } from '../form/form';
@@ -23,9 +23,7 @@ import { SacFormDirective } from '../form/form';
     },
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [
-    { provide: ControlContainer, useExisting: SacFormDirective },
-  ],
+  viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }],
 })
 export class SacInputComponent extends SacInputCommon {
   /**
@@ -33,7 +31,10 @@ export class SacInputComponent extends SacInputCommon {
    * @param parent Formular
    * @param injector Angular Dependency Injection Service
    */
-  constructor(@Host() parent: SacFormDirective, injector: Injector) {
+  constructor(
+    @Host() @Optional() parent: SacFormDirective,
+    injector: Injector
+  ) {
     super(parent, injector);
   }
 }

@@ -240,12 +240,10 @@ export class SacMultilanguageInputAreaCommon extends SacInputBase<any> {
       this.isrequired === true
     ) {
       error = Validation.multilanguageRequired(
-        c,
         this.languages,
-        this.label,
         this.validationmessagerequired,
         this.validationmessagesummaryrequired
-      );
+      )(c);
     }
 
     if (
@@ -257,12 +255,10 @@ export class SacMultilanguageInputAreaCommon extends SacInputBase<any> {
       this.requiredany === true
     ) {
       error = Validation.multilanguageRequiredAny(
-        c,
         this.languages,
-        this.label,
         this.validationmessagerequiredany,
         this.validationmessagesummaryrequiredany
-      );
+      )(c);
     }
 
     return error;

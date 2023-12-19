@@ -103,6 +103,9 @@ export {
   LANGUAGE_SERVICE,
 } from './services';
 
+// Export Interfaces
+export * from './interfaces/iabstractcontrollabel';
+
 // Export Models
 export * from './models/languagemodel';
 

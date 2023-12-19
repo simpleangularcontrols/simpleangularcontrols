@@ -74,8 +74,7 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input() validationmessagerequired: string =
-    'VALIDATION_ERROR_REQUIRED';
+  @Input() validationmessagerequired: string = 'VALIDATION_ERROR_REQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
@@ -194,11 +193,9 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
 
     if (this.isrequired) {
       error = Validation.required(
-        c,
-        this.label,
         this.validationmessagerequired,
         this.validationmessagesummaryrequired
-      );
+      )(c);
     }
     return error;
   }

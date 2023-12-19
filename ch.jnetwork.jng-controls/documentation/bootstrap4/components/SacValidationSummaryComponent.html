@@ -350,7 +350,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacValidationSummaryCommon.html#source" target="_self" >SacValidationSummaryCommon:18</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacValidationSummaryCommon.html#source" target="_self" >SacValidationSummaryCommon:22</a></code>
 </div>
                             </td>
                         </tr>
@@ -398,7 +398,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacValidationSummaryCommon.html#source" target="_self" >SacValidationSummaryCommon:29</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacValidationSummaryCommon.html#source" target="_self" >SacValidationSummaryCommon:33</a></code>
 </div>
                         </td>
                     </tr>
@@ -438,7 +438,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacValidationSummaryCommon.html#source" target="_self" >SacValidationSummaryCommon:25</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacValidationSummaryCommon.html#source" target="_self" >SacValidationSummaryCommon:29</a></code>
 </div>
                         </td>
                     </tr>
@@ -458,7 +458,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Host, Injector } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Host, Injector, Optional } from &#x27;@angular/core&#x27;;
 import { ControlContainer, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
 import { SacValidationSummaryCommon } from &#x27;@jnetwork/sac-common&#x27;;
 import { SacFormDirective } from &#x27;../form/form&#x27;;
@@ -488,7 +488,7 @@ export class SacValidationSummaryComponent extends SacValidationSummaryCommon {
    * @param parent Formular
    * @param injector Angular Dependency Injection Service
    */
-  constructor(@Host() parent: SacFormDirective, injector: Injector) {
+  constructor(@Host() @Optional() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 }

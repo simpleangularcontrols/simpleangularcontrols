@@ -1,4 +1,4 @@
-import { Component, forwardRef, Host, Injector } from '@angular/core';
+import { Component, forwardRef, Host, Injector, Optional } from '@angular/core';
 import {
   ControlContainer,
   NG_VALIDATORS,
@@ -37,7 +37,7 @@ export class SacRadiobuttonsComponent extends SacRadiobuttonsCommon {
    * @param parent Formular
    * @param injector Angular Dependency Injection Service
    */
-  constructor(@Host() parent: SacFormDirective, injector: Injector) {
+  constructor(@Host() @Optional() parent: SacFormDirective, injector: Injector) {
     super(parent, injector);
   }
 }

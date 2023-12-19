@@ -3,7 +3,8 @@ import {
   ElementRef,
   forwardRef,
   Host,
-  Injector
+  Injector,
+  Optional
 } from '@angular/core';
 import {
   ControlContainer,
@@ -45,7 +46,7 @@ export class SacTimeComponent extends SacTimeCommon {
    * @param _elementRef DOM Element Referenz
    */
   constructor(
-    @Host() parent: SacFormDirective,
+    @Host() @Optional() parent: SacFormDirective,
     injector: Injector,
     _elementRef: ElementRef
   ) {

@@ -8,7 +8,6 @@ import { SacInputCommon } from './input';
  */
 @Directive()
 export class SacInputEmailCommon extends SacInputCommon {
-
   /**
    * Resource Key für Validation Message Email bei Control
    */
@@ -16,8 +15,8 @@ export class SacInputEmailCommon extends SacInputCommon {
   /**
    * Resource Key für Validation Message Email in Validation Summary
    */
-  @Input() validationmessagesummaryemail: string = 'VALIDATION_ERROR_SUMMARY_EMAIL';
-
+  @Input() validationmessagesummaryemail: string =
+    'VALIDATION_ERROR_SUMMARY_EMAIL';
 
   /**
    * Methode validiert, ob der Wert den gegebenen Kriteriten entspricht
@@ -26,7 +25,10 @@ export class SacInputEmailCommon extends SacInputCommon {
     let error: ValidationErrors | null = super.validateData(c);
 
     if (error === null) {
-      error = Validation.email(c, this.label, this.validationmessageemail, this.validationmessagesummaryemail);
+      error = Validation.email(
+        this.validationmessageemail,
+        this.validationmessagesummaryemail
+      )(c);
     }
 
     return error;

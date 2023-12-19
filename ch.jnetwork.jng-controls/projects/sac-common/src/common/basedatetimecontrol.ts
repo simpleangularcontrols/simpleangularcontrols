@@ -1,21 +1,23 @@
-import { Directive, ElementRef, Injector, Input } from '@angular/core';
+import { Directive, ElementRef, Injector, Input, OnInit } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import * as moment_ from 'moment';
 import { Moment } from 'moment';
 import { SacFormCommon } from '../controls/form/form';
-import { IDateTimeControl } from '../interfaces/idatetimecontrol';
 import { Validation } from '../validation';
 import { SacBaseModelControl } from './basemodelcontrol';
+import { IDateTimeControl } from '../interfaces/idatetimecontrol';
 /**
  * Moment
  */
-const moment = moment_["default"];
+const moment = moment_['default'];
 /**
  * Base Klasse für Date/Time Controls
  */
 @Directive()
-export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> implements IDateTimeControl {
-
+export abstract class SacBaseDateTimeControl
+  extends SacBaseModelControl<Date>
+  implements OnInit
+{
   // #region Constructor
 
   /**
@@ -24,11 +26,23 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
    * @param injector typ Injector
    * @param _elementRef typ ElementRef
    */
-  constructor(parent: SacFormCommon, injector: Injector, protected _elementRef: ElementRef) {
+  constructor(
+    parent: SacFormCommon,
+    injector: Injector,
+    protected _elementRef: ElementRef
+  ) {
     super(parent, injector);
   }
 
   // #endregion
+
+  /**
+   * Init Event
+   */
+  ngOnInit(): void {
+    super.ngOnInit();
+    this.SetDateTimeFormat();
+  }
 
   //#region Abstract Methods
 
@@ -54,16 +68,19 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input() validationmessagerequiredsummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
+  @Input() validationmessagerequiredsummary: string =
+    'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
   /**
    * Resource Key für Validation Message DateTimeFormat bei Control
    */
-  @Input() validationmessagedatetimeformat: string = 'VALIDATION_ERROR_DATETIMEFORMAT';
+  @Input() validationmessagedatetimeformat: string =
+    'VALIDATION_ERROR_DATETIMEFORMAT';
   /**
    * Resource Key für Validation Message DateTimeFormat in Validation Summary
    */
-  @Input() validationmessagedatetimeformatsummary: string = 'VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT';
+  @Input() validationmessagedatetimeformatsummary: string =
+    'VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT';
 
   /**
    * Die methode returns dateTime in string
@@ -104,8 +121,8 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
   }
 
   /**
-  * JSON Date String in ein UTC DateTime Object konvertieren, welches vom Control verwendete werden kann
-  */
+   * JSON Date String in ein UTC DateTime Object konvertieren, welches vom Control verwendete werden kann
+   */
   getDate(timestamp) {
     const date = new Date(timestamp);
     const year = date.getUTCFullYear();
@@ -160,22 +177,23 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
 
   // #endregion
 
-  //#region Validation
+  // #region Private Methods
 
-  /**
-   * prüft ob das Date ist valid
-   */
-  IsDateValid(): boolean {
-    // NULL ist gültig
-    if (this._valueAsString === null || this._valueAsString === undefined || this._valueAsString === '') {
-      return true;
+  private SetDateTimeFormat(): void {
+    // HACK: Add addition property to FormControl. Can be fixed if solution for ticket: https://github.com/angular/angular/issues/19686
+    if (this.ngControl?.control) {
+      (
+        this.ngControl.control as unknown as IDateTimeControl
+      ).datetimeformatstring = this.GetDateTimeFormatString();
+    } else if (this.ngControl) {
+      (this.ngControl as unknown as IDateTimeControl).datetimeformatstring =
+        this.GetDateTimeFormatString();
     }
-
-    let date: Moment = moment(this.valuestring, [this.GetDateTimeFormatString()], true);
-    date = this.ModifyParsedDateTimeValue(date).utc();
-
-    return date.isValid();
   }
+
+  // #endregion
+
+  //#region Validation
 
   /**
    * Validator
@@ -183,10 +201,16 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
   validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = null;
 
-    error = Validation.isValidDate(this, this.label, this.validationmessagedatetimeformat, this.validationmessagedatetimeformatsummary);
+    error = Validation.isValidDate(
+      this.validationmessagedatetimeformat,
+      this.validationmessagedatetimeformatsummary
+    )(c);
 
     if (this.isrequired) {
-      error = Validation.required(c, this.label, this.validationmessagerequired, this.validationmessagerequiredsummary);
+      error = Validation.required(
+        this.validationmessagerequired,
+        this.validationmessagerequiredsummary
+      )(c);
     }
 
     return error;

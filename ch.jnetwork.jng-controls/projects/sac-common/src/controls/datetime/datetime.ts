@@ -1,4 +1,10 @@
-import { ElementRef, HostListener, Injector, Input, Directive } from '@angular/core';
+import {
+  ElementRef,
+  HostListener,
+  Injector,
+  Input,
+  Directive,
+} from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import * as moment_ from 'moment';
 import * as IMask from 'imask';
@@ -11,14 +17,13 @@ import { SacFormCommon } from '../form/form';
 /**
  * Moment
  */
-const moment = moment_["default"];
+const moment = moment_['default'];
 
 /**
  * Komponente für SacDateTimeCommon. Extends SacBaseDateTimeControl
  */
 @Directive()
 export class SacDateTimeCommon extends SacBaseDateTimeControl {
-
   // #region Constants
 
   /**
@@ -29,8 +34,8 @@ export class SacDateTimeCommon extends SacBaseDateTimeControl {
    * Maske
    */
   /**
-    * Maske
-    */
+   * Maske
+   */
   public readonly imaskDate = {
     mask: this.DATEFORMAT,
     blocks: {
@@ -62,12 +67,12 @@ export class SacDateTimeCommon extends SacBaseDateTimeControl {
         from: 0,
         to: 59,
         maxLength: 2,
-      }
+      },
     },
     placeholderChar: '_',
     autofix: true,
     lazy: false,
-    overwrite: true
+    overwrite: true,
   };
 
   // #endregion
@@ -115,7 +120,6 @@ export class SacDateTimeCommon extends SacBaseDateTimeControl {
    */
   _showselector: boolean = false;
 
-
   /**
    * Resource Key für Validation Message MinDate bei Control
    */
@@ -123,7 +127,8 @@ export class SacDateTimeCommon extends SacBaseDateTimeControl {
   /**
    * Resource Key für Validation Message MinDate in Validation Summary
    */
-  @Input() validationmessagesummarymindate: string = 'VALIDATION_ERROR_SUMMARY_MINDATE';
+  @Input() validationmessagesummarymindate: string =
+    'VALIDATION_ERROR_SUMMARY_MINDATE';
 
   /**
    * Resource Key für Validation Message MaxDate bei Control
@@ -132,8 +137,8 @@ export class SacDateTimeCommon extends SacBaseDateTimeControl {
   /**
    * Resource Key für Validation Message MaxDate in Validation Summary
    */
-  @Input() validationmessagesummarymaxdate: string = 'VALIDATION_ERROR_SUMMARY_MAXDATE';
-
+  @Input() validationmessagesummarymaxdate: string =
+    'VALIDATION_ERROR_SUMMARY_MAXDATE';
 
   // #endregion
 
@@ -143,7 +148,11 @@ export class SacDateTimeCommon extends SacBaseDateTimeControl {
    * @param injector typ Injector
    * @param _elementRef typ ElementRef
    */
-  constructor(parent: SacFormCommon, injector: Injector, protected _elementRef: ElementRef) {
+  constructor(
+    parent: SacFormCommon,
+    injector: Injector,
+    protected _elementRef: ElementRef
+  ) {
     super(parent, injector, _elementRef);
   }
 
@@ -191,7 +200,8 @@ export class SacDateTimeCommon extends SacBaseDateTimeControl {
    * Click Event
    */
   public onClick(targetElement) {
-    const clickedInside = this._elementRef.nativeElement.contains(targetElement);
+    const clickedInside =
+      this._elementRef.nativeElement.contains(targetElement);
     if (!clickedInside) {
       this._showselector = false;
     }
@@ -220,15 +230,36 @@ export class SacDateTimeCommon extends SacBaseDateTimeControl {
 
     error = super.validateData(c);
 
-    if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._mindate !== undefined && this._mindate !== null) {
-      error = Validation.minDate(this, this._mindate, this.label, this.validationmessagemindate, this.validationmessagesummarymindate);
+    if (
+      error === null &&
+      c.value !== null &&
+      c.value !== undefined &&
+      c.value !== '' &&
+      this._mindate !== undefined &&
+      this._mindate !== null
+    ) {
+      error = Validation.minDate(
+        this._mindate,
+        this.validationmessagemindate,
+        this.validationmessagesummarymindate
+      )(c);
     }
 
-    if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._maxdate !== undefined && this._maxdate !== null) {
-      error = Validation.maxDate(this, this._maxdate, this.label, this.validationmessagemaxdate, this.validationmessagesummarymaxdate);
+    if (
+      error === null &&
+      c.value !== null &&
+      c.value !== undefined &&
+      c.value !== '' &&
+      this._maxdate !== undefined &&
+      this._maxdate !== null
+    ) {
+      error = Validation.maxDate(
+        this._maxdate,
+        this.validationmessagemaxdate,
+        this.validationmessagesummarymaxdate
+      )(c);
     }
 
     return error;
   }
-
 }

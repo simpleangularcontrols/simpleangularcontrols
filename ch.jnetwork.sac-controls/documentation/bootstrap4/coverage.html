@@ -1,0 +1,2511 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Bootstrap 4 Angular Controls</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="./" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content coverage">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Documentation coverage</li>
+</ol>
+
+<div>
+    <img src="./images/coverage-badge-documentation.svg">
+</div>
+
+<table class="table table-bordered coverage" id="coverage-table">
+    <thead class="coverage-header">
+        <tr>
+            <th>File</th>
+            <th>Type</th>
+            <th>Identifier</th>
+            <th style="text-align:right" class="statements" data-sort-default>Statements</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacBrowserComponent.html">projects/sac-bootstrap4/src/components/browser/browser.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacBrowserComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(37/37)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacButtonComponent.html">projects/sac-bootstrap4/src/controls/buttons/button.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacButtonComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(11/11)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacCheckboxComponent.html">projects/sac-bootstrap4/src/controls/checkbox/checkbox.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacCheckboxComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(38/38)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacRadiobuttonComponent.html">projects/sac-bootstrap4/src/controls/checkbox/radiobutton.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacRadiobuttonComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(12/12)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacRadiobuttonsComponent.html">projects/sac-bootstrap4/src/controls/checkbox/radiobuttons.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacRadiobuttonsComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(43/43)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ServiceConfirm.html">projects/sac-bootstrap4/src/controls/confirm/confirm.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ServiceConfirm</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(11/11)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacConfirmComponent.html">projects/sac-bootstrap4/src/controls/confirm/confirm.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacConfirmComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(11/11)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacContextmenuComponent.html">projects/sac-bootstrap4/src/controls/contextmenu/contextmenu.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacContextmenuComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(14/14)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacContextmenuAnchorDirective.html">projects/sac-bootstrap4/src/controls/contextmenu/contextmenuanchor.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacContextmenuAnchorDirective</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacContextmenuContainerDirective.html">projects/sac-bootstrap4/src/controls/contextmenu/contextmenucontainer.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacContextmenuContainerDirective</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacContextmenuItemButtonComponent.html">projects/sac-bootstrap4/src/controls/contextmenu/contextmenuitembutton.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacContextmenuItemButtonComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(12/12)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacContextmenuItemSplitterComponent.html">projects/sac-bootstrap4/src/controls/contextmenu/contextmenuitemsplitter.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacContextmenuItemSplitterComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacDateComponent.html">projects/sac-bootstrap4/src/controls/datetime/date.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacDateComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(63/63)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#moment">projects/sac-bootstrap4/src/controls/datetime/date.ts</a>
+            </td>
+            <td>variable</td>
+            <td>moment</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacDateSelectorComponent.html">projects/sac-bootstrap4/src/controls/datetime/dateselector.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacDateSelectorComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(21/21)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacDateTimeComponent.html">projects/sac-bootstrap4/src/controls/datetime/datetime.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacDateTimeComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(63/63)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacTimeComponent.html">projects/sac-bootstrap4/src/controls/datetime/time.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacTimeComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(63/63)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacDialogComponent.html">projects/sac-bootstrap4/src/controls/dialog/dialog.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacDialogComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(24/24)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacFormDirective.html">projects/sac-bootstrap4/src/controls/form/form.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacFormDirective</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(16/16)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacInheritFormDirective.html">projects/sac-bootstrap4/src/controls/form/inheritform.directive.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacInheritFormDirective</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#NGFORM_FACTORY">projects/sac-bootstrap4/src/controls/form/inheritform.directive.ts</a>
+            </td>
+            <td>function</td>
+            <td>NGFORM_FACTORY</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#SACFORM_FACTORY">projects/sac-bootstrap4/src/controls/form/inheritform.directive.ts</a>
+            </td>
+            <td>function</td>
+            <td>SACFORM_FACTORY</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacGridComponent.html">projects/sac-bootstrap4/src/controls/grid/grid.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacGridComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(29/29)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacGridButtonComponent.html">projects/sac-bootstrap4/src/controls/grid/gridbutton.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacGridButtonComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(8/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacGridColumnComponent.html">projects/sac-bootstrap4/src/controls/grid/gridcolumn.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacGridColumnComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(18/18)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacGridColumnActionComponent.html">projects/sac-bootstrap4/src/controls/grid/gridcolumnaction.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacGridColumnActionComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(16/16)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacGridImageComponent.html">projects/sac-bootstrap4/src/controls/grid/gridimage.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacGridImageComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacPagingComponent.html">projects/sac-bootstrap4/src/controls/grid/paging.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacPagingComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(28/28)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacInputComponent.html">projects/sac-bootstrap4/src/controls/input/input.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacInputComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(51/51)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacInputAreaComponent.html">projects/sac-bootstrap4/src/controls/input/inputarea.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacInputAreaComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(54/54)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacInputCurrencyComponent.html">projects/sac-bootstrap4/src/controls/input/inputcurrency.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacInputCurrencyComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(54/54)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacInputDecimalComponent.html">projects/sac-bootstrap4/src/controls/input/inputdecimal.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacInputDecimalComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(54/54)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacInputEmailComponent.html">projects/sac-bootstrap4/src/controls/input/inputemail.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacInputEmailComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(53/53)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacInputIntegerComponent.html">projects/sac-bootstrap4/src/controls/input/inputinteger.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacInputIntegerComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(54/54)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacInputPasswordComponent.html">projects/sac-bootstrap4/src/controls/input/inputpassword.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacInputPasswordComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(54/54)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacInputSearchComponent.html">projects/sac-bootstrap4/src/controls/input/inputsearch.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacInputSearchComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(55/55)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacDropdownComponent.html">projects/sac-bootstrap4/src/controls/list/dropdown.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacDropdownComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(55/55)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacDropdownOptionDirective.html">projects/sac-bootstrap4/src/controls/list/dropdown.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacDropdownOptionDirective</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(6/6)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacListboxComponent.html">projects/sac-bootstrap4/src/controls/list/listbox.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacListboxComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(54/54)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacListboxOptionDirective.html">projects/sac-bootstrap4/src/controls/list/listbox.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacListboxOptionDirective</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(6/6)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacMultilanguageInputComponent.html">projects/sac-bootstrap4/src/controls/multilanguage/multilanguageinput.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacMultilanguageInputComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(58/58)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacMultilanguageInputAreaComponent.html">projects/sac-bootstrap4/src/controls/multilanguage/multilanguageinputarea.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacMultilanguageInputAreaComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(59/59)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacStaticFormContainerComponent.html">projects/sac-bootstrap4/src/controls/static/formcontainer.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacStaticFormContainerComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(38/38)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacStaticLabelComponent.html">projects/sac-bootstrap4/src/controls/static/staticlabel.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacStaticLabelComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(46/46)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacTabComponent.html">projects/sac-bootstrap4/src/controls/tabs/tab.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacTabComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(9/9)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacTabItemComponent.html">projects/sac-bootstrap4/src/controls/tabs/tabitem.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacTabItemComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(7/7)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacTinyMceComponent.html">projects/sac-bootstrap4/src/controls/tinymce/tinymce.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacTinyMceComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(60/60)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacDropzoneMultipleComponent.html">projects/sac-bootstrap4/src/controls/upload/dropzonemultiple.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacDropzoneMultipleComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(76/76)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacDropzoneSingleComponent.html">projects/sac-bootstrap4/src/controls/upload/dropzonesingle.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacDropzoneSingleComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(72/72)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacUploadComponent.html">projects/sac-bootstrap4/src/controls/upload/upload.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacUploadComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(68/68)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacUploadMultipleComponent.html">projects/sac-bootstrap4/src/controls/upload/uploadmultiple.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacUploadMultipleComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(72/72)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacValidationSummaryComponent.html">projects/sac-bootstrap4/src/controls/validation/validationsummary.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacValidationSummaryComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(7/7)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacWizardComponent.html">projects/sac-bootstrap4/src/controls/wizard/wizard.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacWizardComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(15/15)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SacWizardItemComponent.html">projects/sac-bootstrap4/src/controls/wizard/wizarditem.ts</a>
+            </td>
+            <td>component</td>
+            <td>SacWizardItemComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(6/6)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacBaseDateTimeControl.html">projects/sac-common/src/common/basedatetimecontrol.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacBaseDateTimeControl</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(48/48)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#moment">projects/sac-common/src/common/basedatetimecontrol.ts</a>
+            </td>
+            <td>variable</td>
+            <td>moment</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacInputBase.html">projects/sac-common/src/common/baseinputcontrol.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacInputBase</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(44/44)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacBaseListControl.html">projects/sac-common/src/common/baselistcontrol.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacBaseListControl</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(43/43)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacBaseModelControl.html">projects/sac-common/src/common/basemodelcontrol.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacBaseModelControl</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(36/36)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacBaseSelectControl.html">projects/sac-common/src/common/baseselectcontrol.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacBaseSelectControl</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(45/45)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacUploadBase.html">projects/sac-common/src/common/baseuploadcontrol.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacUploadBase</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(66/66)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/SacUploadFile.html">projects/sac-common/src/common/baseuploadcontrol.ts</a>
+            </td>
+            <td>class</td>
+            <td>SacUploadFile</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(7/7)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacFileBrowserCommon.html">projects/sac-common/src/components/browser/browser.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacFileBrowserCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(36/36)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IBrowserFile.html">projects/sac-common/src/components/browser/models/browserfile.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IBrowserFile</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/BrowserFileDeleteRequest.html">projects/sac-common/src/components/browser/models/browserfiledeleterequest.ts</a>
+            </td>
+            <td>class</td>
+            <td>BrowserFileDeleteRequest</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/BrowserFileRenameRequest.html">projects/sac-common/src/components/browser/models/browserfilerenamerequest.ts</a>
+            </td>
+            <td>class</td>
+            <td>BrowserFileRenameRequest</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IBrowserFileResponse.html">projects/sac-common/src/components/browser/models/browserfileresponse.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IBrowserFileResponse</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/BrowserFileSaveRequest.html">projects/sac-common/src/components/browser/models/browserfilesaverequest.ts</a>
+            </td>
+            <td>class</td>
+            <td>BrowserFileSaveRequest</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IBrowserNode.html">projects/sac-common/src/components/browser/models/browsernode.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IBrowserNode</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(8/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/BrowserNodeDeleteRequest.html">projects/sac-common/src/components/browser/models/browsernodedeleterequest.ts</a>
+            </td>
+            <td>class</td>
+            <td>BrowserNodeDeleteRequest</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/BrowserNodeNewRequest.html">projects/sac-common/src/components/browser/models/browsernodenewrequest.ts</a>
+            </td>
+            <td>class</td>
+            <td>BrowserNodeNewRequest</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/BrowserNodeRenameRequest.html">projects/sac-common/src/components/browser/models/browsernoderenamerequest.ts</a>
+            </td>
+            <td>class</td>
+            <td>BrowserNodeRenameRequest</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/BrowserNodeRequest.html">projects/sac-common/src/components/browser/models/browsernoderequest.ts</a>
+            </td>
+            <td>class</td>
+            <td>BrowserNodeRequest</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IBrowserNodeResponse.html">projects/sac-common/src/components/browser/models/browsernoderesponse.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IBrowserNodeResponse</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacButtonCommon.html">projects/sac-common/src/controls/buttons/button.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacButtonCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(11/11)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacCheckboxCommon.html">projects/sac-common/src/controls/checkbox/checkbox.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacCheckboxCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(37/37)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacRadiobuttonCommon.html">projects/sac-common/src/controls/checkbox/radiobutton.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacRadiobuttonCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(12/12)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacRadiobuttonsCommon.html">projects/sac-common/src/controls/checkbox/radiobuttons.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacRadiobuttonsCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(43/43)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/SacConfirmButton.html">projects/sac-common/src/controls/confirm/confirm.button.ts</a>
+            </td>
+            <td>class</td>
+            <td>SacConfirmButton</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ServiceConfirmCommon.html">projects/sac-common/src/controls/confirm/confirm.service.ts</a>
+            </td>
+            <td>class</td>
+            <td>ServiceConfirmCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(10/10)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacConfirmCommon.html">projects/sac-common/src/controls/confirm/confirm.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacConfirmCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(11/11)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacContextmenuCommon.html">projects/sac-common/src/controls/contextmenu/contextmenu.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacContextmenuCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(14/14)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacContextmenuAnchorCommon.html">projects/sac-common/src/controls/contextmenu/contextmenuanchor.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacContextmenuAnchorCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacContextMenuContrainerCommon.html">projects/sac-common/src/controls/contextmenu/contextmenucontainer.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacContextMenuContrainerCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacContextmenuItemCommon.html">projects/sac-common/src/controls/contextmenu/contextmenuitem.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacContextmenuItemCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacContextmenuItemButtonCommon.html">projects/sac-common/src/controls/contextmenu/contextmenuitembutton.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacContextmenuItemButtonCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(12/12)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacDateCommon.html">projects/sac-common/src/controls/datetime/date.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacDateCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(63/63)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#moment">projects/sac-common/src/controls/datetime/date.ts</a>
+            </td>
+            <td>variable</td>
+            <td>moment</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacDateSelectorCommon.html">projects/sac-common/src/controls/datetime/dateselector.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacDateSelectorCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(21/21)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/DateSelectorItem.html">projects/sac-common/src/controls/datetime/dateselector.ts</a>
+            </td>
+            <td>class</td>
+            <td>DateSelectorItem</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(8/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#moment">projects/sac-common/src/controls/datetime/dateselector.ts</a>
+            </td>
+            <td>variable</td>
+            <td>moment</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacDateTimeCommon.html">projects/sac-common/src/controls/datetime/datetime.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacDateTimeCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(63/63)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#moment">projects/sac-common/src/controls/datetime/datetime.ts</a>
+            </td>
+            <td>variable</td>
+            <td>moment</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacTimeCommon.html">projects/sac-common/src/controls/datetime/time.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacTimeCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(63/63)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#moment">projects/sac-common/src/controls/datetime/time.ts</a>
+            </td>
+            <td>variable</td>
+            <td>moment</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacDialogCommon.html">projects/sac-common/src/controls/dialog/dialog.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacDialogCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(23/23)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacFormCommon.html">projects/sac-common/src/controls/form/form.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacFormCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(12/12)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacGridCommon.html">projects/sac-common/src/controls/grid/grid.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacGridCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(27/27)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacGridButtonCommon.html">projects/sac-common/src/controls/grid/gridbutton.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacGridButtonCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(7/7)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacGridColumnCommon.html">projects/sac-common/src/controls/grid/gridcolumn.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacGridColumnCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(18/18)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacGridColumnActionCommon.html">projects/sac-common/src/controls/grid/gridcolumnaction.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacGridColumnActionCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(16/16)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacGridColumnBaseCommon.html">projects/sac-common/src/controls/grid/gridcolumnbase.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacGridColumnBaseCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(16/16)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacGridImageCommon.html">projects/sac-common/src/controls/grid/gridimage.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacGridImageCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/GridResponse.html">projects/sac-common/src/controls/grid/model.ts</a>
+            </td>
+            <td>class</td>
+            <td>GridResponse</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/PagerData.html">projects/sac-common/src/controls/grid/model.ts</a>
+            </td>
+            <td>class</td>
+            <td>PagerData</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/PagerRequest.html">projects/sac-common/src/controls/grid/model.ts</a>
+            </td>
+            <td>class</td>
+            <td>PagerRequest</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/SortDescriptor.html">projects/sac-common/src/controls/grid/model.ts</a>
+            </td>
+            <td>class</td>
+            <td>SortDescriptor</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacPagingCommon.html">projects/sac-common/src/controls/grid/paging.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacPagingCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(28/28)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacInputCommon.html">projects/sac-common/src/controls/input/input.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacInputCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(50/50)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacInputAreaCommon.html">projects/sac-common/src/controls/input/inputarea.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacInputAreaCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(53/53)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacInputCurrencyCommon.html">projects/sac-common/src/controls/input/inputcurrency.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacInputCurrencyCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(53/53)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacInputDecimalCommon.html">projects/sac-common/src/controls/input/inputdecimal.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacInputDecimalCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(53/53)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacInputEmailCommon.html">projects/sac-common/src/controls/input/inputemail.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacInputEmailCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(52/52)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacInputIntegerCommon.html">projects/sac-common/src/controls/input/inputinteger.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacInputIntegerCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(53/53)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacInputPasswordCommon.html">projects/sac-common/src/controls/input/inputpassword.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacInputPasswordCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(53/53)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacInputSearchCommon.html">projects/sac-common/src/controls/input/inputsearch.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacInputSearchCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(54/54)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacDropdownCommon.html">projects/sac-common/src/controls/list/dropdown.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacDropdownCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(55/55)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacDropdownOptionCommon.html">projects/sac-common/src/controls/list/dropdown.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacDropdownOptionCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(6/6)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#_buildValueString">projects/sac-common/src/controls/list/dropdown.ts</a>
+            </td>
+            <td>function</td>
+            <td>_buildValueString</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacListboxCommon.html">projects/sac-common/src/controls/list/listbox.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacListboxCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(53/53)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacListboxOptionCommon.html">projects/sac-common/src/controls/list/listbox.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacListboxOptionCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(6/6)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/HTMLCollection.html">projects/sac-common/src/controls/list/listbox.ts</a>
+            </td>
+            <td>class</td>
+            <td>HTMLCollection</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/HTMLOption.html">projects/sac-common/src/controls/list/listbox.ts</a>
+            </td>
+            <td>interface</td>
+            <td>HTMLOption</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacMultilanguageInputCommon.html">projects/sac-common/src/controls/multilanguage/multilanguageinput.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacMultilanguageInputCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(57/57)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacMultilanguageInputAreaCommon.html">projects/sac-common/src/controls/multilanguage/multilanguageinputarea.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacMultilanguageInputAreaCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(58/58)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacStaticFormContainerCommon.html">projects/sac-common/src/controls/static/formcontainer.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacStaticFormContainerCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(37/37)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacStaticLabelCommon.html">projects/sac-common/src/controls/static/staticlabel.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacStaticLabelCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(45/45)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacTabCommon.html">projects/sac-common/src/controls/tabs/tab.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacTabCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(8/8)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacTabItemCommon.html">projects/sac-common/src/controls/tabs/tabitem.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacTabItemCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(7/7)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacTinyMceCommon.html">projects/sac-common/src/controls/tinymce/tinymce.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacTinyMceCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(60/60)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/TinyMceDialogSettings.html">projects/sac-common/src/controls/tinymce/tinymcedialogsettings.ts</a>
+            </td>
+            <td>class</td>
+            <td>TinyMceDialogSettings</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(6/6)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/TinyMceDialogSettingsMeta.html">projects/sac-common/src/controls/tinymce/tinymcedialogsettingsmeta.ts</a>
+            </td>
+            <td>interface</td>
+            <td>TinyMceDialogSettingsMeta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/TinyMceInstance.html">projects/sac-common/src/controls/tinymce/tinymceinstance.ts</a>
+            </td>
+            <td>interface</td>
+            <td>TinyMceInstance</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacTooltipCommon.html">projects/sac-common/src/controls/tooltip/tooltip.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacTooltipCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(16/16)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacTreeItemActionCommon.html">projects/sac-common/src/controls/treeview/ngtreeitemaction.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacTreeItemActionCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(9/9)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacTreeViewCommon.html">projects/sac-common/src/controls/treeview/treeview.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacTreeViewCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(27/27)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacTreeViewChildCommon.html">projects/sac-common/src/controls/treeview/treeviewchild.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacTreeViewChildCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(27/27)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacDropzoneMultipleCommon.html">projects/sac-common/src/controls/upload/dropzonemultiple.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacDropzoneMultipleCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(75/75)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacDropzoneSingleCommon.html">projects/sac-common/src/controls/upload/dropzonesingle.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacDropzoneSingleCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(71/71)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacUploadMultipleCommon.html">projects/sac-common/src/controls/upload/uploadmultiple.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacUploadMultipleCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(71/71)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacUploadSingleCommon.html">projects/sac-common/src/controls/upload/uploadsingle.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacUploadSingleCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(67/67)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacValidationSummaryCommon.html">projects/sac-common/src/controls/validation/validationsummary.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacValidationSummaryCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(7/7)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacWizardCommon.html">projects/sac-common/src/controls/wizard/wizard.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacWizardCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(14/14)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/SacWizardItemCommon.html">projects/sac-common/src/controls/wizard/wizarditem.ts</a>
+            </td>
+            <td>directive</td>
+            <td>SacWizardItemCommon</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(6/6)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IFileBrowserService.html">projects/sac-common/src/interfaces/IFileBrowserService.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IFileBrowserService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(9/9)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ILanguageService.html">projects/sac-common/src/interfaces/ILanguageService.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ILanguageService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IAbstractControlLabelExtension.html">projects/sac-common/src/interfaces/iabstractcontrollabel.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IAbstractControlLabelExtension</td>
+            <td align="right" data-sort="50">
+                <span class="coverage-percent">50 %</span>
+                <span class="coverage-count">(1/2)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IConfirmComponent.html">projects/sac-common/src/interfaces/iconfirmcomponent.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IConfirmComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IDateTimeControl.html">projects/sac-common/src/interfaces/idatetimecontrol.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IDateTimeControl</td>
+            <td align="right" data-sort="33">
+                <span class="coverage-percent">33 %</span>
+                <span class="coverage-count">(1/3)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ILanguageResourceService.html">projects/sac-common/src/interfaces/ilanguageresource.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ILanguageResourceService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IUploadControl.html">projects/sac-common/src/interfaces/iuploadcontrol.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IUploadControl</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/LanguageModel.html">projects/sac-common/src/models/languagemodel.ts</a>
+            </td>
+            <td>class</td>
+            <td>LanguageModel</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(5/5)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/InternalLanguageService.html">projects/sac-common/src/services/Language.Service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>InternalLanguageService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/LanguageService.html">projects/sac-common/src/services/Language.Service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>LanguageService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#LANGUAGE_SERVICE">projects/sac-common/src/services/Language.Service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>LANGUAGE_SERVICE</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/FileBrowserService.html">projects/sac-common/src/services/filebrowser.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>FileBrowserService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(9/9)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/InternalFileBrowserService.html">projects/sac-common/src/services/filebrowser.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>InternalFileBrowserService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(10/10)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#FILEBROWSER_SERVICE">projects/sac-common/src/services/filebrowser.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>FILEBROWSER_SERVICE</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/InternalLanguageResourceService.html">projects/sac-common/src/services/languageresource.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>InternalLanguageResourceService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/LanguageResourceService.html">projects/sac-common/src/services/languageresource.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>LanguageResourceService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#LANGUAGERESOURCE_SERVICE">projects/sac-common/src/services/languageresource.service.ts</a>
+            </td>
+            <td>variable</td>
+            <td>LANGUAGERESOURCE_SERVICE</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#context">projects/sac-common/src/test.ts</a>
+            </td>
+            <td>variable</td>
+            <td>context</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#require">projects/sac-common/src/test.ts</a>
+            </td>
+            <td>variable</td>
+            <td>require</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#convertToBoolean">projects/sac-common/src/utilities/Convertion.ts</a>
+            </td>
+            <td>function</td>
+            <td>convertToBoolean</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#convertToNumber">projects/sac-common/src/utilities/Convertion.ts</a>
+            </td>
+            <td>function</td>
+            <td>convertToNumber</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#mapToObject">projects/sac-common/src/utilities/Convertion.ts</a>
+            </td>
+            <td>function</td>
+            <td>mapToObject</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#isDefined">projects/sac-common/src/utilities/datatypes.ts</a>
+            </td>
+            <td>function</td>
+            <td>isDefined</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Interpolation.html">projects/sac-common/src/utilities/interpolation.ts</a>
+            </td>
+            <td>class</td>
+            <td>Interpolation</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Positioning.html">projects/sac-common/src/utilities/positioning.ts</a>
+            </td>
+            <td>class</td>
+            <td>Positioning</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ClientRect.html">projects/sac-common/src/utilities/positioning.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ClientRect</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#positionElements">projects/sac-common/src/utilities/positioning.ts</a>
+            </td>
+            <td>function</td>
+            <td>positionElements</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#placementSeparator">projects/sac-common/src/utilities/positioning.ts</a>
+            </td>
+            <td>variable</td>
+            <td>placementSeparator</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#positionService">projects/sac-common/src/utilities/positioning.ts</a>
+            </td>
+            <td>variable</td>
+            <td>positionService</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#emailValidator">projects/sac-common/src/validation/email.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>emailValidator</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#isValidDateValidator">projects/sac-common/src/validation/invaliddate.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>isValidDateValidator</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#isDateValid">projects/sac-common/src/validation/isDateValid.ts</a>
+            </td>
+            <td>function</td>
+            <td>isDateValid</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#moment">projects/sac-common/src/validation/isDateValid.ts</a>
+            </td>
+            <td>variable</td>
+            <td>moment</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#maxDateValidator">projects/sac-common/src/validation/maxdate.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>maxDateValidator</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#maxTimeValidator">projects/sac-common/src/validation/maxtime.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>maxTimeValidator</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#maxValueValidator">projects/sac-common/src/validation/maxvalue.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>maxValueValidator</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#minDateValidator">projects/sac-common/src/validation/mindate.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>minDateValidator</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#minFilesValidator">projects/sac-common/src/validation/minfiles.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>minFilesValidator</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#minLengthValidator">projects/sac-common/src/validation/minlength.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>minLengthValidator</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#minTimeValidator">projects/sac-common/src/validation/mintime.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>minTimeValidator</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#minValueValidator">projects/sac-common/src/validation/minvalue.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>minValueValidator</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#multilanguageRequiredValidator">projects/sac-common/src/validation/multilanguagerequired.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>multilanguageRequiredValidator</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#multilanguageRequiredAnyValidator">projects/sac-common/src/validation/multilanguagerequiredany.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>multilanguageRequiredAnyValidator</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#patternValidator">projects/sac-common/src/validation/pattern.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>patternValidator</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#requiredValidator">projects/sac-common/src/validation/required.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>requiredValidator</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/Validation.html">projects/sac-common/src/validation/validation.ts</a>
+            </td>
+            <td>class</td>
+            <td>Validation</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(16/16)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/variables.html#moment">projects/sac-common/src/validation/validation.ts</a>
+            </td>
+            <td>variable</td>
+            <td>moment</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./miscellaneous/functions.html#CreateValidationError">projects/sac-common/src/validation/validationerrorcreator.ts</a>
+            </td>
+            <td>function</td>
+            <td>CreateValidationError</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ValidationErrorItem.html">projects/sac-common/src/validation/validationerroritem.ts</a>
+            </td>
+            <td>class</td>
+            <td>ValidationErrorItem</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(7/7)</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script src="js/libs/tablesort.min.js"></script>
+<script src="js/libs/tablesort.number.min.js"></script>
+<script>
+    new Tablesort(document.getElementById('coverage-table'));
+</script>
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'coverage';
+            var COMPODOC_CURRENT_PAGE_URL = 'coverage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

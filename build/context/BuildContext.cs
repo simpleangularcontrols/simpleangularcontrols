@@ -22,10 +22,15 @@ namespace Build.context
 
             if (context.Arguments.HasArgument("prerelease"))
                 ReleaseType = ReleaseType.PreRelease;
+
+            if (context.Arguments.HasArgument("apikey"))
+            {
+                this.ApiKey = context.Arguments.GetArgument("apikey").ToBase64();
+            }
         }
 
-        public string ApiKey { get; } = "api:qqJa0eV7ziNiH80Con_A".ToBase64();
-        public string ProjectDirectory { get; } = "../ch.jnetwork.jng-controls";
+        public string ApiKey { get; }
+        public string ProjectDirectory { get; } = "../ch.jnetwork.sac-controls";
         public ReleaseType ReleaseType { get; set; }
     }
 }

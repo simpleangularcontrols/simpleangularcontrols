@@ -1,0 +1,1 @@
+export { SacTinyMceComponent } from './tinymce';

@@ -1,0 +1,18 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "baseUrl": "./",
+    "types": [],
+    "paths": {
+      "@simpleangularcontrols/sac-common": ["../dist/sac-common"],
+      "@simpleangularcontrols/sac-bootstrap4": ["../dist/sac-bootstrap4"],
+      "@simpleangularcontrols/sac-bootstrap3": ["../dist/sac-bootstrap3"]
+    }
+  },
+  "files": ["main.ts", "polyfills.ts"],
+  "include": ["src/**/*.d.ts"],
+  "angularCompilerOptions": {
+    "compilationMode": "full"
+  }
+}

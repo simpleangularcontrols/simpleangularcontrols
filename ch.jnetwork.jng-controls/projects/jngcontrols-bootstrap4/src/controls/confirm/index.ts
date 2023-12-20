@@ -1,1 +1,0 @@
-export { NgConfirmComponent } from './confirm';

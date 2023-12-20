@@ -1,1 +1,0 @@
-export { NgButtonComponent } from './button';

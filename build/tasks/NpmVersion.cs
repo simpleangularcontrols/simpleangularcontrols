@@ -20,8 +20,8 @@ namespace Build.tasks
         {
             base.Run(context);
 
-            ChangeVersion(context, "./projects/jngcontrols-common");
-            ChangeVersion(context, "./projects/jngcontrols-bootstrap4");
+            ChangeVersion(context, "./projects/sac-common");
+            ChangeVersion(context, "./projects/sac-bootstrap4");
         }
 
         private static void ChangeVersion(BuildContext context, string project)

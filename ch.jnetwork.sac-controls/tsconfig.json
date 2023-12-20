@@ -1,0 +1,27 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2020",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["ES2020", "dom"],
+    "module": "es2020",
+    "baseUrl": "./",
+    "paths": {
+      "@simpleangularcontrols/sac-common": ["dist/sac-common"],
+      "@simpleangularcontrols/sac-bootstrap4": ["dist/sac-bootstrap4"],
+      "@simpleangularcontrols/sac-bootstrap3": ["dist/sac-bootstrap3"]
+    }
+  },
+  "angularCompilerOptions": {
+    "compilationMode": "partial",
+    "allowEmptyCodegenFiles": true,
+  }
+}

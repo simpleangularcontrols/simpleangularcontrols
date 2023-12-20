@@ -1,0 +1,118 @@
+<h2>Button</h2>
+<form #myForm="sacform" labelsize="3">
+  <div>Context Menü</div>
+
+  <p>Default Menu</p>
+  <div>
+    <sac-contextmenu>
+      <sac-contextmenubutton text="Action 1"></sac-contextmenubutton>
+      <sac-contextmenubutton text="Action 2"></sac-contextmenubutton>
+      <sac-contextmenubutton text="Action 3"></sac-contextmenubutton>
+    </sac-contextmenu>
+  </div>
+
+  <p>Button Right Aligned</p>
+  <div class="d-flex flex-row-reverse">
+    <div>
+      <sac-contextmenu>
+        <sac-contextmenubutton
+          text="Action 1"
+          image="/icons/de.png"
+        ></sac-contextmenubutton>
+        <sac-contextmenubutton
+          text="Action 1"
+          image="/icons/en.png"
+        ></sac-contextmenubutton>
+        <sac-contextmenubutton
+          text="Action 1"
+          image="/icons/fr.png"
+        ></sac-contextmenubutton>
+        <sac-contextmenubutton
+          text="Action 2"
+          icon="fa-pen"
+          iconstyle="fas"
+        ></sac-contextmenubutton>
+        <sac-contextmenubutton
+          text="Action 3"
+          icon="fa-pen"
+        ></sac-contextmenubutton>
+        <sac-contextmenubutton text="Action 4"></sac-contextmenubutton>
+      </sac-contextmenu>
+    </div>
+  </div>
+
+  <p>Button Center Aligned</p>
+  <div class="d-flex justify-content-center">
+    <div>
+      <sac-contextmenu>
+        <sac-contextmenubutton text="Action 1"></sac-contextmenubutton>
+        <sac-contextmenubutton text="Action 2"></sac-contextmenubutton>
+        <sac-contextmenusplitter></sac-contextmenusplitter>
+        <sac-contextmenubutton
+          text="Action 3"
+          [isdisabled]="true"
+        ></sac-contextmenubutton>
+      </sac-contextmenu>
+    </div>
+  </div>
+  <p>Menu without Icon Colum</p>
+  <div>
+    <sac-contextmenu>
+      <sac-contextmenubutton
+        text="Action 1"
+        isicondisabled="true"
+      ></sac-contextmenubutton>
+      <sac-contextmenubutton
+        text="Action 2"
+        [isicondisabled]="true"
+      ></sac-contextmenubutton>
+      <sac-contextmenusplitter></sac-contextmenusplitter>
+      <sac-contextmenubutton
+        text="Action 3"
+        isdisabled="true"
+        isicondisabled="true"
+      ></sac-contextmenubutton>
+      <sac-contextmenubutton
+        text="Action 4"
+        [isdisabled]="true"
+        [isicondisabled]="true"
+      ></sac-contextmenubutton>
+    </sac-contextmenu>
+  </div>
+  <p>Menu with Custom Button</p>
+  <div>
+    <sac-contextmenu [buttontemplate]="customButton" #contextmenu>
+      <ng-template #customButton>
+        <button
+          type="button"
+          sacContextMenuAnchor
+          class="btn btn-secondary dropdown-toggle"
+          (click)="contextmenu.toggle()"
+        >
+          Custom Button
+        </button>
+      </ng-template>
+
+      <sac-contextmenubutton
+        text="Action 1"
+        isicondisabled="true"
+        (clicked)="debugAction1()"
+      ></sac-contextmenubutton>
+      <sac-contextmenubutton
+        text="Action 2"
+        [isicondisabled]="true"
+      ></sac-contextmenubutton>
+      <sac-contextmenusplitter></sac-contextmenusplitter>
+      <sac-contextmenubutton
+        text="Action 3"
+        isdisabled="true"
+        isicondisabled="true"
+      ></sac-contextmenubutton>
+      <sac-contextmenubutton
+        text="Action 4"
+        [isdisabled]="true"
+        [isicondisabled]="true"
+      ></sac-contextmenubutton>
+    </sac-contextmenu>
+  </div>
+</form>

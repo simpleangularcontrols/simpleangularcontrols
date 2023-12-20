@@ -1,29 +1,41 @@
-import { AfterContentInit, Directive, Input, TemplateRef } from '@angular/core';
+import {
+  AfterContentInit,
+  Directive,
+  EventEmitter,
+  Input,
+  Output,
+  TemplateRef,
+} from '@angular/core';
 import { SacTabItemCommon } from './tabitem';
 
 /**
- *Basis Komponente für SacTab
+ * Base component for SacTab
  */
 @Directive()
 export abstract class SacTabCommon implements AfterContentInit {
-
   /**
-   * Name des Controls
+   * control name
    */
   @Input()
   public name: string = '';
 
   /**
-   * Input property for template. Typ TemplateRef<any>
+   * input property for template. Typ TemplateRef<any>
    */
   @Input()
   tablabeltemplate: TemplateRef<any>;
 
   /**
-   * Löscht versteckte TabItems
+   * dispose tabs when they are hidden
    */
   @Input()
   unloadtabitemswhenhidden: boolean | null = null;
+
+  /**
+   * Event when new tab is selected
+   */
+  @Output()
+  tabselected: EventEmitter<string> = new EventEmitter<string>();
 
   /**
    * Array von TabItems
@@ -45,7 +57,7 @@ export abstract class SacTabCommon implements AfterContentInit {
   private initTabs(): void {
     const activeTab = this.tabItems().filter((tab) => tab.active);
 
-    this.tabItems().forEach(itm => {
+    this.tabItems().forEach((itm) => {
       if (this.unloadtabitemswhenhidden !== null) {
         itm.unloadwhenhidden = this.unloadtabitemswhenhidden;
       }
@@ -59,8 +71,8 @@ export abstract class SacTabCommon implements AfterContentInit {
   // #endregion
 
   /**
-   * Tab selektieren
-   * @param tab
+   * select new tab
+   * @param tab tab that should be selected
    */
   selectTab(tab: SacTabItemCommon): void {
     // Cancel if Selected Tab is disabled
@@ -68,13 +80,14 @@ export abstract class SacTabCommon implements AfterContentInit {
       return;
     }
 
-    this.tabItems().forEach(item => item.active = false);
+    this.tabItems().forEach((item) => (item.active = false));
     tab.active = true;
+    this.tabselected.emit(tab.id);
   }
 
   /**
-   * Ergibt das ID vom Tab-Button
-   * @param tabitemid ID des Tabs
+   * get id of tab button
+   * @param tabitemid id of tab
    */
   public GetTabItemButtonId(tabitemid: string) {
     return this.name + '_' + tabitemid;

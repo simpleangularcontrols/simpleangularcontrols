@@ -38,6 +38,12 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
   public icon: string;
 
   /**
+   * css class for button styling
+   */
+  @Input()
+  public cssclass: string = '';
+
+  /**
    * Input Property für Styling des Buttons. Definiert die Css Klassen des Buttons
    */
   @Input()

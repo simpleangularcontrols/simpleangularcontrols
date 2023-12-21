@@ -1,14 +1,22 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { SacMultilanguageInputComponent } from './multilanguageinput';
 import { SacMultilanguageInputAreaComponent } from './multilanguageinputarea';
-import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { SacMultilanguagemenuComponent } from './multilanguagemenu';
+import { SacMultilanguagemenuAnchorDirective } from './multilanguagemenuanchor';
+import { SacMultilanguagemenuContainerDirective } from './multilanguagemenucontainer';
+import { SacMultilanguagemenuItemButtonComponent } from './multilanguagemenuitembutton';
 
 @NgModule({
-  declarations: [SacMultilanguageInputComponent, SacMultilanguageInputAreaComponent],
-  imports: [
-    CommonModule, NgbDropdownModule
+  declarations: [
+    SacMultilanguageInputComponent,
+    SacMultilanguageInputAreaComponent,
+    SacMultilanguagemenuComponent,
+    SacMultilanguagemenuAnchorDirective,
+    SacMultilanguagemenuContainerDirective,
+    SacMultilanguagemenuItemButtonComponent,
   ],
-  exports: [SacMultilanguageInputComponent, SacMultilanguageInputAreaComponent]
+  imports: [CommonModule],
+  exports: [SacMultilanguageInputComponent, SacMultilanguageInputAreaComponent],
 })
-export class SACBootstrap4MultilanguageModule { }
+export class SACBootstrap4MultilanguageModule {}

@@ -3396,45 +3396,80 @@ export class SacMultilanguageInputComponent extends SacMultilanguageInputCommon 
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;row form-group&quot; [class.no-gutters]&#x3D;&quot;disablelabel&quot;&gt;
-  &lt;label for&#x3D;&quot;{{name}}&quot; class&#x3D;&quot;col-12 col-form-label&quot; [ngClass]&#x3D;&quot;[disablelabel &#x3D;&#x3D;&#x3D; false ?  &#x27;col-sm-&#x27; + labelsize : &#x27;sr-only&#x27; ]&quot;&gt;{{label}}&lt;/label&gt;
-  &lt;div class&#x3D;&quot;col-12&quot; [ngClass]&#x3D;&quot;[disablelabel &#x3D;&#x3D;&#x3D; false ? &#x27;col-sm-&#x27; + _inputsize : &#x27;col-sm-12&#x27;]&quot;&gt;
-
+  &lt;label
+    for&#x3D;&quot;{{name}}&quot;
+    class&#x3D;&quot;col-12 col-form-label&quot;
+    [ngClass]&#x3D;&quot;[disablelabel &#x3D;&#x3D;&#x3D; false ?  &#x27;col-sm-&#x27; + labelsize : &#x27;sr-only&#x27; ]&quot;
+    &gt;{{label}}&lt;/label
+  &gt;
+  &lt;div
+    class&#x3D;&quot;col-12&quot;
+    [ngClass]&#x3D;&quot;[disablelabel &#x3D;&#x3D;&#x3D; false ? &#x27;col-sm-&#x27; + _inputsize : &#x27;col-sm-12&#x27;]&quot;
+  &gt;
     &lt;div class&#x3D;&quot;input-group input-group-sm&quot;&gt;
-
-
-      &lt;input id&#x3D;&quot;{{name}}&quot; name&#x3D;&quot;{{name}}&quot; type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control form-control-sm&quot; [value]&#x3D;&quot;LanguageValue&quot; [attr.placeholder]&#x3D;&quot;placeholder&quot; (blur)&#x3D;&quot;onTouch()&quot;
-             (input)&#x3D;&quot;SetLanguageValue($event.target.value)&quot;
-             [attr.maxlength]&#x3D;&quot;maxlength&quot; [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: invalid &amp;&amp; (dirty || touched) }&quot; [disabled]&#x3D;&quot;isdisabled&quot; /&gt;
-
-      &lt;div ngbDropdown placement&#x3D;&quot;bottom-right&quot; class&#x3D;&quot;input-group-append&quot;&gt;
-        &lt;button ngbDropdownToggle [id]&#x3D;&quot;name + &#x27;_dropdownitem&#x27;&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;btn&quot;
-                [ngClass]&#x3D;&quot;[IsAnyEmpty() ? &#x27;btn-warning&#x27; : &#x27;btn-secondary&#x27;]&quot;&gt;
-          &lt;img src&#x3D;&quot;{{SelectedIcon}}&quot; class&#x3D;&quot;align-baseline mr-1&quot; *ngIf&#x3D;&quot;SelectedIconType &#x3D;&#x3D;&#x3D; IconType.Image&quot;&gt;
-          &lt;span [ngClass]&#x3D;&quot;SelectedIcon&quot; class&#x3D;&quot;align-baseline mr-1&quot; *ngIf&#x3D;&quot;SelectedIconType &#x3D;&#x3D;&#x3D; IconType.CssSprite&quot;&gt;&lt;/span&gt;
-        &lt;/button&gt;
-        &lt;div ngbDropdownMenu [attr.aria-labelledby]&#x3D;&quot;name + &#x27;_dropdownitem&#x27;&quot;&gt;
-
-          &lt;a ngbDropdownItem *ngFor&#x3D;&quot;let sprache of Languages&quot; (click)&#x3D;&quot;SelectLanguage(sprache)&quot;
-             [ngClass]&#x3D;&quot;{&#x27;text-danger border-left border-danger&#x27;:IsEmpty(sprache)}&quot;&gt;
-            &lt;ng-container *ngIf&#x3D;&quot;sprache.IconType &#x3D;&#x3D;&#x3D; IconType.Image&quot;&gt;
-              &lt;img src&#x3D;&quot;{{sprache.Icon}}&quot; class&#x3D;&quot;align-baseline&quot;&gt; {{sprache.Text}}
-            &lt;/ng-container&gt;
-            &lt;ng-container *ngIf&#x3D;&quot;sprache.IconType &#x3D;&#x3D;&#x3D; IconType.CssSprite&quot;&gt;
-              &lt;span [ngClass]&#x3D;&quot;sprache.Icon&quot; class&#x3D;&quot;align-baseline&quot;&gt;&lt;/span&gt; {{sprache.Text}}
-            &lt;/ng-container&gt;
-          &lt;/a&gt;
-
-        &lt;/div&gt;
+      &lt;input
+        id&#x3D;&quot;{{name}}&quot;
+        name&#x3D;&quot;{{name}}&quot;
+        type&#x3D;&quot;text&quot;
+        class&#x3D;&quot;form-control form-control-sm&quot;
+        [value]&#x3D;&quot;LanguageValue&quot;
+        [attr.placeholder]&#x3D;&quot;placeholder&quot;
+        (blur)&#x3D;&quot;onTouch()&quot;
+        (input)&#x3D;&quot;SetLanguageValue($event.target.value)&quot;
+        [attr.maxlength]&#x3D;&quot;maxlength&quot;
+        [ngClass]&#x3D;&quot;{&#x27;is-invalid&#x27;: invalid &amp;&amp; (dirty || touched) }&quot;
+        [disabled]&#x3D;&quot;isdisabled&quot;
+      /&gt;
+      &lt;div
+        placement&#x3D;&quot;bottom-right&quot;
+        class&#x3D;&quot;input-group-append&quot;
+        sac-multilanguagemenu
+        [buttontemplate]&#x3D;&quot;menuButton&quot;
+        #contextmenu
+      &gt;
+        &lt;ng-template #menuButton&gt;
+          &lt;button
+            sacMultilanguageMenuAnchor
+            [id]&#x3D;&quot;name + &#x27;_dropdownitem&#x27;&quot;
+            type&#x3D;&quot;button&quot;
+            class&#x3D;&quot;btn dropdown-toggle&quot;
+            (click)&#x3D;&quot;contextmenu.toggle()&quot;
+            [ngClass]&#x3D;&quot;[IsAnyEmpty() ? &#x27;btn-warning&#x27; : &#x27;btn-secondary&#x27;]&quot;
+          &gt;
+            &lt;img
+              src&#x3D;&quot;{{SelectedIcon}}&quot;
+              class&#x3D;&quot;align-baseline mr-1 ml-1&quot;
+              *ngIf&#x3D;&quot;SelectedIconType &#x3D;&#x3D;&#x3D; IconType.Image&quot;
+            /&gt;
+            &lt;span
+              [ngClass]&#x3D;&quot;SelectedIcon&quot;
+              class&#x3D;&quot;align-baseline mr-1 ml-1&quot;
+              *ngIf&#x3D;&quot;SelectedIconType &#x3D;&#x3D;&#x3D; IconType.CssSprite&quot;
+            &gt;&lt;/span&gt;
+          &lt;/button&gt;
+        &lt;/ng-template&gt;
+        &lt;ng-container *ngFor&#x3D;&quot;let sprache of Languages&quot;&gt;
+          &lt;sac-multilanguagemenubutton
+            *ngIf&#x3D;&quot;sprache.IconType &#x3D;&#x3D;&#x3D; IconType.Image&quot;
+            text&#x3D;&quot;{{sprache.Text}}&quot;
+            image&#x3D;&quot;{{sprache.Icon}}&quot;
+            [cssclass]&#x3D;&quot;IsEmpty(sprache) ? &#x27;text-danger border-left border-danger&#x27;: &#x27;&#x27;&quot;
+            (clicked)&#x3D;&quot;SelectLanguage(sprache)&quot;
+          &gt;&lt;/sac-multilanguagemenubutton&gt;
+          &lt;sac-multilanguagemenubutton
+            *ngIf&#x3D;&quot;sprache.IconType &#x3D;&#x3D;&#x3D; IconType.CssSprite&quot;
+            text&#x3D;&quot;{{sprache.Text}}&quot;
+            icon&#x3D;&quot;{{sprache.Icon}}&quot;
+            [cssclass]&#x3D;&quot;IsEmpty(sprache) ? &#x27;text-danger border-left border-danger&#x27;: &#x27;&#x27;&quot;
+            (clicked)&#x3D;&quot;SelectLanguage(sprache)&quot;
+          &gt;&lt;/sac-multilanguagemenubutton&gt;
+        &lt;/ng-container&gt;
       &lt;/div&gt;
-
-
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class&#x3D;&quot;row&quot;&gt;
-  &lt;div class&#x3D;&quot;col text-right&quot;&gt;
-
-  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;col text-right&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -3465,9 +3500,9 @@ export class SacMultilanguageInputComponent extends SacMultilanguageInputCommon 
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="row form-group" [class.no-gutters]="disablelabel">  <label for="{{name}}" class="col-12 col-form-label" [ngClass]="[disablelabel === false ?  \'col-sm-\' + labelsize : \'sr-only\' ]">{{label}}</label>  <div class="col-12" [ngClass]="[disablelabel === false ? \'col-sm-\' + _inputsize : \'col-sm-12\']">    <div class="input-group input-group-sm">      <input id="{{name}}" name="{{name}}" type="text" class="form-control form-control-sm" [value]="LanguageValue" [attr.placeholder]="placeholder" (blur)="onTouch()"             (input)="SetLanguageValue($event.target.value)"             [attr.maxlength]="maxlength" [ngClass]="{\'is-invalid\': invalid && (dirty || touched) }" [disabled]="isdisabled" />      <div ngbDropdown placement="bottom-right" class="input-group-append">        <button ngbDropdownToggle [id]="name + \'_dropdownitem\'" type="button" class="btn"                [ngClass]="[IsAnyEmpty() ? \'btn-warning\' : \'btn-secondary\']">          <img src="{{SelectedIcon}}" class="align-baseline mr-1" *ngIf="SelectedIconType === IconType.Image">          <span [ngClass]="SelectedIcon" class="align-baseline mr-1" *ngIf="SelectedIconType === IconType.CssSprite"></span>        </button>        <div ngbDropdownMenu [attr.aria-labelledby]="name + \'_dropdownitem\'">          <a ngbDropdownItem *ngFor="let sprache of Languages" (click)="SelectLanguage(sprache)"             [ngClass]="{\'text-danger border-left border-danger\':IsEmpty(sprache)}">            <ng-container *ngIf="sprache.IconType === IconType.Image">              <img src="{{sprache.Icon}}" class="align-baseline"> {{sprache.Text}}            </ng-container>            <ng-container *ngIf="sprache.IconType === IconType.CssSprite">              <span [ngClass]="sprache.Icon" class="align-baseline"></span> {{sprache.Text}}            </ng-container>          </a>        </div>      </div>    </div>  </div></div><div class="row">  <div class="col text-right">  </div></div></div>'
-    var COMPONENTS = [{'name': 'SacBrowserComponent', 'selector': 'sac-filebrowser'},{'name': 'SacButtonComponent', 'selector': 'sac-button'},{'name': 'SacCheckboxComponent', 'selector': 'sac-checkbox'},{'name': 'SacConfirmComponent', 'selector': 'sac-confirm'},{'name': 'SacContextmenuComponent', 'selector': 'sac-contextmenu'},{'name': 'SacContextmenuItemButtonComponent', 'selector': 'sac-contextmenubutton'},{'name': 'SacContextmenuItemSplitterComponent', 'selector': 'sac-contextmenusplitter'},{'name': 'SacDateComponent', 'selector': 'sac-date'},{'name': 'SacDateSelectorComponent', 'selector': 'sac-dateselector'},{'name': 'SacDateTimeComponent', 'selector': 'sac-datetime'},{'name': 'SacDialogComponent', 'selector': 'sac-dialog'},{'name': 'SacDropdownComponent', 'selector': 'sac-dropdown'},{'name': 'SacDropzoneMultipleComponent', 'selector': 'sac-dropzonemultiple'},{'name': 'SacDropzoneSingleComponent', 'selector': 'sac-dropzonesingle'},{'name': 'SacGridButtonComponent', 'selector': 'sac-gridbutton'},{'name': 'SacGridColumnActionComponent', 'selector': 'sac-gridcolumnaction'},{'name': 'SacGridColumnComponent', 'selector': 'sac-gridcolumn'},{'name': 'SacGridComponent', 'selector': 'sac-grid'},{'name': 'SacGridImageComponent', 'selector': 'sac-gridimage'},{'name': 'SacInputAreaComponent', 'selector': 'sac-inputarea'},{'name': 'SacInputComponent', 'selector': 'sac-input'},{'name': 'SacInputCurrencyComponent', 'selector': 'sac-inputcurrency'},{'name': 'SacInputDecimalComponent', 'selector': 'sac-inputdecimal'},{'name': 'SacInputEmailComponent', 'selector': 'sac-inputemail'},{'name': 'SacInputIntegerComponent', 'selector': 'sac-inputinteger'},{'name': 'SacInputPasswordComponent', 'selector': 'sac-inputpassword'},{'name': 'SacInputSearchComponent', 'selector': 'sac-inputsearch'},{'name': 'SacListboxComponent', 'selector': 'sac-listbox'},{'name': 'SacMultilanguageInputAreaComponent', 'selector': 'sac-multilanguageinputarea'},{'name': 'SacMultilanguageInputComponent', 'selector': 'sac-multilanguageinput'},{'name': 'SacPagingComponent', 'selector': 'sac-paging'},{'name': 'SacRadiobuttonComponent', 'selector': 'sac-radiobutton'},{'name': 'SacRadiobuttonsComponent', 'selector': 'sac-radiobuttons'},{'name': 'SacStaticFormContainerComponent', 'selector': 'sac-staticformcontainer'},{'name': 'SacStaticLabelComponent', 'selector': 'sac-staticlabel'},{'name': 'SacTabComponent', 'selector': 'sac-tab'},{'name': 'SacTabItemComponent', 'selector': 'sac-tabitem'},{'name': 'SacTimeComponent', 'selector': 'sac-time'},{'name': 'SacTinyMceComponent', 'selector': 'sac-tinymce'},{'name': 'SacUploadComponent', 'selector': 'sac-upload'},{'name': 'SacUploadMultipleComponent', 'selector': 'sac-uploadmultiple'},{'name': 'SacValidationSummaryComponent', 'selector': 'sac-validationsummary'},{'name': 'SacWizardComponent', 'selector': 'sac-wizard'},{'name': 'SacWizardItemComponent', 'selector': 'sac-wizarditem'}];
-    var DIRECTIVES = [{'name': 'SacBaseDateTimeControl', 'selector': ''},{'name': 'SacBaseListControl', 'selector': ''},{'name': 'SacBaseModelControl', 'selector': ''},{'name': 'SacBaseSelectControl', 'selector': ''},{'name': 'SacButtonCommon', 'selector': ''},{'name': 'SacCheckboxCommon', 'selector': ''},{'name': 'SacConfirmCommon', 'selector': ''},{'name': 'SacContextmenuAnchorCommon', 'selector': ''},{'name': 'SacContextmenuAnchorDirective', 'selector': '[sacContextMenuAnchor]'},{'name': 'SacContextmenuCommon', 'selector': ''},{'name': 'SacContextmenuContainerDirective', 'selector': '[sacContextMenuContainer]'},{'name': 'SacContextMenuContrainerCommon', 'selector': ''},{'name': 'SacContextmenuItemButtonCommon', 'selector': ''},{'name': 'SacContextmenuItemCommon', 'selector': ''},{'name': 'SacDateCommon', 'selector': ''},{'name': 'SacDateSelectorCommon', 'selector': ''},{'name': 'SacDateTimeCommon', 'selector': ''},{'name': 'SacDialogCommon', 'selector': ''},{'name': 'SacDropdownCommon', 'selector': ''},{'name': 'SacDropdownOptionCommon', 'selector': ''},{'name': 'SacDropdownOptionDirective', 'selector': '[sacOption],option'},{'name': 'SacDropzoneMultipleCommon', 'selector': ''},{'name': 'SacDropzoneSingleCommon', 'selector': ''},{'name': 'SacFileBrowserCommon', 'selector': ''},{'name': 'SacFormCommon', 'selector': ''},{'name': 'SacFormDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'SacGridButtonCommon', 'selector': ''},{'name': 'SacGridColumnActionCommon', 'selector': ''},{'name': 'SacGridColumnBaseCommon', 'selector': ''},{'name': 'SacGridColumnCommon', 'selector': ''},{'name': 'SacGridCommon', 'selector': ''},{'name': 'SacGridImageCommon', 'selector': ''},{'name': 'SacInheritFormDirective', 'selector': '[sacInheritForm]'},{'name': 'SacInputAreaCommon', 'selector': ''},{'name': 'SacInputBase', 'selector': ''},{'name': 'SacInputCommon', 'selector': ''},{'name': 'SacInputCurrencyCommon', 'selector': ''},{'name': 'SacInputDecimalCommon', 'selector': ''},{'name': 'SacInputEmailCommon', 'selector': ''},{'name': 'SacInputIntegerCommon', 'selector': ''},{'name': 'SacInputPasswordCommon', 'selector': ''},{'name': 'SacInputSearchCommon', 'selector': ''},{'name': 'SacListboxCommon', 'selector': ''},{'name': 'SacListboxOptionCommon', 'selector': ''},{'name': 'SacListboxOptionDirective', 'selector': '[sacOption],option'},{'name': 'SacMultilanguageInputAreaCommon', 'selector': ''},{'name': 'SacMultilanguageInputCommon', 'selector': ''},{'name': 'SacPagingCommon', 'selector': ''},{'name': 'SacRadiobuttonCommon', 'selector': ''},{'name': 'SacRadiobuttonsCommon', 'selector': ''},{'name': 'SacStaticFormContainerCommon', 'selector': ''},{'name': 'SacStaticLabelCommon', 'selector': ''},{'name': 'SacTabCommon', 'selector': ''},{'name': 'SacTabItemCommon', 'selector': ''},{'name': 'SacTimeCommon', 'selector': ''},{'name': 'SacTinyMceCommon', 'selector': ''},{'name': 'SacTooltipCommon', 'selector': ''},{'name': 'SacTreeItemActionCommon', 'selector': ''},{'name': 'SacTreeViewChildCommon', 'selector': ''},{'name': 'SacTreeViewCommon', 'selector': ''},{'name': 'SacUploadBase', 'selector': ''},{'name': 'SacUploadMultipleCommon', 'selector': ''},{'name': 'SacUploadSingleCommon', 'selector': ''},{'name': 'SacValidationSummaryCommon', 'selector': ''},{'name': 'SacWizardCommon', 'selector': ''},{'name': 'SacWizardItemCommon', 'selector': ''}];
+        var COMPONENT_TEMPLATE = '<div><div class="row form-group" [class.no-gutters]="disablelabel">  <label    for="{{name}}"    class="col-12 col-form-label"    [ngClass]="[disablelabel === false ?  \'col-sm-\' + labelsize : \'sr-only\' ]"    >{{label}}</label  >  <div    class="col-12"    [ngClass]="[disablelabel === false ? \'col-sm-\' + _inputsize : \'col-sm-12\']"  >    <div class="input-group input-group-sm">      <input        id="{{name}}"        name="{{name}}"        type="text"        class="form-control form-control-sm"        [value]="LanguageValue"        [attr.placeholder]="placeholder"        (blur)="onTouch()"        (input)="SetLanguageValue($event.target.value)"        [attr.maxlength]="maxlength"        [ngClass]="{\'is-invalid\': invalid && (dirty || touched) }"        [disabled]="isdisabled"      />      <div        placement="bottom-right"        class="input-group-append"        sac-multilanguagemenu        [buttontemplate]="menuButton"        #contextmenu      >        <ng-template #menuButton>          <button            sacMultilanguageMenuAnchor            [id]="name + \'_dropdownitem\'"            type="button"            class="btn dropdown-toggle"            (click)="contextmenu.toggle()"            [ngClass]="[IsAnyEmpty() ? \'btn-warning\' : \'btn-secondary\']"          >            <img              src="{{SelectedIcon}}"              class="align-baseline mr-1 ml-1"              *ngIf="SelectedIconType === IconType.Image"            />            <span              [ngClass]="SelectedIcon"              class="align-baseline mr-1 ml-1"              *ngIf="SelectedIconType === IconType.CssSprite"            ></span>          </button>        </ng-template>        <ng-container *ngFor="let sprache of Languages">          <sac-multilanguagemenubutton            *ngIf="sprache.IconType === IconType.Image"            text="{{sprache.Text}}"            image="{{sprache.Icon}}"            [cssclass]="IsEmpty(sprache) ? \'text-danger border-left border-danger\': \'\'"            (clicked)="SelectLanguage(sprache)"          ></sac-multilanguagemenubutton>          <sac-multilanguagemenubutton            *ngIf="sprache.IconType === IconType.CssSprite"            text="{{sprache.Text}}"            icon="{{sprache.Icon}}"            [cssclass]="IsEmpty(sprache) ? \'text-danger border-left border-danger\': \'\'"            (clicked)="SelectLanguage(sprache)"          ></sac-multilanguagemenubutton>        </ng-container>      </div>    </div>  </div></div><div class="row">  <div class="col text-right"></div></div></div>'
+    var COMPONENTS = [{'name': 'SacBrowserComponent', 'selector': 'sac-filebrowser'},{'name': 'SacButtonComponent', 'selector': 'sac-button'},{'name': 'SacCheckboxComponent', 'selector': 'sac-checkbox'},{'name': 'SacConfirmComponent', 'selector': 'sac-confirm'},{'name': 'SacContextmenuComponent', 'selector': 'sac-contextmenu'},{'name': 'SacContextmenuItemButtonComponent', 'selector': 'sac-contextmenubutton'},{'name': 'SacContextmenuItemSplitterComponent', 'selector': 'sac-contextmenusplitter'},{'name': 'SacDateComponent', 'selector': 'sac-date'},{'name': 'SacDateSelectorComponent', 'selector': 'sac-dateselector'},{'name': 'SacDateTimeComponent', 'selector': 'sac-datetime'},{'name': 'SacDialogComponent', 'selector': 'sac-dialog'},{'name': 'SacDropdownComponent', 'selector': 'sac-dropdown'},{'name': 'SacDropzoneMultipleComponent', 'selector': 'sac-dropzonemultiple'},{'name': 'SacDropzoneSingleComponent', 'selector': 'sac-dropzonesingle'},{'name': 'SacGridButtonComponent', 'selector': 'sac-gridbutton'},{'name': 'SacGridColumnActionComponent', 'selector': 'sac-gridcolumnaction'},{'name': 'SacGridColumnComponent', 'selector': 'sac-gridcolumn'},{'name': 'SacGridComponent', 'selector': 'sac-grid'},{'name': 'SacGridImageComponent', 'selector': 'sac-gridimage'},{'name': 'SacInputAreaComponent', 'selector': 'sac-inputarea'},{'name': 'SacInputComponent', 'selector': 'sac-input'},{'name': 'SacInputCurrencyComponent', 'selector': 'sac-inputcurrency'},{'name': 'SacInputDecimalComponent', 'selector': 'sac-inputdecimal'},{'name': 'SacInputEmailComponent', 'selector': 'sac-inputemail'},{'name': 'SacInputIntegerComponent', 'selector': 'sac-inputinteger'},{'name': 'SacInputPasswordComponent', 'selector': 'sac-inputpassword'},{'name': 'SacInputSearchComponent', 'selector': 'sac-inputsearch'},{'name': 'SacListboxComponent', 'selector': 'sac-listbox'},{'name': 'SacMultilanguageInputAreaComponent', 'selector': 'sac-multilanguageinputarea'},{'name': 'SacMultilanguageInputComponent', 'selector': 'sac-multilanguageinput'},{'name': 'SacMultilanguagemenuComponent', 'selector': '[sac-multilanguagemenu]'},{'name': 'SacMultilanguagemenuItemButtonComponent', 'selector': 'sac-multilanguagemenubutton'},{'name': 'SacPagingComponent', 'selector': 'sac-paging'},{'name': 'SacRadiobuttonComponent', 'selector': 'sac-radiobutton'},{'name': 'SacRadiobuttonsComponent', 'selector': 'sac-radiobuttons'},{'name': 'SacStaticFormContainerComponent', 'selector': 'sac-staticformcontainer'},{'name': 'SacStaticLabelComponent', 'selector': 'sac-staticlabel'},{'name': 'SacTabComponent', 'selector': 'sac-tab'},{'name': 'SacTabItemComponent', 'selector': 'sac-tabitem'},{'name': 'SacTimeComponent', 'selector': 'sac-time'},{'name': 'SacTinyMceComponent', 'selector': 'sac-tinymce'},{'name': 'SacUploadComponent', 'selector': 'sac-upload'},{'name': 'SacUploadMultipleComponent', 'selector': 'sac-uploadmultiple'},{'name': 'SacValidationSummaryComponent', 'selector': 'sac-validationsummary'},{'name': 'SacWizardComponent', 'selector': 'sac-wizard'},{'name': 'SacWizardItemComponent', 'selector': 'sac-wizarditem'}];
+    var DIRECTIVES = [{'name': 'SacBaseDateTimeControl', 'selector': ''},{'name': 'SacBaseListControl', 'selector': ''},{'name': 'SacBaseModelControl', 'selector': ''},{'name': 'SacBaseSelectControl', 'selector': ''},{'name': 'SacButtonCommon', 'selector': ''},{'name': 'SacCheckboxCommon', 'selector': ''},{'name': 'SacConfirmCommon', 'selector': ''},{'name': 'SacContextmenuAnchorCommon', 'selector': ''},{'name': 'SacContextmenuAnchorDirective', 'selector': '[sacContextMenuAnchor]'},{'name': 'SacContextmenuCommon', 'selector': ''},{'name': 'SacContextmenuContainerDirective', 'selector': '[sacContextMenuContainer]'},{'name': 'SacContextMenuContrainerCommon', 'selector': ''},{'name': 'SacContextmenuItemButtonCommon', 'selector': ''},{'name': 'SacContextmenuItemCommon', 'selector': ''},{'name': 'SacDateCommon', 'selector': ''},{'name': 'SacDateSelectorCommon', 'selector': ''},{'name': 'SacDateTimeCommon', 'selector': ''},{'name': 'SacDialogCommon', 'selector': ''},{'name': 'SacDropdownCommon', 'selector': ''},{'name': 'SacDropdownOptionCommon', 'selector': ''},{'name': 'SacDropdownOptionDirective', 'selector': '[sacOption],option'},{'name': 'SacDropzoneMultipleCommon', 'selector': ''},{'name': 'SacDropzoneSingleCommon', 'selector': ''},{'name': 'SacFileBrowserCommon', 'selector': ''},{'name': 'SacFormCommon', 'selector': ''},{'name': 'SacFormDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'SacGridButtonCommon', 'selector': ''},{'name': 'SacGridColumnActionCommon', 'selector': ''},{'name': 'SacGridColumnBaseCommon', 'selector': ''},{'name': 'SacGridColumnCommon', 'selector': ''},{'name': 'SacGridCommon', 'selector': ''},{'name': 'SacGridImageCommon', 'selector': ''},{'name': 'SacInheritFormDirective', 'selector': '[sacInheritForm]'},{'name': 'SacInputAreaCommon', 'selector': ''},{'name': 'SacInputBase', 'selector': ''},{'name': 'SacInputCommon', 'selector': ''},{'name': 'SacInputCurrencyCommon', 'selector': ''},{'name': 'SacInputDecimalCommon', 'selector': ''},{'name': 'SacInputEmailCommon', 'selector': ''},{'name': 'SacInputIntegerCommon', 'selector': ''},{'name': 'SacInputPasswordCommon', 'selector': ''},{'name': 'SacInputSearchCommon', 'selector': ''},{'name': 'SacListboxCommon', 'selector': ''},{'name': 'SacListboxOptionCommon', 'selector': ''},{'name': 'SacListboxOptionDirective', 'selector': '[sacOption],option'},{'name': 'SacMultilanguageInputAreaCommon', 'selector': ''},{'name': 'SacMultilanguageInputCommon', 'selector': ''},{'name': 'SacMultilanguagemenuAnchorDirective', 'selector': '[sacMultilanguageMenuAnchor]'},{'name': 'SacMultilanguagemenuContainerDirective', 'selector': '[sacMultilanguageMenuContainer]'},{'name': 'SacPagingCommon', 'selector': ''},{'name': 'SacRadiobuttonCommon', 'selector': ''},{'name': 'SacRadiobuttonsCommon', 'selector': ''},{'name': 'SacStaticFormContainerCommon', 'selector': ''},{'name': 'SacStaticLabelCommon', 'selector': ''},{'name': 'SacTabCommon', 'selector': ''},{'name': 'SacTabItemCommon', 'selector': ''},{'name': 'SacTimeCommon', 'selector': ''},{'name': 'SacTinyMceCommon', 'selector': ''},{'name': 'SacTooltipCommon', 'selector': ''},{'name': 'SacTreeItemActionCommon', 'selector': ''},{'name': 'SacTreeViewChildCommon', 'selector': ''},{'name': 'SacTreeViewCommon', 'selector': ''},{'name': 'SacUploadBase', 'selector': ''},{'name': 'SacUploadMultipleCommon', 'selector': ''},{'name': 'SacUploadSingleCommon', 'selector': ''},{'name': 'SacValidationSummaryCommon', 'selector': ''},{'name': 'SacWizardCommon', 'selector': ''},{'name': 'SacWizardItemCommon', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'SacMultilanguageInputComponent'};
 </script>
 <script src="../js/tree.js"></script>

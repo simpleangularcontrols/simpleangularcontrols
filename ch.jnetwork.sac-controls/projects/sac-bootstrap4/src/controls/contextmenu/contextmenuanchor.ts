@@ -1,7 +1,6 @@
 import { Directive, ElementRef, forwardRef } from '@angular/core';
 import {
-  SacContextmenuAnchorCommon,
-  SacContextmenuCommon,
+  SacContextmenuAnchorCommon
 } from '@simpleangularcontrols/sac-common';
 
 /**

@@ -388,21 +388,44 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SACBootstrap4MultilanguageModule.html" data-type="entity-link" >SACBootstrap4MultilanguageModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                            'data-bs-target="#components-links-module-SACBootstrap4MultilanguageModule-aa17e1cb40f9380dd750f6df3b64d4b7b6cc50655a0febc9e9dcbe60c5a6eaa1a03389b0d26974f7fce69568a767a4e08b5a9305476576b8e4724b9cc79e2e1b"' : 'data-bs-target="#xs-components-links-module-SACBootstrap4MultilanguageModule-aa17e1cb40f9380dd750f6df3b64d4b7b6cc50655a0febc9e9dcbe60c5a6eaa1a03389b0d26974f7fce69568a767a4e08b5a9305476576b8e4724b9cc79e2e1b"' }>
+                                            'data-bs-target="#components-links-module-SACBootstrap4MultilanguageModule-5948c824122cd944ee4ddd1564785cbf6400b70bc8af2becbcab578f2ce723b84203521986e557c8334063e28e709ae653d9443fa8ae319aba896888de5a3a9a"' : 'data-bs-target="#xs-components-links-module-SACBootstrap4MultilanguageModule-5948c824122cd944ee4ddd1564785cbf6400b70bc8af2becbcab578f2ce723b84203521986e557c8334063e28e709ae653d9443fa8ae319aba896888de5a3a9a"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SACBootstrap4MultilanguageModule-aa17e1cb40f9380dd750f6df3b64d4b7b6cc50655a0febc9e9dcbe60c5a6eaa1a03389b0d26974f7fce69568a767a4e08b5a9305476576b8e4724b9cc79e2e1b"' :
-                                            'id="xs-components-links-module-SACBootstrap4MultilanguageModule-aa17e1cb40f9380dd750f6df3b64d4b7b6cc50655a0febc9e9dcbe60c5a6eaa1a03389b0d26974f7fce69568a767a4e08b5a9305476576b8e4724b9cc79e2e1b"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SACBootstrap4MultilanguageModule-5948c824122cd944ee4ddd1564785cbf6400b70bc8af2becbcab578f2ce723b84203521986e557c8334063e28e709ae653d9443fa8ae319aba896888de5a3a9a"' :
+                                            'id="xs-components-links-module-SACBootstrap4MultilanguageModule-5948c824122cd944ee4ddd1564785cbf6400b70bc8af2becbcab578f2ce723b84203521986e557c8334063e28e709ae653d9443fa8ae319aba896888de5a3a9a"' }>
                                             <li class="link">
                                                 <a href="components/SacMultilanguageInputAreaComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacMultilanguageInputAreaComponent</a>
                                             </li>
                                             <li class="link">
                                                 <a href="components/SacMultilanguageInputComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacMultilanguageInputComponent</a>
                                             </li>
+                                            <li class="link">
+                                                <a href="components/SacMultilanguagemenuComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacMultilanguagemenuComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/SacMultilanguagemenuItemButtonComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacMultilanguagemenuItemButtonComponent</a>
+                                            </li>
                                         </ul>
                                     </li>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                        'data-bs-target="#directives-links-module-SACBootstrap4MultilanguageModule-5948c824122cd944ee4ddd1564785cbf6400b70bc8af2becbcab578f2ce723b84203521986e557c8334063e28e709ae653d9443fa8ae319aba896888de5a3a9a"' : 'data-bs-target="#xs-directives-links-module-SACBootstrap4MultilanguageModule-5948c824122cd944ee4ddd1564785cbf6400b70bc8af2becbcab578f2ce723b84203521986e557c8334063e28e709ae653d9443fa8ae319aba896888de5a3a9a"' }>
+                                        <span class="icon ion-md-code-working"></span>
+                                        <span>Directives</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-SACBootstrap4MultilanguageModule-5948c824122cd944ee4ddd1564785cbf6400b70bc8af2becbcab578f2ce723b84203521986e557c8334063e28e709ae653d9443fa8ae319aba896888de5a3a9a"' :
+                                        'id="xs-directives-links-module-SACBootstrap4MultilanguageModule-5948c824122cd944ee4ddd1564785cbf6400b70bc8af2becbcab578f2ce723b84203521986e557c8334063e28e709ae653d9443fa8ae319aba896888de5a3a9a"' }>
+                                        <li class="link">
+                                            <a href="directives/SacMultilanguagemenuAnchorDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacMultilanguagemenuAnchorDirective</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="directives/SacMultilanguagemenuContainerDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacMultilanguagemenuContainerDirective</a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </li>
                             <li class="link">
                                 <a href="modules/SACBootstrap4StaticLabelModule.html" data-type="entity-link" >SACBootstrap4StaticLabelModule</a>

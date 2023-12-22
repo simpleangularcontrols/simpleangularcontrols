@@ -9,13 +9,13 @@ import {
   Output,
 } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IFileBrowserService } from '../../interfaces/IFileBrowserService';
+import { ISacFileBrowserService } from '../../interfaces/ISacFileBrowserService';
 import { ISacLocalisationService } from '../../interfaces/ISacLocalisationService';
 import { SACLOCALISATION_SERVICE } from '../../services';
 import {
-  FILEBROWSER_SERVICE,
-  InternalFileBrowserService,
-} from '../../services/filebrowser.service';
+  SACFILEBROWSER_SERVICE,
+  SacDefaultFileBrowserService,
+} from '../../services/sac-filebrowser.service';
 import { SacDefaultLocalisationService } from '../../services/sac-localisation.service';
 import { IBrowserFile } from './models/browserfile';
 import { IBrowserFileResponse } from './models/browserfileresponse';
@@ -64,7 +64,7 @@ export abstract class SacFileBrowserCommon implements OnInit {
   /**
    * Service für File Browser Zugriff (Backend)
    */
-  private browserService: IFileBrowserService;
+  private browserService: ISacFileBrowserService;
   /**
    * File welches beim starten des Browsers bereits selektiert ist
    */
@@ -178,8 +178,8 @@ export abstract class SacFileBrowserCommon implements OnInit {
    */
   constructor(httpclient: HttpClient, injector: Injector) {
     this.browserService = injector.get(
-      FILEBROWSER_SERVICE,
-      new InternalFileBrowserService(httpclient)
+      SACFILEBROWSER_SERVICE,
+      new SacDefaultFileBrowserService(httpclient)
     );
 
     this.lngResourceService = injector.get(

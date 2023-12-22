@@ -10,14 +10,13 @@ import { BrowserNodeNewRequest } from '../components/browser/models/browsernoden
 import { BrowserNodeRenameRequest } from '../components/browser/models/browsernoderenamerequest';
 import { BrowserNodeRequest } from '../components/browser/models/browsernoderequest';
 import { IBrowserNodeResponse } from '../components/browser/models/browsernoderesponse';
-import { IFileBrowserService } from '../interfaces/IFileBrowserService';
+import { ISacFileBrowserService } from '../interfaces/ISacFileBrowserService';
 
 /**
  * Injection Token für Language Service
  */
-export const FILEBROWSER_SERVICE = new InjectionToken<IFileBrowserService>(
-  'FileBrowserService'
-);
+export const SACFILEBROWSER_SERVICE =
+  new InjectionToken<ISacFileBrowserService>('FileBrowserService');
 
 /**
  * Abstrakte Implementierung des File Service für die Browser Component
@@ -25,7 +24,9 @@ export const FILEBROWSER_SERVICE = new InjectionToken<IFileBrowserService>(
 @Injectable({
   providedIn: 'root',
 })
-export abstract class FileBrowserService implements IFileBrowserService {
+export abstract class SacAbstractFileBrowserService
+  implements ISacFileBrowserService
+{
   /**
    * Gibt einen Node zurück
    * @param apiurl URL zu API Service
@@ -131,7 +132,7 @@ export abstract class FileBrowserService implements IFileBrowserService {
 @Injectable({
   providedIn: 'root',
 })
-export class InternalFileBrowserService extends FileBrowserService {
+export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService {
   /**
    * Konstruktor
    * @param httpclient HTTP Client Service

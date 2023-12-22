@@ -96,11 +96,14 @@ export { IBrowserNode } from './components/browser/models/browsernode';
 // Services
 export * from './interfaces/ISacLocalisationService';
 export * from './interfaces/ISacLanguageService';
+export * from './interfaces/ISacFileBrowserService';
 export {
   SacAbstractLanguageService,
   SACLOCALISATION_SERVICE,
   SacAbstractLocalisationService,
   SACLANGUAGE_SERVICE,
+  SacAbstractFileBrowserService,
+  SACFILEBROWSER_SERVICE,
 } from './services';
 
 // Export Interfaces

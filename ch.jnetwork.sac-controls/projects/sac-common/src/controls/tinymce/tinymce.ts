@@ -11,9 +11,9 @@ import {
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { SacBaseModelControl } from '../../common/basemodelcontrol';
 import { SacFormCommon } from '../../controls/form/form';
-import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
-import { LANGUAGERESOURCE_SERVICE } from '../../services';
-import { InternalLanguageResourceService } from '../../services/languageresource.service';
+import { ISacLocalisationService } from '../../interfaces/ISacLocalisationService';
+import { SACLOCALISATION_SERVICE } from '../../services';
+import { SacDefaultLocalisationService } from '../../services/sac-localisation.service';
 import { Validation } from '../../validation';
 import { TinyMceDialogSettings } from './tinymcedialogsettings';
 import { TinyMceDialogSettingsMeta } from './tinymcedialogsettingsmeta';
@@ -40,7 +40,7 @@ export class SacTinyMceCommon extends SacBaseModelControl<string> {
   /**
    * Service für Error Localisation
    */
-  public lngResourceService: ILanguageResourceService;
+  public lngResourceService: ISacLocalisationService;
 
   /**
    * Settings Instanz für Dialog
@@ -181,8 +181,8 @@ export class SacTinyMceCommon extends SacBaseModelControl<string> {
     super(parent, injector);
 
     this.lngResourceService = injector.get(
-      LANGUAGERESOURCE_SERVICE,
-      new InternalLanguageResourceService()
+      SACLOCALISATION_SERVICE,
+      new SacDefaultLocalisationService()
     );
 
     this.config = {};

@@ -5,7 +5,7 @@ import { IBrowserNodeResponse } from '../components/browser/models/browsernodere
 /**
  * Interface für File Browser Service
  */
-export interface IFileBrowserService {
+export interface ISacFileBrowserService {
   /**
    * Methode welche die Dateien eines Nodes ausliest
    * @param apiurl URL zu API Service

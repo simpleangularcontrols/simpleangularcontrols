@@ -2,12 +2,12 @@ import { Directive, Host, Injector, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { SacInputBase } from '../../common/baseinputcontrol';
 import { IconType } from '../../enums/IconType';
-import { ILanguageService } from '../../interfaces/ilanguageservice';
+import { ISacLanguageService } from '../../interfaces/ISacLanguageService';
 import { LanguageModel } from '../../models/languagemodel';
 import {
-  InternalLanguageService,
-  LANGUAGE_SERVICE,
-} from '../../services/Language.Service';
+  SacDefaultLanguageService,
+  SACLANGUAGE_SERVICE,
+} from '../../services/sac-language.service';
 import { Validation } from '../../validation';
 import { SacFormCommon } from '../form/form';
 
@@ -60,7 +60,7 @@ export class SacMultilanguageInputCommon extends SacInputBase<any> {
   /**
    * Service für Error Localisation
    */
-  protected lngLanguageService: ILanguageService;
+  protected lngLanguageService: ISacLanguageService;
 
   /**
    * Konstruktor
@@ -70,8 +70,8 @@ export class SacMultilanguageInputCommon extends SacInputBase<any> {
     super(parent, injector);
 
     this.lngLanguageService = injector.get(
-      LANGUAGE_SERVICE,
-      new InternalLanguageService()
+      SACLANGUAGE_SERVICE,
+      new SacDefaultLanguageService()
     );
 
     this.lngLanguageService

@@ -94,13 +94,16 @@ export { IBrowserFile } from './components/browser/models/browserfile';
 export { IBrowserNode } from './components/browser/models/browsernode';
 
 // Services
-export * from './interfaces/ilanguageresource';
-export * from './interfaces/ilanguageservice';
+export * from './interfaces/ISacLocalisationService';
+export * from './interfaces/ISacLanguageService';
+export * from './interfaces/ISacFileBrowserService';
 export {
-  LanguageResourceService,
-  LANGUAGERESOURCE_SERVICE,
-  LanguageService,
-  LANGUAGE_SERVICE,
+  SacAbstractLanguageService,
+  SACLOCALISATION_SERVICE,
+  SacAbstractLocalisationService,
+  SACLANGUAGE_SERVICE,
+  SacAbstractFileBrowserService,
+  SACFILEBROWSER_SERVICE,
 } from './services';
 
 // Export Interfaces

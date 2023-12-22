@@ -22,11 +22,11 @@ import {
   UPLOADX_OPTIONS,
 } from 'ngx-uploadx';
 import {
-  InternalLanguageResourceService,
-  LANGUAGERESOURCE_SERVICE,
-} from '../services/languageresource.service';
+  SacDefaultLocalisationService,
+  SACLOCALISATION_SERVICE,
+} from '../services/sac-localisation.service';
 import { SacFormCommon } from '../controls/form/form';
-import { ILanguageResourceService } from '../interfaces/ilanguageresource';
+import { ISacLocalisationService } from '../interfaces/ISacLocalisationService';
 import { Validation } from '../validation';
 import { SacBaseModelControl } from './basemodelcontrol';
 import { Observable, of } from 'rxjs';
@@ -109,7 +109,7 @@ export abstract class SacUploadBase<VALUE>
   /**
    * Service für Error Localisation
    */
-  public lngResourceService: ILanguageResourceService;
+  public lngResourceService: ISacLocalisationService;
 
   //#region Properties
 
@@ -213,8 +213,8 @@ export abstract class SacUploadBase<VALUE>
     super(parent, injector);
 
     this.lngResourceService = injector.get(
-      LANGUAGERESOURCE_SERVICE,
-      new InternalLanguageResourceService()
+      SACLOCALISATION_SERVICE,
+      new SacDefaultLocalisationService()
     );
 
     this.uploads = [];

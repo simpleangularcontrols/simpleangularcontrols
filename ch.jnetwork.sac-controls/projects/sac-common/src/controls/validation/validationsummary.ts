@@ -2,11 +2,11 @@ import { Directive, Injector, Input } from '@angular/core';
 import { AbstractControl, FormArray, FormGroup, NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { IAbstractControlLabelExtension } from '../../interfaces/iabstractcontrollabel';
-import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
+import { ISacLocalisationService } from '../../interfaces/ISacLocalisationService';
 import {
-  InternalLanguageResourceService,
-  LANGUAGERESOURCE_SERVICE,
-} from '../../services/languageresource.service';
+  SacDefaultLocalisationService,
+  SACLOCALISATION_SERVICE,
+} from '../../services/sac-localisation.service';
 import { ValidationErrorItem } from '../../validation';
 import { SacFormCommon } from '../form/form';
 
@@ -44,7 +44,7 @@ export class SacValidationSummaryCommon {
   /**
    * Service für Error Localisation
    */
-  protected lngResourceService: ILanguageResourceService;
+  protected lngResourceService: ISacLocalisationService;
 
   // #endregion
 
@@ -57,8 +57,8 @@ export class SacValidationSummaryCommon {
   constructor(parent: SacFormCommon, injector: Injector) {
     this.parent = parent;
     this.lngResourceService = injector.get(
-      LANGUAGERESOURCE_SERVICE,
-      new InternalLanguageResourceService()
+      SACLOCALISATION_SERVICE,
+      new SacDefaultLocalisationService()
     );
   }
 

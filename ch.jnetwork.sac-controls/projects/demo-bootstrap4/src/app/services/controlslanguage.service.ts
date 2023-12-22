@@ -3,12 +3,12 @@ import { Injectable } from '@angular/core';
 import {
   IconType,
   LanguageModel,
-  LanguageService,
+  SacAbstractLanguageService,
 } from '@simpleangularcontrols/sac-common';
 import { Observable, of } from 'rxjs';
 
 @Injectable()
-export class ControlsLanguageService extends LanguageService {
+export class ControlsLanguageService extends SacAbstractLanguageService {
   constructor() {
     super();
   }

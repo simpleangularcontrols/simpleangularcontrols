@@ -13,3 +13,8 @@ export {
   SacDefaultFileBrowserService,
   SACFILEBROWSER_SERVICE,
 } from './sac-filebrowser.service';
+export {
+  SacAbstractIconService,
+  SacDefaultIconService,
+  SACICON_SERVICE,
+} from './sac-icon.service';

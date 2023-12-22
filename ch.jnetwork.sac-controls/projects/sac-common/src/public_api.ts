@@ -97,6 +97,7 @@ export { IBrowserNode } from './components/browser/models/browsernode';
 export * from './interfaces/ISacLocalisationService';
 export * from './interfaces/ISacLanguageService';
 export * from './interfaces/ISacFileBrowserService';
+export * from './interfaces/ISacIconService';
 export {
   SacAbstractLanguageService,
   SACLOCALISATION_SERVICE,
@@ -104,6 +105,8 @@ export {
   SACLANGUAGE_SERVICE,
   SacAbstractFileBrowserService,
   SACFILEBROWSER_SERVICE,
+  SacAbstractIconService,
+  SACICON_SERVICE,
 } from './services';
 
 // Export Interfaces

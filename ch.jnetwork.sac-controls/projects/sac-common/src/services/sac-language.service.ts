@@ -2,7 +2,7 @@ import { Injectable, InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ISacLanguageService } from '../interfaces/ISacLanguageService';
 import { LanguageModel } from '../models/languagemodel';
-import { IconType } from '../public_api';
+import { IconType } from '../enums/IconType';
 
 /**
  * injection token for language service

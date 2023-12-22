@@ -27,8 +27,6 @@ namespace Build.tasks
             // Set Dependency Versions in Package JSON
             SetPackageVersions(context);
 
-            RegisterRepo(context);
-
             // Create Packages
             PackNpm(context, "./dist/sac-common");
             PackNpm(context, "./dist/sac-bootstrap4");
@@ -55,15 +53,6 @@ namespace Build.tasks
             settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath()).Combine(distFolder.ToDirectoryPath());
 
             context.NpmPublish(settings);
-        }
-
-        private void RegisterRepo(BuildContext context)
-        {
-            context.NpmSet(setting => { setting.Key = "strict-ssl"; setting.Value = "false"; });
-            context.NpmSet(setting => { setting.Key = "@jnetwork:registry"; setting.Value = "http://nuget.intra.jnetwork.ch/npm/jNetwork-NPM/"; });
-            context.NpmSet(setting => { setting.Key = "//nuget.intra.jnetwork.ch/npm/jNetwork-NPM/:always-auth"; setting.Value = "true"; });
-            context.NpmSet(setting => { setting.Key = "//nuget.intra.jnetwork.ch/npm/jNetwork-NPM/:_auth"; setting.Value = context.ApiKey; });
-            context.NpmSet(setting => { setting.Key = "//nuget.intra.jnetwork.ch/npm/jNetwork-NPM/:email"; setting.Value = "info@jnetwork.ch"; });
         }
 
         private void SetPackageVersions(BuildContext context)

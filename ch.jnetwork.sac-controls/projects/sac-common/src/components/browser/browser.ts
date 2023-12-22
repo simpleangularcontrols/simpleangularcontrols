@@ -10,13 +10,13 @@ import {
 } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IFileBrowserService } from '../../interfaces/IFileBrowserService';
-import { ISacLocalisationService } from '../../interfaces/isaclocalisationservice';
+import { ISacLocalisationService } from '../../interfaces/ISacLocalisationService';
 import { SACLOCALISATION_SERVICE } from '../../services';
 import {
   FILEBROWSER_SERVICE,
   InternalFileBrowserService,
 } from '../../services/filebrowser.service';
-import { InternalSacLocalisationService } from '../../services/sac-localisation.service';
+import { SacDefaultLocalisationService } from '../../services/sac-localisation.service';
 import { IBrowserFile } from './models/browserfile';
 import { IBrowserFileResponse } from './models/browserfileresponse';
 import { IBrowserNode } from './models/browsernode';
@@ -184,7 +184,7 @@ export abstract class SacFileBrowserCommon implements OnInit {
 
     this.lngResourceService = injector.get(
       SACLOCALISATION_SERVICE,
-      new InternalSacLocalisationService()
+      new SacDefaultLocalisationService()
     );
   }
 

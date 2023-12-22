@@ -6,9 +6,9 @@ import {
   Output,
 } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ISacLocalisationService } from '../../interfaces/isaclocalisationservice';
+import { ISacLocalisationService } from '../../interfaces/ISacLocalisationService';
 import {
-  InternalSacLocalisationService,
+  SacDefaultLocalisationService,
   SACLOCALISATION_SERVICE,
 } from '../../services/sac-localisation.service';
 import { PagerData, PagerRequest } from './model';
@@ -34,7 +34,7 @@ export abstract class SacPagingCommon {
   constructor(private injector: Injector) {
     this.lngResourceService = injector.get(
       SACLOCALISATION_SERVICE,
-      new InternalSacLocalisationService()
+      new SacDefaultLocalisationService()
     );
   }
 

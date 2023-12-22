@@ -105,7 +105,7 @@
   <li class="breadcrumb-item">Interfaces</li>
   <li class="breadcrumb-item"
   >
-  ISacLocalisationService</li>
+  ISacLanguageService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -129,7 +129,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/sac-common/src/interfaces/ISacLocalisationService.ts</code>
+            <code>projects/sac-common/src/interfaces/ISacLanguageService.ts</code>
         </p>
 
 
@@ -137,7 +137,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Interface für Language Resource Service implementation</p>
+                <p>Interface for language service</p>
 
             </p>
 
@@ -155,9 +155,9 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#GetString" 
+                                    <a href="#GetLanguages" 
 >
-                                        GetString
+                                        GetLanguages
                                     </a>
                                 </li>
                             </ul>
@@ -176,79 +176,38 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="GetString"></a>
+                    <a name="GetLanguages"></a>
                     <span class="name">
-                        <span ><b>GetString</b></span>
-                        <a href="#GetString"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>GetLanguages</b></span>
+                        <a href="#GetLanguages"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>GetString(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+<code>GetLanguages()</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="10"
-                                    class="link-to-prism">projects/sac-common/src/interfaces/ISacLocalisationService.ts:10</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="13"
+                                    class="link-to-prism">projects/sac-common/src/interfaces/ISacLanguageService.ts:13</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Get String anhand von Key und Params</p>
+                        <div class="io-description"><p>Returns any language, that the application supports. This Languages are populated to
+Multilanguage Control.</p>
 </div>
 
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>key</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                        <tr>
-                                                <td>params</td>
-                                            <td>
-                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-                                            </td>
-
-                                            <td>
-                                                    Yes
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>Observable&lt;string&gt;</code>
+                            <b>Returns : </b>        <code><a href="../classes/LanguageModel.html" target="_self" >Observable&lt;LanguageModel[]&gt;</a></code>
 
                         </div>
-                            <div class="io-description">
-                                
-                            </div>
                 </td>
             </tr>
         </tbody>
@@ -260,15 +219,18 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Observable } from &#x27;rxjs&#x27;;
+import { LanguageModel } from &#x27;../models/languagemodel&#x27;;
 
 /**
- * Interface für Language Resource Service implementation
+ * Interface for language service
  */
-export interface ISacLocalisationService {
+export interface ISacLanguageService {
   /**
-   * Get String anhand von Key und Params
+   * Returns any language, that the application supports. This Languages are populated to
+   * Multilanguage Control.
    */
-  GetString(key: string, params?: any): Observable&lt;string&gt;;
+
+  GetLanguages(): Observable&lt;LanguageModel[]&gt;;
 }
 </code></pre>
     </div>
@@ -307,7 +269,7 @@ export interface ISacLocalisationService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'ISacLocalisationService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ISacLanguageService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

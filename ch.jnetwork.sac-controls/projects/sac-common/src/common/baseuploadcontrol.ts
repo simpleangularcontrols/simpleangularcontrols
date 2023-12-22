@@ -22,11 +22,11 @@ import {
   UPLOADX_OPTIONS,
 } from 'ngx-uploadx';
 import {
-  InternalSacLocalisationService,
+  SacDefaultLocalisationService,
   SACLOCALISATION_SERVICE,
 } from '../services/sac-localisation.service';
 import { SacFormCommon } from '../controls/form/form';
-import { ISacLocalisationService } from '../interfaces/isaclocalisationservice';
+import { ISacLocalisationService } from '../interfaces/ISacLocalisationService';
 import { Validation } from '../validation';
 import { SacBaseModelControl } from './basemodelcontrol';
 import { Observable, of } from 'rxjs';
@@ -214,7 +214,7 @@ export abstract class SacUploadBase<VALUE>
 
     this.lngResourceService = injector.get(
       SACLOCALISATION_SERVICE,
-      new InternalSacLocalisationService()
+      new SacDefaultLocalisationService()
     );
 
     this.uploads = [];

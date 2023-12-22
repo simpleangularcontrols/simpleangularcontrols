@@ -11,10 +11,10 @@ import {
 } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { SacFormCommon } from '../controls/form/form';
-import { ISacLocalisationService } from '../interfaces/isaclocalisationservice';
+import { ISacLocalisationService } from '../interfaces/ISacLocalisationService';
 import { IAbstractControlLabelExtension } from '../public_api';
 import {
-  InternalSacLocalisationService,
+  SacDefaultLocalisationService,
   SACLOCALISATION_SERVICE,
 } from '../services/sac-localisation.service';
 import { convertToBoolean } from '../utilities/Convertion';
@@ -112,7 +112,7 @@ export abstract class SacBaseModelControl<VALUE>
     this.parent = parent;
     this.lngResourceService = injector.get(
       SACLOCALISATION_SERVICE,
-      new InternalSacLocalisationService()
+      new SacDefaultLocalisationService()
     );
   }
 

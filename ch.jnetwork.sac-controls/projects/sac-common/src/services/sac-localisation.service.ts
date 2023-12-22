@@ -1,6 +1,6 @@
 import { Injectable, InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ISacLocalisationService } from '../interfaces/isaclocalisationservice';
+import { ISacLocalisationService } from '../interfaces/ISacLocalisationService';
 import { Interpolation } from '../utilities/interpolation';
 
 /**
@@ -128,7 +128,7 @@ export abstract class SacAbstractLocalisationService
  * default localisation service
  * */
 @Injectable({ providedIn: 'root' })
-export class InternalSacLocalisationService extends SacAbstractLocalisationService {
+export class SacDefaultLocalisationService extends SacAbstractLocalisationService {
   /**
    * Language Resources für Controls Library
    */

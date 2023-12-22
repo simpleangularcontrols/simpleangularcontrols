@@ -3257,9 +3257,9 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 import { AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
 import { SacBaseModelControl } from &#x27;../../common/basemodelcontrol&#x27;;
 import { SacFormCommon } from &#x27;../../controls/form/form&#x27;;
-import { ISacLocalisationService } from &#x27;../../interfaces/isaclocalisationservice&#x27;;
+import { ISacLocalisationService } from &#x27;../../interfaces/ISacLocalisationService&#x27;;
 import { SACLOCALISATION_SERVICE } from &#x27;../../services&#x27;;
-import { InternalSacLocalisationService } from &#x27;../../services/sac-localisation.service&#x27;;
+import { SacDefaultLocalisationService } from &#x27;../../services/sac-localisation.service&#x27;;
 import { Validation } from &#x27;../../validation&#x27;;
 import { TinyMceDialogSettings } from &#x27;./tinymcedialogsettings&#x27;;
 import { TinyMceDialogSettingsMeta } from &#x27;./tinymcedialogsettingsmeta&#x27;;
@@ -3428,7 +3428,7 @@ export class SacTinyMceCommon extends SacBaseModelControl&lt;string&gt; {
 
     this.lngResourceService &#x3D; injector.get(
       SACLOCALISATION_SERVICE,
-      new InternalSacLocalisationService()
+      new SacDefaultLocalisationService()
     );
 
     this.config &#x3D; {};

@@ -833,16 +833,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/InternalFileBrowserService.html" data-type="entity-link" >InternalFileBrowserService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/InternalLanguageService.html" data-type="entity-link" >InternalLanguageService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/InternalSacLocalisationService.html" data-type="entity-link" >InternalSacLocalisationService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/LanguageService.html" data-type="entity-link" >LanguageService</a>
+                                    <a href="injectables/SacAbstractLanguageService.html" data-type="entity-link" >SacAbstractLanguageService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/SacAbstractLocalisationService.html" data-type="entity-link" >SacAbstractLocalisationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/SacDefaultLanguageService.html" data-type="entity-link" >SacDefaultLanguageService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/SacDefaultLocalisationService.html" data-type="entity-link" >SacDefaultLocalisationService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/ServiceConfirm.html" data-type="entity-link" >ServiceConfirm</a>
@@ -888,7 +888,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/IFileBrowserService.html" data-type="entity-link" >IFileBrowserService</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/ILanguageService.html" data-type="entity-link" >ILanguageService</a>
+                                <a href="interfaces/ISacLanguageService.html" data-type="entity-link" >ISacLanguageService</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ISacLocalisationService.html" data-type="entity-link" >ISacLocalisationService</a>

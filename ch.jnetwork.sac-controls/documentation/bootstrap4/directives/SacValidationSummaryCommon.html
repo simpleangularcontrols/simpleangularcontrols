@@ -514,9 +514,9 @@ Inject des Formulars</p>
 import { AbstractControl, FormArray, FormGroup, NgForm } from &#x27;@angular/forms&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { IAbstractControlLabelExtension } from &#x27;../../interfaces/iabstractcontrollabel&#x27;;
-import { ISacLocalisationService } from &#x27;../../interfaces/isaclocalisationservice&#x27;;
+import { ISacLocalisationService } from &#x27;../../interfaces/ISacLocalisationService&#x27;;
 import {
-  InternalSacLocalisationService,
+  SacDefaultLocalisationService,
   SACLOCALISATION_SERVICE,
 } from &#x27;../../services/sac-localisation.service&#x27;;
 import { ValidationErrorItem } from &#x27;../../validation&#x27;;
@@ -570,7 +570,7 @@ export class SacValidationSummaryCommon {
     this.parent &#x3D; parent;
     this.lngResourceService &#x3D; injector.get(
       SACLOCALISATION_SERVICE,
-      new InternalSacLocalisationService()
+      new SacDefaultLocalisationService()
     );
   }
 

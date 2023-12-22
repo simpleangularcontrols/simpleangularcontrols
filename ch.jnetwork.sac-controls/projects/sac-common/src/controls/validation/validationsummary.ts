@@ -2,9 +2,9 @@ import { Directive, Injector, Input } from '@angular/core';
 import { AbstractControl, FormArray, FormGroup, NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { IAbstractControlLabelExtension } from '../../interfaces/iabstractcontrollabel';
-import { ISacLocalisationService } from '../../interfaces/isaclocalisationservice';
+import { ISacLocalisationService } from '../../interfaces/ISacLocalisationService';
 import {
-  InternalSacLocalisationService,
+  SacDefaultLocalisationService,
   SACLOCALISATION_SERVICE,
 } from '../../services/sac-localisation.service';
 import { ValidationErrorItem } from '../../validation';
@@ -58,7 +58,7 @@ export class SacValidationSummaryCommon {
     this.parent = parent;
     this.lngResourceService = injector.get(
       SACLOCALISATION_SERVICE,
-      new InternalSacLocalisationService()
+      new SacDefaultLocalisationService()
     );
   }
 

@@ -86,7 +86,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content interface">
+               <div class="content injectable">
                    <div class="content-data">
 
 
@@ -96,16 +96,9 @@
 
 
 
-
-
-
-
-
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">Interfaces</li>
-  <li class="breadcrumb-item"
-  >
-  ISacLocalisationService</li>
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >SacAbstractLanguageService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -114,6 +107,12 @@
                 class="nav-link"
                 class="nav-link active"
                 role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#readme" 
+                class="nav-link"
+                
+                role="tab" id="readme-tab" data-bs-toggle="tab" data-link="readme">Example</a>
         </li>
         <li class="nav-item">
             <a href="#source" 
@@ -129,7 +128,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/sac-common/src/interfaces/ISacLocalisationService.ts</code>
+            <code>projects/sac-common/src/services/sac-language.service.ts</code>
         </p>
 
 
@@ -137,35 +136,41 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Interface für Language Resource Service implementation</p>
+                <p>abstract class for languages provides in components</p>
 
             </p>
 
 
-        <section data-compodoc="block-index">
-            <h3 id="index">Index</h3>
-            <table class="table table-sm table-bordered index-table">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <h6><b>Methods</b></h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <ul class="index-list">
-                                <li>
-                                    <a href="#GetString" 
->
-                                        GetString
-                                    </a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Abstract</span>
+                                <a href="#GetLanguages" >GetLanguages</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
 
             <section data-compodoc="block-methods">
     
@@ -176,79 +181,37 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="GetString"></a>
+                    <a name="GetLanguages"></a>
                     <span class="name">
-                        <span ><b>GetString</b></span>
-                        <a href="#GetString"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Abstract</span>
+                        <span ><b>GetLanguages</b></span>
+                        <a href="#GetLanguages"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>GetString(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>GetLanguages()</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="10"
-                                    class="link-to-prism">projects/sac-common/src/interfaces/ISacLocalisationService.ts:10</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="24"
+                                    class="link-to-prism">projects/sac-common/src/services/sac-language.service.ts:24</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Get String anhand von Key und Params</p>
-</div>
 
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>key</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                        <tr>
-                                                <td>params</td>
-                                            <td>
-                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-                                            </td>
-
-                                            <td>
-                                                    Yes
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>Observable&lt;string&gt;</code>
+                            <b>Returns : </b>        <code><a href="../classes/LanguageModel.html" target="_self" >Observable&lt;LanguageModel[]&gt;</a></code>
 
                         </div>
-                            <div class="io-description">
-                                
-                            </div>
                 </td>
             </tr>
         </tbody>
@@ -257,22 +220,92 @@
 
     </div>
 
+    <div class="tab-pane fade " id="readme">
+        <p><h1>Example</h1>
+<p>Example of the implementation of a SacLanguageService</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">&#64;Injectable()
+export class CustomLanguageService extends SacLanguageService {
+  constructor(private http: HttpClient) {
+    super();
+  }
+
+  configUrl = &#39;assets/languages.json&#39;;
+
+  public GetLanguages(): Observable&lt;LanguageModel[]&gt; {
+    const languages: LanguageModel[] = [];
+
+    languages.push({
+      Text: &#39;English&#39;,
+      Icon: &#39;assets/icons/en.png&#39;,
+      IconType: IconType.Image,
+      IsoCode: &#39;en&#39;,
+    });
+
+    return of(languages);
+  }
+}</code></pre></div></p>
+    </div>
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Observable } from &#x27;rxjs&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, InjectionToken } from &#x27;@angular/core&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { ISacLanguageService } from &#x27;../interfaces/ISacLanguageService&#x27;;
+import { LanguageModel } from &#x27;../models/languagemodel&#x27;;
+import { IconType } from &#x27;../public_api&#x27;;
 
 /**
- * Interface für Language Resource Service implementation
+ * injection token for language service
  */
-export interface ISacLocalisationService {
+export const SACLANGUAGE_SERVICE &#x3D; new InjectionToken&lt;ISacLanguageService&gt;(
+  &#x27;SacLanguageService&#x27;
+);
+
+/**
+ * abstract class for languages provides in components
+ */
+@Injectable({ providedIn: &#x27;root&#x27; })
+export abstract class SacAbstractLanguageService
+  implements ISacLanguageService
+{
   /**
-   * Get String anhand von Key und Params
+   * @inheritdoc
    */
-  GetString(key: string, params?: any): Observable&lt;string&gt;;
+  abstract GetLanguages(): Observable&lt;LanguageModel[]&gt;;
+}
+
+/**
+ * default service for languages
+ * */
+@Injectable({ providedIn: &#x27;root&#x27; })
+export class SacDefaultLanguageService extends SacAbstractLanguageService {
+  /**
+   * @inheritdoc
+   */
+  public GetLanguages(): Observable&lt;LanguageModel[]&gt; {
+    return new Observable&lt;LanguageModel[]&gt;((observer) &#x3D;&gt; {
+      const result: LanguageModel[] &#x3D; [];
+
+      result.push({
+        Icon: &#x27;/icons/en.png&#x27;,
+        IconType: IconType.Image,
+        IsoCode: &#x27;en&#x27;,
+        Text: &#x27;English&#x27;,
+      });
+
+      observer.next(result);
+      observer.complete();
+    });
+  }
 }
 </code></pre>
     </div>
+
 </div>
+
+
+
+
+
 
 
 
@@ -306,8 +339,8 @@ export interface ISacLocalisationService {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'ISacLocalisationService.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'SacAbstractLanguageService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

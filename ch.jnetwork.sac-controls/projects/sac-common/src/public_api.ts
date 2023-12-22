@@ -94,11 +94,11 @@ export { IBrowserFile } from './components/browser/models/browserfile';
 export { IBrowserNode } from './components/browser/models/browsernode';
 
 // Services
-export * from './interfaces/ilanguageresource';
+export * from './interfaces/isaclocalisationservice';
 export * from './interfaces/ilanguageservice';
 export {
-  LanguageResourceService,
-  LANGUAGERESOURCE_SERVICE,
+  SacLocalisationService,
+  SACLOCALISATION_SERVICE,
   LanguageService,
   LANGUAGE_SERVICE,
 } from './services';

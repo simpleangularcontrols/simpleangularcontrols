@@ -833,16 +833,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/InternalFileBrowserService.html" data-type="entity-link" >InternalFileBrowserService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/InternalLanguageResourceService.html" data-type="entity-link" >InternalLanguageResourceService</a>
-                                </li>
-                                <li class="link">
                                     <a href="injectables/InternalLanguageService.html" data-type="entity-link" >InternalLanguageService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/LanguageResourceService.html" data-type="entity-link" >LanguageResourceService</a>
+                                    <a href="injectables/InternalSacLocalisationService.html" data-type="entity-link" >InternalSacLocalisationService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/LanguageService.html" data-type="entity-link" >LanguageService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/SacAbstractLocalisationService.html" data-type="entity-link" >SacAbstractLocalisationService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/ServiceConfirm.html" data-type="entity-link" >ServiceConfirm</a>
@@ -888,10 +888,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/IFileBrowserService.html" data-type="entity-link" >IFileBrowserService</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/ILanguageResourceService.html" data-type="entity-link" >ILanguageResourceService</a>
+                                <a href="interfaces/ILanguageService.html" data-type="entity-link" >ILanguageService</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/ILanguageService.html" data-type="entity-link" >ILanguageService</a>
+                                <a href="interfaces/ISacLocalisationService.html" data-type="entity-link" >ISacLocalisationService</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/IUploadControl.html" data-type="entity-link" >IUploadControl</a>

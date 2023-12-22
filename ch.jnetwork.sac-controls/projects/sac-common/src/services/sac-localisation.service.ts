@@ -1,43 +1,20 @@
 import { Injectable, InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ILanguageResourceService } from '../interfaces/ilanguageresource';
+import { ISacLocalisationService } from '../interfaces/isaclocalisationservice';
 import { Interpolation } from '../utilities/interpolation';
 
 /**
- * Injection Token für Language Resource Service
+ * injection token for localisation service
  */
-export const LANGUAGERESOURCE_SERVICE =
-  new InjectionToken<LanguageResourceService>('LanguageResourceService');
+export const SACLOCALISATION_SERVICE =
+  new InjectionToken<SacAbstractLocalisationService>('SacLocalisationService');
 
 /**
- * Base Service für Localisation von Fehlermeldungen
- *
- * @example
- *
- * // Eigene Beispielimplementierung für Application mit ngx-translate
- * (at)Injectable()
- * export class ControlsLocalisation extends LanguageResourceService {
- *
- *   constructor(private translate: TranslateService) {
- *     super();
- *
- *     this.translate.setDefaultLang('de');
- *     this.translate.use('de');
- *   }
- *
- *     public GetString(key: string, params?: any): Observable<string> {
- *        return this.translate.get(key, params);
- *     }
- *  }
- *
- */
-
-/**
- * Service für interne Übersetzungen
+ * abstract class for localisation in components
  * */
 @Injectable({ providedIn: 'root' })
-export abstract class LanguageResourceService
-  implements ILanguageResourceService
+export abstract class SacAbstractLocalisationService
+  implements ISacLocalisationService
 {
   /**
    * Die Methode übersetzt den eingegebenen Wort/Begriff. Verlangt key und optionell params
@@ -148,10 +125,10 @@ export abstract class LanguageResourceService
 }
 
 /**
- * Standardservice für interne Übersetzungen der Fehlermeldungen
+ * default localisation service
  * */
 @Injectable({ providedIn: 'root' })
-export class InternalLanguageResourceService extends LanguageResourceService {
+export class InternalSacLocalisationService extends SacAbstractLocalisationService {
   /**
    * Language Resources für Controls Library
    */

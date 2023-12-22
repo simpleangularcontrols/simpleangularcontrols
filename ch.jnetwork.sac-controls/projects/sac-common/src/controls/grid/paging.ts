@@ -1,7 +1,16 @@
-import { Directive, EventEmitter, Injector, Input, Output } from '@angular/core';
+import {
+  Directive,
+  EventEmitter,
+  Injector,
+  Input,
+  Output,
+} from '@angular/core';
 import { Observable } from 'rxjs';
-import { ILanguageResourceService } from '../../interfaces/ilanguageresource';
-import { InternalLanguageResourceService, LANGUAGERESOURCE_SERVICE } from '../../services/LanguageResource.Service';
+import { ISacLocalisationService } from '../../interfaces/isaclocalisationservice';
+import {
+  InternalSacLocalisationService,
+  SACLOCALISATION_SERVICE,
+} from '../../services/sac-localisation.service';
 import { PagerData, PagerRequest } from './model';
 
 /**
@@ -12,7 +21,7 @@ export abstract class SacPagingCommon {
   /**
    * Service für Error Localisation
    */
-  protected lngResourceService: ILanguageResourceService;
+  protected lngResourceService: ISacLocalisationService;
 
   // #region Constructor
 
@@ -23,7 +32,10 @@ export abstract class SacPagingCommon {
    * @injector Injector
    */
   constructor(private injector: Injector) {
-    this.lngResourceService = injector.get(LANGUAGERESOURCE_SERVICE, new InternalLanguageResourceService());
+    this.lngResourceService = injector.get(
+      SACLOCALISATION_SERVICE,
+      new InternalSacLocalisationService()
+    );
   }
 
   /**
@@ -107,12 +119,12 @@ export abstract class SacPagingCommon {
    * Gibt die Page Sizes als Number Array zurück
    */
   public get getPageSizes(): number[] {
-    return this.pagesizes.split('|').map(itm => Number(itm));
+    return this.pagesizes.split('|').map((itm) => Number(itm));
   }
 
   /**
-  * Name des Grids. Wird für ID und Name Bezeichnungen verwendet
-  */
+   * Name des Grids. Wird für ID und Name Bezeichnungen verwendet
+   */
   @Input()
   public name: string;
 
@@ -162,7 +174,10 @@ export abstract class SacPagingCommon {
    * Methode löst den Event aus, dass ein Paging stattgefunden hat
    */
   protected paged(newPageIndex: number) {
-    const pagerData: PagerRequest = new PagerRequest(this.pageSize, newPageIndex);
+    const pagerData: PagerRequest = new PagerRequest(
+      this.pageSize,
+      newPageIndex
+    );
     this.paging.emit(pagerData);
   }
 
@@ -171,11 +186,10 @@ export abstract class SacPagingCommon {
    * @param totalPageCount Total Anzahl Seiten
    */
   protected getStartPageIndex(totalPageCount: number): number {
-
     let startingPageToDisplay: number = 0;
     startingPageToDisplay = this.activePageIndex - 2;
 
-    if ((totalPageCount - this.activePageIndex - 1) < 2) {
+    if (totalPageCount - this.activePageIndex - 1 < 2) {
       startingPageToDisplay = totalPageCount - 5;
     }
 
@@ -191,7 +205,7 @@ export abstract class SacPagingCommon {
    */
   protected getEndPageIndex(totalPageCount: number): number {
     let endingPageToDisplay = this.activePageIndex + 2;
-    const maxEndingPageIndex = (4 > (totalPageCount - 1)) ? (totalPageCount - 1) : 4;
+    const maxEndingPageIndex = 4 > totalPageCount - 1 ? totalPageCount - 1 : 4;
 
     if (endingPageToDisplay > totalPageCount - 1) {
       endingPageToDisplay = totalPageCount - 1;
@@ -220,7 +234,10 @@ export abstract class SacPagingCommon {
    * @param newSize Neue Anzahl Elemente pro Seite
    */
   public changePageSize(newSize: number) {
-    const pagerData: PagerRequest = new PagerRequest(newSize, this.activePageIndex);
+    const pagerData: PagerRequest = new PagerRequest(
+      newSize,
+      this.activePageIndex
+    );
     this.paging.emit(pagerData);
   }
 
@@ -278,7 +295,10 @@ export abstract class SacPagingCommon {
    * Text mit Aktueller Seite und Total Seiten
    */
   public get PagingText(): Observable<string> {
-    return this.lngResourceService.GetString(this.pagingtext, { CURRENTPAGE: this.getCurrentPageNumber(), TOTALPAGES: this.getTotalPageNumber() });
+    return this.lngResourceService.GetString(this.pagingtext, {
+      CURRENTPAGE: this.getCurrentPageNumber(),
+      TOTALPAGES: this.getTotalPageNumber(),
+    });
   }
 
   /**
@@ -288,7 +308,5 @@ export abstract class SacPagingCommon {
     return this.lngResourceService.GetString(this.pagesizetext);
   }
 
-
   //#endregion
 }
-

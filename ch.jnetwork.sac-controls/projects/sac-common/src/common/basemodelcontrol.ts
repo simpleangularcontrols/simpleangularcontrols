@@ -11,12 +11,12 @@ import {
 } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { SacFormCommon } from '../controls/form/form';
-import { ILanguageResourceService } from '../interfaces/ilanguageresource';
+import { ISacLocalisationService } from '../interfaces/isaclocalisationservice';
 import { IAbstractControlLabelExtension } from '../public_api';
 import {
-  InternalLanguageResourceService,
-  LANGUAGERESOURCE_SERVICE,
-} from '../services/languageresource.service';
+  InternalSacLocalisationService,
+  SACLOCALISATION_SERVICE,
+} from '../services/sac-localisation.service';
 import { convertToBoolean } from '../utilities/Convertion';
 import { ValidationErrorItem } from '../validation';
 
@@ -44,7 +44,7 @@ export abstract class SacBaseModelControl<VALUE>
   /**
    * Service für Error Localisation
    */
-  protected lngResourceService: ILanguageResourceService;
+  protected lngResourceService: ISacLocalisationService;
 
   private _label: string = '';
 
@@ -111,8 +111,8 @@ export abstract class SacBaseModelControl<VALUE>
   constructor(@Host() parent: SacFormCommon, private injector: Injector) {
     this.parent = parent;
     this.lngResourceService = injector.get(
-      LANGUAGERESOURCE_SERVICE,
-      new InternalLanguageResourceService()
+      SACLOCALISATION_SERVICE,
+      new InternalSacLocalisationService()
     );
   }
 

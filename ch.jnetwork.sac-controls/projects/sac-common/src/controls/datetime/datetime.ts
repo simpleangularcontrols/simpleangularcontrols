@@ -13,6 +13,8 @@ import { Moment } from 'moment';
 import { SacBaseDateTimeControl } from '../../common/basedatetimecontrol';
 import { Validation } from '../../validation';
 import { SacFormCommon } from '../form/form';
+import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
+import { ISacIconService } from '../../public_api';
 
 /**
  * Moment
@@ -24,6 +26,15 @@ const moment = moment_['default'];
  */
 @Directive()
 export class SacDateTimeCommon extends SacBaseDateTimeControl {
+  // #region private variables
+
+  /**
+   * icon service
+   */
+  private iconService: ISacIconService;
+
+  //#endregion
+
   // #region Constants
 
   /**
@@ -154,6 +165,18 @@ export class SacDateTimeCommon extends SacBaseDateTimeControl {
     protected _elementRef: ElementRef
   ) {
     super(parent, injector, _elementRef);
+
+    this.iconService = injector.get(
+      SACICON_SERVICE,
+      new SacDefaultIconService()
+    );
+  }
+
+  /**
+   * icon for date selector button
+   */
+  public get IconSelector(): string {
+    return this.iconService.DateTimeComponentSelectorIcon;
   }
 
   // #region Abstract Methods

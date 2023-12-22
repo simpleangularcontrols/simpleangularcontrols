@@ -1,17 +1,19 @@
 import {
+  Directive,
   ElementRef,
   HostListener,
   Injector,
   Input,
-  Directive,
 } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import * as moment_ from 'moment';
 import * as IMask from 'imask';
+import * as moment_ from 'moment';
 
 // Import Moment.JS
 import { Moment } from 'moment';
 import { SacBaseDateTimeControl } from '../../common/basedatetimecontrol';
+import { ISacIconService } from '../../interfaces/ISacIconService';
+import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
 import { Validation } from '../../validation';
 import { SacFormCommon } from '../form/form';
 /**
@@ -60,6 +62,11 @@ export class SacDateCommon extends SacBaseDateTimeControl {
     lazy: false,
     overwrite: true,
   };
+
+  /**
+   * icon service
+   */
+  private iconService: ISacIconService;
 
   // #endregion
 
@@ -140,6 +147,18 @@ export class SacDateCommon extends SacBaseDateTimeControl {
     protected _elementRef: ElementRef
   ) {
     super(parent, injector, _elementRef);
+
+    this.iconService = injector.get(
+      SACICON_SERVICE,
+      new SacDefaultIconService()
+    );
+  }
+
+  /**
+   * icon for date selector button
+   */
+  public get IconSelector(): string {
+    return this.iconService.DateComponentSelectorIcon;
   }
 
   // #region Abstract Methods

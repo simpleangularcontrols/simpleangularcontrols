@@ -6,7 +6,7 @@
              (accept)="setValueString($event)" [disabled]="isdisabled" />
       <div class="input-group-append">
         <button class="btn btn-sm btn-secondary" type="button" (click)="showDateSelector()" [disabled]="isdisabled">
-          <i class="fa fa-calendar"></i>
+          <i [class]="IconSelector"></i>
         </button>
       </div>
     </div>

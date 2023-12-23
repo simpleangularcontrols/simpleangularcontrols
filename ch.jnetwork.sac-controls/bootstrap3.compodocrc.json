@@ -5,7 +5,7 @@
   "includesName": "Dokumentation",
   "disablePrivate": true,
   "disableRoutesGraph": true,
-  "output": "documentation/bootstrap3",
+  "output": "../doc/bootstrap3",
   "navTabConfig": [
     { "id": "info", "label": "Info" },
     { "id": "readme", "label": "Example" },

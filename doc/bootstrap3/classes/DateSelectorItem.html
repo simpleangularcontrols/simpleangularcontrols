@@ -1,0 +1,1119 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Bootstrap 3 Angular Controls</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >DateSelectorItem</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/sac-common/src/controls/datetime/dateselector.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Basis Komponente für DateSelectorItem</p>
+
+            </p>
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#date" >date</a>
+                            </li>
+                            <li>
+                                <a href="#displaytext" >displaytext</a>
+                            </li>
+                            <li>
+                                <a href="#iscurrent" >iscurrent</a>
+                            </li>
+                            <li>
+                                <a href="#isenabled" >isenabled</a>
+                            </li>
+                            <li>
+                                <a href="#isnew" >isnew</a>
+                            </li>
+                            <li>
+                                <a href="#isselected" >isselected</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(displaytext: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, date: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, isenabled: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, isselected: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, iscurrent: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, isnew: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>displaytext</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Anzeigetext</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>date</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Datum</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>isenabled</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Element ist aktiv</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>isselected</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Element ist selektiert</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>iscurrent</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Element ist aktuelles Element</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>isnew</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Element ist neu</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="date"></a>
+                    <span class="name">
+                        <span ><b>date</b></span>
+                        <a href="#date"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>undefined</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:43</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Datum</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displaytext"></a>
+                    <span class="name">
+                        <span ><b>displaytext</b></span>
+                        <a href="#displaytext"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:39</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>DisplayText Property; default Wert - &#39;&#39;</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="iscurrent"></a>
+                    <span class="name">
+                        <span ><b>iscurrent</b></span>
+                        <a href="#iscurrent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:51</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Boolean Property, die zeigt, ob das Element aktuell ist; default Wert - false</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isenabled"></a>
+                    <span class="name">
+                        <span ><b>isenabled</b></span>
+                        <a href="#isenabled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:47</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Boolean Property, die zeigt, ob das Control enabled ist; default Wert - false</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isnew"></a>
+                    <span class="name">
+                        <span ><b>isnew</b></span>
+                        <a href="#isnew"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:59</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Boolean Property, die zeigt, ob das Element neu ist; default Wert - false</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isselected"></a>
+                    <span class="name">
+                        <span ><b>isselected</b></span>
+                        <a href="#isselected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:55</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Boolean Property, die zeigt, ob das Element selektiert ist; default Wert - false</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EventEmitter, Input, OnInit, Output, Directive } from &#x27;@angular/core&#x27;;
+import * as moment_ from &#x27;moment&#x27;;
+// Import Moment.JS
+import { Moment } from &#x27;moment&#x27;;
+/**
+ * Moment
+ */
+const moment &#x3D; moment_[&quot;default&quot;];
+
+
+
+// #region Helper Classes
+/**
+ *Basis Komponente für DateSelectorItem
+ */
+class DateSelectorItem {
+
+  /**
+   * Konstruktor
+   * @param displaytext Anzeigetext
+   * @param date Datum
+   * @param isenabled Element ist aktiv
+   * @param isselected Element ist selektiert
+   * @param iscurrent Element ist aktuelles Element
+   * @param isnew Element ist neu
+   */
+  constructor(displaytext: string, date: Date, isenabled: boolean, isselected: boolean, iscurrent: boolean, isnew: boolean) {
+    this.displaytext &#x3D; displaytext;
+    this.date &#x3D; date;
+    this.isenabled &#x3D; isenabled;
+    this.iscurrent &#x3D; iscurrent;
+    this.isselected &#x3D; isselected;
+    this.isnew &#x3D; isnew;
+  }
+
+  /**
+   * DisplayText Property; default Wert - &#x27;&#x27;
+   */
+  displaytext: string &#x3D; &#x27;&#x27;;
+  /**
+   * Datum
+   */
+  date: Date &#x3D; undefined;
+  /**
+   * Boolean Property, die zeigt, ob das Control enabled ist; default Wert - false
+   */
+  isenabled: boolean &#x3D; false;
+  /**
+   * Boolean Property, die zeigt, ob das Element aktuell ist; default Wert - false
+   */
+  iscurrent: boolean &#x3D; false;
+  /**
+   * Boolean Property, die zeigt, ob das Element selektiert ist; default Wert - false
+   */
+  isselected: boolean &#x3D; false;
+  /**
+   * Boolean Property, die zeigt, ob das Element neu ist; default Wert - false
+   */
+  isnew: boolean &#x3D; false;
+}
+
+// #endregion
+
+/**
+ *Basis Komponente für SacDateSelector
+ */
+@Directive()
+export class SacDateSelectorCommon implements OnInit {
+
+  /**
+   * Anfang des Kalenders
+   */
+  private beginOfCalendar: number &#x3D; 1;
+
+  /**
+   * Array von Daten
+   */
+  dates: DateSelectorItem[][] &#x3D; [];
+
+  /**
+   * Datum Selector
+   */
+  @Input()
+  dateselection: boolean &#x3D; false;
+
+  /**
+   * Time Selector
+   */
+  @Input()
+  timeselection: boolean &#x3D; false;
+
+  /**
+   * Monat
+   */
+  @Input()
+  month: number &#x3D; 4;
+
+  /**
+   * Jahr
+   */
+  @Input()
+  year: number &#x3D; 2018;
+
+  /**
+   * Boolean Property für automatische Selektierung; default Wert - false
+   */
+  @Input()
+  autoapplyselection &#x3D; false;
+
+  /**
+   * Aktuell gewähltes Datum
+   */
+  private _selectedValue: Moment | null;
+
+  /**
+   * Ursprüngliches Datum
+   */
+  private _initialValue: Moment | null;
+
+  /**
+   * Input für ursprüngliches Datum
+   */
+  @Input()
+  get initialvalue(): Date {
+    return this._initialValue.toDate();
+  }
+  set initialvalue(v: Date | null) {
+    if (v &#x3D;&#x3D;&#x3D; null || v &#x3D;&#x3D;&#x3D; undefined) {
+      this._initialValue &#x3D; null;
+    } else {
+      this._initialValue &#x3D; moment(v);
+    }
+
+    this._selectedValue &#x3D; null;
+
+    if (this._initialValue &#x3D;&#x3D;&#x3D; null) {
+      this.initCalendar(moment());
+    } else {
+      this.initCalendar(this._initialValue);
+    }
+  }
+
+  /**
+   * Output Event beim Datum Selektieren
+   */
+  @Output()
+  selectdate &#x3D; new EventEmitter&lt;any&gt;();
+
+  /**
+   * Ursprünglicher Kalender
+   */
+  private initCalendar(v: Moment) {
+
+    /**
+     * Monat und Jahr setzen
+     */
+    this.month &#x3D; v.month();
+    this.year &#x3D; v.year();
+
+    /**
+     * Daten für Kalender initialiseren
+     */
+    this.initDates();
+  }
+
+  /**
+   * Init Event
+   */
+  ngOnInit() {
+    /**
+     * Init Initial Date if Empty
+     */
+    if (this._initialValue &#x3D;&#x3D;&#x3D; undefined) {
+      this.initialvalue &#x3D; null;
+    }
+
+    this.initDates();
+  }
+
+  /**
+   * Initial Datum
+   */
+  private initDates(): void {
+    const currentMonth &#x3D; moment(new Date(this.year, this.month, 1));
+    const lastMonth &#x3D; moment(new Date(this.year, this.month, 1));
+    lastMonth.add({ months: -1 });
+    const nextMonths &#x3D; moment(new Date(this.year, this.month, 1));
+    nextMonths.add({ months: 1 });
+
+    const weekdayBegin: number &#x3D; currentMonth.weekday();
+    const weekdayEnd: number &#x3D; moment(new Date(currentMonth.year(), currentMonth.month(), currentMonth.daysInMonth())).weekday();
+    // Clear Array
+    const daysInCalendar: DateSelectorItem[] &#x3D; [];
+    this.dates &#x3D; [];
+
+    if (weekdayBegin !&#x3D;&#x3D; this.beginOfCalendar) {
+      const lastMonthDay &#x3D; lastMonth.daysInMonth();
+      const lastMonthDate &#x3D; new Date(lastMonth.year(), lastMonth.month(), lastMonthDay);
+      const lastMonthWeekday &#x3D; moment(lastMonthDate).weekday();
+
+      let daysInLastMonth &#x3D; 7 - (((7 + this.beginOfCalendar) - lastMonthWeekday) % 7);
+      if (daysInLastMonth &#x3D;&#x3D;&#x3D; 7) {
+        daysInLastMonth &#x3D; 0;
+      }
+
+      for (let day &#x3D; lastMonthDay; day &gt;&#x3D; lastMonthDay - daysInLastMonth; day--) {
+        daysInCalendar.splice(0, 0, new DateSelectorItem(day.toString(), new Date(lastMonth.year(), lastMonth.month(), day), false, false, false, false));
+      }
+    }
+
+    // Add all Days in Month
+    for (let dayinmonth &#x3D; 1; dayinmonth &lt;&#x3D; currentMonth.daysInMonth(); dayinmonth++) {
+
+      let isSelectedDate: boolean &#x3D; false;
+      let isNewDate: boolean &#x3D; false;
+      const isCurrentDate: boolean &#x3D; moment().month() &#x3D;&#x3D;&#x3D; this.month &amp;&amp; moment().year() &#x3D;&#x3D;&#x3D; this.year &amp;&amp; moment().date() &#x3D;&#x3D;&#x3D; dayinmonth;
+
+      // Initial Wert setzen, falls vorhanden
+      if (this._initialValue !&#x3D;&#x3D; null) {
+        isSelectedDate &#x3D; this._initialValue.month() &#x3D;&#x3D;&#x3D; this.month &amp;&amp; this._initialValue.year() &#x3D;&#x3D;&#x3D; this.year &amp;&amp; this._initialValue.date() &#x3D;&#x3D;&#x3D; dayinmonth;
+      }
+
+      // Selected Date Wert setzen, falls Wert gesetzt
+      if (this._selectedValue !&#x3D;&#x3D; null) {
+        isNewDate &#x3D; this._selectedValue.month() &#x3D;&#x3D;&#x3D; this.month &amp;&amp; this._selectedValue.year() &#x3D;&#x3D;&#x3D; this.year &amp;&amp; this._selectedValue.date() &#x3D;&#x3D;&#x3D; dayinmonth;
+      }
+
+      daysInCalendar.push(new DateSelectorItem(dayinmonth.toString(), moment([this.year, this.month, dayinmonth]).toDate(), true, isSelectedDate, isCurrentDate, isNewDate));
+    }
+
+    let endOfCalender: number;
+    if (this.beginOfCalendar &#x3D;&#x3D;&#x3D; 0) {
+      endOfCalender &#x3D; 6;
+    } else {
+      endOfCalender &#x3D; 0;
+    }
+
+    if (weekdayEnd !&#x3D;&#x3D; endOfCalender) {
+
+      let countMissingDays: number;
+
+      if (this.beginOfCalendar &#x3D;&#x3D;&#x3D; 0) {
+        countMissingDays &#x3D; endOfCalender - weekdayEnd;
+      } else {
+        countMissingDays &#x3D; 7 - weekdayEnd;
+      }
+
+      for (let i &#x3D; 1; i &lt;&#x3D; countMissingDays; i++) {
+        daysInCalendar.push(new DateSelectorItem(i.toString(), new Date(nextMonths.year(), nextMonths.month(), i), false, false, false, false));
+      }
+
+    }
+
+    for (let index &#x3D; 0; index &lt; daysInCalendar.length / 7; index++) {
+      for (let day &#x3D; 0; day &lt; 7; day++) {
+        if (day &#x3D;&#x3D;&#x3D; 0) {
+          this.dates[index] &#x3D; [];
+        }
+
+        this.dates[index].push(daysInCalendar[(index * 7) + day]);
+      }
+    }
+  }
+
+  /**
+   * Modus ändern
+   */
+  changeMode(): void {
+    if (this.beginOfCalendar &#x3D;&#x3D;&#x3D; 0) {
+      this.beginOfCalendar &#x3D; 1;
+    } else {
+      this.beginOfCalendar &#x3D; 0;
+    }
+
+    this.initDates();
+  }
+
+  /**
+   * Vorheriger Monat
+   */
+  monthBack(): void {
+    this.month &#x3D; this.month - 1;
+
+    if (this.month &lt; 0) {
+      this.month &#x3D; 11;
+      this.year &#x3D; this.year - 1;
+    }
+
+    this.initDates();
+  }
+
+  /**
+   * Nächster Monat
+   */
+  monthNext(): void {
+    this.month &#x3D; this.month + 1;
+
+    if (this.month &gt; 11) {
+      this.month &#x3D; 0;
+      this.year &#x3D; this.year + 1;
+    }
+
+    this.initDates();
+  }
+
+  /**
+   * Methode ergibt das selektierte Datum
+   */
+  selectDate(v: DateSelectorItem): void {
+    if (v.isenabled) {
+      this.dates.forEach(date &#x3D;&gt; date.filter(filter &#x3D;&gt; filter.isnew).forEach(itm &#x3D;&gt; itm.isnew &#x3D; false));
+      this.dates.forEach(date &#x3D;&gt; date.filter(filter &#x3D;&gt; filter.isselected).forEach(itm &#x3D;&gt; itm.isselected &#x3D; false));
+      v.isnew &#x3D; true;
+      v.isselected &#x3D; true;
+
+      const dateValue: Moment &#x3D; moment(v.date);
+
+      // Übernehmen der Zeit aus dem bestehenden Wert
+      if (this._selectedValue &#x3D;&#x3D;&#x3D; null) {
+        if (this._initialValue !&#x3D;&#x3D; null) {
+          dateValue.hour(this._initialValue.hour());
+          dateValue.minute(this._initialValue.minute());
+        }
+      } else {
+        dateValue.hour(this._selectedValue.hour());
+        dateValue.minute(this._selectedValue.minute());
+      }
+
+      // Sekunden un Milisekunden Clean
+      dateValue.second(0);
+      dateValue.millisecond(0);
+      this._selectedValue &#x3D; dateValue;
+
+      if (this.autoapplyselection) {
+        this.applySelection();
+      }
+    }
+  }
+
+  //#region Time Settings
+
+  /**
+   * Getter für Stunden Uhrzeit
+   */
+  getHours(): number {
+    if (this._selectedValue &#x3D;&#x3D;&#x3D; null) {
+
+      /**
+       * Wert aus Init Value lesen
+       */
+      if (this._initialValue &#x3D;&#x3D;&#x3D; null) {
+        return 0;
+      } else {
+        return this._initialValue.hour();
+      }
+
+    } else {
+      return this._selectedValue.hour();
+    }
+  }
+  /**
+   * Setter für Stunden Uhrzeit
+   */
+  setHours(v: number | null): void {
+    /**
+     * Select Value setzen falls leer
+     */
+    this.initSelectedValue();
+
+    if (v &#x3D;&#x3D;&#x3D; null) {
+      this._selectedValue.hour(0);
+    } else {
+      this._selectedValue.hour(v);
+    }
+  }
+  /**
+   * Getter für Minuten Uhrzeit
+   */
+  getMinutes(): number {
+    if (this._selectedValue &#x3D;&#x3D;&#x3D; null) {
+
+      /**
+       * Wert aus Init Value lesen
+       */
+      if (this._initialValue &#x3D;&#x3D;&#x3D; null) {
+        return 0;
+      } else {
+        return this._initialValue.minutes();
+      }
+
+    } else {
+      return this._selectedValue.minutes();
+    }
+  }
+  /**
+   * Setter für Minuten Uhrzeit
+   */
+  setMinutes(v: number | null): void {
+    /**
+     * Select Value setzen falls leer
+     */
+    this.initSelectedValue();
+
+    if (v &#x3D;&#x3D;&#x3D; null) {
+      this._selectedValue.minutes(0);
+    } else {
+      this._selectedValue.minutes(v);
+    }
+  }
+
+  private initSelectedValue() {
+    /**
+     * Select Value setzen falls leer
+     */
+    if (this._selectedValue &#x3D;&#x3D;&#x3D; null) {
+      if (this._initialValue &#x3D;&#x3D;&#x3D; null) {
+        this._selectedValue &#x3D; moment();
+      } else {
+        this._selectedValue &#x3D; this._initialValue;
+      }
+    }
+  }
+
+  //#endregion
+
+  //#region Button Actions
+
+  /**
+   * Auswahl auf aktuelle Zeit stellen
+   */
+  setToday(): void {
+    this._selectedValue &#x3D; moment();
+
+    /**
+     * Sekunden un Milisekunden Clean
+     */
+    this._selectedValue.second(0);
+    this._selectedValue.millisecond(0);
+
+    /**
+     * Kalender Daten initialisieren falls Kalender angezeigt
+     */
+    if (this.dateselection) {
+      this.initCalendar(this._selectedValue);
+    }
+
+    if (this.autoapplyselection) {
+      this.applySelection();
+    }
+  }
+
+  /**
+   * Selektierung übernehmen
+   */
+  applySelection(): void {
+
+    if (this.timeselection &#x3D;&#x3D;&#x3D; false &amp;&amp; this._selectedValue !&#x3D;&#x3D; null) {
+      this._selectedValue.hour(0);
+      this._selectedValue.minute(0);
+      this._selectedValue.second(0);
+      this._selectedValue.millisecond(0);
+    }
+
+    if (this.dateselection &#x3D;&#x3D;&#x3D; false &amp;&amp; this._selectedValue !&#x3D;&#x3D; null) {
+      const tempValue: Moment &#x3D; this._selectedValue.local();
+      tempValue.date(1);
+      tempValue.month(0);
+      tempValue.year(1900);
+      this._selectedValue &#x3D; tempValue.utc();
+    }
+
+    this.selectdate.emit({
+      date: this._selectedValue
+    });
+  }
+
+  /**
+   * Selektierung resetten
+   */
+  resetSelection(): void {
+    this.selectdate.emit({
+      date: null
+    });
+  }
+
+  //#endregion
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'DateSelectorItem.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

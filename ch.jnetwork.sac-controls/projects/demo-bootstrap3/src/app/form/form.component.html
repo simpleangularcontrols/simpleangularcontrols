@@ -1,0 +1,26 @@
+<h2>Form</h2>
+<div name="subform" #formSubForm="sacform" ngForm>
+  <sac-validationsummary></sac-validationsummary>
+
+  <div ngModelGroup="MyGroup">
+    <sac-input
+      [(ngModel)]="model.field1"
+      name="subformField1"
+      label="field 1"
+      [isrequired]="true"
+    ></sac-input>
+    <div ngModelGroup="MyGroup2">
+      <sac-input
+        [(ngModel)]="model.field2"
+        name="subformField2"
+        label="field 2"
+        [isrequired]="true"
+      ></sac-input>
+    </div>
+
+    <app-subform [(mymodel)]="model"></app-subform>
+  </div>
+
+  <div>Valid: {{ formSubForm.getForm().valid }}</div>
+  <sac-button (clicked)="onAction()" text="Action Debug"></sac-button>
+</div>

@@ -23,7 +23,7 @@ import { TinyMceInstance } from './tinymceinstance';
  * Basis Komponente für TinyMCE Editor
  */
 @Directive()
-export class SacTinyMceCommon extends SacBaseModelControl<string> {
+export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
   /**
    * Default Config mit Standardwerten für TinyMCE
    */
@@ -152,7 +152,12 @@ export class SacTinyMceCommon extends SacBaseModelControl<string> {
    */
   @Input()
   set config(v: any) {
-    this._config = { ...this.getDynamicSettings(), ...this.baseConfig, ...v };
+    this._config = {
+      ...this.getDynamicSettings(),
+      ...this.baseConfig,
+      ...this.overwriteDefaultSettings(),
+      ...v,
+    };
   }
   /**
    * TinyMCE Konfiguration
@@ -297,4 +302,9 @@ export class SacTinyMceCommon extends SacBaseModelControl<string> {
 
     return settings;
   }
+
+  /**
+   * get settings in effective implementation that overwrites the defaults. use {} for non overwrites.
+   */
+  abstract overwriteDefaultSettings(): any;
 }

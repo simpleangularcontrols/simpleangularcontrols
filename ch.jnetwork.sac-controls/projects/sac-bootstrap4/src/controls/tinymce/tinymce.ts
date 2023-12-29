@@ -1,4 +1,11 @@
-import { Component, forwardRef, Host, Injector, NgZone, Optional } from '@angular/core';
+import {
+  Component,
+  forwardRef,
+  Host,
+  Injector,
+  NgZone,
+  Optional,
+} from '@angular/core';
 import {
   ControlContainer,
   NG_VALIDATORS,
@@ -27,9 +34,7 @@ import { SacFormDirective } from '../form/form';
     },
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [
-    { provide: ControlContainer, useExisting: SacFormDirective },
-  ],
+  viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }],
 })
 export class SacTinyMceComponent extends SacTinyMceCommon {
   /**
@@ -44,5 +49,13 @@ export class SacTinyMceComponent extends SacTinyMceCommon {
     ngZone: NgZone
   ) {
     super(parent, injector, ngZone);
+  }
+
+  /**
+   * overwrite tinymce defaults
+   * @returns boostrap4 has no overwrites
+   */
+  overwriteDefaultSettings() {
+    return {};
   }
 }

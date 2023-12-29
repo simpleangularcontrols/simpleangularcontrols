@@ -24,6 +24,10 @@
 <title>cluster_SACBootstrap3InputModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 1722,-268 1722,-70 8,-70"/>
 </g>
+<g id="clust12" class="cluster">
+<title>cluster_SACBootstrap3InputModule_exports</title>
+<polygon fill="none" stroke="black" points="116,-208 116,-260 1625,-260 1625,-208 116,-208"/>
+</g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap3InputModule_declarations</title>
 <polygon fill="none" stroke="black" points="230,-78 230,-130 1714,-130 1714,-78 230,-78"/>
@@ -31,10 +35,6 @@
 <g id="clust11" class="cluster">
 <title>cluster_SACBootstrap3InputModule_imports</title>
 <polygon fill="none" stroke="black" points="16,-78 16,-130 222,-130 222,-78 16,-78"/>
-</g>
-<g id="clust12" class="cluster">
-<title>cluster_SACBootstrap3InputModule_exports</title>
-<polygon fill="none" stroke="black" points="116,-208 116,-260 1625,-260 1625,-208 116,-208"/>
 </g>
 <!-- SacInputAreaComponent -->
 <g id="node1" class="node">

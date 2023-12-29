@@ -192,7 +192,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:58</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:60</a></div>
                             </td>
                         </tr>
 
@@ -261,7 +261,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:58</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:60</a></div>
                         </td>
                     </tr>
 
@@ -293,7 +293,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:42</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:44</a></div>
                         </td>
                     </tr>
 
@@ -325,7 +325,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:50</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:52</a></div>
                         </td>
                     </tr>
 
@@ -357,7 +357,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:54</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:56</a></div>
                         </td>
                     </tr>
 
@@ -389,7 +389,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:48</a></div>
                         </td>
                     </tr>
 
@@ -430,23 +430,25 @@
 import { AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
 import {
   IdService,
-  UploadState,
-  UploadxOptions,
-  UploadxService,
   UPLOADX_AJAX,
   UPLOADX_FACTORY_OPTIONS,
   UPLOADX_OPTIONS,
+  UploadState,
+  UploadxOptions,
+  UploadxService,
 } from &#x27;ngx-uploadx&#x27;;
-import {
-  SacDefaultLocalisationService,
-  SACLOCALISATION_SERVICE,
-} from &#x27;../services/sac-localisation.service&#x27;;
+import { Observable, of } from &#x27;rxjs&#x27;;
 import { SacFormCommon } from &#x27;../controls/form/form&#x27;;
+import { ISacIconService } from &#x27;../interfaces/ISacIconService&#x27;;
 import { ISacLocalisationService } from &#x27;../interfaces/ISacLocalisationService&#x27;;
+import { IUploadControl } from &#x27;../interfaces/iuploadcontrol&#x27;;
+import { SACICON_SERVICE, SacDefaultIconService } from &#x27;../services&#x27;;
+import {
+  SACLOCALISATION_SERVICE,
+  SacDefaultLocalisationService,
+} from &#x27;../services/sac-localisation.service&#x27;;
 import { Validation } from &#x27;../validation&#x27;;
 import { SacBaseModelControl } from &#x27;./basemodelcontrol&#x27;;
-import { Observable, of } from &#x27;rxjs&#x27;;
-import { IUploadControl } from &#x27;../interfaces/iuploadcontrol&#x27;;
 
 /**
  * Klasse für den Upload einer Datei in der Upload Component
@@ -522,6 +524,12 @@ export abstract class SacUploadBase&lt;VALUE&gt;
    * Upload Service
    */
   protected uploadService: UploadxService;
+
+  /**
+   * icon service to receive icons for uploader
+   */
+  protected iconService: ISacIconService;
+
   /**
    * Service für Error Localisation
    */
@@ -539,6 +547,7 @@ export abstract class SacUploadBase&lt;VALUE&gt;
   @Input()
   validationmessagesummaryrequired: string &#x3D;
     &#x27;VALIDATION_ERROR_SUMMARY_REQUIRED&#x27;;
+
   /**
    * Erlaubte Dateitypen für den Upload. Format: &quot;.xxx,.yyy,.zzz&quot;
    */
@@ -631,6 +640,11 @@ export abstract class SacUploadBase&lt;VALUE&gt;
     this.lngResourceService &#x3D; injector.get(
       SACLOCALISATION_SERVICE,
       new SacDefaultLocalisationService()
+    );
+
+    this.iconService &#x3D; injector.get(
+      SACICON_SERVICE,
+      new SacDefaultIconService()
     );
 
     this.uploads &#x3D; [];
@@ -993,6 +1007,37 @@ export abstract class SacUploadBase&lt;VALUE&gt;
       (this.ngControl as unknown as IUploadControl).uploadedfilecount &#x3D;
         this.UploadedFileCount();
     }
+  }
+
+  /**
+   * Icon for browse button
+   */
+  public get IconBrowse(): string {
+    return this.iconService.UploadComponentBrowseIcon;
+  }
+  /**
+   * icon for upload button
+   */
+  public get IconUpload(): string {
+    return this.iconService.UploadComponentUploadIcon;
+  }
+  /**
+   * icon for delete buttons
+   */
+  public get IconDelete(): string {
+    return this.iconService.UploadComponentDeleteIcon;
+  }
+  /**
+   * icon for pause buttons
+   */
+  public get IconPause(): string {
+    return this.iconService.UploadComponentPauseIcon;
+  }
+  /**
+   * icon for continous buttons
+   */
+  public get IconContinue(): string {
+    return this.iconService.UploadComponentContinueIcon;
   }
 }
 </code></pre>

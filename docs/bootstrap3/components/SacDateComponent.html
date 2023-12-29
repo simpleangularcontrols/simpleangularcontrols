@@ -3593,32 +3593,82 @@ export class SacDateComponent extends SacDateCommon {
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;form-group&quot; [ngClass]&#x3D;&quot;{&#x27;has-error&#x27;: invalid &amp;&amp; (dirty || touched)}&quot;&gt;
-  &lt;label *ngIf&#x3D;&quot;disablelabel &#x3D;&#x3D;&#x3D; false &amp;&amp; !isadaptivelabel&quot; id&#x3D;&quot;{{name}}label&quot; for&#x3D;&quot;{{name}}&quot; class&#x3D;&quot;control-label&quot; [ngClass]&#x3D;&quot;[labelsize !&#x3D;&#x3D; 12 ?  &#x27;col-md-&#x27; + labelsize : &#x27;sr-only&#x27;]&quot; [class.required]&#x3D;&quot;isrequired&quot;&gt;{{label}}&lt;/label&gt;
-  &lt;div [ngClass]&#x3D;&quot;[disablelabel &#x3D;&#x3D;&#x3D; false ? &#x27;col-md-&#x27; + _inputsize : &#x27;col-md-12&#x27;]&quot;&gt;
-    &lt;div style&#x3D;&quot;position: relative; width: 140px;&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div
+  class&#x3D;&quot;form-group&quot;
+  [ngClass]&#x3D;&quot;{&#x27;has-error&#x27;: invalid &amp;&amp; (dirty || touched)}&quot;
+&gt;
+  &lt;label
+    *ngIf&#x3D;&quot;disablelabel &#x3D;&#x3D;&#x3D; false &amp;&amp; !isadaptivelabel&quot;
+    id&#x3D;&quot;{{name}}label&quot;
+    for&#x3D;&quot;{{name}}&quot;
+    class&#x3D;&quot;control-label&quot;
+    [ngClass]&#x3D;&quot;[labelsize !&#x3D;&#x3D; 12 ?  &#x27;col-md-&#x27; + labelsize : &#x27;sr-only&#x27;]&quot;
+    [class.required]&#x3D;&quot;isrequired&quot;
+    &gt;{{label}}&lt;/label
+  &gt;
+  &lt;div
+    [ngClass]&#x3D;&quot;[disablelabel &#x3D;&#x3D;&#x3D; false ? &#x27;col-md-&#x27; + _inputsize : &#x27;col-md-12&#x27;]&quot;
+  &gt;
+    &lt;div style&#x3D;&quot;position: relative; width: 140px&quot;&gt;
       &lt;div id&#x3D;&quot;{{name}}&quot; class&#x3D;&quot;datetime-textbox input-group&quot;&gt;
         &lt;!-- this class comes in the div above when disabled [ngClass]&#x3D;&quot;[disablelabel &#x3D;&#x3D;&#x3D; false ? &#x27;col-md-&#x27; + _inputsize : &#x27;col-md-12&#x27;]&quot; --&gt;
-        &lt;input name&#x3D;&quot;{{name}}&quot; type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control date-control&quot; [imask]&#x3D;&quot;imaskDate&quot; placeholder&#x3D;&quot;dd.mm.yyyy&quot;
-               [attr.placeholder]&#x3D;&quot;placeholder&quot; [value]&#x3D;&quot;valuestring&quot; maxlength&#x3D;&quot;10&quot; size&#x3D;&quot;10&quot;
-               (blur)&#x3D;&quot;onTouch()&quot; (accept)&#x3D;&quot;setValueString($event)&quot; [disabled]&#x3D;&quot;isdisabled&quot; (click)&#x3D;&quot;showDateSelector()&quot; /&gt;
+        &lt;input
+          name&#x3D;&quot;{{name}}&quot;
+          type&#x3D;&quot;text&quot;
+          class&#x3D;&quot;form-control date-control&quot;
+          [imask]&#x3D;&quot;imaskDate&quot;
+          placeholder&#x3D;&quot;dd.mm.yyyy&quot;
+          [attr.placeholder]&#x3D;&quot;placeholder&quot;
+          [value]&#x3D;&quot;valuestring&quot;
+          maxlength&#x3D;&quot;10&quot;
+          size&#x3D;&quot;10&quot;
+          (blur)&#x3D;&quot;onTouch()&quot;
+          (accept)&#x3D;&quot;setValueString($event)&quot;
+          [disabled]&#x3D;&quot;isdisabled&quot;
+          (click)&#x3D;&quot;showDateSelector()&quot;
+        /&gt;
         &lt;span class&#x3D;&quot;input-group-btn&quot;&gt;
-          &lt;button class&#x3D;&quot;btn btn-default&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;showDateSelector()&quot; [disabled]&#x3D;&quot;isdisabled&quot;&gt;
+          &lt;button
+            class&#x3D;&quot;btn btn-default&quot;
+            type&#x3D;&quot;button&quot;
+            (click)&#x3D;&quot;showDateSelector()&quot;
+            [disabled]&#x3D;&quot;isdisabled&quot;
+          &gt;
             &lt;i class&#x3D;&quot;glyphicon glyphicon-calendar&quot;&gt;&lt;/i&gt;
           &lt;/button&gt;
         &lt;/span&gt;
       &lt;/div&gt;
-      &lt;div class&#x3D;&quot;help-block help-block-error&quot; *ngIf&#x3D;&quot;IsInlineErrorEnabled &amp;&amp; invalid &amp;&amp; (dirty || touched)&quot;&gt;{{ GetErrorMessage() | async }}&lt;/div&gt;
-
-      &lt;div class&#x3D;&quot;popover bottom in&quot; role&#x3D;&quot;tooltip&quot; *ngIf&#x3D;&quot;_showselector&quot;
-           style&#x3D;&quot;display:block; left:unset; right: 0px; top: 34px; max-width: 325px;&quot;&gt;
-        &lt;div class&#x3D;&quot;arrow&quot; style&#x3D;&quot;left: unset; right: 10px;&quot;&gt;&lt;/div&gt;
-        &lt;h3 class&#x3D;&quot;popover-title&quot; style&#x3D;&quot;display: none;&quot;&gt;&lt;/h3&gt;
-        &lt;div class&#x3D;&quot;popover-content&quot;&gt;
-          &lt;sac-dateselector *ngIf&#x3D;&quot;_showselector&quot; [initialvalue]&#x3D;&quot;value&quot; (onSelect)&#x3D;&quot;dateselect($event)&quot; autoapplyselection&#x3D;&quot;true&quot; dateselection&#x3D;&quot;true&quot;&gt;&lt;/sac-dateselector&gt;
-        &lt;/div&gt;
+      &lt;div
+        class&#x3D;&quot;help-block help-block-error&quot;
+        *ngIf&#x3D;&quot;IsInlineErrorEnabled &amp;&amp; invalid &amp;&amp; (dirty || touched)&quot;
+      &gt;
+        {{ GetErrorMessage() | async }}
       &lt;/div&gt;
 
+      &lt;div
+        class&#x3D;&quot;popover bottom in&quot;
+        role&#x3D;&quot;tooltip&quot;
+        *ngIf&#x3D;&quot;_showselector&quot;
+        style&#x3D;&quot;
+          display: block;
+          left: unset;
+          right: 0px;
+          top: 34px;
+          max-width: 325px;
+        &quot;
+      &gt;
+        &lt;div class&#x3D;&quot;arrow&quot; style&#x3D;&quot;left: unset; right: 10px&quot;&gt;&lt;/div&gt;
+        &lt;h3 class&#x3D;&quot;popover-title&quot; style&#x3D;&quot;display: none&quot;&gt;&lt;/h3&gt;
+        &lt;div class&#x3D;&quot;popover-content&quot;&gt;
+          &lt;sac-dateselector
+            *ngIf&#x3D;&quot;_showselector&quot;
+            [initialvalue]&#x3D;&quot;value&quot;
+            (selectdate)&#x3D;&quot;dateselect($event)&quot;
+            autoapplyselection&#x3D;&quot;true&quot;
+            dateselection&#x3D;&quot;true&quot;
+          &gt;&lt;/sac-dateselector&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -3651,7 +3701,7 @@ export class SacDateComponent extends SacDateCommon {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="form-group" [ngClass]="{\'has-error\': invalid && (dirty || touched)}">  <label *ngIf="disablelabel === false && !isadaptivelabel" id="{{name}}label" for="{{name}}" class="control-label" [ngClass]="[labelsize !== 12 ?  \'col-md-\' + labelsize : \'sr-only\']" [class.required]="isrequired">{{label}}</label>  <div [ngClass]="[disablelabel === false ? \'col-md-\' + _inputsize : \'col-md-12\']">    <div style="position: relative; width: 140px;">      <div id="{{name}}" class="datetime-textbox input-group">        <!-- this class comes in the div above when disabled [ngClass]="[disablelabel === false ? \'col-md-\' + _inputsize : \'col-md-12\']" -->        <input name="{{name}}" type="text" class="form-control date-control" [imask]="imaskDate" placeholder="dd.mm.yyyy"               [attr.placeholder]="placeholder" [value]="valuestring" maxlength="10" size="10"               (blur)="onTouch()" (accept)="setValueString($event)" [disabled]="isdisabled" (click)="showDateSelector()" />        <span class="input-group-btn">          <button class="btn btn-default" type="button" (click)="showDateSelector()" [disabled]="isdisabled">            <i class="glyphicon glyphicon-calendar"></i>          </button>        </span>      </div>      <div class="help-block help-block-error" *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)">{{ GetErrorMessage() | async }}</div>      <div class="popover bottom in" role="tooltip" *ngIf="_showselector"           style="display:block; left:unset; right: 0px; top: 34px; max-width: 325px;">        <div class="arrow" style="left: unset; right: 10px;"></div>        <h3 class="popover-title" style="display: none;"></h3>        <div class="popover-content">          <sac-dateselector *ngIf="_showselector" [initialvalue]="value" (onSelect)="dateselect($event)" autoapplyselection="true" dateselection="true"></sac-dateselector>        </div>      </div>    </div>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div  class="form-group"  [ngClass]="{\'has-error\': invalid && (dirty || touched)}">  <label    *ngIf="disablelabel === false && !isadaptivelabel"    id="{{name}}label"    for="{{name}}"    class="control-label"    [ngClass]="[labelsize !== 12 ?  \'col-md-\' + labelsize : \'sr-only\']"    [class.required]="isrequired"    >{{label}}</label  >  <div    [ngClass]="[disablelabel === false ? \'col-md-\' + _inputsize : \'col-md-12\']"  >    <div style="position: relative; width: 140px">      <div id="{{name}}" class="datetime-textbox input-group">        <!-- this class comes in the div above when disabled [ngClass]="[disablelabel === false ? \'col-md-\' + _inputsize : \'col-md-12\']" -->        <input          name="{{name}}"          type="text"          class="form-control date-control"          [imask]="imaskDate"          placeholder="dd.mm.yyyy"          [attr.placeholder]="placeholder"          [value]="valuestring"          maxlength="10"          size="10"          (blur)="onTouch()"          (accept)="setValueString($event)"          [disabled]="isdisabled"          (click)="showDateSelector()"        />        <span class="input-group-btn">          <button            class="btn btn-default"            type="button"            (click)="showDateSelector()"            [disabled]="isdisabled"          >            <i class="glyphicon glyphicon-calendar"></i>          </button>        </span>      </div>      <div        class="help-block help-block-error"        *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)"      >        {{ GetErrorMessage() | async }}      </div>      <div        class="popover bottom in"        role="tooltip"        *ngIf="_showselector"        style="          display: block;          left: unset;          right: 0px;          top: 34px;          max-width: 325px;        "      >        <div class="arrow" style="left: unset; right: 10px"></div>        <h3 class="popover-title" style="display: none"></h3>        <div class="popover-content">          <sac-dateselector            *ngIf="_showselector"            [initialvalue]="value"            (selectdate)="dateselect($event)"            autoapplyselection="true"            dateselection="true"          ></sac-dateselector>        </div>      </div>    </div>  </div></div></div>'
     var COMPONENTS = [{'name': 'SacButtonComponent', 'selector': 'sac-button'},{'name': 'SacCheckboxComponent', 'selector': 'sac-checkbox'},{'name': 'SacConfirmComponent', 'selector': 'sac-confirm'},{'name': 'SacDateComponent', 'selector': 'sac-date'},{'name': 'SacDateSelectorComponent', 'selector': 'sac-dateselector'},{'name': 'SacDateTimeComponent', 'selector': 'sac-datetime'},{'name': 'SacDialogComponent', 'selector': 'sac-dialog'},{'name': 'SacDropdownComponent', 'selector': 'sac-dropdown'},{'name': 'SacGridButtonComponent', 'selector': 'sac-gridbutton'},{'name': 'SacGridColumnActionComponent', 'selector': 'sac-gridcolumnaction'},{'name': 'SacGridColumnComponent', 'selector': 'sac-gridcolumn'},{'name': 'SacGridComponent', 'selector': 'sac-grid'},{'name': 'SacGridImageComponent', 'selector': 'sac-gridimage'},{'name': 'SacInputAreaComponent', 'selector': 'sac-inputarea'},{'name': 'SacInputComponent', 'selector': 'sac-input'},{'name': 'SacInputCurrencyComponent', 'selector': 'sac-inputcurrency'},{'name': 'SacInputDecimalComponent', 'selector': 'sac-inputdecimal'},{'name': 'SacInputEmailComponent', 'selector': 'sac-inputemail'},{'name': 'SacInputIntegerComponent', 'selector': 'sac-inputinteger'},{'name': 'SacInputPasswordComponent', 'selector': 'sac-inputpassword'},{'name': 'SacInputSearchComponent', 'selector': 'sac-inputsearch'},{'name': 'SacListboxComponent', 'selector': 'sac-listbox'},{'name': 'SacPagingComponent', 'selector': 'sac-paging'},{'name': 'SacRadiobuttonComponent', 'selector': 'sac-radiobutton'},{'name': 'SacRadiobuttonsComponent', 'selector': 'sac-radiobuttons'},{'name': 'SacStaticFormContainerComponent', 'selector': 'sac-staticformcontainer'},{'name': 'SacStaticLabelComponent', 'selector': 'sac-staticlabel'},{'name': 'SacTabComponent', 'selector': 'sac-tab'},{'name': 'SacTabItemComponent', 'selector': 'sac-tabitem'},{'name': 'SacTimeComponent', 'selector': 'sac-time'},{'name': 'SacTinyMceComponent', 'selector': 'sac-tinymce'},{'name': 'SacTooltipComponent', 'selector': 'sac-tooltip'},{'name': 'SacTreeItemActionComponent', 'selector': 'sac-treeitemaction'},{'name': 'SacTreeViewChildComponent', 'selector': 'sac-treeviewchild'},{'name': 'SacTreeViewComponent', 'selector': 'sac-treeview'},{'name': 'SacUploadComponent', 'selector': 'sac-upload'},{'name': 'SacUploadMultipleComponent', 'selector': 'sac-uploadmultiple'},{'name': 'SacValidationSummaryComponent', 'selector': 'sac-validationsummary'},{'name': 'SacWizardComponent', 'selector': 'sac-wizard'},{'name': 'SacWizardItemComponent', 'selector': 'sac-wizarditem'}];
     var DIRECTIVES = [{'name': 'SacBaseDateTimeControl', 'selector': ''},{'name': 'SacBaseListControl', 'selector': ''},{'name': 'SacBaseModelControl', 'selector': ''},{'name': 'SacBaseSelectControl', 'selector': ''},{'name': 'SacButtonCommon', 'selector': ''},{'name': 'SacCheckboxCommon', 'selector': ''},{'name': 'SacConfirmCommon', 'selector': ''},{'name': 'SacContextmenuAnchorCommon', 'selector': ''},{'name': 'SacContextmenuCommon', 'selector': ''},{'name': 'SacContextMenuContrainerCommon', 'selector': ''},{'name': 'SacContextmenuItemButtonCommon', 'selector': ''},{'name': 'SacContextmenuItemCommon', 'selector': ''},{'name': 'SacDateCommon', 'selector': ''},{'name': 'SacDateSelectorCommon', 'selector': ''},{'name': 'SacDateTimeCommon', 'selector': ''},{'name': 'SacDialogCommon', 'selector': ''},{'name': 'SacDropdownCommon', 'selector': ''},{'name': 'SacDropdownOptionCommon', 'selector': ''},{'name': 'SacDropdownOptionDirective', 'selector': 'option,[sacOption]'},{'name': 'SacDropzoneMultipleCommon', 'selector': ''},{'name': 'SacDropzoneSingleCommon', 'selector': ''},{'name': 'SacFileBrowserCommon', 'selector': ''},{'name': 'SacFormCommon', 'selector': ''},{'name': 'SacFormDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'SacGridButtonCommon', 'selector': ''},{'name': 'SacGridColumnActionCommon', 'selector': ''},{'name': 'SacGridColumnBaseCommon', 'selector': ''},{'name': 'SacGridColumnCommon', 'selector': ''},{'name': 'SacGridCommon', 'selector': ''},{'name': 'SacGridImageCommon', 'selector': ''},{'name': 'SacInheritFormDirective', 'selector': '[sacInheritForm]'},{'name': 'SacInputAreaCommon', 'selector': ''},{'name': 'SacInputBase', 'selector': ''},{'name': 'SacInputCommon', 'selector': ''},{'name': 'SacInputCurrencyCommon', 'selector': ''},{'name': 'SacInputDecimalCommon', 'selector': ''},{'name': 'SacInputEmailCommon', 'selector': ''},{'name': 'SacInputIntegerCommon', 'selector': ''},{'name': 'SacInputPasswordCommon', 'selector': ''},{'name': 'SacInputSearchCommon', 'selector': ''},{'name': 'SacListboxCommon', 'selector': ''},{'name': 'SacListboxOptionCommon', 'selector': ''},{'name': 'SacMultilanguageInputAreaCommon', 'selector': ''},{'name': 'SacMultilanguageInputCommon', 'selector': ''},{'name': 'SacPagingCommon', 'selector': ''},{'name': 'SacRadiobuttonCommon', 'selector': ''},{'name': 'SacRadiobuttonsCommon', 'selector': ''},{'name': 'SacStaticFormContainerCommon', 'selector': ''},{'name': 'SacStaticLabelCommon', 'selector': ''},{'name': 'SacTabCommon', 'selector': ''},{'name': 'SacTabItemCommon', 'selector': ''},{'name': 'SacTimeCommon', 'selector': ''},{'name': 'SacTinyMceCommon', 'selector': ''},{'name': 'SacTooltipCommon', 'selector': ''},{'name': 'SacTreeItemActionCommon', 'selector': ''},{'name': 'SacTreeViewChildCommon', 'selector': ''},{'name': 'SacTreeViewCommon', 'selector': ''},{'name': 'SacUploadBase', 'selector': ''},{'name': 'SacUploadMultipleCommon', 'selector': ''},{'name': 'SacUploadSingleCommon', 'selector': ''},{'name': 'SacValidationSummaryCommon', 'selector': ''},{'name': 'SacWizardCommon', 'selector': ''},{'name': 'SacWizardItemCommon', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'SacDateComponent'};

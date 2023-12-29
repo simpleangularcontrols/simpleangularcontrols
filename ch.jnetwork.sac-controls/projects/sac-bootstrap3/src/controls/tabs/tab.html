@@ -1,20 +1,24 @@
 <!-- Nav tabs -->
 <div [id]="name" class="content-nav-tabs">
   <ul class="nav nav-tabs" role="tablist">
-    <li *ngFor="let item of _tabItems" [ngClass]="{ 'active show': item._active, 'disabled': item._disabled }" (click)="selectTab(item)"
-        [ngStyle]="{'cursor': item._disabled ? 'not-allowed' : 'pointer'}">
+    <li
+      *ngFor="let item of _tabItems"
+      [ngClass]="{ 'active show': item.active, 'disabled': item.disabled }"
+      (click)="selectTab(item)"
+      [ngStyle]="{'cursor': item._disabled ? 'not-allowed' : 'pointer'}"
+    >
       <a [id]="GetTabItemButtonId(item._id)" role="tab">
-
-        <ng-template *ngTemplateOutlet="tablabeltemplate || defaultTabLabelTemplate;context:{ label: item.label }">
+        <ng-template
+          *ngTemplateOutlet="tablabeltemplate || defaultTabLabelTemplate;context:{ label: item.label }"
+        >
         </ng-template>
-
       </a>
     </li>
   </ul>
 </div>
 
 <!-- Tab panes -->
-<div class="tab-content" style="margin-top: 15px;">
+<div class="tab-content" style="margin-top: 15px">
   <ng-content></ng-content>
 </div>
 

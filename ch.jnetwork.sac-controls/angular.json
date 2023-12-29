@@ -53,12 +53,8 @@
                 "output": "/tinymce/"
               }
             ],
-            "styles": [
-              "projects/demo-bootstrap4/src/styles.scss"
-            ],
-            "scripts": [
-              "./node_modules/tinymce/tinymce.min.js"
-            ],
+            "styles": ["projects/demo-bootstrap4/src/styles.scss"],
+            "scripts": ["./node_modules/tinymce/tinymce.min.js"],
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
@@ -391,10 +387,7 @@
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
-            "assets": [
-              "src/assets",
-              "src/favicon.ico"
-            ],
+            "assets": ["src/assets", "src/favicon.ico"],
             "styles": [],
             "scripts": [],
             "vendorChunk": true,
@@ -456,10 +449,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [],
-            "assets": [
-              "src/assets",
-              "src/favicon.ico"
-            ]
+            "assets": ["src/assets", "src/favicon.ico"]
           }
         },
         "cypress-run": {
@@ -614,9 +604,7 @@
               "projects/demo-bootstrap3/src/favicon.ico",
               "projects/demo-bootstrap3/src/assets"
             ],
-            "styles": [
-              "projects/demo-bootstrap3/src/styles.scss"
-            ],
+            "styles": ["projects/demo-bootstrap3/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -659,7 +647,8 @@
               "browserTarget": "demo-bootstrap3:build:production"
             },
             "development": {
-              "browserTarget": "demo-bootstrap3:build:development"
+              "browserTarget": "demo-bootstrap3:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

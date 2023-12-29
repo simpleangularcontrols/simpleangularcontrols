@@ -1,29 +1,78 @@
-<div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
-  <label *ngIf="disablelabel === false && !isadaptivelabel" id="{{name}}label" for="{{name}}" class="control-label" [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']" [class.required]="isrequired">{{label}}</label>
-  <div [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
-    <div style="position: relative; width: 140px;">
-
+<div
+  class="form-group"
+  [ngClass]="{'has-error': invalid && (dirty || touched)}"
+>
+  <label
+    *ngIf="disablelabel === false && !isadaptivelabel"
+    id="{{name}}label"
+    for="{{name}}"
+    class="control-label"
+    [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']"
+    [class.required]="isrequired"
+    >{{label}}</label
+  >
+  <div
+    [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"
+  >
+    <div style="position: relative; width: 140px">
       <div class="input-group">
-        <input id="{{name}}" name="{{name}}" type="text" [value]="valuestring" maxlength="6" [imask]="imaskDate" size="6"
-               class="form-control" [attr.placeholder]="placeholder" data-error-msg="ctl00_cphContent_ctl00_ucPublicationDetail_dtpValidFrom_timeTextBoxTypeValidator"
-               [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()" (accept)="setValueString($event)"
-               [disabled]="isdisabled">
+        <input
+          id="{{name}}"
+          name="{{name}}"
+          type="text"
+          [value]="valuestring"
+          maxlength="6"
+          [imask]="imaskDate"
+          size="6"
+          class="form-control"
+          [attr.placeholder]="placeholder"
+          data-error-msg="ctl00_cphContent_ctl00_ucPublicationDetail_dtpValidFrom_timeTextBoxTypeValidator"
+          [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
+          (blur)="onTouch()"
+          (accept)="setValueString($event)"
+          [disabled]="isdisabled"
+        />
         <span class="input-group-btn">
-          <button class="btn btn-default" type="button" (click)="showTimeSelector()" [disabled]="isdisabled">
+          <button
+            class="btn btn-default"
+            type="button"
+            (click)="showTimeSelector()"
+            [disabled]="isdisabled"
+          >
             <i class="glyphicon glyphicon-time"></i>
           </button>
         </span>
       </div>
-      <div class="help-block help-block-error" *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)">{{ GetErrorMessage() | async }}</div>
-      <div class="popover bottom in" role="tooltip" *ngIf="_showselector"
-           style="display:block; left:unset; right: 0px; top: 34px; max-width: 325px;">
-        <div class="arrow" style="left: unset; right: 10px;"></div>
-        <h3 class="popover-title" style="display: none;"></h3>
+      <div
+        class="help-block help-block-error"
+        *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)"
+      >
+        {{ GetErrorMessage() | async }}
+      </div>
+      <div
+        class="popover bottom in"
+        role="tooltip"
+        *ngIf="_showselector"
+        style="
+          display: block;
+          left: unset;
+          right: 0px;
+          top: 34px;
+          max-width: 325px;
+        "
+      >
+        <div class="arrow" style="left: unset; right: 10px"></div>
+        <h3 class="popover-title" style="display: none"></h3>
         <div class="popover-content">
-          <sac-dateselector *ngIf="_showselector" [initialvalue]="value" (onSelect)="timeselect($event)" autoapplyselection="true" timeselection="true"></sac-dateselector>
+          <sac-dateselector
+            *ngIf="_showselector"
+            [initialvalue]="value"
+            (selectdate)="timeselect($event)"
+            autoapplyselection="true"
+            timeselection="true"
+          ></sac-dateselector>
         </div>
       </div>
-
     </div>
   </div>
 </div>

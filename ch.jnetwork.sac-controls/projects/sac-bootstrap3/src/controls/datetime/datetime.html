@@ -1,30 +1,78 @@
-<div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
-  <label *ngIf="disablelabel === false && !isadaptivelabel" id="{{name}}label" for="{{name}}" class="control-label" [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']" [class.required]="isrequired">{{label}}</label>
-  <div [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
-    <div style="position: relative; width: 180px;">
-
+<div
+  class="form-group"
+  [ngClass]="{'has-error': invalid && (dirty || touched)}"
+>
+  <label
+    *ngIf="disablelabel === false && !isadaptivelabel"
+    id="{{name}}label"
+    for="{{name}}"
+    class="control-label"
+    [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']"
+    [class.required]="isrequired"
+    >{{label}}</label
+  >
+  <div
+    [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"
+  >
+    <div style="position: relative; width: 180px">
       <div id="{{name}}" class="datetime-textbox input-group">
-        <input id="{{name}}" name="{{name}}" type="text" class="form-control" [imask]="imaskDate" [attr.placeholder]="placeholder"
-               [value]="valuestring" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()"
-               (accept)="setValueString($event)" [disabled]="isdisabled" (click)="showDateSelector()" />
+        <input
+          id="{{name}}"
+          name="{{name}}"
+          type="text"
+          class="form-control"
+          [imask]="imaskDate"
+          [attr.placeholder]="placeholder"
+          [value]="valuestring"
+          [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
+          (blur)="onTouch()"
+          (accept)="setValueString($event)"
+          [disabled]="isdisabled"
+          (click)="showDateSelector()"
+        />
         <span class="input-group-btn">
-          <button class="btn btn-default" type="button" (click)="showDateSelector()" [disabled]="isdisabled">
+          <button
+            class="btn btn-default"
+            type="button"
+            (click)="showDateSelector()"
+            [disabled]="isdisabled"
+          >
             <i class="glyphicon glyphicon-calendar"></i>
           </button>
         </span>
       </div>
-      <div class="help-block help-block-error" *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)">{{ GetErrorMessage() | async }}</div>
-
-      <div class="popover bottom in" role="tooltip" *ngIf="_showselector"
-           style="display:block; left:unset; right: 0px; top: 34px; max-width: 325px;">
-        <div class="arrow" style="left: unset; right: 10px;"></div>
-        <h3 class="popover-title" style="display: none;"></h3>
-        <div class="popover-content">
-          <sac-dateselector *ngIf="_showselector" [initialvalue]="value" (onSelect)="dateselect($event)"
-                          autoapplyselection="true" dateselection="true" timeselection="true"></sac-dateselector>
-        </div>
+      <div
+        class="help-block help-block-error"
+        *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)"
+      >
+        {{ GetErrorMessage() | async }}
       </div>
 
+      <div
+        class="popover bottom in"
+        role="tooltip"
+        *ngIf="_showselector"
+        style="
+          display: block;
+          left: unset;
+          right: 0px;
+          top: 34px;
+          max-width: 325px;
+        "
+      >
+        <div class="arrow" style="left: unset; right: 10px"></div>
+        <h3 class="popover-title" style="display: none"></h3>
+        <div class="popover-content">
+          <sac-dateselector
+            *ngIf="_showselector"
+            [initialvalue]="value"
+            (selectdate)="dateselect($event)"
+            autoapplyselection="true"
+            dateselection="true"
+            timeselection="true"
+          ></sac-dateselector>
+        </div>
+      </div>
     </div>
   </div>
 </div>

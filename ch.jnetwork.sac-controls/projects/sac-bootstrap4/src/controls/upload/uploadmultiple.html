@@ -108,7 +108,7 @@
               [class.btn-secondary]="!(invalid && (dirty || touched))"
               [class.btn-danger]="invalid && (dirty || touched)"
             >
-              <span class="fa fa-times"></span>
+            <span [class]="IconDelete"></span>
             </button>
             <button
               *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && file.status !== 'paused')"
@@ -127,7 +127,7 @@
               [class.btn-secondary]="!(invalid && (dirty || touched))"
               [class.btn-danger]="invalid && (dirty || touched)"
             >
-              <span class="fa fa-play"></span>
+            <span [class]="IconContinue"></span>
             </button>
             <button
               *ngIf="autoupload === false"

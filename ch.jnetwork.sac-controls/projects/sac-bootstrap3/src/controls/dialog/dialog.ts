@@ -48,7 +48,10 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
   }
 
   ngOnDestroy() {
-    document.body.removeChild(this.element);
+    this.hide();
+    if (document.body.contains(this.element)) {
+      document.body.removeChild(this.element);
+    }
     super.ngOnDestroy();
   }
 }

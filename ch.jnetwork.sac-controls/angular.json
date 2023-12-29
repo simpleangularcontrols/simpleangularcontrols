@@ -602,10 +602,15 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "projects/demo-bootstrap3/src/favicon.ico",
-              "projects/demo-bootstrap3/src/assets"
+              "projects/demo-bootstrap3/src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/tinymce",
+                "output": "/tinymce/"
+              }
             ],
             "styles": ["projects/demo-bootstrap3/src/styles.scss"],
-            "scripts": []
+            "scripts": ["./node_modules/tinymce/tinymce.min.js"]
           },
           "configurations": {
             "production": {

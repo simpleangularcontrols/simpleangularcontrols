@@ -16,6 +16,26 @@ export abstract class SacAbstractIconService implements ISacIconService {
   /**
    * @inheritdoc
    */
+  abstract get UploadComponentContinueIcon(): string;
+  /**
+   * @inheritdoc
+   */
+  abstract get UploadComponentBrowseIcon(): string;
+  /**
+   * @inheritdoc
+   */
+  abstract get UploadComponentDeleteIcon(): string;
+  /**
+   * @inheritdoc
+   */
+  abstract get UploadComponentPauseIcon(): string;
+  /**
+   * @inheritdoc
+   */
+  abstract get UploadComponentUploadIcon(): string;
+  /**
+   * @inheritdoc
+   */
   abstract get ConfirmDefaultImage(): string;
   /**
    * @inheritdoc
@@ -44,6 +64,36 @@ export abstract class SacAbstractIconService implements ISacIconService {
  * */
 @Injectable({ providedIn: 'root' })
 export class SacDefaultIconService extends SacAbstractIconService {
+  /**
+   * @inheritdoc
+   */
+  get UploadComponentContinueIcon(): string {
+    return 'fa fa-play';
+  }
+  /**
+   * @inheritdoc
+   */
+  get UploadComponentBrowseIcon(): string {
+    return 'fa fa-folder-open';
+  }
+  /**
+   * @inheritdoc
+   */
+  get UploadComponentDeleteIcon(): string {
+    return 'fa fa-times';
+  }
+  /**
+   * @inheritdoc
+   */
+  get UploadComponentPauseIcon(): string {
+    return 'fa fa-pause';
+  }
+  /**
+   * @inheritdoc
+   */
+  get UploadComponentUploadIcon(): string {
+    return 'fa fa-upload';
+  }
   /**
    * @inheritdoc
    */

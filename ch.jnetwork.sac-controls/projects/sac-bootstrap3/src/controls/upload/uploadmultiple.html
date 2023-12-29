@@ -1,75 +1,154 @@
-<div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
-  <label *ngIf="disablelabel === false && !isadaptivelabel" id="{{name}}label" for="{{name}}" class="control-label" [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']" [class.required]="isrequired">{{label}}</label>
-  <div [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
-
+<div
+  class="form-group"
+  [ngClass]="{'has-error': invalid && (dirty || touched)}"
+>
+  <label
+    *ngIf="disablelabel === false && !isadaptivelabel"
+    id="{{name}}label"
+    for="{{name}}"
+    class="control-label"
+    [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']"
+    [class.required]="isrequired"
+    >{{label}}</label
+  >
+  <div
+    [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"
+  >
     <div class="upload-component">
       <div class="row">
         <div class="col-xs-12">
           <div class="btn-group">
-            <div class="btn upload-input custom-file" [class.disabled]="maxfiles > 0 &&  uploads.length >= maxfiles"
-                 [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
-              <i class="glyphicon glyphicon-folder-open"></i>
+            <div
+              class="btn upload-input custom-file"
+              [class.disabled]="maxfiles > 0 &&  uploads.length >= maxfiles"
+              [class.btn-default]="!(invalid && (dirty || touched))"
+              [class.btn-danger]="invalid && (dirty || touched)"
+            >
+              <i [class]="IconBrowse"></i>
               <span class="upload-browse">Browse</span>
-              <input type="file" class="custom-file-input" #files (click)="files.value = ''"
-                     (uploadxState)="onUpload($event)" multiple [disabled]="maxfiles > 0 &&  uploads.length >= maxfiles">
+              <input
+                type="file"
+                class="custom-file-input"
+                #files
+                (click)="files.value = ''"
+                (uploadxState)="onUpload($event)"
+                multiple
+                [disabled]="maxfiles > 0 &&  uploads.length >= maxfiles"
+              />
             </div>
 
             <div class="btn-group">
               <!-- image-preview-clear button -->
-              <a class="btn" (click)="cancelAll()" [attr.disabled]="HasQueueItem() === false ? 'disabled' : null"
-                 [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
-                <span class="glyphicon glyphicon-remove"></span>
+              <a
+                class="btn"
+                (click)="cancelAll()"
+                [attr.disabled]="HasQueueItem() === false ? 'disabled' : null"
+                [class.btn-default]="!(invalid && (dirty || touched))"
+                [class.btn-danger]="invalid && (dirty || touched)"
+              >
+                <span [class]="IconDelete"></span>
               </a>
-              <a *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && IsPaused() === false)" class="btn" (click)="pauseAll()" [attr.disabled]="IsUploading() === false ? 'disabled' : null"
-                 [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
-                <span class="glyphicon glyphicon-pause"></span>
+              <a
+                *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && IsPaused() === false)"
+                class="btn"
+                (click)="pauseAll()"
+                [attr.disabled]="IsUploading() === false ? 'disabled' : null"
+                [class.btn-default]="!(invalid && (dirty || touched))"
+                [class.btn-danger]="invalid && (dirty || touched)"
+              >
+                <span [class]="IconPause"></span>
               </a>
-              <a *ngIf="autoupload && enablepause && IsPaused() === true" class="btn" (click)="uploadAll()"
-                 [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
-                <span class="glyphicon glyphicon-play"></span>
+              <a
+                *ngIf="autoupload && enablepause && IsPaused() === true"
+                class="btn"
+                (click)="uploadAll()"
+                [class.btn-default]="!(invalid && (dirty || touched))"
+                [class.btn-danger]="invalid && (dirty || touched)"
+              >
+                <span [class]="IconContinue"></span>
               </a>
-              <a *ngIf="autoupload === false" class="btn" (click)="uploadAll()" [attr.disabled]="IsStateToUpload() === false ?  'disabled' : null"
-                 [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
-                <span class="glyphicon glyphicon-upload"></span> Upload
+              <a
+                *ngIf="autoupload === false"
+                class="btn"
+                (click)="uploadAll()"
+                [attr.disabled]="IsStateToUpload() === false ?  'disabled' : null"
+                [class.btn-default]="!(invalid && (dirty || touched))"
+                [class.btn-danger]="invalid && (dirty || touched)"
+              >
+                <span [class]="IconUpload"></span> {{
+                lngResourceService.GetString('UPLOAD_BUTTON_UPLOAD') | async }}
               </a>
             </div>
           </div>
         </div>
       </div>
 
-      <div *ngFor="let file of uploads" style="margin-top: 5px;">
-
+      <div *ngFor="let file of uploads" style="margin-top: 5px">
         <div class="input-group upload-component upload-multiple">
           <div class="form-control upload-progress">
             <div class="progress">
-              <div class="progress-bar" [class.progress-bar-success]="file.progress===100" role="progressbar" [attr.aria-valuenow]="file.progress"
-                   aria-valuemin="0" aria-valuemax="100" [style.width.%]="file.progress">
+              <div
+                class="progress-bar"
+                [class.progress-bar-success]="file.progress===100"
+                role="progressbar"
+                [attr.aria-valuenow]="file.progress"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                [style.width.%]="file.progress"
+              >
                 <span class="progress-text text-dark">{{ file.name }}</span>
               </div>
             </div>
           </div>
           <div class="input-group-btn">
             <!-- image-preview-clear button -->
-            <a class="btn" (click)="cancel(file.uploadId)"
-               [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
-              <span class="glyphicon glyphicon-remove"></span>
+            <a
+              class="btn"
+              (click)="cancel(file.uploadId)"
+              [class.btn-default]="!(invalid && (dirty || touched))"
+              [class.btn-danger]="invalid && (dirty || touched)"
+            >
+              <span [class]="IconDelete"></span>
             </a>
-            <a *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && file.status !== 'paused')" class="btn" (click)="pause(file.uploadId)" [attr.disabled]="file.status !== 'uploading' ? 'disabled' : null"
-               [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
-              <span class="glyphicon glyphicon-pause"></span>
+            <a
+              *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && file.status !== 'paused')"
+              class="btn"
+              (click)="pause(file.uploadId)"
+              [attr.disabled]="file.status !== 'uploading' ? 'disabled' : null"
+              [class.btn-default]="!(invalid && (dirty || touched))"
+              [class.btn-danger]="invalid && (dirty || touched)"
+            >
+              <span [class]="IconPause"></span>
             </a>
-            <a *ngIf="autoupload && enablepause && file.status === 'paused'" class="btn" (click)="upload(file.uploadId)"
-               [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
-              <span class="glyphicon glyphicon-play"></span>
+            <a
+              *ngIf="autoupload && enablepause && file.status === 'paused'"
+              class="btn"
+              (click)="upload(file.uploadId)"
+              [class.btn-default]="!(invalid && (dirty || touched))"
+              [class.btn-danger]="invalid && (dirty || touched)"
+            >
+              <span [class]="IconContinue"></span>
             </a>
-            <a *ngIf="autoupload === false" class="btn" (click)="upload(file.uploadId)" [attr.disabled]="file.status !== 'added' && file.status !== 'paused' ?  'disabled' : null"
-               [class.btn-default]="!(invalid && (dirty || touched))" [class.btn-danger]="invalid && (dirty || touched)">
-              <span class="glyphicon glyphicon-upload"></span> Upload
+            <a
+              *ngIf="autoupload === false"
+              class="btn"
+              (click)="upload(file.uploadId)"
+              [attr.disabled]="file.status !== 'added' && file.status !== 'paused' ?  'disabled' : null"
+              [class.btn-default]="!(invalid && (dirty || touched))"
+              [class.btn-danger]="invalid && (dirty || touched)"
+            >
+              <span [class]="IconUpload"></span> {{
+              lngResourceService.GetString('UPLOAD_BUTTON_UPLOAD') | async }}
             </a>
           </div>
         </div>
       </div>
     </div>
-    <div class="help-block help-block-error" *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)">{{ GetErrorMessage() | async }}</div>
+    <div
+      class="help-block help-block-error"
+      *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)"
+    >
+      {{ GetErrorMessage() | async }}
+    </div>
   </div>
 </div>

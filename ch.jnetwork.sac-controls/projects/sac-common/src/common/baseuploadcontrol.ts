@@ -14,23 +14,25 @@ import {
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import {
   IdService,
-  UploadState,
-  UploadxOptions,
-  UploadxService,
   UPLOADX_AJAX,
   UPLOADX_FACTORY_OPTIONS,
   UPLOADX_OPTIONS,
+  UploadState,
+  UploadxOptions,
+  UploadxService,
 } from 'ngx-uploadx';
-import {
-  SacDefaultLocalisationService,
-  SACLOCALISATION_SERVICE,
-} from '../services/sac-localisation.service';
+import { Observable, of } from 'rxjs';
 import { SacFormCommon } from '../controls/form/form';
+import { ISacIconService } from '../interfaces/ISacIconService';
 import { ISacLocalisationService } from '../interfaces/ISacLocalisationService';
+import { IUploadControl } from '../interfaces/iuploadcontrol';
+import { SACICON_SERVICE, SacDefaultIconService } from '../services';
+import {
+  SACLOCALISATION_SERVICE,
+  SacDefaultLocalisationService,
+} from '../services/sac-localisation.service';
 import { Validation } from '../validation';
 import { SacBaseModelControl } from './basemodelcontrol';
-import { Observable, of } from 'rxjs';
-import { IUploadControl } from '../interfaces/iuploadcontrol';
 
 /**
  * Klasse für den Upload einer Datei in der Upload Component
@@ -106,6 +108,12 @@ export abstract class SacUploadBase<VALUE>
    * Upload Service
    */
   protected uploadService: UploadxService;
+
+  /**
+   * icon service to receive icons for uploader
+   */
+  protected iconService: ISacIconService;
+
   /**
    * Service für Error Localisation
    */
@@ -123,6 +131,7 @@ export abstract class SacUploadBase<VALUE>
   @Input()
   validationmessagesummaryrequired: string =
     'VALIDATION_ERROR_SUMMARY_REQUIRED';
+
   /**
    * Erlaubte Dateitypen für den Upload. Format: ".xxx,.yyy,.zzz"
    */
@@ -215,6 +224,11 @@ export abstract class SacUploadBase<VALUE>
     this.lngResourceService = injector.get(
       SACLOCALISATION_SERVICE,
       new SacDefaultLocalisationService()
+    );
+
+    this.iconService = injector.get(
+      SACICON_SERVICE,
+      new SacDefaultIconService()
     );
 
     this.uploads = [];
@@ -577,5 +591,36 @@ export abstract class SacUploadBase<VALUE>
       (this.ngControl as unknown as IUploadControl).uploadedfilecount =
         this.UploadedFileCount();
     }
+  }
+
+  /**
+   * Icon for browse button
+   */
+  public get IconBrowse(): string {
+    return this.iconService.UploadComponentBrowseIcon;
+  }
+  /**
+   * icon for upload button
+   */
+  public get IconUpload(): string {
+    return this.iconService.UploadComponentUploadIcon;
+  }
+  /**
+   * icon for delete buttons
+   */
+  public get IconDelete(): string {
+    return this.iconService.UploadComponentDeleteIcon;
+  }
+  /**
+   * icon for pause buttons
+   */
+  public get IconPause(): string {
+    return this.iconService.UploadComponentPauseIcon;
+  }
+  /**
+   * icon for continous buttons
+   */
+  public get IconContinue(): string {
+    return this.iconService.UploadComponentContinueIcon;
   }
 }

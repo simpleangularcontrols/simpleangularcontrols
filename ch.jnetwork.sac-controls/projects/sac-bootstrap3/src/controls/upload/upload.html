@@ -23,8 +23,11 @@
           [class.btn-default]="!(invalid && (dirty || touched))"
           [class.btn-danger]="invalid && (dirty || touched)"
         >
-          <i class="glyphicon glyphicon-folder-open"></i>
-          <span class="upload-browse">Browse</span>
+          <i [class]="IconBrowse"></i>
+          <span class="upload-browse"
+            >{{ lngResourceService.GetString('UPLOAD_BUTTON_BROWSE') | async
+            }}</span
+          >
           <input
             type="file"
             class="custom-file-input"
@@ -63,7 +66,7 @@
           [class.btn-default]="!(invalid && (dirty || touched))"
           [class.btn-danger]="invalid && (dirty || touched)"
         >
-          <span class="glyphicon glyphicon-remove"></span>
+          <span [class]="IconDelete"></span>
         </a>
         <a
           *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && IsPaused() === false)"
@@ -73,7 +76,7 @@
           [class.btn-default]="!(invalid && (dirty || touched))"
           [class.btn-danger]="invalid && (dirty || touched)"
         >
-          <span class="glyphicon glyphicon-pause"></span>
+          <span [class]="IconPause"></span>
         </a>
         <a
           *ngIf="autoupload && enablepause && IsPaused()"
@@ -82,7 +85,7 @@
           [class.btn-default]="!(invalid && (dirty || touched))"
           [class.btn-danger]="invalid && (dirty || touched)"
         >
-          <span class="glyphicon glyphicon-play"></span>
+          <span [class]="IconContinue"></span>
         </a>
         <a
           *ngIf="autoupload === false"
@@ -92,7 +95,8 @@
           [class.btn-default]="!(invalid && (dirty || touched))"
           [class.btn-danger]="invalid && (dirty || touched)"
         >
-          <span class="glyphicon glyphicon-upload"></span> Upload
+          <span [class]="IconUpload"></span> {{
+          lngResourceService.GetString('UPLOAD_BUTTON_UPLOAD') | async }}
         </a>
       </div>
     </div>

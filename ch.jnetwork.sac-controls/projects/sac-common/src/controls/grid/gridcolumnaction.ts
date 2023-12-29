@@ -1,4 +1,4 @@
-import { ElementRef, Directive } from '@angular/core';
+import { ElementRef, Directive, Injector } from '@angular/core';
 import { SacGridCommon } from './grid';
 import { SacGridColumnBaseCommon } from './gridcolumnbase';
 
@@ -7,13 +7,13 @@ import { SacGridColumnBaseCommon } from './gridcolumnbase';
  */
 @Directive()
 export class SacGridColumnActionCommon extends SacGridColumnBaseCommon {
-
   /**
-  * Konstruktor
-  * @param el Element Referenz
-  * @param grid SacGridCommon
-  */
-  constructor(grid: SacGridCommon, el: ElementRef) {
-    super(grid, el);
+   * Konstruktor
+   * @param el Element Referenz
+   * @param injector di inector to resolve icon service
+   * @param grid SacGridCommon
+   */
+  constructor(grid: SacGridCommon, injector: Injector, el: ElementRef) {
+    super(grid, injector, el);
   }
 }

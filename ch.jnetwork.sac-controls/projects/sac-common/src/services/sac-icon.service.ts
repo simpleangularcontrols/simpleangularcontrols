@@ -16,6 +16,10 @@ export abstract class SacAbstractIconService implements ISacIconService {
   /**
    * @inheritdoc
    */
+  abstract get ConfirmDefaultImage(): string;
+  /**
+   * @inheritdoc
+   */
   abstract get GridComponentSortUp(): string;
   /**
    * @inheritdoc
@@ -40,6 +44,12 @@ export abstract class SacAbstractIconService implements ISacIconService {
  * */
 @Injectable({ providedIn: 'root' })
 export class SacDefaultIconService extends SacAbstractIconService {
+  /**
+   * @inheritdoc
+   */
+  get ConfirmDefaultImage(): string {
+    return '/assets/icons/dialog/question.png';
+  }
   /**
    * @inheritdoc
    */

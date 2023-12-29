@@ -22,4 +22,8 @@ export interface ISacIconService {
    * sort down icon for grid
    */
   get GridComponentSortDown(): string;
+  /**
+   * default image for confirm dialog. currently is required a png image path
+   */
+  get ConfirmDefaultImage(): string;
 }

@@ -1,5 +1,19 @@
-import { ApplicationRef, ComponentFactory, ComponentRef, EventEmitter, Injector } from '@angular/core';
+import {
+  ApplicationRef,
+  ComponentFactory,
+  ComponentRef,
+  EventEmitter,
+  Injector,
+} from '@angular/core';
+import { ISacIconService } from '../../interfaces/ISacIconService';
+import { ISacLocalisationService } from '../../interfaces/ISacLocalisationService';
 import { IConfirmComponent } from '../../interfaces/iconfirmcomponent';
+import {
+  SACICON_SERVICE,
+  SACLOCALISATION_SERVICE,
+  SacDefaultIconService,
+  SacDefaultLocalisationService,
+} from '../../services';
 
 /**
  * Basis Klasse für Confirm Service implementation
@@ -10,7 +24,17 @@ export abstract class ServiceConfirmCommon {
    * @param appRef ApplicationRef zum Anhängen des Dialogs an den Content
    * @param injector Injector um die Instanz zu erzeuge
    */
-  constructor(private appRef: ApplicationRef, private injector: Injector) {}
+  constructor(private appRef: ApplicationRef, private injector: Injector) {
+    this.localisationService = injector.get(
+      SACLOCALISATION_SERVICE,
+      new SacDefaultLocalisationService()
+    );
+
+    this.iconService = injector.get(
+      SACICON_SERVICE,
+      new SacDefaultIconService()
+    );
+  }
 
   //#region Properties
 
@@ -37,6 +61,15 @@ export abstract class ServiceConfirmCommon {
   //#endregion
 
   //#region Protected Methods
+
+  /**
+   * service for tranlsate default text
+   */
+  protected localisationService: ISacLocalisationService;
+  /**
+   * service for default icon in dialog
+   */
+  protected iconService: ISacIconService;
 
   /**
    * Erzeugt eine Instanz für den Dialog

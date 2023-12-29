@@ -1,5 +1,17 @@
-import { Injectable, Type, ComponentFactoryResolver, ApplicationRef, Injector, Inject, ComponentFactory } from '@angular/core';
-import { ServiceConfirmCommon, SacConfirmButton, isDefined } from '@simpleangularcontrols/sac-common';
+import {
+  Injectable,
+  Type,
+  ComponentFactoryResolver,
+  ApplicationRef,
+  Injector,
+  Inject,
+  ComponentFactory,
+} from '@angular/core';
+import {
+  ServiceConfirmCommon,
+  SacConfirmButton,
+  isDefined,
+} from '@simpleangularcontrols/sac-common';
 import { SacConfirmComponent } from './confirm';
 import { EventEmitter } from '@angular/core';
 
@@ -19,10 +31,9 @@ import { EventEmitter } from '@angular/core';
  */
 @Injectable()
 export class ServiceConfirm extends ServiceConfirmCommon {
-
   /**
- * Titel der im Dialog angezeigt werden soll.
- */
+   * Titel der im Dialog angezeigt werden soll.
+   */
   private title: string = '';
 
   /**
@@ -41,7 +52,12 @@ export class ServiceConfirm extends ServiceConfirmCommon {
    * @param appRef Application Referenz. Wird benötigt um den Dialog am Body anzuhängen
    * @param injector Injector. Wird benötigt um den Dialog dynamisch zu erzeugen
    */
-  constructor( @Inject(ComponentFactoryResolver) private componentFactoryResolver: ComponentFactoryResolver, appRef: ApplicationRef, injector: Injector) {
+  constructor(
+    @Inject(ComponentFactoryResolver)
+    private componentFactoryResolver: ComponentFactoryResolver,
+    appRef: ApplicationRef,
+    injector: Injector
+  ) {
     super(appRef, injector);
   }
 
@@ -49,7 +65,9 @@ export class ServiceConfirm extends ServiceConfirmCommon {
    * Erzeugen einer Component Factory für einen Dialog
    */
   public GetComponentFactory(): ComponentFactory<SacConfirmComponent> {
-    return this.componentFactoryResolver.resolveComponentFactory(SacConfirmComponent);
+    return this.componentFactoryResolver.resolveComponentFactory(
+      SacConfirmComponent
+    );
   }
 
   /**
@@ -57,7 +75,11 @@ export class ServiceConfirm extends ServiceConfirmCommon {
    * @param message Nachricht die angezeigt werden soll.
    * @returns EventEmitter mit Key des Buttons, welcher geklickt wurde.
    */
-  public ConfirmMessage(title: string, message: string, buttons: SacConfirmButton[] = null): EventEmitter<string> {
+  public ConfirmMessage(
+    title: string,
+    message: string,
+    buttons: SacConfirmButton[] = null
+  ): EventEmitter<string> {
     this.title = title;
     this.message = message;
 
@@ -82,6 +104,6 @@ export class ServiceConfirm extends ServiceConfirmCommon {
     instance.title = this.title;
     instance.message = this.message;
     instance.buttons = this.buttons;
-    instance.image = '/icons/dialog/question.png';
+    instance.image = this.iconService.ConfirmDefaultImage;
   }
 }

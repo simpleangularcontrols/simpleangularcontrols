@@ -22,7 +22,6 @@ import { DemoRichtextComponent } from './richtext.component';
     SACBootstrap3ValidationSummaryModule,
     SACBootstrap3DialogModule,
     SACBootstrap3ButtonModule,
-    // SACBootstrap3BrowserModule,
     SACBootstrap3TinyMceModule,
     EditorModule,
   ],

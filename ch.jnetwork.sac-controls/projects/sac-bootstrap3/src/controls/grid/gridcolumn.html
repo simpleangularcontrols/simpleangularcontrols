@@ -1,8 +1,26 @@
-<th scope="col" *ngIf="IsHeader()" [style.width]="width" (click)="SortByColumn()">
+<th
+  scope="col"
+  *ngIf="IsHeader()"
+  [style.width]="width"
+  (click)="SortByColumn()"
+>
   <span>{{header}}</span>
+  <span
+    class="fa fa-caret-up"
+    style="padding-left: 0.5rem"
+    *ngIf="IsSortedColumn() && GetSortDirection() ==='asc'"
+  ></span>
+  <span
+    class="fa fa-caret-down"
+    style="padding-left: 0.5rem"
+    *ngIf="IsSortedColumn() && GetSortDirection() ==='desc'"
+  ></span>
 </th>
-<td scope="col" *ngIf="IsBody()" [style.width]="width" [class.ellipsis]="IsEllipsis()">
-  <span [attr.title]="IsEllipsis() ? value : null">
-    {{value}}
-  </span>
+<td
+  scope="col"
+  *ngIf="IsBody()"
+  [style.width]="width"
+  [class.ellipsis]="IsEllipsis()"
+>
+  <span [attr.title]="IsEllipsis() ? value : null"> {{value}} </span>
 </td>

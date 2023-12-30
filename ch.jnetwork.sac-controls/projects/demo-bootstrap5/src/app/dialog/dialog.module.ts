@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  SACBootstrap4ButtonModule,
-  SACBootstrap4DialogModule,
-  SACBootstrap4FormModule,
-  SACBootstrap4ValidationSummaryModule
-} from '@simpleangularcontrols/sac-bootstrap4';
+  SACBootstrap5ButtonModule,
+  SACBootstrap5DialogModule,
+  SACBootstrap5FormModule,
+  SACBootstrap5ValidationSummaryModule,
+} from '@simpleangularcontrols/sac-bootstrap5';
 import { DialogRoutingModule } from './dialog-routing.module';
 import { DemoDialogComponent } from './dialog.component';
 @NgModule({
@@ -15,11 +15,11 @@ import { DemoDialogComponent } from './dialog.component';
     CommonModule,
     FormsModule,
     DialogRoutingModule,
-    SACBootstrap4FormModule,
-    SACBootstrap4DialogModule,
-    SACBootstrap4ValidationSummaryModule,
-    SACBootstrap4ButtonModule,
-    SACBootstrap4DialogModule,
+    SACBootstrap5FormModule,
+    SACBootstrap5DialogModule,
+    SACBootstrap5ValidationSummaryModule,
+    SACBootstrap5ButtonModule,
+    SACBootstrap5DialogModule,
   ],
 })
 export class DialogModule {}

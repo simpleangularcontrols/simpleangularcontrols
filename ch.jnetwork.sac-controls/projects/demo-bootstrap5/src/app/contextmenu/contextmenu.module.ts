@@ -2,9 +2,9 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  SACBootstrap4FormModule,
-  SACBootstrap4ContextmenuModule,
-} from '@simpleangularcontrols/sac-bootstrap4';
+  SACBootstrap5FormModule,
+  SACBootstrap5ContextmenuModule,
+} from '@simpleangularcontrols/sac-bootstrap5';
 import { ContextmenuRoutingModule } from './contextmenu-routing.module';
 import { DemoContextmenuComponent } from './contextmenu.component';
 @NgModule({
@@ -13,8 +13,8 @@ import { DemoContextmenuComponent } from './contextmenu.component';
     CommonModule,
     FormsModule,
     ContextmenuRoutingModule,
-    SACBootstrap4FormModule,
-    SACBootstrap4ContextmenuModule,
+    SACBootstrap5FormModule,
+    SACBootstrap5ContextmenuModule,
   ],
 })
 export class ContextmenuModule {}

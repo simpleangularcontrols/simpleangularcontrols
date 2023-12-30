@@ -2,10 +2,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  SACBootstrap4FormModule,
-  SACBootstrap4BrowserModule,
-  SACBootstrap4ValidationSummaryModule,
-} from '@simpleangularcontrols/sac-bootstrap4';
+  SACBootstrap5FormModule,
+  SACBootstrap5BrowserModule,
+  SACBootstrap5ValidationSummaryModule,
+} from '@simpleangularcontrols/sac-bootstrap5';
 import { BrowserRoutingModule } from './browser-routing.module';
 import { DemoBrowserComponent } from './browser.component';
 @NgModule({
@@ -14,9 +14,9 @@ import { DemoBrowserComponent } from './browser.component';
     CommonModule,
     FormsModule,
     BrowserRoutingModule,
-    SACBootstrap4FormModule,
-    SACBootstrap4BrowserModule,
-    SACBootstrap4ValidationSummaryModule,
+    SACBootstrap5FormModule,
+    SACBootstrap5BrowserModule,
+    SACBootstrap5ValidationSummaryModule,
   ],
 })
 export class BrowserModule {}

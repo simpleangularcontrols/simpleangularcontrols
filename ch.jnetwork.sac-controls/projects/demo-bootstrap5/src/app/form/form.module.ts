@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  SACBootstrap4ButtonModule,
-  SACBootstrap4FormModule,
-  SACBootstrap4InputModule,
-  SACBootstrap4ValidationSummaryModule,
-} from '@simpleangularcontrols/sac-bootstrap4';
+  SACBootstrap5ButtonModule,
+  SACBootstrap5FormModule,
+  SACBootstrap5InputModule,
+  SACBootstrap5ValidationSummaryModule,
+} from '@simpleangularcontrols/sac-bootstrap5';
 import { FormRoutingModule } from './form-routing.module';
 import { DemoFormComponent } from './form.component';
 import { DemoSubFormComponent } from './subform.component';
@@ -19,10 +19,10 @@ import { DemoSubFormComponent } from './subform.component';
     CommonModule,
     FormsModule,
     FormRoutingModule,
-    SACBootstrap4FormModule,
-    SACBootstrap4InputModule,
-    SACBootstrap4ValidationSummaryModule,
-    SACBootstrap4ButtonModule,
+    SACBootstrap5FormModule,
+    SACBootstrap5InputModule,
+    SACBootstrap5ValidationSummaryModule,
+    SACBootstrap5ButtonModule,
   ],
 })
 export class FormModule {}

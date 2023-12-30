@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ServiceConfirm } from '@simpleangularcontrols/sac-bootstrap4';
+import { ServiceConfirm } from '@simpleangularcontrols/sac-bootstrap5';
 
 @Component({
   selector: 'app-confirm',

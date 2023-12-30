@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  SACBootstrap4FormModule,
-  SACBootstrap4CheckboxModule,
-  SACBootstrap4ButtonModule,
-  SACBootstrap4ValidationSummaryModule,
-} from '@simpleangularcontrols/sac-bootstrap4';
+  SACBootstrap5FormModule,
+  SACBootstrap5CheckboxModule,
+  SACBootstrap5ButtonModule,
+  SACBootstrap5ValidationSummaryModule,
+} from '@simpleangularcontrols/sac-bootstrap5';
 import { CheckboxRoutingModule } from './checkbox-routing.module';
 import { DemoCheckboxComponent } from './checkbox.component';
 @NgModule({
@@ -15,10 +15,10 @@ import { DemoCheckboxComponent } from './checkbox.component';
     CommonModule,
     FormsModule,
     CheckboxRoutingModule,
-    SACBootstrap4FormModule,
-    SACBootstrap4ButtonModule,
-    SACBootstrap4ValidationSummaryModule,
-    SACBootstrap4CheckboxModule,
+    SACBootstrap5FormModule,
+    SACBootstrap5ButtonModule,
+    SACBootstrap5ValidationSummaryModule,
+    SACBootstrap5CheckboxModule,
   ],
 })
 export class CheckboxModule {}

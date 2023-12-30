@@ -2,15 +2,14 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  SACBootstrap4BrowserModule,
-  SACBootstrap4ButtonModule,
-  SACBootstrap4DialogModule,
-  SACBootstrap4FormModule,
-  SACBootstrap4TinyMceModule,
-  SACBootstrap4ValidationSummaryModule,
-} from '@simpleangularcontrols/sac-bootstrap4';
+  SACBootstrap5BrowserModule,
+  SACBootstrap5ButtonModule,
+  SACBootstrap5DialogModule,
+  SACBootstrap5FormModule,
+  SACBootstrap5TinyMceModule,
+  SACBootstrap5ValidationSummaryModule,
+} from '@simpleangularcontrols/sac-bootstrap5';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
-import { SACBootstrap4TinyMceModuleNgFactory } from 'dist/sac-bootstrap4/controls/tinymce/tinymce.module.ngfactory';
 import { RichtextRoutingModule } from './richtext-routing.module';
 import { DemoRichtextComponent } from './richtext.component';
 @NgModule({
@@ -19,12 +18,12 @@ import { DemoRichtextComponent } from './richtext.component';
     CommonModule,
     FormsModule,
     RichtextRoutingModule,
-    SACBootstrap4FormModule,
-    SACBootstrap4ValidationSummaryModule,
-    SACBootstrap4DialogModule,
-    SACBootstrap4ButtonModule,
-    SACBootstrap4BrowserModule,
-    SACBootstrap4TinyMceModule,
+    SACBootstrap5FormModule,
+    SACBootstrap5ValidationSummaryModule,
+    SACBootstrap5DialogModule,
+    SACBootstrap5ButtonModule,
+    SACBootstrap5BrowserModule,
+    SACBootstrap5TinyMceModule,
     EditorModule,
   ],
   providers: [

@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  SACBootstrap4ButtonModule,
-  SACBootstrap4ConfirmModule,
-  SACBootstrap4FormModule,
-  SACBootstrap4ValidationSummaryModule,
-} from '@simpleangularcontrols/sac-bootstrap4';
+  SACBootstrap5ButtonModule,
+  SACBootstrap5ConfirmModule,
+  SACBootstrap5FormModule,
+  SACBootstrap5ValidationSummaryModule,
+} from '@simpleangularcontrols/sac-bootstrap5';
 import { ConfirmRoutingModule } from './confirm-routing.module';
 import { DemoConfirmComponent } from './confirm.component';
 @NgModule({
@@ -15,11 +15,10 @@ import { DemoConfirmComponent } from './confirm.component';
     CommonModule,
     FormsModule,
     ConfirmRoutingModule,
-    SACBootstrap4FormModule,
-    SACBootstrap4ConfirmModule,
-    SACBootstrap4ValidationSummaryModule,
-    SACBootstrap4ButtonModule,
-    SACBootstrap4ConfirmModule.forRoot(),
+    SACBootstrap5FormModule,
+    SACBootstrap5ValidationSummaryModule,
+    SACBootstrap5ButtonModule,
+    SACBootstrap5ConfirmModule.forRoot(),
   ],
 })
 export class ConfirmModule {}

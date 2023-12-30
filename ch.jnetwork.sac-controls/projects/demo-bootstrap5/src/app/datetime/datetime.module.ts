@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  SACBootstrap4FormModule,
-  SACBootstrap4DateTimeModule,
-  SACBootstrap4ButtonModule,
-  SACBootstrap4ValidationSummaryModule,
-} from '@simpleangularcontrols/sac-bootstrap4';
+  SACBootstrap5FormModule,
+  SACBootstrap5DateTimeModule,
+  SACBootstrap5ButtonModule,
+  SACBootstrap5ValidationSummaryModule,
+} from '@simpleangularcontrols/sac-bootstrap5';
 import { DatetimeRoutingModule } from './datetime-routing.module';
 import { DemoDatetimeComponent } from './datetime.component';
 @NgModule({
@@ -15,10 +15,10 @@ import { DemoDatetimeComponent } from './datetime.component';
     CommonModule,
     FormsModule,
     DatetimeRoutingModule,
-    SACBootstrap4FormModule,
-    SACBootstrap4ButtonModule,
-    SACBootstrap4ValidationSummaryModule,
-    SACBootstrap4DateTimeModule,
+    SACBootstrap5FormModule,
+    SACBootstrap5ButtonModule,
+    SACBootstrap5ValidationSummaryModule,
+    SACBootstrap5DateTimeModule,
   ],
 })
 export class DatetimeModule {}

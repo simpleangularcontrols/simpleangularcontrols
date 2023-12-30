@@ -27,7 +27,11 @@
     role="success"
   ></sac-button>
   <div>Danger Button</div>
-  <sac-button (clicked)="debugAction1()" text="Validate" role="danger"></sac-button>
+  <sac-button
+    (clicked)="debugAction1()"
+    text="Validate"
+    role="danger"
+  ></sac-button>
   <div>Warning Button</div>
   <sac-button
     (clicked)="debugAction1()"
@@ -35,28 +39,42 @@
     role="warning"
   ></sac-button>
   <div>Info Button</div>
-  <sac-button (clicked)="debugAction1()" text="Validate" role="info"></sac-button>
+  <sac-button
+    (clicked)="debugAction1()"
+    text="Validate"
+    role="info"
+  ></sac-button>
   <div>Link Button</div>
-  <sac-button (clicked)="debugAction1()" text="Validate" role="link"></sac-button>
+  <sac-button
+    (clicked)="debugAction1()"
+    text="Validate"
+    role="link"
+  ></sac-button>
   <div>Button Group</div>
-  <div class="form-row form-group">
-    <sac-button
-      name="button1"
-      text="Button 1"
-      (clicked)="debugAction1()"
-      class="mr-2"
-    ></sac-button>
-    <sac-button
-      name="button2"
-      text="Button 2"
-      (clicked)="debugAction1()"
-      class="mr-2"
-    ></sac-button>
-    <sac-button
-      name="button3"
-      text="Button 3"
-      (clicked)="debugAction1()"
-      class="mr-2"
-    ></sac-button>
+  <div class="row g-2">
+    <div class="col-auto">
+      <sac-button
+        name="button1"
+        text="Button 1"
+        (clicked)="debugAction1()"
+        class="mr-2"
+      ></sac-button>
+    </div>
+    <div class="col-auto">
+      <sac-button
+        name="button2"
+        text="Button 2"
+        (clicked)="debugAction1()"
+        class="mr-2"
+      ></sac-button>
+    </div>
+    <div class="col-auto">
+      <sac-button
+        name="button3"
+        text="Button 3"
+        (clicked)="debugAction1()"
+        class="mr-2"
+      ></sac-button>
+    </div>
   </div>
 </form>

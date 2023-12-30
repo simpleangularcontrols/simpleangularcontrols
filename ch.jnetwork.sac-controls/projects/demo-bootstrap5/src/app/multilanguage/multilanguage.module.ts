@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  SACBootstrap4FormModule,
-  SACBootstrap4MultilanguageModule,
-  SACBootstrap4ButtonModule,
-  SACBootstrap4ValidationSummaryModule,
-} from '@simpleangularcontrols/sac-bootstrap4';
+  SACBootstrap5FormModule,
+  SACBootstrap5MultilanguageModule,
+  SACBootstrap5ButtonModule,
+  SACBootstrap5ValidationSummaryModule,
+} from '@simpleangularcontrols/sac-bootstrap5';
 import { MultilanguageRoutingModule } from './multilanguage-routing.module';
 import { DemoMultilanguageComponent } from './multilanguage.component';
 @NgModule({
@@ -15,10 +15,10 @@ import { DemoMultilanguageComponent } from './multilanguage.component';
     CommonModule,
     FormsModule,
     MultilanguageRoutingModule,
-    SACBootstrap4FormModule,
-    SACBootstrap4ButtonModule,
-    SACBootstrap4ValidationSummaryModule,
-    SACBootstrap4MultilanguageModule,
+    SACBootstrap5FormModule,
+    SACBootstrap5ButtonModule,
+    SACBootstrap5ValidationSummaryModule,
+    SACBootstrap5MultilanguageModule,
   ],
 })
 export class MultilanguageModule {}

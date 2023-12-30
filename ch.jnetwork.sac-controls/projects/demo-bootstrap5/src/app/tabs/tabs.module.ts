@@ -2,10 +2,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  SACBootstrap4TabsModule,
-  SACBootstrap4FormModule,
-  SACBootstrap4ValidationSummaryModule,
-} from '@simpleangularcontrols/sac-bootstrap4';
+  SACBootstrap5TabsModule,
+  SACBootstrap5FormModule,
+  SACBootstrap5ValidationSummaryModule,
+} from '@simpleangularcontrols/sac-bootstrap5';
 import { TabsRoutingModule } from './tabs-routing.module';
 import { DemoTabsComponent } from './tabs.component';
 @NgModule({
@@ -14,10 +14,10 @@ import { DemoTabsComponent } from './tabs.component';
     CommonModule,
     FormsModule,
     TabsRoutingModule,
-    SACBootstrap4FormModule,
-    SACBootstrap4TabsModule,
-    SACBootstrap4ValidationSummaryModule,
-    SACBootstrap4TabsModule,
+    SACBootstrap5FormModule,
+    SACBootstrap5TabsModule,
+    SACBootstrap5ValidationSummaryModule,
+    SACBootstrap5TabsModule,
   ],
 })
 export class TabsModule {}

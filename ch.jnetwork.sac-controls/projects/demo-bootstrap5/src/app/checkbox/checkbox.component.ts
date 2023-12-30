@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { SacFormDirective } from '@simpleangularcontrols/sac-bootstrap4';
+import { SacFormDirective } from '@simpleangularcontrols/sac-bootstrap5';
 
 @Component({
   selector: 'app-checkbox',

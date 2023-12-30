@@ -8,7 +8,7 @@ import { SACBootstrap5ButtonModule } from '../buttons/button.module';
 /**
  *  Module für Confirm Messages
  *
- *  In NgModule der Applikation folgenden Eintrag bei Imports einfügen: ExanicBootstrap4ConfirmModule.forRoot()
+ *  In NgModule der Applikation folgenden Eintrag bei Imports einfügen: SACBootstrap5ConfirmModule.forRoot()
  *
  */
 @NgModule({

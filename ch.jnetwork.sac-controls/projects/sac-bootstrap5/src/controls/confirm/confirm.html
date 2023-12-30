@@ -6,13 +6,15 @@
   dialogsize="small"
 >
   <div dialogbody>
-    <div class="media">
-      <img
-        [attr.src]="image"
-        class="align-self-center mr-3"
-        *ngIf="hasImage()"
-      />
-      <div class="media-body">{{message}}</div>
+    <div class="d-flex align-items-center">
+      <div class="me-2">
+        <img
+          [attr.src]="image"
+          class="align-self-center mr-3"
+          *ngIf="hasImage()"
+        />
+      </div>
+      <div class="flex-grow-1">{{message}}</div>
     </div>
   </div>
   <ng-container dialogfooter>

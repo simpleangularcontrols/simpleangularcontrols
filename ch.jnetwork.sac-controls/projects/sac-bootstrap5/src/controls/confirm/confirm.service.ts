@@ -1,19 +1,18 @@
 import {
-  Injectable,
-  Type,
-  ComponentFactoryResolver,
   ApplicationRef,
-  Injector,
-  Inject,
   ComponentFactory,
+  ComponentFactoryResolver,
+  EventEmitter,
+  Inject,
+  Injectable,
+  Injector
 } from '@angular/core';
 import {
-  ServiceConfirmCommon,
   SacConfirmButton,
+  ServiceConfirmCommon,
   isDefined,
 } from '@simpleangularcontrols/sac-common';
 import { SacConfirmComponent } from './confirm';
-import { EventEmitter } from '@angular/core';
 
 /**
  * Service für Confirm Messages in TypeScript Code

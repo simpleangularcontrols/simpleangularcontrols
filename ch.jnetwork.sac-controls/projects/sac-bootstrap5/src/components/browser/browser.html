@@ -17,7 +17,7 @@
         <div class="mx-3" *ngFor="let i of count(deep)"></div>
         <div
           (click)="switchExpandNode(node);$event.stopPropagation();"
-          class="fa mr-2"
+          class="fa me-2"
           [class.fa-folder]="node.ChildNodes.length === 0"
           [class.fa-folder-plus]="!node.IsExpanded && node.ChildNodes.length > 0"
           [class.fa-folder-open]="node.IsExpanded && node.ChildNodes.length > 0"

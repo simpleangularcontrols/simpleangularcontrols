@@ -1,14 +1,38 @@
-<div class="row form-group" [class.no-gutters]="disablelabel">
-  <label *ngIf="disablelabel === false && !isadaptivelabel" id="{{name}}_label" for="{{name}}" class="col-form-label" [ngClass]="[labelsize !== 12 ?  'col-sm-' + labelsize : 'sr-only']" [class.required]="isrequired">{{label}}</label>
-  <div [ngClass]="[disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
+<div class="row mb-3" [class.g-0]="disablelabel">
+  <label
+    *ngIf="disablelabel === false && !isadaptivelabel"
+    id="{{name}}_label"
+    for="{{name}}"
+    class="col-form-label col-form-label-sm"
+    [ngClass]="[labelsize !== 12 ?  'col-sm-' + labelsize : 'sr-only']"
+    [class.required]="isrequired"
+    >{{label}}</label
+  >
+  <div
+    [ngClass]="[disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']"
+  >
     <div class="input-group input-group-sm">
-      <input id="{{name}}" name="{{name}}" type="text" class="form-control"
-             [value]="value" [attr.placeholder]="placeholder"
-             (blur)="onTouch()" (input)="setValue($event.target.value)"
-             [attr.maxlength]="maxlength" [ngClass]="{'language-specific': islanguagespecific,'is-invalid': invalid && (dirty || touched) }" [disabled]="isdisabled" [readonly]="readonly" />
-      <div class="input-group-append">
-        <input type="submit" class="btn btn-secondary" id="{{name}}_search" (click)="searchClick()" [value]="buttontext" />
-      </div>
+      <input
+        id="{{name}}"
+        name="{{name}}"
+        type="text"
+        class="form-control"
+        [value]="value"
+        [attr.placeholder]="placeholder"
+        (blur)="onTouch()"
+        (input)="setValue($event.target.value)"
+        [attr.maxlength]="maxlength"
+        [ngClass]="{'language-specific': islanguagespecific,'is-invalid': invalid && (dirty || touched) }"
+        [disabled]="isdisabled"
+        [readonly]="readonly"
+      />
+      <input
+        type="submit"
+        class="btn btn-secondary"
+        id="{{name}}_search"
+        (click)="searchClick()"
+        [value]="buttontext"
+      />
     </div>
   </div>
 </div>

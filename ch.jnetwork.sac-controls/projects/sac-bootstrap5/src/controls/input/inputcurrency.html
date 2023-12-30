@@ -1,7 +1,7 @@
-<div class="row form-group" [class.no-gutters]="disablelabel">
+<div class="row mb-3" [class.g-0]="disablelabel">
   <label
     for="{{name}}"
-    class="col-12 col-form-label"
+    class="col-12 col-form-label col-form-label-sm"
     [ngClass]="[disablelabel === false ?  'col-sm-' + labelsize : 'sr-only' ]"
     >{{label}}</label
   >
@@ -24,9 +24,7 @@
         [readonly]="readonly"
         [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
       />
-      <div class="input-group-append">
-        <span class="input-group-text">CHF</span>
-      </div>
+      <span class="input-group-text">CHF</span>
     </div>
   </div>
 </div>

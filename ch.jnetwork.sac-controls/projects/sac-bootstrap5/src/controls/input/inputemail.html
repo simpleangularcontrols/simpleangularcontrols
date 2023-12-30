@@ -1,7 +1,7 @@
-<div class="form-group row">
+<div class="row mb-3" [class.g-0]="disablelabel">
   <label
     for="{{name}}"
-    class="col-12 col-form-label"
+    class="col-12 col-form-label col-form-label-sm"
     [ngClass]="[disablelabel === false ?  'col-sm-' + labelsize : 'sr-only' ]"
     >{{label}}</label
   >
@@ -10,9 +10,7 @@
     [ngClass]="[disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']"
   >
     <div class="input-group input-group-sm">
-      <div class="input-group-prepend">
-        <span class="input-group-text">@</span>
-      </div>
+      <span class="input-group-text">@</span>
       <input
         id="{{name}}"
         name="{{name}}"

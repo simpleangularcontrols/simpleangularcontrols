@@ -24,7 +24,7 @@ export class SacDropzoneSingleCommon
   /**
    * Ervent wenn das Control initialisert wird
    */
-  SacOnInit() {
+  ngOnInit() {
     super.ngOnInit();
 
     this.autoupload = true;

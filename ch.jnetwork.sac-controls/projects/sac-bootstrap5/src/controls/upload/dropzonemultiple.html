@@ -1,9 +1,9 @@
-<div class="row form-group" [class.no-gutters]="disablelabel">
+<div class="row mb-3" [class.g-0]="disablelabel">
   <label
     *ngIf="disablelabel === false && !isadaptivelabel"
     id="{{name}}_label"
     for="{{name}}"
-    class="col-12 col-form-label"
+    class="col-12 col-form-label col-form-label-sm"
     [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']"
     >{{label}}</label
   >
@@ -12,7 +12,7 @@
     [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"
   >
     <div
-      class="dropzone d-flex justify-content-center"
+      class="dropzone d-flex justify-content-center position-relative"
       (drop)="dropHandler($event)"
       (dragover)="onDragOver($event)"
       (dragleave)="onDragLeave($event)"
@@ -27,10 +27,10 @@
         <div class="align-self-center"><ng-content></ng-content></div>
       </div>
       <div
-        class="content d-flex justify-content-center"
+        class="content d-flex justify-content-center align-items-center w-50 my-3"
         *ngIf="uploads.length > 0"
       >
-        <div class="align-self-center progress-container">
+        <div class="flex-fill progress-container">
           <div
             class="dropzone-uploadstates"
             [class.mt-1]="i > 0"
@@ -52,17 +52,14 @@
                   </div>
                 </div>
               </div>
-              <div class="input-group-append">
-                <!-- image-preview-clear button -->
-                <a
-                  class="btn"
-                  (click)="cancel(file.uploadId)"
-                  [class.btn-secondary]="!(invalid && (dirty || touched))"
-                  [class.btn-danger]="invalid && (dirty || touched)"
-                >
-                  <span class="fa fa-times"></span>
-                </a>
-              </div>
+              <a
+                class="btn"
+                (click)="cancel(file.uploadId)"
+                [class.btn-secondary]="!(invalid && (dirty || touched))"
+                [class.btn-danger]="invalid && (dirty || touched)"
+              >
+                <span class="fa fa-times"></span>
+              </a>
             </div>
           </div>
         </div>

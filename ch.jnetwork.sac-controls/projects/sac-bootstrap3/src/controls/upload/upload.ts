@@ -9,6 +9,7 @@ import { NgZone } from '@angular/core';
 @Component({
   selector: 'sac-upload',
   templateUrl: './upload.html',
+  styleUrls: ['./upload.scss'],
   providers: [
     { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacUploadComponent },
     { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => SacUploadComponent) }

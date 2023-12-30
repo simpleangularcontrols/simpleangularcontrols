@@ -343,13 +343,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SACBootstrap3TinyMceModule.html" data-type="entity-link" >SACBootstrap3TinyMceModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                            'data-bs-target="#components-links-module-SACBootstrap3TinyMceModule-3a58c884a267dcdde5114428ca9f85944dae82b278fb463fae491283d6499b03294fabfd8159e4abf8328b6797d82ca392b77dcd2074dfc64c5b5811bfd2bc51"' : 'data-bs-target="#xs-components-links-module-SACBootstrap3TinyMceModule-3a58c884a267dcdde5114428ca9f85944dae82b278fb463fae491283d6499b03294fabfd8159e4abf8328b6797d82ca392b77dcd2074dfc64c5b5811bfd2bc51"' }>
+                                            'data-bs-target="#components-links-module-SACBootstrap3TinyMceModule-461911ad9568cc886e03e807150227cfd0aaa4bedfe315a1d20860cc1fba6c310e8d962f24c0f1712b16f38878a97d70039db556adc44222f10c4ec1901664bc"' : 'data-bs-target="#xs-components-links-module-SACBootstrap3TinyMceModule-461911ad9568cc886e03e807150227cfd0aaa4bedfe315a1d20860cc1fba6c310e8d962f24c0f1712b16f38878a97d70039db556adc44222f10c4ec1901664bc"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SACBootstrap3TinyMceModule-3a58c884a267dcdde5114428ca9f85944dae82b278fb463fae491283d6499b03294fabfd8159e4abf8328b6797d82ca392b77dcd2074dfc64c5b5811bfd2bc51"' :
-                                            'id="xs-components-links-module-SACBootstrap3TinyMceModule-3a58c884a267dcdde5114428ca9f85944dae82b278fb463fae491283d6499b03294fabfd8159e4abf8328b6797d82ca392b77dcd2074dfc64c5b5811bfd2bc51"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SACBootstrap3TinyMceModule-461911ad9568cc886e03e807150227cfd0aaa4bedfe315a1d20860cc1fba6c310e8d962f24c0f1712b16f38878a97d70039db556adc44222f10c4ec1901664bc"' :
+                                            'id="xs-components-links-module-SACBootstrap3TinyMceModule-461911ad9568cc886e03e807150227cfd0aaa4bedfe315a1d20860cc1fba6c310e8d962f24c0f1712b16f38878a97d70039db556adc44222f10c4ec1901664bc"' }>
                                             <li class="link">
                                                 <a href="components/SacTinyMceComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacTinyMceComponent</a>
                                             </li>

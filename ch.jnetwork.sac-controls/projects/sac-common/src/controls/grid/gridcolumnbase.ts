@@ -1,29 +1,54 @@
-import { Directive, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Injector,
+  Input,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { SacGridCommon } from './grid';
 import { SortOrder } from './model';
+import { ISacIconService } from '../../interfaces/ISacIconService';
+import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
 
 /**
  * Base Komponente für GridColumn
  */
 @Directive()
 export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
-
   /**
    * Konstruktor
+   * @param grid  reference to grid component
+   * @param injector di injector to resolve icon service
+   * @param el reference to html element
    */
-  constructor(private grid: SacGridCommon, private el: ElementRef) { }
+  constructor(
+    private grid: SacGridCommon,
+    protected injector: Injector,
+    private el: ElementRef
+  ) {
+    this.iconService = injector.get(
+      SACICON_SERVICE,
+      new SacDefaultIconService()
+    );
+  }
+
+  /**
+   * icon service
+   */
+  protected iconService: ISacIconService;
 
   //#region Input / Outputs
 
   /**
-  * Das Input property erhält den Namen des Column
-  */
+   * Das Input property erhält den Namen des Column
+   */
   @Input()
   public name: any;
 
   /**
-  * Das Input property erhält das Value des Column
-  */
+   * Das Input property erhält das Value des Column
+   */
   @Input()
   public value: any;
 
@@ -56,8 +81,8 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
   //#region Interface Implementations
 
   /**
-  * lifecycle hook - OnInit. Wird aufgeruren sobald das Komponent initialisiert ist.
-  */
+   * lifecycle hook - OnInit. Wird aufgeruren sobald das Komponent initialisiert ist.
+   */
   ngOnInit() {
     const rootElement: HTMLElement = this.el.nativeElement;
     const parentElement: HTMLElement = rootElement.parentElement;
@@ -110,10 +135,28 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
   //#endregion
 
   /**
+   * sort up icon for grid header
+   */
+  public get IconSortUp(): string {
+    return this.iconService.GridComponentSortUp;
+  }
+
+  /**
+   * sort down icon for grid header
+   */
+  public get IconSortDown(): string {
+    return this.iconService.GridComponentSortDown;
+  }
+
+  /**
    * Die Methode deffiniert wie das Grid sortiert wird, abhängig von gekligte Column
    */
   public SortByColumn() {
-    if (this.sortkey !== undefined && this.sortkey !== null && this.sortkey !== '') {
+    if (
+      this.sortkey !== undefined &&
+      this.sortkey !== null &&
+      this.sortkey !== ''
+    ) {
       return this.grid.SortBy(this.sortkey);
     }
   }
@@ -141,4 +184,3 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
     }
   }
 }
-

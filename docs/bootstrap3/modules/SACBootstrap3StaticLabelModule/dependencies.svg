@@ -24,17 +24,17 @@
 <title>cluster_SACBootstrap3StaticLabelModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-333 1778,-333 1778,-70 8,-70"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_SACBootstrap3StaticLabelModule_exports</title>
-<polygon fill="none" stroke="black" points="718,-273 718,-325 1143,-325 1143,-273 718,-273"/>
+<g id="clust2" class="cluster">
+<title>cluster_SACBootstrap3StaticLabelModule_declarations</title>
+<polygon fill="none" stroke="black" points="616,-143 616,-195 1034,-195 1034,-143 616,-143"/>
 </g>
 <g id="clust5" class="cluster">
 <title>cluster_SACBootstrap3StaticLabelModule_imports</title>
 <polygon fill="none" stroke="black" points="1042,-143 1042,-195 1248,-195 1248,-143 1042,-143"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap3StaticLabelModule_declarations</title>
-<polygon fill="none" stroke="black" points="616,-143 616,-195 1034,-195 1034,-143 616,-143"/>
+<g id="clust6" class="cluster">
+<title>cluster_SACBootstrap3StaticLabelModule_exports</title>
+<polygon fill="none" stroke="black" points="718,-273 718,-325 1143,-325 1143,-273 718,-273"/>
 </g>
 <g id="clust3" class="cluster">
 <title>cluster_SACBootstrap3StaticLabelModule_SacStaticFormContainerComponent_providers</title>

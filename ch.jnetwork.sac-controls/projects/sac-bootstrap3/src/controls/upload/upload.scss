@@ -1,0 +1,60 @@
+.upload-component {
+  .upload-input {
+    position: relative;
+  }
+
+  .custom-file {
+    > i {
+      margin-right: 15px;
+    }
+
+    .custom-file-input {
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+
+      overflow: hidden;
+      z-index: 2;
+      width: 100%;
+      margin: 0;
+      display: inline-block;
+      opacity: 0;
+    }
+  }
+
+  &.upload-multiple {
+    .upload-progress {
+      .progress {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+
+  &.upload-single {
+    .upload-progress {
+      .progress {
+        border-radius: 0;
+      }
+    }
+  }
+
+  .upload-progress {
+    padding: 0;
+
+    .progress {
+      height: 100%;
+
+      .progress-text {
+        position: absolute;
+        left: 0;
+        right: 0;
+        line-height: 34px;
+        height: 34px;
+        color: black;
+      }
+    }
+  }
+}

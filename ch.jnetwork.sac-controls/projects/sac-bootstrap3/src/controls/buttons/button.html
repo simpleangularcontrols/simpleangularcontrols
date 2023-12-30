@@ -1,14 +1,17 @@
-<a [id]="name" class="btn"
-   [class.btn-primary]="role === 'primary'"
-   [class.btn-secondary]="role === 'secondary'"
-   [class.btn-success]="role === 'success'"
-   [class.btn-danger]="role === 'danger'"
-   [class.btn-warning]="role === 'warning'"
-   [class.btn-info]="role === 'info'"
-   [class.btn-default]="role === 'default'"
-   [class.btn-link]="role === 'link'"
-   [attr.disabled]="_isdisabled ? 'disabled' : null"
-   (click)="buttonClick()">
-  <i *ngIf="icon !== ''" [ngClass]="icon"></i>
+<a
+  [id]="name"
+  class="btn"
+  [class.btn-primary]="role === 'primary'"
+  [class.btn-secondary]="role === 'secondary'"
+  [class.btn-success]="role === 'success'"
+  [class.btn-danger]="role === 'danger'"
+  [class.btn-warning]="role === 'warning'"
+  [class.btn-info]="role === 'info'"
+  [class.btn-default]="role === 'default'"
+  [class.btn-link]="role === 'link'"
+  [attr.disabled]="_isdisabled ? 'disabled' : null"
+  (click)="buttonClick()"
+>
+  <i *ngIf="icon !== ''" [ngClass]="icon" style="margin-right: 0.5rem"></i>
   {{text}}
 </a>

@@ -2824,7 +2824,7 @@ export abstract class SacBaseModelControl&lt;VALUE&gt;
   get IsInlineErrorEnabled(): boolean {
     if (
       this.parent?.IsInlineErrorEnabled &#x3D;&#x3D;&#x3D; null ||
-      this.parent.IsInlineErrorEnabled &#x3D;&#x3D;&#x3D; undefined
+      this.parent?.IsInlineErrorEnabled &#x3D;&#x3D;&#x3D; undefined
     ) {
       return this._inlineerrorenabled;
     }

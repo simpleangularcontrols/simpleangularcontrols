@@ -154,8 +154,12 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                                <code><a href="../components/SacTinyMceComponent.html" target="_self" >{ provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacTinyMceComponent }</a></code>
-                                <code><a href="../components/SacTinyMceComponent.html" target="_self" >{ provide: NG_VALIDATORS, useExisting: forwardRef(() &#x3D;&gt; SacTinyMceComponent), multi: true }</a></code>
+                                <code><a href="../components/SacTinyMceComponent.html" target="_self" >{
+    provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacTinyMceComponent,
+}</a></code>
+                                <code><a href="../components/SacTinyMceComponent.html" target="_self" >{
+    provide: NG_VALIDATORS, useExisting: forwardRef(() &#x3D;&gt; SacTinyMceComponent), multi: true,
+}</a></code>
                 </td>
             </tr>
 
@@ -264,6 +268,9 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
+                            <li>
+                                <a href="#overwriteDefaultSettings" >overwriteDefaultSettings</a>
+                            </li>
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#closeSelectDialog" >closeSelectDialog</a>
@@ -449,7 +456,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/sac-bootstrap3/src/controls/tinymce/tinymce.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/sac-bootstrap3/src/controls/tinymce/tinymce.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -1470,7 +1477,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacTinyMceCommon.html#source" target="_self" >SacTinyMceCommon:168</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacTinyMceCommon.html#source" target="_self" >SacTinyMceCommon:173</a></code>
 </div>
                             </td>
                         </tr>
@@ -1490,6 +1497,55 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="overwriteDefaultSettings"></a>
+                    <span class="name">
+                        <span ><b>overwriteDefaultSettings</b></span>
+                        <a href="#overwriteDefaultSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>overwriteDefaultSettings()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/SacTinyMceCommon.html" target="_self" >SacTinyMceCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTinyMceCommon.html#source" target="_self" >SacTinyMceCommon:53</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>overwrite tinymce defaults</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{ file_picker_types: any; file_picker_callback: any; }</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>boostrap3 does not support file browser</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -1518,7 +1574,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacTinyMceCommon.html#source" target="_self" >SacTinyMceCommon:256</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTinyMceCommon.html#source" target="_self" >SacTinyMceCommon:261</a></code>
 </div>
                         </td>
                     </tr>
@@ -1565,7 +1621,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacTinyMceCommon.html#source" target="_self" >SacTinyMceCommon:266</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTinyMceCommon.html#source" target="_self" >SacTinyMceCommon:271</a></code>
 </div>
                         </td>
                     </tr>
@@ -1647,7 +1703,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacTinyMceCommon.html#source" target="_self" >SacTinyMceCommon:237</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTinyMceCommon.html#source" target="_self" >SacTinyMceCommon:242</a></code>
 </div>
                         </td>
                     </tr>
@@ -1694,7 +1750,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacTinyMceCommon.html#source" target="_self" >SacTinyMceCommon:199</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTinyMceCommon.html#source" target="_self" >SacTinyMceCommon:204</a></code>
 </div>
                         </td>
                     </tr>
@@ -1805,7 +1861,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:275</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:280</a></code>
 </div>
                         </td>
                     </tr>
@@ -3351,20 +3407,39 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacTinyMceCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 import { SacFormDirective } from &#x27;../form/form&#x27;;
-import { Component, forwardRef, Host, Injector, NgZone, Optional } from &#x27;@angular/core&#x27;;
-import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from &#x27;@angular/forms&#x27;;
+import {
+  Component,
+  forwardRef,
+  Host,
+  Injector,
+  NgZone,
+  Optional,
+} from &#x27;@angular/core&#x27;;
+import {
+  NG_VALUE_ACCESSOR,
+  NG_VALIDATORS,
+  ControlContainer,
+} from &#x27;@angular/forms&#x27;;
 
 @Component({
   selector: &#x27;sac-tinymce&#x27;,
   templateUrl: &#x27;./tinymce.html&#x27;,
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacTinyMceComponent },
-    { provide: NG_VALIDATORS, useExisting: forwardRef(() &#x3D;&gt; SacTinyMceComponent), multi: true }
-  ]
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: SacTinyMceComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() &#x3D;&gt; SacTinyMceComponent),
+      multi: true,
+    },
+  ],
 })
 export class SacTinyMceComponent extends SacTinyMceCommon {
- /**
+  /**
    * Konstruktor
    * @param parent Formular
    * @param injector Angular Dependency Injection Service
@@ -3377,28 +3452,67 @@ export class SacTinyMceComponent extends SacTinyMceCommon {
   ) {
     super(parent, injector, ngZone);
   }
+
+  /**
+   * overwrite tinymce defaults
+   * @returns boostrap3 does not support file browser
+   */
+  overwriteDefaultSettings() {
+    return { file_picker_types: undefined, file_picker_callback: undefined };
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;form-row form-group&quot;&gt;
-  &lt;div class&#x3D;&quot;col&quot; [ngClass]&#x3D;&quot;[disablelabel &#x3D;&#x3D;&#x3D; false ?  &#x27;col-md-&#x27; + labelsize : &#x27;sr-only&#x27; ]&quot;&gt;
+  &lt;div
+    class&#x3D;&quot;col&quot;
+    [ngClass]&#x3D;&quot;[disablelabel &#x3D;&#x3D;&#x3D; false ?  &#x27;col-md-&#x27; + labelsize : &#x27;sr-only&#x27; ]&quot;
+  &gt;
     &lt;label for&#x3D;&quot;{{name}}&quot; class&#x3D;&quot;form-control-label&quot;&gt;{{label}}&lt;/label&gt;
   &lt;/div&gt;
-  &lt;div class&#x3D;&quot;col-12&quot; [ngClass]&#x3D;&quot;[disablelabel &#x3D;&#x3D;&#x3D; false ? &#x27;col-md-&#x27; + _inputsize : &#x27;col-md-12&#x27;]&quot;&gt;
+  &lt;div
+    class&#x3D;&quot;col-12&quot;
+    [ngClass]&#x3D;&quot;[disablelabel &#x3D;&#x3D;&#x3D; false ? &#x27;col-md-&#x27; + _inputsize : &#x27;col-md-12&#x27;]&quot;
+  &gt;
     &lt;editor
-    [id]&#x3D;&quot;name + &#x27;_tinymce&#x27;&quot;
-    [init]&#x3D;&quot;_config&quot;
-    [initialValue]&#x3D;&quot;value&quot;
-    ngModel
-    [ngModelOptions]&#x3D;&quot;{standalone: true}&quot;
-    (ngModelChange)&#x3D;&quot;setValue($event)&quot;
-    (onSaveContent)&#x3D;&quot;save($event.event.content)&quot;
-    [disabled]&#x3D;&quot;disabled&quot;
-  &gt;&lt;/editor&gt;
+      [id]&#x3D;&quot;name + &#x27;_tinymce&#x27;&quot;
+      [init]&#x3D;&quot;_config&quot;
+      [initialValue]&#x3D;&quot;value&quot;
+      ngModel
+      [ngModelOptions]&#x3D;&quot;{standalone: true}&quot;
+      (ngModelChange)&#x3D;&quot;setValue($event)&quot;
+      (onSaveContent)&#x3D;&quot;save($event.event.content)&quot;
+      [disabled]&#x3D;&quot;disabled&quot;
+    &gt;&lt;/editor&gt;
   &lt;/div&gt;
 &lt;/div&gt;
+
+&lt;sac-dialog
+  *ngIf&#x3D;&quot;selectdialogvisible&quot;
+  [allowesc]&#x3D;&quot;false&quot;
+  [backdrop]&#x3D;&quot;true&quot;
+  [(isvisible)]&#x3D;&quot;selectdialogvisible&quot;
+  title&#x3D;&quot;{{ lngResourceService.GetString(&#x27;TINYMCE_FILESELECT_DIALOGTITLE&#x27;) | async }}&quot;
+  size&#x3D;&quot;large&quot;
+  height&#x3D;&quot;500px&quot;
+&gt;
+  &lt;ng-container dialogbody&gt; &lt;/ng-container&gt;
+  &lt;ng-container dialogfooter&gt;
+    &lt;sac-button
+      role&#x3D;&quot;primary&quot;
+      [name]&#x3D;&quot;name + &#x27;_modalOk&#x27;&quot;
+      text&#x3D;&quot;{{ lngResourceService.GetString(&#x27;TINYMCE_FILESELECT_OK&#x27;) | async }}&quot;
+      (clicked)&#x3D;&quot;setSelectDialogResult()&quot;
+    &gt;&lt;/sac-button&gt;
+    &lt;sac-button
+      [name]&#x3D;&quot;name + &#x27;_modalClose&#x27;&quot;
+      text&#x3D;&quot;{{ lngResourceService.GetString(&#x27;TINYMCE_FILESELECT_CANCEL&#x27;) | async }}&quot;
+      (clicked)&#x3D;&quot;closeSelectDialog()&quot;
+    &gt;&lt;/sac-button&gt;
+  &lt;/ng-container&gt;
+&lt;/sac-dialog&gt;
 </code></pre>
     </div>
 
@@ -3428,7 +3542,7 @@ export class SacTinyMceComponent extends SacTinyMceCommon {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="form-row form-group">  <div class="col" [ngClass]="[disablelabel === false ?  \'col-md-\' + labelsize : \'sr-only\' ]">    <label for="{{name}}" class="form-control-label">{{label}}</label>  </div>  <div class="col-12" [ngClass]="[disablelabel === false ? \'col-md-\' + _inputsize : \'col-md-12\']">    <editor    [id]="name + \'_tinymce\'"    [init]="_config"    [initialValue]="value"    ngModel    [ngModelOptions]="{standalone: true}"    (ngModelChange)="setValue($event)"    (onSaveContent)="save($event.event.content)"    [disabled]="disabled"  ></editor>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="form-row form-group">  <div    class="col"    [ngClass]="[disablelabel === false ?  \'col-md-\' + labelsize : \'sr-only\' ]"  >    <label for="{{name}}" class="form-control-label">{{label}}</label>  </div>  <div    class="col-12"    [ngClass]="[disablelabel === false ? \'col-md-\' + _inputsize : \'col-md-12\']"  >    <editor      [id]="name + \'_tinymce\'"      [init]="_config"      [initialValue]="value"      ngModel      [ngModelOptions]="{standalone: true}"      (ngModelChange)="setValue($event)"      (onSaveContent)="save($event.event.content)"      [disabled]="disabled"    ></editor>  </div></div><sac-dialog  *ngIf="selectdialogvisible"  [allowesc]="false"  [backdrop]="true"  [(isvisible)]="selectdialogvisible"  title="{{ lngResourceService.GetString(\'TINYMCE_FILESELECT_DIALOGTITLE\') | async }}"  size="large"  height="500px">  <ng-container dialogbody> </ng-container>  <ng-container dialogfooter>    <sac-button      role="primary"      [name]="name + \'_modalOk\'"      text="{{ lngResourceService.GetString(\'TINYMCE_FILESELECT_OK\') | async }}"      (clicked)="setSelectDialogResult()"    ></sac-button>    <sac-button      [name]="name + \'_modalClose\'"      text="{{ lngResourceService.GetString(\'TINYMCE_FILESELECT_CANCEL\') | async }}"      (clicked)="closeSelectDialog()"    ></sac-button>  </ng-container></sac-dialog></div>'
     var COMPONENTS = [{'name': 'SacButtonComponent', 'selector': 'sac-button'},{'name': 'SacCheckboxComponent', 'selector': 'sac-checkbox'},{'name': 'SacConfirmComponent', 'selector': 'sac-confirm'},{'name': 'SacDateComponent', 'selector': 'sac-date'},{'name': 'SacDateSelectorComponent', 'selector': 'sac-dateselector'},{'name': 'SacDateTimeComponent', 'selector': 'sac-datetime'},{'name': 'SacDialogComponent', 'selector': 'sac-dialog'},{'name': 'SacDropdownComponent', 'selector': 'sac-dropdown'},{'name': 'SacGridButtonComponent', 'selector': 'sac-gridbutton'},{'name': 'SacGridColumnActionComponent', 'selector': 'sac-gridcolumnaction'},{'name': 'SacGridColumnComponent', 'selector': 'sac-gridcolumn'},{'name': 'SacGridComponent', 'selector': 'sac-grid'},{'name': 'SacGridImageComponent', 'selector': 'sac-gridimage'},{'name': 'SacInputAreaComponent', 'selector': 'sac-inputarea'},{'name': 'SacInputComponent', 'selector': 'sac-input'},{'name': 'SacInputCurrencyComponent', 'selector': 'sac-inputcurrency'},{'name': 'SacInputDecimalComponent', 'selector': 'sac-inputdecimal'},{'name': 'SacInputEmailComponent', 'selector': 'sac-inputemail'},{'name': 'SacInputIntegerComponent', 'selector': 'sac-inputinteger'},{'name': 'SacInputPasswordComponent', 'selector': 'sac-inputpassword'},{'name': 'SacInputSearchComponent', 'selector': 'sac-inputsearch'},{'name': 'SacListboxComponent', 'selector': 'sac-listbox'},{'name': 'SacPagingComponent', 'selector': 'sac-paging'},{'name': 'SacRadiobuttonComponent', 'selector': 'sac-radiobutton'},{'name': 'SacRadiobuttonsComponent', 'selector': 'sac-radiobuttons'},{'name': 'SacStaticFormContainerComponent', 'selector': 'sac-staticformcontainer'},{'name': 'SacStaticLabelComponent', 'selector': 'sac-staticlabel'},{'name': 'SacTabComponent', 'selector': 'sac-tab'},{'name': 'SacTabItemComponent', 'selector': 'sac-tabitem'},{'name': 'SacTimeComponent', 'selector': 'sac-time'},{'name': 'SacTinyMceComponent', 'selector': 'sac-tinymce'},{'name': 'SacTooltipComponent', 'selector': 'sac-tooltip'},{'name': 'SacTreeItemActionComponent', 'selector': 'sac-treeitemaction'},{'name': 'SacTreeViewChildComponent', 'selector': 'sac-treeviewchild'},{'name': 'SacTreeViewComponent', 'selector': 'sac-treeview'},{'name': 'SacUploadComponent', 'selector': 'sac-upload'},{'name': 'SacUploadMultipleComponent', 'selector': 'sac-uploadmultiple'},{'name': 'SacValidationSummaryComponent', 'selector': 'sac-validationsummary'},{'name': 'SacWizardComponent', 'selector': 'sac-wizard'},{'name': 'SacWizardItemComponent', 'selector': 'sac-wizarditem'}];
     var DIRECTIVES = [{'name': 'SacBaseDateTimeControl', 'selector': ''},{'name': 'SacBaseListControl', 'selector': ''},{'name': 'SacBaseModelControl', 'selector': ''},{'name': 'SacBaseSelectControl', 'selector': ''},{'name': 'SacButtonCommon', 'selector': ''},{'name': 'SacCheckboxCommon', 'selector': ''},{'name': 'SacConfirmCommon', 'selector': ''},{'name': 'SacContextmenuAnchorCommon', 'selector': ''},{'name': 'SacContextmenuCommon', 'selector': ''},{'name': 'SacContextMenuContrainerCommon', 'selector': ''},{'name': 'SacContextmenuItemButtonCommon', 'selector': ''},{'name': 'SacContextmenuItemCommon', 'selector': ''},{'name': 'SacDateCommon', 'selector': ''},{'name': 'SacDateSelectorCommon', 'selector': ''},{'name': 'SacDateTimeCommon', 'selector': ''},{'name': 'SacDialogCommon', 'selector': ''},{'name': 'SacDropdownCommon', 'selector': ''},{'name': 'SacDropdownOptionCommon', 'selector': ''},{'name': 'SacDropdownOptionDirective', 'selector': 'option,[sacOption]'},{'name': 'SacDropzoneMultipleCommon', 'selector': ''},{'name': 'SacDropzoneSingleCommon', 'selector': ''},{'name': 'SacFileBrowserCommon', 'selector': ''},{'name': 'SacFormCommon', 'selector': ''},{'name': 'SacFormDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'SacGridButtonCommon', 'selector': ''},{'name': 'SacGridColumnActionCommon', 'selector': ''},{'name': 'SacGridColumnBaseCommon', 'selector': ''},{'name': 'SacGridColumnCommon', 'selector': ''},{'name': 'SacGridCommon', 'selector': ''},{'name': 'SacGridImageCommon', 'selector': ''},{'name': 'SacInheritFormDirective', 'selector': '[sacInheritForm]'},{'name': 'SacInputAreaCommon', 'selector': ''},{'name': 'SacInputBase', 'selector': ''},{'name': 'SacInputCommon', 'selector': ''},{'name': 'SacInputCurrencyCommon', 'selector': ''},{'name': 'SacInputDecimalCommon', 'selector': ''},{'name': 'SacInputEmailCommon', 'selector': ''},{'name': 'SacInputIntegerCommon', 'selector': ''},{'name': 'SacInputPasswordCommon', 'selector': ''},{'name': 'SacInputSearchCommon', 'selector': ''},{'name': 'SacListboxCommon', 'selector': ''},{'name': 'SacListboxOptionCommon', 'selector': ''},{'name': 'SacMultilanguageInputAreaCommon', 'selector': ''},{'name': 'SacMultilanguageInputCommon', 'selector': ''},{'name': 'SacPagingCommon', 'selector': ''},{'name': 'SacRadiobuttonCommon', 'selector': ''},{'name': 'SacRadiobuttonsCommon', 'selector': ''},{'name': 'SacStaticFormContainerCommon', 'selector': ''},{'name': 'SacStaticLabelCommon', 'selector': ''},{'name': 'SacTabCommon', 'selector': ''},{'name': 'SacTabItemCommon', 'selector': ''},{'name': 'SacTimeCommon', 'selector': ''},{'name': 'SacTinyMceCommon', 'selector': ''},{'name': 'SacTooltipCommon', 'selector': ''},{'name': 'SacTreeItemActionCommon', 'selector': ''},{'name': 'SacTreeViewChildCommon', 'selector': ''},{'name': 'SacTreeViewCommon', 'selector': ''},{'name': 'SacUploadBase', 'selector': ''},{'name': 'SacUploadMultipleCommon', 'selector': ''},{'name': 'SacUploadSingleCommon', 'selector': ''},{'name': 'SacValidationSummaryCommon', 'selector': ''},{'name': 'SacWizardCommon', 'selector': ''},{'name': 'SacWizardItemCommon', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'SacTinyMceComponent'};

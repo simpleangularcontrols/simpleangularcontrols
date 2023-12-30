@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+import { Directive, ElementRef, Injector, Input } from '@angular/core';
 import { convertToBoolean } from '../../utilities/convertion';
 import { SacGridCommon } from './grid';
 import { SacGridColumnBaseCommon } from './gridcolumnbase';
@@ -11,11 +11,11 @@ export class SacGridColumnCommon extends SacGridColumnBaseCommon {
   /**
    * Konstruktor
    */
-  constructor(grid: SacGridCommon, el: ElementRef) {
-    super(grid, el);
+  constructor(grid: SacGridCommon, injector: Injector, el: ElementRef) {
+    super(grid, injector, el);
   }
 
-   /**
+  /**
    * Das Property enthielt boolean Wert für die CSS Klasse ellipsis. Default is false.
    */
   private _ellipsis: boolean = false;

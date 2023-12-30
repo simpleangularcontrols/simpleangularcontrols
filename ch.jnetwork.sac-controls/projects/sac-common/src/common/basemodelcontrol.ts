@@ -446,7 +446,7 @@ export abstract class SacBaseModelControl<VALUE>
   get IsInlineErrorEnabled(): boolean {
     if (
       this.parent?.IsInlineErrorEnabled === null ||
-      this.parent.IsInlineErrorEnabled === undefined
+      this.parent?.IsInlineErrorEnabled === undefined
     ) {
       return this._inlineerrorenabled;
     }

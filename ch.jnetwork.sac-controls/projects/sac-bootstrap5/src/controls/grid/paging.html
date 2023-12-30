@@ -1,0 +1,46 @@
+<div
+  class="d-flex justify-content-between align-items-center flex-wrap"
+  id="{{name}}"
+>
+  <div class="col-pagination order-2 order-md-1" id="{{name}}_pages">
+    <ul class="pagination mb-4 mb-md-0">
+      <li
+        class="page-item"
+        [ngClass]="{'aspNetDisabled disabled': activePageIndex === firstPageIndex}"
+      >
+        <a class="page-link" (click)="firstPage()">«</a>
+      </li>
+      <li
+        class="page-item"
+        *ngFor="let page of paginators; let i = index"
+        [ngClass]="{'active': page === activePageIndex}"
+      >
+        <a class="page-link" (click)="changePage(page)">{{page + 1 }}</a>
+      </li>
+      <li
+        class="page-item"
+        [ngClass]="{'aspNetDisabled disabled': activePageIndex === lastPageIndex}"
+      >
+        <a class="page-link" (click)="lastPage()">»</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-summary order-1 order-md-2">
+    <div class="mb-4 mb-md-0 mr-4 mb-md-0">{{ PagingText | async }}</div>
+  </div>
+  <div class="col-pagesize order-3" *ngIf="!pagesizedisabled">
+    <div class="d-flex align-items-center" id="{{name}}_size">
+      <select
+        class="form-control form-control-sm"
+        style="width: 85px"
+        [ngModel]="pageSize"
+        (ngModelChange)="changePageSize($event)"
+      >
+        <option [ngValue]="size" *ngFor="let size of getPageSizes">
+          {{size}}
+        </option>
+      </select>
+      <div class="ml-2">{{ PageSizeText | async }}</div>
+    </div>
+  </div>
+</div>

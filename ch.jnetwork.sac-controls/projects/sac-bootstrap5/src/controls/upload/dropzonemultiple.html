@@ -1,0 +1,82 @@
+<div class="row form-group" [class.no-gutters]="disablelabel">
+  <label
+    *ngIf="disablelabel === false && !isadaptivelabel"
+    id="{{name}}_label"
+    for="{{name}}"
+    class="col-12 col-form-label"
+    [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']"
+    >{{label}}</label
+  >
+  <div
+    class="col-12"
+    [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"
+  >
+    <div
+      class="dropzone d-flex justify-content-center"
+      (drop)="dropHandler($event)"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave($event)"
+      [class.active]="active"
+      [style.min-height]="uploadheight"
+      [class.validation-error]="invalid && (dirty || touched)"
+    >
+      <div
+        class="content d-flex justify-content-center"
+        *ngIf="uploads.length === 0"
+      >
+        <div class="align-self-center"><ng-content></ng-content></div>
+      </div>
+      <div
+        class="content d-flex justify-content-center"
+        *ngIf="uploads.length > 0"
+      >
+        <div class="align-self-center progress-container">
+          <div
+            class="dropzone-uploadstates"
+            [class.mt-1]="i > 0"
+            *ngFor="let file of uploads; let i = index"
+          >
+            <div class="input-group upload-component upload-component-multiple">
+              <div class="form-control upload-progress border-secondary">
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    [class.progress-bar-success]="file.progress===100"
+                    role="progressbar"
+                    [attr.aria-valuenow]="file.progress"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    [style.width.%]="file.progress"
+                  >
+                    <span class="progress-text text-dark">{{ file.name }}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group-append">
+                <!-- image-preview-clear button -->
+                <a
+                  class="btn"
+                  (click)="cancel(file.uploadId)"
+                  [class.btn-secondary]="!(invalid && (dirty || touched))"
+                  [class.btn-danger]="invalid && (dirty || touched)"
+                >
+                  <span class="fa fa-times"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <input
+        #files
+        multiple
+        id="{{ name }}_uploadinput"
+        type="file"
+        class="custom-file-input"
+        (click)="files.value = ''"
+        (uploadxState)="onUpload($event)"
+        [disabled]="HasQueueItem()"
+      />
+    </div>
+  </div>
+</div>

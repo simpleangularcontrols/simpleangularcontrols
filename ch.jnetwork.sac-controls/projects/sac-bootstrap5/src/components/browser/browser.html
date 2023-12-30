@@ -1,0 +1,167 @@
+<div class="row">
+  <div class="col-12 col-md-5 col-lg-4">
+    <ul class="list-group list-group-flush">
+      <ng-template
+        [ngTemplateOutlet]="treeItem"
+        [ngTemplateOutletContext]="{node: rootNode, deep: 0}"
+      ></ng-template>
+    </ul>
+
+    <ng-template #treeItem let-node="node" let-deep="deep">
+      <li
+        class="list-group-item py-1 px-2 d-flex align-items-center"
+        [class.list-group-item-secondary]="node === selectedNode"
+        (click)="selectNode(node)"
+        style="cursor: pointer"
+      >
+        <div class="mx-3" *ngFor="let i of count(deep)"></div>
+        <div
+          (click)="switchExpandNode(node);$event.stopPropagation();"
+          class="fa mr-2"
+          [class.fa-folder]="node.ChildNodes.length === 0"
+          [class.fa-folder-plus]="!node.IsExpanded && node.ChildNodes.length > 0"
+          [class.fa-folder-open]="node.IsExpanded && node.ChildNodes.length > 0"
+        ></div>
+        <ng-container *ngIf="!node.IsEditMode">
+          <div class="flex-grow-1">{{ node.Name }}</div>
+        </ng-container>
+        <ng-container *ngIf="node.IsEditMode">
+          <div class="flex-grow-1" ngForm>
+            <input
+              name="editFolder"
+              class="form-control form-control-sm"
+              [ngModel]="node.Name"
+              [ngModelOptions]="{updateOn: 'blur'}"
+              (ngModelChange)="renameNode(node, $event)"
+              (keydown.enter)="$event.target.blur();false;"
+              (blur)="renameNode(node, null)"
+              (click)="$event.stopPropagation()"
+            />
+          </div>
+        </ng-container>
+        <div class="flex-shrink-0">
+          <a
+            *ngIf="node.Path !== '/' && allowfolderrename"
+            class="btn btn-sm btn-link text-secondary"
+            (click)="editNode(node);$event.stopPropagation();"
+          >
+            <i class="fas fa-pen"></i>
+          </a>
+          <sac-contextmenu cssclass="d-inline-block">
+            <sac-contextmenubutton
+              *ngIf="allowfoldercreate"
+              text="{{ lngResourceService.GetString('FILEBROWSER_NEWFOLDER') | async }}"
+              iconstyle="far"
+              icon="fa-folder"
+              (clicked)="newNode(node)"
+            ></sac-contextmenubutton>
+            <sac-contextmenubutton
+              *ngIf="node.Path !== '/' && allowfolderdelete"
+              text="{{ lngResourceService.GetString('FILEBROWSER_DELETE') | async }}"
+              iconstyle="fas"
+              icon="fa-trash"
+              (clicked)="deleteNode(node)"
+            ></sac-contextmenubutton>
+            <sac-contextmenusplitter
+              *ngIf="allowfoldercreate || (node.Path !== '/' && allowfolderdelete)"
+            ></sac-contextmenusplitter>
+            <sac-contextmenubutton
+              text="{{ lngResourceService.GetString('FILEBROWSER_REFRESH') | async }}"
+              iconstyle="fas"
+              icon="fa-sync-alt"
+              (clicked)="refreshNode(node)"
+            ></sac-contextmenubutton>
+          </sac-contextmenu>
+        </div>
+      </li>
+
+      <ng-container *ngIf="node.IsExpanded">
+        <ng-template
+          *ngFor="let child of node.ChildNodes"
+          [ngTemplateOutlet]="treeItem"
+          [ngTemplateOutletContext]="{node: child, deep: deep + 1}"
+        ></ng-template>
+      </ng-container>
+    </ng-template>
+  </div>
+  <div class="col-12 col-md-7 col-lg-8">
+    <ng-container *ngIf="selectedNode && selectedNode.Files">
+      <div *ngIf="allowfileupload" ngForm>
+        <sac-dropzonemultiple
+          [disablelabel]="true"
+          [endpoint]="apiurl + '/uploadregister'"
+          name="upload"
+          uploadheight="5rem"
+          [ngModel]="uploads"
+          (ngModelChange)="uploadComplete(selectedNode,$event)"
+          [allowedtypes]="allowedtypes"
+          >{{ lngResourceService.GetString('FILEBROWSER_UPLOAD') | async }}</sac-dropzonemultiple
+        >
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped table-hover align-middle">
+          <thead>
+            <th>{{ lngResourceService.GetString('FILEBROWSER_GRID_FILE') | async }}</th>
+            <th>{{ lngResourceService.GetString('FILEBROWSER_GRID_SIZE') | async }}</th>
+            <th style="width: 80px"></th>
+          </thead>
+          <tbody>
+            <ng-container *ngIf="selectedNode.Files.length === 0">
+              <tr>
+                <td colspan="3">{{ lngResourceService.GetString('FILEBROWSER_NO_FILES') | async }}</td>
+              </tr>
+            </ng-container>
+            <ng-container *ngIf="selectedNode.Files.length > 0">
+              <tr
+                *ngFor="let item of selectedNode.Files"
+                (click)="selectFile(item)"
+                [class.table-primary]="selectedFileItem === item"
+              >
+                <td [class.p-2]="item.IsEditMode">
+                  <ng-container *ngIf="!item.IsEditMode">
+                    {{ item.Filename }}
+                  </ng-container>
+                  <ng-container *ngIf="item.IsEditMode">
+                    <div>
+                      <input
+                        name="editFolder"
+                        class="form-control form-control-sm"
+                        [ngModel]="item.Filename"
+                        [ngModelOptions]="{updateOn: 'blur'}"
+                        (ngModelChange)="renameFile(item, $event)"
+                        (keydown.enter)="$event.target.blur();false"
+                        (blur)="renameFile(item, null)"
+                        (click)="$event.stopPropagation();"
+                      />
+                    </div>
+                  </ng-container>
+                </td>
+                <td>{{ item.Size}}</td>
+                <td class="p-2">
+                  <div class="btn-toolbar" role="toolbar">
+                    <div class="btn-group ml-auto" role="group">
+                      <a
+                        *ngIf="allowfilerename"
+                        class="btn btn-sm btn-link text-secondary"
+                        (click)="editFile(item);$event.stopPropagation();"
+                        ><i class="fas fa-pen"></i
+                      ></a>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <a
+                        *ngIf="allowfiledelete"
+                        class="btn btn-sm btn-link text-secondary"
+                        (click)="deleteFile(item);$event.stopPropagation();"
+                        ><i class="fas fa-trash"></i
+                      ></a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </ng-container>
+  </div>
+</div>

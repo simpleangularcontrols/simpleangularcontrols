@@ -10,14 +10,28 @@
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "target": "ES2020",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["ES2020", "dom"],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "ES2020",
+      "dom"
+    ],
     "module": "es2020",
     "baseUrl": "./",
     "paths": {
-      "@simpleangularcontrols/sac-common": ["dist/sac-common"],
-      "@simpleangularcontrols/sac-bootstrap4": ["dist/sac-bootstrap4"],
-      "@simpleangularcontrols/sac-bootstrap3": ["dist/sac-bootstrap3"]
+      "@simpleangularcontrols/sac-common": [
+        "dist/sac-common"
+      ],
+      "@simpleangularcontrols/sac-bootstrap3": [
+        "dist/sac-bootstrap3"
+      ],
+      "@simpleangularcontrols/sac-bootstrap4": [
+        "dist/sac-bootstrap4"
+      ],
+      "@simpleangularcontrols/sac-bootstrap5": [
+        "dist/sac-bootstrap5"
+      ]
     }
   },
   "angularCompilerOptions": {

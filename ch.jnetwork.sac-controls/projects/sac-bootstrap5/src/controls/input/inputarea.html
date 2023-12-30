@@ -1,0 +1,29 @@
+<div class="form-group row">
+  <label
+    for="{{name}}"
+    class="col-12 col-form-label"
+    [ngClass]="[disablelabel === false ?  'col-sm-' + labelsize : 'sr-only' ]"
+    >{{label}}</label
+  >
+  <div
+    class="col-12"
+    [ngClass]="[disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']"
+  >
+    <textarea
+      id="{{name}}"
+      name="{{name}}"
+      type=""
+      class="form-control form-control-sm"
+      [value]="value"
+      [attr.placeholder]="placeholder"
+      (blur)="onTouch()"
+      (input)="setValue($event.target.value)"
+      (keypress)="onKeyPress($event)"
+      [attr.rows]="rows"
+      [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
+      [disabled]="isdisabled"
+      [attr.maxlength]="maxlength"
+      [readonly]="readonly"
+    ></textarea>
+  </div>
+</div>

@@ -3,6 +3,7 @@
   "exclude": [
     "projects/demo-*/**",
     "projects/sac-bootstrap4/**",
+    "projects/sac-bootstrap5/**",
     "src/**"
   ]
 }

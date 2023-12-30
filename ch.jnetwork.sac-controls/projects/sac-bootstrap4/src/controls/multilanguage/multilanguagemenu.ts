@@ -4,6 +4,7 @@ import {
   ElementRef,
   forwardRef,
   Inject,
+  Injector,
   NgZone,
   Renderer2,
 } from '@angular/core';
@@ -29,13 +30,15 @@ export class SacMultilanguagemenuComponent extends SacContextmenuCommon {
    * @param _ngZone Angular Zone Service
    * @param _elementRef Referenz auf HTML Element der aktuellen Komponente
    * @param _renderer Render Service von Angular
+   * @param _injector injector to resolve services in base component
    */
   constructor(
     @Inject(DOCUMENT) _document: any,
     _ngZone: NgZone,
     _elementRef: ElementRef<HTMLElement>,
-    _renderer: Renderer2
+    _renderer: Renderer2,
+    _injector: Injector
   ) {
-    super(_document, _ngZone, _elementRef, _renderer);
+    super(_document, _ngZone, _elementRef, _renderer, _injector);
   }
 }

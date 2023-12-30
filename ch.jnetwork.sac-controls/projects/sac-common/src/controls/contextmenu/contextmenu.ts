@@ -5,6 +5,7 @@ import {
   ElementRef,
   HostListener,
   Inject,
+  Injector,
   Input,
   NgZone,
   OnDestroy,
@@ -13,6 +14,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { ISacIconService } from '../../interfaces/ISacIconService';
+import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
 import { PlacementArray, positionElements } from '../../utilities/positioning';
 import { SacContextmenuAnchorCommon } from './contextmenuanchor';
 import { SacContextMenuContrainerCommon } from './contextmenucontainer';
@@ -48,6 +51,11 @@ export class SacContextmenuCommon implements OnDestroy {
    */
   @ViewChild(SacContextMenuContrainerCommon, { static: false })
   private _menu: SacContextMenuContrainerCommon;
+
+  /**
+   * icon service
+   */
+  protected iconService: ISacIconService;
 
   /**
    * Definiert ob das Dropdown offen ist.
@@ -119,16 +127,23 @@ export class SacContextmenuCommon implements OnDestroy {
    * @param _ngZone Angular Zone Service
    * @param _elementRef HTML Element des aktuellen Controls
    * @param _renderer Angular Rendering Service
+   * @param _injector injector to resolve the icon service
    */
   constructor(
     @Inject(DOCUMENT) private _document: any,
     private _ngZone: NgZone,
     private _elementRef: ElementRef<HTMLElement>,
-    private _renderer: Renderer2
+    private _renderer: Renderer2,
+    _injector: Injector
   ) {
     this.zoneSubscription = this._ngZone.onStable.subscribe(() => {
       this._positionMenu();
     });
+
+    this.iconService = _injector.get(
+      SACICON_SERVICE,
+      new SacDefaultIconService()
+    );
   }
 
   /**
@@ -163,6 +178,13 @@ export class SacContextmenuCommon implements OnDestroy {
   public close(): void {
     this._resetContainer();
     this.isopen = false;
+  }
+
+  /**
+   * icon for default context menü button
+   */
+  public get IconContextMenu(): string {
+    return this.iconService.ContextMenuOpenIcon;
   }
 
   /**

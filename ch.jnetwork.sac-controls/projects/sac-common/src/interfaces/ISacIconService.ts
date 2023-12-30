@@ -47,4 +47,9 @@ export interface ISacIconService {
    * icon to upload file to server in upload component
    */
   get UploadComponentUploadIcon(): string;
+
+  /**
+   * icon to open context menu
+   */
+  get ContextMenuOpenIcon(): string;
 }

@@ -16,6 +16,10 @@ export abstract class SacAbstractIconService implements ISacIconService {
   /**
    * @inheritdoc
    */
+  abstract get ContextMenuOpenIcon(): string;
+  /**
+   * @inheritdoc
+   */
   abstract get UploadComponentContinueIcon(): string;
   /**
    * @inheritdoc
@@ -64,6 +68,12 @@ export abstract class SacAbstractIconService implements ISacIconService {
  * */
 @Injectable({ providedIn: 'root' })
 export class SacDefaultIconService extends SacAbstractIconService {
+  /**
+   * @inheritdoc
+   */
+  get ContextMenuOpenIcon(): string {
+    return 'fas fa-ellipsis-v';
+  }
   /**
    * @inheritdoc
    */

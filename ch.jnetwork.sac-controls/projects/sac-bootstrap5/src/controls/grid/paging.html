@@ -31,7 +31,7 @@
   <div class="col-pagesize order-3" *ngIf="!pagesizedisabled">
     <div class="d-flex align-items-center" id="{{name}}_size">
       <select
-        class="form-control form-control-sm"
+        class="form-select form-select-sm"
         style="width: 85px"
         [ngModel]="pageSize"
         (ngModelChange)="changePageSize($event)"
@@ -40,7 +40,7 @@
           {{size}}
         </option>
       </select>
-      <div class="ml-2">{{ PageSizeText | async }}</div>
+      <div class="ms-2">{{ PageSizeText | async }}</div>
     </div>
   </div>
 </div>

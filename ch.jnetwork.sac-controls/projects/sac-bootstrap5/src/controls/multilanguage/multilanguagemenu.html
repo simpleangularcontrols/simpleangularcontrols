@@ -1,14 +1,17 @@
 <ng-container
+  [ngTemplateOutlet]="inputtemplate || defaultInputTemplate"
+></ng-container>
+<ng-container
   [ngTemplateOutlet]="buttontemplate || defaultButtonTemplate"
 ></ng-container>
 
-<div
+<ul
   class="dropdown-menu dropdown-menu-right"
   sacMultilanguageMenuContainer
   [class.show]="isopen"
 >
   <ng-content></ng-content>
-</div>
+</ul>
 
 <ng-template #defaultButtonTemplate>
   <button
@@ -17,6 +20,10 @@
     type="button"
     (click)="toggle()"
   >
-    <i class="fas fa-ellipsis-v"></i>
+    <i [class]="IconContextMenu"></i>
   </button>
+</ng-template>
+
+<ng-template #defaultInputTemplate>
+  <input type="text" class="form-control form-control-sm" />
 </ng-template>

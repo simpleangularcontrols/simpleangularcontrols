@@ -1,7 +1,7 @@
-<div class="row form-group" [class.no-gutters]="disablelabel">
+<div class="row mb-3" [class.g-0]="disablelabel">
   <label
     for="{{name}}"
-    class="col-12 col-form-label"
+    class="col-12 col-form-label col-form-label-sm"
     [ngClass]="[disablelabel === false ?  'col-sm-' + labelsize : 'sr-only' ]"
     >{{label}}</label
   >
@@ -9,68 +9,68 @@
     class="col-12"
     [ngClass]="[disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']"
   >
-    <div class="input-group input-group-sm">
-      <textarea
-        id="{{name}}"
-        name="{{name}}"
-        type="text"
-        class="form-control form-control-sm"
-        [value]="LanguageValue"
-        [attr.placeholder]="placeholder"
-        (blur)="onTouch()"
-        style="height: auto"
-        (input)="SetLanguageValue($event.target.value)"
-        [attr.rows]="rows"
-        [attr.maxlength]="maxlength"
-        [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
-        [disabled]="isdisabled"
-      ></textarea>
-
-      <div
-        placement="bottom-right"
-        class="input-group-append"
-        sac-multilanguagemenu
-        [buttontemplate]="menuButton"
-        #contextmenu
-      >
-        <ng-template #menuButton>
-          <button
-            sacMultilanguageMenuAnchor
-            [id]="name + '_dropdownitem'"
-            type="button"
-            class="btn dropdown-toggle"
-            (click)="contextmenu.toggle()"
-            [ngClass]="[IsAnyEmpty() ? 'btn-warning' : 'btn-secondary']"
-          >
-            <img
-              src="{{SelectedIcon}}"
-              class="align-baseline mr-1 ml-1"
-              *ngIf="SelectedIconType === IconType.Image"
-            />
-            <i
-              [ngClass]="SelectedIcon"
-              class="align-baseline mr-1 ml-1"
-              *ngIf="SelectedIconType === IconType.CssSprite"
-            ></i>
-          </button>
-        </ng-template>
-        <ng-container *ngFor="let sprache of Languages">
-          <sac-multilanguagemenubutton
-            *ngIf="sprache.IconType === IconType.Image"
-            text="{{sprache.Text}}"
-            image="{{sprache.Icon}}"
-            [cssclass]="IsEmpty(sprache) ? 'text-danger border-left border-danger': ''"
-            (clicked)="SelectLanguage(sprache)"
-          ></sac-multilanguagemenubutton>
-          <sac-multilanguagemenubutton
-            *ngIf="sprache.IconType === IconType.CssSprite"
-            text="{{sprache.Text}}"
-            icon="{{sprache.Icon}}"
-            [cssclass]="IsEmpty(sprache) ? 'text-danger border-left border-danger': ''"
-            (clicked)="SelectLanguage(sprache)"
-          ></sac-multilanguagemenubutton>
-        </ng-container>
-      </div>
+    <div
+      class="input-group input-group-sm"
+      placement="bottom-right"
+      sac-multilanguagemenu
+      [buttontemplate]="menuButton"
+      [inputtemplate]="menuInput"
+      #contextmenu
+    >
+      <ng-template #menuInput>
+        <textarea
+          id="{{name}}"
+          name="{{name}}"
+          type="text"
+          class="form-control form-control-sm"
+          [value]="LanguageValue"
+          [attr.placeholder]="placeholder"
+          (blur)="onTouch()"
+          style="height: auto"
+          (input)="SetLanguageValue($event.target.value)"
+          [attr.rows]="rows"
+          [attr.maxlength]="maxlength"
+          [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
+          [disabled]="isdisabled"
+        ></textarea>
+      </ng-template>
+      <ng-template #menuButton>
+        <button
+          sacMultilanguageMenuAnchor
+          [id]="name + '_dropdownitem'"
+          type="button"
+          class="btn dropdown-toggle"
+          (click)="contextmenu.toggle()"
+          [ngClass]="[IsAnyEmpty() ? 'btn-warning' : 'btn-secondary']"
+        >
+          <img
+            src="{{SelectedIcon}}"
+            class="align-baseline mr-1 ml-1"
+            *ngIf="SelectedIconType === IconType.Image"
+          />
+          <i
+            [ngClass]="SelectedIcon"
+            class="align-baseline mr-1 ml-1"
+            *ngIf="SelectedIconType === IconType.CssSprite"
+          ></i>
+        </button>
+      </ng-template>
+      <ng-container *ngFor="let sprache of Languages">
+        <sac-multilanguagemenubutton
+          *ngIf="sprache.IconType === IconType.Image"
+          text="{{sprache.Text}}"
+          image="{{sprache.Icon}}"
+          [cssclass]="IsEmpty(sprache) ? 'text-danger border-left border-danger': ''"
+          (clicked)="SelectLanguage(sprache)"
+        ></sac-multilanguagemenubutton>
+        <sac-multilanguagemenubutton
+          *ngIf="sprache.IconType === IconType.CssSprite"
+          text="{{sprache.Text}}"
+          icon="{{sprache.Icon}}"
+          [cssclass]="IsEmpty(sprache) ? 'text-danger border-left border-danger': ''"
+          (clicked)="SelectLanguage(sprache)"
+        ></sac-multilanguagemenubutton>
+      </ng-container>
     </div>
   </div>
 </div>

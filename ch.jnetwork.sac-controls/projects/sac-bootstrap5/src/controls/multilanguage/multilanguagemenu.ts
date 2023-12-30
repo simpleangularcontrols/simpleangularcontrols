@@ -5,8 +5,10 @@ import {
   forwardRef,
   Inject,
   Injector,
+  Input,
   NgZone,
   Renderer2,
+  TemplateRef,
 } from '@angular/core';
 import { SacContextmenuCommon } from '@simpleangularcontrols/sac-common';
 
@@ -41,4 +43,10 @@ export class SacMultilanguagemenuComponent extends SacContextmenuCommon {
   ) {
     super(_document, _ngZone, _elementRef, _renderer, _injector);
   }
+
+  /**
+   * template with input box for multilangauge component
+   */
+  @Input()
+  public inputtemplate: TemplateRef<any>;
 }

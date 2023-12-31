@@ -22,7 +22,7 @@ describe('sac-checkboxComponent', () => {
       }
     );
 
-    cy.get('.form-group .col-12').first().should('have.text', 'Control Label');
+    cy.get('.row .col-12').first().should('have.text', 'Control Label');
     cy.get('label').should('have.text', 'Checkbox Test');
     cy.get('input').should('not.be.checked');
     cy.get('input').click();
@@ -73,7 +73,7 @@ describe('sac-checkboxComponent', () => {
       }
     );
 
-    cy.get('.form-group .col-12')
+    cy.get('.row .col-12')
       .first()
       .should('not.have.text', 'Control Label');
     cy.get('label').should('have.text', 'Checkbox Test');

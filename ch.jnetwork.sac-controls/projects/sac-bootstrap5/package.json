@@ -23,6 +23,6 @@
     "tslib": "^2.3.0"
   },
   "nyc": {
-    "report-dir": "../../coverage/bootstrap4"
+    "report-dir": "../../coverage/bootstrap5"
   }
 }

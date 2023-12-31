@@ -208,6 +208,53 @@
               "projects/sac-bootstrap5/**/*.html"
             ]
           }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "sac-bootstrap5:serve",
+            "configFile": "projects/sac-bootstrap5/cypress.config.js"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "sac-bootstrap5:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false,
+            "configFile": "projects/sac-bootstrap5/cypress.config.js"
+          }
+        },
+        "ct": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "sac-bootstrap5:serve",
+            "watch": true,
+            "headless": false,
+            "testingType": "component"
+          },
+          "configurations": {
+            "development": {
+              "devServerTarget": "sac-bootstrap5:serve:development"
+            }
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "sac-bootstrap5:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "sac-bootstrap5:serve:production"
+            }
+          }
         }
       }
     },

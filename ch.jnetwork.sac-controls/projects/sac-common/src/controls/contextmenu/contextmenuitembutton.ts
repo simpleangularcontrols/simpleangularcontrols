@@ -47,7 +47,7 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
    * Input Property für Styling des Buttons. Definiert die Css Klassen des Buttons
    */
   @Input()
-  public iconstyle: string = 'fas';
+  public iconstyle: string = '';
 
   /**
    * Image für Menü. Wird benötigt wenn das Icon für den Button ein File und nicht ein Icon Font ist.

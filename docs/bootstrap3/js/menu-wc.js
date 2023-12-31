@@ -773,6 +773,15 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/Chainable.html" data-type="entity-link" >Chainable</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/Chainable-1.html" data-type="entity-link" >Chainable</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/Chainable-2.html" data-type="entity-link" >Chainable</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/Chainable-3.html" data-type="entity-link" >Chainable</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/ClientRect.html" data-type="entity-link" >ClientRect</a>
                             </li>
                             <li class="link">

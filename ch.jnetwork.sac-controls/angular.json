@@ -355,10 +355,7 @@
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
-            "assets": [
-              "src/assets",
-              "src/favicon.ico"
-            ],
+            "assets": ["src/assets", "src/favicon.ico"],
             "styles": [],
             "scripts": [],
             "vendorChunk": true,
@@ -366,7 +363,8 @@
             "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
-            "namedChunks": true
+            "namedChunks": true,
+            "allowedCommonJsDependencies": ["moment"]
           },
           "configurations": {
             "production": {
@@ -420,10 +418,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [],
-            "assets": [
-              "src/assets",
-              "src/favicon.ico"
-            ]
+            "assets": ["src/assets", "src/favicon.ico"]
           }
         },
         "cypress-run": {
@@ -583,12 +578,9 @@
                 "output": "/tinymce/"
               }
             ],
-            "styles": [
-              "projects/demo-bootstrap3/src/styles.scss"
-            ],
-            "scripts": [
-              "./node_modules/tinymce/tinymce.min.js"
-            ]
+            "styles": ["projects/demo-bootstrap3/src/styles.scss"],
+            "scripts": ["./node_modules/tinymce/tinymce.min.js"],
+            "allowedCommonJsDependencies": ["moment"]
           },
           "configurations": {
             "production": {
@@ -694,18 +686,15 @@
                 "output": "/tinymce/"
               }
             ],
-            "styles": [
-              "projects/demo-bootstrap4/src/styles.scss"
-            ],
-            "scripts": [
-              "./node_modules/tinymce/tinymce.min.js"
-            ],
+            "styles": ["projects/demo-bootstrap4/src/styles.scss"],
+            "scripts": ["./node_modules/tinymce/tinymce.min.js"],
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
-            "namedChunks": true
+            "namedChunks": true,
+            "allowedCommonJsDependencies": ["moment"]
           },
           "configurations": {
             "production": {
@@ -823,12 +812,9 @@
                 "output": "/tinymce/"
               }
             ],
-            "styles": [
-              "projects/demo-bootstrap5/src/styles.scss"
-            ],
-            "scripts": [
-              "./node_modules/tinymce/tinymce.min.js"
-            ]
+            "styles": ["projects/demo-bootstrap5/src/styles.scss"],
+            "scripts": ["./node_modules/tinymce/tinymce.min.js"],
+            "allowedCommonJsDependencies": ["moment"]
           },
           "configurations": {
             "production": {
@@ -885,7 +871,6 @@
       }
     }
   },
-  "defaultProject": "module-base",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

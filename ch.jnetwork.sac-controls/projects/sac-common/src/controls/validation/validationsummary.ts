@@ -1,5 +1,5 @@
 import { Directive, Injector, Input } from '@angular/core';
-import { AbstractControl, FormArray, FormGroup, NgForm } from '@angular/forms';
+import { AbstractControl, UntypedFormArray, UntypedFormGroup, NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { IAbstractControlLabelExtension } from '../../interfaces/iabstractcontrollabel';
 import { ISacLocalisationService } from '../../interfaces/ISacLocalisationService';
@@ -25,7 +25,7 @@ export class SacValidationSummaryCommon {
    * reactive form instance
    */
   @Input()
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   /**
    * Form groupname to filter summary to formgroup
@@ -72,23 +72,23 @@ export class SacValidationSummaryCommon {
       Observable<string>
     >();
 
-    let formBase: FormGroup;
+    let formBase: UntypedFormGroup;
     if (this.parent) {
       formBase = this.parent.getForm().form;
-    } else if (this.form instanceof FormGroup) {
+    } else if (this.form instanceof UntypedFormGroup) {
       formBase = this.form;
 
       // formgroup can only be get in reactive forms mode
       if (this.formGroupName) {
-        formBase = formBase.get(this.formGroupName) as FormGroup;
+        formBase = formBase.get(this.formGroupName) as UntypedFormGroup;
       }
     } else {
       throw new Error('missing form');
     }
 
-    const items: Array<NgForm | FormArray> = Object.keys(formBase.controls).map(
+    const items: Array<NgForm | UntypedFormArray> = Object.keys(formBase.controls).map(
       (key) => {
-        return <NgForm | FormArray>formBase.controls[key];
+        return <NgForm | UntypedFormArray>formBase.controls[key];
       }
     );
 
@@ -101,7 +101,7 @@ export class SacValidationSummaryCommon {
    * Die Methode gibt Collection von Errors. Verlangt controls: Array<NgForm | FormArray> und  collection: Array<Observable<string>>
    */
   private getErrorCollection(
-    controls: Array<NgForm | FormArray>,
+    controls: Array<NgForm | UntypedFormArray>,
     collection: Array<Observable<string>>
   ): void {
     controls.forEach((ctl) => {
@@ -121,10 +121,10 @@ export class SacValidationSummaryCommon {
             this.addErrorToCollection(control, collection);
           } else {
             // Handling eines Control Containers
-            const items: Array<NgForm | FormArray> = Object.keys(
+            const items: Array<NgForm | UntypedFormArray> = Object.keys(
               control.controls
             ).map((formKey) => {
-              return <NgForm | FormArray>control.controls[formKey];
+              return <NgForm | UntypedFormArray>control.controls[formKey];
             });
 
             this.getErrorCollection(items, collection);

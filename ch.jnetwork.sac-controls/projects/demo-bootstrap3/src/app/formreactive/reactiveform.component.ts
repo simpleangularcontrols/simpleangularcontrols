@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Validation } from '@simpleangularcontrols/sac-common';
 
 @Component({
@@ -8,16 +8,16 @@ import { Validation } from '@simpleangularcontrols/sac-common';
 })
 export class DemoRectiveFormComponent {
   // formfield1 = new FormControl('', Validation.required('VALIDATION_ERROR_REQUIRED','VALIDATION_ERROR_SUMMARY_REQUIRED'));
-  baseForm = new FormGroup({
-    inputvalue: new FormControl(''),
-    checkboxvalue: new FormControl(true),
-    listvalue: new FormControl(''),
-    dropdownvalue: new FormControl(''),
-    radiobuttonvalue: new FormControl('1'),
-    datetimevalue: new FormControl(''),
-    partial: new FormGroup({
-      part1: new FormGroup({
-        inputvalue2: new FormControl(''),
+  baseForm = new UntypedFormGroup({
+    inputvalue: new UntypedFormControl(''),
+    checkboxvalue: new UntypedFormControl(true),
+    listvalue: new UntypedFormControl(''),
+    dropdownvalue: new UntypedFormControl(''),
+    radiobuttonvalue: new UntypedFormControl('1'),
+    datetimevalue: new UntypedFormControl(''),
+    partial: new UntypedFormGroup({
+      part1: new UntypedFormGroup({
+        inputvalue2: new UntypedFormControl(''),
       }),
     }),
   });

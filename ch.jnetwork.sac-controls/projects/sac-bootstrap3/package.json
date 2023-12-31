@@ -20,5 +20,8 @@
   "description": "Bootstrap 3 Controls Library",
   "dependencies": {
     "tslib": "^2.0.0"
+  },
+  "nyc": {
+    "report-dir": "../../coverage/bootstrap3"
   }
 }

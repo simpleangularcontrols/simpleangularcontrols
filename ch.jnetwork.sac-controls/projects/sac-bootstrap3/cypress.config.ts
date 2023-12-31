@@ -1,19 +1,31 @@
-import { defineConfig } from 'cypress'
+import { defineConfig } from 'cypress';
+import coverageWebpack from './cypress/coverage.webpack';
 
 export default defineConfig({
-  
-  e2e: {
-    'baseUrl': 'http://localhost:4200',
-    supportFile: false
-  },
-  
-  
+  viewportWidth: 1024,
+  viewportHeight: 768,
+
   component: {
     devServer: {
       framework: 'angular',
       bundler: 'webpack',
+      webpackConfig: coverageWebpack,
+      options: {
+        projectConfig: {
+          root: 'projects/sac-bootstrap3',
+          sourceRoot: 'projects/sac-bootstrap3/src',
+          buildOptions: {
+            outputPath: 'dist/sac-bootstrap3',
+            main: 'src/entrypoint-cypress.ts',
+            tsConfig: 'tsconfig.lib.json',
+          },
+        },
+      },
     },
-    specPattern: '**/*.cy.ts'
-  }
-  
-})
+    specPattern: 'src/**/*.cy.ts',
+    setupNodeEvents(on, config) {
+      require('@cypress/code-coverage/task')(on, config);
+      return config;
+    },
+  },
+});

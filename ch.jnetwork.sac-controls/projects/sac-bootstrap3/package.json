@@ -1,6 +1,6 @@
 {
   "name": "@simpleangularcontrols/sac-bootstrap3",
-  "version": "1.4.1",
+  "version": "13.0.0-rc.1",
   "peerDependencies": {
     "@angular/common": "^13.2.0",
     "@angular/core": "^13.2.0",
@@ -11,6 +11,10 @@
   },
   "devDependencies": {
     "@simpleangularcontrols/sac-common": "file:../../dist/sac-common"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simpleangularcontrols/simpleangularcontrols.git"
   },
   "author": {
     "name": "jNetwork GmbH",

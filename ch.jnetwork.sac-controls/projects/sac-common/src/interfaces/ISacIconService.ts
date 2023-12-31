@@ -49,6 +49,14 @@ export interface ISacIconService {
    */
   get DateTimeComponentSelectorIcon(): string;
   /**
+   * Icon for switching to the next month in the DateTimSelector component
+   */
+  get DateTimeSelectorComponentMonthNextIcon(): string;
+  /**
+ * Icon for switching to the previous month in the DateTimSelector component
+ */
+  get DateTimeSelectorComponentMonthPrevIcon(): string;
+  /**
    * sort down icon for grid
    */
   get GridComponentSortDown(): string;

@@ -57,6 +57,14 @@ export abstract class SacAbstractIconService implements ISacIconService {
   /**
    * @inheritdoc
    */
+  public abstract get DateTimeSelectorComponentMonthNextIcon(): string;
+  /**
+   * @inheritdoc
+   */
+  public abstract get DateTimeSelectorComponentMonthPrevIcon(): string;
+  /**
+   * @inheritdoc
+   */
   public abstract get GridComponentSortDown(): string;
   /**
    * @inheritdoc
@@ -172,6 +180,20 @@ export class SacDefaultIconService extends SacAbstractIconService {
    */
   public get DateTimeComponentSelectorIcon(): string {
     return 'fa fa-calendar';
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public get DateTimeSelectorComponentMonthNextIcon(): string {
+    return 'fa fa-chevron-right';
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public get DateTimeSelectorComponentMonthPrevIcon(): string {
+    return 'fa fa-chevron-left';
   }
 
   /**

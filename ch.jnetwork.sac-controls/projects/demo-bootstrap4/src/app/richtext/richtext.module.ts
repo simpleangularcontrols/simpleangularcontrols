@@ -10,7 +10,6 @@ import {
   SACBootstrap4ValidationSummaryModule,
 } from '@simpleangularcontrols/sac-bootstrap4';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
-import { SACBootstrap4TinyMceModuleNgFactory } from 'dist/sac-bootstrap4/controls/tinymce/tinymce.module.ngfactory';
 import { RichtextRoutingModule } from './richtext-routing.module';
 import { DemoRichtextComponent } from './richtext.component';
 @NgModule({

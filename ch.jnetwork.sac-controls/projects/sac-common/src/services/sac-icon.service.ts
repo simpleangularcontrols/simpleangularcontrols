@@ -1,66 +1,93 @@
 import { Injectable, InjectionToken } from '@angular/core';
 import { ISacIconService } from '../interfaces/ISacIconService';
 
-/**
- * injection token for component icon service
- */
-export const SACICON_SERVICE = new InjectionToken<ISacIconService>(
-  'SacIconService'
-);
+// #region Classes
 
 /**
  * abstract class for icon providing in components
  */
 @Injectable({ providedIn: 'root' })
 export abstract class SacAbstractIconService implements ISacIconService {
+  // #region Public Abstract Getters And Setters
+
   /**
    * @inheritdoc
    */
-  abstract get ContextMenuOpenIcon(): string;
+  public abstract get BrowserComponentDeleteIcon(): string;
   /**
    * @inheritdoc
    */
-  abstract get UploadComponentContinueIcon(): string;
+  public abstract get BrowserComponentEditIcon(): string;
   /**
    * @inheritdoc
    */
-  abstract get UploadComponentBrowseIcon(): string;
+  public abstract get BrowserComponentFolderClosedIcon(): string;
   /**
    * @inheritdoc
    */
-  abstract get UploadComponentDeleteIcon(): string;
+  public abstract get BrowserComponentFolderEmptyIcon(): string;
   /**
    * @inheritdoc
    */
-  abstract get UploadComponentPauseIcon(): string;
+  public abstract get BrowserComponentFolderNewIcon(): string;
   /**
    * @inheritdoc
    */
-  abstract get UploadComponentUploadIcon(): string;
+  public abstract get BrowserComponentFolderOpenIcon(): string;
   /**
    * @inheritdoc
    */
-  abstract get ConfirmDefaultImage(): string;
+  public abstract get BrowserComponentRefreshIcon(): string;
   /**
    * @inheritdoc
    */
-  abstract get GridComponentSortUp(): string;
+  public abstract get ConfirmDefaultImage(): string;
   /**
    * @inheritdoc
    */
-  abstract get GridComponentSortDown(): string;
+  public abstract get ContextMenuOpenIcon(): string;
   /**
    * @inheritdoc
    */
-  abstract get DateComponentSelectorIcon(): string;
+  public abstract get DateComponentSelectorIcon(): string;
   /**
    * @inheritdoc
    */
-  abstract get TimeComponentSelectorIcon(): string;
+  public abstract get DateTimeComponentSelectorIcon(): string;
   /**
    * @inheritdoc
    */
-  abstract get DateTimeComponentSelectorIcon(): string;
+  public abstract get GridComponentSortDown(): string;
+  /**
+   * @inheritdoc
+   */
+  public abstract get GridComponentSortUp(): string;
+  /**
+   * @inheritdoc
+   */
+  public abstract get TimeComponentSelectorIcon(): string;
+  /**
+   * @inheritdoc
+   */
+  public abstract get UploadComponentBrowseIcon(): string;
+  /**
+   * @inheritdoc
+   */
+  public abstract get UploadComponentContinueIcon(): string;
+  /**
+   * @inheritdoc
+   */
+  public abstract get UploadComponentDeleteIcon(): string;
+  /**
+   * @inheritdoc
+   */
+  public abstract get UploadComponentPauseIcon(): string;
+  /**
+   * @inheritdoc
+   */
+  public abstract get UploadComponentUploadIcon(): string;
+
+  // #endregion Public Abstract Getters And Setters
 }
 
 /**
@@ -68,76 +95,153 @@ export abstract class SacAbstractIconService implements ISacIconService {
  * */
 @Injectable({ providedIn: 'root' })
 export class SacDefaultIconService extends SacAbstractIconService {
+  // #region Public Getters And Setters
+
   /**
    * @inheritdoc
    */
-  get ContextMenuOpenIcon(): string {
-    return 'fas fa-ellipsis-v';
+  public get BrowserComponentDeleteIcon(): string {
+    return 'fas fa-trash';
   }
+
   /**
    * @inheritdoc
    */
-  get UploadComponentContinueIcon(): string {
-    return 'fa fa-play';
+  public get BrowserComponentEditIcon(): string {
+    return 'fas fa-pen';
   }
+
   /**
    * @inheritdoc
    */
-  get UploadComponentBrowseIcon(): string {
+  public get BrowserComponentFolderClosedIcon(): string {
+    return 'fa fa-folder-plus';
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public get BrowserComponentFolderEmptyIcon(): string {
+    return 'fa fa-folder';
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public get BrowserComponentFolderNewIcon(): string {
+    return 'far fa-folder';
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public get BrowserComponentFolderOpenIcon(): string {
     return 'fa fa-folder-open';
   }
+
   /**
    * @inheritdoc
    */
-  get UploadComponentDeleteIcon(): string {
-    return 'fa fa-times';
+  public get BrowserComponentRefreshIcon(): string {
+    return 'fas fa-sync-alt';
   }
+
   /**
    * @inheritdoc
    */
-  get UploadComponentPauseIcon(): string {
-    return 'fa fa-pause';
-  }
-  /**
-   * @inheritdoc
-   */
-  get UploadComponentUploadIcon(): string {
-    return 'fa fa-upload';
-  }
-  /**
-   * @inheritdoc
-   */
-  get ConfirmDefaultImage(): string {
+  public get ConfirmDefaultImage(): string {
     return '/assets/icons/dialog/question.png';
   }
+
   /**
    * @inheritdoc
    */
-  get GridComponentSortUp(): string {
-    return 'fa fa-caret-up';
+  public get ContextMenuOpenIcon(): string {
+    return 'fas fa-ellipsis-v';
   }
+
   /**
    * @inheritdoc
    */
-  get GridComponentSortDown(): string {
+  public get DateComponentSelectorIcon(): string {
+    return 'fa fa-calendar';
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public get DateTimeComponentSelectorIcon(): string {
+    return 'fa fa-calendar';
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public get GridComponentSortDown(): string {
     return 'fa fa-caret-down';
   }
+
   /**
    * @inheritdoc
    */
-  get DateComponentSelectorIcon(): string {
-    return 'fa fa-calendar';
+  public get GridComponentSortUp(): string {
+    return 'fa fa-caret-up';
   }
+
   /**
    * @inheritdoc
    */
-  get TimeComponentSelectorIcon(): string {
+  public get TimeComponentSelectorIcon(): string {
     return 'fa fa-clock';
   }
+
   /**
    * @inheritdoc
    */
-  get DateTimeComponentSelectorIcon(): string {
-    return 'fa fa-calendar';
+  public get UploadComponentBrowseIcon(): string {
+    return 'fa fa-folder-open';
   }
+
+  /**
+   * @inheritdoc
+   */
+  public get UploadComponentContinueIcon(): string {
+    return 'fa fa-play';
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public get UploadComponentDeleteIcon(): string {
+    return 'fa fa-times';
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public get UploadComponentPauseIcon(): string {
+    return 'fa fa-pause';
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public get UploadComponentUploadIcon(): string {
+    return 'fa fa-upload';
+  }
+
+  // #endregion Public Getters And Setters
 }
+
+// #endregion Classes
+
+// #region Variables
+
+/**
+ * injection token for component icon service
+ */
+export const SACICON_SERVICE = new InjectionToken<ISacIconService>(
+  'SacIconService'
+);
+
+// #endregion Variables

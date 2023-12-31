@@ -10,8 +10,13 @@ import {
 } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ISacFileBrowserService } from '../../interfaces/ISacFileBrowserService';
+import { ISacIconService } from '../../interfaces/ISacIconService';
 import { ISacLocalisationService } from '../../interfaces/ISacLocalisationService';
-import { SACLOCALISATION_SERVICE } from '../../services';
+import {
+  SACICON_SERVICE,
+  SACLOCALISATION_SERVICE,
+  SacDefaultIconService,
+} from '../../services';
 import {
   SACFILEBROWSER_SERVICE,
   SacDefaultFileBrowserService,
@@ -27,6 +32,83 @@ import { IBrowserNodeResponse } from './models/browsernoderesponse';
  */
 @Directive()
 export abstract class SacFileBrowserCommon implements OnInit {
+  // #region Properties
+
+  /**
+   * Service für File Browser Zugriff (Backend)
+   */
+  private browserService: ISacFileBrowserService;
+  /**
+   * Icon service to receive icon classes for ui
+   */
+  private iconService: ISacIconService;
+  /**
+   * File welches beim starten des Browsers bereits selektiert ist
+   */
+  private preselecedfile: string | null = null;
+
+  /**
+   * Erlaubte Dateierweiterungen für Fileauswahl und Upload. Dateierweiterung mit Punkt und
+   * getrennt durch Komma für mehr als eine Erweiterung (Example: ".jpg,.gif")
+   */
+  @Input()
+  public allowedtypes: string = '';
+  /**
+   * Erlaubt das löschen einer Datei
+   */
+  @Input()
+  public allowfiledelete: boolean = true;
+  /**
+   * Erlaubt das umbenennen einer Datei
+   */
+  @Input()
+  public allowfilerename: boolean = true;
+  /**
+   * Erlaubt den Upload von Dateien
+   */
+  @Input()
+  public allowfileupload: boolean = true;
+  /**
+   * Erlaubt das erstellen eines neuen Ordners
+   */
+  @Input()
+  public allowfoldercreate: boolean = true;
+  /**
+   * Erlaubt das löschen eines Ordners
+   */
+  @Input()
+  public allowfolderdelete: boolean = true;
+  /**
+   * Erlaubt das Umbenennen eines Ordners
+   */
+  @Input()
+  public allowfolderrename: boolean = true;
+  /**
+   * URL für Backend API
+   */
+  @Input()
+  public apiurl: string;
+  /**
+   * Output Emitter wenn File selektiert wird.
+   */
+  @Output()
+  public file: EventEmitter<string> = new EventEmitter<string>();
+  /**
+   * Service für Error Localisation
+   */
+  public lngResourceService: ISacLocalisationService;
+  /**
+   * Root Node Item für Tree
+   */
+  public rootNode: IBrowserNode = {
+    Name: '',
+    ChildNodes: [],
+    Files: [],
+    IsExpanded: true,
+    IsEditMode: false,
+    IsNewNode: false,
+    Path: '',
+  };
   /**
    * Selected File Name
    */
@@ -40,136 +122,13 @@ export abstract class SacFileBrowserCommon implements OnInit {
    */
   public selectedNode: IBrowserNode = null;
   /**
-   * Root Node Item für Tree
-   */
-  public rootNode: IBrowserNode = {
-    Name: '',
-    ChildNodes: [],
-    Files: [],
-    IsExpanded: true,
-    IsEditMode: false,
-    IsNewNode: false,
-    Path: '',
-  };
-
-  /**
    * Liste von Uploads
    */
   public uploads: string[] = [];
-  /**
-   * Service für Error Localisation
-   */
-  public lngResourceService: ISacLocalisationService;
 
-  /**
-   * Service für File Browser Zugriff (Backend)
-   */
-  private browserService: ISacFileBrowserService;
-  /**
-   * File welches beim starten des Browsers bereits selektiert ist
-   */
-  private preselecedfile: string | null = null;
-  /**
-   * Setzt den Seleced Node über den Pfad
-   */
-  @Input()
-  public set selectedfile(v: string | null) {
-    const selectednode = this.findSelectedNodeByPath(this.rootNode, v);
+  // #endregion Properties
 
-    if (selectednode !== null) {
-      this.selectNode(selectednode);
-    }
-
-    this.preselecedfile = v;
-  }
-  /**
-   * Getter für Selected File. Ist an Input Property gebunden
-   */
-  public get selectedfile(): string | null {
-    if (this.selectFile && this.selectFile.length > 0) {
-      return this.selectedFile;
-    } else {
-      return null;
-    }
-  }
-
-  /**
-   * URL für Backend API
-   */
-  @Input()
-  public apiurl: string;
-
-  /**
-   * Erlaubt das Umbenennen eines Ordners
-   */
-  @Input()
-  public allowfolderrename: boolean = true;
-
-  /**
-   * Erlaubt das löschen eines Ordners
-   */
-  @Input()
-  public allowfolderdelete: boolean = true;
-
-  /**
-   * Erlaubt das erstellen eines neuen Ordners
-   */
-  @Input()
-  public allowfoldercreate: boolean = true;
-
-  /**
-   * Erlaubt den Upload von Dateien
-   */
-  @Input()
-  public allowfileupload: boolean = true;
-
-  /**
-   * Erlaubt das umbenennen einer Datei
-   */
-  @Input()
-  public allowfilerename: boolean = true;
-
-  /**
-   * Erlaubt das löschen einer Datei
-   */
-  @Input()
-  public allowfiledelete: boolean = true;
-
-  /**
-   * Erlaubte Dateierweiterungen für Fileauswahl und Upload. Dateierweiterung mit Punkt und
-   * getrennt durch Komma für mehr als eine Erweiterung (Example: ".jpg,.gif")
-   */
-  @Input()
-  public allowedtypes: string = '';
-
-  /**
-   * Output Emitter wenn File selektiert wird.
-   */
-  @Output()
-  public file: EventEmitter<string> = new EventEmitter<string>();
-
-  /**
-   * HostListener welcher den Edit Mode bei allen Files und Nodes beendet.
-   */
-  @HostListener('document:click', ['$event.target'])
-  /**
-   * Click Event
-   */
-  exitEditMode(targetElement): void {
-    if (this.selectedNode) {
-      this.selectedNode.Files.forEach((itm) => (itm.IsEditMode = false));
-
-      if (
-        !this.selectedNode ||
-        this.selectedNode.Name === null ||
-        this.selectedNode.Name.length === 0
-      ) {
-        this.clearNewChildNodes(this.rootNode);
-      }
-    }
-
-    this.resetNodeEditMode(null);
-  }
+  // #region Constructors
 
   /**
    * Konstruktor
@@ -186,12 +145,208 @@ export abstract class SacFileBrowserCommon implements OnInit {
       SACLOCALISATION_SERVICE,
       new SacDefaultLocalisationService()
     );
+
+    this.iconService = injector.get(
+      SACICON_SERVICE,
+      new SacDefaultIconService()
+    );
+  }
+
+  // #endregion Constructors
+
+  // #region Public Getters And Setters
+
+  /**
+   * CSS icon class for delete icon
+   * @returns css class with icon
+   */
+  public get iconDelete(): string {
+    return this.iconService.BrowserComponentDeleteIcon;
+  }
+
+  /**
+   * CSS icon class for edit icon
+   * @returns css class with icon
+   */
+  public get iconEdit(): string {
+    return this.iconService.BrowserComponentEditIcon;
+  }
+
+  /**
+   * CSS icon for folders in tree there are collabsed
+   * @returns css class with icon
+   */
+  public get iconFolderCollabsed(): string {
+    return this.iconService.BrowserComponentFolderClosedIcon;
+  }
+
+  /**
+   * CSS icon class for folders without subfolders
+   * @returns css class with icon
+   */
+  public get iconFolderEmpty(): string {
+    return this.iconService.BrowserComponentFolderEmptyIcon;
+  }
+
+  /**
+   * CSS icon for new folders action
+   * @returns css class with icon
+   */
+  public get iconFolderNew(): string {
+    return this.iconService.BrowserComponentFolderNewIcon;
+  }
+
+  /**
+   * CSS icon for folders in tree there are expanded
+   * @returns css class with icon
+   */
+  public get iconFolderOpen(): string {
+    return this.iconService.BrowserComponentFolderOpenIcon;
+  }
+
+  /**
+   * CSS icon class for refresh icon
+   * @returns css class with icon
+   */
+  public get iconRefresh(): string {
+    return this.iconService.BrowserComponentRefreshIcon;
+  }
+
+  /**
+   * Getter für Selected File. Ist an Input Property gebunden
+   */
+  public get selectedfile(): string | null {
+    if (this.selectFile && this.selectFile.length > 0) {
+      return this.selectedFile;
+    } else {
+      return null;
+    }
+  }
+
+  /**
+   * Setzt den Seleced Node über den Pfad
+   */
+  @Input()
+  public set selectedfile(v: string | null) {
+    const selectednode = this.findSelectedNodeByPath(this.rootNode, v);
+
+    if (selectednode !== null) {
+      this.selectNode(selectednode);
+    }
+
+    this.preselecedfile = v;
+  }
+
+  // #endregion Public Getters And Setters
+
+  // #region Public Methods
+
+  /**
+   * Löscht ein File
+   * @param file File welches gelöscht werden soll
+   */
+  public deleteFile(file: IBrowserFile): void {
+    this.confirmDeleteFile(file).subscribe((confirm) => {
+      if (confirm) {
+        this.browserService
+          .DeleteFile(
+            this.apiurl,
+            this.selectedNode.Path + '/' + file.Filename,
+            this.allowedtypes
+          )
+          .subscribe((result: IBrowserFileResponse) => {
+            this.selectedNode.Files = result.Files;
+          });
+      }
+    });
+  }
+
+  /**
+   * Löscht einen Node
+   * @param node Node welcher gelöscht werden soll
+   */
+  public deleteNode(node: IBrowserNode): void {
+    this.confirmDeleteNode(node).subscribe((confirm) => {
+      if (confirm) {
+        this.browserService
+          .DeleteNode(this.apiurl, node.Path)
+          .subscribe((result: IBrowserNodeResponse) => {
+            const parentNode = this.findParentNode(this.rootNode, node);
+            parentNode.ChildNodes = result.Node.ChildNodes;
+
+            this.rootNode.ChildNodes.forEach((itm) => {
+              this.fillPath(itm, '');
+            });
+
+            this.selectNode(parentNode);
+          });
+      }
+    });
+  }
+
+  /**
+   * Setzt ein File in den Edit Mode
+   * @param file File welches in den Edit Mode gesetzt werden soll
+   */
+  public editFile(file: IBrowserFile): void {
+    file.IsEditMode = true;
+  }
+
+  /**
+   * Setzt einen Node in den Edit Mode
+   * @param node Node welcher bearbeitet werden soll
+   */
+  public editNode(node: IBrowserNode): void {
+    node.IsEditMode = true;
+  }
+
+  /**
+   * HostListener welcher den Edit Mode bei allen Files und Nodes beendet.
+   */
+  @HostListener('document:click', ['$event.target'])
+  /**
+   * Click Event
+   */
+  public exitEditMode(targetElement): void {
+    if (this.selectedNode) {
+      this.selectedNode.Files.forEach((itm) => (itm.IsEditMode = false));
+
+      if (
+        !this.selectedNode ||
+        this.selectedNode.Name === null ||
+        this.selectedNode.Name.length === 0
+      ) {
+        this.clearNewChildNodes(this.rootNode);
+      }
+    }
+
+    this.resetNodeEditMode(null);
+  }
+
+  /**
+   * Erzeugt einen neuen Node im Tree
+   * @param node Node unter welchem ein neuer Node erstellt werden soll
+   */
+  public newNode(node: IBrowserNode) {
+    const item: IBrowserNode = {
+      ChildNodes: [],
+      Files: [],
+      IsEditMode: false,
+      IsExpanded: false,
+      Name: '',
+      Path: node.Path,
+      IsNewNode: true,
+    };
+
+    node.ChildNodes.push(item);
+    this.selectNode(item);
+    this.editNode(item);
   }
 
   /**
    * Init Event der Komponente
    */
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.browserService
       .GetNode(this.apiurl, '', this.allowedtypes)
       .subscribe((result: IBrowserNodeResponse) => {
@@ -216,52 +371,6 @@ export abstract class SacFileBrowserCommon implements OnInit {
   }
 
   /**
-   * Expand/Collabse Methode für Nodes
-   * @param node Node welcher geöffnet oder geschlossen werden soll
-   */
-  public switchExpandNode(node: IBrowserNode): void {
-    if (node.IsExpanded) {
-      node.IsExpanded = false;
-    } else {
-      node.IsExpanded = true;
-    }
-  }
-
-  /**
-   * Methode wenn ein Node selektiert wird
-   * @param node Node welcher selektiert werden soll
-   */
-  public selectNode(node: IBrowserNode): void {
-    if (!node.IsExpanded) {
-      this.switchExpandNode(node);
-    }
-
-    // Reset the Edit Mode in all Nodes
-    this.resetNodeEditMode(null);
-
-    if (!node.Files) {
-      this.browserService
-        .GetFiles(this.apiurl, node.Path, this.allowedtypes)
-        .subscribe((result: IBrowserFileResponse) => {
-          node.Files = result.Files;
-          this.selectedNode = node;
-
-          if (this.preselecedfile !== null && this.preselecedfile.length > 0) {
-            const filename = this.preselecedfile.substring(
-              this.preselecedfile.lastIndexOf('/') + 1
-            );
-            const file = node.Files.find((itm) => itm.Filename === filename);
-            if (file) {
-              this.selectFile(file);
-            }
-          }
-        });
-    } else {
-      this.selectedNode = node;
-    }
-  }
-
-  /**
    * Aktualisiert den Node
    */
   public refreshNode(node: IBrowserNode): void {
@@ -280,11 +389,30 @@ export abstract class SacFileBrowserCommon implements OnInit {
   }
 
   /**
-   * Setzt einen Node in den Edit Mode
-   * @param node Node welcher bearbeitet werden soll
+   * Methode wenn eine Datei umbenannt werden soll
+   * @param file File welches umbenannt werden soll
+   * @param newFilename Neuer Dateiname
    */
-  public editNode(node: IBrowserNode): void {
-    node.IsEditMode = true;
+  public renameFile(file: IBrowserFile, newFilename: string): void {
+    file.IsEditMode = false;
+
+    if (!newFilename || newFilename === null || newFilename.length === 0) {
+      // Cancel, Invalid Filename
+      return;
+    }
+
+    if (file.Filename !== newFilename) {
+      this.browserService
+        .RenameFile(
+          this.apiurl,
+          this.selectedNode.Path + '/' + file.Filename,
+          newFilename,
+          this.allowedtypes
+        )
+        .subscribe((result: IBrowserFileResponse) => {
+          this.selectedNode.Files = result.Files;
+        });
+    }
   }
 
   /**
@@ -338,49 +466,6 @@ export abstract class SacFileBrowserCommon implements OnInit {
   }
 
   /**
-   * Erzeugt einen neuen Node im Tree
-   * @param node Node unter welchem ein neuer Node erstellt werden soll
-   */
-  public newNode(node: IBrowserNode) {
-    const item: IBrowserNode = {
-      ChildNodes: [],
-      Files: [],
-      IsEditMode: false,
-      IsExpanded: false,
-      Name: '',
-      Path: node.Path,
-      IsNewNode: true,
-    };
-
-    node.ChildNodes.push(item);
-    this.selectNode(item);
-    this.editNode(item);
-  }
-
-  /**
-   * Löscht einen Node
-   * @param node Node welcher gelöscht werden soll
-   */
-  public deleteNode(node: IBrowserNode): void {
-    this.confirmDeleteNode(node).subscribe((confirm) => {
-      if (confirm) {
-        this.browserService
-          .DeleteNode(this.apiurl, node.Path)
-          .subscribe((result: IBrowserNodeResponse) => {
-            const parentNode = this.findParentNode(this.rootNode, node);
-            parentNode.ChildNodes = result.Node.ChildNodes;
-
-            this.rootNode.ChildNodes.forEach((itm) => {
-              this.fillPath(itm, '');
-            });
-
-            this.selectNode(parentNode);
-          });
-      }
-    });
-  }
-
-  /**
    * Methode wenn ein File selektiert wird
    * @param file File welches selektiert wird
    */
@@ -400,57 +485,48 @@ export abstract class SacFileBrowserCommon implements OnInit {
   }
 
   /**
-   * Löscht ein File
-   * @param file File welches gelöscht werden soll
+   * Methode wenn ein Node selektiert wird
+   * @param node Node welcher selektiert werden soll
    */
-  public deleteFile(file: IBrowserFile): void {
-    this.confirmDeleteFile(file).subscribe((confirm) => {
-      if (confirm) {
-        this.browserService
-          .DeleteFile(
-            this.apiurl,
-            this.selectedNode.Path + '/' + file.Filename,
-            this.allowedtypes
-          )
-          .subscribe((result: IBrowserFileResponse) => {
-            this.selectedNode.Files = result.Files;
-          });
-      }
-    });
-  }
-
-  /**
-   * Setzt ein File in den Edit Mode
-   * @param file File welches in den Edit Mode gesetzt werden soll
-   */
-  public editFile(file: IBrowserFile): void {
-    file.IsEditMode = true;
-  }
-
-  /**
-   * Methode wenn eine Datei umbenannt werden soll
-   * @param file File welches umbenannt werden soll
-   * @param newFilename Neuer Dateiname
-   */
-  public renameFile(file: IBrowserFile, newFilename: string): void {
-    file.IsEditMode = false;
-
-    if (!newFilename || newFilename === null || newFilename.length === 0) {
-      // Cancel, Invalid Filename
-      return;
+  public selectNode(node: IBrowserNode): void {
+    if (!node.IsExpanded) {
+      this.switchExpandNode(node);
     }
 
-    if (file.Filename !== newFilename) {
+    // Reset the Edit Mode in all Nodes
+    this.resetNodeEditMode(null);
+
+    if (!node.Files) {
       this.browserService
-        .RenameFile(
-          this.apiurl,
-          this.selectedNode.Path + '/' + file.Filename,
-          newFilename,
-          this.allowedtypes
-        )
+        .GetFiles(this.apiurl, node.Path, this.allowedtypes)
         .subscribe((result: IBrowserFileResponse) => {
-          this.selectedNode.Files = result.Files;
+          node.Files = result.Files;
+          this.selectedNode = node;
+
+          if (this.preselecedfile !== null && this.preselecedfile.length > 0) {
+            const filename = this.preselecedfile.substring(
+              this.preselecedfile.lastIndexOf('/') + 1
+            );
+            const file = node.Files.find((itm) => itm.Filename === filename);
+            if (file) {
+              this.selectFile(file);
+            }
+          }
         });
+    } else {
+      this.selectedNode = node;
+    }
+  }
+
+  /**
+   * Expand/Collabse Methode für Nodes
+   * @param node Node welcher geöffnet oder geschlossen werden soll
+   */
+  public switchExpandNode(node: IBrowserNode): void {
+    if (node.IsExpanded) {
+      node.IsExpanded = false;
+    } else {
+      node.IsExpanded = true;
     }
   }
 
@@ -478,20 +554,22 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
   }
 
+  // #endregion Public Methods
+
+  // #region Public Abstract Methods
+
   /**
    * Abstrakte Confirm Methode welche implementiert werden muss. Methode wird aufgerufen, wenn eine
    * Datei gelöscht werden soll.
    * @param file File für welches ein Delete Confirm eingefordert werden soll
    */
   public abstract confirmDeleteFile(file: IBrowserFile): Observable<boolean>;
-
   /**
    * Abstrakte Confirm Methode welche implementiert werden muss. Methode wird aufgerufen, wenn ein
    * Ordner gelöscht werden soll.
    * @param folder Ordern für welchen ein Delete Confirm eingefordert werden soll.
    */
   public abstract confirmDeleteNode(folder: IBrowserNode): Observable<boolean>;
-
   /**
    * Abstrakte Methode die Aufgerufen wird, wenn das Hochgeladene File aus dem Temp Folder in die
    * Struktur verschoben wurde.
@@ -499,33 +577,9 @@ export abstract class SacFileBrowserCommon implements OnInit {
    */
   public abstract uploadedFileMoved(uploadid: string): void;
 
-  /**
-   * Methode welche den Pfad für einen Node erzeugt
-   * @param node Node für welchen der Pfad erzeugt werden soll
-   * @param parentPath Übergeordneter Pfad
-   */
-  private fillPath(node: IBrowserNode, parentPath: string) {
-    node.Path = parentPath + '/' + node.Name;
-    node.ChildNodes.forEach((itm) => {
-      this.fillPath(itm, node.Path);
-    });
-  }
+  // #endregion Public Abstract Methods
 
-  /**
-   * Rekursive Methode welche beim Node und all seinen Childs den Edit Mode beendet.
-   * @param node Node bei welchem der Edit Mode beendet werden soll
-   */
-  private resetNodeEditMode(node: IBrowserNode): void {
-    if (node === null) {
-      this.resetNodeEditMode(this.rootNode);
-    } else {
-      node.IsEditMode = false;
-
-      if (node.ChildNodes) {
-        node.ChildNodes.forEach((itm) => this.resetNodeEditMode(itm));
-      }
-    }
-  }
+  // #region Private Methods
 
   /**
    * Rekursive Methode welche beim Node und all seinen Childs neue Nodes entfernt
@@ -539,6 +593,18 @@ export abstract class SacFileBrowserCommon implements OnInit {
     });
 
     node.ChildNodes.forEach((itm) => this.clearNewChildNodes(itm));
+  }
+
+  /**
+   * Methode welche den Pfad für einen Node erzeugt
+   * @param node Node für welchen der Pfad erzeugt werden soll
+   * @param parentPath Übergeordneter Pfad
+   */
+  private fillPath(node: IBrowserNode, parentPath: string) {
+    node.Path = parentPath + '/' + node.Name;
+    node.ChildNodes.forEach((itm) => {
+      this.fillPath(itm, node.Path);
+    });
   }
 
   /**
@@ -563,15 +629,6 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     return null;
-  }
-
-  /**
-   * Setzt den Pfad in allen Nodes
-   */
-  private setPathToAllNodes() {
-    this.rootNode.ChildNodes.forEach((itm) => {
-      this.fillPath(itm, '');
-    });
   }
 
   /**
@@ -624,4 +681,31 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
     return null;
   }
+
+  /**
+   * Rekursive Methode welche beim Node und all seinen Childs den Edit Mode beendet.
+   * @param node Node bei welchem der Edit Mode beendet werden soll
+   */
+  private resetNodeEditMode(node: IBrowserNode): void {
+    if (node === null) {
+      this.resetNodeEditMode(this.rootNode);
+    } else {
+      node.IsEditMode = false;
+
+      if (node.ChildNodes) {
+        node.ChildNodes.forEach((itm) => this.resetNodeEditMode(itm));
+      }
+    }
+  }
+
+  /**
+   * Setzt den Pfad in allen Nodes
+   */
+  private setPathToAllNodes() {
+    this.rootNode.ChildNodes.forEach((itm) => {
+      this.fillPath(itm, '');
+    });
+  }
+
+  // #endregion Private Methods
 }

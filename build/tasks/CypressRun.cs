@@ -10,7 +10,6 @@ namespace Build.tasks
 {
     [TaskName("CypressRun")]
     [TaskDescription("Run Cypress Tests")]
-    [IsDependentOn(typeof(NpmBuild))]
     public class CypressRun : FrostingTask<BuildContext>
     {
         /// <summary>
@@ -29,13 +28,38 @@ namespace Build.tasks
 
             context.Log.Information("Start Cypress run");
 
-            NpmRunScriptSettings runSettings = new NpmRunScriptSettings();
-            runSettings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
-            runSettings.ScriptName = "test-bs4";
-
-            context.NpmRunScript(runSettings);
+            TestBootstrap3();
+            TestBootstrap4();
+            TestBootstrap5();
 
             context.Log.Information("Cypress run done");
+
+            void TestBootstrap3()
+            {
+                NpmRunScriptSettings runSettings = new NpmRunScriptSettings();
+                runSettings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+                runSettings.ScriptName = "test-bs3";
+
+                context.NpmRunScript(runSettings);
+            }
+
+            void TestBootstrap4()
+            {
+                NpmRunScriptSettings runSettings = new NpmRunScriptSettings();
+                runSettings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+                runSettings.ScriptName = "test-bs4";
+
+                context.NpmRunScript(runSettings);
+            }
+
+            void TestBootstrap5()
+            {
+                NpmRunScriptSettings runSettings = new NpmRunScriptSettings();
+                runSettings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+                runSettings.ScriptName = "test-bs5";
+
+                context.NpmRunScript(runSettings);
+            }
         }
 
         public override bool ShouldRun(BuildContext context)

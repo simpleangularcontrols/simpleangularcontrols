@@ -15,7 +15,8 @@
 			"aaron-bond.better-comments",
 			"esbenp.prettier-vscode",
 			"aljazsim.tsco",
-			"santacodes.santacodes-region-viewer"
+			"santacodes.santacodes-region-viewer",
+			"bierner.markdown-mermaid"
 		]
 	}
 }

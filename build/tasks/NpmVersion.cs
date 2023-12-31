@@ -9,7 +9,6 @@ namespace Build.tasks
 {
     [TaskName("NpmVersion")]
     [TaskDescription("Set Version in NPM Packages")]
-    [IsDependentOn(typeof(NpmInstall))]
     public class NpmVersion : FrostingTask<BuildContext>
     {
         /// <summary>
@@ -21,7 +20,9 @@ namespace Build.tasks
             base.Run(context);
 
             ChangeVersion(context, "./projects/sac-common");
+            ChangeVersion(context, "./projects/sac-bootstrap3");
             ChangeVersion(context, "./projects/sac-bootstrap4");
+            ChangeVersion(context, "./projects/sac-bootstrap5");
         }
 
         private static void ChangeVersion(BuildContext context, string project)

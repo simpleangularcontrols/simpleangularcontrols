@@ -13,7 +13,7 @@ namespace Build.tasks
 {
     [TaskName("NpmPublish")]
     [TaskDescription("Publish NPM to Store")]
-    [IsDependentOn(typeof(NpmDoc))]
+    [IsDependentOn(typeof(NpmVersion))]
     public class NpmPublish : FrostingTask<BuildContext>
     {
         /// <summary>
@@ -29,14 +29,18 @@ namespace Build.tasks
 
             // Create Packages
             PackNpm(context, "./dist/sac-common");
+            PackNpm(context, "./dist/sac-bootstrap3");
             PackNpm(context, "./dist/sac-bootstrap4");
+            PackNpm(context, "./dist/sac-bootstrap5");
 
             // Publish Package
             if (context.Arguments.HasArgument("nopublish"))
                 return;
 
             PublishNpm(context, "./dist/sac-common");
+            PublishNpm(context, "./dist/sac-bootstrap3");
             PublishNpm(context, "./dist/sac-bootstrap4");
+            PublishNpm(context, "./dist/sac-bootstrap5");
         }
 
         private void PackNpm(BuildContext context, string distFolder)

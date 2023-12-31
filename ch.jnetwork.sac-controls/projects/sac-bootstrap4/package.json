@@ -2,8 +2,8 @@
   "name": "@simpleangularcontrols/sac-bootstrap4",
   "version": "13.0.0-rc.1",
   "peerDependencies": {
-    "@angular/common": "^14.3.0",
-    "@angular/core": "^14.3.0",
+    "@angular/common": "^15.2.10",
+    "@angular/core": "^15.2.10",
     "@simpleangularcontrols/sac-common": "file:../../dist/sac-common",
     "@tinymce/tinymce-angular": "7.0.0"
   },

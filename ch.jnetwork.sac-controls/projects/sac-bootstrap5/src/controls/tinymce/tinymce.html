@@ -1,0 +1,63 @@
+<div class="row mb-3" [class.g-0]="disablelabel">
+  <div
+    class="col"
+    [ngClass]="[disablelabel === false ?  'col-md-' + labelsize : 'sr-only' ]"
+  >
+    <label for="{{name}}" class="form-control-label col-form-label-sm"
+      >{{label}}</label
+    >
+  </div>
+  <div
+    class="col-12"
+    [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"
+  >
+    <editor
+      [id]="name + '_tinymce'"
+      [init]="_config"
+      [initialValue]="value"
+      ngModel
+      [ngModelOptions]="{standalone: true}"
+      (ngModelChange)="setValue($event)"
+      (onSaveContent)="save($event.event.content)"
+      [disabled]="disabled"
+    ></editor>
+  </div>
+</div>
+
+<sac-dialog
+  *ngIf="selectdialogvisible"
+  [allowesc]="false"
+  [backdrop]="true"
+  [(isvisible)]="selectdialogvisible"
+  title="{{ lngResourceService.GetString('TINYMCE_FILESELECT_DIALOGTITLE') | async }}"
+  size="large"
+  height="500px"
+>
+  <ng-container dialogbody>
+    <sac-filebrowser
+      [apiurl]="filebrowserapiurl"
+      (file)="selectDialogSettings.value = $event"
+      [allowfoldercreate]="allowfoldercreate"
+      [allowfolderrename]="allowfolderrename"
+      [allowfolderdelete]="allowfolderdelete"
+      [allowfileupload]="allowfileupload"
+      [allowfilerename]="allowfilerename"
+      [allowfiledelete]="allowfiledelete"
+      [selectedfile]="selectDialogSettings.value"
+      [allowedtypes]="selectDialogSettings.allowedtypes"
+    ></sac-filebrowser>
+  </ng-container>
+  <ng-container dialogfooter>
+    <sac-button
+      role="primary"
+      [name]="name + '_modalOk'"
+      text="{{ lngResourceService.GetString('TINYMCE_FILESELECT_OK') | async }}"
+      (clicked)="setSelectDialogResult()"
+    ></sac-button>
+    <sac-button
+      [name]="name + '_modalClose'"
+      text="{{ lngResourceService.GetString('TINYMCE_FILESELECT_CANCEL') | async }}"
+      (clicked)="closeSelectDialog()"
+    ></sac-button>
+  </ng-container>
+</sac-dialog>

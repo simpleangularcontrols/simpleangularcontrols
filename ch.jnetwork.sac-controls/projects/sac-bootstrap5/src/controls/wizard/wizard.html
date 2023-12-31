@@ -1,0 +1,13 @@
+<ul class="nav nav-wizard" role="tablist">
+  <li *ngFor="let item of _wizardItems" class="nav-item" [ngClass]="{ 'active': item._active, 'disabled': item._disabled, 'success': item._iscomplete }"
+      [ngStyle]="{'cursor': item._disabled ? 'not-allowed' : 'pointer'}">
+    <a role="tab" (click)="selectStep(item)">
+      <div class="circle">
+        <span class="step"></span>
+      </div>
+    </a>
+    <div class="info">
+      <a (click)="selectStep(item)">{{item._label}}</a>
+    </div>
+  </li>
+</ul>

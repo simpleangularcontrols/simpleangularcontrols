@@ -1,0 +1,9 @@
+<div class="row mb-3" [class.g-0]="disablelabel">
+  <div *ngIf="disablelabel === false" class="col-form-label col-form-label-sm col-12 pt-0"
+    [ngClass]="[labelsize !== 12 ?  'col-sm-' + labelsize : 'sr-only']">
+    <ng-container *ngIf="!disablelabel">{{label}}</ng-container>
+  </div>
+  <div [ngClass]="[disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
+    <ng-content></ng-content>
+  </div>
+</div>

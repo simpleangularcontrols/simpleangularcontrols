@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": [
+    "projects/demo-*/**",
+    "projects/sac-bootstrap3/**",
+    "projects/sac-bootstrap4/**",
+    "projects/sac-bootstrap5/cypress/**",
+    "projects/sac-bootstrap5/**/*.cy-spec.ts",
+    "src/**"
+  ]
+}

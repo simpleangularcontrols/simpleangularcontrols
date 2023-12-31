@@ -10,6 +10,8 @@ namespace Build.pipelines
     /// </summary>
     [TaskName("release")]
     [TaskDescription("Create a new Release")]
+    [IsDependentOn(typeof(NpmBuild))]
+    [IsDependentOn(typeof(CypressRun))]
     [IsDependentOn(typeof(NpmPublish))]
     public class ReleaseBuild : FrostingTask<BuildContext>
     {

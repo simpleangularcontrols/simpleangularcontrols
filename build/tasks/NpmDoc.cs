@@ -8,7 +8,6 @@ namespace Build.tasks
 {
     [TaskName("NpmDoc")]
     [TaskDescription("Create Documentation")]
-    [IsDependentOn(typeof(CypressRun))]
     public class NpmDoc : FrostingTask<BuildContext>
     {
         /// <summary>
@@ -19,8 +18,23 @@ namespace Build.tasks
         {
             base.Run(context);
 
+            // Documentation Bootstrap 3
+            DocBoostrap3(context);
+
             // Documentation Bootstrap 4
             DocBoostrap4(context);
+
+            // Documentation Bootstrap 5
+            DocBoostrap5(context);
+        }
+
+        private void DocBoostrap3(BuildContext context)
+        {
+            NpmRunScriptSettings settings = new NpmRunScriptSettings();
+            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+            settings.ScriptName = "compodoc-bs3";
+
+            context.NpmRunScript(settings);
         }
 
         private void DocBoostrap4(BuildContext context)
@@ -28,6 +42,15 @@ namespace Build.tasks
             NpmRunScriptSettings settings = new NpmRunScriptSettings();
             settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
             settings.ScriptName = "compodoc-bs4";
+
+            context.NpmRunScript(settings);
+        }
+
+        private void DocBoostrap5(BuildContext context)
+        {
+            NpmRunScriptSettings settings = new NpmRunScriptSettings();
+            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+            settings.ScriptName = "compodoc-bs5";
 
             context.NpmRunScript(settings);
         }

@@ -1,0 +1,24 @@
+<div class="dropdown" [ngClass]="cssclass">
+  <ng-container
+    [ngTemplateOutlet]="buttontemplate || defaultButtonTemplate"
+  ></ng-container>
+
+  <ul
+    class="dropdown-menu dropdown-menu-end"
+    sacContextMenuContainer
+    [class.show]="isopen"
+  >
+    <ng-content></ng-content>
+  </ul>
+</div>
+
+<ng-template #defaultButtonTemplate>
+  <button
+    sacContextMenuAnchor
+    class="btn btn-sm btn-link text-secondary text-decoration-none"
+    type="button"
+    (click)="toggle()"
+  >
+    <i [class]="IconContextMenu"></i>
+  </button>
+</ng-template>

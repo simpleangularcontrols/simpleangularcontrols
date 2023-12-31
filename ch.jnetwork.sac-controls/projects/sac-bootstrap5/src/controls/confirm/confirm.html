@@ -1,0 +1,29 @@
+<sac-dialog
+  [(isvisible)]="isvisible"
+  [title]="title"
+  [allowesc]="false"
+  [closebutton]="false"
+  dialogsize="small"
+>
+  <div dialogbody>
+    <div class="d-flex align-items-center">
+      <div class="me-2">
+        <img
+          [attr.src]="image"
+          class="align-self-center mr-3"
+          *ngIf="hasImage()"
+        />
+      </div>
+      <div class="flex-grow-1">{{message}}</div>
+    </div>
+  </div>
+  <ng-container dialogfooter>
+    <ng-container *ngFor="let button of buttons">
+      <sac-button
+        [name]="button.key"
+        [text]="button.text"
+        (clicked)="confirm(button.key)"
+      ></sac-button>
+    </ng-container>
+  </ng-container>
+</sac-dialog>

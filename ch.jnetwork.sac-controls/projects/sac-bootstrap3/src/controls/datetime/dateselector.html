@@ -3,11 +3,11 @@
     <thead>
       <tr>
         <th class="prev text-left" (click)="monthBack()">
-          <i class="glyphicon glyphicon-arrow-left"></i>
+          <i [class]="iconMonthPrev"></i>
         </th>
         <th colspan="5" class="switch text-center">{{month+1}}/{{year}}</th>
         <th class="next text-right" (click)="monthNext()">
-          <i class="glyphicon glyphicon-arrow-right"></i>
+          <i [class]="iconMonthNext"></i>
         </th>
       </tr>
       <tr>

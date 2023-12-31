@@ -39,7 +39,7 @@
             (click)="showTimeSelector()"
             [disabled]="isdisabled"
           >
-            <i class="glyphicon glyphicon-time"></i>
+            <i [class]="IconSelector"></i>
           </button>
         </span>
       </div>
@@ -68,7 +68,6 @@
             *ngIf="_showselector"
             [initialvalue]="value"
             (selectdate)="timeselect($event)"
-            autoapplyselection="true"
             timeselection="true"
           ></sac-dateselector>
         </div>

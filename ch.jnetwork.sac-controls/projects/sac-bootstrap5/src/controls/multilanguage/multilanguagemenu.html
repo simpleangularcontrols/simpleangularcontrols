@@ -1,0 +1,27 @@
+<ng-container
+  [ngTemplateOutlet]="inputtemplate || defaultInputTemplate"
+></ng-container>
+<ng-container
+  [ngTemplateOutlet]="buttontemplate || defaultButtonTemplate"
+></ng-container>
+
+<ul
+  class="dropdown-menu dropdown-menu-right"
+  sacMultilanguageMenuContainer
+  [class.show]="isopen"
+>
+  <ng-content></ng-content>
+</ul>
+
+<ng-template #defaultButtonTemplate>
+  <button
+    sacMultilanguageMenuAnchor
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    (click)="toggle()"
+  ></button>
+</ng-template>
+
+<ng-template #defaultInputTemplate>
+  <input type="text" class="form-control form-control-sm" />
+</ng-template>

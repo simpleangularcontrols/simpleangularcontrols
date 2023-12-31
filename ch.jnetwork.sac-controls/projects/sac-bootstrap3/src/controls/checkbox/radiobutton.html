@@ -1,14 +1,21 @@
 <div class="radio" *ngIf="hidden===false">
   <label for="{{getName}}_{{getIndex}}">
-    <input id="{{getName}}_{{getIndex}}" name="{{getName}}" type="radio" [value]="value" [checked]="checked"
-           (change)="ChangeEvent()" [disabled]="isDisabled" />
-    <ng-template *ngTemplateOutlet="labeltemplate || defaultItemLabelTemplate;context:{ label: label }">
+    <input
+      id="{{getName}}_{{getIndex}}"
+      name="{{getName}}"
+      type="radio"
+      [value]="value"
+      [checked]="checked"
+      (change)="ChangeEvent()"
+      [disabled]="isDisabled"
+    />
+    <ng-template
+      *ngTemplateOutlet="labeltemplate || defaultItemLabelTemplate;context:{ label: label }"
+    >
     </ng-template>
   </label>
 </div>
 
-<ng-template #defaultItemLabelTemplate let-label="label">
-  {{label}}
-</ng-template>
-
-
+<ng-template #defaultItemLabelTemplate let-label="label"
+  >&nbsp;<span>{{label}}</span></ng-template
+>

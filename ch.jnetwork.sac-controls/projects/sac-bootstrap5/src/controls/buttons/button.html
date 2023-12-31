@@ -1,0 +1,10 @@
+<button [id]="name" type="button" class="btn d-flex justify-content-center align-items-center" [attr.disabled]="_isdisabled ? 'disabled' : null" (click)="buttonClick()"
+        [class.btn-primary]="role === 'primary'"
+        [class.btn-secondary]="role === 'secondary' || role === 'default'"
+        [class.btn-success]="role === 'success'"
+        [class.btn-danger]="role === 'danger'"
+        [class.btn-warning]="role === 'warning'"
+        [class.btn-info]="role === 'info'"
+        [class.btn-link]="role === 'link'">
+  <i *ngIf="icon !== ''" [ngClass]="icon" class="me-2"></i>{{text}}
+</button>

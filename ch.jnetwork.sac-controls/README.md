@@ -1,110 +1,177 @@
 # Development
 
-Zum Entwicklen von Komponenten wie folg vorgehen.
+## General
 
-1. Common Library starten
-2. Bootstrap 4 Library starten
-3. Bootstrap 4 Demo Project starten
+The architecture of the library consists of 3 parts. The common library, the Bootstrap-specific library and the demo project for the specific Bootstrap version.
 
-## Common Library
-```
-npm run run-common
-```
+The logic of the controls is to be implemented in the common library. It does not contain any definitions about the rendering of the control
 
-## Bootstrap 3
-> Project wird nicht mehr weiterentwickeln
-```
-npm run run-bs3
+The markup for the respective Bootstrap version must be implemented in the Boostrap-specific library. No custom styles should be implemented, instead the standard Bootstrap classes should be used. In individual exceptions, specific styles may be necessary for the controls. However, this is only permitted if there is no other option and no styles may be used for colour definitions and shapes.
+
+```mermaid
+graph TD
+    Common --> Boostrap3 --> DemoBootstrap3[Demo Boostrap 3];
+    Common --> Boostrap4 --> DemoBootstrap4[Demo Boostrap 4];
+    Common --> Boostrap5 --> DemoBootstrap5[Demo Boostrap 5];
 ```
 
-## Bootstrap 4
-```
-npm run run-bs4
-```
+## Run
 
+To start the environment, 3 projects must be carried out.
 
-## Bootstrap 4 Demo Projekt
+### Bootstrap 3
 
-```
-npm run demo-bs
-```
+* Start Common: `npm run run-common`
+* Start Boostrap3: `npm run run-bs3`
+* Start Demo: `npm run demo-bs3`
 
+### Bootstrap 4
 
-# Documentation
+* Start Common: `npm run run-common`
+* Start Boostrap4: `npm run run-bs4`
+* Start Demo: `npm run demo-bs4`
 
-## Bootstrap 3
-```
-npm run-script compodoc-bs3
-```
-## Boostrap 4
-```
-npm run-script compodoc-bs4
-```
+### Bootstrap 4
 
-## Full Documentation Build
-```
-build.compodoc.bat
-```
+* Start Common: `npm run run-common`
+* Start Boostrap5: `npm run run-bs5`
+* Start Demo: `npm run demo-bs5`
 
-# Build
+## Build
 
-## Common Library
+To create a build without a live update, the following commands can be executed
+
+### Common
+
 ```
 npm run build-common
 ```
 
-## Bootstrap 3
+### Bootstrap 3
+
 ```
 npm run build-bs3
 ```
 
-## Bootstrap 4
+### Bootstrap 4
+
 ```
 npm run build-bs4
 ```
+
+### Bootstrap 5
+
+```
+npm run build-bs5
+```
+
+
+
+# Documentation
+
+To update all documentation, it is recommended to use the corresponding build command. This updates the documentation for all projects.
+
+## Update all documentation
+
+```ps1
+./build.ps1 --target=doc
+```
+
+## Boostrap 3
+
+This command only updates the Boostrap 3 documentation
+
+```
+npm run-script compodoc-bs3
+```
+
+## Boostrap 4
+
+This command only updates the Boostrap 4 documentation
+
+```
+npm run-script compodoc-bs4
+```
+
+## Boostrap 5
+
+This command only updates the Boostrap 3 documentation
+
+```
+npm run-script compodoc-bs5
+```
+
 
 # Testing
 
 ## Create/Edit Tests
 
-Um Tests zu erstellen oder zu bearbeiten folgendes Command ausführen
+To create or edit tests, execute the following command
+
+### Boostrap 3
 
 ```
-npm run test-edit
+npm run test-edit-bs3
 ```
 
-Das nötige NPM Packet für die die Angular Component tests ist hier https://www.npmjs.com/package/@jscutlery/cypress-angular
+### Boostrap 4
+
+```
+npm run test-edit-bs4
+```
+
+### Boostrap 5
+
+```
+npm run test-edit-bs5
+```
 
 
 ## Run Tests
 
-Um die Tests zu starten
+The following commands are available to start the tests
+
+### Full Run
+
+This command is used for the tests for all projects.
+
+```ps1
+./build.ps1 --target=test
+```
+
+### Boostrap 3
 
 ```
-npm run test-run
+npm run test-bs3
+```
+
+### Boostrap 4
+
+```
+npm run test-bs4
+```
+
+### Boostrap 5
+
+```
+npm run test-bs5
 ```
 
 ## Problems
 
 ### Type DynamicModule does not have 'ɵmod' property.
 
-Wenn diese Fehlermeldungen bei einem Test angezeigt wird muss der NGCC neu ausgeführt werden. Dazu folgendes Command ausführen.
+If these error messages are displayed during a test, the NGCC must be executed again. To do this, execute the following command.
 
 ```
 npm run ngcc
 ```
 
-# Builds
+# Build Pipeline
 
 ## Requirements
 
-Damit das Powershell Script ausgeführt werden kann muss folgendes Command ausgeführt werden:
-
-```
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-```
-
-Sonst wird folgender Fehler ausgegeben:
+The following command must be executed for the Powershell script to be executed, Otherwise the following error is displayed:
 
 ```
 ./build.ps1 : File C:\Daten\jNetwork\ch.jnetwork.angularcontrols\build.ps1 cannot be loaded because running scripts is disabled    
@@ -116,9 +183,16 @@ At line:1 char:1
     + FullyQualifiedErrorId : UnauthorizedAccess
 ```
 
-## Build erzeugen
+Command to correct the problem
 
-Powershell Konsole im Solution Verzeichnis öffnen. Danach build.ps1 starten
+```
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+
+## Build
+
+To perform the build process for all projects, execute the following command in a Powershell
 
 ```
 build.ps1
@@ -126,15 +200,23 @@ build.ps1
 
 ## Test Run
 
-Powershell Konsole im Solution Verzeichnis öffnen. Danach build.ps1 starten
+To execute all tests in a Powershell, execute the following command
 
 ```
 build.ps1 --target=test
 ```
 
+## Documentation
+
+To update the documentation, execute the following command in a Powershell
+
+```
+build.ps1 --target=doc
+```
+
 ## Release erstellen
 
-Powershell Konsole öffnen. Danach build.ps1 starten
+To create a release, execute the following command in a Powershell
 
 ### Patch
 
@@ -160,12 +242,12 @@ Powershell Konsole öffnen. Danach build.ps1 starten
 .\build.ps1 --target=release --prerelease
 ```
 
-### Optionale Parameter
+### Optional parameters
 
 `--nopublish`
 
-Veröffentlicht das Packet nicht in der NPM Registry
+Does not publish the package in the NPM registry
 
 `--notest` 
 
-Deaktiviert die Cypress Tests
+Deactivates the Cypress tests

@@ -39,7 +39,7 @@
             (click)="showDateSelector()"
             [disabled]="isdisabled"
           >
-            <i class="glyphicon glyphicon-calendar"></i>
+            <i [class]="IconSelector"></i>
           </button>
         </span>
       </div>
@@ -69,7 +69,6 @@
             *ngIf="_showselector"
             [initialvalue]="value"
             (selectdate)="dateselect($event)"
-            autoapplyselection="true"
             dateselection="true"
           ></sac-dateselector>
         </div>

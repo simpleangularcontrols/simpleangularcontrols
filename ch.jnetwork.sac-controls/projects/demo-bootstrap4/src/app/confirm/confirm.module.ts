@@ -16,7 +16,6 @@ import { DemoConfirmComponent } from './confirm.component';
     FormsModule,
     ConfirmRoutingModule,
     SACBootstrap4FormModule,
-    SACBootstrap4ConfirmModule,
     SACBootstrap4ValidationSummaryModule,
     SACBootstrap4ButtonModule,
     SACBootstrap4ConfirmModule.forRoot(),

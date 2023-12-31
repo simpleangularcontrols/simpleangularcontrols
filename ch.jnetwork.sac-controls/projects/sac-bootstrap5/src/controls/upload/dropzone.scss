@@ -1,0 +1,45 @@
+.dropzone {
+  min-height: 9.75rem;
+  border: 0.125rem dashed lightgray;
+  border-radius: 0.5rem;
+  background: transparent;
+
+  .content {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    .progress-container {
+      min-width: 50%;
+      z-index: 100;
+    }
+
+    .dropzone-uploadstates {
+      .upload-progress {
+        padding: 0;
+
+        .progress {
+          height: 100%;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+
+          .progress-text {
+            left: 0;
+            right: 0;
+            position: absolute;
+          }
+        }
+      }
+    }
+  }
+
+  .custom-file-input {
+    min-height: 100%;
+    height: unset;
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+  }
+}

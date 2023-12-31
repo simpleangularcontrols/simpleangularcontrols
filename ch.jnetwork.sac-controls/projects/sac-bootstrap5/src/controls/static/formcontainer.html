@@ -1,0 +1,29 @@
+<div class="row mb-3" [class.g-0]="disablelabel">
+  <label
+    *ngIf="disablelabel === false && !isadaptivelabel"
+    id="{{name}}_label"
+    for="{{name}}"
+    class="col-form-label col-form-label-sm"
+    [ngClass]="[labelsize !== 12 ?  'col-sm-' + labelsize : 'sr-only']"
+    [class.required]="isrequired"
+    >{{label}}</label
+  >
+  <div
+    [ngClass]="[disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']"
+  >
+    <ng-content></ng-content>
+    <label
+      for="{{name}}"
+      class="form-label-adaptive form-label-fixed"
+      [ngClass]="{ 'required': isrequired }"
+      *ngIf="isadaptivelabel && !disablelabel"
+      >{{label}}</label
+    >
+    <div
+      class="invalid-feedback"
+      *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)"
+    >
+      {{ GetErrorMessage() | async }}
+    </div>
+  </div>
+</div>

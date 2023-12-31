@@ -1,0 +1,3462 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Bootstrap 5 Angular Controls</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content directive">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Directives</li>
+  <li class="breadcrumb-item" >SacFileBrowserCommon</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/sac-common/src/components/browser/browser.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Base Component für File Browser</p>
+
+            </p>
+
+
+            <p class="comment">
+                <h3>Implements</h3>
+            </p>
+            <p class="comment">
+                        <code>OnInit</code>
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#lngResourceService" >lngResourceService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#rootNode" >rootNode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectedFile" >selectedFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectedFileItem" >selectedFileItem</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectedNode" >selectedNode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#uploads" >uploads</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Abstract</span>
+                                <a href="#confirmDeleteFile" >confirmDeleteFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Abstract</span>
+                                <a href="#confirmDeleteNode" >confirmDeleteNode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteFile" >deleteFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteNode" >deleteNode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#editFile" >editFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#editNode" >editNode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Public</span>
+                                <a href="#exitEditMode" >exitEditMode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#newNode" >newNode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#refreshNode" >refreshNode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#renameFile" >renameFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#renameNode" >renameNode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectFile" >selectFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectNode" >selectNode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#switchExpandNode" >switchExpandNode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#uploadComplete" >uploadComplete</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Abstract</span>
+                                <a href="#uploadedFileMoved" >uploadedFileMoved</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#allowedtypes" >allowedtypes</a>
+                            </li>
+                            <li>
+                                <a href="#allowfiledelete" >allowfiledelete</a>
+                            </li>
+                            <li>
+                                <a href="#allowfilerename" >allowfilerename</a>
+                            </li>
+                            <li>
+                                <a href="#allowfileupload" >allowfileupload</a>
+                            </li>
+                            <li>
+                                <a href="#allowfoldercreate" >allowfoldercreate</a>
+                            </li>
+                            <li>
+                                <a href="#allowfolderdelete" >allowfolderdelete</a>
+                            </li>
+                            <li>
+                                <a href="#allowfolderrename" >allowfolderrename</a>
+                            </li>
+                            <li>
+                                <a href="#apiurl" >apiurl</a>
+                            </li>
+                            <li>
+                                <a href="#selectedfile" >selectedfile</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#file" >file</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>HostListeners</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#document:click" >document:click</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#iconDelete" >iconDelete</a>
+                                </li>
+                                <li>
+                                    <a href="#iconEdit" >iconEdit</a>
+                                </li>
+                                <li>
+                                    <a href="#iconFolderCollabsed" >iconFolderCollabsed</a>
+                                </li>
+                                <li>
+                                    <a href="#iconFolderEmpty" >iconFolderEmpty</a>
+                                </li>
+                                <li>
+                                    <a href="#iconFolderNew" >iconFolderNew</a>
+                                </li>
+                                <li>
+                                    <a href="#iconFolderOpen" >iconFolderOpen</a>
+                                </li>
+                                <li>
+                                    <a href="#iconRefresh" >iconRefresh</a>
+                                </li>
+                                <li>
+                                    <a href="#selectedfile" >selectedfile</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(httpclient: HttpClient, injector: Injector)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:127</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>httpclient</td>
+                                                  
+                                                        <td>
+                                                                    <code>HttpClient</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Angular HTTP Client</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Service Injector</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allowedtypes"></a>
+                        <b>allowedtypes</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:55</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Erlaubte Dateierweiterungen für Fileauswahl und Upload. Dateierweiterung mit Punkt und
+getrennt durch Komma für mehr als eine Erweiterung (Example: &quot;.jpg,.gif&quot;)</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allowfiledelete"></a>
+                        <b>allowfiledelete</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:60</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Erlaubt das löschen einer Datei</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allowfilerename"></a>
+                        <b>allowfilerename</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:65</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Erlaubt das umbenennen einer Datei</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allowfileupload"></a>
+                        <b>allowfileupload</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:70</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Erlaubt den Upload von Dateien</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allowfoldercreate"></a>
+                        <b>allowfoldercreate</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:75</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Erlaubt das erstellen eines neuen Ordners</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allowfolderdelete"></a>
+                        <b>allowfolderdelete</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:80</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Erlaubt das löschen eines Ordners</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allowfolderrename"></a>
+                        <b>allowfolderrename</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:85</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Erlaubt das Umbenennen eines Ordners</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="apiurl"></a>
+                        <b>apiurl</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:90</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>URL für Backend API</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedfile"></a>
+                        <b>selectedfile</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="230" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:230</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Setzt den Seleced Node über den Pfad</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+            <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="file"></a>
+                        <b>file</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;string&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:95</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Output Emitter wenn File selektiert wird.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-host-listener">
+    <h3>HostListeners</h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="document:click"></a>
+                    <span class="name">
+                        <b>
+                            document:click
+                        </b>
+                        <a href="#document:click"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <i>Arguments : </i><code>'$event.target' </code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="310"
+                            class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:310</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>HostListener welcher den Edit Mode bei allen Files und Nodes beendet.</p>
+</div>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmDeleteFile"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Abstract</span>
+                        <span ><b>confirmDeleteFile</b></span>
+                        <a href="#confirmDeleteFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>confirmDeleteFile(file: <a href="../interfaces/IBrowserFile.html" target="_self">IBrowserFile</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="566"
+                                    class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:566</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Abstrakte Confirm Methode welche implementiert werden muss. Methode wird aufgerufen, wenn eine
+Datei gelöscht werden soll.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>file</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IBrowserFile.html" target="_self" >IBrowserFile</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>File für welches ein Delete Confirm eingefordert werden soll</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmDeleteNode"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Abstract</span>
+                        <span ><b>confirmDeleteNode</b></span>
+                        <a href="#confirmDeleteNode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>confirmDeleteNode(folder: <a href="../interfaces/IBrowserNode.html" target="_self">IBrowserNode</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="572"
+                                    class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:572</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Abstrakte Confirm Methode welche implementiert werden muss. Methode wird aufgerufen, wenn ein
+Ordner gelöscht werden soll.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>folder</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IBrowserNode.html" target="_self" >IBrowserNode</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Ordern für welchen ein Delete Confirm eingefordert werden soll.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteFile"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>deleteFile</b></span>
+                        <a href="#deleteFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteFile(file: <a href="../interfaces/IBrowserFile.html" target="_self">IBrowserFile</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="248"
+                                    class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:248</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Löscht ein File</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>file</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IBrowserFile.html" target="_self" >IBrowserFile</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>File welches gelöscht werden soll</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteNode"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>deleteNode</b></span>
+                        <a href="#deleteNode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteNode(node: <a href="../interfaces/IBrowserNode.html" target="_self">IBrowserNode</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="268"
+                                    class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:268</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Löscht einen Node</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>node</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IBrowserNode.html" target="_self" >IBrowserNode</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Node welcher gelöscht werden soll</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editFile"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>editFile</b></span>
+                        <a href="#editFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>editFile(file: <a href="../interfaces/IBrowserFile.html" target="_self">IBrowserFile</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="291"
+                                    class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:291</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Setzt ein File in den Edit Mode</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>file</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IBrowserFile.html" target="_self" >IBrowserFile</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>File welches in den Edit Mode gesetzt werden soll</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editNode"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>editNode</b></span>
+                        <a href="#editNode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>editNode(node: <a href="../interfaces/IBrowserNode.html" target="_self">IBrowserNode</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="299"
+                                    class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:299</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Setzt einen Node in den Edit Mode</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>node</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IBrowserNode.html" target="_self" >IBrowserNode</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Node welcher bearbeitet werden soll</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="exitEditMode"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Public</span>
+                        <span ><b>exitEditMode</b></span>
+                        <a href="#exitEditMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>exitEditMode(targetElement)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@HostListener(&#x27;document:click&#x27;, [&#x27;$event.target&#x27;])<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="310"
+                                    class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:310</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>HostListener welcher den Edit Mode bei allen Files und Nodes beendet.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>targetElement</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newNode"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>newNode</b></span>
+                        <a href="#newNode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>newNode(node: <a href="../interfaces/IBrowserNode.html" target="_self">IBrowserNode</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="330"
+                                    class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:330</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Erzeugt einen neuen Node im Tree</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>node</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IBrowserNode.html" target="_self" >IBrowserNode</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Node unter welchem ein neuer Node erstellt werden soll</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="349"
+                                    class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:349</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Init Event der Komponente</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshNode"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>refreshNode</b></span>
+                        <a href="#refreshNode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refreshNode(node: <a href="../interfaces/IBrowserNode.html" target="_self">IBrowserNode</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="376"
+                                    class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:376</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Aktualisiert den Node</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>node</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IBrowserNode.html" target="_self" >IBrowserNode</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="renameFile"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>renameFile</b></span>
+                        <a href="#renameFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>renameFile(file: <a href="../interfaces/IBrowserFile.html" target="_self">IBrowserFile</a>, newFilename: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="396"
+                                    class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:396</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Methode wenn eine Datei umbenannt werden soll</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>file</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IBrowserFile.html" target="_self" >IBrowserFile</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>File welches umbenannt werden soll</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>newFilename</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Neuer Dateiname</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="renameNode"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>renameNode</b></span>
+                        <a href="#renameNode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>renameNode(node: <a href="../interfaces/IBrowserNode.html" target="_self">IBrowserNode</a>, newFoldername: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="423"
+                                    class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:423</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Methode wenn ein Node umbenannt werden soll</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>node</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IBrowserNode.html" target="_self" >IBrowserNode</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Node welcher umbenannt werden soll</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>newFoldername</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Neuer Ordnername</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectFile"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>selectFile</b></span>
+                        <a href="#selectFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>selectFile(file: <a href="../interfaces/IBrowserFile.html" target="_self">IBrowserFile</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="472"
+                                    class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:472</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Methode wenn ein File selektiert wird</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>file</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IBrowserFile.html" target="_self" >IBrowserFile</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>File welches selektiert wird</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectNode"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>selectNode</b></span>
+                        <a href="#selectNode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>selectNode(node: <a href="../interfaces/IBrowserNode.html" target="_self">IBrowserNode</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="491"
+                                    class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:491</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Methode wenn ein Node selektiert wird</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>node</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IBrowserNode.html" target="_self" >IBrowserNode</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Node welcher selektiert werden soll</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="switchExpandNode"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>switchExpandNode</b></span>
+                        <a href="#switchExpandNode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>switchExpandNode(node: <a href="../interfaces/IBrowserNode.html" target="_self">IBrowserNode</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="525"
+                                    class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:525</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Expand/Collabse Methode für Nodes</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>node</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IBrowserNode.html" target="_self" >IBrowserNode</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Node welcher geöffnet oder geschlossen werden soll</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadComplete"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>uploadComplete</b></span>
+                        <a href="#uploadComplete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>uploadComplete(node: <a href="../interfaces/IBrowserNode.html" target="_self">IBrowserNode</a>, uploadIdList: string[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="537"
+                                    class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:537</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Methode die Aufgerufen werden muss, wenn ein Upload beendet ist.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>node</td>
+                                            <td>
+                                                            <code><a href="../interfaces/IBrowserNode.html" target="_self" >IBrowserNode</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>uploadIdList</td>
+                                            <td>
+                                                        <code>string[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadedFileMoved"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Abstract</span>
+                        <span ><b>uploadedFileMoved</b></span>
+                        <a href="#uploadedFileMoved"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>uploadedFileMoved(uploadid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="578"
+                                    class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:578</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Abstrakte Methode die Aufgerufen wird, wenn das Hochgeladene File aus dem Temp Folder in die
+Struktur verschoben wurde.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>uploadid</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID des Uploads</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lngResourceService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>lngResourceService</b></span>
+                        <a href="#lngResourceService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ISacLocalisationService.html" target="_self" >ISacLocalisationService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:99</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Service für Error Localisation</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rootNode"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>rootNode</b></span>
+                        <a href="#rootNode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IBrowserNode.html" target="_self" >IBrowserNode</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    Name: &#x27;&#x27;,
+    ChildNodes: [],
+    Files: [],
+    IsExpanded: true,
+    IsEditMode: false,
+    IsNewNode: false,
+    Path: &#x27;&#x27;,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:103</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Root Node Item für Tree</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedFile"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>selectedFile</b></span>
+                        <a href="#selectedFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="115" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:115</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Selected File Name</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedFileItem"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>selectedFileItem</b></span>
+                        <a href="#selectedFileItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IBrowserFile.html" target="_self" >IBrowserFile</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:119</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Selected File Item</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedNode"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>selectedNode</b></span>
+                        <a href="#selectedNode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IBrowserNode.html" target="_self" >IBrowserNode</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:123</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Selected Node Item</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploads"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>uploads</b></span>
+                        <a href="#uploads"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:127</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Liste von Uploads</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="iconDelete"></a>
+                        <span class="name"><b>iconDelete</b><a href="#iconDelete"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>iconDelete()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="163" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:163</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>CSS icon class for delete icon</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="iconEdit"></a>
+                        <span class="name"><b>iconEdit</b><a href="#iconEdit"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>iconEdit()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="171" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:171</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>CSS icon class for edit icon</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="iconFolderCollabsed"></a>
+                        <span class="name"><b>iconFolderCollabsed</b><a href="#iconFolderCollabsed"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>iconFolderCollabsed()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="179" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:179</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>CSS icon for folders in tree there are collabsed</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="iconFolderEmpty"></a>
+                        <span class="name"><b>iconFolderEmpty</b><a href="#iconFolderEmpty"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>iconFolderEmpty()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="187" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:187</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>CSS icon class for folders without subfolders</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="iconFolderNew"></a>
+                        <span class="name"><b>iconFolderNew</b><a href="#iconFolderNew"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>iconFolderNew()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="195" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:195</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>CSS icon for new folders action</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="iconFolderOpen"></a>
+                        <span class="name"><b>iconFolderOpen</b><a href="#iconFolderOpen"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>iconFolderOpen()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="203" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:203</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>CSS icon for folders in tree there are expanded</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="iconRefresh"></a>
+                        <span class="name"><b>iconRefresh</b><a href="#iconRefresh"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>iconRefresh()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="211" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:211</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>CSS icon class for refresh icon</p>
+</div>
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedfile"></a>
+                        <span class="name"><b>selectedfile</b><a href="#selectedfile"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>selectedfile()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="218" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:218</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Getter für Selected File. Ist an Input Property gebunden</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>string | null</code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>selectedfile(v: string | null)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="230" class="link-to-prism">projects/sac-common/src/components/browser/browser.ts:230</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Setzt den Seleced Node über den Pfad</p>
+</div>
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>v</td>
+                                                    
+                                                            <td>
+                                                                        <code>string | null</code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import {
+  Directive,
+  EventEmitter,
+  HostListener,
+  Injector,
+  Input,
+  OnInit,
+  Output,
+} from &#x27;@angular/core&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { ISacFileBrowserService } from &#x27;../../interfaces/ISacFileBrowserService&#x27;;
+import { ISacIconService } from &#x27;../../interfaces/ISacIconService&#x27;;
+import { ISacLocalisationService } from &#x27;../../interfaces/ISacLocalisationService&#x27;;
+import {
+  SACICON_SERVICE,
+  SACLOCALISATION_SERVICE,
+  SacDefaultIconService,
+} from &#x27;../../services&#x27;;
+import {
+  SACFILEBROWSER_SERVICE,
+  SacDefaultFileBrowserService,
+} from &#x27;../../services/sac-filebrowser.service&#x27;;
+import { SacDefaultLocalisationService } from &#x27;../../services/sac-localisation.service&#x27;;
+import { IBrowserFile } from &#x27;./models/browserfile&#x27;;
+import { IBrowserFileResponse } from &#x27;./models/browserfileresponse&#x27;;
+import { IBrowserNode } from &#x27;./models/browsernode&#x27;;
+import { IBrowserNodeResponse } from &#x27;./models/browsernoderesponse&#x27;;
+
+/**
+ * Base Component für File Browser
+ */
+@Directive()
+export abstract class SacFileBrowserCommon implements OnInit {
+  // #region Properties
+
+  /**
+   * Service für File Browser Zugriff (Backend)
+   */
+  private browserService: ISacFileBrowserService;
+  /**
+   * Icon service to receive icon classes for ui
+   */
+  private iconService: ISacIconService;
+  /**
+   * File welches beim starten des Browsers bereits selektiert ist
+   */
+  private preselecedfile: string | null &#x3D; null;
+
+  /**
+   * Erlaubte Dateierweiterungen für Fileauswahl und Upload. Dateierweiterung mit Punkt und
+   * getrennt durch Komma für mehr als eine Erweiterung (Example: &quot;.jpg,.gif&quot;)
+   */
+  @Input()
+  public allowedtypes: string &#x3D; &#x27;&#x27;;
+  /**
+   * Erlaubt das löschen einer Datei
+   */
+  @Input()
+  public allowfiledelete: boolean &#x3D; true;
+  /**
+   * Erlaubt das umbenennen einer Datei
+   */
+  @Input()
+  public allowfilerename: boolean &#x3D; true;
+  /**
+   * Erlaubt den Upload von Dateien
+   */
+  @Input()
+  public allowfileupload: boolean &#x3D; true;
+  /**
+   * Erlaubt das erstellen eines neuen Ordners
+   */
+  @Input()
+  public allowfoldercreate: boolean &#x3D; true;
+  /**
+   * Erlaubt das löschen eines Ordners
+   */
+  @Input()
+  public allowfolderdelete: boolean &#x3D; true;
+  /**
+   * Erlaubt das Umbenennen eines Ordners
+   */
+  @Input()
+  public allowfolderrename: boolean &#x3D; true;
+  /**
+   * URL für Backend API
+   */
+  @Input()
+  public apiurl: string;
+  /**
+   * Output Emitter wenn File selektiert wird.
+   */
+  @Output()
+  public file: EventEmitter&lt;string&gt; &#x3D; new EventEmitter&lt;string&gt;();
+  /**
+   * Service für Error Localisation
+   */
+  public lngResourceService: ISacLocalisationService;
+  /**
+   * Root Node Item für Tree
+   */
+  public rootNode: IBrowserNode &#x3D; {
+    Name: &#x27;&#x27;,
+    ChildNodes: [],
+    Files: [],
+    IsExpanded: true,
+    IsEditMode: false,
+    IsNewNode: false,
+    Path: &#x27;&#x27;,
+  };
+  /**
+   * Selected File Name
+   */
+  public selectedFile: string;
+  /**
+   * Selected File Item
+   */
+  public selectedFileItem: IBrowserFile &#x3D; null;
+  /**
+   * Selected Node Item
+   */
+  public selectedNode: IBrowserNode &#x3D; null;
+  /**
+   * Liste von Uploads
+   */
+  public uploads: string[] &#x3D; [];
+
+  // #endregion Properties
+
+  // #region Constructors
+
+  /**
+   * Konstruktor
+   * @param httpclient Angular HTTP Client
+   * @param injector Service Injector
+   */
+  constructor(httpclient: HttpClient, injector: Injector) {
+    this.browserService &#x3D; injector.get(
+      SACFILEBROWSER_SERVICE,
+      new SacDefaultFileBrowserService(httpclient)
+    );
+
+    this.lngResourceService &#x3D; injector.get(
+      SACLOCALISATION_SERVICE,
+      new SacDefaultLocalisationService()
+    );
+
+    this.iconService &#x3D; injector.get(
+      SACICON_SERVICE,
+      new SacDefaultIconService()
+    );
+  }
+
+  // #endregion Constructors
+
+  // #region Public Getters And Setters
+
+  /**
+   * CSS icon class for delete icon
+   * @returns css class with icon
+   */
+  public get iconDelete(): string {
+    return this.iconService.BrowserComponentDeleteIcon;
+  }
+
+  /**
+   * CSS icon class for edit icon
+   * @returns css class with icon
+   */
+  public get iconEdit(): string {
+    return this.iconService.BrowserComponentEditIcon;
+  }
+
+  /**
+   * CSS icon for folders in tree there are collabsed
+   * @returns css class with icon
+   */
+  public get iconFolderCollabsed(): string {
+    return this.iconService.BrowserComponentFolderClosedIcon;
+  }
+
+  /**
+   * CSS icon class for folders without subfolders
+   * @returns css class with icon
+   */
+  public get iconFolderEmpty(): string {
+    return this.iconService.BrowserComponentFolderEmptyIcon;
+  }
+
+  /**
+   * CSS icon for new folders action
+   * @returns css class with icon
+   */
+  public get iconFolderNew(): string {
+    return this.iconService.BrowserComponentFolderNewIcon;
+  }
+
+  /**
+   * CSS icon for folders in tree there are expanded
+   * @returns css class with icon
+   */
+  public get iconFolderOpen(): string {
+    return this.iconService.BrowserComponentFolderOpenIcon;
+  }
+
+  /**
+   * CSS icon class for refresh icon
+   * @returns css class with icon
+   */
+  public get iconRefresh(): string {
+    return this.iconService.BrowserComponentRefreshIcon;
+  }
+
+  /**
+   * Getter für Selected File. Ist an Input Property gebunden
+   */
+  public get selectedfile(): string | null {
+    if (this.selectFile &amp;&amp; this.selectFile.length &gt; 0) {
+      return this.selectedFile;
+    } else {
+      return null;
+    }
+  }
+
+  /**
+   * Setzt den Seleced Node über den Pfad
+   */
+  @Input()
+  public set selectedfile(v: string | null) {
+    const selectednode &#x3D; this.findSelectedNodeByPath(this.rootNode, v);
+
+    if (selectednode !&#x3D;&#x3D; null) {
+      this.selectNode(selectednode);
+    }
+
+    this.preselecedfile &#x3D; v;
+  }
+
+  // #endregion Public Getters And Setters
+
+  // #region Public Methods
+
+  /**
+   * Löscht ein File
+   * @param file File welches gelöscht werden soll
+   */
+  public deleteFile(file: IBrowserFile): void {
+    this.confirmDeleteFile(file).subscribe((confirm) &#x3D;&gt; {
+      if (confirm) {
+        this.browserService
+          .DeleteFile(
+            this.apiurl,
+            this.selectedNode.Path + &#x27;/&#x27; + file.Filename,
+            this.allowedtypes
+          )
+          .subscribe((result: IBrowserFileResponse) &#x3D;&gt; {
+            this.selectedNode.Files &#x3D; result.Files;
+          });
+      }
+    });
+  }
+
+  /**
+   * Löscht einen Node
+   * @param node Node welcher gelöscht werden soll
+   */
+  public deleteNode(node: IBrowserNode): void {
+    this.confirmDeleteNode(node).subscribe((confirm) &#x3D;&gt; {
+      if (confirm) {
+        this.browserService
+          .DeleteNode(this.apiurl, node.Path)
+          .subscribe((result: IBrowserNodeResponse) &#x3D;&gt; {
+            const parentNode &#x3D; this.findParentNode(this.rootNode, node);
+            parentNode.ChildNodes &#x3D; result.Node.ChildNodes;
+
+            this.rootNode.ChildNodes.forEach((itm) &#x3D;&gt; {
+              this.fillPath(itm, &#x27;&#x27;);
+            });
+
+            this.selectNode(parentNode);
+          });
+      }
+    });
+  }
+
+  /**
+   * Setzt ein File in den Edit Mode
+   * @param file File welches in den Edit Mode gesetzt werden soll
+   */
+  public editFile(file: IBrowserFile): void {
+    file.IsEditMode &#x3D; true;
+  }
+
+  /**
+   * Setzt einen Node in den Edit Mode
+   * @param node Node welcher bearbeitet werden soll
+   */
+  public editNode(node: IBrowserNode): void {
+    node.IsEditMode &#x3D; true;
+  }
+
+  /**
+   * HostListener welcher den Edit Mode bei allen Files und Nodes beendet.
+   */
+  @HostListener(&#x27;document:click&#x27;, [&#x27;$event.target&#x27;])
+  /**
+   * Click Event
+   */
+  public exitEditMode(targetElement): void {
+    if (this.selectedNode) {
+      this.selectedNode.Files.forEach((itm) &#x3D;&gt; (itm.IsEditMode &#x3D; false));
+
+      if (
+        !this.selectedNode ||
+        this.selectedNode.Name &#x3D;&#x3D;&#x3D; null ||
+        this.selectedNode.Name.length &#x3D;&#x3D;&#x3D; 0
+      ) {
+        this.clearNewChildNodes(this.rootNode);
+      }
+    }
+
+    this.resetNodeEditMode(null);
+  }
+
+  /**
+   * Erzeugt einen neuen Node im Tree
+   * @param node Node unter welchem ein neuer Node erstellt werden soll
+   */
+  public newNode(node: IBrowserNode) {
+    const item: IBrowserNode &#x3D; {
+      ChildNodes: [],
+      Files: [],
+      IsEditMode: false,
+      IsExpanded: false,
+      Name: &#x27;&#x27;,
+      Path: node.Path,
+      IsNewNode: true,
+    };
+
+    node.ChildNodes.push(item);
+    this.selectNode(item);
+    this.editNode(item);
+  }
+
+  /**
+   * Init Event der Komponente
+   */
+  public ngOnInit(): void {
+    this.browserService
+      .GetNode(this.apiurl, &#x27;&#x27;, this.allowedtypes)
+      .subscribe((result: IBrowserNodeResponse) &#x3D;&gt; {
+        this.rootNode &#x3D; {
+          Name: result.Node.Name,
+          Files: result.Node.Files,
+          ChildNodes: result.Node.ChildNodes,
+          IsExpanded: true,
+          IsEditMode: false,
+          IsNewNode: false,
+          Path: &#x27;/&#x27;,
+        };
+
+        this.setPathToAllNodes();
+        this.selectedNode &#x3D; this.rootNode;
+
+        // Selected File erneut setzen, wenn Property gesetzt wurde bevor Daten vom Service geladen wurden.
+        if (this.preselecedfile !&#x3D;&#x3D; null &amp;&amp; this.preselecedfile.length &gt; 0) {
+          this.selectedfile &#x3D; this.preselecedfile;
+        }
+      });
+  }
+
+  /**
+   * Aktualisiert den Node
+   */
+  public refreshNode(node: IBrowserNode): void {
+    if (!node.IsExpanded) {
+      this.switchExpandNode(node);
+    }
+
+    this.browserService
+      .GetNode(this.apiurl, node.Path, this.allowedtypes)
+      .subscribe((result: IBrowserNodeResponse) &#x3D;&gt; {
+        node.ChildNodes &#x3D; result.Node.ChildNodes;
+        node.Files &#x3D; result.Node.Files;
+
+        this.setPathToAllNodes();
+      });
+  }
+
+  /**
+   * Methode wenn eine Datei umbenannt werden soll
+   * @param file File welches umbenannt werden soll
+   * @param newFilename Neuer Dateiname
+   */
+  public renameFile(file: IBrowserFile, newFilename: string): void {
+    file.IsEditMode &#x3D; false;
+
+    if (!newFilename || newFilename &#x3D;&#x3D;&#x3D; null || newFilename.length &#x3D;&#x3D;&#x3D; 0) {
+      // Cancel, Invalid Filename
+      return;
+    }
+
+    if (file.Filename !&#x3D;&#x3D; newFilename) {
+      this.browserService
+        .RenameFile(
+          this.apiurl,
+          this.selectedNode.Path + &#x27;/&#x27; + file.Filename,
+          newFilename,
+          this.allowedtypes
+        )
+        .subscribe((result: IBrowserFileResponse) &#x3D;&gt; {
+          this.selectedNode.Files &#x3D; result.Files;
+        });
+    }
+  }
+
+  /**
+   * Methode wenn ein Node umbenannt werden soll
+   * @param node Node welcher umbenannt werden soll
+   * @param newFoldername Neuer Ordnername
+   */
+  public renameNode(node: IBrowserNode, newFoldername: string): void {
+    node.IsEditMode &#x3D; false;
+
+    if (!node.IsNewNode) {
+      if (
+        !newFoldername ||
+        newFoldername &#x3D;&#x3D;&#x3D; null ||
+        newFoldername.length &#x3D;&#x3D;&#x3D; 0
+      ) {
+        // Cancel Rename. Invalid Foldername
+        return;
+      }
+
+      if (node.Name !&#x3D;&#x3D; newFoldername) {
+        this.browserService
+          .RenameNode(this.apiurl, node.Path, newFoldername)
+          .subscribe((result: IBrowserNodeResponse) &#x3D;&gt; {
+            node.Name &#x3D; result.Node.Name;
+
+            this.setPathToAllNodes();
+          });
+      }
+    } else {
+      if (
+        !newFoldername ||
+        newFoldername &#x3D;&#x3D;&#x3D; null ||
+        newFoldername.length &#x3D;&#x3D;&#x3D; 0
+      ) {
+        this.clearNewChildNodes(this.rootNode);
+        return;
+      }
+
+      node.Name &#x3D; newFoldername;
+      node.IsNewNode &#x3D; false;
+      this.browserService
+        .SaveNode(this.apiurl, node.Path, newFoldername)
+        .subscribe((result: IBrowserNodeResponse) &#x3D;&gt; {
+          node.Name &#x3D; result.Node.Name;
+          node.Files &#x3D; result.Node.Files;
+
+          this.setPathToAllNodes();
+        });
+    }
+  }
+
+  /**
+   * Methode wenn ein File selektiert wird
+   * @param file File welches selektiert wird
+   */
+  public selectFile(file: IBrowserFile) {
+    if (!file.IsEditMode) {
+      this.selectedNode.Files.forEach((itm) &#x3D;&gt; (itm.IsEditMode &#x3D; false));
+    }
+
+    if (!this.selectedNode.Path.endsWith(&#x27;/&#x27;)) {
+      this.selectedFile &#x3D; this.selectedNode.Path + &#x27;/&#x27; + file.Filename;
+    } else {
+      this.selectedFile &#x3D; &#x27;/&#x27; + file.Filename;
+    }
+
+    this.selectedFileItem &#x3D; file;
+    this.file.emit(this.selectedFile);
+  }
+
+  /**
+   * Methode wenn ein Node selektiert wird
+   * @param node Node welcher selektiert werden soll
+   */
+  public selectNode(node: IBrowserNode): void {
+    if (!node.IsExpanded) {
+      this.switchExpandNode(node);
+    }
+
+    // Reset the Edit Mode in all Nodes
+    this.resetNodeEditMode(null);
+
+    if (!node.Files) {
+      this.browserService
+        .GetFiles(this.apiurl, node.Path, this.allowedtypes)
+        .subscribe((result: IBrowserFileResponse) &#x3D;&gt; {
+          node.Files &#x3D; result.Files;
+          this.selectedNode &#x3D; node;
+
+          if (this.preselecedfile !&#x3D;&#x3D; null &amp;&amp; this.preselecedfile.length &gt; 0) {
+            const filename &#x3D; this.preselecedfile.substring(
+              this.preselecedfile.lastIndexOf(&#x27;/&#x27;) + 1
+            );
+            const file &#x3D; node.Files.find((itm) &#x3D;&gt; itm.Filename &#x3D;&#x3D;&#x3D; filename);
+            if (file) {
+              this.selectFile(file);
+            }
+          }
+        });
+    } else {
+      this.selectedNode &#x3D; node;
+    }
+  }
+
+  /**
+   * Expand/Collabse Methode für Nodes
+   * @param node Node welcher geöffnet oder geschlossen werden soll
+   */
+  public switchExpandNode(node: IBrowserNode): void {
+    if (node.IsExpanded) {
+      node.IsExpanded &#x3D; false;
+    } else {
+      node.IsExpanded &#x3D; true;
+    }
+  }
+
+  /**
+   * Methode die Aufgerufen werden muss, wenn ein Upload beendet ist.
+   * @param param Parameter des hochgeladenen Files
+   */
+  public uploadComplete(node: IBrowserNode, uploadIdList: string[]): void {
+    if (uploadIdList !&#x3D;&#x3D; null) {
+      uploadIdList.forEach((element) &#x3D;&gt; {
+        if (this.uploads.indexOf(element) &lt; 0) {
+          this.uploads.push(element);
+        }
+      });
+    }
+
+    const id &#x3D; this.uploads.pop();
+    if (id) {
+      this.browserService
+        .SaveFile(this.apiurl, node.Path, id, this.allowedtypes)
+        .subscribe((result: IBrowserFileResponse) &#x3D;&gt; {
+          this.selectedNode.Files &#x3D; result.Files;
+          this.uploadedFileMoved(id);
+        });
+    }
+  }
+
+  // #endregion Public Methods
+
+  // #region Public Abstract Methods
+
+  /**
+   * Abstrakte Confirm Methode welche implementiert werden muss. Methode wird aufgerufen, wenn eine
+   * Datei gelöscht werden soll.
+   * @param file File für welches ein Delete Confirm eingefordert werden soll
+   */
+  public abstract confirmDeleteFile(file: IBrowserFile): Observable&lt;boolean&gt;;
+  /**
+   * Abstrakte Confirm Methode welche implementiert werden muss. Methode wird aufgerufen, wenn ein
+   * Ordner gelöscht werden soll.
+   * @param folder Ordern für welchen ein Delete Confirm eingefordert werden soll.
+   */
+  public abstract confirmDeleteNode(folder: IBrowserNode): Observable&lt;boolean&gt;;
+  /**
+   * Abstrakte Methode die Aufgerufen wird, wenn das Hochgeladene File aus dem Temp Folder in die
+   * Struktur verschoben wurde.
+   * @param uploadid ID des Uploads
+   */
+  public abstract uploadedFileMoved(uploadid: string): void;
+
+  // #endregion Public Abstract Methods
+
+  // #region Private Methods
+
+  /**
+   * Rekursive Methode welche beim Node und all seinen Childs neue Nodes entfernt
+   * @param node Node bei welchem alle neuen Nodes entfernt werden soll.
+   */
+  private clearNewChildNodes(node: IBrowserNode) {
+    node.ChildNodes.forEach((itm) &#x3D;&gt; {
+      if (itm.IsNewNode) {
+        node.ChildNodes.splice(node.ChildNodes.indexOf(itm));
+      }
+    });
+
+    node.ChildNodes.forEach((itm) &#x3D;&gt; this.clearNewChildNodes(itm));
+  }
+
+  /**
+   * Methode welche den Pfad für einen Node erzeugt
+   * @param node Node für welchen der Pfad erzeugt werden soll
+   * @param parentPath Übergeordneter Pfad
+   */
+  private fillPath(node: IBrowserNode, parentPath: string) {
+    node.Path &#x3D; parentPath + &#x27;/&#x27; + node.Name;
+    node.ChildNodes.forEach((itm) &#x3D;&gt; {
+      this.fillPath(itm, node.Path);
+    });
+  }
+
+  /**
+   * Sucht den übergeordneten Node im Tree
+   * @param node Aktueller Node
+   * @param nodeToFind Node welcher gefunden werden soll
+   * @returns Node wenn er gefunden wurde, ansonsten wird NULL zurückgegeben
+   */
+  private findParentNode(
+    node: IBrowserNode,
+    nodeToFind: IBrowserNode
+  ): IBrowserNode {
+    if (node.ChildNodes.indexOf(nodeToFind) &gt;&#x3D; 0) {
+      return node;
+    }
+
+    for (const child of node.ChildNodes) {
+      const result &#x3D; this.findParentNode(child, nodeToFind);
+      if (result !&#x3D;&#x3D; null) {
+        return result;
+      }
+    }
+
+    return null;
+  }
+
+  /**
+   * Sucht einen Node gem. einem URL Pfad
+   * @param node Node in welchem gesucht werden soll
+   * @param path Pfad nach welchem gesucht wird
+   * @returns Node welcher zum gesuchten Pfad passt. Wenn kein Node gefunden wird, wird NULL zurückgegeben
+   */
+  private findSelectedNodeByPath(
+    node: IBrowserNode,
+    path: string
+  ): IBrowserNode {
+    // Cancel wenn Pfad nicht definiert
+    if (path &#x3D;&#x3D;&#x3D; undefined || path &#x3D;&#x3D;&#x3D; null) {
+      return null;
+    }
+
+    // Pfad in Array splitten und Root Foldername setzen
+    const pathArray &#x3D; path.split(&#x27;/&#x27;);
+    pathArray[0] &#x3D; this.rootNode.Name;
+
+    return this.findSelectedNodeByPathArray(node, pathArray, 0);
+  }
+
+  /**
+   * Sucht einen Node gem. einem Array von Node Namen
+   * @param node Node in welchem gesucht werden soll
+   * @param path Array von Node Namen, welche die Hirarchy des Pfades abbilden
+   * @param index Aktueller Index im PATH Array
+   * @returns Node wenn einer gefunden wurde, ansonsten NULL
+   */
+  private findSelectedNodeByPathArray(
+    node: IBrowserNode,
+    path: string[],
+    index: number
+  ): IBrowserNode {
+    // Check ob Ordner korrekt. Letzer Ordner zurückgeben. Path Last Index ist der Filename
+    if (node.Name &#x3D;&#x3D;&#x3D; path[index] &amp;&amp; path.length - 2 &#x3D;&#x3D;&#x3D; index) {
+      return node;
+    } else if (node.Name &#x3D;&#x3D;&#x3D; path[index]) {
+      // Expand Node
+      node.IsExpanded &#x3D; true;
+      for (const item of node.ChildNodes) {
+        const result &#x3D; this.findSelectedNodeByPathArray(item, path, index + 1);
+
+        if (result !&#x3D;&#x3D; null) {
+          return result;
+        }
+      }
+    }
+    return null;
+  }
+
+  /**
+   * Rekursive Methode welche beim Node und all seinen Childs den Edit Mode beendet.
+   * @param node Node bei welchem der Edit Mode beendet werden soll
+   */
+  private resetNodeEditMode(node: IBrowserNode): void {
+    if (node &#x3D;&#x3D;&#x3D; null) {
+      this.resetNodeEditMode(this.rootNode);
+    } else {
+      node.IsEditMode &#x3D; false;
+
+      if (node.ChildNodes) {
+        node.ChildNodes.forEach((itm) &#x3D;&gt; this.resetNodeEditMode(itm));
+      }
+    }
+  }
+
+  /**
+   * Setzt den Pfad in allen Nodes
+   */
+  private setPathToAllNodes() {
+    this.rootNode.ChildNodes.forEach((itm) &#x3D;&gt; {
+      this.fillPath(itm, &#x27;&#x27;);
+    });
+  }
+
+  // #endregion Private Methods
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'directive';
+            var COMPODOC_CURRENT_PAGE_URL = 'SacFileBrowserCommon.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

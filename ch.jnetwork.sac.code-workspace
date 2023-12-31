@@ -7,5 +7,15 @@
 			"path": "docs"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"tsco.addMemberCountInRegionName": false
+	},
+	"extensions": {
+		"recommendations": [
+			"aaron-bond.better-comments",
+			"esbenp.prettier-vscode",
+			"aljazsim.tsco",
+			"santacodes.santacodes-region-viewer"
+		]
+	}
 }

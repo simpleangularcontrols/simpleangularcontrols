@@ -1,12 +1,23 @@
-import { HttpClient } from '@angular/common/http';
+import {
+  AsyncPipe,
+  NgClass,
+  NgForOf,
+  NgIf,
+  NgTemplateOutlet,
+} from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, Injector, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {
   IBrowserFile,
   IBrowserNode,
   SacFileBrowserCommon,
 } from '@simpleangularcontrols/sac-common';
-import { forkJoin, Observable } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 import { ServiceConfirm } from '../../controls/confirm/confirm.service';
+import { SacContextmenuComponent } from '../../controls/contextmenu';
+import { SacContextmenuItemButtonComponent } from '../../controls/contextmenu/contextmenuitembutton';
+import { SacContextmenuItemSplitterComponent } from '../../controls/contextmenu/contextmenuitemsplitter';
 import { SacDropzoneMultipleComponent } from '../../controls/upload/dropzonemultiple';
 
 /**
@@ -15,6 +26,20 @@ import { SacDropzoneMultipleComponent } from '../../controls/upload/dropzonemult
 @Component({
   selector: 'sac-filebrowser',
   templateUrl: './browser.html',
+  standalone: true,
+  imports: [
+    NgTemplateOutlet,
+    NgIf,
+    NgForOf,
+    NgClass,
+    AsyncPipe,
+    FormsModule,
+    HttpClientModule,
+    SacContextmenuComponent,
+    SacContextmenuItemButtonComponent,
+    SacContextmenuItemSplitterComponent,
+    SacDropzoneMultipleComponent,
+  ],
   providers: [ServiceConfirm],
 })
 export class SacBrowserComponent extends SacFileBrowserCommon {

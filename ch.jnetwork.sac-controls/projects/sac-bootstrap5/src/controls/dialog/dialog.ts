@@ -6,13 +6,16 @@ import {
   OnInit,
 } from '@angular/core';
 import { SacDialogCommon } from '@simpleangularcontrols/sac-common';
+import { NgIf } from '@angular/common';
 
 /**
  * Dialog Komponente
  */
 @Component({
-  selector: 'sac-dialog',
-  templateUrl: './dialog.html',
+    selector: 'sac-dialog',
+    templateUrl: './dialog.html',
+    standalone: true,
+    imports: [NgIf],
 })
 export class SacDialogComponent
   extends SacDialogCommon

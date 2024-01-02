@@ -11,15 +11,15 @@ import {
 } from '@simpleangularcontrols/sac-bootstrap3';
 
 @NgModule({
-  declarations: [DemoInputComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    InputRoutingModule,
-    SACBootstrap3FormModule,
-    SACBootstrap3ButtonModule,
-    SACBootstrap3ValidationSummaryModule,
-    SACBootstrap3InputModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        InputRoutingModule,
+        SACBootstrap3FormModule,
+        SACBootstrap3ButtonModule,
+        SACBootstrap3ValidationSummaryModule,
+        SACBootstrap3InputModule,
+        DemoInputComponent,
+    ],
 })
 export class InputModule {}

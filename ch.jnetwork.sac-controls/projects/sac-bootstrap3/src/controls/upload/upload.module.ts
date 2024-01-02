@@ -5,10 +5,10 @@ import { SacUploadMultipleComponent } from './uploadmultiple';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [SacUploadComponent, SacUploadMultipleComponent],
-  imports: [
-    CommonModule, FormsModule
-  ],
-  exports: [SacUploadComponent, SacUploadMultipleComponent]
+    imports: [
+        CommonModule, FormsModule,
+        SacUploadComponent, SacUploadMultipleComponent
+    ],
+    exports: [SacUploadComponent, SacUploadMultipleComponent]
 })
 export class SACBootstrap3UploadModule { }

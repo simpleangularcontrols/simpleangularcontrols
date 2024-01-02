@@ -5,10 +5,16 @@ import { SacTreeViewChildComponent } from './treeviewchild';
 import { SacTreeItemActionComponent } from './ngtreeitemaction';
 
 @NgModule({
-  declarations: [SacTreeViewComponent, SacTreeViewChildComponent, SacTreeItemActionComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    SacTreeViewComponent,
+    SacTreeViewChildComponent,
+    SacTreeItemActionComponent,
   ],
-  exports: [SacTreeViewComponent, SacTreeViewChildComponent, SacTreeItemActionComponent]
+  exports: [
+    SacTreeViewComponent,
+    SacTreeViewChildComponent,
+    SacTreeItemActionComponent,
+  ],
 })
-export class SACBootstrap3TtreeviewModule { }
+export class SACBootstrap3TtreeviewModule {}

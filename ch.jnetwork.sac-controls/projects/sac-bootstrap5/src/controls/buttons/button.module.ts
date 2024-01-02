@@ -3,10 +3,10 @@ import { SacButtonComponent } from './button';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [SacButtonComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [SacButtonComponent]
+    imports: [
+        CommonModule,
+        SacButtonComponent
+    ],
+    exports: [SacButtonComponent]
 })
 export class SACBootstrap5ButtonModule { }

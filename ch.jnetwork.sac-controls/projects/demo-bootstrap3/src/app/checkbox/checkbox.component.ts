@@ -1,9 +1,18 @@
 import { Component, ViewChild } from '@angular/core';
-import { SacFormDirective } from '@simpleangularcontrols/sac-bootstrap3';
+import { SacFormDirective, SACBootstrap3FormModule, SACBootstrap3ButtonModule, SACBootstrap3ValidationSummaryModule, SACBootstrap3CheckboxModule } from '@simpleangularcontrols/sac-bootstrap3';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-checkbox',
-  templateUrl: './checkbox.component.html',
+    selector: 'app-checkbox',
+    templateUrl: './checkbox.component.html',
+    standalone: true,
+    imports: [
+        FormsModule,
+        SACBootstrap3FormModule,
+        SACBootstrap3ButtonModule,
+        SACBootstrap3ValidationSummaryModule,
+        SACBootstrap3CheckboxModule,
+    ],
 })
 export class DemoCheckboxComponent {
   public values: any = {

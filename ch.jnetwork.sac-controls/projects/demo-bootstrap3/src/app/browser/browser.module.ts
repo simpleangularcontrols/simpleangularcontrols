@@ -9,14 +9,14 @@ import {
 import { BrowserRoutingModule } from './browser-routing.module';
 import { DemoBrowserComponent } from './browser.component';
 @NgModule({
-  declarations: [DemoBrowserComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    BrowserRoutingModule,
-    SACBootstrap3FormModule,
-    // SACBootstrap3BrowserModule,
-    SACBootstrap3ValidationSummaryModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        BrowserRoutingModule,
+        SACBootstrap3FormModule,
+        // SACBootstrap3BrowserModule,
+        SACBootstrap3ValidationSummaryModule,
+        DemoBrowserComponent,
+    ],
 })
 export class BrowserModule {}

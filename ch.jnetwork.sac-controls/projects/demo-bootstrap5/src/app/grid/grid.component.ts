@@ -9,10 +9,13 @@ import { GridItemDto } from './models/GridItemDto';
 import { GridRequestDto } from './models/GridRequestDto';
 import { GridResultDto } from './models/GridResultDto';
 import { GridService } from './services/GridService';
+import { SACBootstrap5GridModule } from '@simpleangularcontrols/sac-bootstrap5';
 
 @Component({
-  selector: 'app-grid',
-  templateUrl: './grid.component.html',
+    selector: 'app-grid',
+    templateUrl: './grid.component.html',
+    standalone: true,
+    imports: [SACBootstrap5GridModule],
 })
 export class DemoGridComponent implements OnInit {
   dataDefault: GridItemDto[] = [];

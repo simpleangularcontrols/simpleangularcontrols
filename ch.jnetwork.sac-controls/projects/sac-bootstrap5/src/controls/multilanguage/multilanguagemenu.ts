@@ -1,4 +1,4 @@
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, NgTemplateOutlet } from '@angular/common';
 import {
   Component,
   ElementRef,
@@ -11,19 +11,27 @@ import {
   TemplateRef,
 } from '@angular/core';
 import { SacContextmenuCommon } from '@simpleangularcontrols/sac-common';
+import { SacMultilanguagemenuAnchorDirective } from './multilanguagemenuanchor';
+import { SacMultilanguagemenuContainerDirective } from './multilanguagemenucontainer';
 
 /**
  * Component für Contextmenü
  */
 @Component({
-  selector: '[sac-multilanguagemenu]', // eslint-disable-line @angular-eslint/component-selector -- bootstrap requires append-items direct behind the previews element
-  templateUrl: './multilanguagemenu.html',
-  providers: [
-    {
-      provide: SacContextmenuCommon,
-      useExisting: forwardRef(() => SacMultilanguagemenuComponent),
-    },
-  ],
+    selector: '[sac-multilanguagemenu]',
+    templateUrl: './multilanguagemenu.html',
+    providers: [
+        {
+            provide: SacContextmenuCommon,
+            useExisting: forwardRef(() => SacMultilanguagemenuComponent),
+        },
+    ],
+    standalone: true,
+    imports: [
+        NgTemplateOutlet,
+        SacMultilanguagemenuContainerDirective,
+        SacMultilanguagemenuAnchorDirective,
+    ],
 })
 export class SacMultilanguagemenuComponent extends SacContextmenuCommon {
   /**

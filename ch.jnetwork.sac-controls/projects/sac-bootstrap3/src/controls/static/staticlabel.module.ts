@@ -5,10 +5,10 @@ import { SacStaticFormContainerComponent } from './formcontainer';
 import { SACBootstrap3TooltipModule } from '../tooltip/tooltip.module';
 
 @NgModule({
-  declarations: [SacStaticLabelComponent, SacStaticFormContainerComponent],
-  imports: [
-    CommonModule, SACBootstrap3TooltipModule
-  ],
-  exports: [SacStaticLabelComponent, SacStaticFormContainerComponent]
+    imports: [
+        CommonModule, SACBootstrap3TooltipModule,
+        SacStaticLabelComponent, SacStaticFormContainerComponent
+    ],
+    exports: [SacStaticLabelComponent, SacStaticFormContainerComponent]
 })
 export class SACBootstrap3StaticLabelModule { }

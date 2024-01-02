@@ -10,15 +10,15 @@ import {
 import { InputRoutingModule } from './input-routing.module';
 import { DemoInputComponent } from './input.component';
 @NgModule({
-  declarations: [DemoInputComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    InputRoutingModule,
-    SACBootstrap5FormModule,
-    SACBootstrap5ButtonModule,
-    SACBootstrap5ValidationSummaryModule,
-    SACBootstrap5InputModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        InputRoutingModule,
+        SACBootstrap5FormModule,
+        SACBootstrap5ButtonModule,
+        SACBootstrap5ValidationSummaryModule,
+        SACBootstrap5InputModule,
+        DemoInputComponent,
+    ],
 })
 export class InputModule {}

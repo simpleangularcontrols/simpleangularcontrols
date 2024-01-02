@@ -14,8 +14,9 @@ import { SacGridCommon, SacGridButtonCommon } from '@simpleangularcontrols/sac-c
  *
  */
 @Component({
-  selector: 'sac-gridbutton',
-  templateUrl: './gridbutton.html'
+    selector: 'sac-gridbutton',
+    templateUrl: './gridbutton.html',
+    standalone: true
 })
 export class SacGridButtonComponent extends SacGridButtonCommon {
 

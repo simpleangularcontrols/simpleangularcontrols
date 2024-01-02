@@ -6,30 +6,33 @@ import {
 } from '@angular/forms';
 import { SacInputPasswordCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormDirective } from '../form/form';
+import { NgClass } from '@angular/common';
 
 /**
  * Input Box für Passwörter
  */
 @Component({
-  selector: 'sac-inputpassword',
-  templateUrl: './inputpassword.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: SacInputPasswordComponent,
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() => SacInputPasswordComponent),
-    },
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [
-    { provide: ControlContainer, useExisting: SacFormDirective },
-  ],
+    selector: 'sac-inputpassword',
+    templateUrl: './inputpassword.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SacInputPasswordComponent,
+        },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() => SacInputPasswordComponent),
+        },
+    ],
+    // View Provider, damit das Formular an das Control gebunden werden kann
+    viewProviders: [
+        { provide: ControlContainer, useExisting: SacFormDirective },
+    ],
+    standalone: true,
+    imports: [NgClass],
 })
 export class SacInputPasswordComponent extends SacInputPasswordCommon {
   /**

@@ -1,4 +1,4 @@
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, NgClass, NgTemplateOutlet } from '@angular/common';
 import {
   Component,
   ElementRef,
@@ -9,19 +9,28 @@ import {
   Renderer2,
 } from '@angular/core';
 import { SacContextmenuCommon } from '@simpleangularcontrols/sac-common';
+import { SacContextmenuAnchorDirective } from './contextmenuanchor';
+import { SacContextmenuContainerDirective } from './contextmenucontainer';
 
 /**
  * Component für Contextmenü
  */
 @Component({
-  selector: 'sac-contextmenu',
-  templateUrl: './contextmenu.html',
-  providers: [
-    {
-      provide: SacContextmenuCommon,
-      useExisting: forwardRef(() => SacContextmenuComponent),
-    },
-  ],
+    selector: 'sac-contextmenu',
+    templateUrl: './contextmenu.html',
+    providers: [
+        {
+            provide: SacContextmenuCommon,
+            useExisting: forwardRef(() => SacContextmenuComponent),
+        },
+    ],
+    standalone: true,
+    imports: [
+        NgClass,
+        NgTemplateOutlet,
+        SacContextmenuContainerDirective,
+        SacContextmenuAnchorDirective,
+    ],
 })
 export class SacContextmenuComponent extends SacContextmenuCommon {
   /**

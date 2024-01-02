@@ -1,13 +1,20 @@
 import { Component, ContentChildren, QueryList } from '@angular/core';
 import { SacTabCommon } from '@simpleangularcontrols/sac-common';
 import { SacTabItemComponent } from './tabitem';
+import { NgFor, NgClass, NgStyle } from '@angular/common';
 
 /**
  * Komponente für Tabs
  */
 @Component({
-  selector: 'sac-tab',
-  templateUrl: './tab.html',
+    selector: 'sac-tab',
+    templateUrl: './tab.html',
+    standalone: true,
+    imports: [
+        NgFor,
+        NgClass,
+        NgStyle,
+    ],
 })
 export class SacTabComponent extends SacTabCommon {
   /**

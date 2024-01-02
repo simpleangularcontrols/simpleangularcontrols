@@ -16,8 +16,9 @@ import { Directive } from '@angular/core';
  */
 /* eslint @angular-eslint/directive-selector: 0 */
 @Directive({
-  selector: 'form:not([ngNoForm]):not([formGroup]),[ngForm]',
-  exportAs: 'sacform'
+    selector: 'form:not([ngNoForm]):not([formGroup]),[ngForm]',
+    exportAs: 'sacform',
+    standalone: true
 })
 export class SacFormDirective extends SacFormCommon {
 

@@ -10,15 +10,14 @@ import {
 import { MultilanguageRoutingModule } from './multilanguage-routing.module';
 import { DemoMultilanguageComponent } from './multilanguage.component';
 @NgModule({
-  declarations: [DemoMultilanguageComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    MultilanguageRoutingModule,
-    SACBootstrap3FormModule,
-    SACBootstrap3ButtonModule,
-    SACBootstrap3ValidationSummaryModule,
-    // SACBootstrap3MultilanguageModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        MultilanguageRoutingModule,
+        SACBootstrap3FormModule,
+        SACBootstrap3ButtonModule,
+        SACBootstrap3ValidationSummaryModule,
+        DemoMultilanguageComponent,
+    ],
 })
 export class MultilanguageModule {}

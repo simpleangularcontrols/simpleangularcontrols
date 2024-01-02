@@ -9,15 +9,15 @@ import {
 import { TabsRoutingModule } from './tabs-routing.module';
 import { DemoTabsComponent } from './tabs.component';
 @NgModule({
-  declarations: [DemoTabsComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    TabsRoutingModule,
-    SACBootstrap5FormModule,
-    SACBootstrap5TabsModule,
-    SACBootstrap5ValidationSummaryModule,
-    SACBootstrap5TabsModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        TabsRoutingModule,
+        SACBootstrap5FormModule,
+        SACBootstrap5TabsModule,
+        SACBootstrap5ValidationSummaryModule,
+        SACBootstrap5TabsModule,
+        DemoTabsComponent,
+    ],
 })
 export class TabsModule {}

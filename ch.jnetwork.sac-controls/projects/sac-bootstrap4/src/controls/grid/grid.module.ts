@@ -10,11 +10,11 @@ import { SacPagingComponent } from './paging';
 
 
 @NgModule({
-  declarations: [SacGridComponent, SacGridColumnComponent, SacGridColumnActionComponent, SacPagingComponent, SacGridButtonComponent, SacGridImageComponent],
-  imports: [
-    CommonModule, FormsModule
-  ],
-  exports: [SacGridComponent, SacGridColumnComponent, SacGridColumnActionComponent, SacPagingComponent, SacGridButtonComponent, SacGridImageComponent]
+    imports: [
+        CommonModule, FormsModule,
+        SacGridComponent, SacGridColumnComponent, SacGridColumnActionComponent, SacPagingComponent, SacGridButtonComponent, SacGridImageComponent
+    ],
+    exports: [SacGridComponent, SacGridColumnComponent, SacGridColumnActionComponent, SacPagingComponent, SacGridButtonComponent, SacGridImageComponent]
 })
 export class SACBootstrap4GridModule { }
 

@@ -8,15 +8,12 @@ import { SacMultilanguagemenuContainerDirective } from './multilanguagemenuconta
 import { SacMultilanguagemenuItemButtonComponent } from './multilanguagemenuitembutton';
 
 @NgModule({
-  declarations: [
-    SacMultilanguageInputComponent,
-    SacMultilanguageInputAreaComponent,
-    SacMultilanguagemenuComponent,
-    SacMultilanguagemenuAnchorDirective,
-    SacMultilanguagemenuContainerDirective,
-    SacMultilanguagemenuItemButtonComponent,
-  ],
-  imports: [CommonModule],
-  exports: [SacMultilanguageInputComponent, SacMultilanguageInputAreaComponent],
+    imports: [CommonModule, SacMultilanguageInputComponent,
+        SacMultilanguageInputAreaComponent,
+        SacMultilanguagemenuComponent,
+        SacMultilanguagemenuAnchorDirective,
+        SacMultilanguagemenuContainerDirective,
+        SacMultilanguagemenuItemButtonComponent],
+    exports: [SacMultilanguageInputComponent, SacMultilanguageInputAreaComponent],
 })
 export class SACBootstrap5MultilanguageModule {}

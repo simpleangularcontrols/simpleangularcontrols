@@ -11,16 +11,16 @@ import {
 import { ListRoutingModule } from './list-routing.module';
 import { DemoListComponent } from './list.component';
 @NgModule({
-  declarations: [DemoListComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ListRoutingModule,
-    SACBootstrap4FormModule,
-    SACBootstrap4ButtonModule,
-    SACBootstrap4ValidationSummaryModule,
-    SACBootstrap4ListModule,
-    SACBootstrap4DropdownModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ListRoutingModule,
+        SACBootstrap4FormModule,
+        SACBootstrap4ButtonModule,
+        SACBootstrap4ValidationSummaryModule,
+        SACBootstrap4ListModule,
+        SACBootstrap4DropdownModule,
+        DemoListComponent,
+    ],
 })
 export class ListModule {}

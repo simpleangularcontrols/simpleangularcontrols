@@ -10,15 +10,15 @@ import {
 import { CheckboxRoutingModule } from './checkbox-routing.module';
 import { DemoCheckboxComponent } from './checkbox.component';
 @NgModule({
-  declarations: [DemoCheckboxComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    CheckboxRoutingModule,
-    SACBootstrap3FormModule,
-    SACBootstrap3ButtonModule,
-    SACBootstrap3ValidationSummaryModule,
-    SACBootstrap3CheckboxModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        CheckboxRoutingModule,
+        SACBootstrap3FormModule,
+        SACBootstrap3ButtonModule,
+        SACBootstrap3ValidationSummaryModule,
+        SACBootstrap3CheckboxModule,
+        DemoCheckboxComponent,
+    ],
 })
 export class CheckboxModule {}

@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { SacDialogComponent } from './dialog';
 
 @NgModule({
-  declarations: [SacDialogComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [SacDialogComponent]
+    imports: [
+        CommonModule,
+        SacDialogComponent
+    ],
+    exports: [SacDialogComponent]
 })
 export class SACBootstrap4DialogModule { }

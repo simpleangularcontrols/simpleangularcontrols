@@ -7,18 +7,15 @@ import { SacUploadComponent } from './upload';
 import { SacUploadMultipleComponent } from './uploadmultiple';
 
 @NgModule({
-  declarations: [
-    SacUploadComponent,
-    SacUploadMultipleComponent,
-    SacDropzoneSingleComponent,
-    SacDropzoneMultipleComponent,
-  ],
-  imports: [CommonModule, FormsModule],
-  exports: [
-    SacUploadComponent,
-    SacUploadMultipleComponent,
-    SacDropzoneSingleComponent,
-    SacDropzoneMultipleComponent,
-  ],
+    imports: [CommonModule, FormsModule, SacUploadComponent,
+        SacUploadMultipleComponent,
+        SacDropzoneSingleComponent,
+        SacDropzoneMultipleComponent],
+    exports: [
+        SacUploadComponent,
+        SacUploadMultipleComponent,
+        SacDropzoneSingleComponent,
+        SacDropzoneMultipleComponent,
+    ],
 })
 export class SACBootstrap5UploadModule {}

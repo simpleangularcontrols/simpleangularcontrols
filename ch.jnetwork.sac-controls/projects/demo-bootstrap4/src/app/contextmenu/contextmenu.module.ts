@@ -8,13 +8,13 @@ import {
 import { ContextmenuRoutingModule } from './contextmenu-routing.module';
 import { DemoContextmenuComponent } from './contextmenu.component';
 @NgModule({
-  declarations: [DemoContextmenuComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ContextmenuRoutingModule,
-    SACBootstrap4FormModule,
-    SACBootstrap4ContextmenuModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ContextmenuRoutingModule,
+        SACBootstrap4FormModule,
+        SACBootstrap4ContextmenuModule,
+        DemoContextmenuComponent,
+    ],
 })
 export class ContextmenuModule {}

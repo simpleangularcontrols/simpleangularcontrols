@@ -122,7 +122,7 @@ export * from './enums/IconType';
 export * from './validation';
 
 // Export of Modules
-export * from './controls/list/list.module';
+
 
 // Export Utlities
 export * from './utilities/convertion';

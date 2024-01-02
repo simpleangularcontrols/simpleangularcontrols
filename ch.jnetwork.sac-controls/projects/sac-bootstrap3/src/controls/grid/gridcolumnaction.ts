@@ -9,16 +9,19 @@ import {
   SacGridColumnBaseCommon,
 } from '@simpleangularcontrols/sac-common';
 import { SacGridComponent } from './grid';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'sac-gridcolumnaction',
-  templateUrl: './gridcolumnaction.html',
-  providers: [
-    {
-      provide: SacGridColumnBaseCommon,
-      useExisting: forwardRef(() => SacGridColumnActionComponent),
-    },
-  ],
+    selector: 'sac-gridcolumnaction',
+    templateUrl: './gridcolumnaction.html',
+    providers: [
+        {
+            provide: SacGridColumnBaseCommon,
+            useExisting: forwardRef(() => SacGridColumnActionComponent),
+        },
+    ],
+    standalone: true,
+    imports: [NgIf],
 })
 export class SacGridColumnActionComponent extends SacGridColumnActionCommon {
   constructor(grid: SacGridComponent, injector: Injector, el: ElementRef) {

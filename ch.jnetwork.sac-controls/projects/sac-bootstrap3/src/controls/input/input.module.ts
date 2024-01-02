@@ -13,10 +13,10 @@ import { SacInputSearchComponent } from './inputsearch';
 
 
 @NgModule({
-  declarations: [SacInputComponent, SacInputAreaComponent, SacInputCurrencyComponent, SacInputDecimalComponent, SacInputEmailComponent, SacInputIntegerComponent, SacInputPasswordComponent, SacInputSearchComponent],
-  imports: [
-    CommonModule, CommonModule, FormsModule, SACBootstrap3TooltipModule
-  ],
-  exports: [SacInputComponent, SacInputAreaComponent, SacInputCurrencyComponent, SacInputDecimalComponent, SacInputEmailComponent, SacInputIntegerComponent, SacInputPasswordComponent, SacInputSearchComponent]
+    imports: [
+        CommonModule, CommonModule, FormsModule, SACBootstrap3TooltipModule,
+        SacInputComponent, SacInputAreaComponent, SacInputCurrencyComponent, SacInputDecimalComponent, SacInputEmailComponent, SacInputIntegerComponent, SacInputPasswordComponent, SacInputSearchComponent
+    ],
+    exports: [SacInputComponent, SacInputAreaComponent, SacInputCurrencyComponent, SacInputDecimalComponent, SacInputEmailComponent, SacInputIntegerComponent, SacInputPasswordComponent, SacInputSearchComponent]
 })
 export class SACBootstrap3InputModule { }

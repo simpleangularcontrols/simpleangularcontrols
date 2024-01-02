@@ -18,30 +18,38 @@ import {
   SacListboxCommon,
   SacListboxOptionCommon,
 } from '@simpleangularcontrols/sac-common';
+import { NgClass, NgIf, NgFor } from '@angular/common';
 
 /**
  * Listbox Komponente
  */
 @Component({
-  selector: 'sac-listbox',
-  templateUrl: './listbox.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: SacListboxComponent,
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() => SacListboxComponent),
-    },
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [
-    { provide: ControlContainer, useExisting: SacFormDirective },
-  ],
+    selector: 'sac-listbox',
+    templateUrl: './listbox.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SacListboxComponent,
+        },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() => SacListboxComponent),
+        },
+    ],
+    // View Provider, damit das Formular an das Control gebunden werden kann
+    viewProviders: [
+        { provide: ControlContainer, useExisting: SacFormDirective },
+    ],
+    standalone: true,
+    imports: [
+        NgClass,
+        NgIf,
+        NgFor,
+        forwardRef(() => SacListboxOptionDirective),
+    ],
 })
 export class SacListboxComponent extends SacListboxCommon {
   /**
@@ -57,7 +65,10 @@ export class SacListboxComponent extends SacListboxCommon {
 /**
  * Option Item in Listbox
  */
-@Directive({ selector: '[sacOption],option' })
+@Directive({
+    selector: '[sacOption],option',
+    standalone: true
+})
 export class SacListboxOptionDirective extends SacListboxOptionCommon {
   /**
    * Konstruktor

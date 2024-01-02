@@ -54,17 +54,18 @@ export function NGFORM_FACTORY(form: NgForm) {
  *
  */
 @Directive({
-  selector: '[sacInheritForm]',
-  providers: [
-    {
-      provide: SacFormDirective,
-      useFactory: SACFORM_FACTORY,
-      deps: [[new SkipSelf(), SacFormDirective]]
-    }, {
-      provide: ControlContainer,
-      useFactory: NGFORM_FACTORY,
-      deps: [NgForm]
-    }
-  ]
+    selector: '[sacInheritForm]',
+    providers: [
+        {
+            provide: SacFormDirective,
+            useFactory: SACFORM_FACTORY,
+            deps: [[new SkipSelf(), SacFormDirective]]
+        }, {
+            provide: ControlContainer,
+            useFactory: NGFORM_FACTORY,
+            deps: [NgForm]
+        }
+    ],
+    standalone: true
 })
 export class SacInheritFormDirective { }

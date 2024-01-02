@@ -1,15 +1,21 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { SacDropdownComponent, SacDropdownOptionDirective } from './dropdown';
 import { SacListboxComponent } from './listbox';
-import { SACCommonListboxOptionModule } from '@simpleangularcontrols/sac-common';
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [SacDropdownComponent, SacDropdownOptionDirective, SacListboxComponent],
   imports: [
-    CommonModule, SACCommonListboxOptionModule, FormsModule
+    CommonModule,
+    FormsModule,
+    SacDropdownComponent,
+    SacDropdownOptionDirective,
+    SacListboxComponent,
   ],
-  exports: [SacDropdownComponent, SacDropdownOptionDirective, SacListboxComponent]
+  exports: [
+    SacDropdownComponent,
+    SacDropdownOptionDirective,
+    SacListboxComponent,
+  ],
 })
-export class SACBootstrap3ListModule { }
+export class SACBootstrap3ListModule {}

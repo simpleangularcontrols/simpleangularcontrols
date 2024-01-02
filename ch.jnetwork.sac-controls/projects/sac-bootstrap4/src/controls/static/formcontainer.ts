@@ -6,6 +6,7 @@ import {
 } from '@angular/forms';
 import { SacFormDirective } from '../form/form';
 import { SacStaticFormContainerCommon } from '@simpleangularcontrols/sac-common';
+import { NgIf, NgClass, AsyncPipe } from '@angular/common';
 
 /**
  * Component für einbindung eines beliebigen Controls in die Form Struktur
@@ -22,21 +23,27 @@ import { SacStaticFormContainerCommon } from '@simpleangularcontrols/sac-common'
  *
  **/
 @Component({
-  selector: 'sac-staticformcontainer',
-  templateUrl: './formcontainer.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: SacStaticFormContainerComponent,
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() => SacStaticFormContainerComponent),
-    },
-  ],
+    selector: 'sac-staticformcontainer',
+    templateUrl: './formcontainer.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SacStaticFormContainerComponent,
+        },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() => SacStaticFormContainerComponent),
+        },
+    ],
+    standalone: true,
+    imports: [
+        NgIf,
+        NgClass,
+        AsyncPipe,
+    ],
 })
 export class SacStaticFormContainerComponent extends SacStaticFormContainerCommon {
   /**

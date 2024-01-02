@@ -1,35 +1,45 @@
-import { SacTinyMceCommon } from '@simpleangularcontrols/sac-common';
-import { SacFormDirective } from '../form/form';
+import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import {
   Component,
-  forwardRef,
   Host,
   Injector,
   NgZone,
   Optional,
+  forwardRef,
 } from '@angular/core';
-import {
-  NG_VALUE_ACCESSOR,
-  NG_VALIDATORS,
-  ControlContainer,
-} from '@angular/forms';
+import { FormsModule, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SacTinyMceCommon } from '@simpleangularcontrols/sac-common';
+import { EditorComponent } from '@tinymce/tinymce-angular';
+import { SacButtonComponent } from '../buttons/button';
+import { SacDialogComponent } from '../dialog/dialog';
+import { SacFormDirective } from '../form/form';
 
 @Component({
-  selector: 'sac-tinymce',
-  templateUrl: './tinymce.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: SacTinyMceComponent,
-    },
-    {
-      provide: NG_VALIDATORS,
-      useExisting: forwardRef(() => SacTinyMceComponent),
-      multi: true,
-    },
-  ],
+    selector: 'sac-tinymce',
+    templateUrl: './tinymce.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SacTinyMceComponent,
+        },
+        {
+            provide: NG_VALIDATORS,
+            useExisting: forwardRef(() => SacTinyMceComponent),
+            multi: true,
+        },
+    ],
+    standalone: true,
+    imports: [
+        NgClass,
+        EditorComponent,
+        FormsModule,
+        NgIf,
+        SacDialogComponent,
+        SacButtonComponent,
+        AsyncPipe,
+    ],
 })
 export class SacTinyMceComponent extends SacTinyMceCommon {
   /**

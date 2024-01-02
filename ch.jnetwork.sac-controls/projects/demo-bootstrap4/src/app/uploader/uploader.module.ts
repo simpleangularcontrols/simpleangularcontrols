@@ -10,15 +10,15 @@ import {
 import { UploaderRoutingModule } from './uploader-routing.module';
 import { DemoUploaderComponent } from './uploader.component';
 @NgModule({
-  declarations: [DemoUploaderComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    UploaderRoutingModule,
-    SACBootstrap4FormModule,
-    SACBootstrap4ButtonModule,
-    SACBootstrap4ValidationSummaryModule,
-    SACBootstrap4UploadModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        UploaderRoutingModule,
+        SACBootstrap4FormModule,
+        SACBootstrap4ButtonModule,
+        SACBootstrap4ValidationSummaryModule,
+        SACBootstrap4UploadModule,
+        DemoUploaderComponent,
+    ],
 })
 export class UploaderModule {}

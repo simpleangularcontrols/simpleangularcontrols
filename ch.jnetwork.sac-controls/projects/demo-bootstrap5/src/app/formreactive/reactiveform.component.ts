@@ -1,10 +1,20 @@
 import { Component } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Validation } from '@simpleangularcontrols/sac-common';
+import { SACBootstrap5ValidationSummaryModule, SACBootstrap5InputModule, SACBootstrap5CheckboxModule, SACBootstrap5DateTimeModule } from '@simpleangularcontrols/sac-bootstrap5';
 
 @Component({
-  selector: 'app-reactiveform',
-  templateUrl: './reactiveform.component.html',
+    selector: 'app-reactiveform',
+    templateUrl: './reactiveform.component.html',
+    standalone: true,
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        SACBootstrap5ValidationSummaryModule,
+        SACBootstrap5InputModule,
+        SACBootstrap5CheckboxModule,
+        SACBootstrap5DateTimeModule,
+    ],
 })
 export class DemoRectiveFormComponent {
   // formfield1 = new FormControl('', Validation.required('VALIDATION_ERROR_REQUIRED','VALIDATION_ERROR_SUMMARY_REQUIRED'));

@@ -13,20 +13,20 @@ import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { RichtextRoutingModule } from './richtext-routing.module';
 import { DemoRichtextComponent } from './richtext.component';
 @NgModule({
-  declarations: [DemoRichtextComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    RichtextRoutingModule,
-    SACBootstrap3FormModule,
-    SACBootstrap3ValidationSummaryModule,
-    SACBootstrap3DialogModule,
-    SACBootstrap3ButtonModule,
-    SACBootstrap3TinyMceModule,
-    EditorModule,
-  ],
-  providers: [
-    { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        RichtextRoutingModule,
+        SACBootstrap3FormModule,
+        SACBootstrap3ValidationSummaryModule,
+        SACBootstrap3DialogModule,
+        SACBootstrap3ButtonModule,
+        SACBootstrap3TinyMceModule,
+        EditorModule,
+        DemoRichtextComponent,
+    ],
+    providers: [
+        { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },
+    ],
 })
 export class RichtextModule {}

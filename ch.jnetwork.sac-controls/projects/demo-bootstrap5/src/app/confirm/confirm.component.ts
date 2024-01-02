@@ -1,9 +1,16 @@
 import { Component } from '@angular/core';
-import { ServiceConfirm } from '@simpleangularcontrols/sac-bootstrap5';
+import { ServiceConfirm, SACBootstrap5FormModule, SACBootstrap5ButtonModule } from '@simpleangularcontrols/sac-bootstrap5';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-confirm',
-  templateUrl: './confirm.component.html',
+    selector: 'app-confirm',
+    templateUrl: './confirm.component.html',
+    standalone: true,
+    imports: [
+        FormsModule,
+        SACBootstrap5FormModule,
+        SACBootstrap5ButtonModule,
+    ],
 })
 export class DemoConfirmComponent {
   constructor(private confirmService: ServiceConfirm) {}

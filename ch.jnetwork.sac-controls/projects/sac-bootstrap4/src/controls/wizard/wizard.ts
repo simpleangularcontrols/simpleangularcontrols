@@ -5,17 +5,24 @@ import {
   SacWizardItemCommon,
 } from '@simpleangularcontrols/sac-common';
 import { SacWizardItemComponent } from './wizarditem';
+import { NgFor, NgClass, NgStyle } from '@angular/common';
 
 /**
  * Wizard Komponente
  */
 @Component({
-  selector: 'sac-wizard',
-  templateUrl: './wizard.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacWizardComponent },
-  ],
+    selector: 'sac-wizard',
+    templateUrl: './wizard.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacWizardComponent },
+    ],
+    standalone: true,
+    imports: [
+        NgFor,
+        NgClass,
+        NgStyle,
+    ],
 })
 export class SacWizardComponent extends SacWizardCommon {
   /**

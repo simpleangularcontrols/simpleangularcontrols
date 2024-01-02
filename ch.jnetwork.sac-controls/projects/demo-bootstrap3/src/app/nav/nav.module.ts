@@ -4,8 +4,7 @@ import { RouterModule } from '@angular/router';
 import { AppNavigationComponent } from './nav.component';
 
 @NgModule({
-  declarations: [AppNavigationComponent],
-  imports: [CommonModule, RouterModule],
-  exports: [AppNavigationComponent],
+    imports: [CommonModule, RouterModule, AppNavigationComponent],
+    exports: [AppNavigationComponent],
 })
 export class AppNavigationModule {}

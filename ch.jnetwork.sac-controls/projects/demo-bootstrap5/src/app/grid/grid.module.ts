@@ -12,17 +12,17 @@ import { GridRoutingModule } from './grid-routing.module';
 import { DemoGridComponent } from './grid.component';
 import { GridService } from './services/GridService';
 @NgModule({
-  declarations: [DemoGridComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    HttpClientModule,
-    GridRoutingModule,
-    SACBootstrap5FormModule,
-    SACBootstrap5ValidationSummaryModule,
-    SACBootstrap5ButtonModule,
-    SACBootstrap5GridModule,
-  ],
-  providers: [GridService],
+    imports: [
+        CommonModule,
+        FormsModule,
+        HttpClientModule,
+        GridRoutingModule,
+        SACBootstrap5FormModule,
+        SACBootstrap5ValidationSummaryModule,
+        SACBootstrap5ButtonModule,
+        SACBootstrap5GridModule,
+        DemoGridComponent,
+    ],
+    providers: [GridService],
 })
 export class GridModule {}

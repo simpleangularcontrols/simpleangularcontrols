@@ -3,15 +3,18 @@ import { SacGridCommon, SacGridColumnBaseCommon, PagerData } from '@simpleangula
 import { SacFormDirective } from '../form/form';
 import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/forms';
 import { SacPagingComponent } from './paging';
+import { NgTemplateOutlet, NgFor, NgIf } from '@angular/common';
 
 @Component({
-  selector: 'sac-grid',
-  templateUrl: './grid.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacGridComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => SacGridComponent) }
-  ]
+    selector: 'sac-grid',
+    templateUrl: './grid.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacGridComponent },
+        { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => SacGridComponent) }
+    ],
+    standalone: true,
+    imports: [NgTemplateOutlet, NgFor, NgIf, SacPagingComponent]
 })
 export class SacGridComponent extends SacGridCommon {
 

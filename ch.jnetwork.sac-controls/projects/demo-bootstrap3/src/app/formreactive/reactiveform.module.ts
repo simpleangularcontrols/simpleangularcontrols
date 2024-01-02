@@ -11,16 +11,16 @@ import {
 import { ReactiveFormRoutingModule } from './reactiveform-routing.module';
 import { DemoRectiveFormComponent } from './reactiveform.component';
 @NgModule({
-  declarations: [DemoRectiveFormComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    ReactiveFormRoutingModule,
-    SACBootstrap3InputModule,
-    SACBootstrap3CheckboxModule,
-    SACBootstrap3ValidationSummaryModule,
-    SACBootstrap3ButtonModule,
-    SACBootstrap3DateTimeModule,
-  ],
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        ReactiveFormRoutingModule,
+        SACBootstrap3InputModule,
+        SACBootstrap3CheckboxModule,
+        SACBootstrap3ValidationSummaryModule,
+        SACBootstrap3ButtonModule,
+        SACBootstrap3DateTimeModule,
+        DemoRectiveFormComponent,
+    ],
 })
 export class ReactiveFormModule {}

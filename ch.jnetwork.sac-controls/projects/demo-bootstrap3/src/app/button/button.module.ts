@@ -9,14 +9,14 @@ import {
 import { ButtonRoutingModule } from './button-routing.module';
 import { DemoButtonComponent } from './button.component';
 @NgModule({
-  declarations: [DemoButtonComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ButtonRoutingModule,
-    SACBootstrap3FormModule,
-    SACBootstrap3ButtonModule,
-    SACBootstrap3ValidationSummaryModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ButtonRoutingModule,
+        SACBootstrap3FormModule,
+        SACBootstrap3ButtonModule,
+        SACBootstrap3ValidationSummaryModule,
+        DemoButtonComponent,
+    ],
 })
 export class ButtonModule {}

@@ -6,30 +6,33 @@ import {
 } from '@angular/forms';
 import { SacInputIntegerCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormDirective } from '../form/form';
+import { NgClass } from '@angular/common';
 
 /**
  * Input Komponten für Ganzzahlen
  */
 @Component({
-  selector: 'sac-inputinteger',
-  templateUrl: './inputinteger.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: SacInputIntegerComponent,
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() => SacInputIntegerComponent),
-    },
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [
-    { provide: ControlContainer, useExisting: SacFormDirective },
-  ],
+    selector: 'sac-inputinteger',
+    templateUrl: './inputinteger.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SacInputIntegerComponent,
+        },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() => SacInputIntegerComponent),
+        },
+    ],
+    // View Provider, damit das Formular an das Control gebunden werden kann
+    viewProviders: [
+        { provide: ControlContainer, useExisting: SacFormDirective },
+    ],
+    standalone: true,
+    imports: [NgClass],
 })
 export class SacInputIntegerComponent extends SacInputIntegerCommon {
   /**

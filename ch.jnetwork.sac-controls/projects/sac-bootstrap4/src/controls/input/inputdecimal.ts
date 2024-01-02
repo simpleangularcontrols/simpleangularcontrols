@@ -6,30 +6,33 @@ import {
 } from '@angular/forms';
 import { SacInputDecimalCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormDirective } from '../form/form';
+import { NgClass } from '@angular/common';
 
 /**
  * Input Komponente für Zahlen
  */
 @Component({
-  selector: 'sac-inputdecimal',
-  templateUrl: './inputdecimal.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: forwardRef(() => SacInputDecimalComponent),
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() => SacInputDecimalComponent),
-    },
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [
-    { provide: ControlContainer, useExisting: SacFormDirective },
-  ],
+    selector: 'sac-inputdecimal',
+    templateUrl: './inputdecimal.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: forwardRef(() => SacInputDecimalComponent),
+        },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() => SacInputDecimalComponent),
+        },
+    ],
+    // View Provider, damit das Formular an das Control gebunden werden kann
+    viewProviders: [
+        { provide: ControlContainer, useExisting: SacFormDirective },
+    ],
+    standalone: true,
+    imports: [NgClass],
 })
 export class SacInputDecimalComponent extends SacInputDecimalCommon {
   /**

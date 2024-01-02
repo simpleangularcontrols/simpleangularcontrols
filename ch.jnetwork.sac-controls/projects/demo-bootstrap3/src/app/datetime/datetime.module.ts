@@ -10,15 +10,15 @@ import {
 import { DatetimeRoutingModule } from './datetime-routing.module';
 import { DemoDatetimeComponent } from './datetime.component';
 @NgModule({
-  declarations: [DemoDatetimeComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    DatetimeRoutingModule,
-    SACBootstrap3FormModule,
-    SACBootstrap3ButtonModule,
-    SACBootstrap3ValidationSummaryModule,
-    SACBootstrap3DateTimeModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        DatetimeRoutingModule,
+        SACBootstrap3FormModule,
+        SACBootstrap3ButtonModule,
+        SACBootstrap3ValidationSummaryModule,
+        SACBootstrap3DateTimeModule,
+        DemoDatetimeComponent,
+    ],
 })
 export class DatetimeModule {}

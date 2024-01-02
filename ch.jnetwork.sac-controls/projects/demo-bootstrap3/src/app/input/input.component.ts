@@ -1,9 +1,18 @@
 import { Component, ViewChild } from '@angular/core';
-import { SacFormDirective } from '@simpleangularcontrols/sac-bootstrap3';
+import { SacFormDirective, SACBootstrap3FormModule, SACBootstrap3ButtonModule, SACBootstrap3ValidationSummaryModule, SACBootstrap3InputModule } from '@simpleangularcontrols/sac-bootstrap3';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-input',
-  templateUrl: './input.component.html',
+    selector: 'app-input',
+    templateUrl: './input.component.html',
+    standalone: true,
+    imports: [
+        FormsModule,
+        SACBootstrap3FormModule,
+        SACBootstrap3ButtonModule,
+        SACBootstrap3ValidationSummaryModule,
+        SACBootstrap3InputModule,
+    ],
 })
 export class DemoInputComponent {
   public values: any = {

@@ -7,19 +7,16 @@ import { SacContextmenuAnchorDirective } from './contextmenuanchor';
 import { SacContextmenuContainerDirective } from './contextmenucontainer';
 
 @NgModule({
-  declarations: [
-    SacContextmenuComponent,
-    SacContextmenuItemButtonComponent,
-    SacContextmenuItemSplitterComponent,
-    SacContextmenuAnchorDirective,
-    SacContextmenuContainerDirective,
-  ],
-  imports: [CommonModule],
-  exports: [
-    SacContextmenuComponent,
-    SacContextmenuItemButtonComponent,
-    SacContextmenuItemSplitterComponent,
-    SacContextmenuAnchorDirective,
-  ],
+    imports: [CommonModule, SacContextmenuComponent,
+        SacContextmenuItemButtonComponent,
+        SacContextmenuItemSplitterComponent,
+        SacContextmenuAnchorDirective,
+        SacContextmenuContainerDirective],
+    exports: [
+        SacContextmenuComponent,
+        SacContextmenuItemButtonComponent,
+        SacContextmenuItemSplitterComponent,
+        SacContextmenuAnchorDirective,
+    ],
 })
 export class SACBootstrap4ContextmenuModule {}

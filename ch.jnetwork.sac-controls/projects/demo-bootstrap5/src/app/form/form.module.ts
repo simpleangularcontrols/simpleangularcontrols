@@ -11,18 +11,16 @@ import { FormRoutingModule } from './form-routing.module';
 import { DemoFormComponent } from './form.component';
 import { DemoSubFormComponent } from './subform.component';
 @NgModule({
-  declarations: [
-    DemoFormComponent,
-    DemoSubFormComponent,
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    FormRoutingModule,
-    SACBootstrap5FormModule,
-    SACBootstrap5InputModule,
-    SACBootstrap5ValidationSummaryModule,
-    SACBootstrap5ButtonModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        FormRoutingModule,
+        SACBootstrap5FormModule,
+        SACBootstrap5InputModule,
+        SACBootstrap5ValidationSummaryModule,
+        SACBootstrap5ButtonModule,
+        DemoFormComponent,
+        DemoSubFormComponent,
+    ],
 })
 export class FormModule {}

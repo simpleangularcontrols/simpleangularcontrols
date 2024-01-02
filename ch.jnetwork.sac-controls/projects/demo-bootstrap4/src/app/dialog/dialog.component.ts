@@ -1,8 +1,17 @@
 import { Component } from '@angular/core';
+import { SACBootstrap4FormModule, SACBootstrap4ButtonModule, SACBootstrap4DialogModule } from '@simpleangularcontrols/sac-bootstrap4';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-dialog',
-  templateUrl: './dialog.component.html',
+    selector: 'app-dialog',
+    templateUrl: './dialog.component.html',
+    standalone: true,
+    imports: [
+        FormsModule,
+        SACBootstrap4FormModule,
+        SACBootstrap4ButtonModule,
+        SACBootstrap4DialogModule,
+    ],
 })
 export class DemoDialogComponent {
   public isvisible1 = false;

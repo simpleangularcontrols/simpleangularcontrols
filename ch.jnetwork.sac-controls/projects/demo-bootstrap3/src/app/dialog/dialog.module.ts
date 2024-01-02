@@ -10,16 +10,16 @@ import {
 import { DialogRoutingModule } from './dialog-routing.module';
 import { DemoDialogComponent } from './dialog.component';
 @NgModule({
-  declarations: [DemoDialogComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    DialogRoutingModule,
-    SACBootstrap3FormModule,
-    SACBootstrap3DialogModule,
-    SACBootstrap3ValidationSummaryModule,
-    SACBootstrap3ButtonModule,
-    SACBootstrap3DialogModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        DialogRoutingModule,
+        SACBootstrap3FormModule,
+        SACBootstrap3DialogModule,
+        SACBootstrap3ValidationSummaryModule,
+        SACBootstrap3ButtonModule,
+        SACBootstrap3DialogModule,
+        DemoDialogComponent,
+    ],
 })
 export class DialogModule {}

@@ -10,16 +10,16 @@ import {
 import { ConfirmRoutingModule } from './confirm-routing.module';
 import { DemoConfirmComponent } from './confirm.component';
 @NgModule({
-  declarations: [DemoConfirmComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ConfirmRoutingModule,
-    SACBootstrap3FormModule,
-    SACBootstrap3ConfirmModule,
-    SACBootstrap3ValidationSummaryModule,
-    SACBootstrap3ButtonModule,
-    SACBootstrap3ConfirmModule.forRoot(),
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ConfirmRoutingModule,
+        SACBootstrap3FormModule,
+        SACBootstrap3ConfirmModule,
+        SACBootstrap3ValidationSummaryModule,
+        SACBootstrap3ButtonModule,
+        SACBootstrap3ConfirmModule.forRoot(),
+        DemoConfirmComponent,
+    ],
 })
 export class ConfirmModule {}

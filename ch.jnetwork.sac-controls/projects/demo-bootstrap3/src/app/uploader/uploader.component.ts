@@ -1,6 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
-import { SacFormDirective, SACBootstrap3FormModule, SACBootstrap3ButtonModule, SACBootstrap3ValidationSummaryModule, SACBootstrap3UploadModule } from '@simpleangularcontrols/sac-bootstrap3';
 import { FormsModule } from '@angular/forms';
+import {
+  SACBootstrap3ButtonModule,
+  SACBootstrap3FormModule,
+  SACBootstrap3UploadModule,
+  SACBootstrap3ValidationSummaryModule,
+  SacFormDirective,
+} from '@simpleangularcontrols/sac-bootstrap3';
 
 interface KeyValue {
   label: string;
@@ -23,16 +29,16 @@ interface KeyValue3 extends KeyValue2 {
 }
 
 @Component({
-    selector: 'app-uploader',
-    templateUrl: './uploader.component.html',
-    standalone: true,
-    imports: [
-        FormsModule,
-        SACBootstrap3FormModule,
-        SACBootstrap3ButtonModule,
-        SACBootstrap3ValidationSummaryModule,
-        SACBootstrap3UploadModule,
-    ],
+  selector: 'app-uploader',
+  templateUrl: './uploader.component.html',
+  standalone: true,
+  imports: [
+    FormsModule,
+    SACBootstrap3FormModule,
+    SACBootstrap3ButtonModule,
+    SACBootstrap3ValidationSummaryModule,
+    SACBootstrap3UploadModule,
+  ],
 })
 export class DemoUploaderComponent {
   public values: any = {

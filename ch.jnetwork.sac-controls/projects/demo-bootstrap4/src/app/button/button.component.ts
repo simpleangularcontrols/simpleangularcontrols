@@ -1,6 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
-import { SacFormDirective, SACBootstrap4FormModule, SACBootstrap4ButtonModule } from '@simpleangularcontrols/sac-bootstrap4';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { SACBootstrap4ButtonModule, SACBootstrap4FormModule } from '@simpleangularcontrols/sac-bootstrap4';
 
 @Component({
     selector: 'app-button',

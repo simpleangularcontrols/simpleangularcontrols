@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { SACBootstrap5GridModule } from '@simpleangularcontrols/sac-bootstrap5';
 import {
   PagerData,
   PagerRequest,
@@ -9,13 +11,12 @@ import { GridItemDto } from './models/GridItemDto';
 import { GridRequestDto } from './models/GridRequestDto';
 import { GridResultDto } from './models/GridResultDto';
 import { GridService } from './services/GridService';
-import { SACBootstrap5GridModule } from '@simpleangularcontrols/sac-bootstrap5';
 
 @Component({
-    selector: 'app-grid',
-    templateUrl: './grid.component.html',
-    standalone: true,
-    imports: [SACBootstrap5GridModule],
+  selector: 'app-grid',
+  templateUrl: './grid.component.html',
+  standalone: true,
+  imports: [SACBootstrap5GridModule, HttpClientModule],
 })
 export class DemoGridComponent implements OnInit {
   dataDefault: GridItemDto[] = [];

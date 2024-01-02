@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { SacFormDirective, SACBootstrap4BrowserModule } from '@simpleangularcontrols/sac-bootstrap4';
+import { Component } from '@angular/core';
+import { SACBootstrap4BrowserModule } from '@simpleangularcontrols/sac-bootstrap4';
 
 @Component({
     selector: 'app-browser',

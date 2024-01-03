@@ -1,24 +1,18 @@
-# SimpleAngularControls - Bootstrap5
+# SimpleAngularControls - Common
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.0.
+## Documentation
 
-## Code scaffolding
+The package provides the controls for Bootstrap 5. The `sac-common` is also required.
 
-Run `ng generate component component-name --project sac-bootstrap5` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project sac-bootstrap5`.
-> Note: Don't forget to add `--project sac-bootstrap5` or else it will be added to the default project in your `angular.json` file. 
+## Installation
 
-## Build
+Do the follow steps to add
 
-Run `ng build sac-bootstrap5` to build the project. The build artifacts will be stored in the `dist/` directory.
+* add `@simpleangularcontrols/sac-bootstrap5` dependencies from npm
+* add `@simpleangularcontrols/sac-common` dependencies from npm
+* add Bootstrap 5 CSS/SCSS to your project
+* import the module to your components and modules
 
-## Publishing
+## Project
 
-After building your library with `ng build sac-bootstrap5`, go to the dist folder `cd dist/sac-bootstrap5` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test sac-bootstrap5` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+For more information, follow us on GitHub: https://github.com/simpleangularcontrols

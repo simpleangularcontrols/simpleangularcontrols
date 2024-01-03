@@ -53,8 +53,11 @@ namespace Build.tasks
 
         private void PublishNpm(BuildContext context, string distFolder)
         {
-            NpmPublishSettings settings = new NpmPublishSettings();
-            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath()).Combine(distFolder.ToDirectoryPath());
+            NpmPublishSettings settings = new NpmPublishSettings()
+            {
+                Access = NpmPublishAccess.Public,
+                WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath()).Combine(distFolder.ToDirectoryPath())
+            };
 
             context.NpmPublish(settings);
         }

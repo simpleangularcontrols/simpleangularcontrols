@@ -18,7 +18,7 @@ import { SacMultilanguagemenuContainerDirective } from './multilanguagemenuconta
  * Component für Contextmenü
  */
 @Component({
-    selector: '[sac-multilanguagemenu]',
+    selector: '[sac-multilanguagemenu]', // eslint-disable-line @angular-eslint/component-selector -- bootstrap requires append-items direct behind the previews element
     templateUrl: './multilanguagemenu.html',
     providers: [
         {

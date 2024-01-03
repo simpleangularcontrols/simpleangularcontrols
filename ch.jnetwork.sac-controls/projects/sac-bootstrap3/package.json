@@ -1,6 +1,6 @@
 {
   "name": "@simpleangularcontrols/sac-bootstrap3",
-  "version": "13.0.0-rc.1",
+  "version": "16.0.0-rc.1",
   "peerDependencies": {
     "@angular/common": "^16.0.0",
     "@angular/core": "^16.0.0",

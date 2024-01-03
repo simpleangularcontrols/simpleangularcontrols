@@ -165,7 +165,19 @@
                 <td class="col-md-9"><code>sac-upload</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgClass</code>
+                            <code>NgIf</code>
+                            <code>AsyncPipe</code>
+                </td>
+            </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
@@ -474,7 +486,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/sac-bootstrap3/src/controls/upload/upload.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/sac-bootstrap3/src/controls/upload/upload.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -3894,17 +3906,20 @@ import { SacUploadSingleCommon } from &#x27;@simpleangularcontrols/sac-common&#x
 import { SacFormDirective } from &#x27;../form/form&#x27;;
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from &#x27;@angular/forms&#x27;;
 import { NgZone } from &#x27;@angular/core&#x27;;
+import { NgClass, NgIf, AsyncPipe } from &#x27;@angular/common&#x27;;
 
 // https://github.com/kukhariev/ngx-uploadx/
 
 @Component({
-  selector: &#x27;sac-upload&#x27;,
-  templateUrl: &#x27;./upload.html&#x27;,
-  styleUrls: [&#x27;./upload.scss&#x27;],
-  providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacUploadComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; SacUploadComponent) }
-  ]
+    selector: &#x27;sac-upload&#x27;,
+    templateUrl: &#x27;./upload.html&#x27;,
+    styleUrls: [&#x27;./upload.scss&#x27;],
+    providers: [
+        { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacUploadComponent },
+        { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; SacUploadComponent) }
+    ],
+    standalone: true,
+    imports: [NgClass, NgIf, AsyncPipe]
 })
 export class SacUploadComponent extends SacUploadSingleCommon {
 

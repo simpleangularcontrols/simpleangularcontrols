@@ -124,18 +124,18 @@
 <title>cluster_SACBootstrap3TooltipModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="145,-70 145,-268 351,-268 351,-70 145,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap3TooltipModule_declarations</title>
-<polygon fill="none" stroke="black" points="169,-78 169,-130 327,-130 327,-78 169,-78"/>
-</g>
-<g id="clust5" class="cluster">
+<g id="clust4" class="cluster">
 <title>cluster_SACBootstrap3TooltipModule_exports</title>
 <polygon fill="none" stroke="black" points="167,-208 167,-260 329,-260 329,-208 167,-208"/>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap3TooltipModule_imports</title>
+<polygon fill="none" stroke="black" points="169,-78 169,-130 327,-130 327,-78 169,-78"/>
 </g>
 <!-- SacTooltipComponent -->
 <g id="node1" class="node">
 <title>SacTooltipComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="319.27,-122 176.73,-122 176.73,-86 319.27,-86 319.27,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="319.27,-122 316.27,-126 295.27,-126 292.27,-122 176.73,-122 176.73,-86 319.27,-86 319.27,-122"/>
 <text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00">SacTooltipComponent</text>
 </g>
 <!-- SACBootstrap3TooltipModule -->
@@ -208,11 +208,12 @@
         <div class="container-fluid module">
             <div class="row">
                 <div class="col-sm-3">
-                    <h3>Declarations<a href="https://angular.io/api/core/NgModule#declarations" target="_blank" rel="noopener noreferrer"
-                            title="Official documentation about module declarations"><span class="icon ion-ios-information-circle-outline"></span></a></h3>
+                    <h3>Imports<a href="https://angular.io/api/core/NgModule#imports" target="_blank" rel="noopener noreferrer"
+                            title="Official documentation about module imports"><span
+                                class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="../components/SacTooltipComponent.html">SacTooltipComponent</a>
+                            <a href="../modules/SacTooltipComponent.html">SacTooltipComponent</a>
                         </li>
                     </ul>
                 </div>
@@ -239,11 +240,11 @@ import { NgModule } from &#x27;@angular/core&#x27;;
 import { SacTooltipComponent } from &#x27;./tooltip&#x27;;
 
 @NgModule({
-  declarations: [SacTooltipComponent],
-  imports: [
-    CommonModule, CommonModule
-  ],
-  exports: [SacTooltipComponent]
+    imports: [
+        CommonModule, CommonModule,
+        SacTooltipComponent
+    ],
+    exports: [SacTooltipComponent]
 })
 export class SACBootstrap3TooltipModule { }
 </code></pre>

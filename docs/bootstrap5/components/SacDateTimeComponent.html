@@ -176,7 +176,20 @@
                 <td class="col-md-9"><code>sac-datetime</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgClass</code>
+                            <code>IMaskDirective</code>
+                            <code>NgIf</code>
+                                <code><a href="../components/SacDateSelectorComponent.html" target="_self" >SacDateSelectorComponent</a></code>
+                </td>
+            </tr>
 
 
 
@@ -475,7 +488,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/sac-bootstrap5/src/controls/datetime/datetime.ts:41</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">projects/sac-bootstrap5/src/controls/datetime/datetime.ts:51</a></div>
                             </td>
                         </tr>
 
@@ -3626,30 +3639,40 @@ import {
 } from &#x27;@angular/forms&#x27;;
 import { SacDateTimeCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 import { SacFormDirective } from &#x27;../form/form&#x27;;
+import { SacDateSelectorComponent } from &#x27;./dateselector&#x27;;
+import { IMaskDirective } from &#x27;angular-imask&#x27;;
+import { NgClass, NgIf } from &#x27;@angular/common&#x27;;
 
 /**
  * Date und Time Komponente
  */
 @Component({
-  selector: &#x27;sac-datetime&#x27;,
-  templateUrl: &#x27;./datetime.html&#x27;,
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: forwardRef(() &#x3D;&gt; SacDateTimeComponent),
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() &#x3D;&gt; SacDateTimeComponent),
-    },
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [
-    { provide: ControlContainer, useExisting: SacFormDirective },
-  ],
+    selector: &#x27;sac-datetime&#x27;,
+    templateUrl: &#x27;./datetime.html&#x27;,
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: forwardRef(() &#x3D;&gt; SacDateTimeComponent),
+        },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() &#x3D;&gt; SacDateTimeComponent),
+        },
+    ],
+    // View Provider, damit das Formular an das Control gebunden werden kann
+    viewProviders: [
+        { provide: ControlContainer, useExisting: SacFormDirective },
+    ],
+    standalone: true,
+    imports: [
+        NgClass,
+        IMaskDirective,
+        NgIf,
+        SacDateSelectorComponent,
+    ],
 })
 export class SacDateTimeComponent extends SacDateTimeCommon {
   /**

@@ -166,7 +166,19 @@
                 <td class="col-md-9"><code>sac-validationsummary</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgIf</code>
+                            <code>NgFor</code>
+                            <code>AsyncPipe</code>
+                </td>
+            </tr>
 
 
 
@@ -259,7 +271,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/sac-bootstrap3/src/controls/validation/validationsummary.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/sac-bootstrap3/src/controls/validation/validationsummary.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -521,21 +533,24 @@ import { NG_VALUE_ACCESSOR, ControlContainer } from &#x27;@angular/forms&#x27;;
 // import { SacFormular } from &#x27;../form/form&#x27;;
 import { SacValidationSummaryCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 import { SacFormDirective } from &#x27;../form/form&#x27;;
+import { NgIf, NgFor, AsyncPipe } from &#x27;@angular/common&#x27;;
 
 
 @Component({
-  selector: &#x27;sac-validationsummary&#x27;,
-  templateUrl: &#x27;./validationsummary.html&#x27;,
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: SacValidationSummaryComponent
-    }
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }]
+    selector: &#x27;sac-validationsummary&#x27;,
+    templateUrl: &#x27;./validationsummary.html&#x27;,
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SacValidationSummaryComponent
+        }
+    ],
+    // View Provider, damit das Formular an das Control gebunden werden kann
+    viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }],
+    standalone: true,
+    imports: [NgIf, NgFor, AsyncPipe]
 })
 export class SacValidationSummaryComponent extends SacValidationSummaryCommon {
 

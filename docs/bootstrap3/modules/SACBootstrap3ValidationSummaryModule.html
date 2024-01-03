@@ -124,18 +124,18 @@
 <title>cluster_SACBootstrap3ValidationSummaryModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="109,-70 109,-268 387,-268 387,-70 109,-70"/>
 </g>
-<g id="clust5" class="cluster">
+<g id="clust4" class="cluster">
 <title>cluster_SACBootstrap3ValidationSummaryModule_exports</title>
 <polygon fill="none" stroke="black" points="131,-208 131,-260 365,-260 365,-208 131,-208"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap3ValidationSummaryModule_declarations</title>
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap3ValidationSummaryModule_imports</title>
 <polygon fill="none" stroke="black" points="132,-78 132,-130 364,-130 364,-78 132,-78"/>
 </g>
 <!-- SacValidationSummaryComponent -->
 <g id="node1" class="node">
 <title>SacValidationSummaryComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="355.58,-122 140.42,-122 140.42,-86 355.58,-86 355.58,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="355.58,-122 352.58,-126 331.58,-126 328.58,-122 140.42,-122 140.42,-86 355.58,-86 355.58,-122"/>
 <text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00">SacValidationSummaryComponent</text>
 </g>
 <!-- SACBootstrap3ValidationSummaryModule -->
@@ -208,11 +208,12 @@
         <div class="container-fluid module">
             <div class="row">
                 <div class="col-sm-3">
-                    <h3>Declarations<a href="https://angular.io/api/core/NgModule#declarations" target="_blank" rel="noopener noreferrer"
-                            title="Official documentation about module declarations"><span class="icon ion-ios-information-circle-outline"></span></a></h3>
+                    <h3>Imports<a href="https://angular.io/api/core/NgModule#imports" target="_blank" rel="noopener noreferrer"
+                            title="Official documentation about module imports"><span
+                                class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="../components/SacValidationSummaryComponent.html">SacValidationSummaryComponent</a>
+                            <a href="../modules/SacValidationSummaryComponent.html">SacValidationSummaryComponent</a>
                         </li>
                     </ul>
                 </div>
@@ -239,11 +240,11 @@ import { SacValidationSummaryComponent } from &#x27;./validationsummary&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
 
 @NgModule({
-  declarations: [SacValidationSummaryComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [SacValidationSummaryComponent]
+    imports: [
+        CommonModule,
+        SacValidationSummaryComponent
+    ],
+    exports: [SacValidationSummaryComponent]
 })
 export class SACBootstrap3ValidationSummaryModule { }
 </code></pre>

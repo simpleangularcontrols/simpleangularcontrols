@@ -165,7 +165,18 @@
                 <td class="col-md-9"><code>sac-staticlabel</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgIf</code>
+                            <code>NgClass</code>
+                </td>
+            </tr>
 
 
 
@@ -390,7 +401,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/sac-bootstrap3/src/controls/static/staticlabel.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/sac-bootstrap3/src/controls/static/staticlabel.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -2671,15 +2682,18 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from &#x27;@angular/forms&#x27;;
 import { SacFormDirective } from &#x27;../form/form&#x27;;
 import { SacStaticLabelCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { NgIf, NgClass } from &#x27;@angular/common&#x27;;
 
 @Component({
-  selector: &#x27;sac-staticlabel&#x27;,
-  templateUrl: &#x27;./staticlabel.html&#x27;,
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacStaticLabelComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; SacStaticLabelComponent) }
-  ]
+    selector: &#x27;sac-staticlabel&#x27;,
+    templateUrl: &#x27;./staticlabel.html&#x27;,
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacStaticLabelComponent },
+        { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; SacStaticLabelComponent) }
+    ],
+    standalone: true,
+    imports: [NgIf, NgClass]
 })
 
 export class SacStaticLabelComponent extends SacStaticLabelCommon {

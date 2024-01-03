@@ -158,7 +158,18 @@
                 <td class="col-md-9"><code>sac-radiobutton</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgIf</code>
+                            <code>NgTemplateOutlet</code>
+                </td>
+            </tr>
 
 
 
@@ -279,7 +290,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/sac-bootstrap3/src/controls/checkbox/radiobutton.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/sac-bootstrap3/src/controls/checkbox/radiobutton.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -719,11 +730,14 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Host } from &#x27;@angular/core&#x27;;
 import { SacRadiobuttonCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 import { SacRadiobuttonsComponent } from &#x27;./radiobuttons&#x27;;
+import { NgIf, NgTemplateOutlet } from &#x27;@angular/common&#x27;;
 
 
 @Component({
-  selector: &#x27;sac-radiobutton&#x27;,
-  templateUrl: &#x27;./radiobutton.html&#x27;,
+    selector: &#x27;sac-radiobutton&#x27;,
+    templateUrl: &#x27;./radiobutton.html&#x27;,
+    standalone: true,
+    imports: [NgIf, NgTemplateOutlet],
 })
 export class SacRadiobuttonComponent extends SacRadiobuttonCommon {
 

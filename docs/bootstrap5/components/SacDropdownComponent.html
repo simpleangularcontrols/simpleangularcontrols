@@ -176,7 +176,22 @@
                 <td class="col-md-9"><code>sac-dropdown</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgClass</code>
+                            <code>NgIf</code>
+                                <code><a href="../directives/SacDropdownOptionDirective.html" target="_self" >forwardRef(() &#x3D;&gt; SacDropdownOptionDirective)</a></code>
+                            <code>NgFor</code>
+                            <code>NgTemplateOutlet</code>
+                            <code>AsyncPipe</code>
+                </td>
+            </tr>
 
 
 
@@ -427,7 +442,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/sac-bootstrap5/src/controls/list/dropdown.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/sac-bootstrap5/src/controls/list/dropdown.ts:48</a></div>
                             </td>
                         </tr>
 
@@ -3104,26 +3119,36 @@ import {
   SacDropdownOptionCommon,
 } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 import { SacFormDirective } from &#x27;../form/form&#x27;;
+import { NgClass, NgIf, NgFor, NgTemplateOutlet, AsyncPipe } from &#x27;@angular/common&#x27;;
 
 /**
  * Dropdown Komponente
  */
 @Component({
-  selector: &#x27;sac-dropdown&#x27;,
-  templateUrl: &#x27;./dropdown.html&#x27;,
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: SacDropdownComponent,
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() &#x3D;&gt; SacDropdownComponent),
-    },
-  ],
+    selector: &#x27;sac-dropdown&#x27;,
+    templateUrl: &#x27;./dropdown.html&#x27;,
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SacDropdownComponent,
+        },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() &#x3D;&gt; SacDropdownComponent),
+        },
+    ],
+    standalone: true,
+    imports: [
+        NgClass,
+        NgIf,
+        forwardRef(() &#x3D;&gt; SacDropdownOptionDirective),
+        NgFor,
+        NgTemplateOutlet,
+        AsyncPipe,
+    ],
 })
 export class SacDropdownComponent extends SacDropdownCommon {
   /**
@@ -3146,7 +3171,10 @@ export class SacDropdownComponent extends SacDropdownCommon {
 /**
  * Direktive für Dropdown Option List
  */
-@Directive({ selector: &#x27;[sacOption],option&#x27; })
+@Directive({
+    selector: &#x27;[sacOption],option&#x27;,
+    standalone: true
+})
 export class SacDropdownOptionDirective extends SacDropdownOptionCommon {
   /**
    * Konstruktor

@@ -124,18 +124,18 @@
 <title>cluster_SACBootstrap3UploadModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="53,-70 53,-268 443,-268 443,-70 53,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap3UploadModule_declarations</title>
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap3UploadModule_imports</title>
 <polygon fill="none" stroke="black" points="65,-78 65,-130 432,-130 432,-78 65,-78"/>
 </g>
-<g id="clust6" class="cluster">
+<g id="clust4" class="cluster">
 <title>cluster_SACBootstrap3UploadModule_exports</title>
 <polygon fill="none" stroke="black" points="61,-208 61,-260 435,-260 435,-208 61,-208"/>
 </g>
 <!-- SacUploadComponent -->
 <g id="node1" class="node">
 <title>SacUploadComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="424.26,-122 281.74,-122 281.74,-86 424.26,-86 424.26,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="424.26,-122 421.26,-126 400.26,-126 397.26,-122 281.74,-122 281.74,-86 424.26,-86 424.26,-122"/>
 <text text-anchor="middle" x="353" y="-99.8" font-family="Times,serif" font-size="14.00">SacUploadComponent</text>
 </g>
 <!-- SACBootstrap3UploadModule -->
@@ -153,7 +153,7 @@
 <!-- SacUploadMultipleComponent -->
 <g id="node2" class="node">
 <title>SacUploadMultipleComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="263.48,-122 72.52,-122 72.52,-86 263.48,-86 263.48,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="263.48,-122 260.48,-126 239.48,-126 236.48,-122 72.52,-122 72.52,-86 263.48,-86 263.48,-122"/>
 <text text-anchor="middle" x="168" y="-99.8" font-family="Times,serif" font-size="14.00">SacUploadMultipleComponent</text>
 </g>
 <!-- SacUploadMultipleComponent&#45;&gt;SACBootstrap3UploadModule -->
@@ -232,14 +232,15 @@
         <div class="container-fluid module">
             <div class="row">
                 <div class="col-sm-3">
-                    <h3>Declarations<a href="https://angular.io/api/core/NgModule#declarations" target="_blank" rel="noopener noreferrer"
-                            title="Official documentation about module declarations"><span class="icon ion-ios-information-circle-outline"></span></a></h3>
+                    <h3>Imports<a href="https://angular.io/api/core/NgModule#imports" target="_blank" rel="noopener noreferrer"
+                            title="Official documentation about module imports"><span
+                                class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="../components/SacUploadComponent.html">SacUploadComponent</a>
+                            <a href="../modules/SacUploadComponent.html">SacUploadComponent</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="../components/SacUploadMultipleComponent.html">SacUploadMultipleComponent</a>
+                            <a href="../modules/SacUploadMultipleComponent.html">SacUploadMultipleComponent</a>
                         </li>
                     </ul>
                 </div>
@@ -271,11 +272,11 @@ import { SacUploadMultipleComponent } from &#x27;./uploadmultiple&#x27;;
 import { FormsModule } from &#x27;@angular/forms&#x27;;
 
 @NgModule({
-  declarations: [SacUploadComponent, SacUploadMultipleComponent],
-  imports: [
-    CommonModule, FormsModule
-  ],
-  exports: [SacUploadComponent, SacUploadMultipleComponent]
+    imports: [
+        CommonModule, FormsModule,
+        SacUploadComponent, SacUploadMultipleComponent
+    ],
+    exports: [SacUploadComponent, SacUploadMultipleComponent]
 })
 export class SACBootstrap3UploadModule { }
 </code></pre>

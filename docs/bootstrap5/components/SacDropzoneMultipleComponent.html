@@ -183,7 +183,19 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                 <td class="col-md-9"><code>sac-dropzonemultiple</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgIf</code>
+                            <code>NgClass</code>
+                            <code>NgFor</code>
+                </td>
+            </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
@@ -514,7 +526,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/sac-bootstrap5/src/controls/upload/dropzonemultiple.ts:39</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/sac-bootstrap5/src/controls/upload/dropzonemultiple.ts:46</a></div>
                             </td>
                         </tr>
 
@@ -1504,7 +1516,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:59</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:66</a></code>
 </div>
                         </td>
                     </tr>
@@ -4357,27 +4369,34 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
 import { SacDropzoneMultipleCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 import { SacFormDirective } from &#x27;../form/form&#x27;;
+import { NgIf, NgClass, NgFor } from &#x27;@angular/common&#x27;;
 
 /**
  * Dropzone Komponente für mehrere Uploads
  * @see https://github.com/kukhariev/ngx-uploadx/
  */
 @Component({
-  selector: &#x27;sac-dropzonemultiple&#x27;,
-  templateUrl: &#x27;./dropzonemultiple.html&#x27;,
-  styleUrls: [&#x27;./dropzone.scss&#x27;],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: SacDropzoneMultipleComponent,
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() &#x3D;&gt; SacDropzoneMultipleComponent),
-    },
-  ],
+    selector: &#x27;sac-dropzonemultiple&#x27;,
+    templateUrl: &#x27;./dropzonemultiple.html&#x27;,
+    styleUrls: [&#x27;./dropzone.scss&#x27;],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SacDropzoneMultipleComponent,
+        },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() &#x3D;&gt; SacDropzoneMultipleComponent),
+        },
+    ],
+    standalone: true,
+    imports: [
+        NgIf,
+        NgClass,
+        NgFor,
+    ],
 })
 export class SacDropzoneMultipleComponent
   extends SacDropzoneMultipleCommon

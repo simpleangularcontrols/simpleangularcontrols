@@ -176,7 +176,24 @@
                 <td class="col-md-9"><code>sac-tinymce</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgClass</code>
+                            <code>EditorComponent</code>
+                            <code>FormsModule</code>
+                            <code>NgIf</code>
+                                <code><a href="../components/SacDialogComponent.html" target="_self" >SacDialogComponent</a></code>
+                                <code><a href="../components/SacBrowserComponent.html" target="_self" >SacBrowserComponent</a></code>
+                                <code><a href="../components/SacButtonComponent.html" target="_self" >SacButtonComponent</a></code>
+                            <code>AsyncPipe</code>
+                </td>
+            </tr>
 
 
 
@@ -471,7 +488,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/sac-bootstrap4/src/controls/tinymce/tinymce.ts:39</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">projects/sac-bootstrap4/src/controls/tinymce/tinymce.ts:57</a></div>
                             </td>
                         </tr>
 
@@ -1538,7 +1555,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacTinyMceCommon.html#source" target="_self" >SacTinyMceCommon:58</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTinyMceCommon.html#source" target="_self" >SacTinyMceCommon:76</a></code>
 </div>
                         </td>
                     </tr>
@@ -3430,11 +3447,18 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 } from &#x27;@angular/core&#x27;;
 import {
   ControlContainer,
+  FormsModule,
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
 } from &#x27;@angular/forms&#x27;;
 import { SacTinyMceCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { SacButtonComponent } from &#x27;../buttons/button&#x27;;
 import { SacFormDirective } from &#x27;../form/form&#x27;;
+
+import { AsyncPipe, NgClass, NgIf } from &#x27;@angular/common&#x27;;
+import { EditorComponent } from &#x27;@tinymce/tinymce-angular&#x27;;
+import { SacBrowserComponent } from &#x27;../../components/browser/browser&#x27;;
+import { SacDialogComponent } from &#x27;../dialog/dialog&#x27;;
 
 /**
  * TinyMCE Komponente
@@ -3457,6 +3481,17 @@ import { SacFormDirective } from &#x27;../form/form&#x27;;
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }],
+  standalone: true,
+  imports: [
+    NgClass,
+    EditorComponent,
+    FormsModule,
+    NgIf,
+    SacDialogComponent,
+    SacBrowserComponent,
+    SacButtonComponent,
+    AsyncPipe,
+  ],
 })
 export class SacTinyMceComponent extends SacTinyMceCommon {
   /**

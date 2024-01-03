@@ -174,7 +174,18 @@
                 <td class="col-md-9"><code>sac-button</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgIf</code>
+                            <code>NgClass</code>
+                </td>
+            </tr>
 
 
 
@@ -699,6 +710,7 @@ Folgende Typen sind Supported: primary, secondary, success, danger, warning, inf
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component} from &#x27;@angular/core&#x27;;
 import { SacButtonCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { NgIf, NgClass } from &#x27;@angular/common&#x27;;
 
 /**
  * Button Component
@@ -706,8 +718,10 @@ import { SacButtonCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
  * &lt;example-url&gt;http://localhost/demo/mysample.component.html&lt;/example-url&gt;
  */
 @Component({
-  selector: &#x27;sac-button&#x27;,
-  templateUrl: &#x27;./button.html&#x27;,
+    selector: &#x27;sac-button&#x27;,
+    templateUrl: &#x27;./button.html&#x27;,
+    standalone: true,
+    imports: [NgIf, NgClass],
 })
 export class SacButtonComponent extends SacButtonCommon {
 

@@ -173,7 +173,19 @@
                 <td class="col-md-9"><code>[sac-multilanguagemenu]</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgTemplateOutlet</code>
+                                <code><a href="../directives/SacMultilanguagemenuContainerDirective.html" target="_self" >SacMultilanguagemenuContainerDirective</a></code>
+                                <code><a href="../directives/SacMultilanguagemenuAnchorDirective.html" target="_self" >SacMultilanguagemenuAnchorDirective</a></code>
+                </td>
+            </tr>
 
 
 
@@ -309,7 +321,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/sac-bootstrap4/src/controls/multilanguage/multilanguagemenu.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/sac-bootstrap4/src/controls/multilanguage/multilanguagemenu.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -1043,7 +1055,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DOCUMENT } from &#x27;@angular/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DOCUMENT, NgTemplateOutlet } from &#x27;@angular/common&#x27;;
 import {
   Component,
   ElementRef,
@@ -1054,19 +1066,27 @@ import {
   Renderer2,
 } from &#x27;@angular/core&#x27;;
 import { SacContextmenuCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { SacMultilanguagemenuAnchorDirective } from &#x27;./multilanguagemenuanchor&#x27;;
+import { SacMultilanguagemenuContainerDirective } from &#x27;./multilanguagemenucontainer&#x27;;
 
 /**
  * Component für Contextmenü
  */
 @Component({
-  selector: &#x27;[sac-multilanguagemenu]&#x27;, // eslint-disable-line @angular-eslint/component-selector -- bootstrap requires append-items direct behind the previews element
-  templateUrl: &#x27;./multilanguagemenu.html&#x27;,
-  providers: [
-    {
-      provide: SacContextmenuCommon,
-      useExisting: forwardRef(() &#x3D;&gt; SacMultilanguagemenuComponent),
-    },
-  ],
+    selector: &#x27;[sac-multilanguagemenu]&#x27;,
+    templateUrl: &#x27;./multilanguagemenu.html&#x27;,
+    providers: [
+        {
+            provide: SacContextmenuCommon,
+            useExisting: forwardRef(() &#x3D;&gt; SacMultilanguagemenuComponent),
+        },
+    ],
+    standalone: true,
+    imports: [
+        NgTemplateOutlet,
+        SacMultilanguagemenuContainerDirective,
+        SacMultilanguagemenuAnchorDirective,
+    ],
 })
 export class SacMultilanguagemenuComponent extends SacContextmenuCommon {
   /**

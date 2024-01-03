@@ -24,18 +24,18 @@
 <title>cluster_SACBootstrap5MultilanguageModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 1574,-268 1574,-70 8,-70"/>
 </g>
-<g id="clust10" class="cluster">
+<g id="clust4" class="cluster">
 <title>cluster_SACBootstrap5MultilanguageModule_exports</title>
 <polygon fill="none" stroke="black" points="584,-208 584,-260 1078,-260 1078,-208 584,-208"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap5MultilanguageModule_declarations</title>
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap5MultilanguageModule_imports</title>
 <polygon fill="none" stroke="black" points="16,-78 16,-130 1566,-130 1566,-78 16,-78"/>
 </g>
 <!-- SacMultilanguageInputAreaComponent -->
 <g id="node1" class="node">
 <title>SacMultilanguageInputAreaComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1557.94,-122 1318.06,-122 1318.06,-86 1557.94,-86 1557.94,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="1557.94,-122 1554.94,-126 1533.94,-126 1530.94,-122 1318.06,-122 1318.06,-86 1557.94,-86 1557.94,-122"/>
 <text text-anchor="middle" x="1438" y="-99.8" font-family="Times,serif" font-size="14.00">SacMultilanguageInputAreaComponent</text>
 </g>
 <!-- SACBootstrap5MultilanguageModule -->
@@ -53,7 +53,7 @@
 <!-- SacMultilanguageInputComponent -->
 <g id="node2" class="node">
 <title>SacMultilanguageInputComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1300.25,-122 1087.75,-122 1087.75,-86 1300.25,-86 1300.25,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="1300.25,-122 1297.25,-126 1276.25,-126 1273.25,-122 1087.75,-122 1087.75,-86 1300.25,-86 1300.25,-122"/>
 <text text-anchor="middle" x="1194" y="-99.8" font-family="Times,serif" font-size="14.00">SacMultilanguageInputComponent</text>
 </g>
 <!-- SacMultilanguageInputComponent&#45;&gt;SACBootstrap5MultilanguageModule -->
@@ -65,7 +65,7 @@
 <!-- SacMultilanguagemenuAnchorDirective -->
 <g id="node3" class="node">
 <title>SacMultilanguagemenuAnchorDirective</title>
-<polygon fill="#ffffb3" stroke="black" points="1069.53,-122 826.47,-122 826.47,-86 1069.53,-86 1069.53,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="1069.53,-122 1066.53,-126 1045.53,-126 1042.53,-122 826.47,-122 826.47,-86 1069.53,-86 1069.53,-122"/>
 <text text-anchor="middle" x="948" y="-99.8" font-family="Times,serif" font-size="14.00">SacMultilanguagemenuAnchorDirective</text>
 </g>
 <!-- SacMultilanguagemenuAnchorDirective&#45;&gt;SACBootstrap5MultilanguageModule -->
@@ -77,7 +77,7 @@
 <!-- SacMultilanguagemenuComponent -->
 <g id="node4" class="node">
 <title>SacMultilanguagemenuComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="808.3,-122 593.7,-122 593.7,-86 808.3,-86 808.3,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="808.3,-122 805.3,-126 784.3,-126 781.3,-122 593.7,-122 593.7,-86 808.3,-86 808.3,-122"/>
 <text text-anchor="middle" x="701" y="-99.8" font-family="Times,serif" font-size="14.00">SacMultilanguagemenuComponent</text>
 </g>
 <!-- SacMultilanguagemenuComponent&#45;&gt;SACBootstrap5MultilanguageModule -->
@@ -89,7 +89,7 @@
 <!-- SacMultilanguagemenuContainerDirective -->
 <g id="node5" class="node">
 <title>SacMultilanguagemenuContainerDirective</title>
-<polygon fill="#ffffb3" stroke="black" points="576.26,-122 319.74,-122 319.74,-86 576.26,-86 576.26,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="576.26,-122 573.26,-126 552.26,-126 549.26,-122 319.74,-122 319.74,-86 576.26,-86 576.26,-122"/>
 <text text-anchor="middle" x="448" y="-99.8" font-family="Times,serif" font-size="14.00">SacMultilanguagemenuContainerDirective</text>
 </g>
 <!-- SacMultilanguagemenuContainerDirective&#45;&gt;SACBootstrap5MultilanguageModule -->
@@ -101,7 +101,7 @@
 <!-- SacMultilanguagemenuItemButtonComponent -->
 <g id="node6" class="node">
 <title>SacMultilanguagemenuItemButtonComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="302.07,-122 23.93,-122 23.93,-86 302.07,-86 302.07,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="302.07,-122 299.07,-126 278.07,-126 275.07,-122 23.93,-122 23.93,-86 302.07,-86 302.07,-122"/>
 <text text-anchor="middle" x="163" y="-99.8" font-family="Times,serif" font-size="14.00">SacMultilanguagemenuItemButtonComponent</text>
 </g>
 <!-- SacMultilanguagemenuItemButtonComponent&#45;&gt;SACBootstrap5MultilanguageModule -->

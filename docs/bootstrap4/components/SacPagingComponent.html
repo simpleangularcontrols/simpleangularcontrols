@@ -174,7 +174,21 @@
                 <td class="col-md-9"><code>sac-paging</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgClass</code>
+                            <code>NgFor</code>
+                            <code>NgIf</code>
+                            <code>FormsModule</code>
+                            <code>AsyncPipe</code>
+                </td>
+            </tr>
 
 
 
@@ -360,7 +374,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/sac-bootstrap4/src/controls/grid/paging.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/sac-bootstrap4/src/controls/grid/paging.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -1739,24 +1753,33 @@ Folgende Interpolation Texte sind vorhanden:
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, forwardRef, Injector } from &#x27;@angular/core&#x27;;
-import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR, FormsModule } from &#x27;@angular/forms&#x27;;
 import { SacPagingCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { NgClass, NgFor, NgIf, AsyncPipe } from &#x27;@angular/common&#x27;;
 
 /**
  * Paging Komponente
  */
 @Component({
-  selector: &#x27;sac-paging&#x27;,
-  templateUrl: &#x27;./paging.html&#x27;,
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacPagingComponent },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() &#x3D;&gt; SacPagingComponent),
-    },
-  ],
+    selector: &#x27;sac-paging&#x27;,
+    templateUrl: &#x27;./paging.html&#x27;,
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacPagingComponent },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() &#x3D;&gt; SacPagingComponent),
+        },
+    ],
+    standalone: true,
+    imports: [
+        NgClass,
+        NgFor,
+        NgIf,
+        FormsModule,
+        AsyncPipe,
+    ],
 })
 export class SacPagingComponent extends SacPagingCommon {
   /**

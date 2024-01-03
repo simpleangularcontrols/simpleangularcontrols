@@ -162,6 +162,10 @@
                         <td class="col-md-9"><code>[sacMultilanguageMenuContainer]</code></td>
                     </tr>
 
+                    <tr>
+                        <td class="col-md-3">Standalone</td>
+                        <td class="col-md-9"><code>true</code></td>
+                    </tr>
 
 
 
@@ -208,7 +212,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/sac-bootstrap5/src/controls/multilanguage/multilanguagemenucontainer.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/sac-bootstrap5/src/controls/multilanguage/multilanguagemenucontainer.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -316,13 +320,14 @@ import { SacContextMenuContrainerCommon } from &#x27;@simpleangularcontrols/sac-
  * Marker Komponente für Context Menü
  */
 @Directive({
-  selector: &#x27;[sacMultilanguageMenuContainer]&#x27;,
-  providers: [
-    {
-      provide: SacContextMenuContrainerCommon,
-      useExisting: forwardRef(() &#x3D;&gt; SacMultilanguagemenuContainerDirective),
-    },
-  ],
+    selector: &#x27;[sacMultilanguageMenuContainer]&#x27;,
+    providers: [
+        {
+            provide: SacContextMenuContrainerCommon,
+            useExisting: forwardRef(() &#x3D;&gt; SacMultilanguagemenuContainerDirective),
+        },
+    ],
+    standalone: true,
 })
 export class SacMultilanguagemenuContainerDirective extends SacContextMenuContrainerCommon {
   /**

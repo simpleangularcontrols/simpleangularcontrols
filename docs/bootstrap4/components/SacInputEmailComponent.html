@@ -176,7 +176,17 @@
                 <td class="col-md-9"><code>sac-inputemail</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgClass</code>
+                </td>
+            </tr>
 
 
 
@@ -430,7 +440,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/sac-bootstrap4/src/controls/input/inputemail.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/sac-bootstrap4/src/controls/input/inputemail.ts:37</a></div>
                             </td>
                         </tr>
 
@@ -2993,30 +3003,33 @@ import {
 } from &#x27;@angular/forms&#x27;;
 import { SacInputEmailCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 import { SacFormDirective } from &#x27;../form/form&#x27;;
+import { NgClass } from &#x27;@angular/common&#x27;;
 
 /**
  * Input Box für E-Mail Adressen
  */
 @Component({
-  selector: &#x27;sac-inputemail&#x27;,
-  templateUrl: &#x27;./inputemail.html&#x27;,
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: forwardRef(() &#x3D;&gt; SacInputEmailComponent),
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() &#x3D;&gt; SacInputEmailComponent),
-    },
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [
-    { provide: ControlContainer, useExisting: SacFormDirective },
-  ],
+    selector: &#x27;sac-inputemail&#x27;,
+    templateUrl: &#x27;./inputemail.html&#x27;,
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: forwardRef(() &#x3D;&gt; SacInputEmailComponent),
+        },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() &#x3D;&gt; SacInputEmailComponent),
+        },
+    ],
+    // View Provider, damit das Formular an das Control gebunden werden kann
+    viewProviders: [
+        { provide: ControlContainer, useExisting: SacFormDirective },
+    ],
+    standalone: true,
+    imports: [NgClass],
 })
 export class SacInputEmailComponent extends SacInputEmailCommon {
   /**

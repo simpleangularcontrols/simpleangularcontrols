@@ -162,6 +162,10 @@
                         <td class="col-md-9"><code>[sacContextMenuAnchor]</code></td>
                     </tr>
 
+                    <tr>
+                        <td class="col-md-3">Standalone</td>
+                        <td class="col-md-9"><code>true</code></td>
+                    </tr>
 
 
 
@@ -208,7 +212,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/sac-bootstrap5/src/controls/contextmenu/contextmenuanchor.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/sac-bootstrap5/src/controls/contextmenu/contextmenuanchor.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -318,13 +322,14 @@ import {
  * Anker Komponente für Context Menü. Wird zum positionieren des Context Menü in der Page benötigt.
  */
 @Directive({
-  selector: &#x27;[sacContextMenuAnchor]&#x27;,
-  providers: [
-    {
-      provide: SacContextmenuAnchorCommon,
-      useExisting: forwardRef(() &#x3D;&gt; SacContextmenuAnchorDirective),
-    },
-  ],
+    selector: &#x27;[sacContextMenuAnchor]&#x27;,
+    providers: [
+        {
+            provide: SacContextmenuAnchorCommon,
+            useExisting: forwardRef(() &#x3D;&gt; SacContextmenuAnchorDirective),
+        },
+    ],
+    standalone: true,
 })
 export class SacContextmenuAnchorDirective extends SacContextmenuAnchorCommon {
   /**

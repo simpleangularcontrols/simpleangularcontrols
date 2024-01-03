@@ -165,7 +165,19 @@
                 <td class="col-md-9"><code>sac-inputemail</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgClass</code>
+                            <code>NgIf</code>
+                            <code>AsyncPipe</code>
+                </td>
+            </tr>
 
 
 
@@ -411,7 +423,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/sac-bootstrap3/src/controls/input/inputemail.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/sac-bootstrap3/src/controls/input/inputemail.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -2959,16 +2971,19 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 import { Component, forwardRef, Host, Injector, Optional } from &#x27;@angular/core&#x27;;
 import { SacFormDirective } from &#x27;../form/form&#x27;;
 import { SacInputEmailCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { NgClass, NgIf, AsyncPipe } from &#x27;@angular/common&#x27;;
 
 
 @Component({
-  selector: &#x27;sac-inputemail&#x27;,
-  templateUrl: &#x27;./inputemail.html&#x27;,
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacInputEmailComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; SacInputEmailComponent) }
-  ]
+    selector: &#x27;sac-inputemail&#x27;,
+    templateUrl: &#x27;./inputemail.html&#x27;,
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacInputEmailComponent },
+        { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; SacInputEmailComponent) }
+    ],
+    standalone: true,
+    imports: [NgClass, NgIf, AsyncPipe]
 })
 export class SacInputEmailComponent extends SacInputEmailCommon {
   constructor(@Host() @Optional() parent: SacFormDirective, injector: Injector) {

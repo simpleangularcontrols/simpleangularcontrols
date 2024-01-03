@@ -165,7 +165,20 @@
                 <td class="col-md-9"><code>sac-dateselector</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgIf</code>
+                            <code>NgFor</code>
+                            <code>NgStyle</code>
+                            <code>NgClass</code>
+                </td>
+            </tr>
 
 
 
@@ -1307,13 +1320,21 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
 import { SacDateSelectorCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { NgIf, NgFor, NgStyle, NgClass } from &#x27;@angular/common&#x27;;
 
 /**
  * DateTime Selektor Komponente
  */
 @Component({
-  selector: &#x27;sac-dateselector&#x27;,
-  templateUrl: &#x27;./dateselector.html&#x27;,
+    selector: &#x27;sac-dateselector&#x27;,
+    templateUrl: &#x27;./dateselector.html&#x27;,
+    standalone: true,
+    imports: [
+        NgIf,
+        NgFor,
+        NgStyle,
+        NgClass,
+    ],
 })
 export class SacDateSelectorComponent extends SacDateSelectorCommon {}
 </code></pre>

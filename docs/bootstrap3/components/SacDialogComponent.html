@@ -165,7 +165,18 @@
                 <td class="col-md-9"><code>sac-dialog</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgIf</code>
+                            <code>NgStyle</code>
+                </td>
+            </tr>
 
 
 
@@ -353,7 +364,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/sac-bootstrap3/src/controls/dialog/dialog.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/sac-bootstrap3/src/controls/dialog/dialog.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -426,7 +437,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/sac-bootstrap3/src/controls/dialog/dialog.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/sac-bootstrap3/src/controls/dialog/dialog.ts:24</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -939,7 +950,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:50</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:53</a></code>
 </div>
                         </td>
                     </tr>
@@ -976,8 +987,8 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="45"
-                                    class="link-to-prism">projects/sac-bootstrap3/src/controls/dialog/dialog.ts:45</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="48"
+                                    class="link-to-prism">projects/sac-bootstrap3/src/controls/dialog/dialog.ts:48</a></div>
                         </td>
                     </tr>
 
@@ -1456,7 +1467,7 @@ Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/sac-bootstrap3/src/controls/dialog/dialog.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/sac-bootstrap3/src/controls/dialog/dialog.ts:29</a></div>
                                 </td>
                             </tr>
 
@@ -1469,10 +1480,13 @@ Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ElementRef, OnInit, OnDestroy, Input, ChangeDetectorRef } from &#x27;@angular/core&#x27;;
 import { SacDialogCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { NgIf, NgStyle } from &#x27;@angular/common&#x27;;
 
 @Component({
-  selector: &#x27;sac-dialog&#x27;,
-  templateUrl: &#x27;./dialog.html&#x27;
+    selector: &#x27;sac-dialog&#x27;,
+    templateUrl: &#x27;./dialog.html&#x27;,
+    standalone: true,
+    imports: [NgIf, NgStyle]
 })
 export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDestroy {
   // DOM Element

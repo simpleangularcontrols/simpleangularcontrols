@@ -173,7 +173,20 @@
                 <td class="col-md-9"><code>sac-contextmenu</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgClass</code>
+                            <code>NgTemplateOutlet</code>
+                                <code><a href="../directives/SacContextmenuContainerDirective.html" target="_self" >SacContextmenuContainerDirective</a></code>
+                                <code><a href="../directives/SacContextmenuAnchorDirective.html" target="_self" >SacContextmenuAnchorDirective</a></code>
+                </td>
+            </tr>
 
 
 
@@ -309,7 +322,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/sac-bootstrap5/src/controls/contextmenu/contextmenu.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/sac-bootstrap5/src/controls/contextmenu/contextmenu.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -1043,7 +1056,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DOCUMENT } from &#x27;@angular/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DOCUMENT, NgClass, NgTemplateOutlet } from &#x27;@angular/common&#x27;;
 import {
   Component,
   ElementRef,
@@ -1054,19 +1067,28 @@ import {
   Renderer2,
 } from &#x27;@angular/core&#x27;;
 import { SacContextmenuCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { SacContextmenuAnchorDirective } from &#x27;./contextmenuanchor&#x27;;
+import { SacContextmenuContainerDirective } from &#x27;./contextmenucontainer&#x27;;
 
 /**
  * Component für Contextmenü
  */
 @Component({
-  selector: &#x27;sac-contextmenu&#x27;,
-  templateUrl: &#x27;./contextmenu.html&#x27;,
-  providers: [
-    {
-      provide: SacContextmenuCommon,
-      useExisting: forwardRef(() &#x3D;&gt; SacContextmenuComponent),
-    },
-  ],
+    selector: &#x27;sac-contextmenu&#x27;,
+    templateUrl: &#x27;./contextmenu.html&#x27;,
+    providers: [
+        {
+            provide: SacContextmenuCommon,
+            useExisting: forwardRef(() &#x3D;&gt; SacContextmenuComponent),
+        },
+    ],
+    standalone: true,
+    imports: [
+        NgClass,
+        NgTemplateOutlet,
+        SacContextmenuContainerDirective,
+        SacContextmenuAnchorDirective,
+    ],
 })
 export class SacContextmenuComponent extends SacContextmenuCommon {
   /**

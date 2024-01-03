@@ -156,6 +156,10 @@
                         <td class="col-md-9"><code>form:not([ngNoForm]):not([formGroup]),[ngForm]</code></td>
                     </tr>
 
+                    <tr>
+                        <td class="col-md-3">Standalone</td>
+                        <td class="col-md-9"><code>true</code></td>
+                    </tr>
 
 
                     <tr>
@@ -300,7 +304,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/sac-bootstrap4/src/controls/form/form.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/sac-bootstrap4/src/controls/form/form.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -593,7 +597,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/sac-bootstrap4/src/controls/form/form.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/sac-bootstrap4/src/controls/form/form.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -625,7 +629,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/sac-bootstrap4/src/controls/form/form.ts:42</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/sac-bootstrap4/src/controls/form/form.ts:43</a></div>
                         </td>
                     </tr>
 
@@ -657,7 +661,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/sac-bootstrap4/src/controls/form/form.ts:48</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/sac-bootstrap4/src/controls/form/form.ts:49</a></div>
                         </td>
                     </tr>
 
@@ -940,7 +944,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/sac-bootstrap4/src/controls/form/form.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/sac-bootstrap4/src/controls/form/form.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -975,7 +979,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/sac-bootstrap4/src/controls/form/form.ts:42</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/sac-bootstrap4/src/controls/form/form.ts:43</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1008,7 +1012,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/sac-bootstrap4/src/controls/form/form.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">projects/sac-bootstrap4/src/controls/form/form.ts:49</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1049,8 +1053,9 @@ import { SacFormCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
  *
  */
 @Directive({
-  selector: &#x27;form:not([ngNoForm]):not([formGroup]),[ngForm]&#x27;, // eslint-disable-line @angular-eslint/directive-selector -- required as extension to form
-  exportAs: &#x27;sacform&#x27;
+    selector: &#x27;form:not([ngNoForm]):not([formGroup]),[ngForm]&#x27;,
+    exportAs: &#x27;sacform&#x27;,
+    standalone: true
 })
 export class SacFormDirective extends SacFormCommon {
 

@@ -174,7 +174,20 @@
                 <td class="col-md-9"><code>sac-grid</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgTemplateOutlet</code>
+                            <code>NgFor</code>
+                            <code>NgIf</code>
+                                <code><a href="../components/SacPagingComponent.html" target="_self" >SacPagingComponent</a></code>
+                </td>
+            </tr>
 
 
 
@@ -356,7 +369,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/sac-bootstrap4/src/controls/grid/grid.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/sac-bootstrap4/src/controls/grid/grid.ts:46</a></div>
                             </td>
                         </tr>
 
@@ -1189,7 +1202,7 @@ Folgende Interpolation Texte sind vorhanden:
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/sac-bootstrap4/src/controls/grid/grid.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/sac-bootstrap4/src/controls/grid/grid.ts:46</a></div>
                         </td>
                     </tr>
 
@@ -1231,7 +1244,7 @@ Folgende Interpolation Texte sind vorhanden:
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/sac-bootstrap4/src/controls/grid/grid.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/sac-bootstrap4/src/controls/grid/grid.ts:41</a></div>
                         </td>
                     </tr>
 
@@ -1569,22 +1582,31 @@ Folgende Interpolation Texte sind vorhanden:
 } from &#x27;@angular/core&#x27;;
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
 import { SacGridCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { SacPagingComponent } from &#x27;./paging&#x27;;
+import { NgTemplateOutlet, NgFor, NgIf } from &#x27;@angular/common&#x27;;
 
 /**
  * Grid Komponente
  */
 @Component({
-  selector: &#x27;sac-grid&#x27;,
-  templateUrl: &#x27;./grid.html&#x27;,
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacGridComponent },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() &#x3D;&gt; SacGridComponent),
-    },
-  ],
+    selector: &#x27;sac-grid&#x27;,
+    templateUrl: &#x27;./grid.html&#x27;,
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacGridComponent },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() &#x3D;&gt; SacGridComponent),
+        },
+    ],
+    standalone: true,
+    imports: [
+        NgTemplateOutlet,
+        NgFor,
+        NgIf,
+        SacPagingComponent,
+    ],
 })
 export class SacGridComponent extends SacGridCommon {
   /**

@@ -165,7 +165,18 @@
                 <td class="col-md-9"><code>sac-radiobuttons</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgIf</code>
+                            <code>NgClass</code>
+                </td>
+            </tr>
 
 
 
@@ -384,7 +395,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/sac-bootstrap3/src/controls/checkbox/radiobuttons.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/sac-bootstrap3/src/controls/checkbox/radiobuttons.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -2589,15 +2600,18 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from &#x27;@angular/forms&#x27;;
 import { SacRadiobuttonsCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 import { SacFormDirective } from &#x27;../form/form&#x27;;
+import { NgIf, NgClass } from &#x27;@angular/common&#x27;;
 
 @Component({
-  selector: &#x27;sac-radiobuttons&#x27;,
-  templateUrl: &#x27;./radiobuttons.html&#x27;,
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() &#x3D;&gt; SacRadiobuttonsComponent), multi: true },
-    { provide: NG_VALIDATORS, useExisting: forwardRef(() &#x3D;&gt; SacRadiobuttonsComponent), multi: true }
-  ]
+    selector: &#x27;sac-radiobuttons&#x27;,
+    templateUrl: &#x27;./radiobuttons.html&#x27;,
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() &#x3D;&gt; SacRadiobuttonsComponent), multi: true },
+        { provide: NG_VALIDATORS, useExisting: forwardRef(() &#x3D;&gt; SacRadiobuttonsComponent), multi: true }
+    ],
+    standalone: true,
+    imports: [NgIf, NgClass]
 })
 export class SacRadiobuttonsComponent extends SacRadiobuttonsCommon {
 

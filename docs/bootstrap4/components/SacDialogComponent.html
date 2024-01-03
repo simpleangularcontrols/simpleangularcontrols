@@ -172,7 +172,17 @@
                 <td class="col-md-9"><code>sac-dialog</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgIf</code>
+                </td>
+            </tr>
 
 
 
@@ -343,7 +353,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/sac-bootstrap4/src/controls/dialog/dialog.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/sac-bootstrap4/src/controls/dialog/dialog.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -914,7 +924,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:48</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:51</a></code>
 </div>
                         </td>
                     </tr>
@@ -953,8 +963,8 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="40"
-                                    class="link-to-prism">projects/sac-bootstrap4/src/controls/dialog/dialog.ts:40</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">projects/sac-bootstrap4/src/controls/dialog/dialog.ts:43</a></div>
                         </td>
                     </tr>
 
@@ -1427,13 +1437,16 @@ Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#
   OnInit,
 } from &#x27;@angular/core&#x27;;
 import { SacDialogCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { NgIf } from &#x27;@angular/common&#x27;;
 
 /**
  * Dialog Komponente
  */
 @Component({
-  selector: &#x27;sac-dialog&#x27;,
-  templateUrl: &#x27;./dialog.html&#x27;,
+    selector: &#x27;sac-dialog&#x27;,
+    templateUrl: &#x27;./dialog.html&#x27;,
+    standalone: true,
+    imports: [NgIf],
 })
 export class SacDialogComponent
   extends SacDialogCommon

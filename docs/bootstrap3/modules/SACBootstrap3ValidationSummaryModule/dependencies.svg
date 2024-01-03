@@ -24,18 +24,18 @@
 <title>cluster_SACBootstrap3ValidationSummaryModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="109,-70 109,-268 387,-268 387,-70 109,-70"/>
 </g>
-<g id="clust5" class="cluster">
+<g id="clust4" class="cluster">
 <title>cluster_SACBootstrap3ValidationSummaryModule_exports</title>
 <polygon fill="none" stroke="black" points="131,-208 131,-260 365,-260 365,-208 131,-208"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap3ValidationSummaryModule_declarations</title>
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap3ValidationSummaryModule_imports</title>
 <polygon fill="none" stroke="black" points="132,-78 132,-130 364,-130 364,-78 132,-78"/>
 </g>
 <!-- SacValidationSummaryComponent -->
 <g id="node1" class="node">
 <title>SacValidationSummaryComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="355.58,-122 140.42,-122 140.42,-86 355.58,-86 355.58,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="355.58,-122 352.58,-126 331.58,-126 328.58,-122 140.42,-122 140.42,-86 355.58,-86 355.58,-122"/>
 <text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00">SacValidationSummaryComponent</text>
 </g>
 <!-- SACBootstrap3ValidationSummaryModule -->

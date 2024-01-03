@@ -175,7 +175,17 @@
                 <td class="col-md-9"><code>sac-tooltip</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgIf</code>
+                </td>
+            </tr>
 
 
 
@@ -298,7 +308,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/sac-bootstrap3/src/controls/tooltip/tooltip.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/sac-bootstrap3/src/controls/tooltip/tooltip.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -974,6 +984,7 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacTooltipCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 import { Component, ChangeDetectorRef, ElementRef } from &#x27;@angular/core&#x27;;
+import { NgIf } from &#x27;@angular/common&#x27;;
 
 /**
  * Tooltip Komponente
@@ -995,8 +1006,10 @@ import { Component, ChangeDetectorRef, ElementRef } from &#x27;@angular/core&#x2
  *
  */
 @Component({
-  selector: &#x27;sac-tooltip&#x27;,
-  templateUrl: &#x27;./tooltip.html&#x27;,
+    selector: &#x27;sac-tooltip&#x27;,
+    templateUrl: &#x27;./tooltip.html&#x27;,
+    standalone: true,
+    imports: [NgIf],
 })
 export class SacTooltipComponent extends SacTooltipCommon {
 

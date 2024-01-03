@@ -124,18 +124,18 @@
 <title>cluster_SACBootstrap5DropdownModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="45.5,-70 45.5,-268 450.5,-268 450.5,-70 45.5,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap5DropdownModule_declarations</title>
-<polygon fill="none" stroke="black" points="56.5,-78 56.5,-130 439.5,-130 439.5,-78 56.5,-78"/>
-</g>
-<g id="clust6" class="cluster">
+<g id="clust4" class="cluster">
 <title>cluster_SACBootstrap5DropdownModule_exports</title>
 <polygon fill="none" stroke="black" points="53.5,-208 53.5,-260 442.5,-260 442.5,-208 53.5,-208"/>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap5DropdownModule_imports</title>
+<polygon fill="none" stroke="black" points="56.5,-78 56.5,-130 439.5,-130 439.5,-78 56.5,-78"/>
 </g>
 <!-- SacDropdownComponent -->
 <g id="node1" class="node">
 <title>SacDropdownComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="431.42,-122 269.58,-122 269.58,-86 431.42,-86 431.42,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="431.42,-122 428.42,-126 407.42,-126 404.42,-122 269.58,-122 269.58,-86 431.42,-86 431.42,-122"/>
 <text text-anchor="middle" x="350.5" y="-99.8" font-family="Times,serif" font-size="14.00">SacDropdownComponent</text>
 </g>
 <!-- SACBootstrap5DropdownModule -->
@@ -153,7 +153,7 @@
 <!-- SacDropdownOptionDirective -->
 <g id="node2" class="node">
 <title>SacDropdownOptionDirective</title>
-<polygon fill="#ffffb3" stroke="black" points="252.06,-122 64.94,-122 64.94,-86 252.06,-86 252.06,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="252.06,-122 249.06,-126 228.06,-126 225.06,-122 64.94,-122 64.94,-86 252.06,-86 252.06,-122"/>
 <text text-anchor="middle" x="158.5" y="-99.8" font-family="Times,serif" font-size="14.00">SacDropdownOptionDirective</text>
 </g>
 <!-- SacDropdownOptionDirective&#45;&gt;SACBootstrap5DropdownModule -->
@@ -232,14 +232,15 @@
         <div class="container-fluid module">
             <div class="row">
                 <div class="col-sm-3">
-                    <h3>Declarations<a href="https://angular.io/api/core/NgModule#declarations" target="_blank" rel="noopener noreferrer"
-                            title="Official documentation about module declarations"><span class="icon ion-ios-information-circle-outline"></span></a></h3>
+                    <h3>Imports<a href="https://angular.io/api/core/NgModule#imports" target="_blank" rel="noopener noreferrer"
+                            title="Official documentation about module imports"><span
+                                class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="../components/SacDropdownComponent.html">SacDropdownComponent</a>
+                            <a href="../modules/SacDropdownComponent.html">SacDropdownComponent</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="../directives/SacDropdownOptionDirective.html">SacDropdownOptionDirective</a>
+                            <a href="../modules/SacDropdownOptionDirective.html">SacDropdownOptionDirective</a>
                         </li>
                     </ul>
                 </div>
@@ -269,15 +270,12 @@ import { CommonModule } from &#x27;@angular/common&#x27;;
 import { SacDropdownComponent, SacDropdownOptionDirective } from &#x27;./dropdown&#x27;;
 
 @NgModule({
-  declarations: [
-    SacDropdownComponent,
-    SacDropdownOptionDirective,
-  ],
-  imports: [CommonModule],
-  exports: [
-    SacDropdownComponent,
-    SacDropdownOptionDirective,
-  ],
+    imports: [CommonModule, SacDropdownComponent,
+        SacDropdownOptionDirective],
+    exports: [
+        SacDropdownComponent,
+        SacDropdownOptionDirective,
+    ],
 })
 export class SACBootstrap5DropdownModule {}
 </code></pre>

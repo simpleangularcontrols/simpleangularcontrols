@@ -176,7 +176,18 @@
                 <td class="col-md-9"><code>sac-checkbox</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgClass</code>
+                            <code>NgIf</code>
+                </td>
+            </tr>
 
 
 
@@ -383,7 +394,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/sac-bootstrap4/src/controls/checkbox/checkbox.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/sac-bootstrap4/src/controls/checkbox/checkbox.ts:38</a></div>
                             </td>
                         </tr>
 
@@ -2274,30 +2285,33 @@ import {
 // import { SacBaseModelControl } from &#x27;../../common/basemodelcontrol&#x27;;
 import { SacCheckboxCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 import { SacFormDirective } from &#x27;../form/form&#x27;;
+import { NgClass, NgIf } from &#x27;@angular/common&#x27;;
 
 /**
  * Checkbox Kompontente
  */
 @Component({
-  selector: &#x27;sac-checkbox&#x27;,
-  templateUrl: &#x27;./checkbox.html&#x27;,
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: SacCheckboxComponent,
-    },
-    {
-      provide: NG_VALIDATORS,
-      useExisting: forwardRef(() &#x3D;&gt; SacCheckboxComponent),
-      multi: true,
-    },
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [
-    { provide: ControlContainer, useExisting: SacFormDirective },
-  ],
+    selector: &#x27;sac-checkbox&#x27;,
+    templateUrl: &#x27;./checkbox.html&#x27;,
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SacCheckboxComponent,
+        },
+        {
+            provide: NG_VALIDATORS,
+            useExisting: forwardRef(() &#x3D;&gt; SacCheckboxComponent),
+            multi: true,
+        },
+    ],
+    // View Provider, damit das Formular an das Control gebunden werden kann
+    viewProviders: [
+        { provide: ControlContainer, useExisting: SacFormDirective },
+    ],
+    standalone: true,
+    imports: [NgClass, NgIf],
 })
 export class SacCheckboxComponent extends SacCheckboxCommon {
   /**

@@ -1,24 +1,16 @@
 # SimpleAngularControls - Common
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.
+## Documentation
 
-## Code scaffolding
+The package only provides the logic for the controls. It can be used to create an implementation of the controls
+controls. Corresponding base classes are provided for all controls.
 
-Run `ng generate component component-name --project sac-common` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project sac-common`.
-> Note: Don't forget to add `--project sac-common` or else it will be added to the default project in your `angular.json` file. 
+## Installation
 
-## Build
+Do the follow steps to add
 
-Run `ng build sac-common` to build the project. The build artifacts will be stored in the `dist/` directory.
+* add `@simpleangularcontrols/sac-common` dependencies from npm
 
-## Publishing
+## Project
 
-After building your library with `ng build sac-common`, go to the dist folder `cd dist/sac-common` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test sac-common` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+For more information, follow us on GitHub: https://github.com/simpleangularcontrols

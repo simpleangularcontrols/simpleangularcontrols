@@ -124,18 +124,18 @@
 <title>cluster_SACBootstrap5ButtonModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="147,-70 147,-268 349,-268 349,-70 147,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap5ButtonModule_declarations</title>
-<polygon fill="none" stroke="black" points="170,-78 170,-130 326,-130 326,-78 170,-78"/>
-</g>
-<g id="clust5" class="cluster">
+<g id="clust4" class="cluster">
 <title>cluster_SACBootstrap5ButtonModule_exports</title>
 <polygon fill="none" stroke="black" points="168,-208 168,-260 328,-260 328,-208 168,-208"/>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap5ButtonModule_imports</title>
+<polygon fill="none" stroke="black" points="170,-78 170,-130 326,-130 326,-78 170,-78"/>
 </g>
 <!-- SacButtonComponent -->
 <g id="node1" class="node">
 <title>SacButtonComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="317.66,-122 178.34,-122 178.34,-86 317.66,-86 317.66,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="317.66,-122 314.66,-126 293.66,-126 290.66,-122 178.34,-122 178.34,-86 317.66,-86 317.66,-122"/>
 <text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00">SacButtonComponent</text>
 </g>
 <!-- SACBootstrap5ButtonModule -->
@@ -208,11 +208,12 @@
         <div class="container-fluid module">
             <div class="row">
                 <div class="col-sm-3">
-                    <h3>Declarations<a href="https://angular.io/api/core/NgModule#declarations" target="_blank" rel="noopener noreferrer"
-                            title="Official documentation about module declarations"><span class="icon ion-ios-information-circle-outline"></span></a></h3>
+                    <h3>Imports<a href="https://angular.io/api/core/NgModule#imports" target="_blank" rel="noopener noreferrer"
+                            title="Official documentation about module imports"><span
+                                class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="../components/SacButtonComponent.html">SacButtonComponent</a>
+                            <a href="../modules/SacButtonComponent.html">SacButtonComponent</a>
                         </li>
                     </ul>
                 </div>
@@ -239,11 +240,11 @@ import { SacButtonComponent } from &#x27;./button&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
 
 @NgModule({
-  declarations: [SacButtonComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [SacButtonComponent]
+    imports: [
+        CommonModule,
+        SacButtonComponent
+    ],
+    exports: [SacButtonComponent]
 })
 export class SACBootstrap5ButtonModule { }
 </code></pre>

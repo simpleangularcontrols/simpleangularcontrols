@@ -6,30 +6,33 @@ import {
 } from '@angular/forms';
 import { SacRadiobuttonsCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormDirective } from '../form/form';
+import { NgIf, NgClass } from '@angular/common';
 
 /**
  * Radiobuttons Group Komponente
  */
 @Component({
-  selector: 'sac-radiobuttons',
-  templateUrl: './radiobuttons.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => SacRadiobuttonsComponent),
-      multi: true,
-    },
-    {
-      provide: NG_VALIDATORS,
-      useExisting: forwardRef(() => SacRadiobuttonsComponent),
-      multi: true,
-    },
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [
-    { provide: ControlContainer, useExisting: SacFormDirective },
-  ],
+    selector: 'sac-radiobuttons',
+    templateUrl: './radiobuttons.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => SacRadiobuttonsComponent),
+            multi: true,
+        },
+        {
+            provide: NG_VALIDATORS,
+            useExisting: forwardRef(() => SacRadiobuttonsComponent),
+            multi: true,
+        },
+    ],
+    // View Provider, damit das Formular an das Control gebunden werden kann
+    viewProviders: [
+        { provide: ControlContainer, useExisting: SacFormDirective },
+    ],
+    standalone: true,
+    imports: [NgIf, NgClass],
 })
 export class SacRadiobuttonsComponent extends SacRadiobuttonsCommon {
   /**

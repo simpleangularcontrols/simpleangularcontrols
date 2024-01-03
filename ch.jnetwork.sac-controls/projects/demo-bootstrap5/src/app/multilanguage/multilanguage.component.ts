@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { SacFormDirective } from '@simpleangularcontrols/sac-bootstrap5';
+import { SacFormDirective, SACBootstrap5FormModule, SACBootstrap5ButtonModule, SACBootstrap5ValidationSummaryModule, SACBootstrap5MultilanguageModule } from '@simpleangularcontrols/sac-bootstrap5';
+import { FormsModule } from '@angular/forms';
 
 export class MultiLanguageDataModel {
   public de: string = '';
@@ -7,8 +8,16 @@ export class MultiLanguageDataModel {
 }
 
 @Component({
-  selector: 'app-multilanguage',
-  templateUrl: './multilanguage.component.html',
+    selector: 'app-multilanguage',
+    templateUrl: './multilanguage.component.html',
+    standalone: true,
+    imports: [
+        FormsModule,
+        SACBootstrap5FormModule,
+        SACBootstrap5ButtonModule,
+        SACBootstrap5ValidationSummaryModule,
+        SACBootstrap5MultilanguageModule,
+    ],
 })
 export class DemoMultilanguageComponent {
   public values: any = {

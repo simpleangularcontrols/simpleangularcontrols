@@ -1,17 +1,23 @@
+import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import {
   Component,
-  forwardRef,
   Host,
   Injector,
   NgZone,
   Optional,
+  forwardRef,
 } from '@angular/core';
 import {
   ControlContainer,
+  FormsModule,
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
 import { SacTinyMceCommon } from '@simpleangularcontrols/sac-common';
+import { EditorComponent } from '@tinymce/tinymce-angular';
+import { SacBrowserComponent } from '../../components/browser/browser';
+import { SacButtonComponent } from '../buttons/button';
+import { SacDialogComponent } from '../dialog/dialog';
 import { SacFormDirective } from '../form/form';
 
 /**
@@ -35,6 +41,17 @@ import { SacFormDirective } from '../form/form';
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
   viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }],
+  standalone: true,
+  imports: [
+    NgClass,
+    EditorComponent,
+    FormsModule,
+    NgIf,
+    SacDialogComponent,
+    SacButtonComponent,
+    SacBrowserComponent,
+    AsyncPipe,
+  ],
 })
 export class SacTinyMceComponent extends SacTinyMceCommon {
   /**

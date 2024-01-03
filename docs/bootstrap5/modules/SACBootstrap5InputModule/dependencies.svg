@@ -24,18 +24,18 @@
 <title>cluster_SACBootstrap5InputModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 1533,-268 1533,-70 8,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap5InputModule_declarations</title>
-<polygon fill="none" stroke="black" points="31,-78 31,-130 1515,-130 1515,-78 31,-78"/>
-</g>
-<g id="clust12" class="cluster">
+<g id="clust4" class="cluster">
 <title>cluster_SACBootstrap5InputModule_exports</title>
 <polygon fill="none" stroke="black" points="16,-208 16,-260 1525,-260 1525,-208 16,-208"/>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap5InputModule_imports</title>
+<polygon fill="none" stroke="black" points="31,-78 31,-130 1515,-130 1515,-78 31,-78"/>
 </g>
 <!-- SacInputAreaComponent -->
 <g id="node1" class="node">
 <title>SacInputAreaComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1507.29,-122 1348.71,-122 1348.71,-86 1507.29,-86 1507.29,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="1507.29,-122 1504.29,-126 1483.29,-126 1480.29,-122 1348.71,-122 1348.71,-86 1507.29,-86 1507.29,-122"/>
 <text text-anchor="middle" x="1428" y="-99.8" font-family="Times,serif" font-size="14.00">SacInputAreaComponent</text>
 </g>
 <!-- SACBootstrap5InputModule -->
@@ -53,7 +53,7 @@
 <!-- SacInputComponent -->
 <g id="node2" class="node">
 <title>SacInputComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1330.6,-122 1199.4,-122 1199.4,-86 1330.6,-86 1330.6,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="1330.6,-122 1327.6,-126 1306.6,-126 1303.6,-122 1199.4,-122 1199.4,-86 1330.6,-86 1330.6,-122"/>
 <text text-anchor="middle" x="1265" y="-99.8" font-family="Times,serif" font-size="14.00">SacInputComponent</text>
 </g>
 <!-- SacInputComponent&#45;&gt;SACBootstrap5InputModule -->
@@ -65,7 +65,7 @@
 <!-- SacInputCurrencyComponent -->
 <g id="node3" class="node">
 <title>SacInputCurrencyComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1181.68,-122 998.32,-122 998.32,-86 1181.68,-86 1181.68,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="1181.68,-122 1178.68,-126 1157.68,-126 1154.68,-122 998.32,-122 998.32,-86 1181.68,-86 1181.68,-122"/>
 <text text-anchor="middle" x="1090" y="-99.8" font-family="Times,serif" font-size="14.00">SacInputCurrencyComponent</text>
 </g>
 <!-- SacInputCurrencyComponent&#45;&gt;SACBootstrap5InputModule -->
@@ -77,7 +77,7 @@
 <!-- SacInputDecimalComponent -->
 <g id="node4" class="node">
 <title>SacInputDecimalComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="980.02,-122 801.98,-122 801.98,-86 980.02,-86 980.02,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="980.02,-122 977.02,-126 956.02,-126 953.02,-122 801.98,-122 801.98,-86 980.02,-86 980.02,-122"/>
 <text text-anchor="middle" x="891" y="-99.8" font-family="Times,serif" font-size="14.00">SacInputDecimalComponent</text>
 </g>
 <!-- SacInputDecimalComponent&#45;&gt;SACBootstrap5InputModule -->
@@ -89,7 +89,7 @@
 <!-- SacInputEmailComponent -->
 <g id="node5" class="node">
 <title>SacInputEmailComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="783.04,-122 618.96,-122 618.96,-86 783.04,-86 783.04,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="783.04,-122 780.04,-126 759.04,-126 756.04,-122 618.96,-122 618.96,-86 783.04,-86 783.04,-122"/>
 <text text-anchor="middle" x="701" y="-99.8" font-family="Times,serif" font-size="14.00">SacInputEmailComponent</text>
 </g>
 <!-- SacInputEmailComponent&#45;&gt;SACBootstrap5InputModule -->
@@ -101,7 +101,7 @@
 <!-- SacInputIntegerComponent -->
 <g id="node6" class="node">
 <title>SacInputIntegerComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="600.24,-122 429.76,-122 429.76,-86 600.24,-86 600.24,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="600.24,-122 597.24,-126 576.24,-126 573.24,-122 429.76,-122 429.76,-86 600.24,-86 600.24,-122"/>
 <text text-anchor="middle" x="515" y="-99.8" font-family="Times,serif" font-size="14.00">SacInputIntegerComponent</text>
 </g>
 <!-- SacInputIntegerComponent&#45;&gt;SACBootstrap5InputModule -->
@@ -113,7 +113,7 @@
 <!-- SacInputPasswordComponent -->
 <g id="node7" class="node">
 <title>SacInputPasswordComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="411.25,-122 226.75,-122 226.75,-86 411.25,-86 411.25,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="411.25,-122 408.25,-126 387.25,-126 384.25,-122 226.75,-122 226.75,-86 411.25,-86 411.25,-122"/>
 <text text-anchor="middle" x="319" y="-99.8" font-family="Times,serif" font-size="14.00">SacInputPasswordComponent</text>
 </g>
 <!-- SacInputPasswordComponent&#45;&gt;SACBootstrap5InputModule -->
@@ -125,7 +125,7 @@
 <!-- SacInputSearchComponent -->
 <g id="node8" class="node">
 <title>SacInputSearchComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="208.68,-122 39.32,-122 39.32,-86 208.68,-86 208.68,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="208.68,-122 205.68,-126 184.68,-126 181.68,-122 39.32,-122 39.32,-86 208.68,-86 208.68,-122"/>
 <text text-anchor="middle" x="124" y="-99.8" font-family="Times,serif" font-size="14.00">SacInputSearchComponent</text>
 </g>
 <!-- SacInputSearchComponent&#45;&gt;SACBootstrap5InputModule -->

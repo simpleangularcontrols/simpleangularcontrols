@@ -1,9 +1,6 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ServiceConfirm } from './confirm.service';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { SacConfirmComponent } from './confirm';
-import { SACBootstrap3DialogModule } from '../dialog/dialog.module';
-import { SACBootstrap3ButtonModule } from '../buttons/button.module';
+import { ServiceConfirm } from './confirm.service';
 
 /**
  *  Module für Confirm Messages
@@ -12,17 +9,17 @@ import { SACBootstrap3ButtonModule } from '../buttons/button.module';
  *
  */
 @NgModule({
-    declarations: [SacConfirmComponent],
-    imports: [CommonModule, SACBootstrap3DialogModule, SACBootstrap3ButtonModule],
-    exports: [SacConfirmComponent]
+  imports: [SacConfirmComponent],
+  exports: [SacConfirmComponent],
 })
 export class SACBootstrap3ConfirmModule {
   static forRoot(): ModuleWithProviders<SACBootstrap3ConfirmModule> {
     return {
       ngModule: SACBootstrap3ConfirmModule,
-      providers: [ServiceConfirm]
+      providers: [ServiceConfirm],
     };
   }
 }
 
 export { ServiceConfirm } from './confirm.service';
+

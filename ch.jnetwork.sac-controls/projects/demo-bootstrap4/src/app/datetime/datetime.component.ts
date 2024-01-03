@@ -1,9 +1,18 @@
 import { Component, ViewChild } from '@angular/core';
-import { SacFormDirective } from '@simpleangularcontrols/sac-bootstrap4';
+import { SacFormDirective, SACBootstrap4FormModule, SACBootstrap4ButtonModule, SACBootstrap4ValidationSummaryModule, SACBootstrap4DateTimeModule } from '@simpleangularcontrols/sac-bootstrap4';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-datetime',
-  templateUrl: './datetime.component.html',
+    selector: 'app-datetime',
+    templateUrl: './datetime.component.html',
+    standalone: true,
+    imports: [
+        FormsModule,
+        SACBootstrap4FormModule,
+        SACBootstrap4ButtonModule,
+        SACBootstrap4ValidationSummaryModule,
+        SACBootstrap4DateTimeModule,
+    ],
 })
 export class DemoDatetimeComponent {
   public values: any = {

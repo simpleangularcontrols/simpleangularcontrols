@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { SACBootstrap4GridModule } from '@simpleangularcontrols/sac-bootstrap4';
 import {
   PagerData,
   PagerRequest,
@@ -13,6 +15,8 @@ import { GridService } from './services/GridService';
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
+  standalone: true,
+  imports: [SACBootstrap4GridModule, HttpClientModule],
 })
 export class DemoGridComponent implements OnInit {
   dataDefault: GridItemDto[] = [];

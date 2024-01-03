@@ -1,9 +1,12 @@
 import { Component, ElementRef, OnInit, OnDestroy, Input, ChangeDetectorRef } from '@angular/core';
 import { SacDialogCommon } from '@simpleangularcontrols/sac-common';
+import { NgIf, NgStyle } from '@angular/common';
 
 @Component({
-  selector: 'sac-dialog',
-  templateUrl: './dialog.html'
+    selector: 'sac-dialog',
+    templateUrl: './dialog.html',
+    standalone: true,
+    imports: [NgIf, NgStyle]
 })
 export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDestroy {
   // DOM Element

@@ -12,7 +12,7 @@ export default defineConfig({
       webpackConfig: coverageWebpack,
       options: {
         projectConfig: {
-          root: 'projects/sac-bootstrap5',
+          root: '',
           sourceRoot: 'projects/sac-bootstrap5/src',
           buildOptions: {
             outputPath: 'dist/sac-bootstrap5',

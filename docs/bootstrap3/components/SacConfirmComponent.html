@@ -158,7 +158,20 @@
                 <td class="col-md-9"><code>sac-confirm</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../components/SacDialogComponent.html" target="_self" >SacDialogComponent</a></code>
+                            <code>NgIf</code>
+                            <code>NgFor</code>
+                                <code><a href="../components/SacButtonComponent.html" target="_self" >SacButtonComponent</a></code>
+                </td>
+            </tr>
 
 
 
@@ -748,10 +761,15 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, } from &#x27;@angular/core&#x27;;
 import { SacConfirmCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { SacButtonComponent } from &#x27;../buttons/button&#x27;;
+import { NgIf, NgFor } from &#x27;@angular/common&#x27;;
+import { SacDialogComponent } from &#x27;../dialog/dialog&#x27;;
 
 @Component({
-  selector: &#x27;sac-confirm&#x27;,
-  templateUrl: &#x27;./confirm.html&#x27;
+    selector: &#x27;sac-confirm&#x27;,
+    templateUrl: &#x27;./confirm.html&#x27;,
+    standalone: true,
+    imports: [SacDialogComponent, NgIf, NgFor, SacButtonComponent]
 })
 export class SacConfirmComponent extends SacConfirmCommon {
 }

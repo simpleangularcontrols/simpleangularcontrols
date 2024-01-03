@@ -122,10 +122,10 @@ export * from './enums/IconType';
 export * from './validation';
 
 // Export of Modules
-export * from './controls/list/list.module';
+
 
 // Export Utlities
-export * from './utilities/Convertion';
+export * from './utilities/convertion';
 export * from './utilities/enums';
 export * from './utilities/datatypes';
 export * from './utilities/interpolation';

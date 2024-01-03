@@ -124,18 +124,18 @@
 <title>cluster_SACBootstrap5FormModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="82,-70 82,-268 414,-268 414,-70 82,-70"/>
 </g>
-<g id="clust6" class="cluster">
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap5FormModule_imports</title>
+<polygon fill="none" stroke="black" points="94,-78 94,-130 402,-130 402,-78 94,-78"/>
+</g>
+<g id="clust4" class="cluster">
 <title>cluster_SACBootstrap5FormModule_exports</title>
 <polygon fill="none" stroke="black" points="90,-208 90,-260 406,-260 406,-208 90,-208"/>
-</g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap5FormModule_declarations</title>
-<polygon fill="none" stroke="black" points="94,-78 94,-130 402,-130 402,-78 94,-78"/>
 </g>
 <!-- SacFormDirective -->
 <g id="node1" class="node">
 <title>SacFormDirective</title>
-<polygon fill="#ffffb3" stroke="black" points="394.13,-122 275.87,-122 275.87,-86 394.13,-86 394.13,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="394.13,-122 391.13,-126 370.13,-126 367.13,-122 275.87,-122 275.87,-86 394.13,-86 394.13,-122"/>
 <text text-anchor="middle" x="335" y="-99.8" font-family="Times,serif" font-size="14.00">SacFormDirective</text>
 </g>
 <!-- SACBootstrap5FormModule -->
@@ -153,7 +153,7 @@
 <!-- SacInheritFormDirective -->
 <g id="node2" class="node">
 <title>SacInheritFormDirective</title>
-<polygon fill="#ffffb3" stroke="black" points="257.95,-122 102.05,-122 102.05,-86 257.95,-86 257.95,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="257.95,-122 254.95,-126 233.95,-126 230.95,-122 102.05,-122 102.05,-86 257.95,-86 257.95,-122"/>
 <text text-anchor="middle" x="180" y="-99.8" font-family="Times,serif" font-size="14.00">SacInheritFormDirective</text>
 </g>
 <!-- SacInheritFormDirective&#45;&gt;SACBootstrap5FormModule -->
@@ -232,14 +232,15 @@
         <div class="container-fluid module">
             <div class="row">
                 <div class="col-sm-3">
-                    <h3>Declarations<a href="https://angular.io/api/core/NgModule#declarations" target="_blank" rel="noopener noreferrer"
-                            title="Official documentation about module declarations"><span class="icon ion-ios-information-circle-outline"></span></a></h3>
+                    <h3>Imports<a href="https://angular.io/api/core/NgModule#imports" target="_blank" rel="noopener noreferrer"
+                            title="Official documentation about module imports"><span
+                                class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="../directives/SacFormDirective.html">SacFormDirective</a>
+                            <a href="../modules/SacFormDirective.html">SacFormDirective</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="../directives/SacInheritFormDirective.html">SacInheritFormDirective</a>
+                            <a href="../modules/SacInheritFormDirective.html">SacInheritFormDirective</a>
                         </li>
                     </ul>
                 </div>
@@ -271,14 +272,14 @@ import { SacFormDirective } from &#x27;./form&#x27;;
 import { SacInheritFormDirective } from &#x27;./inheritform.directive&#x27;;
 
 @NgModule({
-  declarations: [SacFormDirective, SacInheritFormDirective],
-  imports: [
-    CommonModule,
-    FormsModule
-  ],
-  exports: [
-    SacFormDirective, SacInheritFormDirective
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        SacFormDirective, SacInheritFormDirective
+    ],
+    exports: [
+        SacFormDirective, SacInheritFormDirective
+    ]
 })
 export class SACBootstrap5FormModule { }
 </code></pre>

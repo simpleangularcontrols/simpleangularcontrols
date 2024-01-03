@@ -3,8 +3,9 @@ import { SacGridCommon, SacGridImageCommon } from '@simpleangularcontrols/sac-co
 
 
 @Component({
-  selector: 'sac-gridimage',
-  templateUrl: './gridimage.html'
+    selector: 'sac-gridimage',
+    templateUrl: './gridimage.html',
+    standalone: true
 })
 export class SacGridImageComponent extends SacGridImageCommon {
 

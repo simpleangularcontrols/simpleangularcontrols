@@ -3,11 +3,11 @@
   "version": "13.0.0-rc.1",
   "homepage": "https://github.com/simpleangularcontrols/simpleangularcontrols",
   "peerDependencies": {
-    "@angular/common": "^13.2.0",
-    "@angular/core": "^13.2.0",
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0",
     "moment": "2.29.1",
-    "angular-imask": "6.2.2",
-    "ngx-uploadx": "5.0.0"
+    "angular-imask": "7.0.0",
+    "ngx-uploadx": "6.0.1"
   },
   "author": {
     "name": "jNetwork GmbH",

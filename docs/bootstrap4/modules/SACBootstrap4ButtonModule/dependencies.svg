@@ -24,18 +24,18 @@
 <title>cluster_SACBootstrap4ButtonModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="147,-70 147,-268 349,-268 349,-70 147,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap4ButtonModule_declarations</title>
-<polygon fill="none" stroke="black" points="170,-78 170,-130 326,-130 326,-78 170,-78"/>
-</g>
-<g id="clust5" class="cluster">
+<g id="clust4" class="cluster">
 <title>cluster_SACBootstrap4ButtonModule_exports</title>
 <polygon fill="none" stroke="black" points="168,-208 168,-260 328,-260 328,-208 168,-208"/>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap4ButtonModule_imports</title>
+<polygon fill="none" stroke="black" points="170,-78 170,-130 326,-130 326,-78 170,-78"/>
 </g>
 <!-- SacButtonComponent -->
 <g id="node1" class="node">
 <title>SacButtonComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="317.66,-122 178.34,-122 178.34,-86 317.66,-86 317.66,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="317.66,-122 314.66,-126 293.66,-126 290.66,-122 178.34,-122 178.34,-86 317.66,-86 317.66,-122"/>
 <text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00">SacButtonComponent</text>
 </g>
 <!-- SACBootstrap4ButtonModule -->

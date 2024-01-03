@@ -9,11 +9,11 @@ import { SacGridColumnActionComponent } from './gridcolumnaction';
 import { SacGridImageComponent } from './gridimage';
 
 @NgModule({
-  declarations: [SacGridComponent, SacGridColumnComponent, SacGridColumnActionComponent, SacPagingComponent, SacGridButtonComponent, SacGridImageComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [SacGridComponent, SacGridColumnComponent, SacGridColumnActionComponent, SacPagingComponent, SacGridButtonComponent, SacGridImageComponent]
+    imports: [
+        CommonModule,
+        SacGridComponent, SacGridColumnComponent, SacGridColumnActionComponent, SacPagingComponent, SacGridButtonComponent, SacGridImageComponent
+    ],
+    exports: [SacGridComponent, SacGridColumnComponent, SacGridColumnActionComponent, SacPagingComponent, SacGridButtonComponent, SacGridImageComponent]
 })
 export class SACBootstrap3GridModule { }
 

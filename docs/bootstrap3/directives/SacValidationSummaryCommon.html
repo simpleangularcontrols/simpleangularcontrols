@@ -283,7 +283,7 @@ Inject des Formulars</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>    <code>FormGroup</code>
+                        <i>Type : </i>    <code>UntypedFormGroup</code>
 
                     </td>
                 </tr>
@@ -511,7 +511,7 @@ Inject des Formulars</p>
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, Injector, Input } from &#x27;@angular/core&#x27;;
-import { AbstractControl, FormArray, FormGroup, NgForm } from &#x27;@angular/forms&#x27;;
+import { AbstractControl, UntypedFormArray, UntypedFormGroup, NgForm } from &#x27;@angular/forms&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { IAbstractControlLabelExtension } from &#x27;../../interfaces/iabstractcontrollabel&#x27;;
 import { ISacLocalisationService } from &#x27;../../interfaces/ISacLocalisationService&#x27;;
@@ -537,7 +537,7 @@ export class SacValidationSummaryCommon {
    * reactive form instance
    */
   @Input()
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   /**
    * Form groupname to filter summary to formgroup
@@ -584,23 +584,23 @@ export class SacValidationSummaryCommon {
       Observable&lt;string&gt;
     &gt;();
 
-    let formBase: FormGroup;
+    let formBase: UntypedFormGroup;
     if (this.parent) {
       formBase &#x3D; this.parent.getForm().form;
-    } else if (this.form instanceof FormGroup) {
+    } else if (this.form instanceof UntypedFormGroup) {
       formBase &#x3D; this.form;
 
       // formgroup can only be get in reactive forms mode
       if (this.formGroupName) {
-        formBase &#x3D; formBase.get(this.formGroupName) as FormGroup;
+        formBase &#x3D; formBase.get(this.formGroupName) as UntypedFormGroup;
       }
     } else {
       throw new Error(&#x27;missing form&#x27;);
     }
 
-    const items: Array&lt;NgForm | FormArray&gt; &#x3D; Object.keys(formBase.controls).map(
+    const items: Array&lt;NgForm | UntypedFormArray&gt; &#x3D; Object.keys(formBase.controls).map(
       (key) &#x3D;&gt; {
-        return &lt;NgForm | FormArray&gt;formBase.controls[key];
+        return &lt;NgForm | UntypedFormArray&gt;formBase.controls[key];
       }
     );
 
@@ -613,7 +613,7 @@ export class SacValidationSummaryCommon {
    * Die Methode gibt Collection von Errors. Verlangt controls: Array&lt;NgForm | FormArray&gt; und  collection: Array&lt;Observable&lt;string&gt;&gt;
    */
   private getErrorCollection(
-    controls: Array&lt;NgForm | FormArray&gt;,
+    controls: Array&lt;NgForm | UntypedFormArray&gt;,
     collection: Array&lt;Observable&lt;string&gt;&gt;
   ): void {
     controls.forEach((ctl) &#x3D;&gt; {
@@ -633,10 +633,10 @@ export class SacValidationSummaryCommon {
             this.addErrorToCollection(control, collection);
           } else {
             // Handling eines Control Containers
-            const items: Array&lt;NgForm | FormArray&gt; &#x3D; Object.keys(
+            const items: Array&lt;NgForm | UntypedFormArray&gt; &#x3D; Object.keys(
               control.controls
             ).map((formKey) &#x3D;&gt; {
-              return &lt;NgForm | FormArray&gt;control.controls[formKey];
+              return &lt;NgForm | UntypedFormArray&gt;control.controls[formKey];
             });
 
             this.getErrorCollection(items, collection);

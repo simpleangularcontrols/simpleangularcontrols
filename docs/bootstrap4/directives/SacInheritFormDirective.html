@@ -181,6 +181,10 @@ export class SubFormComponent implements DoCheck {</p>
                         <td class="col-md-9"><code>[sacInheritForm]</code></td>
                     </tr>
 
+                    <tr>
+                        <td class="col-md-3">Standalone</td>
+                        <td class="col-md-9"><code>true</code></td>
+                    </tr>
 
 
 
@@ -257,18 +261,19 @@ export function NGFORM_FACTORY(form: NgForm) {
  *
  */
 @Directive({
-  selector: &#x27;[sacInheritForm]&#x27;,
-  providers: [
-    {
-      provide: SacFormDirective,
-      useFactory: SACFORM_FACTORY,
-      deps: [[new SkipSelf(), SacFormDirective]]
-    }, {
-      provide: ControlContainer,
-      useFactory: NGFORM_FACTORY,
-      deps: [NgForm]
-    }
-  ]
+    selector: &#x27;[sacInheritForm]&#x27;,
+    providers: [
+        {
+            provide: SacFormDirective,
+            useFactory: SACFORM_FACTORY,
+            deps: [[new SkipSelf(), SacFormDirective]]
+        }, {
+            provide: ControlContainer,
+            useFactory: NGFORM_FACTORY,
+            deps: [NgForm]
+        }
+    ],
+    standalone: true
 })
 export class SacInheritFormDirective { }
 </code></pre>

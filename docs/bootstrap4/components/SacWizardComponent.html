@@ -171,7 +171,19 @@
                 <td class="col-md-9"><code>sac-wizard</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgFor</code>
+                            <code>NgClass</code>
+                            <code>NgStyle</code>
+                </td>
+            </tr>
 
 
 
@@ -479,7 +491,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:31</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:38</a></code>
 </div>
                         </td>
                     </tr>
@@ -968,7 +980,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/sac-bootstrap4/src/controls/wizard/wizard.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/sac-bootstrap4/src/controls/wizard/wizard.ts:32</a></div>
                         </td>
                     </tr>
 
@@ -1082,17 +1094,24 @@ import {
   SacWizardItemCommon,
 } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 import { SacWizardItemComponent } from &#x27;./wizarditem&#x27;;
+import { NgFor, NgClass, NgStyle } from &#x27;@angular/common&#x27;;
 
 /**
  * Wizard Komponente
  */
 @Component({
-  selector: &#x27;sac-wizard&#x27;,
-  templateUrl: &#x27;./wizard.html&#x27;,
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacWizardComponent },
-  ],
+    selector: &#x27;sac-wizard&#x27;,
+    templateUrl: &#x27;./wizard.html&#x27;,
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacWizardComponent },
+    ],
+    standalone: true,
+    imports: [
+        NgFor,
+        NgClass,
+        NgStyle,
+    ],
 })
 export class SacWizardComponent extends SacWizardCommon {
   /**

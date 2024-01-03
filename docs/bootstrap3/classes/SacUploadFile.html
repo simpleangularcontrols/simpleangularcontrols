@@ -660,13 +660,7 @@ export abstract class SacUploadBase&lt;VALUE&gt;
     });
 
     // Init new Service Instance
-    this.uploadService &#x3D; new UploadxService(
-      injector.get(UPLOADX_OPTIONS, null),
-      injector.get(UPLOADX_FACTORY_OPTIONS),
-      injector.get(UPLOADX_AJAX),
-      this.ngZone,
-      injector.get(IdService)
-    );
+    this.uploadService &#x3D; new UploadxService();
     this.uploadService.init(this.options);
 
     // Subscripe Event for State changes

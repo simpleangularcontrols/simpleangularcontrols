@@ -1,5 +1,6 @@
 import { SacTooltipCommon } from '@simpleangularcontrols/sac-common';
 import { Component, ChangeDetectorRef, ElementRef } from '@angular/core';
+import { NgIf } from '@angular/common';
 
 /**
  * Tooltip Komponente
@@ -21,8 +22,10 @@ import { Component, ChangeDetectorRef, ElementRef } from '@angular/core';
  *
  */
 @Component({
-  selector: 'sac-tooltip',
-  templateUrl: './tooltip.html',
+    selector: 'sac-tooltip',
+    templateUrl: './tooltip.html',
+    standalone: true,
+    imports: [NgIf],
 })
 export class SacTooltipComponent extends SacTooltipCommon {
 

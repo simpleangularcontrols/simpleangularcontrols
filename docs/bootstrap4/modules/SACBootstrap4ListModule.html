@@ -124,18 +124,18 @@
 <title>cluster_SACBootstrap4ListModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="62,-70 62,-268 434,-268 434,-70 62,-70"/>
 </g>
-<g id="clust6" class="cluster">
+<g id="clust4" class="cluster">
 <title>cluster_SACBootstrap4ListModule_exports</title>
 <polygon fill="none" stroke="black" points="70,-208 70,-260 426,-260 426,-208 70,-208"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap4ListModule_declarations</title>
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap4ListModule_imports</title>
 <polygon fill="none" stroke="black" points="74,-78 74,-130 422,-130 422,-78 74,-78"/>
 </g>
 <!-- SacListboxComponent -->
 <g id="node1" class="node">
 <title>SacListboxComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="414.32,-122 269.68,-122 269.68,-86 414.32,-86 414.32,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="414.32,-122 411.32,-126 390.32,-126 387.32,-122 269.68,-122 269.68,-86 414.32,-86 414.32,-122"/>
 <text text-anchor="middle" x="342" y="-99.8" font-family="Times,serif" font-size="14.00">SacListboxComponent</text>
 </g>
 <!-- SACBootstrap4ListModule -->
@@ -153,7 +153,7 @@
 <!-- SacListboxOptionDirective -->
 <g id="node2" class="node">
 <title>SacListboxOptionDirective</title>
-<polygon fill="#ffffb3" stroke="black" points="251.96,-122 82.04,-122 82.04,-86 251.96,-86 251.96,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="251.96,-122 248.96,-126 227.96,-126 224.96,-122 82.04,-122 82.04,-86 251.96,-86 251.96,-122"/>
 <text text-anchor="middle" x="167" y="-99.8" font-family="Times,serif" font-size="14.00">SacListboxOptionDirective</text>
 </g>
 <!-- SacListboxOptionDirective&#45;&gt;SACBootstrap4ListModule -->
@@ -232,14 +232,15 @@
         <div class="container-fluid module">
             <div class="row">
                 <div class="col-sm-3">
-                    <h3>Declarations<a href="https://angular.io/api/core/NgModule#declarations" target="_blank" rel="noopener noreferrer"
-                            title="Official documentation about module declarations"><span class="icon ion-ios-information-circle-outline"></span></a></h3>
+                    <h3>Imports<a href="https://angular.io/api/core/NgModule#imports" target="_blank" rel="noopener noreferrer"
+                            title="Official documentation about module imports"><span
+                                class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="../components/SacListboxComponent.html">SacListboxComponent</a>
+                            <a href="../modules/SacListboxComponent.html">SacListboxComponent</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="../directives/SacListboxOptionDirective.html">SacListboxOptionDirective</a>
+                            <a href="../modules/SacListboxOptionDirective.html">SacListboxOptionDirective</a>
                         </li>
                     </ul>
                 </div>
@@ -269,9 +270,8 @@ import { CommonModule } from &#x27;@angular/common&#x27;;
 import { SacListboxComponent, SacListboxOptionDirective } from &#x27;./listbox&#x27;;
 
 @NgModule({
-  declarations: [SacListboxComponent, SacListboxOptionDirective],
-  imports: [CommonModule],
-  exports: [SacListboxComponent, SacListboxOptionDirective],
+    imports: [CommonModule, SacListboxComponent, SacListboxOptionDirective],
+    exports: [SacListboxComponent, SacListboxOptionDirective],
 })
 export class SACBootstrap4ListModule {}
 </code></pre>

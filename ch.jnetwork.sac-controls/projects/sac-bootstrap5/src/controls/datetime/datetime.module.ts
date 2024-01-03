@@ -7,10 +7,10 @@ import { SacTimeComponent } from './time';
 import { IMaskModule } from 'angular-imask';
 
 @NgModule({
-  declarations: [SacDateComponent, SacDateTimeComponent, SacTimeComponent, SacDateSelectorComponent],
-  imports: [
-    CommonModule, IMaskModule
-  ],
-  exports: [SacDateComponent, SacDateTimeComponent, SacTimeComponent, SacDateSelectorComponent]
+    imports: [
+        CommonModule, IMaskModule,
+        SacDateComponent, SacDateTimeComponent, SacTimeComponent, SacDateSelectorComponent
+    ],
+    exports: [SacDateComponent, SacDateTimeComponent, SacTimeComponent, SacDateSelectorComponent]
 })
 export class SACBootstrap5DateTimeModule { }

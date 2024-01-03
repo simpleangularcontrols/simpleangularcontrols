@@ -24,18 +24,18 @@
 <title>cluster_SACBootstrap4CheckboxModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 592,-268 592,-70 8,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap4CheckboxModule_declarations</title>
-<polygon fill="none" stroke="black" points="22,-78 22,-130 579,-130 579,-78 22,-78"/>
-</g>
-<g id="clust7" class="cluster">
+<g id="clust4" class="cluster">
 <title>cluster_SACBootstrap4CheckboxModule_exports</title>
 <polygon fill="none" stroke="black" points="16,-208 16,-260 584,-260 584,-208 16,-208"/>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap4CheckboxModule_imports</title>
+<polygon fill="none" stroke="black" points="22,-78 22,-130 579,-130 579,-78 22,-78"/>
 </g>
 <!-- SacCheckboxComponent -->
 <g id="node1" class="node">
 <title>SacCheckboxComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="571.31,-122 412.69,-122 412.69,-86 571.31,-86 571.31,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="571.31,-122 568.31,-126 547.31,-126 544.31,-122 412.69,-122 412.69,-86 571.31,-86 571.31,-122"/>
 <text text-anchor="middle" x="492" y="-99.8" font-family="Times,serif" font-size="14.00">SacCheckboxComponent</text>
 </g>
 <!-- SACBootstrap4CheckboxModule -->
@@ -53,7 +53,7 @@
 <!-- SacRadiobuttonComponent -->
 <g id="node2" class="node">
 <title>SacRadiobuttonComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="394.27,-122 223.73,-122 223.73,-86 394.27,-86 394.27,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="394.27,-122 391.27,-126 370.27,-126 367.27,-122 223.73,-122 223.73,-86 394.27,-86 394.27,-122"/>
 <text text-anchor="middle" x="309" y="-99.8" font-family="Times,serif" font-size="14.00">SacRadiobuttonComponent</text>
 </g>
 <!-- SacRadiobuttonComponent&#45;&gt;SACBootstrap4CheckboxModule -->
@@ -65,7 +65,7 @@
 <!-- SacRadiobuttonsComponent -->
 <g id="node3" class="node">
 <title>SacRadiobuttonsComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="206.21,-122 29.79,-122 29.79,-86 206.21,-86 206.21,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="206.21,-122 203.21,-126 182.21,-126 179.21,-122 29.79,-122 29.79,-86 206.21,-86 206.21,-122"/>
 <text text-anchor="middle" x="118" y="-99.8" font-family="Times,serif" font-size="14.00">SacRadiobuttonsComponent</text>
 </g>
 <!-- SacRadiobuttonsComponent&#45;&gt;SACBootstrap4CheckboxModule -->

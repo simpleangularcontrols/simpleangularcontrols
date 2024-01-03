@@ -7,13 +7,14 @@ import {
  * Anker Komponente für Context Menü. Wird zum positionieren des Context Menü in der Page benötigt.
  */
 @Directive({
-  selector: '[sacMultilanguageMenuAnchor]',
-  providers: [
-    {
-      provide: SacContextmenuAnchorCommon,
-      useExisting: forwardRef(() => SacMultilanguagemenuAnchorDirective),
-    },
-  ],
+    selector: '[sacMultilanguageMenuAnchor]',
+    providers: [
+        {
+            provide: SacContextmenuAnchorCommon,
+            useExisting: forwardRef(() => SacMultilanguagemenuAnchorDirective),
+        },
+    ],
+    standalone: true,
 })
 export class SacMultilanguagemenuAnchorDirective extends SacContextmenuAnchorCommon {
   /**

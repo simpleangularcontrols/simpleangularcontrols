@@ -165,7 +165,21 @@
                 <td class="col-md-9"><code>sac-date</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgClass</code>
+                            <code>NgIf</code>
+                            <code>IMaskDirective</code>
+                                <code><a href="../components/SacDateSelectorComponent.html" target="_self" >SacDateSelectorComponent</a></code>
+                            <code>AsyncPipe</code>
+                </td>
+            </tr>
 
 
 
@@ -456,7 +470,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/sac-bootstrap3/src/controls/datetime/date.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/sac-bootstrap3/src/controls/datetime/date.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -3405,7 +3419,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>    <code>FormControl</code>
+                        <i>Type : </i>    <code>UntypedFormControl</code>
 
                     </td>
                 </tr>
@@ -3571,17 +3585,22 @@ import { SacFormDirective } from &#x27;../form/form&#x27;;
 // Import Moment.JS
 import * as moment_ from &#x27;moment&#x27;;
 import { SacDateCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { SacDateSelectorComponent } from &#x27;./dateselector&#x27;;
+import { IMaskDirective } from &#x27;angular-imask&#x27;;
+import { NgClass, NgIf, AsyncPipe } from &#x27;@angular/common&#x27;;
 const moment &#x3D; moment_[&quot;default&quot;];
 
 
 @Component({
-  selector: &#x27;sac-date&#x27;,
-  templateUrl: &#x27;./date.html&#x27;,
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() &#x3D;&gt; SacDateComponent) },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; SacDateComponent) }
-  ]
+    selector: &#x27;sac-date&#x27;,
+    templateUrl: &#x27;./date.html&#x27;,
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() &#x3D;&gt; SacDateComponent) },
+        { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; SacDateComponent) }
+    ],
+    standalone: true,
+    imports: [NgClass, NgIf, IMaskDirective, SacDateSelectorComponent, AsyncPipe]
 })
 
 export class SacDateComponent extends SacDateCommon {

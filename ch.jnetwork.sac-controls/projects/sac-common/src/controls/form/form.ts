@@ -1,6 +1,6 @@
 import { Directive, Input } from '@angular/core';
-import { AbstractControl, FormGroup, NgForm } from '@angular/forms';
-import { convertToBoolean } from '../../utilities/Convertion';
+import { AbstractControl, UntypedFormGroup, NgForm } from '@angular/forms';
+import { convertToBoolean } from '../../utilities/convertion';
 
 /**
  * Typ für Form Actions
@@ -137,7 +137,7 @@ export class SacFormCommon {
 
     for (const field of keyList) {
       const control = controls[field];
-      if (control instanceof FormGroup) {
+      if (control instanceof UntypedFormGroup) {
         this.markAsTouchedInternal(control.controls);
       } else {
         control.markAsTouched({ onlySelf: true });
@@ -156,7 +156,7 @@ export class SacFormCommon {
 
     for (const field of keyList) {
       const control = controls[field];
-      if (control instanceof FormGroup) {
+      if (control instanceof UntypedFormGroup) {
         this.updateValueAndValidityInternal(control.controls);
       } else {
         control.updateValueAndValidity({ onlySelf: true });

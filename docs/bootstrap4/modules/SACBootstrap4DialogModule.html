@@ -124,18 +124,18 @@
 <title>cluster_SACBootstrap4DialogModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="147,-70 147,-268 349,-268 349,-70 147,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap4DialogModule_declarations</title>
-<polygon fill="none" stroke="black" points="170,-78 170,-130 326,-130 326,-78 170,-78"/>
-</g>
-<g id="clust5" class="cluster">
+<g id="clust4" class="cluster">
 <title>cluster_SACBootstrap4DialogModule_exports</title>
 <polygon fill="none" stroke="black" points="168,-208 168,-260 328,-260 328,-208 168,-208"/>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap4DialogModule_imports</title>
+<polygon fill="none" stroke="black" points="170,-78 170,-130 326,-130 326,-78 170,-78"/>
 </g>
 <!-- SacDialogComponent -->
 <g id="node1" class="node">
 <title>SacDialogComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="317.65,-122 178.35,-122 178.35,-86 317.65,-86 317.65,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="317.65,-122 314.65,-126 293.65,-126 290.65,-122 178.35,-122 178.35,-86 317.65,-86 317.65,-122"/>
 <text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00">SacDialogComponent</text>
 </g>
 <!-- SACBootstrap4DialogModule -->
@@ -208,11 +208,12 @@
         <div class="container-fluid module">
             <div class="row">
                 <div class="col-sm-3">
-                    <h3>Declarations<a href="https://angular.io/api/core/NgModule#declarations" target="_blank" rel="noopener noreferrer"
-                            title="Official documentation about module declarations"><span class="icon ion-ios-information-circle-outline"></span></a></h3>
+                    <h3>Imports<a href="https://angular.io/api/core/NgModule#imports" target="_blank" rel="noopener noreferrer"
+                            title="Official documentation about module imports"><span
+                                class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="../components/SacDialogComponent.html">SacDialogComponent</a>
+                            <a href="../modules/SacDialogComponent.html">SacDialogComponent</a>
                         </li>
                     </ul>
                 </div>
@@ -239,11 +240,11 @@ import { CommonModule } from &#x27;@angular/common&#x27;;
 import { SacDialogComponent } from &#x27;./dialog&#x27;;
 
 @NgModule({
-  declarations: [SacDialogComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [SacDialogComponent]
+    imports: [
+        CommonModule,
+        SacDialogComponent
+    ],
+    exports: [SacDialogComponent]
 })
 export class SACBootstrap4DialogModule { }
 </code></pre>

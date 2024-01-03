@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SacListboxComponent, SacListboxOptionDirective } from './listbox';
 
 @NgModule({
-  declarations: [SacListboxComponent, SacListboxOptionDirective],
-  imports: [CommonModule],
-  exports: [SacListboxComponent, SacListboxOptionDirective],
+    imports: [CommonModule, SacListboxComponent, SacListboxOptionDirective],
+    exports: [SacListboxComponent, SacListboxOptionDirective],
 })
 export class SACBootstrap4ListModule {}

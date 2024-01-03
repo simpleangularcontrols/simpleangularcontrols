@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DemoConfirmComponent } from './confirm.component';
+import { SACBootstrap3ConfirmModule } from '@simpleangularcontrols/sac-bootstrap3';
 
 const routes: Routes = [
   {
@@ -10,7 +11,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [
+    RouterModule.forChild(routes),
+    SACBootstrap3ConfirmModule.forRoot(),
+  ],
   exports: [RouterModule],
 })
 export class ConfirmRoutingModule {}

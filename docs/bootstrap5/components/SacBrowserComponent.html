@@ -171,7 +171,27 @@
                 <td class="col-md-9"><code>sac-filebrowser</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgTemplateOutlet</code>
+                            <code>NgIf</code>
+                            <code>NgForOf</code>
+                            <code>NgClass</code>
+                            <code>AsyncPipe</code>
+                            <code>FormsModule</code>
+                            <code>HttpClientModule</code>
+                                <code><a href="../components/SacContextmenuComponent.html" target="_self" >SacContextmenuComponent</a></code>
+                                <code><a href="../components/SacContextmenuItemButtonComponent.html" target="_self" >SacContextmenuItemButtonComponent</a></code>
+                                <code><a href="../components/SacContextmenuItemSplitterComponent.html" target="_self" >SacContextmenuItemSplitterComponent</a></code>
+                                <code><a href="../components/SacDropzoneMultipleComponent.html" target="_self" >SacDropzoneMultipleComponent</a></code>
+                </td>
+            </tr>
 
 
 
@@ -399,7 +419,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/sac-bootstrap5/src/components/browser/browser.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">projects/sac-bootstrap5/src/components/browser/browser.ts:50</a></div>
                             </td>
                         </tr>
 
@@ -938,7 +958,7 @@ getrennt durch Komma für mehr als eine Erweiterung (Example: &quot;.jpg,.gif&qu
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFileBrowserCommon.html#source" target="_self" >SacFileBrowserCommon:55</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFileBrowserCommon.html#source" target="_self" >SacFileBrowserCommon:80</a></code>
 </div>
                         </td>
                     </tr>
@@ -1019,7 +1039,7 @@ getrennt durch Komma für mehr als eine Erweiterung (Example: &quot;.jpg,.gif&qu
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFileBrowserCommon.html#source" target="_self" >SacFileBrowserCommon:82</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFileBrowserCommon.html#source" target="_self" >SacFileBrowserCommon:107</a></code>
 </div>
                         </td>
                     </tr>
@@ -1096,8 +1116,8 @@ getrennt durch Komma für mehr als eine Erweiterung (Example: &quot;.jpg,.gif&qu
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="46"
-                                    class="link-to-prism">projects/sac-bootstrap5/src/components/browser/browser.ts:46</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="71"
+                                    class="link-to-prism">projects/sac-bootstrap5/src/components/browser/browser.ts:71</a></div>
                         </td>
                     </tr>
 
@@ -1177,7 +1197,7 @@ getrennt durch Komma für mehr als eine Erweiterung (Example: &quot;.jpg,.gif&qu
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFileBrowserCommon.html#source" target="_self" >SacFileBrowserCommon:108</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFileBrowserCommon.html#source" target="_self" >SacFileBrowserCommon:133</a></code>
 </div>
                         </td>
                     </tr>
@@ -2657,15 +2677,26 @@ getrennt durch Komma für mehr als eine Erweiterung (Example: &quot;.jpg,.gif&qu
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &#x27;@angular/common/http&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  AsyncPipe,
+  NgClass,
+  NgForOf,
+  NgIf,
+  NgTemplateOutlet,
+} from &#x27;@angular/common&#x27;;
+import { HttpClient, HttpClientModule } from &#x27;@angular/common/http&#x27;;
 import { Component, Injector, ViewChild } from &#x27;@angular/core&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
 import {
   IBrowserFile,
   IBrowserNode,
   SacFileBrowserCommon,
 } from &#x27;@simpleangularcontrols/sac-common&#x27;;
-import { forkJoin, Observable } from &#x27;rxjs&#x27;;
+import { Observable, forkJoin } from &#x27;rxjs&#x27;;
 import { ServiceConfirm } from &#x27;../../controls/confirm/confirm.service&#x27;;
+import { SacContextmenuComponent } from &#x27;../../controls/contextmenu&#x27;;
+import { SacContextmenuItemButtonComponent } from &#x27;../../controls/contextmenu/contextmenuitembutton&#x27;;
+import { SacContextmenuItemSplitterComponent } from &#x27;../../controls/contextmenu/contextmenuitemsplitter&#x27;;
 import { SacDropzoneMultipleComponent } from &#x27;../../controls/upload/dropzonemultiple&#x27;;
 
 /**
@@ -2674,6 +2705,20 @@ import { SacDropzoneMultipleComponent } from &#x27;../../controls/upload/dropzon
 @Component({
   selector: &#x27;sac-filebrowser&#x27;,
   templateUrl: &#x27;./browser.html&#x27;,
+  standalone: true,
+  imports: [
+    NgTemplateOutlet,
+    NgIf,
+    NgForOf,
+    NgClass,
+    AsyncPipe,
+    FormsModule,
+    HttpClientModule,
+    SacContextmenuComponent,
+    SacContextmenuItemButtonComponent,
+    SacContextmenuItemSplitterComponent,
+    SacDropzoneMultipleComponent,
+  ],
   providers: [ServiceConfirm],
 })
 export class SacBrowserComponent extends SacFileBrowserCommon {

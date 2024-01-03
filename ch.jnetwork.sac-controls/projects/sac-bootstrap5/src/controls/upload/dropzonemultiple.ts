@@ -11,27 +11,34 @@ import {
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacDropzoneMultipleCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormDirective } from '../form/form';
+import { NgIf, NgClass, NgFor } from '@angular/common';
 
 /**
  * Dropzone Komponente für mehrere Uploads
  * @see https://github.com/kukhariev/ngx-uploadx/
  */
 @Component({
-  selector: 'sac-dropzonemultiple',
-  templateUrl: './dropzonemultiple.html',
-  styleUrls: ['./dropzone.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: SacDropzoneMultipleComponent,
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() => SacDropzoneMultipleComponent),
-    },
-  ],
+    selector: 'sac-dropzonemultiple',
+    templateUrl: './dropzonemultiple.html',
+    styleUrls: ['./dropzone.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SacDropzoneMultipleComponent,
+        },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() => SacDropzoneMultipleComponent),
+        },
+    ],
+    standalone: true,
+    imports: [
+        NgIf,
+        NgClass,
+        NgFor,
+    ],
 })
 export class SacDropzoneMultipleComponent
   extends SacDropzoneMultipleCommon

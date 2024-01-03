@@ -10,23 +10,30 @@ import {
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacUploadSingleCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormDirective } from '../form/form';
+import { NgIf, NgClass, AsyncPipe } from '@angular/common';
 
 /**
  * Upload Komponten
  * @see https://github.com/kukhariev/ngx-uploadx/
  */
 @Component({
-  selector: 'sac-upload',
-  templateUrl: './upload.html',
-  styleUrls: ['./upload.scss'],
-  providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacUploadComponent },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() => SacUploadComponent),
-    },
-  ],
+    selector: 'sac-upload',
+    templateUrl: './upload.html',
+    styleUrls: ['./upload.scss'],
+    providers: [
+        { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacUploadComponent },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() => SacUploadComponent),
+        },
+    ],
+    standalone: true,
+    imports: [
+        NgIf,
+        NgClass,
+        AsyncPipe,
+    ],
 })
 export class SacUploadComponent extends SacUploadSingleCommon {
   /**

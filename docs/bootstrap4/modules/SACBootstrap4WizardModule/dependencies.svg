@@ -24,18 +24,18 @@
 <title>cluster_SACBootstrap4WizardModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="64,-70 64,-268 432,-268 432,-70 64,-70"/>
 </g>
-<g id="clust6" class="cluster">
+<g id="clust4" class="cluster">
 <title>cluster_SACBootstrap4WizardModule_exports</title>
 <polygon fill="none" stroke="black" points="72,-208 72,-260 424,-260 424,-208 72,-208"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap4WizardModule_declarations</title>
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap4WizardModule_imports</title>
 <polygon fill="none" stroke="black" points="75,-78 75,-130 420,-130 420,-78 75,-78"/>
 </g>
 <!-- SacWizardComponent -->
 <g id="node1" class="node">
 <title>SacWizardComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="412.24,-122 269.76,-122 269.76,-86 412.24,-86 412.24,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="412.24,-122 409.24,-126 388.24,-126 385.24,-122 269.76,-122 269.76,-86 412.24,-86 412.24,-122"/>
 <text text-anchor="middle" x="341" y="-99.8" font-family="Times,serif" font-size="14.00">SacWizardComponent</text>
 </g>
 <!-- SACBootstrap4WizardModule -->
@@ -53,7 +53,7 @@
 <!-- SacWizardItemComponent -->
 <g id="node2" class="node">
 <title>SacWizardItemComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="251.4,-122 82.6,-122 82.6,-86 251.4,-86 251.4,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="251.4,-122 248.4,-126 227.4,-126 224.4,-122 82.6,-122 82.6,-86 251.4,-86 251.4,-122"/>
 <text text-anchor="middle" x="167" y="-99.8" font-family="Times,serif" font-size="14.00">SacWizardItemComponent</text>
 </g>
 <!-- SacWizardItemComponent&#45;&gt;SACBootstrap4WizardModule -->

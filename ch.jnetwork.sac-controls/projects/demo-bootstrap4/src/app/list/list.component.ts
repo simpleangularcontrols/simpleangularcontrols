@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { SacFormDirective } from '@simpleangularcontrols/sac-bootstrap4';
+import { SacFormDirective, SACBootstrap4FormModule, SACBootstrap4ButtonModule, SACBootstrap4ValidationSummaryModule, SACBootstrap4DropdownModule, SACBootstrap4ListModule } from '@simpleangularcontrols/sac-bootstrap4';
+import { JsonPipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 interface KeyValue {
   label: string;
@@ -22,8 +24,18 @@ interface KeyValue3 extends KeyValue2 {
 }
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
+    selector: 'app-list',
+    templateUrl: './list.component.html',
+    standalone: true,
+    imports: [
+        FormsModule,
+        SACBootstrap4FormModule,
+        SACBootstrap4ButtonModule,
+        SACBootstrap4ValidationSummaryModule,
+        SACBootstrap4DropdownModule,
+        SACBootstrap4ListModule,
+        JsonPipe,
+    ],
 })
 export class DemoListComponent {
   public values: any = {

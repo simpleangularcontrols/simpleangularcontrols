@@ -158,7 +158,21 @@
                 <td class="col-md-9"><code>sac-treeview</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgIf</code>
+                            <code>NgFor</code>
+                            <code>NgClass</code>
+                            <code>NgTemplateOutlet</code>
+                                <code><a href="../components/SacTreeViewChildComponent.html" target="_self" >SacTreeViewChildComponent</a></code>
+                </td>
+            </tr>
 
 
 
@@ -1473,10 +1487,20 @@ Define an ngOnInit() method to handle any additional initialization tasks.</p>
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
 import { SacTreeViewCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { SacTreeViewChildComponent } from &#x27;./treeviewchild&#x27;;
+import { NgIf, NgFor, NgClass, NgTemplateOutlet } from &#x27;@angular/common&#x27;;
 
 @Component({
-  selector: &#x27;sac-treeview&#x27;,
-  templateUrl: &#x27;treeview.html&#x27;,
+    selector: &#x27;sac-treeview&#x27;,
+    templateUrl: &#x27;treeview.html&#x27;,
+    standalone: true,
+    imports: [
+        NgIf,
+        NgFor,
+        NgClass,
+        NgTemplateOutlet,
+        SacTreeViewChildComponent,
+    ],
 })
 
 export class SacTreeViewComponent extends SacTreeViewCommon {

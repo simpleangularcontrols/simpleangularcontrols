@@ -4,10 +4,10 @@ import { SacTabComponent } from './tab';
 import { SacTabItemComponent } from './tabitem';
 
 @NgModule({
-  declarations: [SacTabComponent, SacTabItemComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [SacTabComponent, SacTabItemComponent]
+    imports: [
+        CommonModule,
+        SacTabComponent, SacTabItemComponent
+    ],
+    exports: [SacTabComponent, SacTabItemComponent]
 })
 export class SACBootstrap3TabsModule { }

@@ -4,10 +4,10 @@ import { SacWizardComponent } from './wizard';
 import { SacWizardItemComponent } from './wizarditem';
 
 @NgModule({
-  declarations: [SacWizardComponent, SacWizardItemComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [SacWizardComponent, SacWizardItemComponent]
+    imports: [
+        CommonModule,
+        SacWizardComponent, SacWizardItemComponent
+    ],
+    exports: [SacWizardComponent, SacWizardItemComponent]
 })
 export class SACBootstrap4WizardModule { }

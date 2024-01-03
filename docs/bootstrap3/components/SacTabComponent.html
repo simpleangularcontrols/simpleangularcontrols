@@ -158,7 +158,20 @@
                 <td class="col-md-9"><code>sac-tab</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgFor</code>
+                            <code>NgClass</code>
+                            <code>NgStyle</code>
+                            <code>NgTemplateOutlet</code>
+                </td>
+            </tr>
 
 
 
@@ -452,7 +465,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacTabCommon.html#source" target="_self" >SacTabCommon:15</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTabCommon.html#source" target="_self" >SacTabCommon:18</a></code>
 </div>
                         </td>
                     </tr>
@@ -711,7 +724,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/sac-bootstrap3/src/controls/tabs/tab.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/sac-bootstrap3/src/controls/tabs/tab.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -727,10 +740,13 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ContentChildren, QueryList } from &#x27;@angular/core&#x27;;
 import { SacTabItemComponent } from &#x27;./tabitem&#x27;;
 import { SacTabCommon, SacTabItemCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { NgFor, NgClass, NgStyle, NgTemplateOutlet } from &#x27;@angular/common&#x27;;
 
 @Component({
-  selector: &#x27;sac-tab&#x27;,
-  templateUrl: &#x27;./tab.html&#x27;
+    selector: &#x27;sac-tab&#x27;,
+    templateUrl: &#x27;./tab.html&#x27;,
+    standalone: true,
+    imports: [NgFor, NgClass, NgStyle, NgTemplateOutlet]
 })
 
 export class SacTabComponent extends SacTabCommon {

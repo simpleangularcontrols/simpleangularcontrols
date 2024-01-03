@@ -2,7 +2,7 @@ import { Directive, Host, Injector, Input, OnInit } from '@angular/core';
 import {
   AbstractControl,
   ControlValueAccessor,
-  FormControl,
+  UntypedFormControl,
   FormControlName,
   FormGroupDirective,
   NgControl,
@@ -17,7 +17,7 @@ import {
   SacDefaultLocalisationService,
   SACLOCALISATION_SERVICE,
 } from '../services/sac-localisation.service';
-import { convertToBoolean } from '../utilities/Convertion';
+import { convertToBoolean } from '../utilities/convertion';
 import { ValidationErrorItem } from '../validation';
 
 /**
@@ -40,7 +40,7 @@ export abstract class SacBaseModelControl<VALUE>
   /**
    * ngControl
    */
-  protected ngControl: FormControl;
+  protected ngControl: UntypedFormControl;
   /**
    * Service für Error Localisation
    */
@@ -155,7 +155,7 @@ export abstract class SacBaseModelControl<VALUE>
       const form = this.injector.get(FormGroupDirective, null);
       this.ngControl = form.getControl(formControl);
     } else {
-      this.ngControl = formControl.control as FormControl;
+      this.ngControl = formControl.control as UntypedFormControl;
     }
 
     this.UpdateLabelToControl();

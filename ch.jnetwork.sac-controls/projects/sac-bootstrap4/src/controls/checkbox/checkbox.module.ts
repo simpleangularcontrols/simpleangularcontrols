@@ -5,10 +5,10 @@ import { SacRadiobuttonComponent } from './radiobutton';
 import { SacRadiobuttonsComponent } from './radiobuttons';
 
 @NgModule({
-  declarations: [SacCheckboxComponent, SacRadiobuttonComponent, SacRadiobuttonsComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [SacCheckboxComponent, SacRadiobuttonComponent, SacRadiobuttonsComponent]
+    imports: [
+        CommonModule,
+        SacCheckboxComponent, SacRadiobuttonComponent, SacRadiobuttonsComponent
+    ],
+    exports: [SacCheckboxComponent, SacRadiobuttonComponent, SacRadiobuttonsComponent]
 })
 export class SACBootstrap4CheckboxModule { }

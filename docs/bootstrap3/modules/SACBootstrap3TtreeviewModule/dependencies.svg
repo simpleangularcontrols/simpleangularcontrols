@@ -24,18 +24,18 @@
 <title>cluster_SACBootstrap3TtreeviewModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 624,-268 624,-70 8,-70"/>
 </g>
-<g id="clust7" class="cluster">
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap3TtreeviewModule_imports</title>
+<polygon fill="none" stroke="black" points="22,-78 22,-130 611,-130 611,-78 22,-78"/>
+</g>
+<g id="clust4" class="cluster">
 <title>cluster_SACBootstrap3TtreeviewModule_exports</title>
 <polygon fill="none" stroke="black" points="16,-208 16,-260 616,-260 616,-208 16,-208"/>
-</g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap3TtreeviewModule_declarations</title>
-<polygon fill="none" stroke="black" points="22,-78 22,-130 611,-130 611,-78 22,-78"/>
 </g>
 <!-- SacTreeItemActionComponent -->
 <g id="node1" class="node">
 <title>SacTreeItemActionComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="603.45,-122 412.55,-122 412.55,-86 603.45,-86 603.45,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="603.45,-122 600.45,-126 579.45,-126 576.45,-122 412.55,-122 412.55,-86 603.45,-86 603.45,-122"/>
 <text text-anchor="middle" x="508" y="-99.8" font-family="Times,serif" font-size="14.00">SacTreeItemActionComponent</text>
 </g>
 <!-- SACBootstrap3TtreeviewModule -->
@@ -53,7 +53,7 @@
 <!-- SacTreeViewChildComponent -->
 <g id="node2" class="node">
 <title>SacTreeViewChildComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="394.12,-122 205.88,-122 205.88,-86 394.12,-86 394.12,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="394.12,-122 391.12,-126 370.12,-126 367.12,-122 205.88,-122 205.88,-86 394.12,-86 394.12,-122"/>
 <text text-anchor="middle" x="300" y="-99.8" font-family="Times,serif" font-size="14.00">SacTreeViewChildComponent</text>
 </g>
 <!-- SacTreeViewChildComponent&#45;&gt;SACBootstrap3TtreeviewModule -->
@@ -65,7 +65,7 @@
 <!-- SacTreeViewComponent -->
 <g id="node3" class="node">
 <title>SacTreeViewComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="187.51,-122 30.49,-122 30.49,-86 187.51,-86 187.51,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="187.51,-122 184.51,-126 163.51,-126 160.51,-122 30.49,-122 30.49,-86 187.51,-86 187.51,-122"/>
 <text text-anchor="middle" x="109" y="-99.8" font-family="Times,serif" font-size="14.00">SacTreeViewComponent</text>
 </g>
 <!-- SacTreeViewComponent&#45;&gt;SACBootstrap3TtreeviewModule -->

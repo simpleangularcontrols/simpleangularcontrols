@@ -24,18 +24,18 @@
 <title>cluster_SACBootstrap4TabsModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="83.5,-70 83.5,-268 412.5,-268 412.5,-70 83.5,-70"/>
 </g>
-<g id="clust6" class="cluster">
+<g id="clust4" class="cluster">
 <title>cluster_SACBootstrap4TabsModule_exports</title>
 <polygon fill="none" stroke="black" points="91.5,-208 91.5,-260 404.5,-260 404.5,-208 91.5,-208"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap4TabsModule_declarations</title>
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap4TabsModule_imports</title>
 <polygon fill="none" stroke="black" points="94.5,-78 94.5,-130 400.5,-130 400.5,-78 94.5,-78"/>
 </g>
 <!-- SacTabComponent -->
 <g id="node1" class="node">
 <title>SacTabComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="392.31,-122 268.69,-122 268.69,-86 392.31,-86 392.31,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="392.31,-122 389.31,-126 368.31,-126 365.31,-122 268.69,-122 268.69,-86 392.31,-86 392.31,-122"/>
 <text text-anchor="middle" x="330.5" y="-99.8" font-family="Times,serif" font-size="14.00">SacTabComponent</text>
 </g>
 <!-- SACBootstrap4TabsModule -->
@@ -53,7 +53,7 @@
 <!-- SacTabItemComponent -->
 <g id="node2" class="node">
 <title>SacTabItemComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="250.97,-122 102.03,-122 102.03,-86 250.97,-86 250.97,-122"/>
+<polygon fill="#8dd3c7" stroke="black" points="250.97,-122 247.97,-126 226.97,-126 223.97,-122 102.03,-122 102.03,-86 250.97,-86 250.97,-122"/>
 <text text-anchor="middle" x="176.5" y="-99.8" font-family="Times,serif" font-size="14.00">SacTabItemComponent</text>
 </g>
 <!-- SacTabItemComponent&#45;&gt;SACBootstrap4TabsModule -->

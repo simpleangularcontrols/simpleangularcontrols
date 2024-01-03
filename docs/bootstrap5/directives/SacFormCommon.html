@@ -868,8 +868,8 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, Input } from &#x27;@angular/core&#x27;;
-import { AbstractControl, FormGroup, NgForm } from &#x27;@angular/forms&#x27;;
-import { convertToBoolean } from &#x27;../../utilities/Convertion&#x27;;
+import { AbstractControl, UntypedFormGroup, NgForm } from &#x27;@angular/forms&#x27;;
+import { convertToBoolean } from &#x27;../../utilities/convertion&#x27;;
 
 /**
  * Typ für Form Actions
@@ -1006,7 +1006,7 @@ export class SacFormCommon {
 
     for (const field of keyList) {
       const control &#x3D; controls[field];
-      if (control instanceof FormGroup) {
+      if (control instanceof UntypedFormGroup) {
         this.markAsTouchedInternal(control.controls);
       } else {
         control.markAsTouched({ onlySelf: true });
@@ -1025,7 +1025,7 @@ export class SacFormCommon {
 
     for (const field of keyList) {
       const control &#x3D; controls[field];
-      if (control instanceof FormGroup) {
+      if (control instanceof UntypedFormGroup) {
         this.updateValueAndValidityInternal(control.controls);
       } else {
         control.updateValueAndValidity({ onlySelf: true });

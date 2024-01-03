@@ -158,6 +158,10 @@
                 <td class="col-md-9"><code>sac-wizarditem</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
 
 
@@ -416,8 +420,9 @@
 import { SacWizardItemCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 @Component({
-  selector: &#x27;sac-wizarditem&#x27;,
-  templateUrl: &#x27;./wizarditem.html&#x27;
+    selector: &#x27;sac-wizarditem&#x27;,
+    templateUrl: &#x27;./wizarditem.html&#x27;,
+    standalone: true
 })
 export class SacWizardItemComponent extends SacWizardItemCommon {
 

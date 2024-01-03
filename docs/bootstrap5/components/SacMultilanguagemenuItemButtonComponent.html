@@ -165,7 +165,17 @@
                 <td class="col-md-9"><code>sac-multilanguagemenubutton</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgIf</code>
+                </td>
+            </tr>
 
 
 
@@ -291,7 +301,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/sac-bootstrap5/src/controls/multilanguage/multilanguagemenuitembutton.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/sac-bootstrap5/src/controls/multilanguage/multilanguagemenuitembutton.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -815,13 +825,16 @@ import {
   SacContextmenuCommon,
   SacContextmenuItemButtonCommon,
 } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { NgIf } from &#x27;@angular/common&#x27;;
 
 /**
  * Component für Menü Eintrag in Context Menü
  */
 @Component({
-  selector: &#x27;sac-multilanguagemenubutton&#x27;,
-  templateUrl: &#x27;./multilanguagemenuitembutton.html&#x27;,
+    selector: &#x27;sac-multilanguagemenubutton&#x27;,
+    templateUrl: &#x27;./multilanguagemenuitembutton.html&#x27;,
+    standalone: true,
+    imports: [NgIf],
 })
 export class SacMultilanguagemenuItemButtonComponent extends SacContextmenuItemButtonCommon {
   /**

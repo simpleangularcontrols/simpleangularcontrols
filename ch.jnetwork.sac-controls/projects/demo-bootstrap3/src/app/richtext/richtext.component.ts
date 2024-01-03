@@ -1,9 +1,19 @@
 import { Component, NgZone, OnInit } from '@angular/core';
+import { JsonPipe } from '@angular/common';
+import { SACBootstrap3FormModule, SACBootstrap3TinyMceModule } from '@simpleangularcontrols/sac-bootstrap3';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-richtext',
-  templateUrl: './richtext.component.html',
-  styleUrls: ['./richtext.component.scss'],
+    selector: 'app-richtext',
+    templateUrl: './richtext.component.html',
+    styleUrls: ['./richtext.component.scss'],
+    standalone: true,
+    imports: [
+        FormsModule,
+        SACBootstrap3FormModule,
+        SACBootstrap3TinyMceModule,
+        JsonPipe,
+    ],
 })
 export class DemoRichtextComponent {
   public value1 = '';

@@ -5,13 +5,14 @@ import { SacContextMenuContrainerCommon } from '@simpleangularcontrols/sac-commo
  * Marker Komponente für Context Menü
  */
 @Directive({
-  selector: '[sacContextMenuContainer]',
-  providers: [
-    {
-      provide: SacContextMenuContrainerCommon,
-      useExisting: forwardRef(() => SacContextmenuContainerDirective),
-    },
-  ],
+    selector: '[sacContextMenuContainer]',
+    providers: [
+        {
+            provide: SacContextMenuContrainerCommon,
+            useExisting: forwardRef(() => SacContextmenuContainerDirective),
+        },
+    ],
+    standalone: true,
 })
 export class SacContextmenuContainerDirective extends SacContextMenuContrainerCommon {
   /**

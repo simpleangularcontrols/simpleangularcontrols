@@ -18,6 +18,13 @@ export class DemoRectiveFormComponent {
     partial: new FormGroup({
       part1: new FormGroup({
         inputvalue2: new FormControl(''),
+        inputvalue3: new FormControl(
+          '',
+          Validation.required(
+            'Custom Error Message',
+            'Custom Error Message (Summary)'
+          )
+        ),
       }),
     }),
   });

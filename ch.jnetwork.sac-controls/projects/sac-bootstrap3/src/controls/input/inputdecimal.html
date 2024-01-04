@@ -5,6 +5,6 @@
            [value]="value" [attr.placeholder]="placeholder" (blur)="onTouch()" (input)="setValue($event.target.value)"
            (keypress)="onKeyPress($event)" [disabled]="isdisabled" [readonly]="readonly" />
     <label for="{{name}}" class="form-label-adaptive form-label-fixed" [ngClass]="{ 'required': isrequired }" *ngIf="isadaptivelabel && !disablelabel">{{label}}</label>
-    <div class="help-block help-block-error" *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)">{{ GetErrorMessage() | async }}</div>
+    <div class="help-block help-block-error" *ngIf="isinlineerrorenabled && invalid && (dirty || touched)">{{ GetErrorMessage() | async }}</div>
   </div>
 </div>

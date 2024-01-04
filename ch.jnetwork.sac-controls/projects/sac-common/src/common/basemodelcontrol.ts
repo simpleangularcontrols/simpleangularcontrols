@@ -441,9 +441,9 @@ export abstract class SacBaseModelControl<VALUE>
   }
 
   /**
-   * Gibt zurück, ob die Inline Error Meldungen für diesem Control aktiv sind.
+   * Returns whether the inline error messages are active for this control.
    */
-  get IsInlineErrorEnabled(): boolean {
+  get isinlineerrorenabled(): boolean {
     if (
       this.parent?.IsInlineErrorEnabled === null ||
       this.parent?.IsInlineErrorEnabled === undefined

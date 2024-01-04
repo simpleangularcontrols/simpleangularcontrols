@@ -57,7 +57,7 @@
     </select>
     <div
       class="invalid-feedback"
-      *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)"
+      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
     >
       {{ GetErrorMessage() | async }}
     </div>

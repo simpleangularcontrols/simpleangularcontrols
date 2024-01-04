@@ -11,8 +11,7 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        declarations: [SacFormDirective, SacCheckboxComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacCheckboxComponent],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',
@@ -38,8 +37,7 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        declarations: [SacFormDirective, SacCheckboxComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacCheckboxComponent],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',
@@ -62,8 +60,7 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        declarations: [SacFormDirective, SacCheckboxComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacCheckboxComponent],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',
@@ -86,8 +83,7 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        declarations: [SacFormDirective, SacCheckboxComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacCheckboxComponent],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',

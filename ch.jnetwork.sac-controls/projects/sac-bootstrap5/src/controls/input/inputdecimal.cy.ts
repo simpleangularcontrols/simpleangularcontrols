@@ -11,8 +11,7 @@ describe('NgInputDecimalComponent', () => {
       </sac-inputdecimal>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputDecimalComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputDecimalComponent],
         componentProperties: {
           label: 'My Label',
           value: 1.33,
@@ -32,8 +31,7 @@ describe('NgInputDecimalComponent', () => {
       </sac-inputdecimal>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputDecimalComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputDecimalComponent],
         componentProperties: {
           label: 'My Label',
           value: '',
@@ -60,8 +58,7 @@ describe('NgInputDecimalComponent', () => {
       </sac-inputdecimal>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputDecimalComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputDecimalComponent],
         componentProperties: {
           label: 'My Label',
           value: 1.45,
@@ -81,8 +78,7 @@ describe('NgInputDecimalComponent', () => {
       </sac-inputdecimal>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputDecimalComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputDecimalComponent],
         componentProperties: {
           label: 'My Label',
           value: '',
@@ -101,8 +97,7 @@ describe('NgInputDecimalComponent', () => {
       </sac-inputdecimal>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputDecimalComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputDecimalComponent],
         componentProperties: {
           label: 'My Label',
           value: 1.45,
@@ -121,8 +116,7 @@ describe('NgInputDecimalComponent', () => {
       </sac-inputdecimal>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputDecimalComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputDecimalComponent],
         componentProperties: {
           label: 'My Label',
           value: 1.99,
@@ -141,8 +135,7 @@ describe('NgInputDecimalComponent', () => {
       </sac-inputdecimal>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputDecimalComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputDecimalComponent],
         componentProperties: {
           label: 'My Label',
           value: 15,
@@ -164,8 +157,7 @@ describe('NgInputDecimalComponent', () => {
       </sac-inputdecimal>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputDecimalComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputDecimalComponent],
         componentProperties: {
           label: 'My Label',
           value: 4,
@@ -190,8 +182,7 @@ describe('NgInputDecimalComponent', () => {
       </sac-inputdecimal>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputDecimalComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputDecimalComponent],
         componentProperties: {
           label: 'My Label',
           value: 8,
@@ -216,8 +207,7 @@ describe('NgInputDecimalComponent', () => {
       </sac-inputdecimal>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputDecimalComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputDecimalComponent],
         componentProperties: {
           label: 'My Label',
           value: 8,
@@ -242,8 +232,7 @@ describe('NgInputDecimalComponent', () => {
       </sac-inputdecimal>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputDecimalComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputDecimalComponent],
         componentProperties: {
           label: 'My Label',
           value: 8,
@@ -268,8 +257,7 @@ describe('NgInputDecimalComponent', () => {
       </sac-inputdecimal>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputDecimalComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputDecimalComponent],
         componentProperties: {
           label: 'My Label',
           value: 0,
@@ -292,8 +280,7 @@ describe('NgInputDecimalComponent', () => {
       </sac-inputdecimal>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputDecimalComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputDecimalComponent],
         componentProperties: {
           label: 'My Label',
           value: 0,
@@ -316,8 +303,7 @@ describe('NgInputDecimalComponent', () => {
       </sac-inputdecimal>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputDecimalComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputDecimalComponent],
         componentProperties: {
           label: 'My Label',
           value: 0,

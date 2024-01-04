@@ -11,8 +11,8 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        declarations: [SacFormDirective, SacCheckboxComponent],
-        imports: [FormsModule],
+        declarations: [],
+        imports: [FormsModule, SacCheckboxComponent, SacFormDirective],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',
@@ -38,8 +38,7 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        declarations: [SacFormDirective, SacCheckboxComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacCheckboxComponent],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',
@@ -62,8 +61,7 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        declarations: [SacFormDirective, SacCheckboxComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacCheckboxComponent],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',
@@ -73,9 +71,7 @@ describe('sac-checkboxComponent', () => {
       }
     );
 
-    cy.get('.row .col-12')
-      .first()
-      .should('not.have.text', 'Control Label');
+    cy.get('.row .col-12').first().should('not.have.text', 'Control Label');
     cy.get('label').should('have.text', 'Checkbox Test');
   });
 
@@ -86,8 +82,7 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        declarations: [SacFormDirective, SacCheckboxComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacCheckboxComponent],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',

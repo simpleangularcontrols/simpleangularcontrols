@@ -11,8 +11,7 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        declarations: [SacFormDirective, SacCheckboxComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacCheckboxComponent],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',
@@ -22,7 +21,9 @@ describe('sac-checkboxComponent', () => {
       }
     );
 
-    cy.get('.form-group .control-label').first().should('have.text', 'Control Label');
+    cy.get('.form-group .control-label')
+      .first()
+      .should('have.text', 'Control Label');
     cy.get('.checkbox label span').should('have.text', 'Checkbox Test');
     cy.get('input').should('not.be.checked');
     cy.get('input').click();
@@ -38,8 +39,7 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        declarations: [SacFormDirective, SacCheckboxComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacCheckboxComponent],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',
@@ -62,8 +62,7 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        declarations: [SacFormDirective, SacCheckboxComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacCheckboxComponent],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',
@@ -73,8 +72,7 @@ describe('sac-checkboxComponent', () => {
       }
     );
 
-    cy.get('.form-group .control-label')
-      .should('not.exist');
+    cy.get('.form-group .control-label').should('not.exist');
     cy.get('.checkbox label span').should('have.text', 'Checkbox Test');
   });
 
@@ -85,8 +83,7 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        declarations: [SacFormDirective, SacCheckboxComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacCheckboxComponent],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',

@@ -1,8 +1,14 @@
 <form #myForm="sacform" labelsize="3">
   <h2>RichtText Component</h2>
+  <div class="mb-2">
+    <sac-button (clicked)="debugAction()" text="Validate"></sac-button>
+  </div>
+  <sac-validationsummary></sac-validationsummary>
+
   <sac-tinymce
     label="Inhalt"
     name="tinymce1"
+    [isrequired]="true"
     [config]="config1"
     [(ngModel)]="value1"
   ></sac-tinymce>
@@ -22,7 +28,7 @@
   <div>Output</div>
   <div>{{ value2 | json }}</div>
  -->
- 
+
   <h2>RichtText Component ohne Label</h2>
   <sac-tinymce
     [disablelabel]="true"

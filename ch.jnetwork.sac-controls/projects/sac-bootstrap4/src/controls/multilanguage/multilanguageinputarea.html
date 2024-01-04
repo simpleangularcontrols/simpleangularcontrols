@@ -9,7 +9,10 @@
     class="col-12"
     [ngClass]="[disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']"
   >
-    <div class="input-group input-group-sm">
+    <div
+      class="input-group input-group-sm"
+      [class.has-validation]="isinlineerrorenabled && invalid && (dirty || touched)"
+    >
       <textarea
         id="{{name}}"
         name="{{name}}"
@@ -70,6 +73,12 @@
             (clicked)="SelectLanguage(sprache)"
           ></sac-multilanguagemenubutton>
         </ng-container>
+      </div>
+      <div
+        *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+        class="invalid-feedback"
+      >
+        {{ GetErrorMessage() | async }}
       </div>
     </div>
   </div>

@@ -1,5 +1,10 @@
 <form #myForm="sacform" labelsize="3">
   <h2>RichtText Component</h2>
+  <div class="mb-2">
+    <sac-button (clicked)="debugAction()" text="Validate"></sac-button>
+  </div>
+  <sac-validationsummary></sac-validationsummary>
+
   <sac-tinymce
     label="Inhalt"
     name="tinymce1"
@@ -13,6 +18,7 @@
   <sac-tinymce
     label="Inhalt"
     name="tinymce2"
+    [isrequired]="true"
     [config]="config2"
     [(ngModel)]="value2"
     height="450px"

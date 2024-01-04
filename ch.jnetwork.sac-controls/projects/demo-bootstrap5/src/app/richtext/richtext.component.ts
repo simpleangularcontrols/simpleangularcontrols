@@ -1,4 +1,4 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { JsonPipe } from '@angular/common';
 import { SACBootstrap5FormModule, SACBootstrap5TinyMceModule } from '@simpleangularcontrols/sac-bootstrap5';
 import { FormsModule } from '@angular/forms';
@@ -42,5 +42,12 @@ export class DemoRichtextComponent {
   };
   public save6(content: string): void {
     alert('Save: ' + content);
+  }
+
+  @ViewChild('myForm') myForm: SacFormDirective;
+
+  public debugAction(): void {
+    this.myForm.markAsTouched();
+    alert('Action');
   }
 }

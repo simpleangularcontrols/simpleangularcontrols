@@ -12,7 +12,7 @@
     [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"
   >
     <div
-      class="dropzone d-flex justify-content-center"
+      class="dropzone d-flex justify-content-center position-relative"
       (drop)="dropHandler($event)"
       (dragover)="onDragOver($event)"
       (dragleave)="onDragLeave($event)"
@@ -29,12 +29,6 @@
             [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)"
           >
             <ng-content></ng-content>
-          </div>
-          <div
-            *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
-            class="invalid-feedback"
-          >
-            {{ GetErrorMessage() | async }}
           </div>
         </div>
       </div>
@@ -84,6 +78,12 @@
         (uploadxState)="onUpload($event)"
         [disabled]="HasQueueItem()"
       />
+    </div>
+    <div
+      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+      class="invalid-feedback"
+    >
+      {{ GetErrorMessage() | async }}
     </div>
   </div>
 </div>

@@ -21,7 +21,7 @@
       [class.is-invalid]="invalid && (dirty || touched)"
     >
       <div
-        class="content d-flex justify-content-center"
+        class="content d-flex justify-content-center position-relative"
         *ngIf="uploads.length === 0"
       >
         <div class="align-self-center text-center">
@@ -29,12 +29,6 @@
             [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)"
           >
             <ng-content></ng-content>
-          </div>
-          <div
-            *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
-            class="invalid-feedback"
-          >
-            {{ GetErrorMessage() | async }}
           </div>
         </div>
       </div>
@@ -81,6 +75,12 @@
         (uploadxState)="onUpload($event)"
         [disabled]="HasQueueItem()"
       />
+    </div>
+    <div
+      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+      class="invalid-feedback"
+    >
+      {{ GetErrorMessage() | async }}
     </div>
   </div>
 </div>

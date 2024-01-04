@@ -30,12 +30,6 @@
           >
             <ng-content></ng-content>
           </div>
-          <div
-            *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
-            class="invalid-feedback"
-          >
-            {{ GetErrorMessage() | async }}
-          </div>
         </div>
       </div>
       <div
@@ -86,6 +80,12 @@
         (uploadxState)="onUpload($event)"
         [disabled]="HasQueueItem()"
       />
+    </div>
+    <div
+      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+      class="invalid-feedback"
+    >
+      {{ GetErrorMessage() | async }}
     </div>
   </div>
 </div>

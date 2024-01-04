@@ -4,12 +4,20 @@
   border-radius: 0.5rem;
   background: transparent;
 
+  &.is-invalid {
+    border-color: var(--bs-form-invalid-border-color);
+  }
+
   .content {
     position: relative;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+
+    .is-invalid {
+      color: var(--bs-form-invalid-border-color);
+    }
 
     .progress-container {
       min-width: 50%;

@@ -8,6 +8,7 @@
   <div
     class="col-12"
     [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"
+    [class.has-error]="isinlineerrorenabled && invalid && (dirty || touched)"
   >
     <editor
       [id]="name + '_tinymce'"
@@ -18,7 +19,14 @@
       (ngModelChange)="setValue($event)"
       (onSaveContent)="save($event.event.content)"
       [disabled]="disabled"
+      [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)"
     ></editor>
+    <div
+      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+      class="help-block"
+    >
+      {{ GetErrorMessage() | async }}
+    </div>
   </div>
 </div>
 

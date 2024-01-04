@@ -132,6 +132,13 @@
       [(ngModel)]="values.fieldcurrency2"
       disabled="true"
     ></sac-inputcurrency>
+    <sac-inputcurrency
+      name="fieldcurrency3"
+      label="Preis (Required)"
+      [(ngModel)]="values.fieldcurrency3"
+      [isrequired]="true"
+      validationmessagerequired="Please enter a valid price"
+    ></sac-inputcurrency>
 
     <sac-inputemail
       name="fieldemail1"

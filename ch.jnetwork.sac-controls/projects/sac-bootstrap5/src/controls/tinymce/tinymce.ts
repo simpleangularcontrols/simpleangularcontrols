@@ -20,6 +20,7 @@ import { SacFormDirective } from '../form/form';
 @Component({
   selector: 'sac-tinymce',
   templateUrl: './tinymce.html',
+  styleUrls: ['./tinymce.scss'],
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
     {

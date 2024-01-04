@@ -336,7 +336,7 @@
                                     <a href="#inlineerrorenabled" >inlineerrorenabled</a>
                                 </li>
                                 <li>
-                                    <a href="#IsInlineErrorEnabled" >IsInlineErrorEnabled</a>
+                                    <a href="#isinlineerrorenabled" >isinlineerrorenabled</a>
                                 </li>
                             </ul>
                         </td>
@@ -491,7 +491,7 @@ Inject des Formulars</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="432" class="link-to-prism">projects/sac-common/src/common/basemodelcontrol.ts:432</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="430" class="link-to-prism">projects/sac-common/src/common/basemodelcontrol.ts:430</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1338,8 +1338,8 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="422"
-                                    class="link-to-prism">projects/sac-common/src/common/basemodelcontrol.ts:422</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="420"
+                                    class="link-to-prism">projects/sac-common/src/common/basemodelcontrol.ts:420</a></div>
                         </td>
                     </tr>
 
@@ -2282,7 +2282,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="439" class="link-to-prism">projects/sac-common/src/common/basemodelcontrol.ts:439</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="437" class="link-to-prism">projects/sac-common/src/common/basemodelcontrol.ts:437</a></div>
                                 </td>
                             </tr>
 
@@ -2293,7 +2293,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="432" class="link-to-prism">projects/sac-common/src/common/basemodelcontrol.ts:432</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="430" class="link-to-prism">projects/sac-common/src/common/basemodelcontrol.ts:430</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2341,24 +2341,24 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="IsInlineErrorEnabled"></a>
-                        <span class="name"><b>IsInlineErrorEnabled</b><a href="#IsInlineErrorEnabled"><span class="icon ion-ios-link"></span></a></span>
+                        <a name="isinlineerrorenabled"></a>
+                        <span class="name"><b>isinlineerrorenabled</b><a href="#isinlineerrorenabled"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <span class="accessor"><b>get</b><code>IsInlineErrorEnabled()</code></span>
+                        <span class="accessor"><b>get</b><code>isinlineerrorenabled()</code></span>
                     </td>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="446" class="link-to-prism">projects/sac-common/src/common/basemodelcontrol.ts:446</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="444" class="link-to-prism">projects/sac-common/src/common/basemodelcontrol.ts:444</a></div>
                                 </td>
                             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>Gibt zurück, ob die Inline Error Meldungen für diesem Control aktiv sind.</p>
+                                <div class="io-description"><p>Returns whether the inline error messages are active for this control.</p>
 </div>
 
                                 <div class="io-description">
@@ -2775,8 +2775,6 @@ export abstract class SacBaseModelControl&lt;VALUE&gt;
       });
     }
 
-    console.log(&#x27;Step4: &#x27; + JSON.stringify(errors));
-
     const errorItem: ValidationErrorItem &#x3D; errors[keys[0]];
 
     // Validation Parameters
@@ -2819,9 +2817,9 @@ export abstract class SacBaseModelControl&lt;VALUE&gt;
   }
 
   /**
-   * Gibt zurück, ob die Inline Error Meldungen für diesem Control aktiv sind.
+   * Returns whether the inline error messages are active for this control.
    */
-  get IsInlineErrorEnabled(): boolean {
+  get isinlineerrorenabled(): boolean {
     if (
       this.parent?.IsInlineErrorEnabled &#x3D;&#x3D;&#x3D; null ||
       this.parent?.IsInlineErrorEnabled &#x3D;&#x3D;&#x3D; undefined

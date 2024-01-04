@@ -15,11 +15,7 @@ import {
   Renderer2,
   forwardRef,
 } from '@angular/core';
-import {
-  FormsModule,
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR
-} from '@angular/forms';
+import { FormsModule, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
   SacDropdownCommon,
   SacDropdownOptionCommon,

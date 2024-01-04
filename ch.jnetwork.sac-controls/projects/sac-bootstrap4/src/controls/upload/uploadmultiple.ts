@@ -1,44 +1,39 @@
+import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import {
   Component,
-  forwardRef,
   Host,
   Injector,
   NgZone,
   Optional,
   Renderer2,
+  forwardRef,
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacUploadMultipleCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormDirective } from '../form/form';
-import { NgIf, NgClass, NgFor, AsyncPipe } from '@angular/common';
 
 /**
  * Upload Komponente für den Upload mehrer Files
  * @see https://github.com/kukhariev/ngx-uploadx/
  */
 @Component({
-    selector: 'sac-uploadmultiple',
-    templateUrl: './uploadmultiple.html',
-    styleUrls: ['./upload.scss'],
-    providers: [
-        {
-            provide: NG_VALUE_ACCESSOR,
-            multi: true,
-            useExisting: SacUploadMultipleComponent,
-        },
-        {
-            provide: NG_VALIDATORS,
-            multi: true,
-            useExisting: forwardRef(() => SacUploadMultipleComponent),
-        },
-    ],
-    standalone: true,
-    imports: [
-        NgIf,
-        NgClass,
-        NgFor,
-        AsyncPipe,
-    ],
+  selector: 'sac-uploadmultiple',
+  templateUrl: './uploadmultiple.html',
+  styleUrls: ['./upload.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: SacUploadMultipleComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => SacUploadMultipleComponent),
+    },
+  ],
+  standalone: true,
+  imports: [NgIf, NgClass, NgFor, AsyncPipe],
 })
 export class SacUploadMultipleComponent extends SacUploadMultipleCommon {
   /**

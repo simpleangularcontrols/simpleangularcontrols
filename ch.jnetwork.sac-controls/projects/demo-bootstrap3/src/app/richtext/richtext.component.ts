@@ -1,19 +1,27 @@
-import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
 import { JsonPipe } from '@angular/common';
-import { SACBootstrap3FormModule, SACBootstrap3TinyMceModule } from '@simpleangularcontrols/sac-bootstrap3';
+import { Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {
+  SACBootstrap3ButtonModule,
+  SACBootstrap3FormModule,
+  SACBootstrap3TinyMceModule,
+  SACBootstrap3ValidationSummaryModule,
+  SacFormDirective,
+} from '@simpleangularcontrols/sac-bootstrap3';
 
 @Component({
-    selector: 'app-richtext',
-    templateUrl: './richtext.component.html',
-    styleUrls: ['./richtext.component.scss'],
-    standalone: true,
-    imports: [
-        FormsModule,
-        SACBootstrap3FormModule,
-        SACBootstrap3TinyMceModule,
-        JsonPipe,
-    ],
+  selector: 'app-richtext',
+  templateUrl: './richtext.component.html',
+  styleUrls: ['./richtext.component.scss'],
+  standalone: true,
+  imports: [
+    FormsModule,
+    SACBootstrap3FormModule,
+    SACBootstrap3TinyMceModule,
+    SACBootstrap3ButtonModule,
+    SACBootstrap3ValidationSummaryModule,
+    JsonPipe,
+  ],
 })
 export class DemoRichtextComponent {
   public value1 = '';

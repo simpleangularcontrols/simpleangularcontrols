@@ -1,3 +1,4 @@
+import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import {
   Component,
   forwardRef,
@@ -11,34 +12,29 @@ import {
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacDropzoneSingleCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormDirective } from '../form/form';
-import { NgIf, NgClass, NgFor } from '@angular/common';
 
 /**
  * Dropzone Komponente für den Upload eines Files
  * @see https://github.com/kukhariev/ngx-uploadx/
  */
 @Component({
-    selector: 'sac-dropzonesingle',
-    templateUrl: './dropzonesingle.html',
-    styleUrls: ['./dropzone.scss'],
-    providers: [
-        {
-            provide: NG_VALUE_ACCESSOR,
-            multi: true,
-            useExisting: SacDropzoneSingleComponent,
-        },
-        {
-            provide: NG_VALIDATORS,
-            multi: true,
-            useExisting: forwardRef(() => SacDropzoneSingleComponent),
-        },
-    ],
-    standalone: true,
-    imports: [
-        NgIf,
-        NgClass,
-        NgFor,
-    ],
+  selector: 'sac-dropzonesingle',
+  templateUrl: './dropzonesingle.html',
+  styleUrls: ['./dropzone.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: SacDropzoneSingleComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => SacDropzoneSingleComponent),
+    },
+  ],
+  standalone: true,
+  imports: [NgIf, NgClass, NgFor, AsyncPipe],
 })
 export class SacDropzoneSingleComponent
   extends SacDropzoneSingleCommon

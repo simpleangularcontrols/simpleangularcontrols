@@ -1,55 +1,54 @@
+import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import {
   Component,
-  Host,
-  forwardRef,
-  Injector,
   Directive,
-  Renderer2,
   ElementRef,
+  Host,
+  Injector,
   Optional,
+  Renderer2,
+  forwardRef,
 } from '@angular/core';
 import {
-  NG_VALUE_ACCESSOR,
   ControlContainer,
   NG_VALIDATORS,
+  NG_VALUE_ACCESSOR,
 } from '@angular/forms';
-import { SacFormDirective } from '../form/form';
 import {
   SacListboxCommon,
   SacListboxOptionCommon,
 } from '@simpleangularcontrols/sac-common';
-import { NgClass, NgIf, NgFor } from '@angular/common';
+import { SacFormDirective } from '../form/form';
 
 /**
  * Listbox Komponente
  */
 @Component({
-    selector: 'sac-listbox',
-    templateUrl: './listbox.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-    providers: [
-        {
-            provide: NG_VALUE_ACCESSOR,
-            multi: true,
-            useExisting: SacListboxComponent,
-        },
-        {
-            provide: NG_VALIDATORS,
-            multi: true,
-            useExisting: forwardRef(() => SacListboxComponent),
-        },
-    ],
-    // View Provider, damit das Formular an das Control gebunden werden kann
-    viewProviders: [
-        { provide: ControlContainer, useExisting: SacFormDirective },
-    ],
-    standalone: true,
-    imports: [
-        NgClass,
-        NgIf,
-        NgFor,
-        forwardRef(() => SacListboxOptionDirective),
-    ],
+  selector: 'sac-listbox',
+  templateUrl: './listbox.html',
+  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: SacListboxComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => SacListboxComponent),
+    },
+  ],
+  // View Provider, damit das Formular an das Control gebunden werden kann
+  viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }],
+  standalone: true,
+  imports: [
+    NgClass,
+    NgIf,
+    NgFor,
+    AsyncPipe,
+    forwardRef(() => SacListboxOptionDirective),
+  ],
 })
 export class SacListboxComponent extends SacListboxCommon {
   /**
@@ -57,7 +56,10 @@ export class SacListboxComponent extends SacListboxCommon {
    * @param parent Formular
    * @param injector Angular Dependiency Injection Service
    */
-  constructor(@Host() @Optional() parent: SacFormDirective, injector: Injector) {
+  constructor(
+    @Host() @Optional() parent: SacFormDirective,
+    injector: Injector
+  ) {
     super(parent, injector);
   }
 }
@@ -66,8 +68,8 @@ export class SacListboxComponent extends SacListboxCommon {
  * Option Item in Listbox
  */
 @Directive({
-    selector: '[sacOption],option',
-    standalone: true
+  selector: '[sacOption],option',
+  standalone: true,
 })
 export class SacListboxOptionDirective extends SacListboxOptionCommon {
   /**

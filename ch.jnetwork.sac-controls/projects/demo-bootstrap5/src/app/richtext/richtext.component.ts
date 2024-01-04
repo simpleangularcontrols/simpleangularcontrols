@@ -20,7 +20,6 @@ import {
     SACBootstrap5ButtonModule,
     SACBootstrap5ValidationSummaryModule,
     SACBootstrap5TinyMceModule,
-    SacFormDirective,
     JsonPipe,
   ],
 })

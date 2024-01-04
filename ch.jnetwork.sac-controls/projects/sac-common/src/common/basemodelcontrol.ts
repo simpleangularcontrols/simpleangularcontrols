@@ -17,7 +17,7 @@ import {
   SacDefaultLocalisationService,
   SACLOCALISATION_SERVICE,
 } from '../services/sac-localisation.service';
-import { convertToBoolean } from '../utilities/Convertion';
+import { convertToBoolean } from '../utilities/convertion';
 import { ValidationErrorItem } from '../validation';
 
 /**

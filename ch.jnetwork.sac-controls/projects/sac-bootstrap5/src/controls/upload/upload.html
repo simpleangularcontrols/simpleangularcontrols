@@ -11,7 +11,10 @@
     class="col-12"
     [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"
   >
-    <div class="input-group upload-component upload-single">
+    <div
+      class="input-group upload-component upload-single"
+      [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)"
+    >
       <!-- image-preview-input -->
       <div
         class="btn upload-input custom-file"
@@ -97,6 +100,12 @@
         <span [class]="IconUpload" class="pe-2"></span>{{
         lngResourceService.GetString('UPLOAD_BUTTON_UPLOAD') | async }}
       </button>
+    </div>
+    <div
+      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+      class="invalid-feedback"
+    >
+      {{ GetErrorMessage() | async }}
     </div>
   </div>
 </div>

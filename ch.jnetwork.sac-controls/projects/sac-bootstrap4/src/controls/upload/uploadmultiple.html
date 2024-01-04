@@ -14,7 +14,10 @@
     <div class="upload-component">
       <div class="row">
         <div class="col-12">
-          <div class="btn-group">
+          <div
+            class="btn-group"
+            [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)"
+          >
             <div
               class="btn upload-input custom-file"
               [class.disabled]="maxfiles > 0 &&  uploads.length >= maxfiles"
@@ -77,6 +80,12 @@
               </button>
             </div>
           </div>
+          <div
+            *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+            class="invalid-feedback"
+          >
+            {{ GetErrorMessage() | async }}
+          </div>
         </div>
       </div>
 
@@ -108,7 +117,7 @@
               [class.btn-secondary]="!(invalid && (dirty || touched))"
               [class.btn-danger]="invalid && (dirty || touched)"
             >
-            <span [class]="IconDelete"></span>
+              <span [class]="IconDelete"></span>
             </button>
             <button
               *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && file.status !== 'paused')"
@@ -127,7 +136,7 @@
               [class.btn-secondary]="!(invalid && (dirty || touched))"
               [class.btn-danger]="invalid && (dirty || touched)"
             >
-            <span [class]="IconContinue"></span>
+              <span [class]="IconContinue"></span>
             </button>
             <button
               *ngIf="autoupload === false"

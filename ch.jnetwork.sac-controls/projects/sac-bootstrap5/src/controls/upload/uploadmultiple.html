@@ -14,7 +14,10 @@
     <div class="upload-component">
       <div class="row">
         <div class="col-12">
-          <div class="btn-group">
+          <div
+            class="btn-group"
+            [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)"
+          >
             <div
               class="btn upload-input custom-file"
               [class.disabled]="maxfiles > 0 &&  uploads.length >= maxfiles"
@@ -76,6 +79,12 @@
                 lngResourceService.GetString('UPLOAD_BUTTON_UPLOAD') | async }}
               </button>
             </div>
+          </div>
+          <div
+            *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+            class="invalid-feedback"
+          >
+            {{ GetErrorMessage() | async }}
           </div>
         </div>
       </div>

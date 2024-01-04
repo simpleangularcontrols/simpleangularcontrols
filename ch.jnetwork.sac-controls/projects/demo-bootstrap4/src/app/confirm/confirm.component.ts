@@ -1,4 +1,4 @@
-import { Component, importProvidersFrom } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SACBootstrap3ConfirmModule } from '@simpleangularcontrols/sac-bootstrap3';
 import {

@@ -18,13 +18,19 @@
       (dragleave)="onDragLeave($event)"
       [style.min-height]="uploadheight"
       [class.active]="active"
-      [class.validation-error]="invalid && (dirty || touched)"
+      [class.is-invalid]="invalid && (dirty || touched)"
     >
       <div
-        class="content d-flex justify-content-center"
+        class="content d-flex justify-content-center position-relative"
         *ngIf="uploads.length === 0"
       >
-        <div class="align-self-center"><ng-content></ng-content></div>
+        <div class="align-self-center text-center">
+          <div
+            [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)"
+          >
+            <ng-content></ng-content>
+          </div>
+        </div>
       </div>
       <div
         class="content d-flex justify-content-center align-items-center w-50 my-3"
@@ -69,6 +75,12 @@
         (uploadxState)="onUpload($event)"
         [disabled]="HasQueueItem()"
       />
+    </div>
+    <div
+      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+      class="invalid-feedback"
+    >
+      {{ GetErrorMessage() | async }}
     </div>
   </div>
 </div>

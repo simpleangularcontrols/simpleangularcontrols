@@ -24,5 +24,11 @@
       [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
       [disabled]="isdisabled"
     />
+    <div
+      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+      class="invalid-feedback"
+    >
+      {{ GetErrorMessage() | async }}
+    </div>
   </div>
 </div>

@@ -11,8 +11,7 @@ describe('NgInputComponent', () => {
       </sac-input>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputComponent],
         componentProperties: {
           label: 'My Label',
           value: 'My Text',
@@ -32,8 +31,7 @@ describe('NgInputComponent', () => {
       </sac-input>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputComponent],
         componentProperties: {
           label: 'My Label',
           value: '',
@@ -60,8 +58,7 @@ describe('NgInputComponent', () => {
       </sac-input>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputComponent],
         componentProperties: {
           label: 'My Label',
           value: 'My Value',
@@ -81,8 +78,7 @@ describe('NgInputComponent', () => {
       </sac-input>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputComponent],
         componentProperties: {
           label: 'My Label',
           value: '',
@@ -101,8 +97,7 @@ describe('NgInputComponent', () => {
       </sac-input>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputComponent],
         componentProperties: {
           label: 'My Label',
           value: 'MyValue',
@@ -121,8 +116,7 @@ describe('NgInputComponent', () => {
       </sac-input>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputComponent],
         componentProperties: {
           label: 'My Label',
           value: 'MyValue',
@@ -141,8 +135,7 @@ describe('NgInputComponent', () => {
       </sac-input>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputComponent],
         componentProperties: {
           label: 'My Label',
           value: 'first value',
@@ -164,8 +157,7 @@ describe('NgInputComponent', () => {
       </sac-input>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputComponent],
         componentProperties: {
           label: 'My Label',
           value: 'first value',
@@ -186,8 +178,7 @@ describe('NgInputComponent', () => {
       </sac-input>
       </form>`,
       {
-        declarations: [SacFormDirective, SacInputComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SacFormDirective, SacInputComponent],
         componentProperties: {
           label: 'My Label',
           value: '',

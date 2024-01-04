@@ -9,7 +9,10 @@
     class="col-12"
     [ngClass]="[disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']"
   >
-    <div class="input-group input-group-sm">
+    <div
+      class="input-group input-group-sm"
+      [class.has-validation]="isinlineerrorenabled && invalid && (dirty || touched)"
+    >
       <input
         id="{{name}}"
         name="{{name}}"
@@ -25,6 +28,12 @@
         [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
       />
       <span class="input-group-text">CHF</span>
+      <div
+        *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+        class="invalid-feedback"
+      >
+        {{ GetErrorMessage() | async }}
+      </div>
     </div>
   </div>
 </div>

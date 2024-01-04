@@ -9,7 +9,10 @@
     class="col-12 position-relative"
     [ngClass]="[disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']"
   >
-    <div class="input-group input-group-sm">
+    <div
+      class="input-group input-group-sm"
+      [class.has-validation]="isinlineerrorenabled && invalid && (dirty || touched)"
+    >
       <input
         id="{{name}}"
         name="{{name}}"
@@ -31,6 +34,12 @@
       >
         <i [class]="IconSelector"></i>
       </button>
+      <div
+        *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+        class="invalid-feedback"
+      >
+        {{ GetErrorMessage() | async }}
+      </div>
     </div>
     <div
       class="popover fade bs-popover-bottom show position-absolute"

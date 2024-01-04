@@ -4,6 +4,9 @@
 <ng-container
   [ngTemplateOutlet]="buttontemplate || defaultButtonTemplate"
 ></ng-container>
+<ng-container
+  [ngTemplateOutlet]="validationtemplate || defaultValidationTemplate"
+></ng-container>
 
 <ul
   class="dropdown-menu dropdown-menu-right"
@@ -25,3 +28,5 @@
 <ng-template #defaultInputTemplate>
   <input type="text" class="form-control form-control-sm" />
 </ng-template>
+
+<ng-template #defaultValidationTemplate></ng-template>

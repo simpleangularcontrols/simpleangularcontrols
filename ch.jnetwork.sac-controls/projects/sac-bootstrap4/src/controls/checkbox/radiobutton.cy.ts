@@ -14,12 +14,12 @@ describe('NgRadiobuttonComponent', () => {
       </sac-radiobuttons>
       </form>`,
       {
-        declarations: [
+        imports: [
+          FormsModule,
           SacFormDirective,
           SacRadiobuttonsComponent,
           SacRadiobuttonComponent,
         ],
-        imports: [FormsModule],
         componentProperties: {
           label: 'Radiobutton Test',
           rbLabel1: 'Control Label 1',
@@ -50,12 +50,12 @@ describe('NgRadiobuttonComponent', () => {
       </sac-radiobuttons>
       </form>`,
       {
-        declarations: [
+        imports: [
+          FormsModule,
           SacFormDirective,
           SacRadiobuttonsComponent,
           SacRadiobuttonComponent,
         ],
-        imports: [FormsModule],
         componentProperties: {
           label: 'Radiobutton Test',
           rbLabel1: 'Control Label 1',
@@ -82,12 +82,12 @@ describe('NgRadiobuttonComponent', () => {
       </sac-radiobuttons>
       </form>`,
       {
-        declarations: [
+        imports: [
+          FormsModule,
           SacFormDirective,
           SacRadiobuttonsComponent,
           SacRadiobuttonComponent,
         ],
-        imports: [FormsModule],
         componentProperties: {
           label: 'Radiobutton Test',
           rbLabel1: 'Control Label 1',
@@ -110,12 +110,12 @@ describe('NgRadiobuttonComponent', () => {
       </sac-radiobuttons>
       </form>`,
       {
-        declarations: [
+        imports: [
+          FormsModule,
           SacFormDirective,
           SacRadiobuttonsComponent,
           SacRadiobuttonComponent,
         ],
-        imports: [FormsModule],
         componentProperties: {
           label: 'Radiobutton Test',
           rbLabel1: 'Control Label 1',

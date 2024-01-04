@@ -25,5 +25,11 @@
       [attr.maxlength]="maxlength"
       [readonly]="readonly"
     ></textarea>
+    <div
+      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+      class="invalid-feedback"
+    >
+      {{ GetErrorMessage() | async }}
+    </div>
   </div>
 </div>

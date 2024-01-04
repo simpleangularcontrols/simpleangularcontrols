@@ -1,12 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
-import {
-  SacFormDirective,
-  SACBootstrap5FormModule,
-  SACBootstrap5ButtonModule,
-  SACBootstrap5ValidationSummaryModule,
-  SACBootstrap5UploadModule,
-} from '@simpleangularcontrols/sac-bootstrap5';
 import { FormsModule } from '@angular/forms';
+import {
+  SACBootstrap5ButtonModule,
+  SACBootstrap5FormModule,
+  SACBootstrap5UploadModule,
+  SACBootstrap5ValidationSummaryModule,
+  SacFormDirective,
+} from '@simpleangularcontrols/sac-bootstrap5';
 
 interface KeyValue {
   label: string;

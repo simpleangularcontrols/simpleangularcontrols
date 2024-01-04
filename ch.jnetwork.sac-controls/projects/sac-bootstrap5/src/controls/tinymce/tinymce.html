@@ -20,7 +20,14 @@
       (ngModelChange)="setValue($event)"
       (onSaveContent)="save($event.event.content)"
       [disabled]="disabled"
+      [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)"
     ></editor>
+    <div
+      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+      class="invalid-feedback"
+    >
+      {{ GetErrorMessage() | async }}
+    </div>
   </div>
 </div>
 

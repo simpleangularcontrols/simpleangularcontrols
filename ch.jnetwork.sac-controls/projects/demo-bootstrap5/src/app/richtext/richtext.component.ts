@@ -1,19 +1,27 @@
-import { Component, NgZone, OnInit } from '@angular/core';
 import { JsonPipe } from '@angular/common';
-import { SACBootstrap5FormModule, SACBootstrap5TinyMceModule } from '@simpleangularcontrols/sac-bootstrap5';
+import { Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {
+  SACBootstrap5ButtonModule,
+  SACBootstrap5FormModule,
+  SACBootstrap5TinyMceModule,
+  SACBootstrap5ValidationSummaryModule,
+  SacFormDirective,
+} from '@simpleangularcontrols/sac-bootstrap5';
 
 @Component({
-    selector: 'app-richtext',
-    templateUrl: './richtext.component.html',
-    styleUrls: ['./richtext.component.scss'],
-    standalone: true,
-    imports: [
-        FormsModule,
-        SACBootstrap5FormModule,
-        SACBootstrap5TinyMceModule,
-        JsonPipe,
-    ],
+  selector: 'app-richtext',
+  templateUrl: './richtext.component.html',
+  styleUrls: ['./richtext.component.scss'],
+  standalone: true,
+  imports: [
+    FormsModule,
+    SACBootstrap5FormModule,
+    SACBootstrap5ButtonModule,
+    SACBootstrap5ValidationSummaryModule,
+    SACBootstrap5TinyMceModule,
+    JsonPipe,
+  ],
 })
 export class DemoRichtextComponent {
   public value1 = '';
@@ -42,5 +50,12 @@ export class DemoRichtextComponent {
   };
   public save6(content: string): void {
     alert('Save: ' + content);
+  }
+
+  @ViewChild('myForm') myForm: SacFormDirective;
+
+  public debugAction(): void {
+    this.myForm.markAsTouched();
+    alert('Action');
   }
 }

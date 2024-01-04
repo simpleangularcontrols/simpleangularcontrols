@@ -1,23 +1,69 @@
 <div class="row form-group" [class.no-gutters]="disablelabel">
-  <label for="{{name}}" class="col-12 col-form-label" [ngClass]="[disablelabel === false ?  'col-sm-' + labelsize : 'sr-only' ]">{{label}}</label>
-  <div class="col-12" [ngClass]="[disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
-    <div class="input-group input-group-sm">
-      <input id="{{name}}" name="{{name}}" type="text" class="form-control" [imask]="imaskDate" [attr.placeholder]="placeholder" [value]="valuestring" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()"
-             (accept)="setValueString($event)" [disabled]="isdisabled" />
+  <label
+    for="{{name}}"
+    class="col-12 col-form-label"
+    [ngClass]="[disablelabel === false ?  'col-sm-' + labelsize : 'sr-only' ]"
+    >{{label}}</label
+  >
+  <div
+    class="col-12"
+    [ngClass]="[disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']"
+  >
+    <div
+      class="input-group input-group-sm"
+      [class.has-validation]="isinlineerrorenabled && invalid && (dirty || touched)"
+    >
+      <input
+        id="{{name}}"
+        name="{{name}}"
+        type="text"
+        class="form-control"
+        [imask]="imaskDate"
+        [attr.placeholder]="placeholder"
+        [value]="valuestring"
+        [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
+        (blur)="onTouch()"
+        (accept)="setValueString($event)"
+        [disabled]="isdisabled"
+      />
       <div class="input-group-append">
-        <button class="btn btn-secondary" type="button" (click)="showDateSelector()" [disabled]="isdisabled">
+        <button
+          class="btn btn-secondary"
+          type="button"
+          (click)="showDateSelector()"
+          [disabled]="isdisabled"
+        >
           <i [class]="IconSelector"></i>
         </button>
       </div>
+      <div
+        *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+        class="invalid-feedback"
+      >
+        {{ GetErrorMessage() | async }}
+      </div>
     </div>
-    <div class="popover fade bs-popover-bottom show" role="tooltip" *ngIf="_showselector"
-         style="display:block; left:unset; right: 0px; top: 34px; max-width: 325px;">
-      <div class="arrow" style="left: unset; right: 12px;"></div>
-      <h3 class="popover-header" style="display: none;"></h3>
+    <div
+      class="popover fade bs-popover-bottom show"
+      role="tooltip"
+      *ngIf="_showselector"
+      style="
+        display: block;
+        left: unset;
+        right: 0px;
+        top: 34px;
+        max-width: 325px;
+      "
+    >
+      <div class="arrow" style="left: unset; right: 12px"></div>
+      <h3 class="popover-header" style="display: none"></h3>
       <div class="popover-body">
-
-        <sac-dateselector [initialvalue]="value" (selectdate)="dateselect($event)" dateselection="true" timeselection="true"></sac-dateselector>
-
+        <sac-dateselector
+          [initialvalue]="value"
+          (selectdate)="dateselect($event)"
+          dateselection="true"
+          timeselection="true"
+        ></sac-dateselector>
       </div>
     </div>
   </div>

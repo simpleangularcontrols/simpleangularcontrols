@@ -6,12 +6,11 @@ export * from './controls/buttons/button.module';
 export * from './controls/checkbox/checkbox.module';
 export {
   SACBootstrap5ConfirmModule,
-  ServiceConfirm
+  ServiceConfirm,
 } from './controls/confirm/confirm.module';
 export * from './controls/contextmenu/contextmenu.module';
 export * from './controls/datetime/datetime.module';
 export * from './controls/dialog/dialog.module';
-export * from './controls/form/form';
 export * from './controls/form/form.module';
 export * from './controls/grid/grid.module';
 export * from './controls/input/input.module';

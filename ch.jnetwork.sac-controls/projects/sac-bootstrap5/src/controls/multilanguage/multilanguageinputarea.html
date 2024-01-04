@@ -11,10 +11,12 @@
   >
     <div
       class="input-group input-group-sm"
+      [class.has-validation]="isinlineerrorenabled && invalid && (dirty || touched)"
       placement="bottom-right"
       sac-multilanguagemenu
       [buttontemplate]="menuButton"
       [inputtemplate]="menuInput"
+      [validationtemplate]="validationMessage"
       #contextmenu
     >
       <ng-template #menuInput>
@@ -34,6 +36,7 @@
           [disabled]="isdisabled"
         ></textarea>
       </ng-template>
+
       <ng-template #menuButton>
         <button
           sacMultilanguageMenuAnchor
@@ -55,6 +58,16 @@
           ></i>
         </button>
       </ng-template>
+
+      <ng-template #validationMessage>
+        <div
+          *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+          class="invalid-feedback"
+        >
+          {{ GetErrorMessage() | async }}
+        </div></ng-template
+      >
+
       <ng-container *ngFor="let sprache of Languages">
         <sac-multilanguagemenubutton
           *ngIf="sprache.IconType === IconType.Image"

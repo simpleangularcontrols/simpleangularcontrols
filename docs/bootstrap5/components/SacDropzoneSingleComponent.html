@@ -194,6 +194,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             <code>NgIf</code>
                             <code>NgClass</code>
                             <code>NgFor</code>
+                            <code>AsyncPipe</code>
                 </td>
             </tr>
 
@@ -514,7 +515,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/sac-bootstrap5/src/controls/upload/dropzonesingle.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/sac-bootstrap5/src/controls/upload/dropzonesingle.ts:42</a></div>
                             </td>
                         </tr>
 
@@ -1040,7 +1041,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:432</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:430</a></code>
 </div>
                             </td>
                         </tr>
@@ -1348,7 +1349,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:66</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:62</a></code>
 </div>
                         </td>
                     </tr>
@@ -3344,7 +3345,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:422</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:420</a></code>
 </div>
                         </td>
                     </tr>
@@ -4188,47 +4189,43 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AsyncPipe, NgClass, NgFor, NgIf } from &#x27;@angular/common&#x27;;
+import {
   Component,
-  forwardRef,
   Host,
   Injector,
   NgZone,
   OnInit,
   Optional,
   Renderer2,
+  forwardRef,
 } from &#x27;@angular/core&#x27;;
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
 import { SacDropzoneSingleCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 import { SacFormDirective } from &#x27;../form/form&#x27;;
-import { NgIf, NgClass, NgFor } from &#x27;@angular/common&#x27;;
 
 /**
  * Dropzone Komponente für den Upload eines Files
  * @see https://github.com/kukhariev/ngx-uploadx/
  */
 @Component({
-    selector: &#x27;sac-dropzonesingle&#x27;,
-    templateUrl: &#x27;./dropzonesingle.html&#x27;,
-    styleUrls: [&#x27;./dropzone.scss&#x27;],
-    providers: [
-        {
-            provide: NG_VALUE_ACCESSOR,
-            multi: true,
-            useExisting: SacDropzoneSingleComponent,
-        },
-        {
-            provide: NG_VALIDATORS,
-            multi: true,
-            useExisting: forwardRef(() &#x3D;&gt; SacDropzoneSingleComponent),
-        },
-    ],
-    standalone: true,
-    imports: [
-        NgIf,
-        NgClass,
-        NgFor,
-    ],
+  selector: &#x27;sac-dropzonesingle&#x27;,
+  templateUrl: &#x27;./dropzonesingle.html&#x27;,
+  styleUrls: [&#x27;./dropzone.scss&#x27;],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: SacDropzoneSingleComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() &#x3D;&gt; SacDropzoneSingleComponent),
+    },
+  ],
+  standalone: true,
+  imports: [NgIf, NgClass, NgFor, AsyncPipe],
 })
 export class SacDropzoneSingleComponent
   extends SacDropzoneSingleCommon
@@ -4281,13 +4278,19 @@ export class SacDropzoneSingleComponent
       (dragleave)&#x3D;&quot;onDragLeave($event)&quot;
       [style.min-height]&#x3D;&quot;uploadheight&quot;
       [class.active]&#x3D;&quot;active&quot;
-      [class.validation-error]&#x3D;&quot;invalid &amp;&amp; (dirty || touched)&quot;
+      [class.is-invalid]&#x3D;&quot;invalid &amp;&amp; (dirty || touched)&quot;
     &gt;
       &lt;div
-        class&#x3D;&quot;content d-flex justify-content-center&quot;
+        class&#x3D;&quot;content d-flex justify-content-center position-relative&quot;
         *ngIf&#x3D;&quot;uploads.length &#x3D;&#x3D;&#x3D; 0&quot;
       &gt;
-        &lt;div class&#x3D;&quot;align-self-center&quot;&gt;&lt;ng-content&gt;&lt;/ng-content&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;align-self-center text-center&quot;&gt;
+          &lt;div
+            [class.is-invalid]&#x3D;&quot;isinlineerrorenabled &amp;&amp; invalid &amp;&amp; (dirty || touched)&quot;
+          &gt;
+            &lt;ng-content&gt;&lt;/ng-content&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
       &lt;div
         class&#x3D;&quot;content d-flex justify-content-center align-items-center w-50 my-3&quot;
@@ -4333,6 +4336,12 @@ export class SacDropzoneSingleComponent
         [disabled]&#x3D;&quot;HasQueueItem()&quot;
       /&gt;
     &lt;/div&gt;
+    &lt;div
+      *ngIf&#x3D;&quot;isinlineerrorenabled &amp;&amp; invalid &amp;&amp; (dirty || touched)&quot;
+      class&#x3D;&quot;invalid-feedback&quot;
+    &gt;
+      {{ GetErrorMessage() | async }}
+    &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -4364,7 +4373,7 @@ export class SacDropzoneSingleComponent
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="row mb-3" [class.g-0]="disablelabel">  <label    *ngIf="disablelabel === false && !isadaptivelabel"    id="{{name}}_label"    for="{{name}}"    class="col-12 col-form-label col-form-label-sm"    [ngClass]="[labelsize !== 12 ?  \'col-md-\' + labelsize : \'sr-only\']"    >{{label}}</label  >  <div    class="col-12"    [ngClass]="[disablelabel === false ? \'col-md-\' + _inputsize : \'col-md-12\']"  >    <div      class="dropzone d-flex justify-content-center position-relative"      (drop)="dropHandler($event)"      (dragover)="onDragOver($event)"      (dragleave)="onDragLeave($event)"      [style.min-height]="uploadheight"      [class.active]="active"      [class.validation-error]="invalid && (dirty || touched)"    >      <div        class="content d-flex justify-content-center"        *ngIf="uploads.length === 0"      >        <div class="align-self-center"><ng-content></ng-content></div>      </div>      <div        class="content d-flex justify-content-center align-items-center w-50 my-3"        *ngIf="uploads.length > 0"      >        <div class="flex-fill progress-container">          <div class="dropzone-uploadstates" *ngFor="let file of uploads">            <div class="input-group upload-component upload-component-multiple">              <div class="form-control upload-progress border-secondary">                <div class="progress">                  <div                    class="progress-bar"                    [class.progress-bar-success]="file.progress===100"                    role="progressbar"                    [attr.aria-valuenow]="file.progress"                    aria-valuemin="0"                    aria-valuemax="100"                    [style.width.%]="file.progress"                  >                    <span class="progress-text text-dark">{{ file.name }}</span>                  </div>                </div>              </div>              <a                class="btn"                (click)="cancel(file.uploadId)"                [class.btn-secondary]="!(invalid && (dirty || touched))"                [class.btn-danger]="invalid && (dirty || touched)"              >                <span [class]="IconDelete"></span>              </a>            </div>          </div>        </div>      </div>      <input        #files        id="{{ name }}_uploadinput"        type="file"        class="custom-file-input"        (click)="files.value = \'\'"        (uploadxState)="onUpload($event)"        [disabled]="HasQueueItem()"      />    </div>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="row mb-3" [class.g-0]="disablelabel">  <label    *ngIf="disablelabel === false && !isadaptivelabel"    id="{{name}}_label"    for="{{name}}"    class="col-12 col-form-label col-form-label-sm"    [ngClass]="[labelsize !== 12 ?  \'col-md-\' + labelsize : \'sr-only\']"    >{{label}}</label  >  <div    class="col-12"    [ngClass]="[disablelabel === false ? \'col-md-\' + _inputsize : \'col-md-12\']"  >    <div      class="dropzone d-flex justify-content-center position-relative"      (drop)="dropHandler($event)"      (dragover)="onDragOver($event)"      (dragleave)="onDragLeave($event)"      [style.min-height]="uploadheight"      [class.active]="active"      [class.is-invalid]="invalid && (dirty || touched)"    >      <div        class="content d-flex justify-content-center position-relative"        *ngIf="uploads.length === 0"      >        <div class="align-self-center text-center">          <div            [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)"          >            <ng-content></ng-content>          </div>        </div>      </div>      <div        class="content d-flex justify-content-center align-items-center w-50 my-3"        *ngIf="uploads.length > 0"      >        <div class="flex-fill progress-container">          <div class="dropzone-uploadstates" *ngFor="let file of uploads">            <div class="input-group upload-component upload-component-multiple">              <div class="form-control upload-progress border-secondary">                <div class="progress">                  <div                    class="progress-bar"                    [class.progress-bar-success]="file.progress===100"                    role="progressbar"                    [attr.aria-valuenow]="file.progress"                    aria-valuemin="0"                    aria-valuemax="100"                    [style.width.%]="file.progress"                  >                    <span class="progress-text text-dark">{{ file.name }}</span>                  </div>                </div>              </div>              <a                class="btn"                (click)="cancel(file.uploadId)"                [class.btn-secondary]="!(invalid && (dirty || touched))"                [class.btn-danger]="invalid && (dirty || touched)"              >                <span [class]="IconDelete"></span>              </a>            </div>          </div>        </div>      </div>      <input        #files        id="{{ name }}_uploadinput"        type="file"        class="custom-file-input"        (click)="files.value = \'\'"        (uploadxState)="onUpload($event)"        [disabled]="HasQueueItem()"      />    </div>    <div      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"      class="invalid-feedback"    >      {{ GetErrorMessage() | async }}    </div>  </div></div></div>'
     var COMPONENTS = [{'name': 'SacBrowserComponent', 'selector': 'sac-filebrowser'},{'name': 'SacButtonComponent', 'selector': 'sac-button'},{'name': 'SacCheckboxComponent', 'selector': 'sac-checkbox'},{'name': 'SacConfirmComponent', 'selector': 'sac-confirm'},{'name': 'SacContextmenuComponent', 'selector': 'sac-contextmenu'},{'name': 'SacContextmenuItemButtonComponent', 'selector': 'sac-contextmenubutton'},{'name': 'SacContextmenuItemSplitterComponent', 'selector': 'sac-contextmenusplitter'},{'name': 'SacDateComponent', 'selector': 'sac-date'},{'name': 'SacDateSelectorComponent', 'selector': 'sac-dateselector'},{'name': 'SacDateTimeComponent', 'selector': 'sac-datetime'},{'name': 'SacDialogComponent', 'selector': 'sac-dialog'},{'name': 'SacDropdownComponent', 'selector': 'sac-dropdown'},{'name': 'SacDropzoneMultipleComponent', 'selector': 'sac-dropzonemultiple'},{'name': 'SacDropzoneSingleComponent', 'selector': 'sac-dropzonesingle'},{'name': 'SacGridButtonComponent', 'selector': 'sac-gridbutton'},{'name': 'SacGridColumnActionComponent', 'selector': 'sac-gridcolumnaction'},{'name': 'SacGridColumnComponent', 'selector': 'sac-gridcolumn'},{'name': 'SacGridComponent', 'selector': 'sac-grid'},{'name': 'SacGridImageComponent', 'selector': 'sac-gridimage'},{'name': 'SacInputAreaComponent', 'selector': 'sac-inputarea'},{'name': 'SacInputComponent', 'selector': 'sac-input'},{'name': 'SacInputCurrencyComponent', 'selector': 'sac-inputcurrency'},{'name': 'SacInputDecimalComponent', 'selector': 'sac-inputdecimal'},{'name': 'SacInputEmailComponent', 'selector': 'sac-inputemail'},{'name': 'SacInputIntegerComponent', 'selector': 'sac-inputinteger'},{'name': 'SacInputPasswordComponent', 'selector': 'sac-inputpassword'},{'name': 'SacInputSearchComponent', 'selector': 'sac-inputsearch'},{'name': 'SacListboxComponent', 'selector': 'sac-listbox'},{'name': 'SacMultilanguageInputAreaComponent', 'selector': 'sac-multilanguageinputarea'},{'name': 'SacMultilanguageInputComponent', 'selector': 'sac-multilanguageinput'},{'name': 'SacMultilanguagemenuComponent', 'selector': '[sac-multilanguagemenu]'},{'name': 'SacMultilanguagemenuItemButtonComponent', 'selector': 'sac-multilanguagemenubutton'},{'name': 'SacPagingComponent', 'selector': 'sac-paging'},{'name': 'SacRadiobuttonComponent', 'selector': 'sac-radiobutton'},{'name': 'SacRadiobuttonsComponent', 'selector': 'sac-radiobuttons'},{'name': 'SacStaticFormContainerComponent', 'selector': 'sac-staticformcontainer'},{'name': 'SacStaticLabelComponent', 'selector': 'sac-staticlabel'},{'name': 'SacTabComponent', 'selector': 'sac-tab'},{'name': 'SacTabItemComponent', 'selector': 'sac-tabitem'},{'name': 'SacTimeComponent', 'selector': 'sac-time'},{'name': 'SacTinyMceComponent', 'selector': 'sac-tinymce'},{'name': 'SacUploadComponent', 'selector': 'sac-upload'},{'name': 'SacUploadMultipleComponent', 'selector': 'sac-uploadmultiple'},{'name': 'SacValidationSummaryComponent', 'selector': 'sac-validationsummary'},{'name': 'SacWizardComponent', 'selector': 'sac-wizard'},{'name': 'SacWizardItemComponent', 'selector': 'sac-wizarditem'}];
     var DIRECTIVES = [{'name': 'SacBaseDateTimeControl', 'selector': ''},{'name': 'SacBaseListControl', 'selector': ''},{'name': 'SacBaseModelControl', 'selector': ''},{'name': 'SacBaseSelectControl', 'selector': ''},{'name': 'SacButtonCommon', 'selector': ''},{'name': 'SacCheckboxCommon', 'selector': ''},{'name': 'SacConfirmCommon', 'selector': ''},{'name': 'SacContextmenuAnchorCommon', 'selector': ''},{'name': 'SacContextmenuAnchorDirective', 'selector': '[sacContextMenuAnchor]'},{'name': 'SacContextmenuCommon', 'selector': ''},{'name': 'SacContextmenuContainerDirective', 'selector': '[sacContextMenuContainer]'},{'name': 'SacContextMenuContrainerCommon', 'selector': ''},{'name': 'SacContextmenuItemButtonCommon', 'selector': ''},{'name': 'SacContextmenuItemCommon', 'selector': ''},{'name': 'SacDateCommon', 'selector': ''},{'name': 'SacDateSelectorCommon', 'selector': ''},{'name': 'SacDateTimeCommon', 'selector': ''},{'name': 'SacDialogCommon', 'selector': ''},{'name': 'SacDropdownCommon', 'selector': ''},{'name': 'SacDropdownOptionCommon', 'selector': ''},{'name': 'SacDropdownOptionDirective', 'selector': '[sacOption],option'},{'name': 'SacDropzoneMultipleCommon', 'selector': ''},{'name': 'SacDropzoneSingleCommon', 'selector': ''},{'name': 'SacFileBrowserCommon', 'selector': ''},{'name': 'SacFormCommon', 'selector': ''},{'name': 'SacFormDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'SacGridButtonCommon', 'selector': ''},{'name': 'SacGridColumnActionCommon', 'selector': ''},{'name': 'SacGridColumnBaseCommon', 'selector': ''},{'name': 'SacGridColumnCommon', 'selector': ''},{'name': 'SacGridCommon', 'selector': ''},{'name': 'SacGridImageCommon', 'selector': ''},{'name': 'SacInheritFormDirective', 'selector': '[sacInheritForm]'},{'name': 'SacInputAreaCommon', 'selector': ''},{'name': 'SacInputBase', 'selector': ''},{'name': 'SacInputCommon', 'selector': ''},{'name': 'SacInputCurrencyCommon', 'selector': ''},{'name': 'SacInputDecimalCommon', 'selector': ''},{'name': 'SacInputEmailCommon', 'selector': ''},{'name': 'SacInputIntegerCommon', 'selector': ''},{'name': 'SacInputPasswordCommon', 'selector': ''},{'name': 'SacInputSearchCommon', 'selector': ''},{'name': 'SacListboxCommon', 'selector': ''},{'name': 'SacListboxOptionCommon', 'selector': ''},{'name': 'SacListboxOptionDirective', 'selector': '[sacOption],option'},{'name': 'SacMultilanguageInputAreaCommon', 'selector': ''},{'name': 'SacMultilanguageInputCommon', 'selector': ''},{'name': 'SacMultilanguagemenuAnchorDirective', 'selector': '[sacMultilanguageMenuAnchor]'},{'name': 'SacMultilanguagemenuContainerDirective', 'selector': '[sacMultilanguageMenuContainer]'},{'name': 'SacPagingCommon', 'selector': ''},{'name': 'SacRadiobuttonCommon', 'selector': ''},{'name': 'SacRadiobuttonsCommon', 'selector': ''},{'name': 'SacStaticFormContainerCommon', 'selector': ''},{'name': 'SacStaticLabelCommon', 'selector': ''},{'name': 'SacTabCommon', 'selector': ''},{'name': 'SacTabItemCommon', 'selector': ''},{'name': 'SacTimeCommon', 'selector': ''},{'name': 'SacTinyMceCommon', 'selector': ''},{'name': 'SacTooltipCommon', 'selector': ''},{'name': 'SacTreeItemActionCommon', 'selector': ''},{'name': 'SacTreeViewChildCommon', 'selector': ''},{'name': 'SacTreeViewCommon', 'selector': ''},{'name': 'SacUploadBase', 'selector': ''},{'name': 'SacUploadMultipleCommon', 'selector': ''},{'name': 'SacUploadSingleCommon', 'selector': ''},{'name': 'SacValidationSummaryCommon', 'selector': ''},{'name': 'SacWizardCommon', 'selector': ''},{'name': 'SacWizardItemCommon', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'SacDropzoneSingleComponent'};

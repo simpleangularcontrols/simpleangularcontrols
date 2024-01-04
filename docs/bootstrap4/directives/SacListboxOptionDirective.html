@@ -222,7 +222,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">projects/sac-bootstrap4/src/controls/list/listbox.ts:72</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">projects/sac-bootstrap4/src/controls/list/listbox.ts:74</a></div>
                             </td>
                         </tr>
 
@@ -510,58 +510,57 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AsyncPipe, NgClass, NgFor, NgIf } from &#x27;@angular/common&#x27;;
+import {
   Component,
-  Host,
-  forwardRef,
-  Injector,
   Directive,
-  Renderer2,
   ElementRef,
+  Host,
+  Injector,
   Optional,
+  Renderer2,
+  forwardRef,
 } from &#x27;@angular/core&#x27;;
 import {
-  NG_VALUE_ACCESSOR,
   ControlContainer,
   NG_VALIDATORS,
+  NG_VALUE_ACCESSOR,
 } from &#x27;@angular/forms&#x27;;
-import { SacFormDirective } from &#x27;../form/form&#x27;;
 import {
   SacListboxCommon,
   SacListboxOptionCommon,
 } from &#x27;@simpleangularcontrols/sac-common&#x27;;
-import { NgClass, NgIf, NgFor } from &#x27;@angular/common&#x27;;
+import { SacFormDirective } from &#x27;../form/form&#x27;;
 
 /**
  * Listbox Komponente
  */
 @Component({
-    selector: &#x27;sac-listbox&#x27;,
-    templateUrl: &#x27;./listbox.html&#x27;,
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-    providers: [
-        {
-            provide: NG_VALUE_ACCESSOR,
-            multi: true,
-            useExisting: SacListboxComponent,
-        },
-        {
-            provide: NG_VALIDATORS,
-            multi: true,
-            useExisting: forwardRef(() &#x3D;&gt; SacListboxComponent),
-        },
-    ],
-    // View Provider, damit das Formular an das Control gebunden werden kann
-    viewProviders: [
-        { provide: ControlContainer, useExisting: SacFormDirective },
-    ],
-    standalone: true,
-    imports: [
-        NgClass,
-        NgIf,
-        NgFor,
-        forwardRef(() &#x3D;&gt; SacListboxOptionDirective),
-    ],
+  selector: &#x27;sac-listbox&#x27;,
+  templateUrl: &#x27;./listbox.html&#x27;,
+  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: SacListboxComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() &#x3D;&gt; SacListboxComponent),
+    },
+  ],
+  // View Provider, damit das Formular an das Control gebunden werden kann
+  viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }],
+  standalone: true,
+  imports: [
+    NgClass,
+    NgIf,
+    NgFor,
+    AsyncPipe,
+    forwardRef(() &#x3D;&gt; SacListboxOptionDirective),
+  ],
 })
 export class SacListboxComponent extends SacListboxCommon {
   /**
@@ -569,7 +568,10 @@ export class SacListboxComponent extends SacListboxCommon {
    * @param parent Formular
    * @param injector Angular Dependiency Injection Service
    */
-  constructor(@Host() @Optional() parent: SacFormDirective, injector: Injector) {
+  constructor(
+    @Host() @Optional() parent: SacFormDirective,
+    injector: Injector
+  ) {
     super(parent, injector);
   }
 }
@@ -578,8 +580,8 @@ export class SacListboxComponent extends SacListboxCommon {
  * Option Item in Listbox
  */
 @Directive({
-    selector: &#x27;[sacOption],option&#x27;,
-    standalone: true
+  selector: &#x27;[sacOption],option&#x27;,
+  standalone: true,
 })
 export class SacListboxOptionDirective extends SacListboxOptionCommon {
   /**

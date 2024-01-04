@@ -1053,7 +1053,7 @@ import { SacFormCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
  *
  */
 @Directive({
-    selector: &#x27;form:not([ngNoForm]):not([formGroup]),[ngForm]&#x27;,
+    selector: &#x27;form:not([ngNoForm]):not([formGroup]),[ngForm]&#x27;, // eslint-disable-line @angular-eslint/directive-selector -- required as extension to form
     exportAs: &#x27;sacform&#x27;,
     standalone: true
 })

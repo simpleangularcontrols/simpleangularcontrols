@@ -397,8 +397,6 @@ export abstract class SacBaseModelControl<VALUE>
       });
     }
 
-    console.log('Step4: ' + JSON.stringify(errors));
-
     const errorItem: ValidationErrorItem = errors[keys[0]];
 
     // Validation Parameters

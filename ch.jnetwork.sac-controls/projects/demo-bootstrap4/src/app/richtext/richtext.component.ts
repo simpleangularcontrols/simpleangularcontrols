@@ -1,4 +1,5 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { SacFormDirective } from '@simpleangularcontrols/sac-bootstrap4';
 
 @Component({
   selector: 'app-richtext',
@@ -32,5 +33,12 @@ export class DemoRichtextComponent {
   };
   public save6(content: string): void {
     alert('Save: ' + content);
+  }
+  
+  @ViewChild('myForm') myForm: SacFormDirective;
+
+  public debugAction(): void {
+    this.myForm.markAsTouched();
+    alert('Action');
   }
 }

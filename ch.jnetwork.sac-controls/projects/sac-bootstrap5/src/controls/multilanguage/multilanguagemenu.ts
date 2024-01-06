@@ -49,4 +49,10 @@ export class SacMultilanguagemenuComponent extends SacContextmenuCommon {
    */
   @Input()
   public inputtemplate: TemplateRef<any>;
+
+  /**
+   * template with markup for inline validation messages in component
+   */
+  @Input()
+  public validationtemplate: TemplateRef<any>;
 }

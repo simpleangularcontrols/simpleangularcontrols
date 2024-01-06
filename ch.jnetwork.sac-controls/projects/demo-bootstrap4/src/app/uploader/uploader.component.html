@@ -128,6 +128,7 @@
     name="dropzone3"
     maxfilesize="200000"
     allowedtypes=".pdf,.zip"
+    [isrequired]="true"
     [(ngModel)]="values.dropzone5"
     (onfileerror)="showmessage($event)"
     >Drop file here</sac-dropzonesingle
@@ -146,6 +147,7 @@
     uploadheight="5rem"
     endpoint="/api/upload/register"
     name="dropzone4"
+    [isrequired]="true"
     [(ngModel)]="values.dropzone4"
     >Drop files here</sac-dropzonemultiple
   >

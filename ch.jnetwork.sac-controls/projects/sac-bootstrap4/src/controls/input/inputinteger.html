@@ -20,8 +20,14 @@
       [attr.placeholder]="placeholder"
       (keypress)="onKeyPress($event)"
       [disabled]="isdisabled"
-      [readonly]="readonly"      
+      [readonly]="readonly"
       [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
     />
+    <div
+      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+      class="invalid-feedback"
+    >
+      {{ GetErrorMessage() | async }}
+    </div>
   </div>
 </div>

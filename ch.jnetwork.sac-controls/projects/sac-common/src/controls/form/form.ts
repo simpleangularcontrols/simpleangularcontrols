@@ -1,6 +1,6 @@
 import { Directive, Input } from '@angular/core';
 import { AbstractControl, FormGroup, NgForm } from '@angular/forms';
-import { convertToBoolean } from '../../utilities/Convertion';
+import { convertToBoolean } from '../../utilities/convertion';
 
 /**
  * Typ für Form Actions

@@ -18,17 +18,22 @@ import { SacFormDirective } from '../form/form';
     },
   ],
   // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [
-    { provide: ControlContainer, useExisting: SacFormDirective },
-  ],
+  viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }],
 })
 export class SacValidationSummaryComponent extends SacValidationSummaryCommon {
+  // #region Constructors
+
   /**
-   * Konstruktor
-   * @param parent Formular
-   * @param injector Angular Dependency Injection Service
+   * Constructor
+   * @param formControl Instance of Form Component to receive invalid form controls
+   * @param injector Injector for injecting services
    */
-  constructor(@Host() @Optional() parent: SacFormDirective, injector: Injector) {
-    super(parent, injector);
+  constructor(
+    @Host() @Optional() formControl: SacFormDirective,
+    injector: Injector
+  ) {
+    super(formControl, injector);
   }
+
+  // #endregion Constructors
 }

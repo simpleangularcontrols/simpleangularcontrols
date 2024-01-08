@@ -1,14 +1,10 @@
 import { Component, forwardRef, Host, Injector, Optional } from '@angular/core';
-import {
-  ControlContainer,
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
   IconType,
   SacMultilanguageInputCommon,
 } from '@simpleangularcontrols/sac-common';
-import { SacFormDirective } from '../form/form';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 
 /**
  * Componente für Mehrsprache Texte
@@ -29,23 +25,30 @@ import { SacFormDirective } from '../form/form';
       useExisting: forwardRef(() => SacMultilanguageInputComponent),
     },
   ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [
-    { provide: ControlContainer, useExisting: SacFormDirective },
-  ],
 })
 export class SacMultilanguageInputComponent extends SacMultilanguageInputCommon {
+  // #region Properties
+
   /**
    * Enum für IconType in HTML Template
    */
-  IconType = IconType;
+  public IconType = IconType;
+
+  // #endregion Properties
+
+  // #region Constructors
 
   /**
-   * Konstruktor
-   * @param parent Formular Inject
-   * @param injector Default Injector
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
    */
-  constructor(@Host() @Optional() parent: SacFormDirective, injector: Injector) {
-    super(parent, injector);
+  constructor(
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
+    injector: Injector
+  ) {
+    super(formLayout, injector);
   }
+
+  // #endregion Constructors
 }

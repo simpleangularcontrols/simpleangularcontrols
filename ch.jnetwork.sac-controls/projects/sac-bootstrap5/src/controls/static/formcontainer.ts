@@ -1,11 +1,7 @@
-import { Component, Host, forwardRef, Injector, Optional } from '@angular/core';
-import {
-  NG_VALUE_ACCESSOR,
-  ControlContainer,
-  NG_VALIDATORS,
-} from '@angular/forms';
-import { SacFormDirective } from '../form/form';
+import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacStaticFormContainerCommon } from '@simpleangularcontrols/sac-common';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 
 /**
  * Component für einbindung eines beliebigen Controls in die Form Struktur
@@ -39,12 +35,19 @@ import { SacStaticFormContainerCommon } from '@simpleangularcontrols/sac-common'
   ],
 })
 export class SacStaticFormContainerComponent extends SacStaticFormContainerCommon {
+  // #region Constructors
+
   /**
-   * Konsturktor
-   * @param parent Parent SacFormular Instanz
-   * @param injector Injector Instanz
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
    */
-  constructor(@Host() @Optional() parent: SacFormDirective, injector: Injector) {
-    super(parent, injector);
+  constructor(
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
+    injector: Injector
+  ) {
+    super(formLayout, injector);
   }
+
+  // #endregion Constructors
 }

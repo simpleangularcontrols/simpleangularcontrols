@@ -6,20 +6,16 @@ import {
   Injector,
   Optional,
 } from '@angular/core';
-import {
-  ControlContainer,
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacDateCommon } from '@simpleangularcontrols/sac-common';
 // Import Moment.JS
 import * as moment_ from 'moment';
-import { SacFormDirective } from '../form/form';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 
 /**
  * Referenz auf Moment.JS
  */
-const moment = moment_["default"];
+const moment = moment_['default'];
 
 /**
  * Komponente für Datumauswahl
@@ -40,23 +36,23 @@ const moment = moment_["default"];
       useExisting: forwardRef(() => SacDateComponent),
     },
   ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [
-    { provide: ControlContainer, useExisting: SacFormDirective },
-  ],
 })
 export class SacDateComponent extends SacDateCommon {
+  // #region Constructors
+
   /**
-   * Konstruktor
-   * @param parent Formular
-   * @param injector Angular Dependency Injection Service
-   * @param _elementRef Referenz auf HTML DOM Element
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   * @param elementRef Reference to html dom element
    */
   constructor(
-    @Host() @Optional() parent: SacFormDirective,
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
     injector: Injector,
-    _elementRef: ElementRef
+    elementRef: ElementRef
   ) {
-    super(parent, injector, _elementRef);
+    super(formLayout, injector, elementRef);
   }
+
+  // #endregion Constructors
 }

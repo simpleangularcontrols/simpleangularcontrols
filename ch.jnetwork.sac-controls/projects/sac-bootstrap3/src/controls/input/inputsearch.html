@@ -1,13 +1,42 @@
-<div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
-  <label *ngIf="disablelabel === false && !isadaptivelabel" id="{{name}}label" for="{{name}}" class="control-label" [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']" [class.required]="isrequired">{{label}}</label>
-  <div [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
+<div
+  class="row form-group"
+  [ngClass]="{'has-error': invalid && (dirty || touched)}"
+>
+  <label
+    *ngIf="disablelabel === false && !isAdaptiveLabel"
+    id="{{name}}label"
+    for="{{name}}"
+    class="col-xs-12 control-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    [class.required]="isrequired"
+    >{{label}}</label
+  >
+  <div
+    class="col-xs-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
+  >
     <div class="input-group">
-      <input id="{{name}}" name="{{name}}" type="text" class="form-control"
-             [value]="value" [attr.placeholder]="placeholder"
-             (blur)="onTouch()" (input)="setValue($event.target.value)"
-             [attr.maxlength]="maxlength" [ngClass]="{'language-specific': islanguagespecific }" [disabled]="isdisabled" [readonly]="readonly" />
+      <input
+        id="{{name}}"
+        name="{{name}}"
+        type="text"
+        class="form-control"
+        [value]="value"
+        [attr.placeholder]="placeholder"
+        (blur)="onTouch()"
+        (input)="setValue($event.target.value)"
+        [attr.maxlength]="maxlength"
+        [disabled]="isdisabled"
+        [readonly]="readonly"
+      />
       <span class="input-group-btn">
-        <input type="submit" class="btn btn-default" id="{{name}}_search" (click)="searchClick()" [value]="buttontext" />
+        <input
+          type="submit"
+          class="btn btn-default"
+          id="{{name}}_search"
+          (click)="searchClick()"
+          [value]="buttontext"
+        />
       </span>
     </div>
   </div>

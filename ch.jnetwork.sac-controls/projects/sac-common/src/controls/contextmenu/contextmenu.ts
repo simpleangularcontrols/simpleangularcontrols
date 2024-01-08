@@ -25,27 +25,18 @@ import { SacContextMenuContrainerCommon } from './contextmenucontainer';
  */
 @Directive()
 export class SacContextmenuCommon implements OnDestroy {
-  /**
-   * Zone Subscription für Postitonierung des Elements
-   */
-  private zoneSubscription: Subscription;
-  /**
-   * Body HTML Element
-   */
-  private bodyContainer: HTMLElement | null = null;
-
-  /**
-   * Button für Open/Close Event
-   */
-  @ViewChild(SacContextmenuAnchorCommon, { static: false })
-  private _anchor: SacContextmenuAnchorCommon;
+  // #region Properties
 
   /**
    * Button für Open/Close Event aus Template
    */
   @ContentChild(SacContextmenuAnchorCommon, { static: false })
   private _anchorTemplate: SacContextmenuAnchorCommon;
-
+  /**
+   * Button für Open/Close Event
+   */
+  @ViewChild(SacContextmenuAnchorCommon, { static: false })
+  private _anchor: SacContextmenuAnchorCommon;
   /**
    * Container Element für Dropdown
    */
@@ -53,34 +44,39 @@ export class SacContextmenuCommon implements OnDestroy {
   private _menu: SacContextMenuContrainerCommon;
 
   /**
+   * Body HTML Element
+   */
+  private bodyContainer: HTMLElement | null = null;
+  /**
+   * Zone Subscription für Postitonierung des Elements
+   */
+  private zoneSubscription: Subscription;
+
+  /**
    * icon service
    */
   protected iconService: ISacIconService;
-
-  /**
-   * Definiert ob das Dropdown offen ist.
-   */
-  @Input()
-  public isopen: boolean = false;
-
-  /**
-   * Extra CSS Klassen für das Control
-   */
-  @Input()
-  public cssclass: string = '';
 
   /**
    * Custom HTML Template für Dropdown Button. Button muss den Marker "ngContextmenuAnchor" beinhalten, damit das Control korrekt funktioniert.
    */
   @Input()
   public buttontemplate: TemplateRef<any>;
-
   /**
    * Container an welchem die Position ausgerichtet wird. Aktuell wird nun Body Supported
    */
   @Input()
   public container: null | 'body' = 'body';
-
+  /**
+   * Extra CSS Klassen für das Control
+   */
+  @Input()
+  public cssclass: string = '';
+  /**
+   * Definiert ob das Dropdown offen ist.
+   */
+  @Input()
+  public isopen: boolean = false;
   /**
    * The preferred placement of the dropdown.
    *
@@ -94,12 +90,56 @@ export class SacContextmenuCommon implements OnDestroy {
    *
    * Please see the [positioning overview](#/positioning) for more details.
    */
-  @Input() placement: PlacementArray = [
+  @Input() public placement: PlacementArray = [
     'bottom-left',
     'bottom-right',
     'top-left',
     'top-right',
   ];
+
+  // #endregion Properties
+
+  // #region Constructors
+
+  /**
+   * Konstruktor
+   * @param document HTML Document Element
+   * @param ngZone Angular Zone Service
+   * @param elementRef HTML Element des aktuellen Controls
+   * @param renderer Angular Rendering Service
+   * @param injector injector to resolve the icon service
+   */
+  constructor(
+    @Inject(DOCUMENT) private document: any,
+    private ngZone: NgZone,
+    private elementRef: ElementRef<HTMLElement>,
+    private renderer: Renderer2,
+    injector: Injector
+  ) {
+    this.zoneSubscription = this.ngZone.onStable.subscribe(() => {
+      this._positionMenu();
+    });
+
+    this.iconService = injector.get(
+      SACICON_SERVICE,
+      new SacDefaultIconService()
+    );
+  }
+
+  // #endregion Constructors
+
+  // #region Public Getters And Setters
+
+  /**
+   * icon for default context menü button
+   */
+  public get IconContextMenu(): string {
+    return this.iconService.ContextMenuOpenIcon;
+  }
+
+  // #endregion Public Getters And Setters
+
+  // #region Public Methods
 
   /**
    * HostListener um das Dropdown zu schliessen wenn nicht auf das Element geklickt wird.
@@ -122,35 +162,26 @@ export class SacContextmenuCommon implements OnDestroy {
   }
 
   /**
-   * Konstruktor
-   * @param _document HTML Document Element
-   * @param _ngZone Angular Zone Service
-   * @param _elementRef HTML Element des aktuellen Controls
-   * @param _renderer Angular Rendering Service
-   * @param _injector injector to resolve the icon service
+   * Schliesst das Dropdown
    */
-  constructor(
-    @Inject(DOCUMENT) private _document: any,
-    private _ngZone: NgZone,
-    private _elementRef: ElementRef<HTMLElement>,
-    private _renderer: Renderer2,
-    _injector: Injector
-  ) {
-    this.zoneSubscription = this._ngZone.onStable.subscribe(() => {
-      this._positionMenu();
-    });
-
-    this.iconService = _injector.get(
-      SACICON_SERVICE,
-      new SacDefaultIconService()
-    );
+  public close(): void {
+    this._resetContainer();
+    this.isopen = false;
   }
 
   /**
    * Event wenn Component entfernt wird.
    */
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.zoneSubscription.unsubscribe();
+  }
+
+  /**
+   * Öffnet das Dropdown / Zeigt das Menü an.
+   */
+  public open(): void {
+    this._applyContainer(this.container);
+    this.isopen = true;
   }
 
   /**
@@ -164,28 +195,9 @@ export class SacContextmenuCommon implements OnDestroy {
     }
   }
 
-  /**
-   * Öffnet das Dropdown / Zeigt das Menü an.
-   */
-  public open(): void {
-    this._applyContainer(this.container);
-    this.isopen = true;
-  }
+  // #endregion Public Methods
 
-  /**
-   * Schliesst das Dropdown
-   */
-  public close(): void {
-    this._resetContainer();
-    this.isopen = false;
-  }
-
-  /**
-   * icon for default context menü button
-   */
-  public get IconContextMenu(): string {
-    return this.iconService.ContextMenuOpenIcon;
-  }
+  // #region Protected Methods
 
   /**
    * Setzt die Position des Menüs im Markup
@@ -204,24 +216,9 @@ export class SacContextmenuCommon implements OnDestroy {
     }
   }
 
-  /**
-   * Setzt die CSS Klassen auf dem Menü Container auf den Standard zurück
-   */
-  private _resetContainer() {
-    const renderer = this._renderer;
-    if (this._menu) {
-      const dropdownElement = this._elementRef.nativeElement;
-      const dropdownMenuElement = this._menu.nativeElement;
+  // #endregion Protected Methods
 
-      renderer.appendChild(dropdownElement, dropdownMenuElement);
-      renderer.removeStyle(dropdownMenuElement, 'position');
-      renderer.removeStyle(dropdownMenuElement, 'transform');
-    }
-    if (this.bodyContainer) {
-      renderer.removeChild(this._document.body, this.bodyContainer);
-      this.bodyContainer = null;
-    }
-  }
+  // #region Private Methods
 
   /**
    * Setzt die Position des Menüs innerhalb der Seite. Die Ausrichtung passiert innerhalb der Seite
@@ -233,7 +230,7 @@ export class SacContextmenuCommon implements OnDestroy {
     this._resetContainer();
 
     if (container === 'body') {
-      const renderer = this._renderer;
+      const renderer = this.renderer;
       const dropdownMenuElement = this._menu.nativeElement;
       const bodyContainer = (this.bodyContainer =
         this.bodyContainer || renderer.createElement('div'));
@@ -244,7 +241,28 @@ export class SacContextmenuCommon implements OnDestroy {
       renderer.setStyle(bodyContainer, 'z-index', '1050');
 
       renderer.appendChild(bodyContainer, dropdownMenuElement);
-      renderer.appendChild(this._document.body, bodyContainer);
+      renderer.appendChild(this.document.body, bodyContainer);
     }
   }
+
+  /**
+   * Setzt die CSS Klassen auf dem Menü Container auf den Standard zurück
+   */
+  private _resetContainer() {
+    const renderer = this.renderer;
+    if (this._menu) {
+      const dropdownElement = this.elementRef.nativeElement;
+      const dropdownMenuElement = this._menu.nativeElement;
+
+      renderer.appendChild(dropdownElement, dropdownMenuElement);
+      renderer.removeStyle(dropdownMenuElement, 'position');
+      renderer.removeStyle(dropdownMenuElement, 'transform');
+    }
+    if (this.bodyContainer) {
+      renderer.removeChild(this.document.body, this.bodyContainer);
+      this.bodyContainer = null;
+    }
+  }
+
+  // #endregion Private Methods
 }

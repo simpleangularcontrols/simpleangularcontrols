@@ -14,11 +14,15 @@ import { SacContextMenuContrainerCommon } from '@simpleangularcontrols/sac-commo
   ],
 })
 export class SacMultilanguagemenuContainerDirective extends SacContextMenuContrainerCommon {
+  // #region Constructors
+
   /**
    * Konstruktor
-   * @param _elementRef Referenz auf DOM Element
+   * @param elementRef Referenz auf DOM Element
    */
-  constructor(_elementRef: ElementRef<HTMLElement>) {
-    super(_elementRef);
+  constructor(elementRef: ElementRef<HTMLElement>) {
+    super(elementRef);
   }
+
+  // #endregion Constructors
 }

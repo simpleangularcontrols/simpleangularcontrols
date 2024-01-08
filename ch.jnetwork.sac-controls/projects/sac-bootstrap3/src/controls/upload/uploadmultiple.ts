@@ -7,12 +7,9 @@ import {
   Renderer2,
   forwardRef,
 } from '@angular/core';
-import {
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR
-} from '@angular/forms';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacUploadMultipleCommon } from '@simpleangularcontrols/sac-common';
-import { SacFormDirective } from '../form/form';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 
 // https://github.com/kukhariev/ngx-uploadx/
 
@@ -34,12 +31,23 @@ import { SacFormDirective } from '../form/form';
   ],
 })
 export class SacUploadMultipleComponent extends SacUploadMultipleCommon {
+  // #region Constructors
+
+  /**
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   * @param renderer Angular rendering engine
+   * @param ngZone ngZone to manage external javascripts
+   */
   constructor(
-    @Host() @Optional() parent: SacFormDirective,
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
     injector: Injector,
     renderer: Renderer2,
     ngZone: NgZone
   ) {
-    super(parent, injector, renderer, ngZone);
+    super(formLayout, injector, renderer, ngZone);
   }
+
+  // #endregion Constructors
 }

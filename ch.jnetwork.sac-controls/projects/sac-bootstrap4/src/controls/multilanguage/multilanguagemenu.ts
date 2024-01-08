@@ -24,21 +24,25 @@ import { SacContextmenuCommon } from '@simpleangularcontrols/sac-common';
   ],
 })
 export class SacMultilanguagemenuComponent extends SacContextmenuCommon {
+  // #region Constructors
+
   /**
    * Constructor
-   * @param _document Referenz auf HTML Document
-   * @param _ngZone Angular Zone Service
-   * @param _elementRef Referenz auf HTML Element der aktuellen Komponente
-   * @param _renderer Render Service von Angular
-   * @param _injector injector to resolve services in base component
+   * @param document Referenz auf HTML Document
+   * @param ngZone Angular Zone Service
+   * @param elementRef Referenz auf HTML Element der aktuellen Komponente
+   * @param renderer Render Service von Angular
+   * @param injector injector to resolve services in base component
    */
   constructor(
-    @Inject(DOCUMENT) _document: any,
-    _ngZone: NgZone,
-    _elementRef: ElementRef<HTMLElement>,
-    _renderer: Renderer2,
-    _injector: Injector
+    @Inject(DOCUMENT) document: any,
+    ngZone: NgZone,
+    elementRef: ElementRef<HTMLElement>,
+    renderer: Renderer2,
+    injector: Injector
   ) {
-    super(_document, _ngZone, _elementRef, _renderer, _injector);
+    super(document, ngZone, elementRef, renderer, injector);
   }
+
+  // #endregion Constructors
 }

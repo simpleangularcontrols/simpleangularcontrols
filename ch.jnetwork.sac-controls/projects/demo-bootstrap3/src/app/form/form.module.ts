@@ -5,6 +5,7 @@ import {
   SACBootstrap3ButtonModule,
   SACBootstrap3FormModule,
   SACBootstrap3InputModule,
+  SACBootstrap3LayoutModule,
   SACBootstrap3ValidationSummaryModule,
 } from '@simpleangularcontrols/sac-bootstrap3';
 import { FormRoutingModule } from './form-routing.module';
@@ -19,6 +20,7 @@ import { DemoSubFormComponent } from './subform.component';
     SACBootstrap3FormModule,
     SACBootstrap3InputModule,
     SACBootstrap3ValidationSummaryModule,
+    SACBootstrap3LayoutModule,
     SACBootstrap3ButtonModule,
   ],
 })

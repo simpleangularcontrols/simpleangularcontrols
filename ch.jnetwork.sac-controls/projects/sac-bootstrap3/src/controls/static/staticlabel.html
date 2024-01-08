@@ -1,8 +1,22 @@
-<div class="form-group">
-  <label *ngIf="disablelabel === false && !isadaptivelabel" id="{{name}}label" for="{{name}}" class="control-label" [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']">{{label}}</label>
-  <div [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
-    <div class="form-control-static" [innerHTML]="value">
-    </div>
-    <label for="{{name}}" class="col-left control-label" *ngIf="isadaptivelabel && !disablelabel">{{label}}</label>
+<div class="row form-group">
+  <label
+    *ngIf="disablelabel === false && !isAdaptiveLabel"
+    id="{{name}}label"
+    for="{{name}}"
+    class="col-xs-12 control-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    >{{label}}</label
+  >
+  <div
+    class="col-xs-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
+  >
+    <div class="form-control-static" [innerHTML]="value"></div>
+    <label
+      for="{{name}}"
+      class="col-left control-label"
+      *ngIf="isAdaptiveLabel && !disablelabel"
+      >{{label}}</label
+    >
   </div>
 </div>

@@ -1,8 +1,15 @@
-import { Component, Host, forwardRef, Injector, Renderer2, Optional } from '@angular/core';
+import {
+  Component,
+  Host,
+  Injector,
+  NgZone,
+  Optional,
+  Renderer2,
+  forwardRef,
+} from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacUploadSingleCommon } from '@simpleangularcontrols/sac-common';
-import { SacFormDirective } from '../form/form';
-import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
-import { NgZone } from '@angular/core';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 
 // https://github.com/kukhariev/ngx-uploadx/
 
@@ -11,14 +18,36 @@ import { NgZone } from '@angular/core';
   templateUrl: './upload.html',
   styleUrls: ['./upload.scss'],
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacUploadComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => SacUploadComponent) }
-  ]
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: SacUploadComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => SacUploadComponent),
+    },
+  ],
 })
 export class SacUploadComponent extends SacUploadSingleCommon {
+  // #region Constructors
 
-  constructor( @Host() @Optional() parent: SacFormDirective, injector: Injector, renderer: Renderer2, ngZone: NgZone) {
-    super(parent, injector, renderer, ngZone);
+  /**
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   * @param renderer Angular rendering engine
+   * @param ngZone ngZone to manage external javascripts
+   */
+  constructor(
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
+    injector: Injector,
+    renderer: Renderer2,
+    ngZone: NgZone
+  ) {
+    super(formLayout, injector, renderer, ngZone);
   }
 
+  // #endregion Constructors
 }

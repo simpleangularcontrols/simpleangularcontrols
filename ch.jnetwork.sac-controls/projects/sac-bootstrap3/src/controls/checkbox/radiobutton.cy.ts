@@ -1,6 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { createOutputSpy } from 'cypress/angular';
 import { SacFormDirective } from '../form';
+import { SACBootstrap3LayoutModule } from '../layout/layout.module';
 import { SacRadiobuttonComponent } from './radiobutton';
 import { SacRadiobuttonsComponent } from './radiobuttons';
 
@@ -19,7 +20,7 @@ describe('NgRadiobuttonComponent', () => {
           SacRadiobuttonsComponent,
           SacRadiobuttonComponent,
         ],
-        imports: [FormsModule],
+        imports: [FormsModule, SACBootstrap3LayoutModule],
         componentProperties: {
           label: 'Radiobutton Test',
           rbLabel1: 'Control Label 1',
@@ -55,7 +56,7 @@ describe('NgRadiobuttonComponent', () => {
           SacRadiobuttonsComponent,
           SacRadiobuttonComponent,
         ],
-        imports: [FormsModule],
+        imports: [FormsModule, SACBootstrap3LayoutModule],
         componentProperties: {
           label: 'Radiobutton Test',
           rbLabel1: 'Control Label 1',
@@ -87,7 +88,7 @@ describe('NgRadiobuttonComponent', () => {
           SacRadiobuttonsComponent,
           SacRadiobuttonComponent,
         ],
-        imports: [FormsModule],
+        imports: [FormsModule, SACBootstrap3LayoutModule],
         componentProperties: {
           label: 'Radiobutton Test',
           rbLabel1: 'Control Label 1',
@@ -115,7 +116,7 @@ describe('NgRadiobuttonComponent', () => {
           SacRadiobuttonsComponent,
           SacRadiobuttonComponent,
         ],
-        imports: [FormsModule],
+        imports: [FormsModule, SACBootstrap3LayoutModule],
         componentProperties: {
           label: 'Radiobutton Test',
           rbLabel1: 'Control Label 1',

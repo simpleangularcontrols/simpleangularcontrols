@@ -1,6 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { createOutputSpy } from 'cypress/angular';
 import { SacFormDirective } from '../form';
+import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacInputAreaComponent } from './inputarea';
 
 describe('NgInputareaComponent', () => {
@@ -12,7 +13,7 @@ describe('NgInputareaComponent', () => {
       </form>`,
       {
         declarations: [SacFormDirective, SacInputAreaComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SACBootstrap5LayoutModule],
         componentProperties: {
           label: 'My Label',
           value: 'My Text',
@@ -33,7 +34,7 @@ describe('NgInputareaComponent', () => {
       </form>`,
       {
         declarations: [SacFormDirective, SacInputAreaComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SACBootstrap5LayoutModule],
         componentProperties: {
           label: 'My Label',
           value: '',
@@ -61,7 +62,7 @@ describe('NgInputareaComponent', () => {
       </form>`,
       {
         declarations: [SacFormDirective, SacInputAreaComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SACBootstrap5LayoutModule],
         componentProperties: {
           label: 'My Label',
           value: 'My Value',
@@ -82,7 +83,7 @@ describe('NgInputareaComponent', () => {
       </form>`,
       {
         declarations: [SacFormDirective, SacInputAreaComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SACBootstrap5LayoutModule],
         componentProperties: {
           label: 'My Label',
           value: '',
@@ -102,7 +103,7 @@ describe('NgInputareaComponent', () => {
       </form>`,
       {
         declarations: [SacFormDirective, SacInputAreaComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SACBootstrap5LayoutModule],
         componentProperties: {
           label: 'My Label',
           value: 'MyValue',
@@ -122,7 +123,7 @@ describe('NgInputareaComponent', () => {
       </form>`,
       {
         declarations: [SacFormDirective, SacInputAreaComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SACBootstrap5LayoutModule],
         componentProperties: {
           label: 'My Label',
           value: 'MyValue',
@@ -142,7 +143,7 @@ describe('NgInputareaComponent', () => {
       </form>`,
       {
         declarations: [SacFormDirective, SacInputAreaComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SACBootstrap5LayoutModule],
         componentProperties: {
           label: 'My Label',
           value: 'first value',
@@ -165,7 +166,7 @@ describe('NgInputareaComponent', () => {
       </form>`,
       {
         declarations: [SacFormDirective, SacInputAreaComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SACBootstrap5LayoutModule],
         componentProperties: {
           label: 'My Label',
           value: 'first value',

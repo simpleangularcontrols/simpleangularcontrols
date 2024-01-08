@@ -1,6 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { createOutputSpy } from 'cypress/angular';
 import { SacFormDirective } from '../form';
+import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacCheckboxComponent } from './checkbox';
 
 describe('sac-checkboxComponent', () => {
@@ -12,7 +13,7 @@ describe('sac-checkboxComponent', () => {
       </form>`,
       {
         declarations: [SacFormDirective, SacCheckboxComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SACBootstrap5LayoutModule],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',
@@ -39,7 +40,7 @@ describe('sac-checkboxComponent', () => {
       </form>`,
       {
         declarations: [SacFormDirective, SacCheckboxComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SACBootstrap5LayoutModule],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',
@@ -63,7 +64,7 @@ describe('sac-checkboxComponent', () => {
       </form>`,
       {
         declarations: [SacFormDirective, SacCheckboxComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SACBootstrap5LayoutModule],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',
@@ -73,9 +74,7 @@ describe('sac-checkboxComponent', () => {
       }
     );
 
-    cy.get('.row .col-12')
-      .first()
-      .should('not.have.text', 'Control Label');
+    cy.get('.row .col-12').first().should('not.have.text', 'Control Label');
     cy.get('label').should('have.text', 'Checkbox Test');
   });
 
@@ -87,7 +86,7 @@ describe('sac-checkboxComponent', () => {
       </form>`,
       {
         declarations: [SacFormDirective, SacCheckboxComponent],
-        imports: [FormsModule],
+        imports: [FormsModule, SACBootstrap5LayoutModule],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',

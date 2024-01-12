@@ -2,99 +2,32 @@ import { Directive, Input } from '@angular/core';
 import { AbstractControl, UntypedFormGroup, NgForm } from '@angular/forms';
 import { convertToBoolean } from '../../utilities/convertion';
 
+// #region Type aliases
+
 /**
- * Typ für Form Actions
+ * Type for form actions
  */
 export type FormHooks = 'change' | 'blur' | 'submit';
+
+// #endregion Type aliases
+
+// #region Classes
 
 /**
  * Base Komponente für SacFormular
  */
 @Directive()
 export class SacFormCommon {
-  /**
-   * Inline Errors für das Formular
-   */
-  private _inlineerrorenabled: boolean | null = null;
-
-  /**
-   * Form Control
-   */
-  @Input()
-  SacFormular: string;
-
-  /**
-   * Default Label Size for Form
-   */
-  @Input() labelsize: number = 3;
-  /**
-   * Kontroliert, ob das Label adaptive ist
-   */
-  @Input() isadaptivelabel: boolean = false;
-  /**
-   * Type des Forms
-   */
-  @Input() orientation: string = 'horizontal';
+  // #region Properties
 
   /**
    * Standardwert wann die Werte via NgModel aktualisiert werden
    */
   private _updateon: FormHooks = 'change';
 
-  /**
-   * Definiert, wenn das Model geupdatet wird
-   */
-  @Input()
-  set updateon(v: FormHooks) {
-    this._updateon = v;
-    this.form.options.updateOn = v;
-  }
-  get updateon(): FormHooks {
-    return this._updateon;
-  }
+  // #endregion Properties
 
-  /**
-   * Aktiviert oder Deaktiviert die Inline Errors für das Control
-   */
-  @Input()
-  set inlineerrorenabled(value: boolean) {
-    if (value === null || value === undefined) {
-      this._inlineerrorenabled = null;
-    } else {
-      this._inlineerrorenabled = convertToBoolean(value);
-    }
-  }
-  /**
-   * Aktiviert oder Deaktiviert die Inline Errors für das Control
-   */
-  get inlineerrorenabled(): boolean {
-    return this._inlineerrorenabled;
-  }
-
-  /**
-   * Vertikale oder horizontale Orientierung des Formulars zurück
-   */
-  public getOrientation(): string {
-    switch (this.orientation.toLowerCase()) {
-      case 'horizontal':
-        return 'horizontal';
-      case 'vertical':
-        return 'vertical';
-      case 'none':
-        return 'none';
-      default:
-        throw new Error(
-          'Invalid formtype at SacFormCommon. Valid values are horizontal, vertical, none'
-        );
-    }
-  }
-
-  /**
-   * Gibt die NgForm Instanz zurück
-   */
-  public getForm(): NgForm {
-    return this.form;
-  }
+  // #region Constructors
 
   /**
    * Konstruktor
@@ -102,6 +35,34 @@ export class SacFormCommon {
    */
   constructor(private form: NgForm) {
     this.form.options = { updateOn: this._updateon };
+  }
+
+  // #endregion Constructors
+
+  // #region Public Getters And Setters
+
+  /**
+   * Definiert, wenn das Model geupdatet wird
+   */
+  @Input()
+  public set updateon(v: FormHooks) {
+    this._updateon = v;
+    this.form.options.updateOn = v;
+  }
+
+  public get updateon(): FormHooks {
+    return this._updateon;
+  }
+
+  // #endregion Public Getters And Setters
+
+  // #region Public Methods
+
+  /**
+   * Gibt die NgForm Instanz zurück
+   */
+  public getForm(): NgForm {
+    return this.form;
   }
 
   /**
@@ -127,6 +88,10 @@ export class SacFormCommon {
       this.markAsTouched();
     }
   }
+
+  // #endregion Public Methods
+
+  // #region Private Methods
 
   /**
    * Markiert alle Controls inkl. dem Tree als Touched
@@ -164,10 +129,7 @@ export class SacFormCommon {
     }
   }
 
-  /**
-   * Gibt zurück, ob die Inline Error Meldungen für das Formular aktiv sind.
-   */
-  public get IsInlineErrorEnabled(): boolean {
-    return this._inlineerrorenabled !== false;
-  }
+  // #endregion Private Methods
 }
+
+// #endregion Classes

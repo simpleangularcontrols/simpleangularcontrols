@@ -1,27 +1,44 @@
-import { Component, Host, Injector, forwardRef, Output, EventEmitter, Input, Optional } from '@angular/core';
-import { SacInputSearchCommon } from '@simpleangularcontrols/sac-common';
-import { SacFormDirective } from '../form/form';
-import { NG_VALUE_ACCESSOR, NG_VALIDATORS, ControlContainer } from '@angular/forms';
 import { NgClass, NgIf } from '@angular/common';
-
+import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SacInputSearchCommon } from '@simpleangularcontrols/sac-common';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 
 @Component({
-    selector: 'sac-inputsearch',
-    templateUrl: './inputsearch.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-    providers: [
-        { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacInputSearchComponent },
-        { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => SacInputSearchComponent) }
-    ],
-    standalone: true,
-    imports: [NgClass, NgIf]
+  selector: 'sac-inputsearch',
+  templateUrl: './inputsearch.html',
+  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: SacInputSearchComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => SacInputSearchComponent),
+    },
+  ],
+  standalone: true,
+  imports: [NgClass, NgIf, SacToLabelWidthCssPipe, SacToControlWidthCssPipe],
 })
-
 export class SacInputSearchComponent extends SacInputSearchCommon {
+  // #region Constructors
 
-  constructor(@Host() @Optional() parent: SacFormDirective, injector: Injector) {
-    super(parent, injector);
+  /**
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   */
+  constructor(
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
+    injector: Injector
+  ) {
+    super(formLayout, injector);
   }
 
-
+  // #endregion Constructors
 }

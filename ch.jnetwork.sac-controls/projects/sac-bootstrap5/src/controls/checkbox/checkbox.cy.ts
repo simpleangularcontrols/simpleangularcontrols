@@ -1,6 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { createOutputSpy } from 'cypress/angular';
 import { SacFormDirective } from '../form';
+import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacCheckboxComponent } from './checkbox';
 
 describe('sac-checkboxComponent', () => {
@@ -12,7 +13,12 @@ describe('sac-checkboxComponent', () => {
       </form>`,
       {
         declarations: [],
-        imports: [FormsModule, SacCheckboxComponent, SacFormDirective],
+        imports: [
+          FormsModule,
+          SacCheckboxComponent,
+          SacFormDirective,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',
@@ -38,7 +44,12 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacCheckboxComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacCheckboxComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',
@@ -61,7 +72,12 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacCheckboxComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacCheckboxComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',
@@ -82,7 +98,12 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacCheckboxComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacCheckboxComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',

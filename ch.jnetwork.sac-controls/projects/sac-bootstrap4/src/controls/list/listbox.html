@@ -2,12 +2,12 @@
   <label
     for="{{name}}"
     class="col-12 col-form-label"
-    [ngClass]="[disablelabel === false ?  'col-sm-' + labelsize : 'sr-only' ]"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
     >{{label}}</label
   >
   <div
     class="col-12"
-    [ngClass]="[disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
   >
     <select
       multiple

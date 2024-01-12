@@ -1,3 +1,4 @@
+import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import {
   Component,
   ElementRef,
@@ -6,16 +7,13 @@ import {
   Injector,
   Optional,
 } from '@angular/core';
-import {
-  ControlContainer,
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacTimeCommon } from '@simpleangularcontrols/sac-common';
-import { SacFormDirective } from '../form/form';
-import { SacDateSelectorComponent } from './dateselector';
 import { IMaskDirective } from 'angular-imask';
-import { AsyncPipe, NgClass, NgIf } from '@angular/common';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
+import { SacDateSelectorComponent } from './dateselector';
 
 /**
  * Time Auswahl Komponente
@@ -36,23 +34,33 @@ import { AsyncPipe, NgClass, NgIf } from '@angular/common';
       useExisting: forwardRef(() => SacTimeComponent),
     },
   ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }],
   standalone: true,
-  imports: [NgClass, IMaskDirective, NgIf, AsyncPipe, SacDateSelectorComponent],
+  imports: [
+    NgClass,
+    IMaskDirective,
+    NgIf,
+    AsyncPipe,
+    SacDateSelectorComponent,
+    SacToControlWidthCssPipe,
+    SacToLabelWidthCssPipe,
+  ],
 })
 export class SacTimeComponent extends SacTimeCommon {
+  // #region Constructors
+
   /**
-   * Konstruktor
-   * @param parent Formular
-   * @param injector Angular Dependency Injection Service
-   * @param _elementRef DOM Element Referenz
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   * @param elementRef Reference to html dom element
    */
   constructor(
-    @Host() @Optional() parent: SacFormDirective,
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
     injector: Injector,
-    _elementRef: ElementRef
+    elementRef: ElementRef
   ) {
-    super(parent, injector, _elementRef);
+    super(formLayout, injector, elementRef);
   }
+
+  // #endregion Constructors
 }

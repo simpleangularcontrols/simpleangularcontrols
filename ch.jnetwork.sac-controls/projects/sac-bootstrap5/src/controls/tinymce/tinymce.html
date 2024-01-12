@@ -1,7 +1,7 @@
 <div class="row mb-3" [class.g-0]="disablelabel">
   <div
     class="col"
-    [ngClass]="[disablelabel === false ?  'col-md-' + labelsize : 'sr-only' ]"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
   >
     <label for="{{name}}" class="form-control-label col-form-label-sm"
       >{{label}}</label
@@ -9,7 +9,7 @@
   </div>
   <div
     class="col-12"
-    [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
   >
     <editor
       [id]="name + '_tinymce'"

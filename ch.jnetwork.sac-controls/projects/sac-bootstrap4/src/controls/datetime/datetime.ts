@@ -2,19 +2,17 @@ import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import {
   Component,
   ElementRef,
-  forwardRef,
   Host,
   Injector,
   Optional,
+  forwardRef,
 } from '@angular/core';
-import {
-  ControlContainer,
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacDateTimeCommon } from '@simpleangularcontrols/sac-common';
 import { IMaskDirective } from 'angular-imask';
-import { SacFormDirective } from '../form/form';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 import { SacDateSelectorComponent } from './dateselector';
 
 /**
@@ -36,23 +34,33 @@ import { SacDateSelectorComponent } from './dateselector';
       useExisting: forwardRef(() => SacDateTimeComponent),
     },
   ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }],
   standalone: true,
-  imports: [NgClass, IMaskDirective, NgIf, AsyncPipe, SacDateSelectorComponent],
+  imports: [
+    NgClass,
+    IMaskDirective,
+    NgIf,
+    AsyncPipe,
+    SacDateSelectorComponent,
+    SacToLabelWidthCssPipe,
+    SacToControlWidthCssPipe,
+  ],
 })
 export class SacDateTimeComponent extends SacDateTimeCommon {
+  // #region Constructors
+
   /**
-   * Konstruktor
-   * @param parent Formular
-   * @param injector Angular Dependency Injection Service
-   * @param _elementRef DOM Element Referenz
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   * @param elementRef Reference to html dom element
    */
   constructor(
-    @Host() @Optional() parent: SacFormDirective,
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
     injector: Injector,
-    _elementRef: ElementRef
+    elementRef: ElementRef
   ) {
-    super(parent, injector, _elementRef);
+    super(formLayout, injector, elementRef);
   }
+
+  // #endregion Constructors
 }

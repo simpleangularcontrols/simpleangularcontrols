@@ -5,11 +5,11 @@ import { IconType } from '../../enums/IconType';
 import { ISacLanguageService } from '../../interfaces/ISacLanguageService';
 import { LanguageModel } from '../../models/languagemodel';
 import {
-  SacDefaultLanguageService,
   SACLANGUAGE_SERVICE,
+  SacDefaultLanguageService,
 } from '../../services/sac-language.service';
 import { Validation } from '../../validation';
-import { SacFormCommon } from '../form/form';
+import { SacFormLayoutCommon } from '../layout/formlayout';
 
 /**
  * Base Klasse für Multi Language Textarea Control
@@ -64,11 +64,12 @@ export class SacMultilanguageInputAreaCommon extends SacInputBase<any> {
   protected lngLanguageService: ISacLanguageService;
 
   /**
-   * Konstruktor
-   * Inject des Formulars
+   * Constructor
+   * @param formlayout SacFormLayoutCommon to define scoped layout settings
+   * @param injector Injector for injecting services
    */
-  constructor(@Host() parent: SacFormCommon, injector: Injector) {
-    super(parent, injector);
+  constructor(@Host() formlayout: SacFormLayoutCommon, injector: Injector) {
+    super(formlayout, injector);
 
     this.lngLanguageService = injector.get(
       SACLANGUAGE_SERVICE,

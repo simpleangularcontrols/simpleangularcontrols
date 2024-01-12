@@ -1,12 +1,10 @@
 import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
-import {
-  ControlContainer,
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacInputCurrencyCommon } from '@simpleangularcontrols/sac-common';
-import { SacFormDirective } from '../form/form';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 
 /**
  * Input Control für Währungen
@@ -27,21 +25,29 @@ import { SacFormDirective } from '../form/form';
       useExisting: forwardRef(() => SacInputCurrencyComponent),
     },
   ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }],
   standalone: true,
-  imports: [NgClass, NgIf, AsyncPipe],
+  imports: [
+    NgClass,
+    NgIf,
+    AsyncPipe,
+    SacToControlWidthCssPipe,
+    SacToLabelWidthCssPipe,
+  ],
 })
 export class SacInputCurrencyComponent extends SacInputCurrencyCommon {
+  // #region Constructors
+
   /**
-   * Konstruktor
-   * @param parent Formular
-   * @param injector Angular Dependency Injection Service
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
    */
   constructor(
-    @Host() @Optional() parent: SacFormDirective,
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
     injector: Injector
   ) {
-    super(parent, injector);
+    super(formLayout, injector);
   }
+
+  // #endregion Constructors
 }

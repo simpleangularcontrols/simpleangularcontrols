@@ -1,15 +1,13 @@
 import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
-import {
-  ControlContainer,
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
   IconType,
   SacMultilanguageInputCommon,
 } from '@simpleangularcontrols/sac-common';
-import { SacFormDirective } from '../form/form';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 import { SacMultilanguagemenuComponent } from './multilanguagemenu';
 import { SacMultilanguagemenuAnchorDirective } from './multilanguagemenuanchor';
 import { SacMultilanguagemenuItemButtonComponent } from './multilanguagemenuitembutton';
@@ -33,8 +31,6 @@ import { SacMultilanguagemenuItemButtonComponent } from './multilanguagemenuitem
       useExisting: forwardRef(() => SacMultilanguageInputComponent),
     },
   ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }],
   standalone: true,
   imports: [
     NgClass,
@@ -44,23 +40,33 @@ import { SacMultilanguagemenuItemButtonComponent } from './multilanguagemenuitem
     NgFor,
     AsyncPipe,
     SacMultilanguagemenuItemButtonComponent,
+    SacToLabelWidthCssPipe,
+    SacToControlWidthCssPipe,
   ],
 })
 export class SacMultilanguageInputComponent extends SacMultilanguageInputCommon {
+  // #region Properties
+
   /**
    * Enum für IconType in HTML Template
    */
-  IconType = IconType;
+  public IconType = IconType;
+
+  // #endregion Properties
+
+  // #region Constructors
 
   /**
-   * Konstruktor
-   * @param parent Formular Inject
-   * @param injector Default Injector
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
    */
   constructor(
-    @Host() @Optional() parent: SacFormDirective,
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
     injector: Injector
   ) {
-    super(parent, injector);
+    super(formLayout, injector);
   }
+
+  // #endregion Constructors
 }

@@ -1,6 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { createOutputSpy } from 'cypress/angular';
 import { SacFormDirective } from '../form';
+import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacInputPasswordComponent } from './inputpassword';
 
 describe('ngInputPasswordComponent', () => {
@@ -11,7 +12,12 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputPasswordComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputPasswordComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'My Label',
           value: 'My Text',
@@ -31,7 +37,12 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputPasswordComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputPasswordComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'My Label',
           value: '',
@@ -58,7 +69,12 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputPasswordComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputPasswordComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'My Label',
           value: 'My Value',
@@ -78,7 +94,12 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputPasswordComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputPasswordComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'My Label',
           value: '',
@@ -97,7 +118,12 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputPasswordComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputPasswordComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'My Label',
           value: 'MyValue',
@@ -116,7 +142,12 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputPasswordComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputPasswordComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'My Label',
           value: 'MyValue',
@@ -135,7 +166,12 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputPasswordComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputPasswordComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'My Label',
           value: 'first value',
@@ -157,7 +193,12 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputPasswordComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputPasswordComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'My Label',
           value: 'first value',
@@ -178,7 +219,12 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputPasswordComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputPasswordComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'My Label',
           value: 'first value',

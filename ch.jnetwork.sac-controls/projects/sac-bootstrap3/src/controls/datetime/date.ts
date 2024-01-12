@@ -1,29 +1,66 @@
-import { Component, forwardRef, Host, ElementRef, Injector, Optional } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
-import { SacFormDirective } from '../form/form';
+import {
+  Component,
+  ElementRef,
+  Host,
+  Injector,
+  Optional,
+  forwardRef,
+} from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 // Import Moment.JS
-import * as moment_ from 'moment';
+import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import { SacDateCommon } from '@simpleangularcontrols/sac-common';
-import { SacDateSelectorComponent } from './dateselector';
 import { IMaskDirective } from 'angular-imask';
-import { NgClass, NgIf, AsyncPipe } from '@angular/common';
-const moment = moment_["default"];
-
+import * as moment_ from 'moment';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
+import { SacDateSelectorComponent } from './dateselector';
+const moment = moment_['default'];
 
 @Component({
-    selector: 'sac-date',
-    templateUrl: './date.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-    providers: [
-        { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => SacDateComponent) },
-        { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => SacDateComponent) }
-    ],
-    standalone: true,
-    imports: [NgClass, NgIf, IMaskDirective, SacDateSelectorComponent, AsyncPipe]
+  selector: 'sac-date',
+  templateUrl: './date.html',
+  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: forwardRef(() => SacDateComponent),
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => SacDateComponent),
+    },
+  ],
+  standalone: true,
+  imports: [
+    NgClass,
+    NgIf,
+    IMaskDirective,
+    SacDateSelectorComponent,
+    AsyncPipe,
+    SacToLabelWidthCssPipe,
+    SacToControlWidthCssPipe,
+  ],
 })
-
 export class SacDateComponent extends SacDateCommon {
-  constructor( @Host() @Optional() parent: SacFormDirective, injector: Injector, _elementRef: ElementRef) {
-    super(parent, injector, _elementRef);
+  // #region Constructors
+
+  /**
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   * @param elementRef Reference to html dom element
+   */
+  constructor(
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
+    injector: Injector,
+    elementRef: ElementRef
+  ) {
+    super(formLayout, injector, elementRef);
   }
+
+  // #endregion Constructors
 }

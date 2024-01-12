@@ -1,25 +1,23 @@
+import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import {
   Component,
-  forwardRef,
   Host,
   Injector,
   NgZone,
   Optional,
+  forwardRef,
 } from '@angular/core';
-import {
-  ControlContainer,
-  FormsModule,
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms';
+import { FormsModule, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacTinyMceCommon } from '@simpleangularcontrols/sac-common';
-import { SacButtonComponent } from '../buttons/button';
-import { SacFormDirective } from '../form/form';
-
-import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import { EditorComponent } from '@tinymce/tinymce-angular';
-import { SacBrowserComponent } from '../../components/browser/browser';
-import { SacDialogComponent } from '../dialog/dialog';
+import {
+  SacBrowserComponent,
+  SacToControlWidthCssPipe,
+  SacToLabelWidthCssPipe,
+} from '../../public_api';
+import { SacButtonComponent } from '../buttons';
+import { SacDialogComponent } from '../dialog';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 
 /**
  * TinyMCE Komponente
@@ -41,8 +39,6 @@ import { SacDialogComponent } from '../dialog/dialog';
       multi: true,
     },
   ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }],
   standalone: true,
   imports: [
     NgClass,
@@ -53,28 +49,38 @@ import { SacDialogComponent } from '../dialog/dialog';
     SacBrowserComponent,
     SacButtonComponent,
     AsyncPipe,
+    SacToLabelWidthCssPipe,
+    SacToControlWidthCssPipe,
   ],
 })
 export class SacTinyMceComponent extends SacTinyMceCommon {
+  // #region Constructors
+
   /**
-   * Konstruktor
-   * @param parent Formular
-   * @param injector Angular Dependency Injection Service
-   * @param ngZone ngZone
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   * @param ngZone ngZone to manage external javascripts
    */
   constructor(
-    @Host() @Optional() parent: SacFormDirective,
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
     injector: Injector,
     ngZone: NgZone
   ) {
-    super(parent, injector, ngZone);
+    super(formLayout, injector, ngZone);
   }
+
+  // #endregion Constructors
+
+  // #region Public Methods
 
   /**
    * overwrite tinymce defaults
    * @returns boostrap4 has no overwrites
    */
-  overwriteDefaultSettings() {
+  public overwriteDefaultSettings() {
     return {};
   }
+
+  // #endregion Public Methods
 }

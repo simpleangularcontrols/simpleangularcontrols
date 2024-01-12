@@ -1,6 +1,15 @@
-<div class="form-group">
-  <label *ngIf="disablelabel === false" for="{{name}}" class="control-label" [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']">{{label}}</label>
-  <div [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
+<div class="row form-group">
+  <label
+    *ngIf="disablelabel === false"
+    for="{{name}}"
+    class="col-xs-12 control-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    >{{label}}</label
+  >
+  <div
+    class="col-xs-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
+  >
     <div>
       <ng-content></ng-content>
     </div>

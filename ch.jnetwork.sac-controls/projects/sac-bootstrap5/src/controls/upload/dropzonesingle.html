@@ -1,15 +1,15 @@
 <div class="row mb-3" [class.g-0]="disablelabel">
   <label
-    *ngIf="disablelabel === false && !isadaptivelabel"
+    *ngIf="disablelabel === false && !isAdaptiveLabel"
     id="{{name}}_label"
     for="{{name}}"
     class="col-12 col-form-label col-form-label-sm"
-    [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
     >{{label}}</label
   >
   <div
     class="col-12"
-    [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
   >
     <div
       class="dropzone d-flex justify-content-center position-relative"

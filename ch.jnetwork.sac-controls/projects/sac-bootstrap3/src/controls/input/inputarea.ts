@@ -1,8 +1,10 @@
-import { ControlContainer, NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
-import { SacFormDirective } from '../form/form';
-import { Component, forwardRef, Host, Injector, Optional } from '@angular/core';
+import { AsyncPipe, NgClass, NgIf } from '@angular/common';
+import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacInputAreaCommon } from '@simpleangularcontrols/sac-common';
-import { NgClass, NgIf, AsyncPipe } from '@angular/common';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 
 /**
  * Komponente für TextArea
@@ -17,21 +19,44 @@ import { NgClass, NgIf, AsyncPipe } from '@angular/common';
  *
  */
 @Component({
-    selector: 'sac-inputarea',
-    templateUrl: './inputarea.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-    providers: [
-        { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacInputAreaComponent },
-        { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => SacInputAreaComponent) }
-    ],
-    standalone: true,
-    imports: [NgClass, NgIf, AsyncPipe]
+  selector: 'sac-inputarea',
+  templateUrl: './inputarea.html',
+  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: SacInputAreaComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => SacInputAreaComponent),
+    },
+  ],
+  standalone: true,
+  imports: [
+    NgClass,
+    NgIf,
+    AsyncPipe,
+    SacToLabelWidthCssPipe,
+    SacToControlWidthCssPipe,
+  ],
 })
-
 export class SacInputAreaComponent extends SacInputAreaCommon {
+  // #region Constructors
 
-  constructor( @Host() @Optional() parent: SacFormDirective, injector: Injector) {
-    super(parent, injector);
+  /**
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   */
+  constructor(
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
+    injector: Injector
+  ) {
+    super(formLayout, injector);
   }
 
+  // #endregion Constructors
 }

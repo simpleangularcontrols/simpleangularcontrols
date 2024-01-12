@@ -1,11 +1,6 @@
 import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
-import {
-  FormsModule,
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR
-} from '@angular/forms';
+import { FormsModule, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 // import { SacBaseSelectControl } from '../../common/baseselectcontrol';
-import { SacFormDirective } from '../form/form';
 // import { Validation } from '../../validation';
 import {
   AsyncPipe,
@@ -15,6 +10,9 @@ import {
   NgTemplateOutlet,
 } from '@angular/common';
 import { SacListboxCommon } from '@simpleangularcontrols/sac-common';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 import { SacDropdownOptionDirective } from './dropdown';
 
 @Component({
@@ -42,13 +40,24 @@ import { SacDropdownOptionDirective } from './dropdown';
     SacDropdownOptionDirective,
     NgTemplateOutlet,
     AsyncPipe,
+    SacToLabelWidthCssPipe,
+    SacToControlWidthCssPipe,
   ],
 })
 export class SacListboxComponent extends SacListboxCommon {
+  // #region Constructors
+
+  /**
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   */
   constructor(
-    @Host() @Optional() parent: SacFormDirective,
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
     injector: Injector
   ) {
-    super(parent, injector);
+    super(formLayout, injector);
   }
+
+  // #endregion Constructors
 }

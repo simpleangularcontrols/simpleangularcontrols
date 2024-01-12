@@ -20,7 +20,11 @@ import {
   SacDropdownCommon,
   SacDropdownOptionCommon,
 } from '@simpleangularcontrols/sac-common';
-import { SacFormDirective } from '../form/form';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
+
+// #region Classes
 
 @Component({
   selector: 'sac-dropdown',
@@ -47,29 +51,51 @@ import { SacFormDirective } from '../form/form';
     NgFor,
     NgTemplateOutlet,
     AsyncPipe,
+    SacToLabelWidthCssPipe,
+    SacToControlWidthCssPipe,
   ],
 })
 export class SacDropdownComponent extends SacDropdownCommon {
+  // #region Constructors
+
+  /**
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   * @param renderer Angular rendering engine
+   * @param elementRef Reference to html dom element
+   */
   constructor(
-    @Host() @Optional() parent: SacFormDirective,
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
     injector: Injector,
-    _renderer: Renderer2,
-    _elementRef: ElementRef
+    renderer: Renderer2,
+    elementRef: ElementRef
   ) {
-    super(parent, injector, _renderer, _elementRef);
+    super(formLayout, injector, renderer, elementRef);
   }
+
+  // #endregion Constructors
 }
 
-@Directive({
-  selector: 'option,[sacOption]',
-  standalone: true,
-})
+@Directive({ selector: 'option,[sacOption]', standalone: true })
 export class SacDropdownOptionDirective extends SacDropdownOptionCommon {
+  // #region Constructors
+
+  /**
+   * Konstruktor
+   * @param elementRef Referenz auf HTML DOM Element
+   * @param renderer Angular Rendering Engine
+   * @param dropdownList Referenz auf DropDown Komponente
+   */
   constructor(
-    _elementRef: ElementRef,
-    _renderer: Renderer2,
+    elementRef: ElementRef,
+    renderer: Renderer2,
     @Optional() @Host() dropdownList: SacDropdownComponent
   ) {
-    super(_elementRef, _renderer, dropdownList);
+    super(elementRef, renderer, dropdownList);
   }
+
+  // #endregion Constructors
 }
+
+// #endregion Classes

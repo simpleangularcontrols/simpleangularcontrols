@@ -15,7 +15,7 @@ import { SacBaseDateTimeControl } from '../../common/basedatetimecontrol';
 import { ISacIconService } from '../../interfaces/ISacIconService';
 import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
 import { Validation } from '../../validation';
-import { SacFormCommon } from '../form/form';
+import { SacFormLayoutCommon } from '../layout/formlayout';
 /**
  * Moment
  */
@@ -136,17 +136,17 @@ export class SacDateCommon extends SacBaseDateTimeControl {
   // #endregion
 
   /**
-   * Konstruktor
-   * @param parent typ SacFormCommon
-   * @param injector typ Injector
-   * @param _elementRef typ ElementRef
+   * Constructor
+   * @param formlayout SacFormLayoutCommon to define scoped layout settings
+   * @param injector Injector for injecting services
+   * @param elementRef reference to html element
    */
   constructor(
-    parent: SacFormCommon,
+    formlayout: SacFormLayoutCommon,
     injector: Injector,
-    protected _elementRef: ElementRef
+    protected elementRef: ElementRef
   ) {
-    super(parent, injector, _elementRef);
+    super(formlayout, injector, elementRef);
 
     this.iconService = injector.get(
       SACICON_SERVICE,
@@ -203,8 +203,7 @@ export class SacDateCommon extends SacBaseDateTimeControl {
    * Click Event
    */
   public onClick(targetElement) {
-    const clickedInside =
-      this._elementRef.nativeElement.contains(targetElement);
+    const clickedInside = this.elementRef.nativeElement.contains(targetElement);
     if (!clickedInside) {
       this._showselector = false;
     }

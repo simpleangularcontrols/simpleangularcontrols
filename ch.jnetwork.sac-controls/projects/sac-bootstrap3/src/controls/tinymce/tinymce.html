@@ -1,13 +1,13 @@
 <div class="form-row form-group">
   <div
     class="col"
-    [ngClass]="[disablelabel === false ?  'col-md-' + labelsize : 'sr-only' ]"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
   >
     <label for="{{name}}" class="form-control-label">{{label}}</label>
   </div>
   <div
-    class="col-12"
-    [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"
+    class="col-xs-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
     [class.has-error]="isinlineerrorenabled && invalid && (dirty || touched)"
   >
     <editor

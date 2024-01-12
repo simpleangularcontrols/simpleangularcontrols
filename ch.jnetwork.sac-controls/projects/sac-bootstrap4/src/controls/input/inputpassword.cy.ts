@@ -1,6 +1,8 @@
 import { FormsModule } from '@angular/forms';
 import { createOutputSpy } from 'cypress/angular';
 import { SacFormDirective } from '../form';
+import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 import { SacInputPasswordComponent } from './inputpassword';
 
 describe('ngInputPasswordComponent', () => {
@@ -11,7 +13,13 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputPasswordComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputPasswordComponent,
+          SacToLabelWidthCssPipe,
+          SacToControlWidthCssPipe,
+        ],
         componentProperties: {
           label: 'My Label',
           value: 'My Text',
@@ -31,7 +39,13 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputPasswordComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputPasswordComponent,
+          SacToLabelWidthCssPipe,
+          SacToControlWidthCssPipe,
+        ],
         componentProperties: {
           label: 'My Label',
           value: '',
@@ -58,7 +72,13 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputPasswordComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputPasswordComponent,
+          SacToLabelWidthCssPipe,
+          SacToControlWidthCssPipe,
+        ],
         componentProperties: {
           label: 'My Label',
           value: 'My Value',
@@ -78,7 +98,13 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputPasswordComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputPasswordComponent,
+          SacToLabelWidthCssPipe,
+          SacToControlWidthCssPipe,
+        ],
         componentProperties: {
           label: 'My Label',
           value: '',
@@ -97,7 +123,13 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputPasswordComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputPasswordComponent,
+          SacToLabelWidthCssPipe,
+          SacToControlWidthCssPipe,
+        ],
         componentProperties: {
           label: 'My Label',
           value: 'MyValue',
@@ -116,7 +148,13 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputPasswordComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputPasswordComponent,
+          SacToLabelWidthCssPipe,
+          SacToControlWidthCssPipe,
+        ],
         componentProperties: {
           label: 'My Label',
           value: 'MyValue',
@@ -135,7 +173,13 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputPasswordComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputPasswordComponent,
+          SacToLabelWidthCssPipe,
+          SacToControlWidthCssPipe,
+        ],
         componentProperties: {
           label: 'My Label',
           value: 'first value',
@@ -157,7 +201,13 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputPasswordComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputPasswordComponent,
+          SacToLabelWidthCssPipe,
+          SacToControlWidthCssPipe,
+        ],
         componentProperties: {
           label: 'My Label',
           value: 'first value',
@@ -178,7 +228,13 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputPasswordComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputPasswordComponent,
+          SacToLabelWidthCssPipe,
+          SacToControlWidthCssPipe,
+        ],
         componentProperties: {
           label: 'My Label',
           value: 'first value',

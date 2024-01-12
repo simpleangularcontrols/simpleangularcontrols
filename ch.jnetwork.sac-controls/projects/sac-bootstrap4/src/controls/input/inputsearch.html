@@ -1,15 +1,16 @@
 <div class="row form-group" [class.no-gutters]="disablelabel">
   <label
-    *ngIf="disablelabel === false && !isadaptivelabel"
+    *ngIf="disablelabel === false && !isAdaptiveLabel"
     id="{{name}}_label"
     for="{{name}}"
-    class="col-form-label"
-    [ngClass]="[labelsize !== 12 ?  'col-sm-' + labelsize : 'sr-only']"
+    class="col-12 col-form-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
     [class.required]="isrequired"
     >{{label}}</label
   >
   <div
-    [ngClass]="[disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']"
+    class="col-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
   >
     <div class="input-group input-group-sm">
       <input
@@ -22,7 +23,7 @@
         (blur)="onTouch()"
         (input)="setValue($event.target.value)"
         [attr.maxlength]="maxlength"
-        [ngClass]="{'language-specific': islanguagespecific,'is-invalid': invalid && (dirty || touched) }"
+        [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
         [disabled]="isdisabled"
         [readonly]="readonly"
       />

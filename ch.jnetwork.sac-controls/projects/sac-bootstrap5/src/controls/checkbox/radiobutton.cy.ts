@@ -1,6 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { createOutputSpy } from 'cypress/angular';
 import { SacFormDirective } from '../form';
+import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacRadiobuttonComponent } from './radiobutton';
 import { SacRadiobuttonsComponent } from './radiobuttons';
 
@@ -19,6 +20,7 @@ describe('NgRadiobuttonComponent', () => {
           SacFormDirective,
           SacRadiobuttonsComponent,
           SacRadiobuttonComponent,
+          SACBootstrap5LayoutModule,
         ],
         componentProperties: {
           label: 'Radiobutton Test',
@@ -55,6 +57,7 @@ describe('NgRadiobuttonComponent', () => {
           SacFormDirective,
           SacRadiobuttonsComponent,
           SacRadiobuttonComponent,
+          SACBootstrap5LayoutModule,
         ],
         componentProperties: {
           label: 'Radiobutton Test',
@@ -87,6 +90,7 @@ describe('NgRadiobuttonComponent', () => {
           SacFormDirective,
           SacRadiobuttonsComponent,
           SacRadiobuttonComponent,
+          SACBootstrap5LayoutModule,
         ],
         componentProperties: {
           label: 'Radiobutton Test',
@@ -115,6 +119,7 @@ describe('NgRadiobuttonComponent', () => {
           SacFormDirective,
           SacRadiobuttonsComponent,
           SacRadiobuttonComponent,
+          SACBootstrap5LayoutModule,
         ],
         componentProperties: {
           label: 'Radiobutton Test',

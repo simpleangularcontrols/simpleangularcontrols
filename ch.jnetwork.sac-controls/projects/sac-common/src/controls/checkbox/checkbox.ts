@@ -1,4 +1,4 @@
-import { Input, Directive } from '@angular/core';
+import { Directive, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { SacBaseModelControl } from '../../common/basemodelcontrol';
 
@@ -7,10 +7,9 @@ import { SacBaseModelControl } from '../../common/basemodelcontrol';
  */
 @Directive()
 export class SacCheckboxCommon extends SacBaseModelControl<boolean> {
-
   /**
-  * Text welcher als Tooltip angezeigt wird.
-  */
+   * Text welcher als Tooltip angezeigt wird.
+   */
   @Input() tooltiptext: string = '';
 
   /**
@@ -19,11 +18,14 @@ export class SacCheckboxCommon extends SacBaseModelControl<boolean> {
   @Input() checkboxtext;
 
   /**
+   * Defines that the checkbox can be used in a list of checkboxes and is not handled as a single form control
+   */
+  @Input() stacked: boolean = false;
+
+  /**
    * Control hat keinen Validator
    */
   validateData(c: AbstractControl): ValidationErrors | null {
     return null;
   }
-
 }
-

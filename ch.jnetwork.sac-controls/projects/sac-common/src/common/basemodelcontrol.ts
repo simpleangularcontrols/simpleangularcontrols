@@ -335,7 +335,9 @@ export abstract class SacBaseModelControl<VALUE>
       const form = this.injector.get(FormGroupDirective, null);
       this.ngControl = form.getControl(formControl);
     } else {
-      this.ngControl = formControl.control as FormControl;
+      if (formControl) {
+        this.ngControl = formControl.control as FormControl;
+      }
     }
 
     this.UpdateLabelToControl();

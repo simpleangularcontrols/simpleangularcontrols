@@ -24,3 +24,16 @@ jobs:
 
       - name: Test
         run: dotnet run --project build/Build.csproj --target=test
+
+      - name: Summary
+        run: |
+          echo "# Bootstrap 3 Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          cat ch.jnetwork.sac-controls/reports/bs3.md  >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "# Bootstrap 4 Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          cat ch.jnetwork.sac-controls/reports/bs4.md  >> $GITHUB_STEP_SUMMARY
+          echo "# Bootstrap 5 Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          cat ch.jnetwork.sac-controls/reports/bs5.md  >> $GITHUB_STEP_SUMMARY

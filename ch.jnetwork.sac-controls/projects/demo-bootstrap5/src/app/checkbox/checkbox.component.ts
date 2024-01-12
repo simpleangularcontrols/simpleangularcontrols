@@ -1,18 +1,26 @@
 import { Component, ViewChild } from '@angular/core';
-import { SacFormDirective, SACBootstrap5FormModule, SACBootstrap5ButtonModule, SACBootstrap5ValidationSummaryModule, SACBootstrap5CheckboxModule } from '@simpleangularcontrols/sac-bootstrap5';
 import { FormsModule } from '@angular/forms';
+import {
+  SACBootstrap5ButtonModule,
+  SACBootstrap5CheckboxModule,
+  SACBootstrap5FormModule,
+  SACBootstrap5StaticLabelModule,
+  SACBootstrap5ValidationSummaryModule,
+  SacFormDirective,
+} from '@simpleangularcontrols/sac-bootstrap5';
 
 @Component({
-    selector: 'app-checkbox',
-    templateUrl: './checkbox.component.html',
-    standalone: true,
-    imports: [
-        FormsModule,
-        SACBootstrap5FormModule,
-        SACBootstrap5ButtonModule,
-        SACBootstrap5ValidationSummaryModule,
-        SACBootstrap5CheckboxModule,
-    ],
+  selector: 'app-checkbox',
+  templateUrl: './checkbox.component.html',
+  standalone: true,
+  imports: [
+    FormsModule,
+    SACBootstrap5FormModule,
+    SACBootstrap5ButtonModule,
+    SACBootstrap5ValidationSummaryModule,
+    SACBootstrap5CheckboxModule,
+    SACBootstrap5StaticLabelModule,
+  ],
 })
 export class DemoCheckboxComponent {
   public values: any = {

@@ -1,17 +1,18 @@
 <div
-  class="row form-group"
+  class="row"
+  [class.form-group]="!stacked"
   [ngClass]="{'has-error': invalid && (dirty || touched)}"
 >
   <label
-    *ngIf="disablelabel === false"
+    *ngIf="!disablelabel && !stacked"
     for="{{name}}"
     class="col-xs-12 control-label"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    [ngClass]="[!disablelabel && !stacked ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
     >{{label}}</label
   >
   <div
     class="col-xs-12"
-    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
+    [ngClass]="[!disablelabel && !stacked ?  (this.labelSizes | toControlWidthCss) : '']"
   >
     <div class="checkbox">
       <label>

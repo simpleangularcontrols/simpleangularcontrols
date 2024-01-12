@@ -5,7 +5,7 @@ name: Run Cypress Tests
 
 on:
   push:
-    branches: ["ng/*"]
+    branches: ["ng16/*"]
   pull_request:
     branches: ["agnular/*"]
 

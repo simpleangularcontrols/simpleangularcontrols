@@ -1,12 +1,10 @@
-import { Component, forwardRef, Host, Injector, Optional } from '@angular/core';
-import {
-  ControlContainer,
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms';
-import { SacInputDecimalCommon } from '@simpleangularcontrols/sac-common';
-import { SacFormDirective } from '../form/form';
 import { AsyncPipe, NgClass, NgIf } from '@angular/common';
+import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SacInputDecimalCommon } from '@simpleangularcontrols/sac-common';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 
 /**
  * Input Komponente für Zahlen
@@ -27,21 +25,29 @@ import { AsyncPipe, NgClass, NgIf } from '@angular/common';
       useExisting: forwardRef(() => SacInputDecimalComponent),
     },
   ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }],
   standalone: true,
-  imports: [NgClass, NgIf, AsyncPipe],
+  imports: [
+    NgClass,
+    NgIf,
+    AsyncPipe,
+    SacToLabelWidthCssPipe,
+    SacToControlWidthCssPipe,
+  ],
 })
 export class SacInputDecimalComponent extends SacInputDecimalCommon {
+  // #region Constructors
+
   /**
-   * Konstruktor
-   * @param parent Formular
-   * @param injector Angular Dependency Injection Service
+   * Constructor
+   * @param formlayout SacFormLayoutCommon to define scoped layout settings
+   * @param injector Injector for injecting services
    */
   constructor(
-    @Host() @Optional() parent: SacFormDirective,
+    @Host() @Optional() formlayout: SacFormLayoutDirective,
     injector: Injector
   ) {
-    super(parent, injector);
+    super(formlayout, injector);
   }
+
+  // #endregion Constructors
 }

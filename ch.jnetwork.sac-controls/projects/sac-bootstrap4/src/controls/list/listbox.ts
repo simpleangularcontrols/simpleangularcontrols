@@ -9,16 +9,16 @@ import {
   Renderer2,
   forwardRef,
 } from '@angular/core';
-import {
-  ControlContainer,
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
   SacListboxCommon,
   SacListboxOptionCommon,
 } from '@simpleangularcontrols/sac-common';
-import { SacFormDirective } from '../form/form';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
+
+// #region Classes
 
 /**
  * Listbox Komponente
@@ -39,8 +39,6 @@ import { SacFormDirective } from '../form/form';
       useExisting: forwardRef(() => SacListboxComponent),
     },
   ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }],
   standalone: true,
   imports: [
     NgClass,
@@ -48,41 +46,50 @@ import { SacFormDirective } from '../form/form';
     NgFor,
     AsyncPipe,
     forwardRef(() => SacListboxOptionDirective),
+    SacToLabelWidthCssPipe,
+    SacToControlWidthCssPipe,
   ],
 })
 export class SacListboxComponent extends SacListboxCommon {
+  // #region Constructors
+
   /**
-   * Konstruktor
-   * @param parent Formular
-   * @param injector Angular Dependiency Injection Service
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
    */
   constructor(
-    @Host() @Optional() parent: SacFormDirective,
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
     injector: Injector
   ) {
-    super(parent, injector);
+    super(formLayout, injector);
   }
+
+  // #endregion Constructors
 }
 
 /**
  * Option Item in Listbox
  */
-@Directive({
-  selector: '[sacOption],option',
-  standalone: true,
-})
+@Directive({ selector: '[sacOption],option', standalone: true })
 export class SacListboxOptionDirective extends SacListboxOptionCommon {
+  // #region Constructors
+
   /**
    * Konstruktor
-   * @param _elementRef Referenz auf DOM Element
-   * @param _renderer Angular Rendering Engine
+   * @param elementRef Referenz auf DOM Element
+   * @param renderer Angular Rendering Engine
    * @param listbox Referenz auf Listbox Komponente
    */
   constructor(
-    _elementRef: ElementRef,
-    _renderer: Renderer2,
+    elementRef: ElementRef,
+    renderer: Renderer2,
     @Optional() @Host() listbox: SacListboxComponent
   ) {
-    super(_elementRef, _renderer, listbox);
+    super(elementRef, renderer, listbox);
   }
+
+  // #endregion Constructors
 }
+
+// #endregion Classes

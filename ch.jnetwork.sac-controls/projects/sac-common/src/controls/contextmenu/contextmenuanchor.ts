@@ -5,16 +5,24 @@ import { Directive, ElementRef } from '@angular/core';
  */
 @Directive()
 export class SacContextmenuAnchorCommon {
+  // #region Properties
+
   /**
    * Referenz auf das Native HTML Element
    */
-  nativeElement: HTMLElement;
+  public nativeElement: HTMLElement;
+
+  // #endregion Properties
+
+  // #region Constructors
 
   /**
    * Konstruktor
-   * @param _elementRef Refernz auf das HTML welcher als Anker für das Context Menü verwendet wird
+   * @param elementRef Refernz auf das HTML welcher als Anker für das Context Menü verwendet wird
    */
-  constructor(_elementRef: ElementRef<HTMLElement>) {
-    this.nativeElement = _elementRef.nativeElement;
+  constructor(elementRef: ElementRef<HTMLElement>) {
+    this.nativeElement = elementRef.nativeElement;
   }
+
+  // #endregion Constructors
 }

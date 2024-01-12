@@ -1,8 +1,33 @@
-<div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
-  <label *ngIf="disablelabel === false && !isadaptivelabel" id="{{name}}label" for="{{name}}" class="control-label" [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']" [class.required]="isrequired">{{label}}</label>
-  <div [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
+<div
+  class="row form-group"
+  [ngClass]="{'has-error': invalid && (dirty || touched)}"
+>
+  <label
+    *ngIf="disablelabel === false && !isAdaptiveLabel"
+    id="{{name}}label"
+    for="{{name}}"
+    class="col-xs-12 control-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    [class.required]="isrequired"
+    >{{label}}</label
+  >
+  <div
+    class="col-xs-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
+  >
     <ng-content></ng-content>
-    <label for="{{name}}" class="form-label-adaptive form-label-fixed" [ngClass]="{ 'required': isrequired }" *ngIf="isadaptivelabel && !disablelabel">{{label}}</label>
-    <div class="help-block help-block-error" *ngIf="isinlineerrorenabled && invalid && (dirty || touched)">{{ GetErrorMessage() | async }}</div>
+    <label
+      for="{{name}}"
+      class="form-label-adaptive form-label-fixed"
+      [ngClass]="{ 'required': isrequired }"
+      *ngIf="isAdaptiveLabel && !disablelabel"
+      >{{label}}</label
+    >
+    <div
+      class="help-block help-block-error"
+      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+    >
+      {{ GetErrorMessage() | async }}
+    </div>
   </div>
 </div>

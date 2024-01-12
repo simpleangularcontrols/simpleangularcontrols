@@ -1,16 +1,17 @@
 <div
-  class="form-group"
+  class="row form-group"
   [ngClass]="{'has-error': invalid && (dirty || touched)}"
 >
   <label
     *ngIf="disablelabel === false"
     for="{{name}}"
-    class="control-label"
-    [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']"
+    class="col-xs-12 control-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
     >{{label}}</label
   >
   <div
-    [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"
+    class="col-xs-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
   >
     <div class="checkbox">
       <label>
@@ -24,7 +25,9 @@
           (blur)="onTouch()"
           (change)="setValue($event.target.checked)"
         />
-        <ng-container *ngIf="checkboxtext">&nbsp;<span>{{checkboxtext}}</span></ng-container>
+        <ng-container *ngIf="checkboxtext"
+          >&nbsp;<span>{{checkboxtext}}</span></ng-container
+        >
       </label>
     </div>
   </div>

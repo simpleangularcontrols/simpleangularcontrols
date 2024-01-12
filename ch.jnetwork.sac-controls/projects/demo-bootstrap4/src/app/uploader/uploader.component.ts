@@ -8,25 +8,47 @@ import {
   SacFormDirective,
 } from '@simpleangularcontrols/sac-bootstrap4';
 
-interface KeyValue {
-  label: string;
-  value: string;
-  text: string;
-}
+// #region Interfaces
 
-interface KeyValueNumeric {
+interface KeyValue {
+  // #region Properties
+
   label: string;
-  value: number;
   text: string;
+  value: string;
+
+  // #endregion Properties
 }
 
 interface KeyValue2 extends KeyValue {
+  // #region Properties
+
   enabled: boolean;
+
+  // #endregion Properties
 }
 
 interface KeyValue3 extends KeyValue2 {
+  // #region Properties
+
   checked: boolean;
+
+  // #endregion Properties
 }
+
+interface KeyValueNumeric {
+  // #region Properties
+
+  label: string;
+  text: string;
+  value: number;
+
+  // #endregion Properties
+}
+
+// #endregion Interfaces
+
+// #region Classes
 
 @Component({
   selector: 'app-uploader',
@@ -41,6 +63,10 @@ interface KeyValue3 extends KeyValue2 {
   ],
 })
 export class DemoUploaderComponent {
+  // #region Properties
+
+  @ViewChild('myForm') public myForm: SacFormDirective;
+
   public values: any = {
     fieldupload1: null,
     fieldupload2: null,
@@ -63,7 +89,9 @@ export class DemoUploaderComponent {
     dropzone7: null,
   };
 
-  @ViewChild('myForm') myForm: SacFormDirective;
+  // #endregion Properties
+
+  // #region Public Methods
 
   public debugAction(): void {
     this.myForm.markAsTouched();
@@ -73,4 +101,8 @@ export class DemoUploaderComponent {
   public showmessage(message: string): void {
     alert(message);
   }
+
+  // #endregion Public Methods
 }
+
+// #endregion Classes

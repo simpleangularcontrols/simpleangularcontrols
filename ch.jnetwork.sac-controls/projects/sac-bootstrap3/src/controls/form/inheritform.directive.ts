@@ -1,24 +1,8 @@
-import { Directive } from '@angular/core';
+import { Directive, SkipSelf } from '@angular/core';
+import { ControlContainer, NgForm } from '@angular/forms';
 import { SacFormDirective } from './form';
-import { SkipSelf } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { ControlContainer } from '@angular/forms';
 
-/**
- * Factory Methode für SacForm
- * @param form NgFormular
- */
-export function SACFORM_FACTORY(form: SacFormDirective) {
-  return form;
-}
-
-/**
- * Factory Methode für NgForm
- * @param form NgForm
- */
-export function NGFORM_FACTORY(form: NgForm) {
-  return form;
-}
+// #region Classes
 
 /**
  * Directive zum erben eines NgForm/NgFormular einer übergeordneten Komponente
@@ -54,18 +38,41 @@ export function NGFORM_FACTORY(form: NgForm) {
  *
  */
 @Directive({
-    selector: '[sacInheritForm]',
-    providers: [
-        {
-            provide: SacFormDirective,
-            useFactory: SACFORM_FACTORY,
-            deps: [[new SkipSelf(), SacFormDirective]]
-        }, {
-            provide: ControlContainer,
-            useFactory: NGFORM_FACTORY,
-            deps: [NgForm]
-        }
-    ],
-    standalone: true
+  selector: '[sacInheritForm]',
+  providers: [
+    {
+      provide: SacFormDirective,
+      useFactory: SACFORM_FACTORY,
+      deps: [[new SkipSelf(), SacFormDirective]],
+    },
+    {
+      provide: ControlContainer,
+      useFactory: NGFORM_FACTORY,
+      deps: [NgForm],
+    },
+  ],
+  standalone: true,
 })
-export class SacInheritFormDirective { }
+export class SacInheritFormDirective {}
+
+// #endregion Classes
+
+// #region Functions
+
+/**
+ * Factory Methode für NgForm
+ * @param form NgForm
+ */
+export function NGFORM_FACTORY(form: NgForm) {
+  return form;
+}
+
+/**
+ * Factory Methode für SacForm
+ * @param form NgFormular
+ */
+export function SACFORM_FACTORY(form: SacFormDirective) {
+  return form;
+}
+
+// #endregion Functions

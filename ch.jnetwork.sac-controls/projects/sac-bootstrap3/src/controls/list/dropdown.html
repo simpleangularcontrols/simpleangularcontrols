@@ -1,38 +1,72 @@
-<div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
-  <label *ngIf="disablelabel === false && !isadaptivelabel" id="{{name}}label" for="{{name}}" class="control-label" [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']" [class.required]="isrequired">{{label}}</label>
-  <div [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
-    <select #dropdownitem id="{{name}}" name="{{name}}" class="form-control"
-            (blur)="onTouch()" (change)="setValue(dropdownitem.value)" [disabled]="isdisabled">
-
-      <option *ngIf="emptylabel !== ''" [ngValue]="emptyvalue">{{emptylabel}}</option>
+<div
+  class="row form-group"
+  [ngClass]="{'has-error': invalid && (dirty || touched)}"
+>
+  <label
+    *ngIf="disablelabel === false && !isAdaptiveLabel"
+    id="{{name}}label"
+    for="{{name}}"
+    class="col-xs-12 control-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    [class.required]="isrequired"
+    >{{label}}</label
+  >
+  <div
+    class="col-xs-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
+  >
+    <select
+      #dropdownitem
+      id="{{name}}"
+      name="{{name}}"
+      class="form-control"
+      (blur)="onTouch()"
+      (change)="setValue(dropdownitem.value)"
+      [disabled]="isdisabled"
+    >
+      <option *ngIf="emptylabel !== ''" [ngValue]="emptyvalue">
+        {{emptylabel}}
+      </option>
 
       <ng-content></ng-content>
 
       <ng-container *ngIf="groupitems === ''">
-        <option *ngFor="let item of options" [ngValue]="optionvalue ? item[optionvalue] : item"
-                [disabled]="optionenabled !== '' && item[optionenabled] === false">
-
-          <ng-template *ngTemplateOutlet="optionlabeltemplate || defaultItemLabelTemplate;context:{ label: item[optionlabel], item: item }">
+        <option
+          *ngFor="let item of options"
+          [ngValue]="optionvalue ? item[optionvalue] : item"
+          [disabled]="optionenabled !== '' && item[optionenabled] === false"
+        >
+          <ng-template
+            *ngTemplateOutlet="optionlabeltemplate || defaultItemLabelTemplate;context:{ label: item[optionlabel], item: item }"
+          >
           </ng-template>
-
         </option>
       </ng-container>
 
       <ng-container *ngIf="groupitems !== ''">
-        <optgroup *ngFor="let group of options" [attr.label]="group[grouplabel]">
-          <option *ngFor="let item of group[groupitems]" [ngValue]="optionvalue ? item[optionvalue] : item"
-                  [disabled]="optionenabled !== '' && item[optionenabled] === false">
-
-            <ng-template *ngTemplateOutlet="optionlabeltemplate || defaultItemLabelTemplate;context:{ label: item[optionlabel], item: item }">
+        <optgroup
+          *ngFor="let group of options"
+          [attr.label]="group[grouplabel]"
+        >
+          <option
+            *ngFor="let item of group[groupitems]"
+            [ngValue]="optionvalue ? item[optionvalue] : item"
+            [disabled]="optionenabled !== '' && item[optionenabled] === false"
+          >
+            <ng-template
+              *ngTemplateOutlet="optionlabeltemplate || defaultItemLabelTemplate;context:{ label: item[optionlabel], item: item }"
+            >
             </ng-template>
-
           </option>
         </optgroup>
       </ng-container>
-
-
     </select>
-    <div class="help-block help-block-error" *ngIf="isinlineerrorenabled && invalid && (dirty || touched)">{{ GetErrorMessage() | async }}</div>
+    <div
+      class="help-block help-block-error"
+      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+    >
+      {{ GetErrorMessage() | async }}
+    </div>
   </div>
 </div>
 

@@ -43,11 +43,17 @@ import { SacDropzoneMultipleComponent } from '../../controls/upload/dropzonemult
   providers: [ServiceConfirm],
 })
 export class SacBrowserComponent extends SacFileBrowserCommon {
+  // #region Properties
+
   /**
    * Referenz auf Upload Component
    */
   @ViewChild(SacDropzoneMultipleComponent, { static: false })
   private uploadComponent: SacDropzoneMultipleComponent;
+
+  // #endregion Properties
+
+  // #region Constructors
 
   /**
    * Konstruktor
@@ -63,21 +69,16 @@ export class SacBrowserComponent extends SacFileBrowserCommon {
     super(httpClient, injector);
   }
 
-  /**
-   * Erzeugt ein Array von einer bestimmten grösse
-   * @param anzahl Grösse des Array
-   * @returns Array
-   */
-  public count(anzahl: number): Array<void> {
-    return new Array(anzahl);
-  }
+  // #endregion Constructors
+
+  // #region Public Methods
 
   /**
    * Confirm Action wenn ein File gelöscht werden soll
    * @param file File das gelöscht werden soll.
    * @returns Observable ob File gelöscht werden kann.
    */
-  confirmDeleteFile(file: IBrowserFile): Observable<boolean> {
+  public confirmDeleteFile(file: IBrowserFile): Observable<boolean> {
     return new Observable<boolean>((observer) => {
       forkJoin({
         title: this.lngResourceService.GetString('FILEBROWSER_DELETE'),
@@ -104,7 +105,7 @@ export class SacBrowserComponent extends SacFileBrowserCommon {
    * @param node Ordner der gelöscht werden soll
    * @returns Observable ob Ordner gelöscht kann.
    */
-  confirmDeleteNode(node: IBrowserNode): Observable<boolean> {
+  public confirmDeleteNode(node: IBrowserNode): Observable<boolean> {
     return new Observable<boolean>((observer) => {
       forkJoin({
         title: this.lngResourceService.GetString('FILEBROWSER_DELETE'),
@@ -127,10 +128,19 @@ export class SacBrowserComponent extends SacFileBrowserCommon {
   }
 
   /**
+   * Erzeugt ein Array von einer bestimmten grösse
+   * @param anzahl Grösse des Array
+   * @returns Array
+   */
+  public count(anzahl: number): Array<void> {
+    return new Array(anzahl);
+  }
+
+  /**
    * Methode wird aufgerufen, wenn eine Datei verschoben wird
    * @param uploadid Upload ID
    */
-  uploadedFileMoved(uploadid: string): void {
+  public uploadedFileMoved(uploadid: string): void {
     const item = this.uploadComponent.uploads.find(
       (itm) => itm.documentid === uploadid
     );
@@ -139,4 +149,6 @@ export class SacBrowserComponent extends SacFileBrowserCommon {
       this.uploadComponent.cancel(item.uploadId);
     }
   }
+
+  // #endregion Public Methods
 }

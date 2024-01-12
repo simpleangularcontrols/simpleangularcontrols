@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SACBootstrap3ConfirmModule } from '@simpleangularcontrols/sac-bootstrap3';
 import {
   SACBootstrap4ButtonModule,
+  SACBootstrap4ConfirmModule,
   SACBootstrap4FormModule,
   ServiceConfirm,
 } from '@simpleangularcontrols/sac-bootstrap4';
@@ -15,11 +15,18 @@ import {
     FormsModule,
     SACBootstrap4FormModule,
     SACBootstrap4ButtonModule,
-    SACBootstrap3ConfirmModule,
+    SACBootstrap4ConfirmModule,
   ],
 })
 export class DemoConfirmComponent {
+  // #region Constructors
+
   constructor(private confirmService: ServiceConfirm) {}
+
+  // #endregion Constructors
+
+  // #region Public Methods
+
   public confirmExample(): void {
     this.confirmService
       .ConfirmMessage('Benutzer löschen', 'Soll der Benutzer gelöscht werden?')
@@ -32,4 +39,6 @@ export class DemoConfirmComponent {
         }
       });
   }
+
+  // #endregion Public Methods
 }

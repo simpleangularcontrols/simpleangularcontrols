@@ -1,6 +1,8 @@
 import { FormsModule } from '@angular/forms';
 import { createOutputSpy } from 'cypress/angular';
 import { SacFormDirective } from '../form';
+import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 import { SacRadiobuttonComponent } from './radiobutton';
 import { SacRadiobuttonsComponent } from './radiobuttons';
 
@@ -19,6 +21,8 @@ describe('NgRadiobuttonComponent', () => {
           SacFormDirective,
           SacRadiobuttonsComponent,
           SacRadiobuttonComponent,
+          SacToLabelWidthCssPipe,
+          SacToControlWidthCssPipe,
         ],
         componentProperties: {
           label: 'Radiobutton Test',
@@ -55,6 +59,8 @@ describe('NgRadiobuttonComponent', () => {
           SacFormDirective,
           SacRadiobuttonsComponent,
           SacRadiobuttonComponent,
+          SacToLabelWidthCssPipe,
+          SacToControlWidthCssPipe,
         ],
         componentProperties: {
           label: 'Radiobutton Test',
@@ -87,6 +93,8 @@ describe('NgRadiobuttonComponent', () => {
           SacFormDirective,
           SacRadiobuttonsComponent,
           SacRadiobuttonComponent,
+          SacToLabelWidthCssPipe,
+          SacToControlWidthCssPipe,
         ],
         componentProperties: {
           label: 'Radiobutton Test',
@@ -115,6 +123,8 @@ describe('NgRadiobuttonComponent', () => {
           SacFormDirective,
           SacRadiobuttonsComponent,
           SacRadiobuttonComponent,
+          SacToLabelWidthCssPipe,
+          SacToControlWidthCssPipe,
         ],
         componentProperties: {
           label: 'Radiobutton Test',

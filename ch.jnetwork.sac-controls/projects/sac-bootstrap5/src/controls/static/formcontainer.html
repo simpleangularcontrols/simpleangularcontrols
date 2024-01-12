@@ -1,22 +1,23 @@
 <div class="row mb-3" [class.g-0]="disablelabel">
   <label
-    *ngIf="disablelabel === false && !isadaptivelabel"
+    *ngIf="disablelabel === false && !isAdaptiveLabel"
     id="{{name}}_label"
     for="{{name}}"
-    class="col-form-label col-form-label-sm"
-    [ngClass]="[labelsize !== 12 ?  'col-sm-' + labelsize : 'sr-only']"
+    class="col-12 col-form-label col-form-label-sm"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
     [class.required]="isrequired"
     >{{label}}</label
   >
   <div
-    [ngClass]="[disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']"
+    class="col-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
   >
     <ng-content></ng-content>
     <label
       for="{{name}}"
       class="form-label-adaptive form-label-fixed"
       [ngClass]="{ 'required': isrequired }"
-      *ngIf="isadaptivelabel && !disablelabel"
+      *ngIf="isAdaptiveLabel && !disablelabel"
       >{{label}}</label
     >
     <div

@@ -1,6 +1,8 @@
 import { FormsModule } from '@angular/forms';
 import { createOutputSpy } from 'cypress/angular';
 import { SacFormDirective } from '../form';
+import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 import { SacCheckboxComponent } from './checkbox';
 
 describe('sac-checkboxComponent', () => {
@@ -11,7 +13,13 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacCheckboxComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacCheckboxComponent,
+          SacToLabelWidthCssPipe,
+          SacToControlWidthCssPipe,
+        ],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',
@@ -39,7 +47,13 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacCheckboxComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacCheckboxComponent,
+          SacToLabelWidthCssPipe,
+          SacToControlWidthCssPipe,
+        ],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',
@@ -62,7 +76,13 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacCheckboxComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacCheckboxComponent,
+          SacToLabelWidthCssPipe,
+          SacToControlWidthCssPipe,
+        ],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',
@@ -83,7 +103,13 @@ describe('sac-checkboxComponent', () => {
       </sac-checkbox>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacCheckboxComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacCheckboxComponent,
+          SacToLabelWidthCssPipe,
+          SacToControlWidthCssPipe,
+        ],
         componentProperties: {
           label: 'Control Label',
           checkboxtext: 'Checkbox Test',

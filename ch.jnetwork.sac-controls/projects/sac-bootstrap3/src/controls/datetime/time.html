@@ -1,18 +1,19 @@
 <div
-  class="form-group"
+  class="row form-group"
   [ngClass]="{'has-error': invalid && (dirty || touched)}"
 >
   <label
-    *ngIf="disablelabel === false && !isadaptivelabel"
+    *ngIf="disablelabel === false && !isAdaptiveLabel"
     id="{{name}}label"
     for="{{name}}"
-    class="control-label"
-    [ngClass]="[labelsize !== 12 ?  'col-md-' + labelsize : 'sr-only']"
+    class="col-xs-12 control-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
     [class.required]="isrequired"
     >{{label}}</label
   >
   <div
-    [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"
+    class="col-xs-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
   >
     <div style="position: relative; width: 140px">
       <div class="input-group">

@@ -7,27 +7,27 @@ import { NgClass, NgFor, NgIf, AsyncPipe } from '@angular/common';
  * Paging Komponente
  */
 @Component({
-    selector: 'sac-paging',
-    templateUrl: './paging.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-    providers: [
-        { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacPagingComponent },
-        {
-            provide: NG_VALIDATORS,
-            multi: true,
-            useExisting: forwardRef(() => SacPagingComponent),
-        },
-    ],
-    standalone: true,
-    imports: [
-        NgClass,
-        NgFor,
-        NgIf,
-        FormsModule,
-        AsyncPipe,
-    ],
+  selector: 'sac-paging',
+  templateUrl: './paging.html',
+  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: SacPagingComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => SacPagingComponent),
+    },
+  ],
+  standalone: true,
+  imports: [NgClass, NgFor, NgIf, FormsModule, AsyncPipe],
 })
 export class SacPagingComponent extends SacPagingCommon {
+  // #region Constructors
+
   /**
    * Konstruktor
    * @param injector Angular Dependency Injection Service
@@ -35,4 +35,6 @@ export class SacPagingComponent extends SacPagingCommon {
   constructor(injector: Injector) {
     super(injector);
   }
+
+  // #endregion Constructors
 }

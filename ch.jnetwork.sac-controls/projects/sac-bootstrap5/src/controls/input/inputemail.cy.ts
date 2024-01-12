@@ -1,6 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { createOutputSpy } from 'cypress/angular';
 import { SacFormDirective } from '../form';
+import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacInputEmailComponent } from './inputemail';
 
 describe('inputEmail', () => {
@@ -11,7 +12,12 @@ describe('inputEmail', () => {
       </sac-inputemail>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputEmailComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputEmailComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'My Label',
           value: 'info@jnetwork.ch',
@@ -31,7 +37,12 @@ describe('inputEmail', () => {
       </sac-inputemail>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputEmailComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputEmailComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'My Label',
           value: '',
@@ -57,7 +68,12 @@ describe('inputEmail', () => {
       </sac-inputemail>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputEmailComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputEmailComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'My Label',
           value: 'My Value',
@@ -77,7 +93,12 @@ describe('inputEmail', () => {
       </sac-inputemail>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputEmailComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputEmailComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'My Label',
           value: '',
@@ -96,7 +117,12 @@ describe('inputEmail', () => {
       </sac-inputemail>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputEmailComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputEmailComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'My Label',
           value: 'info@jnetwork.ch',
@@ -115,7 +141,12 @@ describe('inputEmail', () => {
       </sac-inputemail>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputEmailComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputEmailComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'My Label',
           value: 'info@jnetwork.ch',
@@ -134,7 +165,12 @@ describe('inputEmail', () => {
       </sac-inputemail>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputEmailComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputEmailComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'My Label',
           value: 'info@jnetwork.ch',
@@ -156,7 +192,12 @@ describe('inputEmail', () => {
       </sac-inputemail>
       </form>`,
       {
-        imports: [FormsModule, SacFormDirective, SacInputEmailComponent],
+        imports: [
+          FormsModule,
+          SacFormDirective,
+          SacInputEmailComponent,
+          SACBootstrap5LayoutModule,
+        ],
         componentProperties: {
           label: 'My Label',
           value: '',

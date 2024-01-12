@@ -10,13 +10,35 @@ import { SacInputEmailComponent } from './inputemail';
 import { SacInputIntegerComponent } from './inputinteger';
 import { SacInputPasswordComponent } from './inputpassword';
 import { SacInputSearchComponent } from './inputsearch';
-
+import { SACBootstrap3LayoutModule } from '../layout/layout.module';
 
 @NgModule({
-  declarations: [SacInputComponent, SacInputAreaComponent, SacInputCurrencyComponent, SacInputDecimalComponent, SacInputEmailComponent, SacInputIntegerComponent, SacInputPasswordComponent, SacInputSearchComponent],
-  imports: [
-    CommonModule, CommonModule, FormsModule, SACBootstrap3TooltipModule
+  declarations: [
+    SacInputComponent,
+    SacInputAreaComponent,
+    SacInputCurrencyComponent,
+    SacInputDecimalComponent,
+    SacInputEmailComponent,
+    SacInputIntegerComponent,
+    SacInputPasswordComponent,
+    SacInputSearchComponent,
   ],
-  exports: [SacInputComponent, SacInputAreaComponent, SacInputCurrencyComponent, SacInputDecimalComponent, SacInputEmailComponent, SacInputIntegerComponent, SacInputPasswordComponent, SacInputSearchComponent]
+  imports: [
+    CommonModule,
+    CommonModule,
+    FormsModule,
+    SACBootstrap3TooltipModule,
+    SACBootstrap3LayoutModule,
+  ],
+  exports: [
+    SacInputComponent,
+    SacInputAreaComponent,
+    SacInputCurrencyComponent,
+    SacInputDecimalComponent,
+    SacInputEmailComponent,
+    SacInputIntegerComponent,
+    SacInputPasswordComponent,
+    SacInputSearchComponent,
+  ],
 })
-export class SACBootstrap3InputModule { }
+export class SACBootstrap3InputModule {}

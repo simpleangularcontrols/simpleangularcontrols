@@ -1,23 +1,21 @@
 import {
   Component,
-  Host,
-  forwardRef,
-  Injector,
   Directive,
-  Renderer2,
   ElementRef,
+  Host,
+  Injector,
   Optional,
+  Renderer2,
+  forwardRef,
 } from '@angular/core';
-import {
-  NG_VALUE_ACCESSOR,
-  ControlContainer,
-  NG_VALIDATORS,
-} from '@angular/forms';
-import { SacFormDirective } from '../form/form';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
   SacListboxCommon,
   SacListboxOptionCommon,
 } from '@simpleangularcontrols/sac-common';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+
+// #region Classes
 
 /**
  * Listbox Komponente
@@ -38,20 +36,23 @@ import {
       useExisting: forwardRef(() => SacListboxComponent),
     },
   ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [
-    { provide: ControlContainer, useExisting: SacFormDirective },
-  ],
 })
 export class SacListboxComponent extends SacListboxCommon {
+  // #region Constructors
+
   /**
-   * Konstruktor
-   * @param parent Formular
-   * @param injector Angular Dependiency Injection Service
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
    */
-  constructor(@Host() @Optional() parent: SacFormDirective, injector: Injector) {
-    super(parent, injector);
+  constructor(
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
+    injector: Injector
+  ) {
+    super(formLayout, injector);
   }
+
+  // #endregion Constructors
 }
 
 /**
@@ -59,17 +60,23 @@ export class SacListboxComponent extends SacListboxCommon {
  */
 @Directive({ selector: '[sacOption],option' })
 export class SacListboxOptionDirective extends SacListboxOptionCommon {
+  // #region Constructors
+
   /**
    * Konstruktor
-   * @param _elementRef Referenz auf DOM Element
-   * @param _renderer Angular Rendering Engine
+   * @param elementRef Referenz auf DOM Element
+   * @param renderer Angular Rendering Engine
    * @param listbox Referenz auf Listbox Komponente
    */
   constructor(
-    _elementRef: ElementRef,
-    _renderer: Renderer2,
+    elementRef: ElementRef,
+    renderer: Renderer2,
     @Optional() @Host() listbox: SacListboxComponent
   ) {
-    super(_elementRef, _renderer, listbox);
+    super(elementRef, renderer, listbox);
   }
+
+  // #endregion Constructors
 }
+
+// #endregion Classes

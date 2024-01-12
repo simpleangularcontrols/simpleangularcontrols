@@ -5,16 +5,15 @@ import {
   Injector,
   Input,
   NgZone,
-  OnDestroy,
   Output,
 } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { SacBaseModelControl } from '../../common/basemodelcontrol';
-import { SacFormCommon } from '../../controls/form/form';
 import { ISacLocalisationService } from '../../interfaces/ISacLocalisationService';
 import { SACLOCALISATION_SERVICE } from '../../services';
 import { SacDefaultLocalisationService } from '../../services/sac-localisation.service';
 import { Validation } from '../../validation';
+import { SacFormLayoutCommon } from '../layout/formlayout';
 import { TinyMceDialogSettings } from './tinymcedialogsettings';
 import { TinyMceDialogSettingsMeta } from './tinymcedialogsettingsmeta';
 import { TinyMceInstance } from './tinymceinstance';
@@ -24,6 +23,8 @@ import { TinyMceInstance } from './tinymceinstance';
  */
 @Directive()
 export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
+  // #region Properties
+
   /**
    * Default Config mit Standardwerten für TinyMCE
    */
@@ -38,134 +39,76 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
   };
 
   /**
-   * Service für Error Localisation
-   */
-  public lngResourceService: ISacLocalisationService;
-
-  /**
-   * Settings Instanz für Dialog
-   */
-  public selectDialogSettings: TinyMceDialogSettings;
-
-  /**
-   * TinyMCE Config
-   */
-  public _config: any = {};
-
-  /**
-   * Der Select Dialog wird angezeigt
-   */
-  public selectdialogvisible = false;
-
-  /**
-   * Instanz auf TinyMCE Settings. Wird durch TinyMCE gesetzt und wird für den Callback des Dialog benötigt
-   */
-  public settings: TinyMceInstance;
-
-  /**
-   * Definiert das Control als Required
+   * Erlaubt im Filebrowser das löschen von Dateien
    */
   @Input()
-  public isrequired: boolean = false;
-
-  /**
-   * Höhe des Editors
-   */
-  @Input()
-  public height: string = undefined;
-
-  /**
-   * URL zu Filebrowser Backend
-   */
-  @Input()
-  public filebrowserapiurl: string = null;
-
-  /**
-   * Erlaubt im Filebrowser das anlegen eines Ordners
-   */
-  @Input()
-  public allowfoldercreate = false;
-
-  /**
-   * Erlaubt im Filebrowser das umbennen eines Ordners
-   */
-  @Input()
-  public allowfolderrename = false;
-
-  /**
-   * Erlaubt im Filebrowser das löschen eines Ordners
-   */
-  @Input()
-  public allowfolderdelete = false;
-
-  /**
-   * Erlaubt im Filebrowser das hochladen von Files
-   */
-  @Input()
-  public allowfileupload = false;
-
+  public allowfiledelete = false;
   /**
    * Erlaubt im Filebrowser das umbennen von Dateien
    */
   @Input()
   public allowfilerename = false;
-
   /**
-   * Erlaubt im Filebrowser das löschen von Dateien
+   * Erlaubt im Filebrowser das hochladen von Files
    */
   @Input()
-  public allowfiledelete = false;
-
+  public allowfileupload = false;
   /**
-   * File Extensions für Images (Format: .xxx,.yyy,.eee)
+   * Erlaubt im Filebrowser das anlegen eines Ordners
    */
   @Input()
-  public filetypesimages = '.gif,.jpeg,.jpg,.png,.tif,.tiff,.bmp';
-
+  public allowfoldercreate = false;
   /**
-   * File Extensions für Media (Format: .xxx,.yyy,.eee)
+   * Erlaubt im Filebrowser das löschen eines Ordners
    */
   @Input()
-  public filetypesvideo = '.mp4,.m4v,.ogv,.webm,.mov';
-
+  public allowfolderdelete = false;
+  /**
+   * Erlaubt im Filebrowser das umbennen eines Ordners
+   */
+  @Input()
+  public allowfolderrename = false;
+  /**
+   * URL zu Filebrowser Backend
+   */
+  @Input()
+  public filebrowserapiurl: string = null;
   /**
    * File Extensions für Links (Format: .xxx,.yyy,.eee)
    */
   @Input()
   public filetypesfiles = '';
-
+  /**
+   * File Extensions für Images (Format: .xxx,.yyy,.eee)
+   */
+  @Input()
+  public filetypesimages = '.gif,.jpeg,.jpg,.png,.tif,.tiff,.bmp';
+  /**
+   * File Extensions für Media (Format: .xxx,.yyy,.eee)
+   */
+  @Input()
+  public filetypesvideo = '.mp4,.m4v,.ogv,.webm,.mov';
+  /**
+   * Höhe des Editors
+   */
+  @Input()
+  public height: string = undefined;
+  /**
+   * Definiert das Control als Required
+   */
+  @Input()
+  public isrequired: boolean = false;
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input() validationmessagerequired: string = 'VALIDATION_ERROR_REQUIRED';
-
+  @Input() public validationmessagerequired: string =
+    'VALIDATION_ERROR_REQUIRED';
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
   @Input()
-  validationmessagesummaryrequired: string =
+  public validationmessagesummaryrequired: string =
     'VALIDATION_ERROR_SUMMARY_REQUIRED';
-
-  /**
-   * TinyMCE Konfiguration
-   * @link https://www.tiny.cloud/docs/configure/
-   */
-  @Input()
-  set config(v: any) {
-    this._config = {
-      ...this.getDynamicSettings(),
-      ...this.baseConfig,
-      ...this.overwriteDefaultSettings(),
-      ...v,
-    };
-  }
-  /**
-   * TinyMCE Konfiguration
-   */
-  get config(): any {
-    return this._config;
-  }
-
   /**
    * Event wenn Save Action in TinyMCE ausgelöst wird
    */
@@ -173,17 +116,42 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
   public onsave: EventEmitter<string> = new EventEmitter<string>();
 
   /**
-   * Konstruktor
-   * @param parent Instanz vom Formular
-   * @param injector Injector Service
-   * @param ngZone NgZone für Javascript in TinyMCE
+   * TinyMCE Config
+   */
+  public _config: any = {};
+  /**
+   * Service für Error Localisation
+   */
+  public lngResourceService: ISacLocalisationService;
+  /**
+   * Settings Instanz für Dialog
+   */
+  public selectDialogSettings: TinyMceDialogSettings;
+  /**
+   * Der Select Dialog wird angezeigt
+   */
+  public selectdialogvisible = false;
+  /**
+   * Instanz auf TinyMCE Settings. Wird durch TinyMCE gesetzt und wird für den Callback des Dialog benötigt
+   */
+  public settings: TinyMceInstance;
+
+  // #endregion Properties
+
+  // #region Constructors
+
+  /**
+   * Constructor
+   * @param formlayout SacFormLayoutCommon to define scoped layout settings
+   * @param injector Injector for injecting services
+   * @param ngZone ngzone for handling external javascripts
    */
   constructor(
-    @Host() parent: SacFormCommon,
+    @Host() formlayout: SacFormLayoutCommon,
     injector: Injector,
     protected ngZone: NgZone
   ) {
-    super(parent, injector);
+    super(formlayout, injector);
 
     this.lngResourceService = injector.get(
       SACLOCALISATION_SERVICE,
@@ -193,7 +161,68 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
     this.config = {};
   }
 
-  //#region Integration Select Dialog für Fileauswahl
+  // #endregion Constructors
+
+  // #region Public Getters And Setters
+
+  /**
+   * TinyMCE Konfiguration
+   * @link https://www.tiny.cloud/docs/configure/
+   */
+  @Input()
+  public set config(v: any) {
+    this._config = {
+      ...this.getDynamicSettings(),
+      ...this.baseConfig,
+      ...this.overwriteDefaultSettings(),
+      ...v,
+    };
+  }
+
+  /**
+   * TinyMCE Konfiguration
+   */
+  public get config(): any {
+    return this._config;
+  }
+
+  // #endregion Public Getters And Setters
+
+  // #region Public Methods
+
+  /**
+   * Schliesst den Dateiauswahl Dialog
+   */
+  public closeSelectDialog(): void {
+    this.selectdialogvisible = false;
+  }
+
+  /**
+   * Löst die Speichern Action aus
+   * @param content Content als String
+   */
+  public save(content: any): void {
+    this.onsave.emit(content);
+  }
+
+  /**
+   * Setzt das Resultat aus dem Dateiauswahl Dialog
+   */
+  public setSelectDialogResult(): void {
+    if (this.selectDialogSettings.value) {
+      if (
+        this.selectDialogSettings.value.startsWith('/') ||
+        this.selectDialogSettings.value.startsWith('\\')
+      ) {
+        this.selectDialogSettings.value =
+          this.selectDialogSettings.value.substring(1);
+      }
+
+      this.selectDialogSettings.callback(this.selectDialogSettings.value);
+    }
+
+    this.closeSelectDialog();
+  }
 
   /**
    * Zeigt den Dateiauswahl Dialog an
@@ -237,47 +266,11 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
   }
 
   /**
-   * Setzt das Resultat aus dem Dateiauswahl Dialog
-   */
-  public setSelectDialogResult(): void {
-    if (this.selectDialogSettings.value) {
-      if (
-        this.selectDialogSettings.value.startsWith('/') ||
-        this.selectDialogSettings.value.startsWith('\\')
-      ) {
-        this.selectDialogSettings.value =
-          this.selectDialogSettings.value.substring(1);
-      }
-
-      this.selectDialogSettings.callback(this.selectDialogSettings.value);
-    }
-
-    this.closeSelectDialog();
-  }
-
-  /**
-   * Schliesst den Dateiauswahl Dialog
-   */
-  public closeSelectDialog(): void {
-    this.selectdialogvisible = false;
-  }
-
-  //#endregion
-
-  /**
-   * Löst die Speichern Action aus
-   * @param content Content als String
-   */
-  public save(content: any): void {
-    this.onsave.emit(content);
-  }
-
-  /**
    * Validiert das Control
    * @param c Control Instanz die valdidiert wird
    * @returns Gibt eine Fehlermeldung oder NULL zurück
    */
-  validateData(c: AbstractControl): ValidationErrors {
+  public validateData(c: AbstractControl): ValidationErrors {
     let error: ValidationErrors | null = null;
 
     if (this.isrequired) {
@@ -289,6 +282,19 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
 
     return error;
   }
+
+  // #endregion Public Methods
+
+  // #region Public Abstract Methods
+
+  /**
+   * get settings in effective implementation that overwrites the defaults. use {} for non overwrites.
+   */
+  public abstract overwriteDefaultSettings(): any;
+
+  // #endregion Public Abstract Methods
+
+  // #region Private Methods
 
   /**
    * Gibt die TinyMCE Settings zurück, die aus den Properties der Angular Komponenten erzeugt werden
@@ -303,8 +309,5 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
     return settings;
   }
 
-  /**
-   * get settings in effective implementation that overwrites the defaults. use {} for non overwrites.
-   */
-  abstract overwriteDefaultSettings(): any;
+  // #endregion Private Methods
 }

@@ -6,13 +6,9 @@ import {
   NgZone,
   Optional,
 } from '@angular/core';
-import {
-  ControlContainer,
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacTinyMceCommon } from '@simpleangularcontrols/sac-common';
-import { SacFormDirective } from '../form/form';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 
 /**
  * TinyMCE Komponente
@@ -34,29 +30,35 @@ import { SacFormDirective } from '../form/form';
       multi: true,
     },
   ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }],
 })
 export class SacTinyMceComponent extends SacTinyMceCommon {
+  // #region Constructors
+
   /**
-   * Konstruktor
-   * @param parent Formular
-   * @param injector Angular Dependency Injection Service
-   * @param ngZone ngZone
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   * @param ngZone ngZone to manage external javascripts
    */
   constructor(
-    @Host() @Optional() parent: SacFormDirective,
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
     injector: Injector,
     ngZone: NgZone
   ) {
-    super(parent, injector, ngZone);
+    super(formLayout, injector, ngZone);
   }
+
+  // #endregion Constructors
+
+  // #region Public Methods
 
   /**
    * overwrite tinymce defaults
    * @returns boostrap4 has no overwrites
    */
-  overwriteDefaultSettings() {
+  public overwriteDefaultSettings() {
     return {};
   }
+
+  // #endregion Public Methods
 }

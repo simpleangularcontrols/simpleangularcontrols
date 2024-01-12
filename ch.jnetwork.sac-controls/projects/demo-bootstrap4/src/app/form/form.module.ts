@@ -5,16 +5,14 @@ import {
   SACBootstrap4ButtonModule,
   SACBootstrap4FormModule,
   SACBootstrap4InputModule,
+  SACBootstrap4LayoutModule,
   SACBootstrap4ValidationSummaryModule,
 } from '@simpleangularcontrols/sac-bootstrap4';
 import { FormRoutingModule } from './form-routing.module';
 import { DemoFormComponent } from './form.component';
 import { DemoSubFormComponent } from './subform.component';
 @NgModule({
-  declarations: [
-    DemoFormComponent,
-    DemoSubFormComponent,
-  ],
+  declarations: [DemoFormComponent, DemoSubFormComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -22,6 +20,7 @@ import { DemoSubFormComponent } from './subform.component';
     SACBootstrap4FormModule,
     SACBootstrap4InputModule,
     SACBootstrap4ValidationSummaryModule,
+    SACBootstrap4LayoutModule,
     SACBootstrap4ButtonModule,
   ],
 })

@@ -1,27 +1,30 @@
-import { Host, Injector, Input, Directive } from '@angular/core';
+import { Directive, Host, Injector, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors, Validator } from '@angular/forms';
 import { SacBaseModelControl } from '../../common/basemodelcontrol';
 import { Validation } from '../../validation';
-import { SacFormCommon } from '../form/form';
+import { SacFormLayoutCommon } from '../layout/formlayout';
 import { SacRadiobuttonCommon } from './radiobutton';
 
 /**
  * Basis Komponente für SacRadiobuttonsCommon. Extends SacBaseModelControl
  */
 @Directive()
-export abstract class SacRadiobuttonsCommon extends SacBaseModelControl<any> implements Validator {
-
+export abstract class SacRadiobuttonsCommon
+  extends SacBaseModelControl<any>
+  implements Validator
+{
   /**
    * Radio Button Index
    */
   private radioButtonIndex: number = 0;
 
   /**
-   * Konstruktor
-   * Inject des Formulars
+   * Constructor
+   * @param formlayout SacFormLayoutCommon to define scoped layout settings
+   * @param injector Injector for injecting services
    */
-  constructor( @Host() parent: SacFormCommon, injector: Injector) {
-    super(parent, injector);
+  constructor(@Host() formlayout: SacFormLayoutCommon, injector: Injector) {
+    super(formlayout, injector);
   }
 
   /**
@@ -31,8 +34,8 @@ export abstract class SacRadiobuttonsCommon extends SacBaseModelControl<any> imp
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input() validationmessagesummaryrequired: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
-
+  @Input() validationmessagesummaryrequired: string =
+    'VALIDATION_ERROR_SUMMARY_REQUIRED';
 
   //#region Sub Control registration
 
@@ -77,7 +80,7 @@ export abstract class SacRadiobuttonsCommon extends SacBaseModelControl<any> imp
   writeValue(value: any) {
     super.writeValue(value);
     if (value !== null && value !== undefined) {
-      this.contentRadiobuttons.forEach(itm => {
+      this.contentRadiobuttons.forEach((itm) => {
         itm.checked = itm.value === value;
       });
     }
@@ -89,7 +92,7 @@ export abstract class SacRadiobuttonsCommon extends SacBaseModelControl<any> imp
    * Item selektieren
    */
   public SelectItem(value: any) {
-    this.contentRadiobuttons.forEach(itm => {
+    this.contentRadiobuttons.forEach((itm) => {
       itm.checked = itm.value === value;
     });
 
@@ -106,7 +109,7 @@ export abstract class SacRadiobuttonsCommon extends SacBaseModelControl<any> imp
       return false;
     }
 
-    return this.contentRadiobuttons.some(itm => itm.checked);
+    return this.contentRadiobuttons.some((itm) => itm.checked);
   }
 
   /**
@@ -114,7 +117,12 @@ export abstract class SacRadiobuttonsCommon extends SacBaseModelControl<any> imp
    */
   validateData(c: AbstractControl): ValidationErrors {
     if (!this.HasCheckedItem()) {
-      return Validation.GetValidationErrorItem('required', this.validationmessagerequired, this.validationmessagesummaryrequired, this.label);
+      return Validation.GetValidationErrorItem(
+        'required',
+        this.validationmessagerequired,
+        this.validationmessagesummaryrequired,
+        this.label
+      );
     } else {
       return null;
     }

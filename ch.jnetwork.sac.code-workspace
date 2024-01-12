@@ -8,7 +8,14 @@
 		}
 	],
 	"settings": {
-		"tsco.addMemberCountInRegionName": false
+		"tsco.addMemberCountInRegionName": false,
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": "always"
+		},
+		"editor.formatOnSave": true,
+		"editor.formatOnType": false,
+		"tsco.groupPropertiesWithDecorators": true,
+		"tsco.organizeOnSave": true
 	},
 	"extensions": {
 		"recommendations": [

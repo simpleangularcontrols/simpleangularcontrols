@@ -157,6 +157,40 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SACBootstrap5InputModule.html" data-type="entity-link" >SACBootstrap5InputModule</a>
                             </li>
                             <li class="link">
+                                <a href="modules/SACBootstrap5LayoutModule.html" data-type="entity-link" >SACBootstrap5LayoutModule</a>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                        'data-bs-target="#directives-links-module-SACBootstrap5LayoutModule-f172d9bb9f6fdb1e1d862a7e491861bd8680711bc0ff8b9992df4d9960e0cec01ea13dad7ebab9184ff76ddc71b083c69b7d750e539c6eede84453d82c480304"' : 'data-bs-target="#xs-directives-links-module-SACBootstrap5LayoutModule-f172d9bb9f6fdb1e1d862a7e491861bd8680711bc0ff8b9992df4d9960e0cec01ea13dad7ebab9184ff76ddc71b083c69b7d750e539c6eede84453d82c480304"' }>
+                                        <span class="icon ion-md-code-working"></span>
+                                        <span>Directives</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-SACBootstrap5LayoutModule-f172d9bb9f6fdb1e1d862a7e491861bd8680711bc0ff8b9992df4d9960e0cec01ea13dad7ebab9184ff76ddc71b083c69b7d750e539c6eede84453d82c480304"' :
+                                        'id="xs-directives-links-module-SACBootstrap5LayoutModule-f172d9bb9f6fdb1e1d862a7e491861bd8680711bc0ff8b9992df4d9960e0cec01ea13dad7ebab9184ff76ddc71b083c69b7d750e539c6eede84453d82c480304"' }>
+                                        <li class="link">
+                                            <a href="directives/SacFormLayoutDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacFormLayoutDirective</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#pipes-links-module-SACBootstrap5LayoutModule-f172d9bb9f6fdb1e1d862a7e491861bd8680711bc0ff8b9992df4d9960e0cec01ea13dad7ebab9184ff76ddc71b083c69b7d750e539c6eede84453d82c480304"' : 'data-bs-target="#xs-pipes-links-module-SACBootstrap5LayoutModule-f172d9bb9f6fdb1e1d862a7e491861bd8680711bc0ff8b9992df4d9960e0cec01ea13dad7ebab9184ff76ddc71b083c69b7d750e539c6eede84453d82c480304"' }>
+                                            <span class="icon ion-md-add"></span>
+                                            <span>Pipes</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-SACBootstrap5LayoutModule-f172d9bb9f6fdb1e1d862a7e491861bd8680711bc0ff8b9992df4d9960e0cec01ea13dad7ebab9184ff76ddc71b083c69b7d750e539c6eede84453d82c480304"' :
+                                            'id="xs-pipes-links-module-SACBootstrap5LayoutModule-f172d9bb9f6fdb1e1d862a7e491861bd8680711bc0ff8b9992df4d9960e0cec01ea13dad7ebab9184ff76ddc71b083c69b7d750e539c6eede84453d82c480304"' }>
+                                            <li class="link">
+                                                <a href="pipes/SacToControlWidthCssPipe.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacToControlWidthCssPipe</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="pipes/SacToLabelWidthCssPipe.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacToLabelWidthCssPipe</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                            </li>
+                            <li class="link">
                                 <a href="modules/SACBootstrap5ListModule.html" data-type="entity-link" >SACBootstrap5ListModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
@@ -448,6 +482,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="directives/SacFormDirective.html" data-type="entity-link" >SacFormDirective</a>
                                 </li>
                                 <li class="link">
+                                    <a href="directives/SacFormLayoutCommon.html" data-type="entity-link" >SacFormLayoutCommon</a>
+                                </li>
+                                <li class="link">
+                                    <a href="directives/SacFormLayoutDirective.html" data-type="entity-link" >SacFormLayoutDirective</a>
+                                </li>
+                                <li class="link">
                                     <a href="directives/SacGridButtonCommon.html" data-type="entity-link" >SacGridButtonCommon</a>
                                 </li>
                                 <li class="link">
@@ -730,6 +770,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/ISacIconService.html" data-type="entity-link" >ISacIconService</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/ISacLabelSizes.html" data-type="entity-link" >ISacLabelSizes</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/ISacLanguageService.html" data-type="entity-link" >ISacLanguageService</a>
                             </li>
                             <li class="link">
@@ -746,6 +789,22 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                         </ul>
                     </li>
+                        <li class="chapter">
+                            <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ? 'data-bs-target="#pipes-links"' :
+                                'data-bs-target="#xs-pipes-links"' }>
+                                <span class="icon ion-md-add"></span>
+                                <span>Pipes</span>
+                                <span class="icon ion-ios-arrow-down"></span>
+                            </div>
+                            <ul class="links collapse " ${ isNormalMode ? 'id="pipes-links"' : 'id="xs-pipes-links"' }>
+                                <li class="link">
+                                    <a href="pipes/SacToControlWidthCssPipe.html" data-type="entity-link" >SacToControlWidthCssPipe</a>
+                                </li>
+                                <li class="link">
+                                    <a href="pipes/SacToLabelWidthCssPipe.html" data-type="entity-link" >SacToLabelWidthCssPipe</a>
+                                </li>
+                            </ul>
+                        </li>
                     <li class="chapter">
                         <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ? 'data-bs-target="#miscellaneous-links"'
                             : 'data-bs-target="#xs-miscellaneous-links"' }>

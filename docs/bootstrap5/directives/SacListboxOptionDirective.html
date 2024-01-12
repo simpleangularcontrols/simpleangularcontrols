@@ -217,12 +217,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(_elementRef: ElementRef, _renderer: Renderer2, listbox: <a href="../components/SacListboxComponent.html" target="_self">SacListboxComponent</a>)</code>
+<code>constructor(elementRef: ElementRef, renderer: Renderer2, listbox: <a href="../components/SacListboxComponent.html" target="_self">SacListboxComponent</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">projects/sac-bootstrap5/src/controls/list/listbox.ts:74</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">projects/sac-bootstrap5/src/controls/list/listbox.ts:75</a></div>
                             </td>
                         </tr>
 
@@ -243,7 +243,7 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>_elementRef</td>
+                                                        <td>elementRef</td>
                                                   
                                                         <td>
                                                                     <code>ElementRef</code>
@@ -259,7 +259,7 @@
                                                         </td>
                                                 </tr>
                                                 <tr>
-                                                        <td>_renderer</td>
+                                                        <td>renderer</td>
                                                   
                                                         <td>
                                                                     <code>Renderer2</code>
@@ -521,16 +521,16 @@ import {
   Renderer2,
   forwardRef,
 } from &#x27;@angular/core&#x27;;
-import {
-  ControlContainer,
-  NG_VALIDATORS,
-  NG_VALUE_ACCESSOR,
-} from &#x27;@angular/forms&#x27;;
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
 import {
   SacListboxCommon,
   SacListboxOptionCommon,
 } from &#x27;@simpleangularcontrols/sac-common&#x27;;
-import { SacFormDirective } from &#x27;../form/form&#x27;;
+import { SacFormLayoutDirective } from &#x27;../layout/formlayout.directive&#x27;;
+import { SacToControlWidthCssPipe } from &#x27;../layout/tocontrolwidthcss.pipe&#x27;;
+import { SacToLabelWidthCssPipe } from &#x27;../layout/tolabelwidthcss.pipe&#x27;;
+
+// #region Classes
 
 /**
  * Listbox Komponente
@@ -551,8 +551,6 @@ import { SacFormDirective } from &#x27;../form/form&#x27;;
       useExisting: forwardRef(() &#x3D;&gt; SacListboxComponent),
     },
   ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }],
   standalone: true,
   imports: [
     NgClass,
@@ -560,44 +558,53 @@ import { SacFormDirective } from &#x27;../form/form&#x27;;
     NgFor,
     AsyncPipe,
     forwardRef(() &#x3D;&gt; SacListboxOptionDirective),
+    SacToControlWidthCssPipe,
+    SacToLabelWidthCssPipe,
   ],
 })
 export class SacListboxComponent extends SacListboxCommon {
+  // #region Constructors
+
   /**
-   * Konstruktor
-   * @param parent Formular
-   * @param injector Angular Dependiency Injection Service
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
    */
   constructor(
-    @Host() @Optional() parent: SacFormDirective,
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
     injector: Injector
   ) {
-    super(parent, injector);
+    super(formLayout, injector);
   }
+
+  // #endregion Constructors
 }
 
 /**
  * Option Item in Listbox
  */
-@Directive({
-  selector: &#x27;[sacOption],option&#x27;,
-  standalone: true,
-})
+@Directive({ selector: &#x27;[sacOption],option&#x27;, standalone: true })
 export class SacListboxOptionDirective extends SacListboxOptionCommon {
+  // #region Constructors
+
   /**
    * Konstruktor
-   * @param _elementRef Referenz auf DOM Element
-   * @param _renderer Angular Rendering Engine
+   * @param elementRef Referenz auf DOM Element
+   * @param renderer Angular Rendering Engine
    * @param listbox Referenz auf Listbox Komponente
    */
   constructor(
-    _elementRef: ElementRef,
-    _renderer: Renderer2,
+    elementRef: ElementRef,
+    renderer: Renderer2,
     @Optional() @Host() listbox: SacListboxComponent
   ) {
-    super(_elementRef, _renderer, listbox);
+    super(elementRef, renderer, listbox);
   }
+
+  // #endregion Constructors
 }
+
+// #endregion Classes
 </code></pre>
     </div>
 

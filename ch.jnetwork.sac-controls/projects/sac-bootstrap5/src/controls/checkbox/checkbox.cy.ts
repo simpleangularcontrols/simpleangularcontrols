@@ -23,8 +23,10 @@ describe('sac-checkboxComponent', () => {
       }
     );
 
-    cy.get('.row .col-12').first().should('have.text', 'Control Label');
-    cy.get('label').should('have.text', 'Checkbox Test');
+    cy.get('.row .col-12.col-form-label label')
+      .first()
+      .should('have.text', 'Control Label');
+    cy.get('.form-check label').should('have.text', 'Checkbox Test');
     cy.get('input').should('not.be.checked');
     cy.get('input').click();
     cy.get('@valueSpy').should('be.calledWith', true);

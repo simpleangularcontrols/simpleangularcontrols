@@ -157,9 +157,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#_setElementValue" >_setElementValue</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#ngOnDestroy" >ngOnDestroy</a>
                             </li>
                         </ul>
@@ -219,7 +221,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="212" class="link-to-prism">projects/sac-common/src/controls/list/dropdown.ts:212</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="222" class="link-to-prism">projects/sac-common/src/controls/list/dropdown.ts:222</a></div>
                             </td>
                         </tr>
 
@@ -314,7 +316,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="233" class="link-to-prism">projects/sac-common/src/controls/list/dropdown.ts:233</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="252" class="link-to-prism">projects/sac-common/src/controls/list/dropdown.ts:252</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -341,7 +343,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="248" class="link-to-prism">projects/sac-common/src/controls/list/dropdown.ts:248</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="268" class="link-to-prism">projects/sac-common/src/controls/list/dropdown.ts:268</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -367,6 +369,7 @@
                 <td class="col-md-4">
                     <a name="_setElementValue"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>_setElementValue</b></span>
                         <a href="#_setElementValue"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -374,15 +377,16 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>_setElementValue(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_setElementValue(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="255"
-                                    class="link-to-prism">projects/sac-common/src/controls/list/dropdown.ts:255</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="280"
+                                    class="link-to-prism">projects/sac-common/src/controls/list/dropdown.ts:280</a></div>
                         </td>
                     </tr>
 
@@ -441,6 +445,7 @@
                 <td class="col-md-4">
                     <a name="ngOnDestroy"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>ngOnDestroy</b></span>
                         <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -448,15 +453,16 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>ngOnDestroy()</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnDestroy()</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="261"
-                                    class="link-to-prism">projects/sac-common/src/controls/list/dropdown.ts:261</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="287"
+                                    class="link-to-prism">projects/sac-common/src/controls/list/dropdown.ts:287</a></div>
                         </td>
                     </tr>
 
@@ -497,7 +503,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="233" class="link-to-prism">projects/sac-common/src/controls/list/dropdown.ts:233</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="252" class="link-to-prism">projects/sac-common/src/controls/list/dropdown.ts:252</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -558,7 +564,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="248" class="link-to-prism">projects/sac-common/src/controls/list/dropdown.ts:248</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="268" class="link-to-prism">projects/sac-common/src/controls/list/dropdown.ts:268</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -620,7 +626,292 @@
 import { AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
 import { SacBaseSelectControl } from &#x27;../../common/baseselectcontrol&#x27;;
 import { Validation } from &#x27;../../validation&#x27;;
-import { SacFormCommon } from &#x27;../form/form&#x27;;
+import { SacFormLayoutCommon } from &#x27;../layout/formlayout&#x27;;
+
+// #region Classes
+
+/**
+ * Base Dropdown Komponente
+ */
+@Directive()
+export class SacDropdownCommon extends SacBaseSelectControl&lt;any&gt; {
+  // #region Properties
+
+  /**
+   * compareWith-Funktion
+   */
+  private _compareWith: (o1: any, o2: any) &#x3D;&gt; boolean &#x3D; Object.is;
+
+  /**
+   * Label Text für Empty Item
+   */
+  @Input() public emptylabel: string &#x3D; &#x27;&#x27;;
+  /**
+   * Option Value für Empty Item
+   */
+  @Input() public emptyvalue: string &#x3D; null;
+  /**
+   * Resource Key für Validation Message Required bei Control
+   */
+  @Input() public validationmessagerequired: string &#x3D;
+    &#x27;VALIDATION_ERROR_REQUIRED&#x27;;
+  /**
+   * Resource Key für Validation Message Required in Validation Summary
+   */
+  @Input()
+  public validationmessagesummaryrequired: string &#x3D;
+    &#x27;VALIDATION_ERROR_SUMMARY_REQUIRED&#x27;;
+
+  /**
+   * Counter vom OptionID; default Wert &#x3D; 0
+   */
+  public _optionIdCounter: number &#x3D; 0;
+  /**
+   * OptionMap
+   */
+  public _optionMap: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+
+  // #endregion Properties
+
+  // #region Constructors
+
+  /**
+   * Constructor
+   * @param formlayout SacFormLayoutCommon to define scoped layout settings
+   * @param injector Injector for injecting services
+   * @param renderer html rendering engine
+   * @param elementRef reference to html element
+   */
+  constructor(
+    @Host() formlayout: SacFormLayoutCommon,
+    injector: Injector,
+    private renderer: Renderer2,
+    private elementRef: ElementRef
+  ) {
+    super(formlayout, injector);
+  }
+
+  // #endregion Constructors
+
+  // #region Public Getters And Setters
+
+  /**
+   * compareWith-Funktion
+   */
+  @Input()
+  public set comparewith(fn: (o1: any, o2: any) &#x3D;&gt; boolean) {
+    if (typeof fn !&#x3D;&#x3D; &#x27;function&#x27;) {
+      throw new Error(
+        &#x60;compareWith must be a function, but received ${JSON.stringify(fn)}&#x60;
+      );
+    }
+    this._compareWith &#x3D; fn;
+  }
+
+  // #endregion Public Getters And Setters
+
+  // #region Public Methods
+
+  /**
+   * Registriert das OptionID-Counter als String
+   */
+  public registerOption(): string {
+    return (this._optionIdCounter++).toString();
+  }
+
+  /**
+   * Methode die von Options aufgerufen wird, um das Mapping zwischen Dropdown Value und Value herzustellen.
+   * @param id: Id aus Options
+   * @param value: Value
+   */
+  public setOptionMap(id: string, value: any): void {
+    this._optionMap.set(id, value);
+
+    // Selected Value auf Control aktualisieren, wenn Value dem SelectedValue entspricht
+    if (this.value &#x3D;&#x3D;&#x3D; value) {
+      this.setSelectedValue(value);
+    }
+  }
+
+  /**
+   * Wert einstellen
+   * @param value - Wert
+   */
+  public setValue(value: string) {
+    super.setValue(this.getOptionValue(value));
+  }
+
+  /**
+   * Validator
+   * @param c Control Instanz
+   */
+  public validateData(c: AbstractControl): ValidationErrors | null {
+    let error: ValidationErrors | null &#x3D; null;
+
+    if (this.isrequired) {
+      error &#x3D; Validation.required(
+        this.validationmessagerequired,
+        this.validationmessagesummaryrequired
+      )(c);
+    }
+    return error;
+  }
+
+  /**
+   * Wert schreiben
+   * @param value - Wert
+   */
+  public writeValue(value: any) {
+    this.setSelectedValue(value);
+    super.writeValue(value);
+  }
+
+  // #endregion Public Methods
+
+  // #region Private Methods
+
+  /**
+   * ID extrahieren
+   * @param valueString String bei welchem die ID Extrahiert werden soll
+   */
+  private extractId(valueString: string): string {
+    return valueString.split(&#x27;:&#x27;)[0];
+  }
+
+  /**
+   * Nimmt das ID vom Option
+   * @param value
+   */
+  private getOptionId(value: any): string | null {
+    for (const id of Array.from(this._optionMap.keys())) {
+      if (this._compareWith(this._optionMap.get(id), value)) {
+        return id;
+      }
+    }
+    return null;
+  }
+
+  /**
+   * Nimmt den String-Wert vom Option
+   * @param valueString
+   */
+  private getOptionValue(valueString: string): any {
+    const id: string &#x3D; this.extractId(valueString);
+    return this._optionMap.has(id) ? this._optionMap.get(id) : valueString;
+  }
+
+  /**
+   * Setzt den Selected Value auf dem Control
+   * @param value Value
+   */
+  private setSelectedValue(value: any): void {
+    // Select Item aus Control lesen
+    const selectItem: any &#x3D;
+      this.elementRef.nativeElement.getElementsByTagName(&#x27;select&#x27;)[0];
+    /**
+     * Id vom Select Item
+     */
+    const id: string | null &#x3D; this.getOptionId(value);
+    /**
+     * Value String
+     */
+    const valueString &#x3D; _buildValueString(id, value);
+
+    if (selectItem !&#x3D;&#x3D; undefined) {
+      this.renderer.setProperty(selectItem, &#x27;value&#x27;, valueString);
+    }
+  }
+
+  // #endregion Private Methods
+}
+
+/**
+ * SacDropdownOption-Klasse
+ */
+@Directive()
+export class SacDropdownOptionCommon implements OnDestroy {
+  // #region Properties
+
+  /**
+   * ID-String
+   */
+  private id: string &#x3D; null;
+
+  // #endregion Properties
+
+  // #region Constructors
+
+  /**
+   * Konstruktor
+   * @param _element Referenz auf HTML Element
+   * @param _renderer Render Engine
+   * @param _dropdown Dropdown Instanz
+   */
+  constructor(
+    private _element: ElementRef,
+    private _renderer: Renderer2,
+    private _dropdown: SacDropdownCommon
+  ) {
+    if (this._dropdown) {
+      this.id &#x3D; this._dropdown.registerOption();
+    }
+  }
+
+  // #endregion Constructors
+
+  // #region Public Getters And Setters
+
+  /**
+   * Option ngValue
+   */
+  @Input()
+  public set ngValue(value: any) {
+    // Cancel wenn kein Parent Dropdown vorhanden
+    if (this._dropdown &#x3D;&#x3D; null) {
+      return;
+    }
+
+    this._dropdown.setOptionMap(this.id, value);
+    this._setElementValue(_buildValueString(this.id, value));
+
+    this._dropdown.writeValue(this._dropdown.value);
+  }
+
+  /**
+   * Wert-Setter
+   */
+  @Input()
+  public set value(value: any) {
+    this._setElementValue(value);
+  }
+
+  // #endregion Public Getters And Setters
+
+  // #region Public Methods
+
+  /**
+   * Den Wert vom Option-Element einstellen
+   * @param value Wert
+   */
+  public _setElementValue(value: string): void {
+    this._renderer.setProperty(this._element.nativeElement, &#x27;value&#x27;, value);
+  }
+
+  /**
+   * OnDestroy Event
+   */
+  public ngOnDestroy(): void {
+    if (this._dropdown) {
+      this._dropdown._optionMap.delete(this.id);
+    }
+  }
+
+  // #endregion Public Methods
+}
+
+// #endregion Classes
+
+// #region Functions
 
 /**
  * Function um ein Key Value Pair für das Dropdown zu erzeugen
@@ -642,238 +933,7 @@ export function _buildValueString(id: string | null, value: any): string {
   return &#x60;${id}: ${value}&#x60;.slice(0, 50);
 }
 
-/**
- * Base Dropdown Komponente
- */
-@Directive()
-export class SacDropdownCommon extends SacBaseSelectControl&lt;any&gt; {
-  /**
-   * Counter vom OptionID; default Wert &#x3D; 0
-   */
-  _optionIdCounter: number &#x3D; 0;
-  /**
-   * OptionMap
-   */
-  _optionMap: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
-  /**
-   * compareWith-Funktion
-   */
-  private _compareWith: (o1: any, o2: any) &#x3D;&gt; boolean &#x3D; Object.is;
-
-  /**
-   * Label Text für Empty Item
-   */
-  @Input() emptylabel: string &#x3D; &#x27;&#x27;;
-  /**
-   * Option Value für Empty Item
-   */
-  @Input() emptyvalue: string &#x3D; null;
-  /**
-   * compareWith-Funktion
-   */
-  @Input()
-  set comparewith(fn: (o1: any, o2: any) &#x3D;&gt; boolean) {
-    if (typeof fn !&#x3D;&#x3D; &#x27;function&#x27;) {
-      throw new Error(
-        &#x60;compareWith must be a function, but received ${JSON.stringify(fn)}&#x60;
-      );
-    }
-    this._compareWith &#x3D; fn;
-  }
-
-  /**
-   * Resource Key für Validation Message Required bei Control
-   */
-  @Input() validationmessagerequired: string &#x3D; &#x27;VALIDATION_ERROR_REQUIRED&#x27;;
-  /**
-   * Resource Key für Validation Message Required in Validation Summary
-   */
-  @Input()
-  validationmessagesummaryrequired: string &#x3D;
-    &#x27;VALIDATION_ERROR_SUMMARY_REQUIRED&#x27;;
-
-  /**
-   * Konstruktor
-   * @param parent Übergeordnetes HTML Element
-   * @param injector Injector für Services
-   * @param _renderer Render Engine
-   * @param _elementRef Referenz von HTML Element
-   */
-  constructor(
-    @Host() parent: SacFormCommon,
-    injector: Injector,
-    private _renderer: Renderer2,
-    private _elementRef: ElementRef
-  ) {
-    super(parent, injector);
-  }
-
-  /**
-   * Wert einstellen
-   * @param value - Wert
-   */
-  setValue(value: string) {
-    super.setValue(this.getOptionValue(value));
-  }
-
-  /**
-   * Wert schreiben
-   * @param value - Wert
-   */
-  writeValue(value: any) {
-    this.setSelectedValue(value);
-    super.writeValue(value);
-  }
-  /**
-   * Registriert das OptionID-Counter als String
-   */
-  registerOption(): string {
-    return (this._optionIdCounter++).toString();
-  }
-
-  /**
-   * Methode die von Options aufgerufen wird, um das Mapping zwischen Dropdown Value und Value herzustellen.
-   * @param id: Id aus Options
-   * @param value: Value
-   */
-  public setOptionMap(id: string, value: any): void {
-    this._optionMap.set(id, value);
-
-    // Selected Value auf Control aktualisieren, wenn Value dem SelectedValue entspricht
-    if (this.value &#x3D;&#x3D;&#x3D; value) {
-      this.setSelectedValue(value);
-    }
-  }
-
-  /**
-   * Setzt den Selected Value auf dem Control
-   * @param value Value
-   */
-  private setSelectedValue(value: any): void {
-    // Select Item aus Control lesen
-    const selectItem: any &#x3D;
-      this._elementRef.nativeElement.getElementsByTagName(&#x27;select&#x27;)[0];
-    /**
-     * Id vom Select Item
-     */
-    const id: string | null &#x3D; this.getOptionId(value);
-    /**
-     * Value String
-     */
-    const valueString &#x3D; _buildValueString(id, value);
-
-    if (selectItem !&#x3D;&#x3D; undefined) {
-      this._renderer.setProperty(selectItem, &#x27;value&#x27;, valueString);
-    }
-  }
-
-  /**
-   * Nimmt das ID vom Option
-   * @param value
-   */
-  private getOptionId(value: any): string | null {
-    for (const id of Array.from(this._optionMap.keys())) {
-      if (this._compareWith(this._optionMap.get(id), value)) {
-        return id;
-      }
-    }
-    return null;
-  }
-  /**
-   * Nimmt den String-Wert vom Option
-   * @param valueString
-   */
-  private getOptionValue(valueString: string): any {
-    const id: string &#x3D; this.extractId(valueString);
-    return this._optionMap.has(id) ? this._optionMap.get(id) : valueString;
-  }
-  /**
-   * ID extrahieren
-   * @param valueString String bei welchem die ID Extrahiert werden soll
-   */
-  private extractId(valueString: string): string {
-    return valueString.split(&#x27;:&#x27;)[0];
-  }
-  /**
-   * Validator
-   * @param c Control Instanz
-   */
-  validateData(c: AbstractControl): ValidationErrors | null {
-    let error: ValidationErrors | null &#x3D; null;
-
-    if (this.isrequired) {
-      error &#x3D; Validation.required(
-        this.validationmessagerequired,
-        this.validationmessagesummaryrequired
-      )(c);
-    }
-    return error;
-  }
-}
-
-/**
- * SacDropdownOption-Klasse
- */
-@Directive()
-export class SacDropdownOptionCommon implements OnDestroy {
-  /**
-   * ID-String
-   */
-  private id: string &#x3D; null;
-  /**
-   * Konstruktor
-   * @param _element Referenz auf HTML Element
-   * @param _renderer Render Engine
-   * @param _dropdown Dropdown Instanz
-   */
-  constructor(
-    private _element: ElementRef,
-    private _renderer: Renderer2,
-    private _dropdown: SacDropdownCommon
-  ) {
-    if (this._dropdown) {
-      this.id &#x3D; this._dropdown.registerOption();
-    }
-  }
-
-  /**
-   * Option ngValue
-   */
-  @Input()
-  set ngValue(value: any) {
-    // Cancel wenn kein Parent Dropdown vorhanden
-    if (this._dropdown &#x3D;&#x3D; null) {
-      return;
-    }
-
-    this._dropdown.setOptionMap(this.id, value);
-    this._setElementValue(_buildValueString(this.id, value));
-
-    this._dropdown.writeValue(this._dropdown.value);
-  }
-  /**
-   * Wert-Setter
-   */
-  @Input()
-  set value(value: any) {
-    this._setElementValue(value);
-  }
-  /**
-   * Den Wert vom Option-Element einstellen
-   * @param value Wert
-   */
-  _setElementValue(value: string): void {
-    this._renderer.setProperty(this._element.nativeElement, &#x27;value&#x27;, value);
-  }
-  /**
-   * OnDestroy Event
-   */
-  ngOnDestroy(): void {
-    if (this._dropdown) {
-      this._dropdown._optionMap.delete(this.id);
-    }
-  }
-}
+// #endregion Functions
 </code></pre>
     </div>
 

@@ -166,9 +166,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#_setElementValue" >_setElementValue</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#ngOnDestroy" >ngOnDestroy</a>
                             </li>
                         </ul>
@@ -206,17 +208,19 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(_elementRef: ElementRef, _renderer: Renderer2, dropdownList: <a href="../components/SacDropdownComponent.html" target="_self">SacDropdownComponent</a>)</code>
+<code>constructor(elementRef: ElementRef, renderer: Renderer2, dropdownList: <a href="../components/SacDropdownComponent.html" target="_self">SacDropdownComponent</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/sac-bootstrap3/src/controls/list/dropdown.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/sac-bootstrap3/src/controls/list/dropdown.ts:60</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Konstruktor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -225,11 +229,12 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>_elementRef</td>
+                                                        <td>elementRef</td>
                                                   
                                                         <td>
                                                                     <code>ElementRef</code>
@@ -239,9 +244,13 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Referenz auf HTML DOM Element</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
-                                                        <td>_renderer</td>
+                                                        <td>renderer</td>
                                                   
                                                         <td>
                                                                     <code>Renderer2</code>
@@ -251,6 +260,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Angular Rendering Engine</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>dropdownList</td>
@@ -263,6 +276,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Referenz auf DropDown Komponente</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -297,7 +314,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:233</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:252</a></code>
 </div>
                             </td>
                         </tr>
@@ -331,7 +348,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:248</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:268</a></code>
 </div>
                             </td>
                         </tr>
@@ -358,6 +375,7 @@
                 <td class="col-md-4">
                     <a name="_setElementValue"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>_setElementValue</b></span>
                         <a href="#_setElementValue"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -365,7 +383,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>_setElementValue(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_setElementValue(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -378,7 +397,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:255</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:280</a></code>
 </div>
                         </td>
                     </tr>
@@ -438,6 +457,7 @@
                 <td class="col-md-4">
                     <a name="ngOnDestroy"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>ngOnDestroy</b></span>
                         <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -445,7 +465,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>ngOnDestroy()</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnDestroy()</code>
                 </td>
             </tr>
 
@@ -458,7 +479,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:261</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:287</a></code>
 </div>
                         </td>
                     </tr>
@@ -484,35 +505,86 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, forwardRef, Renderer2, ElementRef, Host, Optional, Directive, Injector } from &#x27;@angular/core&#x27;;
-import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from &#x27;@angular/forms&#x27;;
-import { SacFormDirective } from &#x27;../form/form&#x27;;
-import { SacDropdownCommon, SacDropdownOptionCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component,
+  Directive,
+  ElementRef,
+  Host,
+  Injector,
+  Optional,
+  Renderer2,
+  forwardRef,
+} from &#x27;@angular/core&#x27;;
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
+import {
+  SacDropdownCommon,
+  SacDropdownOptionCommon,
+} from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { SacFormLayoutDirective } from &#x27;../layout/formlayout.directive&#x27;;
+
+// #region Classes
 
 @Component({
   selector: &#x27;sac-dropdown&#x27;,
   templateUrl: &#x27;./dropdown.html&#x27;,
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacDropdownComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; SacDropdownComponent) }
-  ]
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: SacDropdownComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() &#x3D;&gt; SacDropdownComponent),
+    },
+  ],
 })
 export class SacDropdownComponent extends SacDropdownCommon {
+  // #region Constructors
 
-  constructor(@Host() @Optional() parent: SacFormDirective, injector: Injector, _renderer: Renderer2, _elementRef: ElementRef) {
-    super(parent, injector, _renderer, _elementRef);
+  /**
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   * @param renderer Angular rendering engine
+   * @param elementRef Reference to html dom element
+   */
+  constructor(
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
+    injector: Injector,
+    renderer: Renderer2,
+    elementRef: ElementRef
+  ) {
+    super(formLayout, injector, renderer, elementRef);
   }
+
+  // #endregion Constructors
 }
 
 @Directive({ selector: &#x27;option,[sacOption]&#x27; })
 export class SacDropdownOptionDirective extends SacDropdownOptionCommon {
+  // #region Constructors
 
-  constructor(_elementRef: ElementRef, _renderer: Renderer2, @Optional() @Host() dropdownList: SacDropdownComponent) {
-    super(_elementRef, _renderer, dropdownList);
+  /**
+   * Konstruktor
+   * @param elementRef Referenz auf HTML DOM Element
+   * @param renderer Angular Rendering Engine
+   * @param dropdownList Referenz auf DropDown Komponente
+   */
+  constructor(
+    elementRef: ElementRef,
+    renderer: Renderer2,
+    @Optional() @Host() dropdownList: SacDropdownComponent
+  ) {
+    super(elementRef, renderer, dropdownList);
   }
 
+  // #endregion Constructors
 }
+
+// #endregion Classes
 </code></pre>
     </div>
 

@@ -182,6 +182,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#nativeElement" >nativeElement</a>
                             </li>
                         </ul>
@@ -203,12 +204,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(_elementRef: ElementRef<HTMLElement>)</code>
+<code>constructor(elementRef: ElementRef<HTMLElement>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/sac-bootstrap4/src/controls/contextmenu/contextmenuanchor.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/sac-bootstrap4/src/controls/contextmenu/contextmenuanchor.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -229,7 +230,7 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>_elementRef</td>
+                                                        <td>elementRef</td>
                                                   
                                                         <td>
                                                                     <code>ElementRef&lt;HTMLElement&gt;</code>
@@ -269,6 +270,7 @@
                 <td class="col-md-4">
                     <a name="nativeElement"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>nativeElement</b></span>
                         <a href="#nativeElement"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -288,7 +290,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuAnchorCommon.html#source" target="_self" >SacContextmenuAnchorCommon:11</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuAnchorCommon.html#source" target="_self" >SacContextmenuAnchorCommon:13</a></code>
 </div>
                         </td>
                     </tr>
@@ -310,9 +312,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, ElementRef, forwardRef } from &#x27;@angular/core&#x27;;
-import {
-  SacContextmenuAnchorCommon
-} from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { SacContextmenuAnchorCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 /**
  * Anker Komponente für Context Menü. Wird zum positionieren des Context Menü in der Page benötigt.
@@ -327,13 +327,17 @@ import {
   ],
 })
 export class SacContextmenuAnchorDirective extends SacContextmenuAnchorCommon {
+  // #region Constructors
+
   /**
    * Konstruktor
-   * @param _elementRef HTML DOM Referenz
+   * @param elementRef HTML DOM Referenz
    */
-  constructor(_elementRef: ElementRef&lt;HTMLElement&gt;) {
-    super(_elementRef);
+  constructor(elementRef: ElementRef&lt;HTMLElement&gt;) {
+    super(elementRef);
   }
+
+  // #endregion Constructors
 }
 </code></pre>
     </div>

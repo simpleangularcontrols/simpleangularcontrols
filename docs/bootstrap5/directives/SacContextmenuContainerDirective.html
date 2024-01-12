@@ -182,6 +182,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#nativeElement" >nativeElement</a>
                             </li>
                         </ul>
@@ -203,7 +204,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(_elementRef: ElementRef<HTMLElement>)</code>
+<code>constructor(elementRef: ElementRef<HTMLElement>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -229,7 +230,7 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>_elementRef</td>
+                                                        <td>elementRef</td>
                                                   
                                                         <td>
                                                                     <code>ElementRef&lt;HTMLElement&gt;</code>
@@ -269,6 +270,7 @@
                 <td class="col-md-4">
                     <a name="nativeElement"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>nativeElement</b></span>
                         <a href="#nativeElement"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -288,7 +290,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacContextMenuContrainerCommon.html#source" target="_self" >SacContextMenuContrainerCommon:11</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacContextMenuContrainerCommon.html#source" target="_self" >SacContextMenuContrainerCommon:13</a></code>
 </div>
                         </td>
                     </tr>
@@ -325,13 +327,17 @@ import { SacContextMenuContrainerCommon } from &#x27;@simpleangularcontrols/sac-
   ],
 })
 export class SacContextmenuContainerDirective extends SacContextMenuContrainerCommon {
+  // #region Constructors
+
   /**
    * Konstruktor
-   * @param _elementRef Referenz auf DOM Element
+   * @param elementRef Referenz auf DOM Element
    */
-  constructor(_elementRef: ElementRef&lt;HTMLElement&gt;) {
-    super(_elementRef);
+  constructor(elementRef: ElementRef&lt;HTMLElement&gt;) {
+    super(elementRef);
   }
+
+  // #endregion Constructors
 }
 </code></pre>
     </div>

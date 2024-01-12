@@ -221,10 +221,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#ellipsis" >ellipsis</a>
                             </li>
                             <li>
                                     <span class="modifier"></span>
+                                    <span class="modifier">Public</span>
                                 <a href="#template" >template</a>
                             </li>
                             <li>
@@ -369,7 +371,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/sac-bootstrap4/src/controls/grid/grid.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/sac-bootstrap4/src/controls/grid/grid.ts:43</a></div>
                             </td>
                         </tr>
 
@@ -1184,6 +1186,7 @@ Folgende Interpolation Texte sind vorhanden:
                 <td class="col-md-4">
                     <a name="ellipsis"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>ellipsis</b></span>
                         <a href="#ellipsis"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -1202,7 +1205,7 @@ Folgende Interpolation Texte sind vorhanden:
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/sac-bootstrap4/src/controls/grid/grid.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/sac-bootstrap4/src/controls/grid/grid.ts:43</a></div>
                         </td>
                     </tr>
 
@@ -1222,6 +1225,7 @@ Folgende Interpolation Texte sind vorhanden:
                     <a name="template"></a>
                     <span class="name">
                             <span class="modifier"></span>
+                            <span class="modifier">Public</span>
                         <span ><b>template</b></span>
                         <a href="#template"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -1244,7 +1248,7 @@ Folgende Interpolation Texte sind vorhanden:
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/sac-bootstrap4/src/controls/grid/grid.ts:41</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/sac-bootstrap4/src/controls/grid/grid.ts:38</a></div>
                         </td>
                     </tr>
 
@@ -1573,52 +1577,53 @@ Folgende Interpolation Texte sind vorhanden:
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgFor, NgIf, NgTemplateOutlet } from &#x27;@angular/common&#x27;;
+import {
   ChangeDetectorRef,
   Component,
   ContentChild,
-  forwardRef,
   TemplateRef,
+  forwardRef,
 } from &#x27;@angular/core&#x27;;
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
 import { SacGridCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 import { SacPagingComponent } from &#x27;./paging&#x27;;
-import { NgTemplateOutlet, NgFor, NgIf } from &#x27;@angular/common&#x27;;
 
 /**
  * Grid Komponente
  */
 @Component({
-    selector: &#x27;sac-grid&#x27;,
-    templateUrl: &#x27;./grid.html&#x27;,
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-    providers: [
-        { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacGridComponent },
-        {
-            provide: NG_VALIDATORS,
-            multi: true,
-            useExisting: forwardRef(() &#x3D;&gt; SacGridComponent),
-        },
-    ],
-    standalone: true,
-    imports: [
-        NgTemplateOutlet,
-        NgFor,
-        NgIf,
-        SacPagingComponent,
-    ],
+  selector: &#x27;sac-grid&#x27;,
+  templateUrl: &#x27;./grid.html&#x27;,
+  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+  providers: [
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacGridComponent },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() &#x3D;&gt; SacGridComponent),
+    },
+  ],
+  standalone: true,
+  imports: [NgTemplateOutlet, NgFor, NgIf, SacPagingComponent],
 })
 export class SacGridComponent extends SacGridCommon {
+  // #region Properties
+
   /**
    * Referenz auf Column Template
    */
   @ContentChild(TemplateRef, { static: false })
-  template: TemplateRef&lt;any&gt;;
+  public template: TemplateRef&lt;any&gt;;
 
   /**
    * Setzt die Ellipsis Funktion auf der Column
    */
-  ellipsis: boolean &#x3D; false;
+  public ellipsis: boolean &#x3D; false;
+
+  // #endregion Properties
+
+  // #region Constructors
 
   /**
    * Konstrukor
@@ -1627,6 +1632,8 @@ export class SacGridComponent extends SacGridCommon {
   constructor(cdRef: ChangeDetectorRef) {
     super(cdRef);
   }
+
+  // #endregion Constructors
 }
 </code></pre>
     </div>
@@ -1691,7 +1698,7 @@ export class SacGridComponent extends SacGridCommon {
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="table-responsive">  <table class="table table-striped table-hover" id={{name}}>    <thead class="thead-light">      <tr>        <ng-container *ngTemplateOutlet="template; context { row: {}, type: \'header\'}">        </ng-container>      </tr>    </thead>    <tbody>      <ng-container *ngFor="let item of value; let i=index">        <tr>          <ng-container *ngTemplateOutlet="template; context { row: item, type: \'body\'}">          </ng-container>        </tr>      </ng-container>      <tr *ngIf="value === undefined || value === null || value.length===0">        <td [attr.colspan]="ColumnCount">{{emptytext}}</td>      </tr>      <tr>        <td [attr.colspan]="ColumnCount">          <div class="container-fluid">            <sac-paging name="{{name}}Paging" (paging)="pageChange($event)" [pagerdata]="pagerdata" [pagesizes]="pagesizes" [pagingtext]="pagingtext" [pagesizetext]="pagesizetext" [pagesizedisabled]="pagesizedisabled"></sac-paging>          </div>        </td>      </tr>    </tbody>  </table></div></div>'
     var COMPONENTS = [{'name': 'SacBrowserComponent', 'selector': 'sac-filebrowser'},{'name': 'SacButtonComponent', 'selector': 'sac-button'},{'name': 'SacCheckboxComponent', 'selector': 'sac-checkbox'},{'name': 'SacConfirmComponent', 'selector': 'sac-confirm'},{'name': 'SacContextmenuComponent', 'selector': 'sac-contextmenu'},{'name': 'SacContextmenuItemButtonComponent', 'selector': 'sac-contextmenubutton'},{'name': 'SacContextmenuItemSplitterComponent', 'selector': 'sac-contextmenusplitter'},{'name': 'SacDateComponent', 'selector': 'sac-date'},{'name': 'SacDateSelectorComponent', 'selector': 'sac-dateselector'},{'name': 'SacDateTimeComponent', 'selector': 'sac-datetime'},{'name': 'SacDialogComponent', 'selector': 'sac-dialog'},{'name': 'SacDropdownComponent', 'selector': 'sac-dropdown'},{'name': 'SacDropzoneMultipleComponent', 'selector': 'sac-dropzonemultiple'},{'name': 'SacDropzoneSingleComponent', 'selector': 'sac-dropzonesingle'},{'name': 'SacGridButtonComponent', 'selector': 'sac-gridbutton'},{'name': 'SacGridColumnActionComponent', 'selector': 'sac-gridcolumnaction'},{'name': 'SacGridColumnComponent', 'selector': 'sac-gridcolumn'},{'name': 'SacGridComponent', 'selector': 'sac-grid'},{'name': 'SacGridImageComponent', 'selector': 'sac-gridimage'},{'name': 'SacInputAreaComponent', 'selector': 'sac-inputarea'},{'name': 'SacInputComponent', 'selector': 'sac-input'},{'name': 'SacInputCurrencyComponent', 'selector': 'sac-inputcurrency'},{'name': 'SacInputDecimalComponent', 'selector': 'sac-inputdecimal'},{'name': 'SacInputEmailComponent', 'selector': 'sac-inputemail'},{'name': 'SacInputIntegerComponent', 'selector': 'sac-inputinteger'},{'name': 'SacInputPasswordComponent', 'selector': 'sac-inputpassword'},{'name': 'SacInputSearchComponent', 'selector': 'sac-inputsearch'},{'name': 'SacListboxComponent', 'selector': 'sac-listbox'},{'name': 'SacMultilanguageInputAreaComponent', 'selector': 'sac-multilanguageinputarea'},{'name': 'SacMultilanguageInputComponent', 'selector': 'sac-multilanguageinput'},{'name': 'SacMultilanguagemenuComponent', 'selector': '[sac-multilanguagemenu]'},{'name': 'SacMultilanguagemenuItemButtonComponent', 'selector': 'sac-multilanguagemenubutton'},{'name': 'SacPagingComponent', 'selector': 'sac-paging'},{'name': 'SacRadiobuttonComponent', 'selector': 'sac-radiobutton'},{'name': 'SacRadiobuttonsComponent', 'selector': 'sac-radiobuttons'},{'name': 'SacStaticFormContainerComponent', 'selector': 'sac-staticformcontainer'},{'name': 'SacStaticLabelComponent', 'selector': 'sac-staticlabel'},{'name': 'SacTabComponent', 'selector': 'sac-tab'},{'name': 'SacTabItemComponent', 'selector': 'sac-tabitem'},{'name': 'SacTimeComponent', 'selector': 'sac-time'},{'name': 'SacTinyMceComponent', 'selector': 'sac-tinymce'},{'name': 'SacUploadComponent', 'selector': 'sac-upload'},{'name': 'SacUploadMultipleComponent', 'selector': 'sac-uploadmultiple'},{'name': 'SacValidationSummaryComponent', 'selector': 'sac-validationsummary'},{'name': 'SacWizardComponent', 'selector': 'sac-wizard'},{'name': 'SacWizardItemComponent', 'selector': 'sac-wizarditem'}];
-    var DIRECTIVES = [{'name': 'SacBaseDateTimeControl', 'selector': ''},{'name': 'SacBaseListControl', 'selector': ''},{'name': 'SacBaseModelControl', 'selector': ''},{'name': 'SacBaseSelectControl', 'selector': ''},{'name': 'SacButtonCommon', 'selector': ''},{'name': 'SacCheckboxCommon', 'selector': ''},{'name': 'SacConfirmCommon', 'selector': ''},{'name': 'SacContextmenuAnchorCommon', 'selector': ''},{'name': 'SacContextmenuAnchorDirective', 'selector': '[sacContextMenuAnchor]'},{'name': 'SacContextmenuCommon', 'selector': ''},{'name': 'SacContextmenuContainerDirective', 'selector': '[sacContextMenuContainer]'},{'name': 'SacContextMenuContrainerCommon', 'selector': ''},{'name': 'SacContextmenuItemButtonCommon', 'selector': ''},{'name': 'SacContextmenuItemCommon', 'selector': ''},{'name': 'SacDateCommon', 'selector': ''},{'name': 'SacDateSelectorCommon', 'selector': ''},{'name': 'SacDateTimeCommon', 'selector': ''},{'name': 'SacDialogCommon', 'selector': ''},{'name': 'SacDropdownCommon', 'selector': ''},{'name': 'SacDropdownOptionCommon', 'selector': ''},{'name': 'SacDropdownOptionDirective', 'selector': '[sacOption],option'},{'name': 'SacDropzoneMultipleCommon', 'selector': ''},{'name': 'SacDropzoneSingleCommon', 'selector': ''},{'name': 'SacFileBrowserCommon', 'selector': ''},{'name': 'SacFormCommon', 'selector': ''},{'name': 'SacFormDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'SacGridButtonCommon', 'selector': ''},{'name': 'SacGridColumnActionCommon', 'selector': ''},{'name': 'SacGridColumnBaseCommon', 'selector': ''},{'name': 'SacGridColumnCommon', 'selector': ''},{'name': 'SacGridCommon', 'selector': ''},{'name': 'SacGridImageCommon', 'selector': ''},{'name': 'SacInheritFormDirective', 'selector': '[sacInheritForm]'},{'name': 'SacInputAreaCommon', 'selector': ''},{'name': 'SacInputBase', 'selector': ''},{'name': 'SacInputCommon', 'selector': ''},{'name': 'SacInputCurrencyCommon', 'selector': ''},{'name': 'SacInputDecimalCommon', 'selector': ''},{'name': 'SacInputEmailCommon', 'selector': ''},{'name': 'SacInputIntegerCommon', 'selector': ''},{'name': 'SacInputPasswordCommon', 'selector': ''},{'name': 'SacInputSearchCommon', 'selector': ''},{'name': 'SacListboxCommon', 'selector': ''},{'name': 'SacListboxOptionCommon', 'selector': ''},{'name': 'SacListboxOptionDirective', 'selector': '[sacOption],option'},{'name': 'SacMultilanguageInputAreaCommon', 'selector': ''},{'name': 'SacMultilanguageInputCommon', 'selector': ''},{'name': 'SacMultilanguagemenuAnchorDirective', 'selector': '[sacMultilanguageMenuAnchor]'},{'name': 'SacMultilanguagemenuContainerDirective', 'selector': '[sacMultilanguageMenuContainer]'},{'name': 'SacPagingCommon', 'selector': ''},{'name': 'SacRadiobuttonCommon', 'selector': ''},{'name': 'SacRadiobuttonsCommon', 'selector': ''},{'name': 'SacStaticFormContainerCommon', 'selector': ''},{'name': 'SacStaticLabelCommon', 'selector': ''},{'name': 'SacTabCommon', 'selector': ''},{'name': 'SacTabItemCommon', 'selector': ''},{'name': 'SacTimeCommon', 'selector': ''},{'name': 'SacTinyMceCommon', 'selector': ''},{'name': 'SacTooltipCommon', 'selector': ''},{'name': 'SacTreeItemActionCommon', 'selector': ''},{'name': 'SacTreeViewChildCommon', 'selector': ''},{'name': 'SacTreeViewCommon', 'selector': ''},{'name': 'SacUploadBase', 'selector': ''},{'name': 'SacUploadMultipleCommon', 'selector': ''},{'name': 'SacUploadSingleCommon', 'selector': ''},{'name': 'SacValidationSummaryCommon', 'selector': ''},{'name': 'SacWizardCommon', 'selector': ''},{'name': 'SacWizardItemCommon', 'selector': ''}];
+    var DIRECTIVES = [{'name': 'SacBaseDateTimeControl', 'selector': ''},{'name': 'SacBaseListControl', 'selector': ''},{'name': 'SacBaseModelControl', 'selector': ''},{'name': 'SacBaseSelectControl', 'selector': ''},{'name': 'SacButtonCommon', 'selector': ''},{'name': 'SacCheckboxCommon', 'selector': ''},{'name': 'SacConfirmCommon', 'selector': ''},{'name': 'SacContextmenuAnchorCommon', 'selector': ''},{'name': 'SacContextmenuAnchorDirective', 'selector': '[sacContextMenuAnchor]'},{'name': 'SacContextmenuCommon', 'selector': ''},{'name': 'SacContextmenuContainerDirective', 'selector': '[sacContextMenuContainer]'},{'name': 'SacContextMenuContrainerCommon', 'selector': ''},{'name': 'SacContextmenuItemButtonCommon', 'selector': ''},{'name': 'SacContextmenuItemCommon', 'selector': ''},{'name': 'SacDateCommon', 'selector': ''},{'name': 'SacDateSelectorCommon', 'selector': ''},{'name': 'SacDateTimeCommon', 'selector': ''},{'name': 'SacDialogCommon', 'selector': ''},{'name': 'SacDropdownCommon', 'selector': ''},{'name': 'SacDropdownOptionCommon', 'selector': ''},{'name': 'SacDropdownOptionDirective', 'selector': '[sacOption],option'},{'name': 'SacDropzoneMultipleCommon', 'selector': ''},{'name': 'SacDropzoneSingleCommon', 'selector': ''},{'name': 'SacFileBrowserCommon', 'selector': ''},{'name': 'SacFormCommon', 'selector': ''},{'name': 'SacFormDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'SacFormLayoutCommon', 'selector': ''},{'name': 'SacFormLayoutDirective', 'selector': '[sacFormLayout]'},{'name': 'SacGridButtonCommon', 'selector': ''},{'name': 'SacGridColumnActionCommon', 'selector': ''},{'name': 'SacGridColumnBaseCommon', 'selector': ''},{'name': 'SacGridColumnCommon', 'selector': ''},{'name': 'SacGridCommon', 'selector': ''},{'name': 'SacGridImageCommon', 'selector': ''},{'name': 'SacInheritFormDirective', 'selector': '[sacInheritForm]'},{'name': 'SacInputAreaCommon', 'selector': ''},{'name': 'SacInputBase', 'selector': ''},{'name': 'SacInputCommon', 'selector': ''},{'name': 'SacInputCurrencyCommon', 'selector': ''},{'name': 'SacInputDecimalCommon', 'selector': ''},{'name': 'SacInputEmailCommon', 'selector': ''},{'name': 'SacInputIntegerCommon', 'selector': ''},{'name': 'SacInputPasswordCommon', 'selector': ''},{'name': 'SacInputSearchCommon', 'selector': ''},{'name': 'SacListboxCommon', 'selector': ''},{'name': 'SacListboxOptionCommon', 'selector': ''},{'name': 'SacListboxOptionDirective', 'selector': '[sacOption],option'},{'name': 'SacMultilanguageInputAreaCommon', 'selector': ''},{'name': 'SacMultilanguageInputCommon', 'selector': ''},{'name': 'SacMultilanguagemenuAnchorDirective', 'selector': '[sacMultilanguageMenuAnchor]'},{'name': 'SacMultilanguagemenuContainerDirective', 'selector': '[sacMultilanguageMenuContainer]'},{'name': 'SacPagingCommon', 'selector': ''},{'name': 'SacRadiobuttonCommon', 'selector': ''},{'name': 'SacRadiobuttonsCommon', 'selector': ''},{'name': 'SacStaticFormContainerCommon', 'selector': ''},{'name': 'SacStaticLabelCommon', 'selector': ''},{'name': 'SacTabCommon', 'selector': ''},{'name': 'SacTabItemCommon', 'selector': ''},{'name': 'SacTimeCommon', 'selector': ''},{'name': 'SacTinyMceCommon', 'selector': ''},{'name': 'SacTooltipCommon', 'selector': ''},{'name': 'SacTreeItemActionCommon', 'selector': ''},{'name': 'SacTreeViewChildCommon', 'selector': ''},{'name': 'SacTreeViewCommon', 'selector': ''},{'name': 'SacUploadBase', 'selector': ''},{'name': 'SacUploadMultipleCommon', 'selector': ''},{'name': 'SacUploadSingleCommon', 'selector': ''},{'name': 'SacValidationSummaryCommon', 'selector': ''},{'name': 'SacWizardCommon', 'selector': ''},{'name': 'SacWizardItemCommon', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'SacGridComponent'};
 </script>
 <script src="../js/tree.js"></script>

@@ -4,6 +4,7 @@ import {
   SACBootstrap4ButtonModule,
   SACBootstrap4CheckboxModule,
   SACBootstrap4FormModule,
+  SACBootstrap4StaticLabelModule,
   SACBootstrap4ValidationSummaryModule,
   SacFormDirective,
 } from '@simpleangularcontrols/sac-bootstrap4';
@@ -18,6 +19,7 @@ import {
     SACBootstrap4ButtonModule,
     SACBootstrap4ValidationSummaryModule,
     SACBootstrap4CheckboxModule,
+    SACBootstrap4StaticLabelModule,
   ],
 })
 export class DemoCheckboxComponent {

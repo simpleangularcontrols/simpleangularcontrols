@@ -1,13 +1,17 @@
-<div class="row mb-3 align-items-center" [class.g-0]="disablelabel">
+<div
+  class="row align-items-center"
+  [class.g-0]="disablelabel"
+  [class.mb-3]="!stacked"
+>
   <div
     class="col-12 col-form-label col-form-label-sm"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    [ngClass]="[!disablelabel && !stacked ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
   >
-    <ng-container *ngIf="!disablelabel">{{label}}</ng-container>
+    <label *ngIf="!disablelabel && !stacked" for="{{name}}">{{label}}</label>
   </div>
   <div
     class="col-12"
-    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
+    [ngClass]="[!disablelabel && !stacked ?  (this.labelSizes | toControlWidthCss) : '']"
   >
     <div class="form-check">
       <input

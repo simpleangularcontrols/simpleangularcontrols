@@ -7,7 +7,7 @@ on:
   push:
     branches: ["ng16/*"]
   pull_request:
-    branches: ["agnular/*"]
+    branches: ["angular/*"]
 
 jobs:
   build:

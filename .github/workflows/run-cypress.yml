@@ -1,0 +1,39 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: Run Cypress Tests
+
+on:
+  push:
+    branches: ["ng16/*"]
+  pull_request:
+    branches: ["agnular/*"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get Source
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 3.1.x
+
+      - name: Test
+        run: dotnet run --project build/Build.csproj --target=test
+
+      - name: Summary
+        run: |
+          echo "# Bootstrap 3 Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          cat ch.jnetwork.sac-controls/reports/bs3.md  >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "# Bootstrap 4 Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          cat ch.jnetwork.sac-controls/reports/bs4.md  >> $GITHUB_STEP_SUMMARY
+          echo "# Bootstrap 5 Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          cat ch.jnetwork.sac-controls/reports/bs5.md  >> $GITHUB_STEP_SUMMARY

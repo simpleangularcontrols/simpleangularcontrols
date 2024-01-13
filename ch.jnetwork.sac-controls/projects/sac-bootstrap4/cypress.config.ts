@@ -4,6 +4,13 @@ import coverageWebpack from './cypress/coverage.webpack';
 export default defineConfig({
   viewportWidth: 1024,
   viewportHeight: 768,
+  reporter: '../../../node_modules/mochawesome/src/mochawesome.js',
+  reporterOptions: {
+    reportDir: '../../reports/bs4',
+    overwrite: false,
+    html: false,
+    json: true,
+  },
 
   component: {
     devServer: {

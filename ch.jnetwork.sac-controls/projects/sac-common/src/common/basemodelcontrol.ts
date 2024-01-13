@@ -19,6 +19,7 @@ import {
   SacDefaultLocalisationService,
 } from '../services/sac-localisation.service';
 import { convertToBoolean } from '../utilities/convertion';
+import { createGuid } from '../utilities/guid';
 import { ValidationErrorItem } from '../validation';
 
 /**
@@ -118,7 +119,8 @@ export abstract class SacBaseModelControl<VALUE>
   /**
    * Name des Controls
    */
-  @Input() public name: string = '';
+  @Input() public name: string = createGuid();
+
   /**
    * Leere Implementation von "propagateChange". Muss gemacht werden, damit kein Fehler entsteht
    */

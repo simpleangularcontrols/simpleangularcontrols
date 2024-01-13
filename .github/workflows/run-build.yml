@@ -5,9 +5,9 @@ name: Run Cypress Tests
 
 on:
   push:
-    branches-ignore: ["agnular/*"]
+    branches-ignore: ["angular/*"]
   pull_request:
-    branches: ["agnular/*"]
+    branches: ["angular/*"]
 
 jobs:
   build:

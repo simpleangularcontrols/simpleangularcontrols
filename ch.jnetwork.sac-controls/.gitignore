@@ -59,3 +59,5 @@ projects/sac-bootstrap5/.angular/
 projects/sac-bootstrap5/.nyc_output/
 projects/sac-bootstrap5/cypress/screenshots/
 projects/sac-bootstrap5/cypress/videos/
+
+reports/

@@ -29,8 +29,24 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout ng16
         uses: actions/checkout@v4
+        with:
+          path: ng16
+          sparse-checkout: |
+            docs
+      - name: Checkout ng13
+        uses: actions/checkout@v4
+        with:
+          ref: angular/13.2.x
+          path: ng13
+          sparse-checkout: |
+            docs
+      - name: Build Documentation Structure
+        run: |
+          cp "ng16/docs/index.html" "docs/index.html"
+          cp "ng16/docs/bs*" "docs/ng16/"
+          cp "ng13/docs/bs*" "docs/ng13/"
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

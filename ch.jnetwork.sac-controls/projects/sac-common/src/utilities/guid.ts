@@ -2,7 +2,7 @@
  * create a guid with crypto library if availabe and a fallback to Math.Random implementation
  */
 export function createGuid(): string {
-  if (crypto) {
+  if (typeof crypto !== undefined) {
     // return guid without hyphen
     return crypto.randomUUID().replace(/\-/gi, '');
   } else {

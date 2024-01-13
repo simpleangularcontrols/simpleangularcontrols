@@ -32,7 +32,7 @@ jobs:
       - name: Checkout ng16
         uses: actions/checkout@v4
         with:
-          ref: angular/16.0.x
+          ref: angular/16.x.x
           path: ng16
           sparse-checkout: |
             docs

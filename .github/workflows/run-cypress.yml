@@ -4,13 +4,11 @@
 name: Run Cypress Tests
 
 on:
-  push:
-    branches: ["ng16/*"]
   pull_request:
     branches: ["angular/*"]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:

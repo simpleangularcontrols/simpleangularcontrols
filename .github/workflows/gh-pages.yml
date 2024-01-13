@@ -47,9 +47,9 @@ jobs:
           mkdir "docs"
           cp "ng16/docs/index.html" "docs/index.html"
           mkdir "docs/ng16"
-          cp -R "ng16/docs/bootstrap*" "docs/ng16/"
+          cp -R ng16/docs/bootstrap* "docs/ng16/"
           mkdir "docs/ng13"
-          cp -R "ng13/docs/bootstrap*" "docs/ng13/"
+          cp -R ng13/docs/bootstrap* "docs/ng13/"
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

@@ -1,16 +1,17 @@
 ﻿using Build.context;
+using Build.tasks;
 using Cake.Core.Diagnostics;
 using Cake.Frosting;
 
 namespace Build.pipelines
 {
     /// <summary>
-    /// Default Pipeline
+    /// Build Only Pipeline
     /// </summary>
-    [TaskName("default")]
-    [TaskDescription("Default Task without publishing")]
-    [IsDependentOn(typeof(BuildBuild))]
-    public class DefaultBuild : FrostingTask<BuildContext>
+    [TaskName("build")]
+    [TaskDescription("Build Task without publishing")]
+    [IsDependentOn(typeof(NpmBuild))]
+    public class BuildBuild : FrostingTask<BuildContext>
     {
         /// <summary>
         /// Main Task

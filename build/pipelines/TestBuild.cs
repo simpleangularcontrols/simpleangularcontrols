@@ -12,6 +12,7 @@ namespace Build.pipelines
     [TaskDescription("Default Task without publishing")]
     [IsDependentOn(typeof(NpmBuild))]
     [IsDependentOn(typeof(CypressRun))]
+    [IsDependentOn(typeof(CypressReport))]
     public class TestBuild : FrostingTask<BuildContext>
     {
         /// <summary>

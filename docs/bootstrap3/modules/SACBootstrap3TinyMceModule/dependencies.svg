@@ -28,13 +28,13 @@
 <title>cluster_SACBootstrap3TinyMceModule_imports</title>
 <polygon fill="none" stroke="black" points="192,-78 192,-130 804,-130 804,-78 192,-78"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap3TinyMceModule_declarations</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-130 184,-130 184,-78 16,-78"/>
-</g>
 <g id="clust5" class="cluster">
 <title>cluster_SACBootstrap3TinyMceModule_exports</title>
 <polygon fill="none" stroke="black" points="310,-208 310,-260 482,-260 482,-208 310,-208"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_SACBootstrap3TinyMceModule_declarations</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 184,-130 184,-78 16,-78"/>
 </g>
 <!-- SacTinyMceComponent -->
 <g id="node1" class="node">

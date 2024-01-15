@@ -50,42 +50,42 @@ export class SacDefaultConfigurationService extends SacAbstractConfigurationServ
   /**
    * @inheritdoc
    */
-  public get LabelSizeLg(): number {
+  public get LabelSizeLg(): number | null {
     return null;
   }
 
   /**
    * @inheritdoc
    */
-  public get LabelSizeMd(): number {
+  public get LabelSizeMd(): number | null {
     return null;
   }
 
   /**
    * @inheritdoc
    */
-  public get LabelSizeSm(): number {
+  public get LabelSizeSm(): number | null {
     return 4;
   }
 
   /**
    * @inheritdoc
    */
-  public get LabelSizeXl(): number {
+  public get LabelSizeXl(): number | null {
     return null;
   }
 
   /**
    * @inheritdoc
    */
-  public get LabelSizeXs(): number {
+  public get LabelSizeXs(): number | null {
     return 12;
   }
 
   /**
    * @inheritdoc
    */
-  public get LabelSizeXxl(): number {
+  public get LabelSizeXxl(): number | null {
     return null;
   }
 

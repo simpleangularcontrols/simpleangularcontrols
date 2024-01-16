@@ -7,15 +7,15 @@ export interface ISacIconService {
   /**
    * Delete icon for file browser component
    */
-  get BrowserComponentDeleteIcon(): string
+  get BrowserComponentDeleteIcon(): string;
   /**
    * Edit icon for file browser component
    */
-  get BrowserComponentEditIcon(): string
+  get BrowserComponentEditIcon(): string;
   /**
    * Folder icon for closed folders in the browser component tree
    */
-  get BrowserComponentFolderClosedIcon(): string
+  get BrowserComponentFolderClosedIcon(): string;
   /**
    * Folder icon for folders without subfolders in the browser component tree
    */
@@ -23,15 +23,15 @@ export interface ISacIconService {
   /**
    * Folder icon for new folders in the browser component
    */
-  get BrowserComponentFolderNewIcon(): string
+  get BrowserComponentFolderNewIcon(): string;
   /**
    * Folder icon for open folders in the browser component tree
    */
-  get BrowserComponentFolderOpenIcon(): string
+  get BrowserComponentFolderOpenIcon(): string;
   /**
    * Refresh icon for file browser component
    */
-  get BrowserComponentRefreshIcon(): string
+  get BrowserComponentRefreshIcon(): string;
   /**
    * default image for confirm dialog. currently is required a png image path
    */
@@ -53,8 +53,8 @@ export interface ISacIconService {
    */
   get DateTimeSelectorComponentMonthNextIcon(): string;
   /**
- * Icon for switching to the previous month in the DateTimSelector component
- */
+   * Icon for switching to the previous month in the DateTimSelector component
+   */
   get DateTimeSelectorComponentMonthPrevIcon(): string;
   /**
    * sort down icon for grid

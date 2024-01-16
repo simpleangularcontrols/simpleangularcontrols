@@ -11,9 +11,14 @@ import {
 } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { SacFormLayoutCommon } from '../controls/layout/formlayout';
+import { ISacConfigurationService } from '../interfaces/ISacConfigurationService';
 import { ISacLabelSizes } from '../interfaces/ISacLabelSizes';
 import { ISacLocalisationService } from '../interfaces/ISacLocalisationService';
 import { IAbstractControlLabelExtension } from '../public_api';
+import {
+  SACCONFIGURATION_SERVICE,
+  SacDefaultConfigurationService,
+} from '../services/sac-configuration.service';
 import {
   SACLOCALISATION_SERVICE,
   SacDefaultLocalisationService,
@@ -36,6 +41,11 @@ export abstract class SacBaseModelControl<VALUE>
    */
   private _inlineerrorenabled: boolean | null = null;
   private _label: string = '';
+
+  /**
+   * Service for loading default settings for the controls
+   */
+  protected readonly configurationService: ISacConfigurationService;
 
   /**
    * Boolean Property dirty; default Wert - false
@@ -147,6 +157,11 @@ export abstract class SacBaseModelControl<VALUE>
     this.lngResourceService = injector.get(
       SACLOCALISATION_SERVICE,
       new SacDefaultLocalisationService()
+    );
+
+    this.configurationService = injector.get(
+      SACCONFIGURATION_SERVICE,
+      new SacDefaultConfigurationService()
     );
   }
 
@@ -354,70 +369,6 @@ export abstract class SacBaseModelControl<VALUE>
   }
 
   /**
-   * Set label sizes from property or parent layout control
-   */
-  private setLabelSizes() {
-    // set size extra small
-    if (!this.labelSizeXs) {
-      if (this.formlayout?.labelSizeXs) {
-        this.labelSizeXs = this.formlayout.labelSizeXs;
-      } else {
-        this.labelSizeXs = 12;
-      }
-    }
-
-    // set size small
-    if (!this.labelSizeSm) {
-      if (this.formlayout?.labelSizeSm) {
-        this.labelSizeSm = this.formlayout.labelSizeSm;
-      } else {
-        this.labelSizeSm = 4;
-      }
-    }
-
-    // set size medium
-    if (!this.labelSizeMd) {
-      if (this.formlayout?.labelSizeMd) {
-        this.labelSizeMd = this.formlayout.labelSizeMd;
-      }
-    }
-
-    // set size large
-    if (!this.labelSizeLg) {
-      if (this.formlayout?.labelSizeLg) {
-        this.labelSizeLg = this.formlayout.labelSizeLg;
-      }
-    }
-
-    // set size extra large
-    if (!this.labelSizeXl) {
-      if (this.formlayout?.labelSizeXl) {
-        this.labelSizeXl = this.formlayout.labelSizeXl;
-      }
-    }
-
-    // set size extra extra large
-    if (!this.labelSizeXxl) {
-      if (this.formlayout?.labelSizeXxl) {
-        this.labelSizeXxl = this.formlayout.labelSizeXxl;
-      }
-    }
-  }
-
-  /**
-   * Set adaptive label property from parent layout control
-   */
-  private setIsAdaptiveLabel() {
-    if (!this.isAdaptiveLabel) {
-      if (this.formlayout?.isAdaptiveLabel !== undefined) {
-        this.isAdaptiveLabel = this.formlayout.isAdaptiveLabel;
-      } else {
-        this.isAdaptiveLabel = false;
-      }
-    }
-  }
-
-  /**
    * Methode ergibt boolean touched = true
    */
   public onTouch(): void {
@@ -529,6 +480,78 @@ export abstract class SacBaseModelControl<VALUE>
       (
         this.ngControl as unknown as IAbstractControlLabelExtension
       ).controllabel = this.label;
+    }
+  }
+
+  /**
+   * Set adaptive label property from parent layout control
+   */
+  private setIsAdaptiveLabel() {
+    if (!this.isAdaptiveLabel) {
+      if (this.formlayout?.isAdaptiveLabel !== undefined) {
+        this.isAdaptiveLabel = this.formlayout.isAdaptiveLabel;
+      } else {
+        this.isAdaptiveLabel = false;
+      }
+    }
+  }
+
+  /**
+   * Set label sizes from property or parent layout control
+   */
+  private setLabelSizes() {
+    // set size extra small
+    if (!this.labelSizeXs) {
+      if (this.formlayout?.labelSizeXs) {
+        this.labelSizeXs = this.formlayout.labelSizeXs;
+      } else {
+        this.labelSizeXs = this.configurationService.LabelSizeXs;
+      }
+    }
+
+    // set size small
+    if (!this.labelSizeSm) {
+      if (this.formlayout?.labelSizeSm) {
+        this.labelSizeSm = this.formlayout.labelSizeSm;
+      } else {
+        this.labelSizeSm = this.configurationService.LabelSizeSm;
+      }
+    }
+
+    // set size medium
+    if (!this.labelSizeMd) {
+      if (this.formlayout?.labelSizeMd) {
+        this.labelSizeMd = this.formlayout.labelSizeMd;
+      } else {
+        this.labelSizeMd = this.configurationService.LabelSizeMd;
+      }
+    }
+
+    // set size large
+    if (!this.labelSizeLg) {
+      if (this.formlayout?.labelSizeLg) {
+        this.labelSizeLg = this.formlayout.labelSizeLg;
+      } else {
+        this.labelSizeLg = this.configurationService.LabelSizeLg;
+      }
+    }
+
+    // set size extra large
+    if (!this.labelSizeXl) {
+      if (this.formlayout?.labelSizeXl) {
+        this.labelSizeXl = this.formlayout.labelSizeXl;
+      } else {
+        this.labelSizeXl = this.configurationService.LabelSizeXl;
+      }
+    }
+
+    // set size extra extra large
+    if (!this.labelSizeXxl) {
+      if (this.formlayout?.labelSizeXxl) {
+        this.labelSizeXxl = this.formlayout.labelSizeXxl;
+      } else {
+        this.labelSizeXxl = this.configurationService.LabelSizeXxl;
+      }
     }
   }
 

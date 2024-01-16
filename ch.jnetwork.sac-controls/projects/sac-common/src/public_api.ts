@@ -100,10 +100,12 @@ export * from './interfaces/ISacIconService';
 export * from './interfaces/ISacLanguageService';
 export * from './interfaces/ISacLocalisationService';
 export {
+  SACCONFIGURATION_SERVICE,
   SACFILEBROWSER_SERVICE,
   SACICON_SERVICE,
   SACLANGUAGE_SERVICE,
   SACLOCALISATION_SERVICE,
+  SacAbstractConfigurationService,
   SacAbstractFileBrowserService,
   SacAbstractIconService,
   SacAbstractLanguageService,

@@ -613,6 +613,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
+                                    <a href="injectables/SacAbstractConfigurationService.html" data-type="entity-link" >SacAbstractConfigurationService</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/SacAbstractFileBrowserService.html" data-type="entity-link" >SacAbstractFileBrowserService</a>
                                 </li>
                                 <li class="link">
@@ -623,6 +626,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/SacAbstractLocalisationService.html" data-type="entity-link" >SacAbstractLocalisationService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/SacDefaultConfigurationService.html" data-type="entity-link" >SacDefaultConfigurationService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/SacDefaultFileBrowserService.html" data-type="entity-link" >SacDefaultFileBrowserService</a>
@@ -687,6 +693,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/IDateTimeControl.html" data-type="entity-link" >IDateTimeControl</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ISacConfigurationService.html" data-type="entity-link" >ISacConfigurationService</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ISacFileBrowserService.html" data-type="entity-link" >ISacFileBrowserService</a>

@@ -28,13 +28,13 @@
 <title>cluster_SACBootstrap3DateTimeModule_exports</title>
 <polygon fill="none" stroke="black" points="106,-319.59 106,-371.59 780,-371.59 780,-319.59 106,-319.59"/>
 </g>
-<g id="clust3" class="cluster">
-<title>cluster_SACBootstrap3DateTimeModule_SacDateComponent_providers</title>
-<polygon fill="none" stroke="black" points="751,-78 751,-241.59 2433,-241.59 2433,-78 751,-78"/>
-</g>
 <g id="clust7" class="cluster">
 <title>cluster_SACBootstrap3DateTimeModule_imports</title>
-<polygon fill="none" stroke="black" points="539,-189.59 539,-241.59 743,-241.59 743,-189.59 539,-189.59"/>
+<polygon fill="none" stroke="black" points="2229,-189.59 2229,-241.59 2433,-241.59 2433,-189.59 2229,-189.59"/>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap3DateTimeModule_SacDateComponent_providers</title>
+<polygon fill="none" stroke="black" points="539,-78 539,-241.59 2221,-241.59 2221,-78 539,-78"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap3DateTimeModule_declarations</title>
@@ -43,8 +43,8 @@
 <!-- SacDateComponent -->
 <g id="node1" class="node">
 <title>SacDateComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1221.97,-233.59 1094.03,-233.59 1094.03,-197.59 1221.97,-197.59 1221.97,-233.59"/>
-<text text-anchor="middle" x="1158" y="-211.39" font-family="Times,serif" font-size="14.00">SacDateComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="1009.97,-233.59 882.03,-233.59 882.03,-197.59 1009.97,-197.59 1009.97,-233.59"/>
+<text text-anchor="middle" x="946" y="-211.39" font-family="Times,serif" font-size="14.00">SacDateComponent</text>
 </g>
 <!-- SACBootstrap3DateTimeModule -->
 <g id="node5" class="node">
@@ -55,8 +55,8 @@
 <!-- SacDateComponent&#45;&gt;SACBootstrap3DateTimeModule -->
 <g id="edge1" class="edge">
 <title>SacDateComponent&#45;&gt;SACBootstrap3DateTimeModule</title>
-<path fill="none" stroke="black" d="M1158,-233.61C1158,-250.96 1158,-274.59 1158,-274.59 1158,-274.59 548.3,-274.59 548.3,-274.59"/>
-<polygon fill="black" stroke="black" points="548.3,-271.09 538.3,-274.59 548.3,-278.09 548.3,-271.09"/>
+<path fill="none" stroke="black" d="M881.99,-215.59C765.44,-215.59 530.51,-215.59 530.51,-215.59 530.51,-215.59 530.51,-252.48 530.51,-252.48"/>
+<polygon fill="black" stroke="black" points="527.01,-252.48 530.51,-262.48 534.01,-252.48 527.01,-252.48"/>
 </g>
 <!-- SacDateSelectorComponent -->
 <g id="node2" class="node">
@@ -103,8 +103,8 @@
 <!-- SACBootstrap3DateTimeModule&#45;&gt;SacDateComponent  -->
 <g id="edge8" class="edge">
 <title>SACBootstrap3DateTimeModule&#45;&gt;SacDateComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M538.34,-286.59C607.99,-286.59 687.6,-286.59 687.6,-286.59 687.6,-286.59 687.6,-317.57 687.6,-317.57"/>
-<polygon fill="black" stroke="black" points="684.1,-317.57 687.6,-327.57 691.1,-317.57 684.1,-317.57"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M538.46,-286.59C614.84,-286.59 706,-286.59 706,-286.59 706,-286.59 706,-317.57 706,-317.57"/>
+<polygon fill="black" stroke="black" points="702.5,-317.57 706,-327.57 709.5,-317.57 702.5,-317.57"/>
 </g>
 <!-- SacDateSelectorComponent  -->
 <g id="node10" class="node">
@@ -149,10 +149,10 @@
 <title>{
  &#160;&#160;&#160;provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() =&gt; SacDateComponent),
 }</title>
-<ellipse fill="#fdb462" stroke="black" cx="2000" cy="-127.3" rx="424.93" ry="41.09"/>
-<text text-anchor="middle" x="2000" y="-139.9" font-family="Times,serif" font-size="14.00">{</text>
-<text text-anchor="middle" x="2000" y="-123.1" font-family="Times,serif" font-size="14.00"> &#160;&#160;&#160;provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() =&gt; SacDateComponent),</text>
-<text text-anchor="middle" x="2000" y="-106.3" font-family="Times,serif" font-size="14.00">}</text>
+<ellipse fill="#fdb462" stroke="black" cx="1788" cy="-127.3" rx="424.93" ry="41.09"/>
+<text text-anchor="middle" x="1788" y="-139.9" font-family="Times,serif" font-size="14.00">{</text>
+<text text-anchor="middle" x="1788" y="-123.1" font-family="Times,serif" font-size="14.00"> &#160;&#160;&#160;provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() =&gt; SacDateComponent),</text>
+<text text-anchor="middle" x="1788" y="-106.3" font-family="Times,serif" font-size="14.00">}</text>
 </g>
 <!-- {
  &#160;&#160;&#160;provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() =&gt; SacDateComponent),
@@ -161,8 +161,8 @@
 <title>{
  &#160;&#160;&#160;provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() =&gt; SacDateComponent),
 }&#45;&gt;SacDateComponent</title>
-<path fill="none" stroke="black" d="M2000,-168.6C2000,-191.58 2000,-215.59 2000,-215.59 2000,-215.59 1231.98,-215.59 1231.98,-215.59"/>
-<polygon fill="black" stroke="black" points="1231.98,-212.09 1221.98,-215.59 1231.98,-219.09 1231.98,-212.09"/>
+<path fill="none" stroke="black" d="M1788,-168.6C1788,-191.58 1788,-215.59 1788,-215.59 1788,-215.59 1019.98,-215.59 1019.98,-215.59"/>
+<polygon fill="black" stroke="black" points="1019.98,-212.09 1009.98,-215.59 1019.98,-219.09 1019.98,-212.09"/>
 </g>
 <!-- {
  &#160;&#160;&#160;provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() =&gt; SacDateComponent),
@@ -171,10 +171,10 @@
 <title>{
  &#160;&#160;&#160;provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() =&gt; SacDateComponent),
 }</title>
-<ellipse fill="#fdb462" stroke="black" cx="1158" cy="-127.3" rx="398.61" ry="41.09"/>
-<text text-anchor="middle" x="1158" y="-139.9" font-family="Times,serif" font-size="14.00">{</text>
-<text text-anchor="middle" x="1158" y="-123.1" font-family="Times,serif" font-size="14.00"> &#160;&#160;&#160;provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() =&gt; SacDateComponent),</text>
-<text text-anchor="middle" x="1158" y="-106.3" font-family="Times,serif" font-size="14.00">}</text>
+<ellipse fill="#fdb462" stroke="black" cx="946" cy="-127.3" rx="398.61" ry="41.09"/>
+<text text-anchor="middle" x="946" y="-139.9" font-family="Times,serif" font-size="14.00">{</text>
+<text text-anchor="middle" x="946" y="-123.1" font-family="Times,serif" font-size="14.00"> &#160;&#160;&#160;provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() =&gt; SacDateComponent),</text>
+<text text-anchor="middle" x="946" y="-106.3" font-family="Times,serif" font-size="14.00">}</text>
 </g>
 <!-- {
  &#160;&#160;&#160;provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() =&gt; SacDateComponent),
@@ -183,20 +183,20 @@
 <title>{
  &#160;&#160;&#160;provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() =&gt; SacDateComponent),
 }&#45;&gt;SacDateComponent</title>
-<path fill="none" stroke="black" d="M1158,-168.6C1158,-168.6 1158,-187.26 1158,-187.26"/>
-<polygon fill="black" stroke="black" points="1154.5,-187.26 1158,-197.26 1161.5,-187.26 1154.5,-187.26"/>
+<path fill="none" stroke="black" d="M946,-168.6C946,-168.6 946,-187.26 946,-187.26"/>
+<polygon fill="black" stroke="black" points="942.5,-187.26 946,-197.26 949.5,-187.26 942.5,-187.26"/>
 </g>
 <!-- SACBootstrap3LayoutModule -->
 <g id="node8" class="node">
 <title>SACBootstrap3LayoutModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="734.87,-233.59 731.87,-237.59 710.87,-237.59 707.87,-233.59 547.13,-233.59 547.13,-197.59 734.87,-197.59 734.87,-233.59"/>
-<text text-anchor="middle" x="641" y="-211.39" font-family="Times,serif" font-size="14.00">SACBootstrap3LayoutModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="2424.87,-233.59 2421.87,-237.59 2400.87,-237.59 2397.87,-233.59 2237.13,-233.59 2237.13,-197.59 2424.87,-197.59 2424.87,-233.59"/>
+<text text-anchor="middle" x="2331" y="-211.39" font-family="Times,serif" font-size="14.00">SACBootstrap3LayoutModule</text>
 </g>
 <!-- SACBootstrap3LayoutModule&#45;&gt;SACBootstrap3DateTimeModule -->
 <g id="edge7" class="edge">
 <title>SACBootstrap3LayoutModule&#45;&gt;SACBootstrap3DateTimeModule</title>
-<path fill="none" stroke="black" d="M546.81,-215.59C536.99,-215.59 530.51,-215.59 530.51,-215.59 530.51,-215.59 530.51,-252.48 530.51,-252.48"/>
-<polygon fill="black" stroke="black" points="527.01,-252.48 530.51,-262.48 534.01,-252.48 527.01,-252.48"/>
+<path fill="none" stroke="black" d="M2331,-233.61C2331,-250.96 2331,-274.59 2331,-274.59 2331,-274.59 548.22,-274.59 548.22,-274.59"/>
+<polygon fill="black" stroke="black" points="548.22,-271.09 538.22,-274.59 548.22,-278.09 548.22,-271.09"/>
 </g>
 </g>
 </svg>

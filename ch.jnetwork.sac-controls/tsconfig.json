@@ -38,5 +38,6 @@
   "angularCompilerOptions": {
     "compilationMode": "partial",
     "allowEmptyCodegenFiles": true,
+    "preserveSymlinks": true
   }
 }

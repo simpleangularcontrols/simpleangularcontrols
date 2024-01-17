@@ -50,6 +50,20 @@
     text="Validate"
     role="link"
   ></sac-button>
+  <div>Primary Loading Button</div>
+  <sac-button
+    (clicked)="debugAction1()"
+    text="Validate"
+    role="primary"
+    isloading="true"
+  ></sac-button>
+  <div>Default Loading Button</div>
+  <sac-button
+    (clicked)="debugAction1()"
+    text="Validate"
+    role="secondary"
+    isloading="true"
+  ></sac-button>
   <div>Button Group</div>
   <div class="row g-2">
     <div class="col-auto">

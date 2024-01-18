@@ -5,10 +5,13 @@
     "@angular/common": "^13.2.0",
     "@angular/core": "^13.2.0",
     "@simpleangularcontrols/sac-common": "file:../../dist/sac-common",
-    "@tinymce/tinymce-angular": "5.0.0"
+    "@tinymce/tinymce-angular": "5.0.0",
+    "angular-imask": "6.2.2"
   },
   "devDependencies": {
-    "@simpleangularcontrols/sac-common": "file:../../dist/sac-common"
+    "@simpleangularcontrols/sac-common": "file:../../dist/sac-common",
+    "@tinymce/tinymce-angular": "5.0.0",
+    "angular-imask": "6.2.2"
   },
   "author": {
     "name": "jNetwork GmbH",

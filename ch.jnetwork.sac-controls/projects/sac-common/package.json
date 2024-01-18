@@ -6,7 +6,12 @@
     "@angular/common": "^13.2.0",
     "@angular/core": "^13.2.0",
     "moment": "2.29.1",
-    "angular-imask": "6.2.2",
+    "imask": "6.2.2",
+    "ngx-uploadx": "5.0.0"
+  },
+  "devDependencies": {
+    "moment": "2.29.1",
+    "imask": "6.2.2",
     "ngx-uploadx": "5.0.0"
   },
   "author": {

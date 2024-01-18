@@ -24,13 +24,13 @@
 <title>cluster_SACBootstrap4ContextmenuModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 1198,-268 1198,-70 8,-70"/>
 </g>
-<g id="clust3" class="cluster">
-<title>cluster_SACBootstrap4ContextmenuModule_imports</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-130 1190,-130 1190,-78 16,-78"/>
-</g>
 <g id="clust4" class="cluster">
 <title>cluster_SACBootstrap4ContextmenuModule_exports</title>
 <polygon fill="none" stroke="black" points="133,-208 133,-260 1085,-260 1085,-208 133,-208"/>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap4ContextmenuModule_imports</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 1190,-130 1190,-78 16,-78"/>
 </g>
 <!-- SacContextmenuAnchorDirective -->
 <g id="node1" class="node">

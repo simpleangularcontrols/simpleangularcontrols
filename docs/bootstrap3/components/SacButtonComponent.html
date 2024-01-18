@@ -105,6 +105,10 @@
                 role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
         <li class="nav-item">
+            <a href="#readme" class="nav-link"
+                role="tab" id="readme-tab" data-bs-toggle="tab" data-link="readme">Example</a>
+        </li>
+        <li class="nav-item">
             <a href="#source" class="nav-link"
                 role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
@@ -685,6 +689,17 @@ Folgende Typen sind Supported: primary, secondary, success, danger, warning, inf
 
 </div>
 
+    <div class="tab-pane fade " id="readme">
+        <p><h1>Examples</h1>
+<h2>Clicked Event</h2>
+<p>It is important to use the <code>clicked</code> event and not the <code>click</code> EventEmitter as the event, because only the <code>clicked</code> EventEmitter checks whether the Disabled or IsLoading state is set.</p>
+<h2>Default Button</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;sac-button (clicked)=&quot;action()&quot; text=&quot;Button Label&quot;&gt;&lt;/sac-button&gt;`</code></pre></div><h2>Primary Button</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;sac-button (clicked)=&quot;action()&quot; text=&quot;Button Label&quot; role=&quot;primary&quot;&gt;&lt;/sac-button&gt;`</code></pre></div><h2>Button with Icon</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;sac-button (clicked)=&quot;action()&quot; text=&quot;Button Label&quot; icon=&quot;bi bi-calendar3&quot;&gt;&lt;/sac-button&gt;`</code></pre></div><h2>Button with Loading Indicator</h2>
+<p>! Property <code>isloading</code> is in bootstrap 3 not supported</p>
+</p>
+    </div>
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;

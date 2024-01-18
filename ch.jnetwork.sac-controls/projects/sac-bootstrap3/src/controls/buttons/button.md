@@ -24,6 +24,4 @@ It is important to use the `clicked` event and not the `click` EventEmitter as t
 
 ## Button with Loading Indicator
 
-```html
-<sac-button (clicked)="action()" text="Button Label" isloading="true"></sac-button>`
-```
+! Property `isloading` is in bootstrap 3 not supported

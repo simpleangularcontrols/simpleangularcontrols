@@ -1,6 +1,6 @@
 {
   "name": "@simpleangularcontrols/sac-common",
-  "version": "13.0.0-rc.3",
+  "version": "13.0.0-rc.4",
   "homepage": "https://github.com/simpleangularcontrols/simpleangularcontrols",
   "peerDependencies": {
     "@angular/common": "^13.2.0",

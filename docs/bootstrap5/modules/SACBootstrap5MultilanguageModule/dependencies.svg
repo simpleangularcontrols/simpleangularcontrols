@@ -24,6 +24,10 @@
 <title>cluster_SACBootstrap5MultilanguageModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 1786,-268 1786,-70 8,-70"/>
 </g>
+<g id="clust10" class="cluster">
+<title>cluster_SACBootstrap5MultilanguageModule_exports</title>
+<polygon fill="none" stroke="black" points="673,-208 673,-260 1167,-260 1167,-208 673,-208"/>
+</g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap5MultilanguageModule_declarations</title>
 <polygon fill="none" stroke="black" points="228,-78 228,-130 1778,-130 1778,-78 228,-78"/>
@@ -31,10 +35,6 @@
 <g id="clust9" class="cluster">
 <title>cluster_SACBootstrap5MultilanguageModule_imports</title>
 <polygon fill="none" stroke="black" points="16,-78 16,-130 220,-130 220,-78 16,-78"/>
-</g>
-<g id="clust10" class="cluster">
-<title>cluster_SACBootstrap5MultilanguageModule_exports</title>
-<polygon fill="none" stroke="black" points="673,-208 673,-260 1167,-260 1167,-208 673,-208"/>
 </g>
 <!-- SacMultilanguageInputAreaComponent -->
 <g id="node1" class="node">

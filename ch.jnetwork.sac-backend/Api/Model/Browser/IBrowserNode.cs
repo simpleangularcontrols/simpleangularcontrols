@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AngularPrototype.Api.Model.Browser
+namespace SimpleAngularControls.Api.Model.Browser
 {
     /// <summary>
     /// Interface für Node mit Child Nodes und Files in Ordner

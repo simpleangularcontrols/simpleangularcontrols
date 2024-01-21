@@ -1,4 +1,4 @@
-﻿namespace AngularPrototype.Api.Model.Browser
+﻿namespace SimpleAngularControls.Api.Model.Browser
 {
     /// <summary>
     /// Interface für File

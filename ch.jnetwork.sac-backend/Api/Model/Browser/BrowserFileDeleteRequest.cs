@@ -1,4 +1,4 @@
-﻿namespace AngularPrototype.Api.Model.Browser
+﻿namespace SimpleAngularControls.Api.Model.Browser
 {
     /// <summary>
     /// Request für Datei die gelöscht werden soll

@@ -1,22 +1,21 @@
-﻿using AngularPrototype.Api.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
+﻿using Microsoft.AspNetCore.Mvc;
+using SimpleAngularControls.Api.Model;
 
-namespace AngularPrototype.Api.Services
+namespace SimpleAngularControls.Api.Services
 {
-    [RoutePrefix("api/grid")]
-    public class GridController : ApiController
+    [ApiController]
+    [Route("api/grid")]
+    public class GridController : ControllerBase
     {
+        public static List<GridItemDto> Items { get; set; } = null;
+
         [Route("items")]
         [HttpPost()]
-        public GridResultDto<GridItemDto> GetItems(GridRequest request)
+        public GridResultDto<GridItemDto> GetItems([FromBody] GridRequest request)
         {
             List<GridItemDto> items;
 
-            if (!HttpContext.Current.Application.AllKeys.Contains("griddata"))
+            if (Items == null)
             {
                 Random random = new Random();
                 items = new List<GridItemDto>();
@@ -29,11 +28,12 @@ namespace AngularPrototype.Api.Services
                         Image = $"Bild {random.Next(1, 2000)}"
                     });
                 }
-                HttpContext.Current.Application.Add("griddata", items);
+
+                Items = items;
             }
             else
             {
-                items = (List<GridItemDto>)HttpContext.Current.Application.Get("griddata");
+                items = Items;
             }
 
             int startingPoint = request.NewPageIndex * request.PageSize;
@@ -49,6 +49,7 @@ namespace AngularPrototype.Api.Services
                         TotalRowCount = items.Count,
                         Data = items.Skip(startingPoint).Take(request.PageSize).ToList()
                     };
+
                 case SortOrder.Ascending:
                     var orderItem = typeof(GridItemDto).GetProperty(request.SortKey);
                     return new GridResultDto<GridItemDto>()
@@ -56,6 +57,7 @@ namespace AngularPrototype.Api.Services
                         TotalRowCount = items.Count,
                         Data = items.OrderBy(itm => orderItem.GetValue(itm, null)).Skip(startingPoint).Take(request.PageSize).ToList()
                     };
+
                 case SortOrder.Descending:
                     var orderItemDescending = typeof(GridItemDto).GetProperty(request.SortKey);
                     return new GridResultDto<GridItemDto>()
@@ -63,10 +65,10 @@ namespace AngularPrototype.Api.Services
                         TotalRowCount = items.Count,
                         Data = items.OrderByDescending(itm => orderItemDescending.GetValue(itm, null)).Skip(startingPoint).Take(request.PageSize).ToList()
                     };
+
                 default:
                     throw new ArgumentException("Invalid SortDirection");
             }
-
         }
     }
 }

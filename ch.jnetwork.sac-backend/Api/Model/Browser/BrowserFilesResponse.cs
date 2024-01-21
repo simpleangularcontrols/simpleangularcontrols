@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AngularPrototype.Api.Model.Browser
+namespace SimpleAngularControls.Api.Model.Browser
 {
     /// <summary>
     /// Response für GetFiles Request von File Browser

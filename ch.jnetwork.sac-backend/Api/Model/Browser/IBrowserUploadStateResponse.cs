@@ -2,7 +2,7 @@
 {
     public interface IBrowserUploadStateResponse
     {
-        string documentid { get; set; }
+        string? documentid { get; set; }
         string status { get; set; }
     }
 }

@@ -8,11 +8,13 @@
         /// <summary>
         /// Mime Type
         /// </summary>
-        public string mimeType { get; set; }
+        public string mimeType { get; set; } = string.Empty;
+
         /// <summary>
         /// Filename
         /// </summary>
-        public string name { get; set; }
+        public string name { get; set; } = string.Empty;
+
         /// <summary>
         /// Bytes des Files
         /// </summary>

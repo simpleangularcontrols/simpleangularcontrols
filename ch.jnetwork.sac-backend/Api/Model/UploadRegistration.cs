@@ -1,14 +1,14 @@
 ﻿namespace SimpleAngularControls.Api.Model
 {
     /// <summary>
-    /// Response Object für Upload Registration mit ID für Server Model
+    /// Response object for upload registration with ID for server model
     /// </summary>
-    public class UploadRegistration
+    public class UploadRegistration : IUploadRegistration
     {
         /// <summary>
-        /// Document ID für Service
+        /// Document ID for service
         /// </summary>
-        public string documentid { get; set; } = string.Empty;
+        public string? documentid { get; set; } = null;
 
         /// <summary>
         /// Status

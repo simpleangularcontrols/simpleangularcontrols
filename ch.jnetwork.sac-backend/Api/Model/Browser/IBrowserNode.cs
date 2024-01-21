@@ -20,6 +20,6 @@ namespace SimpleAngularControls.Api.Model.Browser
         /// <summary>
         /// Files in this Node
         /// </summary>
-        IEnumerable<IBrowserFile> Files { get; }
+        IEnumerable<IBrowserFile>? Files { get; }
     }
 }

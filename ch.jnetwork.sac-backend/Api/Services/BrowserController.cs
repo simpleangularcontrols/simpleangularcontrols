@@ -1,14 +1,14 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SimpleAngularControls.Api.Model.Browser;
-using System;
 using System.Net;
 using System.Net.Http.Headers;
-using System.Text;
 
 namespace SimpleAngularControls.Api.Services
 {
+    /// <summary>
+    /// example backend api for browser component
+    /// </summary>
     [ApiController]
     [Route("api/browser", Name = "BrowserApi")]
     public class BrowserController : ControllerBase
@@ -22,11 +22,16 @@ namespace SimpleAngularControls.Api.Services
         /// Temp Path for Chunked File Upload
         /// </summary>
         private readonly string uploadTempPath = "upload/temp";
+
+        /// <summary>
+        /// Hosting Environment
+        /// </summary>
         private readonly IWebHostEnvironment webHostEnvironment;
 
         /// <summary>
         /// Konstruktor
         /// </summary>
+        /// <param name="webHostEnvironment">Hosting Environment</param>
         public BrowserController(IWebHostEnvironment webHostEnvironment)
         {
             this.basePath = Path.GetFullPath(Path.Combine(webHostEnvironment.ContentRootPath, "upload/browser"));
@@ -79,7 +84,7 @@ namespace SimpleAngularControls.Api.Services
 
             return GetFiles(new BrowserNodeRequest()
             {
-                Path = Path.GetDirectoryName(request.Path),
+                Path = Path.GetDirectoryName(request.Path) ?? throw new InvalidOperationException("Path is invalid"),
                 AllowedTypes = request.AllowedTypes
             });
         }
@@ -96,7 +101,7 @@ namespace SimpleAngularControls.Api.Services
                 request.Path = request.Path.TrimStart('\\');
 
             string path = Path.Combine(basePath, request.Path);
-            string newFile = this.ValidateFilename(Path.Combine(Path.GetDirectoryName(path), request.NewFilename));
+            string newFile = this.ValidateFilename(Path.Combine(Path.GetDirectoryName(path) ?? throw new InvalidOperationException("Path is invalid"), request.NewFilename));
 
             if (System.IO.File.Exists(path))
             {
@@ -105,7 +110,7 @@ namespace SimpleAngularControls.Api.Services
 
             return GetFiles(new BrowserNodeRequest()
             {
-                Path = Path.GetDirectoryName(request.Path),
+                Path = Path.GetDirectoryName(request.Path) ?? throw new InvalidOperationException("Path is invalid"),
                 AllowedTypes = request.AllowedTypes
             });
         }
@@ -194,7 +199,7 @@ namespace SimpleAngularControls.Api.Services
                 request.Path = request.Path.TrimStart('\\');
 
             string path = Path.Combine(basePath, request.Path);
-            string newFolder = this.ValidateFoldername(Path.Combine(Path.GetDirectoryName(path), request.NewFoldername));
+            string newFolder = this.ValidateFoldername(Path.Combine(Path.GetDirectoryName(path) ?? throw new InvalidOperationException("Path is invalid"), request.NewFoldername));
 
             if (Directory.Exists(path) && !Directory.Exists(newFolder))
             {
@@ -230,7 +235,7 @@ namespace SimpleAngularControls.Api.Services
                 Directory.Delete(path, true);
             }
 
-            string parentFolder = String.Join("/", request.Path.Split(new char[] { '\\', '/' }).Reverse().Skip(1).Reverse());
+            string parentFolder = String.Join("/", request.Path.Split('\\', '/', StringSplitOptions.RemoveEmptyEntries).Reverse().Skip(1).Reverse());
 
             return GetNode(new BrowserNodeRequest()
             {
@@ -317,20 +322,22 @@ namespace SimpleAngularControls.Api.Services
                             string metadata = reader.ReadToEnd();
                             reader.Close();
 
-                            BrowserUploadRegisterRequest uploadRegister = JsonConvert.DeserializeObject<BrowserUploadRegisterRequest>(metadata);
+                            BrowserUploadRegisterRequest? uploadRegister = JsonConvert.DeserializeObject<BrowserUploadRegisterRequest>(metadata);
+
+                            if (uploadRegister == null)
+                                throw new InvalidDataException("Cannot deserialize metadata file");
 
                             RangeHeaderValue rangeHeaderValue = new RangeHeaderValue(0, uploadRegister.byteswritten);
                             Response.Headers.Add("Range", rangeHeaderValue.ToString());
                             response = new ObjectResult("Resume Incomplete");
                             response.StatusCode = (int)HttpStatusCode.PermanentRedirect;
-
                         }
                         fileStream.Close();
                     }
                     return response;
                 }
 
-                using (Stream stream = new FileStream(fileContent, FileMode.Create | FileMode.Append, FileAccess.Write, FileShare.Read))
+                using (Stream stream = new FileStream(fileContent, !System.IO.File.Exists(fileContent) ? FileMode.Create : FileMode.Append, FileAccess.Write, FileShare.Read))
                 {
                     using (BinaryWriter writer = new BinaryWriter(stream))
                     {
@@ -339,6 +346,12 @@ namespace SimpleAngularControls.Api.Services
                 }
 
                 ContentRangeHeaderValue contentRangeHeader = ContentRangeHeaderValue.Parse(Request.Headers.ContentRange);
+
+                if (!contentRangeHeader.To.HasValue)
+                    throw new InvalidDataException("Missing 'To' value in range header");
+
+                if (!contentRangeHeader.Length.HasValue)
+                    throw new InvalidDataException("Missing 'Length' value in range header");
 
                 using (FileStream metaFileStream = new FileStream(fileMeta, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read))
                 {
@@ -405,7 +418,10 @@ namespace SimpleAngularControls.Api.Services
                         string metadata = reader.ReadToEnd();
                         reader.Close();
 
-                        BrowserUploadRegisterRequest uploadRegister = JsonConvert.DeserializeObject<BrowserUploadRegisterRequest>(metadata);
+                        BrowserUploadRegisterRequest? uploadRegister = JsonConvert.DeserializeObject<BrowserUploadRegisterRequest>(metadata);
+
+                        if (uploadRegister == null)
+                            throw new InvalidDataException("Cannot deserialize metadata");
 
                         string filename = this.ValidateFilename(Path.Combine(path, uploadRegister.name));
                         System.IO.File.Copy(fileContent, filename);
@@ -433,7 +449,7 @@ namespace SimpleAngularControls.Api.Services
             using (StreamReader metaReader = new StreamReader(metaFileStream))
             {
                 string metadata = metaReader.ReadToEnd();
-                BrowserUploadRegisterRequest uploadRegister = JsonConvert.DeserializeObject<BrowserUploadRegisterRequest>(metadata);
+                BrowserUploadRegisterRequest? uploadRegister = JsonConvert.DeserializeObject<BrowserUploadRegisterRequest>(metadata);
 
                 if (uploadRegister == null)
                     uploadRegister = new BrowserUploadRegisterRequest();
@@ -506,7 +522,7 @@ namespace SimpleAngularControls.Api.Services
 
             string fileNameOnly = Path.GetFileNameWithoutExtension(file);
             string extension = Path.GetExtension(file);
-            string path = Path.GetDirectoryName(file);
+            string path = Path.GetDirectoryName(file) ?? throw new InvalidOperationException("Directory in file is null or invalid");
             string newFile = file;
 
             while (System.IO.File.Exists(newFile))
@@ -523,7 +539,7 @@ namespace SimpleAngularControls.Api.Services
             int count = 1;
 
             string foldername = Path.GetFileName(folder);
-            string path = Path.GetDirectoryName(folder);
+            string path = Path.GetDirectoryName(folder) ?? throw new InvalidOperationException("Directory in file is null or invalid");
             string newFolder = folder;
 
             while (Directory.Exists(newFolder))
@@ -541,7 +557,7 @@ namespace SimpleAngularControls.Api.Services
                 return new string[0];
             else
             {
-                return allowedExtensions.Split(new char[] { ',', '|' });
+                return allowedExtensions.Split(',', '|', StringSplitOptions.RemoveEmptyEntries);
             }
         }
 

@@ -8,6 +8,6 @@
         /// <summary>
         /// Ordner welcher gelöscht werden soll
         /// </summary>
-        public string Path { get; set; }
+        public string Path { get; set; } = string.Empty;
     }
 }

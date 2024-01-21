@@ -8,6 +8,6 @@
         /// <summary>
         /// Daten zu angefordertem Node
         /// </summary>
-        BrowserNode Node { get; set; }
+        BrowserNode? Node { get; set; }
     }
 }

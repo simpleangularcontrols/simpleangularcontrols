@@ -1,40 +1,44 @@
-﻿using AngularPrototype.Api.Model.Browser;
+﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using SimpleAngularControls.Api.Model.Browser;
 using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Web;
-using System.Web.Http;
+using System.Net.Http.Headers;
 
-namespace AngularPrototype.Api.Services
+namespace SimpleAngularControls.Api.Services
 {
-    [Route("api/browser/{action}", Name = "BrowserApi")]
-    public class BrowserController : ApiController
+    /// <summary>
+    /// example backend api for browser component
+    /// </summary>
+    [ApiController]
+    [Route("api/browser", Name = "BrowserApi")]
+    public class BrowserController : ControllerBase
     {
         /// <summary>
         /// Basis Pfad für Node
         /// </summary>
         private readonly string basePath;
+
         /// <summary>
         /// Temp Path for Chunked File Upload
         /// </summary>
-        private readonly string uploadTempPath = "~/upload/temp";
+        private readonly string uploadTempPath = "upload/temp";
+
+        /// <summary>
+        /// Hosting Environment
+        /// </summary>
+        private readonly IWebHostEnvironment webHostEnvironment;
 
         /// <summary>
         /// Konstruktor
         /// </summary>
-        public BrowserController()
+        /// <param name="webHostEnvironment">Hosting Environment</param>
+        public BrowserController(IWebHostEnvironment webHostEnvironment)
         {
-            this.basePath = HttpContext.Current.Server.MapPath("~/upload/browser");
+            this.basePath = Path.GetFullPath(Path.Combine(webHostEnvironment.ContentRootPath, "upload/browser"));
+            this.webHostEnvironment = webHostEnvironment;
         }
 
-        [ActionName("getfiles")]
-        [HttpPost]
+        [HttpPost("getfiles")]
         public IBrowserFilesResponse GetFiles([FromBody] BrowserNodeRequest request)
         {
             this.ValidatePath(request.Path);
@@ -60,8 +64,7 @@ namespace AngularPrototype.Api.Services
             };
         }
 
-        [ActionName("deletefile")]
-        [HttpPost]
+        [HttpPost("deletefile")]
         public IBrowserFilesResponse DeleteFile([FromBody] BrowserFileDeleteRequest request)
         {
             this.ValidatePath(request.Path);
@@ -74,20 +77,19 @@ namespace AngularPrototype.Api.Services
 
             string path = Path.Combine(basePath, request.Path);
 
-            if (File.Exists(path))
+            if (System.IO.File.Exists(path))
             {
-                File.Delete(path);
+                System.IO.File.Delete(path);
             }
 
             return GetFiles(new BrowserNodeRequest()
             {
-                Path = Path.GetDirectoryName(request.Path),
+                Path = Path.GetDirectoryName(request.Path) ?? throw new InvalidOperationException("Path is invalid"),
                 AllowedTypes = request.AllowedTypes
             });
         }
 
-        [ActionName("renamefile")]
-        [HttpPut]
+        [HttpPut("renamefile")]
         public IBrowserFilesResponse RenameFile([FromBody] BrowserFileRenameRequest request)
         {
             this.ValidatePath(request.Path);
@@ -99,17 +101,16 @@ namespace AngularPrototype.Api.Services
                 request.Path = request.Path.TrimStart('\\');
 
             string path = Path.Combine(basePath, request.Path);
-            string newFile = this.ValidateFilename(Path.Combine(Path.GetDirectoryName(path), request.NewFilename));
+            string newFile = this.ValidateFilename(Path.Combine(Path.GetDirectoryName(path) ?? throw new InvalidOperationException("Path is invalid"), request.NewFilename));
 
-
-            if (File.Exists(path))
+            if (System.IO.File.Exists(path))
             {
-                File.Move(path, newFile);
+                System.IO.File.Move(path, newFile);
             }
 
             return GetFiles(new BrowserNodeRequest()
             {
-                Path = Path.GetDirectoryName(request.Path),
+                Path = Path.GetDirectoryName(request.Path) ?? throw new InvalidOperationException("Path is invalid"),
                 AllowedTypes = request.AllowedTypes
             });
         }
@@ -119,8 +120,7 @@ namespace AngularPrototype.Api.Services
         /// </summary>
         /// <param name="request">Node Request</param>
         /// <returns>Node Item</returns>
-        [ActionName("getnodes")]
-        [HttpPost()]
+        [HttpPost("getnodes")]
         public IBrowserNodeResponse GetNode([FromBody] BrowserNodeRequest request)
         {
             this.ValidatePath(request.Path);
@@ -157,8 +157,7 @@ namespace AngularPrototype.Api.Services
         /// </summary>
         /// <param name="request">Request Model zum anlegen des neuen Ordners</param>
         /// <returns>Daten mit dem neuen Ordner</returns>
-        [ActionName("newnode")]
-        [HttpPost()]
+        [HttpPost("newnode")]
         public IBrowserNodeResponse NewNode([FromBody] BrowserNodeNewRequest request)
         {
             this.ValidatePath(request.Path);
@@ -188,8 +187,7 @@ namespace AngularPrototype.Api.Services
         /// </summary>
         /// <param name="request">Request Model zum umbenennen des Ordners</param>
         /// <returns>Daten mit neuen Ordner Daten</returns>
-        [ActionName("renamenode")]
-        [HttpPut()]
+        [HttpPut("renamenode")]
         public IBrowserNodeResponse RenameNode([FromBody] BrowserNodeRenameRequest request)
         {
             this.ValidatePath(request.Path);
@@ -201,7 +199,7 @@ namespace AngularPrototype.Api.Services
                 request.Path = request.Path.TrimStart('\\');
 
             string path = Path.Combine(basePath, request.Path);
-            string newFolder = this.ValidateFoldername(Path.Combine(Path.GetDirectoryName(path), request.NewFoldername));
+            string newFolder = this.ValidateFoldername(Path.Combine(Path.GetDirectoryName(path) ?? throw new InvalidOperationException("Path is invalid"), request.NewFoldername));
 
             if (Directory.Exists(path) && !Directory.Exists(newFolder))
             {
@@ -219,8 +217,7 @@ namespace AngularPrototype.Api.Services
         /// </summary>
         /// <param name="request">Request Model zum löschen des Ordners</param>
         /// <returns></returns>
-        [ActionName("deletenode")]
-        [HttpPost()]
+        [HttpPost("deletenode")]
         public IBrowserNodeResponse DeleteNode([FromBody] BrowserNodeDeleteRequest request)
         {
             this.ValidatePath(request.Path);
@@ -238,7 +235,7 @@ namespace AngularPrototype.Api.Services
                 Directory.Delete(path, true);
             }
 
-            string parentFolder = String.Join("/", request.Path.Split(new char[] { '\\', '/' }).Reverse().Skip(1).Reverse());
+            string parentFolder = String.Join("/", request.Path.Split('\\', '/', StringSplitOptions.RemoveEmptyEntries).Reverse().Skip(1).Reverse());
 
             return GetNode(new BrowserNodeRequest()
             {
@@ -253,14 +250,11 @@ namespace AngularPrototype.Api.Services
         /// </summary>
         /// <param name="register">Registrierung Metadaten</param>
         /// <returns>HTTP Response mit URL für File</returns>
-        [ActionName("uploadregister")]
-        [HttpPost]
-        public HttpResponseMessage UploadRegister([FromBody] BrowserUploadRegisterRequest request)
+        [HttpPost("uploadregister")]
+        public IActionResult UploadRegister([FromBody] BrowserUploadRegisterRequest request)
         {
-            HttpResponseMessage response = new HttpResponseMessage();
-
             Guid guid = Guid.NewGuid();
-            string file = HttpContext.Current.Server.MapPath(string.Format("{0}/{1}.meta", uploadTempPath, guid));
+            string file = Path.GetFullPath(Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, $"{guid}.meta"));
 
             // MetaData setzen
             string metadata = JsonConvert.SerializeObject(request);
@@ -274,15 +268,7 @@ namespace AngularPrototype.Api.Services
                 fileStream.Close();
             }
 
-            // URL für Upload zurücksenden
-            string uploadUrl = this.Url.Link("BrowserApi", new { Controller = "Browser", Action = "uploadfile", Id = guid.ToString() });
-
-            // HACK: Replace Port für Angular Inside Apps
-            uploadUrl = uploadUrl.Replace(":55768/", ":4200/");
-
-            response.StatusCode = HttpStatusCode.Created;
-            response.Headers.Add("Location", uploadUrl);
-            return response;
+            return CreatedAtAction(nameof(GetFile), new { Id = guid.ToString() }, guid);
         }
 
         /// <summary>
@@ -290,87 +276,101 @@ namespace AngularPrototype.Api.Services
         /// </summary>
         /// <param name="id">Upload Registrations ID</param>
         /// <returns>Upload Response. Gibt Document ID zurück wenn Upload fertig</returns>
-        [ActionName("uploadfile")]
-        [HttpPut]
-        public HttpResponseMessage GetFile(string id)
+        [HttpPut("uploadfile/{id}")]
+        [Consumes("application/octet-stream")]
+        public IActionResult GetFile(string id)
         {
-            HttpResponseMessage response = new HttpResponseMessage();
-            HttpRequestMessage request = this.Request;
+            ObjectResult response;
 
-            byte[] data = request.Content.ReadAsByteArrayAsync().Result;
-            string fileContent = HttpContext.Current.Server.MapPath(string.Format("{0}/{1}.dat", uploadTempPath, id));
-            string fileMeta = HttpContext.Current.Server.MapPath(string.Format("{0}/{1}.meta", uploadTempPath, id));
+            string fileContent = Path.GetFullPath(Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, $"{id}.dat"));
+            string fileMeta = Path.GetFullPath(Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, $"{id}.meta"));
 
-            // Non Chunking Upload
-            if (request.Content.Headers.ContentRange == null)
+            using (MemoryStream bodyStream = new MemoryStream())
             {
-                using (Stream contentStream = new FileStream(fileContent, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read))
-                {
-                    using (BinaryWriter contentWriter = new BinaryWriter(contentStream))
-                    {
-                        contentWriter.Write(data);
-                        contentWriter.Close();
+                HttpContext.Request.Body.CopyToAsync(bodyStream).Wait();
 
-                        using (FileStream metaFileStream = new FileStream(fileMeta, FileMode.CreateNew, FileAccess.ReadWrite, FileShare.Read))
+                // Non Chunking Upload
+                if (!Request.Headers.ContainsKey("content-range"))
+                {
+                    using (Stream contentStream = new FileStream(fileContent, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read))
+                    {
+                        using (BinaryWriter contentWriter = new BinaryWriter(contentStream))
                         {
-                            this.UpdateBytesWritten(metaFileStream, data.Length);
-                            metaFileStream.Close();
+                            contentWriter.Write(bodyStream.ToArray());
+                            contentWriter.Close();
+
+                            using (FileStream metaFileStream = new FileStream(fileMeta, FileMode.CreateNew, FileAccess.ReadWrite, FileShare.Read))
+                            {
+                                this.UpdateBytesWritten(metaFileStream, bodyStream.Length);
+                                metaFileStream.Close();
+                            }
+
+                            response = new ObjectResult(this.GetDocumentResponse(id));
+                            response.StatusCode = (int)HttpStatusCode.OK;
+                            return response;
                         }
-
-                        response.Content = this.GetDocumentResponse(id);
-                        response.StatusCode = HttpStatusCode.OK;
                     }
                 }
-                return response;
-            }
 
-            // Resume Call
-            if (data.Length == 0)
-            {
-                using (FileStream fileStream = new FileStream(fileMeta, FileMode.Open, FileAccess.ReadWrite, FileShare.Read))
+                // Resume Call
+                if (bodyStream.Length == 0)
                 {
-                    using (StreamReader reader = new StreamReader(fileStream))
+                    using (FileStream fileStream = new FileStream(fileMeta, FileMode.Open, FileAccess.ReadWrite, FileShare.Read))
                     {
-                        string metadata = reader.ReadToEnd();
-                        reader.Close();
+                        using (StreamReader reader = new StreamReader(fileStream))
+                        {
+                            string metadata = reader.ReadToEnd();
+                            reader.Close();
 
-                        BrowserUploadRegisterRequest uploadRegister = JsonConvert.DeserializeObject<BrowserUploadRegisterRequest>(metadata);
+                            BrowserUploadRegisterRequest? uploadRegister = JsonConvert.DeserializeObject<BrowserUploadRegisterRequest>(metadata);
 
-                        response.Headers.Add("Range", string.Format("bytes=0-{0}", uploadRegister.byteswritten));
-                        response.StatusCode = (HttpStatusCode)308;
-                        response.Content = new StringContent("Resume Incomplete");
+                            if (uploadRegister == null)
+                                throw new InvalidDataException("Cannot deserialize metadata file");
+
+                            RangeHeaderValue rangeHeaderValue = new RangeHeaderValue(0, uploadRegister.byteswritten);
+                            Response.Headers.Add("Range", rangeHeaderValue.ToString());
+                            response = new ObjectResult("Resume Incomplete");
+                            response.StatusCode = (int)HttpStatusCode.PermanentRedirect;
+                        }
+                        fileStream.Close();
                     }
-                    fileStream.Close();
+                    return response;
                 }
-                return response;
-            }
 
-            using (Stream stream = new FileStream(fileContent, FileMode.Create | FileMode.Append, FileAccess.Write, FileShare.Read))
-            {
-                using (BinaryWriter writer = new BinaryWriter(stream))
+                using (Stream stream = new FileStream(fileContent, !System.IO.File.Exists(fileContent) ? FileMode.Create : FileMode.Append, FileAccess.Write, FileShare.Read))
                 {
-                    writer.Write(data);
+                    using (BinaryWriter writer = new BinaryWriter(stream))
+                    {
+                        writer.Write(bodyStream.ToArray());
+                    }
+                }
+
+                ContentRangeHeaderValue contentRangeHeader = ContentRangeHeaderValue.Parse(Request.Headers.ContentRange);
+
+                if (!contentRangeHeader.To.HasValue)
+                    throw new InvalidDataException("Missing 'To' value in range header");
+
+                if (!contentRangeHeader.Length.HasValue)
+                    throw new InvalidDataException("Missing 'Length' value in range header");
+
+                using (FileStream metaFileStream = new FileStream(fileMeta, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read))
+                {
+                    this.UpdateBytesWritten(metaFileStream, contentRangeHeader.To.Value);
+                }
+
+                if (contentRangeHeader.To.Value < contentRangeHeader.Length.Value - 1)
+                {
+                    RangeHeaderValue rangeHeaderValue = new RangeHeaderValue(0, contentRangeHeader.To.Value);
+                    Response.Headers.Add("Range", rangeHeaderValue.ToString());
+                    response = new ObjectResult(this.GetDocumentIncomplete());
+                    response.StatusCode = (int)HttpStatusCode.PermanentRedirect;
+                    return response;
+                }
+                else
+                {
+                    return Ok(this.GetDocumentResponse(id));
                 }
             }
-
-            using (FileStream metaFileStream = new FileStream(fileMeta, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read))
-            {
-                this.UpdateBytesWritten(metaFileStream, request.Content.Headers.ContentRange.To.Value);
-            }
-
-            if (request.Content.Headers.ContentRange.To < request.Content.Headers.ContentRange.Length - 1)
-            {
-                response.Headers.Add("Range", string.Format("bytes=0-{0}", request.Content.Headers.ContentRange.To));
-                response.StatusCode = (HttpStatusCode)308;
-                response.Content = this.GetDocumentIncomplete();
-            }
-            else
-            {
-                response.Content = this.GetDocumentResponse(id);
-                response.StatusCode = HttpStatusCode.OK;
-            }
-
-            return response;
         }
 
         /// <summary>
@@ -378,24 +378,22 @@ namespace AngularPrototype.Api.Services
         /// </summary>
         /// <param name="id">Upload ID</param>
         /// <returns>Status wenn File gelöscht</returns>
-        [ActionName("uploadfile")]
-        [HttpDelete]
-        public HttpResponseMessage DeleteUploadTempFile(string id)
+        [HttpDelete("uploadfile/{id}")]
+        public IActionResult DeleteUploadTempFile(string id)
         {
-            string fileContent = HttpContext.Current.Server.MapPath(string.Format("{0}/{1}.dat", uploadTempPath, id));
-            string fileMeta = HttpContext.Current.Server.MapPath(string.Format("{0}/{1}.meta", uploadTempPath, id));
+            string fileContent = Path.GetFullPath(Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, $"{id}.dat"));
+            string fileMeta = Path.GetFullPath(Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, $"{id}.meta"));
 
-            if (File.Exists(fileContent))
-                File.Delete(fileContent);
+            if (System.IO.File.Exists(fileContent))
+                System.IO.File.Delete(fileContent);
 
-            if (File.Exists(fileMeta))
-                File.Delete(fileMeta);
+            if (System.IO.File.Exists(fileMeta))
+                System.IO.File.Delete(fileMeta);
 
-            return new HttpResponseMessage(HttpStatusCode.OK);
+            return NoContent();
         }
 
-        [ActionName("uploadfile")]
-        [HttpPost]
+        [HttpPost("uploadfile")]
         public IBrowserFilesResponse SaveFile([FromBody] BrowserFileSaveRequest request)
         {
             this.ValidatePath(request.Path);
@@ -407,10 +405,11 @@ namespace AngularPrototype.Api.Services
                 request.Path = request.Path.TrimStart('\\');
 
             string path = Path.Combine(basePath, request.Path);
-            string fileContent = HttpContext.Current.Server.MapPath(string.Format("{0}/{1}.dat", uploadTempPath, request.UploadId));
-            string fileMeta = HttpContext.Current.Server.MapPath(string.Format("{0}/{1}.meta", uploadTempPath, request.UploadId));
 
-            if (File.Exists(fileMeta))
+            string fileContent = Path.GetFullPath(Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, $"{request.UploadId}.dat"));
+            string fileMeta = Path.GetFullPath(Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, $"{request.UploadId}.meta"));
+
+            if (System.IO.File.Exists(fileMeta))
             {
                 using (FileStream fileStream = new FileStream(fileMeta, FileMode.Open, FileAccess.ReadWrite, FileShare.Read))
                 {
@@ -419,10 +418,13 @@ namespace AngularPrototype.Api.Services
                         string metadata = reader.ReadToEnd();
                         reader.Close();
 
-                        BrowserUploadRegisterRequest uploadRegister = JsonConvert.DeserializeObject<BrowserUploadRegisterRequest>(metadata);
+                        BrowserUploadRegisterRequest? uploadRegister = JsonConvert.DeserializeObject<BrowserUploadRegisterRequest>(metadata);
+
+                        if (uploadRegister == null)
+                            throw new InvalidDataException("Cannot deserialize metadata");
 
                         string filename = this.ValidateFilename(Path.Combine(path, uploadRegister.name));
-                        File.Copy(fileContent, filename);
+                        System.IO.File.Copy(fileContent, filename);
                     }
                 }
 
@@ -438,7 +440,7 @@ namespace AngularPrototype.Api.Services
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="metaFileStream"></param>
         /// <param name="bytesWritten"></param>
@@ -447,7 +449,7 @@ namespace AngularPrototype.Api.Services
             using (StreamReader metaReader = new StreamReader(metaFileStream))
             {
                 string metadata = metaReader.ReadToEnd();
-                BrowserUploadRegisterRequest uploadRegister = JsonConvert.DeserializeObject<BrowserUploadRegisterRequest>(metadata);
+                BrowserUploadRegisterRequest? uploadRegister = JsonConvert.DeserializeObject<BrowserUploadRegisterRequest>(metadata);
 
                 if (uploadRegister == null)
                     uploadRegister = new BrowserUploadRegisterRequest();
@@ -468,27 +470,27 @@ namespace AngularPrototype.Api.Services
         /// </summary>
         /// <param name="id">Upload ID</param>
         /// <returns>Response für Uploader Komponente</returns>
-        private StringContent GetDocumentResponse(string id)
+        private BrowserUploadStateResponse GetDocumentResponse(string id)
         {
             BrowserUploadStateResponse registration = new BrowserUploadStateResponse();
             registration.documentid = id.ToString();
             registration.status = "done";
-            return new StringContent(JsonConvert.SerializeObject(registration), Encoding.UTF8, "application/json");
+            return registration;
         }
 
         /// <summary>
         /// Response wenn Upload noch nicht Komplett
         /// </summary>
         /// <returns>Response für Uploader Komponente</returns>
-        private StringContent GetDocumentIncomplete()
+        private BrowserUploadStateResponse GetDocumentIncomplete()
         {
             BrowserUploadStateResponse registration = new BrowserUploadStateResponse();
             registration.documentid = null;
             registration.status = "incomplete";
-            return new StringContent(JsonConvert.SerializeObject(registration), Encoding.UTF8, "application/json");
+            return registration;
         }
 
-        #endregion
+        #endregion Upload
 
         private void FillChilds(DirectoryInfo directory, BrowserNode node)
         {
@@ -520,10 +522,10 @@ namespace AngularPrototype.Api.Services
 
             string fileNameOnly = Path.GetFileNameWithoutExtension(file);
             string extension = Path.GetExtension(file);
-            string path = Path.GetDirectoryName(file);
+            string path = Path.GetDirectoryName(file) ?? throw new InvalidOperationException("Directory in file is null or invalid");
             string newFile = file;
 
-            while (File.Exists(newFile))
+            while (System.IO.File.Exists(newFile))
             {
                 string tempFileName = string.Format("{0}({1})", fileNameOnly, count++);
                 newFile = Path.Combine(path, tempFileName + extension);
@@ -537,7 +539,7 @@ namespace AngularPrototype.Api.Services
             int count = 1;
 
             string foldername = Path.GetFileName(folder);
-            string path = Path.GetDirectoryName(folder);
+            string path = Path.GetDirectoryName(folder) ?? throw new InvalidOperationException("Directory in file is null or invalid");
             string newFolder = folder;
 
             while (Directory.Exists(newFolder))
@@ -555,7 +557,7 @@ namespace AngularPrototype.Api.Services
                 return new string[0];
             else
             {
-                return allowedExtensions.Split(new char[] { ',', '|' });
+                return allowedExtensions.Split(',', '|', StringSplitOptions.RemoveEmptyEntries);
             }
         }
 

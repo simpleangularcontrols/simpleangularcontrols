@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AngularPrototype.Api.Model.Browser
+namespace SimpleAngularControls.Api.Model.Browser
 {
     /// <summary>
     /// Interface für Request, wenn Temp Upload definitiv gespeichert werden soll.

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace AngularPrototype.Api.Model
+﻿namespace SimpleAngularControls.Api.Model
 {
-    public enum SortOrder : int
+    public enum SortOrder
     {
         None = 0,
         Ascending = 1,
@@ -16,7 +11,7 @@ namespace AngularPrototype.Api.Model
     {
         public int NewPageIndex { get; set; }
         public int PageSize { get; set; }
-        public string SortKey { get; set; }
+        public string? SortKey { get; set; } = null;
         public SortOrder SortDirection { get; set; }
     }
 }

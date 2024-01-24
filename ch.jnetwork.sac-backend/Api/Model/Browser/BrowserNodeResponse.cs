@@ -1,4 +1,4 @@
-﻿namespace AngularPrototype.Api.Model.Browser
+﻿namespace SimpleAngularControls.Api.Model.Browser
 {
     /// <summary>
     /// Response auf GetNode Request für File Browser
@@ -8,6 +8,6 @@
         /// <summary>
         /// Daten zu angefordertem Node
         /// </summary>
-        public BrowserNode Node { get; set; }
+        public BrowserNode? Node { get; set; } = null;
     }
 }

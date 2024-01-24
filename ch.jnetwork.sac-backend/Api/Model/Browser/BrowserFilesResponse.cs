@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AngularPrototype.Api.Model.Browser
+﻿namespace SimpleAngularControls.Api.Model.Browser
 {
     /// <summary>
     /// Response für GetFiles Request von File Browser
@@ -10,7 +8,8 @@ namespace AngularPrototype.Api.Model.Browser
         /// <summary>
         /// Liste von Files
         /// </summary>
-        public IList<IBrowserFile> Files { get; set; }
-        public BrowserNode Node { get; internal set; }
+        public IList<IBrowserFile> Files { get; set; } = new List<IBrowserFile>();
+
+        public BrowserNode? Node { get; internal set; }
     }
 }

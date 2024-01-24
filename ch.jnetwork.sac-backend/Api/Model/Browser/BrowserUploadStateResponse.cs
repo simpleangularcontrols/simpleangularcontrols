@@ -1,4 +1,4 @@
-﻿namespace AngularPrototype.Api.Model.Browser
+﻿namespace SimpleAngularControls.Api.Model.Browser
 {
     /// <summary>
     /// Status Response bei File Upload
@@ -8,10 +8,10 @@
         /// <summary>
         /// ID von gesendetem Chunk
         /// </summary>
-        public string documentid { get; set; }
+        public string? documentid { get; set; }
         /// <summary>
         /// Status von gesendet File
         /// </summary>
-        public string status { get; set; }
+        public string status { get; set; } = string.Empty;
     }
 }

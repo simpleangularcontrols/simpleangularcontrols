@@ -1,8 +1,8 @@
-﻿namespace AngularPrototype.Api.Model.Browser
+﻿namespace SimpleAngularControls.Api.Model.Browser
 {
     public interface IBrowserUploadStateResponse
     {
-        string documentid { get; set; }
+        string? documentid { get; set; }
         string status { get; set; }
     }
 }

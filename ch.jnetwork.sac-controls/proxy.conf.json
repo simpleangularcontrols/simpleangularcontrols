@@ -1,12 +1,14 @@
 {
   "/api": {
-    "target": "http://localhost:55768",
+    "target": "http://localhost:5001",
     "secure": false,
-    "changeOrigin": true
+    "changeOrigin": true,
+    "headers": { "X-Forwarded-Host": "localhost:4200" }
   },
   "/upload/browser": {
-    "target": "http://localhost:55768",
+    "target": "http://localhost:5001",
     "secure": false,
-    "changeOrigin": true
+    "changeOrigin": true,
+    "headers": { "X-Forwarded-Host": "localhost:4200" }
   }
 }

@@ -161,6 +161,7 @@ namespace SimpleAngularControls.Api.Services
         public IBrowserNodeResponse NewNode([FromBody] BrowserNodeNewRequest request)
         {
             this.ValidatePath(request.Path);
+            this.ValidatePath(request.NewFoldername);
 
             if (request.Path.StartsWith("/"))
                 request.Path = request.Path.TrimStart('/');
@@ -191,6 +192,7 @@ namespace SimpleAngularControls.Api.Services
         public IBrowserNodeResponse RenameNode([FromBody] BrowserNodeRenameRequest request)
         {
             this.ValidatePath(request.Path);
+            this.ValidatePath(request.NewFoldername);
 
             if (request.Path.StartsWith("/"))
                 request.Path = request.Path.TrimStart('/');

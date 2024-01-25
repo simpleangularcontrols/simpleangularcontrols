@@ -280,6 +280,8 @@ namespace SimpleAngularControls.Api.Services
         [Consumes("application/octet-stream")]
         public IActionResult GetFile(string id)
         {
+            ValidatePath(id);
+
             ObjectResult response;
 
             string fileContent = Path.GetFullPath(Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, $"{id}.dat"));
@@ -381,6 +383,8 @@ namespace SimpleAngularControls.Api.Services
         [HttpDelete("uploadfile/{id}")]
         public IActionResult DeleteUploadTempFile(string id)
         {
+            this.ValidatePath(id);
+
             string fileContent = Path.GetFullPath(Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, $"{id}.dat"));
             string fileMeta = Path.GetFullPath(Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, $"{id}.meta"));
 
@@ -397,6 +401,7 @@ namespace SimpleAngularControls.Api.Services
         public IBrowserFilesResponse SaveFile([FromBody] BrowserFileSaveRequest request)
         {
             this.ValidatePath(request.Path);
+            this.ValidatePath(request.UploadId);
 
             if (request.Path.StartsWith("/"))
                 request.Path = request.Path.TrimStart('/');

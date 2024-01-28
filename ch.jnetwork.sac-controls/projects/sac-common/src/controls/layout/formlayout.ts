@@ -1,4 +1,5 @@
 import { Directive, Input } from '@angular/core';
+import { ControlHeight } from '../../enums/ControlHeight';
 
 /***
  * base component for form options
@@ -8,6 +9,10 @@ export class SacFormLayoutCommon {
   // #region Properties
 
   /**
+   * Defines the standard height of the components
+   */
+  @Input() public controlHeight: ControlHeight | null = null;
+  /**
    * defines that error messages are displayed under the controls
    */
   @Input() public inlineError: boolean = true;
@@ -15,6 +20,11 @@ export class SacFormLayoutCommon {
    * defines that the labels are displayed as adaptive labels
    */
   @Input() public isAdaptiveLabel: boolean = false;
+  /**
+   * default labe size for large devices
+   */
+  @Input()
+  public labelSizeLg: number | null = null;
   /**
    * default label size for medium devices
    */
@@ -26,6 +36,11 @@ export class SacFormLayoutCommon {
   @Input()
   public labelSizeSm: number | null = null;
   /**
+   * default label size for extra large devices
+   */
+  @Input()
+  public labelSizeXl: number | null = null;
+  /**
    * default label column size
    */
   @Input()
@@ -35,16 +50,6 @@ export class SacFormLayoutCommon {
    */
   @Input()
   public labelSizeXxl: number | null = null;
-  /**
-   * default labe size for large devices
-   */
-  @Input()
-  public labelSizeLg: number | null = null;
-  /**
-   * default label size for extra large devices
-   */
-  @Input()
-  public labelSizeXl: number | null = null;
 
   // #endregion Properties
 

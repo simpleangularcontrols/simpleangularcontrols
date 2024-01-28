@@ -28,30 +28,27 @@ namespace SimpleAngularControls.Api.Services
         }
 
         /// <summary>
-        /// Register file for upload
+        /// Deletes a file in the temporary file on the server
         /// </summary>
-        /// <param name="register">Registration metadata</param>
-        /// <returns>HTTP Status Created with Location URL for upload of URL</returns>
-        [HttpPost("register")]
-        public IActionResult UploadFile([FromBody] UploadedFileDto register)
+        /// <param name="id">Upload registration Id. Id must be created by "register"</param>
+        /// <returns>HTTP status 201 if successfully deleted</returns>
+        [HttpDelete("file/{id}")]
+        public IActionResult DeleteFile(string id)
         {
-            Guid guid = Guid.NewGuid();
+            ValidatePath(id);
+
             string uploadTempPath = "upload";
-            string file = Path.GetFullPath(Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, "temp", $"{guid}.meta"));
 
-            // MetaData setzen
-            string metadata = JsonConvert.SerializeObject(register);
-            using (FileStream fileStream = new FileStream(file, FileMode.CreateNew, FileAccess.ReadWrite, FileShare.Read))
-            {
-                using (StreamWriter writer = new StreamWriter(fileStream))
-                {
-                    writer.Write(metadata);
-                    writer.Close();
-                }
-                fileStream.Close();
-            }
+            string fileContent = Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, "temp", $"{id}.dat");
+            string fileMeta = Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, "temp", $"{id}.meta");
 
-            return CreatedAtAction(nameof(GetFile), new { Id = guid.ToString() }, guid);
+            if (System.IO.File.Exists(fileContent))
+                System.IO.File.Delete(fileContent);
+
+            if (System.IO.File.Exists(fileMeta))
+                System.IO.File.Delete(fileMeta);
+
+            return new NoContentResult();
         }
 
         /// <summary>
@@ -63,6 +60,8 @@ namespace SimpleAngularControls.Api.Services
         [Consumes("application/octet-stream")]
         public IActionResult GetFile(string id)
         {
+            ValidatePath(id);
+
             ObjectResult response;
 
             string uploadTempPath = "upload";
@@ -160,25 +159,55 @@ namespace SimpleAngularControls.Api.Services
         }
 
         /// <summary>
-        /// Deletes a file in the temporary file on the server
+        /// Register file for upload
         /// </summary>
-        /// <param name="id">Upload registration Id. Id must be created by "register"</param>
-        /// <returns>HTTP status 201 if successfully deleted</returns>
-        [HttpDelete("file/{id}")]
-        public IActionResult DeleteFile(string id)
+        /// <param name="register">Registration metadata</param>
+        /// <returns>HTTP Status Created with Location URL for upload of URL</returns>
+        [HttpPost("register")]
+        public IActionResult UploadFile([FromBody] UploadedFileDto register)
         {
+            Guid guid = Guid.NewGuid();
             string uploadTempPath = "upload";
+            string file = Path.GetFullPath(Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, "temp", $"{guid}.meta"));
 
-            string fileContent = Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, "temp", $"{id}.dat");
-            string fileMeta = Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, "temp", $"{id}.meta");
+            // MetaData setzen
+            string metadata = JsonConvert.SerializeObject(register);
+            using (FileStream fileStream = new FileStream(file, FileMode.CreateNew, FileAccess.ReadWrite, FileShare.Read))
+            {
+                using (StreamWriter writer = new StreamWriter(fileStream))
+                {
+                    writer.Write(metadata);
+                    writer.Close();
+                }
+                fileStream.Close();
+            }
 
-            if (System.IO.File.Exists(fileContent))
-                System.IO.File.Delete(fileContent);
+            return CreatedAtAction(nameof(GetFile), new { Id = guid.ToString() }, guid);
+        }
 
-            if (System.IO.File.Exists(fileMeta))
-                System.IO.File.Delete(fileMeta);
+        /// <summary>
+        /// Response if upload not yet complete
+        /// </summary>
+        /// <returns>Response for uploader component</returns>
+        private IUploadRegistration GetDocumentIncomplete()
+        {
+            UploadRegistration registration = new UploadRegistration();
+            registration.documentid = null;
+            registration.status = "incomplete";
+            return registration;
+        }
 
-            return new NoContentResult();
+        /// <summary>
+        /// Generates a response when a file has been completely uploaded.
+        /// </summary>
+        /// <param name="id">Upload Id</param>
+        /// <returns>Response for uploader component</returns>
+        private IUploadRegistration GetDocumentResponse(string id)
+        {
+            UploadRegistration registration = new UploadRegistration();
+            registration.documentid = id.ToString();
+            registration.status = "done";
+            return registration;
         }
 
         /// <summary>
@@ -208,28 +237,16 @@ namespace SimpleAngularControls.Api.Services
         }
 
         /// <summary>
-        /// Generates a response when a file has been completely uploaded.
+        /// Validate Path for Validation
         /// </summary>
-        /// <param name="id">Upload Id</param>
-        /// <returns>Response for uploader component</returns>
-        private IUploadRegistration GetDocumentResponse(string id)
+        /// <param name="path">Path that should be validated</param>
+        private void ValidatePath(string path)
         {
-            UploadRegistration registration = new UploadRegistration();
-            registration.documentid = id.ToString();
-            registration.status = "done";
-            return registration;
-        }
+            if (path.StartsWith(".."))
+                throw new InvalidDataException("Path is not allowed!");
 
-        /// <summary>
-        /// Response if upload not yet complete
-        /// </summary>
-        /// <returns>Response for uploader component</returns>
-        private IUploadRegistration GetDocumentIncomplete()
-        {
-            UploadRegistration registration = new UploadRegistration();
-            registration.documentid = null;
-            registration.status = "incomplete";
-            return registration;
+            if (path.IndexOf("..") >= 0)
+                throw new InvalidDataException("Path is not allowed!");
         }
     }
 }

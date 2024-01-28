@@ -120,6 +120,7 @@ export * from './interfaces/iabstractcontrollabel';
 export * from './models/languagemodel';
 
 // Export Enums
+export * from './enums/ControlHeight';
 export * from './enums/IconType';
 
 // Export Validators

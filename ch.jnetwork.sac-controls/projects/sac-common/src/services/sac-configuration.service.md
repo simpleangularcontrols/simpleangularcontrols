@@ -9,6 +9,9 @@ Example of an implementation of a project-specific configuration
 ```typescript
 import { SacAbstractConfigurationService } from '@simpleangularcontrols/sac-common';
 
+@Injectable({
+  providedIn: 'root',
+})
 export class CustomConfigurationService extends SacAbstractConfigurationService {
   get LabelSizeLg(): number | null {
     return 3;

@@ -4,7 +4,7 @@
     id="{{name}}_label"
     for="{{name}}"
     class="col-12 col-form-label"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
     [class.required]="isrequired"
     >{{label}}</label
   >

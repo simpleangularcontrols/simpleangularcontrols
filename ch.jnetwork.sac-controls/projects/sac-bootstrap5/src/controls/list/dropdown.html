@@ -1,8 +1,8 @@
 <div class="row mb-3" [class.g-0]="disablelabel">
   <label
     for="{{name}}"
-    class="col-12 col-form-label col-form-label-sm"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    class="col-12 col-form-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
     >{{label}}</label
   >
   <div
@@ -13,7 +13,9 @@
       #dropdownitem
       id="{{name}}"
       name="{{name}}"
-      class="form-select form-select-sm"
+      class="form-select"
+      [class.form-select-sm]="componentHeight === ControlHeight.Small"
+      [class.form-select-lg]="componentHeight === ControlHeight.Large"
       [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
       (blur)="onTouch()"
       (change)="setValue(dropdownitem.value)"

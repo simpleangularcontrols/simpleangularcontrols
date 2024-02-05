@@ -4,7 +4,7 @@
     id="{{name}}_label"
     for="{{name}}"
     class="col-12 col-form-label"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
     >{{label}}</label
   >
   <div
@@ -38,7 +38,11 @@
       >
         <div class="align-self-center progress-container">
           <div class="dropzone-uploadstates" *ngFor="let file of uploads">
-            <div class="input-group upload-component upload-component-multiple">
+            <div
+              class="input-group upload-component upload-component-multiple"
+              [class.input-group-sm]="componentHeight === ControlHeight.Small"
+              [class.input-group-lg]="componentHeight === ControlHeight.Large"
+            >
               <div class="form-control upload-progress border-secondary">
                 <div class="progress">
                   <div

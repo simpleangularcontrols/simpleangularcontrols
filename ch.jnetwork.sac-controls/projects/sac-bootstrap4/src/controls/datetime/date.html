@@ -2,7 +2,7 @@
   <label
     for="{{name}}"
     class="col-12 col-form-label"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
     >{{label}}</label
   >
   <div
@@ -10,7 +10,9 @@
     [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
   >
     <div
-      class="input-group input-group-sm"
+      class="input-group"
+      [class.input-group-sm]="componentHeight === ControlHeight.Small"
+      [class.input-group-lg]="componentHeight === ControlHeight.Large"
       [class.has-validation]="isinlineerrorenabled && invalid && (dirty || touched)"
     >
       <input
@@ -21,14 +23,15 @@
         [imask]="imaskDate"
         [attr.placeholder]="placeholder"
         [value]="valuestring"
-        [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
+        [class.is-invalid]="invalid && (dirty || touched)"
+        [ngClass]="[componentHeight | toControlHeight]"
         (blur)="onTouch()"
         (accept)="setValueString($event)"
         [disabled]="isdisabled"
       />
       <div class="input-group-append">
         <button
-          class="btn btn-sm btn-secondary"
+          class="btn btn-secondary"
           type="button"
           (click)="showDateSelector()"
           [disabled]="isdisabled"
@@ -51,11 +54,15 @@
         display: block;
         left: unset;
         right: 0px;
-        top: 34px;
+        top: unset;
         max-width: 325px;
       "
     >
-      <div class="arrow" style="left: unset; right: 12px"></div>
+      <div
+        class="arrow"
+        style="left: unset"
+        [style.right.rem]="componentHeight === ControlHeight.Small ? 1.1 : componentHeight === ControlHeight.Large ? 1.8 : 1.4"
+      ></div>
       <h3 class="popover-header" style="display: none"></h3>
       <div class="popover-body">
         <sac-dateselector

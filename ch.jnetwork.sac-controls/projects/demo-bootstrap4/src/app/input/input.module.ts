@@ -2,9 +2,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
+  SACBootstrap4ButtonModule,
   SACBootstrap4FormModule,
   SACBootstrap4InputModule,
-  SACBootstrap4ButtonModule,
+  SACBootstrap4StaticLabelModule,
   SACBootstrap4ValidationSummaryModule,
 } from '@simpleangularcontrols/sac-bootstrap4';
 import { InputRoutingModule } from './input-routing.module';
@@ -19,6 +20,7 @@ import { DemoInputComponent } from './input.component';
     SACBootstrap4ButtonModule,
     SACBootstrap4ValidationSummaryModule,
     SACBootstrap4InputModule,
+    SACBootstrap4StaticLabelModule,
   ],
 })
 export class InputModule {}

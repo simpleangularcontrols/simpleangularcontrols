@@ -2,7 +2,7 @@
   <label
     for="{{name}}"
     class="col-12 col-form-label"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
     >{{label}}</label
   >
   <div
@@ -13,9 +13,10 @@
       multiple
       id="{{name}}"
       name="{{name}}"
-      class="form-control form-control-sm"
+      class="form-control"
       [size]="rowsize"
-      [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
+      [class.is-invalid]="invalid && (dirty || touched)"
+      [ngClass]="[componentHeight | toControlHeight]"
       (blur)="onTouch()"
       (change)="getSelectedItems($event.target)"
       [disabled]="isdisabled"

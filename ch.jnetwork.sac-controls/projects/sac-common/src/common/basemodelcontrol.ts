@@ -11,6 +11,7 @@ import {
 } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { SacFormLayoutCommon } from '../controls/layout/formlayout';
+import { ControlHeight } from '../enums/ControlHeight';
 import { ISacConfigurationService } from '../interfaces/ISacConfigurationService';
 import { ISacLabelSizes } from '../interfaces/ISacLabelSizes';
 import { ISacLocalisationService } from '../interfaces/ISacLocalisationService';
@@ -26,7 +27,6 @@ import {
 import { convertToBoolean } from '../utilities/convertion';
 import { createGuid } from '../utilities/guid';
 import { ValidationErrorItem } from '../validation';
-
 /**
  * Abstract Klasse für SacBaseModelControl. Implements ControlValueAccessor, Validator, OnInit
  */
@@ -34,6 +34,11 @@ import { ValidationErrorItem } from '../validation';
 export abstract class SacBaseModelControl<VALUE>
   implements ControlValueAccessor, Validator, OnInit
 {
+  /**
+   * ControlHeight enum for use in HTML markup
+   */
+  ControlHeight: typeof ControlHeight = ControlHeight;
+
   // #region Properties
 
   /**
@@ -81,6 +86,11 @@ export abstract class SacBaseModelControl<VALUE>
   protected ngControl: FormControl;
 
   /**
+   * Defines the standard height of the components
+   */
+  @Input()
+  public componentHeight: ControlHeight | null = null;
+  /**
    * Deaktiviert das Input Control
    */
   @Input() public disabled: boolean = false;
@@ -97,6 +107,11 @@ export abstract class SacBaseModelControl<VALUE>
    */
   @Input() public isAdaptiveLabel: boolean = false;
   /**
+   * default labe size for large devices
+   */
+  @Input()
+  public labelSizeLg: number | null = null;
+  /**
    * default label size for medium devices
    */
   @Input()
@@ -107,6 +122,11 @@ export abstract class SacBaseModelControl<VALUE>
   @Input()
   public labelSizeSm: number | null = null;
   /**
+   * default label size for extra large devices
+   */
+  @Input()
+  public labelSizeXl: number | null = null;
+  /**
    * default label column size
    */
   @Input()
@@ -116,16 +136,6 @@ export abstract class SacBaseModelControl<VALUE>
    */
   @Input()
   public labelSizeXxl: number | null = null;
-  /**
-   * default labe size for large devices
-   */
-  @Input()
-  public labelSizeLg: number | null = null;
-  /**
-   * default label size for extra large devices
-   */
-  @Input()
-  public labelSizeXl: number | null = null;
   /**
    * Name des Controls
    */
@@ -170,6 +180,40 @@ export abstract class SacBaseModelControl<VALUE>
   // #region Public Getters And Setters
 
   /**
+   * Aktiviert oder Deaktiviert die Inline Errors für das Control
+   */
+  @Input()
+  public set inlineerrorenabled(value: boolean | null) {
+    if (value === null || value === undefined) {
+      this._inlineerrorenabled = null;
+    } else {
+      this._inlineerrorenabled = convertToBoolean(value);
+    }
+  }
+
+  /**
+   * Definiert den Label Text
+   */
+  @Input() public set label(v: string) {
+    this._label = v;
+    this.UpdateLabelToControl();
+  }
+
+  /**
+   * Set Methode für NgModel Binding in Html Markup
+   * Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.
+   */
+  @Input()
+  public set value(v: VALUE) {
+    if (this.disabled) {
+      return;
+    }
+
+    this._value = this.ConvertInputValue(v);
+    this.propagateChange(this._value);
+  }
+
+  /**
    * Methode ergibt Boolean Wert für dirty
    */
   public get dirty(): boolean {
@@ -182,18 +226,6 @@ export abstract class SacBaseModelControl<VALUE>
 
   public get inlineerrorenabled(): boolean | null {
     return this._inlineerrorenabled;
-  }
-
-  /**
-   * Aktiviert oder Deaktiviert die Inline Errors für das Control
-   */
-  @Input()
-  public set inlineerrorenabled(value: boolean | null) {
-    if (value === null || value === undefined) {
-      this._inlineerrorenabled = null;
-    } else {
-      this._inlineerrorenabled = convertToBoolean(value);
-    }
   }
 
   /**
@@ -239,14 +271,6 @@ export abstract class SacBaseModelControl<VALUE>
   }
 
   /**
-   * Definiert den Label Text
-   */
-  @Input() public set label(v: string) {
-    this._label = v;
-    this.UpdateLabelToControl();
-  }
-
-  /**
    * returns an object with all label sizes. These values can then be transferred to corresponding CSS classes using a pipe
    */
   public get labelSizes(): ISacLabelSizes {
@@ -276,20 +300,6 @@ export abstract class SacBaseModelControl<VALUE>
    */
   public get value(): VALUE {
     return this._value;
-  }
-
-  /**
-   * Set Methode für NgModel Binding in Html Markup
-   * Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.
-   */
-  @Input()
-  public set value(v: VALUE) {
-    if (this.disabled) {
-      return;
-    }
-
-    this._value = this.ConvertInputValue(v);
-    this.propagateChange(this._value);
   }
 
   // #endregion Public Getters And Setters
@@ -361,6 +371,9 @@ export abstract class SacBaseModelControl<VALUE>
 
     // set label sizes from formlayout directive
     this.setLabelSizes();
+
+    // set component heigth from fromlayout directive
+    this.setComponentHeight();
 
     // set adaptive label property from formlayout directive
     this.setIsAdaptiveLabel();
@@ -480,6 +493,20 @@ export abstract class SacBaseModelControl<VALUE>
       (
         this.ngControl as unknown as IAbstractControlLabelExtension
       ).controllabel = this.label;
+    }
+  }
+
+  /**
+   * Set component height from property or parent layout control
+   */
+  private setComponentHeight() {
+    // set size extra small
+    if (!this.componentHeight) {
+      if (this.formlayout?.componentHeight) {
+        this.componentHeight = this.formlayout.componentHeight;
+      } else {
+        this.componentHeight = this.configurationService.ComponentHeight;
+      }
     }
   }
 

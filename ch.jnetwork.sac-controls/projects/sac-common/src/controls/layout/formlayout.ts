@@ -11,7 +11,7 @@ export class SacFormLayoutCommon {
   /**
    * Defines the standard height of the components
    */
-  @Input() public controlHeight: ControlHeight | null = null;
+  @Input() public componentHeight: ControlHeight | null = null;
   /**
    * defines that error messages are displayed under the controls
    */

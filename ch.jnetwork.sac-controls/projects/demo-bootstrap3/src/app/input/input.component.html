@@ -198,5 +198,21 @@
       [(ngModel)]="values.fieldarea4"
       disabled="true"
     ></sac-inputarea>
+
+    <sac-staticformcontainer label="Container DateTime" lableSizeMd="4">
+      <input
+        class="form-control"
+        type="datetime-local"
+        id="meeting-time"
+        name="meeting-time"
+        value="2018-06-12T19:30"
+        min="2018-06-07T00:00"
+        max="2018-06-14T00:00"
+      />
+    </sac-staticformcontainer>
+
+    <sac-staticformcontainer label="Container Range" lableSizeMd="4">
+      <input type="range" class="custom-range" />
+    </sac-staticformcontainer>
   </div>
 </form>

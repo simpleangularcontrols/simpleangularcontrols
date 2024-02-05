@@ -10,6 +10,7 @@ import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 @Component({
   selector: 'sac-checkbox',
   templateUrl: './checkbox.html',
+  styleUrls: ['./checkbox.scss'],
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
     {

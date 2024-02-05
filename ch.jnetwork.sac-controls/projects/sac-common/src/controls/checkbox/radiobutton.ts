@@ -6,6 +6,7 @@ import {
   Output,
   TemplateRef,
 } from '@angular/core';
+import { ControlHeight } from '../../enums/ControlHeight';
 import { SacRadiobuttonsCommon } from './radiobuttons';
 
 /**
@@ -21,6 +22,11 @@ export abstract class SacRadiobuttonCommon implements OnDestroy {
     // Registration des Controls in SacRadioButtons Container
     this.sacRadioButtons.RegisterRadioButton(this);
   }
+
+  /**
+   * ControlHeight enum for use in HTML markup
+   */
+  ControlHeight: typeof ControlHeight = ControlHeight;
 
   /**
    * Wert
@@ -109,6 +115,13 @@ export abstract class SacRadiobuttonCommon implements OnDestroy {
    */
   get getName(): string {
     return this.sacRadioButtons.name;
+  }
+
+  /**
+   * define the control height from parent control
+   */
+  get componentHeight(): ControlHeight | null {
+    return this.sacRadioButtons.componentHeight;
   }
 
   //#region Control Templates

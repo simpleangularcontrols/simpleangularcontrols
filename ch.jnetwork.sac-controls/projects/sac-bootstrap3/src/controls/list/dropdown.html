@@ -1,6 +1,7 @@
 <div
   class="row form-group"
-  [ngClass]="{'has-error': invalid && (dirty || touched)}"
+  [class.has-error]="invalid && (dirty || touched)"
+  [ngClass]="componentHeight | toLabelHeight"
 >
   <label
     *ngIf="disablelabel === false && !isAdaptiveLabel"
@@ -20,6 +21,7 @@
       id="{{name}}"
       name="{{name}}"
       class="form-control"
+      [ngClass]="[componentHeight | toControlHeight]"
       (blur)="onTouch()"
       (change)="setValue(dropdownitem.value)"
       [disabled]="isdisabled"

@@ -19,9 +19,9 @@ export class SacToLabelHeightPipe implements PipeTransform {
 
     switch (value) {
       case ControlHeight.Small:
-        return 'col-form-label-sm';
+        return 'form-group-sm';
       case ControlHeight.Large:
-        return 'col-form-label-lg';
+        return 'form-group-lg';
       default:
         return '';
     }

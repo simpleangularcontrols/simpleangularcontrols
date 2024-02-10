@@ -11,7 +11,7 @@ export class CustomConfigurationService extends SacAbstractConfigurationService 
   // #region Public Getters And Setters
 
   public get ComponentHeight(): ControlHeight | null {
-    return ControlHeight.Default;
+    return ControlHeight.Large;
   }
 
   public get LabelSizeLg(): number | null {

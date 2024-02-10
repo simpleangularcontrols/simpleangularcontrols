@@ -24,4 +24,4 @@ For more information, follow us on GitHub: https://github.com/simpleangularcontr
 ## Features not supported
 
 - Not all components are implemented in Bootstrap 3.
-- Bootstrap 3 only supports the sizing of controls and labels in horizontal forms. For this reason, sizing is not implemented. The property on the controls and in the ConfigurationService has no effect.
+- Bootstrap 3 only supports the sizing of controls and labels in horizontal forms.

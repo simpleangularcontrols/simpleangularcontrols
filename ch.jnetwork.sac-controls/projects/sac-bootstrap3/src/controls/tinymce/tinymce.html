@@ -1,4 +1,8 @@
-<div class="row form-group">
+<div
+  class="row form-group"
+  [class.has-error]="invalid && (dirty || touched)"
+  [ngClass]="componentHeight | toLabelHeight"
+>
   <label
     for="{{name}}"
     class="col-xs-12 control-label"

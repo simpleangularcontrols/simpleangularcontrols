@@ -1,4 +1,8 @@
-<div class="row form-group">
+<div
+  class="row form-group"
+  [class.has-error]="invalid && (dirty || touched)"
+  [ngClass]="componentHeight | toLabelHeight"
+>
   <label
     *ngIf="disablelabel === false"
     for="{{name}}"

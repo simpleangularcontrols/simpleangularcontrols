@@ -19,9 +19,9 @@ export class SacToControlHeightPipe implements PipeTransform {
 
     switch (value) {
       case ControlHeight.Small:
-        return 'form-group-sm';
+        return 'input-sm';
       case ControlHeight.Large:
-        return 'form-group-lg';
+        return 'input-lg';
       default:
         return '';
     }

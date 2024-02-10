@@ -1,6 +1,7 @@
 <div
   class="row form-group"
-  [ngClass]="{'has-error': invalid && (dirty || touched)}"
+  [class.has-error]="invalid && (dirty || touched)"
+  [ngClass]="componentHeight | toLabelHeight"
 >
   <label
     *ngIf="disablelabel === false && !isAdaptiveLabel"
@@ -15,17 +16,26 @@
     class="col-xs-12"
     [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
   >
-    <div style="position: relative; width: 180px">
-      <div id="{{name}}" class="datetime-textbox input-group">
+    <div
+      style="position: relative"
+      [style.width.px]="componentHeight === ControlHeight.Small ? 160 : componentHeight === ControlHeight.Large ? 230 : 180"
+    >
+      <div
+        id="{{name}}"
+        class="datetime-textbox input-group"
+        [class.input-group-sm]="componentHeight === ControlHeight.Small"
+        [class.input-group-lg]="componentHeight === ControlHeight.Large"
+      >
         <input
           id="{{name}}"
           name="{{name}}"
           type="text"
           class="form-control"
+          [class.is-invalid]="invalid && (dirty || touched)"
+          [ngClass]="[componentHeight | toControlHeight]"
           [imask]="imaskDate"
           [attr.placeholder]="placeholder"
           [value]="valuestring"
-          [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
           (blur)="onTouch()"
           (accept)="setValueString($event)"
           [disabled]="isdisabled"

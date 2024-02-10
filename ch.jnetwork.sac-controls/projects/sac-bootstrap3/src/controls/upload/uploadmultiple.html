@@ -1,6 +1,7 @@
 <div
   class="row form-group"
-  [ngClass]="{'has-error': invalid && (dirty || touched)}"
+  [class.has-error]="invalid && (dirty || touched)"
+  [ngClass]="componentHeight | toLabelHeight"
 >
   <label
     *ngIf="disablelabel === false && !isAdaptiveLabel"
@@ -18,7 +19,11 @@
     <div class="upload-component">
       <div class="row">
         <div class="col-xs-12">
-          <div class="btn-group">
+          <div
+            class="btn-group"
+            [class.btn-group-sm]="componentHeight === ControlHeight.Small"
+            [class.btn-group-lg]="componentHeight === ControlHeight.Large"
+          >
             <div
               class="btn upload-input custom-file"
               [class.disabled]="maxfiles > 0 &&  uploads.length >= maxfiles"
@@ -38,7 +43,11 @@
               />
             </div>
 
-            <div class="btn-group">
+            <div
+              class="btn-group"
+              [class.btn-group-sm]="componentHeight === ControlHeight.Small"
+              [class.btn-group-lg]="componentHeight === ControlHeight.Large"
+            >
               <!-- image-preview-clear button -->
               <a
                 class="btn"
@@ -85,7 +94,11 @@
       </div>
 
       <div *ngFor="let file of uploads" style="margin-top: 5px">
-        <div class="input-group upload-component upload-multiple">
+        <div
+          class="input-group upload-component upload-multiple"
+          [class.input-group-sm]="componentHeight === ControlHeight.Small"
+          [class.input-group-lg]="componentHeight === ControlHeight.Large"
+        >
           <div class="form-control upload-progress">
             <div class="progress">
               <div
@@ -101,7 +114,11 @@
               </div>
             </div>
           </div>
-          <div class="input-group-btn">
+          <div
+            class="input-group-btn"
+            [class.input-group-sm]="componentHeight === ControlHeight.Small"
+            [class.input-group-lg]="componentHeight === ControlHeight.Large"
+          >
             <!-- image-preview-clear button -->
             <a
               class="btn"

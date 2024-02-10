@@ -1,7 +1,8 @@
 <div
   class="row"
   [class.form-group]="!stacked"
-  [ngClass]="{'has-error': invalid && (dirty || touched)}"
+  [class.has-error]="invalid && (dirty || touched)"
+  [ngClass]="componentHeight | toLabelHeight"
 >
   <label
     *ngIf="!disablelabel && !stacked"
@@ -14,7 +15,11 @@
     class="col-xs-12"
     [ngClass]="[!disablelabel && !stacked ?  (this.labelSizes | toControlWidthCss) : '']"
   >
-    <div class="checkbox">
+    <div
+      class="checkbox"
+      [class.checkbox-sm]="componentHeight === ControlHeight.Small"
+      [class.checkbox-lg]="componentHeight === ControlHeight.Large"
+    >
       <label>
         <input
           id="{{name}}"
@@ -26,9 +31,7 @@
           (blur)="onTouch()"
           (change)="setValue($event.target.checked)"
         />
-        <ng-container *ngIf="checkboxtext"
-          >&nbsp;<span>{{checkboxtext}}</span></ng-container
-        >
+        <ng-container *ngIf="checkboxtext">&nbsp;{{checkboxtext}}</ng-container>
       </label>
     </div>
   </div>

@@ -6,6 +6,7 @@ import { SacRadiobuttonsComponent } from './radiobuttons';
 @Component({
   selector: 'sac-radiobutton',
   templateUrl: './radiobutton.html',
+  styleUrls: ['./radiobutton.scss'],
   standalone: true,
   imports: [NgIf, NgTemplateOutlet],
 })

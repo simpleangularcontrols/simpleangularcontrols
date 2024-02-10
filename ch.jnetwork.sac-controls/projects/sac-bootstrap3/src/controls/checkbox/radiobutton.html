@@ -1,4 +1,9 @@
-<div class="radio" *ngIf="hidden===false">
+<div
+  class="radio"
+  *ngIf="hidden===false"
+  [class.radio-sm]="componentHeight === ControlHeight.Small"
+  [class.radio-lg]="componentHeight === ControlHeight.Large"
+>
   <label for="{{getName}}_{{getIndex}}">
     <input
       id="{{getName}}_{{getIndex}}"
@@ -17,5 +22,5 @@
 </div>
 
 <ng-template #defaultItemLabelTemplate let-label="label"
-  >&nbsp;<span>{{label}}</span></ng-template
+  >&nbsp;{{label}}</ng-template
 >

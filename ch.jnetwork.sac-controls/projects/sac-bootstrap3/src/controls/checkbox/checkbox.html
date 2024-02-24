@@ -31,7 +31,9 @@
           (blur)="onTouch()"
           (change)="setValue($event.target.checked)"
         />
-        <ng-container *ngIf="checkboxtext">&nbsp;{{checkboxtext}}</ng-container>
+        <ng-container *ngIf="checkboxtext"
+          >&nbsp;<span>{{checkboxtext}}</span></ng-container
+        >
       </label>
     </div>
   </div>

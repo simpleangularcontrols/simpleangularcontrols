@@ -13,7 +13,9 @@ import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import { IMaskDirective } from 'angular-imask';
 import * as moment_ from 'moment';
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacToControlHeightPipe } from '../layout/tocontrolheight.pipe';
 import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 import { SacDateSelectorComponent } from './dateselector';
 
@@ -50,6 +52,8 @@ const moment = moment_['default'];
     SacDateSelectorComponent,
     SacToControlWidthCssPipe,
     SacToLabelWidthCssPipe,
+    SacToLabelHeightPipe,
+    SacToControlHeightPipe,
   ],
 })
 export class SacDateComponent extends SacDateCommon {

@@ -15,7 +15,9 @@ import {
   SacListboxOptionCommon,
 } from '@simpleangularcontrols/sac-common';
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacToControlHeightPipe } from '../layout/tocontrolheight.pipe';
 import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 
 // #region Classes
@@ -48,6 +50,8 @@ import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
     forwardRef(() => SacListboxOptionDirective),
     SacToLabelWidthCssPipe,
     SacToControlWidthCssPipe,
+    SacToLabelHeightPipe,
+    SacToControlHeightPipe,
   ],
 })
 export class SacListboxComponent extends SacListboxCommon {

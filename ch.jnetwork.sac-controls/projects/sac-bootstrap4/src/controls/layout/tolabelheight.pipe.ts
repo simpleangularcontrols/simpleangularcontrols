@@ -3,6 +3,7 @@ import { ControlHeight } from '@simpleangularcontrols/sac-common';
 
 @Pipe({
   name: 'toLabelHeight',
+  standalone: true,
 })
 export class SacToLabelHeightPipe implements PipeTransform {
   // #region Public Methods

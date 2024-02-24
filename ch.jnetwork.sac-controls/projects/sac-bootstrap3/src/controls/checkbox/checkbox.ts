@@ -4,6 +4,7 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacCheckboxCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 
 @Component({
@@ -24,7 +25,13 @@ import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
     },
   ],
   standalone: true,
-  imports: [NgClass, NgIf, SacToLabelWidthCssPipe, SacToControlWidthCssPipe],
+  imports: [
+    NgClass,
+    NgIf,
+    SacToLabelWidthCssPipe,
+    SacToControlWidthCssPipe,
+    SacToLabelHeightPipe,
+  ],
 })
 export class SacCheckboxComponent extends SacCheckboxCommon {
   // #region Constructors

@@ -29,7 +29,7 @@ describe('sac-checkboxComponent', () => {
       }
     );
 
-    cy.get('.form-group .control-label')
+    cy.get('.row label.control-label')
       .first()
       .should('have.text', 'Control Label');
     cy.get('.checkbox label span').should('have.text', 'Checkbox Test');

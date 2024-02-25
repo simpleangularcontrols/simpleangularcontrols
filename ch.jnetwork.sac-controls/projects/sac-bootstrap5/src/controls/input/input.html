@@ -1,8 +1,8 @@
 <div class="row mb-3" [class.g-0]="disablelabel">
   <label
     for="{{name}}"
-    class="col-12 col-form-label col-form-label-sm"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    class="col-12 col-form-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
     >{{label}}</label
   >
   <div
@@ -13,7 +13,7 @@
       id="{{name}}"
       name="{{name}}"
       type="text"
-      class="form-control form-control-sm"
+      class="form-control"
       [value]="value"
       [attr.placeholder]="placeholder"
       [readonly]="readonly"
@@ -21,7 +21,8 @@
       (input)="setValue($event.target.value)"
       (keypress)="onKeyPress($event)"
       [attr.maxlength]="maxlength"
-      [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
+      [class.is-invalid]="invalid && (dirty || touched)"
+      [ngClass]="[componentHeight | toControlHeight]"
       [disabled]="isdisabled"
     />
     <div

@@ -1,18 +1,22 @@
 import { defineConfig } from 'cypress';
-import coverageWebpack from './cypress/coverage.webpack';
+import coverageWebpack from 'projects/sac-bootstrap3/cypress/coverage.webpack';
 
 export default defineConfig({
   viewportWidth: 1024,
   viewportHeight: 768,
-  reporter: '../../../node_modules/mochawesome/src/mochawesome.js',
+  reporter: './node_modules/mochawesome/src/mochawesome.js',
   reporterOptions: {
-    reportDir: '../../reports/bs3',
+    reportDir: 'reports/bs3',
     overwrite: false,
     html: false,
     json: true,
   },
 
   component: {
+    supportFile: 'projects/sac-bootstrap3/cypress/support/component.ts',
+    supportFolder: 'projects/sac-bootstrap3/cypress/support',
+    indexHtmlFile:
+      'projects/sac-bootstrap3/cypress/support/component-index.html',
     devServer: {
       framework: 'angular',
       bundler: 'webpack',
@@ -24,12 +28,12 @@ export default defineConfig({
           buildOptions: {
             outputPath: 'dist/sac-bootstrap3',
             main: 'src/entrypoint-cypress.ts',
-            tsConfig: 'tsconfig.lib.json',
+            tsConfig: 'projects/sac-bootstrap3/tsconfig.lib.json',
           },
         },
       },
     },
-    specPattern: 'src/**/*.cy.ts',
+    specPattern: 'projects/sac-bootstrap3/src/**/*.cy.ts',
     setupNodeEvents(on, config) {
       require('@cypress/code-coverage/task')(on, config);
       return config;

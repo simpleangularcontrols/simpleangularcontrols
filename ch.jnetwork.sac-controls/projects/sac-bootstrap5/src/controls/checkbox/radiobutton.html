@@ -1,8 +1,30 @@
-<div class="form-check" *ngIf="hidden===false">
-  <input id="{{getName}}_{{getIndex}}" name="{{getName}}" type="radio" class="form-check-input" [value]="value"
-    [checked]="checked" (change)="ChangeEvent()" [disabled]="isDisabled" />
-  <label for="{{getName}}_{{getIndex}}" class="form-check-label">
-    <ng-template *ngTemplateOutlet="labeltemplate || defaultItemLabelTemplate;context:{ label: label }">
+<div
+  class="form-check"
+  [class.form-check-sm]="componentHeight === ControlHeight.Small"
+  [class.form-check-lg]="componentHeight === ControlHeight.Large"
+  *ngIf="hidden===false"
+>
+  <input
+    id="{{getName}}_{{getIndex}}"
+    name="{{getName}}"
+    type="radio"
+    class="form-check-input"
+    [class.form-check-input-sm]="componentHeight === ControlHeight.Small"
+    [class.form-check-input-lg]="componentHeight === ControlHeight.Large"
+    [value]="value"
+    [checked]="checked"
+    (change)="ChangeEvent()"
+    [disabled]="isDisabled"
+  />
+  <label
+    for="{{getName}}_{{getIndex}}"
+    class="form-check-label"
+    [class.form-check-label-sm]="componentHeight === ControlHeight.Small"
+    [class.form-check-label-lg]="componentHeight === ControlHeight.Large"
+  >
+    <ng-template
+      *ngTemplateOutlet="labeltemplate || defaultItemLabelTemplate;context:{ label: label }"
+    >
     </ng-template>
   </label>
 </div>

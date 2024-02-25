@@ -31,9 +31,13 @@ describe('NgRadiobuttonComponent', () => {
       }
     );
 
-    cy.get('.col-form-label').should('have.text', 'Radiobutton Test');
-    cy.get('label').first().should('have.text', 'Control Label 1');
-    cy.get('label').eq(1).should('have.text', 'Control Label 2');
+    cy.get('label.col-form-label').should('have.text', 'Radiobutton Test');
+    cy.get('label.form-check-label')
+      .first()
+      .should('have.text', 'Control Label 1');
+    cy.get('label.form-check-label')
+      .eq(1)
+      .should('have.text', 'Control Label 2');
     cy.get('input').first().should('be.checked');
     cy.get('input').eq(1).should('not.be.checked');
     cy.get('input').eq(1).click();

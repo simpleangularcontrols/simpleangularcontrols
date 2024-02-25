@@ -8,6 +8,7 @@ import { SacRadiobuttonsComponent } from './radiobuttons';
 @Component({
   selector: 'sac-radiobutton',
   templateUrl: './radiobutton.html',
+  styleUrls: ['./radiobutton.scss'],
 })
 export class SacRadiobuttonComponent extends SacRadiobuttonCommon {
   /**

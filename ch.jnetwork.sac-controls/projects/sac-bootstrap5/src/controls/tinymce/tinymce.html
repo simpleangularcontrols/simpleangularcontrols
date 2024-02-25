@@ -1,11 +1,9 @@
 <div class="row mb-3" [class.g-0]="disablelabel">
   <div
     class="col"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
   >
-    <label for="{{name}}" class="form-control-label col-form-label-sm"
-      >{{label}}</label
-    >
+    <label for="{{name}}" class="form-control-label">{{label}}</label>
   </div>
   <div
     class="col-12"

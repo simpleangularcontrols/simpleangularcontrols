@@ -1,21 +1,29 @@
-<div
-  class="row align-items-center"
-  [class.g-0]="disablelabel"
-  [class.mb-3]="!stacked"
->
-  <div
-    class="col-12 col-form-label col-form-label-sm"
-    [ngClass]="[!disablelabel && !stacked ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
-  >
-    <label *ngIf="!disablelabel && !stacked" for="{{name}}">{{label}}</label>
-  </div>
+<div class="row" [class.g-0]="disablelabel" [class.mb-3]="!stacked">
   <div
     class="col-12"
+    [ngClass]="[!disablelabel && !stacked ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+  >
+    <label
+      *ngIf="!disablelabel && !stacked"
+      for="{{name}}"
+      class="col-form-label"
+      [ngClass]="componentHeight | toLabelHeight"
+      >{{label}}</label
+    >
+  </div>
+  <div
+    class="align-self-center col-12"
     [ngClass]="[!disablelabel && !stacked ?  (this.labelSizes | toControlWidthCss) : '']"
   >
-    <div class="form-check">
+    <div
+      class="form-check"
+      [class.form-check-sm]="componentHeight === ControlHeight.Small"
+      [class.form-check-lg]="componentHeight === ControlHeight.Large"
+    >
       <input
-        class="form-check-input form-check-input-sm"
+        class="form-check-input"
+        [class.form-check-input-sm]="componentHeight === ControlHeight.Small"
+        [class.form-check-input-lg]="componentHeight === ControlHeight.Large"
         id="{{name}}"
         name="{{name}}"
         type="checkbox"
@@ -24,7 +32,12 @@
         (change)="setValue($event.target.checked)"
         [disabled]="isdisabled"
       />
-      <label for="{{name}}" class="form-check-label">
+      <label
+        for="{{name}}"
+        class="form-check-label"
+        [class.form-check-label-sm]="componentHeight === ControlHeight.Small"
+        [class.form-check-label-lg]="componentHeight === ControlHeight.Large"
+      >
         <ng-container *ngIf="checkboxtext">{{checkboxtext}}</ng-container>
       </label>
     </div>

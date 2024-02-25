@@ -1,6 +1,7 @@
 <div
   class="row form-group"
-  [ngClass]="{'has-error': invalid && (dirty || touched)}"
+  [class.has-error]="invalid && (dirty || touched)"
+  [ngClass]="componentHeight | toLabelHeight"
 >
   <label
     *ngIf="disablelabel === false && !isAdaptiveLabel"
@@ -15,13 +16,23 @@
     class="col-xs-12"
     [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
   >
-    <div style="position: relative; width: 140px">
-      <div id="{{name}}" class="datetime-textbox input-group">
+    <div
+      style="position: relative"
+      [style.width.px]="componentHeight === ControlHeight.Small ? 120 : componentHeight === ControlHeight.Large ? 180 : 140"
+    >
+      <div
+        id="{{name}}"
+        class="datetime-textbox input-group"
+        [class.input-group-sm]="componentHeight === ControlHeight.Small"
+        [class.input-group-lg]="componentHeight === ControlHeight.Large"
+      >
         <!-- this class comes in the div above when disabled [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']" -->
         <input
           name="{{name}}"
           type="text"
           class="form-control date-control"
+          [class.is-invalid]="invalid && (dirty || touched)"
+          [ngClass]="[componentHeight | toControlHeight]"
           [imask]="imaskDate"
           placeholder="dd.mm.yyyy"
           [attr.placeholder]="placeholder"
@@ -59,11 +70,15 @@
           display: block;
           left: unset;
           right: 0px;
-          top: 34px;
+          top: unset;
           max-width: 325px;
         "
       >
-        <div class="arrow" style="left: unset; right: 10px"></div>
+        <div
+          class="arrow"
+          style="left: unset"
+          [style.right.px]="componentHeight === ControlHeight.Small ? 4 : componentHeight === ControlHeight.Large ? 14 : 10"
+        ></div>
         <h3 class="popover-title" style="display: none"></h3>
         <div class="popover-content">
           <sac-dateselector

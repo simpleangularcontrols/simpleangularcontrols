@@ -2,7 +2,7 @@
   <label
     for="{{name}}"
     class="col-12 col-form-label"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
     >{{label}}</label
   >
   <div
@@ -10,7 +10,9 @@
     [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
   >
     <div
-      class="input-group input-group-sm"
+      class="input-group"
+      [class.input-group-sm]="componentHeight === ControlHeight.Small"
+      [class.input-group-lg]="componentHeight === ControlHeight.Large"
       [class.has-validation]="isinlineerrorenabled && invalid && (dirty || touched)"
     >
       <div class="input-group-prepend">
@@ -27,7 +29,8 @@
         [attr.placeholder]="placeholder"
         [attr.maxlength]="maxlength"
         autocomplete="email"
-        [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
+        [class.is-invalid]="invalid && (dirty || touched)"
+        [ngClass]="[componentHeight | toControlHeight]"
         [disabled]="isdisabled"
         [readonly]="readonly"
       />

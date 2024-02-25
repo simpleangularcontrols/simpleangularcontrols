@@ -3,7 +3,9 @@ import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacStaticLabelCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacToControlHeightPipe } from '../layout/tocontrolheight.pipe';
 import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 
 /**
@@ -26,7 +28,14 @@ import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
     },
   ],
   standalone: true,
-  imports: [NgIf, NgClass, SacToControlWidthCssPipe, SacToLabelWidthCssPipe],
+  imports: [
+    NgIf,
+    NgClass,
+    SacToControlWidthCssPipe,
+    SacToLabelWidthCssPipe,
+    SacToLabelHeightPipe,
+    SacToControlHeightPipe,
+  ],
 })
 export class SacStaticLabelComponent extends SacStaticLabelCommon {
   // #region Constructors

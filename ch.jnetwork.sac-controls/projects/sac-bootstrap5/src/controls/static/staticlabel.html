@@ -3,15 +3,19 @@
     *ngIf="disablelabel === false && !isAdaptiveLabel"
     id="{{name}}_label"
     for="{{name}}"
-    class="col-12 col-form-label col-form-label-sm"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    class="col-12 col-form-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
     >{{label}}</label
   >
   <div
     class="col-12"
     [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
   >
-    <div class="form-control-plaintext" [innerHTML]="value"></div>
+    <div
+      class="form-control-plaintext"
+      [ngClass]="[componentHeight | toControlHeight]"
+      [innerHTML]="value"
+    ></div>
     <label
       for="{{name}}"
       class="col-left control-label"

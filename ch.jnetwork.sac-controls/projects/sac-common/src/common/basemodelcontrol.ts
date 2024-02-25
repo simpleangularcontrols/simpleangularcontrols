@@ -11,6 +11,7 @@ import {
 } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { SacFormLayoutCommon } from '../controls/layout/formlayout';
+import { ControlHeight } from '../enums/ControlHeight';
 import { ISacConfigurationService } from '../interfaces/ISacConfigurationService';
 import { ISacLabelSizes } from '../interfaces/ISacLabelSizes';
 import { ISacLocalisationService } from '../interfaces/ISacLocalisationService';
@@ -26,7 +27,6 @@ import {
 import { convertToBoolean } from '../utilities/convertion';
 import { createGuid } from '../utilities/guid';
 import { ValidationErrorItem } from '../validation';
-
 /**
  * Abstract Klasse für SacBaseModelControl. Implements ControlValueAccessor, Validator, OnInit
  */
@@ -34,6 +34,11 @@ import { ValidationErrorItem } from '../validation';
 export abstract class SacBaseModelControl<VALUE>
   implements ControlValueAccessor, Validator, OnInit
 {
+  /**
+   * ControlHeight enum for use in HTML markup
+   */
+  ControlHeight: typeof ControlHeight = ControlHeight;
+
   // #region Properties
 
   /**
@@ -80,6 +85,11 @@ export abstract class SacBaseModelControl<VALUE>
    */
   protected ngControl: UntypedFormControl;
 
+  /**
+   * Defines the standard height of the components
+   */
+  @Input()
+  public componentHeight: ControlHeight | null = null;
   /**
    * Deaktiviert das Input Control
    */
@@ -362,6 +372,9 @@ export abstract class SacBaseModelControl<VALUE>
     // set label sizes from formlayout directive
     this.setLabelSizes();
 
+    // set component heigth from fromlayout directive
+    this.setComponentHeight();
+
     // set adaptive label property from formlayout directive
     this.setIsAdaptiveLabel();
 
@@ -480,6 +493,20 @@ export abstract class SacBaseModelControl<VALUE>
       (
         this.ngControl as unknown as IAbstractControlLabelExtension
       ).controllabel = this.label;
+    }
+  }
+
+  /**
+   * Set component height from property or parent layout control
+   */
+  private setComponentHeight() {
+    // set size extra small
+    if (!this.componentHeight) {
+      if (this.formlayout?.componentHeight) {
+        this.componentHeight = this.formlayout.componentHeight;
+      } else {
+        this.componentHeight = this.configurationService.ComponentHeight;
+      }
     }
   }
 

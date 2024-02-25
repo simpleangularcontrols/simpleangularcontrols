@@ -12,6 +12,7 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacUploadMultipleCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 
 // https://github.com/kukhariev/ngx-uploadx/
@@ -40,6 +41,7 @@ import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
     AsyncPipe,
     SacToLabelWidthCssPipe,
     SacToControlWidthCssPipe,
+    SacToLabelHeightPipe,
   ],
 })
 export class SacUploadMultipleComponent extends SacUploadMultipleCommon {

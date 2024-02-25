@@ -1,10 +1,15 @@
-<div class="form-row form-group">
-  <div
-    class="col"
+<div
+  class="row form-group"
+  [class.has-error]="invalid && (dirty || touched)"
+  [ngClass]="componentHeight | toLabelHeight"
+>
+  <label
+    for="{{name}}"
+    class="col-xs-12 control-label"
     [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
   >
-    <label for="{{name}}" class="form-control-label">{{label}}</label>
-  </div>
+    {{label}}
+  </label>
   <div
     class="col-xs-12"
     [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"

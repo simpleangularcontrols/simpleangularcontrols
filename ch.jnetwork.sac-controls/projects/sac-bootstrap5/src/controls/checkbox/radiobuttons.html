@@ -1,14 +1,21 @@
 <div class="row mb-3" [class.g-0]="disablelabel">
   <div
     *ngIf="disablelabel === false"
-    class="col-12 col-form-label col-form-label-sm pt-0"
+    class="col-12 pt-0"
     [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
   >
-    <ng-container *ngIf="!disablelabel">{{label}}</ng-container>
+    <label
+      class="col-form-label"
+      [ngClass]="componentHeight | toLabelHeight"
+      *ngIf="!disablelabel"
+      >{{label}}</label
+    >
   </div>
   <div
     class="col-12"
     [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
+    [class.pt-1]="componentHeight === ControlHeight.Small"
+    [class.pt-2]="componentHeight !== ControlHeight.Small"
   >
     <ng-content></ng-content>
   </div>

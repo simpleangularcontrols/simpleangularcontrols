@@ -1,20 +1,32 @@
 import { Component, ViewChild } from '@angular/core';
-import { SacFormDirective, SACBootstrap3FormModule, SACBootstrap3ButtonModule, SACBootstrap3ValidationSummaryModule, SACBootstrap3InputModule } from '@simpleangularcontrols/sac-bootstrap3';
 import { FormsModule } from '@angular/forms';
+import {
+  SACBootstrap3ButtonModule,
+  SACBootstrap3FormModule,
+  SACBootstrap3InputModule,
+  SACBootstrap3StaticLabelModule,
+  SACBootstrap3ValidationSummaryModule,
+  SacFormDirective,
+} from '@simpleangularcontrols/sac-bootstrap3';
 
 @Component({
-    selector: 'app-input',
-    templateUrl: './input.component.html',
-    standalone: true,
-    imports: [
-        FormsModule,
-        SACBootstrap3FormModule,
-        SACBootstrap3ButtonModule,
-        SACBootstrap3ValidationSummaryModule,
-        SACBootstrap3InputModule,
-    ],
+  selector: 'app-input',
+  templateUrl: './input.component.html',
+  standalone: true,
+  imports: [
+    FormsModule,
+    SACBootstrap3FormModule,
+    SACBootstrap3ButtonModule,
+    SACBootstrap3ValidationSummaryModule,
+    SACBootstrap3InputModule,
+    SACBootstrap3StaticLabelModule,
+  ],
 })
 export class DemoInputComponent {
+  // #region Properties
+
+  @ViewChild('myForm') public myForm: SacFormDirective;
+
   public values: any = {
     field1: '',
     field2: '',
@@ -44,10 +56,14 @@ export class DemoInputComponent {
     fieldpassword4: '',
   };
 
-  @ViewChild('myForm') myForm: SacFormDirective;
+  // #endregion Properties
+
+  // #region Public Methods
 
   public debugAction(): void {
     this.myForm.markAsTouched();
     alert('Action');
   }
+
+  // #endregion Public Methods
 }

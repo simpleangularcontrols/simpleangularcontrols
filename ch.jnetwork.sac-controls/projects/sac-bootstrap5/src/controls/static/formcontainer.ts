@@ -4,6 +4,7 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacStaticFormContainerCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 
 /**
@@ -11,12 +12,12 @@ import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
  *
  * @example
  *  <ngStaticFormContainer name='myformcontainer' label="My Custom Form Control" [isrequired]='false'>
- *      <input type="range" class="form-control form-control-sm" />
+ *      <input type="range" class="form-control" />
  *  </ngStaticFormContainer>
  *
  * @example
  * <ngStaticFormContainer name='myformcintainer' label="My Custom Form Control" [isrequired]='false' tooltiptext="Dies ist ein Tooltip Text">
- *     <input type="range" class="form-control form-control-sm" />
+ *     <input type="range" class="form-control" />
  * </ngStaticFormContainer>
  *
  **/
@@ -43,6 +44,7 @@ import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
     AsyncPipe,
     SacToControlWidthCssPipe,
     SacToLabelWidthCssPipe,
+    SacToLabelHeightPipe,
   ],
 })
 export class SacStaticFormContainerComponent extends SacStaticFormContainerCommon {

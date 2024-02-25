@@ -1,9 +1,15 @@
+import { ControlHeight } from '../enums/ControlHeight';
+
 /**
  * interface for service which provides global configuration settings to components
  */
 export interface ISacConfigurationService {
   // #region Public Getters And Setters
 
+  /**
+   * Defines the standard height of the components
+   */
+  get ComponentHeight(): ControlHeight | null;
   /**
    * default labe size for large devices
    */

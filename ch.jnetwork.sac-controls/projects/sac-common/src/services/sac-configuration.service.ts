@@ -1,4 +1,5 @@
 import { Injectable, InjectionToken } from '@angular/core';
+import { ControlHeight } from '../enums/ControlHeight';
 import { ISacConfigurationService } from '../interfaces/ISacConfigurationService';
 
 // #region Classes
@@ -12,6 +13,10 @@ export abstract class SacAbstractConfigurationService
 {
   // #region Public Abstract Getters And Setters
 
+  /**
+   * @inheritdoc
+   */
+  public abstract get ComponentHeight(): ControlHeight | null;
   /**
    * @inheritdoc
    */
@@ -46,6 +51,10 @@ export abstract class SacAbstractConfigurationService
 @Injectable({ providedIn: 'root' })
 export class SacDefaultConfigurationService extends SacAbstractConfigurationService {
   // #region Public Getters And Setters
+
+  public get ComponentHeight(): ControlHeight {
+    return null;
+  }
 
   /**
    * @inheritdoc

@@ -2,16 +2,18 @@ import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import {
   Component,
   ElementRef,
-  forwardRef,
   Host,
   Injector,
   Optional,
+  forwardRef,
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacTimeCommon } from '@simpleangularcontrols/sac-common';
 import { IMaskDirective } from 'angular-imask';
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacToControlHeightPipe } from '../layout/tocontrolheight.pipe';
 import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 import { SacDateSelectorComponent } from './dateselector';
 
@@ -43,6 +45,8 @@ import { SacDateSelectorComponent } from './dateselector';
     SacDateSelectorComponent,
     SacToControlWidthCssPipe,
     SacToLabelWidthCssPipe,
+    SacToLabelHeightPipe,
+    SacToControlHeightPipe,
   ],
 })
 export class SacTimeComponent extends SacTimeCommon {

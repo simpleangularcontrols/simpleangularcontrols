@@ -15,8 +15,8 @@ import { SacButtonComponent } from '../buttons';
 import { SacDialogComponent } from '../dialog';
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
-
 /**
  * TinyMCE Komponente
  */
@@ -49,6 +49,7 @@ import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
     AsyncPipe,
     SacToControlWidthCssPipe,
     SacToLabelWidthCssPipe,
+    SacToLabelHeightPipe,
   ],
 })
 export class SacTinyMceComponent extends SacTinyMceCommon {

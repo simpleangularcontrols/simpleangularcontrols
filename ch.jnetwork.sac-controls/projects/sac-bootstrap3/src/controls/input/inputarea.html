@@ -1,6 +1,7 @@
 <div
   class="row form-group"
-  [ngClass]="{'has-error': invalid && (dirty || touched)}"
+  [class.has-error]="invalid && (dirty || touched)"
+  [ngClass]="componentHeight | toLabelHeight"
 >
   <label
     *ngIf="disablelabel === false && !isAdaptiveLabel"
@@ -20,15 +21,16 @@
       name="{{name}}"
       type=""
       class="form-control"
+      [class.is-invalid]="invalid && (dirty || touched)"
+      [class.validation-error]="invalid && (dirty || touched)"
+      [class.required]="isrequired"
+      [ngClass]="[componentHeight | toControlHeight]"
       [value]="value"
       [attr.placeholder]="placeholder"
       (blur)="onTouch()"
       (input)="setValue($event.target.value)"
       (keypress)="onKeyPress($event)"
       [attr.rows]="rows"
-      [class.is-invalid]="invalid && (dirty || touched)"
-      [class.validation-error]="invalid && (dirty || touched)"
-      [class.required]="isrequired"
       [disabled]="isdisabled"
       [readonly]="readonly"
     ></textarea>

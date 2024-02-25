@@ -4,6 +4,7 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacRadiobuttonsCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 
 /**
@@ -26,7 +27,13 @@ import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
     },
   ],
   standalone: true,
-  imports: [NgIf, NgClass, SacToLabelWidthCssPipe, SacToControlWidthCssPipe],
+  imports: [
+    NgIf,
+    NgClass,
+    SacToLabelWidthCssPipe,
+    SacToControlWidthCssPipe,
+    SacToLabelHeightPipe,
+  ],
 })
 export class SacRadiobuttonsComponent extends SacRadiobuttonsCommon {
   // #region Constructors

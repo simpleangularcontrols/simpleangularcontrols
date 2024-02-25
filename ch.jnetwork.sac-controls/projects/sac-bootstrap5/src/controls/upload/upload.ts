@@ -1,17 +1,19 @@
 import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import {
   Component,
-  forwardRef,
   Host,
   Injector,
   NgZone,
   Optional,
   Renderer2,
+  forwardRef,
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacUploadSingleCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacToControlHeightPipe } from '../layout/tocontrolheight.pipe';
 import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 
 /**
@@ -41,6 +43,8 @@ import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
     AsyncPipe,
     SacToControlWidthCssPipe,
     SacToLabelWidthCssPipe,
+    SacToLabelHeightPipe,
+    SacToControlHeightPipe,
   ],
 })
 export class SacUploadComponent extends SacUploadSingleCommon {

@@ -6,7 +6,9 @@ import {
   SacMultilanguageInputAreaCommon,
 } from '@simpleangularcontrols/sac-common';
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacToControlHeightPipe } from '../layout/tocontrolheight.pipe';
 import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
+import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 import { SacMultilanguagemenuComponent } from './multilanguagemenu';
 import { SacMultilanguagemenuAnchorDirective } from './multilanguagemenuanchor';
@@ -42,6 +44,8 @@ import { SacMultilanguagemenuItemButtonComponent } from './multilanguagemenuitem
     SacMultilanguagemenuItemButtonComponent,
     SacToControlWidthCssPipe,
     SacToLabelWidthCssPipe,
+    SacToLabelHeightPipe,
+    SacToControlHeightPipe,
   ],
 })
 export class SacMultilanguageInputAreaComponent extends SacMultilanguageInputAreaCommon {

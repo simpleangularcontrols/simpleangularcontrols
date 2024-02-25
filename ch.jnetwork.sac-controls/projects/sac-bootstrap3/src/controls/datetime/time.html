@@ -1,6 +1,7 @@
 <div
   class="row form-group"
-  [ngClass]="{'has-error': invalid && (dirty || touched)}"
+  [class.has-error]="invalid && (dirty || touched)"
+  [ngClass]="componentHeight | toLabelHeight"
 >
   <label
     *ngIf="disablelabel === false && !isAdaptiveLabel"
@@ -15,8 +16,15 @@
     class="col-xs-12"
     [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
   >
-    <div style="position: relative; width: 140px">
-      <div class="input-group">
+    <div
+      style="position: relative"
+      [style.width.px]="componentHeight === ControlHeight.Small ? 120 : componentHeight === ControlHeight.Large ? 160 : 140"
+    >
+      <div
+        class="input-group"
+        [class.input-group-sm]="componentHeight === ControlHeight.Small"
+        [class.input-group-lg]="componentHeight === ControlHeight.Large"
+      >
         <input
           id="{{name}}"
           name="{{name}}"

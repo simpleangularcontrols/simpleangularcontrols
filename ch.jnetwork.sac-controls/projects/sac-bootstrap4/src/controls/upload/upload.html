@@ -4,7 +4,7 @@
     id="{{name}}_label"
     for="{{name}}"
     class="col-12 col-form-label"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
     >{{label}}</label
   >
   <div
@@ -13,6 +13,8 @@
   >
     <div
       class="input-group upload-component upload-single"
+      [class.input-group-sm]="componentHeight === ControlHeight.Small"
+      [class.input-group-lg]="componentHeight === ControlHeight.Large"
       [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)"
     >
       <div class="input-group-prepend">
@@ -41,6 +43,7 @@
       </div>
       <div
         class="form-control upload-progress"
+        [ngClass]="[componentHeight | toControlHeight]"
         [class.is-invalid]="invalid && (dirty || touched)"
       >
         <div class="progress">

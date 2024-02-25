@@ -2,7 +2,7 @@
   <label
     for="{{name}}"
     class="col-12 col-form-label"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
     >{{label}}</label
   >
   <div
@@ -10,20 +10,23 @@
     [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
   >
     <div
-      class="input-group input-group-sm"
+      class="input-group"
+      [class.input-group-sm]="componentHeight === ControlHeight.Small"
+      [class.input-group-lg]="componentHeight === ControlHeight.Large"
       [class.has-validation]="isinlineerrorenabled && invalid && (dirty || touched)"
     >
       <input
         id="{{name}}"
         name="{{name}}"
         type="text"
-        class="form-control form-control-sm"
+        class="form-control"
         [value]="LanguageValue"
         [attr.placeholder]="placeholder"
         (blur)="onTouch()"
         (input)="SetLanguageValue($event.target.value)"
         [attr.maxlength]="maxlength"
-        [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
+        [class.is-invalid]="invalid && (dirty || touched)"
+        [ngClass]="[componentHeight | toControlHeight]"
         [disabled]="isdisabled"
       />
       <div

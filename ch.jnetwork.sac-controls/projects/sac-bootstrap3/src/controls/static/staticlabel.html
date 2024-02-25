@@ -1,4 +1,4 @@
-<div class="row form-group">
+<div class="row form-group" [ngClass]="componentHeight | toLabelHeight">
   <label
     *ngIf="disablelabel === false && !isAdaptiveLabel"
     id="{{name}}label"
@@ -11,7 +11,11 @@
     class="col-xs-12"
     [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
   >
-    <div class="form-control-static" [innerHTML]="value"></div>
+    <div
+      class="form-control-static"
+      [style.padding-left.px]="0"
+      [innerHTML]="value"
+    ></div>
     <label
       for="{{name}}"
       class="col-left control-label"

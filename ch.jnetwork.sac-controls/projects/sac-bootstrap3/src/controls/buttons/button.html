@@ -12,6 +12,10 @@
   [attr.disabled]="_isdisabled ? 'disabled' : null"
   (click)="buttonClick()"
 >
-  <i *ngIf="icon !== ''" [ngClass]="icon" style="margin-right: 0.5rem"></i>
+  <i
+    *ngIf="icon !== ''"
+    [ngClass]="icon"
+    [ngStyle]="{ 'margin-right': text ? '0.5rem': null}"
+  ></i>
   {{text}}
 </a>

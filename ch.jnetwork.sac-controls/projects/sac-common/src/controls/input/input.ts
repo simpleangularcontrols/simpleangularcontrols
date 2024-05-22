@@ -8,40 +8,45 @@ import { Validation } from '../../validation';
  */
 @Directive()
 export class SacInputCommon extends SacInputBase<string> {
-  /**
-   * Max länge an Zeichen für Eingabefeld
-   */
-  @Input() maxlength: number = null;
+  // #region Properties
 
   /**
    * Fix breite für das Control definieren.
    */
-  @Input() controlwidth: string = null;
-
+  @Input() public controlwidth: string = null;
   /**
-   * Resource Key für Validation Message Required bei Control
+   * Max länge an Zeichen für Eingabefeld
    */
-  @Input() validationmessagerequired: string = 'VALIDATION_ERROR_REQUIRED';
-  /**
-   * Resource Key für Validation Message Required in Validation Summary
-   */
-  @Input() validationmessagesummaryrequired: string =
-    'VALIDATION_ERROR_SUMMARY_REQUIRED';
-
+  @Input() public maxlength: number = null;
   /**
    * Resource Key für Validation Message Pattern bei Control
    */
-  @Input() validationmessagepattern: string = 'VALIDATION_ERROR_PATTERN';
+  @Input() public validationmessagepattern: string =
+    this.validationKeyService.ValidationErrorPattern;
+  /**
+   * Resource Key für Validation Message Required bei Control
+   */
+  @Input() public validationmessagerequired: string =
+    this.validationKeyService.ValidationErrorRequired;
   /**
    * Resource Key für Validation Message Pattern in Validation Summary
    */
-  @Input() validationmessagesummarypattern: string =
-    'VALIDATION_ERROR_SUMMARY_PATTERN';
+  @Input() public validationmessagesummarypattern: string =
+    this.validationKeyService.ValidationErrorSummaryPattern;
+  /**
+   * Resource Key für Validation Message Required in Validation Summary
+   */
+  @Input() public validationmessagesummaryrequired: string =
+    this.validationKeyService.ValidationErrorSummaryRequired;
+
+  // #endregion Properties
+
+  // #region Public Methods
 
   /**
    * Methode validiert, ob der Wert den gegebenen Kriterien entspricht
    */
-  validateData(c: AbstractControl): ValidationErrors | null {
+  public validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = null;
 
     if (this.isrequired) {
@@ -64,4 +69,6 @@ export class SacInputCommon extends SacInputBase<string> {
     }
     return error;
   }
+
+  // #endregion Public Methods
 }

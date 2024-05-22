@@ -81,9 +81,11 @@ export class SacBrowserComponent extends SacFileBrowserCommon {
   public confirmDeleteFile(file: IBrowserFile): Observable<boolean> {
     return new Observable<boolean>((observer) => {
       forkJoin({
-        title: this.lngResourceService.GetString('FILEBROWSER_DELETE'),
+        title: this.lngResourceService.GetString(
+          this.validationKeyService.FilebrowserButtonDelete
+        ),
         message: this.lngResourceService.GetString(
-          'FILEBROWSER_CONFIRM_DELETEFILE'
+          this.validationKeyService.FilebrowserConfirmTextDeleteFile
         ),
       }).subscribe((text) => {
         this.confirmService
@@ -108,9 +110,11 @@ export class SacBrowserComponent extends SacFileBrowserCommon {
   public confirmDeleteNode(node: IBrowserNode): Observable<boolean> {
     return new Observable<boolean>((observer) => {
       forkJoin({
-        title: this.lngResourceService.GetString('FILEBROWSER_DELETE'),
+        title: this.lngResourceService.GetString(
+          this.validationKeyService.FilebrowserButtonDelete
+        ),
         message: this.lngResourceService.GetString(
-          'FILEBROWSER_CONFIRM_DELETEFOLDER'
+          this.validationKeyService.FilebrowserConfirmTextDeleteFolder
         ),
       }).subscribe((text) => {
         this.confirmService

@@ -26,7 +26,12 @@ import { SacFormLayoutCommon } from '../controls/layout/formlayout';
 import { ISacIconService } from '../interfaces/ISacIconService';
 import { ISacLocalisationService } from '../interfaces/ISacLocalisationService';
 import { IUploadControl } from '../interfaces/iuploadcontrol';
-import { SACICON_SERVICE, SacDefaultIconService } from '../services';
+import {
+  SACICON_SERVICE,
+  SACVALIDATIONKEY_SERVICE,
+  SacDefaultIconService,
+  SacDefaultValidationKeyService,
+} from '../services';
 import {
   SACLOCALISATION_SERVICE,
   SacDefaultLocalisationService,
@@ -94,13 +99,13 @@ export abstract class SacUploadBase<VALUE>
    * Resource Key für Validation Message Required bei Control
    */
   @Input() public validationmessagerequired: string =
-    'VALIDATION_ERROR_REQUIRED';
+    this.validationKeyService.ValidationErrorRequired;
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
   @Input()
   public validationmessagesummaryrequired: string =
-    'VALIDATION_ERROR_SUMMARY_REQUIRED';
+    this.validationKeyService.ValidationErrorSummaryRequired;
   /**
    * Event wenn ein Error in der Komponente ausgelöst wird.
    */
@@ -146,9 +151,14 @@ export abstract class SacUploadBase<VALUE>
   ) {
     super(formlayout, injector);
 
+    this.validationKeyService = injector.get(
+      SACVALIDATIONKEY_SERVICE,
+      new SacDefaultValidationKeyService()
+    );
+
     this.lngResourceService = injector.get(
       SACLOCALISATION_SERVICE,
-      new SacDefaultLocalisationService()
+      new SacDefaultLocalisationService(this.validationKeyService)
     );
 
     this.iconService = injector.get(
@@ -281,7 +291,9 @@ export abstract class SacUploadBase<VALUE>
     if (this.uploads.length > 0) {
       return of(this.uploads[0].name);
     } else {
-      return this.lngResourceService.GetString('UPLOAD_NO_FILE_SELECTED');
+      return this.lngResourceService.GetString(
+        this.validationKeyService.UploadNoFilesSelected
+      );
     }
   }
 

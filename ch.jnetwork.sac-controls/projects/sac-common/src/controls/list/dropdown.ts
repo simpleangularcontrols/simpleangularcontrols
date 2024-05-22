@@ -38,13 +38,13 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
    * Resource Key für Validation Message Required bei Control
    */
   @Input() public validationmessagerequired: string =
-    'VALIDATION_ERROR_REQUIRED';
+    this.validationKeyService.ValidationErrorRequired;
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
   @Input()
   public validationmessagesummaryrequired: string =
-    'VALIDATION_ERROR_SUMMARY_REQUIRED';
+    this.validationKeyService.ValidationErrorSummaryRequired;
 
   /**
    * Counter vom OptionID; default Wert = 0

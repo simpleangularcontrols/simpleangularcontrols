@@ -12,10 +12,13 @@ import { Observable } from 'rxjs';
 import { ISacFileBrowserService } from '../../interfaces/ISacFileBrowserService';
 import { ISacIconService } from '../../interfaces/ISacIconService';
 import { ISacLocalisationService } from '../../interfaces/ISacLocalisationService';
+import { ISacValidationKeyService } from '../../interfaces/ISacValidationKeyService';
 import {
   SACICON_SERVICE,
   SACLOCALISATION_SERVICE,
+  SACVALIDATIONKEY_SERVICE,
   SacDefaultIconService,
+  SacDefaultValidationKeyService,
 } from '../../services';
 import {
   SACFILEBROWSER_SERVICE,
@@ -93,6 +96,7 @@ export abstract class SacFileBrowserCommon implements OnInit {
    */
   @Output()
   public file: EventEmitter<string> = new EventEmitter<string>();
+
   /**
    * Service für Error Localisation
    */
@@ -125,6 +129,10 @@ export abstract class SacFileBrowserCommon implements OnInit {
    * Liste von Uploads
    */
   public uploads: string[] = [];
+  /**
+   * Service to receive standard validation message keys and texts
+   */
+  public validationKeyService: ISacValidationKeyService;
 
   // #endregion Properties
 
@@ -140,10 +148,13 @@ export abstract class SacFileBrowserCommon implements OnInit {
       SACFILEBROWSER_SERVICE,
       new SacDefaultFileBrowserService(httpclient)
     );
-
+    this.validationKeyService = injector.get(
+      SACVALIDATIONKEY_SERVICE,
+      new SacDefaultValidationKeyService()
+    );
     this.lngResourceService = injector.get(
       SACLOCALISATION_SERVICE,
-      new SacDefaultLocalisationService()
+      new SacDefaultLocalisationService(this.validationKeyService)
     );
 
     this.iconService = injector.get(
@@ -155,6 +166,20 @@ export abstract class SacFileBrowserCommon implements OnInit {
   // #endregion Constructors
 
   // #region Public Getters And Setters
+
+  /**
+   * Setzt den Seleced Node über den Pfad
+   */
+  @Input()
+  public set selectedfile(v: string | null) {
+    const selectednode = this.findSelectedNodeByPath(this.rootNode, v);
+
+    if (selectednode !== null) {
+      this.selectNode(selectednode);
+    }
+
+    this.preselecedfile = v;
+  }
 
   /**
    * CSS icon class for delete icon
@@ -223,23 +248,32 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
   }
 
-  /**
-   * Setzt den Seleced Node über den Pfad
-   */
-  @Input()
-  public set selectedfile(v: string | null) {
-    const selectednode = this.findSelectedNodeByPath(this.rootNode, v);
-
-    if (selectednode !== null) {
-      this.selectNode(selectednode);
-    }
-
-    this.preselecedfile = v;
-  }
-
   // #endregion Public Getters And Setters
 
   // #region Public Methods
+
+  /**
+   * HostListener welcher den Edit Mode bei allen Files und Nodes beendet.
+   */
+  @HostListener('document:click', ['$event.target'])
+  /**
+   * Click Event
+   */
+  public exitEditMode(targetElement): void {
+    if (this.selectedNode) {
+      this.selectedNode.Files.forEach((itm) => (itm.IsEditMode = false));
+
+      if (
+        !this.selectedNode ||
+        this.selectedNode.Name === null ||
+        this.selectedNode.Name.length === 0
+      ) {
+        this.clearNewChildNodes(this.rootNode);
+      }
+    }
+
+    this.resetNodeEditMode(null);
+  }
 
   /**
    * Löscht ein File
@@ -298,29 +332,6 @@ export abstract class SacFileBrowserCommon implements OnInit {
    */
   public editNode(node: IBrowserNode): void {
     node.IsEditMode = true;
-  }
-
-  /**
-   * HostListener welcher den Edit Mode bei allen Files und Nodes beendet.
-   */
-  @HostListener('document:click', ['$event.target'])
-  /**
-   * Click Event
-   */
-  public exitEditMode(targetElement): void {
-    if (this.selectedNode) {
-      this.selectedNode.Files.forEach((itm) => (itm.IsEditMode = false));
-
-      if (
-        !this.selectedNode ||
-        this.selectedNode.Name === null ||
-        this.selectedNode.Name.length === 0
-      ) {
-        this.clearNewChildNodes(this.rootNode);
-      }
-    }
-
-    this.resetNodeEditMode(null);
   }
 
   /**

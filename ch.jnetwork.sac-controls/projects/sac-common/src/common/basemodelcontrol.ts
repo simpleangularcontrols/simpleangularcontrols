@@ -15,7 +15,12 @@ import { ControlHeight } from '../enums/ControlHeight';
 import { ISacConfigurationService } from '../interfaces/ISacConfigurationService';
 import { ISacLabelSizes } from '../interfaces/ISacLabelSizes';
 import { ISacLocalisationService } from '../interfaces/ISacLocalisationService';
-import { IAbstractControlLabelExtension } from '../public_api';
+import { ISacValidationKeyService } from '../interfaces/ISacValidationKeyService';
+import { IAbstractControlLabelExtension } from '../interfaces/iabstractcontrollabel';
+import {
+  SACVALIDATIONKEY_SERVICE,
+  SacDefaultValidationKeyService,
+} from '../services';
 import {
   SACCONFIGURATION_SERVICE,
   SacDefaultConfigurationService,
@@ -34,11 +39,6 @@ import { ValidationErrorItem } from '../validation';
 export abstract class SacBaseModelControl<VALUE>
   implements ControlValueAccessor, Validator, OnInit
 {
-  /**
-   * ControlHeight enum for use in HTML markup
-   */
-  ControlHeight: typeof ControlHeight = ControlHeight;
-
   // #region Properties
 
   /**
@@ -142,6 +142,10 @@ export abstract class SacBaseModelControl<VALUE>
   @Input() public name: string = createGuid();
 
   /**
+   * ControlHeight enum for use in HTML markup
+   */
+  public ControlHeight: typeof ControlHeight = ControlHeight;
+  /**
    * Leere Implementation von "propagateChange". Muss gemacht werden, damit kein Fehler entsteht
    */
   public propagateChange: any = () => {};
@@ -149,6 +153,10 @@ export abstract class SacBaseModelControl<VALUE>
    * Leere Implementation von "propagateTouch". Muss gemacht werden, damit kein Fehler entsteht
    */
   public propagateTouch: any = () => {};
+  /**
+   * Service to receive standard validation message keys and texts
+   */
+  public validationKeyService: ISacValidationKeyService;
 
   // #endregion Properties
 
@@ -164,9 +172,13 @@ export abstract class SacBaseModelControl<VALUE>
     private injector: Injector
   ) {
     this.formlayout = formlayout;
+    this.validationKeyService = injector.get(
+      SACVALIDATIONKEY_SERVICE,
+      new SacDefaultValidationKeyService()
+    );
     this.lngResourceService = injector.get(
       SACLOCALISATION_SERVICE,
-      new SacDefaultLocalisationService()
+      new SacDefaultLocalisationService(this.validationKeyService)
     );
 
     this.configurationService = injector.get(

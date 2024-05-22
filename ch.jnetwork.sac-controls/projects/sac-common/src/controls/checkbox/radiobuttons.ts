@@ -13,10 +13,31 @@ export abstract class SacRadiobuttonsCommon
   extends SacBaseModelControl<any>
   implements Validator
 {
+  // #region Properties
+
+  /**
+   * Radio Buttons Content
+   */
+  private contentRadiobuttons: SacRadiobuttonCommon[] = [];
   /**
    * Radio Button Index
    */
   private radioButtonIndex: number = 0;
+
+  /**
+   * Resource Key für Validation Message Required bei Control
+   */
+  @Input() public validationmessagerequired: string =
+    this.validationKeyService.ValidationErrorRequired;
+  /**
+   * Resource Key für Validation Message Required in Validation Summary
+   */
+  @Input() public validationmessagesummaryrequired: string =
+    this.validationKeyService.ValidationErrorSummaryRequired;
+
+  // #endregion Properties
+
+  // #region Constructors
 
   /**
    * Constructor
@@ -27,42 +48,9 @@ export abstract class SacRadiobuttonsCommon
     super(formlayout, injector);
   }
 
-  /**
-   * Resource Key für Validation Message Required bei Control
-   */
-  @Input() validationmessagerequired: string = 'VALIDATION_ERROR_REQUIRED';
-  /**
-   * Resource Key für Validation Message Required in Validation Summary
-   */
-  @Input() validationmessagesummaryrequired: string =
-    'VALIDATION_ERROR_SUMMARY_REQUIRED';
+  // #endregion Constructors
 
-  //#region Sub Control registration
-
-  /**
-   * Radio Buttons Content
-   */
-  private contentRadiobuttons: SacRadiobuttonCommon[] = [];
-
-  /**
-   * Erstellung des RadioButton
-   */
-  public RegisterRadioButton(radioButton: SacRadiobuttonCommon) {
-    this.contentRadiobuttons.push(radioButton);
-  }
-
-  /**
-   * Löschen des Radio Button
-   */
-  public UnregisterRadioButton(radioButton: SacRadiobuttonCommon) {
-    const index: number = this.contentRadiobuttons.indexOf(radioButton);
-
-    if (index >= 0) {
-      this.contentRadiobuttons.splice(index, 1);
-    }
-  }
-
-  //#endregion
+  // #region Public Methods
 
   /**
    * GEtter für Radio Button Index
@@ -70,33 +58,6 @@ export abstract class SacRadiobuttonsCommon
   public GetRadionButtonIndex(): number {
     this.radioButtonIndex++;
     return this.radioButtonIndex;
-  }
-
-  //#region ngModel Implementation
-
-  /**
-   * Wert schreiben
-   */
-  writeValue(value: any) {
-    super.writeValue(value);
-    if (value !== null && value !== undefined) {
-      this.contentRadiobuttons.forEach((itm) => {
-        itm.checked = itm.value === value;
-      });
-    }
-  }
-
-  //#endregion
-
-  /**
-   * Item selektieren
-   */
-  public SelectItem(value: any) {
-    this.contentRadiobuttons.forEach((itm) => {
-      itm.checked = itm.value === value;
-    });
-
-    this.value = value;
   }
 
   /**
@@ -113,9 +74,38 @@ export abstract class SacRadiobuttonsCommon
   }
 
   /**
+   * Erstellung des RadioButton
+   */
+  public RegisterRadioButton(radioButton: SacRadiobuttonCommon) {
+    this.contentRadiobuttons.push(radioButton);
+  }
+
+  /**
+   * Item selektieren
+   */
+  public SelectItem(value: any) {
+    this.contentRadiobuttons.forEach((itm) => {
+      itm.checked = itm.value === value;
+    });
+
+    this.value = value;
+  }
+
+  /**
+   * Löschen des Radio Button
+   */
+  public UnregisterRadioButton(radioButton: SacRadiobuttonCommon) {
+    const index: number = this.contentRadiobuttons.indexOf(radioButton);
+
+    if (index >= 0) {
+      this.contentRadiobuttons.splice(index, 1);
+    }
+  }
+
+  /**
    * Validator
    */
-  validateData(c: AbstractControl): ValidationErrors {
+  public validateData(c: AbstractControl): ValidationErrors {
     if (!this.HasCheckedItem()) {
       return Validation.GetValidationErrorItem(
         'required',
@@ -127,4 +117,18 @@ export abstract class SacRadiobuttonsCommon
       return null;
     }
   }
+
+  /**
+   * Wert schreiben
+   */
+  public writeValue(value: any) {
+    super.writeValue(value);
+    if (value !== null && value !== undefined) {
+      this.contentRadiobuttons.forEach((itm) => {
+        itm.checked = itm.value === value;
+      });
+    }
+  }
+
+  // #endregion Public Methods
 }

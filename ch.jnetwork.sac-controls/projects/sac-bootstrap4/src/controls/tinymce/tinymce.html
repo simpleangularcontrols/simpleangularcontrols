@@ -34,7 +34,7 @@
   [allowesc]="false"
   [backdrop]="true"
   [(isvisible)]="selectdialogvisible"
-  title="{{ lngResourceService.GetString('TINYMCE_FILESELECT_DIALOGTITLE') | async }}"
+  title="{{ lngResourceService.GetString(validationKeyService.TinyMceFileselectDialogtitle) | async }}"
   size="large"
   height="500px"
 >
@@ -56,12 +56,12 @@
     <sac-button
       role="primary"
       [name]="name + '_modalOk'"
-      text="{{ lngResourceService.GetString('TINYMCE_FILESELECT_OK') | async }}"
+      text="{{ lngResourceService.GetString(validationKeyService.TinyMceFileselectOk) | async }}"
       (clicked)="setSelectDialogResult()"
     ></sac-button>
     <sac-button
       [name]="name + '_modalClose'"
-      text="{{ lngResourceService.GetString('TINYMCE_FILESELECT_CANCEL') | async }}"
+      text="{{ lngResourceService.GetString(validationKeyService.TinyMceFileselectCancel) | async }}"
       (clicked)="closeSelectDialog()"
     ></sac-button>
   </ng-container>

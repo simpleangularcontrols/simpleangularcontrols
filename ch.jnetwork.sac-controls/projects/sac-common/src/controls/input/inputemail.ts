@@ -8,20 +8,27 @@ import { SacInputCommon } from './input';
  */
 @Directive()
 export class SacInputEmailCommon extends SacInputCommon {
+  // #region Properties
+
   /**
    * Resource Key für Validation Message Email bei Control
    */
-  @Input() validationmessageemail: string = 'VALIDATION_ERROR_EMAIL';
+  @Input() public validationmessageemail: string =
+    this.validationKeyService.ValidationErrorEmail;
   /**
    * Resource Key für Validation Message Email in Validation Summary
    */
-  @Input() validationmessagesummaryemail: string =
-    'VALIDATION_ERROR_SUMMARY_EMAIL';
+  @Input() public validationmessagesummaryemail: string =
+    this.validationKeyService.ValidationErrorSummaryEmail;
+
+  // #endregion Properties
+
+  // #region Public Methods
 
   /**
    * Methode validiert, ob der Wert den gegebenen Kriteriten entspricht
    */
-  validateData(c: AbstractControl): ValidationErrors | null {
+  public validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = super.validateData(c);
 
     if (error === null) {
@@ -33,4 +40,6 @@ export class SacInputEmailCommon extends SacInputCommon {
 
     return error;
   }
+
+  // #endregion Public Methods
 }

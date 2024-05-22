@@ -3,6 +3,7 @@ import {
   Component,
   ContentChild,
   forwardRef,
+  Injector,
   TemplateRef,
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -34,22 +35,30 @@ import { NgTemplateOutlet, NgFor, NgIf } from '@angular/common';
     ],
 })
 export class SacGridComponent extends SacGridCommon {
+  // #region Properties
+
   /**
    * Referenz auf Column Template
    */
   @ContentChild(TemplateRef, { static: false })
-  template: TemplateRef<any>;
+  public template: TemplateRef<any>;
 
   /**
    * Setzt die Ellipsis Funktion auf der Column
    */
-  ellipsis: boolean = false;
+  public ellipsis: boolean = false;
+
+  // #endregion Properties
+
+  // #region Constructors
 
   /**
    * Konstrukor
    * @param cdRef Change Detection Reference
    */
-  constructor(cdRef: ChangeDetectorRef) {
-    super(cdRef);
+  constructor(cdRef: ChangeDetectorRef, injector: Injector) {
+    super(cdRef, injector);
   }
+
+  // #endregion Constructors
 }

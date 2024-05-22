@@ -3,8 +3,9 @@ import {
   ChangeDetectorRef,
   Component,
   ContentChild,
-  TemplateRef,
   forwardRef,
+  Injector,
+  TemplateRef,
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacGridCommon } from '@simpleangularcontrols/sac-common';
@@ -50,8 +51,8 @@ export class SacGridComponent extends SacGridCommon {
    * Konstrukor
    * @param cdRef Change Detection Reference
    */
-  constructor(cdRef: ChangeDetectorRef) {
-    super(cdRef);
+  constructor(cdRef: ChangeDetectorRef, injector: Injector) {
+    super(cdRef, injector);
   }
 
   // #endregion Constructors

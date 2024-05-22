@@ -26,32 +26,32 @@ export class SacInputDecimalCommon extends SacInputBase<number> {
    * Resource Key für Validation Message MaxValue bei Control
    */
   @Input() public validationmessagemaxvalue: string =
-    'VALIDATION_ERROR_MAXVALUE';
+    this.validationKeyService.ValidationErrorMaxValue;
   /**
    * Resource Key für Validation Message MinValue bei Control
    */
   @Input() public validationmessageminvalue: string =
-    'VALIDATION_ERROR_MINVALUE';
+    this.validationKeyService.ValidationErrorMinValue;
   /**
    * Resource Key für Validation Message Required bei Control
    */
   @Input() public validationmessagerequired: string =
-    'VALIDATION_ERROR_REQUIRED';
+    this.validationKeyService.ValidationErrorRequired;
   /**
    * Resource Key für Validation Message MaxValue in Validation Summary
    */
   @Input() public validationmessagesummarymaxvalue: string =
-    'VALIDATION_ERROR_SUMMARY_MAXVALUE';
+    this.validationKeyService.ValidationErrorSummaryMaxValue;
   /**
    * Resource Key für Validation Message MinValue in Validation Summary
    */
   @Input() public validationmessagesummaryminvalue: string =
-    'VALIDATION_ERROR_SUMMARY_MINVALUE';
+    this.validationKeyService.ValidationErrorSummaryMinValue;
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
   @Input() public validationmessagesummaryrequired: string =
-    'VALIDATION_ERROR_SUMMARY_REQUIRED';
+    this.validationKeyService.ValidationErrorRequired;
 
   // #endregion Properties
 

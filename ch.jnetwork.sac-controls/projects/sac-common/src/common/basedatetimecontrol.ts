@@ -37,22 +37,22 @@ export abstract class SacBaseDateTimeControl
    * Resource Key für Validation Message DateTimeFormat bei Control
    */
   @Input() public validationmessagedatetimeformat: string =
-    'VALIDATION_ERROR_DATETIMEFORMAT';
+    this.validationKeyService.ValidationErrorDatetimeFormat;
   /**
    * Resource Key für Validation Message DateTimeFormat in Validation Summary
    */
   @Input() public validationmessagedatetimeformatsummary: string =
-    'VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT';
+    this.validationKeyService.ValidationErrorSummaryDatetimeFormat;
   /**
    * Resource Key für Validation Message Required bei Control
    */
   @Input() public validationmessagerequired: string =
-    'VALIDATION_ERROR_REQUIRED';
+    this.validationKeyService.ValidationErrorRequired;
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
   @Input() public validationmessagerequiredsummary: string =
-    'VALIDATION_ERROR_SUMMARY_REQUIRED';
+    this.validationKeyService.ValidationErrorSummaryRequired;
 
   // #endregion Properties
 

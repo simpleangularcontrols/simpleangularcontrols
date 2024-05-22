@@ -10,7 +10,11 @@ import {
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { SacBaseModelControl } from '../../common/basemodelcontrol';
 import { ISacLocalisationService } from '../../interfaces/ISacLocalisationService';
-import { SACLOCALISATION_SERVICE } from '../../services';
+import {
+  SACLOCALISATION_SERVICE,
+  SACVALIDATIONKEY_SERVICE,
+  SacDefaultValidationKeyService,
+} from '../../services';
 import { SacDefaultLocalisationService } from '../../services/sac-localisation.service';
 import { Validation } from '../../validation';
 import { SacFormLayoutCommon } from '../layout/formlayout';
@@ -102,13 +106,13 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
    * Resource Key für Validation Message Required bei Control
    */
   @Input() public validationmessagerequired: string =
-    'VALIDATION_ERROR_REQUIRED';
+    this.validationKeyService.ValidationErrorRequired;
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
   @Input()
   public validationmessagesummaryrequired: string =
-    'VALIDATION_ERROR_SUMMARY_REQUIRED';
+    this.validationKeyService.ValidationErrorSummaryRequired;
   /**
    * Event wenn Save Action in TinyMCE ausgelöst wird
    */
@@ -153,9 +157,14 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
   ) {
     super(formlayout, injector);
 
+    this.validationKeyService = injector.get(
+      SACVALIDATIONKEY_SERVICE,
+      new SacDefaultValidationKeyService()
+    );
+
     this.lngResourceService = injector.get(
       SACLOCALISATION_SERVICE,
-      new SacDefaultLocalisationService()
+      new SacDefaultLocalisationService(this.validationKeyService)
     );
 
     this.config = {};

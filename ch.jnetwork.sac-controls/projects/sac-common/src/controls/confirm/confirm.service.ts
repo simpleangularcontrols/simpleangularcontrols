@@ -7,12 +7,15 @@ import {
 } from '@angular/core';
 import { ISacIconService } from '../../interfaces/ISacIconService';
 import { ISacLocalisationService } from '../../interfaces/ISacLocalisationService';
+import { ISacValidationKeyService } from '../../interfaces/ISacValidationKeyService';
 import { IConfirmComponent } from '../../interfaces/iconfirmcomponent';
 import {
   SACICON_SERVICE,
   SACLOCALISATION_SERVICE,
+  SACVALIDATIONKEY_SERVICE,
   SacDefaultIconService,
   SacDefaultLocalisationService,
+  SacDefaultValidationKeyService,
 } from '../../services';
 
 /**
@@ -33,6 +36,10 @@ export abstract class ServiceConfirmCommon {
    * service for tranlsate default text
    */
   protected localisationService: ISacLocalisationService;
+  /**
+   * Service to receive standard validation message keys and texts
+   */
+  protected validationKeyService: ISacValidationKeyService;
 
   // #endregion Properties
 
@@ -44,9 +51,13 @@ export abstract class ServiceConfirmCommon {
    * @param injector Injector um die Instanz zu erzeuge
    */
   constructor(private appRef: ApplicationRef, private injector: Injector) {
+    this.validationKeyService = injector.get(
+      SACVALIDATIONKEY_SERVICE,
+      new SacDefaultValidationKeyService()
+    );
     this.localisationService = injector.get(
       SACLOCALISATION_SERVICE,
-      new SacDefaultLocalisationService()
+      new SacDefaultLocalisationService(this.validationKeyService)
     );
 
     this.iconService = injector.get(

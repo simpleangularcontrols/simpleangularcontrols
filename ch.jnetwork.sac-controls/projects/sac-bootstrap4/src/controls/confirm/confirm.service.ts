@@ -88,8 +88,12 @@ export class ServiceConfirm extends ServiceConfirmCommon {
       this.buttons = [];
 
       forkJoin({
-        button_yes: this.localisationService.GetString('CONFIRM_BUTTON_YES'),
-        button_no: this.localisationService.GetString('CONFIRM_BUTTON_NO'),
+        button_yes: this.localisationService.GetString(
+          this.validationKeyService.ConfirmDefaultButtonYes
+        ),
+        button_no: this.localisationService.GetString(
+          this.validationKeyService.ConfirmDefaultButtonNo
+        ),
       })
         .pipe(take(1))
         .subscribe((texte) => {

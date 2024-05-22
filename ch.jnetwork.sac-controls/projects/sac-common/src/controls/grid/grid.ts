@@ -1,4 +1,17 @@
-import { ChangeDetectorRef, Directive, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Directive,
+  EventEmitter,
+  Injector,
+  Input,
+  Output,
+  TemplateRef,
+} from '@angular/core';
+import { ISacValidationKeyService } from '../../interfaces/ISacValidationKeyService';
+import {
+  SACVALIDATIONKEY_SERVICE,
+  SacDefaultValidationKeyService,
+} from '../../services';
 import { PagerData, PagerRequest, SortDescriptor, SortOrder } from './model';
 
 /**
@@ -6,33 +19,16 @@ import { PagerData, PagerRequest, SortDescriptor, SortOrder } from './model';
  */
 @Directive()
 export abstract class SacGridCommon {
-
-  /**
-   * Konstruktor
-   * @param cd Change Detection Service
-   */
-  constructor(private cd: ChangeDetectorRef) { }
-
-  /**
-   * Private Property. Enthielt die Column Menge. Type: number. Default ist 0
-   */
-  public ColumnCount: number = 0;
-
-  /**
-   * Protected Property. Enthielt Array of Pages. Default value: empty array []
-   */
-  protected paginators: Array<any> = [];
+  // #region Properties
 
   /**
    * Protected Property. Enthielt die Nummer der aktiven Seite. Type: number. Default ist 1
    */
   protected activePage: number = 1;
-
   /**
    * Protected Property. Enthielt die Nummer der ersten angezeigtenen Seite in Pager. Type: number. Default ist 1
    */
   protected firstPageNumber: number = 1;
-
   // protected firstVisibleIndex: number = 1;
   // protected lastVisibleIndex;
 
@@ -40,15 +36,33 @@ export abstract class SacGridCommon {
    * Protected Property. Enthielt die Nummer der letzen Seite in Pager. Type: number. Default ist undefined/null
    */
   protected lastPageNumber: number;
-
-  //#region Input and Outputs
+  /**
+   * Protected Property. Enthielt Array of Pages. Default value: empty array []
+   */
+  protected paginators: Array<any> = [];
 
   /**
-   * Grid Daten
+   * Input property für body. Type: TemplateRef<any>.
+   */
+  @Input() public body: TemplateRef<any>;
+  /**
+   * Text welcher angezeigt wird, wenn keine Rows verfügbar sind.
    */
   @Input()
-  public value: any;
-
+  public emptytext: string;
+  /**
+   * Input property für headers. Type: TemplateRef<any>.
+   */
+  @Input() public headers: TemplateRef<any>;
+  /**
+   * Input property für die maximalle Seiten die sichtbar sind. Type: number.
+   */
+  @Input() public maxvisiblepagenumbers: number;
+  /**
+   * Input property für Name.
+   */
+  @Input()
+  public name: string;
   /**
    * Pager Settings
    *
@@ -56,19 +70,23 @@ export abstract class SacGridCommon {
    */
   @Input()
   public pagerdata: PagerData;
-
   /**
-   * Input property für Name.
+   * Deaktiviert die Auswahl der PageSize im Pager
    */
   @Input()
-  public name: string;
-
+  public pagesizedisabled: boolean = false;
   /**
-   * Text welcher angezeigt wird, wenn keine Rows verfügbar sind.
+   * Definiert die Anzahl der Elemente pro Seite die ausgewählt werden können
    */
   @Input()
-  public emptytext: string;
-
+  public pagesizes: string = '20|50|100';
+  /**
+   * Text in Page für Anzahl Seitenelemente pro Seite
+   * Folgende Interpolation Texte sind vorhanden:
+   * {{PAGESIZE}}: Anzahl Elemente pro Seite
+   */
+  @Input()
+  public pagesizetext: string;
   /**
    * Text in Pager für 'Seite x von y'.
    * Folgende Interpolation Texte sind vorhanden:
@@ -76,72 +94,74 @@ export abstract class SacGridCommon {
    * {{TOTALPAGES}}: Anzahl Seiten
    */
   @Input()
-  public pagingtext: string = 'PAGING_PAGEOFTEXT';
-
+  public pagingtext: string;
   /**
-   * Text in Page für Anzahl Seitenelemente pro Seite
-   * Folgende Interpolation Texte sind vorhanden:
-   * {{PAGESIZE}}: Anzahl Elemente pro Seite
+   * Grid Daten
    */
   @Input()
-  public pagesizetext: string = 'PAGING_PAGEENTRIESTEXT';
-
-  /**
-   * Definiert die Anzahl der Elemente pro Seite die ausgewählt werden können
-   */
-  @Input()
-  public pagesizes: string = '20|50|100';
-
-  /**
-   * Deaktiviert die Auswahl der PageSize im Pager
-   */
-  @Input()
-  public pagesizedisabled: boolean = false;
-
-  /**
-   * Input property für die maximalle Seiten die sichtbar sind. Type: number.
-   */
-  @Input() maxvisiblepagenumbers: number;
-
-  /**
-   * Input property für headers. Type: TemplateRef<any>.
-   */
-  @Input() headers: TemplateRef<any>;
-
-  /**
-   * Input property für body. Type: TemplateRef<any>.
-   */
-  @Input() body: TemplateRef<any>;
-
+  public value: any;
   /**
    * Output EventEmitter. Wird aufgerufen wenn das Pager geklickt ist.
    */
-  @Output() paging: EventEmitter<PagerRequest> = new EventEmitter<PagerRequest>();
-
+  @Output() public paging: EventEmitter<PagerRequest> =
+    new EventEmitter<PagerRequest>();
   /**
    * Output EventEmitter. Wird aufgerufen wenn ein Header geklickt ist, damit das Column soritert wird.
    */
-  @Output() sorting: EventEmitter<SortDescriptor> = new EventEmitter<SortDescriptor>();
-
-  //#endregion
+  @Output() public sorting: EventEmitter<SortDescriptor> =
+    new EventEmitter<SortDescriptor>();
 
   /**
-   * Aktuelle Sortierung
+   * Private Property. Enthielt die Column Menge. Type: number. Default ist 0
    */
-  public sortDirection: SortOrder = SortOrder.None;
-
+  public ColumnCount: number = 0;
   /**
    * Aktuell Sortierte Spalte
    */
   public sortColumn: string = '';
+  /**
+   * Aktuelle Sortierung
+   */
+  public sortDirection: SortOrder = SortOrder.None;
+  public validationKeyService: ISacValidationKeyService;
+
+  // #endregion Properties
+
+  // #region Constructors
 
   /**
-   * Setzt die neue Seite
-   * @param newStartIndex Neuer Seiten Index (Zero-Based)
+   * Konstruktor
+   * @param cd Change Detection Service
+   * @param injector DI Injector
    */
-  pageChange(newStartIndex) {
-    this.paging.emit(newStartIndex);
+  constructor(private cd: ChangeDetectorRef, injector: Injector) {
+    this.validationKeyService = injector.get(
+      SACVALIDATIONKEY_SERVICE,
+      new SacDefaultValidationKeyService()
+    );
+
+    // Set Default Values from Injector
+    this.pagesizetext = this.validationKeyService.PagingEntries;
+    this.pagingtext = this.validationKeyService.PagingPageOf;
   }
+
+  // #endregion Constructors
+
+  // #region Public Getters And Setters
+
+  /**
+   * Model für Sortierung
+   * @param sortDescription Settings für aktuelle sortierung
+   */
+  @Input()
+  public set sortdata(sortDescription: SortDescriptor) {
+    this.sortColumn = sortDescription.SortColumn;
+    this.sortDirection = sortDescription.SortOrder;
+  }
+
+  // #endregion Public Getters And Setters
+
+  // #region Public Methods
 
   /**
    * Die Methode erhöht die Column-Stücke um eins
@@ -153,20 +173,12 @@ export abstract class SacGridCommon {
   }
 
   /**
-   * Die Methode verringert die Column-Stücke um eins
-   */
-  public UnregisterColumn() {
-    this.ColumnCount--;
-  }
-
-  /**
    * Die Methode deffiniert das Sortierung Flow
    */
   public SortBy(command) {
     let direction: SortOrder;
 
     if (command === this.sortColumn) {
-
       switch (this.sortDirection) {
         case SortOrder.None:
         case SortOrder.Descending:
@@ -176,7 +188,6 @@ export abstract class SacGridCommon {
           direction = SortOrder.Descending;
           break;
       }
-
     } else {
       direction = SortOrder.Ascending;
     }
@@ -189,12 +200,19 @@ export abstract class SacGridCommon {
   }
 
   /**
-   * Model für Sortierung
-   * @param sortDescription Settings für aktuelle sortierung
+   * Die Methode verringert die Column-Stücke um eins
    */
-  @Input()
-  public set sortdata(sortDescription: SortDescriptor) {
-    this.sortColumn = sortDescription.SortColumn;
-    this.sortDirection = sortDescription.SortOrder;
+  public UnregisterColumn() {
+    this.ColumnCount--;
   }
+
+  /**
+   * Setzt die neue Seite
+   * @param newStartIndex Neuer Seiten Index (Zero-Based)
+   */
+  public pageChange(newStartIndex) {
+    this.paging.emit(newStartIndex);
+  }
+
+  // #endregion Public Methods
 }

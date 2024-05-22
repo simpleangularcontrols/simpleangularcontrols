@@ -1,4 +1,9 @@
-<sac-dialog [(isvisible)]="isvisible" [title]="title" [allowesc]="false" [closebutton]="false">
+<sac-dialog
+  [(isvisible)]="isvisible"
+  [title]="title"
+  [allowesc]="false"
+  [closebutton]="false"
+>
   <div dialogbody>
     <div class="media">
       <div class="media-left media-middle" *ngIf="hasImage()">
@@ -9,7 +14,13 @@
   </div>
   <div dialogfooter>
     <ng-container *ngFor="let button of buttons">
-      <sac-button [name]="button.key" [text]="button.text" (clicked)="confirm(button.key)" style="margin-left: 15px;"></sac-button>
+      <sac-button
+        [name]="button.key"
+        [text]="button.text"
+        [role]="button.role"
+        (clicked)="confirm(button.key)"
+        style="margin-left: 15px"
+      ></sac-button>
     </ng-container>
   </div>
 </sac-dialog>

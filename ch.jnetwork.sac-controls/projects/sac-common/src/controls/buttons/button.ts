@@ -1,52 +1,52 @@
-import { EventEmitter, Input, Output, Directive } from '@angular/core';
+import { Directive, EventEmitter, Input, Output } from '@angular/core';
+import { BUTTONROLETYPE } from '../../enums/ButtonRoleType';
 
 /**
  * Base Komponente für das Button
  */
 @Directive()
 export class SacButtonCommon {
+  // #region Properties
 
-  /**
-   * Boolean Property für Error; default Wert - false
-   */
-  hasError = false;
-
-  /**
-   * Input Property für Name; default Wert - ''
-   */
-  @Input() name: string = '';
-  /**
-   * Input Property für Text des Buttons; default Wert - ''
-   */
-  @Input() text: string = '';
-  /**
-   * Input Property für Icon Style Klasse; default Wert - ''
-   */
-  @Input() icon: string = '';
   /**
    * Boolean Property definiert, ob das Button 'disabled' ist; default - false
    */
   private _isdisabledvalue: boolean = false;
+  /**
+   * Das Property definiert die Rolle des Buttons. Standardwert ist 'default'.
+   */
+  private _role: BUTTONROLETYPE = 'default';
+
+  /**
+   * Input Property für Icon Style Klasse; default Wert - ''
+   */
+  @Input() public icon: string = '';
+  /**
+   * Input Property für Name; default Wert - ''
+   */
+  @Input() public name: string = '';
+  /**
+   * Input Property für Text des Buttons; default Wert - ''
+   */
+  @Input() public text: string = '';
+  /**
+   * Output Event Emitter
+   */
+  @Output()
+  public clicked = new EventEmitter();
 
   /**
    * Das boolean property ist benutzt für Aktivation des Spinner des Button. Default ist false.
    */
   public _isloadingvalue: boolean = false;
-
   /**
-   * Das Input property. Definiert der Status des islaoding property. Es ist benutzt für Aktivation des Spinner des Button.
+   * Boolean Property für Error; default Wert - false
    */
-  @Input()
-  set isloading(v: boolean | string) {
-    if (v === null || v === undefined || typeof v === 'boolean') {
-      this._isloadingvalue = v as boolean;
-    } else {
-      this._isloadingvalue = v === 'true';
-    }
-  }
-  get isloading(): boolean | string {
-    return this._isloadingvalue;
-  }
+  public hasError = false;
+
+  // #endregion Properties
+
+  // #region Public Getters And Setters
 
   /**
    * Deaktivieren von Buttons
@@ -54,21 +54,25 @@ export class SacButtonCommon {
    * @return Definiert ob der Button deaktiviert ist
    */
   @Input()
-  set isdisabled(v: boolean | string) {
+  public set isdisabled(v: boolean | string) {
     if (v === null || v === undefined || typeof v === 'boolean') {
       this._isdisabledvalue = v as boolean;
     } else {
       this._isdisabledvalue = v === 'true';
     }
   }
-  get isdisabled(): boolean | string {
-    return this._isdisabledvalue;
-  }
 
   /**
-   * Das Property definiert die Rolle des Buttons. Standardwert ist 'default'.
+   * Das Input property. Definiert der Status des islaoding property. Es ist benutzt für Aktivation des Spinner des Button.
    */
-  private _role: string = 'default';
+  @Input()
+  public set isloading(v: boolean | string) {
+    if (v === null || v === undefined || typeof v === 'boolean') {
+      this._isloadingvalue = v as boolean;
+    } else {
+      this._isloadingvalue = v === 'true';
+    }
+  }
 
   /**
    * Definiert den Style des Buttons
@@ -77,7 +81,7 @@ export class SacButtonCommon {
    * @returns  Type des Buttons
    */
   @Input()
-  set role(v: string) {
+  public set role(v: BUTTONROLETYPE) {
     // Validation of Input
     switch (v) {
       case '':
@@ -104,32 +108,39 @@ export class SacButtonCommon {
   }
 
   /**
-   * Die Methode returns die definierte Style-Rolle des Buttons
-   */
-  get role(): string {
-    return this._role;
-  }
-
-  /**
    * Getter Methode. Ergibt boolean Wert. Definiert, ob das Button desabled ist.
    */
-  get _isdisabled(): boolean {
+  public get _isdisabled(): boolean {
     return this._isdisabledvalue;
   }
 
+  public get isdisabled(): boolean | string {
+    return this._isdisabledvalue;
+  }
+
+  public get isloading(): boolean | string {
+    return this._isloadingvalue;
+  }
+
   /**
-   * Output Event Emitter
+   * Die Methode returns die definierte Style-Rolle des Buttons
    */
-  @Output()
-  clicked = new EventEmitter();
+  public get role(): BUTTONROLETYPE {
+    return this._role;
+  }
+
+  // #endregion Public Getters And Setters
+
+  // #region Public Methods
 
   /**
    * Die Methode wird ein Event aufrufen, wenn das Button geklickt wird UND das Button nicht disabled ODER isloading ist.
    */
-  buttonClick() {
+  public buttonClick() {
     if (this._isdisabled === false && this._isloadingvalue === false) {
       this.clicked.emit();
     }
   }
 
+  // #endregion Public Methods
 }

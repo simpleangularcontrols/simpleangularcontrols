@@ -3,11 +3,7 @@ import { Observable } from 'rxjs';
 import { ISacLocalisationService } from '../interfaces/ISacLocalisationService';
 import { Interpolation } from '../utilities/interpolation';
 
-/**
- * injection token for localisation service
- */
-export const SACLOCALISATION_SERVICE =
-  new InjectionToken<SacAbstractLocalisationService>('SacLocalisationService');
+// #region Classes
 
 /**
  * abstract class for localisation in components
@@ -16,67 +12,41 @@ export const SACLOCALISATION_SERVICE =
 export abstract class SacAbstractLocalisationService
   implements ISacLocalisationService
 {
-  /**
-   * Die Methode übersetzt den eingegebenen Wort/Begriff. Verlangt key und optionell params
-   */
-  abstract GetString(key: string, params?: any): Observable<string>;
+  // #region Protected Abstract Getters And Setters
 
-  //#region Required Resources
-
-  protected abstract get VALIDATION_ERROR_REQUIRED(): Map<string, string>;
-  protected abstract get VALIDATION_ERROR_SUMMARY_REQUIRED(): Map<
+  protected abstract get CONFIRM_BUTTON_NO(): Map<string, string>;
+  protected abstract get CONFIRM_BUTTON_YES(): Map<string, string>;
+  protected abstract get FILEBROWSER_CONFIRM_DELETEFILE(): Map<string, string>;
+  protected abstract get FILEBROWSER_CONFIRM_DELETEFOLDER(): Map<
     string,
     string
   >;
-  protected abstract get VALIDATION_ERROR_MINVALUE(): Map<string, string>;
-  protected abstract get VALIDATION_ERROR_SUMMARY_MINVALUE(): Map<
-    string,
-    string
-  >;
-  protected abstract get VALIDATION_ERROR_PATTERN(): Map<string, string>;
-  protected abstract get VALIDATION_ERROR_SUMMARY_PATTERN(): Map<
-    string,
-    string
-  >;
-  protected abstract get VALIDATION_ERROR_MAXVALUE(): Map<string, string>;
-  protected abstract get VALIDATION_ERROR_SUMMARY_MAXVALUE(): Map<
-    string,
-    string
-  >;
-  protected abstract get VALIDATION_ERROR_EMAIL(): Map<string, string>;
-  protected abstract get VALIDATION_ERROR_SUMMARY_EMAIL(): Map<string, string>;
-  protected abstract get VALIDATION_ERROR_MINLENGTH(): Map<string, string>;
-  protected abstract get VALIDATION_ERROR_SUMMARY_MINLENGTH(): Map<
-    string,
-    string
-  >;
-  protected abstract get VALIDATION_ERROR_MINDATE(): Map<string, string>;
-  protected abstract get VALIDATION_ERROR_SUMMARY_MINDATE(): Map<
-    string,
-    string
-  >;
-  protected abstract get VALIDATION_ERROR_MAXDATE(): Map<string, string>;
-  protected abstract get VALIDATION_ERROR_SUMMARY_MAXDATE(): Map<
-    string,
-    string
-  >;
-  protected abstract get VALIDATION_ERROR_MINTIME(): Map<string, string>;
-  protected abstract get VALIDATION_ERROR_SUMMARY_MINTIME(): Map<
-    string,
-    string
-  >;
-  protected abstract get VALIDATION_ERROR_MAXTIME(): Map<string, string>;
-  protected abstract get VALIDATION_ERROR_SUMMARY_MAXTIME(): Map<
-    string,
-    string
-  >;
+  protected abstract get FILEBROWSER_DELETE(): Map<string, string>;
+  protected abstract get FILEBROWSER_GRID_FILE(): Map<string, string>;
+  protected abstract get FILEBROWSER_GRID_SIZE(): Map<string, string>;
+  protected abstract get FILEBROWSER_NEWFOLDER(): Map<string, string>;
+  protected abstract get FILEBROWSER_NO_FILES(): Map<string, string>;
+  protected abstract get FILEBROWSER_REFRESH(): Map<string, string>;
+  protected abstract get FILEBROWSER_UPLOAD(): Map<string, string>;
+  protected abstract get PAGING_PAGEENTRIESTEXT(): Map<string, string>;
+  protected abstract get PAGING_PAGEOFTEXT(): Map<string, string>;
+  protected abstract get TINYMCE_FILESELECT_CANCEL(): Map<string, string>;
+  protected abstract get TINYMCE_FILESELECT_DIALOGTITLE(): Map<string, string>;
+  protected abstract get TINYMCE_FILESELECT_OK(): Map<string, string>;
+  protected abstract get UPLOAD_BUTTON_BROWSE(): Map<string, string>;
+  protected abstract get UPLOAD_BUTTON_UPLOAD(): Map<string, string>;
+  protected abstract get UPLOAD_NO_FILE_SELECTED(): Map<string, string>;
   protected abstract get VALIDATION_ERROR_DATETIMEFORMAT(): Map<string, string>;
-  protected abstract get VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT(): Map<
-    string,
-    string
-  >;
+  protected abstract get VALIDATION_ERROR_EMAIL(): Map<string, string>;
   protected abstract get VALIDATION_ERROR_FILESMIN(): Map<string, string>;
-  protected abstract get VALIDATION_ERROR_SUMMARY_FILESMIN(): Map<
+  protected abstract get VALIDATION_ERROR_MAXDATE(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_MAXTIME(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_MAXVALUE(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_MINDATE(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_MINLENGTH(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_MINTIME(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_MINVALUE(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_MULTILANGUAGEREQUIRED(): Map<
     string,
     string
   >;
@@ -84,11 +54,42 @@ export abstract class SacAbstractLocalisationService
     string,
     string
   >;
-  protected abstract get VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY(): Map<
+  protected abstract get VALIDATION_ERROR_PATTERN(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_REQUIRED(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT(): Map<
     string,
     string
   >;
-  protected abstract get VALIDATION_ERROR_MULTILANGUAGEREQUIRED(): Map<
+  protected abstract get VALIDATION_ERROR_SUMMARY_EMAIL(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_SUMMARY_FILESMIN(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_SUMMARY_MAXDATE(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_SUMMARY_MAXTIME(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_SUMMARY_MAXVALUE(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_SUMMARY_MINDATE(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_SUMMARY_MINLENGTH(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_SUMMARY_MINTIME(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_SUMMARY_MINVALUE(): Map<
     string,
     string
   >;
@@ -96,32 +97,29 @@ export abstract class SacAbstractLocalisationService
     string,
     string
   >;
-
-  protected abstract get PAGING_PAGEOFTEXT(): Map<string, string>;
-  protected abstract get PAGING_PAGEENTRIESTEXT(): Map<string, string>;
-
-  protected abstract get UPLOAD_NO_FILE_SELECTED(): Map<string, string>;
-  protected abstract get UPLOAD_BUTTON_UPLOAD(): Map<string, string>;
-  protected abstract get UPLOAD_BUTTON_BROWSE(): Map<string, string>;
-
-  protected abstract get TINYMCE_FILESELECT_OK(): Map<string, string>;
-  protected abstract get TINYMCE_FILESELECT_CANCEL(): Map<string, string>;
-  protected abstract get TINYMCE_FILESELECT_DIALOGTITLE(): Map<string, string>;
-
-  protected abstract get FILEBROWSER_NO_FILES(): Map<string, string>;
-  protected abstract get FILEBROWSER_GRID_FILE(): Map<string, string>;
-  protected abstract get FILEBROWSER_GRID_SIZE(): Map<string, string>;
-  protected abstract get FILEBROWSER_UPLOAD(): Map<string, string>;
-  protected abstract get FILEBROWSER_NEWFOLDER(): Map<string, string>;
-  protected abstract get FILEBROWSER_REFRESH(): Map<string, string>;
-  protected abstract get FILEBROWSER_DELETE(): Map<string, string>;
-  protected abstract get FILEBROWSER_CONFIRM_DELETEFOLDER(): Map<
+  protected abstract get VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY(): Map<
     string,
     string
   >;
-  protected abstract get FILEBROWSER_CONFIRM_DELETEFILE(): Map<string, string>;
+  protected abstract get VALIDATION_ERROR_SUMMARY_PATTERN(): Map<
+    string,
+    string
+  >;
+  protected abstract get VALIDATION_ERROR_SUMMARY_REQUIRED(): Map<
+    string,
+    string
+  >;
 
-  //#endregion
+  // #endregion Protected Abstract Getters And Setters
+
+  // #region Public Abstract Methods
+
+  /**
+   * Die Methode übersetzt den eingegebenen Wort/Begriff. Verlangt key und optionell params
+   */
+  public abstract GetString(key: string, params?: any): Observable<string>;
+
+  // #endregion Public Abstract Methods
 }
 
 /**
@@ -129,13 +127,19 @@ export abstract class SacAbstractLocalisationService
  * */
 @Injectable({ providedIn: 'root' })
 export class SacDefaultLocalisationService extends SacAbstractLocalisationService {
+  // #region Properties
+
   /**
    * Language Resources für Controls Library
    */
-  data: Map<string, Map<string, string>> = new Map<
+  public data: Map<string, Map<string, string>> = new Map<
     string,
     Map<string, string>
   >();
+
+  // #endregion Properties
+
+  // #region Constructors
 
   /**
    * Konstruktor
@@ -334,6 +338,14 @@ export class SacDefaultLocalisationService extends SacAbstractLocalisationServic
         this.TINYMCE_FILESELECT_DIALOGTITLE.get('de')
       );
 
+    // Confirm Dialog Component
+    this.data
+      .get('de')
+      .set('CONFIRM_BUTTON_YES', this.CONFIRM_BUTTON_YES.get('de'));
+    this.data
+      .get('de')
+      .set('CONFIRM_BUTTON_NO', this.CONFIRM_BUTTON_NO.get('de'));
+
     // Browser Component
     this.data
       .get('de')
@@ -373,25 +385,269 @@ export class SacDefaultLocalisationService extends SacAbstractLocalisationServic
     this.data.set('en', new Map<string, string>());
   }
 
-  /**
-   * Die Funktion setzt die default Sprache auf DE, falls die Sprach-Setzung nicht möglich ist.
-   */
-  private GetFallbackLanguage(): string {
-    return 'de';
+  // #endregion Constructors
+
+  // #region Protected Getters And Setters
+
+  protected get CONFIRM_BUTTON_NO(): Map<string, string> {
+    return new Map<string, string>([['de', 'Nein 2']]);
   }
 
-  /**
-   * Die Funktion ergibt die ausgewählte Sprache.
-   */
-  private GetLanguage(): string {
-    const language: string = navigator.language;
-
-    if (language.indexOf('-') >= 0) {
-      return language.split('-')[0];
-    } else {
-      return language;
-    }
+  protected get CONFIRM_BUTTON_YES(): Map<string, string> {
+    return new Map<string, string>([['de', 'Ja 2']]);
   }
+
+  protected get FILEBROWSER_CONFIRM_DELETEFILE(): Map<string, string> {
+    return new Map<string, string>([['de', 'Soll die Datei gelöscht werden?']]);
+  }
+
+  protected get FILEBROWSER_CONFIRM_DELETEFOLDER(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Soll der Ordner gelöscht werden?'],
+    ]);
+  }
+
+  protected get FILEBROWSER_DELETE(): Map<string, string> {
+    return new Map<string, string>([['de', 'Löschen']]);
+  }
+
+  protected get FILEBROWSER_GRID_FILE(): Map<string, string> {
+    return new Map<string, string>([['de', 'Dateiname']]);
+  }
+
+  protected get FILEBROWSER_GRID_SIZE(): Map<string, string> {
+    return new Map<string, string>([['de', 'Grösse']]);
+  }
+
+  protected get FILEBROWSER_NEWFOLDER(): Map<string, string> {
+    return new Map<string, string>([['de', 'Neuer Ordner']]);
+  }
+
+  protected get FILEBROWSER_NO_FILES(): Map<string, string> {
+    return new Map<string, string>([['de', 'Keine Dateien vorhanden']]);
+  }
+
+  protected get FILEBROWSER_REFRESH(): Map<string, string> {
+    return new Map<string, string>([['de', 'Aktualisieren']]);
+  }
+
+  protected get FILEBROWSER_UPLOAD(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Legen Sie Dateien hier ab um Sie hochzuladen'],
+    ]);
+  }
+
+  protected get PAGING_PAGEENTRIESTEXT(): Map<string, string> {
+    return new Map<string, string>([['de', 'Einträge pro Seite']]);
+  }
+
+  protected get PAGING_PAGEOFTEXT(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Seite {{CURRENTPAGE}} von {{TOTALPAGES}}'],
+    ]);
+  }
+
+  protected get TINYMCE_FILESELECT_CANCEL(): Map<string, string> {
+    return new Map<string, string>([['de', 'Abbrechen']]);
+  }
+
+  protected get TINYMCE_FILESELECT_DIALOGTITLE(): Map<string, string> {
+    return new Map<string, string>([['de', 'Datei auswählen']]);
+  }
+
+  protected get TINYMCE_FILESELECT_OK(): Map<string, string> {
+    return new Map<string, string>([['de', 'OK']]);
+  }
+
+  protected get UPLOAD_BUTTON_BROWSE(): Map<string, string> {
+    return new Map<string, string>([['de', 'Browse...']]);
+  }
+
+  protected get UPLOAD_BUTTON_UPLOAD(): Map<string, string> {
+    return new Map<string, string>([['de', 'Upload']]);
+  }
+
+  protected get UPLOAD_NO_FILE_SELECTED(): Map<string, string> {
+    return new Map<string, string>([['de', 'Keine Datei ausgewählt']]);
+  }
+
+  protected get VALIDATION_ERROR_DATETIMEFORMAT(): Map<string, string> {
+    return new Map<string, string>([['de', 'Feld ist kein gültiges Datum.']]);
+  }
+
+  protected get VALIDATION_ERROR_EMAIL(): Map<string, string> {
+    return new Map<string, string>([['de', 'Feld ist keine E-Mail Adresse']]);
+  }
+
+  protected get VALIDATION_ERROR_FILESMIN(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Es müssen min. {{MINFILES}} Dateien hochgeladen sein.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_MAXDATE(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld muss älter oder gleich {{MAXDATE}} sein.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_MAXTIME(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld muss älter oder gleich {{MAXTIME}} sein.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_MAXVALUE(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" darf nicht grösser als {{MAXVALUE}} sein.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_MINDATE(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld muss neuer oder gleich {{MINDATE}} sein.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_MINLENGTH(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld erfordert min. {{MINLENGTH}} Zeichen.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_MINTIME(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld muss neuer oder gleich {{MINTIME}} sein.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_MINVALUE(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Wert darf nicht kleiner als {{MINVALUE}} sein.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_MULTILANGUAGEREQUIRED(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Es müssen alle Sprachen erfasst sein.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY(): Map<
+    string,
+    string
+  > {
+    return new Map<string, string>([
+      ['de', 'Es muss min. 1 Sprache erfasst sein.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_PATTERN(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Wert entspricht nicht der Format Vorlage.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_REQUIRED(): Map<string, string> {
+    return new Map<string, string>([['de', 'Feld ist erforderlich.']]);
+  }
+
+  protected get VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" ist kein gültiges Datum.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_SUMMARY_EMAIL(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" ist keine E-Mail Adresse'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_SUMMARY_FILESMIN(): Map<string, string> {
+    return new Map<string, string>([
+      [
+        'de',
+        'Feld "{{FIELD}}" muss min. {{MINFILES}} Dateien hochgeladen haben.',
+      ],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_SUMMARY_MAXDATE(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" muss älter oder gleich {{MAXDATE}} sein.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_SUMMARY_MAXTIME(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" muss älter oder gleich {{MAXTIME}} sein.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_SUMMARY_MAXVALUE(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Wert darf nicht grösser als {{MAXVALUE}} sein.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_SUMMARY_MINDATE(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" muss neuer oder gleich {{MINDATE}} sein.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_SUMMARY_MINLENGTH(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" erfordert min. {{MINLENGTH}} Zeichen.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_SUMMARY_MINTIME(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" muss neuer oder gleich {{MINTIME}} sein.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_SUMMARY_MINVALUE(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" darf nicht kleiner als {{MINVALUE}} sein.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED(): Map<
+    string,
+    string
+  > {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" muss alle Sprachen erfasst haben.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY(): Map<
+    string,
+    string
+  > {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" muss min. 1 Sprache erfasst haben.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_SUMMARY_PATTERN(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" entspricht nicht der Format Vorlage.'],
+    ]);
+  }
+
+  protected get VALIDATION_ERROR_SUMMARY_REQUIRED(): Map<string, string> {
+    return new Map<string, string>([
+      ['de', 'Feld "{{FIELD}}" ist erforderlich.'],
+    ]);
+  }
+
+  // #endregion Protected Getters And Setters
+
+  // #region Public Methods
 
   /**
    * Die Methode ergibt die selecte Sprache (string)  anhand von Key und Params
@@ -431,209 +687,41 @@ export class SacDefaultLocalisationService extends SacAbstractLocalisationServic
     });
   }
 
-  protected get VALIDATION_ERROR_REQUIRED(): Map<string, string> {
-    return new Map<string, string>([['de', 'Feld ist erforderlich.']]);
-  }
-  protected get VALIDATION_ERROR_SUMMARY_REQUIRED(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Feld "{{FIELD}}" ist erforderlich.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_MINVALUE(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Wert darf nicht kleiner als {{MINVALUE}} sein.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_SUMMARY_MINVALUE(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Feld "{{FIELD}}" darf nicht kleiner als {{MINVALUE}} sein.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_PATTERN(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Wert entspricht nicht der Format Vorlage.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_SUMMARY_PATTERN(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Feld "{{FIELD}}" entspricht nicht der Format Vorlage.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_SUMMARY_MAXVALUE(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Wert darf nicht grösser als {{MAXVALUE}} sein.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_MAXVALUE(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Feld "{{FIELD}}" darf nicht grösser als {{MAXVALUE}} sein.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_EMAIL(): Map<string, string> {
-    return new Map<string, string>([['de', 'Feld ist keine E-Mail Adresse']]);
-  }
-  protected get VALIDATION_ERROR_SUMMARY_EMAIL(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Feld "{{FIELD}}" ist keine E-Mail Adresse'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_MINLENGTH(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Feld erfordert min. {{MINLENGTH}} Zeichen.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_SUMMARY_MINLENGTH(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Feld "{{FIELD}}" erfordert min. {{MINLENGTH}} Zeichen.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_MINDATE(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Feld muss neuer oder gleich {{MINDATE}} sein.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_SUMMARY_MINDATE(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Feld "{{FIELD}}" muss neuer oder gleich {{MINDATE}} sein.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_MAXDATE(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Feld muss älter oder gleich {{MAXDATE}} sein.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_SUMMARY_MAXDATE(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Feld "{{FIELD}}" muss älter oder gleich {{MAXDATE}} sein.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_MINTIME(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Feld muss neuer oder gleich {{MINTIME}} sein.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_SUMMARY_MINTIME(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Feld "{{FIELD}}" muss neuer oder gleich {{MINTIME}} sein.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_MAXTIME(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Feld muss älter oder gleich {{MAXTIME}} sein.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_SUMMARY_MAXTIME(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Feld "{{FIELD}}" muss älter oder gleich {{MAXTIME}} sein.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_DATETIMEFORMAT(): Map<string, string> {
-    return new Map<string, string>([['de', 'Feld ist kein gültiges Datum.']]);
-  }
-  protected get VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Feld "{{FIELD}}" ist kein gültiges Datum.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_FILESMIN(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Es müssen min. {{MINFILES}} Dateien hochgeladen sein.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_SUMMARY_FILESMIN(): Map<string, string> {
-    return new Map<string, string>([
-      [
-        'de',
-        'Feld "{{FIELD}}" muss min. {{MINFILES}} Dateien hochgeladen haben.',
-      ],
-    ]);
-  }
-  protected get VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY(): Map<
-    string,
-    string
-  > {
-    return new Map<string, string>([
-      ['de', 'Es muss min. 1 Sprache erfasst sein.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY(): Map<
-    string,
-    string
-  > {
-    return new Map<string, string>([
-      ['de', 'Feld "{{FIELD}}" muss min. 1 Sprache erfasst haben.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_MULTILANGUAGEREQUIRED(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Es müssen alle Sprachen erfasst sein.'],
-    ]);
-  }
-  protected get VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED(): Map<
-    string,
-    string
-  > {
-    return new Map<string, string>([
-      ['de', 'Feld "{{FIELD}}" muss alle Sprachen erfasst haben.'],
-    ]);
+  // #endregion Public Methods
+
+  // #region Private Methods
+
+  /**
+   * Die Funktion setzt die default Sprache auf DE, falls die Sprach-Setzung nicht möglich ist.
+   */
+  private GetFallbackLanguage(): string {
+    return 'de';
   }
 
-  protected get PAGING_PAGEOFTEXT(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Seite {{CURRENTPAGE}} von {{TOTALPAGES}}'],
-    ]);
-  }
-  protected get PAGING_PAGEENTRIESTEXT(): Map<string, string> {
-    return new Map<string, string>([['de', 'Einträge pro Seite']]);
+  /**
+   * Die Funktion ergibt die ausgewählte Sprache.
+   */
+  private GetLanguage(): string {
+    const language: string = navigator.language;
+
+    if (language.indexOf('-') >= 0) {
+      return language.split('-')[0];
+    } else {
+      return language;
+    }
   }
 
-  protected get UPLOAD_NO_FILE_SELECTED(): Map<string, string> {
-    return new Map<string, string>([['de', 'Keine Datei ausgewählt']]);
-  }
-  protected get UPLOAD_BUTTON_UPLOAD(): Map<string, string> {
-    return new Map<string, string>([['de', 'Upload']]);
-  }
-  protected get UPLOAD_BUTTON_BROWSE(): Map<string, string> {
-    return new Map<string, string>([['de', 'Browse...']]);
-  }
-  protected get TINYMCE_FILESELECT_OK(): Map<string, string> {
-    return new Map<string, string>([['de', 'OK']]);
-  }
-  protected get TINYMCE_FILESELECT_CANCEL(): Map<string, string> {
-    return new Map<string, string>([['de', 'Abbrechen']]);
-  }
-  protected get TINYMCE_FILESELECT_DIALOGTITLE(): Map<string, string> {
-    return new Map<string, string>([['de', 'Datei auswählen']]);
-  }
-  protected get FILEBROWSER_NO_FILES(): Map<string, string> {
-    return new Map<string, string>([['de', 'Keine Dateien vorhanden']]);
-  }
-  protected get FILEBROWSER_GRID_FILE(): Map<string, string> {
-    return new Map<string, string>([['de', 'Dateiname']]);
-  }
-  protected get FILEBROWSER_GRID_SIZE(): Map<string, string> {
-    return new Map<string, string>([['de', 'Grösse']]);
-  }
-  protected get FILEBROWSER_UPLOAD(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Legen Sie Dateien hier ab um Sie hochzuladen'],
-    ]);
-  }
-  protected get FILEBROWSER_NEWFOLDER(): Map<string, string> {
-    return new Map<string, string>([['de', 'Neuer Ordner']]);
-  }
-  protected get FILEBROWSER_REFRESH(): Map<string, string> {
-    return new Map<string, string>([['de', 'Aktualisieren']]);
-  }
-  protected get FILEBROWSER_DELETE(): Map<string, string> {
-    return new Map<string, string>([['de', 'Löschen']]);
-  }
-  protected get FILEBROWSER_CONFIRM_DELETEFOLDER(): Map<string, string> {
-    return new Map<string, string>([
-      ['de', 'Soll der Ordner gelöscht werden?'],
-    ]);
-  }
-  protected get FILEBROWSER_CONFIRM_DELETEFILE(): Map<string, string> {
-    return new Map<string, string>([['de', 'Soll die Datei gelöscht werden?']]);
-  }
+  // #endregion Private Methods
 }
+
+// #endregion Classes
+
+// #region Variables
+
+/**
+ * injection token for localisation service
+ */
+export const SACLOCALISATION_SERVICE =
+  new InjectionToken<SacAbstractLocalisationService>('SacLocalisationService');
+
+// #endregion Variables

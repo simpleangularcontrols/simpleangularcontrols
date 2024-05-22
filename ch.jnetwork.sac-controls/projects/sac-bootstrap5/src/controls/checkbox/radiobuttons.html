@@ -2,7 +2,7 @@
   <div
     *ngIf="disablelabel === false"
     class="col-12 pt-0"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'visually-hidden' ]"
   >
     <label
       class="col-form-label"

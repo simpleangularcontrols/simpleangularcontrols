@@ -1,7 +1,7 @@
 <div class="row" [class.g-0]="disablelabel" [class.mb-3]="!stacked">
   <div
     class="col-12"
-    [ngClass]="[!disablelabel && !stacked ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    [ngClass]="[!disablelabel && !stacked ? (this.labelSizes | toLabelWidthCss) : 'visually-hidden' ]"
   >
     <label
       *ngIf="!disablelabel && !stacked"

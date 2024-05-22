@@ -1,14 +1,18 @@
 declare namespace Cypress {
   interface Chainable {
-    shouldNotHaveLabel(): Chainable;
-    shouldHaveLabel(label: string): Chainable;
-    shouldBeValid(tagName?: string): Chainable;
+    // #region Public Methods
+
     shouldBeInvalid(tagName?: string): Chainable;
+    shouldBeValid(tagName?: string): Chainable;
+    shouldHaveLabel(label: string): Chainable;
+    shouldNotHaveLabel(): Chainable;
+
+    // #endregion Public Methods
   }
 }
 
 Cypress.Commands.add('shouldNotHaveLabel', () => {
-  cy.get('label').should('have.class', 'sr-only');
+  cy.get('label').should('have.class', 'visually-hidden');
 });
 
 Cypress.Commands.add('shouldHaveLabel', (label: string) => {

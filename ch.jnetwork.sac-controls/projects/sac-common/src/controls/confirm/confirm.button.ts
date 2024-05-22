@@ -1,24 +1,43 @@
+import { BUTTONROLETYPE } from '../../enums/ButtonRoleType';
+
 /**
- * Klasse für Button Templates in Confirm Button
+ * Class for button templates in Confirm Button
  */
 export class SacConfirmButton {
-  /**
-   * Konstruktor
-   * @param key Key für Button
-   * @param text Text für Button
-   */
-  constructor(key: string = '', text: string = '') {
-    this.key = key;
-    this.text = text;
-  }
+  // #region Properties
 
   /**
-   * Key des Buttons. Wird als Result beim Confirm zurückgegeben
+   * Key of the button. Is returned as a result when confirming
    */
   public key: string = '';
-
   /**
-   * Anzeigetext des Buttons
+   * Layout of the button
+   */
+  public role: BUTTONROLETYPE = 'secondary';
+  /**
+   * Display text of the buttonAnzeigetext des Buttons
    */
   public text: string = '';
+
+  // #endregion Properties
+
+  // #region Constructors
+
+  /**
+   * Konstruktor
+   * @param key Key for button
+   * @param text Text for button
+   * @param role Role type for the button. Default is ‘secondary’
+   */
+  constructor(
+    key: string = '',
+    text: string = '',
+    role: BUTTONROLETYPE = 'secondary'
+  ) {
+    this.key = key;
+    this.text = text;
+    this.role = role;
+  }
+
+  // #endregion Constructors
 }

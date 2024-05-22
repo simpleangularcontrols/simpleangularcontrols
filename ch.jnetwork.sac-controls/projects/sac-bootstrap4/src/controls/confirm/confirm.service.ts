@@ -1,19 +1,20 @@
 import {
-  Injectable,
-  Type,
-  ComponentFactoryResolver,
   ApplicationRef,
-  Injector,
-  Inject,
   ComponentFactory,
+  ComponentFactoryResolver,
+  EventEmitter,
+  Inject,
+  Injectable,
+  Injector,
 } from '@angular/core';
 import {
-  ServiceConfirmCommon,
   SacConfirmButton,
+  ServiceConfirmCommon,
   isDefined,
 } from '@simpleangularcontrols/sac-common';
+import { forkJoin } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { SacConfirmComponent } from './confirm';
-import { EventEmitter } from '@angular/core';
 
 /**
  * Service für Confirm Messages in TypeScript Code
@@ -31,20 +32,24 @@ import { EventEmitter } from '@angular/core';
  */
 @Injectable()
 export class ServiceConfirm extends ServiceConfirmCommon {
-  /**
-   * Titel der im Dialog angezeigt werden soll.
-   */
-  private title: string = '';
-
-  /**
-   * Message die in Dialog angezeigt werden soll.
-   */
-  private message: string = '';
+  // #region Properties
 
   /**
    * Collection von Buttons die angezeigt werden müssen.
    */
   private buttons: SacConfirmButton[] = [];
+  /**
+   * Message die in Dialog angezeigt werden soll.
+   */
+  private message: string = '';
+  /**
+   * Titel der im Dialog angezeigt werden soll.
+   */
+  private title: string = '';
+
+  // #endregion Properties
+
+  // #region Constructors
 
   /**
    * Konstruktor
@@ -61,14 +66,9 @@ export class ServiceConfirm extends ServiceConfirmCommon {
     super(appRef, injector);
   }
 
-  /**
-   * Erzeugen einer Component Factory für einen Dialog
-   */
-  public GetComponentFactory(): ComponentFactory<SacConfirmComponent> {
-    return this.componentFactoryResolver.resolveComponentFactory(
-      SacConfirmComponent
-    );
-  }
+  // #endregion Constructors
+
+  // #region Public Methods
 
   /**
    * Confirm Dialog anzeigen
@@ -85,15 +85,35 @@ export class ServiceConfirm extends ServiceConfirmCommon {
 
     // Default Buttons setzen, wenn keine Buttons angegeben sind
     if (!isDefined(buttons)) {
-      // TODO: Text von Localisation Service beziehen
-      this.buttons = [];
-      this.buttons.push(new SacConfirmButton('yes', 'Ja'));
-      this.buttons.push(new SacConfirmButton('no', 'Nein'));
+      forkJoin({
+        button_yes: this.localisationService.GetString('CONFIRM_BUTTON_YES'),
+        button_no: this.localisationService.GetString('CONFIRM_BUTTON_NO'),
+      })
+        .pipe(take(1))
+        .subscribe((texte) => {
+          this.buttons.push(
+            new SacConfirmButton('yes', texte.button_yes, 'primary')
+          );
+          this.buttons.push(new SacConfirmButton('no', texte.button_no));
+        });
     } else {
       this.buttons = buttons;
     }
     return super.Confirm();
   }
+
+  /**
+   * Erzeugen einer Component Factory für einen Dialog
+   */
+  public GetComponentFactory(): ComponentFactory<SacConfirmComponent> {
+    return this.componentFactoryResolver.resolveComponentFactory(
+      SacConfirmComponent
+    );
+  }
+
+  // #endregion Public Methods
+
+  // #region Protected Methods
 
   /**
    * Konfiguration des Dialogs
@@ -106,4 +126,6 @@ export class ServiceConfirm extends ServiceConfirmCommon {
     instance.buttons = this.buttons;
     instance.image = this.iconService.ConfirmDefaultImage;
   }
+
+  // #endregion Protected Methods
 }

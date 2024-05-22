@@ -85,6 +85,8 @@ export class ServiceConfirm extends ServiceConfirmCommon {
 
     // Default Buttons setzen, wenn keine Buttons angegeben sind
     if (!isDefined(buttons)) {
+      this.buttons = [];
+
       forkJoin({
         button_yes: this.localisationService.GetString('CONFIRM_BUTTON_YES'),
         button_no: this.localisationService.GetString('CONFIRM_BUTTON_NO'),

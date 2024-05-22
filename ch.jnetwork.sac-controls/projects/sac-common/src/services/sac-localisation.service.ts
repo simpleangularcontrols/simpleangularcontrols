@@ -390,11 +390,11 @@ export class SacDefaultLocalisationService extends SacAbstractLocalisationServic
   // #region Protected Getters And Setters
 
   protected get CONFIRM_BUTTON_NO(): Map<string, string> {
-    return new Map<string, string>([['de', 'Nein 2']]);
+    return new Map<string, string>([['de', 'Nein']]);
   }
 
   protected get CONFIRM_BUTTON_YES(): Map<string, string> {
-    return new Map<string, string>([['de', 'Ja 2']]);
+    return new Map<string, string>([['de', 'Ja']]);
   }
 
   protected get FILEBROWSER_CONFIRM_DELETEFILE(): Map<string, string> {

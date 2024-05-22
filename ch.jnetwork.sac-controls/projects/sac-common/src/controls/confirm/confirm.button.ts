@@ -32,7 +32,7 @@ export class SacConfirmButton {
   constructor(
     key: string = '',
     text: string = '',
-    role: BUTTONROLETYPE = 'secondary'
+    role: BUTTONROLETYPE = 'default'
   ) {
     this.key = key;
     this.text = text;

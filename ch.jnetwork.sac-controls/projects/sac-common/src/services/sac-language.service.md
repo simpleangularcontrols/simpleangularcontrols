@@ -1,3 +1,7 @@
+# Usage
+
+Use this service to manage the languages in the controls. This service is used, for example, by the MultiLanguageControl to display the available languages to the user.
+
 # Example
 
 Example of the implementation of a SacLanguageService

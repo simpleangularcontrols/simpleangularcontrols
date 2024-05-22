@@ -2,7 +2,6 @@ import { Directive, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { UploadState } from 'ngx-uploadx';
 import { SacUploadBase } from '../../common/baseuploadcontrol';
-import { IUploadControl } from '../../interfaces/iuploadcontrol';
 import { Validation } from '../../validation';
 
 /**
@@ -10,47 +9,50 @@ import { Validation } from '../../validation';
  */
 @Directive()
 export class SacUploadMultipleCommon extends SacUploadBase<string[]> {
-  /**
-   * Max. Files die hochgeladen werden können. 0 deaktiviert das Limit
-   */
-  @Input()
-  public maxfiles: number = 0;
-
-  /**
-   * Min. Files die hochgeladen werden müssen. 0 deaktiviert das Limit
-   */
-  @Input()
-  public minfiles: number = 0;
+  // #region Properties
 
   /**
    * Label für Browse Button
    */
   @Input()
-  buttonbrowse: string = 'Browse';
-
+  public buttonbrowse: string = 'Browse';
   /**
    * Label für Upload Button
    */
   @Input()
-  buttonupload: string = 'Upload';
-
+  public buttonupload: string = 'Upload';
+  /**
+   * Max. Files die hochgeladen werden können. 0 deaktiviert das Limit
+   */
+  @Input()
+  public maxfiles: number = 0;
+  /**
+   * Min. Files die hochgeladen werden müssen. 0 deaktiviert das Limit
+   */
+  @Input()
+  public minfiles: number = 0;
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input() validationmessageminfiles: string = 'VALIDATION_ERROR_FILESMIN';
+  @Input() public validationmessageminfiles: string =
+    this.validationKeyService.ValidationErrorFilesMin;
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
   @Input()
-  validationmessagesummaryminfiles: string =
-    'VALIDATION_ERROR_SUMMARY_FILESMIN';
+  public validationmessagesummaryminfiles: string =
+    this.validationKeyService.ValidationErrorSummaryFilesMin;
+
+  // #endregion Properties
+
+  // #region Public Methods
 
   /**
    * Prüft ob die max. Files in der Queue nicht überschritten werden
    *
    * @param file File das hinzugefügt wurde
    */
-  CustomAddValidation(file: UploadState): boolean {
+  public CustomAddValidation(file: UploadState): boolean {
     if (this.maxfiles > 0 && this.uploads.length >= this.maxfiles) {
       this.onfileerror.emit('INVALID_MAXFILES');
       return false;
@@ -64,7 +66,7 @@ export class SacUploadMultipleCommon extends SacUploadBase<string[]> {
    *
    * @param file ID des Files welches hochgeladen wurde.
    */
-  SetUploadValue(file: UploadState) {
+  public SetUploadValue(file: UploadState) {
     let documentid: string = null;
     if (file === null) {
       documentid = null;
@@ -112,7 +114,7 @@ export class SacUploadMultipleCommon extends SacUploadBase<string[]> {
    *
    * @param c Control
    */
-  validateData(c: AbstractControl): ValidationErrors | null {
+  public validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = super.validateData(c);
 
     if (error === null) {
@@ -125,4 +127,6 @@ export class SacUploadMultipleCommon extends SacUploadBase<string[]> {
 
     return error;
   }
+
+  // #endregion Public Methods
 }

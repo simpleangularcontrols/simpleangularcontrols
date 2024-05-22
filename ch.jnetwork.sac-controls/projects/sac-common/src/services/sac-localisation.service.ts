@@ -1,7 +1,9 @@
-import { Injectable, InjectionToken } from '@angular/core';
+import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ISacLocalisationService } from '../interfaces/ISacLocalisationService';
+import { ISacValidationKeyService } from '../interfaces/ISacValidationKeyService';
 import { Interpolation } from '../utilities/interpolation';
+import { SACVALIDATIONKEY_SERVICE } from './sac-validationkey.service';
 
 // #region Classes
 
@@ -144,7 +146,10 @@ export class SacDefaultLocalisationService extends SacAbstractLocalisationServic
   /**
    * Konstruktor
    * */
-  constructor() {
+  constructor(
+    @Inject(SACVALIDATIONKEY_SERVICE)
+    private validationKeyService: ISacValidationKeyService
+  ) {
     super();
 
     // Set Languages
@@ -154,230 +159,290 @@ export class SacDefaultLocalisationService extends SacAbstractLocalisationServic
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_REQUIRED',
+        validationKeyService.ValidationErrorRequired,
         this.VALIDATION_ERROR_REQUIRED.get('de')
       );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_SUMMARY_REQUIRED',
+        validationKeyService.ValidationErrorSummaryRequired,
         this.VALIDATION_ERROR_SUMMARY_REQUIRED.get('de')
       );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_MINVALUE',
+        validationKeyService.ValidationErrorMinValue,
         this.VALIDATION_ERROR_MINVALUE.get('de')
       );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_SUMMARY_MINVALUE',
+        validationKeyService.ValidationErrorSummaryMinValue,
         this.VALIDATION_ERROR_SUMMARY_MINVALUE.get('de')
       );
     this.data
       .get('de')
-      .set('VALIDATION_ERROR_PATTERN', this.VALIDATION_ERROR_PATTERN.get('de'));
+      .set(
+        validationKeyService.ValidationErrorPattern,
+        this.VALIDATION_ERROR_PATTERN.get('de')
+      );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_SUMMARY_PATTERN',
+        validationKeyService.ValidationErrorSummaryPattern,
         this.VALIDATION_ERROR_SUMMARY_PATTERN.get('de')
       );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_MAXVALUE',
+        validationKeyService.ValidationErrorMaxValue,
         this.VALIDATION_ERROR_MAXVALUE.get('de')
       );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_SUMMARY_MAXVALUE',
+        validationKeyService.ValidationErrorSummaryMaxValue,
         this.VALIDATION_ERROR_SUMMARY_MAXVALUE.get('de')
       );
     this.data
       .get('de')
-      .set('VALIDATION_ERROR_EMAIL', this.VALIDATION_ERROR_EMAIL.get('de'));
+      .set(
+        validationKeyService.ValidationErrorEmail,
+        this.VALIDATION_ERROR_EMAIL.get('de')
+      );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_SUMMARY_EMAIL',
+        validationKeyService.ValidationErrorSummaryEmail,
         this.VALIDATION_ERROR_SUMMARY_EMAIL.get('de')
       );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_MINLENGTH',
+        validationKeyService.ValidationErrorMinLength,
         this.VALIDATION_ERROR_MINLENGTH.get('de')
       );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_SUMMARY_MINLENGTH',
+        validationKeyService.ValidationErrorSummaryMinLength,
         this.VALIDATION_ERROR_SUMMARY_MINLENGTH.get('de')
       );
     this.data
       .get('de')
-      .set('VALIDATION_ERROR_MINDATE', this.VALIDATION_ERROR_MINDATE.get('de'));
+      .set(
+        validationKeyService.ValidationErrorMinDate,
+        this.VALIDATION_ERROR_MINDATE.get('de')
+      );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_SUMMARY_MINDATE',
+        validationKeyService.ValidationErrorSummaryMinDate,
         this.VALIDATION_ERROR_SUMMARY_MINDATE.get('de')
       );
     this.data
       .get('de')
-      .set('VALIDATION_ERROR_MAXDATE', this.VALIDATION_ERROR_MAXDATE.get('de'));
+      .set(
+        validationKeyService.ValidationErrorMaxDate,
+        this.VALIDATION_ERROR_MAXDATE.get('de')
+      );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_SUMMARY_MAXDATE',
+        validationKeyService.ValidationErrorSummaryMaxDate,
         this.VALIDATION_ERROR_SUMMARY_MAXDATE.get('de')
       );
     this.data
       .get('de')
-      .set('VALIDATION_ERROR_MINTIME', this.VALIDATION_ERROR_MINTIME.get('de'));
+      .set(
+        validationKeyService.ValidationErrorMinTime,
+        this.VALIDATION_ERROR_MINTIME.get('de')
+      );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_SUMMARY_MINTIME',
+        validationKeyService.ValidationErrorSummaryMinTime,
         this.VALIDATION_ERROR_SUMMARY_MINTIME.get('de')
       );
     this.data
       .get('de')
-      .set('VALIDATION_ERROR_MAXTIME', this.VALIDATION_ERROR_MAXTIME.get('de'));
+      .set(
+        validationKeyService.ValidationErrorMaxTime,
+        this.VALIDATION_ERROR_MAXTIME.get('de')
+      );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_SUMMARY_MAXTIME',
+        validationKeyService.ValidationErrorSummaryMaxTime,
         this.VALIDATION_ERROR_SUMMARY_MAXTIME.get('de')
       );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_DATETIMEFORMAT',
+        validationKeyService.ValidationErrorDatetimeFormat,
         this.VALIDATION_ERROR_DATETIMEFORMAT.get('de')
       );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT',
+        validationKeyService.ValidationErrorSummaryDatetimeFormat,
         this.VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT.get('de')
       );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_FILESMIN',
+        validationKeyService.ValidationErrorFilesMin,
         this.VALIDATION_ERROR_FILESMIN.get('de')
       );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_SUMMARY_FILESMIN',
+        validationKeyService.ValidationErrorSummaryFilesMin,
         this.VALIDATION_ERROR_SUMMARY_FILESMIN.get('de')
       );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY',
+        validationKeyService.ValidationErrorMultilanguageRequiredAny,
         this.VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY.get('de')
       );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY',
+        validationKeyService.ValidationErrorSummaryMultilanguageRequiredAny,
         this.VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY.get('de')
       );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_MULTILANGUAGEREQUIRED',
+        validationKeyService.ValidationErrorMultilanguageRequired,
         this.VALIDATION_ERROR_MULTILANGUAGEREQUIRED.get('de')
       );
     this.data
       .get('de')
       .set(
-        'VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED',
+        validationKeyService.ValidationErrorSummaryMultilanguageRequired,
         this.VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED.get('de')
       );
 
     // Grid Component
     this.data
       .get('de')
-      .set('PAGING_PAGEOFTEXT', this.PAGING_PAGEOFTEXT.get('de'));
+      .set(validationKeyService.PagingPageOf, this.PAGING_PAGEOFTEXT.get('de'));
     this.data
       .get('de')
-      .set('PAGING_PAGEENTRIESTEXT', this.PAGING_PAGEENTRIESTEXT.get('de'));
+      .set(
+        validationKeyService.PagingEntries,
+        this.PAGING_PAGEENTRIESTEXT.get('de')
+      );
 
     // Upload Component
     this.data
       .get('de')
-      .set('UPLOAD_NO_FILE_SELECTED', this.UPLOAD_NO_FILE_SELECTED.get('de'));
+      .set(
+        validationKeyService.UploadNoFilesSelected,
+        this.UPLOAD_NO_FILE_SELECTED.get('de')
+      );
     this.data
       .get('de')
-      .set('UPLOAD_BUTTON_UPLOAD', this.UPLOAD_BUTTON_UPLOAD.get('de'));
+      .set(
+        validationKeyService.UploadButtonUpload,
+        this.UPLOAD_BUTTON_UPLOAD.get('de')
+      );
     this.data
       .get('de')
-      .set('UPLOAD_BUTTON_BROWSE', this.UPLOAD_BUTTON_BROWSE.get('de'));
+      .set(
+        validationKeyService.UploadButtonBrowse,
+        this.UPLOAD_BUTTON_BROWSE.get('de')
+      );
 
     // TinyMCE Component
     this.data
       .get('de')
-      .set('TINYMCE_FILESELECT_OK', this.TINYMCE_FILESELECT_OK.get('de'));
+      .set(
+        validationKeyService.TinyMceFileselectOk,
+        this.TINYMCE_FILESELECT_OK.get('de')
+      );
     this.data
       .get('de')
       .set(
-        'TINYMCE_FILESELECT_CANCEL',
+        validationKeyService.TinyMceFileselectCancel,
         this.TINYMCE_FILESELECT_CANCEL.get('de')
       );
     this.data
       .get('de')
       .set(
-        'TINYMCE_FILESELECT_DIALOGTITLE',
+        validationKeyService.TinyMceFileselectDialogtitle,
         this.TINYMCE_FILESELECT_DIALOGTITLE.get('de')
       );
 
     // Confirm Dialog Component
     this.data
       .get('de')
-      .set('CONFIRM_BUTTON_YES', this.CONFIRM_BUTTON_YES.get('de'));
+      .set(
+        validationKeyService.ConfirmDefaultButtonYes,
+        this.CONFIRM_BUTTON_YES.get('de')
+      );
     this.data
       .get('de')
-      .set('CONFIRM_BUTTON_NO', this.CONFIRM_BUTTON_NO.get('de'));
+      .set(
+        validationKeyService.ConfirmDefaultButtonNo,
+        this.CONFIRM_BUTTON_NO.get('de')
+      );
 
     // Browser Component
     this.data
       .get('de')
-      .set('FILEBROWSER_NO_FILES', this.FILEBROWSER_NO_FILES.get('de'));
-    this.data
-      .get('de')
-      .set('FILEBROWSER_GRID_FILE', this.FILEBROWSER_GRID_FILE.get('de'));
-    this.data
-      .get('de')
-      .set('FILEBROWSER_GRID_SIZE', this.FILEBROWSER_GRID_SIZE.get('de'));
-    this.data
-      .get('de')
-      .set('FILEBROWSER_UPLOAD', this.FILEBROWSER_UPLOAD.get('de'));
-    this.data
-      .get('de')
-      .set('FILEBROWSER_NEWFOLDER', this.FILEBROWSER_NEWFOLDER.get('de'));
-    this.data
-      .get('de')
-      .set('FILEBROWSER_REFRESH', this.FILEBROWSER_REFRESH.get('de'));
-    this.data
-      .get('de')
-      .set('FILEBROWSER_DELETE', this.FILEBROWSER_DELETE.get('de'));
+      .set(
+        validationKeyService.FilebrowserGridNoFiles,
+        this.FILEBROWSER_NO_FILES.get('de')
+      );
     this.data
       .get('de')
       .set(
-        'FILEBROWSER_CONFIRM_DELETEFOLDER',
+        validationKeyService.FilebrowserGridFilename,
+        this.FILEBROWSER_GRID_FILE.get('de')
+      );
+    this.data
+      .get('de')
+      .set(
+        validationKeyService.FilebrowserGridSize,
+        this.FILEBROWSER_GRID_SIZE.get('de')
+      );
+    this.data
+      .get('de')
+      .set(
+        validationKeyService.FilebrowserButtonUpload,
+        this.FILEBROWSER_UPLOAD.get('de')
+      );
+    this.data
+      .get('de')
+      .set(
+        validationKeyService.FilebrowserButtonNewFolder,
+        this.FILEBROWSER_NEWFOLDER.get('de')
+      );
+    this.data
+      .get('de')
+      .set(
+        validationKeyService.FilebrowserButtonRefresh,
+        this.FILEBROWSER_REFRESH.get('de')
+      );
+    this.data
+      .get('de')
+      .set(
+        validationKeyService.FilebrowserButtonDelete,
+        this.FILEBROWSER_DELETE.get('de')
+      );
+    this.data
+      .get('de')
+      .set(
+        this.validationKeyService.FilebrowserConfirmTextDeleteFolder,
         this.FILEBROWSER_CONFIRM_DELETEFOLDER.get('de')
       );
     this.data
       .get('de')
       .set(
-        'FILEBROWSER_CONFIRM_DELETEFILE',
+        this.validationKeyService.FilebrowserConfirmTextDeleteFile,
         this.FILEBROWSER_CONFIRM_DELETEFILE.get('de')
       );
 

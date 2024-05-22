@@ -26,12 +26,17 @@ const moment = moment_['default'];
  */
 @Directive()
 export class SacTimeCommon extends SacBaseDateTimeControl {
-  // #region Constants
+  // #region Properties
+
+  /**
+   * icon service
+   */
+  private iconService: ISacIconService;
 
   /**
    * Format des Datums
    */
-  readonly TIMEFORMAT: string = 'HH:mm';
+  public readonly TIMEFORMAT: string = 'HH:mm';
   /**
    * Maske
    */
@@ -57,81 +62,43 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
     overwrite: true,
   };
 
-  // #endregion
-
   /**
-   * icon service
+   * Resource Key für Validation Message MinTime bei Control
    */
-  private iconService: ISacIconService;
-
-  // #region Properties
-
+  @Input() public validationmessagemaxtime: string =
+    this.validationKeyService.ValidationErrorMaxTime;
   /**
-   * Min Time
+   * Resource Key für Validation Message MinTime bei Control
    */
-  @Input()
-  set mintime(v: string | Date | null) {
-    let time = moment(v, [this.TIMEFORMAT], true);
-
-    time = this.ModifyParsedDateTimeValue(time);
-
-    if (time.isValid()) {
-      this._mintime = super.getDate(time).toDate();
-    } else {
-      this._mintime = null;
-    }
-  }
+  @Input() public validationmessagemintime: string =
+    this.validationKeyService.ValidationErrorMinTime;
   /**
-   * Min Time
+   * Resource Key für Validation Message MinTime in Validation Summary
    */
-  _mintime: Date = null;
+  @Input() public validationmessagesummarymaxtime: string =
+    this.validationKeyService.ValidationErrorSummaryMaxTime;
+  /**
+   * Resource Key für Validation Message MinTime in Validation Summary
+   */
+  @Input() public validationmessagesummarymintime: string =
+    this.validationKeyService.ValidationErrorSummaryMinTime;
 
   /**
    * Max Time
    */
-  @Input()
-  set maxtime(v: string | Date | null) {
-    let time = moment(v, [this.TIMEFORMAT], true);
-
-    time = this.ModifyParsedDateTimeValue(time);
-
-    if (time.isValid()) {
-      this._maxtime = super.getDate(time).toDate();
-    } else {
-      this._maxtime = null;
-    }
-  }
+  public _maxtime: Date = null;
   /**
-   * Max Time
+   * Min Time
    */
-  _maxtime: Date = null;
-
+  public _mintime: Date = null;
   /**
    * Definiert ob der Date Selector angezeigt wird
    */
-  _showselector: boolean = false;
+  public _showselector: boolean = false;
 
-  /**
-   * Resource Key für Validation Message MinTime bei Control
-   */
-  @Input() validationmessagemintime: string = 'VALIDATION_ERROR_MINTIME';
-  /**
-   * Resource Key für Validation Message MinTime in Validation Summary
-   */
-  @Input() validationmessagesummarymintime: string =
-    'VALIDATION_ERROR_SUMMARY_MINTIME';
+  // #endregion Properties
 
-  /**
-   * Resource Key für Validation Message MinTime bei Control
-   */
-  @Input() validationmessagemaxtime: string = 'VALIDATION_ERROR_MAXTIME';
-  /**
-   * Resource Key für Validation Message MinTime in Validation Summary
-   */
-  @Input() validationmessagesummarymaxtime: string =
-    'VALIDATION_ERROR_SUMMARY_MAXTIME';
-
-  // #endregion
+  // #region Constructors
 
   /**
    * Constructor
@@ -152,6 +119,42 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
     );
   }
 
+  // #endregion Constructors
+
+  // #region Public Getters And Setters
+
+  /**
+   * Max Time
+   */
+  @Input()
+  public set maxtime(v: string | Date | null) {
+    let time = moment(v, [this.TIMEFORMAT], true);
+
+    time = this.ModifyParsedDateTimeValue(time);
+
+    if (time.isValid()) {
+      this._maxtime = super.getDate(time).toDate();
+    } else {
+      this._maxtime = null;
+    }
+  }
+
+  /**
+   * Min Time
+   */
+  @Input()
+  public set mintime(v: string | Date | null) {
+    let time = moment(v, [this.TIMEFORMAT], true);
+
+    time = this.ModifyParsedDateTimeValue(time);
+
+    if (time.isValid()) {
+      this._mintime = super.getDate(time).toDate();
+    } else {
+      this._mintime = null;
+    }
+  }
+
   /**
    * icon for date selector button
    */
@@ -159,42 +162,9 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
     return this.iconService.TimeComponentSelectorIcon;
   }
 
-  // #region Abstract Methods
+  // #endregion Public Getters And Setters
 
-  /**
-   * Methode ergibt Datum-Format vom String
-   */
-  GetDateTimeFormatString(): string {
-    return this.TIMEFORMAT;
-  }
-
-  /**
-   * Methode ergibt Datum - Moment
-   */
-  ModifyParsedDateTimeValue(v: Moment): Moment {
-    v.date(1);
-    v.month(0);
-    v.year(1900);
-    return v;
-  }
-
-  // #endregion
-
-  // #region Time Selector
-
-  /**
-   * Zeigt Date Selector an
-   */
-  showTimeSelector(): void {
-    // Touch Event auslösen
-    this.onTouch();
-
-    if (this._showselector) {
-      this._showselector = false;
-    } else {
-      this._showselector = true;
-    }
-  }
+  // #region Public Methods
 
   /**
    * HostListener
@@ -211,9 +181,40 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
   }
 
   /**
+   * Methode ergibt Datum-Format vom String
+   */
+  public GetDateTimeFormatString(): string {
+    return this.TIMEFORMAT;
+  }
+
+  /**
+   * Methode ergibt Datum - Moment
+   */
+  public ModifyParsedDateTimeValue(v: Moment): Moment {
+    v.date(1);
+    v.month(0);
+    v.year(1900);
+    return v;
+  }
+
+  /**
+   * Zeigt Date Selector an
+   */
+  public showTimeSelector(): void {
+    // Touch Event auslösen
+    this.onTouch();
+
+    if (this._showselector) {
+      this._showselector = false;
+    } else {
+      this._showselector = true;
+    }
+  }
+
+  /**
    * Time Selector
    */
-  timeselect(v: any) {
+  public timeselect(v: any) {
     if (v.date === null) {
       this.setValueString('');
     } else {
@@ -223,12 +224,10 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
     this._showselector = false;
   }
 
-  // #endregion
-
   /**
    * Validator
    */
-  validateData(c: AbstractControl): ValidationErrors | null {
+  public validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = null;
 
     error = super.validateData(c);
@@ -265,4 +264,6 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
 
     return error;
   }
+
+  // #endregion Public Methods
 }

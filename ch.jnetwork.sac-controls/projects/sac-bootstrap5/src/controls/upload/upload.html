@@ -26,8 +26,9 @@
       >
         <i class="pe-2" [class]="IconBrowse"></i>
         <span class="upload-browse"
-          >{{ lngResourceService.GetString('UPLOAD_BUTTON_BROWSE') | async
-          }}</span
+          >{{
+          lngResourceService.GetString(validationKeyService.UploadButtonBrowse)
+          | async }}</span
         >
         <input
           type="file"
@@ -101,7 +102,8 @@
         [class.btn-danger]="invalid && (dirty || touched)"
       >
         <span [class]="IconUpload" class="pe-2"></span>{{
-        lngResourceService.GetString('UPLOAD_BUTTON_UPLOAD') | async }}
+        lngResourceService.GetString(validationKeyService.UploadButtonUpload) |
+        async }}
       </button>
     </div>
     <div

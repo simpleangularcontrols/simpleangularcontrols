@@ -26,13 +26,17 @@ const moment = moment_['default'];
  */
 @Directive()
 export class SacDateCommon extends SacBaseDateTimeControl {
-  // #region Constants
+  // #region Properties
+
+  /**
+   * icon service
+   */
+  private iconService: ISacIconService;
 
   /**
    * Format des Datums
    */
-  readonly DATEFORMAT: string = 'DD.MM.YYYY';
-
+  public readonly DATEFORMAT: string = 'DD.MM.YYYY';
   /**
    * Maske
    */
@@ -64,76 +68,42 @@ export class SacDateCommon extends SacBaseDateTimeControl {
   };
 
   /**
-   * icon service
+   * Resource Key für Validation Message MaxDate bei Control
    */
-  private iconService: ISacIconService;
-
-  // #endregion
-
-  // #region Properties
-
-  /**
-   * Min Date
-   */
-  @Input()
-  set mindate(v: string | Date | null) {
-    const date = moment(v, [this.DATEFORMAT], true);
-
-    if (date.isValid()) {
-      this._mindate = super.getDate(date).toDate();
-    } else {
-      this._mindate = null;
-    }
-  }
-  /**
-   * Min Date
-   */
-  _mindate: Date = null;
-
-  /**
-   * Min Date
-   */
-  @Input()
-  set maxdate(v: string | Date | null) {
-    const date = moment(v, [this.DATEFORMAT], true);
-
-    if (date.isValid()) {
-      this._maxdate = super.getDate(date).toDate();
-    } else {
-      this._maxdate = null;
-    }
-  }
-  /**
-   * Min Date
-   */
-  _maxdate: Date = null;
-
-  /**
-   * Definiert ob der Date Selector angezeigt wird
-   */
-  _showselector: boolean = false;
-
+  @Input() public validationmessagemaxdate: string =
+    this.validationKeyService.ValidationErrorMaxDate;
   /**
    * Resource Key für Validation Message MinDate bei Control
    */
-  @Input() validationmessagemindate: string = 'VALIDATION_ERROR_MINDATE';
-  /**
-   * Resource Key für Validation Message MinDate in Validation Summary
-   */
-  @Input() validationmessagesummarymindate: string =
-    'VALIDATION_ERROR_SUMMARY_MINDATE';
-
-  /**
-   * Resource Key für Validation Message MaxDate bei Control
-   */
-  @Input() validationmessagemaxdate: string = 'VALIDATION_ERROR_MAXDATE';
+  @Input() public validationmessagemindate: string =
+    this.validationKeyService.ValidationErrorMinDate;
   /**
    * Resource Key für Validation Message MaxDate in Validation Summary
    */
-  @Input() validationmessagesummarymaxdate: string =
-    'VALIDATION_ERROR_SUMMARY_MAXDATE';
+  @Input() public validationmessagesummarymaxdate: string =
+    this.validationKeyService.ValidationErrorSummaryMaxDate;
+  /**
+   * Resource Key für Validation Message MinDate in Validation Summary
+   */
+  @Input() public validationmessagesummarymindate: string =
+    this.validationKeyService.ValidationErrorSummaryMinDate;
 
-  // #endregion
+  /**
+   * Min Date
+   */
+  public _maxdate: Date = null;
+  /**
+   * Min Date
+   */
+  public _mindate: Date = null;
+  /**
+   * Definiert ob der Date Selector angezeigt wird
+   */
+  public _showselector: boolean = false;
+
+  // #endregion Properties
+
+  // #region Constructors
 
   /**
    * Constructor
@@ -154,6 +124,38 @@ export class SacDateCommon extends SacBaseDateTimeControl {
     );
   }
 
+  // #endregion Constructors
+
+  // #region Public Getters And Setters
+
+  /**
+   * Min Date
+   */
+  @Input()
+  public set maxdate(v: string | Date | null) {
+    const date = moment(v, [this.DATEFORMAT], true);
+
+    if (date.isValid()) {
+      this._maxdate = super.getDate(date).toDate();
+    } else {
+      this._maxdate = null;
+    }
+  }
+
+  /**
+   * Min Date
+   */
+  @Input()
+  public set mindate(v: string | Date | null) {
+    const date = moment(v, [this.DATEFORMAT], true);
+
+    if (date.isValid()) {
+      this._mindate = super.getDate(date).toDate();
+    } else {
+      this._mindate = null;
+    }
+  }
+
   /**
    * icon for date selector button
    */
@@ -161,39 +163,9 @@ export class SacDateCommon extends SacBaseDateTimeControl {
     return this.iconService.DateComponentSelectorIcon;
   }
 
-  // #region Abstract Methods
+  // #endregion Public Getters And Setters
 
-  /**
-   * Methode ergibt Datum-Format vom String
-   */
-  GetDateTimeFormatString(): string {
-    return this.DATEFORMAT;
-  }
-
-  /**
-   * Methode ergibt Datum - Moment
-   */
-  ModifyParsedDateTimeValue(v: Moment): Moment {
-    return v;
-  }
-
-  // #endregion
-
-  // #region Date Selector
-
-  /**
-   * Zeigt Date Selector an
-   */
-  showDateSelector(): void {
-    // Touch Event auslösen
-    this.onTouch();
-
-    if (this._showselector) {
-      this._showselector = false;
-    } else {
-      this._showselector = true;
-    }
-  }
+  // #region Public Methods
 
   /**
    * HostListener
@@ -210,9 +182,23 @@ export class SacDateCommon extends SacBaseDateTimeControl {
   }
 
   /**
+   * Methode ergibt Datum-Format vom String
+   */
+  public GetDateTimeFormatString(): string {
+    return this.DATEFORMAT;
+  }
+
+  /**
+   * Methode ergibt Datum - Moment
+   */
+  public ModifyParsedDateTimeValue(v: Moment): Moment {
+    return v;
+  }
+
+  /**
    * Date Selector
    */
-  dateselect(v: any) {
+  public dateselect(v: any) {
     if (v.date === null) {
       this.setValueString('');
     } else {
@@ -222,12 +208,24 @@ export class SacDateCommon extends SacBaseDateTimeControl {
     this._showselector = false;
   }
 
-  // #endregion
+  /**
+   * Zeigt Date Selector an
+   */
+  public showDateSelector(): void {
+    // Touch Event auslösen
+    this.onTouch();
+
+    if (this._showselector) {
+      this._showselector = false;
+    } else {
+      this._showselector = true;
+    }
+  }
 
   /**
    * Validator
    */
-  validateData(c: AbstractControl): ValidationErrors | null {
+  public validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = null;
 
     error = super.validateData(c);
@@ -264,4 +262,6 @@ export class SacDateCommon extends SacBaseDateTimeControl {
 
     return error;
   }
+
+  // #endregion Public Methods
 }

@@ -8,98 +8,59 @@ import { Validation } from '../../validation';
  */
 @Directive()
 export class SacInputIntegerCommon extends SacInputBase<number> {
+  // #region Properties
+
   /**
    * Definiert das Negative Werte erlaubt sind
    */
-  @Input() allownegativ: boolean = false;
-  /**
-   * Definiert den minimalen Wert
-   */
-  @Input() minvalue: number = undefined;
+  @Input() public allownegativ: boolean = false;
   /**
    * Definiert den maximalen Wert
    */
-  @Input() maxvalue: number = undefined;
-
+  @Input() public maxvalue: number = undefined;
   /**
-   * Resource Key für Validation Message Required bei Control
+   * Definiert den minimalen Wert
    */
-  @Input() validationmessagerequired: string = 'VALIDATION_ERROR_REQUIRED';
-  /**
-   * Resource Key für Validation Message Required in Validation Summary
-   */
-  @Input() validationmessagesummaryrequired: string =
-    'VALIDATION_ERROR_SUMMARY_REQUIRED';
-
-  /**
-   * Resource Key für Validation Message MinValue bei Control
-   */
-  @Input() validationmessageminvalue: string = 'VALIDATION_ERROR_MINVALUE';
-  /**
-   * Resource Key für Validation Message MinValue in Validation Summary
-   */
-  @Input() validationmessagesummaryminvalue: string =
-    'VALIDATION_ERROR_SUMMARY_MINVALUE';
-
+  @Input() public minvalue: number = undefined;
   /**
    * Resource Key für Validation Message MaxValue bei Control
    */
-  @Input() validationmessagemaxvalue: string = 'VALIDATION_ERROR_MAXVALUE';
+  @Input() public validationmessagemaxvalue: string =
+    this.validationKeyService.ValidationErrorMaxValue;
+  /**
+   * Resource Key für Validation Message MinValue bei Control
+   */
+  @Input() public validationmessageminvalue: string =
+    this.validationKeyService.ValidationErrorMinValue;
+  /**
+   * Resource Key für Validation Message Required bei Control
+   */
+  @Input() public validationmessagerequired: string =
+    this.validationKeyService.ValidationErrorRequired;
   /**
    * Resource Key für Validation Message MaxValue in Validation Summary
    */
-  @Input() validationmessagesummarymaxvalue: string =
-    'VALIDATION_ERROR_SUMMARY_MAXVALUE';
-
+  @Input() public validationmessagesummarymaxvalue: string =
+    this.validationKeyService.ValidationErrorSummaryMaxValue;
   /**
-   * Methode die erzeugt den Control in Abhängigkeit davon, ob negative Were erlaubt sing oder nicht
+   * Resource Key für Validation Message MinValue in Validation Summary
    */
-  protected OnClassInit(): void {
-    super.OnClassInit();
-
-    /**
-     * Definiert die Wete die erlaubt sind
-     */
-    this.allowedchars = '0123456789';
-
-    if (this.allownegativ) {
-      this.allowedchars = this.allowedchars + '-';
-    }
-  }
-
+  @Input() public validationmessagesummaryminvalue: string =
+    this.validationKeyService.ValidationErrorSummaryMinValue;
   /**
-   * Konvertiert den Wert des Inputs
+   * Resource Key für Validation Message Required in Validation Summary
    */
-  protected ConvertInputValue(value: any): any {
-    if (value === '' || value === null) {
-      return null;
-    } else {
-      if (this.allownegativ === true && value === '-') {
-        return '-';
-      } else {
-        return parseInt(value, 10);
-      }
-    }
-  }
+  @Input() public validationmessagesummaryrequired: string =
+    this.validationKeyService.ValidationErrorSummaryRequired;
 
-  /**
-   * Methode validiert ob der Wert entspricht den gegebenen Kriterien wenn ein Key gedrückt wird
-   */
-  protected OnKeyPressValidation(position: number, character: string): boolean {
-    if (
-      (this.allownegativ === false && character === '-') ||
-      (this.allownegativ === true && position > 0 && character === '-')
-    ) {
-      return false;
-    }
+  // #endregion Properties
 
-    return true;
-  }
+  // #region Public Methods
 
   /**
    * Methode validiert ob der Wert entspricht den gegebenen Kriterien
    */
-  validateData(c: AbstractControl): ValidationErrors | null {
+  public validateData(c: AbstractControl): ValidationErrors | null {
     /**
      * Error Meldung, die angezeigt wird, wenn die Kriterien nicht erfüllt sind
      */
@@ -138,4 +99,55 @@ export class SacInputIntegerCommon extends SacInputBase<number> {
 
     return error;
   }
+
+  // #endregion Public Methods
+
+  // #region Protected Methods
+
+  /**
+   * Konvertiert den Wert des Inputs
+   */
+  protected ConvertInputValue(value: any): any {
+    if (value === '' || value === null) {
+      return null;
+    } else {
+      if (this.allownegativ === true && value === '-') {
+        return '-';
+      } else {
+        return parseInt(value, 10);
+      }
+    }
+  }
+
+  /**
+   * Methode die erzeugt den Control in Abhängigkeit davon, ob negative Were erlaubt sing oder nicht
+   */
+  protected OnClassInit(): void {
+    super.OnClassInit();
+
+    /**
+     * Definiert die Wete die erlaubt sind
+     */
+    this.allowedchars = '0123456789';
+
+    if (this.allownegativ) {
+      this.allowedchars = this.allowedchars + '-';
+    }
+  }
+
+  /**
+   * Methode validiert ob der Wert entspricht den gegebenen Kriterien wenn ein Key gedrückt wird
+   */
+  protected OnKeyPressValidation(position: number, character: string): boolean {
+    if (
+      (this.allownegativ === false && character === '-') ||
+      (this.allownegativ === true && position > 0 && character === '-')
+    ) {
+      return false;
+    }
+
+    return true;
+  }
+
+  // #endregion Protected Methods
 }

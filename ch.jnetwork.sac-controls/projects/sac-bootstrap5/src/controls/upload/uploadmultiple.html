@@ -82,7 +82,8 @@
                 [class.btn-danger]="invalid && (dirty || touched)"
               >
                 <span [class]="IconUpload" class="pe-2"></span> {{
-                lngResourceService.GetString('UPLOAD_BUTTON_UPLOAD') | async }}
+                lngResourceService.GetString(validationKeyService.UploadButtonUpload)
+                | async }}
               </button>
             </div>
           </div>
@@ -156,7 +157,8 @@
             [class.btn-danger]="invalid && (dirty || touched)"
           >
             <span [class]="IconUpload" class="pe-2"></span>{{
-            lngResourceService.GetString('UPLOAD_BUTTON_UPLOAD') | async }}
+            lngResourceService.GetString(validationKeyService.UploadButtonUpload)
+            | async }}
           </button>
         </div>
       </div>

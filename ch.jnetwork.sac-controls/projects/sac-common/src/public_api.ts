@@ -99,12 +99,14 @@ export * from './interfaces/ISacFileBrowserService';
 export * from './interfaces/ISacIconService';
 export * from './interfaces/ISacLanguageService';
 export * from './interfaces/ISacLocalisationService';
+export * from './interfaces/ISacValidationKeyService';
 export {
   SACCONFIGURATION_SERVICE,
   SACFILEBROWSER_SERVICE,
   SACICON_SERVICE,
   SACLANGUAGE_SERVICE,
   SACLOCALISATION_SERVICE,
+  SACVALIDATIONKEY_SERVICE,
   SacAbstractConfigurationService,
   SacAbstractFileBrowserService,
   SacAbstractIconService,

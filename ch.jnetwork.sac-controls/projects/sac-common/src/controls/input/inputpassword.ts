@@ -8,25 +8,31 @@ import { SacInputCommon } from './input';
  */
 @Directive()
 export class SacInputPasswordCommon extends SacInputCommon {
-  /**
-   * Resource Key für Validation Message MinLength bei Control
-   */
-  @Input() validationmessageminlength: string = 'VALIDATION_ERROR_MINLENGTH';
-  /**
-   * Resource Key für Validation Message MinLength in Validation Summary
-   */
-  @Input() validationmessagesummaryminlength: string =
-    'VALIDATION_ERROR_SUMMARY_MINLENGTH';
+  // #region Properties
 
   /**
    * Min. Textlänge
    */
-  @Input() minlength: number = 5;
+  @Input() public minlength: number = 5;
+  /**
+   * Resource Key für Validation Message MinLength bei Control
+   */
+  @Input() public validationmessageminlength: string =
+    this.validationKeyService.ValidationErrorMinLength;
+  /**
+   * Resource Key für Validation Message MinLength in Validation Summary
+   */
+  @Input() public validationmessagesummaryminlength: string =
+    this.validationKeyService.ValidationErrorSummaryMinLength;
+
+  // #endregion Properties
+
+  // #region Public Methods
 
   /**
    * Methode validiert, ob der Wert den gegebenen Kriteriten entspricht
    */
-  validateData(c: AbstractControl): ValidationErrors | null {
+  public validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = super.validateData(c);
 
     if (error === null) {
@@ -39,4 +45,6 @@ export class SacInputPasswordCommon extends SacInputCommon {
 
     return error;
   }
+
+  // #endregion Public Methods
 }

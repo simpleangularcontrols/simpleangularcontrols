@@ -23,3 +23,8 @@ export {
   SacAbstractLocalisationService,
   SacDefaultLocalisationService,
 } from './sac-localisation.service';
+
+export {
+  SACVALIDATIONKEY_SERVICE,
+  SacDefaultValidationKeyService,
+} from './sac-validationkey.service';

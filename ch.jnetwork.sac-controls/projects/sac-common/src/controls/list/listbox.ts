@@ -1,3 +1,4 @@
+// tsco:ignore
 import {
   Directive,
   ElementRef,
@@ -5,22 +6,51 @@ import {
   OnDestroy,
   QueryList,
   Renderer2,
-  ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { SacBaseSelectControl } from '../../common/baseselectcontrol';
 import { Validation } from '../../validation';
 
+// #region Interfaces
+
+/**
+ * Wrapper für HTML Options
+ */
+interface HTMLOption {
+  // #region Properties
+
+  /**
+   * Boolean Property für Selektierte Elemente
+   */
+  selected: boolean;
+  /**
+   * Wert
+   */
+  value: string;
+
+  // #endregion Properties
+}
+
+// #endregion Interfaces
+
+// #region Classes
+
 /**
  * Basis Komponente für SacListboxOption
  */
 @Directive()
 export class SacListboxOptionCommon implements OnDestroy {
+  // #region Properties
+
   /**
    * Value von Selected Option Item
    */
   private _value: any = null;
+
+  // #endregion Properties
+
+  // #region Constructors
 
   /**
    * Konstruktor
@@ -37,77 +67,60 @@ export class SacListboxOptionCommon implements OnDestroy {
     }
   }
 
-  /**
-   * Definiert den Wert der Listbox
-   */
-  @Input()
-  set value(value: any) {
-    if (this._listbox) {
-      this._value = value;
-    }
-  }
-  get value(): any {
-    return this._value;
-  }
+  // #endregion Constructors
+
+  // #region Public Getters And Setters
 
   /**
    * NgValue des Controls. Wird für die Mehrfachauswahl benötigt
    */
   @Input()
-  set ngvalue(value: any) {
+  public set ngvalue(value: any) {
     if (this._listbox) {
       this._value = value;
     }
   }
 
   /**
-   * OnDestroy Event
+   * Definiert den Wert der Listbox
    */
-  ngOnDestroy(): void {
+  @Input()
+  public set value(value: any) {
     if (this._listbox) {
-      this._listbox.unregisterOption(this);
+      this._value = value;
     }
   }
+
+  public get value(): any {
+    return this._value;
+  }
+
+  // #endregion Public Getters And Setters
+
+  // #region Public Methods
 
   /**
    * Methode ergibt den Status der Elemente, die selektiert wurden
    * @param selected Element ist selektiert
    */
-  _setSelected(selected: boolean) {
+  public _setSelected(selected: boolean) {
     this._renderer.setProperty(
       this._element.nativeElement,
       'selected',
       selected
     );
   }
-}
 
-/**
- * Wrapper für HTML Options
- */
-interface HTMLOption {
   /**
-   * Wert
+   * OnDestroy Event
    */
-  value: string;
-  /**
-   * Boolean Property für Selektierte Elemente
-   */
-  selected: boolean;
-}
+  public ngOnDestroy(): void {
+    if (this._listbox) {
+      this._listbox.unregisterOption(this);
+    }
+  }
 
-/**
- * Wrapper für HTML Select
- */
-abstract class HTMLCollection {
-  /**
-   * Länge
-   */
-  length: number;
-  /**
-   * Option-Item
-   */
-  abstract item(_: number): HTMLOption;
+  // #endregion Public Methods
 }
 
 /**
@@ -115,38 +128,45 @@ abstract class HTMLCollection {
  */
 @Directive()
 export class SacListboxCommon extends SacBaseSelectControl<Array<string>> {
-  /**
-   * OptionMap
-   */
-  optionlist: Array<SacListboxOptionCommon> =
-    new Array<SacListboxOptionCommon>();
+  // #region Properties
 
   /**
    * Anzahl der Zeilen
    */
-  @Input() rowsize: number = 5;
-
+  @Input() public rowsize: number = 5;
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input() validationmessagerequired: string = 'VALIDATION_ERROR_REQUIRED';
+  @Input() public validationmessagerequired: string =
+    this.validationKeyService.ValidationErrorRequired;
+
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
   @Input()
-  validationmessagesummaryrequired: string =
-    'VALIDATION_ERROR_SUMMARY_REQUIRED';
+  public validationmessagesummaryrequired: string =
+    this.validationKeyService.ValidationErrorSummaryRequired;
 
   /**
    * ViewChildren Methode
    */
   @ViewChildren(SacListboxOptionCommon)
-  contentOptions: QueryList<SacListboxOptionCommon>;
+  public contentOptions: QueryList<SacListboxOptionCommon>;
+
+  /**
+   * OptionMap
+   */
+  public optionlist: Array<SacListboxOptionCommon> =
+    new Array<SacListboxOptionCommon>();
+
+  // #endregion Properties
+
+  // #region Public Methods
 
   /**
    * Getter für selektierte Elemente
    */
-  getSelectedItems(selectelement: any) {
+  public getSelectedItems(selectelement: any) {
     const selectedValues: Array<string> = new Array<string>();
 
     if (selectelement.hasOwnProperty('selectedOptions')) {
@@ -170,37 +190,6 @@ export class SacListboxCommon extends SacBaseSelectControl<Array<string>> {
   }
 
   /**
-   * Methode schreibt neuen Wert
-   */
-  writeValue(value: Array<string>) {
-    if (this.optionlist && value) {
-      this.optionlist.forEach((itm) => {
-        if (value.indexOf(itm.value) >= 0) {
-          itm._setSelected(true);
-        }
-      });
-    }
-
-    super.writeValue(value);
-  }
-
-  /**
-   * Validator Methode
-   */
-  validateData(c: AbstractControl): ValidationErrors | null {
-    let error: ValidationErrors | null = null;
-
-    if (this.isrequired) {
-      error = Validation.required(
-        this.validationmessagerequired,
-        this.validationmessagesummaryrequired
-      )(c);
-    }
-
-    return error;
-  }
-
-  /**
    * Registriert ein Listbox Element
    * @param option Listbox Option Item das registriert werden soll
    */
@@ -216,4 +205,62 @@ export class SacListboxCommon extends SacBaseSelectControl<Array<string>> {
     const index = this.optionlist.indexOf(option);
     this.optionlist.splice(index, 1);
   }
+
+  /**
+   * Validator Methode
+   */
+  public validateData(c: AbstractControl): ValidationErrors | null {
+    let error: ValidationErrors | null = null;
+
+    if (this.isrequired) {
+      error = Validation.required(
+        this.validationmessagerequired,
+        this.validationmessagesummaryrequired
+      )(c);
+    }
+
+    return error;
+  }
+
+  /**
+   * Methode schreibt neuen Wert
+   */
+  public writeValue(value: Array<string>) {
+    if (this.optionlist && value) {
+      this.optionlist.forEach((itm) => {
+        if (value.indexOf(itm.value) >= 0) {
+          itm._setSelected(true);
+        }
+      });
+    }
+
+    super.writeValue(value);
+  }
+
+  // #endregion Public Methods
 }
+
+/**
+ * Wrapper für HTML Select
+ */
+abstract class HTMLCollection {
+  // #region Properties
+
+  /**
+   * Länge
+   */
+  public length: number;
+
+  // #endregion Properties
+
+  // #region Public Abstract Methods
+
+  /**
+   * Option-Item
+   */
+  public abstract item(_: number): HTMLOption;
+
+  // #endregion Public Abstract Methods
+}
+
+// #endregion Classes

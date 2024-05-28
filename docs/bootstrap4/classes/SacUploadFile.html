@@ -197,7 +197,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="620" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:620</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="632" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:632</a></div>
                             </td>
                         </tr>
 
@@ -267,7 +267,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="604" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:604</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="616" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:616</a></div>
                         </td>
                     </tr>
 
@@ -300,7 +300,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="608" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:608</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="620" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:620</a></div>
                         </td>
                     </tr>
 
@@ -333,7 +333,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="612" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:612</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="624" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:624</a></div>
                         </td>
                     </tr>
 
@@ -366,7 +366,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="616" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:616</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="628" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:628</a></div>
                         </td>
                     </tr>
 
@@ -399,7 +399,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="620" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:620</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="632" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:632</a></div>
                         </td>
                     </tr>
 
@@ -452,7 +452,12 @@ import { SacFormLayoutCommon } from &#x27;../controls/layout/formlayout&#x27;;
 import { ISacIconService } from &#x27;../interfaces/ISacIconService&#x27;;
 import { ISacLocalisationService } from &#x27;../interfaces/ISacLocalisationService&#x27;;
 import { IUploadControl } from &#x27;../interfaces/iuploadcontrol&#x27;;
-import { SACICON_SERVICE, SacDefaultIconService } from &#x27;../services&#x27;;
+import {
+  SACICON_SERVICE,
+  SACVALIDATIONKEY_SERVICE,
+  SacDefaultIconService,
+  SacDefaultValidationKeyService,
+} from &#x27;../services&#x27;;
 import {
   SACLOCALISATION_SERVICE,
   SacDefaultLocalisationService,
@@ -520,13 +525,13 @@ export abstract class SacUploadBase&lt;VALUE&gt;
    * Resource Key für Validation Message Required bei Control
    */
   @Input() public validationmessagerequired: string &#x3D;
-    &#x27;VALIDATION_ERROR_REQUIRED&#x27;;
+    this.validationKeyService.ValidationErrorRequired;
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
   @Input()
   public validationmessagesummaryrequired: string &#x3D;
-    &#x27;VALIDATION_ERROR_SUMMARY_REQUIRED&#x27;;
+    this.validationKeyService.ValidationErrorSummaryRequired;
   /**
    * Event wenn ein Error in der Komponente ausgelöst wird.
    */
@@ -572,9 +577,14 @@ export abstract class SacUploadBase&lt;VALUE&gt;
   ) {
     super(formlayout, injector);
 
+    this.validationKeyService &#x3D; injector.get(
+      SACVALIDATIONKEY_SERVICE,
+      new SacDefaultValidationKeyService()
+    );
+
     this.lngResourceService &#x3D; injector.get(
       SACLOCALISATION_SERVICE,
-      new SacDefaultLocalisationService()
+      new SacDefaultLocalisationService(this.validationKeyService)
     );
 
     this.iconService &#x3D; injector.get(
@@ -707,7 +717,9 @@ export abstract class SacUploadBase&lt;VALUE&gt;
     if (this.uploads.length &gt; 0) {
       return of(this.uploads[0].name);
     } else {
-      return this.lngResourceService.GetString(&#x27;UPLOAD_NO_FILE_SELECTED&#x27;);
+      return this.lngResourceService.GetString(
+        this.validationKeyService.UploadNoFilesSelected
+      );
     }
   }
 

@@ -181,6 +181,7 @@
                             <code>NgClass</code>
                             <code>SacToLabelWidthCssPipe</code>
                             <code>SacToControlWidthCssPipe</code>
+                            <code>SacToLabelHeightPipe</code>
                 </td>
             </tr>
 
@@ -241,6 +242,10 @@
                                 <a href="#configurationService" >configurationService</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ControlHeight" >ControlHeight</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Protected</span>
                                 <a href="#formlayout" >formlayout</a>
                             </li>
@@ -259,6 +264,10 @@
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#propagateTouch" >propagateTouch</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#validationKeyService" >validationKeyService</a>
                             </li>
                         </ul>
                     </td>
@@ -293,9 +302,11 @@
                                 <a href="#UnregisterRadioButton" >UnregisterRadioButton</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#validateData" >validateData</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#writeValue" >writeValue</a>
                             </li>
                             <li>
@@ -369,6 +380,9 @@
                                 <a href="#validationmessagesummaryrequired" >validationmessagesummaryrequired</a>
                             </li>
                             <li>
+                                <a href="#componentHeight" >componentHeight</a>
+                            </li>
+                            <li>
                                 <a href="#disabled" >disabled</a>
                             </li>
                             <li>
@@ -432,7 +446,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/sac-bootstrap3/src/controls/checkbox/radiobuttons.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/sac-bootstrap3/src/controls/checkbox/radiobuttons.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -511,7 +525,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;VALIDATION_ERROR_REQUIRED&#x27;</code>
+                        <i>Default value : </i><code>this.validationKeyService.ValidationErrorRequired</code>
                     </td>
                 </tr>
                             <tr>
@@ -522,7 +536,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacRadiobuttonsCommon.html#source" target="_self" >SacRadiobuttonsCommon:33</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacRadiobuttonsCommon.html#source" target="_self" >SacRadiobuttonsCommon:30</a></code>
 </div>
                             </td>
                         </tr>
@@ -550,7 +564,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;VALIDATION_ERROR_SUMMARY_REQUIRED&#x27;</code>
+                        <i>Default value : </i><code>this.validationKeyService.ValidationErrorSummaryRequired</code>
                     </td>
                 </tr>
                             <tr>
@@ -561,13 +575,52 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacRadiobuttonsCommon.html#source" target="_self" >SacRadiobuttonsCommon:37</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacRadiobuttonsCommon.html#source" target="_self" >SacRadiobuttonsCommon:35</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Resource Key für Validation Message Required in Validation Summary</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="componentHeight"></a>
+                        <b>componentHeight</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#ControlHeight" target="_self" >ControlHeight | null</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/SacBaseModelControl.html" target="_self" >SacBaseModelControl</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:92</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Defines the standard height of the components</p>
 </div>
                     </td>
                 </tr>
@@ -600,7 +653,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:86</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:96</a></code>
 </div>
                             </td>
                         </tr>
@@ -639,7 +692,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:90</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:100</a></code>
 </div>
                             </td>
                         </tr>
@@ -678,7 +731,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:94</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:104</a></code>
 </div>
                             </td>
                         </tr>
@@ -712,7 +765,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:176</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:198</a></code>
 </div>
                             </td>
                         </tr>
@@ -751,7 +804,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:98</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:108</a></code>
 </div>
                             </td>
                         </tr>
@@ -785,7 +838,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:187</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:209</a></code>
 </div>
                             </td>
                         </tr>
@@ -824,7 +877,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:103</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:113</a></code>
 </div>
                             </td>
                         </tr>
@@ -863,7 +916,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:108</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:118</a></code>
 </div>
                             </td>
                         </tr>
@@ -902,7 +955,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:113</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:123</a></code>
 </div>
                             </td>
                         </tr>
@@ -941,7 +994,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:118</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:128</a></code>
 </div>
                             </td>
                         </tr>
@@ -980,7 +1033,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:123</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:133</a></code>
 </div>
                             </td>
                         </tr>
@@ -1019,7 +1072,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:128</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:138</a></code>
 </div>
                             </td>
                         </tr>
@@ -1058,7 +1111,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:132</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:142</a></code>
 </div>
                             </td>
                         </tr>
@@ -1092,7 +1145,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:197</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:219</a></code>
 </div>
                             </td>
                         </tr>
@@ -1142,7 +1195,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacRadiobuttonsCommon.html#source" target="_self" >SacRadiobuttonsCommon:70</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacRadiobuttonsCommon.html#source" target="_self" >SacRadiobuttonsCommon:58</a></code>
 </div>
                         </td>
                     </tr>
@@ -1189,7 +1242,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacRadiobuttonsCommon.html#source" target="_self" >SacRadiobuttonsCommon:105</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacRadiobuttonsCommon.html#source" target="_self" >SacRadiobuttonsCommon:66</a></code>
 </div>
                         </td>
                     </tr>
@@ -1236,7 +1289,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacRadiobuttonsCommon.html#source" target="_self" >SacRadiobuttonsCommon:50</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacRadiobuttonsCommon.html#source" target="_self" >SacRadiobuttonsCommon:79</a></code>
 </div>
                         </td>
                     </tr>
@@ -1313,7 +1366,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacRadiobuttonsCommon.html#source" target="_self" >SacRadiobuttonsCommon:94</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacRadiobuttonsCommon.html#source" target="_self" >SacRadiobuttonsCommon:86</a></code>
 </div>
                         </td>
                     </tr>
@@ -1390,7 +1443,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacRadiobuttonsCommon.html#source" target="_self" >SacRadiobuttonsCommon:57</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacRadiobuttonsCommon.html#source" target="_self" >SacRadiobuttonsCommon:97</a></code>
 </div>
                         </td>
                     </tr>
@@ -1445,6 +1498,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                 <td class="col-md-4">
                     <a name="validateData"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>validateData</b></span>
                         <a href="#validateData"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -1452,7 +1506,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>validateData(c: AbstractControl)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validateData(c: AbstractControl)</code>
                 </td>
             </tr>
 
@@ -1465,7 +1520,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:118</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:108</a></code>
 </div>
                         </td>
                     </tr>
@@ -1520,6 +1575,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                 <td class="col-md-4">
                     <a name="writeValue"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>writeValue</b></span>
                         <a href="#writeValue"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -1527,7 +1583,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>writeValue(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>writeValue(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                 </td>
             </tr>
 
@@ -1540,7 +1597,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:80</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:124</a></code>
 </div>
                         </td>
                     </tr>
@@ -1617,7 +1674,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:448</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:473</a></code>
 </div>
                         </td>
                     </tr>
@@ -1700,7 +1757,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:455</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:480</a></code>
 </div>
                         </td>
                     </tr>
@@ -1747,7 +1804,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:302</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:324</a></code>
 </div>
                         </td>
                     </tr>
@@ -1794,7 +1851,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:348</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:370</a></code>
 </div>
                         </td>
                     </tr>
@@ -1841,7 +1898,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:462</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:487</a></code>
 </div>
                         </td>
                     </tr>
@@ -1888,7 +1945,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:374</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:399</a></code>
 </div>
                         </td>
                     </tr>
@@ -1935,7 +1992,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:383</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:408</a></code>
 </div>
                         </td>
                     </tr>
@@ -2013,7 +2070,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:390</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:415</a></code>
 </div>
                         </td>
                     </tr>
@@ -2090,7 +2147,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:397</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:422</a></code>
 </div>
                         </td>
                     </tr>
@@ -2167,7 +2224,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:404</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:429</a></code>
 </div>
                         </td>
                     </tr>
@@ -2244,7 +2301,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:411</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:436</a></code>
 </div>
                         </td>
                     </tr>
@@ -2321,7 +2378,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:467</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:492</a></code>
 </div>
                         </td>
                     </tr>
@@ -2368,7 +2425,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:418</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:443</a></code>
 </div>
                         </td>
                     </tr>
@@ -2454,7 +2511,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:53</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:58</a></code>
 </div>
                         </td>
                     </tr>
@@ -2499,7 +2556,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:57</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:62</a></code>
 </div>
                         </td>
                     </tr>
@@ -2539,7 +2596,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:61</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:66</a></code>
 </div>
                         </td>
                     </tr>
@@ -2584,7 +2641,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:65</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:70</a></code>
 </div>
                         </td>
                     </tr>
@@ -2629,7 +2686,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:69</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:74</a></code>
 </div>
                         </td>
                     </tr>
@@ -2670,7 +2727,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:48</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:53</a></code>
 </div>
                         </td>
                     </tr>
@@ -2678,6 +2735,45 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Service for loading default settings for the controls</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ControlHeight"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ControlHeight</b></span>
+                        <a href="#ControlHeight"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ControlHeight</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../directives/SacBaseModelControl.html" target="_self" >SacBaseModelControl</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:147</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>ControlHeight enum for use in HTML markup</p>
 </div>
                 </td>
             </tr>
@@ -2715,7 +2811,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:73</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:78</a></code>
 </div>
                         </td>
                     </tr>
@@ -2755,7 +2851,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:77</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:82</a></code>
 </div>
                         </td>
                     </tr>
@@ -2795,7 +2891,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:81</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:86</a></code>
 </div>
                         </td>
                     </tr>
@@ -2840,7 +2936,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:137</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:151</a></code>
 </div>
                         </td>
                     </tr>
@@ -2885,7 +2981,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:141</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:155</a></code>
 </div>
                         </td>
                     </tr>
@@ -2893,6 +2989,46 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Leere Implementation von &quot;propagateTouch&quot;. Muss gemacht werden, damit kein Fehler entsteht</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validationKeyService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>validationKeyService</b></span>
+                        <a href="#validationKeyService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ISacValidationKeyService.html" target="_self" >ISacValidationKeyService</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../directives/SacBaseModelControl.html" target="_self" >SacBaseModelControl</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:159</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Service to receive standard validation message keys and texts</p>
 </div>
                 </td>
             </tr>
@@ -2911,6 +3047,7 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
 import { SacRadiobuttonsCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 import { SacFormLayoutDirective } from &#x27;../layout/formlayout.directive&#x27;;
 import { SacToControlWidthCssPipe } from &#x27;../layout/tocontrolwidthcss.pipe&#x27;;
+import { SacToLabelHeightPipe } from &#x27;../layout/tolabelheight.pipe&#x27;;
 import { SacToLabelWidthCssPipe } from &#x27;../layout/tolabelwidthcss.pipe&#x27;;
 
 @Component({
@@ -2930,7 +3067,13 @@ import { SacToLabelWidthCssPipe } from &#x27;../layout/tolabelwidthcss.pipe&#x27
     },
   ],
   standalone: true,
-  imports: [NgIf, NgClass, SacToLabelWidthCssPipe, SacToControlWidthCssPipe],
+  imports: [
+    NgIf,
+    NgClass,
+    SacToLabelWidthCssPipe,
+    SacToControlWidthCssPipe,
+    SacToLabelHeightPipe,
+  ],
 })
 export class SacRadiobuttonsComponent extends SacRadiobuttonsCommon {
   // #region Constructors
@@ -2953,7 +3096,11 @@ export class SacRadiobuttonsComponent extends SacRadiobuttonsCommon {
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;row form-group&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div
+  class&#x3D;&quot;row form-group&quot;
+  [class.has-error]&#x3D;&quot;invalid &amp;&amp; (dirty || touched)&quot;
+  [ngClass]&#x3D;&quot;componentHeight | toLabelHeight&quot;
+&gt;
   &lt;label
     *ngIf&#x3D;&quot;disablelabel &#x3D;&#x3D;&#x3D; false&quot;
     for&#x3D;&quot;{{name}}&quot;
@@ -2999,7 +3146,7 @@ export class SacRadiobuttonsComponent extends SacRadiobuttonsCommon {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="row form-group">  <label    *ngIf="disablelabel === false"    for="{{name}}"    class="col-xs-12 control-label"    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : \'sr-only\' ]"    >{{label}}</label  >  <div    class="col-xs-12"    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : \'\']"  >    <div>      <ng-content></ng-content>    </div>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div  class="row form-group"  [class.has-error]="invalid && (dirty || touched)"  [ngClass]="componentHeight | toLabelHeight">  <label    *ngIf="disablelabel === false"    for="{{name}}"    class="col-xs-12 control-label"    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : \'sr-only\' ]"    >{{label}}</label  >  <div    class="col-xs-12"    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : \'\']"  >    <div>      <ng-content></ng-content>    </div>  </div></div></div>'
     var COMPONENTS = [{'name': 'SacButtonComponent', 'selector': 'sac-button'},{'name': 'SacCheckboxComponent', 'selector': 'sac-checkbox'},{'name': 'SacConfirmComponent', 'selector': 'sac-confirm'},{'name': 'SacDateComponent', 'selector': 'sac-date'},{'name': 'SacDateSelectorComponent', 'selector': 'sac-dateselector'},{'name': 'SacDateTimeComponent', 'selector': 'sac-datetime'},{'name': 'SacDialogComponent', 'selector': 'sac-dialog'},{'name': 'SacDropdownComponent', 'selector': 'sac-dropdown'},{'name': 'SacGridButtonComponent', 'selector': 'sac-gridbutton'},{'name': 'SacGridColumnActionComponent', 'selector': 'sac-gridcolumnaction'},{'name': 'SacGridColumnComponent', 'selector': 'sac-gridcolumn'},{'name': 'SacGridComponent', 'selector': 'sac-grid'},{'name': 'SacGridImageComponent', 'selector': 'sac-gridimage'},{'name': 'SacInputAreaComponent', 'selector': 'sac-inputarea'},{'name': 'SacInputComponent', 'selector': 'sac-input'},{'name': 'SacInputCurrencyComponent', 'selector': 'sac-inputcurrency'},{'name': 'SacInputDecimalComponent', 'selector': 'sac-inputdecimal'},{'name': 'SacInputEmailComponent', 'selector': 'sac-inputemail'},{'name': 'SacInputIntegerComponent', 'selector': 'sac-inputinteger'},{'name': 'SacInputPasswordComponent', 'selector': 'sac-inputpassword'},{'name': 'SacInputSearchComponent', 'selector': 'sac-inputsearch'},{'name': 'SacListboxComponent', 'selector': 'sac-listbox'},{'name': 'SacPagingComponent', 'selector': 'sac-paging'},{'name': 'SacRadiobuttonComponent', 'selector': 'sac-radiobutton'},{'name': 'SacRadiobuttonsComponent', 'selector': 'sac-radiobuttons'},{'name': 'SacStaticFormContainerComponent', 'selector': 'sac-staticformcontainer'},{'name': 'SacStaticLabelComponent', 'selector': 'sac-staticlabel'},{'name': 'SacTabComponent', 'selector': 'sac-tab'},{'name': 'SacTabItemComponent', 'selector': 'sac-tabitem'},{'name': 'SacTimeComponent', 'selector': 'sac-time'},{'name': 'SacTinyMceComponent', 'selector': 'sac-tinymce'},{'name': 'SacTooltipComponent', 'selector': 'sac-tooltip'},{'name': 'SacTreeItemActionComponent', 'selector': 'sac-treeitemaction'},{'name': 'SacTreeViewChildComponent', 'selector': 'sac-treeviewchild'},{'name': 'SacTreeViewComponent', 'selector': 'sac-treeview'},{'name': 'SacUploadComponent', 'selector': 'sac-upload'},{'name': 'SacUploadMultipleComponent', 'selector': 'sac-uploadmultiple'},{'name': 'SacValidationSummaryComponent', 'selector': 'sac-validationsummary'},{'name': 'SacWizardComponent', 'selector': 'sac-wizard'},{'name': 'SacWizardItemComponent', 'selector': 'sac-wizarditem'}];
     var DIRECTIVES = [{'name': 'SacBaseDateTimeControl', 'selector': ''},{'name': 'SacBaseListControl', 'selector': ''},{'name': 'SacBaseModelControl', 'selector': ''},{'name': 'SacBaseSelectControl', 'selector': ''},{'name': 'SacButtonCommon', 'selector': ''},{'name': 'SacCheckboxCommon', 'selector': ''},{'name': 'SacConfirmCommon', 'selector': ''},{'name': 'SacContextmenuAnchorCommon', 'selector': ''},{'name': 'SacContextmenuCommon', 'selector': ''},{'name': 'SacContextMenuContrainerCommon', 'selector': ''},{'name': 'SacContextmenuItemButtonCommon', 'selector': ''},{'name': 'SacContextmenuItemCommon', 'selector': ''},{'name': 'SacDateCommon', 'selector': ''},{'name': 'SacDateSelectorCommon', 'selector': ''},{'name': 'SacDateTimeCommon', 'selector': ''},{'name': 'SacDialogCommon', 'selector': ''},{'name': 'SacDropdownCommon', 'selector': ''},{'name': 'SacDropdownOptionCommon', 'selector': ''},{'name': 'SacDropdownOptionDirective', 'selector': 'option,[sacOption]'},{'name': 'SacDropzoneMultipleCommon', 'selector': ''},{'name': 'SacDropzoneSingleCommon', 'selector': ''},{'name': 'SacFileBrowserCommon', 'selector': ''},{'name': 'SacFormCommon', 'selector': ''},{'name': 'SacFormDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'SacFormLayoutCommon', 'selector': ''},{'name': 'SacFormLayoutDirective', 'selector': '[sacFormLayout]'},{'name': 'SacGridButtonCommon', 'selector': ''},{'name': 'SacGridColumnActionCommon', 'selector': ''},{'name': 'SacGridColumnBaseCommon', 'selector': ''},{'name': 'SacGridColumnCommon', 'selector': ''},{'name': 'SacGridCommon', 'selector': ''},{'name': 'SacGridImageCommon', 'selector': ''},{'name': 'SacInheritFormDirective', 'selector': '[sacInheritForm]'},{'name': 'SacInputAreaCommon', 'selector': ''},{'name': 'SacInputBase', 'selector': ''},{'name': 'SacInputCommon', 'selector': ''},{'name': 'SacInputCurrencyCommon', 'selector': ''},{'name': 'SacInputDecimalCommon', 'selector': ''},{'name': 'SacInputEmailCommon', 'selector': ''},{'name': 'SacInputIntegerCommon', 'selector': ''},{'name': 'SacInputPasswordCommon', 'selector': ''},{'name': 'SacInputSearchCommon', 'selector': ''},{'name': 'SacListboxCommon', 'selector': ''},{'name': 'SacListboxOptionCommon', 'selector': ''},{'name': 'SacMultilanguageInputAreaCommon', 'selector': ''},{'name': 'SacMultilanguageInputCommon', 'selector': ''},{'name': 'SacPagingCommon', 'selector': ''},{'name': 'SacRadiobuttonCommon', 'selector': ''},{'name': 'SacRadiobuttonsCommon', 'selector': ''},{'name': 'SacStaticFormContainerCommon', 'selector': ''},{'name': 'SacStaticLabelCommon', 'selector': ''},{'name': 'SacTabCommon', 'selector': ''},{'name': 'SacTabItemCommon', 'selector': ''},{'name': 'SacTimeCommon', 'selector': ''},{'name': 'SacTinyMceCommon', 'selector': ''},{'name': 'SacTooltipCommon', 'selector': ''},{'name': 'SacTreeItemActionCommon', 'selector': ''},{'name': 'SacTreeViewChildCommon', 'selector': ''},{'name': 'SacTreeViewCommon', 'selector': ''},{'name': 'SacUploadBase', 'selector': ''},{'name': 'SacUploadMultipleCommon', 'selector': ''},{'name': 'SacUploadSingleCommon', 'selector': ''},{'name': 'SacValidationSummaryCommon', 'selector': ''},{'name': 'SacWizardCommon', 'selector': ''},{'name': 'SacWizardItemCommon', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'SacRadiobuttonsComponent'};

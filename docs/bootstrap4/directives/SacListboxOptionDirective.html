@@ -177,9 +177,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#_setSelected" >_setSelected</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#ngOnDestroy" >ngOnDestroy</a>
                             </li>
                         </ul>
@@ -222,7 +224,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">projects/sac-bootstrap4/src/controls/list/listbox.ts:75</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">projects/sac-bootstrap4/src/controls/list/listbox.ts:79</a></div>
                             </td>
                         </tr>
 
@@ -323,7 +325,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacListboxOptionCommon.html#source" target="_self" >SacListboxOptionCommon:57</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacListboxOptionCommon.html#source" target="_self" >SacListboxOptionCommon:78</a></code>
 </div>
                             </td>
                         </tr>
@@ -357,7 +359,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacListboxOptionCommon.html#source" target="_self" >SacListboxOptionCommon:44</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacListboxOptionCommon.html#source" target="_self" >SacListboxOptionCommon:88</a></code>
 </div>
                             </td>
                         </tr>
@@ -384,6 +386,7 @@
                 <td class="col-md-4">
                     <a name="_setSelected"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>_setSelected</b></span>
                         <a href="#_setSelected"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -391,7 +394,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>_setSelected(selected: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_setSelected(selected: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                 </td>
             </tr>
 
@@ -404,7 +408,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacListboxOptionCommon.html#source" target="_self" >SacListboxOptionCommon:76</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacListboxOptionCommon.html#source" target="_self" >SacListboxOptionCommon:106</a></code>
 </div>
                         </td>
                     </tr>
@@ -464,6 +468,7 @@
                 <td class="col-md-4">
                     <a name="ngOnDestroy"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>ngOnDestroy</b></span>
                         <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -471,7 +476,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>ngOnDestroy()</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnDestroy()</code>
                 </td>
             </tr>
 
@@ -484,7 +490,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacListboxOptionCommon.html#source" target="_self" >SacListboxOptionCommon:66</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacListboxOptionCommon.html#source" target="_self" >SacListboxOptionCommon:117</a></code>
 </div>
                         </td>
                     </tr>
@@ -527,7 +533,9 @@ import {
   SacListboxOptionCommon,
 } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 import { SacFormLayoutDirective } from &#x27;../layout/formlayout.directive&#x27;;
+import { SacToControlHeightPipe } from &#x27;../layout/tocontrolheight.pipe&#x27;;
 import { SacToControlWidthCssPipe } from &#x27;../layout/tocontrolwidthcss.pipe&#x27;;
+import { SacToLabelHeightPipe } from &#x27;../layout/tolabelheight.pipe&#x27;;
 import { SacToLabelWidthCssPipe } from &#x27;../layout/tolabelwidthcss.pipe&#x27;;
 
 // #region Classes
@@ -560,6 +568,8 @@ import { SacToLabelWidthCssPipe } from &#x27;../layout/tolabelwidthcss.pipe&#x27
     forwardRef(() &#x3D;&gt; SacListboxOptionDirective),
     SacToLabelWidthCssPipe,
     SacToControlWidthCssPipe,
+    SacToLabelHeightPipe,
+    SacToControlHeightPipe,
   ],
 })
 export class SacListboxComponent extends SacListboxCommon {

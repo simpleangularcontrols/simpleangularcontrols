@@ -224,7 +224,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">projects/sac-bootstrap4/src/controls/list/dropdown.ts:86</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">projects/sac-bootstrap4/src/controls/list/dropdown.ts:90</a></div>
                             </td>
                         </tr>
 
@@ -539,7 +539,9 @@ import {
   SacDropdownOptionCommon,
 } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 import { SacFormLayoutDirective } from &#x27;../layout/formlayout.directive&#x27;;
+import { SacToControlHeightPipe } from &#x27;../layout/tocontrolheight.pipe&#x27;;
 import { SacToControlWidthCssPipe } from &#x27;../layout/tocontrolwidthcss.pipe&#x27;;
+import { SacToLabelHeightPipe } from &#x27;../layout/tolabelheight.pipe&#x27;;
 import { SacToLabelWidthCssPipe } from &#x27;../layout/tolabelwidthcss.pipe&#x27;;
 
 // #region Classes
@@ -573,6 +575,8 @@ import { SacToLabelWidthCssPipe } from &#x27;../layout/tolabelwidthcss.pipe&#x27
     AsyncPipe,
     SacToLabelWidthCssPipe,
     SacToControlWidthCssPipe,
+    SacToLabelHeightPipe,
+    SacToControlHeightPipe,
   ],
 })
 export class SacDropdownComponent extends SacDropdownCommon {

@@ -134,7 +134,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Klasse für Button Templates in Confirm Button</p>
+                <p>Class for button templates in Confirm Button</p>
 
             </p>
 
@@ -159,6 +159,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#role" >role</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#text" >text</a>
                             </li>
                         </ul>
@@ -180,12 +184,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, text: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>constructor(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, text: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, role: <a href="../undefineds/BUTTONROLETYPE.html" target="_self">BUTTONROLETYPE</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.button.ts:4</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.button.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -217,7 +221,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Key für Button</p>
+                                                                <p>Key for button</p>
 
                                                         </td>
                                                 </tr>
@@ -233,7 +237,23 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Text für Button</p>
+                                                                <p>Text for button</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>role</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../miscellaneous/typealiases.html#BUTTONROLETYPE" target="_self" >BUTTONROLETYPE</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Role type for the button. Default is ‘secondary’</p>
 
                                                         </td>
                                                 </tr>
@@ -276,13 +296,51 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.button.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.button.ts:12</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Key des Buttons. Wird als Result beim Confirm zurückgegeben</p>
+                    <div class="io-description"><p>Key of the button. Is returned as a result when confirming</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="role"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>role</b></span>
+                        <a href="#role"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#BUTTONROLETYPE" target="_self" >BUTTONROLETYPE</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;secondary&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.button.ts:16</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Layout of the button</p>
 </div>
                 </td>
             </tr>
@@ -314,13 +372,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.button.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.button.ts:20</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Anzeigetext des Buttons</p>
+                    <div class="io-description"><p>Display text of the buttonAnzeigetext des Buttons</p>
 </div>
                 </td>
             </tr>
@@ -339,26 +397,48 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class SacConfirmButton {
-  /**
-   * Konstruktor
-   * @param key Key für Button
-   * @param text Text für Button
-   */
-  constructor(key: string &#x3D; &#x27;&#x27;, text: string &#x3D; &#x27;&#x27;) {
-    this.key &#x3D; key;
-    this.text &#x3D; text;
-  }
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BUTTONROLETYPE } from &#x27;../../enums/ButtonRoleType&#x27;;
+
+/**
+ * Class for button templates in Confirm Button
+ */
+export class SacConfirmButton {
+  // #region Properties
 
   /**
-   * Key des Buttons. Wird als Result beim Confirm zurückgegeben
+   * Key of the button. Is returned as a result when confirming
    */
   public key: string &#x3D; &#x27;&#x27;;
-
   /**
-   * Anzeigetext des Buttons
+   * Layout of the button
+   */
+  public role: BUTTONROLETYPE &#x3D; &#x27;secondary&#x27;;
+  /**
+   * Display text of the buttonAnzeigetext des Buttons
    */
   public text: string &#x3D; &#x27;&#x27;;
+
+  // #endregion Properties
+
+  // #region Constructors
+
+  /**
+   * Konstruktor
+   * @param key Key for button
+   * @param text Text for button
+   * @param role Role type for the button. Default is ‘secondary’
+   */
+  constructor(
+    key: string &#x3D; &#x27;&#x27;,
+    text: string &#x3D; &#x27;&#x27;,
+    role: BUTTONROLETYPE &#x3D; &#x27;default&#x27;
+  ) {
+    this.key &#x3D; key;
+    this.text &#x3D; text;
+    this.role &#x3D; role;
+  }
+
+  // #endregion Constructors
 }
 </code></pre>
     </div>

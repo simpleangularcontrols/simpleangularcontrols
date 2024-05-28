@@ -28,6 +28,10 @@
 <title>cluster_SACBootstrap5StaticLabelModule_imports</title>
 <polygon fill="none" stroke="black" points="1059,-189.59 1059,-241.59 1263,-241.59 1263,-189.59 1059,-189.59"/>
 </g>
+<g id="clust6" class="cluster">
+<title>cluster_SACBootstrap5StaticLabelModule_exports</title>
+<polygon fill="none" stroke="black" points="735,-319.59 735,-371.59 1160,-371.59 1160,-319.59 735,-319.59"/>
+</g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap5StaticLabelModule_declarations</title>
 <polygon fill="none" stroke="black" points="633,-189.59 633,-241.59 1051,-241.59 1051,-189.59 633,-189.59"/>
@@ -35,10 +39,6 @@
 <g id="clust3" class="cluster">
 <title>cluster_SACBootstrap5StaticLabelModule_SacStaticFormContainerComponent_providers</title>
 <polygon fill="none" stroke="black" points="16,-78 16,-176.59 1804,-176.59 1804,-78 16,-78"/>
-</g>
-<g id="clust6" class="cluster">
-<title>cluster_SACBootstrap5StaticLabelModule_exports</title>
-<polygon fill="none" stroke="black" points="735,-319.59 735,-371.59 1160,-371.59 1160,-319.59 735,-319.59"/>
 </g>
 <!-- SacStaticFormContainerComponent -->
 <g id="node1" class="node">

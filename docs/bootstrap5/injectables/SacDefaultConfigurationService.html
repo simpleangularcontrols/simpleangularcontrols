@@ -167,6 +167,9 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
+                                    <a href="#ComponentHeight" >ComponentHeight</a>
+                                </li>
+                                <li>
                                     <a href="#LabelSizeLg" >LabelSizeLg</a>
                                 </li>
                                 <li>
@@ -202,6 +205,28 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="ComponentHeight"></a>
+                        <span class="name"><b>ComponentHeight</b><a href="#ComponentHeight"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>ComponentHeight()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:55</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="LabelSizeLg"></a>
                         <span class="name"><b>LabelSizeLg</b><a href="#LabelSizeLg"><span class="icon ion-ios-link"></span></a></span>
                     </td>
@@ -214,7 +239,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:53</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:62</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -247,7 +272,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:60</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:69</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -280,7 +305,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:67</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:76</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -313,7 +338,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:74</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:83</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -346,7 +371,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:81</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:90</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -379,7 +404,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:88</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:97</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -406,6 +431,9 @@
 <p>Example of an implementation of a project-specific configuration</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">import { SacAbstractConfigurationService } from &#39;&#64;simpleangularcontrols/sac-common&#39;;
 
+&#64;Injectable({
+  providedIn: &#39;root&#39;,
+})
 export class CustomConfigurationService extends SacAbstractConfigurationService {
   get LabelSizeLg(): number | null {
     return 3;
@@ -439,6 +467,7 @@ export class CustomConfigurationService extends SacAbstractConfigurationService 
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, InjectionToken } from &#x27;@angular/core&#x27;;
+import { ControlHeight } from &#x27;../enums/ControlHeight&#x27;;
 import { ISacConfigurationService } from &#x27;../interfaces/ISacConfigurationService&#x27;;
 
 // #region Classes
@@ -452,6 +481,10 @@ export abstract class SacAbstractConfigurationService
 {
   // #region Public Abstract Getters And Setters
 
+  /**
+   * @inheritdoc
+   */
+  public abstract get ComponentHeight(): ControlHeight | null;
   /**
    * @inheritdoc
    */
@@ -486,6 +519,10 @@ export abstract class SacAbstractConfigurationService
 @Injectable({ providedIn: &#x27;root&#x27; })
 export class SacDefaultConfigurationService extends SacAbstractConfigurationService {
   // #region Public Getters And Setters
+
+  public get ComponentHeight(): ControlHeight {
+    return null;
+  }
 
   /**
    * @inheritdoc

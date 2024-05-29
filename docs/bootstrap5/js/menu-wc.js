@@ -491,13 +491,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SACBootstrap5TabsModule.html" data-type="entity-link" >SACBootstrap5TabsModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                            'data-bs-target="#components-links-module-SACBootstrap5TabsModule-92840c0967f79a71ec52e93d908bc349f3357ec71b8ef5d3a115e7d12cebd1305b26b718f1c7acc903fb43a61a39faaa68b65011d49fa7b7582a4e5290d16a60"' : 'data-bs-target="#xs-components-links-module-SACBootstrap5TabsModule-92840c0967f79a71ec52e93d908bc349f3357ec71b8ef5d3a115e7d12cebd1305b26b718f1c7acc903fb43a61a39faaa68b65011d49fa7b7582a4e5290d16a60"' }>
+                                            'data-bs-target="#components-links-module-SACBootstrap5TabsModule-0aee1ede18c8708e632f873e8b7f6a26d79f904b92b4178e1aa532c5b2836e6344d9f36d9b62e714c8a1d26795328d3051292b85de98f2fe7db97fe2e50935b0"' : 'data-bs-target="#xs-components-links-module-SACBootstrap5TabsModule-0aee1ede18c8708e632f873e8b7f6a26d79f904b92b4178e1aa532c5b2836e6344d9f36d9b62e714c8a1d26795328d3051292b85de98f2fe7db97fe2e50935b0"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SACBootstrap5TabsModule-92840c0967f79a71ec52e93d908bc349f3357ec71b8ef5d3a115e7d12cebd1305b26b718f1c7acc903fb43a61a39faaa68b65011d49fa7b7582a4e5290d16a60"' :
-                                            'id="xs-components-links-module-SACBootstrap5TabsModule-92840c0967f79a71ec52e93d908bc349f3357ec71b8ef5d3a115e7d12cebd1305b26b718f1c7acc903fb43a61a39faaa68b65011d49fa7b7582a4e5290d16a60"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SACBootstrap5TabsModule-0aee1ede18c8708e632f873e8b7f6a26d79f904b92b4178e1aa532c5b2836e6344d9f36d9b62e714c8a1d26795328d3051292b85de98f2fe7db97fe2e50935b0"' :
+                                            'id="xs-components-links-module-SACBootstrap5TabsModule-0aee1ede18c8708e632f873e8b7f6a26d79f904b92b4178e1aa532c5b2836e6344d9f36d9b62e714c8a1d26795328d3051292b85de98f2fe7db97fe2e50935b0"' }>
                                             <li class="link">
                                                 <a href="components/SacTabComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacTabComponent</a>
                                             </li>

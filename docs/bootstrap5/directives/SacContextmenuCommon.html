@@ -619,8 +619,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="205"
-                                    class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:205</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="209"
+                                    class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:209</a></div>
                         </td>
                     </tr>
 
@@ -817,8 +817,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="182"
-                                    class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:182</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="186"
+                                    class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:186</a></div>
                         </td>
                     </tr>
 
@@ -858,8 +858,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="190"
-                                    class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:190</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="194"
+                                    class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:194</a></div>
                         </td>
                     </tr>
 
@@ -1136,6 +1136,10 @@ export class SacContextmenuCommon implements OnDestroy {
    * Event wenn Component entfernt wird.
    */
   public ngOnDestroy(): void {
+    if (this.isopen) {
+      this.close();
+    }
+
     this.zoneSubscription.unsubscribe();
   }
 

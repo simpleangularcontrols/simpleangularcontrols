@@ -1,12 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {
-  ServiceConfirm,
-  SACBootstrap3FormModule,
   SACBootstrap3ButtonModule,
   SACBootstrap3ConfirmModule,
+  SACBootstrap3FormModule,
+  ServiceConfirm,
 } from '@simpleangularcontrols/sac-bootstrap3';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-confirm',
@@ -22,7 +23,14 @@ import { CommonModule } from '@angular/common';
   ],
 })
 export class DemoConfirmComponent {
+  // #region Constructors
+
   constructor(private confirmService: ServiceConfirm) {}
+
+  // #endregion Constructors
+
+  // #region Public Methods
+
   public confirmExample(): void {
     this.confirmService
       .ConfirmMessage('Benutzer löschen', 'Soll der Benutzer gelöscht werden?')
@@ -35,4 +43,27 @@ export class DemoConfirmComponent {
         }
       });
   }
+
+  public confirmExample2(): void {
+    this.confirmService
+      .ConfirmMessage(
+        'Benutzer löschen',
+        'Soll der Benutzer gelöscht werden?',
+        [
+          { key: 'ok', text: 'OK', role: 'primary' },
+          { key: 'cancel', text: 'Abbrechen' },
+        ]
+      )
+      .pipe(take(1))
+      .subscribe((result) => {
+        console.log('Action called');
+        if (result === 'ok') {
+          alert('True');
+        } else {
+          alert('False');
+        }
+      });
+  }
+
+  // #endregion Public Methods
 }

@@ -1,19 +1,27 @@
 import { Component } from '@angular/core';
-import { ServiceConfirm, SACBootstrap5FormModule, SACBootstrap5ButtonModule } from '@simpleangularcontrols/sac-bootstrap5';
 import { FormsModule } from '@angular/forms';
+import {
+  SACBootstrap5ButtonModule,
+  SACBootstrap5FormModule,
+  ServiceConfirm,
+} from '@simpleangularcontrols/sac-bootstrap5';
+import { take } from 'rxjs/operators';
 
 @Component({
-    selector: 'app-confirm',
-    templateUrl: './confirm.component.html',
-    standalone: true,
-    imports: [
-        FormsModule,
-        SACBootstrap5FormModule,
-        SACBootstrap5ButtonModule,
-    ],
+  selector: 'app-confirm',
+  templateUrl: './confirm.component.html',
+  standalone: true,
+  imports: [FormsModule, SACBootstrap5FormModule, SACBootstrap5ButtonModule],
 })
 export class DemoConfirmComponent {
+  // #region Constructors
+
   constructor(private confirmService: ServiceConfirm) {}
+
+  // #endregion Constructors
+
+  // #region Public Methods
+
   public confirmExample(): void {
     this.confirmService
       .ConfirmMessage('Benutzer löschen', 'Soll der Benutzer gelöscht werden?')
@@ -26,4 +34,27 @@ export class DemoConfirmComponent {
         }
       });
   }
+
+  public confirmExample2(): void {
+    this.confirmService
+      .ConfirmMessage(
+        'Benutzer löschen',
+        'Soll der Benutzer gelöscht werden?',
+        [
+          { key: 'ok', text: 'OK', role: 'primary' },
+          { key: 'cancel', text: 'Abbrechen' },
+        ]
+      )
+      .pipe(take(1))
+      .subscribe((result) => {
+        console.log('Action called');
+        if (result === 'ok') {
+          alert('True');
+        } else {
+          alert('False');
+        }
+      });
+  }
+
+  // #endregion Public Methods
 }

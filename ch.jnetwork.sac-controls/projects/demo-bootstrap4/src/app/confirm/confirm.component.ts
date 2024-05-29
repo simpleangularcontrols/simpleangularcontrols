@@ -6,6 +6,7 @@ import {
   SACBootstrap4FormModule,
   ServiceConfirm,
 } from '@simpleangularcontrols/sac-bootstrap4';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-confirm',
@@ -33,6 +34,27 @@ export class DemoConfirmComponent {
       .subscribe((result) => {
         console.log('Action called');
         if (result === 'yes') {
+          alert('True');
+        } else {
+          alert('False');
+        }
+      });
+  }
+
+  public confirmExample2(): void {
+    this.confirmService
+      .ConfirmMessage(
+        'Benutzer löschen',
+        'Soll der Benutzer gelöscht werden?',
+        [
+          { key: 'ok', text: 'OK', role: 'primary' },
+          { key: 'cancel', text: 'Abbrechen' },
+        ]
+      )
+      .pipe(take(1))
+      .subscribe((result) => {
+        console.log('Action called');
+        if (result === 'ok') {
           alert('True');
         } else {
           alert('False');

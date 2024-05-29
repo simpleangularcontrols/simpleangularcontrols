@@ -22,7 +22,7 @@
       <sac-button
         [name]="button.key"
         [text]="button.text"
-        [role]="button.role"
+        [role]="button.role || 'default'"
         (clicked)="confirm(button.key)"
       ></sac-button>
     </ng-container>

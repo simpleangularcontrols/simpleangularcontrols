@@ -13,9 +13,9 @@ name: "CodeQL"
 
 on:
   push:
-    branches: [ "angular/13.2.x", "angular/*" ]
+    branches: [ "angular/16.x.x", "angular/*" ]
   pull_request:
-    branches: [ "angular/13.2.x", "angular/*" ]
+    branches: [ "angular/16.x.x", "angular/*" ]
   schedule:
     - cron: '37 7 * * 4'
 
@@ -64,7 +64,6 @@ jobs:
 
         # For more details on CodeQL's query packs, refer to: https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs
         # queries: security-extended,security-and-quality
-
 
     # Autobuild attempts to build any compiled languages (C/C++, C#, Go, Java, or Swift).
     # If this step fails, then you should remove it and run the build manually (see below)

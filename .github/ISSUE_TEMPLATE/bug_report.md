@@ -27,9 +27,9 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Angular Version**
- - Version: [13.x.x]
- - Component Version: [13.x.x.]
- - Form Technolog: [e.g. template driven, reactive forms]
+ - Version: [13.x.x,16.x.x]
+ - Component Version: [13.x.x,16.x.x]
+ - Form Technolog: [template driven,reactive forms]
 
 **Additional context**
 Add any other context about the problem here.

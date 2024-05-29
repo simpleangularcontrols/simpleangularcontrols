@@ -1,6 +1,5 @@
 <h2>Tabs</h2>
 <form #myForm="sacform" labelsize="3">
-
   <sac-tab name="tab1">
     <sac-tabitem id="home1" label="Home">
       <ng-template>
@@ -10,6 +9,14 @@
     <sac-tabitem id="profile1" label="Profile">
       <ng-template>
         <p>Tab 2</p>
+        <p>Context Menu</p>
+        <div>
+          <sac-contextmenu>
+            <sac-contextmenubutton text="Action 1"></sac-contextmenubutton>
+            <sac-contextmenubutton text="Action 2"></sac-contextmenubutton>
+            <sac-contextmenubutton text="Action 3"></sac-contextmenubutton>
+          </sac-contextmenu>
+        </div>
       </ng-template>
     </sac-tabitem>
     <sac-tabitem id="messages1" label="Messages">
@@ -46,5 +53,4 @@
       </ng-template>
     </sac-tabitem>
   </sac-tab>
-
 </form>

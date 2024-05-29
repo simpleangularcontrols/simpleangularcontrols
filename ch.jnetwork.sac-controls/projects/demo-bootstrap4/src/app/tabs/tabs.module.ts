@@ -2,8 +2,9 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  SACBootstrap4TabsModule,
+  SACBootstrap4ContextmenuModule,
   SACBootstrap4FormModule,
+  SACBootstrap4TabsModule,
   SACBootstrap4ValidationSummaryModule,
 } from '@simpleangularcontrols/sac-bootstrap4';
 import { TabsRoutingModule } from './tabs-routing.module';
@@ -18,6 +19,7 @@ import { DemoTabsComponent } from './tabs.component';
     SACBootstrap4TabsModule,
     SACBootstrap4ValidationSummaryModule,
     SACBootstrap4TabsModule,
+    SACBootstrap4ContextmenuModule,
   ],
 })
 export class TabsModule {}

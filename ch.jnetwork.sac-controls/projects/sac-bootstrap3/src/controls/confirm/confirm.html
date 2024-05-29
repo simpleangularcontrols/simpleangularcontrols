@@ -17,7 +17,7 @@
       <sac-button
         [name]="button.key"
         [text]="button.text"
-        [role]="button.role"
+        [role]="button.role || 'default'"
         (clicked)="confirm(button.key)"
         style="margin-left: 15px"
       ></sac-button>

@@ -13,7 +13,7 @@ export class SacConfirmButton {
   /**
    * Layout of the button
    */
-  public role: BUTTONROLETYPE = 'secondary';
+  public role?: BUTTONROLETYPE | null = 'secondary';
   /**
    * Display text of the buttonAnzeigetext des Buttons
    */

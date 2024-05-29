@@ -173,6 +173,10 @@ export class SacContextmenuCommon implements OnDestroy {
    * Event wenn Component entfernt wird.
    */
   public ngOnDestroy(): void {
+    if (this.isopen) {
+      this.close();
+    }
+
     this.zoneSubscription.unsubscribe();
   }
 

@@ -27,6 +27,7 @@ export class DemoInputComponent {
     fieldcurrency1: 0,
     fieldcurrency2: 0,
     fieldcurrency3: null,
+    fieldcurrency4: null,
     fieldemail1: '',
     fieldemail2: '',
     fieldemail3: '',

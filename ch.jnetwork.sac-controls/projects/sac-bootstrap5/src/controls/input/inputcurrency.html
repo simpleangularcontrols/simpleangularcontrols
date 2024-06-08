@@ -30,7 +30,7 @@
         [class.is-invalid]="invalid && (dirty || touched)"
         [ngClass]="[componentHeight | toControlHeight]"
       />
-      <span class="input-group-text">CHF</span>
+      <span class="input-group-text">{{currency}}</span>
       <div
         *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
         class="invalid-feedback"

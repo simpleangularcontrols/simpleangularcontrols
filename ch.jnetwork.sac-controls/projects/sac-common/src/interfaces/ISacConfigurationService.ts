@@ -11,6 +11,10 @@ export interface ISacConfigurationService {
    */
   get ComponentHeight(): ControlHeight | null;
   /**
+   * Defines the standard text for currencies. e.g. $, €, CHF
+   */
+  get CurrencyText(): string;
+  /**
    * default labe size for large devices
    */
   get LabelSizeLg(): number | null;

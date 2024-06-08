@@ -14,6 +14,10 @@ export class CustomConfigurationService extends SacAbstractConfigurationService 
     return ControlHeight.Small;
   }
 
+  public get CurrencyText(): string {
+    return 'CHF';
+  }
+
   public get LabelSizeLg(): number | null {
     return 3;
   }

@@ -20,6 +20,10 @@ export abstract class SacAbstractConfigurationService
   /**
    * @inheritdoc
    */
+  public abstract get CurrencyText(): string;
+  /**
+   * @inheritdoc
+   */
   public abstract get LabelSizeLg(): number | null;
   /**
    * @inheritdoc
@@ -52,8 +56,18 @@ export abstract class SacAbstractConfigurationService
 export class SacDefaultConfigurationService extends SacAbstractConfigurationService {
   // #region Public Getters And Setters
 
+  /**
+   * @inheritdoc
+   */
   public get ComponentHeight(): ControlHeight {
     return null;
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public get CurrencyText(): string {
+    return 'CHF';
   }
 
   /**

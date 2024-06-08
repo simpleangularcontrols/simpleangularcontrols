@@ -13,6 +13,12 @@ import { SacAbstractConfigurationService } from '@simpleangularcontrols/sac-comm
   providedIn: 'root',
 })
 export class CustomConfigurationService extends SacAbstractConfigurationService {
+  get ComponentHeight(): ControlHeight | null {
+    return ControlHeight.Default;
+  }
+  get CurrencyText(): string {
+    return 'CHF';
+  }
   get LabelSizeLg(): number | null {
     return 3;
   }

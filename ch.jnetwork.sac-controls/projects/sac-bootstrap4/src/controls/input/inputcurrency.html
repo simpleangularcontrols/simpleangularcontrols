@@ -31,7 +31,7 @@
         [ngClass]="[componentHeight | toControlHeight]"
       />
       <div class="input-group-append">
-        <span class="input-group-text">CHF</span>
+        <span class="input-group-text">{{currency}}</span>
       </div>
       <div
         *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"

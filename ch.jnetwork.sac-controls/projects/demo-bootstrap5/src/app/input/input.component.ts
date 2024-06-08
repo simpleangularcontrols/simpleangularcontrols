@@ -1,13 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {
-  SacFormDirective,
-  SACBootstrap5FormModule,
   SACBootstrap5ButtonModule,
-  SACBootstrap5ValidationSummaryModule,
+  SACBootstrap5FormModule,
   SACBootstrap5InputModule,
   SACBootstrap5StaticLabelModule,
+  SACBootstrap5ValidationSummaryModule,
+  SacFormDirective,
 } from '@simpleangularcontrols/sac-bootstrap5';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -48,6 +48,7 @@ export class DemoInputComponent {
     fieldcurrency1: 0,
     fieldcurrency2: 0,
     fieldcurrency3: null,
+    fieldcurrency4: null,
     fieldemail1: '',
     fieldemail2: '',
     fieldemail3: '',

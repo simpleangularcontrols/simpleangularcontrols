@@ -11,7 +11,7 @@
 		}
 	],
 	"settings": {
-		"window.title": "Simple Angular Controls Ng13",
+		"window.title": "Simple Angular Controls Ng10",
 		"tsco.addMemberCountInRegionName": false,
 		"editor.codeActionsOnSave": {
 			"source.organizeImports": "always"

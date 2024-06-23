@@ -1,21 +1,48 @@
-import { Component, forwardRef, ElementRef, Host, Injector } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
-import { NgFormularDirective } from '../form/form';
-import { NgDateTimeCommon } from '@jnetwork/jngcontrols-common';
-
+import {
+  Component,
+  ElementRef,
+  Host,
+  Injector,
+  Optional,
+  forwardRef,
+} from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SacDateTimeCommon } from '@simpleangularcontrols/sac-common';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 
 @Component({
-  selector: 'ng-datetime,ngDateTime',
+  selector: 'sac-datetime',
   templateUrl: './datetime.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => NgDateTimeComponent) },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgDateTimeComponent) }
-  ]
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: forwardRef(() => SacDateTimeComponent),
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => SacDateTimeComponent),
+    },
+  ],
 })
+export class SacDateTimeComponent extends SacDateTimeCommon {
+  // #region Constructors
 
-export class NgDateTimeComponent extends NgDateTimeCommon {
-  constructor( @Host() parent: NgFormularDirective, injector: Injector, _elementRef: ElementRef) {
-    super(parent, injector, _elementRef);
+  /**
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   * @param elementRef Reference to html dom element
+   */
+  constructor(
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
+    injector: Injector,
+    elementRef: ElementRef
+  ) {
+    super(formLayout, injector, elementRef);
   }
+
+  // #endregion Constructors
 }

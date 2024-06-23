@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  JNetworkBootstrap4ButtonModule,
-  JNetworkBootstrap4ConfirmModule,
-  JNetworkBootstrap4FormModule,
-  JNetworkBootstrap4ValidationSummaryModule,
-} from '@jnetwork/jngcontrols-bootstrap4';
+  SACBootstrap4ButtonModule,
+  SACBootstrap4ConfirmModule,
+  SACBootstrap4FormModule,
+  SACBootstrap4ValidationSummaryModule,
+} from '@simpleangularcontrols/sac-bootstrap4';
 import { ConfirmRoutingModule } from './confirm-routing.module';
 import { DemoConfirmComponent } from './confirm.component';
 @NgModule({
@@ -15,11 +15,10 @@ import { DemoConfirmComponent } from './confirm.component';
     CommonModule,
     FormsModule,
     ConfirmRoutingModule,
-    JNetworkBootstrap4FormModule,
-    JNetworkBootstrap4ConfirmModule,
-    JNetworkBootstrap4ValidationSummaryModule,
-    JNetworkBootstrap4ButtonModule,
-    JNetworkBootstrap4ConfirmModule.forRoot(),
+    SACBootstrap4FormModule,
+    SACBootstrap4ValidationSummaryModule,
+    SACBootstrap4ButtonModule,
+    SACBootstrap4ConfirmModule.forRoot(),
   ],
 })
 export class ConfirmModule {}

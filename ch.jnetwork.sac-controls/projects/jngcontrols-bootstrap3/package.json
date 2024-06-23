@@ -1,16 +1,16 @@
 {
-  "name": "@jnetwork/jngcontrols-bootstrap3",
+  "name": "@simpleangularcontrols/sac-bootstrap3",
   "version": "1.4.1",
   "peerDependencies": {
     "@angular/common": "10.1.5",
     "@angular/core": "10.1.5",
-    "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common"
+    "@simpleangularcontrols/sac-common": "file:../../dist/jngcontrols-common"
   },
   "scripts": {
     "postinstall": "ngcc"
   },
   "devDependencies": {
-    "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common"
+    "@simpleangularcontrols/sac-common": "file:../../dist/jngcontrols-common"
   },
   "author": {
     "name": "jNetwork GmbH",

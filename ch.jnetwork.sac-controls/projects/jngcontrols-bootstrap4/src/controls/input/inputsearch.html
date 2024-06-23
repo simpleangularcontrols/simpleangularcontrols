@@ -1,13 +1,45 @@
-<div class="row form-group" [class.no-gutters]="_disablelabel">
-  <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="col-form-label" [ngClass]="[_labelsize !== 12 ?  'col-sm-' + _labelsize : 'sr-only']" [class.required]="_isrequired">{{_label}}</label>
-  <div [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
-    <div class="input-group input-group-sm">
-      <input id="{{_name}}" name="{{_name}}" type="text" class="form-control"
-             [value]="value" [attr.placeholder]="_placeholder"
-             (blur)="onTouch()" (input)="setValue($event.target.value)"
-             [attr.maxlength]="_maxlength" [ngClass]="{'language-specific': _islanguagespecific,'is-invalid': invalid && (dirty || touched) }" [disabled]="isdisabled" [readonly]="_readonly" />
+<div class="row form-group" [class.no-gutters]="disablelabel">
+  <label
+    *ngIf="disablelabel === false && !isAdaptiveLabel"
+    id="{{name}}_label"
+    for="{{name}}"
+    class="col-12 col-form-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
+    [class.required]="isrequired"
+    >{{label}}</label
+  >
+  <div
+    class="col-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
+  >
+    <div
+      class="input-group"
+      [class.input-group-sm]="componentHeight === ControlHeight.Small"
+      [class.input-group-lg]="componentHeight === ControlHeight.Large"
+    >
+      <input
+        id="{{name}}"
+        name="{{name}}"
+        type="text"
+        class="form-control"
+        [value]="value"
+        [attr.placeholder]="placeholder"
+        (blur)="onTouch()"
+        (input)="setValue($event.target.value)"
+        [attr.maxlength]="maxlength"
+        [class.is-invalid]="invalid && (dirty || touched)"
+        [ngClass]="[componentHeight | toControlHeight]"
+        [disabled]="isdisabled"
+        [readonly]="readonly"
+      />
       <div class="input-group-append">
-        <input type="submit" class="btn btn-secondary" id="{{_name}}_search" (click)="searchClick()" [value]="_buttontext" />
+        <input
+          type="submit"
+          class="btn btn-secondary"
+          id="{{name}}_search"
+          (click)="searchClick()"
+          [value]="buttontext"
+        />
       </div>
     </div>
   </div>

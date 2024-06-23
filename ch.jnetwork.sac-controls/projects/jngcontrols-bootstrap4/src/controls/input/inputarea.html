@@ -1,7 +1,36 @@
 <div class="form-group row">
-  <label for="{{_name}}" class="col-12 col-form-label" [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]">{{_label}}</label>
-  <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
-    <textarea id="{{_name}}" name="{{_name}}" type="" class="form-control form-control-sm" [value]="value" [attr.placeholder]="_placeholder" (blur)="onTouch()" (input)="setValue($event.target.value)"
-              (keypress)="onKeyPress($event)" [attr.rows]="_rows" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" [disabled]="isdisabled"></textarea>
+  <label
+    for="{{name}}"
+    class="col-12 col-form-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
+    >{{label}}</label
+  >
+  <div
+    class="col-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
+  >
+    <textarea
+      id="{{name}}"
+      name="{{name}}"
+      type=""
+      class="form-control"
+      [value]="value"
+      [attr.placeholder]="placeholder"
+      (blur)="onTouch()"
+      (input)="setValue($event.target.value)"
+      (keypress)="onKeyPress($event)"
+      [attr.rows]="rows"
+      [class.is-invalid]="invalid && (dirty || touched)"
+      [ngClass]="[componentHeight | toControlHeight]"
+      [disabled]="isdisabled"
+      [attr.maxlength]="maxlength"
+      [readonly]="readonly"
+    ></textarea>
+    <div
+      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+      class="invalid-feedback"
+    >
+      {{ GetErrorMessage() | async }}
+    </div>
   </div>
 </div>

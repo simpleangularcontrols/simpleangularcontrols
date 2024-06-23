@@ -1,12 +1,12 @@
 import { Directive, Input } from '@angular/core';
 import { UploadState } from 'ngx-uploadx';
-import { NgUploadBase } from '../../common/baseuploadcontrol';
+import { SacUploadBase } from '../../common/baseuploadcontrol';
 
 /**
  * Upload Komponente für ein einzelnes File
  */
 @Directive()
-export class NgUploadSingleCommon extends NgUploadBase<string> {
+export class SacUploadSingleCommon extends SacUploadBase<string> {
   /**
    * Label für Browse Button
    */

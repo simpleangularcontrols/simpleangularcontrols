@@ -1,2 +1,2 @@
-export { NgStaticFormContainerComponent } from './formcontainer';
-export { NgStaticLabelComponent } from './staticlabel';
+export { SacStaticFormContainerComponent } from './formcontainer';
+export { SacStaticLabelComponent } from './staticlabel';

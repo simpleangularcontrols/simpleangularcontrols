@@ -1,22 +1,42 @@
-import { Component, Host, forwardRef, Injector } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
-import { NgFormularDirective } from '../form/form';
-import { NgStaticLabelCommon } from '@jnetwork/jngcontrols-common';
+import { Component, forwardRef, Host, Injector, Optional } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SacStaticLabelCommon } from '@simpleangularcontrols/sac-common';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 
+/**
+ * Komponente für statischen Text in einem Formular
+ */
 @Component({
-  selector: 'ng-staticlabel,ngStaticLabel',
+  selector: 'sac-staticlabel',
   templateUrl: './staticlabel.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgStaticLabelComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgStaticLabelComponent) }
-  ]
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: SacStaticLabelComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => SacStaticLabelComponent),
+    },
+  ],
 })
+export class SacStaticLabelComponent extends SacStaticLabelCommon {
+  // #region Constructors
 
-export class NgStaticLabelComponent extends NgStaticLabelCommon {
-
-  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
-    super(parent, injector);
+  /**
+   *
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   */
+  constructor(
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
+    injector: Injector
+  ) {
+    super(formLayout, injector);
   }
 
+  // #endregion Constructors
 }

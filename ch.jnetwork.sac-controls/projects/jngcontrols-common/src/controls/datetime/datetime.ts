@@ -1,36 +1,48 @@
-import { ElementRef, HostListener, Injector, Input, Directive } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostListener,
+  Injector,
+  Input,
+} from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import * as moment_ from 'moment';
 import * as IMask from 'imask';
+import * as moment_ from 'moment';
 // Import Moment.JS
 import { Moment } from 'moment';
-import { NgBaseDateTimeControl } from '../../common/basedatetimecontrol';
+import { SacBaseDateTimeControl } from '../../common/basedatetimecontrol';
+import { ISacIconService } from '../../public_api';
+import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
 import { Validation } from '../../validation';
-import { NgFormularCommon } from '../form/form';
+import { SacFormLayoutCommon } from '../layout/formlayout';
 
 /**
  * Moment
  */
-const moment = moment_;
+const moment = moment_['default'];
 
 /**
- * Komponente für NgDateTimeCommon. Extends NgBaseDateTimeControl
+ * Komponente für SacDateTimeCommon. Extends SacBaseDateTimeControl
  */
 @Directive()
-export class NgDateTimeCommon extends NgBaseDateTimeControl {
+export class SacDateTimeCommon extends SacBaseDateTimeControl {
+  // #region Properties
 
-  // #region Constants
+  /**
+   * icon service
+   */
+  private iconService: ISacIconService;
 
   /**
    * Format des Datums
    */
-  readonly DATEFORMAT: string = 'DD.MM.YYYY HH:mm';
+  public readonly DATEFORMAT: string = 'DD.MM.YYYY HH:mm';
   /**
    * Maske
    */
   /**
-    * Maske
-    */
+   * Maske
+   */
   public readonly imaskDate = {
     mask: this.DATEFORMAT,
     blocks: {
@@ -62,41 +74,80 @@ export class NgDateTimeCommon extends NgBaseDateTimeControl {
         from: 0,
         to: 59,
         maxLength: 2,
-      }
+      },
     },
     placeholderChar: '_',
     autofix: true,
     lazy: false,
-    overwrite: true
+    overwrite: true,
   };
 
-  // #endregion
-
-  // #region Properties
+  /**
+   * Resource Key für Validation Message MaxDate bei Control
+   */
+  @Input() public validationmessagemaxdate: string =
+    this.validationKeyService.ValidationErrorMaxDate;
+  /**
+   * Resource Key für Validation Message MinDate bei Control
+   */
+  @Input() public validationmessagemindate: string =
+    this.validationKeyService.ValidationErrorMinDate;
+  /**
+   * Resource Key für Validation Message MaxDate in Validation Summary
+   */
+  @Input() public validationmessagesummarymaxdate: string =
+    this.validationKeyService.ValidationErrorSummaryMaxDate;
+  /**
+   * Resource Key für Validation Message MinDate in Validation Summary
+   */
+  @Input() public validationmessagesummarymindate: string =
+    this.validationKeyService.ValidationErrorSummaryMinDate;
 
   /**
-   * Min Date
+   * Maximaler Wert des Datums
    */
-  @Input('mindate')
-  set mindate(v: string | Date | null) {
-    const date = moment(v, [this.DATEFORMAT], true);
-
-    if (date.isValid()) {
-      this._mindate = super.getDate(date).toDate();
-    } else {
-      this._mindate = null;
-    }
-  }
+  public _maxdate: Date = null;
   /**
    * Minimaler Wert des Datums
    */
-  _mindate: Date = null;
+  public _mindate: Date = null;
+  /**
+   * Definiert ob der Date Selector angezeigt wird
+   */
+  public _showselector: boolean = false;
+
+  // #endregion Properties
+
+  // #region Constructors
+
+  /**
+   * Constructor
+   * @param formlayout SacFormLayoutCommon to define scoped layout settings
+   * @param injector Injector for injecting services
+   * @param elementRef reference to html element
+   */
+  constructor(
+    formlayout: SacFormLayoutCommon,
+    injector: Injector,
+    protected elementRef: ElementRef
+  ) {
+    super(formlayout, injector, elementRef);
+
+    this.iconService = injector.get(
+      SACICON_SERVICE,
+      new SacDefaultIconService()
+    );
+  }
+
+  // #endregion Constructors
+
+  // #region Public Getters And Setters
 
   /**
    * Max Date
    */
-  @Input('maxdate')
-  set maxdate(v: string | Date | null) {
+  @Input()
+  public set maxdate(v: string | Date | null) {
     const date = moment(v, [this.DATEFORMAT], true);
 
     if (date.isValid()) {
@@ -105,72 +156,77 @@ export class NgDateTimeCommon extends NgBaseDateTimeControl {
       this._maxdate = null;
     }
   }
-  /**
-   * Maximaler Wert des Datums
-   */
-  _maxdate: Date = null;
 
   /**
-   * Definiert ob der Date Selector angezeigt wird
+   * Min Date
    */
-  _showselector: boolean = false;
+  @Input()
+  public set mindate(v: string | Date | null) {
+    const date = moment(v, [this.DATEFORMAT], true);
 
-
-  /**
-   * Resource Key für Validation Message MinDate bei Control
-   */
-  @Input('validationmessagemindate') _validationMessageMinDate: string = 'VALIDATION_ERROR_MINDATE';
-  /**
-   * Resource Key für Validation Message MinDate in Validation Summary
-   */
-  @Input('validationmessagesummarymindate') _validationMessageMinDateSummary: string = 'VALIDATION_ERROR_SUMMARY_MINDATE';
-
-  /**
-   * Resource Key für Validation Message MaxDate bei Control
-   */
-  @Input('validationmessagemaxdate') _validationMessageMaxDate: string = 'VALIDATION_ERROR_MAXDATE';
-  /**
-   * Resource Key für Validation Message MaxDate in Validation Summary
-   */
-  @Input('validationmessagesummarymaxdate') _validationMessageMaxDateSummary: string = 'VALIDATION_ERROR_SUMMARY_MAXDATE';
-
-
-  // #endregion
-
-  /**
-   * Konstruktor
-   * @param parent typ NgFormularCommon
-   * @param injector typ Injector
-   * @param _elementRef typ ElementRef
-   */
-  constructor(parent: NgFormularCommon, injector: Injector, protected _elementRef: ElementRef) {
-    super(parent, injector, _elementRef);
+    if (date.isValid()) {
+      this._mindate = super.getDate(date).toDate();
+    } else {
+      this._mindate = null;
+    }
   }
 
-  // #region Abstract Methods
+  /**
+   * icon for date selector button
+   */
+  public get IconSelector(): string {
+    return this.iconService.DateTimeComponentSelectorIcon;
+  }
+
+  // #endregion Public Getters And Setters
+
+  // #region Public Methods
+
+  /**
+   * HostListener
+   */
+  @HostListener('document:click', ['$event.target'])
+  /**
+   * Click Event
+   */
+  public onClick(targetElement) {
+    const clickedInside = this.elementRef.nativeElement.contains(targetElement);
+    if (!clickedInside) {
+      this._showselector = false;
+    }
+  }
 
   /**
    * Methode ergibt Datum-Format vom String
    */
-  GetDateTimeFormatString(): string {
+  public GetDateTimeFormatString(): string {
     return this.DATEFORMAT;
   }
 
   /**
    * Methode modifiziert den parsed Wert des Datums
    */
-  ModifyParsedDateTimeValue(v: Moment): Moment {
+  public ModifyParsedDateTimeValue(v: Moment): Moment {
     return v;
   }
 
-  // #endregion
+  /**
+   * Methode ergibt das selektierte Datum
+   */
+  public dateselect(v: any) {
+    if (v.date === null) {
+      this.setValueString('');
+    } else {
+      this.value = moment(v.date).utc().toDate();
+    }
 
-  // #region Date Selector
+    this._showselector = false;
+  }
 
   /**
    * DateSelector wird beim Click-Event angezeigt
    */
-  showDateSelector(): void {
+  public showDateSelector(): void {
     /**
      * Touch Event auslösen
      */
@@ -184,51 +240,45 @@ export class NgDateTimeCommon extends NgBaseDateTimeControl {
   }
 
   /**
-   * HostListener
-   */
-  @HostListener('document:click', ['$event.target'])
-  /**
-   * Click Event
-   */
-  public onClick(targetElement) {
-    const clickedInside = this._elementRef.nativeElement.contains(targetElement);
-    if (!clickedInside) {
-      this._showselector = false;
-    }
-  }
-
-  /**
-   * Methode ergibt das selektierte Datum
-   */
-  dateselect(v: any) {
-    if (v.date === null) {
-      this.setValueString('');
-    } else {
-      this.value = moment(v.date).utc().toDate();
-    }
-
-    this._showselector = false;
-  }
-
-  // #endregion
-
-  /**
    * Validator
    */
-  validateData(c: AbstractControl): ValidationErrors | null {
+  public validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = null;
 
     error = super.validateData(c);
 
-    if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._mindate !== undefined && this._mindate !== null) {
-      error = Validation.minDate(this, this._mindate, this._label, this._validationMessageMinDate, this._validationMessageMinDateSummary);
+    if (
+      error === null &&
+      c.value !== null &&
+      c.value !== undefined &&
+      c.value !== '' &&
+      this._mindate !== undefined &&
+      this._mindate !== null
+    ) {
+      error = Validation.minDate(
+        this._mindate,
+        this.validationmessagemindate,
+        this.validationmessagesummarymindate
+      )(c);
     }
 
-    if (error === null && c.value !== null && c.value !== undefined && c.value !== '' && this._maxdate !== undefined && this._maxdate !== null) {
-      error = Validation.maxDate(this, this._maxdate, this._label, this._validationMessageMaxDate, this._validationMessageMaxDateSummary);
+    if (
+      error === null &&
+      c.value !== null &&
+      c.value !== undefined &&
+      c.value !== '' &&
+      this._maxdate !== undefined &&
+      this._maxdate !== null
+    ) {
+      error = Validation.maxDate(
+        this._maxdate,
+        this.validationmessagemaxdate,
+        this.validationmessagesummarymaxdate
+      )(c);
     }
 
     return error;
   }
 
+  // #endregion Public Methods
 }

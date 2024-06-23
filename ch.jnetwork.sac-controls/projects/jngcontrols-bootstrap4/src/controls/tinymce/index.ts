@@ -1,1 +1,1 @@
-export { NgTinyMceComponent } from './tinymce';
+export { SacTinyMceComponent } from './tinymce';

@@ -1,12 +1,11 @@
 import { Component, ElementRef, OnInit, OnDestroy, Input, ChangeDetectorRef } from '@angular/core';
-import { NgDialogCommon } from '@jnetwork/jngcontrols-common';
-import { Promise } from 'q';
+import { SacDialogCommon } from '@simpleangularcontrols/sac-common';
 
 @Component({
-  selector: 'ng-dialog,ngDialog',
+  selector: 'sac-dialog',
   templateUrl: './dialog.html'
 })
-export class NgDialogComponent extends NgDialogCommon implements OnInit, OnDestroy {
+export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDestroy {
   // DOM Element
   private element: any;
 
@@ -18,7 +17,7 @@ export class NgDialogComponent extends NgDialogCommon implements OnInit, OnDestr
 
   //#region Bootstrap 3 Spezifische Properites
 
-  @Input('zindex')
+  @Input()
   zindex: number = 20002;
 
   private _lastDialogMarginTop: number = 0;
@@ -49,7 +48,10 @@ export class NgDialogComponent extends NgDialogCommon implements OnInit, OnDestr
   }
 
   ngOnDestroy() {
-    document.body.removeChild(this.element);
+    this.hide();
+    if (document.body.contains(this.element)) {
+      document.body.removeChild(this.element);
+    }
     super.ngOnDestroy();
   }
 }

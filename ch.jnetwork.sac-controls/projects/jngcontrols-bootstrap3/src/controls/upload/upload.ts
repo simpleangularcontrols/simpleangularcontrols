@@ -1,23 +1,53 @@
-import { Component, Host, forwardRef, Injector, Renderer2 } from '@angular/core';
-import { NgUploadSingleCommon } from '@jnetwork/jngcontrols-common';
-import { NgFormularDirective } from '../form/form';
-import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
-import { NgZone } from '@angular/core';
+import {
+  Component,
+  Host,
+  Injector,
+  NgZone,
+  Optional,
+  Renderer2,
+  forwardRef,
+} from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SacUploadSingleCommon } from '@simpleangularcontrols/sac-common';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 
 // https://github.com/kukhariev/ngx-uploadx/
 
 @Component({
-  selector: 'ng-upload,ngUpload',
+  selector: 'sac-upload',
   templateUrl: './upload.html',
+  styleUrls: ['./upload.scss'],
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgUploadComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgUploadComponent) }
-  ]
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: SacUploadComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => SacUploadComponent),
+    },
+  ],
 })
-export class NgUploadComponent extends NgUploadSingleCommon {
+export class SacUploadComponent extends SacUploadSingleCommon {
+  // #region Constructors
 
-  constructor( @Host() parent: NgFormularDirective, injector: Injector, renderer: Renderer2, ngZone: NgZone) {
-    super(parent, injector, renderer, ngZone);
+  /**
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   * @param renderer Angular rendering engine
+   * @param ngZone ngZone to manage external javascripts
+   */
+  constructor(
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
+    injector: Injector,
+    renderer: Renderer2,
+    ngZone: NgZone
+  ) {
+    super(formLayout, injector, renderer, ngZone);
   }
 
+  // #endregion Constructors
 }

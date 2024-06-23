@@ -1,73 +1,74 @@
-import { ApplicationRef, ComponentFactory, ComponentRef, EventEmitter, Injector } from '@angular/core';
+import {
+  ApplicationRef,
+  ComponentFactory,
+  ComponentRef,
+  EventEmitter,
+  Injector,
+} from '@angular/core';
+import { ISacIconService } from '../../interfaces/ISacIconService';
+import { ISacLocalisationService } from '../../interfaces/ISacLocalisationService';
+import { ISacValidationKeyService } from '../../interfaces/ISacValidationKeyService';
 import { IConfirmComponent } from '../../interfaces/iconfirmcomponent';
+import {
+  SACICON_SERVICE,
+  SACLOCALISATION_SERVICE,
+  SACVALIDATIONKEY_SERVICE,
+  SacDefaultIconService,
+  SacDefaultLocalisationService,
+  SacDefaultValidationKeyService,
+} from '../../services';
 
 /**
  * Basis Klasse für Confirm Service implementation
  */
 export abstract class ServiceConfirmCommon {
-  /**
-   * Konstruktor
-   * @param appRef ApplicationRef zum Anhängen des Dialogs an den Content
-   * @param injector Injector um die Instanz zu erzeuge
-   */
-  constructor(private appRef: ApplicationRef, private injector: Injector) {}
-
-  //#region Properties
+  // #region Properties
 
   /**
    * Referenz auf IConfirm Instanz.
    */
   protected component: ComponentRef<IConfirmComponent> = null;
+  /**
+   * service for default icon in dialog
+   */
+  protected iconService: ISacIconService;
+  /**
+   * service for tranlsate default text
+   */
+  protected localisationService: ISacLocalisationService;
+  /**
+   * Service to receive standard validation message keys and texts
+   */
+  protected validationKeyService: ISacValidationKeyService;
 
-  //#endregion
+  // #endregion Properties
 
-  //#region Abstract Methods
+  // #region Constructors
 
   /**
-   * Abstrakte Methode zum erzeugen der Komponent Factory für den Dialog
+   * Konstruktor
+   * @param appRef ApplicationRef zum Anhängen des Dialogs an den Content
+   * @param injector Injector um die Instanz zu erzeuge
    */
-  protected abstract GetComponentFactory(): ComponentFactory<IConfirmComponent>;
+  constructor(private appRef: ApplicationRef, private injector: Injector) {
+    this.validationKeyService = injector.get(
+      SACVALIDATIONKEY_SERVICE,
+      new SacDefaultValidationKeyService()
+    );
+    this.localisationService = injector.get(
+      SACLOCALISATION_SERVICE,
+      new SacDefaultLocalisationService(this.validationKeyService)
+    );
 
-  /**
-   * Methode zur Konfiguration der Confirm Dialog Komponente
-   * @param instance Instanz auf IConfirmComponent Komponente
-   */
-  protected abstract ConfigureDialog(instance: IConfirmComponent);
-
-  //#endregion
-
-  //#region Protected Methods
-
-  /**
-   * Erzeugt eine Instanz für den Dialog
-   */
-  protected CreateInstance(): void {
-    // ComponentFactory aus Service laden
-    const factory: ComponentFactory<IConfirmComponent> =
-      this.GetComponentFactory();
-
-    // Instanz der Komponente erzeugen und an die View anhängen
-    this.component = factory.create(this.injector);
-    this.appRef.attachView(this.component.hostView);
+    this.iconService = injector.get(
+      SACICON_SERVICE,
+      new SacDefaultIconService()
+    );
   }
 
-  /**
-   * Entfernt die Instanz des Dialogs
-   */
-  protected DestroyInstance(): void {
-    // Dialog aus View entfernen und Komponenten löschen
-    this.appRef.detachView(this.component.hostView);
-    this.component.destroy();
-  }
+  // #endregion Constructors
 
-  /**
-   * Zeigt den Dialog an
-   */
-  protected OpenDialog(): IConfirmComponent {
-    const dialog = this.component.instance;
-    dialog.show();
-    return dialog as IConfirmComponent;
-  }
+  // #region Protected Methods
 
   /**
    * Blendet den Dialog aus
@@ -112,5 +113,50 @@ export abstract class ServiceConfirmCommon {
     return confirmTask;
   }
 
-  //#endregion
+  /**
+   * Erzeugt eine Instanz für den Dialog
+   */
+  protected CreateInstance(): void {
+    // ComponentFactory aus Service laden
+    const factory: ComponentFactory<IConfirmComponent> =
+      this.GetComponentFactory();
+
+    // Instanz der Komponente erzeugen und an die View anhängen
+    this.component = factory.create(this.injector);
+    this.appRef.attachView(this.component.hostView);
+  }
+
+  /**
+   * Entfernt die Instanz des Dialogs
+   */
+  protected DestroyInstance(): void {
+    // Dialog aus View entfernen und Komponenten löschen
+    this.appRef.detachView(this.component.hostView);
+    this.component.destroy();
+  }
+
+  /**
+   * Zeigt den Dialog an
+   */
+  protected OpenDialog(): IConfirmComponent {
+    const dialog = this.component.instance;
+    dialog.show();
+    return dialog as IConfirmComponent;
+  }
+
+  // #endregion Protected Methods
+
+  // #region Protected Abstract Methods
+
+  /**
+   * Methode zur Konfiguration der Confirm Dialog Komponente
+   * @param instance Instanz auf IConfirmComponent Komponente
+   */
+  protected abstract ConfigureDialog(instance: IConfirmComponent);
+  /**
+   * Abstrakte Methode zum erzeugen der Komponent Factory für den Dialog
+   */
+  protected abstract GetComponentFactory(): ComponentFactory<IConfirmComponent>;
+
+  // #endregion Protected Abstract Methods
 }

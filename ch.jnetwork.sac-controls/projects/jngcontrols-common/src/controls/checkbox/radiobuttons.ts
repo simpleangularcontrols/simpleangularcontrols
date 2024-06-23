@@ -1,65 +1,56 @@
-import { Host, Injector, Input, Directive } from '@angular/core';
+import { Directive, Host, Injector, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors, Validator } from '@angular/forms';
-import { NgBaseModelControl } from '../../common/basemodelcontrol';
+import { SacBaseModelControl } from '../../common/basemodelcontrol';
 import { Validation } from '../../validation';
-import { NgFormularCommon } from '../form/form';
-import { NgRadiobuttonCommon } from './radiobutton';
+import { SacFormLayoutCommon } from '../layout/formlayout';
+import { SacRadiobuttonCommon } from './radiobutton';
 
 /**
- * Basis Komponente für NgRadiobuttonsCommon. Extends NgBaseModelControl
+ * Basis Komponente für SacRadiobuttonsCommon. Extends SacBaseModelControl
  */
 @Directive()
-export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> implements Validator {
+export abstract class SacRadiobuttonsCommon
+  extends SacBaseModelControl<any>
+  implements Validator
+{
+  // #region Properties
 
+  /**
+   * Radio Buttons Content
+   */
+  private contentRadiobuttons: SacRadiobuttonCommon[] = [];
   /**
    * Radio Button Index
    */
   private radioButtonIndex: number = 0;
 
   /**
-   * Konstruktor
-   * Inject des Formulars
-   */
-  constructor( @Host() parent: NgFormularCommon, injector: Injector) {
-    super(parent, injector);
-  }
-
-  /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input('validationmessagerequired') _validationMessageRequired: string = 'VALIDATION_ERROR_REQUIRED';
+  @Input() public validationmessagerequired: string =
+    this.validationKeyService.ValidationErrorRequired;
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input('validationmessagesummaryrequired') _validationMessageRequiredSummary: string = 'VALIDATION_ERROR_SUMMARY_REQUIRED';
+  @Input() public validationmessagesummaryrequired: string =
+    this.validationKeyService.ValidationErrorSummaryRequired;
 
+  // #endregion Properties
 
-  //#region Sub Control registration
-
-  /**
-   * Radio Buttons Content
-   */
-  private contentRadiobuttons: NgRadiobuttonCommon[] = [];
+  // #region Constructors
 
   /**
-   * Erstellung des RadioButton
+   * Constructor
+   * @param formlayout SacFormLayoutCommon to define scoped layout settings
+   * @param injector Injector for injecting services
    */
-  public RegisterRadioButton(radioButton: NgRadiobuttonCommon) {
-    this.contentRadiobuttons.push(radioButton);
+  constructor(@Host() formlayout: SacFormLayoutCommon, injector: Injector) {
+    super(formlayout, injector);
   }
 
-  /**
-   * Löschen des Radio Button
-   */
-  public UnregisterRadioButton(radioButton: NgRadiobuttonCommon) {
-    const index: number = this.contentRadiobuttons.indexOf(radioButton);
+  // #endregion Constructors
 
-    if (index >= 0) {
-      this.contentRadiobuttons.splice(index, 1);
-    }
-  }
-
-  //#endregion
+  // #region Public Methods
 
   /**
    * GEtter für Radio Button Index
@@ -69,54 +60,75 @@ export abstract class NgRadiobuttonsCommon extends NgBaseModelControl<any> imple
     return this.radioButtonIndex;
   }
 
-  //#region ngModel Implementation
-
   /**
-   * Wert schreiben
+   * Methode prüft ob Item checked ist
    */
-  writeValue(value: any) {
-    super.writeValue(value);
-    if (value !== null && value !== undefined) {
-      this.contentRadiobuttons.forEach(itm => {
-        itm._checked = itm._value === value;
-      });
+  public HasCheckedItem(): boolean {
+    const radioButtons: SacRadiobuttonCommon[] = this.contentRadiobuttons;
+
+    if (radioButtons === undefined || radioButtons === null) {
+      return false;
     }
+
+    return this.contentRadiobuttons.some((itm) => itm.checked);
   }
 
-  //#endregion
+  /**
+   * Erstellung des RadioButton
+   */
+  public RegisterRadioButton(radioButton: SacRadiobuttonCommon) {
+    this.contentRadiobuttons.push(radioButton);
+  }
 
   /**
    * Item selektieren
    */
   public SelectItem(value: any) {
-    this.contentRadiobuttons.forEach(itm => {
-      itm._checked = itm._value === value;
+    this.contentRadiobuttons.forEach((itm) => {
+      itm.checked = itm.value === value;
     });
 
     this.value = value;
   }
 
   /**
-   * Methode prüft ob Item checked ist
+   * Löschen des Radio Button
    */
-  public HasCheckedItem(): boolean {
-    const radioButtons: NgRadiobuttonCommon[] = this.contentRadiobuttons;
+  public UnregisterRadioButton(radioButton: SacRadiobuttonCommon) {
+    const index: number = this.contentRadiobuttons.indexOf(radioButton);
 
-    if (radioButtons === undefined || radioButtons === null) {
-      return false;
+    if (index >= 0) {
+      this.contentRadiobuttons.splice(index, 1);
     }
-
-    return this.contentRadiobuttons.some(itm => itm._checked);
   }
 
   /**
    * Validator
    */
-  validateData(c: AbstractControl): ValidationErrors {
+  public validateData(c: AbstractControl): ValidationErrors {
     if (!this.HasCheckedItem()) {
-      return Validation.GetValidationErrorItem('required', this._validationMessageRequired, this._validationMessageRequiredSummary, this._label);
+      return Validation.GetValidationErrorItem(
+        'required',
+        this.validationmessagerequired,
+        this.validationmessagesummaryrequired,
+        this.label
+      );
     } else {
       return null;
     }
   }
+
+  /**
+   * Wert schreiben
+   */
+  public writeValue(value: any) {
+    super.writeValue(value);
+    if (value !== null && value !== undefined) {
+      this.contentRadiobuttons.forEach((itm) => {
+        itm.checked = itm.value === value;
+      });
+    }
+  }
+
+  // #endregion Public Methods
 }

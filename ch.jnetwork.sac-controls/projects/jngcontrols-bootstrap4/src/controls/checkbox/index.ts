@@ -1,3 +1,3 @@
-export { NgCheckboxComponent } from './checkbox';
-export { NgRadiobuttonComponent } from './radiobutton';
-export { NgRadiobuttonsComponent } from './radiobuttons';
+export { SacCheckboxComponent } from './checkbox';
+export { SacRadiobuttonComponent } from './radiobutton';
+export { SacRadiobuttonsComponent } from './radiobuttons';

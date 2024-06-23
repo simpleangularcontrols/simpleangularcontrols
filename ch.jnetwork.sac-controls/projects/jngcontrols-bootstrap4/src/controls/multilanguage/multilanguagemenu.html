@@ -1,0 +1,20 @@
+<ng-container
+  [ngTemplateOutlet]="buttontemplate || defaultButtonTemplate"
+></ng-container>
+
+<div
+  class="dropdown-menu dropdown-menu-right"
+  sacMultilanguageMenuContainer
+  [class.show]="isopen"
+>
+  <ng-content></ng-content>
+</div>
+
+<ng-template #defaultButtonTemplate>
+  <button
+    sacMultilanguageMenuAnchor
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    (click)="toggle()"
+  ></button>
+</ng-template>

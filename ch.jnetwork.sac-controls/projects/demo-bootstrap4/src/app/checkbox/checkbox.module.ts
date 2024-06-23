@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  JNetworkBootstrap4FormModule,
-  JNetworkBootstrap4CheckboxModule,
-  JNetworkBootstrap4ButtonModule,
-  JNetworkBootstrap4ValidationSummaryModule,
-} from '@jnetwork/jngcontrols-bootstrap4';
+  SACBootstrap4ButtonModule,
+  SACBootstrap4CheckboxModule,
+  SACBootstrap4FormModule,
+  SACBootstrap4StaticLabelModule,
+  SACBootstrap4ValidationSummaryModule,
+} from '@simpleangularcontrols/sac-bootstrap4';
 import { CheckboxRoutingModule } from './checkbox-routing.module';
 import { DemoCheckboxComponent } from './checkbox.component';
 @NgModule({
@@ -15,10 +16,11 @@ import { DemoCheckboxComponent } from './checkbox.component';
     CommonModule,
     FormsModule,
     CheckboxRoutingModule,
-    JNetworkBootstrap4FormModule,
-    JNetworkBootstrap4ButtonModule,
-    JNetworkBootstrap4ValidationSummaryModule,
-    JNetworkBootstrap4CheckboxModule,
+    SACBootstrap4FormModule,
+    SACBootstrap4ButtonModule,
+    SACBootstrap4ValidationSummaryModule,
+    SACBootstrap4CheckboxModule,
+    SACBootstrap4StaticLabelModule,
   ],
 })
 export class CheckboxModule {}

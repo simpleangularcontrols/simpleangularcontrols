@@ -1,19 +1,29 @@
 import { Component, forwardRef, Injector } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { NgPagingCommon } from '@jnetwork/jngcontrols-common';
+import { SacPagingCommon } from '@simpleangularcontrols/sac-common';
 
-
+/**
+ * Paging Komponente
+ */
 @Component({
-  selector: 'ng-paging,ngPaging',
+  selector: 'sac-paging',
   templateUrl: './paging.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgPagingComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgPagingComponent) }
-  ]
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacPagingComponent },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => SacPagingComponent),
+    },
+  ],
 })
-export class NgPagingComponent extends NgPagingCommon {
-
-  constructor(injector: Injector) { super(injector); }
-
+export class SacPagingComponent extends SacPagingCommon {
+  /**
+   * Konstruktor
+   * @param injector Angular Dependency Injection Service
+   */
+  constructor(injector: Injector) {
+    super(injector);
+  }
 }

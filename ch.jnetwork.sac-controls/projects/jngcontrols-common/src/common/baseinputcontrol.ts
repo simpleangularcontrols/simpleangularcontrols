@@ -1,68 +1,59 @@
-import { Input, Directive } from '@angular/core';
-import { NgBaseModelControl } from './basemodelcontrol';
+import { Directive, Input } from '@angular/core';
+import { SacBaseModelControl } from './basemodelcontrol';
 
 /**
- * Abstract Klasse für NgInputBase. Extendes NgBaseModelControl
+ * Abstract Klasse für SacInputBase. Extendes SacBaseModelControl
  */
 @Directive()
-export abstract class NgInputBase<VALUE> extends NgBaseModelControl<VALUE> {
-
+export abstract class SacInputBase<VALUE> extends SacBaseModelControl<VALUE> {
   // #region Properties
-
-  /**
-   * Definiert das Control als Required
-   */
-  @Input('isrequired') _isrequired: boolean = false;
-
-  /**
-   * TextBox Placeholder
-   */
-  @Input('placeholder') _placeholder: string = null;
 
   /**
    * Erlaubte Zeichen bei der Eingabe
    */
-  @Input('allowedchars') _allowedchars: string = '';
-
-  /**
-   * Macht das Input readonly
-   */
-  @Input('readonly') _readonly: boolean = false;
-
-  /**
-   * Definiert das Feld als valid/invalid von eingegebenen regex-pattern
-   */
-  @Input('regexvalidation') _pattern: string;
-
-  /**
-   * Text welcher als Tooltip angezeigt wird.
-   */
-  @Input('tooltiptext') _tooltiptext: string = '';
-
+  @Input() public allowedchars: string = '';
   /**
    * Autofill aktivieren oder deaktivieren
    */
-  @Input('disableautocomplete') _disableautocomplete: boolean = false;
+  @Input() public disableautocomplete: boolean = false;
+  /**
+   * Definiert das Control als Required
+   */
+  @Input() public isrequired: boolean = false;
+  /**
+   * TextBox Placeholder
+   */
+  @Input() public placeholder: string = null;
+  /**
+   * Macht das Input readonly
+   */
+  @Input() public readonly: boolean = false;
+  /**
+   * Definiert das Feld als valid/invalid von eingegebenen regex-pattern
+   */
+  @Input() public regexvalidation: string;
+  /**
+   * Text welcher als Tooltip angezeigt wird.
+   */
+  @Input() public tooltiptext: string = '';
 
+  // #endregion Properties
 
-  // #endregion
-
-  // #region Event Handler
+  // #region Public Methods
 
   /**
    * Methode validiert Input wenn KeyPress-Event passiert
    */
   public onKeyPress(event: KeyboardEvent): Boolean {
-
     // Cancel wenn _allowedChars leer ist.
-    if (this._allowedchars.length === 0) {
+    if (this.allowedchars.length === 0) {
       return true;
     }
 
     // Validate Input
     const character = event.key;
     // Zeichen in Allowed Chars nicht gefunden, Event nicht weitergeben
-    if (this._allowedchars.indexOf(character) < 0) {
+    if (this.allowedchars.indexOf(character) < 0) {
       event.preventDefault();
     }
 
@@ -73,9 +64,9 @@ export abstract class NgInputBase<VALUE> extends NgBaseModelControl<VALUE> {
     }
   }
 
-  // #endregion
+  // #endregion Public Methods
 
-  // #region Protected Virtual Methods
+  // #region Protected Methods
 
   /**
    * Methode validiert wenn ein Drück-Event passiert
@@ -84,6 +75,5 @@ export abstract class NgInputBase<VALUE> extends NgBaseModelControl<VALUE> {
     return true;
   }
 
-  // #endregion
+  // #endregion Protected Methods
 }
-

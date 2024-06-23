@@ -1,22 +1,44 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { JNetworkBootstrap3TooltipModule } from '../tooltip/tooltip.module';
-import { NgInputComponent } from './input';
-import { NgInputAreaComponent } from './inputarea';
-import { NgInputCurrencyComponent } from './inputcurrency';
-import { NgInputDecimalComponent } from './inputdecimal';
-import { NgInputEmailComponent } from './inputemail';
-import { NgInputIntegerComponent } from './inputinteger';
-import { NgInputPasswordComponent } from './inputpassword';
-import { NgInputSearchComponent } from './inputsearch';
-
+import { SACBootstrap3TooltipModule } from '../tooltip/tooltip.module';
+import { SacInputComponent } from './input';
+import { SacInputAreaComponent } from './inputarea';
+import { SacInputCurrencyComponent } from './inputcurrency';
+import { SacInputDecimalComponent } from './inputdecimal';
+import { SacInputEmailComponent } from './inputemail';
+import { SacInputIntegerComponent } from './inputinteger';
+import { SacInputPasswordComponent } from './inputpassword';
+import { SacInputSearchComponent } from './inputsearch';
+import { SACBootstrap3LayoutModule } from '../layout/layout.module';
 
 @NgModule({
-  declarations: [NgInputComponent, NgInputAreaComponent, NgInputCurrencyComponent, NgInputDecimalComponent, NgInputEmailComponent, NgInputIntegerComponent, NgInputPasswordComponent, NgInputSearchComponent],
-  imports: [
-    CommonModule, CommonModule, FormsModule, JNetworkBootstrap3TooltipModule
+  declarations: [
+    SacInputComponent,
+    SacInputAreaComponent,
+    SacInputCurrencyComponent,
+    SacInputDecimalComponent,
+    SacInputEmailComponent,
+    SacInputIntegerComponent,
+    SacInputPasswordComponent,
+    SacInputSearchComponent,
   ],
-  exports: [NgInputComponent, NgInputAreaComponent, NgInputCurrencyComponent, NgInputDecimalComponent, NgInputEmailComponent, NgInputIntegerComponent, NgInputPasswordComponent, NgInputSearchComponent]
+  imports: [
+    CommonModule,
+    CommonModule,
+    FormsModule,
+    SACBootstrap3TooltipModule,
+    SACBootstrap3LayoutModule,
+  ],
+  exports: [
+    SacInputComponent,
+    SacInputAreaComponent,
+    SacInputCurrencyComponent,
+    SacInputDecimalComponent,
+    SacInputEmailComponent,
+    SacInputIntegerComponent,
+    SacInputPasswordComponent,
+    SacInputSearchComponent,
+  ],
 })
-export class JNetworkBootstrap3InputModule { }
+export class SACBootstrap3InputModule {}

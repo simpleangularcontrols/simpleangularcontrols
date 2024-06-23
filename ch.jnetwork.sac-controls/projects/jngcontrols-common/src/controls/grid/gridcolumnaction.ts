@@ -1,19 +1,19 @@
-import { ElementRef, Directive } from '@angular/core';
-import { NgGridCommon } from './grid';
-import { NgGridColumnBaseCommon } from './gridcolumnbase';
+import { ElementRef, Directive, Injector } from '@angular/core';
+import { SacGridCommon } from './grid';
+import { SacGridColumnBaseCommon } from './gridcolumnbase';
 
 /**
- * Komponente für NgGridColumnActionCommon. Extends NgGridColumnBaseCommon
+ * Komponente für SacGridColumnActionCommon. Extends SacGridColumnBaseCommon
  */
 @Directive()
-export class NgGridColumnActionCommon extends NgGridColumnBaseCommon {
-
+export class SacGridColumnActionCommon extends SacGridColumnBaseCommon {
   /**
-  * Konstruktor
-  * @param el Element Referenz
-  * @param grid NgGridCommon
-  */
-  constructor(grid: NgGridCommon, el: ElementRef) {
-    super(grid, el);
+   * Konstruktor
+   * @param el Element Referenz
+   * @param injector di inector to resolve icon service
+   * @param grid SacGridCommon
+   */
+  constructor(grid: SacGridCommon, injector: Injector, el: ElementRef) {
+    super(grid, injector, el);
   }
 }

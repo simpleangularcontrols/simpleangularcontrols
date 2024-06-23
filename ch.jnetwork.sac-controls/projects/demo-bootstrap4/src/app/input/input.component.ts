@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NgFormularDirective } from '@jnetwork/jngcontrols-bootstrap4';
+import { SacFormDirective } from '@simpleangularcontrols/sac-bootstrap4';
 
 @Component({
   selector: 'app-input',
@@ -26,6 +26,8 @@ export class DemoInputComponent {
     fieldi3: 0,
     fieldcurrency1: 0,
     fieldcurrency2: 0,
+    fieldcurrency3: null,
+    fieldcurrency4: null,
     fieldemail1: '',
     fieldemail2: '',
     fieldemail3: '',
@@ -35,7 +37,7 @@ export class DemoInputComponent {
     fieldpassword4: '',
   };
 
-  @ViewChild('myForm') myForm: NgFormularDirective;
+  @ViewChild('myForm') myForm: SacFormDirective;
 
   public debugAction(): void {
     this.myForm.markAsTouched();

@@ -1,35 +1,54 @@
-import { Component, forwardRef, Host, Injector } from '@angular/core';
-import { ControlContainer, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { NgMultilanguageInputAreaCommon, IconType } from '@jnetwork/jngcontrols-common';
-import { NgFormularDirective } from '../form/form';
+import { Component, forwardRef, Host, Injector, Optional } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  IconType,
+  SacMultilanguageInputAreaCommon,
+} from '@simpleangularcontrols/sac-common';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 
-@Component({
-  selector: 'ng-multilanguageinputarea,ngMultilanguageInputArea',
-  templateUrl: './multilanguageinputarea.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgMultilanguageInputAreaComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgMultilanguageInputAreaComponent) }
-  ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormularDirective }]
-})
 /**
  * Componente für Mehrsprache Texte als mehrzeiliger Text
  */
-export class NgMultilanguageInputAreaComponent extends NgMultilanguageInputAreaCommon {
+@Component({
+  selector: 'sac-multilanguageinputarea',
+  templateUrl: './multilanguageinputarea.html',
+  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: SacMultilanguageInputAreaComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => SacMultilanguageInputAreaComponent),
+    },
+  ],
+})
+export class SacMultilanguageInputAreaComponent extends SacMultilanguageInputAreaCommon {
+  // #region Properties
 
   /**
    * Enum für IconType in HTML Template
    */
-  IconType = IconType;
+  public IconType = IconType;
+
+  // #endregion Properties
+
+  // #region Constructors
 
   /**
-   * Konstruktor
-   * @param parent Formular Inject
-   * @param injector Default Injector
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
    */
-  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
-    super(parent, injector);
+  constructor(
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
+    injector: Injector
+  ) {
+    super(formLayout, injector);
   }
+
+  // #endregion Constructors
 }

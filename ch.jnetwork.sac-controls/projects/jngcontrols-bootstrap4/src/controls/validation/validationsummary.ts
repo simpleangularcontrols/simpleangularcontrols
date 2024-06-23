@@ -1,28 +1,37 @@
-import { Component, Host, Injector } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlContainer } from '@angular/forms';
-import { NgValidationSummaryCommon } from '@jnetwork/jngcontrols-common';
-import { NgFormularDirective } from '../form/form';
+import { Component, Host, Injector, Optional } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SacValidationSummaryCommon } from '@simpleangularcontrols/sac-common';
+import { SacFormDirective } from '../form/form';
 
-
+/**
+ * Validation Summary Kompontente
+ */
 @Component({
-  selector: 'ng-validationsummary,ngValidationSummary',
+  selector: 'sac-validationsummary',
   templateUrl: './validationsummary.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: NgValidationSummaryComponent
-    }
+      useExisting: SacValidationSummaryComponent,
+    },
   ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormularDirective }]
 })
-export class NgValidationSummaryComponent extends NgValidationSummaryCommon {
+export class SacValidationSummaryComponent extends SacValidationSummaryCommon {
+  // #region Constructors
 
-  constructor( @Host() parent: NgFormularDirective, injector: Injector) {
-    super(parent, injector);
+  /**
+   * Constructor
+   * @param formControl Instance of Form Component to receive invalid form controls
+   * @param injector Injector for injecting services
+   */
+  constructor(
+    @Host() @Optional() parentForm: SacFormDirective,
+    injector: Injector
+  ) {
+    super(parentForm, injector);
   }
 
+  // #endregion Constructors
 }
-

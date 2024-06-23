@@ -1,10 +1,48 @@
-<div class="row form-group" [class.no-gutters]="_disablelabel">
-  <div class="col-12" [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]">{{_label}}</div>
-  <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
-    <div class="form-check">
-      <input class="form-check-input" id="{{_name}}" name="{{_name}}" type="checkbox" [checked]="value" (blur)="onTouch()" (change)="setValue($event.target.checked)" [disabled]="isdisabled" />
-      <label for="{{_name}}" class="form-check-label">
-        <ng-container *ngIf="_checkboxtext">{{_checkboxtext}}</ng-container>
+<div
+  class="row"
+  [class.no-gutters]="disablelabel"
+  [class.form-group]="!stacked"
+>
+  <div
+    class="col-12"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only']"
+  >
+    <label
+      *ngIf="!disablelabel && !stacked"
+      for="{{name}}"
+      class="col-form-label"
+      [ngClass]="componentHeight | toLabelHeight"
+      >{{label}}</label
+    >
+  </div>
+  <div
+    class="align-self-center col-12"
+    [ngClass]="[!disablelabel && !stacked ?  (this.labelSizes | toControlWidthCss) : '']"
+  >
+    <div
+      class="form-check"
+      [class.form-check-sm]="componentHeight === ControlHeight.Small"
+      [class.form-check-lg]="componentHeight === ControlHeight.Large"
+    >
+      <input
+        class="form-check-input"
+        [class.form-check-input-sm]="componentHeight === ControlHeight.Small"
+        [class.form-check-input-lg]="componentHeight === ControlHeight.Large"
+        id="{{name}}"
+        name="{{name}}"
+        type="checkbox"
+        [checked]="value"
+        (blur)="onTouch()"
+        (change)="setValue($event.target.checked)"
+        [disabled]="isdisabled"
+      />
+      <label
+        for="{{name}}"
+        class="form-check-label"
+        [class.form-check-label-sm]="componentHeight === ControlHeight.Small"
+        [class.form-check-label-lg]="componentHeight === ControlHeight.Large"
+      >
+        <ng-container *ngIf="checkboxtext">{{checkboxtext}}</ng-container>
       </label>
     </div>
   </div>

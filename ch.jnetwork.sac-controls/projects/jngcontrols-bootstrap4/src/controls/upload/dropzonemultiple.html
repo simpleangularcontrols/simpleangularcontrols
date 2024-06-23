@@ -1,29 +1,36 @@
-<div class="row form-group" [class.no-gutters]="_disablelabel">
+<div class="row form-group" [class.no-gutters]="disablelabel">
   <label
-    *ngIf="_disablelabel === false && !_isadaptivelabel"
-    id="{{_name}}_label"
-    for="{{_name}}"
+    *ngIf="disablelabel === false && !isAdaptiveLabel"
+    id="{{name}}_label"
+    for="{{name}}"
     class="col-12 col-form-label"
-    [ngClass]="[_labelsize !== 12 ?  'col-md-' + _labelsize : 'sr-only']"
-    >{{_label}}</label
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
+    >{{label}}</label
   >
   <div
     class="col-12"
-    [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
   >
     <div
-      class="dropzone d-flex justify-content-center"
+      class="dropzone d-flex justify-content-center position-relative"
       (drop)="dropHandler($event)"
       (dragover)="onDragOver($event)"
       (dragleave)="onDragLeave($event)"
       [class.active]="active"
-      [class.validation-error]="invalid && (dirty || touched)"
+      [style.min-height]="uploadheight"
+      [class.is-invalid]="invalid && (dirty || touched)"
     >
       <div
         class="content d-flex justify-content-center"
         *ngIf="uploads.length === 0"
       >
-        <div class="align-self-center"><ng-content></ng-content></div>
+        <div class="align-self-center text-center">
+          <div
+            [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)"
+          >
+            <ng-content></ng-content>
+          </div>
+        </div>
       </div>
       <div
         class="content d-flex justify-content-center"
@@ -35,7 +42,11 @@
             [class.mt-1]="i > 0"
             *ngFor="let file of uploads; let i = index"
           >
-            <div class="input-group upload-component upload-component-multiple">
+            <div
+              class="input-group upload-component upload-component-multiple"
+              [class.input-group-sm]="componentHeight === ControlHeight.Small"
+              [class.input-group-lg]="componentHeight === ControlHeight.Large"
+            >
               <div class="form-control upload-progress border-secondary">
                 <div class="progress">
                   <div
@@ -59,7 +70,7 @@
                   [class.btn-secondary]="!(invalid && (dirty || touched))"
                   [class.btn-danger]="invalid && (dirty || touched)"
                 >
-                  <span class="fa fa-remove"></span>
+                  <span [class]="IconDelete"></span>
                 </a>
               </div>
             </div>
@@ -69,13 +80,19 @@
       <input
         #files
         multiple
-        id="{{ _name }}_uploadinput"
+        id="{{ name }}_uploadinput"
         type="file"
         class="custom-file-input"
         (click)="files.value = ''"
         (uploadxState)="onUpload($event)"
         [disabled]="HasQueueItem()"
       />
+    </div>
+    <div
+      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+      class="invalid-feedback"
+    >
+      {{ GetErrorMessage() | async }}
     </div>
   </div>
 </div>

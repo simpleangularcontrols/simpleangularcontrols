@@ -1,63 +1,88 @@
-import { Directive, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
-import { NgGridCommon } from './grid';
+import {
+  Directive,
+  ElementRef,
+  Injector,
+  Input,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
+import { SacGridCommon } from './grid';
 import { SortOrder } from './model';
+import { ISacIconService } from '../../interfaces/ISacIconService';
+import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
 
 /**
  * Base Komponente für GridColumn
  */
 @Directive()
-export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
-
+export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
   /**
    * Konstruktor
+   * @param grid  reference to grid component
+   * @param injector di injector to resolve icon service
+   * @param el reference to html element
    */
-  constructor(private grid: NgGridCommon, private el: ElementRef) { }
+  constructor(
+    private grid: SacGridCommon,
+    protected injector: Injector,
+    private el: ElementRef
+  ) {
+    this.iconService = injector.get(
+      SACICON_SERVICE,
+      new SacDefaultIconService()
+    );
+  }
+
+  /**
+   * icon service
+   */
+  protected iconService: ISacIconService;
 
   //#region Input / Outputs
 
   /**
-  * Das Input property erhält den Namen des Column
-  */
-  @Input('name')
+   * Das Input property erhält den Namen des Column
+   */
+  @Input()
   public name: any;
 
   /**
-  * Das Input property erhält das Value des Column
-  */
-  @Input('value')
+   * Das Input property erhält das Value des Column
+   */
+  @Input()
   public value: any;
 
   /**
    * Das Input property erhält das Header des Column
    */
-  @Input('header')
+  @Input()
   public header: string;
 
   /**
    * Das Input property erhält die Breite des Column
    */
-  @Input('width')
+  @Input()
   public width: string;
 
   /**
    * Das Input property erhält das Type des Column
    */
-  @Input('type')
+  @Input()
   public type: string;
 
   /**
    * Das Input property erhält das Column- Key-Word, damit das Column sortiert werden kann.
    */
-  @Input('sortkey')
-  public SortKey: string;
+  @Input()
+  public sortkey: string;
 
   //#endregion
 
   //#region Interface Implementations
 
   /**
-  * lifecycle hook - OnInit. Wird aufgeruren sobald das Komponent initialisiert ist.
-  */
+   * lifecycle hook - OnInit. Wird aufgeruren sobald das Komponent initialisiert ist.
+   */
   ngOnInit() {
     const rootElement: HTMLElement = this.el.nativeElement;
     const parentElement: HTMLElement = rootElement.parentElement;
@@ -110,11 +135,29 @@ export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
   //#endregion
 
   /**
+   * sort up icon for grid header
+   */
+  public get IconSortUp(): string {
+    return this.iconService.GridComponentSortUp;
+  }
+
+  /**
+   * sort down icon for grid header
+   */
+  public get IconSortDown(): string {
+    return this.iconService.GridComponentSortDown;
+  }
+
+  /**
    * Die Methode deffiniert wie das Grid sortiert wird, abhängig von gekligte Column
    */
   public SortByColumn() {
-    if (this.SortKey !== undefined && this.SortKey !== null && this.SortKey !== '') {
-      return this.grid.SortBy(this.SortKey);
+    if (
+      this.sortkey !== undefined &&
+      this.sortkey !== null &&
+      this.sortkey !== ''
+    ) {
+      return this.grid.SortBy(this.sortkey);
     }
   }
 
@@ -122,7 +165,7 @@ export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
    * die Methode ergibt boolean Wert und definiert, ob das Column für Sortierung aktiviert ist, gemäß eingegebene sortKey
    */
   public IsSortedColumn(): boolean {
-    return this.grid.sortColumn === this.SortKey;
+    return this.grid.sortColumn === this.sortkey;
   }
 
   /**
@@ -141,4 +184,3 @@ export class NgGridColumnBaseCommon implements OnInit, OnDestroy {
     }
   }
 }
-

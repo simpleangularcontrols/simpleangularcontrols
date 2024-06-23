@@ -1,96 +1,33 @@
 import { Directive, Input } from '@angular/core';
 import { AbstractControl, FormGroup, NgForm } from '@angular/forms';
-import { convertToBoolean } from '../../utilities/Convertion';
+import { convertToBoolean } from '../../utilities/convertion';
+
+// #region Type aliases
 
 /**
- * Typ für Form Actions
+ * Type for form actions
  */
 export type FormHooks = 'change' | 'blur' | 'submit';
 
+// #endregion Type aliases
+
+// #region Classes
+
 /**
- * Base Komponente für NgFormular
+ * Base Komponente für SacFormular
  */
 @Directive()
-export class NgFormularCommon {
+export class SacFormCommon {
+  // #region Properties
 
   /**
-  * Inline Errors für das Formular
-  */
-  private _inlineerrorenabled: boolean | null = null;
-
-  /**
-   * Form Control
+   * Standardwert wann die Werte via NgModel aktualisiert werden
    */
-  @Input()
-  ngFormular: string;
-
-  /**
-   * Default Label Size for Form
-   */
-  @Input('labelsize') labelsize: number = 3;
-  /**
-   * Kontroliert, ob das Label adaptive ist
-   */
-  @Input('isadaptivelabel') isadaptivelabel: boolean = false;
-  /**
-   * Type des Forms
-   */
-  @Input('orientation') orientation: string = 'horizontal';
-
   private _updateon: FormHooks = 'change';
 
-  /**
-   * Definiert, wenn das Model geupdatet wird
-   */
-  @Input('updateon')
-  set updateon(v: FormHooks) {
-    this._updateon = v;
-    this.form.options.updateOn = v;
-  }
-  get updateon(): FormHooks {
-    return this._updateon;
-  }
+  // #endregion Properties
 
-  @Input('inlineerrorenabled')
-  /**
-   * Aktiviert oder Deaktiviert die Inline Errors für das Control
-   */
-  set inlineerrorenabled(value: boolean) {
-    if (value === null || value === undefined) {
-      this._inlineerrorenabled = null;
-    } else {
-      this._inlineerrorenabled = convertToBoolean(value);
-    }
-  }
-  /**
-   * Aktiviert oder Deaktiviert die Inline Errors für das Control
-   */
-  get inlineerrorenabled(): boolean {
-    return this._inlineerrorenabled;
-  }
-
-  /**
-   * Vertikale oder horizontale Orientierung des Formulars zurück
-   */
-  public getOrientation(): string {
-    switch (this.orientation.toLowerCase()) {
-      case 'horizontal':
-        return 'horizontal';
-      case 'vertical':
-        return 'vertical';
-      case 'none':
-        return 'none';
-      default:
-        throw new Error('Invalid formtype at ngFormularCommon. Valid values are horizontal, vertical, none');
-    }
-  }
-
-  /**
-   * Gibt die NgForm Instanz zurück
-   */
-  public getForm(): NgForm {
-    return this.form;
-  }
+  // #region Constructors
 
   /**
    * Konstruktor
@@ -98,6 +35,34 @@ export class NgFormularCommon {
    */
   constructor(private form: NgForm) {
     this.form.options = { updateOn: this._updateon };
+  }
+
+  // #endregion Constructors
+
+  // #region Public Getters And Setters
+
+  public get updateon(): FormHooks {
+    return this._updateon;
+  }
+
+  /**
+   * Definiert, wenn das Model geupdatet wird
+   */
+  @Input()
+  public set updateon(v: FormHooks) {
+    this._updateon = v;
+    this.form.options.updateOn = v;
+  }
+
+  // #endregion Public Getters And Setters
+
+  // #region Public Methods
+
+  /**
+   * Gibt die NgForm Instanz zurück
+   */
+  public getForm(): NgForm {
+    return this.form;
   }
 
   /**
@@ -124,6 +89,10 @@ export class NgFormularCommon {
     }
   }
 
+  // #endregion Public Methods
+
+  // #region Private Methods
+
   /**
    * Markiert alle Controls inkl. dem Tree als Touched
    * @param controls Controls Collection
@@ -145,7 +114,9 @@ export class NgFormularCommon {
    * Aktualisiert die Werte und die gültigkeit des Formulars
    * @param controls Controls Collection
    */
-  private updateValueAndValidityInternal(controls: { [key: string]: AbstractControl }) {
+  private updateValueAndValidityInternal(controls: {
+    [key: string]: AbstractControl;
+  }) {
     const keyList: string[] = Object.keys(controls);
 
     for (const field of keyList) {
@@ -158,11 +129,7 @@ export class NgFormularCommon {
     }
   }
 
-  /**
-   * Gibt zurück, ob die Inline Error Meldungen für das Formular aktiv sind.
-   */
-  public get IsInlineErrorEnabled(): boolean {
-    return this._inlineerrorenabled !== false;
-  }
-
+  // #endregion Private Methods
 }
+
+// #endregion Classes

@@ -1,12 +1,12 @@
 import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
-import { NgGridCommon, NgGridImageCommon } from '@jnetwork/jngcontrols-common';
+import { SacGridCommon, SacGridImageCommon } from '@simpleangularcontrols/sac-common';
 
 
 @Component({
-  selector: 'ng-gridimage,ngGridImage',
+  selector: 'sac-gridimage',
   templateUrl: './gridimage.html'
 })
-export class NgGridImageComponent extends NgGridImageCommon {
+export class SacGridImageComponent extends SacGridImageCommon {
 
   public getIconClass(): string {
     switch (this.iconstyle) {

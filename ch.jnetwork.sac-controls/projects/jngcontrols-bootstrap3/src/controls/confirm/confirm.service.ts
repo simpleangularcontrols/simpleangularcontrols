@@ -1,7 +1,20 @@
-import { Injectable, Type, ComponentFactoryResolver, ApplicationRef, Injector, Inject, ComponentFactory } from '@angular/core';
-import { ServiceConfirmCommon, NgConfirmButton, isDefined } from '@jnetwork/jngcontrols-common';
-import { NgConfirmComponent } from './confirm';
-import { EventEmitter } from '@angular/core';
+import {
+  ApplicationRef,
+  ComponentFactory,
+  ComponentFactoryResolver,
+  EventEmitter,
+  Inject,
+  Injectable,
+  Injector,
+} from '@angular/core';
+import {
+  SacConfirmButton,
+  ServiceConfirmCommon,
+  isDefined,
+} from '@simpleangularcontrols/sac-common';
+import { forkJoin } from 'rxjs';
+import { take } from 'rxjs/operators';
+import { SacConfirmComponent } from './confirm';
 
 /**
  * Service für Confirm Messages in TypeScript Code
@@ -12,28 +25,31 @@ import { EventEmitter } from '@angular/core';
  *
  * @example
  * // Beispiel für ConfirmMessage mit eigenen Buttons
- * let buttons: NgConfirmButton[] = [];
- * buttons.push(new NgConfirmButton('ActionKey','Text Primary'));
- * buttons.push(new NgConfirmButton('ActionKey2','Text Button 2'));
+ * let buttons: SacConfirmButton[] = [];
+ * buttons.push(new SacConfirmButton('ActionKey','Text Primary'));
+ * buttons.push(new SacConfirmButton('ActionKey2','Text Button 2'));
  * confirmService.ConfirmMessage('titel', 'frage', buttons).subscribe(action => { // Action Code });
  */
 @Injectable()
 export class ServiceConfirm extends ServiceConfirmCommon {
-
-  /**
- * Titel der im Dialog angezeigt werden soll.
- */
-  private title: string = '';
-
-  /**
-   * Message die in Dialog angezeigt werden soll.
-   */
-  private message: string = '';
+  // #region Properties
 
   /**
    * Collection von Buttons die angezeigt werden müssen.
    */
-  private buttons: NgConfirmButton[] = [];
+  private buttons: SacConfirmButton[] = [];
+  /**
+   * Message die in Dialog angezeigt werden soll.
+   */
+  private message: string = '';
+  /**
+   * Titel der im Dialog angezeigt werden soll.
+   */
+  private title: string = '';
+
+  // #endregion Properties
+
+  // #region Constructors
 
   /**
    * Konstruktor
@@ -41,48 +57,81 @@ export class ServiceConfirm extends ServiceConfirmCommon {
    * @param appRef Application Referenz. Wird benötigt um den Dialog am Body anzuhängen
    * @param injector Injector. Wird benötigt um den Dialog dynamisch zu erzeugen
    */
-  constructor( @Inject(ComponentFactoryResolver) private componentFactoryResolver: ComponentFactoryResolver, appRef: ApplicationRef, injector: Injector) {
+  constructor(
+    @Inject(ComponentFactoryResolver)
+    private componentFactoryResolver: ComponentFactoryResolver,
+    appRef: ApplicationRef,
+    injector: Injector
+  ) {
     super(appRef, injector);
   }
 
-  /**
-   * Erzeugen einer Component Factory für einen Dialog
-   */
-  public GetComponentFactory(): ComponentFactory<NgConfirmComponent> {
-    return this.componentFactoryResolver.resolveComponentFactory(NgConfirmComponent);
-  }
+  // #endregion Constructors
 
-  /**
-   * Konfiguration des Dialogs
-   * @param instance Instanz eines NgConfirm Dialogs
-   */
-  protected ConfigureDialog(instance: NgConfirmComponent) {
-    // Text in Dialog setzen
-    instance.title = this.title;
-    instance.message = this.message;
-    instance.buttons = this.buttons;
-    instance.image = '/icons/dialog/question.png';
-  }
+  // #region Public Methods
 
   /**
    * Confirm Dialog anzeigen
    * @param message Nachricht die angezeigt werden soll.
    * @returns EventEmitter mit Key des Buttons, welcher geklickt wurde.
    */
-  public ConfirmMessage(title: string, message: string, buttons: NgConfirmButton[] = null): EventEmitter<string> {
+  public ConfirmMessage(
+    title: string,
+    message: string,
+    buttons: SacConfirmButton[] = null
+  ): EventEmitter<string> {
     this.title = title;
     this.message = message;
 
     // Default Buttons setzen, wenn keine Buttons angegeben sind
     if (!isDefined(buttons)) {
-      // TODO: Text von Localisation Service beziehen
       this.buttons = [];
-      this.buttons.push(new NgConfirmButton('yes', 'Ja'));
-      this.buttons.push(new NgConfirmButton('no', 'Nein'));
+
+      forkJoin({
+        button_yes: this.localisationService.GetString(
+          this.validationKeyService.ConfirmDefaultButtonYes
+        ),
+        button_no: this.localisationService.GetString(
+          this.validationKeyService.ConfirmDefaultButtonNo
+        ),
+      })
+        .pipe(take(1))
+        .subscribe((texte) => {
+          this.buttons.push(
+            new SacConfirmButton('yes', texte.button_yes, 'primary')
+          );
+          this.buttons.push(new SacConfirmButton('no', texte.button_no));
+        });
     } else {
       this.buttons = buttons;
     }
     return super.Confirm();
   }
 
+  /**
+   * Erzeugen einer Component Factory für einen Dialog
+   */
+  public GetComponentFactory(): ComponentFactory<SacConfirmComponent> {
+    return this.componentFactoryResolver.resolveComponentFactory(
+      SacConfirmComponent
+    );
+  }
+
+  // #endregion Public Methods
+
+  // #region Protected Methods
+
+  /**
+   * Konfiguration des Dialogs
+   * @param instance Instanz eines SacConfirm Dialogs
+   */
+  protected ConfigureDialog(instance: SacConfirmComponent) {
+    // Text in Dialog setzen
+    instance.title = this.title;
+    instance.message = this.message;
+    instance.buttons = this.buttons;
+    instance.image = this.iconService.ConfirmDefaultImage;
+  }
+
+  // #endregion Protected Methods
 }

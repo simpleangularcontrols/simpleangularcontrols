@@ -1,28 +1,55 @@
-import { Component, ContentChild, forwardRef, TemplateRef, ChangeDetectorRef } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ContentChild,
+  forwardRef,
+  Injector,
+  TemplateRef,
+} from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { NgGridCommon } from '@jnetwork/jngcontrols-common';
+import { SacGridCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Grid Komponente
+ */
 @Component({
-  selector: 'ng-grid,ngGrid',
+  selector: 'sac-grid',
   templateUrl: './grid.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgGridComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgGridComponent) }
-  ]
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacGridComponent },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => SacGridComponent),
+    },
+  ],
 })
-export class NgGridComponent extends NgGridCommon {
+export class SacGridComponent extends SacGridCommon {
+  // #region Properties
 
+  /**
+   * Referenz auf Column Template
+   */
   @ContentChild(TemplateRef, { static: false })
-  template: TemplateRef<any>;
+  public template: TemplateRef<any>;
 
-  ellipsis: boolean = false;
+  /**
+   * Setzt die Ellipsis Funktion auf der Column
+   */
+  public ellipsis: boolean = false;
+
+  // #endregion Properties
+
+  // #region Constructors
 
   /**
    * Konstrukor
    * @param cdRef Change Detection Reference
    */
-  constructor(cdRef: ChangeDetectorRef) {
-    super(cdRef);
+  constructor(cdRef: ChangeDetectorRef, injector: Injector) {
+    super(cdRef, injector);
   }
+
+  // #endregion Constructors
 }

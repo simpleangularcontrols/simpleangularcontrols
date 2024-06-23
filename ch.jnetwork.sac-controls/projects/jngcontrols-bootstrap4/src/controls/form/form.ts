@@ -1,8 +1,6 @@
-import { HostBinding, Input } from '@angular/core';
-import { NgFormularCommon } from '@jnetwork/jngcontrols-common';
-import { ControlContainer, NgForm } from '@angular/forms';
-import { Directive } from '@angular/core';
-
+import { Directive, HostBinding } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { SacFormCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Erweiterung / Hooking für automatismen in Formular. Wird als Container für alle Controls benötigt.
@@ -17,11 +15,10 @@ import { Directive } from '@angular/core';
  *
  */
 @Directive({
-  selector: 'form:not([ngNoForm]):not([formGroup]),[ngForm]',
-  exportAs: 'NgFormular'
+  selector: 'form:not([ngNoForm]):not([formGroup]),[ngForm]', // eslint-disable-line @angular-eslint/directive-selector -- required as extension to form
+  exportAs: 'sacform',
 })
-export class NgFormularDirective extends NgFormularCommon {
-
+export class SacFormDirective extends SacFormCommon {
   /**
    * Konstruktor
    * @param form Instanz von NgForm für eigene automatische Formular Logik
@@ -35,17 +32,4 @@ export class NgFormularDirective extends NgFormularCommon {
    */
   @HostBinding('class.form')
   cssClassForm: boolean = true;
-
-  /**
-   * Setzt die CSS Klasse 'form-horizontal' wenn die Orientation auf Horizontal eingestellt ist
-   */
-  @HostBinding('class.form-horizontal')
-  get orientientationHorizontal(): boolean { return this.getOrientation() === 'horizontal'; }
-
-  /**
-   *  Setzt die CSS Klasse 'form-vertical' wenn die Orientation auf Vertical eingestellt ist
-   */
-  @HostBinding('class.form-vertical')
-  get orientientationVertical(): boolean { return this.getOrientation() === 'vertical'; }
-
 }

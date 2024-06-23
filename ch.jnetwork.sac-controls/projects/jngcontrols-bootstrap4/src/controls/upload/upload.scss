@@ -1,5 +1,6 @@
 .upload-component {
   .custom-file {
+    height: 100%;
     .custom-file-input {
       left: 0;
       top: 0;
@@ -31,7 +32,7 @@
     border: 0;
 
     .progress {
-      height: calc(2.25rem + 2px);
+      height: 100%;
 
       .progress-text {
         position: absolute;

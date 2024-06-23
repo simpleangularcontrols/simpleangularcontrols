@@ -1,14 +1,23 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgMultilanguageInputComponent } from './multilanguageinput';
-import { NgMultilanguageInputAreaComponent } from './multilanguageinputarea';
-import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgModule } from '@angular/core';
+import { SACBootstrap4LayoutModule } from '../layout/layout.module';
+import { SacMultilanguageInputComponent } from './multilanguageinput';
+import { SacMultilanguageInputAreaComponent } from './multilanguageinputarea';
+import { SacMultilanguagemenuComponent } from './multilanguagemenu';
+import { SacMultilanguagemenuAnchorDirective } from './multilanguagemenuanchor';
+import { SacMultilanguagemenuContainerDirective } from './multilanguagemenucontainer';
+import { SacMultilanguagemenuItemButtonComponent } from './multilanguagemenuitembutton';
 
 @NgModule({
-  declarations: [NgMultilanguageInputComponent, NgMultilanguageInputAreaComponent],
-  imports: [
-    CommonModule, NgbDropdownModule
+  declarations: [
+    SacMultilanguageInputComponent,
+    SacMultilanguageInputAreaComponent,
+    SacMultilanguagemenuComponent,
+    SacMultilanguagemenuAnchorDirective,
+    SacMultilanguagemenuContainerDirective,
+    SacMultilanguagemenuItemButtonComponent,
   ],
-  exports: [NgMultilanguageInputComponent, NgMultilanguageInputAreaComponent]
+  imports: [CommonModule, SACBootstrap4LayoutModule],
+  exports: [SacMultilanguageInputComponent, SacMultilanguageInputAreaComponent],
 })
-export class JNetworkBootstrap4MultilanguageModule { }
+export class SACBootstrap4MultilanguageModule {}

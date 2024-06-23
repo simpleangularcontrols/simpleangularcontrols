@@ -1,18 +1,18 @@
 import { Directive, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { NgInputBase } from '../../common/baseinputcontrol';
+import { SacInputBase } from '../../common/baseinputcontrol';
 
 /**
  * Common Klasse für Static Label Control
  **/
 @Directive()
-export class NgStaticLabelCommon extends NgInputBase<string> {
+export class SacStaticLabelCommon extends SacInputBase<string> {
 
   /**
    * Erlaubt HTML Content in der Anzeige des Wertes
    */
-  @Input('allowhtml')
-  _allowhtml: boolean = false;
+  @Input()
+  allowhtml: boolean = false;
 
   /**
    * Validierung des Controls

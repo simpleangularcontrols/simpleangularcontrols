@@ -1,24 +1,26 @@
 import { Component, ContentChildren, QueryList } from '@angular/core';
-import { NgTabCommon } from '@jnetwork/jngcontrols-common';
-import { NgTabItemComponent } from './tabitem';
+import { SacTabCommon } from '@simpleangularcontrols/sac-common';
+import { SacTabItemComponent } from './tabitem';
 
+/**
+ * Komponente für Tabs
+ */
 @Component({
-  selector: 'ng-tab,ngTab',
-  templateUrl: './tab.html'
+  selector: 'sac-tab',
+  templateUrl: './tab.html',
 })
-export class NgTabComponent extends NgTabCommon {
+export class SacTabComponent extends SacTabCommon {
+  /**
+   * Collection von TabItems
+   */
+  @ContentChildren(SacTabItemComponent)
+  _tabItems: QueryList<SacTabItemComponent>;
 
-  @ContentChildren(NgTabItemComponent)
-  _tabItems: QueryList<NgTabItemComponent>;
-
-  tabItems(): NgTabItemComponent[] {
-    return this._tabItems.toArray() as Array<NgTabItemComponent>;
+  /**
+   * Gibt die TabItems zurück
+   * @returns Array von TabItems
+   */
+  tabItems(): SacTabItemComponent[] {
+    return this._tabItems.toArray() as Array<SacTabItemComponent>;
   }
-  // protected contentRadiobuttons() : NgRadiobuttonCommon[] {
-  //   return this._contentRadiobuttons.toArray() as Array<NgRadiobuttonCommon>;
-  // }
-
-
-
-
 }

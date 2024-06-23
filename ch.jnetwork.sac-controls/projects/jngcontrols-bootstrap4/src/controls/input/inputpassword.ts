@@ -1,24 +1,42 @@
-import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
-import { Component, forwardRef, Host, Injector } from '@angular/core';
-import { NgFormularDirective } from '../form/form';
-import { NgInputPasswordCommon } from '@jnetwork/jngcontrols-common';
+import { Component, forwardRef, Host, Injector, Optional } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SacInputPasswordCommon } from '@simpleangularcontrols/sac-common';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 
-
+/**
+ * Input Box für Passwörter
+ */
 @Component({
-  selector: 'ng-inputpassword,ngInputPassword',
+  selector: 'sac-inputpassword',
   templateUrl: './inputpassword.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgInputPasswordComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgInputPasswordComponent) }
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: SacInputPasswordComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => SacInputPasswordComponent),
+    },
   ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormularDirective }]
 })
-export class NgInputPasswordComponent extends NgInputPasswordCommon {
+export class SacInputPasswordComponent extends SacInputPasswordCommon {
+  // #region Constructors
 
-  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
-    super(parent, injector);
+  /**
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   */
+  constructor(
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
+    injector: Injector
+  ) {
+    super(formLayout, injector);
   }
 
+  // #endregion Constructors
 }

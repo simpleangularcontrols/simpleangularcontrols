@@ -1,34 +1,34 @@
 import { Directive, Input } from '@angular/core';
 
 /**
- * Basis Komponente für NgWizardItem
+ * Basis Komponente für SacWizardItem
  */
 @Directive()
-export class NgWizardItemCommon {
+export class SacWizardItemCommon {
   /**
    * Prüft ob der aktuelle Schritt aktiv ist.
    */
-  @Input('active')
-  _active: boolean;
+  @Input()
+  active: boolean;
   /**
    * Prüft ob der Schritt abgeschlossen wurde.
    */
-  @Input('iscomplete')
-  _iscomplete: boolean = false;
+  @Input()
+  iscomplete: boolean = false;
   /**
    * Prüft ob der Schritt disabled ist.
    */
-  @Input('disabled')
-  _disabled: boolean = true;
+  @Input()
+  disabled: boolean = true;
   /**
    * ID-String
    */
-  @Input('id')
-  _id: string;
+  @Input()
+  id: string;
   /**
    * Label-Property, das angezeigt wird
    */
-  @Input('label')
-  _label: string;
+  @Input()
+  label: string;
 
 }

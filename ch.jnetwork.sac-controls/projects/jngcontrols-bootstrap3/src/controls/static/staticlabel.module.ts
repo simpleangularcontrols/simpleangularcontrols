@@ -1,14 +1,17 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgStaticLabelComponent } from './staticlabel';
-import { NgStaticFormContainerComponent } from './formcontainer';
-import { JNetworkBootstrap3TooltipModule } from '../tooltip/tooltip.module';
+import { NgModule } from '@angular/core';
+import { SACBootstrap3LayoutModule } from '../layout/layout.module';
+import { SACBootstrap3TooltipModule } from '../tooltip/tooltip.module';
+import { SacStaticFormContainerComponent } from './formcontainer';
+import { SacStaticLabelComponent } from './staticlabel';
 
 @NgModule({
-  declarations: [NgStaticLabelComponent, NgStaticFormContainerComponent],
+  declarations: [SacStaticLabelComponent, SacStaticFormContainerComponent],
   imports: [
-    CommonModule, JNetworkBootstrap3TooltipModule
+    CommonModule,
+    SACBootstrap3TooltipModule,
+    SACBootstrap3LayoutModule,
   ],
-  exports: [NgStaticLabelComponent, NgStaticFormContainerComponent]
+  exports: [SacStaticLabelComponent, SacStaticFormContainerComponent],
 })
-export class JNetworkBootstrap3StaticLabelModule { }
+export class SACBootstrap3StaticLabelModule {}

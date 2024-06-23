@@ -1,2 +1,2 @@
-export { NgWizardComponent } from './wizard';
-export { NgWizardItemComponent } from './wizarditem';
+export { SacWizardComponent } from './wizard';
+export { SacWizardItemComponent } from './wizarditem';

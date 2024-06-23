@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { NgTreeViewChildCommon } from '@jnetwork/jngcontrols-common';
+import { SacTreeViewChildCommon } from '@simpleangularcontrols/sac-common';
 
 @Component({
-  selector: 'ng-treeviewchild,ngTreeViewChild',
+  selector: 'sac-treeviewchild',
   templateUrl: 'treeviewchild.html'
 })
-export class NgTreeViewChildComponent extends NgTreeViewChildCommon {
+export class SacTreeViewChildComponent extends SacTreeViewChildCommon {
 
 }
 

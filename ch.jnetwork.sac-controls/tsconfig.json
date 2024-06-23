@@ -9,15 +9,16 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
     "target": "es2015",
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2017", "dom"],
     "module": "es2020",
     "baseUrl": "./",
     "paths": {
-      "@jnetwork/jngcontrols-common": ["dist/jngcontrols-common"],
-      "@jnetwork/jngcontrols-bootstrap4": ["dist/jngcontrols-bootstrap4"],
-      "@jnetwork/jngcontrols-bootstrap3": ["dist/jngcontrols-bootstrap3"]
+      "@simpleangularcontrols/sac-common": ["dist/jngcontrols-common"],
+      "@simpleangularcontrols/sac-bootstrap4": ["dist/jngcontrols-bootstrap4"],
+      "@simpleangularcontrols/sac-bootstrap3": ["dist/jngcontrols-bootstrap3"]
     }
   },
   "angularCompilerOptions": {

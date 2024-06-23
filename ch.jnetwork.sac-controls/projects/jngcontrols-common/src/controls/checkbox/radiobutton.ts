@@ -1,44 +1,56 @@
-import { Directive, EventEmitter, Input, OnDestroy, Output, TemplateRef } from '@angular/core';
-import { NgRadiobuttonsCommon } from './radiobuttons';
+import {
+  Directive,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  Output,
+  TemplateRef,
+} from '@angular/core';
+import { ControlHeight } from '../../enums/ControlHeight';
+import { SacRadiobuttonsCommon } from './radiobuttons';
 
 /**
- * Basis Komponente für NgRadiobutton.
+ * Basis Komponente für SacRadiobutton.
  */
 @Directive()
-export abstract class NgRadiobuttonCommon implements OnDestroy {
-
+export abstract class SacRadiobuttonCommon implements OnDestroy {
   /**
    * Konstruktor
-   * @param ngRadioButtons
+   * @param SacRadioButtons
    */
-  constructor(protected ngRadioButtons: NgRadiobuttonsCommon) {
-    // Registration des Controls in NgRadioButtons Container
-    this.ngRadioButtons.RegisterRadioButton(this);
+  constructor(protected sacRadioButtons: SacRadiobuttonsCommon) {
+    // Registration des Controls in SacRadioButtons Container
+    this.sacRadioButtons.RegisterRadioButton(this);
   }
+
+  /**
+   * ControlHeight enum for use in HTML markup
+   */
+  ControlHeight: typeof ControlHeight = ControlHeight;
 
   /**
    * Wert
    */
-  @Input('value')
-  public _value: any;
+  @Input()
+  public value: any;
 
   /**
    * Label Text
    */
-  @Input('label')
-  public _label: string;
+  @Input()
+  public label: string;
 
   /**
    * Boolean Property, ob Radiobutton checked ist
    */
-  @Input('checked')
-  public _checked: boolean;
+  @Input()
+  public checked: boolean;
 
   /**
    * Boolean Property, ob Radiobutton disabled ist
    */
-  @Input('disabled')
-  public _disabled: boolean;
+  @Input()
+  public disabled: boolean;
 
   /**
    * Output Event
@@ -50,7 +62,7 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
    * Methode ergibt Boolean, ob Control disabled ist
    */
   get isDisabled(): boolean {
-    return this._disabled || this.ngRadioButtons._disabledControl;
+    return this.disabled || this.sacRadioButtons.disabled;
   }
 
   /**
@@ -61,7 +73,7 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
   /**
    * Setter für hidden Property
    */
-  @Input('hidden')
+  @Input()
   set hidden(v: boolean | string) {
     if (v === null || v === undefined || typeof v === 'boolean') {
       this._hidden = v as boolean;
@@ -70,15 +82,13 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
     }
 
     // Model Reset falls RadioButton selektiert war
-    if (this._hidden && this._checked) {
-      this.ngRadioButtons.SelectItem(null);
+    if (this._hidden && this.checked) {
+      this.sacRadioButtons.SelectItem(null);
     }
   }
   get hidden(): boolean | string {
     return this._hidden;
   }
-
-
 
   /**
    * Unique Index für RadioButton
@@ -89,8 +99,12 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
    * Getter für Unique Index
    */
   get getIndex(): number {
-    if (this._index === null && this.ngRadioButtons !== null && this.ngRadioButtons !== undefined) {
-      this._index = this.ngRadioButtons.GetRadionButtonIndex();
+    if (
+      this._index === null &&
+      this.sacRadioButtons !== null &&
+      this.sacRadioButtons !== undefined
+    ) {
+      this._index = this.sacRadioButtons.GetRadionButtonIndex();
     }
 
     return this._index;
@@ -100,7 +114,14 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
    * Parent Control Name
    */
   get getName(): string {
-    return this.ngRadioButtons._name;
+    return this.sacRadioButtons.name;
+  }
+
+  /**
+   * define the control height from parent control
+   */
+  get componentHeight(): ControlHeight | null {
+    return this.sacRadioButtons.componentHeight;
   }
 
   //#region Control Templates
@@ -108,8 +129,8 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
   /**
    * Template für Value Element
    */
-  @Input('labeltemplate')
-  displayValueTemplate: TemplateRef<any>;
+  @Input()
+  labeltemplate: TemplateRef<any>;
 
   //#endregion
 
@@ -119,8 +140,8 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
    * Event wenn die Komponente zerstört wird
    */
   ngOnDestroy(): void {
-    // De-Registration des Controls in NgRadioButtons Container
-    this.ngRadioButtons.UnregisterRadioButton(this);
+    // De-Registration des Controls in SacRadioButtons Container
+    this.sacRadioButtons.UnregisterRadioButton(this);
   }
 
   //#endregion
@@ -129,7 +150,9 @@ export abstract class NgRadiobuttonCommon implements OnDestroy {
    * Event bei Änderungen
    */
   public ChangeEvent(): void {
-    this.ngRadioButtons.SelectItem(this._value);
-    this.onselectitem.emit();
+    if (!this.disabled) {
+      this.sacRadioButtons.SelectItem(this.value);
+      this.onselectitem.emit();
+    }
   }
 }

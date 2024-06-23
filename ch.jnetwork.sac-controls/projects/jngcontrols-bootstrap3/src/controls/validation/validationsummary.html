@@ -1,4 +1,4 @@
-<div class="alert alert-danger" role="alert" *ngIf="hasErrors" [id]="_name">
+<div class="alert alert-danger" role="alert" *ngIf="hasErrors" [id]="name">
   <ul>
     <li *ngFor="let error of formErrors">
       {{error | async}}

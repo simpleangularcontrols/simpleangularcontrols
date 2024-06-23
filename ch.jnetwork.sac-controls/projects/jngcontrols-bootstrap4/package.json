@@ -1,14 +1,14 @@
 {
-  "name": "@jnetwork/jngcontrols-bootstrap4",
+  "name": "@simpleangularcontrols/sac-bootstrap4",
   "version": "1.4.1",
   "peerDependencies": {
     "@angular/common": "10.1.5",
     "@angular/core": "10.1.5",
     "@ng-bootstrap/ng-bootstrap": "7.0.0",
-    "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common"
+    "@simpleangularcontrols/sac-common": "file:../../dist/jngcontrols-common"
   },
   "devDependencies": {
-    "@jnetwork/jngcontrols-common": "file:../../dist/jngcontrols-common"
+    "@simpleangularcontrols/sac-common": "file:../../dist/jngcontrols-common"
   },
   "author": {
     "name": "jNetwork GmbH",
@@ -17,7 +17,6 @@
   },
   "scripts": {
     "postinstall": "ngcc"
-
   },
   "description": "Bootstrap 4 Controls Library",
   "dependencies": {

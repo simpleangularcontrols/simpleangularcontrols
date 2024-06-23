@@ -1,19 +1,7 @@
 /**
- * Wrapper für DateTimeControl
+ * Interface to extend FormControl with datetime parser format
  */
 export interface IDateTimeControl {
-  /**
-   * Wert
-   */
-  readonly value: any;
-
-  /**
-   * Methode ergibt boolean, ob das Datum valid ist
-   */
-  IsDateValid(): boolean;
-  /**
-   * Methode ergibt Datum-Format vom String
-   */
-  GetDateTimeFormatString(): string;
+  datetimeformatstring: string;
+  value: any;
 }
-

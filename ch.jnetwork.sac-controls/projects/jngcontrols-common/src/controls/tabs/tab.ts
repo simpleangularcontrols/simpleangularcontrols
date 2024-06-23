@@ -1,34 +1,46 @@
-import { AfterContentInit, Directive, Input, TemplateRef } from '@angular/core';
-import { NgTabItemCommon } from './tabitem';
+import {
+  AfterContentInit,
+  Directive,
+  EventEmitter,
+  Input,
+  Output,
+  TemplateRef,
+} from '@angular/core';
+import { SacTabItemCommon } from './tabitem';
 
 /**
- *Basis Komponente für NgTab
+ * Base component for SacTab
  */
 @Directive()
-export abstract class NgTabCommon implements AfterContentInit {
+export abstract class SacTabCommon implements AfterContentInit {
+  /**
+   * control name
+   */
+  @Input()
+  public name: string = '';
 
   /**
-   * Name des Controls
+   * input property for template. Typ TemplateRef<any>
    */
-  @Input('name')
-  public _name: string = '';
+  @Input()
+  tablabeltemplate: TemplateRef<any>;
 
   /**
-   * Input property for template. Typ TemplateRef<any>
+   * dispose tabs when they are hidden
    */
-  @Input('tablabeltemplate')
-  displayTabLabelTemplate: TemplateRef<any>;
+  @Input()
+  unloadtabitemswhenhidden: boolean | null = null;
 
   /**
-   * Löscht versteckte TabItems
+   * Event when new tab is selected
    */
-  @Input('unloadtabitemswhenhidden')
-  _unloadtabitemswhenhidden: boolean | null = null;
+  @Output()
+  tabselected: EventEmitter<string> = new EventEmitter<string>();
 
   /**
    * Array von TabItems
    */
-  abstract tabItems(): NgTabItemCommon[];
+  abstract tabItems(): SacTabItemCommon[];
 
   // #region Control initialisieren
 
@@ -43,11 +55,11 @@ export abstract class NgTabCommon implements AfterContentInit {
    * Initialisiert die Tabs
    */
   private initTabs(): void {
-    const activeTab = this.tabItems().filter((tab) => tab._active);
+    const activeTab = this.tabItems().filter((tab) => tab.active);
 
-    this.tabItems().forEach(itm => {
-      if (this._unloadtabitemswhenhidden !== null) {
-        itm._unloadwhenhidden = this._unloadtabitemswhenhidden;
+    this.tabItems().forEach((itm) => {
+      if (this.unloadtabitemswhenhidden !== null) {
+        itm.unloadwhenhidden = this.unloadtabitemswhenhidden;
       }
     });
 
@@ -59,24 +71,25 @@ export abstract class NgTabCommon implements AfterContentInit {
   // #endregion
 
   /**
-   * Tab selektieren
-   * @param tab
+   * select new tab
+   * @param tab tab that should be selected
    */
-  selectTab(tab: NgTabItemCommon): void {
+  selectTab(tab: SacTabItemCommon): void {
     // Cancel if Selected Tab is disabled
-    if (tab._disabled) {
+    if (tab.disabled) {
       return;
     }
 
-    this.tabItems().forEach(item => item._active = false);
-    tab._active = true;
+    this.tabItems().forEach((item) => (item.active = false));
+    tab.active = true;
+    this.tabselected.emit(tab.id);
   }
 
   /**
-   * Ergibt das ID vom Tab-Button
-   * @param tabitemid ID des Tabs
+   * get id of tab button
+   * @param tabitemid id of tab
    */
   public GetTabItemButtonId(tabitemid: string) {
-    return this._name + '_' + tabitemid;
+    return this.name + '_' + tabitemid;
   }
 }

@@ -1,20 +1,48 @@
-import { Component, forwardRef, ElementRef, Host, Injector } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS } from '@angular/forms';
-import { NgFormularDirective } from '../form/form';
-import { NgTimeCommon } from '@jnetwork/jngcontrols-common';
+import {
+  Component,
+  ElementRef,
+  Host,
+  Injector,
+  Optional,
+  forwardRef,
+} from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SacTimeCommon } from '@simpleangularcontrols/sac-common';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 
 @Component({
-  selector: 'ng-time,ngTime',
+  selector: 'sac-time',
   templateUrl: './time.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => NgTimeComponent) },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgTimeComponent) }
-  ]
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: forwardRef(() => SacTimeComponent),
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => SacTimeComponent),
+    },
+  ],
 })
+export class SacTimeComponent extends SacTimeCommon {
+  // #region Constructors
 
-export class NgTimeComponent extends NgTimeCommon {
-  constructor( @Host() parent: NgFormularDirective, injector: Injector, _elementRef: ElementRef) {
-    super(parent, injector, _elementRef);
+  /**
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   * @param elementRef Reference to html dom element
+   */
+  constructor(
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
+    injector: Injector,
+    elementRef: ElementRef
+  ) {
+    super(formLayout, injector, elementRef);
   }
+
+  // #endregion Constructors
 }

@@ -1,11 +1,44 @@
-<div class="row form-group" [class.no-gutters]="_disablelabel">
-  <label for="{{_name}}" class="col-12 col-form-label" [ngClass]="[_disablelabel === false ?  'col-sm-' + _labelsize : 'sr-only' ]">{{_label}}</label>
-  <div class="col-12" [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
-    <div class="input-group input-group-sm">
-      <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [value]="value" (blur)="onTouch()" (input)="setValue($event.target.value)"
-             [attr.placeholder]="_placeholder" (keypress)="onKeyPress($event)" [disabled]="isdisabled" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" />
-      <div class="input-group-append"><span class="input-group-text">CHF</span></div>
+<div class="row form-group" [class.no-gutters]="disablelabel">
+  <label
+    for="{{name}}"
+    class="col-12 col-form-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
+    >{{label}}</label
+  >
+  <div
+    class="col-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
+  >
+    <div
+      class="input-group"
+      [class.input-group-sm]="componentHeight === ControlHeight.Small"
+      [class.input-group-lg]="componentHeight === ControlHeight.Large"
+      [class.has-validation]="isinlineerrorenabled && invalid && (dirty || touched)"
+    >
+      <input
+        id="{{name}}"
+        name="{{name}}"
+        type="text"
+        class="form-control"
+        [value]="value"
+        (blur)="onTouch()"
+        (input)="setValue($event.target.value)"
+        [attr.placeholder]="placeholder"
+        (keypress)="onKeyPress($event)"
+        [disabled]="isdisabled"
+        [readonly]="readonly"
+        [class.is-invalid]="invalid && (dirty || touched)"
+        [ngClass]="[componentHeight | toControlHeight]"
+      />
+      <div class="input-group-append">
+        <span class="input-group-text">{{currency}}</span>
+      </div>
+      <div
+        *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+        class="invalid-feedback"
+      >
+        {{ GetErrorMessage() | async }}
+      </div>
     </div>
   </div>
 </div>
-

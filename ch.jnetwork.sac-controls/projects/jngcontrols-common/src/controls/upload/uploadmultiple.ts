@@ -1,54 +1,58 @@
 import { Directive, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { UploadState } from 'ngx-uploadx';
-import { NgUploadBase } from '../../common/baseuploadcontrol';
-import { IUploadControl } from '../../interfaces/iuploadcontrol';
+import { SacUploadBase } from '../../common/baseuploadcontrol';
 import { Validation } from '../../validation';
 
 /**
  * Upload Componente für mehrere Files
  */
 @Directive()
-export class NgUploadMultipleCommon
-  extends NgUploadBase<string[]>
-  implements IUploadControl
-{
-  @Input('maxfiles')
-  public maxfiles: number = 0;
-
-  @Input('minfiles')
-  public minfiles: number = 0;
+export class SacUploadMultipleCommon extends SacUploadBase<string[]> {
+  // #region Properties
 
   /**
    * Label für Browse Button
    */
   @Input()
-  buttonbrowse: string = 'Browse';
-
+  public buttonbrowse: string = 'Browse';
   /**
    * Label für Upload Button
    */
   @Input()
-  buttonupload: string = 'Upload';
-
+  public buttonupload: string = 'Upload';
+  /**
+   * Max. Files die hochgeladen werden können. 0 deaktiviert das Limit
+   */
+  @Input()
+  public maxfiles: number = 0;
+  /**
+   * Min. Files die hochgeladen werden müssen. 0 deaktiviert das Limit
+   */
+  @Input()
+  public minfiles: number = 0;
   /**
    * Resource Key für Validation Message Required bei Control
    */
-  @Input('validationmessageminfiles') _validationMessageMinFiles: string =
-    'VALIDATION_ERROR_FILESMIN';
+  @Input() public validationmessageminfiles: string =
+    this.validationKeyService.ValidationErrorFilesMin;
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
-  @Input('validationmessagesummaryminfiles')
-  _validationMessageMinFilesSummary: string =
-    'VALIDATION_ERROR_SUMMARY_FILESMIN';
+  @Input()
+  public validationmessagesummaryminfiles: string =
+    this.validationKeyService.ValidationErrorSummaryFilesMin;
+
+  // #endregion Properties
+
+  // #region Public Methods
 
   /**
    * Prüft ob die max. Files in der Queue nicht überschritten werden
    *
    * @param file File das hinzugefügt wurde
    */
-  CustomAddValidation(file: UploadState): boolean {
+  public CustomAddValidation(file: UploadState): boolean {
     if (this.maxfiles > 0 && this.uploads.length >= this.maxfiles) {
       this.onfileerror.emit('INVALID_MAXFILES');
       return false;
@@ -62,7 +66,7 @@ export class NgUploadMultipleCommon
    *
    * @param file ID des Files welches hochgeladen wurde.
    */
-  SetUploadValue(file: UploadState) {
+  public SetUploadValue(file: UploadState) {
     let documentid: string = null;
     if (file === null) {
       documentid = null;
@@ -106,30 +110,23 @@ export class NgUploadMultipleCommon
   }
 
   /**
-   * Gibt die Anzahl der komplett hochgeladenen Files zurück
-   */
-  UploadedFileCount(): number {
-    return this.uploads.filter((itm) => itm.status === 'complete').length;
-  }
-
-  /**
    * Validiert das Control
    *
    * @param c Control
    */
-  validateData(c: AbstractControl): ValidationErrors | null {
+  public validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = super.validateData(c);
 
     if (error === null) {
       error = Validation.minFiles(
-        this,
         this.minfiles,
-        this._label,
-        this._validationMessageMinFiles,
-        this._validationMessageMinFilesSummary
-      );
+        this.validationmessageminfiles,
+        this.validationmessagesummaryminfiles
+      )(c);
     }
 
     return error;
   }
+
+  // #endregion Public Methods
 }

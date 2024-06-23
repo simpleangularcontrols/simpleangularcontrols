@@ -1,11 +1,11 @@
-import { Component} from '@angular/core';
-import { NgDateSelectorCommon } from '@jnetwork/jngcontrols-common';
+import { Component } from '@angular/core';
+import { SacDateSelectorCommon } from '@simpleangularcontrols/sac-common';
 
-
+/**
+ * DateTime Selektor Komponente
+ */
 @Component({
-  selector: 'ng-dateselector,ngDateSelector',
+  selector: 'sac-dateselector',
   templateUrl: './dateselector.html',
 })
-export class NgDateSelectorComponent extends NgDateSelectorCommon {
-
-}
+export class SacDateSelectorComponent extends SacDateSelectorCommon {}

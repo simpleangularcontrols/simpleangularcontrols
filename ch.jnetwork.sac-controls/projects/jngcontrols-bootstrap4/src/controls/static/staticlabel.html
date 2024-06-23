@@ -1,8 +1,26 @@
-<div class="row form-group" [class.no-gutters]="_disablelabel">
-  <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="col-12 col-form-label" [ngClass]="[_labelsize !== 12 ?  'col-sm-' + _labelsize : 'sr-only']">{{_label}}</label>
-  <div [ngClass]="[_disablelabel === false ? 'col-sm-' + _inputsize : 'col-sm-12']">
-    <div class="form-control-plaintext" [innerHTML]="value">
-    </div>
-    <label for="{{_name}}" class="col-left control-label" *ngIf="_isadaptivelabel && !_disablelabel">{{_label}}</label>
+<div class="row form-group" [class.no-gutters]="disablelabel">
+  <label
+    *ngIf="disablelabel === false && !isAdaptiveLabel"
+    id="{{name}}_label"
+    for="{{name}}"
+    class="col-12 col-form-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
+    >{{label}}</label
+  >
+  <div
+    class="col-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
+  >
+    <div
+      class="form-control-plaintext"
+      [ngClass]="[componentHeight | toControlHeight]"
+      [innerHTML]="value"
+    ></div>
+    <label
+      for="{{name}}"
+      class="col-left control-label"
+      *ngIf="isAdaptiveLabel && !disablelabel"
+      >{{label}}</label
+    >
   </div>
 </div>

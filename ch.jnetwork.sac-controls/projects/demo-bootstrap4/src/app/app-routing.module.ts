@@ -13,6 +13,17 @@ const routes: Routes = [
       import('./button/button.module').then((m) => m.ButtonModule),
   },
   {
+    path: 'form',
+    loadChildren: () => import('./form/form.module').then((m) => m.FormModule),
+  },
+  {
+    path: 'reactiveform',
+    loadChildren: () =>
+      import('./formreactive/reactiveform.module').then(
+        (m) => m.ReactiveFormModule
+      ),
+  },
+  {
     path: 'checkbox',
     loadChildren: () =>
       import('./checkbox/checkbox.module').then((m) => m.CheckboxModule),
@@ -57,13 +68,30 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'browser',
+    loadChildren: () =>
+      import('./browser/browser.module').then((m) => m.BrowserModule),
+  },
+  {
+    path: 'richtext',
+    loadChildren: () =>
+      import('./richtext/richtext.module').then((m) => m.RichtextModule),
+  },
+  {
+    path: 'contextmenu',
+    loadChildren: () =>
+      import('./contextmenu/contextmenu.module').then(
+        (m) => m.ContextmenuModule
+      ),
+  },
+  {
     path: '**',
     redirectTo: '/input',
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

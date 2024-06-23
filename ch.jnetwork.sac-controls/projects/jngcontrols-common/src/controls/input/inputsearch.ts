@@ -1,31 +1,30 @@
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
-import { NgInputCommon } from './input';
+import { SacInputCommon } from './input';
 
 /**
- * Basis Komponente für NgInputSearch
+ * Basis Komponente für SacInputSearch
  */
 @Directive()
-export class NgInputSearchCommon extends NgInputCommon {
-
+export class SacInputSearchCommon extends SacInputCommon {
   /**
    * Name des Such-Icons
    */
-  @Input('iconname') _searchIconName: string = '';
+  @Input() iconname: string = '';
   /**
- * Text welcher auf dem Button angezeigt wird
- */
-  @Input('buttontext') _buttontext: string = '';
+   * Text welcher auf dem Button angezeigt wird
+   */
+  @Input() buttontext: string = '';
 
   /**
    * Event wenn auf das Such-Icon geclickt wird
    */
-  @Output('onclick')
-  clickaction: EventEmitter<any> = new EventEmitter<any>();
+  @Output()
+  clicked: EventEmitter<any> = new EventEmitter<any>();
 
   /**
    * Methode sendet den Wert des Inputs durch das Event
    */
   searchClick() {
-    this.clickaction.emit(this.value);
+    this.clicked.emit(this.value);
   }
 }

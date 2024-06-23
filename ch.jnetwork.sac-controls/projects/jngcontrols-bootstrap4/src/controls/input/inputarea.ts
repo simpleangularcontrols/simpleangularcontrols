@@ -1,24 +1,42 @@
-import { ControlContainer, NG_VALUE_ACCESSOR, NG_VALIDATORS } from '@angular/forms';
-import { NgFormularDirective } from '../form/form';
-import { Component, forwardRef, Host, Injector } from '@angular/core';
-import { NgInputAreaCommon } from '@jnetwork/jngcontrols-common';
+import { Component, forwardRef, Host, Injector, Optional } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SacInputAreaCommon } from '@simpleangularcontrols/sac-common';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 
+/**
+ * Input Box für lange Texte
+ */
 @Component({
-  selector: 'ng-inputarea,ngInputArea',
+  selector: 'sac-inputarea',
   templateUrl: './inputarea.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgInputAreaComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgInputAreaComponent) }
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: forwardRef(() => SacInputAreaComponent),
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => SacInputAreaComponent),
+    },
   ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: NgFormularDirective }]
 })
+export class SacInputAreaComponent extends SacInputAreaCommon {
+  // #region Constructors
 
-export class NgInputAreaComponent extends NgInputAreaCommon {
-
-  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
-    super(parent, injector);
+  /**
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   */
+  constructor(
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
+    injector: Injector
+  ) {
+    super(formLayout, injector);
   }
 
+  // #endregion Constructors
 }

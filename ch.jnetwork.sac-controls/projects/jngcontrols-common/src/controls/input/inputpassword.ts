@@ -1,38 +1,50 @@
 import { Directive, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { Validation } from '../../validation';
-import { NgInputCommon } from './input';
+import { SacInputCommon } from './input';
 
 /**
- * Basis Komponente für NgInputPassword
+ * Basis Komponente für SacInputPassword
  */
 @Directive()
-export class NgInputPasswordCommon extends NgInputCommon {
-
-  /**
-   * Resource Key für Validation Message MinLength bei Control
-   */
-  @Input('validationmessageminlength') _validationMessageMinLength: string = 'VALIDATION_ERROR_MINLENGTH';
-  /**
-   * Resource Key für Validation Message MinLength in Validation Summary
-   */
-  @Input('validationmessagesummaryminlength') _validationMessageMinLengthSummary: string = 'VALIDATION_ERROR_SUMMARY_MINLENGTH';
+export class SacInputPasswordCommon extends SacInputCommon {
+  // #region Properties
 
   /**
    * Min. Textlänge
    */
-  @Input('minlength') _minlength: number = 5;
+  @Input() public minlength: number = 5;
+  /**
+   * Resource Key für Validation Message MinLength bei Control
+   */
+  @Input() public validationmessageminlength: string =
+    this.validationKeyService.ValidationErrorMinLength;
+  /**
+   * Resource Key für Validation Message MinLength in Validation Summary
+   */
+  @Input() public validationmessagesummaryminlength: string =
+    this.validationKeyService.ValidationErrorSummaryMinLength;
+
+  // #endregion Properties
+
+  // #region Public Methods
 
   /**
    * Methode validiert, ob der Wert den gegebenen Kriteriten entspricht
    */
-  validateData(c: AbstractControl): ValidationErrors | null {
+  public validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = super.validateData(c);
 
     if (error === null) {
-      error = Validation.minLength(c, this._minlength, this._label, this._validationMessageMinLength, this._validationMessageMinLengthSummary);
+      error = Validation.minLength(
+        this.minlength,
+        this.validationmessageminlength,
+        this.validationmessagesummaryminlength
+      )(c);
     }
 
     return error;
   }
+
+  // #endregion Public Methods
 }

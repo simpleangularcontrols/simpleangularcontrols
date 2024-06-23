@@ -1,30 +1,88 @@
-<div class="form-group" [ngClass]="{'has-error': invalid && (dirty || touched)}">
-  <label *ngIf="_disablelabel === false && !_isadaptivelabel" id="{{_name}}_label" for="{{_name}}" class="control-label" [ngClass]="[_labelsize !== 12 ?  'col-md-' + _labelsize : 'sr-only']" [class.required]="_isrequired">{{_label}}</label>
-  <div [ngClass]="[_disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']">
-    <div style="position: relative; width: 180px;">
-
-      <div id="{{_name}}" class="datetime-textbox input-group">
-        <input id="{{_name}}" name="{{_name}}" type="text" class="form-control" [imask]="imaskDate" [attr.placeholder]="_placeholder"
-               [value]="valuestring" [ngClass]="{'is-invalid': invalid && (dirty || touched) }" (blur)="onTouch()"
-               (accept)="setValueString($event)" [disabled]="isdisabled" (click)="showDateSelector()" />
+<div
+  class="row form-group"
+  [class.has-error]="invalid && (dirty || touched)"
+  [ngClass]="componentHeight | toLabelHeight"
+>
+  <label
+    *ngIf="disablelabel === false && !isAdaptiveLabel"
+    id="{{name}}label"
+    for="{{name}}"
+    class="col-xs-12 control-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
+    [class.required]="isrequired"
+    >{{label}}</label
+  >
+  <div
+    class="col-xs-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
+  >
+    <div
+      style="position: relative"
+      [style.width.px]="componentHeight === ControlHeight.Small ? 160 : componentHeight === ControlHeight.Large ? 230 : 180"
+    >
+      <div
+        id="{{name}}"
+        class="datetime-textbox input-group"
+        [class.input-group-sm]="componentHeight === ControlHeight.Small"
+        [class.input-group-lg]="componentHeight === ControlHeight.Large"
+      >
+        <input
+          id="{{name}}"
+          name="{{name}}"
+          type="text"
+          class="form-control"
+          [class.is-invalid]="invalid && (dirty || touched)"
+          [ngClass]="[componentHeight | toControlHeight]"
+          [imask]="imaskDate"
+          [attr.placeholder]="placeholder"
+          [value]="valuestring"
+          (blur)="onTouch()"
+          (accept)="setValueString($event)"
+          [disabled]="isdisabled"
+          (click)="showDateSelector()"
+        />
         <span class="input-group-btn">
-          <button class="btn btn-default" type="button" (click)="showDateSelector()" [disabled]="isdisabled">
-            <i class="glyphicon glyphicon-calendar"></i>
+          <button
+            class="btn btn-default"
+            type="button"
+            (click)="showDateSelector()"
+            [disabled]="isdisabled"
+          >
+            <i [class]="IconSelector"></i>
           </button>
         </span>
       </div>
-      <div class="help-block help-block-error" *ngIf="IsInlineErrorEnabled && invalid && (dirty || touched)">{{ GetErrorMessage() | async }}</div>
-
-      <div class="popover bottom in" role="tooltip" *ngIf="_showselector"
-           style="display:block; left:unset; right: 0px; top: 34px; max-width: 325px;">
-        <div class="arrow" style="left: unset; right: 10px;"></div>
-        <h3 class="popover-title" style="display: none;"></h3>
-        <div class="popover-content">
-          <ngDateSelector *ngIf="_showselector" [initialValue]="value" (onSelect)="dateselect($event)"
-                          autoapplyselection="true" dateselection="true" timeselection="true"></ngDateSelector>
-        </div>
+      <div
+        class="help-block help-block-error"
+        *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+      >
+        {{ GetErrorMessage() | async }}
       </div>
 
+      <div
+        class="popover bottom in"
+        role="tooltip"
+        *ngIf="_showselector"
+        style="
+          display: block;
+          left: unset;
+          right: 0px;
+          top: 34px;
+          max-width: 325px;
+        "
+      >
+        <div class="arrow" style="left: unset; right: 10px"></div>
+        <h3 class="popover-title" style="display: none"></h3>
+        <div class="popover-content">
+          <sac-dateselector
+            *ngIf="_showselector"
+            [initialvalue]="value"
+            (selectdate)="dateselect($event)"
+            dateselection="true"
+            timeselection="true"
+          ></sac-dateselector>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,20 +1,36 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgInputComponent } from './input';
-import { NgInputEmailComponent } from './inputemail';
-import { NgInputAreaComponent } from './inputarea';
-import { NgInputCurrencyComponent } from './inputcurrency';
-import { NgInputDecimalComponent } from './inputdecimal';
-import { NgInputIntegerComponent } from './inputinteger';
-import { NgInputPasswordComponent } from './inputpassword';
-import { NgInputSearchComponent } from './inputsearch';
-
+import { NgModule } from '@angular/core';
+import { SACBootstrap4LayoutModule } from '../layout/layout.module';
+import { SacInputComponent } from './input';
+import { SacInputAreaComponent } from './inputarea';
+import { SacInputCurrencyComponent } from './inputcurrency';
+import { SacInputDecimalComponent } from './inputdecimal';
+import { SacInputEmailComponent } from './inputemail';
+import { SacInputIntegerComponent } from './inputinteger';
+import { SacInputPasswordComponent } from './inputpassword';
+import { SacInputSearchComponent } from './inputsearch';
 
 @NgModule({
-  declarations: [NgInputComponent, NgInputAreaComponent, NgInputCurrencyComponent, NgInputDecimalComponent, NgInputEmailComponent, NgInputIntegerComponent, NgInputPasswordComponent, NgInputSearchComponent],
-  imports: [
-    CommonModule
+  declarations: [
+    SacInputComponent,
+    SacInputAreaComponent,
+    SacInputCurrencyComponent,
+    SacInputDecimalComponent,
+    SacInputEmailComponent,
+    SacInputIntegerComponent,
+    SacInputPasswordComponent,
+    SacInputSearchComponent,
   ],
-  exports: [NgInputComponent, NgInputAreaComponent, NgInputCurrencyComponent, NgInputDecimalComponent, NgInputEmailComponent, NgInputIntegerComponent, NgInputPasswordComponent, NgInputSearchComponent]
+  imports: [CommonModule, SACBootstrap4LayoutModule],
+  exports: [
+    SacInputComponent,
+    SacInputAreaComponent,
+    SacInputCurrencyComponent,
+    SacInputDecimalComponent,
+    SacInputEmailComponent,
+    SacInputIntegerComponent,
+    SacInputPasswordComponent,
+    SacInputSearchComponent,
+  ],
 })
-export class JNetworkBootstrap4InputModule { }
+export class SACBootstrap4InputModule {}

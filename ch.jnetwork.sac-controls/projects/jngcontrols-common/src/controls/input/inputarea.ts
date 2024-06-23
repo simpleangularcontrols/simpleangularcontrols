@@ -1,26 +1,26 @@
 import { Directive, Input } from '@angular/core';
-import { NgInputCommon } from './input';
+import { SacInputCommon } from './input';
 
 /**
- * Basis Komponente für NgInputArea
+ * Basis Komponente für SacInputArea
  */
 @Directive()
-export class NgInputAreaCommon extends NgInputCommon {
+export class SacInputAreaCommon extends SacInputCommon {
 
   /**
    * Definiert die Höhe der TextArea Box.
    */
-  @Input('rows') _rows: number = 5;
+  @Input() rows: number = 5;
 
   /**
    * Definiert die Höhe der TextArea Box. Ist normalfall leer, da Höhe auch über Rows gesetzt werden kann.
    */
-  @Input('height') _height: string = null;
+  @Input() height: string = null;
 
   /**
    * Property mit dem Custom CSS Klassen auf dem Form-Control definiert werden können.
    */
-  @Input('customCssClass') _customClasses: string = '';
+  @Input() customcssclass: string = '';
 
   /**
    * Getter für die Länge des Inputs
@@ -38,11 +38,11 @@ export class NgInputAreaCommon extends NgInputCommon {
    */
   public onKeyPress(event: KeyboardEvent): Boolean {
     // Exist if MaxLength not defined
-    if (this._maxlength === undefined || this._maxlength === null) {
+    if (this.maxlength === undefined || this.maxlength === null) {
       return true;
     }
 
-    if (this._currentLength >= this._maxlength || ((event.key === 'Enter' || event.key === ' ') && this._currentLength + 1 >= this._maxlength)) {
+    if (this._currentLength >= this.maxlength || ((event.key === 'Enter' || event.key === ' ') && this._currentLength + 1 >= this.maxlength)) {
       event.preventDefault();
     }
   }

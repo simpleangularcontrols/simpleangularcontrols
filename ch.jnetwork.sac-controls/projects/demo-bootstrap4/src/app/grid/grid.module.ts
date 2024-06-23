@@ -3,11 +3,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  JNetworkBootstrap4ButtonModule,
-  JNetworkBootstrap4FormModule,
-  JNetworkBootstrap4GridModule,
-  JNetworkBootstrap4ValidationSummaryModule,
-} from '@jnetwork/jngcontrols-bootstrap4';
+  SACBootstrap4ButtonModule,
+  SACBootstrap4FormModule,
+  SACBootstrap4GridModule,
+  SACBootstrap4ValidationSummaryModule,
+} from '@simpleangularcontrols/sac-bootstrap4';
 import { GridRoutingModule } from './grid-routing.module';
 import { DemoGridComponent } from './grid.component';
 import { GridService } from './services/GridService';
@@ -18,10 +18,10 @@ import { GridService } from './services/GridService';
     FormsModule,
     HttpClientModule,
     GridRoutingModule,
-    JNetworkBootstrap4FormModule,
-    JNetworkBootstrap4ValidationSummaryModule,
-    JNetworkBootstrap4ButtonModule,
-    JNetworkBootstrap4GridModule,
+    SACBootstrap4FormModule,
+    SACBootstrap4ValidationSummaryModule,
+    SACBootstrap4ButtonModule,
+    SACBootstrap4GridModule,
   ],
   providers: [GridService],
 })

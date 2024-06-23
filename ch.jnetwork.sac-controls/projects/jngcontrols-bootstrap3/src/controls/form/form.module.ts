@@ -1,17 +1,12 @@
-import { NgModule } from '@angular/core';
-import { NgFormularDirective } from './form';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ProvideParentNgFormularDirective } from './ngformularinherit.directive';
+import { SacFormDirective } from './form';
+import { SacInheritFormDirective } from './inheritform.directive';
 
 @NgModule({
-  declarations: [NgFormularDirective, ProvideParentNgFormularDirective],
-  imports: [
-    CommonModule,
-    FormsModule
-  ],
-  exports: [
-    NgFormularDirective, ProvideParentNgFormularDirective
-  ]
+  declarations: [SacFormDirective, SacInheritFormDirective],
+  imports: [CommonModule, FormsModule],
+  exports: [SacFormDirective, SacInheritFormDirective],
 })
-export class JNetworkBootstrap3FormModule { }
+export class SACBootstrap3FormModule {}

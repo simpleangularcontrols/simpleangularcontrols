@@ -1,11 +1,11 @@
-import { Component, } from '@angular/core';
-import { NgWizardItemCommon } from '@jnetwork/jngcontrols-common';
+import { Component } from '@angular/core';
+import { SacWizardItemCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Wizard Komponente Item
+ */
 @Component({
-  selector: 'ng-wizarditem,ngWizardItem',
-  templateUrl: './wizarditem.html'
+  selector: 'sac-wizarditem',
+  templateUrl: './wizarditem.html',
 })
-export class NgWizardItemComponent extends NgWizardItemCommon {
-
-}
-
+export class SacWizardItemComponent extends SacWizardItemCommon {}

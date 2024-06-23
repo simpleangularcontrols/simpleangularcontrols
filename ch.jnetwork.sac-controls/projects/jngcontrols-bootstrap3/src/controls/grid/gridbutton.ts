@@ -1,23 +1,23 @@
 import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
-import { NgGridCommon, NgGridButtonCommon } from '@jnetwork/jngcontrols-common';
+import { SacGridCommon, SacGridButtonCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Grid Action Button
  *
  * @example Standard Action
  *
- * <ngGridButton icon="edit" (onclick)="action('edit')" [isdisabled]="true"></ngGridButton>
+ * <ngGridButton icon="edit" (clicked)="action('edit')" [isdisabled]="true"></ngGridButton>
  *
  * @example Custom Action
  *
- * <ngGridButton iconstyle="sprite" icon="icon-sprite-base-main_info" (onclick)="action('info')"></ngGridButton>
+ * <ngGridButton iconstyle="sprite" icon="icon-sprite-base-main_info" (clicked)="action('info')"></ngGridButton>
  *
  */
 @Component({
-  selector: 'ng-gridbutton,ngGridButton',
+  selector: 'sac-gridbutton',
   templateUrl: './gridbutton.html'
 })
-export class NgGridButtonComponent extends NgGridButtonCommon {
+export class SacGridButtonComponent extends SacGridButtonCommon {
 
   /**
    * Gibt das Icon für den Button zurück

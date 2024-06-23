@@ -4,11 +4,11 @@
   </div>
   <div *ngIf="IsTooltipVisible()" [style.visibility]="IsTooltipContentVisible ? 'visible' : 'hidden'" #tooltip class="tooltip in" style="display: block;"
        [style.left.px]="LeftPos" [style.top.px]="TopPos"
-       [class.top]="GetTooltipPosition() == TooltipPosition.top" [class.left]="GetTooltipPosition() == TooltipPosition.left"
-       [class.right]="GetTooltipPosition() == TooltipPosition.right" [class.bottom]="GetTooltipPosition() == TooltipPosition.bottom">
+       [class.top]="GetTooltipPosition() === TooltipPosition.top" [class.left]="GetTooltipPosition() === TooltipPosition.left"
+       [class.right]="GetTooltipPosition() === TooltipPosition.right" [class.bottom]="GetTooltipPosition() === TooltipPosition.bottom">
     <div class="tooltip-arrow" style="top: 50%;"></div>
     <div class="tooltip-inner">
-      {{_tooltiptext}}
+      {{tooltiptext}}
     </div>
   </div>
 </div>

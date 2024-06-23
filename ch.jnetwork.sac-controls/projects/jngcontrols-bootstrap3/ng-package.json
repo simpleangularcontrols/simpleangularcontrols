@@ -6,7 +6,7 @@
     "umdModuleIds": {
       "moment": "moment",
       "angular-imask": "angularImask",
-      "@jnetwork/jngcontrols-common": "jngControlsCommon"
+      "@simpleangularcontrols/sac-common": "jngControlsCommon"
     }
   }
 }

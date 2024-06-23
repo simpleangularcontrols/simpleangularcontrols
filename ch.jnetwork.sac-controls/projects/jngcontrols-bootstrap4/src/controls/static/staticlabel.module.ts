@@ -1,13 +1,12 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgStaticLabelComponent } from './staticlabel';
-import { NgStaticFormContainerComponent } from './formcontainer';
+import { NgModule } from '@angular/core';
+import { SACBootstrap4LayoutModule } from '../layout/layout.module';
+import { SacStaticFormContainerComponent } from './formcontainer';
+import { SacStaticLabelComponent } from './staticlabel';
 
 @NgModule({
-  declarations: [NgStaticLabelComponent, NgStaticFormContainerComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [NgStaticLabelComponent, NgStaticFormContainerComponent]
+  declarations: [SacStaticLabelComponent, SacStaticFormContainerComponent],
+  imports: [CommonModule, SACBootstrap4LayoutModule],
+  exports: [SacStaticLabelComponent, SacStaticFormContainerComponent],
 })
-export class JNetworkBootstrap4StaticLabelModule { }
+export class SACBootstrap4StaticLabelModule {}

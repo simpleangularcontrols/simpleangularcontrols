@@ -1,99 +1,61 @@
 import { Directive, Input, OnInit } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { UploadState } from 'ngx-uploadx';
-import { NgUploadBase } from '../../common/baseuploadcontrol';
-import { IUploadControl } from '../../interfaces/iuploadcontrol';
+import { SacUploadBase } from '../../common/baseuploadcontrol';
 import { Validation } from '../../validation';
 
 /**
  * Upload Komponente für ein einzelnes File
  */
 @Directive()
-export class NgDropzoneMultipleCommon
-  extends NgUploadBase<string[]>
-  implements OnInit, IUploadControl
+export class SacDropzoneMultipleCommon
+  extends SacUploadBase<string[]>
+  implements OnInit
 {
+  // #region Properties
+
+  /**
+   * Max. Anzahl Files die hochgeladen werden können
+   */
+  @Input()
+  public maxfiles: number = 0;
+  /**
+   * Min. Anzahl Files die hochgeladen werden müssen
+   */
+  @Input()
+  public minfiles: number = 0;
+  /**
+   * Höhe des Upload Controls
+   */
+  @Input()
+  public uploadheight: string = null;
+  /**
+   * Resource Key für Validation Message Required bei Control
+   */
+  @Input() public validationmessageminfiles: string =
+    this.validationKeyService.ValidationErrorFilesMin;
+  /**
+   * Resource Key für Validation Message Required in Validation Summary
+   */
+  @Input()
+  public validationmessagesummaryminfiles: string =
+    this.validationKeyService.ValidationErrorSummaryFilesMin;
+
   /**
    * Property wenn Drag Event aktiv ist (Maus über Zone)
    */
   public active = false;
 
-  @Input('maxfiles')
-  public maxfiles: number = 0;
+  // #endregion Properties
 
-  @Input('minfiles')
-  public minfiles: number = 0;
-
-  /**
-   * Resource Key für Validation Message Required bei Control
-   */
-  @Input('validationmessageminfiles') _validationMessageMinFiles: string =
-    'VALIDATION_ERROR_FILESMIN';
-  /**
-   * Resource Key für Validation Message Required in Validation Summary
-   */
-  @Input('validationmessagesummaryminfiles')
-  _validationMessageMinFilesSummary: string =
-    'VALIDATION_ERROR_SUMMARY_FILESMIN';
-
-  /**
-   * Ervent wenn das Control initialisert wird
-   */
-  ngOnInit() {
-    super.ngOnInit();
-
-    this.autoupload = true;
-  }
-
-  /**
-   * Methode für Drag and Drop von Files
-   * @param event Drag Event
-   */
-  dropHandler(event: DragEvent): void {
-    if (
-      event.dataTransfer &&
-      event.dataTransfer.files &&
-      event.dataTransfer.files.item(0)
-    ) {
-      event.stopPropagation();
-      event.preventDefault();
-      this.active = false;
-      this.uploadService.handleFileList(event.dataTransfer.files);
-    }
-  }
-
-  /**
-   * Methode wenn Drag in die Zone eintritt
-   * @param event DragEnter Event
-   */
-  onDragOver(event: DragEvent): void {
-    if (
-      event.dataTransfer &&
-      event.dataTransfer.files &&
-      event.dataTransfer.types.every((itm) => itm === 'Files') &&
-      event.dataTransfer.types.length > 0
-    ) {
-      event.dataTransfer.dropEffect = 'copy';
-      event.stopPropagation();
-      event.preventDefault();
-      this.active = true;
-    }
-  }
-
-  /**
-   * Methode wenn Drag die Zone verlässt
-   * @param event DragLeave Event
-   */
-  onDragLeave(event: DragEvent): void {
-    this.active = false;
-  }
+  // #region Public Methods
 
   /**
    * Prüft ob die max. Files in der Queue nicht überschritten werden
    *
    * @param file File das hinzugefügt wurde
    */
-  CustomAddValidation(file: UploadState): boolean {
+  public CustomAddValidation(file: UploadState): boolean {
     if (this.maxfiles > 0 && this.uploads.length >= this.maxfiles) {
       this.onfileerror.emit('INVALID_MAXFILES');
       return false;
@@ -107,7 +69,7 @@ export class NgDropzoneMultipleCommon
    *
    * @param file ID des Files welches hochgeladen wurde.
    */
-  SetUploadValue(file: UploadState) {
+  public SetUploadValue(file: UploadState) {
     let documentid: string = null;
     if (file === null) {
       documentid = null;
@@ -151,10 +113,55 @@ export class NgDropzoneMultipleCommon
   }
 
   /**
-   * Gibt die Anzahl der komplett hochgeladenen Files zurück
+   * Methode für Drag and Drop von Files
+   * @param event Drag Event
    */
-  UploadedFileCount(): number {
-    return this.uploads.filter((itm) => itm.status === 'complete').length;
+  public dropHandler(event: DragEvent): void {
+    if (
+      event.dataTransfer &&
+      event.dataTransfer.files &&
+      event.dataTransfer.files.item(0)
+    ) {
+      event.stopPropagation();
+      event.preventDefault();
+      this.active = false;
+      this.uploadService.handleFileList(event.dataTransfer.files);
+    }
+  }
+
+  /**
+   * Ervent wenn das Control initialisert wird
+   */
+  public ngOnInit() {
+    super.ngOnInit();
+
+    this.autoupload = true;
+  }
+
+  /**
+   * Methode wenn Drag die Zone verlässt
+   * @param event DragLeave Event
+   */
+  public onDragLeave(event: DragEvent): void {
+    this.active = false;
+  }
+
+  /**
+   * Methode wenn Drag in die Zone eintritt
+   * @param event DragEnter Event
+   */
+  public onDragOver(event: DragEvent): void {
+    if (
+      event.dataTransfer &&
+      event.dataTransfer.files &&
+      event.dataTransfer.types.every((itm) => itm === 'Files') &&
+      event.dataTransfer.types.length > 0
+    ) {
+      event.dataTransfer.dropEffect = 'copy';
+      event.stopPropagation();
+      event.preventDefault();
+      this.active = true;
+    }
   }
 
   /**
@@ -162,19 +169,19 @@ export class NgDropzoneMultipleCommon
    *
    * @param c Control
    */
-  validateData(c: AbstractControl): ValidationErrors | null {
+  public validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = super.validateData(c);
 
     if (error === null) {
       error = Validation.minFiles(
-        this,
         this.minfiles,
-        this._label,
-        this._validationMessageMinFiles,
-        this._validationMessageMinFilesSummary
-      );
+        this.validationmessageminfiles,
+        this.validationmessagesummaryminfiles
+      )(c);
     }
 
     return error;
   }
+
+  // #endregion Public Methods
 }

@@ -1,13 +1,13 @@
 import { Directive, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { NgBaseModelControl } from '../../common/basemodelcontrol';
+import { SacBaseModelControl } from '../../common/basemodelcontrol';
 import { convertToBoolean } from '../../utilities/convertion';
 
 /**
  * Common Control für Form Item Container.
  **/
 @Directive()
-export class NgStaticFormContainerCommon extends NgBaseModelControl<string> {
+export class SacStaticFormContainerCommon extends SacBaseModelControl<string> {
 
 
   /**
@@ -18,7 +18,7 @@ export class NgStaticFormContainerCommon extends NgBaseModelControl<string> {
   /**
    * Text welcher als Tooltip angezeigt wird.
    */
-  @Input('tooltiptext') _tooltiptext: string = '';
+  @Input() tooltiptext: string = '';
 
   /**
    * Definiert den Container als Required Form Item
@@ -29,7 +29,7 @@ export class NgStaticFormContainerCommon extends NgBaseModelControl<string> {
   /**
    * Definiert den Container als Required Form Item
    */
-  @Input('isrequired')
+  @Input()
   set isrequired(v: boolean) {
     this._isrequired = convertToBoolean(v);
   }

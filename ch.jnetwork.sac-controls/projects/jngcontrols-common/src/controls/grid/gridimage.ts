@@ -1,15 +1,15 @@
 import { Input, Directive } from '@angular/core';
 
 /**
- * Basis Komponente für NgGridImage
+ * Basis Komponente für SacGridImage
  */
 @Directive()
-export class NgGridImageCommon {
+export class SacGridImageCommon {
 
   /**
    * das Input property akypetiert string value für style des Icon
    */
-  @Input('iconstyle')
+  @Input()
   public iconstyle: string;
 
 }

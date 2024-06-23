@@ -1,3 +1,3 @@
-<div [id]="_id" [hidden]="_unloadwhenhidden === false && _active === false" *ngIf="(_unloadwhenhidden === true && _active === true) || _unloadwhenhidden === false" class="tab-pane">
+<div [id]="id" [hidden]="unloadwhenhidden === false && active === false" *ngIf="(unloadwhenhidden === true && active === true) || unloadwhenhidden === false" class="tab-pane">
   <ng-template [ngTemplateOutlet]="templateRef"></ng-template>
 </div>

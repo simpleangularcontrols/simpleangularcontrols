@@ -1,14 +1,21 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgCheckboxComponent } from './checkbox';
-import { NgRadiobuttonComponent } from './radiobutton';
-import { NgRadiobuttonsComponent } from './radiobuttons';
+import { NgModule } from '@angular/core';
+import { SACBootstrap4LayoutModule } from '../layout/layout.module';
+import { SacCheckboxComponent } from './checkbox';
+import { SacRadiobuttonComponent } from './radiobutton';
+import { SacRadiobuttonsComponent } from './radiobuttons';
 
 @NgModule({
-  declarations: [NgCheckboxComponent, NgRadiobuttonComponent, NgRadiobuttonsComponent],
-  imports: [
-    CommonModule
+  declarations: [
+    SacCheckboxComponent,
+    SacRadiobuttonComponent,
+    SacRadiobuttonsComponent,
   ],
-  exports: [NgCheckboxComponent, NgRadiobuttonComponent, NgRadiobuttonsComponent]
+  imports: [CommonModule, SACBootstrap4LayoutModule],
+  exports: [
+    SacCheckboxComponent,
+    SacRadiobuttonComponent,
+    SacRadiobuttonsComponent,
+  ],
 })
-export class JNetworkBootstrap4CheckboxModule { }
+export class SACBootstrap4CheckboxModule {}

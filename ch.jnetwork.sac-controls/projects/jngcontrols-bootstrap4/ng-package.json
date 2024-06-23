@@ -7,7 +7,7 @@
       "moment": "moment",
       "angular-imask": "angularImask",
       "@ng-bootstrap/ng-bootstrap": "ngBootstrap",
-      "@jnetwork/jngcontrols-common": "jngControlsCommon"
+      "@simpleangularcontrols/sac-common": "jngControlsCommon"
     }
   }
 }

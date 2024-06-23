@@ -1,3 +1,6 @@
-export { NgFormularDirective } from './form';
-export { ProvideParentNgFormularDirective, NGFORMULAR_FACTORY, NGFORM_FACTORY } from './ngformularinherit.directive';
-
+export { SacFormDirective } from './form';
+export {
+  SacInheritFormDirective,
+  SACFORM_FACTORY,
+  NGFORM_FACTORY,
+} from './inheritform.directive';

@@ -1,9 +1,11 @@
-import { Component, } from '@angular/core';
-import { NgConfirmCommon } from '@jnetwork/jngcontrols-common';
+import { Component } from '@angular/core';
+import { SacConfirmCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Confirm Komponente
+ */
 @Component({
-  selector: 'ng-confirm,ngConfirm',
-  templateUrl: './confirm.html'
+  selector: 'sac-confirm',
+  templateUrl: './confirm.html',
 })
-export class NgConfirmComponent extends NgConfirmCommon {
-}
+export class SacConfirmComponent extends SacConfirmCommon {}

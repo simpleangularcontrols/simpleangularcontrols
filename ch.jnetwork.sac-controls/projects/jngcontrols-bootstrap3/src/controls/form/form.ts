@@ -1,7 +1,6 @@
-import { HostBinding, Input } from '@angular/core';
-import { NgFormularCommon } from '@jnetwork/jngcontrols-common';
-import { ControlContainer, NgForm } from '@angular/forms';
-import { Directive } from '@angular/core';
+import { Directive, HostBinding } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { SacFormCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Erweiterung / Hooking für automatismen in Formular. Wird als Container für alle Controls benötigt.
@@ -14,11 +13,29 @@ import { Directive } from '@angular/core';
  *
  * <form></form>
  */
+/* eslint @angular-eslint/directive-selector: 0 */
 @Directive({
   selector: 'form:not([ngNoForm]):not([formGroup]),[ngForm]',
-  exportAs: 'NgFormular'
+  exportAs: 'sacform',
 })
-export class NgFormularDirective extends NgFormularCommon {
+export class SacFormDirective extends SacFormCommon {
+  // #region Properties
+
+  /**
+   * Sets the standard CSS class for forms on the form container
+   */
+  @HostBinding('class.form')
+  public cssClassForm: boolean = true;
+
+  /**
+   * Sets the default CSS class for horizontal forms on the form container
+   */
+  @HostBinding('class.form-horizontal')
+  public cssClassHorizontal: boolean = true;
+
+  // #endregion Properties
+
+  // #region Constructors
 
   /**
    * Konstruktor
@@ -28,23 +45,5 @@ export class NgFormularDirective extends NgFormularCommon {
     super(form);
   }
 
-  /**
-   * Setzt die Standard CSS Klasse für auf dem Form Container
-   */
-  @HostBinding('class.form')
-  cssClassForm: boolean = true;
-
-  /**
-   * Setzt die CSS Klasse 'form-horizontal' wenn die Orientation auf Horizontal eingestellt ist
-   */
-  @HostBinding('class.form-horizontal')
-  get orientientationHorizontal(): boolean { return this.getOrientation() === 'horizontal'; }
-
-  /**
-   *  Setzt die CSS Klasse 'form-vertical' wenn die Orientation auf Vertical eingestellt ist
-   */
-  @HostBinding('class.form-vertical')
-  get orientientationVertical(): boolean { return this.getOrientation() === 'vertical'; }
-
+  // #endregion Constructors
 }
-

@@ -1,19 +1,39 @@
-import { Component, Host, forwardRef, Injector } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlContainer, NG_VALIDATORS} from '@angular/forms';
-import { NgFormularDirective } from '../form/form';
-import { NgInputDecimalCommon } from '@jnetwork/jngcontrols-common';
+import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SacInputDecimalCommon } from '@simpleangularcontrols/sac-common';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 
 @Component({
-  selector: 'ng-inputdecimal,ngInputDecimal',
+  selector: 'sac-inputdecimal',
   templateUrl: './inputdecimal.html',
   // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgInputDecimalComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgInputDecimalComponent) }
-  ]
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: SacInputDecimalComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => SacInputDecimalComponent),
+    },
+  ],
 })
-export class NgInputDecimalComponent extends NgInputDecimalCommon {
-  constructor(@Host() parent: NgFormularDirective, injector: Injector) {
-    super(parent, injector);
+export class SacInputDecimalComponent extends SacInputDecimalCommon {
+  // #region Constructors
+
+  /**
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   */
+  constructor(
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
+    injector: Injector
+  ) {
+    super(formLayout, injector);
   }
+
+  // #endregion Constructors
 }

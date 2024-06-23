@@ -1,14 +1,27 @@
-import { Component, Renderer2, ElementRef, OnInit, forwardRef } from '@angular/core';
-import { NgGridColumnCommon, NgGridColumnBaseCommon } from '@jnetwork/jngcontrols-common';
-import { NgGridComponent } from './grid';
+import {
+  Component,
+  ElementRef,
+  Injector,
+  forwardRef
+} from '@angular/core';
+import {
+  SacGridColumnBaseCommon,
+  SacGridColumnCommon,
+} from '@simpleangularcontrols/sac-common';
+import { SacGridComponent } from './grid';
 
 @Component({
-  selector: 'ng-gridcolumn,ngGridColumn,[ngGridColumn]',
+  selector: 'sac-gridcolumn',
   templateUrl: './gridcolumn.html',
-  providers: [{ provide: NgGridColumnBaseCommon, useExisting: forwardRef(() => NgGridColumnComponent) }],
+  providers: [
+    {
+      provide: SacGridColumnBaseCommon,
+      useExisting: forwardRef(() => SacGridColumnComponent),
+    },
+  ],
 })
-export class NgGridColumnComponent extends NgGridColumnCommon {
-  constructor(grid: NgGridComponent, el: ElementRef) {
-    super(grid, el);
+export class SacGridColumnComponent extends SacGridColumnCommon {
+  constructor(grid: SacGridComponent, injector: Injector, el: ElementRef) {
+    super(grid, injector, el);
   }
 }

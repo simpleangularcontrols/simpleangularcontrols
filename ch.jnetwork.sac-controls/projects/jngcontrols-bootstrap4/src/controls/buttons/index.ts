@@ -1,1 +1,1 @@
-export { NgButtonComponent } from './button';
+export { SacButtonComponent } from './button';

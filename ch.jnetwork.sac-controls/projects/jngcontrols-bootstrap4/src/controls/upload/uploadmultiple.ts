@@ -1,23 +1,55 @@
-import { Component, forwardRef, Host, Injector, NgZone, Renderer2 } from '@angular/core';
+import {
+  Component,
+  forwardRef,
+  Host,
+  Injector,
+  NgZone,
+  Optional,
+  Renderer2,
+} from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { NgUploadMultipleCommon } from '@jnetwork/jngcontrols-common';
-import { NgFormularDirective } from '../form/form';
+import { SacUploadMultipleCommon } from '@simpleangularcontrols/sac-common';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 
-// https://github.com/kukhariev/ngx-uploadx/
-
+/**
+ * Upload Komponente für den Upload mehrer Files
+ * @see https://github.com/kukhariev/ngx-uploadx/
+ */
 @Component({
-  selector: 'ng-uploadmultiple,ngUploadMultiple',
+  selector: 'sac-uploadmultiple',
   templateUrl: './uploadmultiple.html',
   styleUrls: ['./upload.scss'],
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: NgUploadMultipleComponent },
-    { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => NgUploadMultipleComponent) }
-  ]
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: SacUploadMultipleComponent,
+    },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: forwardRef(() => SacUploadMultipleComponent),
+    },
+  ],
 })
-export class NgUploadMultipleComponent extends NgUploadMultipleCommon {
+export class SacUploadMultipleComponent extends SacUploadMultipleCommon {
+  // #region Constructors
 
-  constructor(@Host() parent: NgFormularDirective, injector: Injector, renderer: Renderer2, ngZone: NgZone) {
-    super(parent, injector, renderer, ngZone);
+  /**
+   * Constructor
+   * @param formLayout SacFormLayout to define scoped layout settings
+   * @param injector Injector for injecting services
+   * @param renderer Angular rendering engine
+   * @param ngZone ngZone to manage external javascripts
+   */
+  constructor(
+    @Host() @Optional() formLayout: SacFormLayoutDirective,
+    injector: Injector,
+    renderer: Renderer2,
+    ngZone: NgZone
+  ) {
+    super(formLayout, injector, renderer, ngZone);
   }
 
+  // #endregion Constructors
 }

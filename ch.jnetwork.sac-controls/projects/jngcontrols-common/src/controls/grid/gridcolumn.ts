@@ -1,21 +1,21 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+import { Directive, ElementRef, Injector, Input } from '@angular/core';
 import { convertToBoolean } from '../../utilities/convertion';
-import { NgGridCommon } from './grid';
-import { NgGridColumnBaseCommon } from './gridcolumnbase';
+import { SacGridCommon } from './grid';
+import { SacGridColumnBaseCommon } from './gridcolumnbase';
 
 /**
- * Komponente für NgGridColumnCommon. Extends NgGridColumnBaseCommon
+ * Komponente für SacGridColumnCommon. Extends SacGridColumnBaseCommon
  */
 @Directive()
-export class NgGridColumnCommon extends NgGridColumnBaseCommon {
+export class SacGridColumnCommon extends SacGridColumnBaseCommon {
   /**
    * Konstruktor
    */
-  constructor(grid: NgGridCommon, el: ElementRef) {
-    super(grid, el);
+  constructor(grid: SacGridCommon, injector: Injector, el: ElementRef) {
+    super(grid, injector, el);
   }
 
-   /**
+  /**
    * Das Property enthielt boolean Wert für die CSS Klasse ellipsis. Default is false.
    */
   private _ellipsis: boolean = false;
@@ -23,7 +23,7 @@ export class NgGridColumnCommon extends NgGridColumnBaseCommon {
   /**
    * Input Parameter für das css Class ellipsis. Das Setter setzt das boolean Wert auf das private property _ellipsis
    */
-  @Input('ellipsis')
+  @Input()
   public set ellipsis(v: string | boolean) {
     this._ellipsis = convertToBoolean(v);
   }

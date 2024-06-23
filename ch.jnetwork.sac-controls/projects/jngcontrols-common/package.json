@@ -1,5 +1,5 @@
 {
-  "name": "@jnetwork/jngcontrols-common",
+  "name": "@simpleangularcontrols/sac-common",
   "version": "1.4.1",
   "peerDependencies": {
     "@angular/common": "10.1.5",
@@ -15,7 +15,6 @@
   },
   "scripts": {
     "postinstall": "ngcc"
-
   },
   "description": "Core Library für Angular Controls",
   "dependencies": {

@@ -1,17 +1,17 @@
-import { Directive } from '@angular/core';
-import { NgTreeViewCommon } from './treeview';
+import { Directive, OnInit } from '@angular/core';
+import { SacTreeViewCommon } from './treeview';
 
 /**
- * Komponente für NgTreeViewChildCommon. Extends NgTreeViewCommon 
+ * Komponente für SacTreeViewChildCommon. Extends SacTreeViewCommon 
  */
 @Directive()
-export class NgTreeViewChildCommon extends NgTreeViewCommon {
+export class SacTreeViewChildCommon extends SacTreeViewCommon implements OnInit {
   /**
    * A lifecycle hook that is called after Angular has initialized all data-bound properties of a directive. 
    * Define an ngOnInit() method to handle any additional initialization tasks.
    */
   ngOnInit(){    
-    this.collapseAllNode(this.collapseAll)
+    this.collapseAllNode(this.collapseall)
   }
 }
 

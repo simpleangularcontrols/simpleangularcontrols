@@ -1,34 +1,45 @@
 import { Directive, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { Validation } from '../../validation';
-import { NgInputCommon } from './input';
+import { SacInputCommon } from './input';
 
 /**
- * Basis Komponente für NgInputEmail
+ * Basis Komponente für SacInputEmail
  */
 @Directive()
-export class NgInputEmailCommon extends NgInputCommon {
+export class SacInputEmailCommon extends SacInputCommon {
+  // #region Properties
 
   /**
    * Resource Key für Validation Message Email bei Control
    */
-  @Input('validationmessageemail') _validationMessageEmail: string = 'VALIDATION_ERROR_EMAIL';
+  @Input() public validationmessageemail: string =
+    this.validationKeyService.ValidationErrorEmail;
   /**
    * Resource Key für Validation Message Email in Validation Summary
    */
-  @Input('validationmessagesummaryemail') _validationMessageEmailSummary: string = 'VALIDATION_ERROR_SUMMARY_EMAIL';
+  @Input() public validationmessagesummaryemail: string =
+    this.validationKeyService.ValidationErrorSummaryEmail;
 
+  // #endregion Properties
+
+  // #region Public Methods
 
   /**
    * Methode validiert, ob der Wert den gegebenen Kriteriten entspricht
    */
-  validateData(c: AbstractControl): ValidationErrors | null {
+  public validateData(c: AbstractControl): ValidationErrors | null {
     let error: ValidationErrors | null = super.validateData(c);
 
     if (error === null) {
-      error = Validation.email(c, this._label, this._validationMessageEmail, this._validationMessageEmailSummary);
+      error = Validation.email(
+        this.validationmessageemail,
+        this.validationmessagesummaryemail
+      )(c);
     }
 
     return error;
   }
+
+  // #endregion Public Methods
 }

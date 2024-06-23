@@ -1,1 +1,1 @@
-export { NgValidationSummaryComponent } from './validationsummary';
+export { SacValidationSummaryComponent } from './validationsummary';

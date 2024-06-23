@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  JNetworkBootstrap4FormModule,
-  JNetworkBootstrap4InputModule,
-  JNetworkBootstrap4ButtonModule,
-  JNetworkBootstrap4ValidationSummaryModule,
-} from '@jnetwork/jngcontrols-bootstrap4';
+  SACBootstrap4ButtonModule,
+  SACBootstrap4FormModule,
+  SACBootstrap4InputModule,
+  SACBootstrap4StaticLabelModule,
+  SACBootstrap4ValidationSummaryModule,
+} from '@simpleangularcontrols/sac-bootstrap4';
 import { InputRoutingModule } from './input-routing.module';
 import { DemoInputComponent } from './input.component';
 @NgModule({
@@ -15,10 +16,11 @@ import { DemoInputComponent } from './input.component';
     CommonModule,
     FormsModule,
     InputRoutingModule,
-    JNetworkBootstrap4FormModule,
-    JNetworkBootstrap4ButtonModule,
-    JNetworkBootstrap4ValidationSummaryModule,
-    JNetworkBootstrap4InputModule,
+    SACBootstrap4FormModule,
+    SACBootstrap4ButtonModule,
+    SACBootstrap4ValidationSummaryModule,
+    SACBootstrap4InputModule,
+    SACBootstrap4StaticLabelModule,
   ],
 })
 export class InputModule {}

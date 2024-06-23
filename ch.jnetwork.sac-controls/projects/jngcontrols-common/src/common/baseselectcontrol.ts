@@ -1,20 +1,20 @@
 import { Input, Directive } from '@angular/core';
-import { NgBaseListControl } from './baselistcontrol';
+import { SacBaseListControl } from './baselistcontrol';
 
 /**
- * Abstract Klasse für NgBaseSelectControl. Extendes NgBaseListControl
+ * Abstract Klasse für SacBaseSelectControl. Extendes SacBaseListControl
  */
 @Directive()
-export abstract class NgBaseSelectControl<VALUE> extends NgBaseListControl<VALUE> {
+export abstract class SacBaseSelectControl<VALUE> extends SacBaseListControl<VALUE> {
 
   /**
    * Definiert das Label für das Group Element
    */
-  @Input('grouplabel') _fieldGroupLabel: string = 'label';
+  @Input() grouplabel: string = 'label';
 
   /**
    * Definiert die Collection der Items im Group Element
    */
-  @Input('groupitems') _fieldGroupItems: string = '';
+  @Input() groupitems: string = '';
 
 }

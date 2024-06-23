@@ -1,12 +1,12 @@
 import { EventEmitter, Input, Output, Directive } from '@angular/core';
 import { IConfirmComponent } from '../../interfaces/iconfirmcomponent';
-import { NgConfirmButton } from './confirm.button';
+import { SacConfirmButton } from './confirm.button';
 
 /**
  * Basis Klasse für Confirm Dialog
  */
 @Directive()
-export class NgConfirmCommon implements IConfirmComponent {
+export class SacConfirmCommon implements IConfirmComponent {
 
   //#region Input / Output Properties
 
@@ -38,7 +38,7 @@ export class NgConfirmCommon implements IConfirmComponent {
    * Map mit Buttons die in Dialog angezeigt werden.
    */
   @Input()
-  public buttons: NgConfirmButton[] = [];
+  public buttons: SacConfirmButton[] = [];
 
   //#endregion
 

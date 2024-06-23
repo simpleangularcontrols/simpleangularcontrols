@@ -1,5 +1,5 @@
 import { Component, Host, Injector, Optional } from '@angular/core';
-import { ControlContainer, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacValidationSummaryCommon } from '@simpleangularcontrols/sac-common';
 import { SacFormDirective } from '../form/form';
 
@@ -14,8 +14,6 @@ import { SacFormDirective } from '../form/form';
       useExisting: SacValidationSummaryComponent,
     },
   ],
-  // View Provider, damit das Formular an das Control gebunden werden kann
-  viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }],
 })
 export class SacValidationSummaryComponent extends SacValidationSummaryCommon {
   // #region Constructors

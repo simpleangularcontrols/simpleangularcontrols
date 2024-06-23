@@ -1,2 +1,2 @@
-ng build jngcontrols-bootstrap3 --watch
+ng build sac-bootstrap3 --watch
 

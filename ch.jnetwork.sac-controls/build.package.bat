@@ -1,22 +1,22 @@
-call ng build jngcontrols-common
-call ng build jngcontrols-bootstrap3
-call ng build jngcontrols-bootstrap4
+call ng build sac-common
+call ng build sac-bootstrap3
+call ng build sac-bootstrap4
 
 echo .
 echo "Edit package.json Files in Dist Folder and press a key"
 pause
 
-cd dist/jngcontrols-common
+cd dist/sac-common
 call npm pack
 
 cd ../..
 
-cd dist/jngcontrols-bootstrap3
+cd dist/sac-bootstrap3
 call npm pack
 
 cd ../..
 
-cd dist/jngcontrols-bootstrap4
+cd dist/sac-bootstrap4
 call npm pack
 
 cd ../..
@@ -24,17 +24,17 @@ cd ../..
 
 echo "Relase done ..."
 
-cd dist/jngcontrols-common
+cd dist/sac-common
 call npm publish
 
 cd ../..
 
-cd dist/jngcontrols-bootstrap3
+cd dist/sac-bootstrap3
 call npm publish
 
 cd ../..
 
-cd dist/jngcontrols-bootstrap4
+cd dist/sac-bootstrap4
 call npm publish
 
 cd ../..

@@ -4,13 +4,13 @@
   "peerDependencies": {
     "@angular/common": "10.1.5",
     "@angular/core": "10.1.5",
-    "@simpleangularcontrols/sac-common": "file:../../dist/jngcontrols-common"
+    "@simpleangularcontrols/sac-common": "file:../../dist/sac-common"
   },
   "scripts": {
     "postinstall": "ngcc"
   },
   "devDependencies": {
-    "@simpleangularcontrols/sac-common": "file:../../dist/jngcontrols-common"
+    "@simpleangularcontrols/sac-common": "file:../../dist/sac-common"
   },
   "author": {
     "name": "jNetwork GmbH",

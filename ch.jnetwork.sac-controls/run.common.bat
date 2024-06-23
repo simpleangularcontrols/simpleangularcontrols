@@ -1,1 +1,1 @@
-ng build jngcontrols-common --watch
+ng build sac-common --watch

@@ -17,7 +17,10 @@
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
-            "assets": ["src/assets", "src/favicon.ico"],
+            "assets": [
+              "src/assets",
+              "src/favicon.ico"
+            ],
             "styles": [],
             "scripts": []
           },
@@ -74,14 +77,22 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [],
-            "assets": ["src/assets", "src/favicon.ico"]
+            "assets": [
+              "src/assets",
+              "src/favicon.ico"
+            ]
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**"]
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -101,44 +112,48 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**"]
+            "tsConfig": [
+              "e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
     },
-    "jngcontrols-common": {
-      "root": "projects/jngcontrols-common",
-      "sourceRoot": "projects/jngcontrols-common/src",
+    "sac-common": {
+      "root": "projects/sac-common",
+      "sourceRoot": "projects/sac-common/src",
       "projectType": "library",
       "prefix": "ng",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/jngcontrols-common/tsconfig.lib.json",
-            "project": "projects/jngcontrols-common/ng-package.json"
+            "tsConfig": "projects/sac-common/tsconfig.lib.json",
+            "project": "projects/sac-common/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/jngcontrols-common/tsconfig.lib.prod.json"
+              "tsConfig": "projects/sac-common/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/jngcontrols-common/src/test.ts",
-            "tsConfig": "projects/jngcontrols-common/tsconfig.spec.json",
-            "karmaConfig": "projects/jngcontrols-common/karma.conf.js"
+            "main": "projects/sac-common/src/test.ts",
+            "tsConfig": "projects/sac-common/tsconfig.spec.json",
+            "karmaConfig": "projects/sac-common/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/jngcontrols-common/tsconfig.lib.json",
-              "projects/jngcontrols-common/tsconfig.spec.json"
+              "projects/sac-common/tsconfig.lib.json",
+              "projects/sac-common/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**",
@@ -149,78 +164,82 @@
         }
       }
     },
-    "jngcontrols-bootstrap4": {
-      "root": "projects/jngcontrols-bootstrap4",
-      "sourceRoot": "projects/jngcontrols-bootstrap4/src",
+    "sac-bootstrap4": {
+      "root": "projects/sac-bootstrap4",
+      "sourceRoot": "projects/sac-bootstrap4/src",
       "projectType": "library",
       "prefix": "ng",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/jngcontrols-bootstrap4/tsconfig.lib.json",
-            "project": "projects/jngcontrols-bootstrap4/ng-package.json"
+            "tsConfig": "projects/sac-bootstrap4/tsconfig.lib.json",
+            "project": "projects/sac-bootstrap4/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/jngcontrols-bootstrap4/tsconfig.lib.prod.json"
+              "tsConfig": "projects/sac-bootstrap4/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/jngcontrols-bootstrap4/src/test.ts",
-            "tsConfig": "projects/jngcontrols-bootstrap4/tsconfig.spec.json",
-            "karmaConfig": "projects/jngcontrols-bootstrap4/karma.conf.js"
+            "main": "projects/sac-bootstrap4/src/test.ts",
+            "tsConfig": "projects/sac-bootstrap4/tsconfig.spec.json",
+            "karmaConfig": "projects/sac-bootstrap4/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/jngcontrols-bootstrap4/tsconfig.lib.json",
-              "projects/jngcontrols-bootstrap4/tsconfig.spec.json"
+              "projects/sac-bootstrap4/tsconfig.lib.json",
+              "projects/sac-bootstrap4/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
     },
-    "jngcontrols-bootstrap3": {
-      "root": "projects/jngcontrols-bootstrap3",
-      "sourceRoot": "projects/jngcontrols-bootstrap3/src",
+    "sac-bootstrap3": {
+      "root": "projects/sac-bootstrap3",
+      "sourceRoot": "projects/sac-bootstrap3/src",
       "projectType": "library",
       "prefix": "ng",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/jngcontrols-bootstrap3/tsconfig.lib.json",
-            "project": "projects/jngcontrols-bootstrap3/ng-package.json"
+            "tsConfig": "projects/sac-bootstrap3/tsconfig.lib.json",
+            "project": "projects/sac-bootstrap3/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/jngcontrols-bootstrap3/tsconfig.lib.prod.json"
+              "tsConfig": "projects/sac-bootstrap3/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/jngcontrols-bootstrap3/src/test.ts",
-            "tsConfig": "projects/jngcontrols-bootstrap3/tsconfig.spec.json",
-            "karmaConfig": "projects/jngcontrols-bootstrap3/karma.conf.js"
+            "main": "projects/sac-bootstrap3/src/test.ts",
+            "tsConfig": "projects/sac-bootstrap3/tsconfig.spec.json",
+            "karmaConfig": "projects/sac-bootstrap3/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/jngcontrols-bootstrap3/tsconfig.lib.json",
-              "projects/jngcontrols-bootstrap3/tsconfig.spec.json"
+              "projects/sac-bootstrap3/tsconfig.lib.json",
+              "projects/sac-bootstrap3/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -273,7 +292,9 @@
               "projects/demo-bootstrap4/src/favicon.ico",
               "projects/demo-bootstrap4/src/assets"
             ],
-            "styles": ["projects/demo-bootstrap4/src/styles.scss"],
+            "styles": [
+              "projects/demo-bootstrap4/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {

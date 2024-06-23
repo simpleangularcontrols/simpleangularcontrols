@@ -1,0 +1,90 @@
+<div class="row mb-3" [class.g-0]="disablelabel">
+  <label
+    *ngIf="disablelabel === false && !isAdaptiveLabel"
+    id="{{name}}_label"
+    for="{{name}}"
+    class="col-12 col-form-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'visually-hidden', componentHeight | toLabelHeight]"
+    >{{label}}</label
+  >
+  <div
+    class="col-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
+  >
+    <div
+      class="dropzone d-flex justify-content-center position-relative"
+      (drop)="dropHandler($event)"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave($event)"
+      [style.min-height]="uploadheight"
+      [class.active]="active"
+      [class.is-invalid]="invalid && (dirty || touched)"
+    >
+      <div
+        class="content d-flex justify-content-center position-relative"
+        *ngIf="uploads.length === 0"
+      >
+        <div class="align-self-center text-center">
+          <div
+            [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)"
+          >
+            <ng-content></ng-content>
+          </div>
+        </div>
+      </div>
+      <div
+        class="content d-flex justify-content-center align-items-center w-50 my-3"
+        *ngIf="uploads.length > 0"
+      >
+        <div class="flex-fill progress-container">
+          <div class="dropzone-uploadstates" *ngFor="let file of uploads">
+            <div
+              class="input-group upload-component upload-component-multiple"
+              [class.input-group-sm]="componentHeight === ControlHeight.Small"
+              [class.input-group-lg]="componentHeight === ControlHeight.Large"
+            >
+              <div class="form-control upload-progress border-secondary">
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    [class.progress-bar-success]="file.progress===100"
+                    role="progressbar"
+                    [attr.aria-valuenow]="file.progress"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    [style.width.%]="file.progress"
+                  >
+                    <span class="progress-text text-dark">{{ file.name }}</span>
+                  </div>
+                </div>
+              </div>
+              <a
+                class="btn"
+                (click)="cancel(file.uploadId)"
+                [class.btn-secondary]="!(invalid && (dirty || touched))"
+                [class.btn-danger]="invalid && (dirty || touched)"
+              >
+                <span [class]="IconDelete"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <input
+        #files
+        id="{{ name }}_uploadinput"
+        type="file"
+        class="custom-file-input"
+        (click)="files.value = ''"
+        (uploadxState)="onUpload($event)"
+        [disabled]="HasQueueItem()"
+      />
+    </div>
+    <div
+      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+      class="invalid-feedback"
+    >
+      {{ GetErrorMessage() | async }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<h2>Tabs</h2>
+<form #myForm="sacform" labelsize="3">
+
+  <sac-tab name="tab1">
+    <sac-tabitem id="home1" label="Home">
+      <ng-template>
+        <p>Tab 1</p>
+      </ng-template>
+    </sac-tabitem>
+    <sac-tabitem id="profile1" label="Profile">
+      <ng-template>
+        <p>Tab 2</p>
+      </ng-template>
+    </sac-tabitem>
+    <sac-tabitem id="messages1" label="Messages">
+      <ng-template>
+        <p>Tab 3</p>
+      </ng-template>
+    </sac-tabitem>
+    <sac-tabitem id="messagesdisabled1" label="Messages" [disabled]="true">
+      <ng-template>
+        <p>Disabled Tab</p>
+      </ng-template>
+    </sac-tabitem>
+  </sac-tab>
+
+  <sac-tab name="tab2" [unloadtabitemswhenhidden]="false">
+    <sac-tabitem [active]="true" id="home2" label="Home">
+      <ng-template>
+        <p>Tab 1</p>
+      </ng-template>
+    </sac-tabitem>
+    <sac-tabitem id="profile2" label="Profile">
+      <ng-template>
+        <p>Tab 2</p>
+      </ng-template>
+    </sac-tabitem>
+    <sac-tabitem id="messages2" label="Messages">
+      <ng-template>
+        <p>Tab 3</p>
+      </ng-template>
+    </sac-tabitem>
+    <sac-tabitem id="messagesdisabled2" label="Messages" [disabled]="true">
+      <ng-template>
+        <p>Disabled Tab</p>
+      </ng-template>
+    </sac-tabitem>
+  </sac-tab>
+
+</form>

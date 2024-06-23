@@ -1,0 +1,19 @@
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item" *ngFor="let item of _tabItems">
+    <a
+      role="tab"
+      class="nav-link"
+      data-toggle="tab"
+      [ngClass]="{ 'active': item.active, 'disabled': item.disabled }"
+      (click)="selectTab(item)"
+      [ngStyle]="{'cursor': item.disabled ? 'not-allowed' : 'pointer'}"
+      >{{item.label}}</a
+    >
+  </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content pl-3 pt-2">
+  <ng-content></ng-content>
+</div>

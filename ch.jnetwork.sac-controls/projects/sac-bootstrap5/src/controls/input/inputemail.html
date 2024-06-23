@@ -1,0 +1,43 @@
+<div class="row mb-3" [class.g-0]="disablelabel">
+  <label
+    for="{{name}}"
+    class="col-12 col-form-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'visually-hidden', componentHeight | toLabelHeight]"
+    >{{label}}</label
+  >
+  <div
+    class="col-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
+  >
+    <div
+      class="input-group"
+      [class.input-group-sm]="componentHeight === ControlHeight.Small"
+      [class.input-group-lg]="componentHeight === ControlHeight.Large"
+      [class.has-validation]="isinlineerrorenabled && invalid && (dirty || touched)"
+    >
+      <span class="input-group-text">@</span>
+      <input
+        id="{{name}}"
+        name="{{name}}"
+        type="text"
+        class="form-control"
+        [value]="value"
+        (blur)="onTouch()"
+        (input)="setValue($event.target.value)"
+        [attr.placeholder]="placeholder"
+        [attr.maxlength]="maxlength"
+        autocomplete="email"
+        [class.is-invalid]="invalid && (dirty || touched)"
+        [ngClass]="[componentHeight | toControlHeight]"
+        [disabled]="isdisabled"
+        [readonly]="readonly"
+      />
+      <div
+        *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+        class="invalid-feedback"
+      >
+        {{ GetErrorMessage() | async }}
+      </div>
+    </div>
+  </div>
+</div>

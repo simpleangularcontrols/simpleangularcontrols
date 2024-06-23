@@ -1,0 +1,76 @@
+<div class="row mb-3" [class.g-0]="disablelabel">
+  <label
+    for="{{name}}"
+    class="col-12 col-form-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'visually-hidden', componentHeight | toLabelHeight]"
+    >{{label}}</label
+  >
+  <div
+    class="col-12 position-relative"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
+  >
+    <div
+      class="input-group"
+      [class.input-group-sm]="componentHeight === ControlHeight.Small"
+      [class.input-group-lg]="componentHeight === ControlHeight.Large"
+      [class.has-validation]="isinlineerrorenabled && invalid && (dirty || touched)"
+    >
+      <input
+        id="{{name}}"
+        name="{{name}}"
+        type="text"
+        class="form-control"
+        [imask]="imaskDate"
+        [attr.placeholder]="placeholder"
+        [value]="valuestring"
+        [class.is-invalid]="invalid && (dirty || touched)"
+        [ngClass]="[componentHeight | toControlHeight]"
+        (blur)="onTouch()"
+        (accept)="setValueString($event)"
+        [disabled]="isdisabled"
+      />
+      <button
+        class="btn btn-secondary"
+        type="button"
+        (click)="showDateSelector()"
+        [disabled]="isdisabled"
+      >
+        <i [class]="IconSelector"></i>
+      </button>
+      <div
+        *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+        class="invalid-feedback"
+      >
+        {{ GetErrorMessage() | async }}
+      </div>
+    </div>
+    <div
+      class="popover fade bs-popover-bottom show position-absolute"
+      role="tooltip"
+      *ngIf="_showselector"
+      style="
+        display: block;
+        left: unset;
+        right: 0px;
+        top: unset;
+        max-width: 325px;
+        margin-top: 7px;
+      "
+    >
+      <div
+        class="popover-arrow position-absolute"
+        style="left: unset"
+        [style.right.rem]="componentHeight === ControlHeight.Small ? 1.1 : componentHeight === ControlHeight.Large ? 1.8 : 1.4"
+      ></div>
+      <h3 class="popover-header" style="display: none"></h3>
+      <div class="popover-body">
+        <sac-dateselector
+          [initialvalue]="value"
+          (selectdate)="dateselect($event)"
+          dateselection="true"
+          timeselection="true"
+        ></sac-dateselector>
+      </div>
+    </div>
+  </div>
+</div>

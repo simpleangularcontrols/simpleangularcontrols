@@ -1,0 +1,36 @@
+<div class="row mb-3" [class.g-0]="disablelabel">
+  <label
+    for="{{name}}"
+    class="col-12 col-form-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'visually-hidden', componentHeight | toLabelHeight]"
+    >{{label}}</label
+  >
+  <div
+    class="col-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
+  >
+    <textarea
+      id="{{name}}"
+      name="{{name}}"
+      type=""
+      class="form-control"
+      [value]="value"
+      [attr.placeholder]="placeholder"
+      (blur)="onTouch()"
+      (input)="setValue($event.target.value)"
+      (keypress)="onKeyPress($event)"
+      [attr.rows]="rows"
+      [class.is-invalid]="invalid && (dirty || touched)"
+      [ngClass]="[componentHeight | toControlHeight]"
+      [disabled]="isdisabled"
+      [attr.maxlength]="maxlength"
+      [readonly]="readonly"
+    ></textarea>
+    <div
+      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+      class="invalid-feedback"
+    >
+      {{ GetErrorMessage() | async }}
+    </div>
+  </div>
+</div>

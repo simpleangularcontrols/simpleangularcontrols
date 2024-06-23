@@ -1,0 +1,57 @@
+<div class="row mb-3" [class.g-0]="disablelabel">
+  <label
+    for="{{name}}"
+    class="col-12 col-form-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'visually-hidden', componentHeight | toLabelHeight]"
+    >{{label}}</label
+  >
+  <div
+    class="col-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
+  >
+    <select
+      multiple
+      id="{{name}}"
+      name="{{name}}"
+      class="form-select"
+      [class.form-select-sm]="componentHeight === ControlHeight.Small"
+      [class.form-select-lg]="componentHeight === ControlHeight.Large"
+      [size]="rowsize"
+      [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
+      (blur)="onTouch()"
+      (change)="getSelectedItems($event.target)"
+      [disabled]="isdisabled"
+    >
+      <ng-content></ng-content>
+      <ng-container *ngIf="groupitems === ''">
+        <option
+          *ngFor="let option of options"
+          [value]="option[optionvalue]"
+          [disabled]="optionenabled !== '' && option[optionenabled] === false"
+        >
+          {{option[optionlabel]}}
+        </option>
+      </ng-container>
+      <ng-container *ngIf="groupitems !== ''">
+        <optgroup
+          *ngFor="let option of options"
+          [attr.label]="option[grouplabel]"
+        >
+          <option
+            *ngFor="let item of option[groupitems]"
+            [value]="item[optionvalue]"
+            [disabled]="optionenabled !== '' && item[optionenabled] === false"
+          >
+            {{item[optionlabel]}}
+          </option>
+        </optgroup>
+      </ng-container>
+    </select>
+    <div
+      class="invalid-feedback"
+      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+    >
+      {{ GetErrorMessage() | async }}
+    </div>
+  </div>
+</div>

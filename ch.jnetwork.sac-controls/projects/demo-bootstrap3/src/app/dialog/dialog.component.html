@@ -1,0 +1,123 @@
+<h2>Dialog</h2>
+<form #myForm="sacform" labelsize="3">
+  <div>
+    <h2>Dialog ohne Backdrop und ohne ESC</h2>
+    <sac-button
+      name="modalOpen1"
+      text="Modal öffnen"
+      (clicked)="modal1dialog.show()"
+    ></sac-button>
+    <sac-dialog
+      #modal1dialog
+      [allowesc]="false"
+      [backdrop]="false"
+      title="Leerer Dialog"
+    >
+      <div dialogbody><p>Hello World</p></div>
+      <div dialogfooter>
+        <sac-button
+          name="modalClose1"
+          text="Schliessen"
+          (clicked)="modal1dialog.hide()"
+        ></sac-button>
+      </div>
+    </sac-dialog>
+  </div>
+
+  <div>
+    <h2>Dialog mit Backdrop und ESC</h2>
+    <sac-button
+      name="modalOpen2"
+      text="Modal öffnen"
+      (clicked)="modal2dialog.show()"
+    ></sac-button>
+    <sac-dialog #modal2dialog title="Dialog mit Backdrop und ESC">
+      <div dialogbody><p>Hello World</p></div>
+      <div dialogfooter>
+        <sac-button
+          name="modalClose2"
+          text="Schliessen"
+          (clicked)="modal2dialog.hide()"
+        ></sac-button>
+      </div>
+    </sac-dialog>
+  </div>
+
+  <div>
+    <h2>Dialog in Dialog mit Backdrop und ESC</h2>
+    <sac-button
+      name="modalOpen3"
+      text="Modal öffnen"
+      (clicked)="modal3dialog.show()"
+    ></sac-button>
+    <sac-dialog #modal3dialog title="Dialog mit Backdrop und ESC">
+      <div dialogbody>
+        <sac-button
+          name="modalOpen4"
+          text="Modal öffnen"
+          (clicked)="modal4dialog.show()"
+        ></sac-button>
+      </div>
+      <div dialogfooter>
+        <sac-button
+          name="modalClose3"
+          text="Schliessen"
+          (clicked)="modal3dialog.hide()"
+        ></sac-button>
+      </div>
+    </sac-dialog>
+
+    <sac-dialog
+      #modal4dialog
+      title="Inner Dialog mit Backdrop und ESC"
+      [backdrop]="false"
+    >
+      <div dialogbody>Inner Dialog</div>
+      <div dialogfooter>
+        <sac-button
+          name="modalClose4"
+          text="Schliessen"
+          (clicked)="modal4dialog.hide()"
+        ></sac-button>
+      </div>
+    </sac-dialog>
+  </div>
+
+  <div>
+    <h2>Dialog open über Property</h2>
+    <sac-button
+      name="modalOpen5"
+      text="Modal öffnen"
+      (clicked)="showVisibile1()"
+    ></sac-button>
+    <sac-dialog title="Dialog mit Binding Property" [(isvisible)]="isvisible1">
+      <div dialogbody>Content</div>
+      <div dialogfooter>
+        <sac-button
+          name="modalClose5"
+          text="Schliessen"
+          (clicked)="hideVisibile1()"
+        ></sac-button>
+      </div>
+    </sac-dialog>
+  </div>
+
+  <div>
+    <h2>Dialog open über Property und ngIf</h2>
+    <sac-button
+      name="modalOpen6"
+      text="Modal öffnen"
+      (clicked)="showVisibile2()"
+    ></sac-button>
+    <sac-dialog title="Dialog mit Binding Property" [(isvisible)]="isvisible2">
+      <div dialogbody>Content</div>
+      <div dialogfooter>
+        <sac-button
+          name="modalClose6"
+          text="Schliessen"
+          (clicked)="hideVisibile2()"
+        ></sac-button>
+      </div>
+    </sac-dialog>
+  </div>
+</form>

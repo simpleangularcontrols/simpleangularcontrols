@@ -1,0 +1,1 @@
+export { SacDialogComponent } from './dialog';

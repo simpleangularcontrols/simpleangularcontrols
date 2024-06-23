@@ -1,0 +1,34 @@
+<div class="row mb-3" [class.g-0]="disablelabel">
+  <label
+    for="{{name}}"
+    class="col-12 col-form-label"
+    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'visually-hidden', componentHeight | toLabelHeight]"
+    >{{label}}</label
+  >
+  <div
+    class="col-12"
+    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
+  >
+    <input
+      id="{{name}}"
+      name="{{name}}"
+      type="text"
+      class="form-control"
+      [value]="value"
+      (blur)="onTouch()"
+      (input)="setValue($event.target.value)"
+      [attr.placeholder]="placeholder"
+      [readonly]="readonly"
+      (keypress)="onKeyPress($event)"
+      [disabled]="isdisabled"
+      [class.is-invalid]="invalid && (dirty || touched)"
+      [ngClass]="[componentHeight | toControlHeight]"
+    />
+    <div
+      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+      class="invalid-feedback"
+    >
+      {{ GetErrorMessage() | async }}
+    </div>
+  </div>
+</div>

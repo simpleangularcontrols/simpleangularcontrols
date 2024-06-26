@@ -1,25 +1,27 @@
-# JngcontrolsBootstrap3
+# SimpleAngularControls - Common
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.
+## End of Support
 
-## Code scaffolding
+> No more controls and extensions are actively being developed for this Bootstrap version.
 
-Run `ng generate component component-name --project sac-bootstrap3` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project sac-bootstrap3`.
+## Documentation
 
-> Note: Don't forget to add `--project sac-bootstrap3` or else it will be added to the default project in your `angular.json` file.
+The package provides the controls for Bootstrap 3. The `sac-common` is also required.
 
-## Build
+## Installation
 
-Run `ng build sac-bootstrap3` to build the project. The build artifacts will be stored in the `dist/` directory.
+Do the follow steps to add
 
-## Publishing
+- add `@simpleangularcontrols/sac-bootstrap3` dependencies from npm
+- add `@simpleangularcontrols/sac-common` dependencies from npm
+- add Bootstrap 3 CSS/SCSS to your project
+- import the module to your components and modules
 
-After building your library with `ng build sac-bootstrap3`, go to the dist folder `cd dist/sac-bootstrap3` and run `npm publish`.
+## Project
 
-## Running unit tests
+For more information, follow us on GitHub: https://github.com/simpleangularcontrols
 
-Run `ng test sac-bootstrap3` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Features not supported
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Not all components are implemented in Bootstrap 3.
+- Bootstrap 3 only supports the sizing of controls and labels in horizontal forms.

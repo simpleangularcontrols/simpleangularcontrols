@@ -4,8 +4,6 @@ import { IDateTimeControl } from '../interfaces/idatetimecontrol';
 import { CreateValidationError } from './validationerrorcreator';
 import { isDateValid } from './isDateValid';
 
-// #region Functions
-
 export function minDateValidator(
   minDate: Date,
   validationMessage: string,
@@ -37,5 +35,3 @@ export function minDateValidator(
     }
   };
 }
-
-// #endregion Functions

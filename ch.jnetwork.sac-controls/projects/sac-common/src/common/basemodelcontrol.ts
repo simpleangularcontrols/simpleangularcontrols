@@ -1,4 +1,11 @@
-import { Directive, Host, Injector, Input, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Directive,
+  Host,
+  Injector,
+  Input,
+  OnInit,
+} from '@angular/core';
 import {
   AbstractControl,
   ControlValueAccessor,
@@ -37,7 +44,7 @@ import { ValidationErrorItem } from '../validation';
  */
 @Directive()
 export abstract class SacBaseModelControl<VALUE>
-  implements ControlValueAccessor, Validator, OnInit
+  implements ControlValueAccessor, Validator, OnInit, AfterViewInit
 {
   // #region Properties
 
@@ -365,9 +372,9 @@ export abstract class SacBaseModelControl<VALUE>
   }
 
   /**
-   * Init Event
+   * In Angular 10 the Control Label for Reactive Forms can be set first time here. With Angular 13 is supported by init in OnInit
    */
-  public ngOnInit() {
+  public ngAfterViewInit(): void {
     // receive form via formcontrolname or formcontrol instance
     const formControl = this.injector.get(NgControl, null);
     if (formControl instanceof FormControlName) {
@@ -378,9 +385,13 @@ export abstract class SacBaseModelControl<VALUE>
         this.ngControl = formControl.control as FormControl;
       }
     }
-
     this.UpdateLabelToControl();
+  }
 
+  /**
+   * Init Event
+   */
+  public ngOnInit() {
     // set label sizes from formlayout directive
     this.setLabelSizes();
 

@@ -4,7 +4,7 @@
     class="dropdown-item"
     (click)="callaction($event)"
     [class.disabled]="isdisabled"
-    [class]="cssclass"
+    [ngClass]="cssclass"
     [attr.disabled]="isdisabled ? 'disabled' : null"
   >
     <div class="d-flex">

@@ -55,6 +55,7 @@
     "@compodoc/compodoc": "^1.1.11",
     "@ng-bootstrap/ng-bootstrap": "7.0.0",
     "@tinymce/tinymce-angular": "4.0.0",
+    "tinymce": "^5.8.1",
     "angular-imask": "6.0.5",
     "core-js": "^3.6.5",
     "jquery": "3.5.1",

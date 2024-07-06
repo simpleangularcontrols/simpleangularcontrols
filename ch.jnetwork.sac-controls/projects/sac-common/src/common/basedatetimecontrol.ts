@@ -1,4 +1,10 @@
-import { Directive, ElementRef, Injector, Input, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Directive,
+  ElementRef,
+  Injector,
+  Input,
+} from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import * as moment_ from 'moment';
 import { Moment } from 'moment';
@@ -16,7 +22,7 @@ const moment = moment_['default'];
 @Directive()
 export abstract class SacBaseDateTimeControl
   extends SacBaseModelControl<Date>
-  implements OnInit
+  implements AfterViewInit
 {
   // #region Properties
 
@@ -127,8 +133,8 @@ export abstract class SacBaseDateTimeControl
   /**
    * Init Event
    */
-  public ngOnInit(): void {
-    super.ngOnInit();
+  public ngAfterViewInit(): void {
+    super.ngAfterViewInit();
     this.SetDateTimeFormat();
   }
 

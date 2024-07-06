@@ -5,12 +5,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers()
-                .AddNewtonsoftJson(opts =>
-                {
-                    opts.SerializerSettings.ContractResolver = new DefaultContractResolver();
-                });
-
 builder.Services.Configure<ForwardedHeadersOptions>(opts =>
 {
     opts.ForwardedHeaders = Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedFor
@@ -22,14 +16,21 @@ builder.Services.AddCors(o =>
 {
     o.AddDefaultPolicy(policy =>
     {
-        policy.AllowAnyHeader()
-              .AllowAnyMethod()
+        policy.WithOrigins("http://localhost:4200")
               .AllowCredentials()
-              .WithOrigins(new[] { "http://localhost:4201" })
-              //.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .WithExposedHeaders("range")
               .Build();
     });
 });
+
+builder.Services.AddControllers()
+                .AddNewtonsoftJson(opts =>
+                {
+                    opts.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                });
+
 
 var app = builder.Build();
 

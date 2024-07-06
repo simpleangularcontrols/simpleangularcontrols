@@ -1,9 +1,9 @@
-﻿namespace SimpleAngularControls.Api.Model
+﻿namespace SimpleAngularControls.Api.Model.Browser
 {
     /// <summary>
-    /// Registrations Message für Upload
+    /// Register Request für Upload von File
     /// </summary>
-    public class UploadedFileDto
+    public class BrowserUploadRegisterRequest : IBrowserUploadRegisterRequest
     {
         /// <summary>
         /// Mime Type

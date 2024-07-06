@@ -1,34 +1,174 @@
-﻿using AngularPrototype.Api.Model;
+﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using SimpleAngularControls.Api.Model;
 using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Web;
-using System.Web.Http;
+using System.Net.Http.Headers;
 
-namespace AngularPrototype.Api.Services
+namespace SimpleAngularControls.Api.Services
 {
-    [Route("api/upload/{action}", Name = "UploadApi")]
-    public class UploadController : ApiController
+    /// <summary>
+    /// Example backend for the upload component
+    /// </summary>
+    [ApiController]
+    [Route("api/upload", Name = "UploadApi")]
+    public class UploadController : ControllerBase
     {
         /// <summary>
-        /// File für Upload registrieren
+        /// Hosting Environment
         /// </summary>
-        /// <param name="register">Registrierung Metadaten</param>
-        /// <returns>HTTP Response mit URL für File</returns>
-        [ActionName("register")]
-        [HttpPost]
-        public HttpResponseMessage UploadFile([FromBody] UploadedFileDto register)
-        {
-            HttpResponseMessage response = new HttpResponseMessage();
+        private readonly IWebHostEnvironment webHostEnvironment;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="webHostEnvironment">Instance of Hosting Environment</param>
+        public UploadController(IWebHostEnvironment webHostEnvironment)
+        {
+            this.webHostEnvironment = webHostEnvironment;
+        }
+
+        /// <summary>
+        /// Deletes a file in the temporary file on the server
+        /// </summary>
+        /// <param name="id">Upload registration Id. Id must be created by "register"</param>
+        /// <returns>HTTP status 201 if successfully deleted</returns>
+        [HttpDelete("file/{id}")]
+        public IActionResult DeleteFile(string id)
+        {
+            ValidatePath(id);
+
+            string uploadTempPath = "upload";
+
+            string fileContent = Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, "temp", $"{id}.dat");
+            string fileMeta = Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, "temp", $"{id}.meta");
+
+            if (System.IO.File.Exists(fileContent))
+                System.IO.File.Delete(fileContent);
+
+            if (System.IO.File.Exists(fileMeta))
+                System.IO.File.Delete(fileMeta);
+
+            return new NoContentResult();
+        }
+
+        /// <summary>
+        /// Upload method for file
+        /// </summary>
+        /// <param name="id">Upload registration Id. Id must be created by "register"</param>
+        /// <returns>Returns the status 200 when the upload is complete or a status 308 with range information if the upload is not yet complete.</returns>
+        [HttpPut("file/{id}")]
+        [Consumes("application/octet-stream")]
+        public IActionResult GetFile(string id)
+        {
+            ValidatePath(id);
+
+            ObjectResult response;
+
+            string uploadTempPath = "upload";
+            string fileContent = Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, "temp", $"{id}.dat");
+            string fileMeta = Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, "temp", $"{id}.meta");
+
+            // Non Chunking Upload
+            using (MemoryStream bodyStream = new MemoryStream())
+            {
+                HttpContext.Request.Body.CopyToAsync(bodyStream).Wait();
+
+                if (!Request.Headers.ContainsKey("content-range"))
+                {
+                    using (Stream contentStream = new FileStream(fileContent, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read))
+                    {
+                        using (BinaryWriter contentWriter = new BinaryWriter(contentStream))
+                        {
+                            contentWriter.Write(bodyStream.ToArray());
+                            contentWriter.Close();
+
+                            using (FileStream metaFileStream = new FileStream(fileMeta, FileMode.CreateNew, FileAccess.ReadWrite, FileShare.Read))
+                            {
+                                this.UpdateBytesWritten(metaFileStream, bodyStream.Length);
+                                metaFileStream.Close();
+                            }
+
+                            response = new ObjectResult(this.GetDocumentResponse(id));
+                            response.StatusCode = (int)HttpStatusCode.OK;
+                            return response;
+                        }
+                    }
+                }
+
+                // resume call. return resume data to client
+                if (bodyStream.Length == 0)
+                {
+                    using (FileStream fileStream = new FileStream(fileMeta, FileMode.Open, FileAccess.ReadWrite, FileShare.Read))
+                    {
+                        using (StreamReader reader = new StreamReader(fileStream))
+                        {
+                            string metadata = reader.ReadToEnd();
+                            reader.Close();
+
+                            UploadedFileDto? uploadRegister = JsonConvert.DeserializeObject<UploadedFileDto>(metadata);
+
+                            if (uploadRegister == null)
+                                throw new InvalidCastException("Cannot deserialize metadata from existing upload");
+
+                            RangeHeaderValue rangeHeaderValue = new RangeHeaderValue(0, uploadRegister.byteswritten);
+                            Response.Headers.Add("Range", rangeHeaderValue.ToString());
+                            response = new ObjectResult("Resume Incomplete");
+                            response.StatusCode = (int)HttpStatusCode.PermanentRedirect;
+                            return response;
+                        }
+                    }
+                }
+
+                // write body content to da
+                using (Stream stream = new FileStream(fileContent, !System.IO.File.Exists(fileContent) ? FileMode.Create : FileMode.Append, FileAccess.Write, FileShare.Read))
+                {
+                    using (BinaryWriter writer = new BinaryWriter(stream))
+                    {
+                        writer.Write(bodyStream.ToArray());
+                    }
+                }
+
+                ContentRangeHeaderValue contentRangeHeader = ContentRangeHeaderValue.Parse(Request.Headers.ContentRange);
+
+                if (!contentRangeHeader.To.HasValue)
+                    throw new InvalidOperationException("Content-Range header missing 'to' bytes value");
+
+                if (!contentRangeHeader.Length.HasValue)
+                    throw new InvalidOperationException("Content-Range header missing total content length value");
+
+                // update meta data
+                using (FileStream metaFileStream = new FileStream(fileMeta, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read))
+                {
+                    this.UpdateBytesWritten(metaFileStream, contentRangeHeader.To.Value);
+                }
+
+                // return state to client
+                if (contentRangeHeader.To.Value < contentRangeHeader.Length.Value - 1)
+                {
+                    RangeHeaderValue rangeHeaderValue = new RangeHeaderValue(0, contentRangeHeader.To.Value);
+                    Response.Headers.Add("Range", rangeHeaderValue.ToString());
+                    response = new ObjectResult(this.GetDocumentIncomplete());
+                    response.StatusCode = (int)HttpStatusCode.PermanentRedirect;
+                    return response;
+                }
+                else
+                {
+                    return Ok(this.GetDocumentResponse(id));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Register file for upload
+        /// </summary>
+        /// <param name="register">Registration metadata</param>
+        /// <returns>HTTP Status Created with Location URL for upload of URL</returns>
+        [HttpPost("register")]
+        public IActionResult UploadFile([FromBody] UploadedFileDto register)
+        {
             Guid guid = Guid.NewGuid();
-            string uploadTempPath = "~/upload";
-            string file = HttpContext.Current.Server.MapPath(string.Format("{0}/temp/{1}.meta", uploadTempPath, guid));
+            string uploadTempPath = "upload";
+            string file = Path.GetFullPath(Path.Combine(webHostEnvironment.ContentRootPath, uploadTempPath, "temp", $"{guid}.meta"));
 
             // MetaData setzen
             string metadata = JsonConvert.SerializeObject(register);
@@ -42,139 +182,45 @@ namespace AngularPrototype.Api.Services
                 fileStream.Close();
             }
 
-            // URL für Upload zurücksenden
-            string uploadUrl = this.Url.Link("UploadApi", new { Controller = "Upload", Action = "file", Id = guid.ToString() });
-            
-            // HACK: Replace Port für Angular Inside Apps
-            uploadUrl = uploadUrl.Replace(":55768/", ":4200/");
-            
-            response.Headers.Add("Location", uploadUrl);
-
-            return response;
+            return CreatedAtAction(nameof(GetFile), new { Id = guid.ToString() }, guid);
         }
 
         /// <summary>
-        /// Upload Methode für File
+        /// Response if upload not yet complete
         /// </summary>
-        /// <param name="id">Upload Registrations ID</param>
-        /// <returns>Upload Response. Gibt Document ID zurück wenn Upload fertig</returns>
-        [ActionName("file")]
-        [HttpPut]
-        public HttpResponseMessage GetFile(string id)
+        /// <returns>Response for uploader component</returns>
+        private IUploadRegistration GetDocumentIncomplete()
         {
-            HttpResponseMessage response = new HttpResponseMessage();
-            HttpRequestMessage request = this.Request;
-
-            byte[] data = request.Content.ReadAsByteArrayAsync().Result;
-            string uploadTempPath = "~/upload";
-            string fileContent = HttpContext.Current.Server.MapPath(string.Format("{0}/temp/{1}.dat", uploadTempPath, id));
-            string fileMeta = HttpContext.Current.Server.MapPath(string.Format("{0}/temp/{1}.meta", uploadTempPath, id));
-
-            // Non Chunking Upload
-            if (request.Content.Headers.ContentRange == null)
-            {
-                using (Stream contentStream = new FileStream(fileContent, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read))
-                {
-                    using (BinaryWriter contentWriter = new BinaryWriter(contentStream))
-                    {
-                        contentWriter.Write(data);
-                        contentWriter.Close();
-
-                        using (FileStream metaFileStream = new FileStream(fileMeta, FileMode.CreateNew, FileAccess.ReadWrite, FileShare.Read))
-                        {
-                            this.UpdateBytesWritten(metaFileStream, data.Length);
-                            metaFileStream.Close();
-                        }
-
-                        response.Content = this.GetDocumentResponse(id);
-                        response.StatusCode = HttpStatusCode.OK;
-                    }
-                }
-                return response;
-            }
-
-            // Resume Call
-            if (data.Length == 0)
-            {
-                using (FileStream fileStream = new FileStream(fileMeta, FileMode.Open, FileAccess.ReadWrite, FileShare.Read))
-                {
-                    using (StreamReader reader = new StreamReader(fileStream))
-                    {
-                        string metadata = reader.ReadToEnd();
-                        reader.Close();
-
-                        UploadedFileDto uploadRegister = JsonConvert.DeserializeObject<UploadedFileDto>(metadata);
-
-                        response.Headers.Add("Range", string.Format("bytes=0-{0}", uploadRegister.byteswritten));
-                        response.StatusCode = (HttpStatusCode)308;
-                        response.Content = new StringContent("Resume Incomplete");
-                    }
-                    fileStream.Close();
-                }
-                return response;
-            }
-
-            using (Stream stream = new FileStream(fileContent, FileMode.Create | FileMode.Append, FileAccess.Write, FileShare.Read))
-            {
-                using (BinaryWriter writer = new BinaryWriter(stream))
-                {
-                    writer.Write(data);
-                }
-            }
-
-            using (FileStream metaFileStream = new FileStream(fileMeta, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.Read))
-            {
-                this.UpdateBytesWritten(metaFileStream, request.Content.Headers.ContentRange.To.Value);
-            }
-
-            if (request.Content.Headers.ContentRange.To < request.Content.Headers.ContentRange.Length - 1)
-            {
-                response.Headers.Add("Range", string.Format("bytes=0-{0}", request.Content.Headers.ContentRange.To));
-                response.StatusCode = (HttpStatusCode)308;
-                response.Content = this.GetDocumentIncomplete();
-            }
-            else
-            {
-                response.Content = this.GetDocumentResponse(id);
-                response.StatusCode = HttpStatusCode.OK;
-            }
-
-            return response;
+            UploadRegistration registration = new UploadRegistration();
+            registration.documentid = null;
+            registration.status = "incomplete";
+            return registration;
         }
 
         /// <summary>
-        /// Löscht ein File im Temp. File auf dem Server
+        /// Generates a response when a file has been completely uploaded.
         /// </summary>
-        /// <param name="id">Upload ID</param>
-        /// <returns>Status wenn File gelöscht</returns>
-        [ActionName("file")]
-        [HttpDelete]
-        public HttpResponseMessage DeleteFile(string id)
+        /// <param name="id">Upload Id</param>
+        /// <returns>Response for uploader component</returns>
+        private IUploadRegistration GetDocumentResponse(string id)
         {
-            string uploadTempPath = "~/upload";
-            string fileContent = HttpContext.Current.Server.MapPath(string.Format("{0}/temp/{1}.dat", uploadTempPath, id));
-            string fileMeta = HttpContext.Current.Server.MapPath(string.Format("{0}/temp/{1}.meta", uploadTempPath, id));
-
-            if (File.Exists(fileContent))
-                File.Delete(fileContent);
-
-            if (File.Exists(fileMeta))
-                File.Delete(fileMeta);
-
-            return new HttpResponseMessage(HttpStatusCode.OK);
+            UploadRegistration registration = new UploadRegistration();
+            registration.documentid = id.ToString();
+            registration.status = "done";
+            return registration;
         }
 
         /// <summary>
-        /// 
+        /// Updates the MetaDate file
         /// </summary>
-        /// <param name="metaFileStream"></param>
-        /// <param name="bytesWritten"></param>
+        /// <param name="metaFileStream">FileStream to meta data file</param>
+        /// <param name="bytesWritten">Data written to data file</param>
         private void UpdateBytesWritten(FileStream metaFileStream, long bytesWritten)
         {
             using (StreamReader metaReader = new StreamReader(metaFileStream))
             {
                 string metadata = metaReader.ReadToEnd();
-                UploadedFileDto uploadRegister = JsonConvert.DeserializeObject<UploadedFileDto>(metadata);
+                UploadedFileDto? uploadRegister = JsonConvert.DeserializeObject<UploadedFileDto>(metadata);
 
                 if (uploadRegister == null)
                     uploadRegister = new UploadedFileDto();
@@ -191,30 +237,16 @@ namespace AngularPrototype.Api.Services
         }
 
         /// <summary>
-        /// Erzeugt eine Response wenn ein File komplett hochgeladen wurde.
+        /// Validate Path for Validation
         /// </summary>
-        /// <param name="id">Upload ID</param>
-        /// <returns>Response für Uploader Komponente</returns>
-        private StringContent GetDocumentResponse(string id)
+        /// <param name="path">Path that should be validated</param>
+        private void ValidatePath(string path)
         {
-            UploadRegistration registration = new UploadRegistration();
-            registration.documentid = id.ToString();
-            registration.status = "done";
-            return new StringContent(JsonConvert.SerializeObject(registration), Encoding.UTF8, "application/json");
-        }
+            if (path.StartsWith(".."))
+                throw new InvalidDataException("Path is not allowed!");
 
-        /// <summary>
-        /// Response wenn Upload noch nicht Komplett
-        /// </summary>
-        /// <returns>Response für Uploader Komponente</returns>
-        private StringContent GetDocumentIncomplete()
-        {
-            UploadRegistration registration = new UploadRegistration();
-            registration.documentid = null;
-            registration.status = "incomplete";
-            return new StringContent(JsonConvert.SerializeObject(registration), Encoding.UTF8, "application/json");
+            if (path.IndexOf("..") >= 0)
+                throw new InvalidDataException("Path is not allowed!");
         }
     }
-
-
 }

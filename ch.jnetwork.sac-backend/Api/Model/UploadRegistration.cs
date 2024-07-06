@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace AngularPrototype.Api.Model
+﻿namespace SimpleAngularControls.Api.Model
 {
-
     /// <summary>
-    /// Response Object für Upload Registration mit ID für Server Model
+    /// Response object for upload registration with ID for server model
     /// </summary>
-    public class UploadRegistration
+    public class UploadRegistration : IUploadRegistration
     {
         /// <summary>
-        /// Document ID für Service
+        /// Document ID for service
         /// </summary>
-        public string documentid { get; set; }
+        public string? documentid { get; set; } = null;
+
         /// <summary>
         /// Status
         /// </summary>
-        public string status { get; set; }
+        public string status { get; set; } = string.Empty;
     }
 }

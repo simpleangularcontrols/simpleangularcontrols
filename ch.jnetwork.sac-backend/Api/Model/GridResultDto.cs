@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace AngularPrototype.Api.Model
+﻿namespace SimpleAngularControls.Api.Model
 {
     public class GridResultDto<T>
     {

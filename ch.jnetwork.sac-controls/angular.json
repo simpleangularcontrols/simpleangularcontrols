@@ -411,7 +411,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "demo-bootstrap3:build"
+            "browserTarget": "demo-bootstrap3:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -532,7 +533,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "demo-bootstrap5:build"
+            "browserTarget": "demo-bootstrap5:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {

@@ -64,7 +64,8 @@ namespace Build.tasks
 
         public override bool ShouldRun(BuildContext context)
         {
-            return !context.Arguments.HasArgument("notest");
+            // Cypress not supported with Angular
+            return false;
         }
     }
 }

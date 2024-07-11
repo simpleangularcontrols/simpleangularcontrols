@@ -5,7 +5,9 @@
     "entryFile": "src/public_api.ts",
     "umdModuleIds": {
       "moment": "moment",
-      "angular-imask": "angularImask"
+      "angular-imask": "angularImask",
+      "@simpleangularcontrols/sac-common": "sacCommon",
+      "@tinymce/tinymce-angular": "tinymceAngular"
     }
   }
 }

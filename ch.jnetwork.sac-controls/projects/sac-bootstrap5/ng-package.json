@@ -2,6 +2,12 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/sac-bootstrap5",
   "lib": {
-    "entryFile": "src/public-api.ts"
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "moment": "moment",
+      "angular-imask": "angularImask",
+      "@simpleangularcontrols/sac-common": "sacCommon",
+      "@tinymce/tinymce-angular": "tinymceAngular"
+    }
   }
 }

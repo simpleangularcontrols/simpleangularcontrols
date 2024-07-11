@@ -6,7 +6,8 @@
     "umdModuleIds": {
       "moment": "moment",
       "angular-imask": "angularImask",
-      "@ng-bootstrap/ng-bootstrap": "ngBootstrap"
+      "@simpleangularcontrols/sac-common": "sacCommon",
+      "@tinymce/tinymce-angular": "tinymceAngular"
     }
   }
 }

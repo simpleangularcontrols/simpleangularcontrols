@@ -89,34 +89,92 @@
                <div class="content getting-started">
                    <div class="content-data">
 
-<h1>Create Documentation</h1>
-<h2>Bootstrap 3</h2>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run-script compodoc-bs3</code></pre></div><h2>Boostrap 4</h2>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run-script compodoc-bs4</code></pre></div><h2>Full Documentation Build</h2>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-none">build.compodoc.bat</code></pre></div><h1>Debug</h1>
-<h2>Common Library</h2>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run run-common</code></pre></div><h2>Bootstrap 3</h2>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run run-bs3</code></pre></div><h2>Bootstrap 4</h2>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run run-bs4</code></pre></div><h1>Build</h1>
-<h2>Common Library</h2>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run build-common</code></pre></div><h2>Bootstrap 3</h2>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run build-bs3</code></pre></div><h2>Bootstrap 4</h2>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run build-bs4</code></pre></div><h1>Release</h1>
-<p>Folgendes Script ausführen</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-none">build.package.bat</code></pre></div><h1>ModuleBase</h1>
-<p>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 1.5.0.</p>
-<h2>Development server</h2>
-<p>Run <code>ng serve</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The app will automatically reload if you change any of the source files.</p>
-<h2>Code scaffolding</h2>
-<p>Run <code>ng generate component component-name</code> to generate a new component. You can also use <code>ng generate directive|pipe|service|class|guard|interface|enum|module</code>.</p>
+<h1>Development</h1>
+<h2>General</h2>
+<p>The architecture of the library consists of 3 parts. The common library, the Bootstrap-specific library and the demo project for the specific Bootstrap version.</p>
+<p>The logic of the controls is to be implemented in the common library. It does not contain any definitions about the rendering of the control</p>
+<p>The markup for the respective Bootstrap version must be implemented in the Boostrap-specific library. No custom styles should be implemented, instead the standard Bootstrap classes should be used. In individual exceptions, specific styles may be necessary for the controls. However, this is only permitted if there is no other option and no styles may be used for colour definitions and shapes.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-mermaid">graph TD
+    Common --&gt; Boostrap3 --&gt; DemoBootstrap3[Demo Boostrap 3];
+    Common --&gt; Boostrap4 --&gt; DemoBootstrap4[Demo Boostrap 4];
+    Common --&gt; Boostrap5 --&gt; DemoBootstrap5[Demo Boostrap 5];</code></pre></div><h2>Run</h2>
+<p>To start the environment, 3 projects must be carried out.</p>
+<h3>Bootstrap 3</h3>
+<ul>
+<li>Start Common: <code>npm run run-common</code></li>
+<li>Start Boostrap3: <code>npm run run-bs3</code></li>
+<li>Start Demo: <code>npm run demo-bs3</code></li>
+</ul>
+<h3>Bootstrap 4</h3>
+<ul>
+<li>Start Common: <code>npm run run-common</code></li>
+<li>Start Boostrap4: <code>npm run run-bs4</code></li>
+<li>Start Demo: <code>npm run demo-bs4</code></li>
+</ul>
+<h3>Bootstrap 4</h3>
+<ul>
+<li>Start Common: <code>npm run run-common</code></li>
+<li>Start Boostrap5: <code>npm run run-bs5</code></li>
+<li>Start Demo: <code>npm run demo-bs5</code></li>
+</ul>
 <h2>Build</h2>
-<p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the <code>dist/</code> directory. Use the <code>-prod</code> flag for a production build.</p>
-<h2>Running unit tests</h2>
-<p>Run <code>ng test</code> to execute the unit tests via <a href="https://karma-runner.github.io">Karma</a>.</p>
-<h2>Running end-to-end tests</h2>
-<p>Run <code>ng e2e</code> to execute the end-to-end tests via <a href="http://www.protractortest.org/">Protractor</a>.</p>
-<h2>Further help</h2>
-<p>To get more help on the Angular CLI use <code>ng help</code> or go check out the <a href="https://github.com/angular/angular-cli/blob/master/README.md">Angular CLI README</a>.</p>
+<p>To create a build without a live update, the following commands can be executed</p>
+<h3>Common</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run build-common</code></pre></div><h3>Bootstrap 3</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run build-bs3</code></pre></div><h3>Bootstrap 4</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run build-bs4</code></pre></div><h3>Bootstrap 5</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run build-bs5</code></pre></div><h1>Documentation</h1>
+<p>To update all documentation, it is recommended to use the corresponding build command. This updates the documentation for all projects.</p>
+<h2>Update all documentation</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-ps1">./build.ps1 --target=doc</code></pre></div><h2>Boostrap 3</h2>
+<p>This command only updates the Boostrap 3 documentation</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run-script compodoc-bs3</code></pre></div><h2>Boostrap 4</h2>
+<p>This command only updates the Boostrap 4 documentation</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run-script compodoc-bs4</code></pre></div><h2>Boostrap 5</h2>
+<p>This command only updates the Boostrap 3 documentation</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run-script compodoc-bs5</code></pre></div><h1>Testing</h1>
+<h2>Create/Edit Tests</h2>
+<p>To create or edit tests, execute the following command</p>
+<h3>Boostrap 3</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run test-edit-bs3</code></pre></div><h3>Boostrap 4</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run test-edit-bs4</code></pre></div><h3>Boostrap 5</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run test-edit-bs5</code></pre></div><h2>Run Tests</h2>
+<p>The following commands are available to start the tests</p>
+<h3>Full Run</h3>
+<p>This command is used for the tests for all projects.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-ps1">./build.ps1 --target=test</code></pre></div><h3>Boostrap 3</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run test-bs3</code></pre></div><h3>Boostrap 4</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run test-bs4</code></pre></div><h3>Boostrap 5</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run test-bs5</code></pre></div><h2>Problems</h2>
+<h3>Type DynamicModule does not have &#39;ɵmod&#39; property.</h3>
+<p>If these error messages are displayed during a test, the NGCC must be executed again. To do this, execute the following command.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">npm run ngcc</code></pre></div><h1>Build Pipeline</h1>
+<h2>Requirements</h2>
+<p>The following command must be executed for the Powershell script to be executed, Otherwise the following error is displayed:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">./build.ps1 : File C:\Daten\jNetwork\ch.jnetwork.angularcontrols\build.ps1 cannot be loaded because running scripts is disabled
+on this system. For more information, see about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
+At line:1 char:1
++ ./build.ps1
++ ~~~~~~~~~~~
+    + CategoryInfo          : SecurityError: (:) [], PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess</code></pre></div><p>Command to correct the problem</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</code></pre></div><h2>Build</h2>
+<p>To perform the build process for all projects, execute the following command in a Powershell</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">build.ps1</code></pre></div><h2>Test Run</h2>
+<p>To execute all tests in a Powershell, execute the following command</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">build.ps1 --target=test</code></pre></div><h2>Documentation</h2>
+<p>To update the documentation, execute the following command in a Powershell</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">build.ps1 --target=doc</code></pre></div><h2>Release erstellen</h2>
+<p>To create a release, execute the following command in a Powershell</p>
+<h3>Patch</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">.\build.ps1 --target=release --patch</code></pre></div><h3>Minor</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">.\build.ps1 --target=release --minor</code></pre></div><h3>Major</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">.\build.ps1 --target=release --major</code></pre></div><h3>Release Preview</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">.\build.ps1 --target=release --prerelease</code></pre></div><h3>Optional parameters</h3>
+<p><code>--nopublish</code></p>
+<p>Does not publish the package in the NPM registry</p>
+<p><code>--notest</code></p>
+<p>Deactivates the Cypress tests</p>
 
 
 

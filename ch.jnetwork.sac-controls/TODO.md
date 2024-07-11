@@ -1,3 +1,3 @@
 # Open Tasks
 
-Keine offenen Tasks
+See: https://github.com/simpleangularcontrols/simpleangularcontrols/issues

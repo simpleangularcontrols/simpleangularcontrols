@@ -2,9 +2,9 @@
   "name": "@simpleangularcontrols/sac-common",
   "version": "10.0.0-rc.1",
   "peerDependencies": {
-    "@angular/common": "10.1.5",
-    "@angular/core": "10.1.5",
-    "moment": "2.29.1",
+    "@angular/common": "^10.1.5",
+    "@angular/core": "^10.1.5",
+    "moment": "~2.29.4",
     "angular-imask": "6.0.5",
     "ngx-uploadx": "3.5.2"
   },

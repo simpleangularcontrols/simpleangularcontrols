@@ -1,16 +1,16 @@
 {
   "name": "@simpleangularcontrols/sac-bootstrap5",
-  "version": "10.0.0-rc.1",
+  "version": "10.0.0-rc.2",
   "peerDependencies": {
-    "@angular/common": "10.1.5",
-    "@angular/core": "10.1.5",
+    "@angular/common": "^10.1.5",
+    "@angular/core": "^10.1.5",
     "@simpleangularcontrols/sac-common": "file:../../dist/sac-common",
-    "@tinymce/tinymce-angular": "4.0.0",
+    "@tinymce/tinymce-angular": "~4.0.0",
     "angular-imask": "6.0.5"
   },
   "devDependencies": {
     "@simpleangularcontrols/sac-common": "file:../../dist/sac-common",
-    "@tinymce/tinymce-angular": "4.0.0",
+    "@tinymce/tinymce-angular": "~4.0.0",
     "angular-imask": "6.0.5"
   },
   "author": {

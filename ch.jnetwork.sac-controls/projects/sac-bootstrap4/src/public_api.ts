@@ -13,6 +13,7 @@ export * from './controls/datetime/datetime.module';
 export * from './controls/dialog/dialog.module';
 export * from './controls/form/form';
 export * from './controls/form/form.module';
+export * from './controls/form/inheritform.directive';
 export * from './controls/grid/grid.module';
 export * from './controls/input/input.module';
 export * from './controls/layout/layout.module';

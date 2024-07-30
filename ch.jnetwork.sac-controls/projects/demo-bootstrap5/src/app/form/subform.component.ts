@@ -1,21 +1,34 @@
-import { Component } from '@angular/core';
-import { Input } from '@angular/core';
-import { EventEmitter } from '@angular/core';
-import { Output } from '@angular/core';
-import { DoCheck } from '@angular/core';
-
+import {
+  Component,
+  DoCheck,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import { SacInheritFormDirective } from '@simpleangularcontrols/sac-bootstrap5';
 
 @Component({
   selector: 'app-subform',
-  templateUrl: './subform.component.html'
+  templateUrl: './subform.component.html',
 })
 export class DemoSubFormComponent implements DoCheck {
+  // #region Properties
 
-  @Input() mymodel;
-  @Output() mymodelChange = new EventEmitter();
+  @Input() public mymodel;
+  @Output() public mymodelChange = new EventEmitter();
+  @ViewChild('formaccess') public form: SacInheritFormDirective;
 
-  ngDoCheck() {
+  // #endregion Properties
+
+  // #region Public Methods
+
+  public ngDoCheck() {
+    if (this.form) {
+      console.log(this.form.getForm().dirty);
+    }
     this.mymodelChange.next(this.mymodel);
   }
 
+  // #endregion Public Methods
 }

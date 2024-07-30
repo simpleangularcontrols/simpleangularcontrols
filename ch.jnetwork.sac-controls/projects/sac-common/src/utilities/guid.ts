@@ -1,8 +1,10 @@
+// #region Functions
+
 /**
  * create a guid with crypto library if availabe and a fallback to Math.Random implementation
  */
 export function createGuid(): string {
-  if (typeof crypto !== undefined) {
+  if (typeof crypto !== undefined && crypto['randomUUID'] !== undefined) {
     // return guid without hyphen
     return crypto['randomUUID']().replace(/\-/gi, '');
   } else {
@@ -13,3 +15,5 @@ export function createGuid(): string {
     });
   }
 }
+
+// #endregion Functions

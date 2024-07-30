@@ -15,6 +15,10 @@ export interface ISacConfigurationService {
    */
   CurrencyText: string;
   /**
+   * Activates the error messages below the controls
+   */
+  InlineErrorEnabled: boolean;
+  /**
    * default labe size for large devices
    */
   LabelSizeLg: number | null;

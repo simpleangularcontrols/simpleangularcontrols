@@ -108,6 +108,12 @@
                 role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
         <li class="nav-item">
+            <a href="#readme" 
+                class="nav-link"
+                
+                role="tab" id="readme-tab" data-bs-toggle="tab" data-link="readme">Example</a>
+        </li>
+        <li class="nav-item">
             <a href="#source" 
                 class="nav-link"
                 
@@ -129,32 +135,16 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Directive zum erben eines NgForm/NgFormular einer übergeordneten Komponente</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-html"></code></pre></div><div sacInheritForm>
-</div>
-
-<b>Example :</b><div><pre class="line-numbers"><code class="language-html"></code></pre></div><div sacInheritForm>
-<div>SubForm</div>
-<div>
- <ngInput [(ngModel)]="mymodel.fieldarea2" name="subformField3" label="field 3" [isrequired]="true"></ngInput>
-</div>
-</div>
-
-
-<p>(at)Component({
-selector: &#39;sacInheritForm&#39;,
-templateUrl: &#39;./subform.component.html&#39;
-})
-export class SubFormComponent implements DoCheck {</p>
-<p>(at)Input() mymodel;
-(at)Output() mymodelChange = new EventEmitter();</p>
-<p>ngDoCheck() {
-  this.mymodelChange.next(this.mymodel);
-}
-}</p>
+                <p>Directive to inherit an NgForm/NgForm from a parent component</p>
 
             </p>
 
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../directives/SacFormCommon.html" target="_self" >SacFormCommon</a></code>
+            </p>
 
 
 
@@ -167,10 +157,10 @@ export class SubFormComponent implements DoCheck {</p>
                         <td class="col-md-9">
                             <code>
                                 {
-    provide: SacFormDirective, useFactory: SACFORM_FACTORY, deps: [[new SkipSelf(), SacFormDirective]]
+    provide: SacFormDirective, useFactory: SACFORM_FACTORY, deps: [[new SkipSelf(), SacFormDirective]],
 }
                                 {
-    provide: ControlContainer, useFactory: NGFORM_FACTORY, deps: [NgForm]
+    provide: ControlContainer, useFactory: NGFORM_FACTORY, deps: [NgForm],
 }
                             </code>
                         </td>
@@ -183,37 +173,425 @@ export class SubFormComponent implements DoCheck {</p>
 
 
 
+                    <tr>
+                        <td class="col-md-3">exportAs</td>
+                        <td class="col-md-9"><code>sacinheritform</code></td>
+                    </tr>
 
                 </tbody>
             </table>
         </section>
 
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getForm" >getForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#markAsTouched" >markAsTouched</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#updateValueAndValidity" >updateValueAndValidity</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#updateon" >updateon</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
 
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/sac-bootstrap5/src/controls/form/inheritform.directive.ts:27</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Construtor</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>: injector to receive the NgForm instance</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="updateon"></a>
+                        <b>updateon</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#FormHooks" target="_self" >FormHooks</a></code>
+
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/SacFormCommon.html" target="_self" >SacFormCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:52</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Definiert, wenn das Model geupdatet wird</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
 
 
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getForm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getForm</b></span>
+                        <a href="#getForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/SacFormCommon.html" target="_self" >SacFormCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:64</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gibt die NgForm Instanz zurück</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>NgForm</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="markAsTouched"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>markAsTouched</b></span>
+                        <a href="#markAsTouched"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>markAsTouched()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/SacFormCommon.html" target="_self" >SacFormCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:71</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Markiert alle Controls innerhalb des Formulares als Touched</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateValueAndValidity"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>updateValueAndValidity</b></span>
+                        <a href="#updateValueAndValidity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateValueAndValidity(markAsTouched: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/SacFormCommon.html" target="_self" >SacFormCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:80</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Aktualisiert die Werte und den Gültigkeitsstatus des Formulars</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>markAsTouched</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
 
     </div>
 
+    <div class="tab-pane fade " id="readme">
+        <p><h1>Examples</h1>
+<h2>Inherit Form</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;div sacInheritForm&gt;
+  &lt;div&gt;SubForm&lt;/div&gt;
+  &lt;div&gt;
+    &lt;ngInput [(ngModel)]=&quot;mymodel.fieldarea2&quot; name=&quot;subformField3&quot; label=&quot;field 3&quot; [isrequired]=&quot;true&quot;&gt;&lt;/ngInput&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div><h2>Inherit Form with access to Form</h2>
+<p>HTML Template with access to form.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;div sacInheritForm #formaccess=&quot;sacinheritform&quot;&gt;
+  &lt;div&gt;SubForm&lt;/div&gt;
+  &lt;div&gt;
+    &lt;ngInput [(ngModel)]=&quot;mymodel.fieldarea2&quot; name=&quot;subformField3&quot; label=&quot;field 3&quot; [isrequired]=&quot;true&quot;&gt;&lt;/ngInput&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div><p>Code behind file with access to form.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Component, Input, Output, ViewChild } from &#39;&#64;angular/core&#39;;
+import { SacInheritFormDirective } from &#39;&#64;simpleangularcontrols/sac-bootstrap5&#39;;
+
+&#64;Component({
+  selector: &#39;app-subform&#39;,
+  templateUrl: &#39;./subform.component.html&#39;,
+})
+export class DemoSubFormComponent {
+  &#64;Input() mymodel;
+  &#64;Output() mymodelChange = new EventEmitter();
+  &#64;ViewChild(&#39;formaccess&#39;) public form: SacInheritFormDirective;
+
+  public accessToForm() {
+    console.log(this.form.getForm().dirty);
+  }
+}</code></pre></div></p>
+    </div>
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, Injector, SkipSelf } from &#x27;@angular/core&#x27;;
+import { ControlContainer, NgForm } from &#x27;@angular/forms&#x27;;
+import { SacFormCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 import { SacFormDirective } from &#x27;./form&#x27;;
-import { SkipSelf } from &#x27;@angular/core&#x27;;
-import { NgForm } from &#x27;@angular/forms&#x27;;
-import { ControlContainer } from &#x27;@angular/forms&#x27;;
+
+// #region Classes
 
 /**
- * Factory Methode für SacForm
- * @param form SacFormular
+ * Directive to inherit an NgForm/NgForm from a parent component
  */
-export function SACFORM_FACTORY(form: SacFormDirective) {
-  return form;
+@Directive({
+  selector: &#x27;[sacInheritForm]&#x27;,
+  exportAs: &#x27;sacinheritform&#x27;,
+  providers: [
+    {
+      provide: SacFormDirective,
+      useFactory: SACFORM_FACTORY,
+      deps: [[new SkipSelf(), SacFormDirective]],
+    },
+    {
+      provide: ControlContainer,
+      useFactory: NGFORM_FACTORY,
+      deps: [NgForm],
+    },
+  ],
+})
+export class SacInheritFormDirective extends SacFormCommon {
+  // #region Constructors
+
+  /**
+   * Construtor
+   * @param injector: injector to receive the NgForm instance
+   */
+  constructor(injector: Injector) {
+    super(injector.get(NgForm));
+  }
+
+  // #endregion Constructors
 }
+
+// #endregion Classes
+
+// #region Functions
 
 /**
  * Factory Methode für NgForm
@@ -224,53 +602,14 @@ export function NGFORM_FACTORY(form: NgForm) {
 }
 
 /**
- * Directive zum erben eines NgForm/NgFormular einer übergeordneten Komponente
- *
- * @example Implementation in Markup
- *
- * &lt;div sacInheritForm&gt;
- * &lt;/div&gt;
- *
- * @example Model an Sub-Komponente übergeben
- *
- * &lt;div sacInheritForm&gt;
- * &lt;div&gt;SubForm&lt;/div&gt;
- * &lt;div&gt;
- *  &lt;ngInput [(ngModel)]&#x3D;&quot;mymodel.fieldarea2&quot; name&#x3D;&quot;subformField3&quot; label&#x3D;&quot;field 3&quot; [isrequired]&#x3D;&quot;true&quot;&gt;&lt;/ngInput&gt;
- * &lt;/div&gt;
- * &lt;/div&gt;
- *
- *
- * (at)Component({
- * selector: &#x27;sacInheritForm&#x27;,
- * templateUrl: &#x27;./subform.component.html&#x27;
- * })
- * export class SubFormComponent implements DoCheck {
- *
- * (at)Input() mymodel;
- * (at)Output() mymodelChange &#x3D; new EventEmitter();
- *
- * ngDoCheck() {
- *   this.mymodelChange.next(this.mymodel);
- * }
- *}
- *
+ * Factory Methode für SacForm
+ * @param form SacFormular
  */
-@Directive({
-  selector: &#x27;[sacInheritForm]&#x27;,
-  providers: [
-    {
-      provide: SacFormDirective,
-      useFactory: SACFORM_FACTORY,
-      deps: [[new SkipSelf(), SacFormDirective]]
-    }, {
-      provide: ControlContainer,
-      useFactory: NGFORM_FACTORY,
-      deps: [NgForm]
-    }
-  ]
-})
-export class SacInheritFormDirective { }
+export function SACFORM_FACTORY(form: SacFormDirective) {
+  return form;
+}
+
+// #endregion Functions
 </code></pre>
     </div>
 

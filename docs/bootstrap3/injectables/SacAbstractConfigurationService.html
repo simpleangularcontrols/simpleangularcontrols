@@ -167,6 +167,9 @@
                                     <a href="#CurrencyText" >CurrencyText</a>
                                 </li>
                                 <li>
+                                    <a href="#InlineErrorEnabled" >InlineErrorEnabled</a>
+                                </li>
+                                <li>
                                     <a href="#LabelSizeLg" >LabelSizeLg</a>
                                 </li>
                                 <li>
@@ -268,6 +271,39 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="InlineErrorEnabled"></a>
+                        <span class="name"><b>InlineErrorEnabled</b><a href="#InlineErrorEnabled"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>InlineErrorEnabled()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:27</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="LabelSizeLg"></a>
                         <span class="name"><b>LabelSizeLg</b><a href="#LabelSizeLg"><span class="icon ion-ios-link"></span></a></span>
                     </td>
@@ -280,7 +316,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:31</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -313,7 +349,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:35</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -346,7 +382,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:39</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -379,7 +415,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:43</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -412,7 +448,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:47</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -445,7 +481,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:47</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:51</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -481,6 +517,9 @@ export class CustomConfigurationService extends SacAbstractConfigurationService 
   }
   get CurrencyText(): string {
     return &#39;CHF&#39;;
+  }
+  get InlineErrorEnabled(): boolean {
+    return true;
   }
   get LabelSizeLg(): number | null {
     return 3;
@@ -539,6 +578,10 @@ export abstract class SacAbstractConfigurationService
   /**
    * @inheritdoc
    */
+  public abstract get InlineErrorEnabled(): boolean;
+  /**
+   * @inheritdoc
+   */
   public abstract get LabelSizeLg(): number | null;
   /**
    * @inheritdoc
@@ -583,6 +626,13 @@ export class SacDefaultConfigurationService extends SacAbstractConfigurationServ
    */
   public get CurrencyText(): string {
     return &#x27;CHF&#x27;;
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public get InlineErrorEnabled(): boolean {
+    return true;
   }
 
   /**

@@ -28,13 +28,13 @@
 <title>cluster_SACBootstrap4MultilanguageModule_imports</title>
 <polygon fill="none" stroke="black" points="1574,-78 1574,-130 1778,-130 1778,-78 1574,-78"/>
 </g>
-<g id="clust10" class="cluster">
-<title>cluster_SACBootstrap4MultilanguageModule_exports</title>
-<polygon fill="none" stroke="black" points="708,-208 708,-260 1202,-260 1202,-208 708,-208"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap4MultilanguageModule_declarations</title>
 <polygon fill="none" stroke="black" points="16,-78 16,-130 1566,-130 1566,-78 16,-78"/>
+</g>
+<g id="clust10" class="cluster">
+<title>cluster_SACBootstrap4MultilanguageModule_exports</title>
+<polygon fill="none" stroke="black" points="708,-208 708,-260 1202,-260 1202,-208 708,-208"/>
 </g>
 <!-- SacMultilanguageInputAreaComponent -->
 <g id="node1" class="node">

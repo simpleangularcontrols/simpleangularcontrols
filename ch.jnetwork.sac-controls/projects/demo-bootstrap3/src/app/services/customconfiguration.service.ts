@@ -18,6 +18,10 @@ export class CustomConfigurationService extends SacAbstractConfigurationService 
     return 'CHF';
   }
 
+  public get InlineErrorEnabled(): boolean {
+    return true;
+  }
+
   public get LabelSizeLg(): number | null {
     return 3;
   }

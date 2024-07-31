@@ -24,6 +24,10 @@ export abstract class SacAbstractConfigurationService
   /**
    * @inheritdoc
    */
+  public abstract get InlineErrorEnabled(): boolean;
+  /**
+   * @inheritdoc
+   */
   public abstract get LabelSizeLg(): number | null;
   /**
    * @inheritdoc
@@ -68,6 +72,13 @@ export class SacDefaultConfigurationService extends SacAbstractConfigurationServ
    */
   public get CurrencyText(): string {
     return 'CHF';
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public get InlineErrorEnabled(): boolean {
+    return true;
   }
 
   /**

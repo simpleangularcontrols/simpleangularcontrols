@@ -262,17 +262,22 @@ export abstract class SacBaseModelControl<VALUE>
    * Returns whether the inline error messages are active for this control.
    */
   public get isinlineerrorenabled(): boolean {
-    if (
-      this.formlayout?.IsInlineErrorEnabled === null ||
-      this.formlayout?.IsInlineErrorEnabled === undefined
-    ) {
+    if (this._inlineerrorenabled !== null) {
       return this._inlineerrorenabled;
     }
 
-    return (
-      this.formlayout.IsInlineErrorEnabled !== false &&
-      this._inlineerrorenabled !== false
-    );
+    if (
+      this.formlayout !== null &&
+      this.formlayout.IsInlineErrorEnabled !== null
+    ) {
+      return this.formlayout?.IsInlineErrorEnabled;
+    }
+
+    if (this.configurationService.InlineErrorEnabled !== null) {
+      return this.configurationService.InlineErrorEnabled;
+    }
+
+    return true;
   }
 
   /**

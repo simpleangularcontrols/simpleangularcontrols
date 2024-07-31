@@ -15,7 +15,7 @@ export class SacFormLayoutCommon {
   /**
    * defines that error messages are displayed under the controls
    */
-  @Input() public inlineError: boolean = true;
+  @Input() public inlineError: boolean | null = null;
   /**
    * defines that the labels are displayed as adaptive labels
    */
@@ -59,7 +59,7 @@ export class SacFormLayoutCommon {
    * Returns whether the inline error messages for the form are active.
    */
   public get IsInlineErrorEnabled(): boolean {
-    return this.inlineError !== false;
+    return this.inlineError;
   }
 
   // #endregion Public Getters And Setters

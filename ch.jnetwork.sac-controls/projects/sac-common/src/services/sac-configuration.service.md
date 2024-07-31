@@ -19,6 +19,9 @@ export class CustomConfigurationService extends SacAbstractConfigurationService 
   get CurrencyText(): string {
     return 'CHF';
   }
+  get InlineErrorEnabled(): boolean {
+    return true;
+  }
   get LabelSizeLg(): number | null {
     return 3;
   }

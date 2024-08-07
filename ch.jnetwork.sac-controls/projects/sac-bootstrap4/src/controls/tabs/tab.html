@@ -2,6 +2,7 @@
 <div class="nav nav-tabs" role="tablist">
   <a
     *ngFor="let item of _tabItems"
+    [id]="GetTabItemButtonId(item.id)"
     role="tab"
     class="nav-item nav-link active"
     data-toggle="tab"

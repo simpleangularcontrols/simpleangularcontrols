@@ -17,4 +17,10 @@ import {
     SACBootstrap4ContextmenuModule,
   ],
 })
-export class DemoTabsComponent {}
+export class DemoTabsComponent {
+  // #region Properties
+
+  public languages = ['de', 'fr', 'it'];
+
+  // #endregion Properties
+}

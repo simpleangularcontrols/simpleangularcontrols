@@ -1,6 +1,5 @@
 <h2>Tabs</h2>
 <form #myForm="sacform" labelsize="3">
-
   <sac-tab name="tab1">
     <sac-tabitem id="home1" label="Home">
       <ng-template>
@@ -47,4 +46,16 @@
     </sac-tabitem>
   </sac-tab>
 
+  <sac-tab name="tab3">
+    <sac-tabitem
+      id="tab_{{ item }}"
+      [label]="item"
+      [active]="i === 0 ? true : false"
+      *ngFor="let item of languages; index as i"
+    >
+      <ng-template>
+        <p>Tab Content here {{ i }}</p>
+      </ng-template>
+    </sac-tabitem>
+  </sac-tab>
 </form>

@@ -17,4 +17,10 @@ import { FormsModule } from '@angular/forms';
     SACBootstrap5ContextmenuModule,
   ],
 })
-export class DemoTabsComponent {}
+export class DemoTabsComponent {
+  // #region Properties
+
+  public languages = ['de', 'fr', 'it'];
+
+  // #endregion Properties
+}

@@ -7,7 +7,7 @@
       (click)="selectTab(item)"
       [ngStyle]="{'cursor': item._disabled ? 'not-allowed' : 'pointer'}"
     >
-      <a [id]="GetTabItemButtonId(item._id)" role="tab">
+      <a [id]="GetTabItemButtonId(item.id)" role="tab">
         <ng-template
           *ngTemplateOutlet="tablabeltemplate || defaultTabLabelTemplate;context:{ label: item.label }"
         >

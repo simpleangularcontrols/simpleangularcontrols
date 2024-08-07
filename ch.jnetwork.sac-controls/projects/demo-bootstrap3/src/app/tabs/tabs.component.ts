@@ -13,5 +13,9 @@ import { FormsModule } from '@angular/forms';
     ],
 })
 export class DemoTabsComponent {
+  // #region Properties
 
+  public languages = ['de', 'fr', 'it'];
+
+  // #endregion Properties
 }

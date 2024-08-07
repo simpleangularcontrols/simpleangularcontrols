@@ -13,7 +13,15 @@
   (click)="buttonClick()"
 >
   <i
-    *ngIf="icon !== ''"
+    *ngIf="isloading"
+    class=""
+    role="status"
+    aria-hidden="true"
+    class="glyphicon glyphicon-repeat spin"
+    [ngStyle]="{ 'margin-right': text ? '0.5rem': null}"
+  ></i>
+  <i
+    *ngIf="!isloading && icon !== ''"
     [ngClass]="icon"
     [ngStyle]="{ 'margin-right': text ? '0.5rem': null}"
   ></i>

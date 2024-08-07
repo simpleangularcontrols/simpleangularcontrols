@@ -12,6 +12,7 @@
     [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
   >
     <div
+      [id]="name"
       class="form-control-static"
       [style.padding-left.px]="0"
       [innerHTML]="value"

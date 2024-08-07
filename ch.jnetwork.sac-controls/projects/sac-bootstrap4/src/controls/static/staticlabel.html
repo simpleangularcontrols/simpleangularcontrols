@@ -12,6 +12,7 @@
     [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
   >
     <div
+      [id]="name"
       class="form-control-plaintext"
       [ngClass]="[componentHeight | toControlHeight]"
       [innerHTML]="value"

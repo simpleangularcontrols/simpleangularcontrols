@@ -5,5 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './tabs.component.html',
 })
 export class DemoTabsComponent {
+  // #region Properties
 
+  public languages = ['de', 'fr', 'it'];
+
+  // #endregion Properties
 }

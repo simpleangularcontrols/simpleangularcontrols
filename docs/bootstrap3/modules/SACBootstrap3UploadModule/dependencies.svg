@@ -28,13 +28,13 @@
 <title>cluster_SACBootstrap3UploadModule_imports</title>
 <polygon fill="none" stroke="black" points="391,-78 391,-130 595,-130 595,-78 391,-78"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_SACBootstrap3UploadModule_exports</title>
-<polygon fill="none" stroke="black" points="108,-208 108,-260 482,-260 482,-208 108,-208"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap3UploadModule_declarations</title>
 <polygon fill="none" stroke="black" points="16,-78 16,-130 383,-130 383,-78 16,-78"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_SACBootstrap3UploadModule_exports</title>
+<polygon fill="none" stroke="black" points="108,-208 108,-260 482,-260 482,-208 108,-208"/>
 </g>
 <!-- SacUploadComponent -->
 <g id="node1" class="node">

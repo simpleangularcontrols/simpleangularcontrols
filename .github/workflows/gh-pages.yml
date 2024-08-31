@@ -43,6 +43,13 @@ jobs:
           path: ng13
           sparse-checkout: |
             docs
+      - name: Checkout ng10
+        uses: actions/checkout@v4
+        with:
+          ref: angular/10.1.x
+          path: ng10
+          sparse-checkout: |
+            docs
       - name: Build Documentation Structure
         run: |
           mkdir "docs"
@@ -51,6 +58,8 @@ jobs:
           cp -R ng16/docs/bootstrap* "docs/ng16/"
           mkdir "docs/ng13"
           cp -R ng13/docs/bootstrap* "docs/ng13/"
+          mkdir "docs/ng10"
+          cp -R ng10/docs/bootstrap* "docs/ng10/"
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

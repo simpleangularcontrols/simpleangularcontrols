@@ -27,6 +27,8 @@ import {
   ],
 })
 export class DemoRectiveFormComponent {
+  // #region Properties
+
   // formfield1 = new FormControl('', Validation.required('VALIDATION_ERROR_REQUIRED','VALIDATION_ERROR_SUMMARY_REQUIRED'));
   baseForm = new UntypedFormGroup({
     inputvalue: new UntypedFormControl(''),
@@ -34,7 +36,7 @@ export class DemoRectiveFormComponent {
     listvalue: new UntypedFormControl(''),
     dropdownvalue: new UntypedFormControl(''),
     radiobuttonvalue: new UntypedFormControl('1'),
-    datetimevalue: new UntypedFormControl(''),
+    datetimevalue: new UntypedFormControl('2024-11-22T17:10:00+01:00'),
     partial: new UntypedFormGroup({
       part1: new UntypedFormGroup({
         inputvalue2: new UntypedFormControl(''),
@@ -48,4 +50,14 @@ export class DemoRectiveFormComponent {
       }),
     }),
   });
+
+  // #endregion Properties
+
+  // #region Public Methods
+
+  public change(): void {
+    this.baseForm.patchValue({ datetimevalue: '2024-11-23T17:11:00+01:00' });
+  }
+
+  // #endregion Public Methods
 }

@@ -118,7 +118,7 @@ export abstract class SacBaseDateTimeControl
   /**
    * JSON Date String in ein UTC DateTime Object konvertieren, welches vom Control verwendete werden kann
    */
-  public getDate(timestamp) {
+  public getDate(timestamp): moment.Moment {
     const date = new Date(timestamp);
     const year = date.getUTCFullYear();
     const month = date.getUTCMonth();

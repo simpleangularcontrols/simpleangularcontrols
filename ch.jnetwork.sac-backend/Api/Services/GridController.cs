@@ -72,7 +72,7 @@ namespace SimpleAngularControls.Api.Services
                     return new GridResultDto<GridItemDto>()
                     {
                         TotalRowCount = Items.Count,
-                        Data = Items.OrderBy(itm => orderItem.GetValue(itm, null)).Skip(startingPoint).Take(request.PageSize).ToList()
+                        Data = Items.OrderBy(itm => orderItem.GetValue(itm)).Skip(startingPoint).Take(request.PageSize).ToList()
                     };
 
                 case SortOrder.Descending:
@@ -84,7 +84,7 @@ namespace SimpleAngularControls.Api.Services
                     return new GridResultDto<GridItemDto>()
                     {
                         TotalRowCount = Items.Count,
-                        Data = Items.OrderByDescending(itm => orderItemDescending.GetValue(itm, null)).Skip(startingPoint).Take(request.PageSize).ToList()
+                        Data = Items.OrderByDescending(itm => orderItemDescending.GetValue(itm)).Skip(startingPoint).Take(request.PageSize).ToList()
                     };
 
                 default:

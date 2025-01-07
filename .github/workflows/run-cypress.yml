@@ -9,7 +9,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: 1
      

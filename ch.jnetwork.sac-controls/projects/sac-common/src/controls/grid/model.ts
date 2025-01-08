@@ -1,107 +1,149 @@
+// #region Classes
+
 /**
- * Model für Pager Settings
+ * GridResponse class
  */
-export class PagerData {
+export class GridResponse<T> {
+  // #region Properties
 
   /**
-   * Konstruktor
-   * @param PageSize Anzahl Elemente pro Seite
-   * @param CurrentPageIndex Aktuelle Seite
-   * @param TotalRowCount Total Rows in Datenbank
+   * Data
    */
-  constructor(PageSize: number, CurrentPageIndex: number, TotalRowCount: number) {
+  public Data: T[];
+  /**
+   * Total number of data records
+   */
+  public TotalRowCount: number;
+
+  // #endregion Properties
+}
+
+/**
+ * Model for pager settings
+ */
+export class PagerData {
+  // #region Properties
+
+  /**
+   * Current index of the page
+   */
+  public CurrentPageIndex = 0;
+  /**
+   * Number of elements on the page
+   */
+  public PageSize = 20;
+  /**
+   * Total number of data records
+   */
+  public TotalRowCount = 0;
+
+  // #endregion Properties
+
+  // #region Constructors
+
+  /**
+   * Constructor
+   * @param PageSize Number of elements per page
+   * @param CurrentPageIndex Current page
+   * @param TotalRowCount Total Rows in database
+   */
+  constructor(
+    PageSize: number,
+    CurrentPageIndex: number,
+    TotalRowCount: number
+  ) {
     this.PageSize = PageSize;
     this.CurrentPageIndex = CurrentPageIndex;
     this.TotalRowCount = TotalRowCount;
   }
 
-  /**
-   * Gesamte Anzahl der Zeilen
-  */
-  TotalRowCount = 0;
-
-  /**
-   * Aktueller Index der Seite
-   */
-  CurrentPageIndex = 0;
-
-  /**
-   * PageSize
-   */
-  PageSize = 20;
+  // #endregion Constructors
 }
 
 /**
- * Model wenn Seite geändert werden soll
+ * Model if page is to be changed
  */
 export class PagerRequest {
+  // #region Properties
 
   /**
-   * Konstruktor
-   * @param PageSize Seitegrösse / Anzahl Elemente pro Seite
-   * @param NewPageIndex Neuer Seitenindex
+   * Index of the page to which you want to switch
+   */
+  public NewPageIndex: number = 0;
+  /**
+   * Number of elements on the page
+   */
+  public PageSize: number = 0;
+
+  // #endregion Properties
+
+  // #region Constructors
+
+  /**
+   * Constructor
+   * @param PageSize Page size / number of elements per page
+   * @param NewPageIndex New page index
    */
   constructor(PageSize: number, NewPageIndex: number) {
     this.PageSize = PageSize;
     this.NewPageIndex = NewPageIndex;
   }
 
-  /**
-   * Aktueller Index der Seite
-   */
-  PageSize: number = 0;
-
-  /**
-   * PageSize
-   */
-  NewPageIndex: number = 0;
-
+  // #endregion Constructors
 }
 
 /**
- * GridResponse-Klasse
- */
-export class GridResponse<T> {
-  /**
-   * Gesamte Anzahl der Zeilen
-   */
-  TotalRowCount: number;
-  /**
-   * Data
-   */
-  Data: T[];
-}
-
-/**
- * Model für Sortierung
+ * Model for sorting
  */
 export class SortDescriptor {
+  // #region Properties
+
   /**
-   * Konstruktor
-   * @param sortcolumn Column die Sortiert wird
-   * @param sortorder Art der Sortierung
+   * Description / Key for sorting
+   */
+  public SortColumn: string;
+  /**
+   * Sort order
+   */
+  public SortOrder: SortOrder;
+
+  // #endregion Properties
+
+  // #region Constructors
+
+  /**
+   * Constructor
+   * @param sortcolumn Column by which to sort
+   * @param sortorder Type of sorting
    */
   constructor(sortcolumn?: string, sortorder?: SortOrder) {
     this.SortColumn = sortcolumn;
     this.SortOrder = sortorder;
   }
 
-  /**
-   * Bezeichnung / Key für Sortierung
-   */
-  SortColumn: string;
-
-  /**
-   * Sortierung
-   */
-  SortOrder: SortOrder;
+  // #endregion Constructors
 }
+
+// #endregion Classes
+
+// #region Enums
 
 /**
- * Enum für Sortierung
+ * Enum for sorting
  */
 export enum SortOrder {
+  /**
+   * No sorting
+   */
   None = 0,
+  /**
+   * Ascending
+   */
   Ascending = 1,
-  Descending = 2
+  /**
+   * Descending
+   */
+  Descending = 2,
 }
+
+// #endregion Enums

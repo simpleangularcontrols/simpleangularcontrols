@@ -15,114 +15,113 @@ import {
 import { PagerData, PagerRequest, SortDescriptor, SortOrder } from './model';
 
 /**
- * Basis Komponente für SacGrid
+ * Basic component for SacGrid
  */
 @Directive()
 export abstract class SacGridCommon {
   // #region Properties
 
   /**
-   * Protected Property. Enthielt die Nummer der aktiven Seite. Type: number. Default ist 1
+   * Page number of the active page.
    */
   protected activePage: number = 1;
   /**
-   * Protected Property. Enthielt die Nummer der ersten angezeigtenen Seite in Pager. Type: number. Default ist 1
+   * Contains the number of the first page displayed in Pager.
    */
   protected firstPageNumber: number = 1;
-  // protected firstVisibleIndex: number = 1;
-  // protected lastVisibleIndex;
-
   /**
-   * Protected Property. Enthielt die Nummer der letzen Seite in Pager. Type: number. Default ist undefined/null
+   * Contains the number of the last page in Pager. The value is calculated automatically.
    */
   protected lastPageNumber: number;
   /**
-   * Protected Property. Enthielt Array of Pages. Default value: empty array []
+   * Contains Array of Pages.
    */
   protected paginators: Array<any> = [];
 
   /**
-   * Input property für body. Type: TemplateRef<any>.
+   * Input property for Body.
    */
   @Input() public body: TemplateRef<any>;
   /**
-   * Text welcher angezeigt wird, wenn keine Rows verfügbar sind.
+   * Text which is displayed if no rows are available.
    */
   @Input()
   public emptytext: string;
   /**
-   * Input property für headers. Type: TemplateRef<any>.
+   * Property for headers.
    */
   @Input() public headers: TemplateRef<any>;
   /**
-   * Input property für die maximalle Seiten die sichtbar sind. Type: number.
+   * Property for the maximum pages that are visible.
    */
   @Input() public maxvisiblepagenumbers: number;
   /**
-   * Input property für Name.
+   * Control Name. Used to generate the ID and names.
    */
   @Input()
   public name: string;
   /**
-   * Pager Settings
-   *
-   * Pager kann ausgeschaltet werden, in dem PagerData auf NULL gesetzt wird.
+   * Pager configuration. Pager can be switched off by setting PagerData to `null`.
    */
   @Input()
   public pagerdata: PagerData;
   /**
-   * Deaktiviert die Auswahl der PageSize im Pager
+   * Deactivates the selection of the PageSize in the pager
    */
   @Input()
   public pagesizedisabled: boolean = false;
   /**
-   * Definiert die Anzahl der Elemente pro Seite die ausgewählt werden können
+   * Defines the number of elements per page that can be selected. The default is 20, 50 and 100. The values must be separated with a `|`.
    */
   @Input()
   public pagesizes: string = '20|50|100';
   /**
-   * Text in Page für Anzahl Seitenelemente pro Seite
-   * Folgende Interpolation Texte sind vorhanden:
-   * {{PAGESIZE}}: Anzahl Elemente pro Seite
+   * Text in Page for number of page elements per page. The following interpolation texts are available:
+   *
+   * {{PAGESIZE}}: Number of elements per page
    */
   @Input()
   public pagesizetext: string;
   /**
-   * Text in Pager für 'Seite x von y'.
-   * Folgende Interpolation Texte sind vorhanden:
-   * {{CURRENTPAGE}}: Aktuelle Seite
-   * {{TOTALPAGES}}: Anzahl Seiten
+   * Text in pager for 'Page x of y'. The following interpolation texts are available:
+   *
+   * {{CURRENTPAGE}}: Current page
+   *
+   * {{TOTALPAGES}}: Number of pages
    */
   @Input()
   public pagingtext: string;
   /**
-   * Grid Daten
+   * Grid data
    */
   @Input()
   public value: any;
   /**
-   * Output EventEmitter. Wird aufgerufen wenn das Pager geklickt ist.
+   * Event when the pager is clicked.
    */
   @Output() public paging: EventEmitter<PagerRequest> =
     new EventEmitter<PagerRequest>();
   /**
-   * Output EventEmitter. Wird aufgerufen wenn ein Header geklickt ist, damit das Column soritert wird.
+   * Event when a header is clicked so that the grid is sorted.
    */
   @Output() public sorting: EventEmitter<SortDescriptor> =
     new EventEmitter<SortDescriptor>();
 
   /**
-   * Private Property. Enthielt die Column Menge. Type: number. Default ist 0
+   * Number of columns in the grid
    */
   public ColumnCount: number = 0;
   /**
-   * Aktuell Sortierte Spalte
+   * Column by which currently sorted.
    */
   public sortColumn: string = '';
   /**
-   * Aktuelle Sortierung
+   * Current direction of sorting
    */
   public sortDirection: SortOrder = SortOrder.None;
+  /**
+   * Service with the validation keys. Is required to load the default texts for the pager etc.
+   */
   public validationKeyService: ISacValidationKeyService;
 
   // #endregion Properties
@@ -130,7 +129,7 @@ export abstract class SacGridCommon {
   // #region Constructors
 
   /**
-   * Konstruktor
+   * Constructor
    * @param cd Change Detection Service
    * @param injector DI Injector
    */
@@ -150,8 +149,8 @@ export abstract class SacGridCommon {
   // #region Public Getters And Setters
 
   /**
-   * Model für Sortierung
-   * @param sortDescription Settings für aktuelle sortierung
+   * Model for sorting
+   * @param sortDescription Settings for current sorting
    */
   @Input()
   public set sortdata(sortDescription: SortDescriptor) {
@@ -164,16 +163,16 @@ export abstract class SacGridCommon {
   // #region Public Methods
 
   /**
-   * Die Methode erhöht die Column-Stücke um eins
+   * The method increases the column elements by one
    */
   public RegisterColumn() {
     this.ColumnCount++;
-    // Detect Changes ausführen, da ColumnChange nach OnInit ausgeführt wird.
+    // Detect Changes, as ColumnChange is executed after OnInit.
     this.cd.detectChanges();
   }
 
   /**
-   * Die Methode deffiniert das Sortierung Flow
+   * Method for sorting the data.
    */
   public SortBy(command) {
     let direction: SortOrder;
@@ -200,15 +199,15 @@ export abstract class SacGridCommon {
   }
 
   /**
-   * Die Methode verringert die Column-Stücke um eins
+   * The method reduces the column elements by one
    */
   public UnregisterColumn() {
     this.ColumnCount--;
   }
 
   /**
-   * Setzt die neue Seite
-   * @param newStartIndex Neuer Seiten Index (Zero-Based)
+   * Method if Grid is to switch to a new page.
+   * @param newStartIndex New Page Index (Zero-Based)
    */
   public pageChange(newStartIndex) {
     this.paging.emit(newStartIndex);

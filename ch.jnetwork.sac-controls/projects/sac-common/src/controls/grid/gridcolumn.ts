@@ -4,24 +4,34 @@ import { SacGridCommon } from './grid';
 import { SacGridColumnBaseCommon } from './gridcolumnbase';
 
 /**
- * Komponente für SacGridColumnCommon. Extends SacGridColumnBaseCommon
+ * Component for SacGridColumnCommon. Extends SacGridColumnBaseCommon
  */
 @Directive()
 export class SacGridColumnCommon extends SacGridColumnBaseCommon {
+  // #region Properties
+
   /**
-   * Konstruktor
+   *  Defines whether the CSS class ellipsis is set.
+   */
+  private _ellipsis: boolean = false;
+
+  // #endregion Properties
+
+  // #region Constructors
+
+  /**
+   * Constructor
    */
   constructor(grid: SacGridCommon, injector: Injector, el: ElementRef) {
     super(grid, injector, el);
   }
 
-  /**
-   * Das Property enthielt boolean Wert für die CSS Klasse ellipsis. Default is false.
-   */
-  private _ellipsis: boolean = false;
+  // #endregion Constructors
+
+  // #region Public Getters And Setters
 
   /**
-   * Input Parameter für das css Class ellipsis. Das Setter setzt das boolean Wert auf das private property _ellipsis
+   * Sets the ellipsis property. Can be a Boolean or the strings `true` or `false`.
    */
   @Input()
   public set ellipsis(v: string | boolean) {
@@ -29,16 +39,22 @@ export class SacGridColumnCommon extends SacGridColumnBaseCommon {
   }
 
   /**
-   * Getter für das private property _ellipsis. Ergibt das boolean Wert des Property
+   * Getter for the ellipsis property. Always returns a boolean type.
    */
   public get ellipsis(): string | boolean {
     return this._ellipsis;
   }
 
+  // #endregion Public Getters And Setters
+
+  // #region Public Methods
+
   /**
-   * Die Methode returns das Wert des Property _ellipsis
+   * Checks whether ellipsis is set
    */
   public IsEllipsis(): boolean {
     return this._ellipsis;
   }
+
+  // #endregion Public Methods
 }

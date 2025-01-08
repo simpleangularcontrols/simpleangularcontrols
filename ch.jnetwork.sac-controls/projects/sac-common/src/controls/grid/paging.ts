@@ -19,7 +19,7 @@ import {
 import { PagerData, PagerRequest } from './model';
 
 /**
- * Basiskomponente für Paging
+ * Basic component for paging
  */
 @Directive()
 export abstract class SacPagingCommon {
@@ -31,70 +31,69 @@ export abstract class SacPagingCommon {
   private validationKeyService: ISacValidationKeyService;
 
   /**
-   * Service für Error Localisation
+   * Service for error localization
    */
   protected lngResourceService: ISacLocalisationService;
   /**
-   * Total Anzahl Rows
+   * Total number of rows
    */
   protected totalRowCount: number = 0;
 
   /**
-   * Name des Grids. Wird für ID und Name Bezeichnungen verwendet
+   * Name of the grid. Used for ID and name designations
    */
   @Input()
   public name: string;
   /**
-   * Auswahl der Seitengrösse deaktivieren
+   * Deactivate page size selection
    */
   @Input()
   public pagesizedisabled: boolean = false;
   /**
-   * Text in Page für Anzahl Seitenelemente pro Seite
-   * Folgende Interpolation Texte sind vorhanden:
-   * {{PAGESIZE}}: Anzahl Elemente pro Seite
+   * Text in Page for number of page elements per page. The following interpolation texts are available:
+   *
+   * {{PAGESIZE}}: Number of elements per page
    */
   @Input()
   public pagesizes: string = '20|50|100';
   /**
-   * Text in Page für Anzahl Seitenelemente pro Seite
-   * Folgende Interpolation Texte sind vorhanden:
-   * {{PAGESIZE}}: Anzahl Elemente pro Seite
+   * Text in Page for number of page elements per page. The following interpolation texts are available:
+   *
+   * {{PAGESIZE}}: Number of elements per page
    */
   @Input()
   public pagesizetext: string = '';
   /**
-   * Text in Pager für 'Seite x von y'.
-   * Folgende Interpolation Texte sind vorhanden:
-   * {{CURRENTPAGE}}: Aktuelle Seite
-   * {{TOTALPAGES}}: Anzahl Seiten
+   * Text in pager for 'Page x of y'. The following interpolation texts are available:
+   * {{CURRENTPAGE}}: Current page
+   * {{TOTALPAGES}}: Number of pages
    */
   @Input()
   public pagingtext: string = '';
   /**
-   * Event wenn im Grid die Seite geändert wird. Als Parameter wird der neue PageIndex mitgegeben.
+   * Event when the page is changed in the grid. The new PageIndex is given as a parameter.
    */
   @Output()
   public paging: EventEmitter<PagerRequest> = new EventEmitter<PagerRequest>();
 
   /**
-   * Aktiver Seitenindex
+   * Active page index
    */
   public activePageIndex: number = 0;
   /**
-   * Erster Seitenindex
+   * First page index
    */
   public firstPageIndex: number = 0;
   /**
-   * Letzter Seitenindex
+   * Last page index
    */
   public lastPageIndex: number = 0;
   /**
-   * Anzahl Elemente pro Seite
+   * Number of elements per page
    */
   public pageSize: number = 20;
   /**
-   * Item für jedes Paging Element (Seitenzahl)
+   * Item for each paging element (page number)
    */
   public paginators: Array<any> = [];
 
@@ -103,8 +102,7 @@ export abstract class SacPagingCommon {
   // #region Constructors
 
   /**
-   * Konstruktor
-   * Inject des Formulars
+   * Constructor
    * @parent SacFormCommon
    * @injector Injector
    */
@@ -129,7 +127,7 @@ export abstract class SacPagingCommon {
   // #region Public Getters And Setters
 
   /**
-   * Property für Pager Data
+   * Property for Pager Data
    */
   @Input()
   public set pagerdata(p: PagerData) {
@@ -143,14 +141,14 @@ export abstract class SacPagingCommon {
   }
 
   /**
-   * Property mit Text für Total Einträge in Seite
+   * Property with text for total entries in page
    */
   public get PageSizeText(): Observable<string> {
     return this.lngResourceService.GetString(this.pagesizetext);
   }
 
   /**
-   * Text mit Aktueller Seite und Total Seiten
+   * Text with current page and total pages
    */
   public get PagingText(): Observable<string> {
     return this.lngResourceService.GetString(this.pagingtext, {
@@ -160,7 +158,7 @@ export abstract class SacPagingCommon {
   }
 
   /**
-   * Gibt die Page Sizes als Number Array zurück
+   * Returns the page sizes as a number array
    */
   public get getPageSizes(): number[] {
     return this.pagesizes.split('|').map((itm) => Number(itm));
@@ -171,8 +169,8 @@ export abstract class SacPagingCommon {
   // #region Public Methods
 
   /**
-   * Andert die Seite auf den neuen Index
-   * @param newPageIndex Seiten Index. Dies entspricht der Seitenzahl - 1.
+   * Changes the page to the new index
+   * @param newPageIndex Page index. This corresponds to the page number - 1.
    */
   public changePage(newPageIndex: number) {
     if (this.activePageIndex !== newPageIndex) {
@@ -181,8 +179,8 @@ export abstract class SacPagingCommon {
   }
 
   /**
-   * Ändert die Seitengrösse im Pager
-   * @param newSize Neue Anzahl Elemente pro Seite
+   * Changes the page size in the pager
+   * @param newSize New number of elements per page
    */
   public changePageSize(newSize: number) {
     const pagerData: PagerRequest = new PagerRequest(
@@ -193,7 +191,7 @@ export abstract class SacPagingCommon {
   }
 
   /**
-   * Paging auf 1. Seite
+   *Switch to 1st page
    */
   public firstPage() {
     if (this.activePageIndex !== this.firstPageIndex) {
@@ -202,21 +200,21 @@ export abstract class SacPagingCommon {
   }
 
   /**
-   * Gibt die aktuelle Seitenzahl zurück
+   * Returns the current page number
    */
   public getCurrentPageNumber(): number {
     return this.activePageIndex + 1;
   }
 
   /**
-   * Gibt die totale Anzahl Seiten zurück
+   * Returns the total number of pages
    */
   public getTotalPageNumber(): number {
     return this.lastPageIndex + 1;
   }
 
   /**
-   * Paging auf letzter Seite
+   * Paging on last page
    */
   public lastPage() {
     if (this.activePageIndex !== this.lastPageIndex) {
@@ -225,7 +223,7 @@ export abstract class SacPagingCommon {
   }
 
   /**
-   * Paging auf nächste Seite
+   * Paging to next page
    */
   public nextPage() {
     if (this.activePageIndex !== this.lastPageIndex) {
@@ -234,7 +232,7 @@ export abstract class SacPagingCommon {
   }
 
   /**
-   * Paging eine Seite zurück
+   * Paging one page back
    */
   public previousPage() {
     if (this.activePageIndex !== this.firstPageIndex) {
@@ -247,7 +245,7 @@ export abstract class SacPagingCommon {
   // #region Protected Methods
 
   /**
-   * Erzeugt die Pager Daten
+   * Generates the pager data
    */
   protected createPager() {
     this.paginators = [];
@@ -279,8 +277,8 @@ export abstract class SacPagingCommon {
   }
 
   /**
-   * Gibt den letzten Seitenindex zurück.
-   * @param totalPageCount Total Anzahl Seiten
+   * Returns the last page index.
+   * @param totalPageCount Total number of pages
    */
   protected getEndPageIndex(totalPageCount: number): number {
     let endingPageToDisplay = this.activePageIndex + 2;
@@ -295,8 +293,8 @@ export abstract class SacPagingCommon {
   }
 
   /**
-   * Gibt den Start Index zurück
-   * @param totalPageCount Total Anzahl Seiten
+   * Returns the start index
+   * @param totalPageCount Total number of pages
    */
   protected getStartPageIndex(totalPageCount: number): number {
     let startingPageToDisplay: number = 0;
@@ -313,7 +311,7 @@ export abstract class SacPagingCommon {
   }
 
   /**
-   * Methode löst den Event aus, dass ein Paging stattgefunden hat
+   * method triggers the event that paging has taken place
    */
   protected paged(newPageIndex: number) {
     const pagerData: PagerRequest = new PagerRequest(

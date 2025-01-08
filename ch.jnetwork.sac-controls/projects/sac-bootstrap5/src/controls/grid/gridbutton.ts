@@ -1,17 +1,8 @@
-import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
-import { SacGridCommon, SacGridButtonCommon } from '@simpleangularcontrols/sac-common';
+import { Component } from '@angular/core';
+import { SacGridButtonCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Grid Action Button
- *
- * @example Standard Action
- *
- * <ngGridButton icon="edit" (clicked)="action('edit')" [isdisabled]="true"></ngGridButton>
- *
- * @example Custom Action
- *
- * <ngGridButton iconstyle="sprite" icon="icon-sprite-base-main_info" (clicked)="action("info")"></ngGridButton>
- *
  */
 @Component({
     selector: 'sac-gridbutton',
@@ -19,9 +10,10 @@ import { SacGridCommon, SacGridButtonCommon } from '@simpleangularcontrols/sac-c
     standalone: true
 })
 export class SacGridButtonComponent extends SacGridButtonCommon {
+  // #region Public Methods
 
   /**
-   * Gibt das Icon für den Button zurück
+   * Returns the icon for the button
    */
   public getIconClass(): string {
     let iconset: string = this.iconstyle;
@@ -49,5 +41,5 @@ export class SacGridButtonComponent extends SacGridButtonCommon {
     return result.trim();
   }
 
-
+  // #endregion Public Methods
 }

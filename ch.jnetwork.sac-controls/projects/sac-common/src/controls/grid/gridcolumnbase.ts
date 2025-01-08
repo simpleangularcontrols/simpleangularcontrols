@@ -6,18 +6,60 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { SacGridCommon } from './grid';
-import { SortOrder } from './model';
 import { ISacIconService } from '../../interfaces/ISacIconService';
 import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
+import { SacGridCommon } from './grid';
+import { SortOrder } from './model';
 
 /**
- * Base Komponente für GridColumn
+ * Base component for GridColumn
  */
 @Directive()
 export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
+  // #region Properties
+
   /**
-   * Konstruktor
+   * icon service for reading the icons
+   */
+  protected iconService: ISacIconService;
+
+  /**
+   * Value of the cell if the type is `header`.
+   */
+  @Input()
+  public header: string;
+  /**
+   * Name of the column
+   */
+  @Input()
+  public name: any;
+  /**
+   * Key for sorting the column
+   */
+  @Input()
+  public sortkey: string;
+  /**
+   * Type of column. Can contain the values `header`,`footer` and `body`.
+   */
+  @Input()
+  public type: string;
+  /**
+   * Value of the cell if the type is `body`
+   */
+  @Input()
+  public value: any;
+  /**
+   * Column width
+   */
+  @Input()
+  public width: string;
+
+  // #endregion Properties
+
+  // #region Constructors
+
+  /**
+   * Constructor
    * @param grid  reference to grid component
    * @param injector di injector to resolve icon service
    * @param el reference to html element
@@ -33,57 +75,98 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
     );
   }
 
-  /**
-   * icon service
-   */
-  protected iconService: ISacIconService;
+  // #endregion Constructors
 
-  //#region Input / Outputs
+  // #region Public Getters And Setters
 
   /**
-   * Das Input property erhält den Namen des Column
+   * sort down icon for grid header
    */
-  @Input()
-  public name: any;
+  public get IconSortDown(): string {
+    return this.iconService.GridComponentSortDown;
+  }
 
   /**
-   * Das Input property erhält das Value des Column
+   * sort up icon for grid header
    */
-  @Input()
-  public value: any;
+  public get IconSortUp(): string {
+    return this.iconService.GridComponentSortUp;
+  }
+
+  // #endregion Public Getters And Setters
+
+  // #region Public Methods
 
   /**
-   * Das Input property erhält das Header des Column
+   * Indicates the direction of sorting. The possible values are `none`,`asc`,`desc`
    */
-  @Input()
-  public header: string;
+  public GetSortDirection(): string {
+    switch (this.grid.sortDirection) {
+      case SortOrder.None:
+        return 'none';
+      case SortOrder.Ascending:
+        return 'asc';
+      case SortOrder.Descending:
+        return 'desc';
+      default:
+        return 'none';
+    }
+  }
 
   /**
-   * Das Input property erhält die Breite des Column
+   * Defines whether the element is a cell in the table.
    */
-  @Input()
-  public width: string;
+  public IsBody(): boolean {
+    return this.type === 'body';
+  }
 
   /**
-   * Das Input property erhält das Type des Column
+   * Defines whether the element is a cell in the footer of the table
    */
-  @Input()
-  public type: string;
+  public IsFooter(): boolean {
+    return this.type === 'footer';
+  }
 
   /**
-   * Das Input property erhält das Column- Key-Word, damit das Column sortiert werden kann.
+   * Defines whether the element is a cell in the table header
    */
-  @Input()
-  public sortkey: string;
-
-  //#endregion
-
-  //#region Interface Implementations
+  public IsHeader(): boolean {
+    return this.type === 'header';
+  }
 
   /**
-   * lifecycle hook - OnInit. Wird aufgeruren sobald das Komponent initialisiert ist.
+   * Defines whether this column is sorted.
    */
-  ngOnInit() {
+  public IsSortedColumn(): boolean {
+    return this.grid.sortColumn === this.sortkey;
+  }
+
+  /**
+   * Triggers the events so that the table is sorted according to this column.
+   */
+  public SortByColumn() {
+    if (
+      this.sortkey !== undefined &&
+      this.sortkey !== null &&
+      this.sortkey !== ''
+    ) {
+      return this.grid.SortBy(this.sortkey);
+    }
+  }
+
+  /**
+   * Called when the component is destroyed.
+   */
+  public ngOnDestroy(): void {
+    if (this.IsHeader()) {
+      this.grid.UnregisterColumn();
+    }
+  }
+
+  /**
+   * Is called when the component is initialized.
+   */
+  public ngOnInit() {
     const rootElement: HTMLElement = this.el.nativeElement;
     const parentElement: HTMLElement = rootElement.parentElement;
 
@@ -98,89 +181,5 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
     }
   }
 
-  /**
-   * lifecycle hook - ngOnDestroy. Wird aufgeruren wenn das Component zerstört wird.
-   */
-  ngOnDestroy(): void {
-    if (this.IsHeader()) {
-      this.grid.UnregisterColumn();
-    }
-  }
-
-  //#endregion
-
-  //#region Type Handling
-
-  /**
-   * die Methode ergibt boolean Wert, ob das Element Header ist.
-   */
-  public IsHeader(): boolean {
-    return this.type === 'header';
-  }
-
-  /**
-   * die Methode ergibt boolean Wert, ob das Element Body ist.
-   */
-  public IsBody(): boolean {
-    return this.type === 'body';
-  }
-
-  /**
-   * die Methode ergibt boolean Wert, ob das Element Footer ist.
-   */
-  public IsFooter(): boolean {
-    return this.type === 'footer';
-  }
-
-  //#endregion
-
-  /**
-   * sort up icon for grid header
-   */
-  public get IconSortUp(): string {
-    return this.iconService.GridComponentSortUp;
-  }
-
-  /**
-   * sort down icon for grid header
-   */
-  public get IconSortDown(): string {
-    return this.iconService.GridComponentSortDown;
-  }
-
-  /**
-   * Die Methode deffiniert wie das Grid sortiert wird, abhängig von gekligte Column
-   */
-  public SortByColumn() {
-    if (
-      this.sortkey !== undefined &&
-      this.sortkey !== null &&
-      this.sortkey !== ''
-    ) {
-      return this.grid.SortBy(this.sortkey);
-    }
-  }
-
-  /**
-   * die Methode ergibt boolean Wert und definiert, ob das Column für Sortierung aktiviert ist, gemäß eingegebene sortKey
-   */
-  public IsSortedColumn(): boolean {
-    return this.grid.sortColumn === this.sortkey;
-  }
-
-  /**
-   * Die methode definiert die Dortirung Richtung. Die Werte sind: none, asc, desc.
-   */
-  public GetSortDirection(): string {
-    switch (this.grid.sortDirection) {
-      case SortOrder.None:
-        return 'none';
-      case SortOrder.Ascending:
-        return 'asc';
-      case SortOrder.Descending:
-        return 'desc';
-      default:
-        return 'none';
-    }
-  }
+  // #endregion Public Methods
 }

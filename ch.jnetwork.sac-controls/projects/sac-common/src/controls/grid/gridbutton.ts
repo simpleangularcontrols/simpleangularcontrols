@@ -5,52 +5,63 @@ import { Directive, EventEmitter, Input, Output } from '@angular/core';
  */
 @Directive()
 export class SacGridButtonCommon {
-  /**
-   * Input Property für Styling des Buttons. Deffiniert die Css Klassen des Buttons
-   */
-  @Input()
-  public iconstyle: string = '';
+  // #region Properties
 
   /**
-   * Icon Name aus Sprite
-   */
-  @Input()
-  public icon: string;
-
-  /**
-   * Button ist deaktiviert
+   * Button is deactivated
    */
   protected _isdisabledvalue: boolean = false;
 
   /**
-   * Deaktivieren von Buttons
-   * @param v Deaktiviert den Button
-   * @return Definiert ob der Button deaktiviert ist
+   * Icon name from sprite
    */
   @Input()
-  set isdisabled(v: boolean | string) {
+  public icon: string;
+  /**
+   * Input property for styling the button. Defines the CSS classes of the button
+   */
+  @Input()
+  public iconstyle: string = '';
+  /**
+   * Event when the button is clicked
+   */
+  @Output()
+  public clicked: EventEmitter<any> = new EventEmitter<any>();
+
+  // #endregion Properties
+
+  // #region Public Getters And Setters
+
+  /**
+   * Deactivating buttons
+   * @param v Deactivates the button. Can be a Boolean or the strings `true` or `false`.
+   * @return Defines whether the button is deactivated. Is always a Boolean type
+   */
+  @Input()
+  public set isdisabled(v: boolean | string) {
     if (v === null || v === undefined || typeof v === 'boolean') {
       this._isdisabledvalue = v as boolean;
     } else {
       this._isdisabledvalue = v === 'true';
     }
   }
-  get isdisabled(): boolean | string {
+
+  public get isdisabled(): boolean | string {
     return this._isdisabledvalue;
   }
 
-  /**
-   * Event wenn auf den Button geklickt wird
-   */
-  @Output()
-  clicked: EventEmitter<any> = new EventEmitter<any>();
+  // #endregion Public Getters And Setters
+
+  // #region Public Methods
 
   /**
-   * Die Methode wird das cklickaction Emitter aktivieren
+   * Triggers the clicked event if the button is not deactivated.
    */
   public callaction() {
     if (!this._isdisabledvalue) {
       this.clicked.emit(this.iconstyle);
     }
   }
+
+  // #endregion Public Methods
 }

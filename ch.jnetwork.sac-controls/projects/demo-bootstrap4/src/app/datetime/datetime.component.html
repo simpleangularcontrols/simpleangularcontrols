@@ -27,6 +27,7 @@
       label="Datum 2"
       [(ngModel)]="values.datum2"
       [isrequired]="true"
+      helptext="Dies ist ein Helptext"
     ></sac-date>
 
     <sac-date
@@ -34,6 +35,8 @@
       label="Datum 3 (Min 01.01.2018)"
       [(ngModel)]="values.datum3"
       mindate="01.01.2018"
+      helptext="Dies ist ein Helptext"
+      helptextmode="tooltip"
     ></sac-date>
 
     <sac-date
@@ -64,6 +67,7 @@
       label="Zeit 3 (Max. 18:00)"
       [(ngModel)]="values.time3"
       maxtime="18:00"
+      helptext="Dies ist ein Helptext"
     ></sac-time>
 
     <sac-time
@@ -72,6 +76,8 @@
       [(ngModel)]="values.time4"
       mintime="10:00"
       maxtime="18:00"
+      helptext="Dies ist ein Helptext"
+      helptextmode="tooltip"
     ></sac-time>
 
     <sac-time
@@ -99,6 +105,7 @@
       label="Datum & Zeit 2 (Min. 19.08.2018 14:00)"
       [(ngModel)]="values.datumzeit2"
       mindate="19.08.2018 14:00"
+      helptext="Dies ist ein Helptext"
     ></sac-datetime>
 
     <sac-datetime
@@ -106,6 +113,8 @@
       label="Datum & Zeit 3 (Max. 19.08.2018 17:00)"
       [(ngModel)]="values.datumzeit3"
       maxdate="19.08.2018 17:00"
+      helptext="Dies ist ein Helptext"
+      helptextmode="tooltip"
     ></sac-datetime>
 
     <sac-datetime

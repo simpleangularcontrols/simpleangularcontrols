@@ -6,10 +6,27 @@
   <sac-validationsummary></sac-validationsummary>
 
   <sac-dropdown
-    name="dropdown1"
+    name="dropdown1a"
     label="Dropdown 1"
     [(ngModel)]="values.dropdown1"
     [options]="values.dropdownitems"
+  ></sac-dropdown>
+
+  <sac-dropdown
+    name="dropdown1b"
+    label="Dropdown 1"
+    [(ngModel)]="values.dropdown1"
+    [options]="values.dropdownitems"
+    helptext="Dies ist ein Helptext"
+  ></sac-dropdown>
+
+  <sac-dropdown
+    name="dropdown1c"
+    label="Dropdown 1"
+    [(ngModel)]="values.dropdown1"
+    [options]="values.dropdownitems"
+    helptext="Dies ist ein Helptext"
+    helptextmode="tooltip"
   ></sac-dropdown>
 
   <sac-dropdown
@@ -97,10 +114,25 @@
   ></sac-dropdown>
 
   <sac-listbox
-    name="listbox1"
+    name="listbox1a"
     label="Listbox 1"
     [options]="values.dropdownitems"
     [(ngModel)]="values.listbox1"
+  ></sac-listbox>
+  <sac-listbox
+    name="listbox1b"
+    label="Listbox 1"
+    [options]="values.dropdownitems"
+    [(ngModel)]="values.listbox1"
+    helptext="Dies ist ein Helptext"
+  ></sac-listbox>
+  <sac-listbox
+    name="listbox1c"
+    label="Listbox 1"
+    [options]="values.dropdownitems"
+    [(ngModel)]="values.listbox1"
+    helptext="Dies ist ein Helptext"
+    helptextmode="tooltip"
   ></sac-listbox>
   <sac-listbox
     name="listbox2"
@@ -132,24 +164,22 @@
     disabled="true"
   ></sac-listbox>
   <sac-listbox
-  name="listbox6"
-  label="Listbox 6"
-  [(ngModel)]="values.listbox6"
-  [options]="values.dropdownitems3"
-  disabled="true"
-></sac-listbox>
-  <sac-listbox name="listbox7" label="Listbox 7" [(ngModel)]="values.listbox4"
-    >
+    name="listbox6"
+    label="Listbox 6"
+    [(ngModel)]="values.listbox6"
+    [options]="values.dropdownitems3"
+    disabled="true"
+  ></sac-listbox>
+  <sac-listbox name="listbox7" label="Listbox 7" [(ngModel)]="values.listbox4">
     <option value="v1">Value 1</option>
     <option value="v2">Value 2</option>
     <option value="v3">Value 4</option>
   </sac-listbox>
-  <sac-listbox name="listbox8" label="Listbox 8" [(ngModel)]="values.listbox6"
-  >
-  <option [ngValue]="1">Value 1</option>
-  <option [ngValue]="2">Value 2</option>
-  <option [ngValue]="3">Value 4</option>
-</sac-listbox>
+  <sac-listbox name="listbox8" label="Listbox 8" [(ngModel)]="values.listbox6">
+    <option [ngValue]="1">Value 1</option>
+    <option [ngValue]="2">Value 2</option>
+    <option [ngValue]="3">Value 4</option>
+  </sac-listbox>
 
   {{ values | json }}
 </form>

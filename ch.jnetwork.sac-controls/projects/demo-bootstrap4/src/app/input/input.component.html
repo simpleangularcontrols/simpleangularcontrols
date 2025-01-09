@@ -3,14 +3,29 @@
   <div class="mb-2">
     <sac-button (clicked)="debugAction()" text="Validate"></sac-button>
   </div>
-  <sac-validationsummary ngModelGroup="Group3"></sac-validationsummary>
+  <sac-validationsummary></sac-validationsummary>
 
   <div ngModelGroup="Group1">
     <sac-inputsearch
-      name="field4search"
+      name="field4searcha"
       label="Feld 4 Search"
       [(ngModel)]="values.field4"
       buttontext="Suchen"
+    ></sac-inputsearch>
+    <sac-inputsearch
+      name="field4searchb"
+      label="Feld 4 Search"
+      [(ngModel)]="values.field4"
+      buttontext="Suchen"
+      helptext="Dies ist ein Helptext"
+      helptextmode="tooltip"
+    ></sac-inputsearch>
+    <sac-inputsearch
+      name="field4searchc"
+      label="Feld 4 Search"
+      [(ngModel)]="values.field4"
+      buttontext="Suchen"
+      helptext="Dies ist ein Helptext"
     ></sac-inputsearch>
     <sac-inputsearch
       name="field4search2"
@@ -18,6 +33,8 @@
       label="Feld 4 Search"
       [(ngModel)]="values.field4"
       buttontext="Suchen"
+      helptext="Dies ist ein Helptext"
+      helptextmode="text"
     ></sac-inputsearch>
     <div ngModelGroup="Group3">
       <sac-input
@@ -56,12 +73,15 @@
       label="Feld 6 (Max 10)"
       [(ngModel)]="values.field6"
       [maxlength]="10"
+      helptext="Dies ist ein Helptext"
     ></sac-input>
     <sac-input
       name="field7"
       label="Feld 7"
       [(ngModel)]="values.field7"
       disabled="true"
+      helptext="Dies ist ein Helptext"
+      helptextmode="tooltip"
     ></sac-input>
   </div>
 
@@ -86,12 +106,15 @@
       isrequired="true"
       [minvalue]="10"
       [maxvalue]="20"
+      helptext="Dies ist ein Helptext"
     ></sac-inputdecimal>
     <sac-inputdecimal
       name="fieldd4"
       label="Decimal 4 (Decimal)"
       [(ngModel)]="values.fieldd1"
       disabled="true"
+      helptext="Dies ist ein Helptext"
+      helptextmode="tooltip"
     ></sac-inputdecimal>
 
     <sac-inputinteger
@@ -113,12 +136,15 @@
       isrequired="true"
       [minvalue]="10"
       [maxvalue]="20"
+      helptext="Dies ist ein Helptext"
     ></sac-inputinteger>
     <sac-inputinteger
       name="fieldi4"
       label="Integer 1 (Integer)"
       [(ngModel)]="values.fieldi1"
       disabled="true"
+      helptext="Dies ist ein Helptext"
+      helptextmode="tooltip"
     ></sac-inputinteger>
 
     <sac-inputcurrency
@@ -138,6 +164,7 @@
       [(ngModel)]="values.fieldcurrency3"
       [isrequired]="true"
       validationmessagerequired="Please enter a valid price"
+      helptext="Dies ist ein Helptext"
     ></sac-inputcurrency>
     <sac-inputcurrency
       name="fieldcurrency4"
@@ -145,6 +172,8 @@
       [(ngModel)]="values.fieldcurrency4"
       currency="$"
       disabled="true"
+      helptext="Dies ist ein Helptext"
+      helptextmode="tooltip"
     ></sac-inputcurrency>
 
     <sac-inputemail
@@ -157,12 +186,15 @@
       label="E-Mail 2 (Max 10)"
       [(ngModel)]="values.fieldemail2"
       [maxlength]="10"
+      helptext="Dies ist ein Helptext"
     ></sac-inputemail>
     <sac-inputemail
       name="fieldemail3"
       label="E-Mail 3"
       [(ngModel)]="values.fieldemail3"
       disabled="true"
+      helptext="Dies ist ein Helptext"
+      helptextmode="tooltip"
     ></sac-inputemail>
 
     <sac-inputpassword
@@ -180,12 +212,15 @@
       label="Passwort 3 (Max 10)"
       [(ngModel)]="values.fieldpassword3"
       [maxlength]="10"
+      helptext="Dies ist ein Helptext"
+      helptextmode="tooltip"
     ></sac-inputpassword>
     <sac-inputpassword
       name="fieldpassword4"
       label="Passwort 4"
       [(ngModel)]="values.fieldpassword4"
       disabled="disabled"
+      helptext="Dies ist ein Helptext"
     ></sac-inputpassword>
 
     <sac-inputarea
@@ -205,15 +240,51 @@
       label="Area 3 (Max 50)"
       [(ngModel)]="values.fieldarea3"
       maxlength="50"
+      helptext="Dies ist ein Helptext"
     ></sac-inputarea>
     <sac-inputarea
       name="fieldarea4"
       label="Area 4"
       [(ngModel)]="values.fieldarea4"
       disabled="true"
+      helptext="Dies ist ein Helptext"
+      helptextmode="tooltip"
     ></sac-inputarea>
 
     <sac-staticformcontainer label="Container DateTime" lableSizeMd="4">
+      <input
+        class="form-control"
+        type="datetime-local"
+        id="meeting-time"
+        name="meeting-time"
+        value="2018-06-12T19:30"
+        min="2018-06-07T00:00"
+        max="2018-06-14T00:00"
+      />
+    </sac-staticformcontainer>
+
+    <sac-staticformcontainer
+      label="Container DateTime"
+      lableSizeMd="4"
+      helptext="Dies ist ein Helptext"
+    >
+      <input
+        class="form-control"
+        type="datetime-local"
+        id="meeting-time"
+        name="meeting-time"
+        value="2018-06-12T19:30"
+        min="2018-06-07T00:00"
+        max="2018-06-14T00:00"
+      />
+    </sac-staticformcontainer>
+
+    <sac-staticformcontainer
+      label="Container DateTime"
+      lableSizeMd="4"
+      helptext="Dies ist ein Helptext"
+      helptextmode="tooltip"
+    >
       <input
         class="form-control"
         type="datetime-local"
@@ -229,9 +300,34 @@
       <input type="range" class="custom-range" />
     </sac-staticformcontainer>
 
+    <sac-staticformcontainer
+      label="Container Range"
+      lableSizeMd="4"
+      helptext="Dies ist ein Helptext"
+    >
+      <input type="range" class="custom-range" />
+    </sac-staticformcontainer>
+
+    <sac-staticformcontainer
+      label="Container Range"
+      lableSizeMd="4"
+      helptext="Dies ist ein Helptext"
+      helptextmode="tooltip"
+    >
+      <input type="range" class="custom-range" />
+    </sac-staticformcontainer>
+
     <sac-staticlabel
       label="Static Control"
       value="static value"
+      helptext="Dieser Text unterstützt den Benutzer."
+    ></sac-staticlabel>
+
+    <sac-staticlabel
+      label="Static Control"
+      value="static value"
+      helptext="Dieser Text unterstützt den Benutzer."
+      helptextmode="tooltip"
     ></sac-staticlabel>
   </div>
 </form>

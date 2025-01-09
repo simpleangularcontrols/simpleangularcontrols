@@ -11,11 +11,15 @@ export class CustomConfigurationService extends SacAbstractConfigurationService 
   // #region Public Getters And Setters
 
   public get ComponentHeight(): ControlHeight | null {
-    return ControlHeight.Small;
+    return ControlHeight.Large;
   }
 
   public get CurrencyText(): string {
     return 'CHF';
+  }
+
+  public get HelptextMode(): 'tooltip' | 'text' {
+    return 'text';
   }
 
   public get InlineErrorEnabled(): boolean {

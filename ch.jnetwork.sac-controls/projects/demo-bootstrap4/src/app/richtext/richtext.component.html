@@ -8,6 +8,7 @@
   <sac-tinymce
     label="Inhalt"
     name="tinymce1"
+    [isrequired]="true"
     [config]="config1"
     [(ngModel)]="value1"
   ></sac-tinymce>
@@ -18,7 +19,6 @@
   <sac-tinymce
     label="Inhalt"
     name="tinymce2"
-    [isrequired]="true"
     [config]="config2"
     [(ngModel)]="value2"
     height="450px"
@@ -40,11 +40,13 @@
 
   <h2>RichtText Component Disabled</h2>
   <sac-tinymce
-    [disablelabel]="true"
     name="tinymce4"
+    label="Label"
     [config]="config4"
     [(ngModel)]="value4"
     [disabled]="true"
+    helptext="Dies ist ein Helptext"
+    helptextmode="tooltip"
   ></sac-tinymce>
   <div>Output</div>
   <div>{{ value4 | json }}</div>
@@ -66,6 +68,7 @@
     [config]="config6"
     [(ngModel)]="value6"
     (onsave)="save6($event)"
+    helptext="Dies ist ein Helptext"
   ></sac-tinymce>
   <div>Output</div>
   <div>{{ value6 | json }}</div>

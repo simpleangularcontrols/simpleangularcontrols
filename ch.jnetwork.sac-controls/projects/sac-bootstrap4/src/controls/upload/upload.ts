@@ -15,6 +15,7 @@ import { SacToControlHeightPipe } from '../layout/tocontrolheight.pipe';
 import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
 import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
+import { SacTooltipComponent } from '../tooltip/tooltip';
 
 /**
  * Upload Komponten
@@ -45,6 +46,7 @@ import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
     SacToControlWidthCssPipe,
     SacToLabelHeightPipe,
     SacToControlHeightPipe,
+    SacTooltipComponent,
   ],
 })
 export class SacUploadComponent extends SacUploadSingleCommon {

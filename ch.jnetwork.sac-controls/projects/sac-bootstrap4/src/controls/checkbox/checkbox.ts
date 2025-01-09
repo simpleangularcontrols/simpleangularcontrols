@@ -7,6 +7,7 @@ import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
 import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
+import { SacTooltipComponent } from '../tooltip/tooltip';
 
 /**
  * Checkbox Kompontente
@@ -35,6 +36,7 @@ import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
     SacToLabelWidthCssPipe,
     SacToControlWidthCssPipe,
     SacToLabelHeightPipe,
+    SacTooltipComponent,
   ],
 })
 export class SacCheckboxComponent extends SacCheckboxCommon {

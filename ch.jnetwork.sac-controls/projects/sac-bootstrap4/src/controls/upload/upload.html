@@ -5,8 +5,17 @@
     for="{{name}}"
     class="col-12 col-form-label"
     [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
-    >{{label}}</label
-  >
+    >{{label}}
+    <sac-tooltip
+      *ngIf="helptextmode === 'tooltip' && helptext"
+      [tooltiptext]="helptext"
+      [inlinemode]="true"
+    >
+      <span
+        [class]="HelptextTooltipIcon"
+        style="margin-left: 5px"
+      ></span> </sac-tooltip
+  ></label>
   <div
     class="col-12"
     [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
@@ -111,6 +120,13 @@
         </button>
       </div>
     </div>
+    <small
+      *ngIf="helptextmode === 'text' && helptext"
+      class="help-block"
+      class="form-text text-muted"
+    >
+      {{helptext}}
+    </small>
     <div
       *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
       class="invalid-feedback"

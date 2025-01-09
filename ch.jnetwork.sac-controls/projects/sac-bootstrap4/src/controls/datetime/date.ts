@@ -17,6 +17,7 @@ import { SacToControlHeightPipe } from '../layout/tocontrolheight.pipe';
 import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
 import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
+import { SacTooltipComponent } from '../tooltip/tooltip';
 import { SacDateSelectorComponent } from './dateselector';
 
 /**
@@ -54,6 +55,7 @@ const moment = moment_['default'];
     SacToControlWidthCssPipe,
     SacToLabelHeightPipe,
     SacToControlHeightPipe,
+    SacTooltipComponent,
   ],
 })
 export class SacDateComponent extends SacDateCommon {

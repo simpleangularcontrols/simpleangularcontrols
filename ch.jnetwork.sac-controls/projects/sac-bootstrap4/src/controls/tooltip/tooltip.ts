@@ -1,4 +1,6 @@
+import { NgIf } from '@angular/common';
 import { ChangeDetectorRef, Component, ElementRef } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { SacTooltipCommon } from '@simpleangularcontrols/sac-common';
 
 /**
@@ -23,6 +25,8 @@ import { SacTooltipCommon } from '@simpleangularcontrols/sac-common';
 @Component({
   selector: 'sac-tooltip',
   templateUrl: './tooltip.html',
+  standalone: true,
+  imports: [FormsModule, NgIf],
 })
 export class SacTooltipComponent extends SacTooltipCommon {
   // #region Constructors

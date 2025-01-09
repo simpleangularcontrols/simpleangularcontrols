@@ -17,6 +17,7 @@ import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
 import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
+import { SacTooltipComponent } from '../tooltip/tooltip';
 /**
  * TinyMCE Komponente
  */
@@ -50,6 +51,7 @@ import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
     SacToControlWidthCssPipe,
     SacToLabelWidthCssPipe,
     SacToLabelHeightPipe,
+    SacTooltipComponent,
   ],
 })
 export class SacTinyMceComponent extends SacTinyMceCommon {

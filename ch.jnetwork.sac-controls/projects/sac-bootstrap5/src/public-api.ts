@@ -73,6 +73,7 @@ export * from './controls/static/staticlabel';
 export * from './controls/tabs/tab';
 export * from './controls/tabs/tabitem';
 export * from './controls/tinymce/tinymce';
+export * from './controls/tooltip/tooltip';
 export * from './controls/upload/dropzonemultiple';
 export * from './controls/upload/dropzonesingle';
 export * from './controls/upload/upload';

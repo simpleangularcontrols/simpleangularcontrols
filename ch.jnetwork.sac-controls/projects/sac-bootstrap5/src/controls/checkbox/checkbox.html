@@ -8,8 +8,14 @@
       for="{{name}}"
       class="col-form-label"
       [ngClass]="componentHeight | toLabelHeight"
-      >{{label}}</label
-    >
+      >{{label}}
+      <sac-tooltip
+        *ngIf="helptextmode === 'tooltip' && helptext"
+        [tooltiptext]="helptext"
+        [inlinemode]="true"
+      >
+        <span [ngClass]="HelptextTooltipIcon" class="ms-1"></span> </sac-tooltip
+    ></label>
   </div>
   <div
     class="align-self-center col-12"
@@ -40,6 +46,9 @@
       >
         <ng-container *ngIf="checkboxtext">{{checkboxtext}}</ng-container>
       </label>
+    </div>
+    <div *ngIf="helptextmode === 'text' && helptext" class="form-text">
+      {{helptext}}
     </div>
   </div>
 </div>

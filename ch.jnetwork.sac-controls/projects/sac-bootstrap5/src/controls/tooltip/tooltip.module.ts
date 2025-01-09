@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 import { SacTooltipComponent } from './tooltip';
 
 @NgModule({
-  declarations: [SacTooltipComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, SacTooltipComponent],
   exports: [SacTooltipComponent],
 })
 export class SACBootstrap5TooltipModule {}

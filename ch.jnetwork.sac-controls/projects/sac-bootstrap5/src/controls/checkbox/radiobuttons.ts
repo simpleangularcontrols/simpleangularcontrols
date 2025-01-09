@@ -6,6 +6,7 @@ import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
 import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
+import { SacTooltipComponent } from '../tooltip/tooltip';
 
 /**
  * Radiobuttons Group Komponente
@@ -33,6 +34,7 @@ import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
     SacToControlWidthCssPipe,
     SacToLabelWidthCssPipe,
     SacToLabelHeightPipe,
+    SacTooltipComponent,
   ],
 })
 export class SacRadiobuttonsComponent extends SacRadiobuttonsCommon {

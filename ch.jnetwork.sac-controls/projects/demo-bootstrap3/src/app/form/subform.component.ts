@@ -10,13 +10,20 @@ import { FormsModule } from '@angular/forms';
 import {
   SACBootstrap3FormModule,
   SACBootstrap3InputModule,
+  SacFormLayoutDirective,
+  SacInheritFormDirective,
 } from '@simpleangularcontrols/sac-bootstrap3';
 
 @Component({
   selector: 'app-subform',
   templateUrl: './subform.component.html',
   standalone: true,
-  imports: [SACBootstrap3FormModule, SACBootstrap3InputModule, FormsModule],
+  imports: [
+    SACBootstrap3FormModule,
+    SACBootstrap3InputModule,
+    FormsModule,
+    SacFormLayoutDirective,
+  ],
 })
 export class DemoSubFormComponent implements DoCheck {
   // #region Properties

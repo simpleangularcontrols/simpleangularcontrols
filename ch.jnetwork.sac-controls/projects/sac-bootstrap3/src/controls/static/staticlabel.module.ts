@@ -1,14 +1,16 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SacStaticLabelComponent } from './staticlabel';
+import { NgModule } from '@angular/core';
+import { SacTooltipComponent } from '../tooltip/tooltip';
 import { SacStaticFormContainerComponent } from './formcontainer';
-import { SACBootstrap3TooltipModule } from '../tooltip/tooltip.module';
+import { SacStaticLabelComponent } from './staticlabel';
 
 @NgModule({
-    imports: [
-        CommonModule, SACBootstrap3TooltipModule,
-        SacStaticLabelComponent, SacStaticFormContainerComponent
-    ],
-    exports: [SacStaticLabelComponent, SacStaticFormContainerComponent]
+  imports: [
+    CommonModule,
+    SacStaticLabelComponent,
+    SacStaticFormContainerComponent,
+    SacTooltipComponent,
+  ],
+  exports: [SacStaticLabelComponent, SacStaticFormContainerComponent],
 })
-export class SACBootstrap3StaticLabelModule { }
+export class SACBootstrap3StaticLabelModule {}

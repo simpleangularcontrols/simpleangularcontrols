@@ -18,6 +18,10 @@ export class CustomConfigurationService extends SacAbstractConfigurationService 
     return 'CHF';
   }
 
+  public get HelptextMode(): 'tooltip' | 'text' {
+    return 'text';
+  }
+
   public get InlineErrorEnabled(): boolean {
     return true;
   }

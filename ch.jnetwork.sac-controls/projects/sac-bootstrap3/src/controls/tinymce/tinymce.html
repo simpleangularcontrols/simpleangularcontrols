@@ -9,6 +9,13 @@
     [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
   >
     {{label}}
+    <sac-tooltip
+      *ngIf="helptextmode === 'tooltip' && helptext"
+      [tooltiptext]="helptext"
+      [inlinemode]="true"
+    >
+      <span [class]="HelptextTooltipIcon" style="margin-left: 5px"></span>
+    </sac-tooltip>
   </label>
   <div
     class="col-xs-12"
@@ -26,6 +33,9 @@
       [disabled]="disabled"
       [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)"
     ></editor>
+    <p *ngIf="helptextmode === 'text' && helptext" class="help-block">
+      {{helptext}}
+    </p>
     <div
       *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
       class="help-block"

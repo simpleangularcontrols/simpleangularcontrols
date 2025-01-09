@@ -20,6 +20,7 @@
     label="Mein Bild 2"
     [(ngModel)]="values.fieldupload2"
     [disablelabel]="true"
+    helptext="Dies ist ein Helptext"
   ></sac-upload>
   <sac-upload
     endpoint="/api/upload/register"
@@ -27,6 +28,8 @@
     label="Mein Bild 3"
     [(ngModel)]="values.fieldupload3"
     allowedtypes=".pdf"
+    helptext="Dies ist ein Helptext"
+    helptextmode="tooltip"
   ></sac-upload>
   <sac-upload
     endpoint="/api/upload/register"
@@ -87,6 +90,7 @@
     maxfiles="4"
     [enablepause]="false"
     (onfileerror)="showmessage($event)"
+    helptext="Dies ist ein Helptext"
   ></sac-uploadmultiple>
   <sac-uploadmultiple
     endpoint="/api/upload/register"
@@ -97,6 +101,8 @@
     [enablepause]="false"
     [autoupload]="true"
     (onfileerror)="showmessage($event)"
+    helptext="Dies ist ein Helptext"
+    helptextmode="tooltip"
   ></sac-uploadmultiple>
   <sac-uploadmultiple
     endpoint="/api/upload/register"

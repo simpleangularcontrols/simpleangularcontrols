@@ -129,7 +129,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Basis Komponente für SacGridImage</p>
+                <p>Basic component for SacGridImage</p>
 
             </p>
 
@@ -184,12 +184,12 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/sac-common/src/controls/grid/gridimage.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/sac-common/src/controls/grid/gridimage.ts:14</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>das Input property akypetiert string value für style des Icon</p>
+                        <div class="io-description"><p>Style of the icon</p>
 </div>
                     </td>
                 </tr>
@@ -206,20 +206,22 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Input, Directive } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, Input } from &#x27;@angular/core&#x27;;
 
 /**
- * Basis Komponente für SacGridImage
+ * Basic component for SacGridImage
  */
 @Directive()
 export class SacGridImageCommon {
+  // #region Properties
 
   /**
-   * das Input property akypetiert string value für style des Icon
+   * Style of the icon
    */
   @Input()
   public iconstyle: string;
 
+  // #endregion Properties
 }
 </code></pre>
     </div>

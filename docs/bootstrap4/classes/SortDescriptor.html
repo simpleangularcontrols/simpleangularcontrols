@@ -134,7 +134,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Model für Sortierung</p>
+                <p>Model for sorting</p>
 
             </p>
 
@@ -154,9 +154,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#SortColumn" >SortColumn</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#SortOrder" >SortOrder</a>
                             </li>
                         </ul>
@@ -183,13 +185,13 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:78</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:108</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -215,7 +217,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Column die Sortiert wird</p>
+                                                                <p>Column by which to sort</p>
 
                                                         </td>
                                                 </tr>
@@ -231,7 +233,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Art der Sortierung</p>
+                                                                <p>Type of sorting</p>
 
                                                         </td>
                                                 </tr>
@@ -255,6 +257,7 @@
                 <td class="col-md-4">
                     <a name="SortColumn"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>SortColumn</b></span>
                         <a href="#SortColumn"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -268,13 +271,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:92</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:104</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Bezeichnung / Key für Sortierung</p>
+                    <div class="io-description"><p>Description / Key for sorting</p>
 </div>
                 </td>
             </tr>
@@ -287,6 +290,7 @@
                 <td class="col-md-4">
                     <a name="SortOrder"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>SortOrder</b></span>
                         <a href="#SortOrder"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -300,13 +304,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:97</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:108</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Sortierung</p>
+                    <div class="io-description"><p>Sort order</p>
 </div>
                 </td>
             </tr>
@@ -325,110 +329,150 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class PagerData {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class GridResponse&lt;T&gt; {
+  // #region Properties
 
   /**
-   * Konstruktor
-   * @param PageSize Anzahl Elemente pro Seite
-   * @param CurrentPageIndex Aktuelle Seite
-   * @param TotalRowCount Total Rows in Datenbank
+   * Data
    */
-  constructor(PageSize: number, CurrentPageIndex: number, TotalRowCount: number) {
+  public Data: T[];
+  /**
+   * Total number of data records
+   */
+  public TotalRowCount: number;
+
+  // #endregion Properties
+}
+
+/**
+ * Model for pager settings
+ */
+export class PagerData {
+  // #region Properties
+
+  /**
+   * Current index of the page
+   */
+  public CurrentPageIndex &#x3D; 0;
+  /**
+   * Number of elements on the page
+   */
+  public PageSize &#x3D; 20;
+  /**
+   * Total number of data records
+   */
+  public TotalRowCount &#x3D; 0;
+
+  // #endregion Properties
+
+  // #region Constructors
+
+  /**
+   * Constructor
+   * @param PageSize Number of elements per page
+   * @param CurrentPageIndex Current page
+   * @param TotalRowCount Total Rows in database
+   */
+  constructor(
+    PageSize: number,
+    CurrentPageIndex: number,
+    TotalRowCount: number
+  ) {
     this.PageSize &#x3D; PageSize;
     this.CurrentPageIndex &#x3D; CurrentPageIndex;
     this.TotalRowCount &#x3D; TotalRowCount;
   }
 
-  /**
-   * Gesamte Anzahl der Zeilen
-  */
-  TotalRowCount &#x3D; 0;
-
-  /**
-   * Aktueller Index der Seite
-   */
-  CurrentPageIndex &#x3D; 0;
-
-  /**
-   * PageSize
-   */
-  PageSize &#x3D; 20;
+  // #endregion Constructors
 }
 
 /**
- * Model wenn Seite geändert werden soll
+ * Model if page is to be changed
  */
 export class PagerRequest {
+  // #region Properties
 
   /**
-   * Konstruktor
-   * @param PageSize Seitegrösse / Anzahl Elemente pro Seite
-   * @param NewPageIndex Neuer Seitenindex
+   * Index of the page to which you want to switch
+   */
+  public NewPageIndex: number &#x3D; 0;
+  /**
+   * Number of elements on the page
+   */
+  public PageSize: number &#x3D; 0;
+
+  // #endregion Properties
+
+  // #region Constructors
+
+  /**
+   * Constructor
+   * @param PageSize Page size / number of elements per page
+   * @param NewPageIndex New page index
    */
   constructor(PageSize: number, NewPageIndex: number) {
     this.PageSize &#x3D; PageSize;
     this.NewPageIndex &#x3D; NewPageIndex;
   }
 
-  /**
-   * Aktueller Index der Seite
-   */
-  PageSize: number &#x3D; 0;
-
-  /**
-   * PageSize
-   */
-  NewPageIndex: number &#x3D; 0;
-
+  // #endregion Constructors
 }
 
 /**
- * GridResponse-Klasse
- */
-export class GridResponse&lt;T&gt; {
-  /**
-   * Gesamte Anzahl der Zeilen
-   */
-  TotalRowCount: number;
-  /**
-   * Data
-   */
-  Data: T[];
-}
-
-/**
- * Model für Sortierung
+ * Model for sorting
  */
 export class SortDescriptor {
+  // #region Properties
+
   /**
-   * Konstruktor
-   * @param sortcolumn Column die Sortiert wird
-   * @param sortorder Art der Sortierung
+   * Description / Key for sorting
+   */
+  public SortColumn: string;
+  /**
+   * Sort order
+   */
+  public SortOrder: SortOrder;
+
+  // #endregion Properties
+
+  // #region Constructors
+
+  /**
+   * Constructor
+   * @param sortcolumn Column by which to sort
+   * @param sortorder Type of sorting
    */
   constructor(sortcolumn?: string, sortorder?: SortOrder) {
     this.SortColumn &#x3D; sortcolumn;
     this.SortOrder &#x3D; sortorder;
   }
 
-  /**
-   * Bezeichnung / Key für Sortierung
-   */
-  SortColumn: string;
-
-  /**
-   * Sortierung
-   */
-  SortOrder: SortOrder;
+  // #endregion Constructors
 }
+
+// #endregion Classes
+
+// #region Enums
 
 /**
- * Enum für Sortierung
+ * Enum for sorting
  */
 export enum SortOrder {
+  /**
+   * No sorting
+   */
   None &#x3D; 0,
+  /**
+   * Ascending
+   */
   Ascending &#x3D; 1,
-  Descending &#x3D; 2
+  /**
+   * Descending
+   */
+  Descending &#x3D; 2,
 }
+
+// #endregion Enums
 </code></pre>
     </div>
 </div>

@@ -3,7 +3,14 @@
     class="col"
     [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'visually-hidden', componentHeight | toLabelHeight]"
   >
-    <label for="{{name}}" class="form-control-label">{{label}}</label>
+    <label for="{{name}}" class="form-control-label"
+      >{{label}}<sac-tooltip
+        *ngIf="helptextmode === 'tooltip' && helptext"
+        [tooltiptext]="helptext"
+        [inlinemode]="true"
+      >
+        <span [ngClass]="HelptextTooltipIcon" class="ms-1"></span> </sac-tooltip
+    ></label>
   </div>
   <div
     class="col-12"
@@ -25,6 +32,9 @@
       class="invalid-feedback"
     >
       {{ GetErrorMessage() | async }}
+    </div>
+    <div *ngIf="helptextmode === 'text' && helptext" class="form-text">
+      {{helptext}}
     </div>
   </div>
 </div>

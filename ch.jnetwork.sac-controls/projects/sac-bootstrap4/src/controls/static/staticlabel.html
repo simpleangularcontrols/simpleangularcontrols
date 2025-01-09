@@ -9,11 +9,7 @@
       *ngIf="helptextmode === 'tooltip' && helptext"
       [tooltiptext]="helptext"
       [inlinemode]="true"
-    >
-      <span
-        [class]="HelptextTooltipIcon"
-        style="margin-left: 5px"
-      ></span> </sac-tooltip
+      ><span [ngClass]="HelptextTooltipIcon" class="ml-1"></span> </sac-tooltip
   ></label>
   <div
     class="col-12"

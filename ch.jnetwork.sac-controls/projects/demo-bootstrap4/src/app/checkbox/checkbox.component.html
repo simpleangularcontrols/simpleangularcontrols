@@ -9,6 +9,7 @@
     <sac-checkbox
       name="checkbox1"
       label="Checkbox 1"
+      checkboxtext="Beschreibung zum Button"
       [(ngModel)]="values.checkbox1"
     ></sac-checkbox>
     <sac-checkbox
@@ -16,6 +17,7 @@
       label="Checkbox 2"
       labelsize="2"
       [(ngModel)]="values.checkbox2"
+      helptext="Dies ist ein Helptext"
     ></sac-checkbox>
     <sac-checkbox
       name="checkbox3"
@@ -28,6 +30,8 @@
       label="Checkbox 4"
       [(ngModel)]="values.checkbox4"
       disabled="true"
+      helptext="Dies ist ein Helptext"
+      helptextmode="tooltip"
     ></sac-checkbox>
     <sac-checkbox
       name="checkbox5"
@@ -38,22 +42,63 @@
     ></sac-checkbox>
 
     <sac-staticformcontainer label="Checkbox Group" lableSizeMd="4">
-      <div class="pt-2">
-        <sac-checkbox
-          name="groupcheckbox1"
-          label="Checkbox 1"
-          checkboxtext="Option 1"
-          stacked="true"
-          [(ngModel)]="values.checkbox1"
-        ></sac-checkbox>
-        <sac-checkbox
-          name="groupcheckbox2"
-          label="Checkbox 2"
-          checkboxtext="Option 2"
-          stacked="true"
-          [(ngModel)]="values.checkbox2"
-        ></sac-checkbox>
-      </div>
+      <sac-checkbox
+        name="groupcheckbox1"
+        label="Checkbox 1"
+        checkboxtext="Option 1"
+        stacked="true"
+        [(ngModel)]="values.checkbox1"
+      ></sac-checkbox>
+      <sac-checkbox
+        name="groupcheckbox2"
+        label="Checkbox 2"
+        checkboxtext="Option 2"
+        stacked="true"
+        [(ngModel)]="values.checkbox2"
+      ></sac-checkbox>
+    </sac-staticformcontainer>
+
+    <sac-staticformcontainer
+      label="Checkbox Group"
+      lableSizeMd="4"
+      helptext="Dies ist ein Helptext"
+    >
+      <sac-checkbox
+        name="groupcheckbox1a"
+        label="Checkbox 1"
+        checkboxtext="Option 1"
+        stacked="true"
+        [(ngModel)]="values.checkbox1"
+      ></sac-checkbox>
+      <sac-checkbox
+        name="groupcheckbox2a"
+        label="Checkbox 2"
+        checkboxtext="Option 2"
+        stacked="true"
+        [(ngModel)]="values.checkbox2"
+      ></sac-checkbox>
+    </sac-staticformcontainer>
+
+    <sac-staticformcontainer
+      label="Checkbox Group"
+      lableSizeMd="4"
+      helptext="Dies ist ein Helptext"
+      helptextmode="tooltip"
+    >
+      <sac-checkbox
+        name="groupcheckbox1b"
+        label="Checkbox 1"
+        checkboxtext="Option 1"
+        stacked="true"
+        [(ngModel)]="values.checkbox1"
+      ></sac-checkbox>
+      <sac-checkbox
+        name="groupcheckbox2b"
+        label="Checkbox 2"
+        checkboxtext="Option 2"
+        stacked="true"
+        [(ngModel)]="values.checkbox2"
+      ></sac-checkbox>
     </sac-staticformcontainer>
 
     <sac-radiobuttons
@@ -70,6 +115,7 @@
       name="radiobuttons2"
       label="Radiobuttons 2"
       [(ngModel)]="values.radiobuttons2"
+      helptext="Dies ist ein Helptext"
     >
       <sac-radiobutton name="rb1" value="1" label="Wert 1"></sac-radiobutton>
       <sac-radiobutton name="rb2" value="2" label="Wert 2"></sac-radiobutton>
@@ -81,6 +127,8 @@
       label="Radiobuttons 3"
       [(ngModel)]="values.radiobuttons2"
       [disabled]="true"
+      helptext="Dies ist ein Helptext"
+      helptextmode="tooltip"
     >
       <sac-radiobutton name="rb1" value="1" label="Wert 1"></sac-radiobutton>
       <sac-radiobutton name="rb2" value="2" label="Wert 2"></sac-radiobutton>

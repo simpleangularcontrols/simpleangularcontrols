@@ -5,6 +5,7 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { SACBootstrap3ButtonModule } from '../buttons/button.module';
 import { SACBootstrap3DialogModule } from '../dialog/dialog.module';
 import { SACBootstrap3LayoutModule } from '../layout/layout.module';
+import { SACBootstrap3TooltipModule } from '../tooltip/tooltip.module';
 import { SacTinyMceComponent } from './tinymce';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { SacTinyMceComponent } from './tinymce';
     SACBootstrap3ButtonModule,
     SACBootstrap3DialogModule,
     SACBootstrap3LayoutModule,
+    SACBootstrap3TooltipModule,
   ],
   exports: [SacTinyMceComponent],
 })

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SACCommonListboxOptionModule } from '@simpleangularcontrols/sac-common';
 import { SACBootstrap3LayoutModule } from '../layout/layout.module';
+import { SACBootstrap3TooltipModule } from '../tooltip/tooltip.module';
 import { SacDropdownComponent, SacDropdownOptionDirective } from './dropdown';
 import { SacListboxComponent } from './listbox';
 
@@ -15,6 +16,7 @@ import { SacListboxComponent } from './listbox';
   imports: [
     CommonModule,
     SACCommonListboxOptionModule,
+    SACBootstrap3TooltipModule,
     FormsModule,
     SACBootstrap3LayoutModule,
   ],

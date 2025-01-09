@@ -8,8 +8,17 @@
     for="{{name}}"
     class="col-xs-12 control-label"
     [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
-    >{{label}}</label
-  >
+    >{{label}}
+    <sac-tooltip
+      *ngIf="helptextmode === 'tooltip' && helptext"
+      [tooltiptext]="helptext"
+      [inlinemode]="true"
+    >
+      <span
+        [class]="HelptextTooltipIcon"
+        style="margin-left: 5px"
+      ></span> </sac-tooltip
+  ></label>
   <div
     class="col-xs-12"
     [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
@@ -17,5 +26,8 @@
     <div>
       <ng-content></ng-content>
     </div>
+    <p *ngIf="helptextmode === 'text' && helptext" class="help-block">
+      {{helptext}}
+    </p>
   </div>
 </div>

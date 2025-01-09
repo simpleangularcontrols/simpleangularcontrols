@@ -6,6 +6,7 @@ import { SACBootstrap4BrowserModule } from '../../components/browser/browser.mod
 import { SACBootstrap4ButtonModule } from '../buttons/button.module';
 import { SACBootstrap4DialogModule } from '../dialog/dialog.module';
 import { SACBootstrap4LayoutModule } from '../layout/layout.module';
+import { SACBootstrap4TooltipModule } from '../tooltip/tooltip.module';
 import { SacTinyMceComponent } from './tinymce';
 
 @NgModule({
@@ -18,6 +19,7 @@ import { SacTinyMceComponent } from './tinymce';
     SACBootstrap4ButtonModule,
     SACBootstrap4DialogModule,
     SACBootstrap4BrowserModule,
+    SACBootstrap4TooltipModule,
   ],
   exports: [SacTinyMceComponent],
 })

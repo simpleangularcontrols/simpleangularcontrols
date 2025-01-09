@@ -32,10 +32,6 @@ export abstract class SacInputBase<VALUE> extends SacBaseModelControl<VALUE> {
    * Definiert das Feld als valid/invalid von eingegebenen regex-pattern
    */
   @Input() public regexvalidation: string;
-  /**
-   * Text welcher als Tooltip angezeigt wird.
-   */
-  @Input() public tooltiptext: string = '';
 
   // #endregion Properties
 

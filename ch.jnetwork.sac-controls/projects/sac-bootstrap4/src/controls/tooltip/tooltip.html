@@ -1,0 +1,32 @@
+<div [style.display]="inlinemode ? 'inline' : null">
+  <div
+    #container
+    (mouseenter)="ShowTooltip()"
+    (mouseleave)="HideTooltip()"
+    [style.display]="inlinemode ? 'inline' : null"
+  >
+    <ng-content></ng-content>
+  </div>
+  <div #tooltip *ngIf="IsTooltipVisible()">
+    <div
+      [class.show]="IsTooltipContentVisible"
+      class="tooltip bs-tooltip-auto fade"
+      style="position: absolute"
+      [style.left.px]="LeftPos"
+      [style.top.px]="TopPos"
+      [class.top]="GetTooltipPosition() === TooltipPosition.top"
+      [class.left]="GetTooltipPosition() === TooltipPosition.left"
+      [class.right]="GetTooltipPosition() === TooltipPosition.right"
+      [class.bottom]="GetTooltipPosition() === TooltipPosition.bottom"
+      [attr.x-placement]="GetTooltipPosition() == TooltipPosition.right ? 'right' : GetTooltipPosition() == TooltipPosition.left ? 'left' :  GetTooltipPosition() == TooltipPosition.top ? 'top' :GetTooltipPosition() == TooltipPosition.bottom ? 'bottom' : null"
+    >
+      <div
+        class="arrow"
+        style="position: absolute"
+        [style.top.px]="GetTooltipPosition() === TooltipPosition.left || GetTooltipPosition() === TooltipPosition.right ? (getToolTipHeight() / 2) - 6.5 : null"
+        [style.left.px]="GetTooltipPosition() === TooltipPosition.bottom || GetTooltipPosition() === TooltipPosition.top ? (getToolTipWidth() / 2) - 6.5 : null"
+      ></div>
+      <div class="tooltip-inner">{{tooltiptext}}</div>
+    </div>
+  </div>
+</div>

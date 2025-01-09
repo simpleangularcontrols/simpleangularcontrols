@@ -24,6 +24,10 @@ export abstract class SacAbstractConfigurationService
   /**
    * @inheritdoc
    */
+  public abstract get HelptextMode(): 'tooltip' | 'text';
+  /**
+   * @inheritdoc
+   */
   public abstract get InlineErrorEnabled(): boolean;
   /**
    * @inheritdoc
@@ -72,6 +76,13 @@ export class SacDefaultConfigurationService extends SacAbstractConfigurationServ
    */
   public get CurrencyText(): string {
     return 'CHF';
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public get HelptextMode(): 'tooltip' | 'text' {
+    return 'text';
   }
 
   /**

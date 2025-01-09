@@ -15,13 +15,10 @@ import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { UploadState, UploadxOptions, UploadxService } from 'ngx-uploadx';
 import { Observable, of } from 'rxjs';
 import { SacFormLayoutCommon } from '../controls/layout/formlayout';
-import { ISacIconService } from '../interfaces/ISacIconService';
 import { ISacLocalisationService } from '../interfaces/ISacLocalisationService';
 import { IUploadControl } from '../interfaces/iuploadcontrol';
 import {
-  SACICON_SERVICE,
   SACVALIDATIONKEY_SERVICE,
-  SacDefaultIconService,
   SacDefaultValidationKeyService,
 } from '../services';
 import {
@@ -70,10 +67,6 @@ export abstract class SacUploadBase<VALUE>
    */
   private options: UploadxOptions = {};
 
-  /**
-   * icon service to receive icons for uploader
-   */
-  protected iconService: ISacIconService;
   /**
    * Upload Service
    */
@@ -151,11 +144,6 @@ export abstract class SacUploadBase<VALUE>
     this.lngResourceService = injector.get(
       SACLOCALISATION_SERVICE,
       new SacDefaultLocalisationService(this.validationKeyService)
-    );
-
-    this.iconService = injector.get(
-      SACICON_SERVICE,
-      new SacDefaultIconService()
     );
 
     this.uploads = [];

@@ -7,25 +7,27 @@ import { SacBaseModelControl } from '../../common/basemodelcontrol';
  */
 @Directive()
 export class SacCheckboxCommon extends SacBaseModelControl<boolean> {
-  /**
-   * Text welcher als Tooltip angezeigt wird.
-   */
-  @Input() tooltiptext: string = '';
+  // #region Properties
 
   /**
    * Text vom Checkbox-Control. Der Text wird rechts von der Checkbox angezeigt.
    */
-  @Input() checkboxtext;
-
+  @Input() public checkboxtext;
   /**
    * Defines that the checkbox can be used in a list of checkboxes and is not handled as a single form control
    */
-  @Input() stacked: boolean = false;
+  @Input() public stacked: boolean = false;
+
+  // #endregion Properties
+
+  // #region Public Methods
 
   /**
    * Control hat keinen Validator
    */
-  validateData(c: AbstractControl): ValidationErrors | null {
+  public validateData(c: AbstractControl): ValidationErrors | null {
     return null;
   }
+
+  // #endregion Public Methods
 }

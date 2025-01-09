@@ -15,6 +15,10 @@ export interface ISacConfigurationService {
    */
   CurrencyText: string;
   /**
+   * Mode for display helptext
+   */
+  HelptextMode: 'tooltip' | 'text' | null;
+  /**
    * Activates the error messages below the controls
    */
   InlineErrorEnabled: boolean;

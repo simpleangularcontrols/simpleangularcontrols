@@ -57,6 +57,10 @@ export interface ISacIconService {
    */
   get DateTimeSelectorComponentMonthPrevIcon(): string;
   /**
+   * Icon for HelpText Tooltip in any controls
+   */
+  GenericHelptextIcon: string;
+  /**
    * sort down icon for grid
    */
   get GridComponentSortDown(): string;

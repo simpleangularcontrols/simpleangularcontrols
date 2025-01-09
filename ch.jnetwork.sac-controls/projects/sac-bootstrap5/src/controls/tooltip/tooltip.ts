@@ -41,11 +41,11 @@ export class SacTooltipComponent extends SacTooltipCommon {
   // #region Protected Methods
 
   /**
-   * Padding for Tooltip
-   * @returns Always 0. BS3 not require Padding
+   * Padding Value for Bootstrap5 Tooltip Padding
+   * @returns Static Padding Value for BS5
    */
   protected getTooltipOffset(): number {
-    return 0;
+    return 8;
   }
 
   // #endregion Protected Methods

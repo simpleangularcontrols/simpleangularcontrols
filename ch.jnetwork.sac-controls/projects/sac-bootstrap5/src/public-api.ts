@@ -23,6 +23,7 @@ export * from './controls/multilanguage/multilanguage.module';
 export * from './controls/static/staticlabel.module';
 export * from './controls/tabs/tabs.module';
 export * from './controls/tinymce/tinymce.module';
+export * from './controls/tooltip/tooltip.module';
 export * from './controls/upload/upload.module';
 export * from './controls/validation/validationsummary.module';
 export * from './controls/wizard/wizard.module';

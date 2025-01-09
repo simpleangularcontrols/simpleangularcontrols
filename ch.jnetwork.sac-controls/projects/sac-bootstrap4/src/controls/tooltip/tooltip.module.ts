@@ -7,4 +7,4 @@ import { SacTooltipComponent } from './tooltip';
   imports: [CommonModule],
   exports: [SacTooltipComponent],
 })
-export class SACBootstrap3TooltipModule {}
+export class SACBootstrap4TooltipModule {}

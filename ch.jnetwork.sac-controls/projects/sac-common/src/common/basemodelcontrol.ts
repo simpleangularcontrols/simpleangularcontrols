@@ -13,12 +13,15 @@ import { Observable } from 'rxjs';
 import { SacFormLayoutCommon } from '../controls/layout/formlayout';
 import { ControlHeight } from '../enums/ControlHeight';
 import { ISacConfigurationService } from '../interfaces/ISacConfigurationService';
+import { ISacIconService } from '../interfaces/ISacIconService';
 import { ISacLabelSizes } from '../interfaces/ISacLabelSizes';
 import { ISacLocalisationService } from '../interfaces/ISacLocalisationService';
 import { ISacValidationKeyService } from '../interfaces/ISacValidationKeyService';
 import { IAbstractControlLabelExtension } from '../interfaces/iabstractcontrollabel';
 import {
+  SACICON_SERVICE,
   SACVALIDATIONKEY_SERVICE,
+  SacDefaultIconService,
   SacDefaultValidationKeyService,
 } from '../services';
 import {
@@ -77,6 +80,10 @@ export abstract class SacBaseModelControl<VALUE>
    */
   protected formlayout: SacFormLayoutCommon = null;
   /**
+   * icon service
+   */
+  protected iconService: ISacIconService;
+  /**
    * Service für Error Localisation
    */
   protected lngResourceService: ISacLocalisationService;
@@ -98,6 +105,15 @@ export abstract class SacBaseModelControl<VALUE>
    * Deaktiviert das Label im Template
    */
   @Input() public disablelabel: boolean = false;
+  /**
+   * Text to support the user during input.
+   */
+  @Input() public helptext: string = '';
+  /**
+   * Mode for display helptext
+   */
+  @Input()
+  public helptextmode: 'tooltip' | 'text' | null;
   /**
    * defines that error messages are displayed under the controls
    */
@@ -169,7 +185,7 @@ export abstract class SacBaseModelControl<VALUE>
    */
   constructor(
     @Host() formlayout: SacFormLayoutCommon,
-    private injector: Injector
+    private readonly injector: Injector
   ) {
     this.formlayout = formlayout;
     this.validationKeyService = injector.get(
@@ -184,6 +200,11 @@ export abstract class SacBaseModelControl<VALUE>
     this.configurationService = injector.get(
       SACCONFIGURATION_SERVICE,
       new SacDefaultConfigurationService()
+    );
+
+    this.iconService = injector.get(
+      SACICON_SERVICE,
+      new SacDefaultIconService()
     );
   }
 
@@ -226,6 +247,13 @@ export abstract class SacBaseModelControl<VALUE>
   }
 
   /**
+   * Get Icon for Helptext Tooltip
+   */
+  public get HelptextTooltipIcon(): string {
+    return this.iconService.GenericHelptextIcon;
+  }
+
+  /**
    * Methode ergibt Boolean Wert für dirty
    */
   public get dirty(): boolean {
@@ -236,6 +264,9 @@ export abstract class SacBaseModelControl<VALUE>
     return this._dirty;
   }
 
+  /**
+   * Show error messages inline
+   */
   public get inlineerrorenabled(): boolean | null {
     return this._inlineerrorenabled;
   }
@@ -395,6 +426,9 @@ export abstract class SacBaseModelControl<VALUE>
     // set adaptive label property from formlayout directive
     this.setIsAdaptiveLabel();
 
+    // set method to display helptext
+    this.setHelpTextMode();
+
     this.OnClassInit();
   }
 
@@ -523,6 +557,19 @@ export abstract class SacBaseModelControl<VALUE>
         this.componentHeight = this.formlayout.componentHeight;
       } else {
         this.componentHeight = this.configurationService.ComponentHeight;
+      }
+    }
+  }
+
+  /**
+   * Set mode for helptext. Can be tooltip or text
+   */
+  private setHelpTextMode() {
+    if (!this.helptextmode) {
+      if (this.formlayout?.helptextmode) {
+        this.helptextmode = this.formlayout.helptextmode;
+      } else {
+        this.helptextmode = this.configurationService.HelptextMode;
       }
     }
   }

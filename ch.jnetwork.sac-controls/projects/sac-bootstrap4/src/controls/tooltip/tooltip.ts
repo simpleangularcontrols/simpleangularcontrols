@@ -1,7 +1,5 @@
 import { ChangeDetectorRef, Component, ElementRef } from '@angular/core';
 import { SacTooltipCommon } from '@simpleangularcontrols/sac-common';
-import { Component, ChangeDetectorRef, ElementRef } from '@angular/core';
-import { NgIf } from '@angular/common';
 
 /**
  * Tooltip Komponente
@@ -23,10 +21,8 @@ import { NgIf } from '@angular/common';
  *
  */
 @Component({
-    selector: 'sac-tooltip',
-    templateUrl: './tooltip.html',
-    standalone: true,
-    imports: [NgIf],
+  selector: 'sac-tooltip',
+  templateUrl: './tooltip.html',
 })
 export class SacTooltipComponent extends SacTooltipCommon {
   // #region Constructors
@@ -45,11 +41,11 @@ export class SacTooltipComponent extends SacTooltipCommon {
   // #region Protected Methods
 
   /**
-   * Padding for Tooltip
-   * @returns Always 0. BS3 not require Padding
+   * Padding Value for Bootstrap5 Tooltip Padding
+   * @returns Static Padding Value for BS5
    */
   protected getTooltipOffset(): number {
-    return 0;
+    return 2;
   }
 
   // #endregion Protected Methods

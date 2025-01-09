@@ -8,31 +8,35 @@ import { convertToBoolean } from '../../utilities/convertion';
  **/
 @Directive()
 export class SacStaticFormContainerCommon extends SacBaseModelControl<string> {
-
+  // #region Properties
 
   /**
    * Definiert den Container als Required Form Item
    */
   private _isrequired: boolean = false;
 
-  /**
-   * Text welcher als Tooltip angezeigt wird.
-   */
-  @Input() tooltiptext: string = '';
+  // #endregion Properties
+
+  // #region Public Getters And Setters
 
   /**
    * Definiert den Container als Required Form Item
    */
-  get isrequired(): boolean {
-    return this._isrequired;
+  @Input()
+  public set isrequired(v: boolean) {
+    this._isrequired = convertToBoolean(v);
   }
+
   /**
    * Definiert den Container als Required Form Item
    */
-  @Input()
-  set isrequired(v: boolean) {
-    this._isrequired = convertToBoolean(v);
+  public get isrequired(): boolean {
+    return this._isrequired;
   }
+
+  // #endregion Public Getters And Setters
+
+  // #region Public Methods
 
   /**
    * Validierung des Controls
@@ -41,8 +45,10 @@ export class SacStaticFormContainerCommon extends SacBaseModelControl<string> {
    * @param c Control das Validiert werden soll
    * @returns Fehlermeldung aus Validation oder NULL
    */
-  validateData(c: AbstractControl): ValidationErrors | null {
+  public validateData(c: AbstractControl): ValidationErrors | null {
     // Keine Validierung, daher immer NULL
     return null;
   }
+
+  // #endregion Public Methods
 }

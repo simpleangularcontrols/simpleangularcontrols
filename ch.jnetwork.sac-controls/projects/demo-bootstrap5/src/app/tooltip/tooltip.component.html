@@ -1,0 +1,98 @@
+<h2>Tooltip</h2>
+<form #myForm="sacform" labelsize="3">
+  <h3>Tooltip by Text</h3>
+  <sac-tooltip name="tooltipDefault" tooltiptext="Dies ist ein Tooltip">
+    <span>Tooltip by Text</span>
+  </sac-tooltip>
+
+  <h3>Tooltip by Inlinemode</h3>
+  <sac-tooltip
+    name="tooltipDefault"
+    tooltiptext="Dies ist ein Tooltip"
+    [inlinemode]="true"
+  >
+    <span>Tooltip by Text</span>
+  </sac-tooltip>
+
+  <h3>Tooltip Large Height</h3>
+  <sac-tooltip name="tooltipDefault" tooltiptext="Dies ist ein Tooltip">
+    <span style="font-size: 30px">Tooltip by Text</span>
+  </sac-tooltip>
+
+  <h3>Tooltip Large Height</h3>
+  <sac-tooltip
+    name="tooltipDefault"
+    tooltiptext="Dies ist ein Tooltip Dies ist ein Tooltip Dies ist ein Tooltip Dies ist ein Tooltip Dies ist ein Tooltip Dies ist ein Tooltip Dies ist ein Tooltip Dies ist ein Tooltip "
+  >
+    <span style="font-size: 30px">Tooltip by Text</span>
+  </sac-tooltip>
+
+  <h3>Tooltip Top</h3>
+  <sac-tooltip
+    position="top"
+    name="tooltipDefault"
+    tooltiptext="Dies ist ein Tooltip"
+  >
+    <span style="font-size: 30px">Tooltip by Text</span>
+  </sac-tooltip>
+
+  <h3>Tooltip Bottom</h3>
+  <sac-tooltip
+    position="bottom"
+    name="tooltipDefault"
+    tooltiptext="Dies ist ein Tooltip"
+  >
+    <span style="font-size: 30px">Tooltip by Text</span>
+  </sac-tooltip>
+
+  <h3>Tooltip by Icon</h3>
+  <sac-tooltip name="tooltipDefault" tooltiptext="Dies ist ein Tooltip">
+    <span class="bi bi-calendar3"></span>
+  </sac-tooltip>
+
+  <h3>Tooltip by Image</h3>
+  <sac-tooltip name="tooltipDefault" tooltiptext="Dies ist ein Tooltip">
+    <img src="/assets/icons/de.png" />
+  </sac-tooltip>
+
+  <h3>Tooltip by Left Margin</h3>
+  <div style="margin-left: 200px">
+    <sac-tooltip
+      name="tooltipDefault"
+      tooltiptext="Dies ist ein Tooltip Dies ist ein Tooltip Dies ist ein Tooltip Dies ist ein Tooltip Dies ist ein Tooltip Dies ist ein Tooltip Dies ist ein Tooltip Dies ist ein Tooltip"
+    >
+      <span class="bi bi-calendar3"></span>
+    </sac-tooltip>
+  </div>
+
+  <h3>Tooltip by Left Margin</h3>
+  <div style="text-align: right">
+    <sac-tooltip name="tooltipDefault" tooltiptext="Dies ist ein Tooltip">
+      <span class="bi bi-calendar3"></span>
+    </sac-tooltip>
+  </div>
+
+  <div style="overflow: scroll; max-height: 200px; border: 1px solid black">
+    <h3>Tooltip by Text</h3>
+    <sac-tooltip name="tooltipDefault" tooltiptext="Dies ist ein Tooltip">
+      <span>Tooltip by Text</span>
+    </sac-tooltip>
+
+    <h3>Tooltip by Icon</h3>
+    <sac-tooltip name="tooltipDefault" tooltiptext="Dies ist ein Tooltip">
+      <span class="bi bi-calendar3"></span>
+    </sac-tooltip>
+
+    <h3>Tooltip by Image</h3>
+    <sac-tooltip name="tooltipDefault" tooltiptext="Dies ist ein Tooltip">
+      <span class="bi bi-calendar3"></span>
+    </sac-tooltip>
+
+    <h3>Tooltip by Left Margin</h3>
+    <div style="margin-left: 200px">
+      <sac-tooltip name="tooltipDefault" tooltiptext="Dies ist ein Tooltip">
+        <span class="bi bi-calendar3"></span>
+      </sac-tooltip>
+    </div>
+  </div>
+</form>

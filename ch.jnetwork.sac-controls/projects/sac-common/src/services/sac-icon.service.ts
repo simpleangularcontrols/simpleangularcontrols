@@ -65,6 +65,10 @@ export abstract class SacAbstractIconService implements ISacIconService {
   /**
    * @inheritdoc
    */
+  public abstract get GenericHelptextIcon(): string;
+  /**
+   * @inheritdoc
+   */
   public abstract get GridComponentSortDown(): string;
   /**
    * @inheritdoc
@@ -194,6 +198,13 @@ export class SacDefaultIconService extends SacAbstractIconService {
    */
   public get DateTimeSelectorComponentMonthPrevIcon(): string {
     return 'fa fa-chevron-left';
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public get GenericHelptextIcon(): string {
+    return 'fa fa-info-circle';
   }
 
   /**

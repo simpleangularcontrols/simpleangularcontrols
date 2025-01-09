@@ -13,6 +13,11 @@ export class SacFormLayoutCommon {
    */
   @Input() public componentHeight: ControlHeight | null = null;
   /**
+   * Mode for display helptext
+   */
+  @Input()
+  public helptextmode: 'tooltip' | 'text' | null;
+  /**
    * defines that error messages are displayed under the controls
    */
   @Input() public inlineError: boolean | null = null;

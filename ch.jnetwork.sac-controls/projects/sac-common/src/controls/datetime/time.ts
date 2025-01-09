@@ -11,8 +11,6 @@ import * as moment_ from 'moment';
 // Import Moment.JS
 import { Moment } from 'moment';
 import { SacBaseDateTimeControl } from '../../common/basedatetimecontrol';
-import { ISacIconService } from '../../interfaces/ISacIconService';
-import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
 import { Validation } from '../../validation';
 import { SacFormLayoutCommon } from '../layout/formlayout';
 
@@ -27,11 +25,6 @@ const moment = moment_['default'];
 @Directive()
 export class SacTimeCommon extends SacBaseDateTimeControl {
   // #region Properties
-
-  /**
-   * icon service
-   */
-  private iconService: ISacIconService;
 
   /**
    * Format des Datums
@@ -112,11 +105,6 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
     protected elementRef: ElementRef
   ) {
     super(formlayout, injector, elementRef);
-
-    this.iconService = injector.get(
-      SACICON_SERVICE,
-      new SacDefaultIconService()
-    );
   }
 
   // #endregion Constructors

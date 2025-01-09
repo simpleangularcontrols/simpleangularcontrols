@@ -68,6 +68,11 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'tooltip',
+    loadChildren: () =>
+      import('./tooltip/tooltip.module').then((m) => m.TooltipModule),
+  },
+  {
     path: 'browser',
     loadChildren: () =>
       import('./browser/browser.module').then((m) => m.BrowserModule),

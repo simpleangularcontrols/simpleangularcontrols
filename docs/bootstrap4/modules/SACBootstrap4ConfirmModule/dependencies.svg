@@ -24,10 +24,6 @@
 <title>cluster_SACBootstrap4ConfirmModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 602,-268 602,-70 8,-70"/>
 </g>
-<g id="clust5" class="cluster">
-<title>cluster_SACBootstrap4ConfirmModule_exports</title>
-<polygon fill="none" stroke="black" points="205,-208 205,-260 373,-260 373,-208 205,-208"/>
-</g>
 <g id="clust4" class="cluster">
 <title>cluster_SACBootstrap4ConfirmModule_imports</title>
 <polygon fill="none" stroke="black" points="188,-78 188,-130 594,-130 594,-78 188,-78"/>
@@ -35,6 +31,10 @@
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap4ConfirmModule_declarations</title>
 <polygon fill="none" stroke="black" points="16,-78 16,-130 180,-130 180,-78 16,-78"/>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_SACBootstrap4ConfirmModule_exports</title>
+<polygon fill="none" stroke="black" points="205,-208 205,-260 373,-260 373,-208 205,-208"/>
 </g>
 <!-- SacConfirmComponent -->
 <g id="node1" class="node">

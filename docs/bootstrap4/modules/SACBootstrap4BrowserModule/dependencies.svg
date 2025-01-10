@@ -28,13 +28,13 @@
 <title>cluster_SACBootstrap4BrowserModule_declarations</title>
 <polygon fill="none" stroke="black" points="882,-78 882,-130 1046,-130 1046,-78 882,-78"/>
 </g>
-<g id="clust4" class="cluster">
-<title>cluster_SACBootstrap4BrowserModule_imports</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-130 874,-130 874,-78 16,-78"/>
-</g>
 <g id="clust6" class="cluster">
 <title>cluster_SACBootstrap4BrowserModule_bootstrap</title>
 <polygon fill="none" stroke="black" points="456,-208 456,-260 624,-260 624,-208 456,-208"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_SACBootstrap4BrowserModule_imports</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 874,-130 874,-78 16,-78"/>
 </g>
 <!-- SacBrowserComponent -->
 <g id="node1" class="node">

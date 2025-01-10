@@ -9,8 +9,7 @@
     for="{{name}}"
     class="col-xs-12 control-label"
     [ngClass]="[!disablelabel && !stacked ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
-    >{{label}}
-    <sac-tooltip
+    >{{label}}<sac-tooltip
       *ngIf="helptextmode === 'tooltip' && helptext"
       [tooltiptext]="helptext"
       [inlinemode]="true"

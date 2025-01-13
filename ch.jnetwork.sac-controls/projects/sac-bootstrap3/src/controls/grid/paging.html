@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="pager-nav col-sm-9" id="{{name}}">
+  <div class="pager-nav col-sm-4" id="{{name}}">
     <ul class="pagination" style="margin: 10px 0">
       <li
         [ngClass]="{'aspNetDisabled disabled': activePageIndex === firstPageIndex}"
@@ -19,7 +19,28 @@
       </li>
     </ul>
   </div>
-  <div class="col-sm-3 text-right" style="margin: 20px 0">
+  <div class="col-sm-4 text-center" style="margin: 20px 0">
     Seite {{getCurrentPageNumber()}} von {{getTotalPageNumber()}}
+  </div>
+  <div
+    class="col-sm-4 text-right"
+    *ngIf="!pagesizedisabled"
+    style="margin: 12px 0"
+  >
+    <div class="form-inline">
+      <div class="form-group" id="{{name}}_size">
+        <select
+          class="form-control form-control-sm"
+          style="width: 85px"
+          [ngModel]="pageSize"
+          (ngModelChange)="changePageSize($event)"
+        >
+          <option [ngValue]="size" *ngFor="let size of getPageSizes">
+            {{size}}
+          </option>
+        </select>
+        <span style="margin-left: 5px">{{ PageSizeText | async }}</span>
+      </div>
+    </div>
   </div>
 </div>

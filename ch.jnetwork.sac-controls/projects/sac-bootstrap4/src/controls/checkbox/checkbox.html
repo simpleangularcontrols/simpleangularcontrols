@@ -27,12 +27,15 @@
     [ngClass]="[!disablelabel && !stacked ?  (this.labelSizes | toControlWidthCss) : '']"
   >
     <div
-      class="form-check"
+      [class.form-check]="checkboxstyle === 'checkbox'"
+      [class.custom-control]="checkboxstyle === 'switch'"
+      [class.custom-switch]="checkboxstyle === 'switch'"
       [class.form-check-sm]="componentHeight === ControlHeight.Small"
       [class.form-check-lg]="componentHeight === ControlHeight.Large"
     >
       <input
-        class="form-check-input"
+        [class.form-check-input]="checkboxstyle === 'checkbox'"
+        [class.custom-control-input]="checkboxstyle === 'switch'"
         [class.form-check-input-sm]="componentHeight === ControlHeight.Small"
         [class.form-check-input-lg]="componentHeight === ControlHeight.Large"
         id="{{name}}"
@@ -45,7 +48,8 @@
       />
       <label
         for="{{name}}"
-        class="form-check-label"
+        [class.form-check-label]="checkboxstyle === 'checkbox'"
+        [class.custom-control-label]="checkboxstyle === 'switch'"
         [class.form-check-label-sm]="componentHeight === ControlHeight.Small"
         [class.form-check-label-lg]="componentHeight === ControlHeight.Large"
       >

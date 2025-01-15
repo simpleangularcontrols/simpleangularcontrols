@@ -7,6 +7,10 @@ export interface ISacConfigurationService {
   // #region Properties
 
   /**
+   * Defines the default display for a checkbox. You can choose between a checkbox and a switch.
+   */
+  CheckboxStyle: 'checkbox' | 'switch';
+  /**
    * Defines the standard height of the components
    */
   ComponentHeight: ControlHeight | null;

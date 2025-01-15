@@ -10,8 +10,12 @@ import {
 export class CustomConfigurationService extends SacAbstractConfigurationService {
   // #region Public Getters And Setters
 
+  public get CheckboxStyle(): 'checkbox' | 'switch' {
+    return 'checkbox';
+  }
+
   public get ComponentHeight(): ControlHeight | null {
-    return ControlHeight.Large;
+    return ControlHeight.Default;
   }
 
   public get CurrencyText(): string {

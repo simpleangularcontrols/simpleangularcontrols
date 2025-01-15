@@ -7,6 +7,10 @@ export interface ISacConfigurationService {
   // #region Public Getters And Setters
 
   /**
+   * Defines the default display for a checkbox. You can choose between a checkbox and a switch.
+   */
+  CheckboxStyle: 'checkbox' | 'switch';
+  /**
    * Defines the standard height of the components
    */
   get ComponentHeight(): ControlHeight | null;

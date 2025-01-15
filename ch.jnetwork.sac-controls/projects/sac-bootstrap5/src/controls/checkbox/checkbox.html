@@ -24,6 +24,8 @@
   >
     <div
       class="form-check"
+      [class.form-switch]="checkboxstyle === 'switch'"
+      [attr.role]="checkboxstyle === 'switch' ? 'switch' : null"
       [class.form-check-sm]="componentHeight === ControlHeight.Small"
       [class.form-check-lg]="componentHeight === ControlHeight.Large"
     >

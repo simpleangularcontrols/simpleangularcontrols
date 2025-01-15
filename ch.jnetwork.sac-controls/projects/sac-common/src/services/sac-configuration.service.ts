@@ -16,6 +16,10 @@ export abstract class SacAbstractConfigurationService
   /**
    * @inheritdoc
    */
+  public abstract get CheckboxStyle(): 'checkbox' | 'switch';
+  /**
+   * @inheritdoc
+   */
   public abstract get ComponentHeight(): ControlHeight | null;
   /**
    * @inheritdoc
@@ -67,6 +71,13 @@ export abstract class SacAbstractConfigurationService
 @Injectable({ providedIn: 'root' })
 export class SacDefaultConfigurationService extends SacAbstractConfigurationService {
   // #region Public Getters And Setters
+
+  /**
+   * @inheritdoc
+   */
+  public get CheckboxStyle(): 'checkbox' | 'switch' {
+    return 'checkbox';
+  }
 
   /**
    * @inheritdoc

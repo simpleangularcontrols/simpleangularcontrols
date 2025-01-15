@@ -24,10 +24,6 @@
 <title>cluster_SACBootstrap4TinyMceModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 1234,-268 1234,-70 8,-70"/>
 </g>
-<g id="clust5" class="cluster">
-<title>cluster_SACBootstrap4TinyMceModule_exports</title>
-<polygon fill="none" stroke="black" points="547,-208 547,-260 719,-260 719,-208 547,-208"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap4TinyMceModule_declarations</title>
 <polygon fill="none" stroke="black" points="1058,-78 1058,-130 1226,-130 1226,-78 1058,-78"/>
@@ -35,6 +31,10 @@
 <g id="clust4" class="cluster">
 <title>cluster_SACBootstrap4TinyMceModule_imports</title>
 <polygon fill="none" stroke="black" points="16,-78 16,-130 1050,-130 1050,-78 16,-78"/>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_SACBootstrap4TinyMceModule_exports</title>
+<polygon fill="none" stroke="black" points="547,-208 547,-260 719,-260 719,-208 547,-208"/>
 </g>
 <!-- SacTinyMceComponent -->
 <g id="node1" class="node">

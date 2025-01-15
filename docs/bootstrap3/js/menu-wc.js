@@ -199,13 +199,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SACBootstrap3GridModule.html" data-type="entity-link" >SACBootstrap3GridModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                            'data-bs-target="#components-links-module-SACBootstrap3GridModule-c751e3c57fbd3b252ba08f19057e5ea1bbddba21072a99020b78ed07e7d876879c99cd5d9e8d52984d9034d7fb517265618f26486d0ef4fcbb867eda88e1fc66"' : 'data-bs-target="#xs-components-links-module-SACBootstrap3GridModule-c751e3c57fbd3b252ba08f19057e5ea1bbddba21072a99020b78ed07e7d876879c99cd5d9e8d52984d9034d7fb517265618f26486d0ef4fcbb867eda88e1fc66"' }>
+                                            'data-bs-target="#components-links-module-SACBootstrap3GridModule-f762977f4b6ffe758f2ba23775976845e38899067c9f033b0c24e4f54d1f5234e4e61bd93d61f67640f9cd8ebf07c1127286690033f4d520bbb57c1006e8971f"' : 'data-bs-target="#xs-components-links-module-SACBootstrap3GridModule-f762977f4b6ffe758f2ba23775976845e38899067c9f033b0c24e4f54d1f5234e4e61bd93d61f67640f9cd8ebf07c1127286690033f4d520bbb57c1006e8971f"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SACBootstrap3GridModule-c751e3c57fbd3b252ba08f19057e5ea1bbddba21072a99020b78ed07e7d876879c99cd5d9e8d52984d9034d7fb517265618f26486d0ef4fcbb867eda88e1fc66"' :
-                                            'id="xs-components-links-module-SACBootstrap3GridModule-c751e3c57fbd3b252ba08f19057e5ea1bbddba21072a99020b78ed07e7d876879c99cd5d9e8d52984d9034d7fb517265618f26486d0ef4fcbb867eda88e1fc66"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SACBootstrap3GridModule-f762977f4b6ffe758f2ba23775976845e38899067c9f033b0c24e4f54d1f5234e4e61bd93d61f67640f9cd8ebf07c1127286690033f4d520bbb57c1006e8971f"' :
+                                            'id="xs-components-links-module-SACBootstrap3GridModule-f762977f4b6ffe758f2ba23775976845e38899067c9f033b0c24e4f54d1f5234e4e61bd93d61f67640f9cd8ebf07c1127286690033f4d520bbb57c1006e8971f"' }>
                                             <li class="link">
                                                 <a href="components/SacGridButtonComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacGridButtonComponent</a>
                                             </li>

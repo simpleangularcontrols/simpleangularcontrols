@@ -386,23 +386,35 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 
-import { SacGridComponent } from &#x27;./grid&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
-import { SacGridColumnComponent } from &#x27;./gridcolumn&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { SacGridComponent } from &#x27;./grid&#x27;;
 import { SacGridButtonComponent } from &#x27;./gridbutton&#x27;;
-import { SacPagingComponent } from &#x27;./paging&#x27;;
+import { SacGridColumnComponent } from &#x27;./gridcolumn&#x27;;
 import { SacGridColumnActionComponent } from &#x27;./gridcolumnaction&#x27;;
 import { SacGridImageComponent } from &#x27;./gridimage&#x27;;
+import { SacPagingComponent } from &#x27;./paging&#x27;;
 
 @NgModule({
-  declarations: [SacGridComponent, SacGridColumnComponent, SacGridColumnActionComponent, SacPagingComponent, SacGridButtonComponent, SacGridImageComponent],
-  imports: [
-    CommonModule
+  declarations: [
+    SacGridComponent,
+    SacGridColumnComponent,
+    SacGridColumnActionComponent,
+    SacPagingComponent,
+    SacGridButtonComponent,
+    SacGridImageComponent,
   ],
-  exports: [SacGridComponent, SacGridColumnComponent, SacGridColumnActionComponent, SacPagingComponent, SacGridButtonComponent, SacGridImageComponent]
+  imports: [CommonModule, FormsModule],
+  exports: [
+    SacGridComponent,
+    SacGridColumnComponent,
+    SacGridColumnActionComponent,
+    SacPagingComponent,
+    SacGridButtonComponent,
+    SacGridImageComponent,
+  ],
 })
-export class SACBootstrap3GridModule { }
-
+export class SACBootstrap3GridModule {}
 </code></pre>
     </div>
 </div>

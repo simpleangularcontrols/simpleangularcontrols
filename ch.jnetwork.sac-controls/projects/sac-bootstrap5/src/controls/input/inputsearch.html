@@ -36,13 +36,21 @@
         [disabled]="isdisabled"
         [readonly]="readonly"
       />
-      <input
+      <button
         type="submit"
         class="btn btn-secondary"
         id="{{name}}_search"
         (click)="searchClick()"
-        [value]="buttontext"
-      />
+      >
+        <i
+          *ngIf="buttonmode === 'icon' || buttonmode === 'mixed'"
+          [class]="iconname"
+          [class.me-2]="buttonmode === 'mixed'"
+        ></i>
+        <ng-container *ngIf="buttonmode === 'text' || buttonmode === 'mixed'"
+          >{{buttontext}}</ng-container
+        >
+      </button>
     </div>
     <div *ngIf="helptextmode === 'text' && helptext" class="form-text">
       {{helptext}}

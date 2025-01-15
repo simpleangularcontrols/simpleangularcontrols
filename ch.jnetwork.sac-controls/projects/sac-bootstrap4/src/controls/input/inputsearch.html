@@ -37,13 +37,21 @@
         [readonly]="readonly"
       />
       <div class="input-group-append">
-        <input
+        <button
           type="submit"
           class="btn btn-secondary"
           id="{{name}}_search"
           (click)="searchClick()"
-          [value]="buttontext"
-        />
+        >
+          <i
+            *ngIf="buttonmode === 'icon' || buttonmode === 'mixed'"
+            [class]="iconname"
+            [class.mr-2]="buttonmode === 'mixed'"
+          ></i>
+          <ng-container *ngIf="buttonmode === 'text' || buttonmode === 'mixed'"
+            >{{buttontext}}</ng-container
+          >
+        </button>
       </div>
     </div>
     <small

@@ -22,6 +22,11 @@ export class SacFormLayoutCommon {
    */
   @Input() public inlineError: boolean | null = null;
   /**
+   * Defines if InputSearch uses an icon at the button or the text
+   */
+  @Input()
+  public inputsearchiconmode: 'text' | 'icon' | 'mixed' | null = null;
+  /**
    * defines that the labels are displayed as adaptive labels
    */
   @Input() public isAdaptiveLabel: boolean = false;

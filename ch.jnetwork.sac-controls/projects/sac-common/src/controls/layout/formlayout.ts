@@ -9,6 +9,11 @@ export class SacFormLayoutCommon {
   // #region Properties
 
   /**
+   * Defines the default display for a checkbox. You can choose between a checkbox and a switch. If no style is defined, the global style or the style on the control is used.
+   */
+  @Input()
+  public checkboxstyle: 'checkbox' | 'switch' | null = null;
+  /**
    * Defines the standard height of the components
    */
   @Input() public componentHeight: ControlHeight | null = null;

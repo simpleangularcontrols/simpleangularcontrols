@@ -18,3 +18,9 @@
 ```
 
 Insert a DIV into the container with a padding of 1 (pt-1) for the control height `small` and a padding of 2 (pt-2) for the control heights `default` and `large` to align the checkboxes with the left label.
+
+## Switch
+
+```html
+<sac-checkbox name="checkbox6" label="Switch 6" [(ngModel)]="values.checkbox5" checkboxstyle="switch"></sac-checkbox>
+```

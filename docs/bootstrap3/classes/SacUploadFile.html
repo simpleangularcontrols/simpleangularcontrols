@@ -197,7 +197,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="638" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:638</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="626" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:626</a></div>
                             </td>
                         </tr>
 
@@ -267,7 +267,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="622" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:622</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="610" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:610</a></div>
                         </td>
                     </tr>
 
@@ -300,7 +300,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="626" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:626</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="614" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:614</a></div>
                         </td>
                     </tr>
 
@@ -333,7 +333,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="630" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:630</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="618" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:618</a></div>
                         </td>
                     </tr>
 
@@ -366,7 +366,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="634" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:634</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="622" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:622</a></div>
                         </td>
                     </tr>
 
@@ -399,7 +399,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="638" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:638</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="626" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:626</a></div>
                         </td>
                     </tr>
 
@@ -449,13 +449,10 @@ import {
 } from &#x27;ngx-uploadx&#x27;;
 import { Observable, of } from &#x27;rxjs&#x27;;
 import { SacFormLayoutCommon } from &#x27;../controls/layout/formlayout&#x27;;
-import { ISacIconService } from &#x27;../interfaces/ISacIconService&#x27;;
 import { ISacLocalisationService } from &#x27;../interfaces/ISacLocalisationService&#x27;;
 import { IUploadControl } from &#x27;../interfaces/iuploadcontrol&#x27;;
 import {
-  SACICON_SERVICE,
   SACVALIDATIONKEY_SERVICE,
-  SacDefaultIconService,
   SacDefaultValidationKeyService,
 } from &#x27;../services&#x27;;
 import {
@@ -504,10 +501,6 @@ export abstract class SacUploadBase&lt;VALUE&gt;
    */
   private options: UploadxOptions &#x3D; {};
 
-  /**
-   * icon service to receive icons for uploader
-   */
-  protected iconService: ISacIconService;
   /**
    * Upload Service
    */
@@ -585,11 +578,6 @@ export abstract class SacUploadBase&lt;VALUE&gt;
     this.lngResourceService &#x3D; injector.get(
       SACLOCALISATION_SERVICE,
       new SacDefaultLocalisationService(this.validationKeyService)
-    );
-
-    this.iconService &#x3D; injector.get(
-      SACICON_SERVICE,
-      new SacDefaultIconService()
     );
 
     this.uploads &#x3D; [];

@@ -69,6 +69,10 @@ export interface ISacIconService {
    */
   get GridComponentSortUp(): string;
   /**
+   * Icon which is used by the InputSearch component on the button.
+   */
+  InputSearchButtonIcon: string;
+  /**
    * icon for select button in time component
    */
   get TimeComponentSelectorIcon(): string;

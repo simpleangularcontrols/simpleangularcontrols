@@ -32,6 +32,10 @@ export abstract class SacAbstractConfigurationService
   /**
    * @inheritdoc
    */
+  public abstract get InputSearchIconMode(): 'text' | 'icon' | 'mixed';
+  /**
+   * @inheritdoc
+   */
   public abstract get LabelSizeLg(): number | null;
   /**
    * @inheritdoc
@@ -90,6 +94,13 @@ export class SacDefaultConfigurationService extends SacAbstractConfigurationServ
    */
   public get InlineErrorEnabled(): boolean {
     return true;
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public get InputSearchIconMode(): 'text' | 'icon' | 'mixed' {
+    return 'text';
   }
 
   /**

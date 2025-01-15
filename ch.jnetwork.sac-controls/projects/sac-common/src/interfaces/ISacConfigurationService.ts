@@ -17,11 +17,15 @@ export interface ISacConfigurationService {
   /**
    * Mode for display helptext
    */
-  HelptextMode: 'tooltip' | 'text' | null;
+  HelptextMode: 'tooltip' | 'text';
   /**
    * Activates the error messages below the controls
    */
   InlineErrorEnabled: boolean;
+  /**
+   * Defines if InputSearch uses an icon at the button or the text
+   */
+  InputSearchIconMode: 'text' | 'icon' | 'mixed';
   /**
    * default labe size for large devices
    */

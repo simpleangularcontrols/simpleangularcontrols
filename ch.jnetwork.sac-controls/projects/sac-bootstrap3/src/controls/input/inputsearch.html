@@ -45,13 +45,21 @@
         [readonly]="readonly"
       />
       <span class="input-group-btn">
-        <input
+        <button
           type="submit"
           class="btn btn-default"
           id="{{name}}_search"
           (click)="searchClick()"
-          [value]="buttontext"
-        />
+        >
+          <i
+            *ngIf="buttonmode === 'icon' || buttonmode === 'mixed'"
+            [class]="iconname"
+            [style.margin-right.px]="buttonmode === 'mixed' ? 7 : null"
+          ></i>
+          <ng-container *ngIf="buttonmode === 'text' || buttonmode === 'mixed'"
+            >{{buttontext}}</ng-container
+          >
+        </button>
       </span>
     </div>
     <p *ngIf="helptextmode === 'text' && helptext" class="help-block">

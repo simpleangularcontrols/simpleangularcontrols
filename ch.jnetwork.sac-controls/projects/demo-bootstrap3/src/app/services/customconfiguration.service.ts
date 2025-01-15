@@ -26,6 +26,10 @@ export class CustomConfigurationService extends SacAbstractConfigurationService 
     return true;
   }
 
+  public get InputSearchIconMode(): 'text' | 'icon' | 'mixed' {
+    return 'text';
+  }
+
   public get LabelSizeLg(): number | null {
     return 3;
   }

@@ -124,13 +124,13 @@
 <title>cluster_SACBootstrap4CheckboxModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 592,-268 592,-70 8,-70"/>
 </g>
-<g id="clust4" class="cluster">
-<title>cluster_SACBootstrap4CheckboxModule_exports</title>
-<polygon fill="none" stroke="black" points="16,-208 16,-260 584,-260 584,-208 16,-208"/>
-</g>
 <g id="clust3" class="cluster">
 <title>cluster_SACBootstrap4CheckboxModule_imports</title>
 <polygon fill="none" stroke="black" points="22,-78 22,-130 579,-130 579,-78 22,-78"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_SACBootstrap4CheckboxModule_exports</title>
+<polygon fill="none" stroke="black" points="16,-208 16,-260 584,-260 584,-208 16,-208"/>
 </g>
 <!-- SacCheckboxComponent -->
 <g id="node1" class="node">
@@ -295,20 +295,26 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { SacCheckboxComponent } from &#x27;./checkbox&#x27;;
 import { SacRadiobuttonComponent } from &#x27;./radiobutton&#x27;;
 import { SacRadiobuttonsComponent } from &#x27;./radiobuttons&#x27;;
 
 @NgModule({
-    imports: [
-        CommonModule,
-        SacCheckboxComponent, SacRadiobuttonComponent, SacRadiobuttonsComponent
-    ],
-    exports: [SacCheckboxComponent, SacRadiobuttonComponent, SacRadiobuttonsComponent]
+  imports: [
+    CommonModule,
+    SacCheckboxComponent,
+    SacRadiobuttonComponent,
+    SacRadiobuttonsComponent,
+  ],
+  exports: [
+    SacCheckboxComponent,
+    SacRadiobuttonComponent,
+    SacRadiobuttonsComponent,
+  ],
 })
-export class SACBootstrap4CheckboxModule { }
+export class SACBootstrap4CheckboxModule {}
 </code></pre>
     </div>
 </div>

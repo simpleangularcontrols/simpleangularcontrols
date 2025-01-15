@@ -334,16 +334,20 @@ import { SacUploadComponent } from &#x27;./upload&#x27;;
 import { SacUploadMultipleComponent } from &#x27;./uploadmultiple&#x27;;
 
 @NgModule({
-    imports: [CommonModule, FormsModule, SacUploadComponent,
-        SacUploadMultipleComponent,
-        SacDropzoneSingleComponent,
-        SacDropzoneMultipleComponent],
-    exports: [
-        SacUploadComponent,
-        SacUploadMultipleComponent,
-        SacDropzoneSingleComponent,
-        SacDropzoneMultipleComponent,
-    ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    SacUploadComponent,
+    SacUploadMultipleComponent,
+    SacDropzoneSingleComponent,
+    SacDropzoneMultipleComponent,
+  ],
+  exports: [
+    SacUploadComponent,
+    SacUploadMultipleComponent,
+    SacDropzoneSingleComponent,
+    SacDropzoneMultipleComponent,
+  ],
 })
 export class SACBootstrap4UploadModule {}
 </code></pre>

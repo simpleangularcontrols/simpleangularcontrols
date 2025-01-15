@@ -124,13 +124,13 @@
 <title>cluster_SACBootstrap4InputModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 1533,-268 1533,-70 8,-70"/>
 </g>
-<g id="clust4" class="cluster">
-<title>cluster_SACBootstrap4InputModule_exports</title>
-<polygon fill="none" stroke="black" points="16,-208 16,-260 1525,-260 1525,-208 16,-208"/>
-</g>
 <g id="clust3" class="cluster">
 <title>cluster_SACBootstrap4InputModule_imports</title>
 <polygon fill="none" stroke="black" points="31,-78 31,-130 1515,-130 1515,-78 31,-78"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_SACBootstrap4InputModule_exports</title>
+<polygon fill="none" stroke="black" points="16,-208 16,-260 1525,-260 1525,-208 16,-208"/>
 </g>
 <!-- SacInputAreaComponent -->
 <g id="node1" class="node">
@@ -445,26 +445,41 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { SacInputComponent } from &#x27;./input&#x27;;
-import { SacInputEmailComponent } from &#x27;./inputemail&#x27;;
 import { SacInputAreaComponent } from &#x27;./inputarea&#x27;;
 import { SacInputCurrencyComponent } from &#x27;./inputcurrency&#x27;;
 import { SacInputDecimalComponent } from &#x27;./inputdecimal&#x27;;
+import { SacInputEmailComponent } from &#x27;./inputemail&#x27;;
 import { SacInputIntegerComponent } from &#x27;./inputinteger&#x27;;
 import { SacInputPasswordComponent } from &#x27;./inputpassword&#x27;;
 import { SacInputSearchComponent } from &#x27;./inputsearch&#x27;;
 
-
 @NgModule({
-    imports: [
-        CommonModule,
-        SacInputComponent, SacInputAreaComponent, SacInputCurrencyComponent, SacInputDecimalComponent, SacInputEmailComponent, SacInputIntegerComponent, SacInputPasswordComponent, SacInputSearchComponent
-    ],
-    exports: [SacInputComponent, SacInputAreaComponent, SacInputCurrencyComponent, SacInputDecimalComponent, SacInputEmailComponent, SacInputIntegerComponent, SacInputPasswordComponent, SacInputSearchComponent]
+  imports: [
+    CommonModule,
+    SacInputComponent,
+    SacInputAreaComponent,
+    SacInputCurrencyComponent,
+    SacInputDecimalComponent,
+    SacInputEmailComponent,
+    SacInputIntegerComponent,
+    SacInputPasswordComponent,
+    SacInputSearchComponent,
+  ],
+  exports: [
+    SacInputComponent,
+    SacInputAreaComponent,
+    SacInputCurrencyComponent,
+    SacInputDecimalComponent,
+    SacInputEmailComponent,
+    SacInputIntegerComponent,
+    SacInputPasswordComponent,
+    SacInputSearchComponent,
+  ],
 })
-export class SACBootstrap4InputModule { }
+export class SACBootstrap4InputModule {}
 </code></pre>
     </div>
 </div>

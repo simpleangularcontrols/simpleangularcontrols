@@ -105,6 +105,10 @@
                 role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
         <li class="nav-item">
+            <a href="#readme" class="nav-link"
+                role="tab" id="readme-tab" data-bs-toggle="tab" data-link="readme">Example</a>
+        </li>
+        <li class="nav-item">
             <a href="#source" class="nav-link"
                 role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
@@ -220,18 +224,23 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier"></span>
+                                    <span class="modifier">Public</span>
                                 <a href="#content" >content</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#IsTooltipContentVisible" >IsTooltipContentVisible</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#LeftPos" >LeftPos</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#TooltipPosition" >TooltipPosition</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#TopPos" >TopPos</a>
                             </li>
                         </ul>
@@ -247,22 +256,47 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#getTooltipOffset" >getTooltipOffset</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getToolTipHeight" >getToolTipHeight</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#GetTooltipPosition" >GetTooltipPosition</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getToolTipWidth" >getToolTipWidth</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#HideTooltip" >HideTooltip</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#IsTooltipVisible" >IsTooltipVisible</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngAfterViewChecked" >ngAfterViewChecked</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngDoCheck" >ngDoCheck</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#ngOnDestroy" >ngOnDestroy</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#ShowTooltip" >ShowTooltip</a>
                             </li>
                         </ul>
@@ -384,13 +418,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:66</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:110</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Setter für Inline Mode für Tooltip</p>
+                        <div class="io-description"><p>Setter for inline mode for tooltip</p>
 </div>
                     </td>
                 </tr>
@@ -423,14 +457,14 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:44</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:63</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Position des Tooltips. Werte: left|top|right|bottom|auto</p>
-<p>Wert &#39;auto&#39; kann mit einem anderen Wert kombiniert werden.</p>
+                        <div class="io-description"><p>Position of the tooltip. Values: left|top|right|bottom|auto</p>
+<p>Value &#39;auto&#39; can be combined with another value.</p>
 </div>
                     </td>
                 </tr>
@@ -458,13 +492,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:50</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:68</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Text für ToolTip</p>
+                        <div class="io-description"><p>Text for ToolTip</p>
 </div>
                     </td>
                 </tr>
@@ -479,6 +513,104 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTooltipOffset"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>getTooltipOffset</b></span>
+                        <a href="#getTooltipOffset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getTooltipOffset()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/SacTooltipCommon.html" target="_self" >SacTooltipCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:50</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Padding for Tooltip</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Always 0. BS3 not require Padding</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getToolTipHeight"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getToolTipHeight</b></span>
+                        <a href="#getToolTipHeight"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getToolTipHeight()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/SacTooltipCommon.html" target="_self" >SacTooltipCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:241</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Calculates the height of the tooltip</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -507,7 +639,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:268</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:146</a></code>
 </div>
                         </td>
                     </tr>
@@ -515,7 +647,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Gibt die Position des Tooltips zurück</p>
+                        <div class="io-description"><p>Returns the position of the tooltip</p>
 </div>
 
                         <div class="io-description">
@@ -530,16 +662,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="HideTooltip"></a>
+                    <a name="getToolTipWidth"></a>
                     <span class="name">
-                        <span ><b>HideTooltip</b></span>
-                        <a href="#HideTooltip"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Public</span>
+                        <span ><b>getToolTipWidth</b></span>
+                        <a href="#getToolTipWidth"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>HideTooltip()</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getToolTipWidth()</code>
                 </td>
             </tr>
 
@@ -552,7 +686,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:250</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:252</a></code>
 </div>
                         </td>
                     </tr>
@@ -560,7 +694,54 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Tooltip ausblenden</p>
+                        <div class="io-description"><p>Calculates the width of the tooltips</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="HideTooltip"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>HideTooltip</b></span>
+                        <a href="#HideTooltip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>HideTooltip()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/SacTooltipCommon.html" target="_self" >SacTooltipCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:212</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Hide tooltip</p>
 </div>
 
                         <div class="io-description">
@@ -577,6 +758,7 @@
                 <td class="col-md-4">
                     <a name="IsTooltipVisible"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>IsTooltipVisible</b></span>
                         <a href="#IsTooltipVisible"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -584,7 +766,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>IsTooltipVisible()</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>IsTooltipVisible()</code>
                 </td>
             </tr>
 
@@ -597,7 +780,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:231</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:220</a></code>
 </div>
                         </td>
                     </tr>
@@ -605,7 +788,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Definiert ob der Tooltip im Markup vorhanden ist</p>
+                        <div class="io-description"><p>Defines whether the tooltip is present in the markup</p>
 </div>
 
                         <div class="io-description">
@@ -620,16 +803,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="ngOnDestroy"></a>
+                    <a name="ngAfterViewChecked"></a>
                     <span class="name">
-                        <span ><b>ngOnDestroy</b></span>
-                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Public</span>
+                        <span ><b>ngAfterViewChecked</b></span>
+                        <a href="#ngAfterViewChecked"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>ngOnDestroy()</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngAfterViewChecked()</code>
                 </td>
             </tr>
 
@@ -642,7 +827,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:122</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:263</a></code>
 </div>
                         </td>
                     </tr>
@@ -650,7 +835,101 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Event wenn das Control zerstört wird.</p>
+                        <div class="io-description"><p>Detect Changes after view checked. Prevent ExpressionChangedAfterItHasBeenCheckedError error</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngDoCheck"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngDoCheck</b></span>
+                        <a href="#ngDoCheck"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngDoCheck()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/SacTooltipCommon.html" target="_self" >SacTooltipCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:275</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Detect UI Changes to Calculate Tooltip correct</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/SacTooltipCommon.html" target="_self" >SacTooltipCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:288</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Event when the control is destroyed.</p>
 </div>
 
                         <div class="io-description">
@@ -667,6 +946,7 @@
                 <td class="col-md-4">
                     <a name="ngOnInit"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>ngOnInit</b></span>
                         <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -674,7 +954,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>ngOnInit()</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
                 </td>
             </tr>
 
@@ -687,7 +968,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:109</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:301</a></code>
 </div>
                         </td>
                     </tr>
@@ -695,7 +976,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Ervent wenn das Control initialisert wird</p>
+                        <div class="io-description"><p>Event when the control is initialized</p>
 </div>
 
                         <div class="io-description">
@@ -712,6 +993,7 @@
                 <td class="col-md-4">
                     <a name="ShowTooltip"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>ShowTooltip</b></span>
                         <a href="#ShowTooltip"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -719,7 +1001,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>ShowTooltip()</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ShowTooltip()</code>
                 </td>
             </tr>
 
@@ -732,7 +1015,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:238</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:227</a></code>
 </div>
                         </td>
                     </tr>
@@ -740,7 +1023,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Tooltip anzeigen</p>
+                        <div class="io-description"><p>Show tooltip</p>
 </div>
 
                         <div class="io-description">
@@ -764,6 +1047,7 @@
                     <a name="content"></a>
                     <span class="name">
                             <span class="modifier"></span>
+                            <span class="modifier">Public</span>
                         <span ><b>content</b></span>
                         <a href="#content"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -792,14 +1076,14 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:79</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:73</a></code>
 </div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Name des Containers für Content (z.B. Icon) auf welchem der Tooltip angezeigt wird.</p>
+                    <div class="io-description"><p>Name of the container for content (e.g. icon) on which the tooltip is displayed.</p>
 </div>
                 </td>
             </tr>
@@ -812,6 +1096,7 @@
                 <td class="col-md-4">
                     <a name="IsTooltipContentVisible"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>IsTooltipContentVisible</b></span>
                         <a href="#IsTooltipContentVisible"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -836,14 +1121,14 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:60</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:78</a></code>
 </div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Definiert ob der Tooltip sichtbar sein soll</p>
+                    <div class="io-description"><p>Position of the tooltip on the left</p>
 </div>
                 </td>
             </tr>
@@ -856,6 +1141,7 @@
                 <td class="col-md-4">
                     <a name="LeftPos"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>LeftPos</b></span>
                         <a href="#LeftPos"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -880,7 +1166,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:36</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:82</a></code>
 </div>
                         </td>
                     </tr>
@@ -900,6 +1186,7 @@
                 <td class="col-md-4">
                     <a name="TooltipPosition"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>TooltipPosition</b></span>
                         <a href="#TooltipPosition"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -918,14 +1205,14 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:21</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:86</a></code>
 </div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Property für Enum in Angular HTML Template</p>
+                    <div class="io-description"><p>Property for enum in Angular HTML template</p>
 </div>
                 </td>
             </tr>
@@ -938,6 +1225,7 @@
                 <td class="col-md-4">
                     <a name="TopPos"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>TopPos</b></span>
                         <a href="#TopPos"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -962,14 +1250,14 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:31</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTooltipCommon.html#source" target="_self" >SacTooltipCommon:90</a></code>
 </div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Position des Tooltips oben</p>
+                    <div class="io-description"><p>Position of the tooltip at the top</p>
 </div>
                 </td>
             </tr>
@@ -980,11 +1268,27 @@
 
 </div>
 
+    <div class="tab-pane fade " id="readme">
+        <p><h1>Examples</h1>
+<h2>Text</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;sac-tooltip name=&quot;tooltipDefault&quot; tooltiptext=&quot;Dies ist ein Tooltip&quot;&gt;
+  &lt;span&gt;Tooltip by Text&lt;/span&gt;
+&lt;/sac-tooltip&gt;</code></pre></div><h2>Inlinemode</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;sac-tooltip name=&quot;tooltipDefault&quot; tooltiptext=&quot;Dies ist ein Tooltip&quot; [inlinemode]=&quot;true&quot;&gt;
+  &lt;span&gt;Tooltip by Text&lt;/span&gt;
+&lt;/sac-tooltip&gt;</code></pre></div><h2>Icon</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;sac-tooltip name=&quot;tooltipDefault&quot; tooltiptext=&quot;Dies ist ein Tooltip&quot;&gt;
+  &lt;span class=&quot;bi bi-calendar3&quot;&gt;&lt;/span&gt;
+&lt;/sac-tooltip&gt;</code></pre></div><h2>Image</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;sac-tooltip name=&quot;tooltipDefault&quot; tooltiptext=&quot;Dies ist ein Tooltip&quot;&gt;
+  &lt;img src=&quot;image.png&quot; /&gt;
+&lt;/sac-tooltip&gt;</code></pre></div></p>
+    </div>
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacTooltipCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
-import { Component, ChangeDetectorRef, ElementRef } from &#x27;@angular/core&#x27;;
-import { NgIf } from &#x27;@angular/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgIf } from &#x27;@angular/common&#x27;;
+import { ChangeDetectorRef, Component, ElementRef } from &#x27;@angular/core&#x27;;
+import { SacTooltipCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 /**
  * Tooltip Komponente
@@ -1006,12 +1310,13 @@ import { NgIf } from &#x27;@angular/common&#x27;;
  *
  */
 @Component({
-    selector: &#x27;sac-tooltip&#x27;,
-    templateUrl: &#x27;./tooltip.html&#x27;,
-    standalone: true,
-    imports: [NgIf],
+  selector: &#x27;sac-tooltip&#x27;,
+  templateUrl: &#x27;./tooltip.html&#x27;,
+  standalone: true,
+  imports: [NgIf],
 })
 export class SacTooltipComponent extends SacTooltipCommon {
+  // #region Constructors
 
   /**
    * Konstrukor
@@ -1021,22 +1326,48 @@ export class SacTooltipComponent extends SacTooltipCommon {
   constructor(cdRef: ChangeDetectorRef, ref: ElementRef) {
     super(cdRef, ref);
   }
+
+  // #endregion Constructors
+
+  // #region Protected Methods
+
+  /**
+   * Padding for Tooltip
+   * @returns Always 0. BS3 not require Padding
+   */
+  protected getTooltipOffset(): number {
+    return 0;
+  }
+
+  // #endregion Protected Methods
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div [style.display]&#x3D;&quot;inlinemode ? &#x27;inline&#x27; : null&quot;&gt;
-  &lt;div #container (mouseenter)&#x3D;&quot;ShowTooltip()&quot; (mouseleave)&#x3D;&quot;HideTooltip()&quot; [style.display]&#x3D;&quot;inlinemode ? &#x27;inline&#x27; : null&quot;&gt;
+  &lt;div
+    #container
+    (mouseenter)&#x3D;&quot;ShowTooltip()&quot;
+    (mouseleave)&#x3D;&quot;HideTooltip()&quot;
+    [style.display]&#x3D;&quot;inlinemode ? &#x27;inline&#x27; : null&quot;
+  &gt;
     &lt;ng-content&gt;&lt;/ng-content&gt;
   &lt;/div&gt;
-  &lt;div *ngIf&#x3D;&quot;IsTooltipVisible()&quot; [style.visibility]&#x3D;&quot;IsTooltipContentVisible ? &#x27;visible&#x27; : &#x27;hidden&#x27;&quot; #tooltip class&#x3D;&quot;tooltip in&quot; style&#x3D;&quot;display: block;&quot;
-       [style.left.px]&#x3D;&quot;LeftPos&quot; [style.top.px]&#x3D;&quot;TopPos&quot;
-       [class.top]&#x3D;&quot;GetTooltipPosition() &#x3D;&#x3D;&#x3D; TooltipPosition.top&quot; [class.left]&#x3D;&quot;GetTooltipPosition() &#x3D;&#x3D;&#x3D; TooltipPosition.left&quot;
-       [class.right]&#x3D;&quot;GetTooltipPosition() &#x3D;&#x3D;&#x3D; TooltipPosition.right&quot; [class.bottom]&#x3D;&quot;GetTooltipPosition() &#x3D;&#x3D;&#x3D; TooltipPosition.bottom&quot;&gt;
-    &lt;div class&#x3D;&quot;tooltip-arrow&quot; style&#x3D;&quot;top: 50%;&quot;&gt;&lt;/div&gt;
-    &lt;div class&#x3D;&quot;tooltip-inner&quot;&gt;
-      {{tooltiptext}}
+  &lt;div *ngIf&#x3D;&quot;IsTooltipVisible()&quot; #tooltip&gt;
+    &lt;div
+      [style.visibility]&#x3D;&quot;IsTooltipContentVisible ? &#x27;visible&#x27; : &#x27;hidden&#x27;&quot;
+      class&#x3D;&quot;tooltip in&quot;
+      style&#x3D;&quot;display: block&quot;
+      [style.left.px]&#x3D;&quot;LeftPos&quot;
+      [style.top.px]&#x3D;&quot;TopPos&quot;
+      [class.top]&#x3D;&quot;GetTooltipPosition() &#x3D;&#x3D;&#x3D; TooltipPosition.top&quot;
+      [class.left]&#x3D;&quot;GetTooltipPosition() &#x3D;&#x3D;&#x3D; TooltipPosition.left&quot;
+      [class.right]&#x3D;&quot;GetTooltipPosition() &#x3D;&#x3D;&#x3D; TooltipPosition.right&quot;
+      [class.bottom]&#x3D;&quot;GetTooltipPosition() &#x3D;&#x3D;&#x3D; TooltipPosition.bottom&quot;
+    &gt;
+      &lt;div class&#x3D;&quot;tooltip-arrow&quot;&gt;&lt;/div&gt;
+      &lt;div class&#x3D;&quot;tooltip-inner&quot;&gt;{{tooltiptext}}&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -1069,7 +1400,7 @@ export class SacTooltipComponent extends SacTooltipCommon {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div [style.display]="inlinemode ? \'inline\' : null">  <div #container (mouseenter)="ShowTooltip()" (mouseleave)="HideTooltip()" [style.display]="inlinemode ? \'inline\' : null">    <ng-content></ng-content>  </div>  <div *ngIf="IsTooltipVisible()" [style.visibility]="IsTooltipContentVisible ? \'visible\' : \'hidden\'" #tooltip class="tooltip in" style="display: block;"       [style.left.px]="LeftPos" [style.top.px]="TopPos"       [class.top]="GetTooltipPosition() === TooltipPosition.top" [class.left]="GetTooltipPosition() === TooltipPosition.left"       [class.right]="GetTooltipPosition() === TooltipPosition.right" [class.bottom]="GetTooltipPosition() === TooltipPosition.bottom">    <div class="tooltip-arrow" style="top: 50%;"></div>    <div class="tooltip-inner">      {{tooltiptext}}    </div>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div [style.display]="inlinemode ? \'inline\' : null">  <div    #container    (mouseenter)="ShowTooltip()"    (mouseleave)="HideTooltip()"    [style.display]="inlinemode ? \'inline\' : null"  >    <ng-content></ng-content>  </div>  <div *ngIf="IsTooltipVisible()" #tooltip>    <div      [style.visibility]="IsTooltipContentVisible ? \'visible\' : \'hidden\'"      class="tooltip in"      style="display: block"      [style.left.px]="LeftPos"      [style.top.px]="TopPos"      [class.top]="GetTooltipPosition() === TooltipPosition.top"      [class.left]="GetTooltipPosition() === TooltipPosition.left"      [class.right]="GetTooltipPosition() === TooltipPosition.right"      [class.bottom]="GetTooltipPosition() === TooltipPosition.bottom"    >      <div class="tooltip-arrow"></div>      <div class="tooltip-inner">{{tooltiptext}}</div>    </div>  </div></div></div>'
     var COMPONENTS = [{'name': 'SacButtonComponent', 'selector': 'sac-button'},{'name': 'SacCheckboxComponent', 'selector': 'sac-checkbox'},{'name': 'SacConfirmComponent', 'selector': 'sac-confirm'},{'name': 'SacDateComponent', 'selector': 'sac-date'},{'name': 'SacDateSelectorComponent', 'selector': 'sac-dateselector'},{'name': 'SacDateTimeComponent', 'selector': 'sac-datetime'},{'name': 'SacDialogComponent', 'selector': 'sac-dialog'},{'name': 'SacDropdownComponent', 'selector': 'sac-dropdown'},{'name': 'SacGridButtonComponent', 'selector': 'sac-gridbutton'},{'name': 'SacGridColumnActionComponent', 'selector': 'sac-gridcolumnaction'},{'name': 'SacGridColumnComponent', 'selector': 'sac-gridcolumn'},{'name': 'SacGridComponent', 'selector': 'sac-grid'},{'name': 'SacGridImageComponent', 'selector': 'sac-gridimage'},{'name': 'SacInputAreaComponent', 'selector': 'sac-inputarea'},{'name': 'SacInputComponent', 'selector': 'sac-input'},{'name': 'SacInputCurrencyComponent', 'selector': 'sac-inputcurrency'},{'name': 'SacInputDecimalComponent', 'selector': 'sac-inputdecimal'},{'name': 'SacInputEmailComponent', 'selector': 'sac-inputemail'},{'name': 'SacInputIntegerComponent', 'selector': 'sac-inputinteger'},{'name': 'SacInputPasswordComponent', 'selector': 'sac-inputpassword'},{'name': 'SacInputSearchComponent', 'selector': 'sac-inputsearch'},{'name': 'SacListboxComponent', 'selector': 'sac-listbox'},{'name': 'SacPagingComponent', 'selector': 'sac-paging'},{'name': 'SacRadiobuttonComponent', 'selector': 'sac-radiobutton'},{'name': 'SacRadiobuttonsComponent', 'selector': 'sac-radiobuttons'},{'name': 'SacStaticFormContainerComponent', 'selector': 'sac-staticformcontainer'},{'name': 'SacStaticLabelComponent', 'selector': 'sac-staticlabel'},{'name': 'SacTabComponent', 'selector': 'sac-tab'},{'name': 'SacTabItemComponent', 'selector': 'sac-tabitem'},{'name': 'SacTimeComponent', 'selector': 'sac-time'},{'name': 'SacTinyMceComponent', 'selector': 'sac-tinymce'},{'name': 'SacTooltipComponent', 'selector': 'sac-tooltip'},{'name': 'SacTreeItemActionComponent', 'selector': 'sac-treeitemaction'},{'name': 'SacTreeViewChildComponent', 'selector': 'sac-treeviewchild'},{'name': 'SacTreeViewComponent', 'selector': 'sac-treeview'},{'name': 'SacUploadComponent', 'selector': 'sac-upload'},{'name': 'SacUploadMultipleComponent', 'selector': 'sac-uploadmultiple'},{'name': 'SacValidationSummaryComponent', 'selector': 'sac-validationsummary'},{'name': 'SacWizardComponent', 'selector': 'sac-wizard'},{'name': 'SacWizardItemComponent', 'selector': 'sac-wizarditem'}];
     var DIRECTIVES = [{'name': 'SacBaseDateTimeControl', 'selector': ''},{'name': 'SacBaseListControl', 'selector': ''},{'name': 'SacBaseModelControl', 'selector': ''},{'name': 'SacBaseSelectControl', 'selector': ''},{'name': 'SacButtonCommon', 'selector': ''},{'name': 'SacCheckboxCommon', 'selector': ''},{'name': 'SacConfirmCommon', 'selector': ''},{'name': 'SacContextmenuAnchorCommon', 'selector': ''},{'name': 'SacContextmenuCommon', 'selector': ''},{'name': 'SacContextMenuContrainerCommon', 'selector': ''},{'name': 'SacContextmenuItemButtonCommon', 'selector': ''},{'name': 'SacContextmenuItemCommon', 'selector': ''},{'name': 'SacDateCommon', 'selector': ''},{'name': 'SacDateSelectorCommon', 'selector': ''},{'name': 'SacDateTimeCommon', 'selector': ''},{'name': 'SacDialogCommon', 'selector': ''},{'name': 'SacDropdownCommon', 'selector': ''},{'name': 'SacDropdownOptionCommon', 'selector': ''},{'name': 'SacDropdownOptionDirective', 'selector': 'option,[sacOption]'},{'name': 'SacDropzoneMultipleCommon', 'selector': ''},{'name': 'SacDropzoneSingleCommon', 'selector': ''},{'name': 'SacFileBrowserCommon', 'selector': ''},{'name': 'SacFormCommon', 'selector': ''},{'name': 'SacFormDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'SacFormLayoutCommon', 'selector': ''},{'name': 'SacFormLayoutDirective', 'selector': '[sacFormLayout]'},{'name': 'SacGridButtonCommon', 'selector': ''},{'name': 'SacGridColumnActionCommon', 'selector': ''},{'name': 'SacGridColumnBaseCommon', 'selector': ''},{'name': 'SacGridColumnCommon', 'selector': ''},{'name': 'SacGridCommon', 'selector': ''},{'name': 'SacGridImageCommon', 'selector': ''},{'name': 'SacInheritFormDirective', 'selector': '[sacInheritForm]'},{'name': 'SacInputAreaCommon', 'selector': ''},{'name': 'SacInputBase', 'selector': ''},{'name': 'SacInputCommon', 'selector': ''},{'name': 'SacInputCurrencyCommon', 'selector': ''},{'name': 'SacInputDecimalCommon', 'selector': ''},{'name': 'SacInputEmailCommon', 'selector': ''},{'name': 'SacInputIntegerCommon', 'selector': ''},{'name': 'SacInputPasswordCommon', 'selector': ''},{'name': 'SacInputSearchCommon', 'selector': ''},{'name': 'SacListboxCommon', 'selector': ''},{'name': 'SacListboxOptionCommon', 'selector': ''},{'name': 'SacMultilanguageInputAreaCommon', 'selector': ''},{'name': 'SacMultilanguageInputCommon', 'selector': ''},{'name': 'SacPagingCommon', 'selector': ''},{'name': 'SacRadiobuttonCommon', 'selector': ''},{'name': 'SacRadiobuttonsCommon', 'selector': ''},{'name': 'SacStaticFormContainerCommon', 'selector': ''},{'name': 'SacStaticLabelCommon', 'selector': ''},{'name': 'SacTabCommon', 'selector': ''},{'name': 'SacTabItemCommon', 'selector': ''},{'name': 'SacTimeCommon', 'selector': ''},{'name': 'SacTinyMceCommon', 'selector': ''},{'name': 'SacTooltipCommon', 'selector': ''},{'name': 'SacTreeItemActionCommon', 'selector': ''},{'name': 'SacTreeViewChildCommon', 'selector': ''},{'name': 'SacTreeViewCommon', 'selector': ''},{'name': 'SacUploadBase', 'selector': ''},{'name': 'SacUploadMultipleCommon', 'selector': ''},{'name': 'SacUploadSingleCommon', 'selector': ''},{'name': 'SacValidationSummaryCommon', 'selector': ''},{'name': 'SacWizardCommon', 'selector': ''},{'name': 'SacWizardItemCommon', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'SacTooltipComponent'};

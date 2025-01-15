@@ -265,19 +265,20 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
-import { SacStaticLabelComponent } from &#x27;./staticlabel&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { SacStaticFormContainerComponent } from &#x27;./formcontainer&#x27;;
+import { SacStaticLabelComponent } from &#x27;./staticlabel&#x27;;
 
 @NgModule({
-    imports: [
-        CommonModule,
-        SacStaticLabelComponent, SacStaticFormContainerComponent
-    ],
-    exports: [SacStaticLabelComponent, SacStaticFormContainerComponent]
+  imports: [
+    CommonModule,
+    SacStaticLabelComponent,
+    SacStaticFormContainerComponent,
+  ],
+  exports: [SacStaticLabelComponent, SacStaticFormContainerComponent],
 })
-export class SACBootstrap4StaticLabelModule { }
+export class SACBootstrap4StaticLabelModule {}
 </code></pre>
     </div>
 </div>

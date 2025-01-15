@@ -243,6 +243,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SACBootstrap5TinyMceModule.html" data-type="entity-link" >SACBootstrap5TinyMceModule</a>
                             </li>
                             <li class="link">
+                                <a href="modules/SACBootstrap5TooltipModule.html" data-type="entity-link" >SACBootstrap5TooltipModule</a>
+                            </li>
+                            <li class="link">
                                 <a href="modules/SACBootstrap5UploadModule.html" data-type="entity-link" >SACBootstrap5UploadModule</a>
                             </li>
                             <li class="link">
@@ -383,6 +386,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="components/SacTinyMceComponent.html" data-type="entity-link" >SacTinyMceComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/SacTooltipComponent.html" data-type="entity-link" >SacTooltipComponent</a>
                             </li>
                             <li class="link">
                                 <a href="components/SacUploadComponent.html" data-type="entity-link" >SacUploadComponent</a>

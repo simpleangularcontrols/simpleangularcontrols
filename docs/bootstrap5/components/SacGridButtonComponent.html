@@ -105,6 +105,10 @@
                 role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
         <li class="nav-item">
+            <a href="#readme" class="nav-link"
+                role="tab" id="readme-tab" data-bs-toggle="tab" data-link="readme">Example</a>
+        </li>
+        <li class="nav-item">
             <a href="#source" class="nav-link"
                 role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
@@ -132,8 +136,6 @@
     </p>
     <p class="comment">
         <p>Grid Action Button</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-html"></code></pre></div><p>&lt;ngGridButton icon=&quot;edit&quot; (clicked)=&quot;action(&#39;edit&#39;)&quot; [isdisabled]=&quot;true&quot;&gt;</ngGridButton></p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-html"></code></pre></div><p>&lt;ngGridButton iconstyle=&quot;sprite&quot; icon=&quot;icon-sprite-base-main_info&quot; (clicked)=&quot;action(&quot;info&quot;)&quot;&gt;</ngGridButton></p>
 
     </p>
 
@@ -299,13 +301,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacGridButtonCommon.html#source" target="_self" >SacGridButtonCommon:18</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacGridButtonCommon.html#source" target="_self" >SacGridButtonCommon:19</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Icon Name aus Sprite</p>
+                        <div class="io-description"><p>Icon name from sprite</p>
 </div>
                     </td>
                 </tr>
@@ -338,13 +340,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacGridButtonCommon.html#source" target="_self" >SacGridButtonCommon:12</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacGridButtonCommon.html#source" target="_self" >SacGridButtonCommon:24</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Input Property für Styling des Buttons. Deffiniert die Css Klassen des Buttons</p>
+                        <div class="io-description"><p>Input property for styling the button. Defines the CSS classes of the button</p>
 </div>
                     </td>
                 </tr>
@@ -372,13 +374,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacGridButtonCommon.html#source" target="_self" >SacGridButtonCommon:31</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacGridButtonCommon.html#source" target="_self" >SacGridButtonCommon:41</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Deaktivieren von Buttons</p>
+                        <div class="io-description"><p>Deactivating buttons</p>
 </div>
                     </td>
                 </tr>
@@ -409,13 +411,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacGridButtonCommon.html#source" target="_self" >SacGridButtonCommon:46</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacGridButtonCommon.html#source" target="_self" >SacGridButtonCommon:29</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Event wenn auf den Button geklickt wird</p>
+                        <div class="io-description"><p>Event when the button is clicked</p>
 </div>
                     </td>
                 </tr>
@@ -451,15 +453,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="26"
-                                    class="link-to-prism">projects/sac-bootstrap5/src/controls/grid/gridbutton.ts:26</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="18"
+                                    class="link-to-prism">projects/sac-bootstrap5/src/controls/grid/gridbutton.ts:18</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Gibt das Icon für den Button zurück</p>
+                        <div class="io-description"><p>Returns the icon for the button</p>
 </div>
 
                         <div class="io-description">
@@ -498,7 +500,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacGridButtonCommon.html#source" target="_self" >SacGridButtonCommon:51</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacGridButtonCommon.html#source" target="_self" >SacGridButtonCommon:60</a></code>
 </div>
                         </td>
                     </tr>
@@ -506,7 +508,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Die Methode wird das cklickaction Emitter aktivieren</p>
+                        <div class="io-description"><p>Triggers the clicked event if the button is not deactivated.</p>
 </div>
 
                         <div class="io-description">
@@ -554,14 +556,14 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacGridButtonCommon.html#source" target="_self" >SacGridButtonCommon:23</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacGridButtonCommon.html#source" target="_self" >SacGridButtonCommon:13</a></code>
 </div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Button ist deaktiviert</p>
+                    <div class="io-description"><p>Button is deactivated</p>
 </div>
                 </td>
             </tr>
@@ -572,22 +574,20 @@
 
 </div>
 
+    <div class="tab-pane fade " id="readme">
+        <p><h1>Examples</h1>
+<h2>Default Icon</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;ngGridButton icon=&quot;edit&quot; (clicked)=&quot;action(&#39;edit&#39;)&quot;&gt;&lt;/ngGridButton&gt;</code></pre></div><h2>Disabled</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;ngGridButton icon=&quot;edit&quot; (clicked)=&quot;action(&#39;edit&#39;)&quot; [isdisabled]=&quot;true&quot;&gt;&lt;/ngGridButton&gt;</code></pre></div><h2>Custom Icon</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;ngGridButton iconstyle=&quot;sprite&quot; icon=&quot;icon-sprite-base-main_info&quot; (clicked)=&quot;action(&#39;info&#39;)&quot;&gt;&lt;/ngGridButton&gt;</code></pre></div></p>
+    </div>
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, Output, EventEmitter, ElementRef } from &#x27;@angular/core&#x27;;
-import { SacGridCommon, SacGridButtonCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { SacGridButtonCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 /**
  * Grid Action Button
- *
- * @example Standard Action
- *
- * &lt;ngGridButton icon&#x3D;&quot;edit&quot; (clicked)&#x3D;&quot;action(&#x27;edit&#x27;)&quot; [isdisabled]&#x3D;&quot;true&quot;&gt;&lt;/ngGridButton&gt;
- *
- * @example Custom Action
- *
- * &lt;ngGridButton iconstyle&#x3D;&quot;sprite&quot; icon&#x3D;&quot;icon-sprite-base-main_info&quot; (clicked)&#x3D;&quot;action(&quot;info&quot;)&quot;&gt;&lt;/ngGridButton&gt;
- *
  */
 @Component({
     selector: &#x27;sac-gridbutton&#x27;,
@@ -595,9 +595,10 @@ import { SacGridCommon, SacGridButtonCommon } from &#x27;@simpleangularcontrols/
     standalone: true
 })
 export class SacGridButtonComponent extends SacGridButtonCommon {
+  // #region Public Methods
 
   /**
-   * Gibt das Icon für den Button zurück
+   * Returns the icon for the button
    */
   public getIconClass(): string {
     let iconset: string &#x3D; this.iconstyle;
@@ -625,7 +626,7 @@ export class SacGridButtonComponent extends SacGridButtonCommon {
     return result.trim();
   }
 
-
+  // #endregion Public Methods
 }
 </code></pre>
     </div>
@@ -662,7 +663,7 @@ export class SacGridButtonComponent extends SacGridButtonCommon {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><a (click)="callaction()" style="padding-right: 5px;" [class.disabled]="isdisabled" [attr.disabled]="isdisabled ? \'disabled\' : null"><span class="{{getIconClass()}}"></span></a></div>'
-    var COMPONENTS = [{'name': 'SacBrowserComponent', 'selector': 'sac-filebrowser'},{'name': 'SacButtonComponent', 'selector': 'sac-button'},{'name': 'SacCheckboxComponent', 'selector': 'sac-checkbox'},{'name': 'SacConfirmComponent', 'selector': 'sac-confirm'},{'name': 'SacContextmenuComponent', 'selector': 'sac-contextmenu'},{'name': 'SacContextmenuItemButtonComponent', 'selector': 'sac-contextmenubutton'},{'name': 'SacContextmenuItemSplitterComponent', 'selector': 'sac-contextmenusplitter'},{'name': 'SacDateComponent', 'selector': 'sac-date'},{'name': 'SacDateSelectorComponent', 'selector': 'sac-dateselector'},{'name': 'SacDateTimeComponent', 'selector': 'sac-datetime'},{'name': 'SacDialogComponent', 'selector': 'sac-dialog'},{'name': 'SacDropdownComponent', 'selector': 'sac-dropdown'},{'name': 'SacDropzoneMultipleComponent', 'selector': 'sac-dropzonemultiple'},{'name': 'SacDropzoneSingleComponent', 'selector': 'sac-dropzonesingle'},{'name': 'SacGridButtonComponent', 'selector': 'sac-gridbutton'},{'name': 'SacGridColumnActionComponent', 'selector': 'sac-gridcolumnaction'},{'name': 'SacGridColumnComponent', 'selector': 'sac-gridcolumn'},{'name': 'SacGridComponent', 'selector': 'sac-grid'},{'name': 'SacGridImageComponent', 'selector': 'sac-gridimage'},{'name': 'SacInputAreaComponent', 'selector': 'sac-inputarea'},{'name': 'SacInputComponent', 'selector': 'sac-input'},{'name': 'SacInputCurrencyComponent', 'selector': 'sac-inputcurrency'},{'name': 'SacInputDecimalComponent', 'selector': 'sac-inputdecimal'},{'name': 'SacInputEmailComponent', 'selector': 'sac-inputemail'},{'name': 'SacInputIntegerComponent', 'selector': 'sac-inputinteger'},{'name': 'SacInputPasswordComponent', 'selector': 'sac-inputpassword'},{'name': 'SacInputSearchComponent', 'selector': 'sac-inputsearch'},{'name': 'SacListboxComponent', 'selector': 'sac-listbox'},{'name': 'SacMultilanguageInputAreaComponent', 'selector': 'sac-multilanguageinputarea'},{'name': 'SacMultilanguageInputComponent', 'selector': 'sac-multilanguageinput'},{'name': 'SacMultilanguagemenuComponent', 'selector': '[sac-multilanguagemenu]'},{'name': 'SacMultilanguagemenuItemButtonComponent', 'selector': 'sac-multilanguagemenubutton'},{'name': 'SacPagingComponent', 'selector': 'sac-paging'},{'name': 'SacRadiobuttonComponent', 'selector': 'sac-radiobutton'},{'name': 'SacRadiobuttonsComponent', 'selector': 'sac-radiobuttons'},{'name': 'SacStaticFormContainerComponent', 'selector': 'sac-staticformcontainer'},{'name': 'SacStaticLabelComponent', 'selector': 'sac-staticlabel'},{'name': 'SacTabComponent', 'selector': 'sac-tab'},{'name': 'SacTabItemComponent', 'selector': 'sac-tabitem'},{'name': 'SacTimeComponent', 'selector': 'sac-time'},{'name': 'SacTinyMceComponent', 'selector': 'sac-tinymce'},{'name': 'SacUploadComponent', 'selector': 'sac-upload'},{'name': 'SacUploadMultipleComponent', 'selector': 'sac-uploadmultiple'},{'name': 'SacValidationSummaryComponent', 'selector': 'sac-validationsummary'},{'name': 'SacWizardComponent', 'selector': 'sac-wizard'},{'name': 'SacWizardItemComponent', 'selector': 'sac-wizarditem'}];
+    var COMPONENTS = [{'name': 'SacBrowserComponent', 'selector': 'sac-filebrowser'},{'name': 'SacButtonComponent', 'selector': 'sac-button'},{'name': 'SacCheckboxComponent', 'selector': 'sac-checkbox'},{'name': 'SacConfirmComponent', 'selector': 'sac-confirm'},{'name': 'SacContextmenuComponent', 'selector': 'sac-contextmenu'},{'name': 'SacContextmenuItemButtonComponent', 'selector': 'sac-contextmenubutton'},{'name': 'SacContextmenuItemSplitterComponent', 'selector': 'sac-contextmenusplitter'},{'name': 'SacDateComponent', 'selector': 'sac-date'},{'name': 'SacDateSelectorComponent', 'selector': 'sac-dateselector'},{'name': 'SacDateTimeComponent', 'selector': 'sac-datetime'},{'name': 'SacDialogComponent', 'selector': 'sac-dialog'},{'name': 'SacDropdownComponent', 'selector': 'sac-dropdown'},{'name': 'SacDropzoneMultipleComponent', 'selector': 'sac-dropzonemultiple'},{'name': 'SacDropzoneSingleComponent', 'selector': 'sac-dropzonesingle'},{'name': 'SacGridButtonComponent', 'selector': 'sac-gridbutton'},{'name': 'SacGridColumnActionComponent', 'selector': 'sac-gridcolumnaction'},{'name': 'SacGridColumnComponent', 'selector': 'sac-gridcolumn'},{'name': 'SacGridComponent', 'selector': 'sac-grid'},{'name': 'SacGridImageComponent', 'selector': 'sac-gridimage'},{'name': 'SacInputAreaComponent', 'selector': 'sac-inputarea'},{'name': 'SacInputComponent', 'selector': 'sac-input'},{'name': 'SacInputCurrencyComponent', 'selector': 'sac-inputcurrency'},{'name': 'SacInputDecimalComponent', 'selector': 'sac-inputdecimal'},{'name': 'SacInputEmailComponent', 'selector': 'sac-inputemail'},{'name': 'SacInputIntegerComponent', 'selector': 'sac-inputinteger'},{'name': 'SacInputPasswordComponent', 'selector': 'sac-inputpassword'},{'name': 'SacInputSearchComponent', 'selector': 'sac-inputsearch'},{'name': 'SacListboxComponent', 'selector': 'sac-listbox'},{'name': 'SacMultilanguageInputAreaComponent', 'selector': 'sac-multilanguageinputarea'},{'name': 'SacMultilanguageInputComponent', 'selector': 'sac-multilanguageinput'},{'name': 'SacMultilanguagemenuComponent', 'selector': '[sac-multilanguagemenu]'},{'name': 'SacMultilanguagemenuItemButtonComponent', 'selector': 'sac-multilanguagemenubutton'},{'name': 'SacPagingComponent', 'selector': 'sac-paging'},{'name': 'SacRadiobuttonComponent', 'selector': 'sac-radiobutton'},{'name': 'SacRadiobuttonsComponent', 'selector': 'sac-radiobuttons'},{'name': 'SacStaticFormContainerComponent', 'selector': 'sac-staticformcontainer'},{'name': 'SacStaticLabelComponent', 'selector': 'sac-staticlabel'},{'name': 'SacTabComponent', 'selector': 'sac-tab'},{'name': 'SacTabItemComponent', 'selector': 'sac-tabitem'},{'name': 'SacTimeComponent', 'selector': 'sac-time'},{'name': 'SacTinyMceComponent', 'selector': 'sac-tinymce'},{'name': 'SacTooltipComponent', 'selector': 'sac-tooltip'},{'name': 'SacUploadComponent', 'selector': 'sac-upload'},{'name': 'SacUploadMultipleComponent', 'selector': 'sac-uploadmultiple'},{'name': 'SacValidationSummaryComponent', 'selector': 'sac-validationsummary'},{'name': 'SacWizardComponent', 'selector': 'sac-wizard'},{'name': 'SacWizardItemComponent', 'selector': 'sac-wizarditem'}];
     var DIRECTIVES = [{'name': 'SacBaseDateTimeControl', 'selector': ''},{'name': 'SacBaseListControl', 'selector': ''},{'name': 'SacBaseModelControl', 'selector': ''},{'name': 'SacBaseSelectControl', 'selector': ''},{'name': 'SacButtonCommon', 'selector': ''},{'name': 'SacCheckboxCommon', 'selector': ''},{'name': 'SacConfirmCommon', 'selector': ''},{'name': 'SacContextmenuAnchorCommon', 'selector': ''},{'name': 'SacContextmenuAnchorDirective', 'selector': '[sacContextMenuAnchor]'},{'name': 'SacContextmenuCommon', 'selector': ''},{'name': 'SacContextmenuContainerDirective', 'selector': '[sacContextMenuContainer]'},{'name': 'SacContextMenuContrainerCommon', 'selector': ''},{'name': 'SacContextmenuItemButtonCommon', 'selector': ''},{'name': 'SacContextmenuItemCommon', 'selector': ''},{'name': 'SacDateCommon', 'selector': ''},{'name': 'SacDateSelectorCommon', 'selector': ''},{'name': 'SacDateTimeCommon', 'selector': ''},{'name': 'SacDialogCommon', 'selector': ''},{'name': 'SacDropdownCommon', 'selector': ''},{'name': 'SacDropdownOptionCommon', 'selector': ''},{'name': 'SacDropdownOptionDirective', 'selector': '[sacOption],option'},{'name': 'SacDropzoneMultipleCommon', 'selector': ''},{'name': 'SacDropzoneSingleCommon', 'selector': ''},{'name': 'SacFileBrowserCommon', 'selector': ''},{'name': 'SacFormCommon', 'selector': ''},{'name': 'SacFormDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'SacFormLayoutCommon', 'selector': ''},{'name': 'SacFormLayoutDirective', 'selector': '[sacFormLayout]'},{'name': 'SacGridButtonCommon', 'selector': ''},{'name': 'SacGridColumnActionCommon', 'selector': ''},{'name': 'SacGridColumnBaseCommon', 'selector': ''},{'name': 'SacGridColumnCommon', 'selector': ''},{'name': 'SacGridCommon', 'selector': ''},{'name': 'SacGridImageCommon', 'selector': ''},{'name': 'SacInheritFormDirective', 'selector': '[sacInheritForm]'},{'name': 'SacInputAreaCommon', 'selector': ''},{'name': 'SacInputBase', 'selector': ''},{'name': 'SacInputCommon', 'selector': ''},{'name': 'SacInputCurrencyCommon', 'selector': ''},{'name': 'SacInputDecimalCommon', 'selector': ''},{'name': 'SacInputEmailCommon', 'selector': ''},{'name': 'SacInputIntegerCommon', 'selector': ''},{'name': 'SacInputPasswordCommon', 'selector': ''},{'name': 'SacInputSearchCommon', 'selector': ''},{'name': 'SacListboxCommon', 'selector': ''},{'name': 'SacListboxOptionCommon', 'selector': ''},{'name': 'SacListboxOptionDirective', 'selector': '[sacOption],option'},{'name': 'SacMultilanguageInputAreaCommon', 'selector': ''},{'name': 'SacMultilanguageInputCommon', 'selector': ''},{'name': 'SacMultilanguagemenuAnchorDirective', 'selector': '[sacMultilanguageMenuAnchor]'},{'name': 'SacMultilanguagemenuContainerDirective', 'selector': '[sacMultilanguageMenuContainer]'},{'name': 'SacPagingCommon', 'selector': ''},{'name': 'SacRadiobuttonCommon', 'selector': ''},{'name': 'SacRadiobuttonsCommon', 'selector': ''},{'name': 'SacStaticFormContainerCommon', 'selector': ''},{'name': 'SacStaticLabelCommon', 'selector': ''},{'name': 'SacTabCommon', 'selector': ''},{'name': 'SacTabItemCommon', 'selector': ''},{'name': 'SacTimeCommon', 'selector': ''},{'name': 'SacTinyMceCommon', 'selector': ''},{'name': 'SacTooltipCommon', 'selector': ''},{'name': 'SacTreeItemActionCommon', 'selector': ''},{'name': 'SacTreeViewChildCommon', 'selector': ''},{'name': 'SacTreeViewCommon', 'selector': ''},{'name': 'SacUploadBase', 'selector': ''},{'name': 'SacUploadMultipleCommon', 'selector': ''},{'name': 'SacUploadSingleCommon', 'selector': ''},{'name': 'SacValidationSummaryCommon', 'selector': ''},{'name': 'SacWizardCommon', 'selector': ''},{'name': 'SacWizardItemCommon', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'SacGridButtonComponent'};
 </script>

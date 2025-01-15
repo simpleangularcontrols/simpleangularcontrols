@@ -272,16 +272,15 @@ import { SacFormDirective } from &#x27;./form&#x27;;
 import { SacInheritFormDirective } from &#x27;./inheritform.directive&#x27;;
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        SacFormDirective, SacInheritFormDirective
-    ],
-    exports: [
-        SacFormDirective, SacInheritFormDirective
-    ]
+  imports: [
+    CommonModule,
+    FormsModule,
+    SacFormDirective,
+    SacInheritFormDirective,
+  ],
+  exports: [SacFormDirective, SacInheritFormDirective],
 })
-export class SACBootstrap3FormModule { }
+export class SACBootstrap3FormModule {}
 </code></pre>
     </div>
 </div>

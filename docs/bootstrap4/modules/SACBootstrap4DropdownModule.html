@@ -124,13 +124,13 @@
 <title>cluster_SACBootstrap4DropdownModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="45.5,-70 45.5,-268 450.5,-268 450.5,-70 45.5,-70"/>
 </g>
-<g id="clust3" class="cluster">
-<title>cluster_SACBootstrap4DropdownModule_imports</title>
-<polygon fill="none" stroke="black" points="56.5,-78 56.5,-130 439.5,-130 439.5,-78 56.5,-78"/>
-</g>
 <g id="clust4" class="cluster">
 <title>cluster_SACBootstrap4DropdownModule_exports</title>
 <polygon fill="none" stroke="black" points="53.5,-208 53.5,-260 442.5,-260 442.5,-208 53.5,-208"/>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap4DropdownModule_imports</title>
+<polygon fill="none" stroke="black" points="56.5,-78 56.5,-130 439.5,-130 439.5,-78 56.5,-78"/>
 </g>
 <!-- SacDropdownComponent -->
 <g id="node1" class="node">
@@ -265,17 +265,13 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { SacDropdownComponent, SacDropdownOptionDirective } from &#x27;./dropdown&#x27;;
 
 @NgModule({
-    imports: [CommonModule, SacDropdownComponent,
-        SacDropdownOptionDirective],
-    exports: [
-        SacDropdownComponent,
-        SacDropdownOptionDirective,
-    ],
+  imports: [CommonModule, SacDropdownComponent, SacDropdownOptionDirective],
+  exports: [SacDropdownComponent, SacDropdownOptionDirective],
 })
 export class SACBootstrap4DropdownModule {}
 </code></pre>

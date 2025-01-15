@@ -77,6 +77,10 @@ export abstract class SacAbstractIconService implements ISacIconService {
   /**
    * @inheritdoc
    */
+  public abstract get InputSearchButtonIcon(): string;
+  /**
+   * @inheritdoc
+   */
   public abstract get TimeComponentSelectorIcon(): string;
   /**
    * @inheritdoc
@@ -219,6 +223,13 @@ export class SacDefaultIconService extends SacAbstractIconService {
    */
   public get GridComponentSortUp(): string {
     return 'fa fa-caret-up';
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public get InputSearchButtonIcon(): string {
+    return 'fas fa-search';
   }
 
   /**

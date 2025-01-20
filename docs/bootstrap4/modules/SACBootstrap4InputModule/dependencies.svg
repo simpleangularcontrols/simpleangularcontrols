@@ -28,13 +28,13 @@
 <title>cluster_SACBootstrap4InputModule_imports</title>
 <polygon fill="none" stroke="black" points="1508,-78 1508,-130 1920,-130 1920,-78 1508,-78"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap4InputModule_declarations</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-130 1500,-130 1500,-78 16,-78"/>
-</g>
 <g id="clust12" class="cluster">
 <title>cluster_SACBootstrap4InputModule_exports</title>
 <polygon fill="none" stroke="black" points="199,-208 199,-260 1708,-260 1708,-208 199,-208"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_SACBootstrap4InputModule_declarations</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 1500,-130 1500,-78 16,-78"/>
 </g>
 <!-- SacInputAreaComponent -->
 <g id="node1" class="node">

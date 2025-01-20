@@ -17,9 +17,14 @@
           </ng-container>
         </tr>
       </ng-container>
-      <tr *ngIf="value === undefined || value === null || value.length===0">
+      <tr
+        *ngIf="value === undefined || value === null || value.length===0"
+        data-e2e="emptyrow"
+      >
         <td [attr.colspan]="ColumnCount">{{emptytext}}</td>
       </tr>
+    </tbody>
+    <tfoot *ngIf="pagerdata">
       <tr *ngIf="pagerdata">
         <td [attr.colspan]="ColumnCount">
           <div class="container-fluid">
@@ -35,6 +40,6 @@
           </div>
         </td>
       </tr>
-    </tbody>
+    </tfoot>
   </table>
 </div>

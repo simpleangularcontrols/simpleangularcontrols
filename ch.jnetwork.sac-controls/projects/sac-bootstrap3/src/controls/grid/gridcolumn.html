@@ -21,6 +21,7 @@
   *ngIf="IsBody()"
   [style.width]="width"
   [class.ellipsis]="IsEllipsis()"
+  (click)="ColumnClick()"
 >
   <span [attr.title]="IsEllipsis() ? value : null"> {{value}} </span>
 </td>

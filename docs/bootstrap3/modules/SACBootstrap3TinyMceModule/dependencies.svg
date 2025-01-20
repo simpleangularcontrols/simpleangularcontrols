@@ -24,95 +24,95 @@
 <title>cluster_SACBootstrap3TinyMceModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 1020,-268 1020,-70 8,-70"/>
 </g>
+<g id="clust2" class="cluster">
+<title>cluster_SACBootstrap3TinyMceModule_declarations</title>
+<polygon fill="none" stroke="black" points="844,-78 844,-130 1012,-130 1012,-78 844,-78"/>
+</g>
 <g id="clust4" class="cluster">
 <title>cluster_SACBootstrap3TinyMceModule_imports</title>
-<polygon fill="none" stroke="black" points="192,-78 192,-130 1012,-130 1012,-78 192,-78"/>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 836,-130 836,-78 16,-78"/>
 </g>
 <g id="clust5" class="cluster">
 <title>cluster_SACBootstrap3TinyMceModule_exports</title>
-<polygon fill="none" stroke="black" points="416,-208 416,-260 588,-260 588,-208 416,-208"/>
-</g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap3TinyMceModule_declarations</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-130 184,-130 184,-78 16,-78"/>
+<polygon fill="none" stroke="black" points="445,-208 445,-260 617,-260 617,-208 445,-208"/>
 </g>
 <!-- SacTinyMceComponent -->
 <g id="node1" class="node">
 <title>SacTinyMceComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="176.36,-122 23.64,-122 23.64,-86 176.36,-86 176.36,-122"/>
-<text text-anchor="middle" x="100" y="-99.8" font-family="Times,serif" font-size="14.00">SacTinyMceComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="1004.36,-122 851.64,-122 851.64,-86 1004.36,-86 1004.36,-122"/>
+<text text-anchor="middle" x="928" y="-99.8" font-family="Times,serif" font-size="14.00">SacTinyMceComponent</text>
 </g>
 <!-- SACBootstrap3TinyMceModule -->
 <g id="node2" class="node">
 <title>SACBootstrap3TinyMceModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="601.53,-187 598.53,-191 577.53,-191 574.53,-187 402.47,-187 402.47,-151 601.53,-151 601.53,-187"/>
-<text text-anchor="middle" x="502" y="-164.8" font-family="Times,serif" font-size="14.00">SACBootstrap3TinyMceModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="630.53,-187 627.53,-191 606.53,-191 603.53,-187 431.47,-187 431.47,-151 630.53,-151 630.53,-187"/>
+<text text-anchor="middle" x="531" y="-164.8" font-family="Times,serif" font-size="14.00">SACBootstrap3TinyMceModule</text>
 </g>
 <!-- SacTinyMceComponent&#45;&gt;SACBootstrap3TinyMceModule -->
 <g id="edge1" class="edge">
 <title>SacTinyMceComponent&#45;&gt;SACBootstrap3TinyMceModule</title>
-<path fill="none" stroke="black" d="M100,-122.28C100,-143.32 100,-175 100,-175 100,-175 392.37,-175 392.37,-175"/>
-<polygon fill="black" stroke="black" points="392.37,-178.5 402.37,-175 392.37,-171.5 392.37,-178.5"/>
+<path fill="none" stroke="black" d="M928,-122.28C928,-143.32 928,-175 928,-175 928,-175 640.67,-175 640.67,-175"/>
+<polygon fill="black" stroke="black" points="640.67,-171.5 630.67,-175 640.67,-178.5 640.67,-171.5"/>
 </g>
 <!-- SacTinyMceComponent  -->
 <g id="node7" class="node">
 <title>SacTinyMceComponent </title>
-<polygon fill="#fb8072" stroke="black" points="580.36,-252 423.64,-252 423.64,-216 580.36,-216 580.36,-252"/>
-<text text-anchor="middle" x="502" y="-229.8" font-family="Times,serif" font-size="14.00">SacTinyMceComponent </text>
+<polygon fill="#fb8072" stroke="black" points="609.36,-252 452.64,-252 452.64,-216 609.36,-216 609.36,-252"/>
+<text text-anchor="middle" x="531" y="-229.8" font-family="Times,serif" font-size="14.00">SacTinyMceComponent </text>
 </g>
 <!-- SACBootstrap3TinyMceModule&#45;&gt;SacTinyMceComponent  -->
 <g id="edge6" class="edge">
 <title>SACBootstrap3TinyMceModule&#45;&gt;SacTinyMceComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M502,-187.11C502,-187.11 502,-205.99 502,-205.99"/>
-<polygon fill="black" stroke="black" points="498.5,-205.99 502,-215.99 505.5,-205.99 498.5,-205.99"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M531,-187.11C531,-187.11 531,-205.99 531,-205.99"/>
+<polygon fill="black" stroke="black" points="527.5,-205.99 531,-215.99 534.5,-205.99 527.5,-205.99"/>
 </g>
 <!-- SACBootstrap3ButtonModule -->
 <g id="node3" class="node">
 <title>SACBootstrap3ButtonModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="1004.33,-122 1001.33,-126 980.33,-126 977.33,-122 817.67,-122 817.67,-86 1004.33,-86 1004.33,-122"/>
-<text text-anchor="middle" x="911" y="-99.8" font-family="Times,serif" font-size="14.00">SACBootstrap3ButtonModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="828.33,-122 825.33,-126 804.33,-126 801.33,-122 641.67,-122 641.67,-86 828.33,-86 828.33,-122"/>
+<text text-anchor="middle" x="735" y="-99.8" font-family="Times,serif" font-size="14.00">SACBootstrap3ButtonModule</text>
 </g>
 <!-- SACBootstrap3ButtonModule&#45;&gt;SACBootstrap3TinyMceModule -->
 <g id="edge2" class="edge">
 <title>SACBootstrap3ButtonModule&#45;&gt;SACBootstrap3TinyMceModule</title>
-<path fill="none" stroke="black" d="M911,-122.28C911,-143.32 911,-175 911,-175 911,-175 611.79,-175 611.79,-175"/>
-<polygon fill="black" stroke="black" points="611.79,-171.5 601.79,-175 611.79,-178.5 611.79,-171.5"/>
+<path fill="none" stroke="black" d="M735,-122.02C735,-139.37 735,-163 735,-163 735,-163 640.61,-163 640.61,-163"/>
+<polygon fill="black" stroke="black" points="640.61,-159.5 630.61,-163 640.61,-166.5 640.61,-159.5"/>
 </g>
 <!-- SACBootstrap3DialogModule -->
 <g id="node4" class="node">
 <title>SACBootstrap3DialogModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="800.32,-122 797.32,-126 776.32,-126 773.32,-122 613.68,-122 613.68,-86 800.32,-86 800.32,-122"/>
-<text text-anchor="middle" x="707" y="-99.8" font-family="Times,serif" font-size="14.00">SACBootstrap3DialogModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="624.32,-122 621.32,-126 600.32,-126 597.32,-122 437.68,-122 437.68,-86 624.32,-86 624.32,-122"/>
+<text text-anchor="middle" x="531" y="-99.8" font-family="Times,serif" font-size="14.00">SACBootstrap3DialogModule</text>
 </g>
 <!-- SACBootstrap3DialogModule&#45;&gt;SACBootstrap3TinyMceModule -->
 <g id="edge3" class="edge">
 <title>SACBootstrap3DialogModule&#45;&gt;SACBootstrap3TinyMceModule</title>
-<path fill="none" stroke="black" d="M707,-122.02C707,-139.37 707,-163 707,-163 707,-163 611.8,-163 611.8,-163"/>
-<polygon fill="black" stroke="black" points="611.8,-159.5 601.8,-163 611.8,-166.5 611.8,-159.5"/>
+<path fill="none" stroke="black" d="M531,-122.11C531,-122.11 531,-140.99 531,-140.99"/>
+<polygon fill="black" stroke="black" points="527.5,-140.99 531,-150.99 534.5,-140.99 527.5,-140.99"/>
 </g>
 <!-- SACBootstrap3LayoutModule -->
 <g id="node5" class="node">
 <title>SACBootstrap3LayoutModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="595.87,-122 592.87,-126 571.87,-126 568.87,-122 408.13,-122 408.13,-86 595.87,-86 595.87,-122"/>
-<text text-anchor="middle" x="502" y="-99.8" font-family="Times,serif" font-size="14.00">SACBootstrap3LayoutModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="419.87,-122 416.87,-126 395.87,-126 392.87,-122 232.13,-122 232.13,-86 419.87,-86 419.87,-122"/>
+<text text-anchor="middle" x="326" y="-99.8" font-family="Times,serif" font-size="14.00">SACBootstrap3LayoutModule</text>
 </g>
 <!-- SACBootstrap3LayoutModule&#45;&gt;SACBootstrap3TinyMceModule -->
 <g id="edge4" class="edge">
 <title>SACBootstrap3LayoutModule&#45;&gt;SACBootstrap3TinyMceModule</title>
-<path fill="none" stroke="black" d="M502,-122.11C502,-122.11 502,-140.99 502,-140.99"/>
-<polygon fill="black" stroke="black" points="498.5,-140.99 502,-150.99 505.5,-140.99 498.5,-140.99"/>
+<path fill="none" stroke="black" d="M326,-122.02C326,-139.37 326,-163 326,-163 326,-163 421.2,-163 421.2,-163"/>
+<polygon fill="black" stroke="black" points="421.2,-166.5 431.2,-163 421.2,-159.5 421.2,-166.5"/>
 </g>
 <!-- SACBootstrap3TooltipModule -->
 <g id="node6" class="node">
 <title>SACBootstrap3TooltipModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="389.94,-122 386.94,-126 365.94,-126 362.94,-122 200.06,-122 200.06,-86 389.94,-86 389.94,-122"/>
-<text text-anchor="middle" x="295" y="-99.8" font-family="Times,serif" font-size="14.00">SACBootstrap3TooltipModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="213.94,-122 210.94,-126 189.94,-126 186.94,-122 24.06,-122 24.06,-86 213.94,-86 213.94,-122"/>
+<text text-anchor="middle" x="119" y="-99.8" font-family="Times,serif" font-size="14.00">SACBootstrap3TooltipModule</text>
 </g>
 <!-- SACBootstrap3TooltipModule&#45;&gt;SACBootstrap3TinyMceModule -->
 <g id="edge5" class="edge">
 <title>SACBootstrap3TooltipModule&#45;&gt;SACBootstrap3TinyMceModule</title>
-<path fill="none" stroke="black" d="M295,-122.02C295,-139.37 295,-163 295,-163 295,-163 392.44,-163 392.44,-163"/>
-<polygon fill="black" stroke="black" points="392.44,-166.5 402.44,-163 392.44,-159.5 392.44,-166.5"/>
+<path fill="none" stroke="black" d="M119,-122.28C119,-143.32 119,-175 119,-175 119,-175 421.27,-175 421.27,-175"/>
+<polygon fill="black" stroke="black" points="421.27,-178.5 431.27,-175 421.27,-171.5 421.27,-178.5"/>
 </g>
 </g>
 </svg>

@@ -28,13 +28,13 @@
 <title>cluster_SACBootstrap4DropdownModule_declarations</title>
 <polygon fill="none" stroke="black" points="436,-78 436,-130 819,-130 819,-78 436,-78"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_SACBootstrap4DropdownModule_exports</title>
-<polygon fill="none" stroke="black" points="231,-208 231,-260 620,-260 620,-208 231,-208"/>
-</g>
 <g id="clust5" class="cluster">
 <title>cluster_SACBootstrap4DropdownModule_imports</title>
 <polygon fill="none" stroke="black" points="16,-78 16,-130 428,-130 428,-78 16,-78"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_SACBootstrap4DropdownModule_exports</title>
+<polygon fill="none" stroke="black" points="231,-208 231,-260 620,-260 620,-208 231,-208"/>
 </g>
 <!-- SacDropdownComponent -->
 <g id="node1" class="node">

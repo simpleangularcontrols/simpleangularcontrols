@@ -1,10 +1,12 @@
 import {
   Directive,
   ElementRef,
+  EventEmitter,
   Injector,
   Input,
   OnDestroy,
   OnInit,
+  Output,
 } from '@angular/core';
 import { ISacIconService } from '../../interfaces/ISacIconService';
 import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
@@ -53,6 +55,11 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
    */
   @Input()
   public width: string;
+  /**
+   * Click on Column Element
+   */
+  @Output()
+  public rowclicked: EventEmitter<void> = new EventEmitter<void>();
 
   // #endregion Properties
 
@@ -96,6 +103,13 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
   // #endregion Public Getters And Setters
 
   // #region Public Methods
+
+  /**
+   * Method when Colument element is clicked. Triggers a RowClicked
+   */
+  public ColumnClick() {
+    this.rowclicked.emit();
+  }
 
   /**
    * Indicates the direction of sorting. The possible values are `none`,`asc`,`desc`

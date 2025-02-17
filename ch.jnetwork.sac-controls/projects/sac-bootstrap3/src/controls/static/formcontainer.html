@@ -10,7 +10,7 @@
     class="col-xs-12 control-label"
     [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
     [class.required]="isrequired"
-    >{{label}}
+    ><span class="text">{{label}}</span>
     <sac-tooltip
       *ngIf="helptextmode === 'tooltip' && helptext"
       [tooltiptext]="helptext"

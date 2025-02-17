@@ -1,4 +1,5 @@
-import { Directive, Host, Injector, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
 import {
   AbstractControl,
   ControlValueAccessor,
@@ -9,7 +10,6 @@ import {
   ValidationErrors,
   Validator,
 } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { SacFormLayoutCommon } from '../controls/layout/formlayout';
 import { ControlHeight } from '../enums/ControlHeight';
 import { ISacConfigurationService } from '../interfaces/ISacConfigurationService';
@@ -35,6 +35,7 @@ import {
 import { convertToBoolean } from '../utilities/convertion';
 import { createGuid } from '../utilities/guid';
 import { ValidationErrorItem } from '../validation';
+
 /**
  * Abstract Klasse für SacBaseModelControl. Implements ControlValueAccessor, Validator, OnInit
  */
@@ -42,12 +43,14 @@ import { ValidationErrorItem } from '../validation';
 export abstract class SacBaseModelControl<VALUE>
   implements ControlValueAccessor, Validator, OnInit
 {
-  // #region Properties
-
   /**
    * Inline Errors für das Control
    */
   private _inlineerrorenabled: boolean | null = null;
+
+  /**
+   * Label Text
+   */
   private _label: string = '';
 
   /**
@@ -59,124 +62,150 @@ export abstract class SacBaseModelControl<VALUE>
    * Boolean Property dirty; default Wert - false
    */
   protected _dirty: boolean = false;
+
   /**
    * SacModel Form ist disabled
    */
   protected _disabledForm: boolean = false;
+
   /**
    * Validator
    */
   protected _onChange: () => void;
+
   /**
    * Boolean Property touched; default Wert - false
    */
   protected _touched: boolean = false;
+
   /**
    * Interne Variable, die den Wert des Controls hält
    */
   protected _value: VALUE = null;
+
   /**
    * Form layout instance if exists
    */
   protected formlayout: SacFormLayoutCommon = null;
+
   /**
    * icon service
    */
   protected iconService: ISacIconService;
+
   /**
    * Service für Error Localisation
    */
   protected lngResourceService: ISacLocalisationService;
+
   /**
    * ngControl
    */
   protected ngControl: UntypedFormControl;
 
   /**
+   * ControlHeight enum for use in HTML markup
+   */
+  public ControlHeight: typeof ControlHeight = ControlHeight;
+
+  /**
    * Defines the standard height of the components
    */
   @Input()
   public componentHeight: ControlHeight | null = null;
+
   /**
    * Deaktiviert das Input Control
    */
   @Input() public disabled: boolean = false;
+
   /**
    * Deaktiviert das Label im Template
    */
   @Input() public disablelabel: boolean = false;
+
   /**
    * Text to support the user during input.
    */
   @Input() public helptext: string = '';
+
   /**
    * Mode for display helptext
    */
   @Input()
   public helptextmode: 'tooltip' | 'text' | null;
+
   /**
    * defines that error messages are displayed under the controls
    */
   @Input() public inlineError: boolean = true;
+
   /**
    * defines that the labels are displayed as adaptive labels
    */
   @Input() public isAdaptiveLabel: boolean = false;
+
   /**
    * default labe size for large devices
    */
   @Input()
   public labelSizeLg: number | null = null;
+
   /**
    * default label size for medium devices
    */
   @Input()
   public labelSizeMd: number | null = null;
+
   /**
    * default label size for small devices
    */
   @Input()
   public labelSizeSm: number | null = null;
+
   /**
    * default label size for extra large devices
    */
   @Input()
   public labelSizeXl: number | null = null;
+
   /**
    * default label column size
    */
   @Input()
   public labelSizeXs: number | null = null;
+
   /**
    * default label size for extra extra large devices
    */
   @Input()
   public labelSizeXxl: number | null = null;
+
   /**
    * Name des Controls
    */
   @Input() public name: string = createGuid();
 
   /**
-   * ControlHeight enum for use in HTML markup
-   */
-  public ControlHeight: typeof ControlHeight = ControlHeight;
-  /**
    * Leere Implementation von "propagateChange". Muss gemacht werden, damit kein Fehler entsteht
    */
   public propagateChange: any = () => {};
+
   /**
    * Leere Implementation von "propagateTouch". Muss gemacht werden, damit kein Fehler entsteht
    */
   public propagateTouch: any = () => {};
+
+  /**
+   * Detach label text and tooltip from each other in Label so that label and tooltip can be aligned differently. This is in Bootstrap 3 not supported!
+   */
+  @Input()
+  public splitlabelandhelptext: boolean | null = null;
+
   /**
    * Service to receive standard validation message keys and texts
    */
   public validationKeyService: ISacValidationKeyService;
-
-  // #endregion Properties
-
-  // #region Constructors
 
   /**
    * Constructor
@@ -208,44 +237,6 @@ export abstract class SacBaseModelControl<VALUE>
     );
   }
 
-  // #endregion Constructors
-
-  // #region Public Getters And Setters
-
-  /**
-   * Aktiviert oder Deaktiviert die Inline Errors für das Control
-   */
-  @Input()
-  public set inlineerrorenabled(value: boolean | null) {
-    if (value === null || value === undefined) {
-      this._inlineerrorenabled = null;
-    } else {
-      this._inlineerrorenabled = convertToBoolean(value);
-    }
-  }
-
-  /**
-   * Definiert den Label Text
-   */
-  @Input() public set label(v: string) {
-    this._label = v;
-    this.UpdateLabelToControl();
-  }
-
-  /**
-   * Set Methode für NgModel Binding in Html Markup
-   * Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.
-   */
-  @Input()
-  public set value(v: VALUE) {
-    if (this.disabled) {
-      return;
-    }
-
-    this._value = this.ConvertInputValue(v);
-    this.propagateChange(this._value);
-  }
-
   /**
    * Get Icon for Helptext Tooltip
    */
@@ -269,6 +260,18 @@ export abstract class SacBaseModelControl<VALUE>
    */
   public get inlineerrorenabled(): boolean | null {
     return this._inlineerrorenabled;
+  }
+
+  /**
+   * Aktiviert oder Deaktiviert die Inline Errors für das Control
+   */
+  @Input()
+  public set inlineerrorenabled(value: boolean | null) {
+    if (value === null || value === undefined) {
+      this._inlineerrorenabled = null;
+    } else {
+      this._inlineerrorenabled = convertToBoolean(value);
+    }
   }
 
   /**
@@ -319,6 +322,14 @@ export abstract class SacBaseModelControl<VALUE>
   }
 
   /**
+   * Definiert den Label Text
+   */
+  @Input() public set label(v: string) {
+    this._label = v;
+    this.UpdateLabelToControl();
+  }
+
+  /**
    * returns an object with all label sizes. These values can then be transferred to corresponding CSS classes using a pipe
    */
   public get labelSizes(): ISacLabelSizes {
@@ -350,9 +361,19 @@ export abstract class SacBaseModelControl<VALUE>
     return this._value;
   }
 
-  // #endregion Public Getters And Setters
+  /**
+   * Set Methode für NgModel Binding in Html Markup
+   * Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.
+   */
+  @Input()
+  public set value(v: VALUE) {
+    if (this.disabled) {
+      return;
+    }
 
-  // #region Public Methods
+    this._value = this.ConvertInputValue(v);
+    this.propagateChange(this._value);
+  }
 
   /**
    * Methode ergibt Error anhand von gegebenen Kriterien
@@ -429,6 +450,9 @@ export abstract class SacBaseModelControl<VALUE>
     // set method to display helptext
     this.setHelpTextMode();
 
+    // set SplitMode for Labels
+    this.setLabelSplitMode();
+
     this.OnClassInit();
   }
 
@@ -485,24 +509,16 @@ export abstract class SacBaseModelControl<VALUE>
   }
 
   /**
+   * Abstrakte Validator Methode
+   */
+  public abstract validateData(c: AbstractControl): ValidationErrors | null;
+
+  /**
    * Methode zum schreiben von Werten aus dem Model in das Control
    */
   public writeValue(value: VALUE) {
     this._value = value;
   }
-
-  // #endregion Public Methods
-
-  // #region Public Abstract Methods
-
-  /**
-   * Abstrakte Validator Methode
-   */
-  public abstract validateData(c: AbstractControl): ValidationErrors | null;
-
-  // #endregion Public Abstract Methods
-
-  // #region Protected Methods
 
   /**
    * Method can Overwriten in Parent Classes
@@ -533,10 +549,6 @@ export abstract class SacBaseModelControl<VALUE>
       this.ngControl.updateValueAndValidity({ onlySelf: true });
     }
   }
-
-  // #endregion Protected Methods
-
-  // #region Private Methods
 
   private UpdateLabelToControl(): void {
     // HACK: Add addition property to FormControl. Can be fixed if solution for ticket: https://github.com/angular/angular/issues/19686
@@ -646,5 +658,14 @@ export abstract class SacBaseModelControl<VALUE>
     }
   }
 
-  // #endregion Private Methods
+  private setLabelSplitMode() {
+    if (!this.splitlabelandhelptext) {
+      if (this.formlayout?.splitlabelandhelptext) {
+        this.splitlabelandhelptext = this.formlayout.splitlabelandhelptext;
+      } else {
+        this.splitlabelandhelptext =
+          this.configurationService.SplitLabelAndHelptext;
+      }
+    }
+  }
 }

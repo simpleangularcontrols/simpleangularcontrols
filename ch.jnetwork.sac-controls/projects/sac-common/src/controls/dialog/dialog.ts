@@ -1,13 +1,13 @@
 import {
   ChangeDetectorRef,
+  Directive,
   ElementRef,
   EventEmitter,
   HostListener,
   Input,
+  OnDestroy,
   Output,
   ViewChild,
-  Directive,
-  OnDestroy,
 } from '@angular/core';
 
 /**
@@ -15,39 +15,18 @@ import {
  */
 @Directive()
 export class SacDialogCommon implements OnDestroy {
-  /**
-   * Name des Containers für den Dialog
-   */
-  dialogElement: ElementRef;
-
   private hasSetBodyTag = false;
-
-  /**
-   * Implementation als Setter, da mit ngIf das Element bei Unsichtbarkeit UNDEFINED ist.
-   */
-  @ViewChild('dialog', { static: false })
-  set dialogElementSetter(content: ElementRef) {
-    this.dialogElement = content;
-  }
 
   /**
    * Boolean Property definiert ob das Dialog angezeigt wird
    */
-  _show: boolean = false;
+  public _show: boolean = false;
 
   /**
    * Das property enthielt (wenn überhaupt gesetzt) entweder keywords für sizing oder custom css Klassen.
    * Die akzeptabel keywordssind: 'small', 'large', 'extralarge', 'medium', ''.
    */
-  _size: string = '';
-
-  // #region Properties
-
-  /**
-   * Input Property. Erhält den Title des Dialog. Default Value: 'Dialog'.
-   */
-  @Input()
-  public title: string = 'Dialog';
+  public _size: 'small' | 'large' | 'extralarge' | 'medium' | '' = '';
 
   /**
    * Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch ESC geschlossen werden. Default ist true.
@@ -62,52 +41,60 @@ export class SacDialogCommon implements OnDestroy {
   public backdrop: boolean = true;
 
   /**
-   * Input Property. Erhält den Namen des Dialog - benutzt für das ID. Default Value: ''
-   */
-  @Input()
-  public name: string = '';
-
-  /**
    * Steuert ob im Header des Dialogs ein Button angezeigt wird.
    */
   @Input()
   public closebutton: boolean = true;
 
   /**
-   * Input Property. Erhält die Breite des Dialog
+   * Name des Containers für den Dialog
    */
-  @Input()
-  public width: string = null;
-
-  /**
-   * Definiert eine feste Höhe beim Dialog.
-   */
-  @Input()
-  public height: string = null;
-
-  /**
-   * Das Input akzeptiert sowohl default size-css-Klassen als auch custom Klassen.
-   * case insensitive.
-   * Die akzeptabel default-size-Klassen sind: 'small', 'large', 'extralarge', 'medium', ''.
-   * Wenn size ist NICHT gesetzt (oder 'medium' oder ''), default ist in medium size: max-width 500px.
-   */
-  @Input()
-  set size(v: string) {
-    v = v.toLowerCase();
-    this._size = v;
-  }
+  public dialogElement: ElementRef;
 
   /**
    * Output Emitter. Wird aufgerufen, wenn das Wert des _show property geändert ist - damait das Dialog geöfnet/geschlossen wird.
    */
   @Output()
-  isvisibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+  public isvisibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  /**
+   * Input Property. Erhält den Namen des Dialog - benutzt für das ID. Default Value: ''
+   */
+  @Input()
+  public name: string = '';
+
+  /**
+   * Input Property. Erhält den Title des Dialog. Default Value: 'Dialog'.
+   */
+  @Input()
+  public title: string = 'Dialog';
+
+  /**
+   * Konstruktor
+   * Inject des Formulars
+   */
+  constructor(private cdRef: ChangeDetectorRef) {}
+
+  /**
+   * Implementation als Setter, da mit ngIf das Element bei Unsichtbarkeit UNDEFINED ist.
+   */
+  @ViewChild('dialog', { static: false })
+  public set dialogElementSetter(content: ElementRef) {
+    this.dialogElement = content;
+  }
+
+  /**
+   * Getter. Ergibt das boolen Wert des _show property
+   */
+  public get isvisible(): boolean {
+    return this._show;
+  }
 
   /**
    * Setter. Erhält das boolen Wert des _show property
    */
   @Input()
-  set isvisible(v: boolean) {
+  public set isvisible(v: boolean) {
     if (
       v &&
       !this.hasSetBodyTag &&
@@ -130,62 +117,73 @@ export class SacDialogCommon implements OnDestroy {
   }
 
   /**
-   * Getter. Ergibt das boolen Wert des _show property
+   * Das Input akzeptiert sowohl default size-css-Klassen als auch custom Klassen.
+   * case insensitive.
+   * Die akzeptabel default-size-Klassen sind: 'small', 'large', 'extralarge', 'medium', ''.
+   * Wenn size ist NICHT gesetzt (oder 'medium' oder ''), default ist in medium size: max-width 500px.
    */
-  get isvisible(): boolean {
-    return this._show;
+  @Input()
+  public set size(v: 'small' | 'large' | 'extralarge' | 'medium' | '') {
+    this._size = v;
   }
 
   /**
-   * Die Funktion prüft ob es ein default css classe für Size des Dialog durch den size Input gesetzt wurde.
+   * Getter for ChangeDetector.
    */
-  issetdefaultsize(): boolean {
-    let result: boolean = false;
+  protected get ChangeDetector(): ChangeDetectorRef {
+    return this.cdRef;
+  }
 
-    switch (this._size) {
-      case 'small':
-        result = true;
-        break;
-      case 'medium':
-        result = true;
-        break;
-      case 'large':
-        result = true;
-        break;
-      case 'extralarge':
-        result = true;
-        break;
-      case '':
-        result = true;
-        break;
+  /**
+   * Die Methode setz den Wert des _show property auf false
+   */
+  public hide(): void {
+    if (this.hasSetBodyTag && document.body.classList.contains('modal-open')) {
+      document.body.classList.remove('modal-open');
+      this.hasSetBodyTag = false;
     }
 
-    return result;
+    this._show = false;
+    this.isvisibleChange.emit(this._show);
   }
-
-  // #endregion
-
-  // #region Constructor
-
-  /**
-   * Konstruktor
-   * Inject des Formulars
-   */
-  constructor(private cdRef: ChangeDetectorRef) {}
-
-  // #endregion
 
   /**
    * Methode wenn Componente entfernt wird
    */
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     if (this.hasSetBodyTag && document.body.classList.contains('modal-open')) {
       document.body.classList.remove('modal-open');
       this.hasSetBodyTag = false;
     }
   }
 
-  // #region Methods
+  /**
+   * Allow Close by Click outside Dialog
+   */
+  @HostListener('click', ['$event'])
+  public onClick(event: any): void {
+    if (
+      this.allowesc === false ||
+      (this.dialogElement !== null &&
+        this.dialogElement !== undefined &&
+        event.target !== this.dialogElement.nativeElement)
+    ) {
+      return;
+    }
+    this.hide();
+  }
+
+  /**
+   * Allow Close by ESC
+   */
+  @HostListener('document:keydown', ['$event'])
+  public onKeydownHandler(event: KeyboardEvent) {
+    const ESCAPE_KEYCODE = 'Escape';
+
+    if (this.allowesc === true && event.key === ESCAPE_KEYCODE) {
+      this.hide();
+    }
+  }
 
   /**
    * Die Methode setz den Wert des _show property auf true
@@ -203,58 +201,4 @@ export class SacDialogCommon implements OnDestroy {
 
     this.isvisibleChange.emit(this._show);
   }
-
-  /**
-   * Die Methode setz den Wert des _show property auf false
-   */
-  public hide(): void {
-    if (this.hasSetBodyTag && document.body.classList.contains('modal-open')) {
-      document.body.classList.remove('modal-open');
-      this.hasSetBodyTag = false;
-    }
-
-    this._show = false;
-    this.isvisibleChange.emit(this._show);
-  }
-
-  /**
-   * Getter for ChangeDetector.
-   */
-  protected get ChangeDetector(): ChangeDetectorRef {
-    return this.cdRef;
-  }
-
-  // #endregion
-
-  // #region Host Actions
-
-  /**
-   * Allow Close by Click outside Dialog
-   */
-  @HostListener('click', ['$event'])
-  onClick(event: any): void {
-    if (
-      this.allowesc === false ||
-      (this.dialogElement !== null &&
-        this.dialogElement !== undefined &&
-        event.target !== this.dialogElement.nativeElement)
-    ) {
-      return;
-    }
-    this.hide();
-  }
-
-  /**
-   * Allow Close by ESC
-   */
-  @HostListener('document:keydown', ['$event'])
-  onKeydownHandler(event: KeyboardEvent) {
-    const ESCAPE_KEYCODE = 'Escape';
-
-    if (this.allowesc === true && event.key === ESCAPE_KEYCODE) {
-      this.hide();
-    }
-  }
-
-  // #endregion
 }

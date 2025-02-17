@@ -8,10 +8,8 @@ export { SacRadiobuttonsCommon } from './controls/checkbox/radiobuttons';
 export { SacDialogCommon } from './controls/dialog/dialog';
 export { SacFormCommon } from './controls/form/form';
 export { SacFormLayoutCommon } from './controls/layout/formlayout';
-export {
-  SacDropdownCommon,
-  SacDropdownOptionCommon,
-} from './controls/list/dropdown';
+export { SacDropdownCommon } from './controls/list/dropdown';
+export { SacDropdownOptionCommon } from './controls/list/dropdownoptions';
 export {
   SacListboxCommon,
   SacListboxOptionCommon,

@@ -3,14 +3,8 @@ import { SacFormDirective } from '@simpleangularcontrols/sac-bootstrap3';
 
 interface KeyValue {
   label: string;
+  text: string;
   value: string;
-  text: string;
-}
-
-interface KeyValueNumeric {
-  label: string;
-  value: number;
-  text: string;
 }
 
 interface KeyValue2 extends KeyValue {
@@ -21,11 +15,18 @@ interface KeyValue3 extends KeyValue2 {
   checked: boolean;
 }
 
+interface KeyValueNumeric {
+  label: string;
+  text: string;
+  value: number;
+}
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
 })
 export class DemoListComponent {
+  @ViewChild('myForm') myForm: SacFormDirective;
   public values: any = {
     dropdown1: null,
     dropdown2: 'v1',
@@ -33,12 +34,15 @@ export class DemoListComponent {
     dropdown4: 'v3',
     dropdown5: 'v3',
     dropdown6: 'v2',
-    dropdown7: null,
+    dropdown7: '',
     dropdown8: null,
     dropdown9: null,
-    dropdown10: null,
-    dropdown11: null,
+    dropdown10: 'v1',
+    dropdown11: 'v1',
     dropdown12: 2,
+    dropdown13: null,
+    dropdown14: 0,
+    dropdown15: 'notset',
     listbox1: null,
     listbox2: ['v2', 'v3'],
     listbox3: null,
@@ -74,8 +78,6 @@ export class DemoListComponent {
       },
     ],
   };
-
-  @ViewChild('myForm') myForm: SacFormDirective;
 
   public debugAction(): void {
     this.myForm.markAsTouched();

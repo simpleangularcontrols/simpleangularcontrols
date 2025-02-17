@@ -1,6 +1,9 @@
-import { ValidationErrors, ValidatorFn } from '@angular/forms';
 import * as moment_ from 'moment';
+
+import { ValidatorFn } from '@angular/forms';
 import { LanguageModel } from '../models/languagemodel';
+import { emailValidator } from './email.validator';
+import { equalsValueValidator } from './equals.validator';
 import { isValidDateValidator } from './invaliddate.validator';
 import { maxDateValidator } from './maxdate.validator';
 import { maxTimeValidator } from './maxtime.validator';
@@ -12,14 +15,10 @@ import { minTimeValidator } from './mintime.validator';
 import { minValueValidator } from './minvalue.validator';
 import { multilanguageRequiredValidator } from './multilanguagerequired.validator';
 import { multilanguageRequiredAnyValidator } from './multilanguagerequiredany.validator';
+import { notEqualsValueValidator } from './notequals.validator';
 import { patternValidator } from './pattern.validator';
 import { requiredValidator } from './required.validator';
 import { CreateValidationError } from './validationerrorcreator';
-import { emailValidator } from './email.validator';
-/**
- * Moment
- */
-const moment = moment_['default'];
 
 /**
  * Klasse mit Standard Validatoren
@@ -63,9 +62,29 @@ export class Validation {
   }
 
   /**
-   * Validator für Min Value
-   * @param control Control das Validiert wird
-   * @param minvalue Min. Value
+   * Validator validate if value is the requiredValue
+   * @param requiredValue Value that control should have
+   * @param control Control to be validate
+   * @param fieldName Label of control
+   * @param validationMessage validation message near the control
+   * @param validationMessageSummary validation inside the validation summary
+
+   */
+  public static equals(
+    requiredValue: any,
+    validationMessage: string,
+    validationMessageSummary
+  ): ValidatorFn {
+    return equalsValueValidator(
+      requiredValue,
+      validationMessage,
+      validationMessageSummary
+    );
+  }
+
+  /**
+   * Validator der prüft ob der Wert ein Datum ist.
+   * @param control Control mit IDateTimeControl Interface implementierung
    * @param fieldName Label des Controls
    * @param validationMessage Validierungsmeldung die
    * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
@@ -271,9 +290,29 @@ export class Validation {
   }
 
   /**
-   * Validator für MultiLanguage Control, welcher überprüft ob alle Sprachen erfasst sind.
-   * @param control Control das Validatiert werden soll
-   * @param languages Sprachen die im Control erfasst werden können.
+   * Validator validate if value is not the invalidValue
+   * @param invalidValue Value that control doesn't should have
+   * @param control Control to be validate
+   * @param fieldName Label of control
+   * @param validationMessage validation message near the control
+   * @param validationMessageSummary validation inside the validation summary
+   */
+  public static notequals(
+    invalidValue: any,
+    validationMessage: string,
+    validationMessageSummary
+  ): ValidatorFn {
+    return notEqualsValueValidator(
+      invalidValue,
+      validationMessage,
+      validationMessageSummary
+    );
+  }
+
+  /**
+   * Validierung mit einem RegEx Pattern
+   * @param control Control das validiert werden soll.
+   * @param pattern RegEx Pattern
    * @param fieldName Label des Controls
    * @param validationMessage Validierungsmeldung die unterhalb des Controls angezeigt wird
    * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
@@ -310,3 +349,8 @@ export class Validation {
     );
   }
 }
+
+/**
+ * Moment
+ */
+const moment = moment_['default'];

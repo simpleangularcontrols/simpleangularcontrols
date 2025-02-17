@@ -1,19 +1,21 @@
-<div class="form-row form-group">
-  <div
-    class="col"
+<div class="row form-group">
+  <label
+    for="{{name}}"
+    class="col-12 col-form-label d-flex"
     [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
-  >
-    <label for="{{name}}" class="form-control-label"
-      >{{label}}<sac-tooltip
-        *ngIf="helptextmode === 'tooltip' && helptext"
-        [tooltiptext]="helptext"
-        [inlinemode]="true"
-        ><span
-          [ngClass]="HelptextTooltipIcon"
-          class="ml-1"
-        ></span> </sac-tooltip
-    ></label>
-  </div>
+    [class.required]="isrequired"
+    ><div
+      class="text flex-grow-0"
+      [class.flex-sm-grow-1]="splitlabelandhelptext"
+    >
+      {{label}}
+    </div>
+    <sac-tooltip
+      *ngIf="helptextmode === 'tooltip' && helptext"
+      [tooltiptext]="helptext"
+      [inlinemode]="true"
+      ><span [ngClass]="HelptextTooltipIcon" class="ml-1"></span> </sac-tooltip
+  ></label>
   <div
     class="col-12"
     [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"

@@ -5,10 +5,16 @@
     [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'visually-hidden' ]"
   >
     <label
-      class="col-form-label"
+      class="col-form-label d-flex"
       [ngClass]="componentHeight | toLabelHeight"
       *ngIf="!disablelabel"
-      >{{label}}<sac-tooltip
+      ><div
+        class="text flex-grow-0"
+        [class.flex-sm-grow-1]="splitlabelandhelptext"
+      >
+        {{label}}
+      </div>
+      <sac-tooltip
         *ngIf="helptextmode === 'tooltip' && helptext"
         [tooltiptext]="helptext"
         [inlinemode]="true"

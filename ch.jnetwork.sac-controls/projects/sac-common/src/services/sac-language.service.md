@@ -4,11 +4,11 @@ Use this service to manage the languages in the controls. This service is used, 
 
 # Example
 
-Example of the implementation of a SacLanguageService
+Example of the implementation of a SacAbstractLanguageService
 
 ```ts
 @Injectable()
-export class CustomLanguageService extends SacLanguageService {
+export class CustomLanguageService extends SacAbstractLanguageService {
   constructor(private http: HttpClient) {
     super();
   }

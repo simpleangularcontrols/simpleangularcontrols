@@ -3,10 +3,17 @@
     *ngIf="disablelabel === false && !isAdaptiveLabel"
     id="{{name}}_label"
     for="{{name}}"
-    class="col-12 col-form-label"
+    class="col-12 col-form-label d-flex"
     [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
     [class.required]="isrequired"
-    >{{label}}<sac-tooltip
+  >
+    <div
+      class="text flex-grow-0"
+      [class.flex-sm-grow-1]="splitlabelandhelptext"
+    >
+      {{label}}
+    </div>
+    <sac-tooltip
       *ngIf="helptextmode === 'tooltip' && helptext"
       [tooltiptext]="helptext"
       [inlinemode]="true"

@@ -3,9 +3,17 @@
     *ngIf="disablelabel === false && !isAdaptiveLabel"
     id="{{name}}_label"
     for="{{name}}"
-    class="col-12 col-form-label"
+    class="col-12 col-form-label d-flex"
     [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
-    >{{label}}<sac-tooltip
+    [class.required]="isrequired"
+  >
+    <div
+      class="text flex-grow-0"
+      [class.flex-sm-grow-1]="splitlabelandhelptext"
+    >
+      {{label}}
+    </div>
+    <sac-tooltip
       *ngIf="helptextmode === 'tooltip' && helptext"
       [tooltiptext]="helptext"
       [inlinemode]="true"
@@ -29,7 +37,7 @@
           [class.btn-secondary]="!(invalid && (dirty || touched))"
           [class.btn-danger]="invalid && (dirty || touched)"
         >
-          <i class="pr-2" [class]="IconBrowse"></i>
+          <i class="pr-2" [ngClass]="IconBrowse"></i>
           <span class="upload-browse"
             >{{
             lngResourceService.GetString(validationKeyService.UploadButtonBrowse)
@@ -78,7 +86,7 @@
           [class.btn-secondary]="!(invalid && (dirty || touched))"
           [class.btn-danger]="invalid && (dirty || touched)"
         >
-          <span [class]="IconDelete"></span>
+          <span [ngClass]="IconDelete"></span>
         </button>
         <button
           *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && IsPaused() === false)"
@@ -89,7 +97,7 @@
           [class.btn-secondary]="!(invalid && (dirty || touched))"
           [class.btn-danger]="invalid && (dirty || touched)"
         >
-          <span [class]="IconPause"></span>
+          <span [ngClass]="IconPause"></span>
         </button>
         <button
           *ngIf="autoupload && enablepause && IsPaused()"
@@ -98,7 +106,7 @@
           [class.btn-secondary]="!(invalid && (dirty || touched))"
           [class.btn-danger]="invalid && (dirty || touched)"
         >
-          <span [class]="IconContinue"></span>
+          <span [ngClass]="IconContinue"></span>
         </button>
         <button
           *ngIf="autoupload === false"
@@ -109,7 +117,7 @@
           [class.btn-secondary]="!(invalid && (dirty || touched))"
           [class.btn-danger]="invalid && (dirty || touched)"
         >
-          <span [class]="IconUpload" class="pr-2"></span>{{
+          <span [ngClass]="IconUpload" class="pr-2"></span>{{
           lngResourceService.GetString(validationKeyService.UploadButtonUpload)
           | async }}
         </button>

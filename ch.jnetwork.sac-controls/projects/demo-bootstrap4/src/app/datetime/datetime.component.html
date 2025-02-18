@@ -39,6 +39,7 @@
             label="Datum 3 (Min 01.01.2018)"
             [(ngModel)]="values.datum3"
             mindate="01.01.2018"
+            [isrequired]="true"
             disablelabel="true"
             helptext="Dies ist ein Helptext"
             helptextmode="tooltip">
@@ -95,6 +96,7 @@
             [(ngModel)]="values.time4"
             mintime="10:00"
             maxtime="18:00"
+            [isrequired]="true"
             disablelabel="true"
             helptext="Dies ist ein Helptext"
             helptextmode="tooltip">
@@ -142,6 +144,7 @@
             label="Datum & Zeit 3 (Max. 19.08.2018 17:00)"
             [(ngModel)]="values.datumzeit3"
             maxdate="19.08.2018 17:00"
+            [isrequired]="true"
             disablelabel="true"
             helptext="Dies ist ein Helptext"
             helptextmode="tooltip">

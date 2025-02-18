@@ -22,54 +22,55 @@
     </label>
     <div
         class="col-xs-12"
-        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
-        [style.display]="helptextmode === 'tooltip' && helptext && disablelabel ? 'flex' : null">
-        <select
-            multiple
-            id="{{ name }}"
-            name="{{ name }}"
-            class="form-control"
-            [ngClass]="[componentHeight | toControlHeight]"
-            [size]="rowsize"
-            (blur)="onTouch()"
-            (change)="getSelectedItems($event.target)"
-            [disabled]="isdisabled">
-            <ng-content></ng-content>
-            <ng-container *ngIf="groupitems === ''">
-                <option
-                    *ngFor="let option of options"
-                    [value]="option[optionvalue]"
-                    [disabled]="optionenabled !== '' && option[optionenabled] === false">
-                    <ng-template *ngTemplateOutlet="optionlabeltemplate || defaultItemLabelTemplate; context: { label: option[optionlabel] }"> </ng-template>
-                </option>
-            </ng-container>
-            <ng-container *ngIf="groupitems !== ''">
-                <optgroup
-                    *ngFor="let option of options"
-                    [attr.label]="option[grouplabel]">
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']">
+        <div [style.display]="helptextmode === 'tooltip' && helptext && disablelabel ? 'flex' : null">
+            <select
+                multiple
+                id="{{ name }}"
+                name="{{ name }}"
+                class="form-control"
+                [ngClass]="[componentHeight | toControlHeight]"
+                [size]="rowsize"
+                (blur)="onTouch()"
+                (change)="getSelectedItems($event.target)"
+                [disabled]="isdisabled">
+                <ng-content></ng-content>
+                <ng-container *ngIf="groupitems === ''">
                     <option
-                        *ngFor="let item of option[groupitems]"
-                        [value]="item[optionvalue]"
-                        [disabled]="optionenabled !== '' && item[optionenabled] === false">
-                        <ng-template *ngTemplateOutlet="optionlabeltemplate || defaultItemLabelTemplate; context: { label: item[optionlabel] }"> </ng-template>
+                        *ngFor="let option of options"
+                        [value]="option[optionvalue]"
+                        [disabled]="optionenabled !== '' && option[optionenabled] === false">
+                        <ng-template *ngTemplateOutlet="optionlabeltemplate || defaultItemLabelTemplate; context: { label: option[optionlabel] }"> </ng-template>
                     </option>
-                </optgroup>
-            </ng-container>
-        </select>
+                </ng-container>
+                <ng-container *ngIf="groupitems !== ''">
+                    <optgroup
+                        *ngFor="let option of options"
+                        [attr.label]="option[grouplabel]">
+                        <option
+                            *ngFor="let item of option[groupitems]"
+                            [value]="item[optionvalue]"
+                            [disabled]="optionenabled !== '' && item[optionenabled] === false">
+                            <ng-template *ngTemplateOutlet="optionlabeltemplate || defaultItemLabelTemplate; context: { label: item[optionlabel] }"> </ng-template>
+                        </option>
+                    </optgroup>
+                </ng-container>
+            </select>
 
-        <div
-            *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
-            class="form-control-static"
-            style="margin-left: 5px">
-            <sac-tooltip
-                *ngIf="helptextmode === 'tooltip' && helptext"
-                [tooltiptext]="helptext"
-                [inlinemode]="true">
-                <span
-                    [class]="HelptextTooltipIcon"
-                    style="margin-left: 5px; margin-right: 5px">
-                </span>
-            </sac-tooltip>
+            <div
+                *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
+                class="form-control-static"
+                style="margin-left: 5px">
+                <sac-tooltip
+                    *ngIf="helptextmode === 'tooltip' && helptext"
+                    [tooltiptext]="helptext"
+                    [inlinemode]="true">
+                    <span
+                        [class]="HelptextTooltipIcon"
+                        style="margin-left: 5px; margin-right: 5px">
+                    </span>
+                </sac-tooltip>
+            </div>
         </div>
 
         <p

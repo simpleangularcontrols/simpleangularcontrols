@@ -34,6 +34,16 @@
                 (onSaveContent)="save($event.event.content)"
                 [disabled]="disabled"
                 [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)"></editor>
+            <p
+                *ngIf="helptextmode === 'text' && helptext"
+                class="help-block">
+                {{ helptext }}
+            </p>
+            <div
+                *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+                class="help-block">
+                {{ GetErrorMessage() | async }}
+            </div>
         </div>
 
         <div
@@ -49,17 +59,6 @@
                     style="margin-left: 5px; margin-right: 5px">
                 </span>
             </sac-tooltip>
-        </div>
-
-        <p
-            *ngIf="helptextmode === 'text' && helptext"
-            class="help-block">
-            {{ helptext }}
-        </p>
-        <div
-            *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
-            class="help-block">
-            {{ GetErrorMessage() | async }}
         </div>
     </div>
 </div>

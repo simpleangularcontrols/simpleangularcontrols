@@ -1,36 +1,39 @@
 <div class="row form-group">
-  <div
-    *ngIf="disablelabel === false"
-    class="col-12 pt-0"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only']"
-  >
-    <label
-      class="col-form-label"
-      [ngClass]="componentHeight | toLabelHeight"
-      *ngIf="!disablelabel"
-      >{{label}}<sac-tooltip
-        *ngIf="helptextmode === 'tooltip' && helptext"
-        [tooltiptext]="helptext"
-        [inlinemode]="true"
-        ><span
-          [ngClass]="HelptextTooltipIcon"
-          class="ml-1"
-        ></span> </sac-tooltip
-    ></label>
-  </div>
-  <div
-    class="col-12"
-    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
-    [class.pt-1]="componentHeight === ControlHeight.Small"
-    [class.pt-2]="componentHeight !== ControlHeight.Small"
-  >
-    <ng-content></ng-content>
-    <small
-      *ngIf="helptextmode === 'text' && helptext"
-      class="help-block"
-      class="form-text text-muted"
-    >
-      {{helptext}}
-    </small>
-  </div>
+    <div
+        *ngIf="disablelabel === false"
+        class="col-12 pt-0"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only']">
+        <label
+            class="col-form-label d-flex"
+            [ngClass]="componentHeight | toLabelHeight"
+            *ngIf="!disablelabel">
+            <div
+                class="text flex-grow-0"
+                [class.flex-sm-grow-1]="splitlabelandhelptext"
+                >{{ label }}</div
+            >
+            <sac-tooltip
+                *ngIf="helptextmode === 'tooltip' && helptext"
+                [tooltiptext]="helptext"
+                [inlinemode]="true">
+                <span
+                    [ngClass]="HelptextTooltipIcon"
+                    class="ml-1">
+                </span>
+            </sac-tooltip>
+        </label>
+    </div>
+    <div
+        class="col-12"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
+        [class.pt-1]="componentHeight === ControlHeight.Small"
+        [class.pt-2]="componentHeight !== ControlHeight.Small">
+        <ng-content></ng-content>
+        <small
+            *ngIf="helptextmode === 'text' && helptext"
+            class="help-block"
+            class="form-text text-muted">
+            {{ helptext }}
+        </small>
+    </div>
 </div>

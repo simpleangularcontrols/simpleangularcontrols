@@ -1,51 +1,49 @@
 <div
-  class="row"
-  [class.form-group]="!stacked"
-  [class.has-error]="invalid && (dirty || touched)"
-  [ngClass]="componentHeight | toLabelHeight"
->
-  <label
-    *ngIf="!disablelabel && !stacked"
-    for="{{name}}"
-    class="col-xs-12 control-label"
-    [ngClass]="[!disablelabel && !stacked ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
-    >{{label}}<sac-tooltip
-      *ngIf="helptextmode === 'tooltip' && helptext"
-      [tooltiptext]="helptext"
-      [inlinemode]="true"
-    >
-      <span
-        [class]="HelptextTooltipIcon"
-        style="margin-left: 5px"
-      ></span> </sac-tooltip
-  ></label>
-  <div
-    class="col-xs-12"
-    [ngClass]="[!disablelabel && !stacked ?  (this.labelSizes | toControlWidthCss) : '']"
-  >
+    class="row"
+    [class.form-group]="!stacked"
+    [class.has-error]="invalid && (dirty || touched)"
+    [ngClass]="componentHeight | toLabelHeight">
+    <label
+        *ngIf="!disablelabel && !stacked"
+        for="{{ name }}"
+        class="col-xs-12 control-label"
+        [ngClass]="[!disablelabel && !stacked ? (this.labelSizes | toLabelWidthCss) : 'sr-only']">
+        <span class="text">{{ label }}</span>
+        <sac-tooltip
+            *ngIf="helptextmode === 'tooltip' && helptext"
+            [tooltiptext]="helptext"
+            [inlinemode]="true">
+            <span
+                [class]="HelptextTooltipIcon"
+                style="margin-left: 5px"></span>
+        </sac-tooltip>
+    </label>
     <div
-      class="checkbox"
-      [class.checkbox-sm]="componentHeight === ControlHeight.Small"
-      [class.checkbox-lg]="componentHeight === ControlHeight.Large"
-    >
-      <label for="{{name}}">
-        <input
-          id="{{name}}"
-          name="{{name}}"
-          type="checkbox"
-          class="visible-checkbox"
-          [checked]="value"
-          [disabled]="isdisabled"
-          (blur)="onTouch()"
-          (change)="setValue($event.target.checked)"
-        />
-        <ng-container *ngIf="checkboxtext"
-          >&nbsp;<span>{{checkboxtext}}</span></ng-container
-        >
-      </label>
+        class="col-xs-12"
+        [ngClass]="[!disablelabel && !stacked ? (this.labelSizes | toControlWidthCss) : '']">
+        <div
+            class="checkbox"
+            [class.checkbox-sm]="componentHeight === ControlHeight.Small"
+            [class.checkbox-lg]="componentHeight === ControlHeight.Large">
+            <label for="{{ name }}">
+                <input
+                    id="{{ name }}"
+                    name="{{ name }}"
+                    type="checkbox"
+                    class="visible-checkbox"
+                    [checked]="value"
+                    [disabled]="isdisabled"
+                    (blur)="onTouch()"
+                    (change)="setValue($event.target.checked)" />
+                <ng-container *ngIf="checkboxtext"
+                    >&nbsp;<span>{{ checkboxtext }}</span></ng-container
+                >
+            </label>
+        </div>
+        <p
+            *ngIf="helptextmode === 'text' && helptext"
+            class="help-block">
+            {{ helptext }}
+        </p>
     </div>
-    <p *ngIf="helptextmode === 'text' && helptext" class="help-block">
-      {{helptext}}
-    </p>
-  </div>
 </div>

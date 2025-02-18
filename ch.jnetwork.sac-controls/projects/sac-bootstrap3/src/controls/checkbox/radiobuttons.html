@@ -1,32 +1,33 @@
 <div
-  class="row form-group"
-  [class.has-error]="invalid && (dirty || touched)"
-  [ngClass]="componentHeight | toLabelHeight"
->
-  <label
-    *ngIf="disablelabel === false"
-    for="{{name}}"
-    class="col-xs-12 control-label"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
-    >{{label}}<sac-tooltip
-      *ngIf="helptextmode === 'tooltip' && helptext"
-      [tooltiptext]="helptext"
-      [inlinemode]="true"
-    >
-      <span
-        [class]="HelptextTooltipIcon"
-        style="margin-left: 5px"
-      ></span> </sac-tooltip
-  ></label>
-  <div
-    class="col-xs-12"
-    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
-  >
-    <div>
-      <ng-content></ng-content>
+    class="row form-group"
+    [class.has-error]="invalid && (dirty || touched)"
+    [ngClass]="componentHeight | toLabelHeight">
+    <label
+        *ngIf="disablelabel === false"
+        for="{{ name }}"
+        class="col-xs-12 control-label"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only']">
+        <span class="text">{{ label }}</span>
+        <sac-tooltip
+            *ngIf="helptextmode === 'tooltip' && helptext"
+            [tooltiptext]="helptext"
+            [inlinemode]="true">
+            <span
+                [class]="HelptextTooltipIcon"
+                style="margin-left: 5px">
+            </span>
+        </sac-tooltip>
+    </label>
+    <div
+        class="col-xs-12"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']">
+        <div>
+            <ng-content></ng-content>
+        </div>
+        <p
+            *ngIf="helptextmode === 'text' && helptext"
+            class="help-block">
+            {{ helptext }}
+        </p>
     </div>
-    <p *ngIf="helptextmode === 'text' && helptext" class="help-block">
-      {{helptext}}
-    </p>
-  </div>
 </div>

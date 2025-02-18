@@ -2,8 +2,6 @@ import { Injectable, InjectionToken } from '@angular/core';
 import { ControlHeight } from '../enums/ControlHeight';
 import { ISacConfigurationService } from '../interfaces/ISacConfigurationService';
 
-// #region Classes
-
 /**
  * abstract class for configuration settings providing in components
  */
@@ -11,58 +9,70 @@ import { ISacConfigurationService } from '../interfaces/ISacConfigurationService
 export abstract class SacAbstractConfigurationService
   implements ISacConfigurationService
 {
-  // #region Public Abstract Getters And Setters
-
   /**
    * @inheritdoc
    */
   public abstract get CheckboxStyle(): 'checkbox' | 'switch';
+
   /**
    * @inheritdoc
    */
   public abstract get ComponentHeight(): ControlHeight | null;
+
   /**
    * @inheritdoc
    */
   public abstract get CurrencyText(): string;
+
   /**
    * @inheritdoc
    */
   public abstract get HelptextMode(): 'tooltip' | 'text';
+
   /**
    * @inheritdoc
    */
   public abstract get InlineErrorEnabled(): boolean;
+
   /**
    * @inheritdoc
    */
   public abstract get InputSearchIconMode(): 'text' | 'icon' | 'mixed';
+
   /**
    * @inheritdoc
    */
   public abstract get LabelSizeLg(): number | null;
+
   /**
    * @inheritdoc
    */
   public abstract get LabelSizeMd(): number | null;
+
   /**
    * @inheritdoc
    */
   public abstract get LabelSizeSm(): number | null;
+
   /**
    * @inheritdoc
    */
   public abstract get LabelSizeXl(): number | null;
+
   /**
    * @inheritdoc
    */
   public abstract get LabelSizeXs(): number | null;
+
   /**
    * @inheritdoc
    */
   public abstract get LabelSizeXxl(): number | null;
 
-  // #endregion Public Abstract Getters And Setters
+  /**
+   * @inheritdoc
+   */
+  public abstract get SplitLabelAndHelptext(): boolean;
 }
 
 /**
@@ -70,8 +80,6 @@ export abstract class SacAbstractConfigurationService
  * */
 @Injectable({ providedIn: 'root' })
 export class SacDefaultConfigurationService extends SacAbstractConfigurationService {
-  // #region Public Getters And Setters
-
   /**
    * @inheritdoc
    */
@@ -156,17 +164,16 @@ export class SacDefaultConfigurationService extends SacAbstractConfigurationServ
     return null;
   }
 
-  // #endregion Public Getters And Setters
+  /**
+   * @inheritdoc
+   */
+  public get SplitLabelAndHelptext(): boolean {
+    return false;
+  }
 }
-
-// #endregion Classes
-
-// #region Variables
 
 /**
  * injection token for component configuration service
  */
 export const SACCONFIGURATION_SERVICE =
   new InjectionToken<ISacConfigurationService>('SacConfigurationService');
-
-// #endregion Variables

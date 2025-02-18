@@ -8,8 +8,6 @@ import {
   providedIn: 'root',
 })
 export class CustomConfigurationService extends SacAbstractConfigurationService {
-  // #region Public Getters And Setters
-
   public get CheckboxStyle(): 'checkbox' | 'switch' {
     return 'checkbox';
   }
@@ -58,5 +56,7 @@ export class CustomConfigurationService extends SacAbstractConfigurationService 
     return 2;
   }
 
-  // #endregion Public Getters And Setters
+  public get SplitLabelAndHelptext(): boolean {
+    return false;
+  }
 }

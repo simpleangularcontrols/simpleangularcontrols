@@ -38,6 +38,7 @@
         label="Dropdown 1"
         [(ngModel)]="values.dropdown1"
         [options]="values.dropdownitems"
+        [isrequired]="true"
         disablelabel="true"
         helptext="Dies ist ein Helptext"
         helptextmode="tooltip">
@@ -181,6 +182,7 @@
         label="Listbox 1"
         [options]="values.dropdownitems"
         [(ngModel)]="values.listbox1"
+        [isrequired]="true"
         disablelabel="true"
         helptext="Dies ist ein Helptext"
         helptextmode="tooltip">

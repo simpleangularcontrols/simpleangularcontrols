@@ -104,7 +104,7 @@
             name="field7b"
             label="Feld 7 (Tooltip)"
             [(ngModel)]="values.field7"
-            disabled="true"
+            isrequired="true"
             disablelabel="true"
             helptext="Dies ist ein Helptext"
             helptextmode="tooltip">
@@ -222,6 +222,7 @@
             label="Preis"
             [(ngModel)]="values.fieldcurrency4"
             currency="$"
+            isrequired="true"
             disablelabel="true"
             helptext="Dies ist ein Helptext"
             helptextmode="tooltip">

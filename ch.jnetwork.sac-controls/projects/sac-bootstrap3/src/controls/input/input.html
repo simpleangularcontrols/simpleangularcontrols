@@ -22,35 +22,36 @@
     </label>
     <div
         class="col-xs-12"
-        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
-        [style.display]="helptextmode === 'tooltip' && helptext && disablelabel ? 'flex' : null">
-        <input
-            id="{{ name }}"
-            name="{{ name }}"
-            type="text"
-            class="form-control"
-            [ngClass]="[componentHeight | toControlHeight]"
-            [value]="value"
-            [attr.placeholder]="placeholder"
-            (blur)="onTouch()"
-            (input)="setValue($event.target.value)"
-            [attr.maxlength]="maxlength"
-            [disabled]="isdisabled"
-            [readonly]="readonly" />
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']">
+        <div [style.display]="helptextmode === 'tooltip' && helptext && disablelabel ? 'flex' : null">
+            <input
+                id="{{ name }}"
+                name="{{ name }}"
+                type="text"
+                class="form-control"
+                [ngClass]="[componentHeight | toControlHeight]"
+                [value]="value"
+                [attr.placeholder]="placeholder"
+                (blur)="onTouch()"
+                (input)="setValue($event.target.value)"
+                [attr.maxlength]="maxlength"
+                [disabled]="isdisabled"
+                [readonly]="readonly" />
 
-        <div
-            *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
-            class="form-control-static"
-            style="margin-left: 5px">
-            <sac-tooltip
-                *ngIf="helptextmode === 'tooltip' && helptext"
-                [tooltiptext]="helptext"
-                [inlinemode]="true">
-                <span
-                    [class]="HelptextTooltipIcon"
-                    style="margin-left: 5px; margin-right: 5px">
-                </span>
-            </sac-tooltip>
+            <div
+                *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
+                class="form-control-static"
+                style="margin-left: 5px">
+                <sac-tooltip
+                    *ngIf="helptextmode === 'tooltip' && helptext"
+                    [tooltiptext]="helptext"
+                    [inlinemode]="true">
+                    <span
+                        [class]="HelptextTooltipIcon"
+                        style="margin-left: 5px; margin-right: 5px">
+                    </span>
+                </sac-tooltip>
+            </div>
         </div>
 
         <p

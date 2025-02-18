@@ -4,60 +4,56 @@ import {
   Host,
   Injector,
   Input,
-  OnDestroy,
   Renderer2,
 } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { SacBaseSelectControl } from '../../common/baseselectcontrol';
 import { Validation } from '../../validation';
 import { SacFormLayoutCommon } from '../layout/formlayout';
-
-// #region Classes
+import { _buildValueString } from './buildvaluestring';
 
 /**
  * Base Dropdown Komponente
  */
 @Directive()
 export class SacDropdownCommon extends SacBaseSelectControl<any> {
-  // #region Properties
-
   /**
    * compareWith-Funktion
    */
   private _compareWith: (o1: any, o2: any) => boolean = Object.is;
 
   /**
+   * Counter vom OptionID; default Wert = 0
+   */
+  public _optionIdCounter: number = 0;
+
+  /**
+   * OptionMap
+   */
+  public _optionMap: Map<string, any> = new Map<string, any>();
+
+  /**
    * Label Text für Empty Item
    */
   @Input() public emptylabel: string = '';
+
   /**
    * Option Value für Empty Item
    */
   @Input() public emptyvalue: string = null;
+
   /**
    * Resource Key für Validation Message Required bei Control
    */
   @Input() public validationmessagerequired: string =
     this.validationKeyService.ValidationErrorRequired;
+
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */
   @Input()
   public validationmessagesummaryrequired: string =
     this.validationKeyService.ValidationErrorSummaryRequired;
-
-  /**
-   * Counter vom OptionID; default Wert = 0
-   */
-  public _optionIdCounter: number = 0;
-  /**
-   * OptionMap
-   */
-  public _optionMap: Map<string, any> = new Map<string, any>();
-
-  // #endregion Properties
-
-  // #region Constructors
 
   /**
    * Constructor
@@ -75,10 +71,6 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
     super(formlayout, injector);
   }
 
-  // #endregion Constructors
-
-  // #region Public Getters And Setters
-
   /**
    * compareWith-Funktion
    */
@@ -91,10 +83,6 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
     }
     this._compareWith = fn;
   }
-
-  // #endregion Public Getters And Setters
-
-  // #region Public Methods
 
   /**
    * Registriert das OptionID-Counter als String
@@ -138,6 +126,19 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
         this.validationmessagesummaryrequired
       )(c);
     }
+
+    if (error) {
+      return error;
+    }
+
+    if (this.isrequired && this.emptyvalue !== null) {
+      error = Validation.notequals(
+        this.emptyvalue,
+        this.validationmessagerequired,
+        this.validationmessagesummaryrequired
+      )(c);
+    }
+
     return error;
   }
 
@@ -149,10 +150,6 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
     this.setSelectedValue(value);
     super.writeValue(value);
   }
-
-  // #endregion Public Methods
-
-  // #region Private Methods
 
   /**
    * ID extrahieren
@@ -205,116 +202,4 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
       this.renderer.setProperty(selectItem, 'value', valueString);
     }
   }
-
-  // #endregion Private Methods
 }
-
-/**
- * SacDropdownOption-Klasse
- */
-@Directive()
-export class SacDropdownOptionCommon implements OnDestroy {
-  // #region Properties
-
-  /**
-   * ID-String
-   */
-  private id: string = null;
-
-  // #endregion Properties
-
-  // #region Constructors
-
-  /**
-   * Konstruktor
-   * @param _element Referenz auf HTML Element
-   * @param _renderer Render Engine
-   * @param _dropdown Dropdown Instanz
-   */
-  constructor(
-    private _element: ElementRef,
-    private _renderer: Renderer2,
-    private _dropdown: SacDropdownCommon
-  ) {
-    if (this._dropdown) {
-      this.id = this._dropdown.registerOption();
-    }
-  }
-
-  // #endregion Constructors
-
-  // #region Public Getters And Setters
-
-  /**
-   * Option ngValue
-   */
-  @Input()
-  public set ngValue(value: any) {
-    // Cancel wenn kein Parent Dropdown vorhanden
-    if (this._dropdown == null) {
-      return;
-    }
-
-    this._dropdown.setOptionMap(this.id, value);
-    this._setElementValue(_buildValueString(this.id, value));
-
-    this._dropdown.writeValue(this._dropdown.value);
-  }
-
-  /**
-   * Wert-Setter
-   */
-  @Input()
-  public set value(value: any) {
-    this._setElementValue(value);
-  }
-
-  // #endregion Public Getters And Setters
-
-  // #region Public Methods
-
-  /**
-   * Den Wert vom Option-Element einstellen
-   * @param value Wert
-   */
-  public _setElementValue(value: string): void {
-    this._renderer.setProperty(this._element.nativeElement, 'value', value);
-  }
-
-  /**
-   * OnDestroy Event
-   */
-  public ngOnDestroy(): void {
-    if (this._dropdown) {
-      this._dropdown._optionMap.delete(this.id);
-    }
-  }
-
-  // #endregion Public Methods
-}
-
-// #endregion Classes
-
-// #region Functions
-
-/**
- * Function um ein Key Value Pair für das Dropdown zu erzeugen
- * @param id ID
- * @param value Wert der an das Element gebunden werden soll
- */
-export function _buildValueString(id: string | null, value: any): string {
-  // Wenn ID null ist Object zurückgeben
-  if (id == null) {
-    return `${value}`;
-  }
-
-  // Mapping Objekt zu String
-  if (value && typeof value === 'object') {
-    value = 'Object';
-  }
-
-  // String als ID
-  return `${id}: ${value}`.slice(0, 50);
-}
-
-// #endregion Functions

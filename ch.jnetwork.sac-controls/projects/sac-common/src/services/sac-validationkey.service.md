@@ -6,7 +6,7 @@ Use the interface `ISacValidationKeyService` to define your own resource keys fo
 
 ```ts
 @Injectable({ providedIn: 'root' })
-export class ControlsLocalisation extends ISacValidationKeyService {
+export class ControlsLocalisation implements ISacValidationKeyService {
   public get ConfirmDefaultButtonNo(): string {
     return 'CONFIRM_BUTTON_NO';
   }

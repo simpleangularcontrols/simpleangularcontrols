@@ -1,7 +1,9 @@
-import { ValidatorFn } from '@angular/forms';
 import * as moment_ from 'moment';
+
+import { ValidatorFn } from '@angular/forms';
 import { LanguageModel } from '../models/languagemodel';
 import { emailValidator } from './email.validator';
+import { equalsValueValidator } from './equals.validator';
 import { isValidDateValidator } from './invaliddate.validator';
 import { maxDateValidator } from './maxdate.validator';
 import { maxTimeValidator } from './maxtime.validator';
@@ -13,20 +15,15 @@ import { minTimeValidator } from './mintime.validator';
 import { minValueValidator } from './minvalue.validator';
 import { multilanguageRequiredValidator } from './multilanguagerequired.validator';
 import { multilanguageRequiredAnyValidator } from './multilanguagerequiredany.validator';
+import { notEqualsValueValidator } from './notequals.validator';
 import { patternValidator } from './pattern.validator';
 import { requiredValidator } from './required.validator';
 import { CreateValidationError } from './validationerrorcreator';
-/**
- * Moment
- */
-const moment = moment_['default'];
 
 /**
  * Klasse mit Standard Validatoren
  */
 export class Validation {
-  // #region Public Static Methods
-
   /**
    * Die Methode ist von jedem Validator aufgerufen. Die setzt sowohl den errorType des gerpüfte Item, als auch die ErrorMessage (gemäss von errorType, FieldName und Parameters).
    * @param errorType Typ den Fehler
@@ -62,6 +59,27 @@ export class Validation {
     validationMessageSummary
   ): ValidatorFn {
     return emailValidator(validationMessage, validationMessageSummary);
+  }
+
+  /**
+   * Validator validate if value is the requiredValue
+   * @param requiredValue Value that control should have
+   * @param control Control to be validate
+   * @param fieldName Label of control
+   * @param validationMessage validation message near the control
+   * @param validationMessageSummary validation inside the validation summary
+
+   */
+  public static equals(
+    requiredValue: any,
+    validationMessage: string,
+    validationMessageSummary
+  ): ValidatorFn {
+    return equalsValueValidator(
+      requiredValue,
+      validationMessage,
+      validationMessageSummary
+    );
   }
 
   /**
@@ -279,6 +297,26 @@ export class Validation {
   }
 
   /**
+   * Validator validate if value is not the invalidValue
+   * @param invalidValue Value that control doesn't should have
+   * @param control Control to be validate
+   * @param fieldName Label of control
+   * @param validationMessage validation message near the control
+   * @param validationMessageSummary validation inside the validation summary
+   */
+  public static notequals(
+    invalidValue: any,
+    validationMessage: string,
+    validationMessageSummary
+  ): ValidatorFn {
+    return notEqualsValueValidator(
+      invalidValue,
+      validationMessage,
+      validationMessageSummary
+    );
+  }
+
+  /**
    * Validierung mit einem RegEx Pattern
    * @param control Control das validiert werden soll.
    * @param pattern RegEx Pattern
@@ -311,6 +349,9 @@ export class Validation {
   ): ValidatorFn {
     return requiredValidator(validationMessage, validationMessageSummary);
   }
-
-  // #endregion Public Static Methods
 }
+
+/**
+ * Moment
+ */
+const moment = moment_['default'];

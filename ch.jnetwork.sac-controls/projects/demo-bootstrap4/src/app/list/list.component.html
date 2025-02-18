@@ -113,6 +113,36 @@
     optionid="value"
   ></sac-dropdown>
 
+  <sac-dropdown
+    name="dropdown13"
+    label="Dropdown Empty NULL"
+    [(ngModel)]="values.dropdown13"
+    [options]="values.dropdownitems"
+    emptylabel="Please select item"
+    [emptyvalue]="null"
+    isrequired="true"
+  ></sac-dropdown>
+
+  <sac-dropdown
+    name="dropdown14"
+    label="Dropdown Numeric"
+    [(ngModel)]="values.dropdown14"
+    [options]="values.dropdownitems"
+    emptylabel="Please select item"
+    [emptyvalue]="0"
+    isrequired="true"
+  ></sac-dropdown>
+
+  <sac-dropdown
+    name="dropdown15"
+    label="Dropdown String"
+    [(ngModel)]="values.dropdown15"
+    [options]="values.dropdownitems"
+    emptylabel="Please select item"
+    emptyvalue="notset"
+    isrequired="true"
+  ></sac-dropdown>
+
   <sac-listbox
     name="listbox1a"
     label="Listbox 1"

@@ -1,145 +1,244 @@
 <h2>Checkbox</h2>
-<form #myForm="sacform" labelsize="3">
-  <div class="mb-2">
-    <sac-button (clicked)="debugAction()" text="Validate"></sac-button>
-  </div>
-  <sac-validationsummary></sac-validationsummary>
+<form
+    #myForm="sacform"
+    labelsize="3">
+    <div class="mb-2">
+        <sac-button
+            (clicked)="debugAction()"
+            text="Validate"></sac-button>
+    </div>
+    <sac-validationsummary></sac-validationsummary>
 
-  <div ngModelGroup="Group1">
-    <sac-checkbox
-      name="checkbox1"
-      label="Checkbox 1"
-      checkboxtext="Beschreibung zum Button"
-      [(ngModel)]="values.checkbox1"
-    ></sac-checkbox>
-    <sac-checkbox
-      name="checkbox2"
-      label="Checkbox 2"
-      labelsize="2"
-      [(ngModel)]="values.checkbox2"
-      helptext="Dies ist ein Helptext"
-    ></sac-checkbox>
-    <sac-checkbox
-      name="checkbox3"
-      label="Checkbox 3"
-      disablelabel="true"
-      [(ngModel)]="values.checkbox3"
-    ></sac-checkbox>
-    <sac-checkbox
-      name="checkbox4"
-      label="Checkbox 4"
-      [(ngModel)]="values.checkbox4"
-      disabled="true"
-      helptext="Dies ist ein Helptext"
-      helptextmode="tooltip"
-    ></sac-checkbox>
-    <sac-checkbox
-      name="checkbox5"
-      label="Checkbox 5"
-      [(ngModel)]="values.checkbox5"
-      disabled="true"
-      checkboxtext="Dies ist ein Text"
-    ></sac-checkbox>
-    <sac-checkbox
-      name="checkbox6"
-      label="Switch 6"
-      [(ngModel)]="values.checkbox5"
-      checkboxtext="Dies ist ein Text"
-      checkboxstyle="switch"
-    ></sac-checkbox>
+    <div ngModelGroup="Group1">
+        <sac-checkbox
+            name="checkbox1"
+            label="Checkbox 1"
+            checkboxtext="Beschreibung zum Button"
+            [(ngModel)]="values.checkbox1"></sac-checkbox>
+        <sac-checkbox
+            name="checkbox2"
+            label="Checkbox 2"
+            labelsize="2"
+            [(ngModel)]="values.checkbox2"
+            helptext="Dies ist ein Helptext"></sac-checkbox>
+        <sac-checkbox
+            name="checkbox3"
+            label="Checkbox 3"
+            disablelabel="true"
+            [(ngModel)]="values.checkbox3"></sac-checkbox>
+        <sac-checkbox
+            name="checkbox4"
+            label="Checkbox 4"
+            [(ngModel)]="values.checkbox4"
+            disabled="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip"></sac-checkbox>
+        <sac-checkbox
+            name="checkbox4b"
+            checkboxtext="Checkbox 4"
+            [(ngModel)]="values.checkbox4"
+            disabled="true"
+            disablelabel="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip"></sac-checkbox>
+        <sac-checkbox
+            name="checkbox5"
+            label="Checkbox 5"
+            [(ngModel)]="values.checkbox5"
+            disabled="true"
+            checkboxtext="Dies ist ein Text"></sac-checkbox>
+        <sac-checkbox
+            name="checkbox6"
+            label="Switch 6"
+            [(ngModel)]="values.checkbox5"
+            checkboxtext="Dies ist ein Text"
+            checkboxstyle="switch"></sac-checkbox>
 
-    <sac-staticformcontainer label="Checkbox Group" lableSizeMd="4">
-      <sac-checkbox
-        name="groupcheckbox1"
-        label="Checkbox 1"
-        checkboxtext="Option 1"
-        stacked="true"
-        [(ngModel)]="values.checkbox1"
-      ></sac-checkbox>
-      <sac-checkbox
-        name="groupcheckbox2"
-        label="Checkbox 2"
-        checkboxtext="Option 2"
-        stacked="true"
-        [(ngModel)]="values.checkbox2"
-      ></sac-checkbox>
-    </sac-staticformcontainer>
+        <sac-staticformcontainer
+            label="Checkbox Group"
+            lableSizeMd="4">
+            <sac-checkbox
+                name="groupcheckbox1"
+                label="Checkbox 1"
+                checkboxtext="Option 1"
+                stacked="true"
+                [(ngModel)]="values.checkbox1">
+            </sac-checkbox>
+            <sac-checkbox
+                name="groupcheckbox2"
+                label="Checkbox 2"
+                checkboxtext="Option 2"
+                stacked="true"
+                [(ngModel)]="values.checkbox2">
+            </sac-checkbox>
+            <sac-checkbox
+                name="groupcheckbox3"
+                label="Checkbox 3"
+                checkboxtext="Option 3"
+                stacked="true"
+                helptext="Dies ist ein Text"
+                helptextmode="tooltip"
+                [(ngModel)]="values.checkbox3">
+            </sac-checkbox>
+            <sac-checkbox
+                name="groupcheckbox4"
+                label="Checkbox 4"
+                checkboxtext="Option 4"
+                stacked="true"
+                helptext="Dies ist ein Text"
+                [(ngModel)]="values.checkbox4">
+            </sac-checkbox>
+        </sac-staticformcontainer>
 
-    <sac-staticformcontainer
-      label="Checkbox Group"
-      lableSizeMd="4"
-      helptext="Dies ist ein Helptext"
-    >
-      <sac-checkbox
-        name="groupcheckbox1a"
-        label="Checkbox 1"
-        checkboxtext="Option 1"
-        stacked="true"
-        [(ngModel)]="values.checkbox1"
-      ></sac-checkbox>
-      <sac-checkbox
-        name="groupcheckbox2a"
-        label="Checkbox 2"
-        checkboxtext="Option 2"
-        stacked="true"
-        [(ngModel)]="values.checkbox2"
-      ></sac-checkbox>
-    </sac-staticformcontainer>
+        <sac-staticformcontainer
+            label="Checkbox Group"
+            lableSizeMd="4"
+            helptext="Dies ist ein Helptext">
+            <sac-checkbox
+                name="groupcheckbox1a"
+                label="Checkbox 1"
+                checkboxtext="Option 1"
+                stacked="true"
+                [(ngModel)]="values.checkbox1"></sac-checkbox>
+            <sac-checkbox
+                name="groupcheckbox2a"
+                label="Checkbox 2"
+                checkboxtext="Option 2"
+                stacked="true"
+                [(ngModel)]="values.checkbox2"></sac-checkbox>
+        </sac-staticformcontainer>
 
-    <sac-staticformcontainer
-      label="Checkbox Group"
-      lableSizeMd="4"
-      helptext="Dies ist ein Helptext"
-      helptextmode="tooltip"
-    >
-      <sac-checkbox
-        name="groupcheckbox1b"
-        label="Checkbox 1"
-        checkboxtext="Option 1"
-        stacked="true"
-        [(ngModel)]="values.checkbox1"
-      ></sac-checkbox>
-      <sac-checkbox
-        name="groupcheckbox2b"
-        label="Checkbox 2"
-        checkboxtext="Option 2"
-        stacked="true"
-        [(ngModel)]="values.checkbox2"
-      ></sac-checkbox>
-    </sac-staticformcontainer>
+        <sac-staticformcontainer
+            label="Checkbox Group"
+            lableSizeMd="4"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+            <sac-checkbox
+                name="groupcheckbox1b"
+                label="Checkbox 1"
+                checkboxtext="Option 1"
+                stacked="true"
+                [(ngModel)]="values.checkbox1"></sac-checkbox>
+            <sac-checkbox
+                name="groupcheckbox2b"
+                label="Checkbox 2"
+                checkboxtext="Option 2"
+                stacked="true"
+                [(ngModel)]="values.checkbox2"></sac-checkbox>
+        </sac-staticformcontainer>
 
-    <sac-radiobuttons
-      name="radiobuttons1"
-      label="Radiobuttons 1"
-      [(ngModel)]="values.radiobuttons1"
-    >
-      <sac-radiobutton name="rb1" value="1" label="Wert 1"></sac-radiobutton>
-      <sac-radiobutton name="rb2" value="2" label="Wert 2"></sac-radiobutton>
-      <sac-radiobutton name="rb3" value="3" label="Wert 3"></sac-radiobutton>
-    </sac-radiobuttons>
+        <sac-radiobuttons
+            name="radiobuttons1"
+            label="Radiobuttons 1"
+            [(ngModel)]="values.radiobuttons1">
+            <sac-radiobutton
+                name="rb1"
+                value="1"
+                label="Wert 1"></sac-radiobutton>
+            <sac-radiobutton
+                name="rb2"
+                value="2"
+                label="Wert 2"></sac-radiobutton>
+            <sac-radiobutton
+                name="rb3"
+                value="3"
+                label="Wert 3"></sac-radiobutton>
+        </sac-radiobuttons>
 
-    <sac-radiobuttons
-      name="radiobuttons2"
-      label="Radiobuttons 2"
-      [(ngModel)]="values.radiobuttons2"
-      helptext="Dies ist ein Helptext"
-    >
-      <sac-radiobutton name="rb1" value="1" label="Wert 1"></sac-radiobutton>
-      <sac-radiobutton name="rb2" value="2" label="Wert 2"></sac-radiobutton>
-      <sac-radiobutton name="rb3" value="3" label="Wert 3"></sac-radiobutton>
-    </sac-radiobuttons>
+        <sac-radiobuttons
+            name="radiobuttons2"
+            label="Radiobuttons 2"
+            [(ngModel)]="values.radiobuttons2"
+            helptext="Dies ist ein Helptext">
+            <sac-radiobutton
+                name="rb1"
+                value="1"
+                label="Wert 1"></sac-radiobutton>
+            <sac-radiobutton
+                name="rb2"
+                value="2"
+                label="Wert 2"></sac-radiobutton>
+            <sac-radiobutton
+                name="rb3"
+                value="3"
+                label="Wert 3"></sac-radiobutton>
+        </sac-radiobuttons>
 
-    <sac-radiobuttons
-      name="radiobuttons3"
-      label="Radiobuttons 3"
-      [(ngModel)]="values.radiobuttons2"
-      [disabled]="true"
-      helptext="Dies ist ein Helptext"
-      helptextmode="tooltip"
-    >
-      <sac-radiobutton name="rb1" value="1" label="Wert 1"></sac-radiobutton>
-      <sac-radiobutton name="rb2" value="2" label="Wert 2"></sac-radiobutton>
-      <sac-radiobutton name="rb3" value="3" label="Wert 3"></sac-radiobutton>
-    </sac-radiobuttons>
-  </div>
+        <sac-radiobuttons
+            name="radiobuttons3"
+            label="Radiobuttons 3"
+            [(ngModel)]="values.radiobuttons2"
+            [disabled]="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+            <sac-radiobutton
+                name="rb1"
+                value="1"
+                label="Wert 1">
+            </sac-radiobutton>
+            <sac-radiobutton
+                name="rb2"
+                value="2"
+                label="Wert 2">
+            </sac-radiobutton>
+            <sac-radiobutton
+                name="rb3"
+                value="3"
+                label="Wert 3">
+            </sac-radiobutton>
+        </sac-radiobuttons>
+
+        <sac-radiobuttons
+            name="radiobuttons4"
+            label="Radiobuttons 4"
+            [(ngModel)]="values.radiobuttons2"
+            [disabled]="true"
+            [disablelabel]="true">
+            <sac-radiobutton
+                name="rb1"
+                value="1"
+                helptext="Dies ist ein Helptext"
+                helptextmode="tooltip"
+                label="Wert 1">
+            </sac-radiobutton>
+            <sac-radiobutton
+                name="rb2"
+                value="2"
+                helptext="Dies ist ein Helptext"
+                label="Wert 2">
+            </sac-radiobutton>
+            <sac-radiobutton
+                name="rb3"
+                value="3"
+                label="Wert 3">
+            </sac-radiobutton>
+        </sac-radiobuttons>
+
+        <sac-radiobuttons
+            name="radiobuttons5"
+            label="Radiobuttons 5"
+            [(ngModel)]="values.radiobuttons2"
+            helptext="Dies ist ein Helptext"
+            [disabled]="true"
+            [disablelabel]="true">
+            <sac-radiobutton
+                name="rb1"
+                value="1"
+                helptext="Dies ist ein Helptext"
+                helptextmode="tooltip"
+                label="Wert 1">
+            </sac-radiobutton>
+            <sac-radiobutton
+                name="rb2"
+                value="2"
+                helptext="Dies ist ein Helptext"
+                label="Wert 2">
+            </sac-radiobutton>
+            <sac-radiobutton
+                name="rb3"
+                value="3"
+                label="Wert 3">
+            </sac-radiobutton>
+        </sac-radiobuttons>
+    </div>
 </form>

@@ -1,130 +1,132 @@
 <div
-  class="row form-group"
-  [class.has-error]="invalid && (dirty || touched)"
-  [ngClass]="componentHeight | toLabelHeight"
->
-  <label
-    *ngIf="disablelabel === false && !isAdaptiveLabel"
-    id="{{name}}label"
-    for="{{name}}"
-    class="col-xs-12 control-label"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
-    [class.required]="isrequired"
-    ><span class="text">{{label}}</span>
-    <sac-tooltip
-      *ngIf="helptextmode === 'tooltip' && helptext"
-      [tooltiptext]="helptext"
-      [inlinemode]="true"
-    >
-      <span
-        [class]="HelptextTooltipIcon"
-        style="margin-left: 5px"
-      ></span> </sac-tooltip
-  ></label>
-  <div
-    class="col-xs-12"
-    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
-  >
+    class="row form-group"
+    [class.has-error]="invalid && (dirty || touched)"
+    [ngClass]="componentHeight | toLabelHeight">
+    <label
+        *ngIf="disablelabel === false && !isAdaptiveLabel"
+        id="{{ name }}label"
+        for="{{ name }}"
+        class="col-xs-12 control-label"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only']"
+        [class.required]="isrequired">
+        <span class="text">{{ label }}</span>
+        <sac-tooltip
+            *ngIf="helptextmode === 'tooltip' && helptext"
+            [tooltiptext]="helptext"
+            [inlinemode]="true">
+            <span
+                [class]="HelptextTooltipIcon"
+                style="margin-left: 5px">
+            </span>
+        </sac-tooltip>
+    </label>
     <div
-      class="input-group upload-component upload-single"
-      [class.input-group-sm]="componentHeight === ControlHeight.Small"
-      [class.input-group-lg]="componentHeight === ControlHeight.Large"
-    >
-      <div class="input-group-btn">
-        <!-- image-preview-input -->
+        class="col-xs-12"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
+        [style.display]="helptextmode === 'tooltip' && helptext && disablelabel ? 'flex' : null">
         <div
-          class="btn upload-input custom-file"
-          [class.disabled]="HasQueueItem()"
-          [class.btn-default]="!(invalid && (dirty || touched))"
-          [class.btn-danger]="invalid && (dirty || touched)"
-        >
-          <i [class]="IconBrowse"></i>
-          <span class="upload-browse"
-            >{{
-            lngResourceService.GetString(validationKeyService.UploadButtonBrowse)
-            | async }}</span
-          >
-          <input
-            type="file"
-            class="custom-file-input"
-            #files
-            (click)="files.value = ''"
-            (uploadxState)="onUpload($event)"
-            multiple
-            [disabled]="HasQueueItem()"
-          />
+            class="input-group upload-component upload-single"
+            [style.flex-grow]="helptextmode === 'tooltip' && helptext && disablelabel ? 1 : null"
+            [class.input-group-sm]="componentHeight === ControlHeight.Small"
+            [class.input-group-lg]="componentHeight === ControlHeight.Large">
+            <div class="input-group-btn">
+                <!-- image-preview-input -->
+                <div
+                    class="btn upload-input custom-file"
+                    [class.disabled]="HasQueueItem()"
+                    [class.btn-default]="!(invalid && (dirty || touched))"
+                    [class.btn-danger]="invalid && (dirty || touched)">
+                    <i [class]="IconBrowse"></i>
+                    <span class="upload-browse">{{ lngResourceService.GetString(validationKeyService.UploadButtonBrowse) | async }}</span>
+                    <input
+                        type="file"
+                        class="custom-file-input"
+                        #files
+                        (click)="files.value = ''"
+                        (uploadxState)="onUpload($event)"
+                        multiple
+                        [disabled]="HasQueueItem()" />
+                </div>
+            </div>
+            <div class="form-control upload-progress">
+                <div class="progress">
+                    <div
+                        class="progress-bar"
+                        [class.progress-bar-success]="Progress() === 100"
+                        role="progressbar"
+                        [attr.aria-valuenow]="Progress()"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        [style.width.%]="Progress()">
+                        <span class="progress-text text-dark">{{ Filename() | async }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group-btn">
+                <!-- image-preview-clear button -->
+                <a
+                    class="btn"
+                    (click)="cancelAll()"
+                    [attr.disabled]="HasQueueItem() === false ? 'disabled' : null"
+                    [class.btn-default]="!(invalid && (dirty || touched))"
+                    [class.btn-danger]="invalid && (dirty || touched)">
+                    <span [class]="IconDelete"></span>
+                </a>
+                <a
+                    *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && IsPaused() === false)"
+                    class="btn"
+                    (click)="pauseAll()"
+                    [attr.disabled]="IsUploading() === false ? 'disabled' : null"
+                    [class.btn-default]="!(invalid && (dirty || touched))"
+                    [class.btn-danger]="invalid && (dirty || touched)">
+                    <span [class]="IconPause"></span>
+                </a>
+                <a
+                    *ngIf="autoupload && enablepause && IsPaused()"
+                    class="btn"
+                    (click)="uploadAll()"
+                    [class.btn-default]="!(invalid && (dirty || touched))"
+                    [class.btn-danger]="invalid && (dirty || touched)">
+                    <span [class]="IconContinue"></span>
+                </a>
+                <a
+                    *ngIf="autoupload === false"
+                    class="btn"
+                    (click)="uploadAll()"
+                    [attr.disabled]="IsStateToUpload() === false ? 'disabled' : null"
+                    [class.btn-default]="!(invalid && (dirty || touched))"
+                    [class.btn-danger]="invalid && (dirty || touched)">
+                    <span [class]="IconUpload"></span> {{ lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async }}
+                </a>
+            </div>
         </div>
-      </div>
-      <div class="form-control upload-progress">
-        <div class="progress">
-          <div
-            class="progress-bar"
-            [class.progress-bar-success]="Progress()===100"
-            role="progressbar"
-            [attr.aria-valuenow]="Progress()"
-            aria-valuemin="0"
-            aria-valuemax="100"
-            [style.width.%]="Progress()"
-          >
-            <span class="progress-text text-dark"
-              >{{ Filename() | async }}</span
-            >
-          </div>
+
+        <div
+            *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
+            class="form-control-static"
+            style="margin-left: 5px">
+            <sac-tooltip
+                *ngIf="helptextmode === 'tooltip' && helptext"
+                [tooltiptext]="helptext"
+                [inlinemode]="true">
+                <span
+                    [class]="HelptextTooltipIcon"
+                    style="margin-left: 5px; margin-right: 5px">
+                </span>
+            </sac-tooltip>
         </div>
-      </div>
-      <!-- <input type="textimage-preview-filename" class="form-control image-preview-filename" disabled="disabled"> --><!-- don't give a name === doesn't send on POST/GET -->
-      <div class="input-group-btn">
-        <!-- image-preview-clear button -->
-        <a
-          class="btn"
-          (click)="cancelAll()"
-          [attr.disabled]="HasQueueItem() === false ? 'disabled' : null"
-          [class.btn-default]="!(invalid && (dirty || touched))"
-          [class.btn-danger]="invalid && (dirty || touched)"
-        >
-          <span [class]="IconDelete"></span>
-        </a>
-        <a
-          *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && IsPaused() === false)"
-          class="btn"
-          (click)="pauseAll()"
-          [attr.disabled]="IsUploading() === false ? 'disabled' : null"
-          [class.btn-default]="!(invalid && (dirty || touched))"
-          [class.btn-danger]="invalid && (dirty || touched)"
-        >
-          <span [class]="IconPause"></span>
-        </a>
-        <a
-          *ngIf="autoupload && enablepause && IsPaused()"
-          class="btn"
-          (click)="uploadAll()"
-          [class.btn-default]="!(invalid && (dirty || touched))"
-          [class.btn-danger]="invalid && (dirty || touched)"
-        >
-          <span [class]="IconContinue"></span>
-        </a>
-        <a
-          *ngIf="autoupload === false"
-          class="btn"
-          (click)="uploadAll()"
-          [attr.disabled]="IsStateToUpload() === false ?  'disabled' : null"
-          [class.btn-default]="!(invalid && (dirty || touched))"
-          [class.btn-danger]="invalid && (dirty || touched)"
-        >
-          <span [class]="IconUpload"></span> {{
-          lngResourceService.GetString(validationKeyService.UploadButtonUpload)
-          | async }}
-        </a>
-      </div>
+
+        <p
+            *ngIf="helptextmode === 'text' && helptext"
+            class="help-block">
+            {{ helptext }}
+        </p>
+
+        <div
+            class="help-block help-block-error"
+            *ngIf="isinlineerrorenabled && invalid && (dirty || touched)">
+            {{ GetErrorMessage() | async }}
+        </div>
     </div>
-    <p *ngIf="helptextmode === 'text' && helptext" class="help-block">
-      {{helptext}}
-    </p>
-    <div
-      class="help-block help-block-error"
-      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
-    >
-      {{ GetErrorMessage() | async }}
-    </div>
-  </div>
 </div>

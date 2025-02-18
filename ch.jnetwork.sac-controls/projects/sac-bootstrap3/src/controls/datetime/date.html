@@ -1,101 +1,112 @@
 <div
-  class="row form-group"
-  [class.has-error]="invalid && (dirty || touched)"
-  [ngClass]="componentHeight | toLabelHeight"
->
-  <label
-    *ngIf="disablelabel === false && !isAdaptiveLabel"
-    id="{{name}}label"
-    for="{{name}}"
-    class="col-xs-12 control-label"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
-    [class.required]="isrequired"
-    ><span class="text">{{label}}</span>
-    <sac-tooltip
-      *ngIf="helptextmode === 'tooltip' && helptext"
-      [tooltiptext]="helptext"
-      [inlinemode]="true"
-    >
-      <span
-        [class]="HelptextTooltipIcon"
-        style="margin-left: 5px"
-      ></span> </sac-tooltip
-  ></label>
-  <div
-    class="col-xs-12"
-    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
-  >
+    class="row form-group"
+    [class.has-error]="invalid && (dirty || touched)"
+    [ngClass]="componentHeight | toLabelHeight">
+    <label
+        *ngIf="disablelabel === false && !isAdaptiveLabel"
+        id="{{ name }}label"
+        for="{{ name }}"
+        class="col-xs-12 control-label"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only']"
+        [class.required]="isrequired">
+        <span class="text">{{ label }}</span>
+        <sac-tooltip
+            *ngIf="helptextmode === 'tooltip' && helptext"
+            [tooltiptext]="helptext"
+            [inlinemode]="true">
+            <span
+                [class]="HelptextTooltipIcon"
+                style="margin-left: 5px">
+            </span>
+        </sac-tooltip>
+    </label>
     <div
-      style="position: relative"
-      [style.width.px]="componentHeight === ControlHeight.Small ? 120 : componentHeight === ControlHeight.Large ? 180 : 140"
-    >
-      <div
-        id="{{name}}"
-        class="datetime-textbox input-group"
-        [class.input-group-sm]="componentHeight === ControlHeight.Small"
-        [class.input-group-lg]="componentHeight === ControlHeight.Large"
-      >
-        <!-- this class comes in the div above when disabled [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']" -->
-        <input
-          name="{{name}}"
-          type="text"
-          class="form-control date-control"
-          [class.is-invalid]="invalid && (dirty || touched)"
-          [ngClass]="[componentHeight | toControlHeight]"
-          [imask]="imaskDate"
-          placeholder="dd.mm.yyyy"
-          [attr.placeholder]="placeholder"
-          [value]="valuestring"
-          maxlength="10"
-          size="10"
-          (blur)="onTouch()"
-          (accept)="setValueString($event)"
-          [disabled]="isdisabled"
-          (click)="showDateSelector()"
-        />
-        <span class="input-group-btn">
-          <button
-            class="btn btn-default"
-            type="button"
-            (click)="showDateSelector()"
-            [disabled]="isdisabled"
-          >
-            <i [class]="IconSelector"></i>
-          </button>
-        </span>
-      </div>
-      <p *ngIf="helptextmode === 'text' && helptext" class="help-block">
-        {{helptext}}
-      </p>
-      <div
-        class="help-block help-block-error"
-        *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
-      >
-        {{ GetErrorMessage() | async }}
-      </div>
-
-      <div
-        class="popover bottom in"
-        role="tooltip"
-        *ngIf="_showselector"
-        style="display: block; left: 0px; right: unset; max-width: 325px"
-        [style.top.px]="componentHeight === ControlHeight.Large ? 46 : 34"
-      >
+        class="col-xs-12"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
+        [style.display]="helptextmode === 'tooltip' && helptext && disablelabel ? 'flex' : null">
         <div
-          class="arrow"
-          [style.left.px]="componentHeight === ControlHeight.Small ? 102 : componentHeight === ControlHeight.Large ? 155 : 120"
-          style="right: unset"
-        ></div>
-        <h3 class="popover-title" style="display: none"></h3>
-        <div class="popover-content">
-          <sac-dateselector
-            *ngIf="_showselector"
-            [initialvalue]="value"
-            (selectdate)="dateselect($event)"
-            dateselection="true"
-          ></sac-dateselector>
+            style="position: relative"
+            [style.width.px]="componentHeight === ControlHeight.Small ? 120 : componentHeight === ControlHeight.Large ? 180 : 140">
+            <div
+                id="{{ name }}"
+                class="datetime-textbox input-group"
+                [class.input-group-sm]="componentHeight === ControlHeight.Small"
+                [class.input-group-lg]="componentHeight === ControlHeight.Large">
+                <!-- this class comes in the div above when disabled [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']" -->
+                <input
+                    name="{{ name }}"
+                    type="text"
+                    class="form-control date-control"
+                    [class.is-invalid]="invalid && (dirty || touched)"
+                    [ngClass]="[componentHeight | toControlHeight]"
+                    [imask]="imaskDate"
+                    placeholder="dd.mm.yyyy"
+                    [attr.placeholder]="placeholder"
+                    [value]="valuestring"
+                    maxlength="10"
+                    size="10"
+                    (blur)="onTouch()"
+                    (accept)="setValueString($event)"
+                    [disabled]="isdisabled"
+                    (click)="showDateSelector()" />
+                <span class="input-group-btn">
+                    <button
+                        class="btn btn-default"
+                        type="button"
+                        (click)="showDateSelector()"
+                        [disabled]="isdisabled">
+                        <i [class]="IconSelector"></i>
+                    </button>
+                </span>
+            </div>
+            <p
+                *ngIf="helptextmode === 'text' && helptext"
+                class="help-block">
+                {{ helptext }}
+            </p>
+            <div
+                class="help-block help-block-error"
+                *ngIf="isinlineerrorenabled && invalid && (dirty || touched)">
+                {{ GetErrorMessage() | async }}
+            </div>
+
+            <div
+                class="popover bottom in"
+                role="tooltip"
+                *ngIf="_showselector"
+                style="display: block; left: 0px; right: unset; max-width: 325px"
+                [style.top.px]="componentHeight === ControlHeight.Large ? 46 : 34">
+                <div
+                    class="arrow"
+                    [style.left.px]="componentHeight === ControlHeight.Small ? 102 : componentHeight === ControlHeight.Large ? 155 : 120"
+                    style="right: unset"></div>
+                <h3
+                    class="popover-title"
+                    style="display: none"></h3>
+                <div class="popover-content">
+                    <sac-dateselector
+                        *ngIf="_showselector"
+                        [initialvalue]="value"
+                        (selectdate)="dateselect($event)"
+                        dateselection="true">
+                    </sac-dateselector>
+                </div>
+            </div>
         </div>
-      </div>
+
+        <div
+            *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
+            class="form-control-static"
+            style="margin-left: 5px">
+            <sac-tooltip
+                *ngIf="helptextmode === 'tooltip' && helptext"
+                [tooltiptext]="helptext"
+                [inlinemode]="true">
+                <span
+                    [class]="HelptextTooltipIcon"
+                    style="margin-left: 5px; margin-right: 5px">
+                </span>
+            </sac-tooltip>
+        </div>
     </div>
-  </div>
 </div>

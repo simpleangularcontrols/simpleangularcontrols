@@ -2,39 +2,39 @@
 
 // btn-toobar Style fixed
 .btn-toolbar {
-  > * > {
-    .btn {
-      margin-left: 5px;
+    > * > {
+        .btn {
+            margin-left: 5px;
+        }
     }
-  }
 }
 
 // DateTime Selector Styles
 .calendar-selector {
-  .day-selected {
-    font-weight: bold;
-  }
+    .day-selected {
+        font-weight: bold;
+    }
 
-  .day-new {
-    background-color: blue;
-    color: white;
-  }
+    .day-new {
+        background-color: blue;
+        color: white;
+    }
 
-  .day-current {
-    border: 1px solid red;
-  }
+    .day-current {
+        border: 1px solid red;
+    }
 
-  .day-disabled {
-    color: gray;
-  }
+    .day-disabled {
+        color: gray;
+    }
 }
 
 // TinyMCE Style fixes
 .tox {
-  &.tox-tinymce-aux {
-    z-index: 900;
-    .tox-dialog-wrap {
-      z-index: 800;
+    &.tox-tinymce-aux {
+        z-index: 900;
+        .tox-dialog-wrap {
+            z-index: 800;
+        }
     }
-  }
 }

@@ -1,26 +1,42 @@
 <div
-  class="radio"
-  *ngIf="hidden===false"
-  [class.radio-sm]="componentHeight === ControlHeight.Small"
-  [class.radio-lg]="componentHeight === ControlHeight.Large"
->
-  <label for="{{getName}}_{{getIndex}}">
-    <input
-      id="{{getName}}_{{getIndex}}"
-      name="{{getName}}"
-      type="radio"
-      [value]="value"
-      [checked]="checked"
-      (change)="ChangeEvent()"
-      [disabled]="isDisabled"
-    />
-    <ng-template
-      *ngTemplateOutlet="labeltemplate || defaultItemLabelTemplate;context:{ label: label }"
-    >
-    </ng-template>
-  </label>
+    class="radio"
+    *ngIf="hidden === false"
+    [class.radio-sm]="componentHeight === ControlHeight.Small"
+    [class.radio-lg]="componentHeight === ControlHeight.Large">
+    <label for="{{ getName }}_{{ getIndex }}">
+        <input
+            id="{{ getName }}_{{ getIndex }}"
+            name="{{ getName }}"
+            type="radio"
+            [value]="value"
+            [checked]="checked"
+            (change)="ChangeEvent()"
+            [disabled]="isDisabled" />
+        <ng-template *ngTemplateOutlet="labeltemplate || defaultItemLabelTemplate; context: { label: label }"></ng-template>
+        <p
+            *ngIf="helptextmode === 'text' && helptext"
+            class="help-block">
+            {{ helptext }}
+        </p>
+    </label>
+
+    <div
+        *ngIf="helptextmode === 'tooltip' && helptext"
+        class="form-control-static"
+        style="display: inline">
+        <sac-tooltip
+            [tooltiptext]="helptext"
+            [inlinemode]="true">
+            <span
+                [class]="HelptextTooltipIcon"
+                style="margin-left: 5px; margin-right: 5px">
+            </span>
+        </sac-tooltip>
+    </div>
 </div>
 
-<ng-template #defaultItemLabelTemplate let-label="label"
-  >&nbsp;<span>{{label}}</span></ng-template
->
+<ng-template
+    #defaultItemLabelTemplate
+    let-label="label">
+    <span>{{ label }}</span>
+</ng-template>

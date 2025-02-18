@@ -59,9 +59,9 @@
         name="tinymce4a"
         label="Label"
         [config]="config4"
-        [(ngModel)]="value4"
-        [disabled]="true"
+        [(ngModel)]="value1"
         disablelabel="true"
+        [isrequired]="true"
         helptext="Dies ist ein Helptext"
         helptextmode="tooltip">
     </sac-tinymce>
@@ -85,6 +85,20 @@
         name="tinymce5b"
         [config]="config5"
         [(ngModel)]="value5"
+        disablelabel="true"
+        helptext="Dies ist ein Helptext"
+        helptextmode="tooltip">
+    </sac-tinymce>
+    <div>Output</div>
+    <div>{{ value5 | json }}</div>
+
+    <h2>RichtText Component Inline with Disabled Label and Tooltip Helptext</h2>
+    <sac-tinymce
+        label="Edit Text Inline"
+        name="tinymce5c"
+        [config]="config5"
+        [(ngModel)]="value1"
+        [isrequired]="true"
         disablelabel="true"
         helptext="Dies ist ein Helptext"
         helptextmode="tooltip">

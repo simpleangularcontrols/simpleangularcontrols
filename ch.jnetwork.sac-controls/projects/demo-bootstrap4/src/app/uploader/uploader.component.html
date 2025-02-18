@@ -42,6 +42,7 @@
         label="Mein Bild 3"
         [(ngModel)]="values.fieldupload3"
         allowedtypes=".pdf"
+        [isrequired]="true"
         disablelabel="true"
         helptext="Dies ist ein Helptext"
         helptextmode="tooltip">
@@ -128,6 +129,7 @@
         [enablepause]="true"
         [autoupload]="false"
         (onfileerror)="showmessage($event)"
+        [isrequired]="true"
         disablelabel="true"
         helptext="Dies ist ein Helptext"
         helptextmode="tooltip">
@@ -161,6 +163,7 @@
         endpoint="/api/upload/register"
         name="dropzone1b"
         [(ngModel)]="values.dropzone1"
+        [isrequired]="true"
         disablelabel="true"
         helptext="Dies ist ein Helptext"
         helptextmode="tooltip">
@@ -212,6 +215,7 @@
         endpoint="/api/upload/register"
         name="dropzone3c"
         [(ngModel)]="values.dropzone3"
+        [isrequired]="true"
         disablelabel="true"
         helptext="Dies ist ein Helptext"
         helptextmode="tooltip">

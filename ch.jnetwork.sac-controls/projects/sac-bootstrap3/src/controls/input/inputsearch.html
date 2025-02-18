@@ -1,69 +1,81 @@
 <div
-  class="row form-group"
-  [class.has-error]="invalid && (dirty || touched)"
-  [ngClass]="componentHeight | toLabelHeight"
->
-  <label
-    *ngIf="disablelabel === false && !isAdaptiveLabel"
-    id="{{name}}label"
-    for="{{name}}"
-    class="col-xs-12 control-label"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
-    [class.required]="isrequired"
-    ><span class="text">{{label}}</span>
-    <sac-tooltip
-      *ngIf="helptextmode === 'tooltip' && helptext"
-      [tooltiptext]="helptext"
-      [inlinemode]="true"
-    >
-      <span
-        [class]="HelptextTooltipIcon"
-        style="margin-left: 5px"
-      ></span> </sac-tooltip
-  ></label>
-  <div
-    class="col-xs-12"
-    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
-  >
+    class="row form-group"
+    [class.has-error]="invalid && (dirty || touched)"
+    [ngClass]="componentHeight | toLabelHeight">
+    <label
+        *ngIf="disablelabel === false && !isAdaptiveLabel"
+        id="{{ name }}label"
+        for="{{ name }}"
+        class="col-xs-12 control-label"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only']"
+        [class.required]="isrequired">
+        <span class="text">{{ label }}</span>
+        <sac-tooltip
+            *ngIf="helptextmode === 'tooltip' && helptext"
+            [tooltiptext]="helptext"
+            [inlinemode]="true">
+            <span
+                [class]="HelptextTooltipIcon"
+                style="margin-left: 5px">
+            </span>
+        </sac-tooltip>
+    </label>
     <div
-      class="input-group"
-      [class.input-group-sm]="componentHeight === ControlHeight.Small"
-      [class.input-group-lg]="componentHeight === ControlHeight.Large"
-    >
-      <input
-        id="{{name}}"
-        name="{{name}}"
-        type="text"
-        class="form-control"
-        [ngClass]="[componentHeight | toControlHeight]"
-        [value]="value"
-        [attr.placeholder]="placeholder"
-        (blur)="onTouch()"
-        (input)="setValue($event.target.value)"
-        [attr.maxlength]="maxlength"
-        [disabled]="isdisabled"
-        [readonly]="readonly"
-      />
-      <span class="input-group-btn">
-        <button
-          type="submit"
-          class="btn btn-default"
-          id="{{name}}_search"
-          (click)="searchClick()"
-        >
-          <i
-            *ngIf="buttonmode === 'icon' || buttonmode === 'mixed'"
-            [class]="iconname"
-            [style.margin-right.px]="buttonmode === 'mixed' ? 7 : null"
-          ></i>
-          <ng-container *ngIf="buttonmode === 'text' || buttonmode === 'mixed'"
-            >{{buttontext}}</ng-container
-          >
-        </button>
-      </span>
+        class="col-xs-12"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
+        [class.clearfix]="helptextmode === 'tooltip' && helptext && disablelabel">
+        <div
+            *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
+            class="form-control-static pull-right"
+            style="margin-left: 5px">
+            <sac-tooltip
+                *ngIf="helptextmode === 'tooltip' && helptext"
+                [tooltiptext]="helptext"
+                [inlinemode]="true">
+                <span
+                    [class]="HelptextTooltipIcon"
+                    style="margin-left: 5px; margin-right: 5px">
+                </span>
+            </sac-tooltip>
+        </div>
+
+        <div
+            class="input-group"
+            [class.input-group-sm]="componentHeight === ControlHeight.Small"
+            [class.input-group-lg]="componentHeight === ControlHeight.Large">
+            <input
+                id="{{ name }}"
+                name="{{ name }}"
+                type="text"
+                class="form-control"
+                [ngClass]="[componentHeight | toControlHeight]"
+                [value]="value"
+                [attr.placeholder]="placeholder"
+                (blur)="onTouch()"
+                (input)="setValue($event.target.value)"
+                [attr.maxlength]="maxlength"
+                [disabled]="isdisabled"
+                [readonly]="readonly" />
+            <span class="input-group-btn">
+                <button
+                    type="submit"
+                    class="btn btn-default"
+                    id="{{ name }}_search"
+                    (click)="searchClick()">
+                    <i
+                        *ngIf="buttonmode === 'icon' || buttonmode === 'mixed'"
+                        [class]="iconname"
+                        [style.margin-right.px]="buttonmode === 'mixed' ? 7 : null">
+                    </i>
+                    <ng-container *ngIf="buttonmode === 'text' || buttonmode === 'mixed'">{{ buttontext }}</ng-container>
+                </button>
+            </span>
+        </div>
+
+        <p
+            *ngIf="helptextmode === 'text' && helptext"
+            class="help-block">
+            {{ helptext }}
+        </p>
     </div>
-    <p *ngIf="helptextmode === 'text' && helptext" class="help-block">
-      {{helptext}}
-    </p>
-  </div>
 </div>

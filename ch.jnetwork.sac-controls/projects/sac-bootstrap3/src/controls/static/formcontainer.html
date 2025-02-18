@@ -22,23 +22,24 @@
     </label>
     <div
         class="col-xs-12"
-        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
-        [style.display]="helptextmode === 'tooltip' && helptext && disablelabel ? 'flex' : null">
-        <ng-content></ng-content>
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']">
+        <div [style.display]="helptextmode === 'tooltip' && helptext && disablelabel ? 'flex' : null">
+            <ng-content></ng-content>
 
-        <div
-            *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
-            class="form-control-static"
-            style="margin-left: 5px">
-            <sac-tooltip
-                *ngIf="helptextmode === 'tooltip' && helptext"
-                [tooltiptext]="helptext"
-                [inlinemode]="true">
-                <span
-                    [class]="HelptextTooltipIcon"
-                    style="margin-left: 5px; margin-right: 5px">
-                </span>
-            </sac-tooltip>
+            <div
+                *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
+                class="form-control-static"
+                style="margin-left: 5px">
+                <sac-tooltip
+                    *ngIf="helptextmode === 'tooltip' && helptext"
+                    [tooltiptext]="helptext"
+                    [inlinemode]="true">
+                    <span
+                        [class]="HelptextTooltipIcon"
+                        style="margin-left: 5px; margin-right: 5px">
+                    </span>
+                </sac-tooltip>
+            </div>
         </div>
 
         <p

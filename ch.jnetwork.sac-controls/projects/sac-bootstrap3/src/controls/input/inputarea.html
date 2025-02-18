@@ -22,40 +22,41 @@
     </label>
     <div
         class="col-xs-12"
-        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
-        [style.display]="helptextmode === 'tooltip' && helptext && disablelabel ? 'flex' : null">
-        <textarea
-            id="{{ name }}"
-            name="{{ name }}"
-            type=""
-            class="form-control"
-            [class.is-invalid]="invalid && (dirty || touched)"
-            [class.validation-error]="invalid && (dirty || touched)"
-            [class.required]="isrequired"
-            [ngClass]="[componentHeight | toControlHeight]"
-            [value]="value"
-            [attr.placeholder]="placeholder"
-            (blur)="onTouch()"
-            (input)="setValue($event.target.value)"
-            (keypress)="onKeyPress($event)"
-            [attr.rows]="rows"
-            [disabled]="isdisabled"
-            [readonly]="readonly">
-        </textarea>
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']">
+        <div [style.display]="helptextmode === 'tooltip' && helptext && disablelabel ? 'flex' : null">
+            <textarea
+                id="{{ name }}"
+                name="{{ name }}"
+                type=""
+                class="form-control"
+                [class.is-invalid]="invalid && (dirty || touched)"
+                [class.validation-error]="invalid && (dirty || touched)"
+                [class.required]="isrequired"
+                [ngClass]="[componentHeight | toControlHeight]"
+                [value]="value"
+                [attr.placeholder]="placeholder"
+                (blur)="onTouch()"
+                (input)="setValue($event.target.value)"
+                (keypress)="onKeyPress($event)"
+                [attr.rows]="rows"
+                [disabled]="isdisabled"
+                [readonly]="readonly">
+            </textarea>
 
-        <div
-            *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
-            class="form-control-static"
-            style="margin-left: 5px">
-            <sac-tooltip
-                *ngIf="helptextmode === 'tooltip' && helptext"
-                [tooltiptext]="helptext"
-                [inlinemode]="true">
-                <span
-                    [class]="HelptextTooltipIcon"
-                    style="margin-left: 5px; margin-right: 5px">
-                </span>
-            </sac-tooltip>
+            <div
+                *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
+                class="form-control-static"
+                style="margin-left: 5px">
+                <sac-tooltip
+                    *ngIf="helptextmode === 'tooltip' && helptext"
+                    [tooltiptext]="helptext"
+                    [inlinemode]="true">
+                    <span
+                        [class]="HelptextTooltipIcon"
+                        style="margin-left: 5px; margin-right: 5px">
+                    </span>
+                </sac-tooltip>
+            </div>
         </div>
 
         <p

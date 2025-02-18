@@ -1,74 +1,66 @@
 <div
-  class="row"
-  [class.no-gutters]="disablelabel"
-  [class.form-group]="!stacked"
->
-  <div
-    class="col-12"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only']"
-  >
-    <label
-      *ngIf="!disablelabel && !stacked"
-      for="{{name}}"
-      class="col-form-label d-flex"
-      [ngClass]="componentHeight | toLabelHeight"
-    >
-      <div
-        class="text flex-grow-0"
-        [class.flex-sm-grow-1]="splitlabelandhelptext"
-      >
-        {{label}}
-      </div>
-      <sac-tooltip
-        *ngIf="helptextmode === 'tooltip' && helptext"
-        [tooltiptext]="helptext"
-        [inlinemode]="true"
-        ><span
-          [ngClass]="HelptextTooltipIcon"
-          class="ml-1"
-        ></span> </sac-tooltip
-    ></label>
-  </div>
-  <div
-    class="align-self-center col-12"
-    [ngClass]="[!disablelabel && !stacked ?  (this.labelSizes | toControlWidthCss) : '']"
-  >
+    class="row"
+    [class.no-gutters]="disablelabel"
+    [class.form-group]="!stacked">
     <div
-      [class.form-check]="checkboxstyle === 'checkbox'"
-      [class.custom-control]="checkboxstyle === 'switch'"
-      [class.custom-switch]="checkboxstyle === 'switch'"
-      [class.form-check-sm]="componentHeight === ControlHeight.Small"
-      [class.form-check-lg]="componentHeight === ControlHeight.Large"
-    >
-      <input
-        [class.form-check-input]="checkboxstyle === 'checkbox'"
-        [class.custom-control-input]="checkboxstyle === 'switch'"
-        [class.form-check-input-sm]="componentHeight === ControlHeight.Small"
-        [class.form-check-input-lg]="componentHeight === ControlHeight.Large"
-        id="{{name}}"
-        name="{{name}}"
-        type="checkbox"
-        [checked]="value"
-        (blur)="onTouch()"
-        (change)="setValue($event.target.checked)"
-        [disabled]="isdisabled"
-      />
-      <label
-        for="{{name}}"
-        [class.form-check-label]="checkboxstyle === 'checkbox'"
-        [class.custom-control-label]="checkboxstyle === 'switch'"
-        [class.form-check-label-sm]="componentHeight === ControlHeight.Small"
-        [class.form-check-label-lg]="componentHeight === ControlHeight.Large"
-      >
-        <ng-container *ngIf="checkboxtext">{{checkboxtext}}</ng-container>
-      </label>
+        class="col-12"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only']">
+        <label
+            *ngIf="!disablelabel && !stacked"
+            for="{{ name }}"
+            class="col-form-label d-flex"
+            [ngClass]="componentHeight | toLabelHeight">
+            <div
+                class="text flex-grow-0"
+                [class.flex-sm-grow-1]="splitlabelandhelptext"
+                >{{ label }}</div
+            >
+            <sac-tooltip
+                *ngIf="helptextmode === 'tooltip' && helptext"
+                [tooltiptext]="helptext"
+                [inlinemode]="true"
+                ><span
+                    [ngClass]="HelptextTooltipIcon"
+                    class="ml-1">
+                </span>
+            </sac-tooltip>
+        </label>
     </div>
-    <small
-      *ngIf="helptextmode === 'text' && helptext"
-      class="help-block"
-      class="form-text text-muted"
-    >
-      {{helptext}}
-    </small>
-  </div>
+    <div
+        class="align-self-center col-12"
+        [ngClass]="[!disablelabel && !stacked ? (this.labelSizes | toControlWidthCss) : '']">
+        <div
+            [class.form-check]="checkboxstyle === 'checkbox'"
+            [class.custom-control]="checkboxstyle === 'switch'"
+            [class.custom-switch]="checkboxstyle === 'switch'"
+            [class.form-check-sm]="componentHeight === ControlHeight.Small"
+            [class.form-check-lg]="componentHeight === ControlHeight.Large">
+            <input
+                [class.form-check-input]="checkboxstyle === 'checkbox'"
+                [class.custom-control-input]="checkboxstyle === 'switch'"
+                [class.form-check-input-sm]="componentHeight === ControlHeight.Small"
+                [class.form-check-input-lg]="componentHeight === ControlHeight.Large"
+                id="{{ name }}"
+                name="{{ name }}"
+                type="checkbox"
+                [checked]="value"
+                (blur)="onTouch()"
+                (change)="setValue($event.target.checked)"
+                [disabled]="isdisabled" />
+            <label
+                for="{{ name }}"
+                [class.form-check-label]="checkboxstyle === 'checkbox'"
+                [class.custom-control-label]="checkboxstyle === 'switch'"
+                [class.form-check-label-sm]="componentHeight === ControlHeight.Small"
+                [class.form-check-label-lg]="componentHeight === ControlHeight.Large">
+                <ng-container *ngIf="checkboxtext">{{ checkboxtext }}</ng-container>
+            </label>
+        </div>
+        <small
+            *ngIf="helptextmode === 'text' && helptext"
+            class="help-block"
+            class="form-text text-muted">
+            {{ helptext }}
+        </small>
+    </div>
 </div>

@@ -1,7 +1,7 @@
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 import { SacTooltipComponent } from '../tooltip/tooltip';
 import { SacRadiobuttonsComponent } from './radiobuttons';
-import { NgIf, NgTemplateOutlet } from '@angular/common';
+import { NgClass, NgIf, NgTemplateOutlet } from '@angular/common';
 import { Component, Host, Injector, Optional } from '@angular/core';
 import { SacRadiobuttonCommon } from '@simpleangularcontrols/sac-common';
 
@@ -13,7 +13,7 @@ import { SacRadiobuttonCommon } from '@simpleangularcontrols/sac-common';
     templateUrl: './radiobutton.html',
     styleUrls: ['./radiobutton.scss'],
     standalone: true,
-    imports: [NgIf, NgTemplateOutlet, SacTooltipComponent],
+    imports: [NgIf, NgTemplateOutlet, SacTooltipComponent, NgClass],
 })
 export class SacRadiobuttonComponent extends SacRadiobuttonCommon {
     // #region Constructors

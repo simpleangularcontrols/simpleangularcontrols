@@ -1,87 +1,102 @@
-<div class="row mb-3" [class.g-0]="disablelabel">
-  <label
-    for="{{name}}"
-    class="col-12 col-form-label d-flex"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'visually-hidden', componentHeight | toLabelHeight]"
-    [class.required]="isrequired"
-  >
+<div
+    class="row mb-3"
+    [class.g-0]="disablelabel">
+    <label
+        for="{{ name }}"
+        class="col-12 col-form-label d-flex"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'visually-hidden', componentHeight | toLabelHeight]"
+        [class.required]="isrequired">
+        <div
+            class="text flex-grow-0"
+            [class.flex-sm-grow-1]="splitlabelandhelptext">
+            {{ label }}
+        </div>
+        <sac-tooltip
+            *ngIf="helptextmode === 'tooltip' && helptext"
+            [tooltiptext]="helptext"
+            [inlinemode]="true">
+            <span
+                [ngClass]="HelptextTooltipIcon"
+                class="ms-1">
+            </span>
+        </sac-tooltip>
+    </label>
     <div
-      class="text flex-grow-0"
-      [class.flex-sm-grow-1]="splitlabelandhelptext"
-    >
-      {{label}}
-    </div>
-    <sac-tooltip
-      *ngIf="helptextmode === 'tooltip' && helptext"
-      [tooltiptext]="helptext"
-      [inlinemode]="true"
-      ><span [ngClass]="HelptextTooltipIcon" class="ms-1"></span> </sac-tooltip
-  ></label>
-  <div
-    class="col-12"
-    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
-  >
-    <select
-      #dropdownitem
-      id="{{name}}"
-      name="{{name}}"
-      class="form-select"
-      [class.form-select-sm]="componentHeight === ControlHeight.Small"
-      [class.form-select-lg]="componentHeight === ControlHeight.Large"
-      [ngClass]="{'is-invalid': invalid && (dirty || touched) }"
-      (blur)="onTouch()"
-      (change)="setValue(dropdownitem.value)"
-      [disabled]="isdisabled"
-    >
-      <option *ngIf="emptylabel !== ''" [ngValue]="emptyvalue">
-        {{emptylabel}}
-      </option>
+        class="col-12"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
+        [class.d-flex]="helptextmode === 'tooltip' && helptext && disablelabel">
+        <div [class.flex-grow-1]="helptextmode === 'tooltip' && helptext && disablelabel">
+            <select
+                #dropdownitem
+                id="{{ name }}"
+                name="{{ name }}"
+                class="form-select"
+                [class.form-select-sm]="componentHeight === ControlHeight.Small"
+                [class.form-select-lg]="componentHeight === ControlHeight.Large"
+                [ngClass]="{ 'is-invalid': invalid && (dirty || touched) }"
+                (blur)="onTouch()"
+                (change)="setValue(dropdownitem.value)"
+                [disabled]="isdisabled">
+                <option
+                    *ngIf="emptylabel !== ''"
+                    [ngValue]="emptyvalue">
+                    {{ emptylabel }}
+                </option>
 
-      <ng-content></ng-content>
+                <ng-content></ng-content>
 
-      <ng-container *ngIf="groupitems === ''">
-        <option
-          *ngFor="let item of options"
-          [ngValue]="optionvalue ? item[optionvalue] : item"
-          [disabled]="optionenabled !== '' && item[optionenabled] === false"
-        >
-          <ng-template
-            *ngTemplateOutlet="optionlabeltemplate || defaultItemLabelTemplate;context:{ label: item[optionlabel], item: item }"
-          >
-          </ng-template>
-        </option>
-      </ng-container>
+                <ng-container *ngIf="groupitems === ''">
+                    <option
+                        *ngFor="let item of options"
+                        [ngValue]="optionvalue ? item[optionvalue] : item"
+                        [disabled]="optionenabled !== '' && item[optionenabled] === false">
+                        <ng-template *ngTemplateOutlet="optionlabeltemplate || defaultItemLabelTemplate; context: { label: item[optionlabel], item: item }"> </ng-template>
+                    </option>
+                </ng-container>
 
-      <ng-container *ngIf="groupitems !== ''">
-        <optgroup
-          *ngFor="let group of options"
-          [attr.label]="group[grouplabel]"
-        >
-          <option
-            *ngFor="let item of group[groupitems]"
-            [ngValue]="optionvalue ? item[optionvalue] : item"
-            [disabled]="optionenabled !== '' && item[optionenabled] === false"
-          >
-            <ng-template
-              *ngTemplateOutlet="optionlabeltemplate || defaultItemLabelTemplate;context:{ label: item[optionlabel], item: item }"
-            >
-            </ng-template>
-          </option>
-        </optgroup>
-      </ng-container>
-    </select>
-    <div
-      class="invalid-feedback"
-      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
-    >
-      {{ GetErrorMessage() | async }}
+                <ng-container *ngIf="groupitems !== ''">
+                    <optgroup
+                        *ngFor="let group of options"
+                        [attr.label]="group[grouplabel]">
+                        <option
+                            *ngFor="let item of group[groupitems]"
+                            [ngValue]="optionvalue ? item[optionvalue] : item"
+                            [disabled]="optionenabled !== '' && item[optionenabled] === false">
+                            <ng-template *ngTemplateOutlet="optionlabeltemplate || defaultItemLabelTemplate; context: { label: item[optionlabel], item: item }"> </ng-template>
+                        </option>
+                    </optgroup>
+                </ng-container>
+            </select>
+            <div
+                class="invalid-feedback"
+                *ngIf="isinlineerrorenabled && invalid && (dirty || touched)">
+                {{ GetErrorMessage() | async }}
+            </div>
+            <div
+                *ngIf="helptextmode === 'text' && helptext"
+                class="form-text">
+                {{ helptext }}
+            </div>
+        </div>
+
+        <div
+            *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
+            class="form-control-plaintext align-self-top ms-2 me-1 w-auto"
+            [ngClass]="[componentHeight | toControlHeight]">
+            <sac-tooltip
+                [tooltiptext]="helptext"
+                [inlinemode]="true">
+                <span
+                    [ngClass]="HelptextTooltipIcon"
+                    class="ml-1">
+                </span>
+            </sac-tooltip>
+        </div>
     </div>
-    <div *ngIf="helptextmode === 'text' && helptext" class="form-text">
-      {{helptext}}
-    </div>
-  </div>
 </div>
 
-<ng-template #defaultItemLabelTemplate let-label="label">
-  {{label}}
+<ng-template
+    #defaultItemLabelTemplate
+    let-label="label">
+    {{ label }}
 </ng-template>

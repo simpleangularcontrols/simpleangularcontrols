@@ -11,9 +11,9 @@
             *ngIf="!disablelabel">
             <div
                 class="text flex-grow-0"
-                [class.flex-sm-grow-1]="splitlabelandhelptext">
-                {{ label }}
-            </div>
+                [class.flex-sm-grow-1]="splitlabelandhelptext"
+                >{{ label }}</div
+            >
             <sac-tooltip
                 *ngIf="helptextmode === 'tooltip' && helptext"
                 [tooltiptext]="helptext"

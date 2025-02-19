@@ -1,32 +1,49 @@
 <div
-  class="form-check"
-  [class.form-check-sm]="componentHeight === ControlHeight.Small"
-  [class.form-check-lg]="componentHeight === ControlHeight.Large"
-  *ngIf="hidden===false"
->
-  <input
-    id="{{getName}}_{{getIndex}}"
-    name="{{getName}}"
-    type="radio"
-    class="form-check-input"
-    [class.form-check-input-sm]="componentHeight === ControlHeight.Small"
-    [class.form-check-input-lg]="componentHeight === ControlHeight.Large"
-    [value]="value"
-    [checked]="checked"
-    (change)="ChangeEvent()"
-    [disabled]="isDisabled"
-  />
-  <label
-    for="{{getName}}_{{getIndex}}"
-    class="form-check-label"
-    [class.form-check-label-sm]="componentHeight === ControlHeight.Small"
-    [class.form-check-label-lg]="componentHeight === ControlHeight.Large"
-  >
-    <ng-template
-      *ngTemplateOutlet="labeltemplate || defaultItemLabelTemplate;context:{ label: label }"
-    >
-    </ng-template>
-  </label>
+    class="form-check"
+    [class.form-check-sm]="componentHeight === ControlHeight.Small"
+    [class.form-check-lg]="componentHeight === ControlHeight.Large"
+    *ngIf="hidden === false">
+    <input
+        id="{{ getName }}_{{ getIndex }}"
+        name="{{ getName }}"
+        type="radio"
+        class="form-check-input"
+        [class.form-check-input-sm]="componentHeight === ControlHeight.Small"
+        [class.form-check-input-lg]="componentHeight === ControlHeight.Large"
+        [value]="value"
+        [checked]="checked"
+        (change)="ChangeEvent()"
+        [disabled]="isDisabled" />
+    <label
+        for="{{ getName }}_{{ getIndex }}"
+        class="form-check-label"
+        [class.form-check-label-sm]="componentHeight === ControlHeight.Small"
+        [class.form-check-label-lg]="componentHeight === ControlHeight.Large">
+        <ng-template *ngTemplateOutlet="labeltemplate || defaultItemLabelTemplate; context: { label: label }"> </ng-template>
+    </label>
+    <small
+        *ngIf="helptextmode === 'text' && helptext"
+        class="form-text text-muted">
+        {{ helptext }}
+    </small>
+    <div
+        *ngIf="helptextmode === 'tooltip' && helptext"
+        class="ml-2 mr-1 d-inline-block"
+        [class.form-check-label-sm]="componentHeight === ControlHeight.Small"
+        [class.form-check-label-lg]="componentHeight === ControlHeight.Large">
+        <sac-tooltip
+            [tooltiptext]="helptext"
+            [inlinemode]="true">
+            <span
+                [ngClass]="HelptextTooltipIcon"
+                class="ml-1">
+            </span>
+        </sac-tooltip>
+    </div>
 </div>
 
-<ng-template #defaultItemLabelTemplate let-label="label">{{label}}</ng-template>
+<ng-template
+    #defaultItemLabelTemplate
+    let-label="label"
+    >{{ label }}
+</ng-template>

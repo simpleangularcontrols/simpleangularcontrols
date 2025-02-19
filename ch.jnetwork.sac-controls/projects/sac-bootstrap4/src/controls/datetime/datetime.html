@@ -1,96 +1,103 @@
-<div class="row form-group" [class.no-gutters]="disablelabel">
-  <label
-    for="{{name}}"
-    class="col-12 col-form-label d-flex"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
-    [class.required]="isrequired"
-  >
+<div
+    class="row form-group"
+    [class.no-gutters]="disablelabel">
+    <label
+        for="{{ name }}"
+        class="col-12 col-form-label d-flex"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
+        [class.required]="isrequired">
+        <div
+            class="text flex-grow-0"
+            [class.flex-sm-grow-1]="splitlabelandhelptext">
+            {{ label }}
+        </div>
+        <sac-tooltip
+            *ngIf="helptextmode === 'tooltip' && helptext"
+            [tooltiptext]="helptext"
+            [inlinemode]="true"
+            ><span
+                [ngClass]="HelptextTooltipIcon"
+                class="ml-1">
+            </span>
+        </sac-tooltip>
+    </label>
     <div
-      class="text flex-grow-0"
-      [class.flex-sm-grow-1]="splitlabelandhelptext"
-    >
-      {{label}}
+        class="col-12"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
+        [class.d-flex]="helptextmode === 'tooltip' && helptext && disablelabel">
+        <div [class.flex-grow-1]="helptextmode === 'tooltip' && helptext && disablelabel">
+            <div
+                class="input-group"
+                [class.input-group-sm]="componentHeight === ControlHeight.Small"
+                [class.input-group-lg]="componentHeight === ControlHeight.Large"
+                [class.has-validation]="isinlineerrorenabled && invalid && (dirty || touched)">
+                <input
+                    id="{{ name }}"
+                    name="{{ name }}"
+                    type="text"
+                    class="form-control"
+                    [imask]="imaskDate"
+                    [attr.placeholder]="placeholder"
+                    [value]="valuestring"
+                    [class.is-invalid]="invalid && (dirty || touched)"
+                    [ngClass]="[componentHeight | toControlHeight]"
+                    (blur)="onTouch()"
+                    (accept)="setValueString($event)"
+                    [disabled]="isdisabled" />
+                <div class="input-group-append">
+                    <button
+                        class="btn btn-secondary"
+                        type="button"
+                        (click)="showDateSelector()"
+                        [disabled]="isdisabled">
+                        <i [class]="IconSelector"></i>
+                    </button>
+                </div>
+                <div
+                    *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+                    class="invalid-feedback">
+                    {{ GetErrorMessage() | async }}
+                </div>
+            </div>
+            <small
+                *ngIf="helptextmode === 'text' && helptext"
+                class="form-text text-muted">
+                {{ helptext }}
+            </small>
+            <div
+                class="popover fade bs-popover-bottom show"
+                role="tooltip"
+                *ngIf="_showselector"
+                style="display: block; left: unset; right: 0px; top: unset; max-width: 325px">
+                <div
+                    class="arrow"
+                    style="left: unset"
+                    [style.right.rem]="componentHeight === ControlHeight.Small ? 1.1 : componentHeight === ControlHeight.Large ? 1.8 : 1.4"></div>
+                <h3
+                    class="popover-header"
+                    style="display: none"></h3>
+                <div class="popover-body">
+                    <sac-dateselector
+                        [initialvalue]="value"
+                        (selectdate)="dateselect($event)"
+                        dateselection="true"
+                        timeselection="true"></sac-dateselector>
+                </div>
+            </div>
+        </div>
+
+        <div
+            *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
+            class="form-control-plaintext align-self-top ml-2 mr-1 w-auto"
+            [ngClass]="[componentHeight | toControlHeight]">
+            <sac-tooltip
+                [tooltiptext]="helptext"
+                [inlinemode]="true">
+                <span
+                    [ngClass]="HelptextTooltipIcon"
+                    class="ml-1">
+                </span>
+            </sac-tooltip>
+        </div>
     </div>
-    <sac-tooltip
-      *ngIf="helptextmode === 'tooltip' && helptext"
-      [tooltiptext]="helptext"
-      [inlinemode]="true"
-      ><span [ngClass]="HelptextTooltipIcon" class="ml-1"></span> </sac-tooltip
-  ></label>
-  <div
-    class="col-12"
-    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
-  >
-    <div
-      class="input-group"
-      [class.input-group-sm]="componentHeight === ControlHeight.Small"
-      [class.input-group-lg]="componentHeight === ControlHeight.Large"
-      [class.has-validation]="isinlineerrorenabled && invalid && (dirty || touched)"
-    >
-      <input
-        id="{{name}}"
-        name="{{name}}"
-        type="text"
-        class="form-control"
-        [imask]="imaskDate"
-        [attr.placeholder]="placeholder"
-        [value]="valuestring"
-        [class.is-invalid]="invalid && (dirty || touched)"
-        [ngClass]="[componentHeight | toControlHeight]"
-        (blur)="onTouch()"
-        (accept)="setValueString($event)"
-        [disabled]="isdisabled"
-      />
-      <div class="input-group-append">
-        <button
-          class="btn btn-secondary"
-          type="button"
-          (click)="showDateSelector()"
-          [disabled]="isdisabled"
-        >
-          <i [class]="IconSelector"></i>
-        </button>
-      </div>
-      <div
-        *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
-        class="invalid-feedback"
-      >
-        {{ GetErrorMessage() | async }}
-      </div>
-    </div>
-    <small
-      *ngIf="helptextmode === 'text' && helptext"
-      class="help-block"
-      class="form-text text-muted"
-    >
-      {{helptext}}
-    </small>
-    <div
-      class="popover fade bs-popover-bottom show"
-      role="tooltip"
-      *ngIf="_showselector"
-      style="
-        display: block;
-        left: unset;
-        right: 0px;
-        top: unset;
-        max-width: 325px;
-      "
-    >
-      <div
-        class="arrow"
-        style="left: unset"
-        [style.right.rem]="componentHeight === ControlHeight.Small ? 1.1 : componentHeight === ControlHeight.Large ? 1.8 : 1.4"
-      ></div>
-      <h3 class="popover-header" style="display: none"></h3>
-      <div class="popover-body">
-        <sac-dateselector
-          [initialvalue]="value"
-          (selectdate)="dateselect($event)"
-          dateselection="true"
-          timeselection="true"
-        ></sac-dateselector>
-      </div>
-    </div>
-  </div>
 </div>

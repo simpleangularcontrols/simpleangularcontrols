@@ -1,86 +1,98 @@
 <div class="row form-group">
-  <label
-    for="{{name}}"
-    class="col-12 col-form-label d-flex"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
-    [class.required]="isrequired"
-    ><div
-      class="text flex-grow-0"
-      [class.flex-sm-grow-1]="splitlabelandhelptext"
-    >
-      {{label}}
-    </div>
-    <sac-tooltip
-      *ngIf="helptextmode === 'tooltip' && helptext"
-      [tooltiptext]="helptext"
-      [inlinemode]="true"
-      ><span [ngClass]="HelptextTooltipIcon" class="ml-1"></span> </sac-tooltip
-  ></label>
-  <div
-    class="col-12"
-    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
-  >
-    <editor
-      [id]="name + '_tinymce'"
-      [init]="_config"
-      [initialValue]="value"
-      ngModel
-      [ngModelOptions]="{standalone: true}"
-      (ngModelChange)="setValue($event)"
-      (onSaveContent)="save($event.event.content)"
-      [disabled]="disabled"
-      [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)"
-    ></editor>
-    <small
-      *ngIf="helptextmode === 'text' && helptext"
-      class="help-block"
-      class="form-text text-muted"
-    >
-      {{helptext}}
-    </small>
+    <label
+        for="{{ name }}"
+        class="col-12 col-form-label d-flex"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
+        [class.required]="isrequired"
+        ><div
+            class="text flex-grow-0"
+            [class.flex-sm-grow-1]="splitlabelandhelptext">
+            {{ label }}
+        </div>
+        <sac-tooltip
+            *ngIf="helptextmode === 'tooltip' && helptext"
+            [tooltiptext]="helptext"
+            [inlinemode]="true">
+            <span
+                [ngClass]="HelptextTooltipIcon"
+                class="ml-1">
+            </span>
+        </sac-tooltip>
+    </label>
     <div
-      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
-      class="invalid-feedback"
-    >
-      {{ GetErrorMessage() | async }}
+        class="col-12"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
+        [class.d-flex]="helptextmode === 'tooltip' && helptext && disablelabel">
+        <div [class.flex-grow-1]="helptextmode === 'tooltip' && helptext && disablelabel">
+            <editor
+                [id]="name + '_tinymce'"
+                [init]="_config"
+                [initialValue]="value"
+                ngModel
+                [ngModelOptions]="{ standalone: true }"
+                (ngModelChange)="setValue($event)"
+                (onSaveContent)="save($event.event.content)"
+                [disabled]="disabled"
+                [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)">
+            </editor>
+            <small
+                *ngIf="helptextmode === 'text' && helptext"
+                class="form-text text-muted">
+                {{ helptext }}
+            </small>
+            <div
+                *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+                class="invalid-feedback">
+                {{ GetErrorMessage() | async }}
+            </div>
+        </div>
+
+        <div
+            *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
+            class="form-control-plaintext align-self-top ml-2 mr-1 w-auto"
+            [ngClass]="[componentHeight | toControlHeight]">
+            <sac-tooltip
+                [tooltiptext]="helptext"
+                [inlinemode]="true">
+                <span
+                    [ngClass]="HelptextTooltipIcon"
+                    class="ml-1">
+                </span>
+            </sac-tooltip>
+        </div>
     </div>
-  </div>
 </div>
 
 <sac-dialog
-  *ngIf="selectdialogvisible"
-  [allowesc]="false"
-  [backdrop]="true"
-  [(isvisible)]="selectdialogvisible"
-  title="{{ lngResourceService.GetString(validationKeyService.TinyMceFileselectDialogtitle) | async }}"
-  size="large"
-  height="500px"
->
-  <ng-container dialogbody>
-    <sac-filebrowser
-      [apiurl]="filebrowserapiurl"
-      (file)="selectDialogSettings.value = $event"
-      [allowfoldercreate]="allowfoldercreate"
-      [allowfolderrename]="allowfolderrename"
-      [allowfolderdelete]="allowfolderdelete"
-      [allowfileupload]="allowfileupload"
-      [allowfilerename]="allowfilerename"
-      [allowfiledelete]="allowfiledelete"
-      [selectedfile]="selectDialogSettings.value"
-      [allowedtypes]="selectDialogSettings.allowedtypes"
-    ></sac-filebrowser>
-  </ng-container>
-  <ng-container dialogfooter>
-    <sac-button
-      role="primary"
-      [name]="name + '_modalOk'"
-      text="{{ lngResourceService.GetString(validationKeyService.TinyMceFileselectOk) | async }}"
-      (clicked)="setSelectDialogResult()"
-    ></sac-button>
-    <sac-button
-      [name]="name + '_modalClose'"
-      text="{{ lngResourceService.GetString(validationKeyService.TinyMceFileselectCancel) | async }}"
-      (clicked)="closeSelectDialog()"
-    ></sac-button>
-  </ng-container>
+    *ngIf="selectdialogvisible"
+    [allowesc]="false"
+    [backdrop]="true"
+    [(isvisible)]="selectdialogvisible"
+    title="{{ lngResourceService.GetString(validationKeyService.TinyMceFileselectDialogtitle) | async }}"
+    size="large"
+    height="500px">
+    <ng-container dialogbody>
+        <sac-filebrowser
+            [apiurl]="filebrowserapiurl"
+            (file)="selectDialogSettings.value = $event"
+            [allowfoldercreate]="allowfoldercreate"
+            [allowfolderrename]="allowfolderrename"
+            [allowfolderdelete]="allowfolderdelete"
+            [allowfileupload]="allowfileupload"
+            [allowfilerename]="allowfilerename"
+            [allowfiledelete]="allowfiledelete"
+            [selectedfile]="selectDialogSettings.value"
+            [allowedtypes]="selectDialogSettings.allowedtypes"></sac-filebrowser>
+    </ng-container>
+    <ng-container dialogfooter>
+        <sac-button
+            role="primary"
+            [name]="name + '_modalOk'"
+            text="{{ lngResourceService.GetString(validationKeyService.TinyMceFileselectOk) | async }}"
+            (clicked)="setSelectDialogResult()"></sac-button>
+        <sac-button
+            [name]="name + '_modalClose'"
+            text="{{ lngResourceService.GetString(validationKeyService.TinyMceFileselectCancel) | async }}"
+            (clicked)="closeSelectDialog()"></sac-button>
+    </ng-container>
 </sac-dialog>

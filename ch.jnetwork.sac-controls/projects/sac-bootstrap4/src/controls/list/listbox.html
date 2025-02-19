@@ -1,74 +1,88 @@
-<div class="row form-group" [class.no-gutters]="disablelabel">
-  <label
-    for="{{name}}"
-    class="col-12 col-form-label d-flex"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
-    [class.required]="isrequired"
-    ><div
-      class="text flex-grow-0"
-      [class.flex-sm-grow-1]="splitlabelandhelptext"
-    >
-      {{label}}
-    </div>
-    <sac-tooltip
-      *ngIf="helptextmode === 'tooltip' && helptext"
-      [tooltiptext]="helptext"
-      [inlinemode]="true"
-      ><span [ngClass]="HelptextTooltipIcon" class="ml-1"></span> </sac-tooltip
-  ></label>
-  <div
-    class="col-12"
-    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
-  >
-    <select
-      multiple
-      id="{{name}}"
-      name="{{name}}"
-      class="form-control"
-      [size]="rowsize"
-      [class.is-invalid]="invalid && (dirty || touched)"
-      [ngClass]="[componentHeight | toControlHeight]"
-      (blur)="onTouch()"
-      (change)="getSelectedItems($event.target)"
-      [disabled]="isdisabled"
-    >
-      <ng-content></ng-content>
-      <ng-container *ngIf="groupitems === ''">
-        <option
-          *ngFor="let option of options"
-          [value]="option[optionvalue]"
-          [disabled]="optionenabled !== '' && option[optionenabled] === false"
-        >
-          {{option[optionlabel]}}
-        </option>
-      </ng-container>
-      <ng-container *ngIf="groupitems !== ''">
-        <optgroup
-          *ngFor="let option of options"
-          [attr.label]="option[grouplabel]"
-        >
-          <option
-            *ngFor="let item of option[groupitems]"
-            [value]="item[optionvalue]"
-            [disabled]="optionenabled !== '' && item[optionenabled] === false"
-          >
-            {{item[optionlabel]}}
-          </option>
-        </optgroup>
-      </ng-container>
-    </select>
-    <small
-      *ngIf="helptextmode === 'text' && helptext"
-      class="help-block"
-      class="form-text text-muted"
-    >
-      {{helptext}}
-    </small>
+<div
+    class="row form-group"
+    [class.no-gutters]="disablelabel">
+    <label
+        for="{{ name }}"
+        class="col-12 col-form-label d-flex"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
+        [class.required]="isrequired"
+        ><div
+            class="text flex-grow-0"
+            [class.flex-sm-grow-1]="splitlabelandhelptext">
+            {{ label }}
+        </div>
+        <sac-tooltip
+            *ngIf="helptextmode === 'tooltip' && helptext"
+            [tooltiptext]="helptext"
+            [inlinemode]="true">
+            <span
+                [ngClass]="HelptextTooltipIcon"
+                class="ml-1">
+            </span>
+        </sac-tooltip>
+    </label>
     <div
-      class="invalid-feedback"
-      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
-    >
-      {{ GetErrorMessage() | async }}
+        class="col-12"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
+        [class.d-flex]="helptextmode === 'tooltip' && helptext && disablelabel">
+        <div [class.flex-grow-1]="helptextmode === 'tooltip' && helptext && disablelabel">
+            <select
+                multiple
+                id="{{ name }}"
+                name="{{ name }}"
+                class="form-control"
+                [size]="rowsize"
+                [class.is-invalid]="invalid && (dirty || touched)"
+                [ngClass]="[componentHeight | toControlHeight]"
+                (blur)="onTouch()"
+                (change)="getSelectedItems($event.target)"
+                [disabled]="isdisabled">
+                <ng-content></ng-content>
+                <ng-container *ngIf="groupitems === ''">
+                    <option
+                        *ngFor="let option of options"
+                        [value]="option[optionvalue]"
+                        [disabled]="optionenabled !== '' && option[optionenabled] === false">
+                        {{ option[optionlabel] }}
+                    </option>
+                </ng-container>
+                <ng-container *ngIf="groupitems !== ''">
+                    <optgroup
+                        *ngFor="let option of options"
+                        [attr.label]="option[grouplabel]">
+                        <option
+                            *ngFor="let item of option[groupitems]"
+                            [value]="item[optionvalue]"
+                            [disabled]="optionenabled !== '' && item[optionenabled] === false">
+                            {{ item[optionlabel] }}
+                        </option>
+                    </optgroup>
+                </ng-container>
+            </select>
+            <small
+                *ngIf="helptextmode === 'text' && helptext"
+                class="form-text text-muted">
+                {{ helptext }}
+            </small>
+            <div
+                class="invalid-feedback"
+                *ngIf="isinlineerrorenabled && invalid && (dirty || touched)">
+                {{ GetErrorMessage() | async }}
+            </div>
+        </div>
+
+        <div
+            *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
+            class="form-control-plaintext align-self-top ml-2 mr-1 w-auto"
+            [ngClass]="[componentHeight | toControlHeight]">
+            <sac-tooltip
+                [tooltiptext]="helptext"
+                [inlinemode]="true">
+                <span
+                    [ngClass]="HelptextTooltipIcon"
+                    class="ml-1">
+                </span>
+            </sac-tooltip>
+        </div>
     </div>
-  </div>
 </div>

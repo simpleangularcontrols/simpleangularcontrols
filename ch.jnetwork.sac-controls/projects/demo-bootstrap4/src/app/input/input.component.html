@@ -1,335 +1,440 @@
 <h2>Input</h2>
-<form #myForm="sacform" labelsize="3">
-  <div class="mb-2">
-    <sac-button (clicked)="debugAction()" text="Validate"></sac-button>
-  </div>
-  <sac-validationsummary formGroupName="Group3"></sac-validationsummary>
-
-  <div ngModelGroup="Group1">
-    <sac-inputsearch
-      name="field4searcha"
-      label="Feld 4 Search"
-      [(ngModel)]="values.field4"
-      buttontext="Suchen"
-      buttonmode="icon"
-    ></sac-inputsearch>
-    <sac-inputsearch
-      name="field4searchb"
-      label="Feld 4 Search"
-      [(ngModel)]="values.field4"
-      buttontext="Suchen"
-      helptext="Dies ist ein Helptext"
-      helptextmode="tooltip"
-      buttonmode="mixed"
-    ></sac-inputsearch>
-    <sac-inputsearch
-      name="field4searchc"
-      label="Feld 4 Search"
-      [(ngModel)]="values.field4"
-      buttontext="Suchen"
-      helptext="Dies ist ein Helptext"
-    ></sac-inputsearch>
-    <sac-inputsearch
-      name="field4search2"
-      disablelabel="true"
-      label="Feld 4 Search"
-      [(ngModel)]="values.field4"
-      buttontext="Suchen"
-      helptext="Dies ist ein Helptext"
-      helptextmode="text"
-    ></sac-inputsearch>
-    <div ngModelGroup="Group3">
-      <sac-input
-        name="field1"
-        label="Feld 1"
-        labelsize="2"
-        isrequired="true"
-        [(ngModel)]="values.field1"
-      ></sac-input>
-
-      <sac-input
-        name="field2"
-        disablelabel="true"
-        [(ngModel)]="values.field2"
-      ></sac-input>
-      <sac-input
-        name="field3"
-        label="Feld 3"
-        labelsize="4"
-        [(ngModel)]="values.field3"
-      ></sac-input>
+<form
+    #myForm="sacform"
+    labelsize="3">
+    <div class="mb-2">
+        <sac-button
+            (clicked)="debugAction()"
+            text="Validate">
+        </sac-button>
     </div>
-    <sac-input
-      name="field4"
-      label="Feld 4"
-      [(ngModel)]="values.field4"
-    ></sac-input>
-    <sac-input
-      name="field5"
-      label="Feld 5"
-      placeholder="Feld 5"
-      [(ngModel)]="values.field5"
-    ></sac-input>
-    <sac-input
-      name="field6"
-      label="Feld 6 (Max 10)"
-      [(ngModel)]="values.field6"
-      [maxlength]="10"
-      helptext="Dies ist ein Helptext"
-    ></sac-input>
-    <sac-input
-      name="field7"
-      label="Feld 7"
-      [(ngModel)]="values.field7"
-      disabled="true"
-      helptext="Dies ist ein Helptext"
-      helptextmode="tooltip"
-    ></sac-input>
-  </div>
+    <sac-validationsummary></sac-validationsummary>
 
-  <div ngModelGroup="Group2">
-    <sac-inputdecimal
-      name="fieldd1"
-      label="Decimal 1 (Decimal)"
-      disablelabel="true"
-      [(ngModel)]="values.fieldd1"
-    ></sac-inputdecimal>
-    <sac-inputdecimal
-      name="fieldd2"
-      label="Decimal 2 (Decimal with Negativ)"
-      [(ngModel)]="values.fieldd2"
-      [allownegativ]="true"
-    ></sac-inputdecimal>
-    <sac-inputdecimal
-      name="fieldd3"
-      label="Decimal 3 (Decimal with Negativ (10-20))"
-      [(ngModel)]="values.fieldd3"
-      [allownegativ]="true"
-      isrequired="true"
-      [minvalue]="10"
-      [maxvalue]="20"
-      helptext="Dies ist ein Helptext"
-    ></sac-inputdecimal>
-    <sac-inputdecimal
-      name="fieldd4"
-      label="Decimal 4 (Decimal)"
-      [(ngModel)]="values.fieldd1"
-      disabled="true"
-      helptext="Dies ist ein Helptext"
-      helptextmode="tooltip"
-    ></sac-inputdecimal>
+    <div ngModelGroup="Group1">
+        <sac-inputsearch
+            name="field4searcha"
+            label="Feld 4 Search"
+            [(ngModel)]="values.field4"
+            buttontext="Suchen"
+            buttonmode="icon">
+        </sac-inputsearch>
+        <sac-inputsearch
+            name="field4searchb"
+            label="Feld 4 Search"
+            [(ngModel)]="values.field4"
+            buttontext="Suchen"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip"
+            buttonmode="mixed">
+        </sac-inputsearch>
+        <sac-inputsearch
+            name="field4searchc"
+            label="Feld 4 Search"
+            [(ngModel)]="values.field4"
+            buttontext="Suchen"
+            helptext="Dies ist ein Helptext">
+        </sac-inputsearch>
+        <sac-inputsearch
+            name="field4search2"
+            disablelabel="true"
+            label="Feld 4 Search"
+            [(ngModel)]="values.field4"
+            buttontext="Suchen"
+            helptext="Dies ist ein Helptext"
+            helptextmode="text">
+        </sac-inputsearch>
+        <sac-inputsearch
+            name="field4search3"
+            disablelabel="true"
+            label="Feld 4 Search"
+            [(ngModel)]="values.field4"
+            buttontext="Suchen"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputsearch>
 
-    <sac-inputinteger
-      name="fieldi1"
-      label="Integer 1 (Integer)"
-      [(ngModel)]="values.fieldi1"
-    ></sac-inputinteger>
-    <sac-inputinteger
-      name="fieldi2"
-      label="Integer 2 (Integer with Negativ)"
-      [(ngModel)]="values.fieldi2"
-      [allownegativ]="true"
-    ></sac-inputinteger>
-    <sac-inputinteger
-      name="fieldi3"
-      label="Integer 3 (Integer with Negativ (10-20))"
-      [(ngModel)]="values.fieldi3"
-      [allownegativ]="true"
-      isrequired="true"
-      [minvalue]="10"
-      [maxvalue]="20"
-      helptext="Dies ist ein Helptext"
-    ></sac-inputinteger>
-    <sac-inputinteger
-      name="fieldi4"
-      label="Integer 1 (Integer)"
-      [(ngModel)]="values.fieldi1"
-      disabled="true"
-      helptext="Dies ist ein Helptext"
-      helptextmode="tooltip"
-    ></sac-inputinteger>
+        <div ngModelGroup="Group3">
+            <sac-input
+                name="field1"
+                label="Feld 1"
+                labelsize="2"
+                isrequired="true"
+                [(ngModel)]="values.field1">
+            </sac-input>
+            <sac-input
+                name="field2"
+                disablelabel="true"
+                [(ngModel)]="values.field2">
+            </sac-input>
+            <sac-input
+                name="field3"
+                label="Feld 3"
+                labelsize="4"
+                [(ngModel)]="values.field3">
+            </sac-input>
+        </div>
 
-    <sac-inputcurrency
-      name="fieldcurrency1"
-      label="Preis"
-      [(ngModel)]="values.fieldcurrency1"
-    ></sac-inputcurrency>
-    <sac-inputcurrency
-      name="fieldcurrency2"
-      label="Preis"
-      [(ngModel)]="values.fieldcurrency2"
-      disabled="true"
-    ></sac-inputcurrency>
-    <sac-inputcurrency
-      name="fieldcurrency3"
-      label="Preis (Required)"
-      [(ngModel)]="values.fieldcurrency3"
-      [isrequired]="true"
-      validationmessagerequired="Please enter a valid price"
-      helptext="Dies ist ein Helptext"
-    ></sac-inputcurrency>
-    <sac-inputcurrency
-      name="fieldcurrency4"
-      label="Preis"
-      [(ngModel)]="values.fieldcurrency4"
-      currency="$"
-      disabled="true"
-      helptext="Dies ist ein Helptext"
-      helptextmode="tooltip"
-    ></sac-inputcurrency>
+        <sac-input
+            name="field4"
+            label="Feld 4"
+            [(ngModel)]="values.field4">
+        </sac-input>
+        <sac-input
+            name="field5"
+            label="Feld 5"
+            placeholder="Feld 5"
+            [(ngModel)]="values.field5">
+        </sac-input>
+        <sac-input
+            name="field6"
+            label="Feld 6 (Max 10)"
+            [(ngModel)]="values.field6"
+            [maxlength]="10"
+            helptext="Dies ist ein Helptext">
+        </sac-input>
+        <sac-input
+            name="field7"
+            label="Feld 7"
+            [(ngModel)]="values.field7"
+            disabled="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-input>
+        <sac-input
+            name="field7b"
+            label="Feld 7 (Tooltip)"
+            [(ngModel)]="values.field7"
+            isrequired="true"
+            disablelabel="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-input>
+    </div>
 
-    <sac-inputemail
-      name="fieldemail1"
-      label="E-Mail 1"
-      [(ngModel)]="values.fieldemail1"
-    ></sac-inputemail>
-    <sac-inputemail
-      name="fieldemail2"
-      label="E-Mail 2 (Max 10)"
-      [(ngModel)]="values.fieldemail2"
-      [maxlength]="10"
-      helptext="Dies ist ein Helptext"
-    ></sac-inputemail>
-    <sac-inputemail
-      name="fieldemail3"
-      label="E-Mail 3"
-      [(ngModel)]="values.fieldemail3"
-      disabled="true"
-      helptext="Dies ist ein Helptext"
-      helptextmode="tooltip"
-    ></sac-inputemail>
+    <div ngModelGroup="Group2">
+        <sac-inputdecimal
+            name="fieldd1"
+            label="Decimal 1 (Decimal)"
+            disablelabel="true"
+            [(ngModel)]="values.fieldd1">
+        </sac-inputdecimal>
+        <sac-inputdecimal
+            name="fieldd2"
+            label="Decimal 2 (Decimal with Negativ)"
+            [(ngModel)]="values.fieldd2"
+            [allownegativ]="true">
+        </sac-inputdecimal>
+        <sac-inputdecimal
+            name="fieldd3"
+            label="Decimal 3 (Decimal with Negativ (10-20))"
+            [(ngModel)]="values.fieldd3"
+            [allownegativ]="true"
+            isrequired="true"
+            [minvalue]="10"
+            [maxvalue]="20"
+            helptext="Dies ist ein Helptext">
+        </sac-inputdecimal>
+        <sac-inputdecimal
+            name="fieldd4"
+            label="Decimal 4 (Decimal)"
+            [(ngModel)]="values.fieldd1"
+            disabled="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputdecimal>
+        <sac-inputdecimal
+            name="fieldd4b"
+            label="Decimal 4 (Decimal)"
+            [(ngModel)]="values.fieldd1"
+            disablelabel="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputdecimal>
 
-    <sac-inputpassword
-      name="fieldpassword1"
-      label="Passwort 1"
-      [(ngModel)]="values.fieldpassword1"
-    ></sac-inputpassword>
-    <sac-inputpassword
-      name="fieldpassword2"
-      label="Passwort 2"
-      [(ngModel)]="values.fieldpassword2"
-    ></sac-inputpassword>
-    <sac-inputpassword
-      name="fieldpassword3"
-      label="Passwort 3 (Max 10)"
-      [(ngModel)]="values.fieldpassword3"
-      [maxlength]="10"
-      helptext="Dies ist ein Helptext"
-      helptextmode="tooltip"
-    ></sac-inputpassword>
-    <sac-inputpassword
-      name="fieldpassword4"
-      label="Passwort 4"
-      [(ngModel)]="values.fieldpassword4"
-      disabled="disabled"
-      helptext="Dies ist ein Helptext"
-    ></sac-inputpassword>
+        <sac-inputinteger
+            name="fieldi1"
+            label="Integer 1 (Integer)"
+            [(ngModel)]="values.fieldi1">
+        </sac-inputinteger>
+        <sac-inputinteger
+            name="fieldi2"
+            label="Integer 2 (Integer with Negativ)"
+            [(ngModel)]="values.fieldi2"
+            [allownegativ]="true">
+        </sac-inputinteger>
+        <sac-inputinteger
+            name="fieldi3"
+            label="Integer 3 (Integer with Negativ (10-20))"
+            [(ngModel)]="values.fieldi3"
+            [allownegativ]="true"
+            isrequired="true"
+            [minvalue]="10"
+            [maxvalue]="20"
+            helptext="Dies ist ein Helptext">
+        </sac-inputinteger>
+        <sac-inputinteger
+            name="fieldi4"
+            label="Integer 1 (Integer)"
+            [(ngModel)]="values.fieldi1"
+            disabled="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputinteger>
+        <sac-inputinteger
+            name="fieldi4b"
+            label="Integer 1 (Integer)"
+            [(ngModel)]="values.fieldi1"
+            disablelabel="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputinteger>
 
-    <sac-inputarea
-      name="fieldarea1"
-      label="Area 1"
-      [(ngModel)]="values.fieldarea1"
-    ></sac-inputarea>
-    <sac-inputarea
-      name="fieldarea2"
-      label="Area 2"
-      [(ngModel)]="values.fieldarea2"
-      isrequired="true"
-      rows="10"
-    ></sac-inputarea>
-    <sac-inputarea
-      name="fieldarea3"
-      label="Area 3 (Max 50)"
-      [(ngModel)]="values.fieldarea3"
-      maxlength="50"
-      helptext="Dies ist ein Helptext"
-    ></sac-inputarea>
-    <sac-inputarea
-      name="fieldarea4"
-      label="Area 4"
-      [(ngModel)]="values.fieldarea4"
-      disabled="true"
-      helptext="Dies ist ein Helptext"
-      helptextmode="tooltip"
-    ></sac-inputarea>
+        <sac-inputcurrency
+            name="fieldcurrency1"
+            label="Preis"
+            [(ngModel)]="values.fieldcurrency1">
+        </sac-inputcurrency>
+        <sac-inputcurrency
+            name="fieldcurrency2"
+            label="Preis"
+            [(ngModel)]="values.fieldcurrency2"
+            disabled="true">
+        </sac-inputcurrency>
+        <sac-inputcurrency
+            name="fieldcurrency3"
+            label="Preis (Required)"
+            [(ngModel)]="values.fieldcurrency3"
+            [isrequired]="true"
+            validationmessagerequired="Please enter a valid price"
+            helptext="Dies ist ein Helptext">
+        </sac-inputcurrency>
+        <sac-inputcurrency
+            name="fieldcurrency4"
+            label="Preis"
+            [(ngModel)]="values.fieldcurrency4"
+            currency="$"
+            disabled="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputcurrency>
+        <sac-inputcurrency
+            name="fieldcurrency4b"
+            label="Preis"
+            [(ngModel)]="values.fieldcurrency4"
+            currency="$"
+            isrequired="true"
+            disablelabel="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputcurrency>
 
-    <sac-staticformcontainer label="Container DateTime" lableSizeMd="4">
-      <input
-        class="form-control"
-        type="datetime-local"
-        id="meeting-time"
-        name="meeting-time"
-        value="2018-06-12T19:30"
-        min="2018-06-07T00:00"
-        max="2018-06-14T00:00"
-      />
-    </sac-staticformcontainer>
+        <sac-inputemail
+            name="fieldemail1"
+            label="E-Mail 1"
+            [(ngModel)]="values.fieldemail1">
+        </sac-inputemail>
+        <sac-inputemail
+            name="fieldemail2"
+            label="E-Mail 2 (Max 10)"
+            [(ngModel)]="values.fieldemail2"
+            [maxlength]="10"
+            helptext="Dies ist ein Helptext">
+        </sac-inputemail>
+        <sac-inputemail
+            name="fieldemail3"
+            label="E-Mail 3"
+            [(ngModel)]="values.fieldemail3"
+            disabled="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputemail>
+        <sac-inputemail
+            name="fieldemail3"
+            label="E-Mail 3"
+            [(ngModel)]="values.fieldemail3"
+            disablelabel="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputemail>
 
-    <sac-staticformcontainer
-      label="Container DateTime"
-      lableSizeMd="4"
-      helptext="Dies ist ein Helptext"
-    >
-      <input
-        class="form-control"
-        type="datetime-local"
-        id="meeting-time"
-        name="meeting-time"
-        value="2018-06-12T19:30"
-        min="2018-06-07T00:00"
-        max="2018-06-14T00:00"
-      />
-    </sac-staticformcontainer>
+        <sac-inputpassword
+            name="fieldpassword1"
+            label="Passwort 1"
+            [(ngModel)]="values.fieldpassword1">
+        </sac-inputpassword>
+        <sac-inputpassword
+            name="fieldpassword2"
+            label="Passwort 2"
+            [(ngModel)]="values.fieldpassword2">
+        </sac-inputpassword>
+        <sac-inputpassword
+            name="fieldpassword3"
+            label="Passwort 3 (Max 10)"
+            [(ngModel)]="values.fieldpassword3"
+            [maxlength]="10"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputpassword>
+        <sac-inputpassword
+            name="fieldpassword3b"
+            label="Passwort 3 (Max 10)"
+            [(ngModel)]="values.fieldpassword3"
+            [maxlength]="10"
+            disablelabel="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputpassword>
+        <sac-inputpassword
+            name="fieldpassword4"
+            label="Passwort 4"
+            [(ngModel)]="values.fieldpassword4"
+            disabled="disabled"
+            helptext="Dies ist ein Helptext">
+        </sac-inputpassword>
 
-    <sac-staticformcontainer
-      label="Container DateTime"
-      lableSizeMd="4"
-      helptext="Dies ist ein Helptext"
-      helptextmode="tooltip"
-    >
-      <input
-        class="form-control"
-        type="datetime-local"
-        id="meeting-time"
-        name="meeting-time"
-        value="2018-06-12T19:30"
-        min="2018-06-07T00:00"
-        max="2018-06-14T00:00"
-      />
-    </sac-staticformcontainer>
+        <sac-inputarea
+            name="fieldarea1"
+            label="Area 1"
+            [(ngModel)]="values.fieldarea1">
+        </sac-inputarea>
+        <sac-inputarea
+            name="fieldarea2"
+            label="Area 2"
+            [(ngModel)]="values.fieldarea2"
+            isrequired="true"
+            rows="10">
+        </sac-inputarea>
+        <sac-inputarea
+            name="fieldarea3"
+            label="Area 3 (Max 50)"
+            [(ngModel)]="values.fieldarea3"
+            maxlength="50"
+            helptext="Dies ist ein Helptext">
+        </sac-inputarea>
+        <sac-inputarea
+            name="fieldarea4"
+            label="Area 4"
+            [(ngModel)]="values.fieldarea4"
+            disabled="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputarea>
+        <sac-inputarea
+            name="fieldarea4b"
+            label="Area 4"
+            [(ngModel)]="values.fieldarea4"
+            disablelabel="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputarea>
 
-    <sac-staticformcontainer label="Container Range" lableSizeMd="4">
-      <input type="range" class="custom-range" />
-    </sac-staticformcontainer>
+        <sac-staticformcontainer
+            label="Container DateTime"
+            lableSizeMd="4">
+            <input
+                class="form-control"
+                type="datetime-local"
+                id="meeting-time"
+                name="meeting-time"
+                value="2018-06-12T19:30"
+                min="2018-06-07T00:00"
+                max="2018-06-14T00:00" />
+        </sac-staticformcontainer>
+        <sac-staticformcontainer
+            label="Container DateTime"
+            lableSizeMd="4"
+            helptext="Dies ist ein Helptext">
+            <input
+                class="form-control"
+                type="datetime-local"
+                id="meeting-time"
+                name="meeting-time"
+                value="2018-06-12T19:30"
+                min="2018-06-07T00:00"
+                max="2018-06-14T00:00" />
+        </sac-staticformcontainer>
+        <sac-staticformcontainer
+            label="Container DateTime"
+            lableSizeMd="4"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+            <input
+                class="form-control"
+                type="datetime-local"
+                id="meeting-time"
+                name="meeting-time"
+                value="2018-06-12T19:30"
+                min="2018-06-07T00:00"
+                max="2018-06-14T00:00" />
+        </sac-staticformcontainer>
+        <sac-staticformcontainer
+            label="Container DateTime"
+            lableSizeMd="4"
+            disablelabel="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+            <input
+                class="form-control"
+                type="datetime-local"
+                id="meeting-time"
+                name="meeting-time"
+                value="2018-06-12T19:30"
+                min="2018-06-07T00:00"
+                max="2018-06-14T00:00" />
+        </sac-staticformcontainer>
 
-    <sac-staticformcontainer
-      label="Container Range"
-      lableSizeMd="4"
-      helptext="Dies ist ein Helptext"
-    >
-      <input type="range" class="custom-range" />
-    </sac-staticformcontainer>
+        <sac-staticformcontainer
+            label="Container Range"
+            lableSizeMd="4">
+            <input
+                type="range"
+                class="custom-range" />
+        </sac-staticformcontainer>
+        <sac-staticformcontainer
+            label="Container Range"
+            lableSizeMd="4"
+            helptext="Dies ist ein Helptext">
+            <input
+                type="range"
+                class="custom-range" />
+        </sac-staticformcontainer>
+        <sac-staticformcontainer
+            label="Container Range"
+            lableSizeMd="4"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+            <input
+                type="range"
+                class="custom-range" />
+        </sac-staticformcontainer>
+        <sac-staticformcontainer
+            label="Container Range"
+            lableSizeMd="4"
+            disablelabel="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+            <input
+                type="range"
+                class="custom-range" />
+        </sac-staticformcontainer>
 
-    <sac-staticformcontainer
-      label="Container Range"
-      lableSizeMd="4"
-      helptext="Dies ist ein Helptext"
-      helptextmode="tooltip"
-    >
-      <input type="range" class="custom-range" />
-    </sac-staticformcontainer>
-
-    <sac-staticlabel
-      label="Static Control"
-      value="static value"
-      helptext="Dieser Text unterstützt den Benutzer."
-    ></sac-staticlabel>
-
-    <sac-staticlabel
-      label="Static Control"
-      value="static value"
-      helptext="Dieser Text unterstützt den Benutzer."
-      helptextmode="tooltip"
-    ></sac-staticlabel>
-  </div>
+        <sac-staticlabel
+            label="Static Control"
+            value="static value"
+            helptext="Dieser Text unterstützt den Benutzer.">
+        </sac-staticlabel>
+        <sac-staticlabel
+            label="Static Control"
+            value="static value"
+            helptext="Dieser Text unterstützt den Benutzer."
+            helptextmode="tooltip">
+        </sac-staticlabel>
+        <sac-staticlabel
+            label="Static Control"
+            value="static value"
+            disablelabel="true"
+            helptext="Dieser Text unterstützt den Benutzer."
+            helptextmode="tooltip">
+        </sac-staticlabel>
+    </div>
 </form>

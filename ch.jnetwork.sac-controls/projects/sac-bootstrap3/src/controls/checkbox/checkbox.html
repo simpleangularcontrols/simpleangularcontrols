@@ -15,7 +15,8 @@
             [inlinemode]="true">
             <span
                 [class]="HelptextTooltipIcon"
-                style="margin-left: 5px"></span>
+                style="margin-left: 5px">
+            </span>
         </sac-tooltip>
     </label>
     <div
@@ -35,10 +36,24 @@
                     [disabled]="isdisabled"
                     (blur)="onTouch()"
                     (change)="setValue($event.target.checked)" />
-                <ng-container *ngIf="checkboxtext"
-                    >&nbsp;<span>{{ checkboxtext }}</span></ng-container
-                >
+                <ng-container *ngIf="checkboxtext">
+                    <span>{{ checkboxtext }}</span>
+                </ng-container>
             </label>
+
+            <div
+                *ngIf="helptextmode === 'tooltip' && helptext && (disablelabel || stacked)"
+                class="form-control-static"
+                style="display: inline">
+                <sac-tooltip
+                    [tooltiptext]="helptext"
+                    [inlinemode]="true">
+                    <span
+                        [class]="HelptextTooltipIcon"
+                        style="margin-left: 5px; margin-right: 5px">
+                    </span>
+                </sac-tooltip>
+            </div>
         </div>
         <p
             *ngIf="helptextmode === 'text' && helptext"

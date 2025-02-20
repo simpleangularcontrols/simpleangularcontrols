@@ -1,107 +1,117 @@
-<div class="row form-group" [class.no-gutters]="disablelabel">
-  <label
-    for="{{name}}"
-    class="col-12 col-form-label d-flex"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
-    [class.required]="isrequired"
-    ><div
-      class="text flex-grow-0"
-      [class.flex-sm-grow-1]="splitlabelandhelptext"
-    >
-      {{label}}
-    </div>
-    <sac-tooltip
-      *ngIf="helptextmode === 'tooltip' && helptext"
-      [tooltiptext]="helptext"
-      [inlinemode]="true"
-      ><span [ngClass]="HelptextTooltipIcon" class="ml-1"></span> </sac-tooltip
-  ></label>
-  <div
-    class="col-12"
-    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
-  >
-    <div
-      class="input-group"
-      [class.input-group-sm]="componentHeight === ControlHeight.Small"
-      [class.input-group-lg]="componentHeight === ControlHeight.Large"
-      [class.has-validation]="isinlineerrorenabled && invalid && (dirty || touched)"
-    >
-      <input
-        id="{{name}}"
-        name="{{name}}"
-        type="text"
-        class="form-control"
-        [value]="LanguageValue"
-        [attr.placeholder]="placeholder"
-        (blur)="onTouch()"
-        (input)="SetLanguageValue($event.target.value)"
-        [attr.maxlength]="maxlength"
-        [class.is-invalid]="invalid && (dirty || touched)"
-        [ngClass]="[componentHeight | toControlHeight]"
-        [disabled]="isdisabled"
-      />
-      <div
-        placement="bottom-right"
-        class="input-group-append"
-        sac-multilanguagemenu
-        [buttontemplate]="menuButton"
-        #contextmenu
-      >
-        <ng-template #menuButton>
-          <button
-            sacMultilanguageMenuAnchor
-            [id]="name + '_dropdownitem'"
-            type="button"
-            class="btn dropdown-toggle"
-            (click)="contextmenu.toggle()"
-            [ngClass]="[IsAnyEmpty() ? 'btn-warning' : 'btn-secondary']"
-          >
-            <img
-              src="{{SelectedIcon}}"
-              class="align-baseline mr-1 ml-1"
-              *ngIf="SelectedIconType === IconType.Image"
-            />
+<div
+    class="row form-group"
+    [class.no-gutters]="disablelabel">
+    <label
+        for="{{ name }}"
+        class="col-12 col-form-label d-flex"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
+        [class.required]="isrequired">
+        <div
+            class="text flex-grow-0"
+            [class.flex-sm-grow-1]="splitlabelandhelptext">
+            {{ label }}
+        </div>
+        <sac-tooltip
+            *ngIf="helptextmode === 'tooltip' && helptext"
+            [tooltiptext]="helptext"
+            [inlinemode]="true">
             <span
-              [ngClass]="SelectedIcon"
-              class="align-baseline mr-1 ml-1"
-              *ngIf="SelectedIconType === IconType.CssSprite"
-            ></span>
-          </button>
-        </ng-template>
-        <ng-container *ngFor="let sprache of Languages">
-          <sac-multilanguagemenubutton
-            *ngIf="sprache.IconType === IconType.Image"
-            text="{{sprache.Text}}"
-            image="{{sprache.Icon}}"
-            [cssclass]="IsEmpty(sprache) ? 'text-danger border-left border-danger': ''"
-            (clicked)="SelectLanguage(sprache)"
-          ></sac-multilanguagemenubutton>
-          <sac-multilanguagemenubutton
-            *ngIf="sprache.IconType === IconType.CssSprite"
-            text="{{sprache.Text}}"
-            icon="{{sprache.Icon}}"
-            [cssclass]="IsEmpty(sprache) ? 'text-danger border-left border-danger': ''"
-            (clicked)="SelectLanguage(sprache)"
-          ></sac-multilanguagemenubutton>
-        </ng-container>
-      </div>
+                [ngClass]="HelptextTooltipIcon"
+                class="ml-1">
+            </span>
+        </sac-tooltip>
+    </label>
+    <div
+        class="col-12"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
+        [class.d-flex]="helptextmode === 'tooltip' && helptext && disablelabel">
+        <div [class.flex-grow-1]="helptextmode === 'tooltip' && helptext && disablelabel">
+            <div
+                class="input-group"
+                [class.input-group-sm]="componentHeight === ControlHeight.Small"
+                [class.input-group-lg]="componentHeight === ControlHeight.Large"
+                [class.has-validation]="isinlineerrorenabled && invalid && (dirty || touched)">
+                <input
+                    id="{{ name }}"
+                    name="{{ name }}"
+                    type="text"
+                    class="form-control"
+                    [value]="LanguageValue"
+                    [attr.placeholder]="placeholder"
+                    (blur)="onTouch()"
+                    (input)="SetLanguageValue($event.target.value)"
+                    [attr.maxlength]="maxlength"
+                    [class.is-invalid]="invalid && (dirty || touched)"
+                    [ngClass]="[componentHeight | toControlHeight]"
+                    [disabled]="isdisabled" />
+                <div
+                    placement="bottom-right"
+                    class="input-group-append"
+                    sac-multilanguagemenu
+                    [buttontemplate]="menuButton"
+                    #contextmenu>
+                    <ng-template #menuButton>
+                        <button
+                            sacMultilanguageMenuAnchor
+                            [id]="name + '_dropdownitem'"
+                            type="button"
+                            class="btn dropdown-toggle"
+                            (click)="contextmenu.toggle()"
+                            [ngClass]="[IsAnyEmpty() ? 'btn-warning' : 'btn-secondary']">
+                            <img
+                                src="{{ SelectedIcon }}"
+                                class="align-baseline mr-1 ml-1"
+                                *ngIf="SelectedIconType === IconType.Image" />
+                            <span
+                                [ngClass]="SelectedIcon"
+                                class="align-baseline mr-1 ml-1"
+                                *ngIf="SelectedIconType === IconType.CssSprite"></span>
+                        </button>
+                    </ng-template>
+                    <ng-container *ngFor="let sprache of Languages">
+                        <sac-multilanguagemenubutton
+                            *ngIf="sprache.IconType === IconType.Image"
+                            text="{{ sprache.Text }}"
+                            image="{{ sprache.Icon }}"
+                            [cssclass]="IsEmpty(sprache) ? 'text-danger border-left border-danger' : ''"
+                            (clicked)="SelectLanguage(sprache)"></sac-multilanguagemenubutton>
+                        <sac-multilanguagemenubutton
+                            *ngIf="sprache.IconType === IconType.CssSprite"
+                            text="{{ sprache.Text }}"
+                            icon="{{ sprache.Icon }}"
+                            [cssclass]="IsEmpty(sprache) ? 'text-danger border-left border-danger' : ''"
+                            (clicked)="SelectLanguage(sprache)"></sac-multilanguagemenubutton>
+                    </ng-container>
+                </div>
 
-      <div
-        *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
-        class="invalid-feedback"
-      >
-        {{ GetErrorMessage() | async }}
-      </div>
+                <div
+                    *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+                    class="invalid-feedback">
+                    {{ GetErrorMessage() | async }}
+                </div>
+            </div>
+            <small
+                *ngIf="helptextmode === 'text' && helptext"
+                class="form-text text-muted">
+                {{ helptext }}
+            </small>
+        </div>
+
+        <div
+            *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
+            class="form-control-plaintext align-self-top ml-2 mr-1 w-auto"
+            [ngClass]="[componentHeight | toControlHeight]">
+            <sac-tooltip
+                [tooltiptext]="helptext"
+                [inlinemode]="true">
+                <span
+                    [ngClass]="HelptextTooltipIcon"
+                    class="ml-1">
+                </span>
+            </sac-tooltip>
+        </div>
     </div>
-    <small
-      *ngIf="helptextmode === 'text' && helptext"
-      class="help-block"
-      class="form-text text-muted"
-    >
-      {{helptext}}
-    </small>
-  </div>
 </div>
 <div class="row">
-  <div class="col text-right"></div>
+    <div class="col text-right"></div>
 </div>

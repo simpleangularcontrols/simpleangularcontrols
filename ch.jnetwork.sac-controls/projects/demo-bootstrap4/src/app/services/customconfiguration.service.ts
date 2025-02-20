@@ -1,62 +1,63 @@
 import { Injectable } from '@angular/core';
-import {
-  ControlHeight,
-  SacAbstractConfigurationService,
-} from '@simpleangularcontrols/sac-common';
+import { ControlHeight, SacAbstractConfigurationService } from '@simpleangularcontrols/sac-common';
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root',
 })
 export class CustomConfigurationService extends SacAbstractConfigurationService {
-  public get CheckboxStyle(): 'checkbox' | 'switch' {
-    return 'checkbox';
-  }
+    // #region Public Getters And Setters
 
-  public get ComponentHeight(): ControlHeight | null {
-    return ControlHeight.Default;
-  }
+    public get CheckboxStyle(): 'checkbox' | 'switch' {
+        return 'checkbox';
+    }
 
-  public get CurrencyText(): string {
-    return 'CHF';
-  }
+    public get ComponentHeight(): ControlHeight | null {
+        return ControlHeight.Default;
+    }
 
-  public get HelptextMode(): 'tooltip' | 'text' {
-    return 'text';
-  }
+    public get CurrencyText(): string {
+        return 'CHF';
+    }
 
-  public get InlineErrorEnabled(): boolean {
-    return true;
-  }
+    public get HelptextMode(): 'tooltip' | 'text' {
+        return 'text';
+    }
 
-  public get InputSearchIconMode(): 'text' | 'icon' | 'mixed' {
-    return 'text';
-  }
+    public get InlineErrorEnabled(): boolean {
+        return true;
+    }
 
-  public get LabelSizeLg(): number | null {
-    return 3;
-  }
+    public get InputSearchIconMode(): 'text' | 'icon' | 'mixed' {
+        return 'text';
+    }
 
-  public get LabelSizeMd(): number | null {
-    return 4;
-  }
+    public get LabelSizeLg(): number | null {
+        return 3;
+    }
 
-  public get LabelSizeSm(): number | null {
-    return 4;
-  }
+    public get LabelSizeMd(): number | null {
+        return 4;
+    }
 
-  public get LabelSizeXl(): number | null {
-    return 2;
-  }
+    public get LabelSizeSm(): number | null {
+        return 4;
+    }
 
-  public get LabelSizeXs(): number | null {
-    return 12;
-  }
+    public get LabelSizeXl(): number | null {
+        return 2;
+    }
 
-  public get LabelSizeXxl(): number | null {
-    return 2;
-  }
+    public get LabelSizeXs(): number | null {
+        return 12;
+    }
 
-  public get SplitLabelAndHelptext(): boolean {
-    return false;
-  }
+    public get LabelSizeXxl(): number | null {
+        return 2;
+    }
+
+    public get SplitLabelAndHelptext(): boolean {
+        return false;
+    }
+
+    // #endregion Public Getters And Setters
 }

@@ -1,53 +1,69 @@
-<div class="row form-group" [class.no-gutters]="disablelabel">
-  <label
-    for="{{name}}"
-    class="col-12 col-form-label d-flex"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
-    [class.required]="isrequired"
-  >
+<div
+    class="row form-group"
+    [class.no-gutters]="disablelabel">
+    <label
+        for="{{ name }}"
+        class="col-12 col-form-label d-flex"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
+        [class.required]="isrequired">
+        <div
+            class="text flex-grow-0"
+            [class.flex-sm-grow-1]="splitlabelandhelptext">
+            {{ label }}
+        </div>
+        <sac-tooltip
+            *ngIf="helptextmode === 'tooltip' && helptext"
+            [tooltiptext]="helptext"
+            [inlinemode]="true">
+            <span
+                [ngClass]="HelptextTooltipIcon"
+                class="ml-1">
+            </span>
+        </sac-tooltip>
+    </label>
     <div
-      class="text flex-grow-0"
-      [class.flex-sm-grow-1]="splitlabelandhelptext"
-    >
-      {{label}}
+        class="col-12"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
+        [class.d-flex]="helptextmode === 'tooltip' && helptext && disablelabel">
+        <div [class.flex-grow-1]="helptextmode === 'tooltip' && helptext && disablelabel">
+            <input
+                id="{{ name }}"
+                name="{{ name }}"
+                type="text"
+                class="form-control"
+                [value]="value"
+                (blur)="onTouch()"
+                (input)="setValue($event.target.value)"
+                [attr.placeholder]="placeholder"
+                [readonly]="readonly"
+                (keypress)="onKeyPress($event)"
+                [disabled]="isdisabled"
+                [class.is-invalid]="invalid && (dirty || touched)"
+                [ngClass]="[componentHeight | toControlHeight]" />
+            <small
+                *ngIf="helptextmode === 'text' && helptext"
+                class="form-text text-muted">
+                {{ helptext }}
+            </small>
+            <div
+                *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+                class="invalid-feedback">
+                {{ GetErrorMessage() | async }}
+            </div>
+        </div>
+
+        <div
+            *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
+            class="form-control-plaintext align-self-top ml-2 mr-1 w-auto"
+            [ngClass]="[componentHeight | toControlHeight]">
+            <sac-tooltip
+                [tooltiptext]="helptext"
+                [inlinemode]="true">
+                <span
+                    [ngClass]="HelptextTooltipIcon"
+                    class="ml-1">
+                </span>
+            </sac-tooltip>
+        </div>
     </div>
-    <sac-tooltip
-      *ngIf="helptextmode === 'tooltip' && helptext"
-      [tooltiptext]="helptext"
-      [inlinemode]="true"
-      ><span [ngClass]="HelptextTooltipIcon" class="ml-1"></span> </sac-tooltip
-  ></label>
-  <div
-    class="col-12"
-    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
-  >
-    <input
-      id="{{name}}"
-      name="{{name}}"
-      type="text"
-      class="form-control"
-      [value]="value"
-      (blur)="onTouch()"
-      (input)="setValue($event.target.value)"
-      [attr.placeholder]="placeholder"
-      [readonly]="readonly"
-      (keypress)="onKeyPress($event)"
-      [disabled]="isdisabled"
-      [class.is-invalid]="invalid && (dirty || touched)"
-      [ngClass]="[componentHeight | toControlHeight]"
-    />
-    <small
-      *ngIf="helptextmode === 'text' && helptext"
-      class="help-block"
-      class="form-text text-muted"
-    >
-      {{helptext}}
-    </small>
-    <div
-      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
-      class="invalid-feedback"
-    >
-      {{ GetErrorMessage() | async }}
-    </div>
-  </div>
 </div>

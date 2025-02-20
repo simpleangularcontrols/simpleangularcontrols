@@ -1,6 +1,6 @@
 <div
     class="row form-group"
-    [class.has-error]="invalid && (dirty || touched)"
+    [class.has-error]="isinvalid && errormessage"
     [ngClass]="componentHeight | toLabelHeight">
     <label
         *ngIf="disablelabel === false && !isAdaptiveLabel"
@@ -50,8 +50,8 @@
 
         <div
             class="help-block help-block-error"
-            *ngIf="isinlineerrorenabled && invalid && (dirty || touched)">
-            {{ GetErrorMessage() | async }}
+            *ngIf="isinlineerrorenabled && isinvalid && errormessage">
+            {{ errormessage }}
         </div>
     </div>
 </div>

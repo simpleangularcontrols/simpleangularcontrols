@@ -27,7 +27,9 @@
         class="col-12"
         [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
         [class.d-flex]="helptextmode === 'tooltip' && helptext && disablelabel">
-        <div [class.flex-grow-1]="helptextmode === 'tooltip' && helptext && disablelabel">
+        <div
+            [class.flex-grow-1]="helptextmode === 'tooltip' && helptext && disablelabel"
+            [class.was-validated]="isinlineerrorenabled && isinvalid && errormessage">
             <ng-content></ng-content>
             <label
                 for="{{ name }}"
@@ -43,8 +45,8 @@
             </small>
             <div
                 class="invalid-feedback"
-                *ngIf="isinlineerrorenabled && invalid && (dirty || touched)">
-                {{ GetErrorMessage() | async }}
+                *ngIf="isinlineerrorenabled && isinvalid && errormessage">
+                {{ errormessage }}
             </div>
         </div>
 

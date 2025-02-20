@@ -1,63 +1,74 @@
 <div
-  class="row form-group"
-  [class.has-error]="invalid && (dirty || touched)"
-  [ngClass]="componentHeight | toLabelHeight"
->
-  <label
-    *ngIf="disablelabel === false && !isAdaptiveLabel"
-    id="{{name}}label"
-    for="{{name}}"
-    class="col-xs-12 control-label"
-    [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only' ]"
-    [class.required]="isrequired"
-    ><span class="text">{{label}}</span>
-    <sac-tooltip
-      *ngIf="helptextmode === 'tooltip' && helptext"
-      [tooltiptext]="helptext"
-      [inlinemode]="true"
-    >
-      <span
-        [class]="HelptextTooltipIcon"
-        style="margin-left: 5px"
-      ></span> </sac-tooltip
-  ></label>
-  <div
-    class="col-xs-12"
-    [ngClass]="[disablelabel === false ?  (this.labelSizes | toControlWidthCss) : '']"
-  >
-    <textarea
-      id="{{name}}"
-      name="{{name}}"
-      type=""
-      class="form-control"
-      [class.is-invalid]="invalid && (dirty || touched)"
-      [class.validation-error]="invalid && (dirty || touched)"
-      [class.required]="isrequired"
-      [ngClass]="[componentHeight | toControlHeight]"
-      [value]="value"
-      [attr.placeholder]="placeholder"
-      (blur)="onTouch()"
-      (input)="setValue($event.target.value)"
-      (keypress)="onKeyPress($event)"
-      [attr.rows]="rows"
-      [disabled]="isdisabled"
-      [readonly]="readonly"
-    ></textarea>
-    <p *ngIf="helptextmode === 'text' && helptext" class="help-block">
-      {{helptext}}
-    </p>
+    class="row form-group"
+    [class.has-error]="invalid && (dirty || touched)"
+    [ngClass]="componentHeight | toLabelHeight">
     <label
-      for="{{name}}"
-      class="form-label-adaptive form-label-fixed"
-      [ngClass]="{ 'required': isrequired }"
-      *ngIf="isAdaptiveLabel && !disablelabel"
-      >{{label}}</label
-    >
+        *ngIf="disablelabel === false && !isAdaptiveLabel"
+        id="{{ name }}label"
+        for="{{ name }}"
+        class="col-xs-12 control-label"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only']"
+        [class.required]="isrequired">
+        <span class="text">{{ label }}</span>
+        <sac-tooltip
+            *ngIf="helptextmode === 'tooltip' && helptext"
+            [tooltiptext]="helptext"
+            [inlinemode]="true">
+            <span
+                [class]="HelptextTooltipIcon"
+                style="margin-left: 5px">
+            </span>
+        </sac-tooltip>
+    </label>
     <div
-      class="help-block help-block-error"
-      *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
-    >
-      {{ GetErrorMessage() | async }}
+        class="col-xs-12"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']">
+        <div [style.display]="helptextmode === 'tooltip' && helptext && disablelabel ? 'flex' : null">
+            <textarea
+                id="{{ name }}"
+                name="{{ name }}"
+                type=""
+                class="form-control"
+                [class.is-invalid]="invalid && (dirty || touched)"
+                [class.validation-error]="invalid && (dirty || touched)"
+                [class.required]="isrequired"
+                [ngClass]="[componentHeight | toControlHeight]"
+                [value]="value"
+                [attr.placeholder]="placeholder"
+                (blur)="onTouch()"
+                (input)="setValue($event.target.value)"
+                (keypress)="onKeyPress($event)"
+                [attr.rows]="rows"
+                [disabled]="isdisabled"
+                [readonly]="readonly">
+            </textarea>
+
+            <div
+                *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
+                class="form-control-static"
+                style="margin-left: 5px">
+                <sac-tooltip
+                    *ngIf="helptextmode === 'tooltip' && helptext"
+                    [tooltiptext]="helptext"
+                    [inlinemode]="true">
+                    <span
+                        [class]="HelptextTooltipIcon"
+                        style="margin-left: 5px; margin-right: 5px">
+                    </span>
+                </sac-tooltip>
+            </div>
+        </div>
+
+        <p
+            *ngIf="helptextmode === 'text' && helptext"
+            class="help-block">
+            {{ helptext }}
+        </p>
+
+        <div
+            class="help-block help-block-error"
+            *ngIf="isinlineerrorenabled && invalid && (dirty || touched)">
+            {{ GetErrorMessage() | async }}
+        </div>
     </div>
-  </div>
 </div>

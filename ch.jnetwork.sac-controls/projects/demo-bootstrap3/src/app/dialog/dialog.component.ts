@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
-import { SACBootstrap3FormModule, SACBootstrap3ButtonModule, SACBootstrap3DialogModule } from '@simpleangularcontrols/sac-bootstrap3';
 import { FormsModule } from '@angular/forms';
+import {
+    SACBootstrap3ButtonModule,
+    SACBootstrap3DateTimeModule,
+    SACBootstrap3DialogModule,
+    SACBootstrap3FormModule,
+} from '@simpleangularcontrols/sac-bootstrap3';
 
 @Component({
     selector: 'app-dialog',
@@ -11,26 +16,35 @@ import { FormsModule } from '@angular/forms';
         SACBootstrap3FormModule,
         SACBootstrap3ButtonModule,
         SACBootstrap3DialogModule,
+        SACBootstrap3DateTimeModule,
     ],
 })
 export class DemoDialogComponent {
-  public isvisible1 = false;
+    // #region Properties
 
-  public showVisibile1(): void {
-    this.isvisible1 = true;
-  }
+    public datevalue = new Date().getDate();
+    public isvisible1 = false;
+    public isvisible2 = false;
 
-  public hideVisibile1() {
-    this.isvisible1 = false;
-  }
+    // #endregion Properties
 
-  public isvisible2 = false;
+    // #region Public Methods
 
-  public showVisibile2(): void {
-    this.isvisible2 = true;
-  }
+    public hideVisibile1() {
+        this.isvisible1 = false;
+    }
 
-  public hideVisibile2() {
-    this.isvisible2 = false;
-  }
+    public hideVisibile2() {
+        this.isvisible2 = false;
+    }
+
+    public showVisibile1(): void {
+        this.isvisible1 = true;
+    }
+
+    public showVisibile2(): void {
+        this.isvisible2 = true;
+    }
+
+    // #endregion Public Methods
 }

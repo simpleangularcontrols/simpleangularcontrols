@@ -1,8 +1,10 @@
 import { SacFormLayoutCommon } from '../controls/layout/formlayout';
 import { IDateTimeControl } from '../interfaces/idatetimecontrol';
+import { TooltipPosition } from '../utilities/enums';
+import { PopUpHelper } from '../utilities/popuphelper';
 import { Validation } from '../validation';
 import { SacBaseModelControl } from './basemodelcontrol';
-import { Directive, ElementRef, Injector, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Directive, ElementRef, Injector, Input, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import * as moment_ from 'moment';
 
@@ -14,20 +16,81 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
     // #region Properties
 
     /**
+     * Helper class to display tooltip on correct position
+     */
+    private readonly popupHelper: PopUpHelper = new PopUpHelper();
+
+    /**
      * das property enthielt das Value als string. Default ist ''
      */
     protected _valueAsString = '';
 
     /**
+     * Containers for the datetime picker
+     */
+
+    protected pickercontainer: ElementRef<HTMLElement>;
+
+    /**
+     * Property for enum in Angular HTML template
+     */
+    public TooltipPosition = TooltipPosition;
+
+    /**
      * Definiert das Control als Required
      */
     @Input() public isrequired: boolean = false;
+
+    /**
+     * Moment JS Instance
+     */
     public moment = moment_['default'];
+
+    /**
+     * Arrow Item of Picker Element. Required to set the position of arrow correctly
+     */
+    public pickerPosition = TooltipPosition;
+    @ViewChild('pickerarrow', { static: false })
+    public pickerarrow: ElementRef<HTMLElement> | null;
+
+    /**
+     * Name of the container for content (e.g. icon) on which the tooltip is displayed.
+     */
+    @ViewChild('pickerbutton', { static: true })
+    public pickerbutton: ElementRef<HTMLElement>;
 
     /**
      * TextBox Placeholder
      */
     @Input() public placeholder: string = null;
+
+    /**
+     * Position of the picker arrow at the left
+     */
+    public posArrowLeft: number | null = null;
+
+    /**
+     * Position of the picker arrow at the top
+     */
+    public posArrowTop: number | null = null;
+
+    /**
+     * Position of the picker at the left
+     */
+    public posPopupLeft: number = 0;
+
+    /**
+     * Position of the picker at the top
+     */
+    public posPopupTop: number = 0;
+
+    /**
+     * Position of the datetime picker. Values: left|top|right|bottom|auto
+     *
+     * Value 'auto' can be combined with another value.
+     */
+    @Input()
+    public position: string = 'bottomend|topend';
 
     /**
      * Resource Key für Validation Message DateTimeFormat bei Control
@@ -60,13 +123,36 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
      * @param injector Injector for injecting services
      * @param elementRef reference to html element
      */
-    constructor(formlayout: SacFormLayoutCommon, injector: Injector, protected elementRef: ElementRef) {
+    constructor(
+        formlayout: SacFormLayoutCommon,
+        injector: Injector,
+        protected elementRef: ElementRef,
+        private readonly cdRef: ChangeDetectorRef
+    ) {
         super(formlayout, injector);
     }
 
     // #endregion Constructors
 
     // #region Public Getters And Setters
+
+    /**
+     * Setter for the name of the container for the tooltip. Is required as the tooltip can be hidden via ngIf.
+     */
+    @ViewChild('picker', { static: false })
+    public set picker(picker: ElementRef) {
+        if (picker !== undefined) {
+            document.body.appendChild(picker.nativeElement);
+        }
+
+        this.pickercontainer = picker;
+        this.onContentChange();
+        this.cdRef.detectChanges();
+    }
+
+    public get tooltop(): ElementRef {
+        return this.pickercontainer;
+    }
 
     /**
      * getter für valuestring
@@ -107,6 +193,20 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
     public abstract GetDateTimeFormatString(): string;
 
     /**
+     * Returns the position of the tooltip
+     */
+    public GetPickerPosition(): TooltipPosition {
+        return this.popupHelper.getDisplayPosition(
+            this.pickerbutton,
+            this.pickercontainer,
+            this.getArrowWidth(),
+            this.getArrowHeight(),
+            this.position,
+            false
+        );
+    }
+
+    /**
      * Die methode modifiziert das eingegebene Value von typ Moment
      */
     public abstract ModifyParsedDateTimeValue(v: moment_.Moment): moment_.Moment;
@@ -127,11 +227,25 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
     }
 
     /**
+     * Calculates the height of the tooltip
+     */
+    public getPickerHeight(): number {
+        return this.popupHelper.getPopupHeight(this.pickercontainer);
+    }
+
+    /**
+     * Calculates the width of the picker
+     */
+    public getPickerWidth(): number {
+        return this.popupHelper.getPopupWidth(this.pickercontainer);
+    }
+
+    /**
      * Init Event
      */
     public ngOnInit(): void {
         super.ngOnInit();
-        this.SetDateTimeFormat();
+        this.setDateTimeFormat();
     }
 
     /**
@@ -177,9 +291,100 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
 
     // #endregion Public Methods
 
+    // #region Protected Methods
+
+    protected getArrowHeight(): number {
+        return this.pickerarrow ? this.pickerarrow.nativeElement.offsetHeight : 0;
+    }
+
+    protected getArrowWidth(): number {
+        return this.pickerarrow ? this.pickerarrow.nativeElement.offsetWidth : 0;
+    }
+
+    /**
+     * Calculates the position of the tooltip from links
+     */
+    protected getPositionLeft(): number {
+        const value = this.popupHelper.getPositionLeft(
+            this.pickerbutton,
+            this.pickercontainer,
+            this.elementRef,
+            this.getArrowWidth(),
+            this.getArrowHeight(),
+            this.position,
+            false
+        );
+        this.posPopupLeft = value;
+
+        switch (this.GetPickerPosition()) {
+            case TooltipPosition.top:
+            case TooltipPosition.bottom:
+                this.posArrowLeft = this.getPickerWidth() / 2 - -this.getArrowWidth();
+                break;
+            case TooltipPosition.topend:
+            case TooltipPosition.bottomend:
+                this.posArrowLeft =
+                    // this.getPickerWidth() - this.popupHelper.getContainerWidth(this.pickerbutton, false) / 2;
+                    this.getPickerWidth() -
+                    this.getArrowWidth() / 2 -
+                    this.popupHelper.getContainerWidth(this.pickerbutton, false) / 2;
+                break;
+            default:
+                this.posArrowLeft = null;
+                break;
+        }
+
+        return value;
+    }
+
+    /**
+     * Calculates the position of the tooltip from the top
+     */
+    protected getPositionTop(): number {
+        const value = this.popupHelper.getPositionTop(
+            this.pickerbutton,
+            this.pickercontainer,
+            this.elementRef,
+            this.getArrowWidth(),
+            this.getArrowHeight(),
+            this.position,
+            false
+        );
+        this.posPopupTop = value;
+
+        switch (this.GetPickerPosition()) {
+            case TooltipPosition.left:
+            case TooltipPosition.right:
+                this.posArrowTop = this.getPickerHeight() / 2 - 6.5;
+                break;
+            default:
+                this.posArrowTop = null;
+                break;
+        }
+
+        return value;
+    }
+
+    // #endregion Protected Methods
+
     // #region Private Methods
 
-    private SetDateTimeFormat(): void {
+    /**
+     * method if content has changed and proportions need to be reset in the UI.
+     */
+    private readonly onContentChange = (): void => {
+        // Do nothing if is not visible
+        // if (!this._isTooltipVisible) {
+        //     return;
+        // }
+
+        setTimeout(() => {
+            this.getPositionLeft();
+            this.getPositionTop();
+        });
+    };
+
+    private setDateTimeFormat(): void {
         // HACK: Add addition property to FormControl. Can be fixed if solution for ticket: https://github.com/angular/angular/issues/19686
         if (this.ngControl) {
             (this.ngControl as unknown as IDateTimeControl).datetimeformatstring = this.GetDateTimeFormatString();

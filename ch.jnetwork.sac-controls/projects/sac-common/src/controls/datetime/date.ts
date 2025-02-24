@@ -1,7 +1,7 @@
 import { SacBaseDateTimeControl } from '../../common/basedatetimecontrol';
 import { Validation } from '../../validation';
 import { SacFormLayoutCommon } from '../layout/formlayout';
-import { Directive, ElementRef, HostListener, Injector, Input } from '@angular/core';
+import { ChangeDetectorRef, Directive, ElementRef, HostListener, Injector, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import * as IMask from 'imask';
 import * as moment_ from 'moment';
@@ -10,7 +10,7 @@ import * as moment_ from 'moment';
  * Komponente für SacDateCommon. Extends SacBaseDateTimeControl
  */
 @Directive()
-export class SacDateCommon extends SacBaseDateTimeControl {
+export abstract class SacDateCommon extends SacBaseDateTimeControl {
     // #region Properties
 
     /**
@@ -62,6 +62,10 @@ export class SacDateCommon extends SacBaseDateTimeControl {
      * Definiert ob der Date Selector angezeigt wird
      */
     public _showselector: boolean = false;
+
+    /**
+     * Moment JS module instance
+     */
     public moment = moment_['default'];
 
     /**
@@ -93,9 +97,15 @@ export class SacDateCommon extends SacBaseDateTimeControl {
      * @param formlayout SacFormLayoutCommon to define scoped layout settings
      * @param injector Injector for injecting services
      * @param elementRef reference to html element
+     * @param cdRef  Change Dectection Servie
      */
-    constructor(formlayout: SacFormLayoutCommon, injector: Injector, protected elementRef: ElementRef) {
-        super(formlayout, injector, elementRef);
+    constructor(
+        formlayout: SacFormLayoutCommon,
+        injector: Injector,
+        protected elementRef: ElementRef,
+        cdRef: ChangeDetectorRef
+    ) {
+        super(formlayout, injector, elementRef, cdRef);
     }
 
     // #endregion Constructors
@@ -176,8 +186,13 @@ export class SacDateCommon extends SacBaseDateTimeControl {
      * Click Event
      */
     public onClick(targetElement) {
-        const clickedInside = this.elementRef.nativeElement.contains(targetElement);
-        if (!clickedInside) {
+        if (!this.pickercontainer) {
+            return;
+        }
+
+        const clickedInsideContainer = this.pickercontainer.nativeElement.contains(targetElement);
+        const clickedInsideReference = this.pickerbutton.nativeElement.contains(targetElement);
+        if (!clickedInsideContainer && !clickedInsideReference) {
             this._showselector = false;
         }
     }
@@ -239,7 +254,3 @@ export class SacDateCommon extends SacBaseDateTimeControl {
 
     // #endregion Public Methods
 }
-
-/**
- * Moment
- */

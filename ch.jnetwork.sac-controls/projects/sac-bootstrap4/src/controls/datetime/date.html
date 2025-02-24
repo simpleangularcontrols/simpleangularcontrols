@@ -46,6 +46,7 @@
                     [disabled]="isdisabled" />
                 <div class="input-group-append">
                     <button
+                        #pickerbutton
                         class="btn btn-secondary"
                         type="button"
                         (click)="showDateSelector()"
@@ -65,23 +66,30 @@
                 {{ helptext }}
             </small>
             <div
-                class="popover fade bs-popover-bottom show"
-                role="tooltip"
-                *ngIf="_showselector"
-                style="display: block; left: unset; right: 0px; top: unset; max-width: 325px">
+                #picker
+                *ngIf="_showselector">
                 <div
-                    class="arrow"
-                    style="left: unset"
-                    [style.right.rem]="componentHeight === ControlHeight.Small ? 1.1 : componentHeight === ControlHeight.Large ? 1.8 : 1.4"></div>
-                <h3
-                    class="popover-header"
-                    style="display: none">
-                </h3>
-                <div class="popover-body">
-                    <sac-dateselector
-                        [initialvalue]="value"
-                        (selectdate)="dateselect($event)"
-                        dateselection="true"></sac-dateselector>
+                    class="popover fade show position-absolute m-0"
+                    role="tooltip"
+                    *ngIf="_showselector"
+                    [class.bs-popover-bottom]="GetPickerPosition() == TooltipPosition.bottom || GetPickerPosition() == TooltipPosition.bottomend"
+                    [class.bs-popover-top]="GetPickerPosition() == TooltipPosition.top || GetPickerPosition() == TooltipPosition.topend"
+                    [style.left.px]="posPopupLeft"
+                    [style.top.px]="posPopupTop">
+                    <div
+                        #pickerarrow
+                        class="arrow position-absolute m-0"
+                        style="left: unset"
+                        [style.top.px]="posArrowTop"
+                        [style.left.px]="posArrowLeft">
+                    </div>
+
+                    <div class="popover-body">
+                        <sac-dateselector
+                            [initialvalue]="value"
+                            (selectdate)="dateselect($event)"
+                            dateselection="true"></sac-dateselector>
+                    </div>
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@ export class PopUpHelper {
         if (referenceContainer) {
             return referenceIsContainer
                 ? referenceContainer.nativeElement.firstElementChild.clientHeight
-                : referenceContainer.nativeElement.clientHeight;
+                : referenceContainer.nativeElement.offsetHeight;
         } else {
             return 0;
         }
@@ -18,7 +18,7 @@ export class PopUpHelper {
         if (referenceContainer) {
             return referenceIsContainer
                 ? referenceContainer.nativeElement.firstElementChild.clientWidth
-                : referenceContainer.nativeElement.clientWidth;
+                : referenceContainer.nativeElement.offsetWidth;
         } else {
             return 0;
         }
@@ -36,14 +36,16 @@ export class PopUpHelper {
     public getDisplayPosition(
         referenceContainer: ElementRef<HTMLElement>,
         popupcontentcontainer: ElementRef<HTMLElement>,
-        popupOffset: number,
+        arrowWidth: number,
+        arrowHeight: number,
         allowedPositions: string,
         referenceIsContainer: boolean
     ): TooltipPosition {
         const validPositions: TooltipPosition = this.validatePositions(
             referenceContainer,
             popupcontentcontainer,
-            popupOffset,
+            arrowWidth,
+            arrowHeight,
             referenceIsContainer
         );
 
@@ -179,7 +181,8 @@ export class PopUpHelper {
         referenceContainer: ElementRef<HTMLElement>,
         popupContainer: ElementRef<HTMLElement>,
         controlReference: ElementRef,
-        popupOffset: number,
+        arrowWidth: number,
+        arrowHeight: number,
         requestedPosition: string,
         referenceIsContainer: boolean
     ): number {
@@ -194,7 +197,8 @@ export class PopUpHelper {
                     this.getDisplayPosition(
                         referenceContainer,
                         popupContainer,
-                        popupOffset,
+                        arrowWidth,
+                        arrowHeight,
                         requestedPosition,
                         referenceIsContainer
                     )
@@ -208,9 +212,9 @@ export class PopUpHelper {
                     case TooltipPosition.bottomend:
                         return contentPosition.left + contentPosition.width - this.getPopupWidth(popupContainer);
                     case TooltipPosition.right:
-                        return contentPosition.left + contentPosition.width + popupOffset;
+                        return contentPosition.left + contentPosition.width + arrowWidth / 2;
                     case TooltipPosition.left:
-                        return contentPosition.left - this.getPopupWidth(popupContainer) + popupOffset * -1;
+                        return contentPosition.left - this.getPopupWidth(popupContainer) + (arrowWidth / 2) * -1;
                 }
 
                 return referenceContainer.nativeElement.offsetTop;
@@ -235,7 +239,8 @@ export class PopUpHelper {
         referenceContainer: ElementRef<HTMLElement>,
         popupContainer: ElementRef<HTMLElement>,
         controlReference: ElementRef,
-        popupOffset: number,
+        arrowWidth: number,
+        arrowHeight: number,
         requestedPosition: string,
         referenceIsContainer: boolean
     ): number {
@@ -256,14 +261,15 @@ export class PopUpHelper {
                     this.getDisplayPosition(
                         referenceContainer,
                         popupContainer,
-                        popupOffset,
+                        arrowWidth,
+                        arrowHeight,
                         requestedPosition,
                         referenceIsContainer
                     )
                 ) {
                     case TooltipPosition.top:
                     case TooltipPosition.topend:
-                        return contentPositionTop - this.getPopupHeight(popupContainer) + popupOffset * -1;
+                        return contentPositionTop - this.getPopupHeight(popupContainer) + (arrowHeight / 2) * -1;
                     case TooltipPosition.right:
                     case TooltipPosition.left:
                         return (
@@ -271,13 +277,13 @@ export class PopUpHelper {
                         );
                     case TooltipPosition.bottom:
                     case TooltipPosition.bottomend:
-                        return contentPositionTop + contentPosition.height + popupOffset;
+                        return contentPositionTop + contentPosition.height + arrowHeight / 2;
                 }
 
                 return (
                     childItem.clientTop +
                     childItem.offsetTop -
-                    (this.getPopupHeight(popupContainer) / 2 - childItem.clientHeight / 2)
+                    (this.getPopupHeight(popupContainer) / 2 - childItem.offsetHeight / 2)
                 );
             } else {
                 return referenceContainer.nativeElement.offsetTop;
@@ -337,7 +343,8 @@ export class PopUpHelper {
     public validatePositions(
         referenceContainer: ElementRef<HTMLElement>,
         popupcontentcontainer: ElementRef<HTMLElement>,
-        popupOffset: number,
+        arrowWidth: number,
+        arrowHeight: number,
         referenceIsContainer: boolean
     ): TooltipPosition {
         // Check if Container is false
@@ -351,10 +358,10 @@ export class PopUpHelper {
             : referenceContainer.nativeElement.getBoundingClientRect();
         const tooltipRect: DOMRect = popupcontentcontainer.nativeElement.firstElementChild.getBoundingClientRect();
 
-        const leftPosOk: boolean = basePosition.left - tooltipRect.width + popupOffset * -1 > 0;
-        const rightPosOk: boolean = basePosition.right + tooltipRect.width + popupOffset < window.innerWidth;
-        const topPosOk: boolean = basePosition.top - tooltipRect.height > 0;
-        const bottomPosOk: boolean = basePosition.bottom + tooltipRect.height < window.innerHeight;
+        const leftPosOk: boolean = basePosition.left - tooltipRect.width + arrowWidth * -1 > 0;
+        const rightPosOk: boolean = basePosition.right + tooltipRect.width + arrowWidth < window.innerWidth;
+        const topPosOk: boolean = basePosition.top - tooltipRect.height + arrowHeight > 0;
+        const bottomPosOk: boolean = basePosition.bottom + tooltipRect.height + arrowHeight < window.innerHeight;
 
         const leftHalfPosOk: boolean = basePosition.left - tooltipRect.width / 2 > 0;
         const rightHalfPosOk: boolean = basePosition.right + tooltipRect.width / 2 < window.innerWidth;

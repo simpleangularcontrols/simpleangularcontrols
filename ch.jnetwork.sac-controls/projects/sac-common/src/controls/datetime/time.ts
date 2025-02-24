@@ -1,7 +1,7 @@
 import { SacBaseDateTimeControl } from '../../common/basedatetimecontrol';
 import { Validation } from '../../validation';
 import { SacFormLayoutCommon } from '../layout/formlayout';
-import { Directive, ElementRef, HostListener, Injector, Input } from '@angular/core';
+import { ChangeDetectorRef, Directive, ElementRef, HostListener, Injector, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import * as IMask from 'imask';
 import * as moment_ from 'moment';
@@ -57,6 +57,10 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
      * Definiert ob der Date Selector angezeigt wird
      */
     public _showselector: boolean = false;
+
+    /**
+     * Moment JS module instance
+     */
     public moment = moment_['default'];
 
     /**
@@ -89,8 +93,13 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
      * @param injector Injector for injecting services
      * @param elementRef reference to html element
      */
-    constructor(formlayout: SacFormLayoutCommon, injector: Injector, protected elementRef: ElementRef) {
-        super(formlayout, injector, elementRef);
+    constructor(
+        formlayout: SacFormLayoutCommon,
+        injector: Injector,
+        protected elementRef: ElementRef,
+        cdRef: ChangeDetectorRef
+    ) {
+        super(formlayout, injector, elementRef, cdRef);
     }
 
     // #endregion Constructors
@@ -165,8 +174,13 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
      * Click Event
      */
     public onClick(targetElement) {
-        const clickedInside = this.elementRef.nativeElement.contains(targetElement);
-        if (!clickedInside) {
+        if (!this.pickercontainer) {
+            return;
+        }
+
+        const clickedInsideContainer = this.pickercontainer.nativeElement.contains(targetElement);
+        const clickedInsideReference = this.pickerbutton.nativeElement.contains(targetElement);
+        if (!clickedInsideContainer && !clickedInsideReference) {
             this._showselector = false;
         }
     }

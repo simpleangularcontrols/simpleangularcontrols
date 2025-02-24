@@ -75,6 +75,16 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
     public content: ElementRef<HTMLElement>;
 
     /**
+     * Position of the picker arrow at the left
+     */
+    public posArrowLeft: number | null = null;
+
+    /**
+     * Position of the picker arrow at the top
+     */
+    public posArrowTop: number | null = null;
+
+    /**
      * Position of the tooltip. Values: left|top|right|bottom|auto
      *
      * Value 'auto' can be combined with another value.
@@ -272,6 +282,14 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
             true
         );
         this.LeftPos = value;
+
+        const requiredPosition = this.GetTooltipPosition();
+        if (requiredPosition === TooltipPosition.left || requiredPosition === TooltipPosition.right) {
+            this.posArrowTop = this.getToolTipHeight() / 2 - 6.5;
+        } else {
+            this.posArrowTop = null;
+        }
+
         return value;
     }
 
@@ -288,6 +306,14 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
             true
         );
         this.TopPos = value;
+
+        const requiredPosition = this.GetTooltipPosition();
+        if (requiredPosition === TooltipPosition.bottom || requiredPosition === TooltipPosition.top) {
+            this.posArrowLeft = this.getToolTipWidth() / 2 - 6.5;
+        } else {
+            this.posArrowLeft = null;
+        }
+
         return value;
     }
 

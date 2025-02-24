@@ -246,7 +246,6 @@ export class PopUpHelper {
     ): number {
         if (referenceContainer !== null && referenceContainer !== undefined) {
             const item = referenceContainer.nativeElement;
-
             if (item.children.length >= 1) {
                 const childItem = referenceIsContainer ? (item.firstElementChild as HTMLElement) : item;
                 const contentPosition: DOMRect = childItem.getBoundingClientRect();
@@ -254,7 +253,7 @@ export class PopUpHelper {
                 // Get Position with Scroll (Scrollbars inside page should be substracted)
                 const contentPositionTop =
                     childItem.offsetTop +
-                    this.getOffsetTopParent(childItem.offsetParent as HTMLElement) -
+                    this.getOffsetTopParent(childItem.offsetParent as HTMLElement) +
                     this.getScrollTopParent(childItem.parentElement);
 
                 switch (
@@ -427,20 +426,31 @@ export class PopUpHelper {
     /**
      * Caclulate Scrollbars inside tree
      * @param element HTML Element
+     * @param [isFixed=false] Invert Scroll Position value when style is fixed to preserve negative values
      * @returns Scroll top value of element with all childs
      */
-    private getScrollTopParent(element: HTMLElement): number {
+    private getScrollTopParent(element: HTMLElement, isFixed = false): number {
         if (element === null) {
             return 0;
         }
 
         // Body Scroll should not be calculated
         if (!element.parentElement) {
-            return 0;
+            return isFixed ? element.scrollTop : 0;
         }
 
-        const parentValue = this.getScrollTopParent(element.parentElement);
-        return parentValue + element.scrollTop;
+        let isCurrentFixed = false;
+        if (window.getComputedStyle(element).getPropertyValue('position') === 'fixed') {
+            isCurrentFixed = true;
+        }
+
+        const parentValue = this.getScrollTopParent(element.parentElement, isFixed || isCurrentFixed);
+
+        if (isFixed) {
+            return parentValue + element.scrollTop;
+        } else {
+            return parentValue + element.scrollTop * -1;
+        }
     }
 
     // #endregion Private Methods

@@ -4,7 +4,17 @@ import { TooltipPosition } from '../utilities/enums';
 import { PopUpHelper } from '../utilities/popuphelper';
 import { Validation } from '../validation';
 import { SacBaseModelControl } from './basemodelcontrol';
-import { ChangeDetectorRef, Directive, ElementRef, Injector, Input, OnInit, ViewChild } from '@angular/core';
+import {
+    ChangeDetectorRef,
+    Directive,
+    DoCheck,
+    ElementRef,
+    Injector,
+    Input,
+    OnDestroy,
+    OnInit,
+    ViewChild,
+} from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import * as moment_ from 'moment';
 
@@ -12,7 +22,7 @@ import * as moment_ from 'moment';
  * Base Klasse für Date/Time Controls
  */
 @Directive()
-export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> implements OnInit {
+export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> implements OnInit, OnDestroy, DoCheck {
     // #region Properties
 
     /**
@@ -35,6 +45,11 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
      * Property for enum in Angular HTML template
      */
     public TooltipPosition = TooltipPosition;
+
+    /**
+     * Definiert ob der Date Selector angezeigt wird
+     */
+    public _showselector: boolean = false;
 
     /**
      * Definiert das Control als Required
@@ -240,12 +255,26 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
         return this.popupHelper.getPopupWidth(this.pickercontainer);
     }
 
+    public ngDoCheck(): void {
+        // this.onContentChange();
+    }
+
+    public ngOnDestroy(): void {
+        // Unregister Event Listener
+        window.removeEventListener('scroll', this.onContentChange, true);
+        window.removeEventListener('resize', this.onContentChange, true);
+    }
+
     /**
      * Init Event
      */
     public ngOnInit(): void {
         super.ngOnInit();
         this.setDateTimeFormat();
+
+        // Register Event Listener
+        window.addEventListener('scroll', this.onContentChange, true);
+        window.addEventListener('resize', this.onContentChange, true);
     }
 
     /**
@@ -324,7 +353,6 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
             case TooltipPosition.topend:
             case TooltipPosition.bottomend:
                 this.posArrowLeft =
-                    // this.getPickerWidth() - this.popupHelper.getContainerWidth(this.pickerbutton, false) / 2;
                     this.getPickerWidth() -
                     this.getArrowWidth() / 2 -
                     this.popupHelper.getContainerWidth(this.pickerbutton, false) / 2;
@@ -374,9 +402,9 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
      */
     private readonly onContentChange = (): void => {
         // Do nothing if is not visible
-        // if (!this._isTooltipVisible) {
-        //     return;
-        // }
+        if (!this._showselector) {
+            return;
+        }
 
         setTimeout(() => {
             this.getPositionLeft();

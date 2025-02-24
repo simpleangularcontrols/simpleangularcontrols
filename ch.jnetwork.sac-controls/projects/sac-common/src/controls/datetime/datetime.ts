@@ -74,11 +74,6 @@ export abstract class SacDateTimeCommon extends SacBaseDateTimeControl {
     public _mindate: Date = null;
 
     /**
-     * Definiert ob der Date Selector angezeigt wird
-     */
-    public _showselector: boolean = false;
-
-    /**
      * Moment JS module instance
      */
     public moment = moment_['default'];
@@ -220,15 +215,11 @@ export abstract class SacDateTimeCommon extends SacBaseDateTimeControl {
          */
         this.onTouch();
 
-        setTimeout(() => {
-            this.getPositionLeft();
-            this.getPositionTop();
-            if (this._showselector) {
-                this._showselector = false;
-            } else {
-                this._showselector = true;
-            }
-        });
+        if (this._showselector) {
+            this._showselector = false;
+        } else {
+            this._showselector = true;
+        }
     }
 
     /**

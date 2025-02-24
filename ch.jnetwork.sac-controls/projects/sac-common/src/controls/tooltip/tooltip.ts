@@ -157,6 +157,7 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
             this.content,
             this.tooltipcontainer,
             this.getTooltipOffset(),
+            this.getTooltipOffset(),
             this.position,
             true
         );
@@ -278,6 +279,7 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
             this.tooltipcontainer,
             this.ref,
             this.getTooltipOffset(),
+            this.getTooltipOffset(),
             this.position,
             true
         );
@@ -301,6 +303,7 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
             this.content,
             this.tooltipcontainer,
             this.ref,
+            this.getTooltipOffset(),
             this.getTooltipOffset(),
             this.position,
             true

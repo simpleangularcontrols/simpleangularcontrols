@@ -59,11 +59,6 @@ export abstract class SacDateCommon extends SacBaseDateTimeControl {
     public _mindate: Date = null;
 
     /**
-     * Definiert ob der Date Selector angezeigt wird
-     */
-    public _showselector: boolean = false;
-
-    /**
      * Moment JS module instance
      */
     public moment = moment_['default'];

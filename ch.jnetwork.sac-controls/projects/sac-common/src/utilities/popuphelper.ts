@@ -4,6 +4,26 @@ import { ElementRef } from '@angular/core';
 export class PopUpHelper {
     // #region Public Methods
 
+    public getContainerHeight(referenceContainer: ElementRef<HTMLElement>, referenceIsContainer: boolean): number {
+        if (referenceContainer) {
+            return referenceIsContainer
+                ? referenceContainer.nativeElement.firstElementChild.clientHeight
+                : referenceContainer.nativeElement.clientHeight;
+        } else {
+            return 0;
+        }
+    }
+
+    public getContainerWidth(referenceContainer: ElementRef<HTMLElement>, referenceIsContainer: boolean): number {
+        if (referenceContainer) {
+            return referenceIsContainer
+                ? referenceContainer.nativeElement.firstElementChild.clientWidth
+                : referenceContainer.nativeElement.clientWidth;
+        } else {
+            return 0;
+        }
+    }
+
     /**
      * Get Position who the popup would be positioned
      *
@@ -45,6 +65,17 @@ export class PopUpHelper {
         // tslint:disable-next-line:no-bitwise
         if (this.hasPosition(allowedPositions, TooltipPosition.bottom) && validPositions & TooltipPosition.bottom) {
             return TooltipPosition.bottom;
+        }
+
+        if (this.hasPosition(allowedPositions, TooltipPosition.topend) && validPositions & TooltipPosition.topend) {
+            return TooltipPosition.topend;
+        }
+
+        if (
+            this.hasPosition(allowedPositions, TooltipPosition.bottomend) &&
+            validPositions & TooltipPosition.bottomend
+        ) {
+            return TooltipPosition.bottomend;
         }
 
         // Get Auto Position or Default
@@ -123,6 +154,14 @@ export class PopUpHelper {
             return TooltipPosition.bottom;
         }
 
+        if (this.hasPosition(allowedPositions, TooltipPosition.topend)) {
+            return TooltipPosition.topend;
+        }
+
+        if (this.hasPosition(allowedPositions, TooltipPosition.bottomend)) {
+            return TooltipPosition.bottomend;
+        }
+
         // Default Position if empty
         return TooltipPosition.right;
     }
@@ -165,6 +204,9 @@ export class PopUpHelper {
                         return (
                             contentPosition.left + contentPosition.width / 2 - this.getPopupWidth(popupContainer) / 2
                         );
+                    case TooltipPosition.topend:
+                    case TooltipPosition.bottomend:
+                        return contentPosition.left + contentPosition.width - this.getPopupWidth(popupContainer);
                     case TooltipPosition.right:
                         return contentPosition.left + contentPosition.width + popupOffset;
                     case TooltipPosition.left:
@@ -220,6 +262,7 @@ export class PopUpHelper {
                     )
                 ) {
                     case TooltipPosition.top:
+                    case TooltipPosition.topend:
                         return contentPositionTop - this.getPopupHeight(popupContainer) + popupOffset * -1;
                     case TooltipPosition.right:
                     case TooltipPosition.left:
@@ -227,6 +270,7 @@ export class PopUpHelper {
                             contentPositionTop + contentPosition.height / 2 - this.getPopupHeight(popupContainer) / 2
                         );
                     case TooltipPosition.bottom:
+                    case TooltipPosition.bottomend:
                         return contentPositionTop + contentPosition.height + popupOffset;
                 }
 
@@ -265,6 +309,13 @@ export class PopUpHelper {
         }
 
         if (requestedPosition === TooltipPosition.bottom && positions.indexOf('bottom') >= 0) {
+            return true;
+        }
+
+        if (requestedPosition === TooltipPosition.topend && positions.indexOf('topend') >= 0) {
+            return true;
+        }
+        if (requestedPosition === TooltipPosition.bottomend && positions.indexOf('bottomend') >= 0) {
             return true;
         }
 
@@ -309,6 +360,16 @@ export class PopUpHelper {
         const rightHalfPosOk: boolean = basePosition.right + tooltipRect.width / 2 < window.innerWidth;
         const topHalfPosOk: boolean = basePosition.top - tooltipRect.height / 2 > 0;
         const bottomHalfPosOk: boolean = basePosition.bottom + tooltipRect.height / 2 < window.innerHeight;
+
+        if (leftPosOk && topPosOk) {
+            // tslint:disable-next-line:no-bitwise
+            allowedPositions = allowedPositions | TooltipPosition.topend;
+        }
+
+        if (leftPosOk && bottomPosOk) {
+            // tslint:disable-next-line:no-bitwise
+            allowedPositions = allowedPositions | TooltipPosition.bottomend;
+        }
 
         if (leftPosOk && topHalfPosOk && bottomHalfPosOk) {
             // tslint:disable-next-line:no-bitwise

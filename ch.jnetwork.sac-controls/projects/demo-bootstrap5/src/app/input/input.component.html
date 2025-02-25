@@ -417,6 +417,25 @@
                 type="range"
                 class="form-range" />
         </sac-staticformcontainer>
+        <sac-staticformcontainer
+            label="Container MultipleInput with Error"
+            lableSizeMd="4"
+            [isinvalid]="true"
+            errormessage="This is a custom errormessage">
+            <input
+                name="multiInput1"
+                [(ngModel)]="values.field1"
+                type="text"
+                required
+                class="form-control" />
+
+            <input
+                name="multiInput2"
+                [(ngModel)]="values.field2"
+                type="text"
+                required
+                class="form-control" />
+        </sac-staticformcontainer>
 
         <sac-staticlabel
             label="Static Control"

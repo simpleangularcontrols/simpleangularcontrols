@@ -1,173 +1,291 @@
 <h2>Dialog</h2>
-<form #myForm="sacform" labelsize="3">
-  <div>
-    <h2>Dialog ohne Backdrop und ohne ESC</h2>
-    <sac-button
-      name="modalOpen1"
-      text="Modal öffnen"
-      (clicked)="modal1dialog.show()"
-    ></sac-button>
-    <sac-dialog
-      #modal1dialog
-      [allowesc]="false"
-      [backdrop]="false"
-      title="Leerer Dialog"
-    >
-      <div dialogbody><p>Hello World</p></div>
-      <div dialogfooter>
+<form
+    #myForm="sacform"
+    labelsize="3">
+    <div>
+        <h2>Dialog ohne Backdrop und ohne ESC</h2>
         <sac-button
-          name="modalClose1"
-          text="Schliessen"
-          (clicked)="modal1dialog.hide()"
-        ></sac-button>
-      </div>
-    </sac-dialog>
-  </div>
+            name="modalOpen1"
+            text="Modal öffnen"
+            (clicked)="modal1dialog.show()"></sac-button>
+        <sac-dialog
+            #modal1dialog
+            [allowesc]="false"
+            [backdrop]="false"
+            title="Leerer Dialog">
+            <div dialogbody><p>Hello World</p></div>
+            <div dialogfooter>
+                <sac-button
+                    name="modalClose1"
+                    text="Schliessen"
+                    (clicked)="modal1dialog.hide()"></sac-button>
+            </div>
+        </sac-dialog>
+    </div>
 
-  <div>
-    <h2>Dialog mit Backdrop und ESC</h2>
-    <sac-button
-      name="modalOpen2"
-      text="Modal öffnen"
-      (clicked)="modal2dialog.show()"
-    ></sac-button>
-    <sac-dialog #modal2dialog title="Dialog mit Backdrop und ESC">
-      <div dialogbody><p>Hello World</p></div>
-      <div dialogfooter>
+    <div>
+        <h2>Dialog mit Backdrop und ESC</h2>
         <sac-button
-          name="modalClose2"
-          text="Schliessen"
-          (clicked)="modal2dialog.hide()"
-        ></sac-button>
-      </div>
-    </sac-dialog>
-  </div>
+            name="modalOpen2"
+            text="Modal öffnen"
+            (clicked)="modal2dialog.show()"></sac-button>
+        <sac-dialog
+            #modal2dialog
+            title="Dialog mit Backdrop und ESC">
+            <div dialogbody><p>Hello World</p></div>
+            <div dialogfooter>
+                <sac-button
+                    name="modalClose2"
+                    text="Schliessen"
+                    (clicked)="modal2dialog.hide()"></sac-button>
+            </div>
+        </sac-dialog>
+    </div>
 
-  <div>
-    <h2>Dialog in Dialog mit Backdrop und ESC</h2>
-    <sac-button
-      name="modalOpen3"
-      text="Modal öffnen"
-      (clicked)="modal3dialog.show()"
-    ></sac-button>
-    <sac-dialog #modal3dialog title="Dialog mit Backdrop und ESC">
-      <div dialogbody>
+    <div>
+        <h2>Dialog in Dialog mit Backdrop und ESC</h2>
         <sac-button
-          name="modalOpen4"
-          text="Modal öffnen"
-          (clicked)="modal4dialog.show()"
-        ></sac-button>
-      </div>
-      <div dialogfooter>
-        <sac-button
-          name="modalClose3"
-          text="Schliessen"
-          (clicked)="modal3dialog.hide()"
-        ></sac-button>
-      </div>
-    </sac-dialog>
+            name="modalOpen3"
+            text="Modal öffnen"
+            (clicked)="modal3dialog.show()"></sac-button>
+        <sac-dialog
+            #modal3dialog
+            title="Dialog mit Backdrop und ESC">
+            <div dialogbody>
+                <sac-button
+                    name="modalOpen4"
+                    text="Modal öffnen"
+                    (clicked)="modal4dialog.show()"></sac-button>
+            </div>
+            <div dialogfooter>
+                <sac-button
+                    name="modalClose3"
+                    text="Schliessen"
+                    (clicked)="modal3dialog.hide()"></sac-button>
+            </div>
+        </sac-dialog>
 
-    <sac-dialog
-      #modal4dialog
-      title="Inner Dialog mit Backdrop und ESC"
-      [backdrop]="false"
-    >
-      <div dialogbody>Inner Dialog</div>
-      <div dialogfooter>
-        <sac-button
-          name="modalClose4"
-          text="Schliessen"
-          (clicked)="modal4dialog.hide()"
-        ></sac-button>
-      </div>
-    </sac-dialog>
-  </div>
+        <sac-dialog
+            #modal4dialog
+            title="Inner Dialog mit Backdrop und ESC"
+            [backdrop]="false">
+            <div dialogbody>Inner Dialog</div>
+            <div dialogfooter>
+                <sac-button
+                    name="modalClose4"
+                    text="Schliessen"
+                    (clicked)="modal4dialog.hide()"></sac-button>
+            </div>
+        </sac-dialog>
+    </div>
 
-  <div>
-    <h2>Dialog open über Property</h2>
-    <sac-button
-      name="modalOpen5"
-      text="Modal öffnen"
-      (clicked)="showVisibile1()"
-    ></sac-button>
-    <sac-dialog title="Dialog mit Binding Property" [(isvisible)]="isvisible1">
-      <div dialogbody>Content</div>
-      <div dialogfooter>
+    <div>
+        <h2>Dialog open über Property</h2>
         <sac-button
-          name="modalClose5"
-          text="Schliessen"
-          (clicked)="hideVisibile1()"
-        ></sac-button>
-      </div>
-    </sac-dialog>
-  </div>
+            name="modalOpen5"
+            text="Modal öffnen"
+            (clicked)="showVisibile1()"></sac-button>
+        <sac-dialog
+            title="Dialog mit Binding Property"
+            [(isvisible)]="isvisible1">
+            <div dialogbody>Content</div>
+            <div dialogfooter>
+                <sac-button
+                    name="modalClose5"
+                    text="Schliessen"
+                    (clicked)="hideVisibile1()"></sac-button>
+            </div>
+        </sac-dialog>
+    </div>
 
-  <div>
-    <h2>Dialog open über Property und ngIf</h2>
-    <sac-button
-      name="modalOpen6"
-      text="Modal öffnen"
-      (clicked)="showVisibile2()"
-    ></sac-button>
-    <sac-dialog title="Dialog mit Binding Property" [(isvisible)]="isvisible2">
-      <div dialogbody>Content</div>
-      <div dialogfooter>
+    <div>
+        <h2>Dialog open über Property und ngIf</h2>
         <sac-button
-          name="modalClose6"
-          text="Schliessen"
-          (clicked)="hideVisibile2()"
-        ></sac-button>
-      </div>
-    </sac-dialog>
-  </div>
+            name="modalOpen6"
+            text="Modal öffnen"
+            (clicked)="showVisibile2()"></sac-button>
+        <sac-dialog
+            title="Dialog mit Binding Property"
+            [(isvisible)]="isvisible2">
+            <div dialogbody>Content</div>
+            <div dialogfooter>
+                <sac-button
+                    name="modalClose6"
+                    text="Schliessen"
+                    (clicked)="hideVisibile2()"></sac-button>
+            </div>
+        </sac-dialog>
+    </div>
 
-  <div>
-    <h2>Dialog Small</h2>
-    <sac-button
-      name="modalOpen7"
-      text="Modal öffnen"
-      (clicked)="modal7dialog.show()"
-    ></sac-button>
-    <sac-dialog
-      #modal7dialog
-      [allowesc]="false"
-      [backdrop]="false"
-      title="Leerer Dialog"
-      size="small"
-    >
-      <div dialogbody><p>Hello World</p></div>
-      <div dialogfooter>
+    <div>
+        <h2>Dialog Small</h2>
         <sac-button
-          name="modalClose7"
-          text="Schliessen"
-          (clicked)="modal7dialog.hide()"
-        ></sac-button>
-      </div>
-    </sac-dialog>
-  </div>
+            name="modalOpen7"
+            text="Modal öffnen"
+            (clicked)="modal7dialog.show()"></sac-button>
+        <sac-dialog
+            #modal7dialog
+            [allowesc]="false"
+            [backdrop]="false"
+            title="Leerer Dialog"
+            size="small">
+            <div dialogbody><p>Hello World</p></div>
+            <div dialogfooter>
+                <sac-button
+                    name="modalClose7"
+                    text="Schliessen"
+                    (clicked)="modal7dialog.hide()"></sac-button>
+            </div>
+        </sac-dialog>
+    </div>
 
-  <div>
-    <h2>Dialog Large</h2>
-    <sac-button
-      name="8"
-      text="Modal öffnen"
-      (clicked)="modal8dialog.show()"
-    ></sac-button>
-    <sac-dialog
-      #modal8dialog
-      [allowesc]="false"
-      [backdrop]="false"
-      title="Leerer Dialog"
-      size="large"
-    >
-      <div dialogbody><p>Hello World</p></div>
-      <div dialogfooter>
+    <div>
+        <h2>Dialog Large</h2>
         <sac-button
-          name="modalClose8"
-          text="Schliessen"
-          (clicked)="modal8dialog.hide()"
-        ></sac-button>
-      </div>
-    </sac-dialog>
-  </div>
+            name="8"
+            text="Modal öffnen"
+            (clicked)="modal8dialog.show()"></sac-button>
+        <sac-dialog
+            #modal8dialog
+            [allowesc]="false"
+            [backdrop]="false"
+            title="Leerer Dialog"
+            size="large">
+            <div dialogbody><p>Hello World</p></div>
+            <div dialogfooter>
+                <sac-button
+                    name="modalClose8"
+                    text="Schliessen"
+                    (clicked)="modal8dialog.hide()"></sac-button>
+            </div>
+        </sac-dialog>
+    </div>
+
+    <div>
+        <h2>Dialog mit DateTime and Tooltip</h2>
+        <sac-button
+            name="modalOpenDateTime"
+            text="Modal öffnen"
+            (clicked)="modal2dialogDateTime.show()">
+        </sac-button>
+        <sac-dialog
+            #modal2dialogDateTime
+            title="Dialog mit Backdrop und ESC">
+            <div dialogbody>
+                <div ngForm>
+                    <sac-datetime
+                        name="datetime1"
+                        helptext="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+                        label="This is a Label"
+                        helptextmode="tooltip"
+                        [(ngModel)]="datevalue">
+                    </sac-datetime>
+                    <div>
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+                        dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos
+                        et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                        justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in
+                        hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                        blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                        nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+                        lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore
+                        eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla
+                        facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit
+                        amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
+                        quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
+                        velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                        sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores
+                        duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero
+                        voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                        dolore magna aliquyam erat. Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+                        dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos
+                        et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                        justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                        sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+                        sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat
+                        nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
+                        enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in
+                        hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                        blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil
+                        imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+                        tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+                        aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla
+                        facilisis. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+                        ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+                        vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor
+                        sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore
+                        Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. Consetetur sadipscing elitr, sed diam nonumy
+                        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                        sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+                        sanctus. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+                        ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+                        vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor
+                        sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+                        accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor
+                        in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                        blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                        nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+                        lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore
+                        eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla
+                        facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit
+                        amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
+                        quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate
+                        velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                        sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores
+                        duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero
+                        voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+                        dolore magna aliquyam erat. Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+                        dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos
+                        et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+                        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                        justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+                        eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                        sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+                        sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat
+                        nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
+                        enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in
+                        hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui
+                        blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                    </div>
+                    <sac-datetime
+                        name="datetime2"
+                        helptext="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+                        label="This is a Label"
+                        helptextmode="tooltip"
+                        [(ngModel)]="datevalue">
+                    </sac-datetime>
+                </div>
+            </div>
+            <div dialogfooter>
+                <sac-button
+                    name="modalCloseDateTime2"
+                    text="Schliessen"
+                    (clicked)="modal2dialogDateTime.hide()">
+                </sac-button>
+            </div>
+        </sac-dialog>
+    </div>
 </form>

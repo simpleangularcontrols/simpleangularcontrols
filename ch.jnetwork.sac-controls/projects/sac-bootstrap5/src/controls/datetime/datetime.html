@@ -45,6 +45,7 @@
                     (accept)="setValueString($event)"
                     [disabled]="isdisabled" />
                 <button
+                    #pickerbutton
                     class="btn btn-secondary"
                     type="button"
                     (click)="showDateSelector()"
@@ -63,23 +64,39 @@
                 {{ helptext }}
             </div>
             <div
-                class="popover fade bs-popover-bottom show position-absolute"
-                role="tooltip"
-                *ngIf="_showselector"
-                style="display: block; left: unset; right: 0px; top: unset; max-width: 325px; margin-top: 7px">
+                #picker
+                *ngIf="_showselector">
                 <div
-                    class="popover-arrow position-absolute"
-                    style="left: unset"
-                    [style.right.rem]="componentHeight === ControlHeight.Small ? 1.1 : componentHeight === ControlHeight.Large ? 1.8 : 1.4"></div>
-                <h3
-                    class="popover-header"
-                    style="display: none"></h3>
-                <div class="popover-body">
-                    <sac-dateselector
-                        [initialvalue]="value"
-                        (selectdate)="dateselect($event)"
-                        dateselection="true"
-                        timeselection="true"></sac-dateselector>
+                    class="popover fade show position-absolute bs-popover-auto"
+                    role="tooltip"
+                    [attr.data-popper-placement]="
+                        GetPickerPosition() == TooltipPosition.right
+                            ? 'right'
+                            : GetPickerPosition() == TooltipPosition.left
+                            ? 'left'
+                            : GetPickerPosition() == TooltipPosition.top || GetPickerPosition() == TooltipPosition.topend
+                            ? 'top'
+                            : GetPickerPosition() == TooltipPosition.bottom || GetPickerPosition() == TooltipPosition.bottomend
+                            ? 'bottom'
+                            : null
+                    "
+                    [style.left.px]="posPopupLeft"
+                    [style.top.px]="posPopupTop">
+                    <div
+                        #pickerarrow
+                        class="popover-arrow position-absolute"
+                        style="left: unset"
+                        [style.top.px]="posArrowTop"
+                        [style.left.px]="posArrowLeft">
+                    </div>
+
+                    <div class="popover-body">
+                        <sac-dateselector
+                            [initialvalue]="value"
+                            (selectdate)="dateselect($event)"
+                            dateselection="true"
+                            timeselection="true"></sac-dateselector>
+                    </div>
                 </div>
             </div>
         </div>

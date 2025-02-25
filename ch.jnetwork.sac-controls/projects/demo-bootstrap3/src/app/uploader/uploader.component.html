@@ -148,64 +148,87 @@
 
     <h3>Single Dropzone</h3>
 
-    <div
-        class="alert alert-info"
-        role="alert"
-        >Currently not supported</div
-    >
+    <sac-dropzonesingle
+        label="dropzonesingle1"
+        endpoint="/api/upload/register"
+        name="dropzone1"
+        [(ngModel)]="values.dropzone1"
+        helptext="Dies ist ein Helptext"
+        helptextmode="tooltip">
+        Drop file here
+    </sac-dropzonesingle>
 
-    <!--
+    <sac-dropzonesingle
+        label="dropzonesingle1"
+        endpoint="/api/upload/register"
+        name="dropzone1b"
+        [(ngModel)]="values.dropzone1"
+        [isrequired]="true"
+        disablelabel="true"
+        helptext="Dies ist ein Helptext"
+        helptextmode="tooltip">
+        Drop file here
+    </sac-dropzonesingle>
 
-  <sac-dropzonesingle
-    label="dropzonesingle1"
-    endpoint="/api/upload/register"
-    name="dropzone1"
-    [(ngModel)]="values.dropzone1"
-    >Drop file here</sac-dropzonesingle
-  >
+    <sac-dropzonesingle
+        [disablelabel]="true"
+        endpoint="/api/upload/register"
+        name="dropzone2"
+        [(ngModel)]="values.dropzone2"
+        helptext="Dies ist ein Helptext">
+        Drop file here
+    </sac-dropzonesingle>
 
-  <sac-dropzonesingle
-    [disablelabel]="true"
-    endpoint="/api/upload/register"
-    name="dropzone2"
-    [(ngModel)]="values.dropzone2"
-    >Drop file here</sac-dropzonesingle
-  >
+    <sac-dropzonesingle
+        label="dropzone single max Size (pdf and zip)"
+        endpoint="/api/upload/register"
+        name="dropzone3"
+        maxfilesize="200000"
+        allowedtypes=".pdf,.zip"
+        [(ngModel)]="values.dropzone5"
+        (onfileerror)="showmessage($event)">
+        Drop file here
+    </sac-dropzonesingle>
 
-  <sac-dropzonesingle
-    label="dropzone single max Size (pdf and zip)"
-    endpoint="/api/upload/register"
-    name="dropzone3"
-    maxfilesize="200000"
-    allowedtypes=".pdf,.zip"
-    [(ngModel)]="values.dropzone5"
-    (onfileerror)="showmessage($event)"
-    >Drop file here</sac-dropzonesingle
-  >
--->
     <h3>Multiple Upload Dropzone</h3>
-    <div
-        class="alert alert-info"
-        role="alert"
-        >Currently not supported</div
-    >
-    <!--
-  <sac-dropzonemultiple
-    label="dropzonemultiple1"
-    endpoint="/api/upload/register"
-    name="dropzone3"
-    [(ngModel)]="values.dropzone3"
-    >Drop files here</sac-dropzonemultiple
-  >
 
-  <sac-dropzonemultiple
-    [disablelabel]="true"
-    uploadheight="5rem"
-    endpoint="/api/upload/register"
-    name="dropzone4"
-    [(ngModel)]="values.dropzone4"
-    >Drop files here</sac-dropzonemultiple
-  >
+    <sac-dropzonemultiple
+        label="dropzonemultiple1"
+        endpoint="/api/upload/register"
+        name="dropzone3a"
+        [(ngModel)]="values.dropzone3">
+        Drop files here
+    </sac-dropzonemultiple>
 
-  -->
+    <sac-dropzonemultiple
+        label="dropzonemultiple1"
+        endpoint="/api/upload/register"
+        name="dropzone3b"
+        [(ngModel)]="values.dropzone3"
+        helptext="Dies ist ein Helptext"
+        helptextmode="tooltip">
+        Drop files here
+    </sac-dropzonemultiple>
+
+    <sac-dropzonemultiple
+        label="dropzonemultiple1"
+        endpoint="/api/upload/register"
+        name="dropzone3c"
+        [(ngModel)]="values.dropzone3"
+        [isrequired]="true"
+        disablelabel="true"
+        helptext="Dies ist ein Helptext"
+        helptextmode="tooltip">
+        Drop files here
+    </sac-dropzonemultiple>
+
+    <sac-dropzonemultiple
+        [disablelabel]="true"
+        uploadheight="5rem"
+        endpoint="/api/upload/register"
+        name="dropzone4"
+        [(ngModel)]="values.dropzone4"
+        helptext="Dies ist ein Helptext">
+        Drop files here
+    </sac-dropzonemultiple>
 </form>

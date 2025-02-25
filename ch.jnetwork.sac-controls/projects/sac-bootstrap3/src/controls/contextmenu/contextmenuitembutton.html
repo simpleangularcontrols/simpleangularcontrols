@@ -1,6 +1,6 @@
 <li
     [class.disabled]="isdisabled"
-    [class]="cssclass">
+    [ngClass]="cssclass">
     <a
         (click)="callaction($event)"
         [attr.disabled]="isdisabled ? 'disabled' : null"

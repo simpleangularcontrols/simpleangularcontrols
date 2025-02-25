@@ -1,4 +1,4 @@
-import { NgIf, NgStyle } from '@angular/common';
+import { NgClass, NgIf, NgStyle } from '@angular/common';
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { SacContextmenuCommon, SacContextmenuItemButtonCommon } from '@simpleangularcontrols/sac-common';
 
@@ -9,7 +9,7 @@ import { SacContextmenuCommon, SacContextmenuItemButtonCommon } from '@simpleang
     selector: 'sac-contextmenubutton',
     templateUrl: './contextmenuitembutton.html',
     standalone: true,
-    imports: [NgIf, NgStyle],
+    imports: [NgIf, NgStyle, NgClass],
 })
 export class SacContextmenuItemButtonComponent extends SacContextmenuItemButtonCommon implements OnInit {
     // #region Constructors

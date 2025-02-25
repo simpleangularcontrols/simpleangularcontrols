@@ -4,10 +4,7 @@
 export * from './components/browser/browser.module';
 export * from './controls/buttons/button.module';
 export * from './controls/checkbox/checkbox.module';
-export {
-  SACBootstrap4ConfirmModule,
-  ServiceConfirm,
-} from './controls/confirm/confirm.module';
+export { SACBootstrap4ConfirmModule, ServiceConfirm } from './controls/confirm/confirm.module';
 export * from './controls/contextmenu/contextmenu.module';
 export * from './controls/datetime/datetime.module';
 export * from './controls/dialog/dialog.module';
@@ -27,7 +24,6 @@ export * from './controls/tooltip/tooltip.module';
 export * from './controls/upload/upload.module';
 export * from './controls/validation/validationsummary.module';
 export * from './controls/wizard/wizard.module';
-
 // Export Controls
 export * from './controls/buttons/button';
 export * from './controls/checkbox/checkbox';
@@ -81,6 +77,5 @@ export * from './controls/upload/uploadmultiple';
 export * from './controls/validation/validationsummary';
 export * from './controls/wizard/wizard';
 export * from './controls/wizard/wizarditem';
-
 // Export Components
 export * from './components/browser/browser';

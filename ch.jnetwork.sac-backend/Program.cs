@@ -4,6 +4,11 @@ using System.Runtime;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddControllers()
+                .AddNewtonsoftJson(opts =>
+                {
+                    opts.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                });
 
 builder.Services.AddControllers()
                 .AddNewtonsoftJson(opts =>

@@ -323,7 +323,10 @@
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
-            "assets": ["src/assets", "src/favicon.ico"],
+            "assets": [
+              "src/assets",
+              "src/favicon.ico"
+            ],
             "styles": [],
             "scripts": [],
             "vendorChunk": true,
@@ -332,7 +335,9 @@
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true,
-            "allowedCommonJsDependencies": ["moment"]
+            "allowedCommonJsDependencies": [
+              "moment"
+            ]
           },
           "configurations": {
             "production": {
@@ -362,8 +367,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "module-base:build",
-            "proxyConfig": "proxy.conf.json"
+            "browserTarget": "module-base:build"
           },
           "configurations": {
             "production": {
@@ -534,9 +538,15 @@
                 "output": "/tinymce/"
               }
             ],
-            "styles": ["projects/demo-bootstrap3/src/styles.scss"],
-            "scripts": ["./node_modules/tinymce/tinymce.min.js"],
-            "allowedCommonJsDependencies": ["moment"]
+            "styles": [
+              "projects/demo-bootstrap3/src/styles.scss"
+            ],
+            "scripts": [
+              "./node_modules/tinymce/tinymce.min.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "moment"
+            ]
           },
           "configurations": {
             "production": {
@@ -579,7 +589,7 @@
             },
             "development": {
               "browserTarget": "demo-bootstrap3:build:development",
-              "proxyConfig": "proxy.conf.json"
+              "proxyConfig": "proxy.conf.bs3.json"
             }
           },
           "defaultConfiguration": "development"
@@ -642,15 +652,21 @@
                 "output": "/tinymce/"
               }
             ],
-            "styles": ["projects/demo-bootstrap4/src/styles.scss"],
-            "scripts": ["./node_modules/tinymce/tinymce.min.js"],
+            "styles": [
+              "projects/demo-bootstrap4/src/styles.scss"
+            ],
+            "scripts": [
+              "./node_modules/tinymce/tinymce.min.js"
+            ],
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true,
-            "allowedCommonJsDependencies": ["moment"]
+            "allowedCommonJsDependencies": [
+              "moment"
+            ]
           },
           "configurations": {
             "production": {
@@ -687,7 +703,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "demo-bootstrap4:build",
-            "proxyConfig": "proxy.conf.json"
+            "proxyConfig": "proxy.conf.bs4.json"
           },
           "configurations": {
             "production": {
@@ -768,9 +784,15 @@
                 "output": "/tinymce/"
               }
             ],
-            "styles": ["projects/demo-bootstrap5/src/styles.scss"],
-            "scripts": ["./node_modules/tinymce/tinymce.min.js"],
-            "allowedCommonJsDependencies": ["moment"]
+            "styles": [
+              "projects/demo-bootstrap5/src/styles.scss"
+            ],
+            "scripts": [
+              "./node_modules/tinymce/tinymce.min.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "moment"
+            ]
           },
           "configurations": {
             "production": {
@@ -813,7 +835,7 @@
             },
             "development": {
               "browserTarget": "demo-bootstrap5:build:development",
-              "proxyConfig": "proxy.conf.json"
+              "proxyConfig": "proxy.conf.bs5.json"
             }
           },
           "defaultConfiguration": "development"

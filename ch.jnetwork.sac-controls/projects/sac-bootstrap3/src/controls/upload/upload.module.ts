@@ -1,18 +1,22 @@
+import { SacTooltipComponent } from '../tooltip/tooltip';
+import { SacDropzoneMultipleComponent } from './dropzonemultiple';
+import { SacDropzoneSingleComponent } from './dropzonesingle';
+import { SacUploadComponent } from './upload';
+import { SacUploadMultipleComponent } from './uploadmultiple';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SacTooltipComponent } from '../tooltip/tooltip';
-import { SacUploadComponent } from './upload';
-import { SacUploadMultipleComponent } from './uploadmultiple';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    SacUploadComponent,
-    SacUploadMultipleComponent,
-    SacTooltipComponent,
-  ],
-  exports: [SacUploadComponent, SacUploadMultipleComponent],
+    imports: [
+        CommonModule,
+        FormsModule,
+        SacUploadComponent,
+        SacUploadMultipleComponent,
+        SacTooltipComponent,
+        SacDropzoneSingleComponent,
+        SacDropzoneMultipleComponent,
+    ],
+    exports: [SacUploadComponent, SacUploadMultipleComponent, SacDropzoneSingleComponent, SacDropzoneMultipleComponent],
 })
 export class SACBootstrap3UploadModule {}

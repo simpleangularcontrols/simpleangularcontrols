@@ -396,8 +396,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "module-base:build",
-            "proxyConfig": "proxy.conf.json"
+            "browserTarget": "module-base:build"
           },
           "configurations": {
             "production": {
@@ -631,7 +630,7 @@
             },
             "development": {
               "browserTarget": "demo-bootstrap3:build:development",
-              "proxyConfig": "proxy.conf.json"
+              "proxyConfig": "proxy.conf.bs3.json"
             }
           },
           "defaultConfiguration": "development"
@@ -742,7 +741,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "demo-bootstrap4:build",
-            "proxyConfig": "proxy.conf.json"
+            "proxyConfig": "proxy.conf.bs4.json"
           },
           "configurations": {
             "production": {
@@ -871,7 +870,7 @@
             },
             "development": {
               "browserTarget": "demo-bootstrap5:build:development",
-              "proxyConfig": "proxy.conf.json"
+              "proxyConfig": "proxy.conf.bs5.json"
             }
           },
           "defaultConfiguration": "development"

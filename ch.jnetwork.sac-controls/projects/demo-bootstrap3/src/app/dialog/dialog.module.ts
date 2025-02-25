@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
 import { DialogRoutingModule } from './dialog-routing.module';
 import { DemoDialogComponent } from './dialog.component';
+import { NgModule } from '@angular/core';
+
 @NgModule({
-  imports: [DialogRoutingModule, DemoDialogComponent],
+    imports: [DemoDialogComponent, DialogRoutingModule],
 })
 export class DialogModule {}

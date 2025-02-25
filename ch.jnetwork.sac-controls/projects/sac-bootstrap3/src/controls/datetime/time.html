@@ -28,26 +28,28 @@
             style="position: relative"
             [style.width.px]="componentHeight === ControlHeight.Small ? 120 : componentHeight === ControlHeight.Large ? 160 : 140">
             <div
-                class="input-group"
+                class="datetime-textbox input-group"
                 [class.input-group-sm]="componentHeight === ControlHeight.Small"
                 [class.input-group-lg]="componentHeight === ControlHeight.Large">
                 <input
                     id="{{ name }}"
                     name="{{ name }}"
                     type="text"
-                    [value]="valuestring"
-                    maxlength="6"
+                    class="form-control time-control"
+                    [class.is-invalid]="invalid && (dirty || touched)"
+                    [ngClass]="[componentHeight | toControlHeight]"
                     [imask]="imaskDate"
-                    size="6"
-                    class="form-control"
                     [attr.placeholder]="placeholder"
-                    data-error-msg="ctl00_cphContent_ctl00_ucPublicationDetail_dtpValidFrom_timeTextBoxTypeValidator"
-                    [ngClass]="{ 'is-invalid': invalid && (dirty || touched) }"
+                    [value]="valuestring"
                     (blur)="onTouch()"
                     (accept)="setValueString($event)"
-                    [disabled]="isdisabled" />
+                    [disabled]="isdisabled"
+                    (click)="showTimeSelector()"
+                    maxlength="6"
+                    size="6" />
                 <span class="input-group-btn">
                     <button
+                        #pickerbutton
                         class="btn btn-default"
                         type="button"
                         (click)="showTimeSelector()"
@@ -66,25 +68,33 @@
                 *ngIf="isinlineerrorenabled && invalid && (dirty || touched)">
                 {{ GetErrorMessage() | async }}
             </div>
+
             <div
-                class="popover bottom in"
-                role="tooltip"
-                *ngIf="_showselector"
-                style="display: block; left: 0px; right: unset; max-width: 325px"
-                [style.top.px]="componentHeight === ControlHeight.Large ? 46 : 34">
+                #picker
+                *ngIf="_showselector">
                 <div
-                    class="arrow"
-                    [style.left.px]="componentHeight === ControlHeight.Small ? 102 : componentHeight === ControlHeight.Large ? 135 : 120"
-                    style="right: unset"></div>
-                <h3
-                    class="popover-title"
-                    style="display: none"></h3>
-                <div class="popover-content">
-                    <sac-dateselector
-                        *ngIf="_showselector"
-                        [initialvalue]="value"
-                        (selectdate)="timeselect($event)"
-                        timeselection="true"></sac-dateselector>
+                    class="popover in"
+                    role="tooltip"
+                    style="display: block; max-width: unset; margin: 0"
+                    [class.bottom]="GetPickerPosition() == TooltipPosition.bottom || GetPickerPosition() == TooltipPosition.bottomend"
+                    [class.top]="GetPickerPosition() == TooltipPosition.top || GetPickerPosition() == TooltipPosition.topend"
+                    [style.left.px]="posPopupLeft"
+                    [style.top.px]="posPopupTop">
+                    <div
+                        #pickerarrow
+                        style="margin: 0"
+                        class="arrow"
+                        [style.top.px]="posArrowTop"
+                        [style.left.px]="posArrowLeft">
+                    </div>
+
+                    <div class="popover-content">
+                        <sac-dateselector
+                            *ngIf="_showselector"
+                            [initialvalue]="value"
+                            (selectdate)="timeselect($event)"
+                            timeselection="true"></sac-dateselector>
+                    </div>
                 </div>
             </div>
         </div>

@@ -28,7 +28,6 @@
             style="position: relative"
             [style.width.px]="componentHeight === ControlHeight.Small ? 160 : componentHeight === ControlHeight.Large ? 230 : 180">
             <div
-                id="{{ name }}"
                 class="datetime-textbox input-group"
                 [class.input-group-sm]="componentHeight === ControlHeight.Small"
                 [class.input-group-lg]="componentHeight === ControlHeight.Large">
@@ -36,7 +35,7 @@
                     id="{{ name }}"
                     name="{{ name }}"
                     type="text"
-                    class="form-control"
+                    class="form-control date-control"
                     [class.is-invalid]="invalid && (dirty || touched)"
                     [ngClass]="[componentHeight | toControlHeight]"
                     [imask]="imaskDate"
@@ -48,6 +47,7 @@
                     (click)="showDateSelector()" />
                 <span class="input-group-btn">
                     <button
+                        #pickerbutton
                         class="btn btn-default"
                         type="button"
                         (click)="showDateSelector()"
@@ -68,25 +68,32 @@
             </div>
 
             <div
-                class="popover bottom in"
-                role="tooltip"
-                *ngIf="_showselector"
-                style="display: block; left: 0px; right: unset; max-width: 325px"
-                [style.top.px]="componentHeight === ControlHeight.Large ? 46 : 34">
+                #picker
+                *ngIf="_showselector">
                 <div
-                    class="arrow"
-                    [style.left.px]="componentHeight === ControlHeight.Small ? 140 : componentHeight === ControlHeight.Large ? 205 : 160"
-                    style="right: unset"></div>
-                <h3
-                    class="popover-title"
-                    style="display: none"></h3>
-                <div class="popover-content">
-                    <sac-dateselector
-                        *ngIf="_showselector"
-                        [initialvalue]="value"
-                        (selectdate)="dateselect($event)"
-                        dateselection="true"
-                        timeselection="true"></sac-dateselector>
+                    class="popover in"
+                    role="tooltip"
+                    style="display: block; max-width: unset; margin: 0"
+                    [class.bottom]="GetPickerPosition() == TooltipPosition.bottom || GetPickerPosition() == TooltipPosition.bottomend"
+                    [class.top]="GetPickerPosition() == TooltipPosition.top || GetPickerPosition() == TooltipPosition.topend"
+                    [style.left.px]="posPopupLeft"
+                    [style.top.px]="posPopupTop">
+                    <div
+                        #pickerarrow
+                        style="margin: 0"
+                        class="arrow"
+                        [style.top.px]="posArrowTop"
+                        [style.left.px]="posArrowLeft">
+                    </div>
+
+                    <div class="popover-content">
+                        <sac-dateselector
+                            *ngIf="_showselector"
+                            [initialvalue]="value"
+                            (selectdate)="dateselect($event)"
+                            dateselection="true"
+                            timeselection="true"></sac-dateselector>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,0 +1,25 @@
+<li
+    [class.disabled]="isdisabled"
+    [ngClass]="cssclass">
+    <a
+        (click)="callaction($event)"
+        [attr.disabled]="isdisabled ? 'disabled' : null"
+        [ngStyle]="{ cursor: !isdisabled ? 'pointer' : null }"
+        style="display: flex">
+        <div
+            style="min-width: 25px"
+            *ngIf="!isicondisabled">
+            <img
+                *ngIf="image"
+                [src]="image"
+                style="vertical-align: baseline"
+                [ngStyle]="{ 'margin-right': text ? '5px' : null }" />
+            <i
+                *ngIf="icon"
+                [class]="iconstyle + ' ' + icon"
+                [ngStyle]="{ 'margin-right': text ? '5px' : null }">
+            </i>
+        </div>
+        <div>{{ text }}</div>
+    </a>
+</li>

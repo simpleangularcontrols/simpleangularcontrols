@@ -1459,11 +1459,11 @@
 
     <div class="tab-pane fade " id="readme">
         <p><h1>Uages</h1>
-<p>Create your own service for the translation of resource keys into texts. If you want to change the standard keys of the texts, implement a service with the interface <code>ISacValidationKeyService</code> to change the keys.</p>
+<p>Create your own service for the translation of resource keys into texts. If you want to change the standard keys of the texts, implement a service with the interface <code>ISacLocalisationService</code> to change the keys.</p>
 <h1>Example implementation</h1>
 <p>The sample implementation using ngx-translate</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-ts">&#64;Injectable()
-export class ControlsLocalisation extends SacLocalisationService {
+export class ControlsLocalisation implements ISacLocalisationService {
   constructor(private translate: TranslateService) {
     super();
 

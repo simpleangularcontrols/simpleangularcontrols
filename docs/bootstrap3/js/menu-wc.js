@@ -65,6 +65,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                     </ul>
                 </li>
+                    <li class="chapter additional">
+                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ? 'data-bs-target="#additional-pages"'
+                            : 'data-bs-target="#xs-additional-pages"' }>
+                            <span class="icon ion-ios-book"></span>
+                            <span>Advanced Documentation</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse " ${ isNormalMode ? 'id="additional-pages"' : 'id="xs-additional-pages"' }>
+                                    <li class="link ">
+                                        <a href="additional-documentation/customizing.html" data-type="entity-link" data-context-id="additional">Customizing</a>
+                                    </li>
+                        </ul>
+                    </li>
                     <li class="chapter modules">
                         <a data-type="chapter-link" href="modules.html">
                             <div class="menu-toggler linked" data-bs-toggle="collapse" ${ isNormalMode ?
@@ -131,6 +144,46 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                             </li>
                                         </ul>
                                     </li>
+                            </li>
+                            <li class="link">
+                                <a href="modules/SACBootstrap3ContextmenuModule.html" data-type="entity-link" >SACBootstrap3ContextmenuModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                            'data-bs-target="#components-links-module-SACBootstrap3ContextmenuModule-4d602b16d7227d2b7c696141587ca712cdc2f7a953cf1e8bb91f81195884c506dcd32435cc1a0ffbc354d3dfbb9e3bcf7b9f917670f6585565328382ae0ed29c"' : 'data-bs-target="#xs-components-links-module-SACBootstrap3ContextmenuModule-4d602b16d7227d2b7c696141587ca712cdc2f7a953cf1e8bb91f81195884c506dcd32435cc1a0ffbc354d3dfbb9e3bcf7b9f917670f6585565328382ae0ed29c"' }>
+                                            <span class="icon ion-md-cog"></span>
+                                            <span>Components</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SACBootstrap3ContextmenuModule-4d602b16d7227d2b7c696141587ca712cdc2f7a953cf1e8bb91f81195884c506dcd32435cc1a0ffbc354d3dfbb9e3bcf7b9f917670f6585565328382ae0ed29c"' :
+                                            'id="xs-components-links-module-SACBootstrap3ContextmenuModule-4d602b16d7227d2b7c696141587ca712cdc2f7a953cf1e8bb91f81195884c506dcd32435cc1a0ffbc354d3dfbb9e3bcf7b9f917670f6585565328382ae0ed29c"' }>
+                                            <li class="link">
+                                                <a href="components/SacContextmenuComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacContextmenuComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/SacContextmenuItemButtonComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacContextmenuItemButtonComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/SacContextmenuItemSplitterComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacContextmenuItemSplitterComponent</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
+                                        'data-bs-target="#directives-links-module-SACBootstrap3ContextmenuModule-4d602b16d7227d2b7c696141587ca712cdc2f7a953cf1e8bb91f81195884c506dcd32435cc1a0ffbc354d3dfbb9e3bcf7b9f917670f6585565328382ae0ed29c"' : 'data-bs-target="#xs-directives-links-module-SACBootstrap3ContextmenuModule-4d602b16d7227d2b7c696141587ca712cdc2f7a953cf1e8bb91f81195884c506dcd32435cc1a0ffbc354d3dfbb9e3bcf7b9f917670f6585565328382ae0ed29c"' }>
+                                        <span class="icon ion-md-code-working"></span>
+                                        <span>Directives</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-SACBootstrap3ContextmenuModule-4d602b16d7227d2b7c696141587ca712cdc2f7a953cf1e8bb91f81195884c506dcd32435cc1a0ffbc354d3dfbb9e3bcf7b9f917670f6585565328382ae0ed29c"' :
+                                        'id="xs-directives-links-module-SACBootstrap3ContextmenuModule-4d602b16d7227d2b7c696141587ca712cdc2f7a953cf1e8bb91f81195884c506dcd32435cc1a0ffbc354d3dfbb9e3bcf7b9f917670f6585565328382ae0ed29c"' }>
+                                        <li class="link">
+                                            <a href="directives/SacContextmenuAnchorDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacContextmenuAnchorDirective</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="directives/SacContextmenuContainerDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacContextmenuContainerDirective</a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </li>
                             <li class="link">
                                 <a href="modules/SACBootstrap3DateTimeModule.html" data-type="entity-link" >SACBootstrap3DateTimeModule</a>
@@ -440,13 +493,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SACBootstrap3UploadModule.html" data-type="entity-link" >SACBootstrap3UploadModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                            'data-bs-target="#components-links-module-SACBootstrap3UploadModule-ebf1a24ab6eede585306b9a7c41592af3e5c0c932626cac9562b66c8ab12121c59e190f40da0a63b890504b0079d56850e7fe41b74dc44c6e061437c356a8c46"' : 'data-bs-target="#xs-components-links-module-SACBootstrap3UploadModule-ebf1a24ab6eede585306b9a7c41592af3e5c0c932626cac9562b66c8ab12121c59e190f40da0a63b890504b0079d56850e7fe41b74dc44c6e061437c356a8c46"' }>
+                                            'data-bs-target="#components-links-module-SACBootstrap3UploadModule-d34f1e8c0fd8a97ff0ad0d56d00b0b54f79dc6cf9d1be5280c5f929c009bfd8bc35dc2503ae30e196e672f55c23ea4dc8441f42f2ca833ec83fda56c0a2125d7"' : 'data-bs-target="#xs-components-links-module-SACBootstrap3UploadModule-d34f1e8c0fd8a97ff0ad0d56d00b0b54f79dc6cf9d1be5280c5f929c009bfd8bc35dc2503ae30e196e672f55c23ea4dc8441f42f2ca833ec83fda56c0a2125d7"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SACBootstrap3UploadModule-ebf1a24ab6eede585306b9a7c41592af3e5c0c932626cac9562b66c8ab12121c59e190f40da0a63b890504b0079d56850e7fe41b74dc44c6e061437c356a8c46"' :
-                                            'id="xs-components-links-module-SACBootstrap3UploadModule-ebf1a24ab6eede585306b9a7c41592af3e5c0c932626cac9562b66c8ab12121c59e190f40da0a63b890504b0079d56850e7fe41b74dc44c6e061437c356a8c46"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SACBootstrap3UploadModule-d34f1e8c0fd8a97ff0ad0d56d00b0b54f79dc6cf9d1be5280c5f929c009bfd8bc35dc2503ae30e196e672f55c23ea4dc8441f42f2ca833ec83fda56c0a2125d7"' :
+                                            'id="xs-components-links-module-SACBootstrap3UploadModule-d34f1e8c0fd8a97ff0ad0d56d00b0b54f79dc6cf9d1be5280c5f929c009bfd8bc35dc2503ae30e196e672f55c23ea4dc8441f42f2ca833ec83fda56c0a2125d7"' }>
+                                            <li class="link">
+                                                <a href="components/SacDropzoneMultipleComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacDropzoneMultipleComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/SacDropzoneSingleComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacDropzoneSingleComponent</a>
+                                            </li>
                                             <li class="link">
                                                 <a href="components/SacUploadComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacUploadComponent</a>
                                             </li>
@@ -743,6 +802,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/PagerRequest.html" data-type="entity-link" >PagerRequest</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/PopUpHelper.html" data-type="entity-link" >PopUpHelper</a>
                             </li>
                             <li class="link">
                                 <a href="classes/Positioning.html" data-type="entity-link" >Positioning</a>

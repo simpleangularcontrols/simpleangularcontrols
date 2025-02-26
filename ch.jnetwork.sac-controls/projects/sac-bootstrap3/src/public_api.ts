@@ -4,10 +4,7 @@
 
 export * from './controls/buttons/button.module';
 export * from './controls/checkbox/checkbox.module';
-export {
-  SACBootstrap3ConfirmModule,
-  ServiceConfirm,
-} from './controls/confirm/confirm.module';
+export { SACBootstrap3ConfirmModule, ServiceConfirm } from './controls/confirm/confirm.module';
 export * from './controls/datetime/datetime.module';
 export * from './controls/dialog/dialog.module';
 export * from './controls/grid/grid.module';
@@ -22,11 +19,9 @@ export * from './controls/treeview/treeview.module';
 export * from './controls/upload/upload.module';
 export * from './controls/validation/validationsummary.module';
 export * from './controls/wizard/wizard.module';
-
 // Form Module and Classes
 export * from './controls/form/form';
 export * from './controls/form/form.module';
-
 // Export Controls
 export * from './controls/buttons/button';
 export * from './controls/checkbox/checkbox';
@@ -70,6 +65,8 @@ export * from './controls/tooltip/tooltip';
 export * from './controls/treeview/ngtreeitemaction';
 export * from './controls/treeview/treeview';
 export * from './controls/treeview/treeviewchild';
+export * from './controls/upload/dropzonemultiple';
+export * from './controls/upload/dropzonesingle';
 export * from './controls/upload/upload';
 export * from './controls/upload/uploadmultiple';
 export * from './controls/validation/validationsummary';

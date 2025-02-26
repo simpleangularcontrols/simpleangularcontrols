@@ -1,27 +1,30 @@
 <th
-  scope="col"
-  *ngIf="IsHeader()"
-  [style.width]="width"
-  (click)="SortByColumn()"
->
-  <span>{{header}}</span>
-  <span
-    class="ps-2"
-    [class]="IconSortUp"
-    *ngIf="IsSortedColumn() && GetSortDirection() ==='asc'"
-  ></span>
-  <span
-    class="ps-2"
-    [class]="IconSortDown"
-    *ngIf="IsSortedColumn() && GetSortDirection() ==='desc'"
-  ></span>
+    scope="col"
+    *ngIf="IsHeader()"
+    [style.width]="width"
+    (click)="SortByColumn()">
+    <span>{{ header }}</span>
+    <span
+        class="ps-2"
+        [class]="IconSortUp"
+        *ngIf="IsSortedColumn() && GetSortDirection() === 'asc'"></span>
+    <span
+        class="ps-2"
+        [class]="IconSortDown"
+        *ngIf="IsSortedColumn() && GetSortDirection() === 'desc'"></span>
 </th>
 <td
-  scope="col"
-  *ngIf="IsBody()"
-  [style.width]="width"
-  [class.ellipsis]="IsEllipsis()"
-  (click)="ColumnClick()"
->
-  <span [attr.title]="IsEllipsis() ? value : null"> {{value}} </span>
+    scope="col"
+    *ngIf="IsBody()"
+    [style.width]="width"
+    [class.ellipsis]="IsEllipsis()"
+    (click)="ColumnClick()"
+    [style.max-width]="IsEllipsis() ? width : null"
+    [style.overflow]="IsEllipsis() ? 'hidden' : null"
+    [style.text-overflow]="IsEllipsis() ? 'ellipsis' : null"
+    [style.white-space]="IsEllipsis() ? 'nowrap' : null">
+    <span
+        [attr.title]="IsEllipsis() ? value : null"
+        [innerHtml]="value">
+    </span>
 </td>

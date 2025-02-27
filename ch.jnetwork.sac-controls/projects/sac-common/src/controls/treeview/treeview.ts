@@ -1,19 +1,16 @@
-import { ISacIconService } from '../../interfaces/ISacIconService';
+import { SacBaseModelControl } from '../../common/basemodelcontrol';
 import { TreeviewAction } from '../../interfaces/treeviewaction.interface';
-import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
-import { Directive, EventEmitter, Injector, Input, OnInit, Output, TemplateRef } from '@angular/core';
+import { Validation } from '../../validation';
+import { SacFormLayoutCommon } from '../layout/formlayout';
+import { Directive, EventEmitter, Host, Injector, Input, Output, TemplateRef } from '@angular/core';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 /**
  * Basis Komponente für SacTreeView
  */
 @Directive()
-export class SacTreeviewCommon implements OnInit {
+export class SacTreeviewCommon extends SacBaseModelControl<any> {
     // #region Properties
-
-    /**
-     * Icon service to receive icon classes for ui
-     */
-    private readonly iconService: ISacIconService;
 
     /**
      * Event when Action is clicked on Node.  An object of the type 'TreeviewAction' is returned. In the default case, 'action' in this object is always the value 'default'. The value can be changed via the 'templateaction'.
@@ -105,6 +102,12 @@ export class SacTreeviewCommon implements OnInit {
     public expandedstate: boolean | string = true;
 
     /**
+     * A node must be selected
+     */
+    @Input()
+    public isrequired: boolean = false;
+
+    /**
      * Name of the TreeView control
      */
     @Input()
@@ -140,6 +143,17 @@ export class SacTreeviewCommon implements OnInit {
     @Input()
     public templatelabel: TemplateRef<any>;
 
+    /**
+     * Resource Key für Validation Message Required bei Control
+     */
+    @Input() public validationmessagerequired: string = this.validationKeyService.ValidationErrorRequired;
+
+    /**
+     * Resource Key für Validation Message Required in Validation Summary
+     */
+    @Input()
+    public validationmessagesummaryrequired: string = this.validationKeyService.ValidationErrorSummaryRequired;
+
     // #endregion Properties
 
     // #region Constructors
@@ -148,8 +162,8 @@ export class SacTreeviewCommon implements OnInit {
      * Constructor
      * @param injector Service Injector
      */
-    constructor(injector: Injector) {
-        this.iconService = injector.get(SACICON_SERVICE, new SacDefaultIconService());
+    constructor(@Host() formlayout: SacFormLayoutCommon, injector: Injector) {
+        super(formlayout, injector);
     }
 
     // #endregion Constructors
@@ -270,11 +284,6 @@ export class SacTreeviewCommon implements OnInit {
     }
 
     /**
-     * Method when the component is initialized
-     */
-    public ngOnInit() {}
-
-    /**
      * Method is called by clicking an action
      * @param action action and node
      */
@@ -318,6 +327,10 @@ export class SacTreeviewCommon implements OnInit {
         // set selected node as selected
         node[this.attrselected] = true;
 
+        // Update ngModel
+        this.setValue(node);
+
+        // Raise Selected Events
         this.selectednode.emit(node);
 
         if (!this.attrid) {
@@ -326,6 +339,16 @@ export class SacTreeviewCommon implements OnInit {
 
         let id = this.getStringField(node, this.attrid);
         this.selected.emit(id);
+    }
+
+    public validateData(c: AbstractControl): ValidationErrors | null {
+        let error: ValidationErrors | null = null;
+
+        if (this.isrequired) {
+            error = Validation.required(this.validationmessagerequired, this.validationmessagesummaryrequired)(c);
+        }
+
+        return error;
     }
 
     // #endregion Public Methods

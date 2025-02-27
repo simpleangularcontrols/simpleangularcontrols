@@ -130,11 +130,7 @@ export * from './controls/tinymce/tinymce';
 
 export * from './controls/tooltip/tooltip';
 
-export * from './controls/treeview/ngtreeitemaction';
-
 export * from './controls/treeview/treeview';
-
-export * from './controls/treeview/treeviewchild';
 
 export * from './controls/upload/dropzonemultiple';
 

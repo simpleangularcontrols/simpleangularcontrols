@@ -1,13 +1,71 @@
-<div class="row">
-    <div class="col-12">
-        <ul class="list-group list-group-flush">
-            <ng-container *ngFor="let node of data">
-                <ng-template
-                    [ngTemplateOutlet]="treeItem"
-                    [ngTemplateOutletContext]="{ node: node, deep: 0 }">
-                </ng-template>
-            </ng-container>
-        </ul>
+<div
+    class="row mb-3"
+    [class.g-0]="disablelabel">
+    <label
+        for="{{ name }}"
+        class="col-12 col-form-label d-flex"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'visually-hidden', componentHeight | toLabelHeight]"
+        [class.required]="isrequired">
+        <div
+            class="text flex-grow-0"
+            [class.flex-sm-grow-1]="splitlabelandhelptext">
+            {{ label }}
+        </div>
+        <sac-tooltip
+            *ngIf="helptextmode === 'tooltip' && helptext"
+            [tooltiptext]="helptext"
+            [inlinemode]="true">
+            <span
+                [ngClass]="HelptextTooltipIcon"
+                class="ms-1">
+            </span>
+        </sac-tooltip>
+    </label>
+    <div
+        class="col-12"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
+        [class.d-flex]="helptextmode === 'tooltip' && helptext && disablelabel">
+        <div [class.flex-grow-1]="helptextmode === 'tooltip' && helptext && disablelabel">
+            <ul
+                class="list-group list-group-flush"
+                id="{{ name }}"
+                [class.is-invalid]="invalid && (dirty || touched)"
+                [class.border]="invalid && (dirty || touched)"
+                [class.border-danger]="invalid && (dirty || touched)">
+                <ng-container *ngFor="let node of data">
+                    <ng-template
+                        [ngTemplateOutlet]="treeItem"
+                        [ngTemplateOutletContext]="{ node: node, deep: 0 }">
+                    </ng-template>
+                </ng-container>
+            </ul>
+
+            <div
+                *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+                class="invalid-feedback">
+                {{ GetErrorMessage() | async }}
+            </div>
+
+            <div
+                *ngIf="helptextmode === 'text' && helptext"
+                class="form-text">
+                {{ helptext }}
+            </div>
+        </div>
+
+        <div
+            *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
+            class="form-control-plaintext align-self-top ms-2 me-1 w-auto"
+            [ngClass]="[componentHeight | toControlHeight]">
+            <sac-tooltip
+                [tooltiptext]="helptext"
+                [inlinemode]="true">
+                <span
+                    [ngClass]="HelptextTooltipIcon"
+                    class="ml-1">
+                </span>
+            </sac-tooltip>
+        </div>
     </div>
 </div>
 <ng-template
@@ -16,6 +74,7 @@
     let-deep="deep">
     <li
         class="list-group-item py-1 px-2 d-flex align-items-center"
+        [class.active]="isSelectedState(node)"
         (mouseenter)="setHoverState(node, true)"
         (mouseleave)="setHoverState(node, false)"
         style="cursor: pointer">

@@ -1,4 +1,5 @@
-import { Component, Injector } from '@angular/core';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { Component, Host, Injector, Optional } from '@angular/core';
 import { SacTreeviewCommon } from '@simpleangularcontrols/sac-common';
 
 /**
@@ -13,10 +14,11 @@ export class SacTreeviewComponent extends SacTreeviewCommon {
 
     /**
      * Constructor
+     * @param formLayout SacFormLayout to define scoped layout settings
      * @param injector Component Injector
      */
-    constructor(injector: Injector) {
-        super(injector);
+    constructor(@Host() @Optional() formLayout: SacFormLayoutDirective, injector: Injector) {
+        super(formLayout, injector);
     }
 
     // #endregion Constructors

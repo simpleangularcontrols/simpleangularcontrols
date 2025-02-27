@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-12">
+        <ul class="list-group list-group-flush">
+            <ng-container *ngFor="let node of data">
+                <ng-template
+                    [ngTemplateOutlet]="treeItem"
+                    [ngTemplateOutletContext]="{ node: node, deep: 0 }">
+                </ng-template>
+            </ng-container>
+        </ul>
+    </div>
+</div>
+<ng-template
+    #treeItem
+    let-node="node"
+    let-deep="deep">
+    <li
+        class="list-group-item py-1 px-2 d-flex align-items-center"
+        (mouseenter)="setHoverState(node, true)"
+        (mouseleave)="setHoverState(node, false)"
+        style="cursor: pointer">
+        <div
+            class="mx-3"
+            *ngFor="let i of count(deep)">
+        </div>
+
+        <div
+            (click)="onNodeClicked(node)"
+            *ngIf="expandedstate === 'true' || expandedstate === true"
+            class="me-2"
+            [ngClass]="!hasChildren(node) ? iconFolderEmpty : !isExpandedState(node) ? iconFolderCollabsed : isExpandedState(node) ? iconFolderOpen : ''">
+        </div>
+
+        <div
+            (click)="onNodeClicked(node)"
+            *ngIf="attricon && getStringField(node, attricon)"
+            class="me-2"
+            [ngClass]="getStringField(node, attricon)">
+        </div>
+
+        <div
+            (click)="onNodeClicked(node)"
+            class="flex-grow-1 py-1"
+            [style.max-width.percent]="enableellipsis ? '100' : null"
+            [style.overflow]="enableellipsis ? 'hidden' : null"
+            [style.text-overflow]="enableellipsis ? 'ellipsis' : null"
+            [style.white-space]="enableellipsis ? 'nowrap' : null">
+            <ng-template
+                [ngTemplateOutlet]="templatelabel || defaultTemplateLabel"
+                [ngTemplateOutletContext]="{ node: node, label: getStringField(node, attrlabel) }">
+            </ng-template>
+        </div>
+
+        <div
+            (click)="setSelectedState(node)"
+            class="flex-shrink-0"
+            *ngIf="!isDisabledState(node) && (showactionalways || isSelectedState(node) || isHoverState(node))">
+            <ng-template
+                [ngTemplateOutlet]="templateaction || defaultTemplateAction"
+                [ngTemplateOutletContext]="{ node: node, actionhandler: onActionClicked.bind(this) }">
+            </ng-template>
+        </div>
+    </li>
+
+    <ng-container *ngIf="isExpandedState(node)">
+        <ng-template
+            *ngFor="let child of getChildren(node)"
+            [ngTemplateOutlet]="treeItem"
+            [ngTemplateOutletContext]="{ node: child, deep: deep + 1 }">
+        </ng-template>
+    </ng-container>
+</ng-template>
+<ng-template
+    #defaultTemplateLabel
+    let-label="label"
+    let-node="node">
+    <span>
+        {{ label }}
+    </span>
+</ng-template>
+
+<ng-template
+    #defaultTemplateAction
+    let-node="node"
+    let-actionhandler="actionhandler">
+    <a
+        class="btn btn-sm btn-link text-secondary"
+        (click)="actionhandler({ action: 'default', node: node })">
+        <i [class]="iconAction"></i>
+    </a>
+</ng-template>

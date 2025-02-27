@@ -15,11 +15,7 @@ export * from './controls/datetime/datetime.module';
 
 export * from './controls/dialog/dialog.module';
 
-export * from './controls/form/form';
-
 export * from './controls/form/form.module';
-
-export * from './controls/form/inheritform.directive';
 
 export * from './controls/grid/grid.module';
 
@@ -40,6 +36,8 @@ export * from './controls/tabs/tabs.module';
 export * from './controls/tinymce/tinymce.module';
 
 export * from './controls/tooltip/tooltip.module';
+
+export * from './controls/treeview/treeview.module';
 
 export * from './controls/upload/upload.module';
 
@@ -137,6 +135,8 @@ export * from './controls/tabs/tabitem';
 export * from './controls/tinymce/tinymce';
 
 export * from './controls/tooltip/tooltip';
+
+export * from './controls/treeview/treeview';
 
 export * from './controls/upload/dropzonemultiple';
 

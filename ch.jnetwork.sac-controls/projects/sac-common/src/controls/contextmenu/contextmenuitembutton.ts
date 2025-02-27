@@ -1,116 +1,134 @@
-import {
-  Directive,
-  EventEmitter,
-  HostListener,
-  Input,
-  Output,
-} from '@angular/core';
 import { SacContextmenuCommon } from './contextmenu';
 import { SacContextmenuItemCommon } from './contextmenuitem';
+import { Directive, EventEmitter, Input, Output } from '@angular/core';
 
 /**
  * Base Context Menu Button Item
  */
 @Directive()
 export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
-  /**
-   * Constructor
-   * @param contextmenu Instance of Context Menü.
-   */
-  constructor(protected contextmenu: SacContextmenuCommon) {
-    super();
-  }
+    // #region Properties
 
-  /**
-   * Menu Item ist deaktiviert
-   */
-  protected _isdisabled: boolean = false;
+    /**
+     * Menu Item ist deaktiviert
+     */
+    protected _isdisabled: boolean = false;
 
-  /**
-   * Icon Column in Menü ist deaktiviert
-   */
-  protected _isicondisabled: boolean = false;
+    /**
+     * Icon Column in Menü ist deaktiviert
+     */
+    protected _isicondisabled: boolean = false;
 
-  /**
-   * Icon für Menü
-   */
-  @Input()
-  public icon: string;
+    /**
+     * Event wenn auf den Button geklickt wird
+     */
+    @Output()
+    public clicked: EventEmitter<void> = new EventEmitter<void>();
 
-  /**
-   * css class for button styling
-   */
-  @Input()
-  public cssclass: string = '';
+    /**
+     * css class for button styling
+     */
+    @Input()
+    public cssclass: string = '';
 
-  /**
-   * Input Property für Styling des Buttons. Definiert die Css Klassen des Buttons
-   */
-  @Input()
-  public iconstyle: string = '';
+    /**
+     * Icon für Menü
+     */
+    @Input()
+    public icon: string;
 
-  /**
-   * Image für Menü. Wird benötigt wenn das Icon für den Button ein File und nicht ein Icon Font ist.
-   */
-  @Input()
-  public image: string;
+    /**
+     * Input Property für Styling des Buttons. Definiert die Css Klassen des Buttons
+     */
+    @Input()
+    public iconstyle: string = '';
 
-  /**
-   * Menu Item ist deaktiviert
-   */
-  @Input()
-  public set isdisabled(v: boolean | string) {
-    if (v === null || v === undefined || typeof v === 'boolean') {
-      this._isdisabled = v as boolean;
-    } else {
-      this._isdisabled = v === 'true';
+    /**
+     * Image für Menü. Wird benötigt wenn das Icon für den Button ein File und nicht ein Icon Font ist.
+     */
+    @Input()
+    public image: string;
+
+    /**
+     * name of button. used for generate id and name
+     */
+    @Input()
+    public name: string = '';
+
+    /**
+     * Text für Menü Item.
+     */
+    @Input()
+    public text: string;
+
+    // #endregion Properties
+
+    // #region Constructors
+
+    /**
+     * Constructor
+     * @param contextmenu Instance of Context Menü.
+     */
+    constructor(protected contextmenu: SacContextmenuCommon) {
+        super();
     }
-  }
-  /**
-   * Menu Item ist deaktiviert
-   */
-  public get isdisabled(): boolean | string {
-    return this._isdisabled;
-  }
 
-  /**
-   * Icon Column in Menü ist deaktiviert
-   */
-  @Input()
-  public set isicondisabled(v: boolean | string) {
-    if (v === null || v === undefined || typeof v === 'boolean') {
-      this._isicondisabled = v as boolean;
-    } else {
-      this._isicondisabled = v === 'true';
+    // #endregion Constructors
+
+    // #region Public Getters And Setters
+
+    /**
+     * Menu Item ist deaktiviert
+     */
+    public get isdisabled(): boolean | string {
+        return this._isdisabled;
     }
-  }
-  /**
-   * Icon Column in Menü ist deaktiviert
-   */
-  public get isicondisabled(): boolean | string {
-    return this._isicondisabled;
-  }
 
-  /**
-   * Text für Menü Item.
-   */
-  @Input()
-  public text: string;
-
-  /**
-   * Event wenn auf den Button geklickt wird
-   */
-  @Output()
-  clicked: EventEmitter<void> = new EventEmitter<void>();
-
-  /**
-   * Die Methode wird das cklickaction Emitter aktivieren
-   */
-  public callaction(event: MouseEvent) {
-    if (!this._isdisabled) {
-      this.clicked.emit();
-      this.contextmenu.close();
+    /**
+     * Menu Item ist deaktiviert
+     */
+    @Input()
+    public set isdisabled(v: boolean | string) {
+        if (v === null || v === undefined || typeof v === 'boolean') {
+            this._isdisabled = v as boolean;
+        } else {
+            this._isdisabled = v === 'true';
+        }
     }
-    event.stopPropagation();
-  }
+
+    /**
+     * Icon Column in Menü ist deaktiviert
+     */
+    public get isicondisabled(): boolean | string {
+        return this._isicondisabled;
+    }
+
+    /**
+     * Icon Column in Menü ist deaktiviert
+     */
+    @Input()
+    public set isicondisabled(v: boolean | string) {
+        if (v === null || v === undefined || typeof v === 'boolean') {
+            this._isicondisabled = v as boolean;
+        } else {
+            this._isicondisabled = v === 'true';
+        }
+    }
+
+    // #endregion Public Getters And Setters
+
+    // #region Public Methods
+
+    /**
+     * Die Methode wird das cklickaction Emitter aktivieren
+     */
+    public callaction(event: MouseEvent) {
+        if (!this._isdisabled) {
+            this.clicked.emit();
+            this.contextmenu.close();
+        }
+        event.stopPropagation();
+    }
+
+    // #endregion Public Methods
 }

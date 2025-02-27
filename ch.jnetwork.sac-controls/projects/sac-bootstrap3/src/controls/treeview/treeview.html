@@ -1,6 +1,7 @@
 <div
     class="row mb-3"
-    [class.g-0]="disablelabel">
+    [class.g-0]="disablelabel"
+    [class.has-error]="invalid && (dirty || touched)">
     <label
         *ngIf="disablelabel === false && !isAdaptiveLabel"
         id="{{ name }}label"

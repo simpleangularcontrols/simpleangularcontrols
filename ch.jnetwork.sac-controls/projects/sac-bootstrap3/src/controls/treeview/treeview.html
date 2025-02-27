@@ -1,1 +1,158 @@
-<div>Treeview Component</div>
+<div
+    class="row mb-3"
+    [class.g-0]="disablelabel">
+    <label
+        *ngIf="disablelabel === false && !isAdaptiveLabel"
+        id="{{ name }}label"
+        for="{{ name }}"
+        class="col-xs-12 control-label"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only']"
+        [class.required]="isrequired">
+        <span class="text">{{ label }}</span>
+        <sac-tooltip
+            *ngIf="helptextmode === 'tooltip' && helptext"
+            [tooltiptext]="helptext"
+            [inlinemode]="true">
+            <span
+                [class]="HelptextTooltipIcon"
+                style="margin-left: 5px">
+            </span>
+        </sac-tooltip>
+    </label>
+    <div
+        class="col-xs-12"
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
+        [class.has-error]="isinlineerrorenabled && invalid && (dirty || touched)">
+        <div [style.display]="helptextmode === 'tooltip' && helptext && disablelabel ? 'flex' : null">
+            <div [style.width.%]="helptextmode === 'tooltip' && helptext && disablelabel ? '100' : null">
+                <table
+                    class="table table-hover table-condensed"
+                    id="{{ name }}"
+                    style="table-layout: fixed"
+                    [class.is-invalid]="invalid && (dirty || touched)"
+                    [class.border]="invalid && (dirty || touched)"
+                    [class.border-danger]="invalid && (dirty || touched)">
+                    <tbody>
+                        <ng-container *ngFor="let node of data">
+                            <ng-template
+                                [ngTemplateOutlet]="treeItem"
+                                [ngTemplateOutletContext]="{ node: node, deep: 0 }">
+                            </ng-template>
+                        </ng-container>
+                    </tbody>
+                </table>
+
+                <div
+                    *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+                    class="help-block">
+                    {{ GetErrorMessage() | async }}
+                </div>
+
+                <p
+                    *ngIf="helptextmode === 'text' && helptext"
+                    class="help-block">
+                    {{ helptext }}
+                </p>
+            </div>
+
+            <div
+                *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
+                class="form-control-static"
+                style="margin-left: 5px">
+                <sac-tooltip
+                    *ngIf="helptextmode === 'tooltip' && helptext"
+                    [tooltiptext]="helptext"
+                    [inlinemode]="true">
+                    <span
+                        [class]="HelptextTooltipIcon"
+                        style="margin-left: 5px; margin-right: 5px">
+                    </span>
+                </sac-tooltip>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template
+    #treeItem
+    let-node="node"
+    let-deep="deep">
+    <tr
+        ><td>
+            <div
+                class="py-1 px-2 d-flex align-items-center"
+                style="display: flex; flex-direction: row; cursor: pointer; align-items: center"
+                [class.active]="isSelectedState(node)"
+                (mouseenter)="setHoverState(node, true)"
+                (mouseleave)="setHoverState(node, false)">
+                <div
+                    style="margin-right: 15px"
+                    *ngFor="let i of count(deep)">
+                </div>
+
+                <div
+                    (click)="onNodeClicked(node)"
+                    *ngIf="expandedstate === 'true' || expandedstate === true"
+                    style="margin-right: 15px"
+                    [ngClass]="!hasChildren(node) ? iconFolderEmpty : !isExpandedState(node) ? iconFolderCollabsed : isExpandedState(node) ? iconFolderOpen : ''">
+                </div>
+
+                <div
+                    (click)="onNodeClicked(node)"
+                    *ngIf="attricon && getStringField(node, attricon)"
+                    style="margin-right: 15px"
+                    [ngClass]="getStringField(node, attricon)">
+                </div>
+
+                <div
+                    (click)="onNodeClicked(node)"
+                    style="padding-top: 5px; padding-bottom: 5px; flex-grow: 1"
+                    [style.max-width.%]="enableellipsis ? '100' : null"
+                    [style.overflow]="enableellipsis ? 'hidden' : null"
+                    [style.text-overflow]="enableellipsis ? 'ellipsis' : null"
+                    [style.white-space]="enableellipsis ? 'nowrap' : null">
+                    <ng-template
+                        [ngTemplateOutlet]="templatelabel || defaultTemplateLabel"
+                        [ngTemplateOutletContext]="{ node: node, label: getStringField(node, attrlabel) }">
+                    </ng-template>
+                </div>
+
+                <div
+                    (click)="setSelectedState(node)"
+                    style="flex-shrink: 0"
+                    *ngIf="!isDisabledState(node) && (showactionalways || isSelectedState(node) || isHoverState(node))">
+                    <ng-template
+                        [ngTemplateOutlet]="templateaction || defaultTemplateAction"
+                        [ngTemplateOutletContext]="{ node: node, actionhandler: onActionClicked.bind(this) }">
+                    </ng-template>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <ng-container *ngIf="isExpandedState(node)">
+        <ng-template
+            *ngFor="let child of getChildren(node)"
+            [ngTemplateOutlet]="treeItem"
+            [ngTemplateOutletContext]="{ node: child, deep: deep + 1 }">
+        </ng-template>
+    </ng-container>
+</ng-template>
+
+<ng-template
+    #defaultTemplateLabel
+    let-label="label"
+    let-node="node">
+    <span>
+        {{ label }}
+    </span>
+</ng-template>
+
+<ng-template
+    #defaultTemplateAction
+    let-node="node"
+    let-actionhandler="actionhandler">
+    <a
+        class="btn btn-sm btn-link text-secondary"
+        (click)="actionhandler({ action: 'default', node: node })">
+        <i [class]="iconAction"></i>
+    </a>
+</ng-template>

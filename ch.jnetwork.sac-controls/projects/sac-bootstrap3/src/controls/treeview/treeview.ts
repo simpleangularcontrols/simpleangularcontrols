@@ -1,5 +1,6 @@
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
-import { Component, Host, Injector, Optional } from '@angular/core';
+import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacTreeviewCommon } from '@simpleangularcontrols/sac-common';
 
 /**
@@ -8,6 +9,18 @@ import { SacTreeviewCommon } from '@simpleangularcontrols/sac-common';
 @Component({
     selector: 'sac-treeview',
     templateUrl: './treeview.html',
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SacTreeviewComponent,
+        },
+        {
+            provide: NG_VALIDATORS,
+            useExisting: forwardRef(() => SacTreeviewComponent),
+            multi: true,
+        },
+    ],
 })
 export class SacTreeviewComponent extends SacTreeviewCommon {
     // #region Constructors

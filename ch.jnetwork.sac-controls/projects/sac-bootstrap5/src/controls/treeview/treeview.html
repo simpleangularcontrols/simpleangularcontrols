@@ -23,48 +23,52 @@
     </label>
     <div
         class="col-12"
-        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
-        [class.d-flex]="helptextmode === 'tooltip' && helptext && disablelabel">
-        <div [class.flex-grow-1]="helptextmode === 'tooltip' && helptext && disablelabel">
-            <ul
-                class="list-group list-group-flush"
-                id="{{ name }}"
-                [class.is-invalid]="invalid && (dirty || touched)"
-                [class.border]="invalid && (dirty || touched)"
-                [class.border-danger]="invalid && (dirty || touched)">
-                <ng-container *ngFor="let node of data">
-                    <ng-template
-                        [ngTemplateOutlet]="treeItem"
-                        [ngTemplateOutletContext]="{ node: node, deep: 0 }">
-                    </ng-template>
-                </ng-container>
-            </ul>
-
+        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']">
+        <div [class.d-flex]="helptextmode === 'tooltip' && helptext && disablelabel">
             <div
-                *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
-                class="invalid-feedback">
-                {{ GetErrorMessage() | async }}
+                class="w-100"
+                [style.min-width]="helptextmode === 'tooltip' && helptext && disablelabel ? 0 : null"
+                [class.me-1]="helptextmode === 'tooltip' && helptext && disablelabel">
+                <ul
+                    class="list-group list-group-flush"
+                    id="{{ name }}"
+                    [class.is-invalid]="invalid && (dirty || touched)"
+                    [class.border]="invalid && (dirty || touched)"
+                    [class.border-danger]="invalid && (dirty || touched)">
+                    <ng-container *ngFor="let node of data">
+                        <ng-template
+                            [ngTemplateOutlet]="treeItem"
+                            [ngTemplateOutletContext]="{ node: node, deep: 0 }">
+                        </ng-template>
+                    </ng-container>
+                </ul>
+
+                <div
+                    *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
+                    class="invalid-feedback">
+                    {{ GetErrorMessage() | async }}
+                </div>
+
+                <div
+                    *ngIf="helptextmode === 'text' && helptext"
+                    class="form-text">
+                    {{ helptext }}
+                </div>
             </div>
 
             <div
-                *ngIf="helptextmode === 'text' && helptext"
-                class="form-text">
-                {{ helptext }}
+                *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
+                class="form-control-plaintext align-self-top ms-2 me-1 w-auto"
+                [ngClass]="[componentHeight | toControlHeight]">
+                <sac-tooltip
+                    [tooltiptext]="helptext"
+                    [inlinemode]="true">
+                    <span
+                        [ngClass]="HelptextTooltipIcon"
+                        class="ml-1">
+                    </span>
+                </sac-tooltip>
             </div>
-        </div>
-
-        <div
-            *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
-            class="form-control-plaintext align-self-top ms-2 me-1 w-auto"
-            [ngClass]="[componentHeight | toControlHeight]">
-            <sac-tooltip
-                [tooltiptext]="helptext"
-                [inlinemode]="true">
-                <span
-                    [ngClass]="HelptextTooltipIcon"
-                    class="ml-1">
-                </span>
-            </sac-tooltip>
         </div>
     </div>
 </div>
@@ -99,7 +103,7 @@
 
         <div
             (click)="onNodeClicked(node)"
-            class="flex-grow-1 py-1"
+            class="me-auto py-1"
             [style.max-width.percent]="enableellipsis ? '100' : null"
             [style.overflow]="enableellipsis ? 'hidden' : null"
             [style.text-overflow]="enableellipsis ? 'ellipsis' : null"

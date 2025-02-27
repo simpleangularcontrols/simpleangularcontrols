@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
     SACBootstrap3ButtonModule,
+    SACBootstrap3ContextmenuModule,
     SACBootstrap3FormModule,
     SACBootstrap3TreeviewModule,
     SACBootstrap3ValidationSummaryModule,
@@ -20,6 +21,7 @@ import {
         SACBootstrap3ButtonModule,
         SACBootstrap3ValidationSummaryModule,
         SACBootstrap3TreeviewModule,
+        SACBootstrap3ContextmenuModule,
     ],
 })
 export class TreeviewModule {}

@@ -2,5 +2,173 @@
 <form
     #myForm="sacform"
     labelsize="3">
-    <sac-treeview></sac-treeview>
+    <div class="mb-2">
+        <sac-button
+            (clicked)="validateForm()"
+            text="Validate">
+        </sac-button>
+    </div>
+    <sac-validationsummary></sac-validationsummary>
+
+    <h3>Treeview with default options</h3>
+
+    <sac-treeview
+        label="Treeview"
+        [data]="data1"
+        helptext="User Help Text">
+    </sac-treeview>
+
+    <h3>Treeview with default options and tooltip</h3>
+
+    <sac-treeview
+        label="Treeview"
+        [data]="data1"
+        helptext="User Help Text"
+        helptextmode="tooltip">
+    </sac-treeview>
+
+    <h3>Treeview with disabled label and helptext</h3>
+
+    <sac-treeview
+        label="Treeview"
+        [disablelabel]="true"
+        [data]="data1"
+        helptext="User Help Text">
+    </sac-treeview>
+
+    <h3>Treeview with disabled label and tooltip helptext</h3>
+
+    <sac-treeview
+        label="Treeview"
+        [disablelabel]="true"
+        [data]="data1"
+        helptext="User Help Text"
+        helptextmode="tooltip">
+    </sac-treeview>
+
+    <h3>Treeview with all actions visible</h3>
+
+    Model: {{ selectedNode | json }}
+
+    <sac-treeview
+        name="treeview"
+        label="Treeview"
+        helptext="User Help Text"
+        helptextmode="tooltip"
+        [isrequired]="true"
+        [(ngModel)]="selectedNode"
+        [data]="data1"
+        [showactionalways]="true"
+        attricon="icon"
+        (selected)="onSelected($event)"
+        (selectednode)="onSelectedNode($event)"
+        (expanded)="onExpand($event)"
+        (collabsed)="onCollabse($event)">
+    </sac-treeview>
+
+    <h3>Treeview with all actions visible</h3>
+
+    Model: {{ selectedNode | json }}
+
+    <sac-treeview
+        name="treeview2"
+        label="Treeview"
+        helptext="User Help Text"
+        [isrequired]="true"
+        [(ngModel)]="selectedNode"
+        [data]="data1"
+        [showactionalways]="true"
+        attricon="icon"
+        (selected)="onSelected($event)"
+        (selectednode)="onSelectedNode($event)"
+        (expanded)="onExpand($event)"
+        (collabsed)="onCollabse($event)">
+    </sac-treeview>
+
+    <h3>Treeview with all actions visible and disabled label</h3>
+
+    Model: {{ selectedNode | json }}
+
+    <sac-treeview
+        name="treeview3"
+        [disablelabel]="true"
+        helptext="User Help Text"
+        helptextmode="tooltip"
+        [isrequired]="true"
+        [(ngModel)]="selectedNode"
+        [data]="data1"
+        [showactionalways]="true"
+        attricon="icon"
+        (selected)="onSelected($event)"
+        (selectednode)="onSelectedNode($event)"
+        (expanded)="onExpand($event)"
+        (collabsed)="onCollabse($event)">
+    </sac-treeview>
+
+    <h3>Treeview without expanded state</h3>
+
+    <sac-treeview
+        label="Treeview"
+        [data]="data1"
+        [expandedstate]="false"
+        (actionclicked)="debugAction($event)"
+        attricon="icon">
+    </sac-treeview>
+
+    <sac-treeview
+        label="Treeview"
+        [data]="data1"
+        [expandedstate]="false"
+        (actionclicked)="debugAction($event)"
+        attricon="icon">
+    </sac-treeview>
+
+    <h3>Treeview with Custom Actions</h3>
+
+    <sac-treeview
+        label="Treeview"
+        [data]="data1"
+        [expandedstate]="false"
+        [templateaction]="templateaction"
+        (actionclicked)="debugAction($event)"
+        attricon="icon">
+        <ng-template
+            #templateaction
+            let-node="node"
+            let-actionhandler="actionhandler">
+            <a
+                class="btn btn-sm btn-link text-secondary"
+                (click)="actionhandler({ action: 'edit', node: node })">
+                <i class="fa fa-edit"></i>
+            </a>
+            <sac-contextmenu cssclass="d-inline-block">
+                <sac-contextmenubutton
+                    text="Ordner erstellen"
+                    icon="fa fa-new"
+                    (clicked)="actionhandler({ action: 'add', node: node })">
+                </sac-contextmenubutton>
+                <sac-contextmenubutton
+                    text="Ordner löschen"
+                    icon="fa fa-trash"
+                    (clicked)="actionhandler({ action: 'delete', node: node })">
+                </sac-contextmenubutton>
+                <sac-contextmenusplitter></sac-contextmenusplitter>
+                <sac-contextmenubutton
+                    text="Aktualisieren"
+                    icon="fa fa-refresh"
+                    (clicked)="actionhandler({ action: 'refresh', node: node })">
+                </sac-contextmenubutton>
+            </sac-contextmenu>
+        </ng-template>
+    </sac-treeview>
+
+    <h3>Treeview which loads nodes when expanding</h3>
+
+    <sac-treeview
+        label="Treeview"
+        [data]="data1"
+        [enableasynchload]="true"
+        attricon="icon"
+        (expanded)="appendNode($event)">
+    </sac-treeview>
 </form>

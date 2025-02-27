@@ -77,7 +77,7 @@
     let-node="node"
     let-deep="deep">
     <li
-        class="list-group-item py-1 px-2 d-flex align-items-center"
+        class="list-group-item list-group-item-action py-1 px-2 d-flex align-items-center"
         [class.active]="isSelectedState(node)"
         (mouseenter)="setHoverState(node, true)"
         (mouseleave)="setHoverState(node, false)"
@@ -103,7 +103,7 @@
 
         <div
             (click)="onNodeClicked(node)"
-            class="me-auto py-1"
+            class="flex-grow-1 py-1"
             [style.max-width.percent]="enableellipsis ? '100' : null"
             [style.overflow]="enableellipsis ? 'hidden' : null"
             [style.text-overflow]="enableellipsis ? 'ellipsis' : null"
@@ -137,7 +137,7 @@
     #defaultTemplateLabel
     let-label="label"
     let-node="node">
-    <span>
+    <span [title]="label">
         {{ label }}
     </span>
 </ng-template>

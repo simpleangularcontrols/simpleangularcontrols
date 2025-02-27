@@ -76,12 +76,11 @@
     #treeItem
     let-node="node"
     let-deep="deep">
-    <tr
-        ><td>
+    <tr [class.active]="isSelectedState(node)">
+        <td>
             <div
                 class="py-1 px-2 d-flex align-items-center"
                 style="display: flex; flex-direction: row; cursor: pointer; align-items: center"
-                [class.active]="isSelectedState(node)"
                 (mouseenter)="setHoverState(node, true)"
                 (mouseleave)="setHoverState(node, false)">
                 <div
@@ -105,7 +104,7 @@
 
                 <div
                     (click)="onNodeClicked(node)"
-                    style="padding-top: 5px; padding-bottom: 5px; flex-grow: 1"
+                    style="padding-top: 7px; padding-bottom: 7px; flex-grow: 1"
                     [style.max-width.%]="enableellipsis ? '100' : null"
                     [style.overflow]="enableellipsis ? 'hidden' : null"
                     [style.text-overflow]="enableellipsis ? 'ellipsis' : null"
@@ -141,7 +140,7 @@
     #defaultTemplateLabel
     let-label="label"
     let-node="node">
-    <span>
+    <span [title]="label">
         {{ label }}
     </span>
 </ng-template>
@@ -151,7 +150,7 @@
     let-node="node"
     let-actionhandler="actionhandler">
     <a
-        class="btn btn-sm btn-link text-secondary"
+        class="btn btn-link text-secondary"
         (click)="actionhandler({ action: 'default', node: node })">
         <i [class]="iconAction"></i>
     </a>

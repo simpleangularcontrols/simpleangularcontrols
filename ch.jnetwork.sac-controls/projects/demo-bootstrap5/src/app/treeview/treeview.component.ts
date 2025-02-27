@@ -59,6 +59,7 @@ export class DemoTreeviewComponent {
     @ViewChild('myForm')
     public myForm: SacFormDirective;
     public public;
+    public selectedNode: any | null = null;
 
     // #endregion Properties
 
@@ -97,6 +98,10 @@ export class DemoTreeviewComponent {
 
     public onSelectedNode(node: any) {
         console.log('Select Node: ' + node.label);
+    }
+
+    public validateForm(): void {
+        this.myForm.markAsTouched();
     }
 
     // #endregion Public Methods

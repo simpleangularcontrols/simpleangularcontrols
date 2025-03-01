@@ -1,4 +1,3 @@
-import { SacContextmenuCommon } from './contextmenu';
 import { SacContextmenuItemCommon } from './contextmenuitem';
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
 
@@ -67,9 +66,8 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
 
     /**
      * Constructor
-     * @param contextmenu Instance of Context Menü.
      */
-    constructor(protected contextmenu: SacContextmenuCommon) {
+    constructor() {
         super();
     }
 
@@ -125,7 +123,10 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
     public callaction(event: MouseEvent) {
         if (!this._isdisabled) {
             this.clicked.emit();
-            this.contextmenu.close();
+
+            if (this.contextmenu !== null) {
+                this.contextmenu.close();
+            }
         }
         event.stopPropagation();
     }

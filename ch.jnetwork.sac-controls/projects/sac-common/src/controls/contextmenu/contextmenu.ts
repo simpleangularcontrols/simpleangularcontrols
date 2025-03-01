@@ -22,7 +22,6 @@ import {
     Renderer2,
     TemplateRef,
     ViewChild,
-    forwardRef,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -93,7 +92,7 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     /**
      * All directly assigned context menu elements that are defined in the direct template for the context menu.
      */
-    @ContentChildren(forwardRef(() => SacContextmenuItemCommon))
+    @ContentChildren(SacContextmenuItemCommon)
     public menuitems!: QueryList<SacContextmenuItemCommon>;
 
     /**

@@ -1,29 +1,32 @@
 import { NgIf } from '@angular/common';
-import { Component } from '@angular/core';
-import {
-  SacContextmenuCommon,
-  SacContextmenuItemButtonCommon,
-} from '@simpleangularcontrols/sac-common';
+import { Component, forwardRef } from '@angular/core';
+import { SacContextmenuItemButtonCommon, SacContextmenuItemCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Component für Menü Eintrag in Context Menü
+ * Component for menu entry in context menu
  */
 @Component({
-  selector: 'sac-multilanguagemenubutton',
-  templateUrl: './multilanguagemenuitembutton.html',
-  standalone: true,
-  imports: [NgIf],
+    selector: 'sac-multilanguagemenubutton',
+    templateUrl: './multilanguagemenuitembutton.html',
+    providers: [
+        {
+            provide: SacContextmenuItemCommon,
+            useExisting: forwardRef(() => SacMultilanguagemenuItemButtonComponent),
+        },
+    ],
+    standalone: true,
+    imports: [NgIf],
 })
 export class SacMultilanguagemenuItemButtonComponent extends SacContextmenuItemButtonCommon {
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Constructor
-   * @param contextmenu Instance von Context Menü
-   */
-  constructor(contextmenu: SacContextmenuCommon) {
-    super(contextmenu);
-  }
+    /**
+     * Constructor
+     * @param contextmenu Instance von Context Menü
+     */
+    constructor() {
+        super();
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 }

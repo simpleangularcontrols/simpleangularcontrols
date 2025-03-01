@@ -2,6 +2,7 @@
     [class.disabled]="isdisabled"
     [ngClass]="cssclass">
     <a
+        [id]="name"
         (click)="callaction($event)"
         [attr.disabled]="isdisabled ? 'disabled' : null"
         [ngStyle]="{ cursor: !isdisabled ? 'pointer' : null }"

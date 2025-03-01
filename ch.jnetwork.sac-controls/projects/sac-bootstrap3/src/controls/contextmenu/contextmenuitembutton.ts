@@ -1,13 +1,19 @@
 import { NgClass, NgIf, NgStyle } from '@angular/common';
-import { Component, ElementRef, OnInit } from '@angular/core';
-import { SacContextmenuCommon, SacContextmenuItemButtonCommon } from '@simpleangularcontrols/sac-common';
+import { Component, ElementRef, OnInit, forwardRef } from '@angular/core';
+import { SacContextmenuItemButtonCommon, SacContextmenuItemCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Component für Menü Eintrag in Context Menü
+ * Component for menu entry in context menu
  */
 @Component({
     selector: 'sac-contextmenubutton',
     templateUrl: './contextmenuitembutton.html',
+    providers: [
+        {
+            provide: SacContextmenuItemCommon,
+            useExisting: forwardRef(() => SacContextmenuItemButtonComponent),
+        },
+    ],
     standalone: true,
     imports: [NgIf, NgStyle, NgClass],
 })
@@ -18,8 +24,8 @@ export class SacContextmenuItemButtonComponent extends SacContextmenuItemButtonC
      * Constructor
      * @param contextmenu Instance von Context Menü
      */
-    constructor(contextmenu: SacContextmenuCommon, private readonly el: ElementRef) {
-        super(contextmenu);
+    constructor(private readonly el: ElementRef) {
+        super();
     }
 
     // #endregion Constructors

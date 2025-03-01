@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, forwardRef } from '@angular/core';
 import { SacContextmenuItemCommon } from '@simpleangularcontrols/sac-common';
 
 /**
@@ -8,5 +8,11 @@ import { SacContextmenuItemCommon } from '@simpleangularcontrols/sac-common';
     selector: 'sac-contextmenusplitter',
     templateUrl: './contextmenuitemsplitter.html',
     standalone: true,
+    providers: [
+        {
+            provide: SacContextmenuItemCommon,
+            useExisting: forwardRef(() => SacContextmenuItemSplitterComponent),
+        },
+    ],
 })
 export class SacContextmenuItemSplitterComponent extends SacContextmenuItemCommon {}

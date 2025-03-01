@@ -1,3 +1,4 @@
+import { InjectDemoComponent } from './injectdemo.component';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SACBootstrap3ContextmenuModule, SACBootstrap3FormModule } from '@simpleangularcontrols/sac-bootstrap3';
@@ -6,7 +7,7 @@ import { SACBootstrap3ContextmenuModule, SACBootstrap3FormModule } from '@simple
     selector: 'app-contextmenu',
     templateUrl: './contextmenu.component.html',
     standalone: true,
-    imports: [FormsModule, SACBootstrap3ContextmenuModule, SACBootstrap3FormModule],
+    imports: [FormsModule, InjectDemoComponent, SACBootstrap3ContextmenuModule, SACBootstrap3FormModule],
 })
 export class DemoContextmenuComponent {
     // #region Public Methods

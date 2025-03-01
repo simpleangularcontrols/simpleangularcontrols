@@ -24,21 +24,21 @@
 <title>cluster_SACBootstrap3DateTimeModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-379.59 2649,-379.59 2649,-70 8,-70"/>
 </g>
-<g id="clust8" class="cluster">
-<title>cluster_SACBootstrap3DateTimeModule_exports</title>
-<polygon fill="none" stroke="black" points="257,-319.59 257,-371.59 931,-371.59 931,-319.59 257,-319.59"/>
-</g>
 <g id="clust3" class="cluster">
 <title>cluster_SACBootstrap3DateTimeModule_SacDateComponent_providers</title>
 <polygon fill="none" stroke="black" points="959,-78 959,-241.59 2641,-241.59 2641,-78 959,-78"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap3DateTimeModule_declarations</title>
-<polygon fill="none" stroke="black" points="436,-189.59 436,-241.59 951,-241.59 951,-189.59 436,-189.59"/>
+<g id="clust8" class="cluster">
+<title>cluster_SACBootstrap3DateTimeModule_exports</title>
+<polygon fill="none" stroke="black" points="205,-319.59 205,-371.59 879,-371.59 879,-319.59 205,-319.59"/>
 </g>
 <g id="clust7" class="cluster">
 <title>cluster_SACBootstrap3DateTimeModule_imports</title>
-<polygon fill="none" stroke="black" points="16,-189.59 16,-241.59 428,-241.59 428,-189.59 16,-189.59"/>
+<polygon fill="none" stroke="black" points="539,-189.59 539,-241.59 951,-241.59 951,-189.59 539,-189.59"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_SACBootstrap3DateTimeModule_declarations</title>
+<polygon fill="none" stroke="black" points="16,-189.59 16,-241.59 531,-241.59 531,-189.59 16,-189.59"/>
 </g>
 <!-- SacDateComponent -->
 <g id="node1" class="node">
@@ -49,98 +49,98 @@
 <!-- SACBootstrap3DateTimeModule -->
 <g id="node5" class="node">
 <title>SACBootstrap3DateTimeModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="693.19,-298.59 690.19,-302.59 669.19,-302.59 666.19,-298.59 488.81,-298.59 488.81,-262.59 693.19,-262.59 693.19,-298.59"/>
-<text text-anchor="middle" x="591" y="-276.39" font-family="Times,serif" font-size="14.00">SACBootstrap3DateTimeModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="641.19,-298.59 638.19,-302.59 617.19,-302.59 614.19,-298.59 436.81,-298.59 436.81,-262.59 641.19,-262.59 641.19,-298.59"/>
+<text text-anchor="middle" x="539" y="-276.39" font-family="Times,serif" font-size="14.00">SACBootstrap3DateTimeModule</text>
 </g>
 <!-- SacDateComponent&#45;&gt;SACBootstrap3DateTimeModule -->
 <g id="edge1" class="edge">
 <title>SacDateComponent&#45;&gt;SACBootstrap3DateTimeModule</title>
-<path fill="none" stroke="black" d="M1366,-233.7C1366,-252.93 1366,-280.59 1366,-280.59 1366,-280.59 703.11,-280.59 703.11,-280.59"/>
-<polygon fill="black" stroke="black" points="703.11,-277.09 693.11,-280.59 703.11,-284.09 703.11,-277.09"/>
+<path fill="none" stroke="black" d="M1366,-233.7C1366,-252.93 1366,-280.59 1366,-280.59 1366,-280.59 651.24,-280.59 651.24,-280.59"/>
+<polygon fill="black" stroke="black" points="651.24,-277.09 641.24,-280.59 651.24,-284.09 651.24,-277.09"/>
 </g>
 <!-- SacDateSelectorComponent -->
 <g id="node2" class="node">
 <title>SacDateSelectorComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="942.84,-233.59 769.16,-233.59 769.16,-197.59 942.84,-197.59 942.84,-233.59"/>
-<text text-anchor="middle" x="856" y="-211.39" font-family="Times,serif" font-size="14.00">SacDateSelectorComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="522.84,-233.59 349.16,-233.59 349.16,-197.59 522.84,-197.59 522.84,-233.59"/>
+<text text-anchor="middle" x="436" y="-211.39" font-family="Times,serif" font-size="14.00">SacDateSelectorComponent</text>
 </g>
 <!-- SacDateSelectorComponent&#45;&gt;SACBootstrap3DateTimeModule -->
 <g id="edge4" class="edge">
 <title>SacDateSelectorComponent&#45;&gt;SACBootstrap3DateTimeModule</title>
-<path fill="none" stroke="black" d="M782.47,-233.62C782.47,-249.99 782.47,-271.59 782.47,-271.59 782.47,-271.59 703.18,-271.59 703.18,-271.59"/>
-<polygon fill="black" stroke="black" points="703.18,-268.09 693.18,-271.59 703.18,-275.09 703.18,-268.09"/>
+<path fill="none" stroke="black" d="M479.91,-233.7C479.91,-233.7 479.91,-252.58 479.91,-252.58"/>
+<polygon fill="black" stroke="black" points="476.41,-252.58 479.91,-262.58 483.41,-252.58 476.41,-252.58"/>
 </g>
 <!-- SacDateTimeComponent -->
 <g id="node3" class="node">
 <title>SacDateTimeComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="750.52,-233.59 593.48,-233.59 593.48,-197.59 750.52,-197.59 750.52,-233.59"/>
-<text text-anchor="middle" x="672" y="-211.39" font-family="Times,serif" font-size="14.00">SacDateTimeComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="330.52,-233.59 173.48,-233.59 173.48,-197.59 330.52,-197.59 330.52,-233.59"/>
+<text text-anchor="middle" x="252" y="-211.39" font-family="Times,serif" font-size="14.00">SacDateTimeComponent</text>
 </g>
 <!-- SacDateTimeComponent&#45;&gt;SACBootstrap3DateTimeModule -->
 <g id="edge5" class="edge">
 <title>SacDateTimeComponent&#45;&gt;SACBootstrap3DateTimeModule</title>
-<path fill="none" stroke="black" d="M643.17,-233.7C643.17,-233.7 643.17,-252.58 643.17,-252.58"/>
-<polygon fill="black" stroke="black" points="639.67,-252.58 643.17,-262.58 646.67,-252.58 639.67,-252.58"/>
+<path fill="none" stroke="black" d="M271.73,-233.62C271.73,-249.99 271.73,-271.59 271.73,-271.59 271.73,-271.59 426.81,-271.59 426.81,-271.59"/>
+<polygon fill="black" stroke="black" points="426.81,-275.09 436.81,-271.59 426.81,-268.09 426.81,-275.09"/>
 </g>
 <!-- SacTimeComponent -->
 <g id="node4" class="node">
 <title>SacTimeComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="575.59,-233.59 444.41,-233.59 444.41,-197.59 575.59,-197.59 575.59,-233.59"/>
-<text text-anchor="middle" x="510" y="-211.39" font-family="Times,serif" font-size="14.00">SacTimeComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="155.59,-233.59 24.41,-233.59 24.41,-197.59 155.59,-197.59 155.59,-233.59"/>
+<text text-anchor="middle" x="90" y="-211.39" font-family="Times,serif" font-size="14.00">SacTimeComponent</text>
 </g>
 <!-- SacTimeComponent&#45;&gt;SACBootstrap3DateTimeModule -->
 <g id="edge6" class="edge">
 <title>SacTimeComponent&#45;&gt;SACBootstrap3DateTimeModule</title>
-<path fill="none" stroke="black" d="M532.23,-233.7C532.23,-233.7 532.23,-252.58 532.23,-252.58"/>
-<polygon fill="black" stroke="black" points="528.73,-252.58 532.23,-262.58 535.73,-252.58 528.73,-252.58"/>
+<path fill="none" stroke="black" d="M90,-233.7C90,-252.93 90,-280.59 90,-280.59 90,-280.59 426.83,-280.59 426.83,-280.59"/>
+<polygon fill="black" stroke="black" points="426.83,-284.09 436.83,-280.59 426.83,-277.09 426.83,-284.09"/>
 </g>
 <!-- SacDateComponent  -->
 <g id="node10" class="node">
 <title>SacDateComponent </title>
-<polygon fill="#fb8072" stroke="black" points="922.97,-363.59 791.03,-363.59 791.03,-327.59 922.97,-327.59 922.97,-363.59"/>
-<text text-anchor="middle" x="857" y="-341.39" font-family="Times,serif" font-size="14.00">SacDateComponent </text>
+<polygon fill="#fb8072" stroke="black" points="870.97,-363.59 739.03,-363.59 739.03,-327.59 870.97,-327.59 870.97,-363.59"/>
+<text text-anchor="middle" x="805" y="-341.39" font-family="Times,serif" font-size="14.00">SacDateComponent </text>
 </g>
 <!-- SACBootstrap3DateTimeModule&#45;&gt;SacDateComponent  -->
 <g id="edge9" class="edge">
 <title>SACBootstrap3DateTimeModule&#45;&gt;SacDateComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M693.46,-289.59C768.4,-289.59 857,-289.59 857,-289.59 857,-289.59 857,-317.56 857,-317.56"/>
-<polygon fill="black" stroke="black" points="853.5,-317.56 857,-327.56 860.5,-317.56 853.5,-317.56"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M641.25,-289.59C693.9,-289.59 747.16,-289.59 747.16,-289.59 747.16,-289.59 747.16,-317.56 747.16,-317.56"/>
+<polygon fill="black" stroke="black" points="743.66,-317.56 747.16,-327.56 750.66,-317.56 743.66,-317.56"/>
 </g>
 <!-- SacDateSelectorComponent  -->
 <g id="node11" class="node">
 <title>SacDateSelectorComponent </title>
-<polygon fill="#fb8072" stroke="black" points="773.84,-363.59 596.16,-363.59 596.16,-327.59 773.84,-327.59 773.84,-363.59"/>
-<text text-anchor="middle" x="685" y="-341.39" font-family="Times,serif" font-size="14.00">SacDateSelectorComponent </text>
+<polygon fill="#fb8072" stroke="black" points="721.84,-363.59 544.16,-363.59 544.16,-327.59 721.84,-327.59 721.84,-363.59"/>
+<text text-anchor="middle" x="633" y="-341.39" font-family="Times,serif" font-size="14.00">SacDateSelectorComponent </text>
 </g>
 <!-- SACBootstrap3DateTimeModule&#45;&gt;SacDateSelectorComponent  -->
 <g id="edge10" class="edge">
 <title>SACBootstrap3DateTimeModule&#45;&gt;SacDateSelectorComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M644.71,-298.7C644.71,-298.7 644.71,-317.58 644.71,-317.58"/>
-<polygon fill="black" stroke="black" points="641.21,-317.58 644.71,-327.58 648.21,-317.58 641.21,-317.58"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M592.71,-298.7C592.71,-298.7 592.71,-317.58 592.71,-317.58"/>
+<polygon fill="black" stroke="black" points="589.21,-317.58 592.71,-327.58 596.21,-317.58 589.21,-317.58"/>
 </g>
 <!-- SacDateTimeComponent  -->
 <g id="node12" class="node">
 <title>SacDateTimeComponent </title>
-<polygon fill="#fb8072" stroke="black" points="578.52,-363.59 417.48,-363.59 417.48,-327.59 578.52,-327.59 578.52,-363.59"/>
-<text text-anchor="middle" x="498" y="-341.39" font-family="Times,serif" font-size="14.00">SacDateTimeComponent </text>
+<polygon fill="#fb8072" stroke="black" points="526.52,-363.59 365.48,-363.59 365.48,-327.59 526.52,-327.59 526.52,-363.59"/>
+<text text-anchor="middle" x="446" y="-341.39" font-family="Times,serif" font-size="14.00">SacDateTimeComponent </text>
 </g>
 <!-- SACBootstrap3DateTimeModule&#45;&gt;SacDateTimeComponent  -->
 <g id="edge11" class="edge">
 <title>SACBootstrap3DateTimeModule&#45;&gt;SacDateTimeComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M533.71,-298.7C533.71,-298.7 533.71,-317.58 533.71,-317.58"/>
-<polygon fill="black" stroke="black" points="530.21,-317.58 533.71,-327.58 537.21,-317.58 530.21,-317.58"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M481.71,-298.7C481.71,-298.7 481.71,-317.58 481.71,-317.58"/>
+<polygon fill="black" stroke="black" points="478.21,-317.58 481.71,-327.58 485.21,-317.58 478.21,-317.58"/>
 </g>
 <!-- SacTimeComponent  -->
 <g id="node13" class="node">
 <title>SacTimeComponent </title>
-<polygon fill="#fb8072" stroke="black" points="399.09,-363.59 264.91,-363.59 264.91,-327.59 399.09,-327.59 399.09,-363.59"/>
-<text text-anchor="middle" x="332" y="-341.39" font-family="Times,serif" font-size="14.00">SacTimeComponent </text>
+<polygon fill="#fb8072" stroke="black" points="347.09,-363.59 212.91,-363.59 212.91,-327.59 347.09,-327.59 347.09,-363.59"/>
+<text text-anchor="middle" x="280" y="-341.39" font-family="Times,serif" font-size="14.00">SacTimeComponent </text>
 </g>
 <!-- SACBootstrap3DateTimeModule&#45;&gt;SacTimeComponent  -->
 <g id="edge12" class="edge">
 <title>SACBootstrap3DateTimeModule&#45;&gt;SacTimeComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M488.64,-289.59C416.24,-289.59 332,-289.59 332,-289.59 332,-289.59 332,-317.56 332,-317.56"/>
-<polygon fill="black" stroke="black" points="328.5,-317.56 332,-327.56 335.5,-317.56 328.5,-317.56"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M436.67,-289.59C387.47,-289.59 339.03,-289.59 339.03,-289.59 339.03,-289.59 339.03,-317.56 339.03,-317.56"/>
+<polygon fill="black" stroke="black" points="335.53,-317.56 339.03,-327.56 342.53,-317.56 335.53,-317.56"/>
 </g>
 <!-- {
  &#160;&#160;&#160;provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() =&gt; SacDateComponent),
@@ -189,26 +189,26 @@
 <!-- SACBootstrap3LayoutModule -->
 <g id="node8" class="node">
 <title>SACBootstrap3LayoutModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="419.87,-233.59 416.87,-237.59 395.87,-237.59 392.87,-233.59 232.13,-233.59 232.13,-197.59 419.87,-197.59 419.87,-233.59"/>
-<text text-anchor="middle" x="326" y="-211.39" font-family="Times,serif" font-size="14.00">SACBootstrap3LayoutModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="942.87,-233.59 939.87,-237.59 918.87,-237.59 915.87,-233.59 755.13,-233.59 755.13,-197.59 942.87,-197.59 942.87,-233.59"/>
+<text text-anchor="middle" x="849" y="-211.39" font-family="Times,serif" font-size="14.00">SACBootstrap3LayoutModule</text>
 </g>
 <!-- SACBootstrap3LayoutModule&#45;&gt;SACBootstrap3DateTimeModule -->
 <g id="edge7" class="edge">
 <title>SACBootstrap3LayoutModule&#45;&gt;SACBootstrap3DateTimeModule</title>
-<path fill="none" stroke="black" d="M408.39,-233.62C408.39,-249.99 408.39,-271.59 408.39,-271.59 408.39,-271.59 478.75,-271.59 478.75,-271.59"/>
-<polygon fill="black" stroke="black" points="478.75,-275.09 488.75,-271.59 478.75,-268.09 478.75,-275.09"/>
+<path fill="none" stroke="black" d="M812.9,-233.62C812.9,-249.99 812.9,-271.59 812.9,-271.59 812.9,-271.59 651.38,-271.59 651.38,-271.59"/>
+<polygon fill="black" stroke="black" points="651.38,-268.09 641.38,-271.59 651.38,-275.09 651.38,-268.09"/>
 </g>
 <!-- SACBootstrap3TooltipModule -->
 <g id="node9" class="node">
 <title>SACBootstrap3TooltipModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="213.94,-233.59 210.94,-237.59 189.94,-237.59 186.94,-233.59 24.06,-233.59 24.06,-197.59 213.94,-197.59 213.94,-233.59"/>
-<text text-anchor="middle" x="119" y="-211.39" font-family="Times,serif" font-size="14.00">SACBootstrap3TooltipModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="736.94,-233.59 733.94,-237.59 712.94,-237.59 709.94,-233.59 547.06,-233.59 547.06,-197.59 736.94,-197.59 736.94,-233.59"/>
+<text text-anchor="middle" x="642" y="-211.39" font-family="Times,serif" font-size="14.00">SACBootstrap3TooltipModule</text>
 </g>
 <!-- SACBootstrap3TooltipModule&#45;&gt;SACBootstrap3DateTimeModule -->
 <g id="edge8" class="edge">
 <title>SACBootstrap3TooltipModule&#45;&gt;SACBootstrap3DateTimeModule</title>
-<path fill="none" stroke="black" d="M119,-233.7C119,-252.93 119,-280.59 119,-280.59 119,-280.59 478.87,-280.59 478.87,-280.59"/>
-<polygon fill="black" stroke="black" points="478.87,-284.09 488.87,-280.59 478.87,-277.09 478.87,-284.09"/>
+<path fill="none" stroke="black" d="M594.19,-233.7C594.19,-233.7 594.19,-252.58 594.19,-252.58"/>
+<polygon fill="black" stroke="black" points="590.69,-252.58 594.19,-262.58 597.69,-252.58 590.69,-252.58"/>
 </g>
 </g>
 </svg>

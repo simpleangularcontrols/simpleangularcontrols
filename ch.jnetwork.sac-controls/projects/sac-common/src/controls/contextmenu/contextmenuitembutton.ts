@@ -1,11 +1,3 @@
-import {
-  Directive,
-  EventEmitter,
-  HostListener,
-  Input,
-  Output,
-} from '@angular/core';
-import { SacContextmenuCommon } from './contextmenu';
 import { SacContextmenuItemCommon } from './contextmenuitem';
 
 /**
@@ -55,23 +47,39 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
   @Input()
   public image: string;
 
-  /**
-   * Menu Item ist deaktiviert
-   */
-  @Input()
-  public set isdisabled(v: boolean | string) {
-    if (v === null || v === undefined || typeof v === 'boolean') {
-      this._isdisabled = v as boolean;
-    } else {
-      this._isdisabled = v === 'true';
+    /**
+     * name of button. used for generate id and name
+     */
+    @Input()
+    public name: string = '';
+
+    /**
+     * Text für Menü Item.
+     */
+    @Input()
+    public text: string;
+
+    // #endregion Properties
+
+    // #region Constructors
+
+    /**
+     * Constructor
+     */
+    constructor() {
+        super();
     }
-  }
-  /**
-   * Menu Item ist deaktiviert
-   */
-  public get isdisabled(): boolean | string {
-    return this._isdisabled;
-  }
+
+    // #endregion Constructors
+
+    // #region Public Getters And Setters
+
+    /**
+     * Menu Item ist deaktiviert
+     */
+    public get isdisabled(): boolean | string {
+        return this._isdisabled;
+    }
 
   /**
    * Icon Column in Menü ist deaktiviert
@@ -103,14 +111,19 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
   @Output()
   clicked: EventEmitter<void> = new EventEmitter<void>();
 
-  /**
-   * Die Methode wird das cklickaction Emitter aktivieren
-   */
-  public callaction(event: MouseEvent) {
-    if (!this._isdisabled) {
-      this.clicked.emit();
-      this.contextmenu.close();
+    /**
+     * Die Methode wird das cklickaction Emitter aktivieren
+     */
+    public callaction(event: MouseEvent) {
+        if (!this._isdisabled) {
+            this.clicked.emit();
+
+            if (this.contextmenu !== null) {
+                this.contextmenu.close();
+            }
+        }
+        event.stopPropagation();
     }
-    event.stopPropagation();
-  }
+
+    // #endregion Public Methods
 }

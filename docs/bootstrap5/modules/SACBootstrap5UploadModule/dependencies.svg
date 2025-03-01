@@ -28,10 +28,6 @@
 <title>cluster_SACBootstrap5UploadModule_declarations</title>
 <polygon fill="none" stroke="black" points="1180,-189.59 1180,-241.59 1981,-241.59 1981,-189.59 1180,-189.59"/>
 </g>
-<g id="clust7" class="cluster">
-<title>cluster_SACBootstrap5UploadModule_imports</title>
-<polygon fill="none" stroke="black" points="1989,-189.59 1989,-241.59 2401,-241.59 2401,-189.59 1989,-189.59"/>
-</g>
 <g id="clust3" class="cluster">
 <title>cluster_SACBootstrap5UploadModule_SacDropzoneMultipleComponent_providers</title>
 <polygon fill="none" stroke="black" points="1738,-78 1738,-176.59 3486,-176.59 3486,-78 1738,-78"/>
@@ -39,6 +35,10 @@
 <g id="clust8" class="cluster">
 <title>cluster_SACBootstrap5UploadModule_exports</title>
 <polygon fill="none" stroke="black" points="1375,-319.59 1375,-371.59 2189,-371.59 2189,-319.59 1375,-319.59"/>
+</g>
+<g id="clust7" class="cluster">
+<title>cluster_SACBootstrap5UploadModule_imports</title>
+<polygon fill="none" stroke="black" points="1989,-189.59 1989,-241.59 2401,-241.59 2401,-189.59 1989,-189.59"/>
 </g>
 <g id="clust4" class="cluster">
 <title>cluster_SACBootstrap5UploadModule_SacDropzoneSingleComponent_providers</title>

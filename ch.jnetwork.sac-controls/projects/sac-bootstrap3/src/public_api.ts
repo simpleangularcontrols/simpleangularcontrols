@@ -1,7 +1,6 @@
 /*
  * Public API Surface of sac-bootstrap3
  */
-
 export * from './controls/buttons/button.module';
 
 export * from './controls/checkbox/checkbox.module';
@@ -39,8 +38,6 @@ export * from './controls/validation/validationsummary.module';
 export * from './controls/wizard/wizard.module';
 
 // Form Module and Classes
-export * from './controls/form/form';
-
 export * from './controls/form/form.module';
 
 // Export Controls
@@ -130,11 +127,7 @@ export * from './controls/tinymce/tinymce';
 
 export * from './controls/tooltip/tooltip';
 
-export * from './controls/treeview/ngtreeitemaction';
-
 export * from './controls/treeview/treeview';
-
-export * from './controls/treeview/treeviewchild';
 
 export * from './controls/upload/dropzonemultiple';
 

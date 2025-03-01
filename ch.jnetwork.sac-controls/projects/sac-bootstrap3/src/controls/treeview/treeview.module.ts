@@ -1,14 +1,13 @@
-import { NgModule } from '@angular/core';
+import { SACBootstrap3ContextmenuModule } from '../contextmenu/contextmenu.module';
+import { SACBootstrap3LayoutModule } from '../layout/layout.module';
+import { SACBootstrap3TooltipModule } from '../tooltip/tooltip.module';
+import { SacTreeviewComponent } from './treeview';
 import { CommonModule } from '@angular/common';
-import { SacTreeViewComponent } from './treeview';
-import { SacTreeViewChildComponent } from './treeviewchild';
-import { SacTreeItemActionComponent } from './ngtreeitemaction';
+import { NgModule } from '@angular/core';
 
 @NgModule({
-  declarations: [SacTreeViewComponent, SacTreeViewChildComponent, SacTreeItemActionComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [SacTreeViewComponent, SacTreeViewChildComponent, SacTreeItemActionComponent]
+    declarations: [SacTreeviewComponent],
+    imports: [CommonModule, SACBootstrap3TooltipModule, SACBootstrap3LayoutModule, SACBootstrap3ContextmenuModule],
+    exports: [SacTreeviewComponent],
 })
-export class SACBootstrap3TtreeviewModule { }
+export class SACBootstrap3TreeviewModule {}

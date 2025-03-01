@@ -318,26 +318,26 @@ import { SacContextMenuContrainerCommon } from &#x27;@simpleangularcontrols/sac-
  * Marker Komponente für Context Menü
  */
 @Directive({
-  selector: &#x27;[sacContextMenuContainer]&#x27;,
-  providers: [
-    {
-      provide: SacContextMenuContrainerCommon,
-      useExisting: forwardRef(() &#x3D;&gt; SacContextmenuContainerDirective),
-    },
-  ],
+    selector: &#x27;[sacContextMenuContainer]&#x27;,
+    providers: [
+        {
+            provide: SacContextMenuContrainerCommon,
+            useExisting: forwardRef(() &#x3D;&gt; SacContextmenuContainerDirective),
+        },
+    ],
 })
 export class SacContextmenuContainerDirective extends SacContextMenuContrainerCommon {
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Konstruktor
-   * @param elementRef Referenz auf DOM Element
-   */
-  constructor(elementRef: ElementRef&lt;HTMLElement&gt;) {
-    super(elementRef);
-  }
+    /**
+     * Konstruktor
+     * @param elementRef Referenz auf DOM Element
+     */
+    constructor(elementRef: ElementRef&lt;HTMLElement&gt;) {
+        super(elementRef);
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 }
 </code></pre>
     </div>

@@ -1,4 +1,3 @@
-import { SacContextmenuCommon } from './contextmenu';
 import { SacContextmenuItemCommon } from './contextmenuitem';
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
 

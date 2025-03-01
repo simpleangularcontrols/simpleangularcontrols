@@ -178,7 +178,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../directives/SacContextmenuCommon.html" target="_self" >SacContextmenuCommon | null</a></code>
+                        <i>Type : </i>        <code><a href="../interfaces/ISacContextmenuCommon.html" target="_self" >ISacContextmenuCommon | null</a></code>
 
                     </td>
                 </tr>
@@ -211,7 +211,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacContextmenuCommon } from &#x27;./contextmenu&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ISacContextmenuCommon } from &#x27;./contextmenu.interface&#x27;;
 import { Directive, Input } from &#x27;@angular/core&#x27;;
 
 /**
@@ -225,7 +225,7 @@ export class SacContextmenuItemCommon {
      * Reference to the higher-level context menu. This property is always set automatically by the context menu. However, it may be necessary to set the reference manually.
      */
     @Input()
-    public contextmenu: SacContextmenuCommon | null &#x3D; null;
+    public contextmenu: ISacContextmenuCommon | null &#x3D; null;
 
     // #endregion Properties
 }

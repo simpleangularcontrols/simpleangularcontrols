@@ -905,6 +905,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/ISacConfigurationService.html" data-type="entity-link" >ISacConfigurationService</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/ISacContextmenuCommon.html" data-type="entity-link" >ISacContextmenuCommon</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/ISacFileBrowserService.html" data-type="entity-link" >ISacFileBrowserService</a>
                             </li>
                             <li class="link">

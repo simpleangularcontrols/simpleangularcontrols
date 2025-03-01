@@ -1,0 +1,18 @@
+<sac-contextmenu
+    #contextmenu
+    name="contextmenumain">
+    <!-- sort up -->
+    <sac-contextmenubutton
+        isicondisabled="true"
+        name="item1"
+        text="Context 1 Internal">
+    </sac-contextmenubutton>
+    <!-- sort up -->
+    <sac-contextmenubutton
+        isicondisabled="true"
+        name="item2"
+        text="Context 2 Internal">
+    </sac-contextmenubutton>
+
+    <ng-container *ngTemplateOutlet="template; context: { contextmenu: contextmenu }"></ng-container>
+</sac-contextmenu>

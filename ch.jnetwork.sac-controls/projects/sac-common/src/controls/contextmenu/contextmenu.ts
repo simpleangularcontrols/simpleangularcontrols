@@ -1,18 +1,36 @@
 import { ISacIconService } from '../../interfaces/ISacIconService';
 import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
 import { PlacementArray, positionElements } from '../../utilities/positioning';
+import { ISacContextmenuCommon } from './contextmenu.interface';
 import { SacContextmenuAnchorCommon } from './contextmenuanchor';
 import { SacContextMenuContrainerCommon } from './contextmenucontainer';
 import { SacContextmenuItemCommon } from './contextmenuitem';
 import { DOCUMENT } from '@angular/common';
-import { AfterContentInit, ContentChild, ContentChildren, Directive, ElementRef, HostListener, Inject, Injector, Input, NgZone, OnDestroy, QueryList, Renderer2, TemplateRef, ViewChild } from '@angular/core';
+import {
+    AfterContentInit,
+    ContentChild,
+    ContentChildren,
+    Directive,
+    ElementRef,
+    HostListener,
+    Inject,
+    Injector,
+    Input,
+    NgZone,
+    OnDestroy,
+    QueryList,
+    Renderer2,
+    TemplateRef,
+    ViewChild,
+    forwardRef,
+} from '@angular/core';
 import { Subscription } from 'rxjs';
 
 /**
  * Base Context Menü Element. Die Logik wurde aus NG-BOOTSTRAP übernommen.
  */
 @Directive()
-export class SacContextmenuCommon implements AfterContentInit, OnDestroy {
+export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContentInit, OnDestroy {
     // #region Properties
 
     /**
@@ -75,7 +93,7 @@ export class SacContextmenuCommon implements AfterContentInit, OnDestroy {
     /**
      * All directly assigned context menu elements that are defined in the direct template for the context menu.
      */
-    @ContentChildren(SacContextmenuItemCommon)
+    @ContentChildren(forwardRef(() => SacContextmenuItemCommon))
     public menuitems!: QueryList<SacContextmenuItemCommon>;
 
     /**

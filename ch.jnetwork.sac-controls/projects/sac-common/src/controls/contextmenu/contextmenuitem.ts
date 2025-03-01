@@ -1,4 +1,4 @@
-import { SacContextmenuCommon } from './contextmenu';
+import { ISacContextmenuCommon } from './contextmenu.interface';
 import { Directive, Input } from '@angular/core';
 
 /**
@@ -12,7 +12,7 @@ export class SacContextmenuItemCommon {
      * Reference to the higher-level context menu. This property is always set automatically by the context menu. However, it may be necessary to set the reference manually.
      */
     @Input()
-    public contextmenu: SacContextmenuCommon | null = null;
+    public contextmenu: ISacContextmenuCommon | null = null;
 
     // #endregion Properties
 }

@@ -6,4 +6,4 @@ import { NgModule } from '@angular/core';
     imports: [CommonModule, SacTreeviewComponent],
     exports: [SacTreeviewComponent],
 })
-export class SACBootstrap3TreeviewModule {}
+export class SACBootstrap4TreeviewModule {}

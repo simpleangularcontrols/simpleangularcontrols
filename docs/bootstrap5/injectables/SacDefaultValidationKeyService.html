@@ -1350,7 +1350,7 @@
 <p>Use the interface <code>ISacValidationKeyService</code> to define your own resource keys for the texts in the controls. This is particularly useful if the texts are managed in a resource management system.</p>
 <h1>Example implementation</h1>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-ts">&#64;Injectable({ providedIn: &#39;root&#39; })
-export class ControlsLocalisation extends ISacValidationKeyService {
+export class ControlsLocalisation implements ISacValidationKeyService {
   public get ConfirmDefaultButtonNo(): string {
     return &#39;CONFIRM_BUTTON_NO&#39;;
   }

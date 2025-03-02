@@ -65,6 +65,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                     </ul>
                 </li>
+                    <li class="chapter additional">
+                        <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ? 'data-bs-target="#additional-pages"'
+                            : 'data-bs-target="#xs-additional-pages"' }>
+                            <span class="icon ion-ios-book"></span>
+                            <span>Advanced Documentation</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse " ${ isNormalMode ? 'id="additional-pages"' : 'id="xs-additional-pages"' }>
+                                    <li class="link ">
+                                        <a href="additional-documentation/customizing.html" data-type="entity-link" data-context-id="additional">Customizing</a>
+                                    </li>
+                        </ul>
+                    </li>
                     <li class="chapter modules">
                         <a data-type="chapter-link" href="modules.html">
                             <div class="menu-toggler linked" data-bs-toggle="collapse" ${ isNormalMode ?
@@ -246,6 +259,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SACBootstrap5TooltipModule.html" data-type="entity-link" >SACBootstrap5TooltipModule</a>
                             </li>
                             <li class="link">
+                                <a href="modules/SACBootstrap5TreeviewModule.html" data-type="entity-link" >SACBootstrap5TreeviewModule</a>
+                            </li>
+                            <li class="link">
                                 <a href="modules/SACBootstrap5UploadModule.html" data-type="entity-link" >SACBootstrap5UploadModule</a>
                             </li>
                             <li class="link">
@@ -389,6 +405,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="components/SacTooltipComponent.html" data-type="entity-link" >SacTooltipComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/SacTreeviewComponent.html" data-type="entity-link" >SacTreeviewComponent</a>
                             </li>
                             <li class="link">
                                 <a href="components/SacUploadComponent.html" data-type="entity-link" >SacUploadComponent</a>
@@ -599,13 +618,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="directives/SacTooltipCommon.html" data-type="entity-link" >SacTooltipCommon</a>
                                 </li>
                                 <li class="link">
-                                    <a href="directives/SacTreeItemActionCommon.html" data-type="entity-link" >SacTreeItemActionCommon</a>
-                                </li>
-                                <li class="link">
-                                    <a href="directives/SacTreeViewChildCommon.html" data-type="entity-link" >SacTreeViewChildCommon</a>
-                                </li>
-                                <li class="link">
-                                    <a href="directives/SacTreeViewCommon.html" data-type="entity-link" >SacTreeViewCommon</a>
+                                    <a href="directives/SacTreeviewCommon.html" data-type="entity-link" >SacTreeviewCommon</a>
                                 </li>
                                 <li class="link">
                                     <a href="directives/SacUploadBase.html" data-type="entity-link" >SacUploadBase</a>
@@ -676,6 +689,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/PagerRequest.html" data-type="entity-link" >PagerRequest</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/PopUpHelper.html" data-type="entity-link" >PopUpHelper</a>
                             </li>
                             <li class="link">
                                 <a href="classes/Positioning.html" data-type="entity-link" >Positioning</a>
@@ -813,6 +829,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/TinyMceInstance.html" data-type="entity-link" >TinyMceInstance</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/TreeviewAction.html" data-type="entity-link" >TreeviewAction</a>
                             </li>
                         </ul>
                     </li>

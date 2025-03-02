@@ -119,7 +119,7 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#_buildValueString" title="projects/sac-common/src/controls/list/dropdown.ts" ><b>_buildValueString</b>&nbsp;&nbsp;&nbsp;(projects/.../dropdown.ts)</a>
+                            <a href="#_buildValueString" title="projects/sac-common/src/controls/list/buildvaluestring.ts" ><b>_buildValueString</b>&nbsp;&nbsp;&nbsp;(projects/.../buildvaluestring.ts)</a>
                         </li>
                         <li>
                             <a href="#convertToBoolean" title="projects/sac-common/src/utilities/convertion.ts" ><b>convertToBoolean</b>&nbsp;&nbsp;&nbsp;(projects/.../convertion.ts)</a>
@@ -135,6 +135,9 @@
                         </li>
                         <li>
                             <a href="#emailValidator" title="projects/sac-common/src/validation/email.validator.ts" ><b>emailValidator</b>&nbsp;&nbsp;&nbsp;(projects/.../email.validator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#equalsValueValidator" title="projects/sac-common/src/validation/equals.validator.ts" ><b>equalsValueValidator</b>&nbsp;&nbsp;&nbsp;(projects/.../equals.validator.ts)</a>
                         </li>
                         <li>
                             <a href="#isDateValid" title="projects/sac-common/src/validation/isDateValid.ts" ><b>isDateValid</b>&nbsp;&nbsp;&nbsp;(projects/.../isDateValid.ts)</a>
@@ -182,6 +185,9 @@
                             <a href="#NGFORM_FACTORY" title="projects/sac-bootstrap4/src/controls/form/inheritform.directive.ts" ><b>NGFORM_FACTORY</b>&nbsp;&nbsp;&nbsp;(projects/.../inheritform.directive.ts)</a>
                         </li>
                         <li>
+                            <a href="#notEqualsValueValidator" title="projects/sac-common/src/validation/notequals.validator.ts" ><b>notEqualsValueValidator</b>&nbsp;&nbsp;&nbsp;(projects/.../notequals.validator.ts)</a>
+                        </li>
+                        <li>
                             <a href="#patternValidator" title="projects/sac-common/src/validation/pattern.validator.ts" ><b>patternValidator</b>&nbsp;&nbsp;&nbsp;(projects/.../pattern.validator.ts)</a>
                         </li>
                         <li>
@@ -200,7 +206,7 @@
     </table>
 </section>
 
-    <h3>projects/sac-common/src/controls/list/dropdown.ts</h3>
+    <h3>projects/sac-common/src/controls/list/buildvaluestring.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -662,6 +668,93 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <tr>
+                                                <td>validationMessage</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>validationMessageSummary</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>projects/sac-common/src/validation/equals.validator.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="equalsValueValidator"></a>
+                    <span class="name">
+                        <span ><b>equalsValueValidator</b></span>
+                        <a href="#equalsValueValidator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>equalsValueValidator(requiredvalue: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>requiredvalue</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
                                         <tr>
                                                 <td>validationMessage</td>
                                             <td>
@@ -1901,6 +1994,93 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>projects/sac-common/src/validation/notequals.validator.ts</h3>
+    <section data-compodoc="block-methods">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notEqualsValueValidator"></a>
+                    <span class="name">
+                        <span ><b>notEqualsValueValidator</b></span>
+                        <a href="#notEqualsValueValidator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>notEqualsValueValidator(invalidValue: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>invalidValue</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>validationMessage</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>validationMessageSummary</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                
                             </div>
                 </td>
             </tr>

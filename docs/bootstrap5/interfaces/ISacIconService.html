@@ -142,221 +142,152 @@
             </p>
 
 
-        <section data-compodoc="block-index">
-            <h3 id="index">Index</h3>
-            <table class="table table-sm table-bordered index-table">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <h6><b>Properties</b></h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <ul class="index-list">
-                                <li>
-                                        <a href="#GenericHelptextIcon" 
->
-                                            GenericHelptextIcon
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#InputSearchButtonIcon" 
->
-                                            InputSearchButtonIcon
-                                        </a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
 
 
 
-            <section data-compodoc="block-properties">
-                <h3 id="inputs">Properties</h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="GenericHelptextIcon"></a>
-                                        <span class="name "><b>GenericHelptextIcon</b>
-                                            <a href="#GenericHelptextIcon">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>GenericHelptextIcon:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>Icon for HelpText Tooltip in any controls</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="InputSearchButtonIcon"></a>
-                                        <span class="name "><b>InputSearchButtonIcon</b>
-                                            <a href="#InputSearchButtonIcon">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>InputSearchButtonIcon:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>Icon which is used by the InputSearch component on the button.</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-            </section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface ISacIconService {
-  // #region Public Getters And Setters
+    // #region Getters And Setters
 
-  /**
-   * Delete icon for file browser component
-   */
-  get BrowserComponentDeleteIcon(): string;
-  /**
-   * Edit icon for file browser component
-   */
-  get BrowserComponentEditIcon(): string;
-  /**
-   * Folder icon for closed folders in the browser component tree
-   */
-  get BrowserComponentFolderClosedIcon(): string;
-  /**
-   * Folder icon for folders without subfolders in the browser component tree
-   */
-  get BrowserComponentFolderEmptyIcon(): string;
-  /**
-   * Folder icon for new folders in the browser component
-   */
-  get BrowserComponentFolderNewIcon(): string;
-  /**
-   * Folder icon for open folders in the browser component tree
-   */
-  get BrowserComponentFolderOpenIcon(): string;
-  /**
-   * Refresh icon for file browser component
-   */
-  get BrowserComponentRefreshIcon(): string;
-  /**
-   * default image for confirm dialog. currently is required a png image path
-   */
-  get ConfirmDefaultImage(): string;
-  /**
-   * icon to open context menu
-   */
-  get ContextMenuOpenIcon(): string;
-  /**
-   * icon for select button in date component
-   */
-  get DateComponentSelectorIcon(): string;
-  /**
-   * icon for select button in datetime component
-   */
-  get DateTimeComponentSelectorIcon(): string;
-  /**
-   * Icon for switching to the next month in the DateTimSelector component
-   */
-  get DateTimeSelectorComponentMonthNextIcon(): string;
-  /**
-   * Icon for switching to the previous month in the DateTimSelector component
-   */
-  get DateTimeSelectorComponentMonthPrevIcon(): string;
-  /**
-   * Icon for HelpText Tooltip in any controls
-   */
-  GenericHelptextIcon: string;
-  /**
-   * sort down icon for grid
-   */
-  get GridComponentSortDown(): string;
-  /**
-   * sort up icon for grid
-   */
-  get GridComponentSortUp(): string;
-  /**
-   * Icon which is used by the InputSearch component on the button.
-   */
-  InputSearchButtonIcon: string;
-  /**
-   * icon for select button in time component
-   */
-  get TimeComponentSelectorIcon(): string;
-  /**
-   * browse icon in upload component
-   */
-  get UploadComponentBrowseIcon(): string;
-  /**
-   * icon to continue uploads in uplaod component
-   */
-  get UploadComponentContinueIcon(): string;
-  /**
-   * icon to delete files in upload component
-   */
-  get UploadComponentDeleteIcon(): string;
-  /**
-   * icon to pause uploads in upload component
-   */
-  get UploadComponentPauseIcon(): string;
-  /**
-   * icon to upload file to server in upload component
-   */
-  get UploadComponentUploadIcon(): string;
+    /**
+     * Delete icon for file browser component
+     */
+    get BrowserComponentDeleteIcon(): string;
 
-  // #endregion Public Getters And Setters
+    /**
+     * Edit icon for file browser component
+     */
+    get BrowserComponentEditIcon(): string;
+
+    /**
+     * Folder icon for closed folders in the browser component tree
+     */
+    get BrowserComponentFolderClosedIcon(): string;
+
+    /**
+     * Folder icon for folders without subfolders in the browser component tree
+     */
+    get BrowserComponentFolderEmptyIcon(): string;
+
+    /**
+     * Folder icon for new folders in the browser component
+     */
+    get BrowserComponentFolderNewIcon(): string;
+
+    /**
+     * Folder icon for open folders in the browser component tree
+     */
+    get BrowserComponentFolderOpenIcon(): string;
+
+    /**
+     * Refresh icon for file browser component
+     */
+    get BrowserComponentRefreshIcon(): string;
+
+    /**
+     * default image for confirm dialog. currently is required a png image path
+     */
+    get ConfirmDefaultImage(): string;
+
+    /**
+     * icon to open context menu
+     */
+    get ContextMenuOpenIcon(): string;
+
+    /**
+     * icon for select button in date component
+     */
+    get DateComponentSelectorIcon(): string;
+
+    /**
+     * icon for select button in datetime component
+     */
+    get DateTimeComponentSelectorIcon(): string;
+
+    /**
+     * Icon for switching to the next month in the DateTimSelector component
+     */
+    get DateTimeSelectorComponentMonthNextIcon(): string;
+
+    /**
+     * Icon for switching to the previous month in the DateTimSelector component
+     */
+    get DateTimeSelectorComponentMonthPrevIcon(): string;
+
+    /**
+     * Icon for HelpText Tooltip in any controls
+     */
+    get GenericHelptextIcon(): string;
+
+    /**
+     * sort down icon for grid
+     */
+    get GridComponentSortDown(): string;
+
+    /**
+     * sort up icon for grid
+     */
+    get GridComponentSortUp(): string;
+
+    /**
+     * Icon which is used by the InputSearch component on the button.
+     */
+    get InputSearchButtonIcon(): string;
+
+    /**
+     * icon for select button in time component
+     */
+    get TimeComponentSelectorIcon(): string;
+
+    /**
+     * Icon for the standard actions per node
+     */
+    get TreeviewNodeActionIcon(): string;
+
+    /**
+     * Icon if node is closed in Treeview and the child elements are not visible.
+     */
+    get TreeviewNodeClosedIcon(): string;
+
+    /**
+     * Icon if node in treeview has no child elements
+     */
+    get TreeviewNodeEmptyIcon(): string;
+
+    /**
+     * Icon when Node is open in Treeview and the child elements are visible.
+     */
+    get TreeviewNodeOpenIcon(): string;
+
+    /**
+     * browse icon in upload component
+     */
+    get UploadComponentBrowseIcon(): string;
+
+    /**
+     * icon to continue uploads in uplaod component
+     */
+    get UploadComponentContinueIcon(): string;
+
+    /**
+     * icon to delete files in upload component
+     */
+    get UploadComponentDeleteIcon(): string;
+
+    /**
+     * icon to pause uploads in upload component
+     */
+    get UploadComponentPauseIcon(): string;
+
+    /**
+     * icon to upload file to server in upload component
+     */
+    get UploadComponentUploadIcon(): string;
+
+    // #endregion Getters And Setters
 }
 </code></pre>
     </div>

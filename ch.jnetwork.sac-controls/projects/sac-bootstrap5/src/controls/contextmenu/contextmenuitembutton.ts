@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { Component, forwardRef } from '@angular/core';
 import { SacContextmenuItemButtonCommon, SacContextmenuItemCommon } from '@simpleangularcontrols/sac-common';
 
@@ -15,7 +15,7 @@ import { SacContextmenuItemButtonCommon, SacContextmenuItemCommon } from '@simpl
         },
     ],
     standalone: true,
-    imports: [NgIf],
+    imports: [NgIf, NgClass],
 })
 export class SacContextmenuItemButtonComponent extends SacContextmenuItemButtonCommon {
     // #region Constructors

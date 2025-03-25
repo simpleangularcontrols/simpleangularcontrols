@@ -13,6 +13,7 @@
     <h3>Treeview with default options</h3>
 
     <sac-treeview
+        name="treeview1"
         label="Treeview"
         [data]="data1"
         helptext="User Help Text">
@@ -21,6 +22,7 @@
     <h3>Treeview with default options and tooltip</h3>
 
     <sac-treeview
+        name="treeview2"
         label="Treeview"
         [data]="data1"
         helptext="User Help Text"
@@ -30,6 +32,7 @@
     <h3>Treeview with disabled label and helptext</h3>
 
     <sac-treeview
+        name="treeview3"
         label="Treeview"
         [disablelabel]="true"
         [data]="data1"
@@ -39,6 +42,7 @@
     <h3>Treeview with disabled label and tooltip helptext</h3>
 
     <sac-treeview
+        name="treeview4"
         label="Treeview"
         [disablelabel]="true"
         [data]="data1"
@@ -51,7 +55,7 @@
     Model: {{ selectedNode | json }}
 
     <sac-treeview
-        name="treeview"
+        name="treeview5"
         label="Treeview"
         helptext="User Help Text"
         helptextmode="tooltip"
@@ -71,7 +75,7 @@
     Model: {{ selectedNode | json }}
 
     <sac-treeview
-        name="treeview2"
+        name="treeview6"
         label="Treeview"
         helptext="User Help Text"
         [isrequired]="true"
@@ -90,7 +94,7 @@
     Model: {{ selectedNode | json }}
 
     <sac-treeview
-        name="treeview3"
+        name="treeview7"
         [disablelabel]="true"
         helptext="User Help Text"
         helptextmode="tooltip"
@@ -108,6 +112,7 @@
     <h3>Treeview without expanded state</h3>
 
     <sac-treeview
+        name="treeview8"
         label="Treeview"
         [data]="data1"
         [expandedstate]="false"
@@ -116,6 +121,7 @@
     </sac-treeview>
 
     <sac-treeview
+        name="treeview9"
         label="Treeview"
         [data]="data1"
         [expandedstate]="false"
@@ -126,6 +132,7 @@
     <h3>Treeview with Custom Actions</h3>
 
     <sac-treeview
+        name="treeview10"
         label="Treeview"
         [data]="data1"
         [expandedstate]="false"
@@ -165,10 +172,37 @@
     <h3>Treeview which loads nodes when expanding</h3>
 
     <sac-treeview
+        name="treeview11"
         label="Treeview"
         [data]="data1"
         [enableasynchload]="true"
         attricon="icon"
         (expanded)="appendNode($event)">
     </sac-treeview>
+
+    <h3>Treeview PreSelected with NgModel</h3>
+
+    Model: {{ selectedNode2 | json }}
+
+    <sac-treeview
+        name="treeview12"
+        label="Treeview"
+        helptext="User Help Text"
+        helptextmode="tooltip"
+        [isrequired]="true"
+        [data]="data2"
+        [(ngModel)]="selectedNode2"
+        [showactionalways]="true"
+        attricon="icon"
+        (selected)="onSelected($event)"
+        (selectednode)="onSelectedNode($event)"
+        (expanded)="onExpand($event)"
+        (collabsed)="onCollabse($event)">
+    </sac-treeview>
+
+    <sac-button
+        name="selectNode"
+        (clicked)="onSelectNewId()"
+        text="Select Node">
+    </sac-button>
 </form>

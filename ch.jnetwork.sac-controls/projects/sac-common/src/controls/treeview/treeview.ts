@@ -291,6 +291,10 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
         this.actionclicked.emit(action);
     }
 
+    /**
+     * Method is called when Node in Tree is clicked
+     * @param node Selected Node
+     */
     public onNodeClicked(node: any): void {
         if (this.isDisabledState(node) || this.isSelectedState(node)) {
             this.invertExpandedState(node);
@@ -299,6 +303,11 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
         this.setSelectedState(node);
     }
 
+    /**
+     * Sets the hover state on a node
+     * @param node Node on which the status is set
+     * @param state Activate or deactivate HoverState
+     */
     public setHoverState(node: any, state: boolean) {
         if (!node || !this.attrhoverstate) {
             return;
@@ -316,7 +325,11 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
         delete node[this.attrhoverstate];
     }
 
-    public setSelectedState(node: any) {
+    /**
+     * Sets the selected state on a node
+     * @param node Node which is marked as Selected
+     */
+    public setSelectedState(node: any): void {
         if (!node || !this.attrselected) {
             return;
         }
@@ -327,8 +340,11 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
         // set selected node as selected
         node[this.attrselected] = true;
 
+        // Extract ID from Node
+        const idValue = node[this.attrid];
+
         // Update ngModel
-        this.setValue(node);
+        this.setValue(idValue);
 
         // Raise Selected Events
         this.selectednode.emit(node);
@@ -341,6 +357,11 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
         this.selected.emit(id);
     }
 
+    /**
+     * Validates the model state of the control
+     * @param c Control instance
+     * @returns Returns a validation error, if present. Otherwise, as Result is NULL
+     */
     public validateData(c: AbstractControl): ValidationErrors | null {
         let error: ValidationErrors | null = null;
 
@@ -351,9 +372,56 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
         return error;
     }
 
+    /**
+     * Saves the data from the model binding
+     * @param value Id of the selected node
+     */
+    public writeValue(value: any): void {
+        super.writeValue(value);
+
+        // Do not preselct item when tree is empty
+        if (!this.data) {
+            return;
+        }
+
+        this.data.forEach((root) => {
+            const result = this.findNodeById(root, value);
+
+            if (result !== null) {
+                this.setSelectedState(result);
+            }
+        });
+    }
+
     // #endregion Public Methods
 
     // #region Private Methods
+
+    /**
+     * Searches for a node based on the value in the ID attribute
+     * @param node Node
+     * @param value Value of the Id attribute
+     * @returns Returns the node if it is found. If not, NULL is returned.
+     */
+    private findNodeById(node: any, value: any): any {
+        if (!this.attrid || !node) {
+            return null;
+        }
+
+        if (node[this.attrid] === value) {
+            return node;
+        }
+
+        const children = this.getChildren(node);
+        for (let child of children) {
+            const result = this.findNodeById(child, value);
+            if (result !== null) {
+                return result;
+            }
+        }
+
+        return null;
+    }
 
     private invertExpandedState(node: any) {
         if (!node || !this.attrexanded) {

@@ -56,10 +56,58 @@ export class DemoTreeviewComponent {
             ],
         },
     ];
+    public data2 = [
+        {
+            id: 1,
+            label: 'Root',
+            icon: 'fa fa-star',
+            expanded: true,
+            children: [
+                {
+                    id: 2,
+                    label: 'Sub Item 1',
+                    icon: '',
+                    expanded: false,
+                    children: [],
+                },
+                {
+                    id: 3,
+                    label: 'Sub Item 2',
+                    icon: '',
+                    disabled: true,
+                    children: [
+                        {
+                            id: 6,
+                            label: 'Sub Item 2 - Child 1 - With a very long description text which should be truncated',
+                            icon: '',
+                            expanded: false,
+                            children: [],
+                        },
+                    ],
+                },
+                {
+                    id: 4,
+                    label: 'Sub Item 3',
+                    icon: '',
+                    expanded: true,
+                    children: [
+                        {
+                            id: 5,
+                            label: 'Sub Item 3 - Child 1',
+                            icon: '',
+                            expanded: false,
+                            children: [],
+                        },
+                    ],
+                },
+            ],
+        },
+    ];
     @ViewChild('myForm')
     public myForm: SacFormDirective;
     public public;
     public selectedNode: any | null = null;
+    public selectedNode2: any | null = 4;
 
     // #endregion Properties
 
@@ -90,6 +138,10 @@ export class DemoTreeviewComponent {
 
     public onExpand(node: any) {
         console.log('Expand: ' + node.label);
+    }
+
+    public onSelectNewId(): void {
+        this.selectedNode2 = 2;
     }
 
     public onSelected(id: number) {

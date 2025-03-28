@@ -137,6 +137,7 @@
         [data]="data1"
         [expandedstate]="false"
         [templateaction]="templateaction"
+        [templateicon]="templateicon"
         (actionclicked)="debugAction($event)"
         attricon="icon">
         <ng-template
@@ -166,6 +167,11 @@
                     (clicked)="actionhandler({ action: 'refresh', node: node })">
                 </sac-contextmenubutton>
             </sac-contextmenu>
+        </ng-template>
+        <ng-template
+            #templateicon
+            let-node="node">
+            <img src="/assets/icons/de.png" />
         </ng-template>
     </sac-treeview>
 

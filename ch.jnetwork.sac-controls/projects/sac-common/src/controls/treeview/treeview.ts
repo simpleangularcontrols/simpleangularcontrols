@@ -138,6 +138,12 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
     public templateaction: TemplateRef<any>;
 
     /**
+     * Custom template for icon per node. Template parameters are: 'node'
+     */
+    @Input()
+    public templateicon: TemplateRef<any>;
+
+    /**
      * Custom template for the label area per node. Template parameters are: 'node' and 'label'
      */
     @Input()

@@ -84,7 +84,6 @@ export { SacWizardItemCommon } from './controls/wizard/wizarditem';
 export { SacTinyMceCommon } from './controls/tinymce/tinymce';
 
 // TreeView
-
 export { SacTreeviewCommon } from './controls/treeview/treeview';
 
 // Tooltip
@@ -100,6 +99,8 @@ export { SacDropzoneSingleCommon } from './controls/upload/dropzonesingle';
 export { SacUploadMultipleCommon } from './controls/upload/uploadmultiple';
 
 export { SacUploadSingleCommon } from './controls/upload/uploadsingle';
+
+export { ISacUploadEventCompleteState } from './interfaces/ISacUploadEventCompleteState';
 
 // MultiLanguage classes
 export { SacMultilanguageInputCommon } from './controls/multilanguage/multilanguageinput';

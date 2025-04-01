@@ -1,23 +1,12 @@
 import { SacFormLayoutCommon } from '../controls/layout/formlayout';
 import { ISacLocalisationService } from '../interfaces/ISacLocalisationService';
+import { ISacUploadEventCompleteState } from '../interfaces/ISacUploadEventCompleteState';
 import { IUploadControl } from '../interfaces/iuploadcontrol';
 import { SACVALIDATIONKEY_SERVICE, SacDefaultValidationKeyService } from '../services';
 import { SACLOCALISATION_SERVICE, SacDefaultLocalisationService } from '../services/sac-localisation.service';
 import { Validation } from '../validation';
 import { SacBaseModelControl } from './basemodelcontrol';
-import {
-    Directive,
-    ElementRef,
-    EventEmitter,
-    Injector,
-    Input,
-    NgZone,
-    OnDestroy,
-    OnInit,
-    Output,
-    Renderer2,
-    ViewChild,
-} from '@angular/core';
+import { Directive, ElementRef, EventEmitter, Injector, Input, NgZone, OnDestroy, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { UploadState, UploadxOptions, UploadxService } from 'ngx-uploadx';
 import { Observable, of } from 'rxjs';
@@ -102,9 +91,16 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     @Input() public maxfilesize: number = 0;
 
     /**
-     * Event wenn ein Error in der Komponente ausgelöst wird.
+     * Event when an error is triggered in the component.
      */
-    @Output() public onfileerror = new EventEmitter<string>();
+    @Output()
+    public onfileerror = new EventEmitter<string>();
+
+    /**
+     * Event when a file has been uploaded. The event is triggered for multiple uploads per file.
+     */
+    @Output()
+    public onuploadcomplete = new EventEmitter<ISacUploadEventCompleteState>();
 
     /**
      * Array von Uploads
@@ -441,6 +437,14 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
             this.uploads[index].progress = ufile.progress;
             this.uploads[index].status = ufile.status;
             this.SetUploadValue(ufile);
+
+            const uploadState: ISacUploadEventCompleteState = {
+                name: ufile.name,
+                size: ufile.size,
+                uploadid: this.uploads[index].uploadId,
+            };
+
+            this.onuploadcomplete.emit(uploadState);
         } else {
             if (index >= 0) {
                 this.uploads[index].progress = ufile.progress;

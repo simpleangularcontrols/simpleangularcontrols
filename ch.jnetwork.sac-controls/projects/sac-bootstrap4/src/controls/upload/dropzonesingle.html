@@ -1,10 +1,11 @@
 <div
+    id="{{ name }}"
     class="row form-group"
     [class.no-gutters]="disablelabel">
     <label
         *ngIf="disablelabel === false && !isAdaptiveLabel"
         id="{{ name }}_label"
-        for="{{ name }}"
+        for="{{ name }}_uploadinput"
         class="col-12 col-form-label d-flex"
         [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only', componentHeight | toLabelHeight]"
         [class.required]="isrequired">

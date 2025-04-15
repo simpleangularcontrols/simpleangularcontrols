@@ -34,18 +34,14 @@
                 <!-- this class comes in the div above when disabled [ngClass]="[disablelabel === false ? 'col-md-' + _inputsize : 'col-md-12']" -->
                 <input
                     id="{{ name }}"
-                    ö
                     name="{{ name }}"
                     type="text"
                     class="form-control date-control"
                     [class.is-invalid]="invalid && (dirty || touched)"
                     [ngClass]="[componentHeight | toControlHeight]"
                     [imask]="imaskDate"
-                    placeholder="dd.mm.yyyy"
                     [attr.placeholder]="placeholder"
                     [value]="valuestring"
-                    maxlength="10"
-                    size="10"
                     (blur)="onTouch()"
                     (accept)="setValueString($event)"
                     [disabled]="isdisabled"

@@ -38,7 +38,7 @@
                     <ng-container *ngFor="let node of data">
                         <ng-template
                             [ngTemplateOutlet]="treeItem"
-                            [ngTemplateOutletContext]="{ node: node, deep: 0 }">
+                            [ngTemplateOutletContext]="{ node: node, deep: 0, path: '', textpath: '' }">
                         </ng-template>
                     </ng-container>
                 </ul>
@@ -75,13 +75,17 @@
 <ng-template
     #treeItem
     let-node="node"
-    let-deep="deep">
+    let-deep="deep"
+    let-path="path"
+    let-textpath="textpath">
     <li
         class="list-group-item list-group-item-action py-1 px-2 d-flex align-items-center"
         [class.active]="isSelectedState(node)"
         (mouseenter)="setHoverState(node, true)"
         (mouseleave)="setHoverState(node, false)"
-        style="cursor: pointer">
+        style="cursor: pointer"
+        attr.data-path="{{ path }}/{{ getStringField(node, attrid) }}"
+        attr.data-textpath="{{ textpath }}/{{ getStringField(node, attrlabel) }}">
         <div
             class="mx-3"
             *ngFor="let i of count(deep)">
@@ -131,7 +135,12 @@
         <ng-template
             *ngFor="let child of getChildren(node)"
             [ngTemplateOutlet]="treeItem"
-            [ngTemplateOutletContext]="{ node: child, deep: deep + 1 }">
+            [ngTemplateOutletContext]="{
+                node: child,
+                deep: deep + 1,
+                path: path + '/' + getStringField(node, attrid),
+                textpath: textpath + '/' + getStringField(node, attrlabel)
+            }">
         </ng-template>
     </ng-container>
 </ng-template>

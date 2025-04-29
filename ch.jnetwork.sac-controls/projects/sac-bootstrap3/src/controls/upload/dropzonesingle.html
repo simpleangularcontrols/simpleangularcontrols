@@ -1,11 +1,12 @@
 <div
+    id="{{ name }}"
     class="row form-group"
     [class.has-error]="invalid && (dirty || touched)"
     [ngClass]="componentHeight | toLabelHeight">
     <label
         *ngIf="disablelabel === false && !isAdaptiveLabel"
         id="{{ name }}label"
-        for="{{ name }}"
+        for="{{ name }}_uploadinput"
         class="col-xs-12 control-label"
         [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'sr-only']"
         [class.required]="isrequired">

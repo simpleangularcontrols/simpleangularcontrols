@@ -340,20 +340,23 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { SacContextmenuComponent } from &#x27;./contextmenu&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
-import { SacContextmenuItemButtonComponent } from &#x27;./contextmenuitembutton&#x27;;
-import { SacContextmenuItemSplitterComponent } from &#x27;./contextmenuitemsplitter&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacContextmenuComponent } from &#x27;./contextmenu&#x27;;
 import { SacContextmenuAnchorDirective } from &#x27;./contextmenuanchor&#x27;;
 import { SacContextmenuContainerDirective } from &#x27;./contextmenucontainer&#x27;;
+import { SacContextmenuItemButtonComponent } from &#x27;./contextmenuitembutton&#x27;;
+import { SacContextmenuItemSplitterComponent } from &#x27;./contextmenuitemsplitter&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 
 @NgModule({
-    imports: [CommonModule, SacContextmenuComponent,
+    imports: [
+        CommonModule,
+        SacContextmenuComponent,
         SacContextmenuItemButtonComponent,
         SacContextmenuItemSplitterComponent,
         SacContextmenuAnchorDirective,
-        SacContextmenuContainerDirective],
+        SacContextmenuContainerDirective,
+    ],
     exports: [
         SacContextmenuComponent,
         SacContextmenuItemButtonComponent,

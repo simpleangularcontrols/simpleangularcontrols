@@ -131,7 +131,7 @@
         <h3>Description</h3>
     </p>
     <p class="comment">
-        <p>Component für Menü Eintrag in Context Menü</p>
+        <p>Component for menu entry in context menu</p>
 
     </p>
 
@@ -158,6 +158,14 @@
 
 
 
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                                <code><a href="../components/SacMultilanguagemenuItemButtonComponent.html" target="_self" >{
+    provide: SacContextmenuItemCommon, useExisting: forwardRef(() &#x3D;&gt; SacMultilanguagemenuItemButtonComponent),
+}</a></code>
+                </td>
+            </tr>
 
 
             <tr>
@@ -263,7 +271,13 @@
                                 <a href="#isicondisabled" >isicondisabled</a>
                             </li>
                             <li>
+                                <a href="#name" >name</a>
+                            </li>
+                            <li>
                                 <a href="#text" >text</a>
+                            </li>
+                            <li>
+                                <a href="#contextmenu" >contextmenu</a>
                             </li>
                         </ul>
                     </td>
@@ -296,12 +310,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(contextmenu: <a href="../directives/SacContextmenuCommon.html" target="_self">SacContextmenuCommon</a>)</code>
+<code>constructor()</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/sac-bootstrap5/src/controls/multilanguage/multilanguagemenuitembutton.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/sac-bootstrap5/src/controls/multilanguage/multilanguagemenuitembutton.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -309,37 +323,6 @@
                     <td class="col-md-4">
                             <div class="io-description"><p>Constructor</p>
 </div>
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                                    <td>Description</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>contextmenu</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../directives/SacContextmenuCommon.html" target="_self" >SacContextmenuCommon</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                        <td>
-                                                                <p>Instance von Context Menü</p>
-
-                                                        </td>
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
                     </td>
                 </tr>
             </tbody>
@@ -375,7 +358,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:44</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:31</a></code>
 </div>
                             </td>
                         </tr>
@@ -409,7 +392,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:38</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:37</a></code>
 </div>
                             </td>
                         </tr>
@@ -448,7 +431,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:50</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:43</a></code>
 </div>
                             </td>
                         </tr>
@@ -482,7 +465,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:56</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:49</a></code>
 </div>
                             </td>
                         </tr>
@@ -516,7 +499,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:62</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:89</a></code>
 </div>
                             </td>
                         </tr>
@@ -550,13 +533,52 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:80</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:108</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Icon Column in Menü ist deaktiviert</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="name"></a>
+                        <b>name</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/SacContextmenuItemButtonCommon.html" target="_self" >SacContextmenuItemButtonCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:55</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>name of button. used for generate id and name</p>
 </div>
                     </td>
                 </tr>
@@ -584,13 +606,52 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:98</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:61</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Text für Menü Item.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="contextmenu"></a>
+                        <b>contextmenu</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ISacContextmenuCommon.html" target="_self" >ISacContextmenuCommon | null</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/SacContextmenuItemCommon.html" target="_self" >SacContextmenuItemCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemCommon.html#source" target="_self" >SacContextmenuItemCommon:15</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Reference to the higher-level context menu. This property is always set automatically by the context menu. However, it may be necessary to set the reference manually.</p>
 </div>
                     </td>
                 </tr>
@@ -621,7 +682,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:104</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:25</a></code>
 </div>
                             </td>
                         </tr>
@@ -669,7 +730,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:109</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:123</a></code>
 </div>
                         </td>
                     </tr>
@@ -755,7 +816,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:27</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:14</a></code>
 </div>
                         </td>
                     </tr>
@@ -800,7 +861,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:32</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuItemButtonCommon.html#source" target="_self" >SacContextmenuItemButtonCommon:19</a></code>
 </div>
                         </td>
                     </tr>
@@ -821,33 +882,35 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgIf } from &#x27;@angular/common&#x27;;
-import { Component } from &#x27;@angular/core&#x27;;
-import {
-  SacContextmenuCommon,
-  SacContextmenuItemButtonCommon,
-} from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { Component, forwardRef } from &#x27;@angular/core&#x27;;
+import { SacContextmenuItemButtonCommon, SacContextmenuItemCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 /**
- * Component für Menü Eintrag in Context Menü
+ * Component for menu entry in context menu
  */
 @Component({
-  selector: &#x27;sac-multilanguagemenubutton&#x27;,
-  templateUrl: &#x27;./multilanguagemenuitembutton.html&#x27;,
-  standalone: true,
-  imports: [NgIf],
+    selector: &#x27;sac-multilanguagemenubutton&#x27;,
+    templateUrl: &#x27;./multilanguagemenuitembutton.html&#x27;,
+    providers: [
+        {
+            provide: SacContextmenuItemCommon,
+            useExisting: forwardRef(() &#x3D;&gt; SacMultilanguagemenuItemButtonComponent),
+        },
+    ],
+    standalone: true,
+    imports: [NgIf],
 })
 export class SacMultilanguagemenuItemButtonComponent extends SacContextmenuItemButtonCommon {
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Constructor
-   * @param contextmenu Instance von Context Menü
-   */
-  constructor(contextmenu: SacContextmenuCommon) {
-    super(contextmenu);
-  }
+    /**
+     * Constructor
+     */
+    constructor() {
+        super();
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 }
 </code></pre>
     </div>

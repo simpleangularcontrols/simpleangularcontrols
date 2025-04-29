@@ -932,6 +932,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/ISacLocalisationService.html" data-type="entity-link" >ISacLocalisationService</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/ISacUploadEventCompleteState.html" data-type="entity-link" >ISacUploadEventCompleteState</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/ISacValidationKeyService.html" data-type="entity-link" >ISacValidationKeyService</a>
                             </li>
                             <li class="link">

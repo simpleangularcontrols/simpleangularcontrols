@@ -3,6 +3,7 @@ import { IDateTimeControl } from '../interfaces/idatetimecontrol';
 import { TooltipPosition } from '../utilities/enums';
 import { PopUpHelper } from '../utilities/popuphelper';
 import { Validation } from '../validation';
+import { CreateValidationError } from '../validation/validationerrorcreator';
 import { SacBaseModelControl } from './basemodelcontrol';
 import {
     ChangeDetectorRef,
@@ -38,7 +39,6 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
     /**
      * Containers for the datetime picker
      */
-
     protected pickercontainer: ElementRef<HTMLElement>;
 
     /**
@@ -289,6 +289,18 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
      */
     public validateData(c: AbstractControl): ValidationErrors | null {
         let error: ValidationErrors | null = null;
+
+        if (this.valuestring !== null && this.valuestring.indexOf('_') >= 0) {
+            error = CreateValidationError(
+                'invalidtype',
+                this.validationmessagedatetimeformat,
+                this.validationmessagedatetimeformatsummary
+            );
+
+            if (error) {
+                return error;
+            }
+        }
 
         error = Validation.isValidDate(
             this.validationmessagedatetimeformat,

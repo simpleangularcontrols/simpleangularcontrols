@@ -104,13 +104,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SACBootstrap4ContextmenuModule.html" data-type="entity-link" >SACBootstrap4ContextmenuModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                        'data-bs-target="#directives-links-module-SACBootstrap4ContextmenuModule-d6b0959f3ec39508fee50c5cb503e6650560740f420c8a1c2c4753e17745b283a956eaf3eecb2c71dcf31b860d9182440793cc47a8ce7bfe494078cfa6eb4380"' : 'data-bs-target="#xs-directives-links-module-SACBootstrap4ContextmenuModule-d6b0959f3ec39508fee50c5cb503e6650560740f420c8a1c2c4753e17745b283a956eaf3eecb2c71dcf31b860d9182440793cc47a8ce7bfe494078cfa6eb4380"' }>
+                                        'data-bs-target="#directives-links-module-SACBootstrap4ContextmenuModule-87268b535b67ae397c5241b51927e8db29d0b94652f6f5f925c65640a5267367483b3c99e5567043feccc373be770d2dc36bf474e4ba24ac2dc3410f37525c83"' : 'data-bs-target="#xs-directives-links-module-SACBootstrap4ContextmenuModule-87268b535b67ae397c5241b51927e8db29d0b94652f6f5f925c65640a5267367483b3c99e5567043feccc373be770d2dc36bf474e4ba24ac2dc3410f37525c83"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-SACBootstrap4ContextmenuModule-d6b0959f3ec39508fee50c5cb503e6650560740f420c8a1c2c4753e17745b283a956eaf3eecb2c71dcf31b860d9182440793cc47a8ce7bfe494078cfa6eb4380"' :
-                                        'id="xs-directives-links-module-SACBootstrap4ContextmenuModule-d6b0959f3ec39508fee50c5cb503e6650560740f420c8a1c2c4753e17745b283a956eaf3eecb2c71dcf31b860d9182440793cc47a8ce7bfe494078cfa6eb4380"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-SACBootstrap4ContextmenuModule-87268b535b67ae397c5241b51927e8db29d0b94652f6f5f925c65640a5267367483b3c99e5567043feccc373be770d2dc36bf474e4ba24ac2dc3410f37525c83"' :
+                                        'id="xs-directives-links-module-SACBootstrap4ContextmenuModule-87268b535b67ae397c5241b51927e8db29d0b94652f6f5f925c65640a5267367483b3c99e5567043feccc373be770d2dc36bf474e4ba24ac2dc3410f37525c83"' }>
                                         <li class="link">
                                             <a href="directives/SacContextmenuAnchorDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacContextmenuAnchorDirective</a>
                                         </li>
@@ -804,6 +804,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/ISacConfigurationService.html" data-type="entity-link" >ISacConfigurationService</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/ISacContextmenuCommon.html" data-type="entity-link" >ISacContextmenuCommon</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/ISacFileBrowserService.html" data-type="entity-link" >ISacFileBrowserService</a>
                             </li>
                             <li class="link">
@@ -817,6 +820,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/ISacLocalisationService.html" data-type="entity-link" >ISacLocalisationService</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ISacUploadEventCompleteState.html" data-type="entity-link" >ISacUploadEventCompleteState</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ISacValidationKeyService.html" data-type="entity-link" >ISacValidationKeyService</a>

@@ -98,9 +98,11 @@
 
                 <div
                     (click)="onNodeClicked(node)"
-                    *ngIf="attricon && getStringField(node, attricon)"
-                    style="margin-right: 15px"
-                    [ngClass]="getStringField(node, attricon)">
+                    *ngIf="attricon && getStringField(node, attricon)">
+                    <ng-template
+                        [ngTemplateOutlet]="templateicon || defaultTemplateIcon"
+                        [ngTemplateOutletContext]="{ node: node }">
+                    </ng-template>
                 </div>
 
                 <div
@@ -144,6 +146,15 @@
     <span [title]="label">
         {{ label }}
     </span>
+</ng-template>
+
+<ng-template
+    #defaultTemplateIcon
+    let-node="node">
+    <div
+        style="margin-right: 15px"
+        [ngClass]="getStringField(node, attricon)">
+    </div>
 </ng-template>
 
 <ng-template

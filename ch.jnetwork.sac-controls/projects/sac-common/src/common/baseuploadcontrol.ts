@@ -61,6 +61,11 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     private _endpoint: string = null;
 
     /**
+     * Token for Bearer Authentication
+     */
+    private _token: string | null = null;
+
+    /**
      * Upload Settings
      */
     private options: UploadxOptions = {};
@@ -269,6 +274,22 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
         this.setEndpoint(v);
     }
 
+    /**
+     * Token for Bearer Authentication
+     */
+    public get token(): string | null {
+        return this._token;
+    }
+
+    /**
+     * Token for Bearer Authentication
+     */
+    @Input()
+    public set token(v: string | null) {
+        this._token = v;
+        this.setToken(v);
+    }
+
     // #endregion Public Getters And Setters
 
     // #region Public Methods
@@ -392,6 +413,7 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
 
         this.setAllowedTypes(this._allowedtypes);
         this.setEndpoint(this._endpoint);
+        this.setToken(this._token);
 
         if (this._endpoint === null) {
             throw new Error('endpoint is not defined!');
@@ -467,6 +489,13 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
         if (this.IsUploading() === true) {
             this.uploadService.control({ action: 'pause' });
         }
+    }
+
+    /**
+     * Sets the bearer token in the upload service
+     */
+    public setToken(value: string) {
+        this.options.token = value;
     }
 
     /**

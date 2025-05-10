@@ -154,7 +154,7 @@ describe('ngInputPasswordComponent', () => {
     it('should limit string', () => {
         cy.mount(
             `<form>
-      <sac-inputpassword name="field" [label]="label" [maxlength]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      <sac-inputpassword name="field" [label]="label" [maxtextlength]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
       </sac-inputpassword>
       </form>`,
             {

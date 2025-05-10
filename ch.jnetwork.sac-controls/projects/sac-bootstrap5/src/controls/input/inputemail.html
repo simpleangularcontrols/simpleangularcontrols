@@ -41,7 +41,7 @@
                     (blur)="onTouch()"
                     (input)="setValue($event.target.value)"
                     [attr.placeholder]="placeholder"
-                    [attr.maxlength]="maxlength"
+                    [attr.maxlength]="maxtextlength"
                     autocomplete="email"
                     [class.is-invalid]="invalid && (dirty || touched)"
                     [ngClass]="[componentHeight | toControlHeight]"

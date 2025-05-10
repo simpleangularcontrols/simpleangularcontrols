@@ -288,7 +288,14 @@
             name="fieldpassword4"
             label="Passwort 4"
             [(ngModel)]="values.fieldpassword4"
-            disabled="disabled"
+            disabled="true"
+            helptext="Dies ist ein Helptext">
+        </sac-inputpassword>
+        <sac-inputpassword
+            name="fieldpassword5"
+            label="Passwort 5"
+            [mintextlength]="6"
+            [(ngModel)]="values.fieldpassword5"
             helptext="Dies ist ein Helptext">
         </sac-inputpassword>
 

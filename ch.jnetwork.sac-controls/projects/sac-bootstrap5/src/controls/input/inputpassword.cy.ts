@@ -194,6 +194,8 @@ describe('ngInputPasswordComponent', () => {
 
         cy.shouldBeInvalid();
 
+        cy.shouldHaveErrorMessage('Feld erfordert min. 6 Zeichen.');
+
         cy.get('input').clear().type('12345678');
 
         cy.shouldBeValid();

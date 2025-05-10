@@ -1,77 +1,132 @@
-import { Inject, Injectable, InjectionToken } from '@angular/core';
-import { Observable } from 'rxjs';
 import { ISacLocalisationService } from '../interfaces/ISacLocalisationService';
 import { ISacValidationKeyService } from '../interfaces/ISacValidationKeyService';
 import { Interpolation } from '../utilities/interpolation';
 import { SACVALIDATIONKEY_SERVICE } from './sac-validationkey.service';
+import { Inject, Injectable, InjectionToken } from '@angular/core';
+import { Observable } from 'rxjs';
 
-// #region Classes
+// #region Variables
+
+/**
+ * injection token for localisation service
+ */
+export const SACLOCALISATION_SERVICE = new InjectionToken<SacAbstractLocalisationService>('SacLocalisationService');
+
+// #endregion Variables
+
+// #region Exported Classes
 
 /**
  * abstract class for localisation in components
  * */
 @Injectable({ providedIn: 'root' })
 export abstract class SacAbstractLocalisationService implements ISacLocalisationService {
-    // #region Protected Abstract Getters And Setters
+    // #region Protected Getters And Setters
 
     protected abstract get CONFIRM_BUTTON_NO(): Map<string, string>;
+
     protected abstract get CONFIRM_BUTTON_YES(): Map<string, string>;
+
     protected abstract get FILEBROWSER_CONFIRM_DELETEFILE(): Map<string, string>;
+
     protected abstract get FILEBROWSER_CONFIRM_DELETEFOLDER(): Map<string, string>;
+
     protected abstract get FILEBROWSER_DELETE(): Map<string, string>;
+
     protected abstract get FILEBROWSER_GRID_FILE(): Map<string, string>;
+
     protected abstract get FILEBROWSER_GRID_SIZE(): Map<string, string>;
+
     protected abstract get FILEBROWSER_NEWFOLDER(): Map<string, string>;
+
     protected abstract get FILEBROWSER_NO_FILES(): Map<string, string>;
+
     protected abstract get FILEBROWSER_REFRESH(): Map<string, string>;
+
     protected abstract get FILEBROWSER_UPLOAD(): Map<string, string>;
+
     protected abstract get PAGING_PAGEENTRIESTEXT(): Map<string, string>;
+
     protected abstract get PAGING_PAGEOFTEXT(): Map<string, string>;
+
     protected abstract get TINYMCE_FILESELECT_CANCEL(): Map<string, string>;
+
     protected abstract get TINYMCE_FILESELECT_DIALOGTITLE(): Map<string, string>;
+
     protected abstract get TINYMCE_FILESELECT_OK(): Map<string, string>;
+
     protected abstract get UPLOAD_BUTTON_BROWSE(): Map<string, string>;
+
     protected abstract get UPLOAD_BUTTON_UPLOAD(): Map<string, string>;
+
     protected abstract get UPLOAD_NO_FILE_SELECTED(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_DATETIMEFORMAT(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_EMAIL(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_FILESMIN(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_MAXDATE(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_MAXTIME(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_MAXVALUE(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_MINDATE(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_MINTEXTLENGTH(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_MINTIME(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_MINVALUE(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_MULTILANGUAGEREQUIRED(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_MULTILANGUAGEREQUIREDANY(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_PATTERN(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_REQUIRED(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_SUMMARY_DATETIMEFORMAT(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_SUMMARY_EMAIL(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_SUMMARY_FILESMIN(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_SUMMARY_MAXDATE(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_SUMMARY_MAXTIME(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_SUMMARY_MAXVALUE(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_SUMMARY_MINDATE(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_SUMMARY_MINTEXTLENGTH(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_SUMMARY_MINTIME(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_SUMMARY_MINVALUE(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIRED(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_SUMMARY_MULTILANGUAGEREQUIREDANY(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_SUMMARY_PATTERN(): Map<string, string>;
+
     protected abstract get VALIDATION_ERROR_SUMMARY_REQUIRED(): Map<string, string>;
 
-    // #endregion Protected Abstract Getters And Setters
+    // #endregion Protected Getters And Setters
 
-    // #region Public Abstract Methods
+    // #region Public Methods
 
     /**
      * Die Methode übersetzt den eingegebenen Wort/Begriff. Verlangt key und optionell params
      */
     public abstract GetString(key: string, params?: any): Observable<string>;
 
-    // #endregion Public Abstract Methods
+    // #endregion Public Methods
 }
 
 /**
@@ -228,7 +283,7 @@ export class SacDefaultLocalisationService extends SacAbstractLocalisationServic
             );
 
         // EN
-        this.data.set('en', new Map<string, string>());
+        // this.data.set('en', new Map<string, string>());
     }
 
     // #endregion Constructors
@@ -492,13 +547,4 @@ export class SacDefaultLocalisationService extends SacAbstractLocalisationServic
     // #endregion Private Methods
 }
 
-// #endregion Classes
-
-// #region Variables
-
-/**
- * injection token for localisation service
- */
-export const SACLOCALISATION_SERVICE = new InjectionToken<SacAbstractLocalisationService>('SacLocalisationService');
-
-// #endregion Variables
+// #endregion Exported Classes

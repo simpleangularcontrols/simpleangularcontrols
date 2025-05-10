@@ -1,8 +1,8 @@
-import { FormsModule } from '@angular/forms';
-import { createOutputSpy } from 'cypress/angular';
 import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacInputPasswordComponent } from './inputpassword';
+import { FormsModule } from '@angular/forms';
+import { createOutputSpy } from 'cypress/angular';
 
 describe('ngInputPasswordComponent', () => {
     it('should show label and text', () => {
@@ -202,6 +202,8 @@ describe('ngInputPasswordComponent', () => {
         cy.validateValueChanged('12345'.length + 1);
 
         cy.shouldBeInvalid();
+
+        cy.shouldHaveErrorMessage('Feld erfordert min. 6 Zeichen.');
 
         cy.get('input').clear().type('12345678');
 

@@ -283,7 +283,7 @@ export class SacDefaultLocalisationService extends SacAbstractLocalisationServic
             );
 
         // EN
-        this.data.set('en', new Map<string, string>());
+        // this.data.set('en', new Map<string, string>());
     }
 
     // #endregion Constructors

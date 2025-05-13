@@ -308,7 +308,7 @@
                                 <a href="#controlwidth" >controlwidth</a>
                             </li>
                             <li>
-                                <a href="#maxlength" >maxlength</a>
+                                <a href="#maxtextlength" >maxtextlength</a>
                             </li>
                             <li>
                                 <a href="#validationmessagepattern" >validationmessagepattern</a>
@@ -444,8 +444,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="maxlength"></a>
-                        <b>maxlength</b>
+                        <a name="maxtextlength"></a>
+                        <b>maxtextlength</b>
                     </td>
                 </tr>
                 <tr>
@@ -461,12 +461,12 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/sac-common/src/controls/input/input.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/sac-common/src/controls/input/input.ts:21</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Max länge an Zeichen für Eingabefeld</p>
+                        <div class="io-description"><p>Max length of characters for input field</p>
 </div>
                     </td>
                 </tr>
@@ -493,7 +493,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/sac-common/src/controls/input/input.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/sac-common/src/controls/input/input.ts:26</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -525,7 +525,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/sac-common/src/controls/input/input.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/sac-common/src/controls/input/input.ts:31</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -557,7 +557,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/sac-common/src/controls/input/input.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/sac-common/src/controls/input/input.ts:36</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -589,7 +589,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/sac-common/src/controls/input/input.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/sac-common/src/controls/input/input.ts:41</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1549,7 +1549,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:49</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:50</a></code>
 </div>
                         </td>
                     </tr>
@@ -3277,79 +3277,73 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, Input } from &#x27;@angular/core&#x27;;
-import { AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
-import { SacInputBase } from &#x27;../../common/baseinputcontrol&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacInputBase } from &#x27;../../common/baseinputcontrol&#x27;;
 import { Validation } from &#x27;../../validation&#x27;;
+import { Directive, Input } from &#x27;@angular/core&#x27;;
+import { AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
 
 /**
  * Basis Komponente für SacInput
  */
 @Directive()
 export class SacInputCommon extends SacInputBase&lt;string&gt; {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Fix breite für das Control definieren.
-   */
-  @Input() public controlwidth: string &#x3D; null;
-  /**
-   * Max länge an Zeichen für Eingabefeld
-   */
-  @Input() public maxlength: number &#x3D; null;
-  /**
-   * Resource Key für Validation Message Pattern bei Control
-   */
-  @Input() public validationmessagepattern: string &#x3D;
-    this.validationKeyService.ValidationErrorPattern;
-  /**
-   * Resource Key für Validation Message Required bei Control
-   */
-  @Input() public validationmessagerequired: string &#x3D;
-    this.validationKeyService.ValidationErrorRequired;
-  /**
-   * Resource Key für Validation Message Pattern in Validation Summary
-   */
-  @Input() public validationmessagesummarypattern: string &#x3D;
-    this.validationKeyService.ValidationErrorSummaryPattern;
-  /**
-   * Resource Key für Validation Message Required in Validation Summary
-   */
-  @Input() public validationmessagesummaryrequired: string &#x3D;
-    this.validationKeyService.ValidationErrorSummaryRequired;
+    /**
+     * Fix breite für das Control definieren.
+     */
+    @Input() public controlwidth: string &#x3D; null;
 
-  // #endregion Properties
+    /**
+     * Max length of characters for input field
+     */
+    @Input() public maxtextlength: number &#x3D; null;
 
-  // #region Public Methods
+    /**
+     * Resource Key für Validation Message Pattern bei Control
+     */
+    @Input() public validationmessagepattern: string &#x3D; this.validationKeyService.ValidationErrorPattern;
 
-  /**
-   * Methode validiert, ob der Wert den gegebenen Kriterien entspricht
-   */
-  public validateData(c: AbstractControl): ValidationErrors | null {
-    let error: ValidationErrors | null &#x3D; null;
+    /**
+     * Resource Key für Validation Message Required bei Control
+     */
+    @Input() public validationmessagerequired: string &#x3D; this.validationKeyService.ValidationErrorRequired;
 
-    if (this.isrequired) {
-      error &#x3D; Validation.required(
-        this.validationmessagerequired,
-        this.validationmessagesummaryrequired
-      )(c);
+    /**
+     * Resource Key für Validation Message Pattern in Validation Summary
+     */
+    @Input() public validationmessagesummarypattern: string &#x3D; this.validationKeyService.ValidationErrorSummaryPattern;
+
+    /**
+     * Resource Key für Validation Message Required in Validation Summary
+     */
+    @Input() public validationmessagesummaryrequired: string &#x3D; this.validationKeyService.ValidationErrorSummaryRequired;
+
+    // #endregion Properties
+
+    // #region Public Methods
+
+    /**
+     * Methode validiert, ob der Wert den gegebenen Kriterien entspricht
+     */
+    public validateData(c: AbstractControl): ValidationErrors | null {
+        let error: ValidationErrors | null &#x3D; null;
+
+        if (this.isrequired) {
+            error &#x3D; Validation.required(this.validationmessagerequired, this.validationmessagesummaryrequired)(c);
+        }
+
+        if (error &#x3D;&#x3D;&#x3D; null &amp;&amp; this.regexvalidation !&#x3D;&#x3D; undefined &amp;&amp; this.regexvalidation !&#x3D;&#x3D; null) {
+            error &#x3D; Validation.pattern(
+                this.regexvalidation,
+                this.validationmessagepattern,
+                this.validationmessagesummarypattern
+            )(c);
+        }
+        return error;
     }
 
-    if (
-      error &#x3D;&#x3D;&#x3D; null &amp;&amp;
-      this.regexvalidation !&#x3D;&#x3D; undefined &amp;&amp;
-      this.regexvalidation !&#x3D;&#x3D; null
-    ) {
-      error &#x3D; Validation.pattern(
-        this.regexvalidation,
-        this.validationmessagepattern,
-        this.validationmessagesummarypattern
-      )(c);
-    }
-    return error;
-  }
-
-  // #endregion Public Methods
+    // #endregion Public Methods
 }
 </code></pre>
     </div>

@@ -89,7 +89,7 @@
             name="field6"
             label="Feld 6 (Max 10)"
             [(ngModel)]="values.field6"
-            [maxlength]="10"
+            [maxtextlength]="10"
             helptext="Dies ist ein Helptext">
         </sac-input>
         <sac-input
@@ -237,7 +237,7 @@
             name="fieldemail2"
             label="E-Mail 2 (Max 10)"
             [(ngModel)]="values.fieldemail2"
-            [maxlength]="10"
+            [maxtextlength]="10"
             helptext="Dies ist ein Helptext">
         </sac-inputemail>
         <sac-inputemail
@@ -271,7 +271,7 @@
             name="fieldpassword3"
             label="Passwort 3 (Max 10)"
             [(ngModel)]="values.fieldpassword3"
-            [maxlength]="10"
+            [maxtextlength]="10"
             helptext="Dies ist ein Helptext"
             helptextmode="tooltip">
         </sac-inputpassword>
@@ -279,7 +279,7 @@
             name="fieldpassword3b"
             label="Passwort 3 (Max 10)"
             [(ngModel)]="values.fieldpassword3"
-            [maxlength]="10"
+            [maxtextlength]="10"
             disablelabel="true"
             helptext="Dies ist ein Helptext"
             helptextmode="tooltip">
@@ -289,6 +289,13 @@
             label="Passwort 4"
             [(ngModel)]="values.fieldpassword4"
             disabled="disabled"
+            helptext="Dies ist ein Helptext">
+        </sac-inputpassword>
+        <sac-inputpassword
+            name="fieldpassword5"
+            label="Passwort 5"
+            [mintextlength]="6"
+            [(ngModel)]="values.fieldpassword5"
             helptext="Dies ist ein Helptext">
         </sac-inputpassword>
 
@@ -308,7 +315,7 @@
             name="fieldarea3"
             label="Area 3 (Max 50)"
             [(ngModel)]="values.fieldarea3"
-            maxlength="50"
+            maxtextlength="50"
             helptext="Dies ist ein Helptext">
         </sac-inputarea>
         <sac-inputarea

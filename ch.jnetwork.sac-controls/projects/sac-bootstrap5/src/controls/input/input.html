@@ -37,7 +37,7 @@
                 (blur)="onTouch()"
                 (input)="setValue($event.target.value)"
                 (keypress)="onKeyPress($event)"
-                [attr.maxlength]="maxlength"
+                [attr.maxlength]="maxtextlength"
                 [class.is-invalid]="invalid && (dirty || touched)"
                 [ngClass]="[componentHeight | toControlHeight]"
                 [disabled]="isdisabled" />

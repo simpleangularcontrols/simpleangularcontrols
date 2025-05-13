@@ -49,7 +49,7 @@
                         style="height: auto"
                         (input)="SetLanguageValue($event.target.value)"
                         [attr.rows]="rows"
-                        [attr.maxlength]="maxlength"
+                        [attr.maxlength]="maxtextlength"
                         [class.is-invalid]="invalid && (dirty || touched)"
                         [ngClass]="[componentHeight | toControlHeight]"
                         [disabled]="isdisabled"></textarea>

@@ -22,10 +22,10 @@ namespace Build.tasks
 
             context.Log.Information("Install required NPM Packages");
 
-            context.Log.Debug(context.ProjectDirectory.ToDirectoryPath());
+            context.Log.Debug(context.DirectoryProject.ToDirectoryPath());
 
             NpmInstallSettings settings = new NpmInstallSettings();
-            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
             context.NpmInstall(settings);
         }
     }

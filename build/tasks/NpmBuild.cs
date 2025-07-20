@@ -40,7 +40,7 @@ namespace Build.tasks
         internal static void BuildCommon(BuildContext context)
         {
             NpmRunScriptSettings settings = new NpmRunScriptSettings();
-            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
             settings.ScriptName = "build-common";
 
             context.NpmRunScript(settings);
@@ -53,7 +53,7 @@ namespace Build.tasks
         private void BuildBootstrap3(BuildContext context)
         {
             NpmRunScriptSettings settings = new NpmRunScriptSettings();
-            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
             settings.ScriptName = "build-bs3";
 
             context.NpmRunScript(settings);
@@ -66,7 +66,7 @@ namespace Build.tasks
         private void BuildBootstrap4(BuildContext context)
         {
             NpmRunScriptSettings settings = new NpmRunScriptSettings();
-            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
             settings.ScriptName = "build-bs4";
 
             context.NpmRunScript(settings);
@@ -79,7 +79,7 @@ namespace Build.tasks
         private void BuildBootstrap5(BuildContext context)
         {
             NpmRunScriptSettings settings = new NpmRunScriptSettings();
-            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
             settings.ScriptName = "build-bs5";
 
             context.NpmRunScript(settings);

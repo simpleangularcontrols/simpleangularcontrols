@@ -20,7 +20,7 @@ namespace Build.tasks
 
             context.Log.Information("Clean existing files");
 
-            DirectoryPath coverageDirectory = context.Environment.WorkingDirectory.Combine(new DirectoryPath(context.ProjectDirectory)).Combine(new DirectoryPath("coverage"));
+            DirectoryPath coverageDirectory = context.Environment.WorkingDirectory.Combine(new DirectoryPath(context.DirectoryProject)).Combine(new DirectoryPath("coverage"));
 
             if (context.DirectoryExists(coverageDirectory))
             {
@@ -30,7 +30,7 @@ namespace Build.tasks
                 });
             }
 
-            DirectoryPath nycDirectory = context.Environment.WorkingDirectory.Combine(new DirectoryPath(context.ProjectDirectory)).Combine(new DirectoryPath("projects/sac-bootstrap4/.nyc_output"));
+            DirectoryPath nycDirectory = context.Environment.WorkingDirectory.Combine(new DirectoryPath(context.DirectoryProject)).Combine(new DirectoryPath("projects/sac-bootstrap4/.nyc_output"));
 
             if (context.DirectoryExists(nycDirectory))
             {

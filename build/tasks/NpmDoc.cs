@@ -31,7 +31,7 @@ namespace Build.tasks
         private void DocBoostrap3(BuildContext context)
         {
             NpmRunScriptSettings settings = new NpmRunScriptSettings();
-            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
             settings.ScriptName = "compodoc-bs3";
 
             context.NpmRunScript(settings);
@@ -40,7 +40,7 @@ namespace Build.tasks
         private void DocBoostrap4(BuildContext context)
         {
             NpmRunScriptSettings settings = new NpmRunScriptSettings();
-            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
             settings.ScriptName = "compodoc-bs4";
 
             context.NpmRunScript(settings);
@@ -49,7 +49,7 @@ namespace Build.tasks
         private void DocBoostrap5(BuildContext context)
         {
             NpmRunScriptSettings settings = new NpmRunScriptSettings();
-            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
             settings.ScriptName = "compodoc-bs5";
 
             context.NpmRunScript(settings);

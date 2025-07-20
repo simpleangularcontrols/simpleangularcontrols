@@ -33,7 +33,7 @@ namespace Build.tasks
                                                              .AppendSwitch("-o", "./reports/bs3.json")
                 , settings =>
                 {
-                    settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+                    settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
                 });
 
                 context.Npx("mochawesome-json-to-md", args => args.AppendSwitch("-p", "./reports/bs3.json")
@@ -41,7 +41,7 @@ namespace Build.tasks
                                                                   .AppendSwitch("-t", "./node_modules/mochawesome-json-to-md/sample-template.md")
                 , settings =>
                 {
-                    settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+                    settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
                 });
             }
 
@@ -51,7 +51,7 @@ namespace Build.tasks
                                                              .AppendSwitch("-o", "./reports/bs4.json")
                 , settings =>
                 {
-                    settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+                    settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
                 });
 
                 context.Npx("mochawesome-json-to-md", args => args.AppendSwitch("-p", "./reports/bs4.json")
@@ -59,7 +59,7 @@ namespace Build.tasks
                                                                   .AppendSwitch("-t", "./node_modules/mochawesome-json-to-md/sample-template.md")
                 , settings =>
                 {
-                    settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+                    settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
                 });
             }
 
@@ -69,7 +69,7 @@ namespace Build.tasks
                                                              .AppendSwitch("-o", "./reports/bs5.json")
                 , settings =>
                 {
-                    settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+                    settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
                 });
 
                 context.Npx("mochawesome-json-to-md", args => args.AppendSwitch("-p", "./reports/bs5.json")
@@ -77,7 +77,7 @@ namespace Build.tasks
                                                                   .AppendSwitch("-t", "./node_modules/mochawesome-json-to-md/sample-template.md")
                 , settings =>
                 {
-                    settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+                    settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
                 });
             }
         }

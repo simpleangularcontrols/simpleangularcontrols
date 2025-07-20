@@ -33,6 +33,9 @@ namespace Build.tasks
             PackNpm(context, "./dist/sac-bootstrap4");
             PackNpm(context, "./dist/sac-bootstrap5");
 
+            // TODO: Remove before merge ... Is Important to Test Workflow
+            return;
+
             // Publish Package
             if (context.Arguments.HasArgument("nopublish"))
                 return;
@@ -46,7 +49,7 @@ namespace Build.tasks
         private void PackNpm(BuildContext context, string distFolder)
         {
             NpmPackSettings settings = new NpmPackSettings();
-            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath()).Combine(distFolder.ToDirectoryPath());
+            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath()).Combine(distFolder.ToDirectoryPath());
 
             context.NpmPack(settings);
         }
@@ -56,7 +59,7 @@ namespace Build.tasks
             NpmPublishSettings settings = new NpmPublishSettings()
             {
                 Access = NpmPublishAccess.Public,
-                WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath()).Combine(distFolder.ToDirectoryPath())
+                WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath()).Combine(distFolder.ToDirectoryPath())
             };
 
             context.NpmPublish(settings);
@@ -64,10 +67,10 @@ namespace Build.tasks
 
         private void SetPackageVersions(BuildContext context)
         {
-            FilePath commonPackage = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath()).CombineWithFilePath(new FilePath("./dist/sac-common/package.json"));
-            FilePath boostrap3Package = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath()).CombineWithFilePath(new FilePath("./dist/sac-bootstrap3/package.json"));
-            FilePath boostrap4Package = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath()).CombineWithFilePath(new FilePath("./dist/sac-bootstrap4/package.json"));
-            FilePath boostrap5Package = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath()).CombineWithFilePath(new FilePath("./dist/sac-bootstrap5/package.json"));
+            FilePath commonPackage = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath()).CombineWithFilePath(new FilePath("./dist/sac-common/package.json"));
+            FilePath boostrap3Package = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath()).CombineWithFilePath(new FilePath("./dist/sac-bootstrap3/package.json"));
+            FilePath boostrap4Package = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath()).CombineWithFilePath(new FilePath("./dist/sac-bootstrap4/package.json"));
+            FilePath boostrap5Package = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath()).CombineWithFilePath(new FilePath("./dist/sac-bootstrap5/package.json"));
 
             JObject commonJson = context.ParseJsonFromFile(commonPackage);
             string commonVersion = commonJson["version"].Value<string>();

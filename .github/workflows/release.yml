@@ -1,0 +1,97 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+name: Create Release
+run-name: Release '${{ github.ref_name }}' with ReleaseMode '${{ github.event.inputs.version }}' by @${{ github.actor }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Select Version"
+        required: true
+        type: choice
+        options: 
+          - patch
+          - minor
+          - major
+          - prerelease
+
+jobs:
+  check-branch:
+    runs-on: ubuntu-latest
+    outputs:
+      valid: ${{ steps.branch-check.outputs.valid }}
+    steps:
+      - name: Check branch name starts with angular/
+        id: branch-check
+        run: |
+          echo "Current Branch: ${{ github.ref_name }}"
+          if [[ "${{ github.ref_name }}" == ng10/release-github-action ]]; then
+            echo "✅ Valid Branch: ${{ github.ref_name }}"
+            echo "valid=true" >> $GITHUB_OUTPUT
+          else
+            echo "🚫 Invalid Branch: ${{ github.ref_name }} – cannot release from this branch."
+            echo "valid=false" >> $GITHUB_OUTPUT
+          fi
+  authorize:
+    runs-on: ubuntu-22.04
+    outputs:
+      authorized: ${{ steps.check.outputs.authorized }}
+    env:
+      ALLOWED_USERS: ${{ secrets.ALLOWED_USERS }}
+      
+    steps:
+      - name: Check if user is authorized
+        id: check
+        run: |
+          echo "Triggered by: ${{ github.actor }}"
+          echo "Allowed Users for Release: $ALLOWED_USERS"
+
+          IFS=',' read -ra USERS <<< "$ALLOWED_USERS"
+
+          IS_ALLOWED=false
+          for user in "${USERS[@]}"; do
+            if [[ "$user" == "${{ github.actor }}" ]]; then
+              IS_ALLOWED=true
+              break
+            fi
+          done
+
+          if [ "$IS_ALLOWED" == "true" ]; then
+            echo "✅ ${{ github.actor }} ist valid."
+            echo "authorized=true" >> $GITHUB_OUTPUT
+          else
+            echo "🚫 ${{ github.actor }} has not permission to release."
+            echo "authorized=false" >> $GITHUB_OUTPUT
+          fi
+
+  build:
+    runs-on: ubuntu-22.04
+    needs: [authorize, check-branch]
+    if: needs.authorize.outputs.authorized == 'true' && needs.check-branch.outputs.valid == 'true'
+    env:
+      DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: 1
+      
+    steps:
+      - name: Get Source
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 3.1.x
+
+      - name: Test
+        run: dotnet run --project build/Build.csproj --target=release --nopublish --${{ github.event.inputs.version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Documentation
+        run: dotnet run --project build/Build.csproj --target=doc
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Release
+        run: dotnet run --project build/Build.csproj --target=release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

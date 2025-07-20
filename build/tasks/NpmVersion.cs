@@ -28,7 +28,7 @@ namespace Build.tasks
         private static void ChangeVersion(BuildContext context, string project)
         {
             NpmBumpVersionSettings settings = new NpmBumpVersionSettings();
-            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath().Combine(project));
+            settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath().Combine(project));
 
             switch (context.ReleaseType)
             {

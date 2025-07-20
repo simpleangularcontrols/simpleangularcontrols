@@ -11,6 +11,7 @@ namespace Build.pipelines
     [TaskName("doc")]
     [TaskDescription("Create the documentation")]
     [IsDependentOn(typeof(NpmDoc))]
+    [IsDependentOn(typeof(GitUpdateDoc))]
     public class DocBuild : FrostingTask<BuildContext>
     {
         /// <summary>

@@ -23,7 +23,7 @@ namespace Build.tasks
             context.Log.Information("Install NPM Packages for Cypress run");
 
             NpmInstallSettings installSettings = new NpmInstallSettings();
-            installSettings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+            installSettings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
             context.NpmInstall(installSettings);
 
             context.Log.Information("Start Cypress run");
@@ -37,7 +37,7 @@ namespace Build.tasks
             void TestBootstrap3()
             {
                 NpmRunScriptSettings runSettings = new NpmRunScriptSettings();
-                runSettings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+                runSettings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
                 runSettings.ScriptName = "test-bs3";
 
                 context.NpmRunScript(runSettings);
@@ -46,7 +46,7 @@ namespace Build.tasks
             void TestBootstrap4()
             {
                 NpmRunScriptSettings runSettings = new NpmRunScriptSettings();
-                runSettings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+                runSettings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
                 runSettings.ScriptName = "test-bs4";
 
                 context.NpmRunScript(runSettings);
@@ -55,7 +55,7 @@ namespace Build.tasks
             void TestBootstrap5()
             {
                 NpmRunScriptSettings runSettings = new NpmRunScriptSettings();
-                runSettings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.ProjectDirectory.ToDirectoryPath());
+                runSettings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
                 runSettings.ScriptName = "test-bs5";
 
                 context.NpmRunScript(runSettings);

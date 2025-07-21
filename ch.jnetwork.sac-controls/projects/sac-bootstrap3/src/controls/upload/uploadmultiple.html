@@ -39,7 +39,7 @@
                             [class.btn-default]="!(invalid && (dirty || touched))"
                             [class.btn-danger]="invalid && (dirty || touched)">
                             <i [class]="IconBrowse"></i>
-                            <span class="upload-browse">Browse</span>
+                            <span class="upload-browse">{{ buttonbrowse ? buttonbrowse : (lngResourceService.GetString(validationKeyService.UploadButtonBrowse) | async) }}</span>
                             <input
                                 id="{{ name }}_uploadinput"
                                 type="file"
@@ -88,7 +88,8 @@
                                 [attr.disabled]="IsStateToUpload() === false ? 'disabled' : null"
                                 [class.btn-default]="!(invalid && (dirty || touched))"
                                 [class.btn-danger]="invalid && (dirty || touched)">
-                                <span [class]="IconUpload"></span> {{ lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async }}
+                                <span [class]="IconUpload"></span>
+                                {{ buttonupload ? buttonupload : (lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async) }}
                             </a>
                         </div>
                     </div>
@@ -167,7 +168,7 @@
                             [attr.disabled]="file.status !== 'added' && file.status !== 'paused' ? 'disabled' : null"
                             [class.btn-default]="!(invalid && (dirty || touched))"
                             [class.btn-danger]="invalid && (dirty || touched)">
-                            <span [class]="IconUpload"></span> {{ lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async }}
+                            <span [class]="IconUpload"></span> {{ buttonupload ? buttonupload : (lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async) }}
                         </a>
                     </div>
                 </div>

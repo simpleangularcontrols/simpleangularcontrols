@@ -44,7 +44,7 @@
                         <i
                             class="pr-2"
                             [ngClass]="IconBrowse"></i>
-                        <span class="upload-browse">{{ lngResourceService.GetString(validationKeyService.UploadButtonBrowse) | async }}</span>
+                        <span class="upload-browse">{{ buttonbrowse ? buttonbrowse : (lngResourceService.GetString(validationKeyService.UploadButtonBrowse) | async) }}</span>
                         <input
                             type="file"
                             id="{{ name }}_uploadinput"
@@ -114,7 +114,7 @@
                         <span
                             [ngClass]="IconUpload"
                             class="pr-2"></span
-                        >{{ lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async }}
+                        >{{ buttonupload ? buttonupload : (lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async) }}
                     </button>
                 </div>
             </div>

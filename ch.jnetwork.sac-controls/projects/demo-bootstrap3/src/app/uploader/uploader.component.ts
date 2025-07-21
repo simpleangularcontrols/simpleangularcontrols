@@ -41,7 +41,7 @@ interface KeyValueNumeric {
 
 // #endregion Interfaces
 
-// #region Classes
+// #region Exported Classes
 
 @Component({
     selector: 'app-uploader',
@@ -60,10 +60,13 @@ export class DemoUploaderComponent {
         fieldupload6: null,
         fieldupload7: null,
         fieldupload8: null,
+        fieldupload9: null,
         fieldmultipleupload1: null,
         fieldmultipleupload2: null,
         fieldmultipleupload3: null,
         fieldmultipleupload4: null,
+        fieldmultipleupload5: null,
+        fieldmultipleupload6: null,
         dropzone1: null,
         dropzone2: null,
         dropzone3: null,
@@ -89,4 +92,4 @@ export class DemoUploaderComponent {
     // #endregion Public Methods
 }
 
-// #endregion Classes
+// #endregion Exported Classes

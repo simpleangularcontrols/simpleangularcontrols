@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { SacFormDirective } from '@simpleangularcontrols/sac-bootstrap5';
+import { SacFormDirective } from '@simpleangularcontrols/sac-bootstrap4';
 import { TreeviewAction } from '@simpleangularcontrols/sac-common';
 
 @Component({

@@ -44,9 +44,11 @@
                                 [class.btn-secondary]="!(invalid && (dirty || touched))"
                                 [class.btn-danger]="invalid && (dirty || touched)">
                                 <i
-                                    [class]="IconBrowse"
+                                    [ngClass]="IconBrowse"
                                     class="pe-2"></i>
-                                <span class="upload-browse">Browse</span>
+                                <span class="upload-browse">{{
+                                    buttonbrowse ? buttonbrowse : (lngResourceService.GetString(validationKeyService.UploadButtonBrowse) | async)
+                                }}</span>
                                 <input
                                     id="{{ name }}_uploadinput"
                                     type="file"
@@ -96,9 +98,9 @@
                                     [class.btn-secondary]="!(invalid && (dirty || touched))"
                                     [class.btn-danger]="invalid && (dirty || touched)">
                                     <span
-                                        [class]="IconUpload"
+                                        [ngClass]="IconUpload"
                                         class="pe-2"></span>
-                                    {{ lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async }}
+                                    {{ buttonupload ? buttonupload : (lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async) }}
                                 </button>
                             </div>
                         </div>
@@ -184,9 +186,9 @@
                             [class.btn-secondary]="!(invalid && (dirty || touched))"
                             [class.btn-danger]="invalid && (dirty || touched)">
                             <span
-                                [class]="IconUpload"
+                                [ngClass]="IconUpload"
                                 class="pe-2"></span
-                            >{{ lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async }}
+                            >{{ buttonupload ? buttonupload : (lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async) }}
                         </button>
                     </div>
                 </div>

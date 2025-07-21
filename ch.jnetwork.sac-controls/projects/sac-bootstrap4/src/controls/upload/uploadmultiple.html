@@ -45,7 +45,9 @@
                                 <i
                                     [ngClass]="IconBrowse"
                                     class="pr-2"></i>
-                                <span class="upload-browse">Browse</span>
+                                <span class="upload-browse">{{
+                                    buttonbrowse ? buttonbrowse : (lngResourceService.GetString(validationKeyService.UploadButtonBrowse) | async)
+                                }}</span>
                                 <input
                                     type="file"
                                     id="{{ name }}_uploadinput"
@@ -97,7 +99,7 @@
                                     <span
                                         [ngClass]="IconUpload"
                                         class="pr-2"></span>
-                                    {{ lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async }}
+                                    {{ buttonupload ? buttonupload : (lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async) }}
                                 </button>
                             </div>
                         </div>
@@ -180,9 +182,9 @@
                             [class.btn-secondary]="!(invalid && (dirty || touched))"
                             [class.btn-danger]="invalid && (dirty || touched)">
                             <span
-                                [class]="IconUpload"
+                                [ngClass]="IconUpload"
                                 class="pr-2"></span
-                            >{{ lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async }}
+                            >{{ buttonupload ? buttonupload : (lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async) }}
                         </button>
                     </div>
                 </div>

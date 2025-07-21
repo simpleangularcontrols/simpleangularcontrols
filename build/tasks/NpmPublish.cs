@@ -33,9 +33,6 @@ namespace Build.tasks
             PackNpm(context, "./dist/sac-bootstrap4");
             PackNpm(context, "./dist/sac-bootstrap5");
 
-            // TODO: Remove before merge ... Is Important to Test Workflow
-            return;
-
             // Publish Package
             if (context.Arguments.HasArgument("nopublish"))
                 return;
@@ -59,7 +56,7 @@ namespace Build.tasks
             NpmPublishSettings settings = new NpmPublishSettings()
             {
                 Access = NpmPublishAccess.Public,
-                WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath()).Combine(distFolder.ToDirectoryPath())
+                WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath()).Combine(distFolder.ToDirectoryPath()),
             };
 
             context.NpmPublish(settings);

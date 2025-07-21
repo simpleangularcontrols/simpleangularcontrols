@@ -10,7 +10,7 @@ on:
         description: "Select Version"
         required: true
         type: choice
-        options: 
+        options:
           - patch
           - minor
           - major
@@ -39,7 +39,7 @@ jobs:
       authorized: ${{ steps.check.outputs.authorized }}
     env:
       ALLOWED_USERS: ${{ secrets.ALLOWED_USERS }}
-      
+
     steps:
       - name: Check if user is authorized
         id: check
@@ -71,10 +71,12 @@ jobs:
     if: needs.authorize.outputs.authorized == 'true' && needs.check-branch.outputs.valid == 'true'
     env:
       DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: 1
-      
+
     steps:
       - name: Get Source
         uses: actions/checkout@v3
+        with:
+          ssh-key: ${{secrets.RELEASE_ACTION_KEY}}
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v3

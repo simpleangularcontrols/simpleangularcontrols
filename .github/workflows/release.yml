@@ -26,7 +26,7 @@ jobs:
         id: branch-check
         run: |
           echo "Current Branch: ${{ github.ref_name }}"
-          if [[ "${{ github.ref_name }}" == ng10/release-github-action ]]; then
+          if [[ "${{ github.ref_name }}" == angular/* ]]; then
             echo "✅ Valid Branch: ${{ github.ref_name }}"
             echo "valid=true" >> $GITHUB_OUTPUT
           else

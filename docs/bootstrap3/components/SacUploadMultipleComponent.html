@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,13 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,7 +75,7 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
@@ -684,7 +677,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;Browse&#x27;</code>
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
                     </td>
                 </tr>
                             <tr>
@@ -723,7 +716,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;Upload&#x27;</code>
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
                     </td>
                 </tr>
                             <tr>
@@ -734,7 +727,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacUploadMultipleCommon.html#source" target="_self" >SacUploadMultipleCommon:23</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacUploadMultipleCommon.html#source" target="_self" >SacUploadMultipleCommon:24</a></code>
 </div>
                             </td>
                         </tr>
@@ -773,7 +766,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacUploadMultipleCommon.html#source" target="_self" >SacUploadMultipleCommon:28</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacUploadMultipleCommon.html#source" target="_self" >SacUploadMultipleCommon:30</a></code>
 </div>
                             </td>
                         </tr>
@@ -812,7 +805,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacUploadMultipleCommon.html#source" target="_self" >SacUploadMultipleCommon:33</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacUploadMultipleCommon.html#source" target="_self" >SacUploadMultipleCommon:36</a></code>
 </div>
                             </td>
                         </tr>
@@ -851,7 +844,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacUploadMultipleCommon.html#source" target="_self" >SacUploadMultipleCommon:37</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacUploadMultipleCommon.html#source" target="_self" >SacUploadMultipleCommon:41</a></code>
 </div>
                             </td>
                         </tr>
@@ -890,7 +883,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacUploadMultipleCommon.html#source" target="_self" >SacUploadMultipleCommon:43</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacUploadMultipleCommon.html#source" target="_self" >SacUploadMultipleCommon:47</a></code>
 </div>
                             </td>
                         </tr>
@@ -2018,7 +2011,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:55</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:58</a></code>
 </div>
                         </td>
                     </tr>
@@ -2100,7 +2093,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:69</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:72</a></code>
 </div>
                         </td>
                     </tr>
@@ -2182,7 +2175,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:117</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:120</a></code>
 </div>
                         </td>
                     </tr>
@@ -4938,7 +4931,7 @@ export class SacUploadMultipleComponent extends SacUploadMultipleCommon {
                             [class.btn-default]&#x3D;&quot;!(invalid &amp;&amp; (dirty || touched))&quot;
                             [class.btn-danger]&#x3D;&quot;invalid &amp;&amp; (dirty || touched)&quot;&gt;
                             &lt;i [class]&#x3D;&quot;IconBrowse&quot;&gt;&lt;/i&gt;
-                            &lt;span class&#x3D;&quot;upload-browse&quot;&gt;Browse&lt;/span&gt;
+                            &lt;span class&#x3D;&quot;upload-browse&quot;&gt;{{ buttonbrowse ? buttonbrowse : (lngResourceService.GetString(validationKeyService.UploadButtonBrowse) | async) }}&lt;/span&gt;
                             &lt;input
                                 id&#x3D;&quot;{{ name }}_uploadinput&quot;
                                 type&#x3D;&quot;file&quot;
@@ -4987,7 +4980,8 @@ export class SacUploadMultipleComponent extends SacUploadMultipleCommon {
                                 [attr.disabled]&#x3D;&quot;IsStateToUpload() &#x3D;&#x3D;&#x3D; false ? &#x27;disabled&#x27; : null&quot;
                                 [class.btn-default]&#x3D;&quot;!(invalid &amp;&amp; (dirty || touched))&quot;
                                 [class.btn-danger]&#x3D;&quot;invalid &amp;&amp; (dirty || touched)&quot;&gt;
-                                &lt;span [class]&#x3D;&quot;IconUpload&quot;&gt;&lt;/span&gt; {{ lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async }}
+                                &lt;span [class]&#x3D;&quot;IconUpload&quot;&gt;&lt;/span&gt;
+                                {{ buttonupload ? buttonupload : (lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async) }}
                             &lt;/a&gt;
                         &lt;/div&gt;
                     &lt;/div&gt;
@@ -5066,7 +5060,7 @@ export class SacUploadMultipleComponent extends SacUploadMultipleCommon {
                             [attr.disabled]&#x3D;&quot;file.status !&#x3D;&#x3D; &#x27;added&#x27; &amp;&amp; file.status !&#x3D;&#x3D; &#x27;paused&#x27; ? &#x27;disabled&#x27; : null&quot;
                             [class.btn-default]&#x3D;&quot;!(invalid &amp;&amp; (dirty || touched))&quot;
                             [class.btn-danger]&#x3D;&quot;invalid &amp;&amp; (dirty || touched)&quot;&gt;
-                            &lt;span [class]&#x3D;&quot;IconUpload&quot;&gt;&lt;/span&gt; {{ lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async }}
+                            &lt;span [class]&#x3D;&quot;IconUpload&quot;&gt;&lt;/span&gt; {{ buttonupload ? buttonupload : (lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async) }}
                         &lt;/a&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
@@ -5114,7 +5108,7 @@ export class SacUploadMultipleComponent extends SacUploadMultipleCommon {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div    id="{{ name }}"    class="row form-group"    [class.has-error]="invalid && (dirty || touched)"    [ngClass]="componentHeight | toLabelHeight">    <label        *ngIf="disablelabel === false && !isAdaptiveLabel"        id="{{ name }}label"        for="{{ name }}_uploadinput"        class="col-xs-12 control-label"        [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : \'sr-only\']"        [class.required]="isrequired">        <span class="text">{{ label }}</span>        <sac-tooltip            *ngIf="helptextmode === \'tooltip\' && helptext"            [tooltiptext]="helptext"            [inlinemode]="true">            <span                [class]="HelptextTooltipIcon"                style="margin-left: 5px">            </span>        </sac-tooltip>    </label>    <div        class="col-xs-12"        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : \'\']">        <div class="upload-component">            <div class="row">                <div                    class="col-xs-12"                    [style.display]="helptextmode === \'tooltip\' && helptext && disablelabel ? \'flex\' : null">                    <div                        class="btn-group"                        [class.btn-group-sm]="componentHeight === ControlHeight.Small"                        [class.btn-group-lg]="componentHeight === ControlHeight.Large">                        <div                            class="btn upload-input custom-file"                            [class.disabled]="maxfiles > 0 && uploads.length >= maxfiles"                            [class.btn-default]="!(invalid && (dirty || touched))"                            [class.btn-danger]="invalid && (dirty || touched)">                            <i [class]="IconBrowse"></i>                            <span class="upload-browse">Browse</span>                            <input                                id="{{ name }}_uploadinput"                                type="file"                                class="custom-file-input"                                #files                                (click)="files.value = \'\'"                                (uploadxState)="onUpload($event)"                                multiple                                [disabled]="maxfiles > 0 && uploads.length >= maxfiles" />                        </div>                        <div                            class="btn-group"                            [class.btn-group-sm]="componentHeight === ControlHeight.Small"                            [class.btn-group-lg]="componentHeight === ControlHeight.Large">                            <!-- image-preview-clear button -->                            <a                                class="btn"                                (click)="cancelAll()"                                [attr.disabled]="HasQueueItem() === false ? \'disabled\' : null"                                [class.btn-default]="!(invalid && (dirty || touched))"                                [class.btn-danger]="invalid && (dirty || touched)">                                <span [class]="IconDelete"></span>                            </a>                            <a                                *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && IsPaused() === false)"                                class="btn"                                (click)="pauseAll()"                                [attr.disabled]="IsUploading() === false ? \'disabled\' : null"                                [class.btn-default]="!(invalid && (dirty || touched))"                                [class.btn-danger]="invalid && (dirty || touched)">                                <span [class]="IconPause"></span>                            </a>                            <a                                *ngIf="autoupload && enablepause && IsPaused() === true"                                class="btn"                                (click)="uploadAll()"                                [class.btn-default]="!(invalid && (dirty || touched))"                                [class.btn-danger]="invalid && (dirty || touched)">                                <span [class]="IconContinue"></span>                            </a>                            <a                                *ngIf="autoupload === false"                                class="btn"                                (click)="uploadAll()"                                [attr.disabled]="IsStateToUpload() === false ? \'disabled\' : null"                                [class.btn-default]="!(invalid && (dirty || touched))"                                [class.btn-danger]="invalid && (dirty || touched)">                                <span [class]="IconUpload"></span> {{ lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async }}                            </a>                        </div>                    </div>                    <div                        *ngIf="helptextmode === \'tooltip\' && helptext && disablelabel"                        class="form-control-static"                        style="margin-left: 5px">                        <sac-tooltip                            *ngIf="helptextmode === \'tooltip\' && helptext"                            [tooltiptext]="helptext"                            [inlinemode]="true">                            <span                                [class]="HelptextTooltipIcon"                                style="margin-left: 5px; margin-right: 5px">                            </span>                        </sac-tooltip>                    </div>                </div>            </div>            <div                *ngFor="let file of uploads"                style="margin-top: 5px">                <div                    class="input-group upload-component upload-multiple"                    [class.input-group-sm]="componentHeight === ControlHeight.Small"                    [class.input-group-lg]="componentHeight === ControlHeight.Large">                    <div class="form-control upload-progress">                        <div class="progress">                            <div                                class="progress-bar"                                [class.progress-bar-success]="file.progress === 100"                                role="progressbar"                                [attr.aria-valuenow]="file.progress"                                aria-valuemin="0"                                aria-valuemax="100"                                [style.width.%]="file.progress">                                <span class="progress-text text-dark">{{ file.name }}</span>                            </div>                        </div>                    </div>                    <div                        class="input-group-btn"                        [class.input-group-sm]="componentHeight === ControlHeight.Small"                        [class.input-group-lg]="componentHeight === ControlHeight.Large">                        <!-- image-preview-clear button -->                        <a                            class="btn"                            (click)="cancel(file.uploadId)"                            [class.btn-default]="!(invalid && (dirty || touched))"                            [class.btn-danger]="invalid && (dirty || touched)">                            <span [class]="IconDelete"></span>                        </a>                        <a                            *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && file.status !== \'paused\')"                            class="btn"                            (click)="pause(file.uploadId)"                            [attr.disabled]="file.status !== \'uploading\' ? \'disabled\' : null"                            [class.btn-default]="!(invalid && (dirty || touched))"                            [class.btn-danger]="invalid && (dirty || touched)">                            <span [class]="IconPause"></span>                        </a>                        <a                            *ngIf="autoupload && enablepause && file.status === \'paused\'"                            class="btn"                            (click)="upload(file.uploadId)"                            [class.btn-default]="!(invalid && (dirty || touched))"                            [class.btn-danger]="invalid && (dirty || touched)">                            <span [class]="IconContinue"></span>                        </a>                        <a                            *ngIf="autoupload === false"                            class="btn"                            (click)="upload(file.uploadId)"                            [attr.disabled]="file.status !== \'added\' && file.status !== \'paused\' ? \'disabled\' : null"                            [class.btn-default]="!(invalid && (dirty || touched))"                            [class.btn-danger]="invalid && (dirty || touched)">                            <span [class]="IconUpload"></span> {{ lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async }}                        </a>                    </div>                </div>            </div>        </div>        <p            *ngIf="helptextmode === \'text\' && helptext"            class="help-block">            {{ helptext }}        </p>        <div            class="help-block help-block-error"            *ngIf="isinlineerrorenabled && invalid && (dirty || touched)">            {{ GetErrorMessage() | async }}        </div>    </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div    id="{{ name }}"    class="row form-group"    [class.has-error]="invalid && (dirty || touched)"    [ngClass]="componentHeight | toLabelHeight">    <label        *ngIf="disablelabel === false && !isAdaptiveLabel"        id="{{ name }}label"        for="{{ name }}_uploadinput"        class="col-xs-12 control-label"        [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : \'sr-only\']"        [class.required]="isrequired">        <span class="text">{{ label }}</span>        <sac-tooltip            *ngIf="helptextmode === \'tooltip\' && helptext"            [tooltiptext]="helptext"            [inlinemode]="true">            <span                [class]="HelptextTooltipIcon"                style="margin-left: 5px">            </span>        </sac-tooltip>    </label>    <div        class="col-xs-12"        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : \'\']">        <div class="upload-component">            <div class="row">                <div                    class="col-xs-12"                    [style.display]="helptextmode === \'tooltip\' && helptext && disablelabel ? \'flex\' : null">                    <div                        class="btn-group"                        [class.btn-group-sm]="componentHeight === ControlHeight.Small"                        [class.btn-group-lg]="componentHeight === ControlHeight.Large">                        <div                            class="btn upload-input custom-file"                            [class.disabled]="maxfiles > 0 && uploads.length >= maxfiles"                            [class.btn-default]="!(invalid && (dirty || touched))"                            [class.btn-danger]="invalid && (dirty || touched)">                            <i [class]="IconBrowse"></i>                            <span class="upload-browse">{{ buttonbrowse ? buttonbrowse : (lngResourceService.GetString(validationKeyService.UploadButtonBrowse) | async) }}</span>                            <input                                id="{{ name }}_uploadinput"                                type="file"                                class="custom-file-input"                                #files                                (click)="files.value = \'\'"                                (uploadxState)="onUpload($event)"                                multiple                                [disabled]="maxfiles > 0 && uploads.length >= maxfiles" />                        </div>                        <div                            class="btn-group"                            [class.btn-group-sm]="componentHeight === ControlHeight.Small"                            [class.btn-group-lg]="componentHeight === ControlHeight.Large">                            <!-- image-preview-clear button -->                            <a                                class="btn"                                (click)="cancelAll()"                                [attr.disabled]="HasQueueItem() === false ? \'disabled\' : null"                                [class.btn-default]="!(invalid && (dirty || touched))"                                [class.btn-danger]="invalid && (dirty || touched)">                                <span [class]="IconDelete"></span>                            </a>                            <a                                *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && IsPaused() === false)"                                class="btn"                                (click)="pauseAll()"                                [attr.disabled]="IsUploading() === false ? \'disabled\' : null"                                [class.btn-default]="!(invalid && (dirty || touched))"                                [class.btn-danger]="invalid && (dirty || touched)">                                <span [class]="IconPause"></span>                            </a>                            <a                                *ngIf="autoupload && enablepause && IsPaused() === true"                                class="btn"                                (click)="uploadAll()"                                [class.btn-default]="!(invalid && (dirty || touched))"                                [class.btn-danger]="invalid && (dirty || touched)">                                <span [class]="IconContinue"></span>                            </a>                            <a                                *ngIf="autoupload === false"                                class="btn"                                (click)="uploadAll()"                                [attr.disabled]="IsStateToUpload() === false ? \'disabled\' : null"                                [class.btn-default]="!(invalid && (dirty || touched))"                                [class.btn-danger]="invalid && (dirty || touched)">                                <span [class]="IconUpload"></span>                                {{ buttonupload ? buttonupload : (lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async) }}                            </a>                        </div>                    </div>                    <div                        *ngIf="helptextmode === \'tooltip\' && helptext && disablelabel"                        class="form-control-static"                        style="margin-left: 5px">                        <sac-tooltip                            *ngIf="helptextmode === \'tooltip\' && helptext"                            [tooltiptext]="helptext"                            [inlinemode]="true">                            <span                                [class]="HelptextTooltipIcon"                                style="margin-left: 5px; margin-right: 5px">                            </span>                        </sac-tooltip>                    </div>                </div>            </div>            <div                *ngFor="let file of uploads"                style="margin-top: 5px">                <div                    class="input-group upload-component upload-multiple"                    [class.input-group-sm]="componentHeight === ControlHeight.Small"                    [class.input-group-lg]="componentHeight === ControlHeight.Large">                    <div class="form-control upload-progress">                        <div class="progress">                            <div                                class="progress-bar"                                [class.progress-bar-success]="file.progress === 100"                                role="progressbar"                                [attr.aria-valuenow]="file.progress"                                aria-valuemin="0"                                aria-valuemax="100"                                [style.width.%]="file.progress">                                <span class="progress-text text-dark">{{ file.name }}</span>                            </div>                        </div>                    </div>                    <div                        class="input-group-btn"                        [class.input-group-sm]="componentHeight === ControlHeight.Small"                        [class.input-group-lg]="componentHeight === ControlHeight.Large">                        <!-- image-preview-clear button -->                        <a                            class="btn"                            (click)="cancel(file.uploadId)"                            [class.btn-default]="!(invalid && (dirty || touched))"                            [class.btn-danger]="invalid && (dirty || touched)">                            <span [class]="IconDelete"></span>                        </a>                        <a                            *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && file.status !== \'paused\')"                            class="btn"                            (click)="pause(file.uploadId)"                            [attr.disabled]="file.status !== \'uploading\' ? \'disabled\' : null"                            [class.btn-default]="!(invalid && (dirty || touched))"                            [class.btn-danger]="invalid && (dirty || touched)">                            <span [class]="IconPause"></span>                        </a>                        <a                            *ngIf="autoupload && enablepause && file.status === \'paused\'"                            class="btn"                            (click)="upload(file.uploadId)"                            [class.btn-default]="!(invalid && (dirty || touched))"                            [class.btn-danger]="invalid && (dirty || touched)">                            <span [class]="IconContinue"></span>                        </a>                        <a                            *ngIf="autoupload === false"                            class="btn"                            (click)="upload(file.uploadId)"                            [attr.disabled]="file.status !== \'added\' && file.status !== \'paused\' ? \'disabled\' : null"                            [class.btn-default]="!(invalid && (dirty || touched))"                            [class.btn-danger]="invalid && (dirty || touched)">                            <span [class]="IconUpload"></span> {{ buttonupload ? buttonupload : (lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async) }}                        </a>                    </div>                </div>            </div>        </div>        <p            *ngIf="helptextmode === \'text\' && helptext"            class="help-block">            {{ helptext }}        </p>        <div            class="help-block help-block-error"            *ngIf="isinlineerrorenabled && invalid && (dirty || touched)">            {{ GetErrorMessage() | async }}        </div>    </div></div></div>'
     var COMPONENTS = [{'name': 'SacButtonComponent', 'selector': 'sac-button'},{'name': 'SacCheckboxComponent', 'selector': 'sac-checkbox'},{'name': 'SacConfirmComponent', 'selector': 'sac-confirm'},{'name': 'SacContextmenuComponent', 'selector': 'sac-contextmenu'},{'name': 'SacContextmenuItemButtonComponent', 'selector': 'sac-contextmenubutton'},{'name': 'SacContextmenuItemSplitterComponent', 'selector': 'sac-contextmenusplitter'},{'name': 'SacDateComponent', 'selector': 'sac-date'},{'name': 'SacDateSelectorComponent', 'selector': 'sac-dateselector'},{'name': 'SacDateTimeComponent', 'selector': 'sac-datetime'},{'name': 'SacDialogComponent', 'selector': 'sac-dialog'},{'name': 'SacDropdownComponent', 'selector': 'sac-dropdown'},{'name': 'SacDropzoneMultipleComponent', 'selector': 'sac-dropzonemultiple'},{'name': 'SacDropzoneSingleComponent', 'selector': 'sac-dropzonesingle'},{'name': 'SacGridButtonComponent', 'selector': 'sac-gridbutton'},{'name': 'SacGridColumnActionComponent', 'selector': 'sac-gridcolumnaction'},{'name': 'SacGridColumnComponent', 'selector': 'sac-gridcolumn'},{'name': 'SacGridComponent', 'selector': 'sac-grid'},{'name': 'SacGridImageComponent', 'selector': 'sac-gridimage'},{'name': 'SacInputAreaComponent', 'selector': 'sac-inputarea'},{'name': 'SacInputComponent', 'selector': 'sac-input'},{'name': 'SacInputCurrencyComponent', 'selector': 'sac-inputcurrency'},{'name': 'SacInputDecimalComponent', 'selector': 'sac-inputdecimal'},{'name': 'SacInputEmailComponent', 'selector': 'sac-inputemail'},{'name': 'SacInputIntegerComponent', 'selector': 'sac-inputinteger'},{'name': 'SacInputPasswordComponent', 'selector': 'sac-inputpassword'},{'name': 'SacInputSearchComponent', 'selector': 'sac-inputsearch'},{'name': 'SacListboxComponent', 'selector': 'sac-listbox'},{'name': 'SacPagingComponent', 'selector': 'sac-paging'},{'name': 'SacRadiobuttonComponent', 'selector': 'sac-radiobutton'},{'name': 'SacRadiobuttonsComponent', 'selector': 'sac-radiobuttons'},{'name': 'SacStaticFormContainerComponent', 'selector': 'sac-staticformcontainer'},{'name': 'SacStaticLabelComponent', 'selector': 'sac-staticlabel'},{'name': 'SacTabComponent', 'selector': 'sac-tab'},{'name': 'SacTabItemComponent', 'selector': 'sac-tabitem'},{'name': 'SacTimeComponent', 'selector': 'sac-time'},{'name': 'SacTinyMceComponent', 'selector': 'sac-tinymce'},{'name': 'SacTooltipComponent', 'selector': 'sac-tooltip'},{'name': 'SacTreeviewComponent', 'selector': 'sac-treeview'},{'name': 'SacUploadComponent', 'selector': 'sac-upload'},{'name': 'SacUploadMultipleComponent', 'selector': 'sac-uploadmultiple'},{'name': 'SacValidationSummaryComponent', 'selector': 'sac-validationsummary'},{'name': 'SacWizardComponent', 'selector': 'sac-wizard'},{'name': 'SacWizardItemComponent', 'selector': 'sac-wizarditem'}];
     var DIRECTIVES = [{'name': 'SacBaseDateTimeControl', 'selector': ''},{'name': 'SacBaseListControl', 'selector': ''},{'name': 'SacBaseModelControl', 'selector': ''},{'name': 'SacBaseSelectControl', 'selector': ''},{'name': 'SacButtonCommon', 'selector': ''},{'name': 'SacCheckboxCommon', 'selector': ''},{'name': 'SacConfirmCommon', 'selector': ''},{'name': 'SacContextmenuAnchorCommon', 'selector': ''},{'name': 'SacContextmenuAnchorDirective', 'selector': '[sacContextMenuAnchor]'},{'name': 'SacContextmenuCommon', 'selector': ''},{'name': 'SacContextmenuContainerDirective', 'selector': '[sacContextMenuContainer]'},{'name': 'SacContextMenuContrainerCommon', 'selector': ''},{'name': 'SacContextmenuItemButtonCommon', 'selector': ''},{'name': 'SacContextmenuItemCommon', 'selector': ''},{'name': 'SacDateCommon', 'selector': ''},{'name': 'SacDateSelectorCommon', 'selector': ''},{'name': 'SacDateTimeCommon', 'selector': ''},{'name': 'SacDialogCommon', 'selector': ''},{'name': 'SacDropdownCommon', 'selector': ''},{'name': 'SacDropdownOptionCommon', 'selector': ''},{'name': 'SacDropdownOptionDirective', 'selector': 'option,[sacOption]'},{'name': 'SacDropzoneMultipleCommon', 'selector': ''},{'name': 'SacDropzoneSingleCommon', 'selector': ''},{'name': 'SacFileBrowserCommon', 'selector': ''},{'name': 'SacFormCommon', 'selector': ''},{'name': 'SacFormDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'SacFormLayoutCommon', 'selector': ''},{'name': 'SacFormLayoutDirective', 'selector': '[sacFormLayout]'},{'name': 'SacGridButtonCommon', 'selector': ''},{'name': 'SacGridColumnActionCommon', 'selector': ''},{'name': 'SacGridColumnBaseCommon', 'selector': ''},{'name': 'SacGridColumnCommon', 'selector': ''},{'name': 'SacGridCommon', 'selector': ''},{'name': 'SacGridImageCommon', 'selector': ''},{'name': 'SacInheritFormDirective', 'selector': '[sacInheritForm]'},{'name': 'SacInputAreaCommon', 'selector': ''},{'name': 'SacInputBase', 'selector': ''},{'name': 'SacInputCommon', 'selector': ''},{'name': 'SacInputCurrencyCommon', 'selector': ''},{'name': 'SacInputDecimalCommon', 'selector': ''},{'name': 'SacInputEmailCommon', 'selector': ''},{'name': 'SacInputIntegerCommon', 'selector': ''},{'name': 'SacInputPasswordCommon', 'selector': ''},{'name': 'SacInputSearchCommon', 'selector': ''},{'name': 'SacListboxCommon', 'selector': ''},{'name': 'SacListboxOptionCommon', 'selector': ''},{'name': 'SacMultilanguageInputAreaCommon', 'selector': ''},{'name': 'SacMultilanguageInputCommon', 'selector': ''},{'name': 'SacPagingCommon', 'selector': ''},{'name': 'SacRadiobuttonCommon', 'selector': ''},{'name': 'SacRadiobuttonsCommon', 'selector': ''},{'name': 'SacStaticFormContainerCommon', 'selector': ''},{'name': 'SacStaticLabelCommon', 'selector': ''},{'name': 'SacTabCommon', 'selector': ''},{'name': 'SacTabItemCommon', 'selector': ''},{'name': 'SacTimeCommon', 'selector': ''},{'name': 'SacTinyMceCommon', 'selector': ''},{'name': 'SacTooltipCommon', 'selector': ''},{'name': 'SacTreeviewCommon', 'selector': ''},{'name': 'SacUploadBase', 'selector': ''},{'name': 'SacUploadMultipleCommon', 'selector': ''},{'name': 'SacUploadSingleCommon', 'selector': ''},{'name': 'SacValidationSummaryCommon', 'selector': ''},{'name': 'SacWizardCommon', 'selector': ''},{'name': 'SacWizardItemCommon', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'SacUploadMultipleComponent'};
@@ -5167,6 +5161,19 @@ export class SacUploadMultipleComponent extends SacUploadMultipleCommon {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -5178,7 +5185,6 @@ export class SacUploadMultipleComponent extends SacUploadMultipleCommon {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

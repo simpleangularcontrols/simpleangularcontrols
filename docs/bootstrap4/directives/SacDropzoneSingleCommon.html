@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,13 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,7 +75,7 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
@@ -542,7 +535,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/sac-common/src/controls/upload/dropzonesingle.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/sac-common/src/controls/upload/dropzonesingle.ts:21</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1669,7 +1662,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:35</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:32</a></code>
 </div>
                         </td>
                     </tr>
@@ -1745,8 +1738,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="65"
-                                    class="link-to-prism">projects/sac-common/src/controls/upload/dropzonesingle.ts:65</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">projects/sac-common/src/controls/upload/dropzonesingle.ts:62</a></div>
                         </td>
                     </tr>
 
@@ -1827,7 +1820,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:87</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:84</a></code>
 </div>
                         </td>
                     </tr>
@@ -1868,8 +1861,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="97"
-                                    class="link-to-prism">projects/sac-common/src/controls/upload/dropzonesingle.ts:97</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="94"
+                                    class="link-to-prism">projects/sac-common/src/controls/upload/dropzonesingle.ts:94</a></div>
                         </td>
                     </tr>
 
@@ -1944,8 +1937,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="105"
-                                    class="link-to-prism">projects/sac-common/src/controls/upload/dropzonesingle.ts:105</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="102"
+                                    class="link-to-prism">projects/sac-common/src/controls/upload/dropzonesingle.ts:102</a></div>
                         </td>
                     </tr>
 
@@ -2026,7 +2019,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:44</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:41</a></code>
 </div>
                         </td>
                     </tr>
@@ -3978,7 +3971,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/sac-common/src/controls/upload/dropzonesingle.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/sac-common/src/controls/upload/dropzonesingle.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -4752,126 +4745,123 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, Input, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacUploadBase } from &#x27;../../common/baseuploadcontrol&#x27;;
+import { Directive, Input, OnInit } from &#x27;@angular/core&#x27;;
 import { UploadState } from &#x27;ngx-uploadx&#x27;;
-import { SacUploadBase } from &#x27;../../common/baseuploadcontrol&#x27;;
 
 /**
  * Upload Komponente für ein einzelnes File
  */
 @Directive()
-export class SacDropzoneSingleCommon
-  extends SacUploadBase&lt;string&gt;
-  implements OnInit
-{
-  // #region Properties
+export class SacDropzoneSingleCommon extends SacUploadBase&lt;string&gt; implements OnInit {
+    // #region Properties
 
-  /**
-   * Höhe der Dropzone. Wert wird mit Einheit angegeben.
-   */
-  @Input()
-  public uploadheight: string &#x3D; null;
+    /**
+     * Property wenn Drag Event aktiv ist (Maus über Zone)
+     */
+    public active &#x3D; false;
 
-  /**
-   * Property wenn Drag Event aktiv ist (Maus über Zone)
-   */
-  public active &#x3D; false;
+    /**
+     * Höhe der Dropzone. Wert wird mit Einheit angegeben.
+     */
+    @Input()
+    public uploadheight: string &#x3D; null;
 
-  // #endregion Properties
+    // #endregion Properties
 
-  // #region Public Methods
+    // #region Public Methods
 
-  /**
-   * Macht keine Validierung in diesem Control
-   *
-   * @param file File das hinzugefügt wurde
-   */
-  public CustomAddValidation(file: UploadState): boolean {
-    return true;
-  }
-
-  /**
-   * Setzt die File ID des hochgeladen Files in das Model
-   *
-   * @param file ID des Files
-   */
-  public SetUploadValue(file: UploadState) {
-    if (file &#x3D;&#x3D;&#x3D; null) {
-      super.setValue(null);
-    } else {
-      if (
-        file.response !&#x3D;&#x3D; undefined &amp;&amp;
-        file.response !&#x3D;&#x3D; null &amp;&amp;
-        file.response.documentid !&#x3D;&#x3D; null &amp;&amp;
-        file.response.documentid !&#x3D;&#x3D; undefined
-      ) {
-        super.setValue(file.response.documentid);
-      } else {
-        super.setValue(file.uploadId);
-      }
+    /**
+     * Macht keine Validierung in diesem Control
+     *
+     * @param file File das hinzugefügt wurde
+     */
+    public CustomAddValidation(file: UploadState): boolean {
+        return true;
     }
-  }
 
-  /**
-   * Methode für Drag and Drop von Files
-   * @param event Drag Event
-   */
-  public dropHandler(event: DragEvent): void {
-    if (
-      !this.HasQueueItem() &amp;&amp;
-      event.dataTransfer &amp;&amp;
-      event.dataTransfer.files &amp;&amp;
-      event.dataTransfer.files.item(0)
-    ) {
-      event.stopPropagation();
-      event.preventDefault();
-      this.active &#x3D; false;
-
-      if (event.dataTransfer.files.length &#x3D;&#x3D;&#x3D; 1) {
-        this.uploadService.handleFileList(event.dataTransfer.files);
-      } else {
-        this.onfileerror.emit(&#x27;INVALID_DRAGDROP_MAXFILES&#x27;);
-      }
+    /**
+     * Setzt die File ID des hochgeladen Files in das Model
+     *
+     * @param file ID des Files
+     */
+    public SetUploadValue(file: UploadState) {
+        if (file &#x3D;&#x3D;&#x3D; null) {
+            super.setValue(null);
+        } else {
+            if (
+                file.response !&#x3D;&#x3D; undefined &amp;&amp;
+                file.response !&#x3D;&#x3D; null &amp;&amp;
+                file.response.documentid !&#x3D;&#x3D; null &amp;&amp;
+                file.response.documentid !&#x3D;&#x3D; undefined
+            ) {
+                super.setValue(file.response.documentid);
+            } else {
+                super.setValue(file.uploadId);
+            }
+        }
     }
-  }
 
-  /**
-   * Ervent wenn das Control initialisert wird
-   */
-  public ngOnInit() {
-    super.ngOnInit();
+    /**
+     * Methode für Drag and Drop von Files
+     * @param event Drag Event
+     */
+    public dropHandler(event: DragEvent): void {
+        if (
+            !this.HasQueueItem() &amp;&amp;
+            event.dataTransfer &amp;&amp;
+            event.dataTransfer.files &amp;&amp;
+            event.dataTransfer.files.item(0)
+        ) {
+            event.stopPropagation();
+            event.preventDefault();
+            this.active &#x3D; false;
 
-    this.autoupload &#x3D; true;
-  }
-
-  /**
-   * Methode wenn Drag die Zone verlässt
-   * @param event DragLeave Event
-   */
-  public onDragLeave(event: DragEvent): void {
-    this.active &#x3D; false;
-  }
-
-  /**
-   * Methode wenn Drag in die Zone eintritt
-   * @param event DragEnter Event
-   */
-  public onDragOver(event: DragEvent): void {
-    if (
-      !this.HasQueueItem() &amp;&amp;
-      event.dataTransfer &amp;&amp;
-      event.dataTransfer.files &amp;&amp;
-      event.dataTransfer.types.every((itm) &#x3D;&gt; itm &#x3D;&#x3D;&#x3D; &#x27;Files&#x27;) &amp;&amp;
-      event.dataTransfer.types.length &gt; 0
-    ) {
-      event.dataTransfer.dropEffect &#x3D; &#x27;copy&#x27;;
-      event.stopPropagation();
-      event.preventDefault();
-      this.active &#x3D; true;
+            if (event.dataTransfer.files.length &#x3D;&#x3D;&#x3D; 1) {
+                this.uploadService.handleFileList(event.dataTransfer.files);
+            } else {
+                this.onfileerror.emit(&#x27;INVALID_DRAGDROP_MAXFILES&#x27;);
+            }
+        }
     }
-  }
 
-  // #endregion Public Methods
+    /**
+     * Ervent wenn das Control initialisert wird
+     */
+    public ngOnInit() {
+        super.ngOnInit();
+
+        this.autoupload &#x3D; true;
+    }
+
+    /**
+     * Methode wenn Drag die Zone verlässt
+     * @param event DragLeave Event
+     */
+    public onDragLeave(event: DragEvent): void {
+        this.active &#x3D; false;
+    }
+
+    /**
+     * Methode wenn Drag in die Zone eintritt
+     * @param event DragEnter Event
+     */
+    public onDragOver(event: DragEvent): void {
+        if (
+            !this.HasQueueItem() &amp;&amp;
+            event.dataTransfer &amp;&amp;
+            event.dataTransfer.files &amp;&amp;
+            event.dataTransfer.types.every((itm) &#x3D;&gt; itm &#x3D;&#x3D;&#x3D; &#x27;Files&#x27;) &amp;&amp;
+            event.dataTransfer.types.length &gt; 0
+        ) {
+            event.dataTransfer.dropEffect &#x3D; &#x27;copy&#x27;;
+            event.stopPropagation();
+            event.preventDefault();
+            this.active &#x3D; true;
+        }
+    }
+
+    // #endregion Public Methods
 }
 </code></pre>
     </div>
@@ -4921,6 +4911,19 @@ export class SacDropzoneSingleCommon
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -4932,7 +4935,6 @@ export class SacDropzoneSingleCommon
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

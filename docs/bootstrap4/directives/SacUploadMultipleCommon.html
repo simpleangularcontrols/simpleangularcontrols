@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,13 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,7 +75,7 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
@@ -530,7 +523,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;Browse&#x27;</code>
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
                     </td>
                 </tr>
                         <tr>
@@ -562,12 +555,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;Upload&#x27;</code>
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/sac-common/src/controls/upload/uploadmultiple.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/sac-common/src/controls/upload/uploadmultiple.ts:24</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -599,7 +592,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/sac-common/src/controls/upload/uploadmultiple.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/sac-common/src/controls/upload/uploadmultiple.ts:30</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -631,7 +624,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/sac-common/src/controls/upload/uploadmultiple.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">projects/sac-common/src/controls/upload/uploadmultiple.ts:36</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -663,7 +656,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/sac-common/src/controls/upload/uploadmultiple.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/sac-common/src/controls/upload/uploadmultiple.ts:41</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -695,7 +688,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/sac-common/src/controls/upload/uploadmultiple.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/sac-common/src/controls/upload/uploadmultiple.ts:47</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1822,7 +1815,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:55</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:58</a></code>
 </div>
                         </td>
                     </tr>
@@ -1904,7 +1897,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:69</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:72</a></code>
 </div>
                         </td>
                     </tr>
@@ -1986,7 +1979,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:117</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:120</a></code>
 </div>
                         </td>
                     </tr>
@@ -4645,137 +4638,140 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, Input } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacUploadBase } from &#x27;../../common/baseuploadcontrol&#x27;;
+import { Validation } from &#x27;../../validation&#x27;;
+import { Directive, Input } from &#x27;@angular/core&#x27;;
 import { AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
 import { UploadState } from &#x27;ngx-uploadx&#x27;;
-import { SacUploadBase } from &#x27;../../common/baseuploadcontrol&#x27;;
-import { Validation } from &#x27;../../validation&#x27;;
 
 /**
  * Upload Componente für mehrere Files
  */
 @Directive()
 export class SacUploadMultipleCommon extends SacUploadBase&lt;string[]&gt; {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Label für Browse Button
-   */
-  @Input()
-  public buttonbrowse: string &#x3D; &#x27;Browse&#x27;;
-  /**
-   * Label für Upload Button
-   */
-  @Input()
-  public buttonupload: string &#x3D; &#x27;Upload&#x27;;
-  /**
-   * Max. Files die hochgeladen werden können. 0 deaktiviert das Limit
-   */
-  @Input()
-  public maxfiles: number &#x3D; 0;
-  /**
-   * Min. Files die hochgeladen werden müssen. 0 deaktiviert das Limit
-   */
-  @Input()
-  public minfiles: number &#x3D; 0;
-  /**
-   * Resource Key für Validation Message Required bei Control
-   */
-  @Input() public validationmessageminfiles: string &#x3D;
-    this.validationKeyService.ValidationErrorFilesMin;
-  /**
-   * Resource Key für Validation Message Required in Validation Summary
-   */
-  @Input()
-  public validationmessagesummaryminfiles: string &#x3D;
-    this.validationKeyService.ValidationErrorSummaryFilesMin;
+    /**
+     * Label für Browse Button
+     */
+    @Input()
+    public buttonbrowse: string &#x3D; &#x27;&#x27;;
 
-  // #endregion Properties
+    /**
+     * Label für Upload Button
+     */
+    @Input()
+    public buttonupload: string &#x3D; &#x27;&#x27;;
 
-  // #region Public Methods
+    /**
+     * Max. Files die hochgeladen werden können. 0 deaktiviert das Limit
+     */
+    @Input()
+    public maxfiles: number &#x3D; 0;
 
-  /**
-   * Prüft ob die max. Files in der Queue nicht überschritten werden
-   *
-   * @param file File das hinzugefügt wurde
-   */
-  public CustomAddValidation(file: UploadState): boolean {
-    if (this.maxfiles &gt; 0 &amp;&amp; this.uploads.length &gt;&#x3D; this.maxfiles) {
-      this.onfileerror.emit(&#x27;INVALID_MAXFILES&#x27;);
-      return false;
-    } else {
-      return true;
-    }
-  }
+    /**
+     * Min. Files die hochgeladen werden müssen. 0 deaktiviert das Limit
+     */
+    @Input()
+    public minfiles: number &#x3D; 0;
 
-  /**
-   * Setzt die File ID&#x27;s der hochgeladen Files in das Model
-   *
-   * @param file ID des Files welches hochgeladen wurde.
-   */
-  public SetUploadValue(file: UploadState) {
-    let documentid: string &#x3D; null;
-    if (file &#x3D;&#x3D;&#x3D; null) {
-      documentid &#x3D; null;
-    } else {
-      if (
-        file.response !&#x3D;&#x3D; undefined &amp;&amp;
-        file.response !&#x3D;&#x3D; null &amp;&amp;
-        file.response.documentid !&#x3D;&#x3D; null &amp;&amp;
-        file.response.documentid !&#x3D;&#x3D; undefined
-      ) {
-        documentid &#x3D; file.response.documentid;
-      } else {
-        documentid &#x3D; file.uploadId;
-      }
+    /**
+     * Resource Key für Validation Message Required bei Control
+     */
+    @Input() public validationmessageminfiles: string &#x3D; this.validationKeyService.ValidationErrorFilesMin;
 
-      // Document ID aktualisieren, damit Wert von Server in Model gesetzt werden kann.
-      this.uploads
-        .filter((itm) &#x3D;&gt; itm !&#x3D;&#x3D; null &amp;&amp; itm.uploadId &#x3D;&#x3D;&#x3D; file.uploadId)
-        .forEach((itm) &#x3D;&gt; {
-          itm.documentid &#x3D; documentid;
-        });
-    }
+    /**
+     * Resource Key für Validation Message Required in Validation Summary
+     */
+    @Input()
+    public validationmessagesummaryminfiles: string &#x3D; this.validationKeyService.ValidationErrorSummaryFilesMin;
 
-    // List of Files
-    const fileIds: string[] &#x3D; [];
+    // #endregion Properties
 
-    // Add all Items with Uploaded State to Model
-    this.uploads
-      .filter((itm) &#x3D;&gt; itm.status &#x3D;&#x3D;&#x3D; &#x27;complete&#x27;)
-      .forEach((itm) &#x3D;&gt; {
-        if (itm.documentid !&#x3D;&#x3D; null &amp;&amp; itm.documentid !&#x3D;&#x3D; undefined) {
-          fileIds.push(itm.documentid);
+    // #region Public Methods
+
+    /**
+     * Prüft ob die max. Files in der Queue nicht überschritten werden
+     *
+     * @param file File das hinzugefügt wurde
+     */
+    public CustomAddValidation(file: UploadState): boolean {
+        if (this.maxfiles &gt; 0 &amp;&amp; this.uploads.length &gt;&#x3D; this.maxfiles) {
+            this.onfileerror.emit(&#x27;INVALID_MAXFILES&#x27;);
+            return false;
+        } else {
+            return true;
         }
-      });
-
-    if (fileIds.length &gt; 0) {
-      super.setValue(fileIds);
-    } else {
-      super.setValue(null);
-    }
-  }
-
-  /**
-   * Validiert das Control
-   *
-   * @param c Control
-   */
-  public validateData(c: AbstractControl): ValidationErrors | null {
-    let error: ValidationErrors | null &#x3D; super.validateData(c);
-
-    if (error &#x3D;&#x3D;&#x3D; null) {
-      error &#x3D; Validation.minFiles(
-        this.minfiles,
-        this.validationmessageminfiles,
-        this.validationmessagesummaryminfiles
-      )(c);
     }
 
-    return error;
-  }
+    /**
+     * Setzt die File ID&#x27;s der hochgeladen Files in das Model
+     *
+     * @param file ID des Files welches hochgeladen wurde.
+     */
+    public SetUploadValue(file: UploadState) {
+        let documentid: string &#x3D; null;
+        if (file &#x3D;&#x3D;&#x3D; null) {
+            documentid &#x3D; null;
+        } else {
+            if (
+                file.response !&#x3D;&#x3D; undefined &amp;&amp;
+                file.response !&#x3D;&#x3D; null &amp;&amp;
+                file.response.documentid !&#x3D;&#x3D; null &amp;&amp;
+                file.response.documentid !&#x3D;&#x3D; undefined
+            ) {
+                documentid &#x3D; file.response.documentid;
+            } else {
+                documentid &#x3D; file.uploadId;
+            }
 
-  // #endregion Public Methods
+            // Document ID aktualisieren, damit Wert von Server in Model gesetzt werden kann.
+            this.uploads
+                .filter((itm) &#x3D;&gt; itm !&#x3D;&#x3D; null &amp;&amp; itm.uploadId &#x3D;&#x3D;&#x3D; file.uploadId)
+                .forEach((itm) &#x3D;&gt; {
+                    itm.documentid &#x3D; documentid;
+                });
+        }
+
+        // List of Files
+        const fileIds: string[] &#x3D; [];
+
+        // Add all Items with Uploaded State to Model
+        this.uploads
+            .filter((itm) &#x3D;&gt; itm.status &#x3D;&#x3D;&#x3D; &#x27;complete&#x27;)
+            .forEach((itm) &#x3D;&gt; {
+                if (itm.documentid !&#x3D;&#x3D; null &amp;&amp; itm.documentid !&#x3D;&#x3D; undefined) {
+                    fileIds.push(itm.documentid);
+                }
+            });
+
+        if (fileIds.length &gt; 0) {
+            super.setValue(fileIds);
+        } else {
+            super.setValue(null);
+        }
+    }
+
+    /**
+     * Validiert das Control
+     *
+     * @param c Control
+     */
+    public validateData(c: AbstractControl): ValidationErrors | null {
+        let error: ValidationErrors | null &#x3D; super.validateData(c);
+
+        if (error &#x3D;&#x3D;&#x3D; null) {
+            error &#x3D; Validation.minFiles(
+                this.minfiles,
+                this.validationmessageminfiles,
+                this.validationmessagesummaryminfiles
+            )(c);
+        }
+
+        return error;
+    }
+
+    // #endregion Public Methods
 }
 </code></pre>
     </div>
@@ -4825,6 +4821,19 @@ export class SacUploadMultipleCommon extends SacUploadBase&lt;string[]&gt; {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -4836,7 +4845,6 @@ export class SacUploadMultipleCommon extends SacUploadBase&lt;string[]&gt; {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

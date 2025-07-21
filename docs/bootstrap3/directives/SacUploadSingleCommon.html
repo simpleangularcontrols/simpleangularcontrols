@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,13 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,7 +75,7 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
@@ -241,9 +234,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#CustomAddValidation" >CustomAddValidation</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#SetUploadValue" >SetUploadValue</a>
                             </li>
                             <li>
@@ -516,12 +511,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;Browse&#x27;</code>
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/sac-common/src/controls/upload/uploadsingle.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/sac-common/src/controls/upload/uploadsingle.ts:16</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -548,12 +543,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;Upload&#x27;</code>
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/sac-common/src/controls/upload/uploadsingle.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/sac-common/src/controls/upload/uploadsingle.ts:22</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1658,6 +1653,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                 <td class="col-md-4">
                     <a name="CustomAddValidation"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>CustomAddValidation</b></span>
                         <a href="#CustomAddValidation"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -1665,7 +1661,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>CustomAddValidation(file: UploadState)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>CustomAddValidation(file: UploadState)</code>
                 </td>
             </tr>
 
@@ -1678,7 +1675,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:27</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:33</a></code>
 </div>
                         </td>
                     </tr>
@@ -1738,6 +1735,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                 <td class="col-md-4">
                     <a name="SetUploadValue"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>SetUploadValue</b></span>
                         <a href="#SetUploadValue"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -1745,7 +1743,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>SetUploadValue(file: UploadState)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>SetUploadValue(file: UploadState)</code>
                 </td>
             </tr>
 
@@ -1758,7 +1757,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:36</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:42</a></code>
 </div>
                         </td>
                     </tr>
@@ -4499,57 +4498,65 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, Input } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacUploadBase } from &#x27;../../common/baseuploadcontrol&#x27;;
+import { Directive, Input } from &#x27;@angular/core&#x27;;
 import { UploadState } from &#x27;ngx-uploadx&#x27;;
-import { SacUploadBase } from &#x27;../../common/baseuploadcontrol&#x27;;
 
 /**
  * Upload Komponente für ein einzelnes File
  */
 @Directive()
 export class SacUploadSingleCommon extends SacUploadBase&lt;string&gt; {
-  /**
-   * Label für Browse Button
-   */
-  @Input()
-  buttonbrowse: string &#x3D; &#x27;Browse&#x27;;
+    // #region Properties
 
-  /**
-   * Label für Upload Button
-   */
-  @Input()
-  buttonupload: string &#x3D; &#x27;Upload&#x27;;
+    /**
+     * Label für Browse Button
+     */
+    @Input()
+    public buttonbrowse: string &#x3D; &#x27;&#x27;;
 
-  /**
-   * Macht keine Validierung in diesem Control
-   *
-   * @param file File das hinzugefügt wurde
-   */
-  CustomAddValidation(file: UploadState): boolean {
-    return true;
-  }
+    /**
+     * Label für Upload Button
+     */
+    @Input()
+    public buttonupload: string &#x3D; &#x27;&#x27;;
 
-  /**
-   * Setzt die File ID des hochgeladen Files in das Model
-   *
-   * @param file ID des Files
-   */
-  SetUploadValue(file: UploadState) {
-    if (file &#x3D;&#x3D;&#x3D; null) {
-      super.setValue(null);
-    } else {
-      if (
-        file.response !&#x3D;&#x3D; undefined &amp;&amp;
-        file.response !&#x3D;&#x3D; null &amp;&amp;
-        file.response.documentid !&#x3D;&#x3D; null &amp;&amp;
-        file.response.documentid !&#x3D;&#x3D; undefined
-      ) {
-        super.setValue(file.response.documentid);
-      } else {
-        super.setValue(file.uploadId);
-      }
+    // #endregion Properties
+
+    // #region Public Methods
+
+    /**
+     * Macht keine Validierung in diesem Control
+     *
+     * @param file File das hinzugefügt wurde
+     */
+    public CustomAddValidation(file: UploadState): boolean {
+        return true;
     }
-  }
+
+    /**
+     * Setzt die File ID des hochgeladen Files in das Model
+     *
+     * @param file ID des Files
+     */
+    public SetUploadValue(file: UploadState) {
+        if (file &#x3D;&#x3D;&#x3D; null) {
+            super.setValue(null);
+        } else {
+            if (
+                file.response !&#x3D;&#x3D; undefined &amp;&amp;
+                file.response !&#x3D;&#x3D; null &amp;&amp;
+                file.response.documentid !&#x3D;&#x3D; null &amp;&amp;
+                file.response.documentid !&#x3D;&#x3D; undefined
+            ) {
+                super.setValue(file.response.documentid);
+            } else {
+                super.setValue(file.uploadId);
+            }
+        }
+    }
+
+    // #endregion Public Methods
 }
 </code></pre>
     </div>
@@ -4599,6 +4606,19 @@ export class SacUploadSingleCommon extends SacUploadBase&lt;string&gt; {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -4610,7 +4630,6 @@ export class SacUploadSingleCommon extends SacUploadBase&lt;string&gt; {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

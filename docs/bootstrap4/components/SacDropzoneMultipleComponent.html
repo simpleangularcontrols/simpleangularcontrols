@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,13 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,7 +75,7 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
@@ -722,7 +715,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneMultipleCommon.html#source" target="_self" >SacDropzoneMultipleCommon:21</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneMultipleCommon.html#source" target="_self" >SacDropzoneMultipleCommon:23</a></code>
 </div>
                             </td>
                         </tr>
@@ -761,7 +754,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneMultipleCommon.html#source" target="_self" >SacDropzoneMultipleCommon:26</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneMultipleCommon.html#source" target="_self" >SacDropzoneMultipleCommon:29</a></code>
 </div>
                             </td>
                         </tr>
@@ -800,7 +793,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneMultipleCommon.html#source" target="_self" >SacDropzoneMultipleCommon:31</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneMultipleCommon.html#source" target="_self" >SacDropzoneMultipleCommon:35</a></code>
 </div>
                             </td>
                         </tr>
@@ -839,7 +832,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneMultipleCommon.html#source" target="_self" >SacDropzoneMultipleCommon:35</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneMultipleCommon.html#source" target="_self" >SacDropzoneMultipleCommon:40</a></code>
 </div>
                             </td>
                         </tr>
@@ -878,7 +871,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneMultipleCommon.html#source" target="_self" >SacDropzoneMultipleCommon:41</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneMultipleCommon.html#source" target="_self" >SacDropzoneMultipleCommon:46</a></code>
 </div>
                             </td>
                         </tr>
@@ -2053,7 +2046,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:58</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:57</a></code>
 </div>
                         </td>
                     </tr>
@@ -2135,7 +2128,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneMultipleCommon.html#source" target="_self" >SacDropzoneMultipleCommon:119</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneMultipleCommon.html#source" target="_self" >SacDropzoneMultipleCommon:118</a></code>
 </div>
                         </td>
                     </tr>
@@ -2217,7 +2210,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneMultipleCommon.html#source" target="_self" >SacDropzoneMultipleCommon:145</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneMultipleCommon.html#source" target="_self" >SacDropzoneMultipleCommon:140</a></code>
 </div>
                         </td>
                     </tr>
@@ -2299,7 +2292,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneMultipleCommon.html#source" target="_self" >SacDropzoneMultipleCommon:153</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneMultipleCommon.html#source" target="_self" >SacDropzoneMultipleCommon:148</a></code>
 </div>
                         </td>
                     </tr>
@@ -2381,7 +2374,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:72</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:71</a></code>
 </div>
                         </td>
                     </tr>
@@ -2463,7 +2456,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:172</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:167</a></code>
 </div>
                         </td>
                     </tr>
@@ -4339,7 +4332,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneMultipleCommon.html#source" target="_self" >SacDropzoneMultipleCommon:47</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneMultipleCommon.html#source" target="_self" >SacDropzoneMultipleCommon:17</a></code>
 </div>
                         </td>
                     </tr>
@@ -5380,6 +5373,19 @@ export class SacDropzoneMultipleComponent extends SacDropzoneMultipleCommon impl
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -5391,7 +5397,6 @@ export class SacDropzoneMultipleComponent extends SacDropzoneMultipleCommon impl
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

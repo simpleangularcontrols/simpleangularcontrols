@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,13 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,7 +75,7 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
@@ -710,7 +703,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneSingleCommon.html#source" target="_self" >SacDropzoneSingleCommon:19</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneSingleCommon.html#source" target="_self" >SacDropzoneSingleCommon:21</a></code>
 </div>
                             </td>
                         </tr>
@@ -1885,7 +1878,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:35</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:32</a></code>
 </div>
                         </td>
                     </tr>
@@ -1967,7 +1960,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneSingleCommon.html#source" target="_self" >SacDropzoneSingleCommon:65</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneSingleCommon.html#source" target="_self" >SacDropzoneSingleCommon:62</a></code>
 </div>
                         </td>
                     </tr>
@@ -2049,7 +2042,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneSingleCommon.html#source" target="_self" >SacDropzoneSingleCommon:97</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneSingleCommon.html#source" target="_self" >SacDropzoneSingleCommon:94</a></code>
 </div>
                         </td>
                     </tr>
@@ -2131,7 +2124,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneSingleCommon.html#source" target="_self" >SacDropzoneSingleCommon:105</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneSingleCommon.html#source" target="_self" >SacDropzoneSingleCommon:102</a></code>
 </div>
                         </td>
                     </tr>
@@ -2213,7 +2206,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:44</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:41</a></code>
 </div>
                         </td>
                     </tr>
@@ -4171,7 +4164,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneSingleCommon.html#source" target="_self" >SacDropzoneSingleCommon:24</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDropzoneSingleCommon.html#source" target="_self" >SacDropzoneSingleCommon:15</a></code>
 </div>
                         </td>
                     </tr>
@@ -5209,6 +5202,19 @@ export class SacDropzoneSingleComponent extends SacDropzoneSingleCommon implemen
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -5220,7 +5226,6 @@ export class SacDropzoneSingleComponent extends SacDropzoneSingleCommon implemen
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

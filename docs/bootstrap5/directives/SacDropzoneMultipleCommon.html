@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,13 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,7 +75,7 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
@@ -554,7 +547,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">projects/sac-common/src/controls/upload/dropzonemultiple.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/sac-common/src/controls/upload/dropzonemultiple.ts:23</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -586,7 +579,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/sac-common/src/controls/upload/dropzonemultiple.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/sac-common/src/controls/upload/dropzonemultiple.ts:29</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -618,7 +611,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">projects/sac-common/src/controls/upload/dropzonemultiple.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/sac-common/src/controls/upload/dropzonemultiple.ts:35</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -650,7 +643,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">projects/sac-common/src/controls/upload/dropzonemultiple.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/sac-common/src/controls/upload/dropzonemultiple.ts:40</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -682,7 +675,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">projects/sac-common/src/controls/upload/dropzonemultiple.ts:41</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/sac-common/src/controls/upload/dropzonemultiple.ts:46</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1809,7 +1802,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:58</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:57</a></code>
 </div>
                         </td>
                     </tr>
@@ -1885,8 +1878,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="119"
-                                    class="link-to-prism">projects/sac-common/src/controls/upload/dropzonemultiple.ts:119</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="118"
+                                    class="link-to-prism">projects/sac-common/src/controls/upload/dropzonemultiple.ts:118</a></div>
                         </td>
                     </tr>
 
@@ -1967,7 +1960,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:135</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:130</a></code>
 </div>
                         </td>
                     </tr>
@@ -2008,8 +2001,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="145"
-                                    class="link-to-prism">projects/sac-common/src/controls/upload/dropzonemultiple.ts:145</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="140"
+                                    class="link-to-prism">projects/sac-common/src/controls/upload/dropzonemultiple.ts:140</a></div>
                         </td>
                     </tr>
 
@@ -2084,8 +2077,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="153"
-                                    class="link-to-prism">projects/sac-common/src/controls/upload/dropzonemultiple.ts:153</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="148"
+                                    class="link-to-prism">projects/sac-common/src/controls/upload/dropzonemultiple.ts:148</a></div>
                         </td>
                     </tr>
 
@@ -2166,7 +2159,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:72</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:71</a></code>
 </div>
                         </td>
                     </tr>
@@ -2248,7 +2241,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:172</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:167</a></code>
 </div>
                         </td>
                     </tr>
@@ -4118,7 +4111,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/sac-common/src/controls/upload/dropzonemultiple.ts:47</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/sac-common/src/controls/upload/dropzonemultiple.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -4892,192 +4885,187 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, Input, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacUploadBase } from &#x27;../../common/baseuploadcontrol&#x27;;
+import { Validation } from &#x27;../../validation&#x27;;
+import { Directive, Input, OnInit } from &#x27;@angular/core&#x27;;
 import { AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
 import { UploadState } from &#x27;ngx-uploadx&#x27;;
-import { SacUploadBase } from &#x27;../../common/baseuploadcontrol&#x27;;
-import { Validation } from &#x27;../../validation&#x27;;
 
 /**
  * Upload Komponente für ein einzelnes File
  */
 @Directive()
-export class SacDropzoneMultipleCommon
-  extends SacUploadBase&lt;string[]&gt;
-  implements OnInit
-{
-  // #region Properties
+export class SacDropzoneMultipleCommon extends SacUploadBase&lt;string[]&gt; implements OnInit {
+    // #region Properties
 
-  /**
-   * Max. Anzahl Files die hochgeladen werden können
-   */
-  @Input()
-  public maxfiles: number &#x3D; 0;
-  /**
-   * Min. Anzahl Files die hochgeladen werden müssen
-   */
-  @Input()
-  public minfiles: number &#x3D; 0;
-  /**
-   * Höhe des Upload Controls
-   */
-  @Input()
-  public uploadheight: string &#x3D; null;
-  /**
-   * Resource Key für Validation Message Required bei Control
-   */
-  @Input() public validationmessageminfiles: string &#x3D;
-    this.validationKeyService.ValidationErrorFilesMin;
-  /**
-   * Resource Key für Validation Message Required in Validation Summary
-   */
-  @Input()
-  public validationmessagesummaryminfiles: string &#x3D;
-    this.validationKeyService.ValidationErrorSummaryFilesMin;
+    /**
+     * Property wenn Drag Event aktiv ist (Maus über Zone)
+     */
+    public active &#x3D; false;
 
-  /**
-   * Property wenn Drag Event aktiv ist (Maus über Zone)
-   */
-  public active &#x3D; false;
+    /**
+     * Max. Anzahl Files die hochgeladen werden können
+     */
+    @Input()
+    public maxfiles: number &#x3D; 0;
 
-  // #endregion Properties
+    /**
+     * Min. Anzahl Files die hochgeladen werden müssen
+     */
+    @Input()
+    public minfiles: number &#x3D; 0;
 
-  // #region Public Methods
+    /**
+     * Höhe des Upload Controls
+     */
+    @Input()
+    public uploadheight: string &#x3D; null;
 
-  /**
-   * Prüft ob die max. Files in der Queue nicht überschritten werden
-   *
-   * @param file File das hinzugefügt wurde
-   */
-  public CustomAddValidation(file: UploadState): boolean {
-    if (this.maxfiles &gt; 0 &amp;&amp; this.uploads.length &gt;&#x3D; this.maxfiles) {
-      this.onfileerror.emit(&#x27;INVALID_MAXFILES&#x27;);
-      return false;
-    } else {
-      return true;
-    }
-  }
+    /**
+     * Resource Key für Validation Message Required bei Control
+     */
+    @Input() public validationmessageminfiles: string &#x3D; this.validationKeyService.ValidationErrorFilesMin;
 
-  /**
-   * Setzt die File ID&#x27;s der hochgeladen Files in das Model
-   *
-   * @param file ID des Files welches hochgeladen wurde.
-   */
-  public SetUploadValue(file: UploadState) {
-    let documentid: string &#x3D; null;
-    if (file &#x3D;&#x3D;&#x3D; null) {
-      documentid &#x3D; null;
-    } else {
-      if (
-        file.response !&#x3D;&#x3D; undefined &amp;&amp;
-        file.response !&#x3D;&#x3D; null &amp;&amp;
-        file.response.documentid !&#x3D;&#x3D; null &amp;&amp;
-        file.response.documentid !&#x3D;&#x3D; undefined
-      ) {
-        documentid &#x3D; file.response.documentid;
-      } else {
-        documentid &#x3D; file.uploadId;
-      }
+    /**
+     * Resource Key für Validation Message Required in Validation Summary
+     */
+    @Input()
+    public validationmessagesummaryminfiles: string &#x3D; this.validationKeyService.ValidationErrorSummaryFilesMin;
 
-      // Document ID aktualisieren, damit Wert von Server in Model gesetzt werden kann.
-      this.uploads
-        .filter((itm) &#x3D;&gt; itm !&#x3D;&#x3D; null &amp;&amp; itm.uploadId &#x3D;&#x3D;&#x3D; file.uploadId)
-        .forEach((itm) &#x3D;&gt; {
-          itm.documentid &#x3D; documentid;
-        });
-    }
+    // #endregion Properties
 
-    // List of Files
-    const fileIds: string[] &#x3D; [];
+    // #region Public Methods
 
-    // Add all Items with Uploaded State to Model
-    this.uploads
-      .filter((itm) &#x3D;&gt; itm.status &#x3D;&#x3D;&#x3D; &#x27;complete&#x27;)
-      .forEach((itm) &#x3D;&gt; {
-        if (itm.documentid !&#x3D;&#x3D; null &amp;&amp; itm.documentid !&#x3D;&#x3D; undefined) {
-          fileIds.push(itm.documentid);
+    /**
+     * Prüft ob die max. Files in der Queue nicht überschritten werden
+     *
+     * @param file File das hinzugefügt wurde
+     */
+    public CustomAddValidation(file: UploadState): boolean {
+        if (this.maxfiles &gt; 0 &amp;&amp; this.uploads.length &gt;&#x3D; this.maxfiles) {
+            this.onfileerror.emit(&#x27;INVALID_MAXFILES&#x27;);
+            return false;
+        } else {
+            return true;
         }
-      });
-
-    if (fileIds.length &gt; 0) {
-      super.setValue(fileIds);
-    } else {
-      super.setValue(null);
-    }
-  }
-
-  /**
-   * Methode für Drag and Drop von Files
-   * @param event Drag Event
-   */
-  public dropHandler(event: DragEvent): void {
-    if (
-      event.dataTransfer &amp;&amp;
-      event.dataTransfer.files &amp;&amp;
-      event.dataTransfer.files.item(0)
-    ) {
-      event.stopPropagation();
-      event.preventDefault();
-      this.active &#x3D; false;
-      this.uploadService.handleFileList(event.dataTransfer.files);
-    }
-  }
-
-  /**
-   * Ervent wenn das Control initialisert wird
-   */
-  public ngOnInit() {
-    super.ngOnInit();
-
-    this.autoupload &#x3D; true;
-  }
-
-  /**
-   * Methode wenn Drag die Zone verlässt
-   * @param event DragLeave Event
-   */
-  public onDragLeave(event: DragEvent): void {
-    this.active &#x3D; false;
-  }
-
-  /**
-   * Methode wenn Drag in die Zone eintritt
-   * @param event DragEnter Event
-   */
-  public onDragOver(event: DragEvent): void {
-    if (
-      event.dataTransfer &amp;&amp;
-      event.dataTransfer.files &amp;&amp;
-      event.dataTransfer.types.every((itm) &#x3D;&gt; itm &#x3D;&#x3D;&#x3D; &#x27;Files&#x27;) &amp;&amp;
-      event.dataTransfer.types.length &gt; 0
-    ) {
-      event.dataTransfer.dropEffect &#x3D; &#x27;copy&#x27;;
-      event.stopPropagation();
-      event.preventDefault();
-      this.active &#x3D; true;
-    }
-  }
-
-  /**
-   * Validiert das Control
-   *
-   * @param c Control
-   */
-  public validateData(c: AbstractControl): ValidationErrors | null {
-    let error: ValidationErrors | null &#x3D; super.validateData(c);
-
-    if (error &#x3D;&#x3D;&#x3D; null) {
-      error &#x3D; Validation.minFiles(
-        this.minfiles,
-        this.validationmessageminfiles,
-        this.validationmessagesummaryminfiles
-      )(c);
     }
 
-    return error;
-  }
+    /**
+     * Setzt die File ID&#x27;s der hochgeladen Files in das Model
+     *
+     * @param file ID des Files welches hochgeladen wurde.
+     */
+    public SetUploadValue(file: UploadState) {
+        let documentid: string &#x3D; null;
+        if (file &#x3D;&#x3D;&#x3D; null) {
+            documentid &#x3D; null;
+        } else {
+            if (
+                file.response !&#x3D;&#x3D; undefined &amp;&amp;
+                file.response !&#x3D;&#x3D; null &amp;&amp;
+                file.response.documentid !&#x3D;&#x3D; null &amp;&amp;
+                file.response.documentid !&#x3D;&#x3D; undefined
+            ) {
+                documentid &#x3D; file.response.documentid;
+            } else {
+                documentid &#x3D; file.uploadId;
+            }
 
-  // #endregion Public Methods
+            // Document ID aktualisieren, damit Wert von Server in Model gesetzt werden kann.
+            this.uploads
+                .filter((itm) &#x3D;&gt; itm !&#x3D;&#x3D; null &amp;&amp; itm.uploadId &#x3D;&#x3D;&#x3D; file.uploadId)
+                .forEach((itm) &#x3D;&gt; {
+                    itm.documentid &#x3D; documentid;
+                });
+        }
+
+        // List of Files
+        const fileIds: string[] &#x3D; [];
+
+        // Add all Items with Uploaded State to Model
+        this.uploads
+            .filter((itm) &#x3D;&gt; itm.status &#x3D;&#x3D;&#x3D; &#x27;complete&#x27;)
+            .forEach((itm) &#x3D;&gt; {
+                if (itm.documentid !&#x3D;&#x3D; null &amp;&amp; itm.documentid !&#x3D;&#x3D; undefined) {
+                    fileIds.push(itm.documentid);
+                }
+            });
+
+        if (fileIds.length &gt; 0) {
+            super.setValue(fileIds);
+        } else {
+            super.setValue(null);
+        }
+    }
+
+    /**
+     * Methode für Drag and Drop von Files
+     * @param event Drag Event
+     */
+    public dropHandler(event: DragEvent): void {
+        if (event.dataTransfer &amp;&amp; event.dataTransfer.files &amp;&amp; event.dataTransfer.files.item(0)) {
+            event.stopPropagation();
+            event.preventDefault();
+            this.active &#x3D; false;
+            this.uploadService.handleFileList(event.dataTransfer.files);
+        }
+    }
+
+    /**
+     * Ervent wenn das Control initialisert wird
+     */
+    public ngOnInit() {
+        super.ngOnInit();
+
+        this.autoupload &#x3D; true;
+    }
+
+    /**
+     * Methode wenn Drag die Zone verlässt
+     * @param event DragLeave Event
+     */
+    public onDragLeave(event: DragEvent): void {
+        this.active &#x3D; false;
+    }
+
+    /**
+     * Methode wenn Drag in die Zone eintritt
+     * @param event DragEnter Event
+     */
+    public onDragOver(event: DragEvent): void {
+        if (
+            event.dataTransfer &amp;&amp;
+            event.dataTransfer.files &amp;&amp;
+            event.dataTransfer.types.every((itm) &#x3D;&gt; itm &#x3D;&#x3D;&#x3D; &#x27;Files&#x27;) &amp;&amp;
+            event.dataTransfer.types.length &gt; 0
+        ) {
+            event.dataTransfer.dropEffect &#x3D; &#x27;copy&#x27;;
+            event.stopPropagation();
+            event.preventDefault();
+            this.active &#x3D; true;
+        }
+    }
+
+    /**
+     * Validiert das Control
+     *
+     * @param c Control
+     */
+    public validateData(c: AbstractControl): ValidationErrors | null {
+        let error: ValidationErrors | null &#x3D; super.validateData(c);
+
+        if (error &#x3D;&#x3D;&#x3D; null) {
+            error &#x3D; Validation.minFiles(
+                this.minfiles,
+                this.validationmessageminfiles,
+                this.validationmessagesummaryminfiles
+            )(c);
+        }
+
+        return error;
+    }
+
+    // #endregion Public Methods
 }
 </code></pre>
     </div>
@@ -5127,6 +5115,19 @@ export class SacDropzoneMultipleCommon
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -5138,7 +5139,6 @@ export class SacDropzoneMultipleCommon
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

@@ -355,7 +355,13 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
             this.position,
             false
         );
-        this.posPopupLeft = value;
+
+        // Ensure that pop-ups never appear outside the visible area on the left
+        if (value < 0) {
+            this.posPopupLeft = 5;
+        } else {
+            this.posPopupLeft = value;
+        }
 
         switch (this.GetPickerPosition()) {
             case TooltipPosition.top:
@@ -368,6 +374,11 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
                     this.getPickerWidth() -
                     this.getArrowWidth() / 2 -
                     this.popupHelper.getContainerWidth(this.pickerbutton, false) / 2;
+
+                // Correction by Arrow if popup is outside the left margin
+                if (value < 0) {
+                    this.posArrowLeft -= value * -1 + 5;
+                }
                 break;
             default:
                 this.posArrowLeft = null;

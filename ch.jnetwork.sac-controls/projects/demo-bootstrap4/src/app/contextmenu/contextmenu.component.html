@@ -140,4 +140,12 @@
             </sac-contextmenubutton>
         </ng-template>
     </injectdemo-component>
+
+    <p>For Loop</p>
+    <div *ngFor="let index of numbers; index as i">
+        <contextmenu-repeat
+            [name]="index"
+            [index]="i"></contextmenu-repeat>
+    </div>
+    <a (click)="switchItems()">Switch Items</a>
 </form>

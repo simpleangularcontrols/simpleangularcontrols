@@ -1732,9 +1732,9 @@ export class PopUpHelper {
             : referenceContainer.nativeElement.getBoundingClientRect();
         const tooltipRect: DOMRect &#x3D; popupcontentcontainer.nativeElement.firstElementChild.getBoundingClientRect();
 
-        const leftPosOk: boolean &#x3D; basePosition.left - tooltipRect.width + arrowWidth * -1 &gt; 0;
+        const leftPosOk: boolean &#x3D; basePosition.left - (tooltipRect.width + arrowWidth * -1) &gt; 0;
         const rightPosOk: boolean &#x3D; basePosition.right + tooltipRect.width + arrowWidth &lt; window.innerWidth;
-        const topPosOk: boolean &#x3D; basePosition.top - tooltipRect.height + arrowHeight &gt; 0;
+        const topPosOk: boolean &#x3D; basePosition.top - (tooltipRect.height + arrowHeight) &gt; 0;
         const bottomPosOk: boolean &#x3D; basePosition.bottom + tooltipRect.height + arrowHeight &lt; window.innerHeight;
 
         const leftHalfPosOk: boolean &#x3D; basePosition.left - tooltipRect.width / 2 &gt; 0;
@@ -1742,12 +1742,12 @@ export class PopUpHelper {
         const topHalfPosOk: boolean &#x3D; basePosition.top - tooltipRect.height / 2 &gt; 0;
         const bottomHalfPosOk: boolean &#x3D; basePosition.bottom + tooltipRect.height / 2 &lt; window.innerHeight;
 
-        if (leftPosOk &amp;&amp; topPosOk) {
+        if (topPosOk) {
             // tslint:disable-next-line:no-bitwise
             allowedPositions &#x3D; allowedPositions | TooltipPosition.topend;
         }
 
-        if (leftPosOk &amp;&amp; bottomPosOk) {
+        if (bottomPosOk) {
             // tslint:disable-next-line:no-bitwise
             allowedPositions &#x3D; allowedPositions | TooltipPosition.bottomend;
         }

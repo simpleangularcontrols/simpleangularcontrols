@@ -1931,8 +1931,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="383"
-                                    class="link-to-prism">projects/sac-common/src/common/basedatetimecontrol.ts:383</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="394"
+                                    class="link-to-prism">projects/sac-common/src/common/basedatetimecontrol.ts:394</a></div>
                         </td>
                     </tr>
 
@@ -4725,7 +4725,13 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl&lt;Date
             this.position,
             false
         );
-        this.posPopupLeft &#x3D; value;
+
+        // Ensure that pop-ups never appear outside the visible area on the left
+        if (value &lt; 0) {
+            this.posPopupLeft &#x3D; 5;
+        } else {
+            this.posPopupLeft &#x3D; value;
+        }
 
         switch (this.GetPickerPosition()) {
             case TooltipPosition.top:
@@ -4738,6 +4744,11 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl&lt;Date
                     this.getPickerWidth() -
                     this.getArrowWidth() / 2 -
                     this.popupHelper.getContainerWidth(this.pickerbutton, false) / 2;
+
+                // Correction by Arrow if popup is outside the left margin
+                if (value &lt; 0) {
+                    this.posArrowLeft -&#x3D; value * -1 + 5;
+                }
                 break;
             default:
                 this.posArrowLeft &#x3D; null;

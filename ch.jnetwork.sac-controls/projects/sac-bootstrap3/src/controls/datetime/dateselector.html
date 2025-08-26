@@ -1,89 +1,113 @@
-<div class="calendar-selector" style="min-width: 265px">
-  <table class="table-condensed" style="width: 100%" *ngIf="dateselection">
-    <thead>
-      <tr>
-        <th class="prev text-left" (click)="monthBack()">
-          <i [class]="iconMonthPrev"></i>
-        </th>
-        <th colspan="5" class="switch text-center">{{month+1}}/{{year}}</th>
-        <th class="next text-right" (click)="monthNext()">
-          <i [class]="iconMonthNext"></i>
-        </th>
-      </tr>
-      <tr>
-        <th class="dow text-center">Mo</th>
-        <th class="dow text-center">Di</th>
-        <th class="dow text-center">Mi</th>
-        <th class="dow text-center">Do</th>
-        <th class="dow text-center">Fr</th>
-        <th class="dow text-center">Sa</th>
-        <th class="dow text-center">So</th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngFor="let week of dates; let i=index">
-        <tr>
-          <td
-            class="text-center"
-            *ngFor="let item of week"
-            [ngStyle]="{'cursor': item.isenabled ? 'pointer' : null}"
-            [ngClass]="{'day-current': item.iscurrent, 'day-selected': item.isselected, 'day-new': item.isnew, 'day-disabled': !item.isenabled}"
-            (click)="selectDate(item)"
-          >
-            {{ item.displaytext }}
-          </td>
-        </tr>
-      </ng-container>
-    </tbody>
-  </table>
-  <div class="container-fluid" *ngIf="timeselection" style="margin-top: 10px">
-    <div class="row">
-      <div class="col-md-6" style="padding-right: 20px">
-        <div class="form-group">
-          <label>Stunde</label>
-          <input
-            type="number"
-            class="form-control"
-            [value]="getHours()"
-            (input)="setHours($event.target.value)"
-            min="0"
-            max="23"
-          />
+<div
+    class="calendar-selector"
+    style="min-width: 265px">
+    <table
+        class="table-condensed"
+        style="width: 100%"
+        *ngIf="dateselection">
+        <thead>
+            <tr>
+                <th
+                    class="prev text-left"
+                    (click)="monthBack()">
+                    <i [class]="iconMonthPrev"></i>
+                </th>
+                <th
+                    colspan="5"
+                    class="switch text-center"
+                    >{{ month + 1 }}/{{ year }}</th
+                >
+                <th
+                    class="next text-right"
+                    (click)="monthNext()">
+                    <i [class]="iconMonthNext"></i>
+                </th>
+            </tr>
+            <tr>
+                <th class="dow text-center">Mo</th>
+                <th class="dow text-center">Di</th>
+                <th class="dow text-center">Mi</th>
+                <th class="dow text-center">Do</th>
+                <th class="dow text-center">Fr</th>
+                <th class="dow text-center">Sa</th>
+                <th class="dow text-center">So</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let week of dates; let i = index">
+                <tr>
+                    <td
+                        class="text-center"
+                        *ngFor="let item of week"
+                        [ngStyle]="{ cursor: item.isenabled ? 'pointer' : null }"
+                        [ngClass]="{ 'day-current': item.iscurrent, 'day-selected': item.isselected, 'day-new': item.isnew, 'day-disabled': !item.isenabled }"
+                        (click)="selectDate(item)">
+                        {{ item.displaytext }}
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+    <div
+        class="container-fluid"
+        *ngIf="timeselection"
+        style="margin-top: 10px">
+        <div class="row">
+            <div
+                class="col-md-6"
+                style="padding-right: 20px">
+                <div class="form-group">
+                    <label>Stunde</label>
+                    <input
+                        type="number"
+                        class="form-control"
+                        [value]="getHours()"
+                        (input)="setHours($event.target.value)"
+                        min="0"
+                        max="23" />
+                </div>
+            </div>
+            <div
+                class="col-md-6"
+                style="padding-left: 20px">
+                <div class="form-group">
+                    <label>Minute</label>
+                    <input
+                        type="number"
+                        class="form-control"
+                        [value]="getMinutes()"
+                        (input)="setMinutes($event.target.value)"
+                        min="0"
+                        max="59" />
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-md-6" style="padding-left: 20px">
-        <div class="form-group">
-          <label>Minute</label>
-          <input
-            type="number"
-            class="form-control"
-            [value]="getMinutes()"
-            (input)="setMinutes($event.target.value)"
-            min="0"
-            max="59"
-          />
+    </div>
+    <div
+        class="row"
+        style="margin-top: 10px">
+        <div class="col-xs-4 text-left">
+            <button
+                type="button"
+                class="btn btn-default"
+                (click)="setToday()">
+                Heute
+            </button>
         </div>
-      </div>
+        <div class="col-xs-8 text-right">
+            <button
+                type="button"
+                class="btn btn-default"
+                (click)="resetSelection()">
+                Reset
+            </button>
+            <button
+                type="button"
+                class="btn btn-primary"
+                style="margin-left: 10px"
+                (click)="applySelection()">
+                Apply
+            </button>
+        </div>
     </div>
-  </div>
-  <div class="row" style="margin-top: 10px">
-    <div class="col-md-4 text-left">
-      <button type="button" class="btn btn-default" (click)="setToday()">
-        Heute
-      </button>
-    </div>
-    <div class="col-md-8 text-right">
-      <button type="button" class="btn btn-default" (click)="resetSelection()">
-        Reset
-      </button>
-      <button
-        type="button"
-        class="btn btn-primary"
-        style="margin-left: 10px"
-        (click)="applySelection()"
-      >
-        Apply
-      </button>
-    </div>
-  </div>
 </div>

@@ -1,0 +1,14 @@
+<div>
+    Item {{ name }} ({{ index }})
+    <sac-contextmenu>
+        <sac-contextmenubutton
+            text="Action 1"
+            *ngIf="index > 0">
+        </sac-contextmenubutton>
+        <sac-contextmenubutton
+            name="action2_{{ index }}"
+            text="Action 2">
+        </sac-contextmenubutton>
+        <sac-contextmenubutton text="Action 3"> </sac-contextmenubutton>
+    </sac-contextmenu>
+</div>

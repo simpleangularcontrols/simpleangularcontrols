@@ -24,127 +24,127 @@
 <title>cluster_SACBootstrap3UploadModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-379.59 3914,-379.59 3914,-70 8,-70"/>
 </g>
-<g id="clust8" class="cluster">
-<title>cluster_SACBootstrap3UploadModule_exports</title>
-<polygon fill="none" stroke="black" points="1525,-319.59 1525,-371.59 2339,-371.59 2339,-319.59 1525,-319.59"/>
-</g>
 <g id="clust7" class="cluster">
 <title>cluster_SACBootstrap3UploadModule_imports</title>
 <polygon fill="none" stroke="black" points="3494,-189.59 3494,-241.59 3906,-241.59 3906,-189.59 3494,-189.59"/>
 </g>
-<g id="clust3" class="cluster">
-<title>cluster_SACBootstrap3UploadModule_SacDropzoneMultipleComponent_providers</title>
-<polygon fill="none" stroke="black" points="1738,-78 1738,-241.59 3486,-241.59 3486,-78 1738,-78"/>
+<g id="clust4" class="cluster">
+<title>cluster_SACBootstrap3UploadModule_SacDropzoneSingleComponent_providers</title>
+<polygon fill="none" stroke="black" points="1772,-78 1772,-241.59 3486,-241.59 3486,-78 1772,-78"/>
+</g>
+<g id="clust8" class="cluster">
+<title>cluster_SACBootstrap3UploadModule_exports</title>
+<polygon fill="none" stroke="black" points="1552,-319.59 1552,-371.59 2366,-371.59 2366,-319.59 1552,-319.59"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap3UploadModule_declarations</title>
-<polygon fill="none" stroke="black" points="1152,-189.59 1152,-241.59 1730,-241.59 1730,-189.59 1152,-189.59"/>
+<polygon fill="none" stroke="black" points="1174,-189.59 1174,-241.59 1764,-241.59 1764,-189.59 1174,-189.59"/>
 </g>
-<g id="clust4" class="cluster">
-<title>cluster_SACBootstrap3UploadModule_SacDropzoneSingleComponent_providers</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-176.59 1730,-176.59 1730,-78 16,-78"/>
+<g id="clust3" class="cluster">
+<title>cluster_SACBootstrap3UploadModule_SacDropzoneMultipleComponent_providers</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-176.59 1764,-176.59 1764,-78 16,-78"/>
 </g>
 <!-- SacDropzoneMultipleComponent -->
 <g id="node1" class="node">
 <title>SacDropzoneMultipleComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="2301.46,-233.59 2096.54,-233.59 2096.54,-197.59 2301.46,-197.59 2301.46,-233.59"/>
-<text text-anchor="middle" x="2199" y="-211.39" font-family="Times,serif" font-size="14.00">SacDropzoneMultipleComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="1756.46,-233.59 1551.54,-233.59 1551.54,-197.59 1756.46,-197.59 1756.46,-233.59"/>
+<text text-anchor="middle" x="1654" y="-211.39" font-family="Times,serif" font-size="14.00">SacDropzoneMultipleComponent</text>
 </g>
 <!-- SACBootstrap3UploadModule -->
 <g id="node5" class="node">
 <title>SACBootstrap3UploadModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="2006.93,-298.59 2003.93,-302.59 1982.93,-302.59 1979.93,-298.59 1817.07,-298.59 1817.07,-262.59 2006.93,-262.59 2006.93,-298.59"/>
-<text text-anchor="middle" x="1912" y="-276.39" font-family="Times,serif" font-size="14.00">SACBootstrap3UploadModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="2033.93,-298.59 2030.93,-302.59 2009.93,-302.59 2006.93,-298.59 1844.07,-298.59 1844.07,-262.59 2033.93,-262.59 2033.93,-298.59"/>
+<text text-anchor="middle" x="1939" y="-276.39" font-family="Times,serif" font-size="14.00">SACBootstrap3UploadModule</text>
 </g>
 <!-- SacDropzoneMultipleComponent&#45;&gt;SACBootstrap3UploadModule -->
 <g id="edge1" class="edge">
 <title>SacDropzoneMultipleComponent&#45;&gt;SACBootstrap3UploadModule</title>
-<path fill="none" stroke="black" d="M2100.76,-233.6C2100.76,-249.64 2100.76,-270.59 2100.76,-270.59 2100.76,-270.59 2016.94,-270.59 2016.94,-270.59"/>
-<polygon fill="black" stroke="black" points="2016.94,-267.09 2006.94,-270.59 2016.94,-274.09 2016.94,-267.09"/>
+<path fill="none" stroke="black" d="M1756.49,-215.59C1838.2,-215.59 1939,-215.59 1939,-215.59 1939,-215.59 1939,-252.48 1939,-252.48"/>
+<polygon fill="black" stroke="black" points="1935.5,-252.48 1939,-262.48 1942.5,-252.48 1935.5,-252.48"/>
 </g>
 <!-- SacDropzoneSingleComponent -->
 <g id="node2" class="node">
 <title>SacDropzoneSingleComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1722.02,-233.59 1529.98,-233.59 1529.98,-197.59 1722.02,-197.59 1722.02,-233.59"/>
-<text text-anchor="middle" x="1626" y="-211.39" font-family="Times,serif" font-size="14.00">SacDropzoneSingleComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="2320.02,-233.59 2127.98,-233.59 2127.98,-197.59 2320.02,-197.59 2320.02,-233.59"/>
+<text text-anchor="middle" x="2224" y="-211.39" font-family="Times,serif" font-size="14.00">SacDropzoneSingleComponent</text>
 </g>
 <!-- SacDropzoneSingleComponent&#45;&gt;SACBootstrap3UploadModule -->
 <g id="edge4" class="edge">
 <title>SacDropzoneSingleComponent&#45;&gt;SACBootstrap3UploadModule</title>
-<path fill="none" stroke="black" d="M1595.93,-233.6C1595.93,-249.64 1595.93,-270.59 1595.93,-270.59 1595.93,-270.59 1807.17,-270.59 1807.17,-270.59"/>
-<polygon fill="black" stroke="black" points="1807.17,-274.09 1817.17,-270.59 1807.17,-267.09 1807.17,-274.09"/>
+<path fill="none" stroke="black" d="M2140.89,-233.6C2140.89,-249.64 2140.89,-270.59 2140.89,-270.59 2140.89,-270.59 2043.74,-270.59 2043.74,-270.59"/>
+<polygon fill="black" stroke="black" points="2043.74,-267.09 2033.74,-270.59 2043.74,-274.09 2043.74,-267.09"/>
 </g>
 <!-- SacUploadComponent -->
 <g id="node3" class="node">
 <title>SacUploadComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1511.26,-233.59 1368.74,-233.59 1368.74,-197.59 1511.26,-197.59 1511.26,-233.59"/>
-<text text-anchor="middle" x="1440" y="-211.39" font-family="Times,serif" font-size="14.00">SacUploadComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="1533.26,-233.59 1390.74,-233.59 1390.74,-197.59 1533.26,-197.59 1533.26,-233.59"/>
+<text text-anchor="middle" x="1462" y="-211.39" font-family="Times,serif" font-size="14.00">SacUploadComponent</text>
 </g>
 <!-- SacUploadComponent&#45;&gt;SACBootstrap3UploadModule -->
 <g id="edge7" class="edge">
 <title>SacUploadComponent&#45;&gt;SACBootstrap3UploadModule</title>
-<path fill="none" stroke="black" d="M1440,-233.86C1440,-252.15 1440,-277.59 1440,-277.59 1440,-277.59 1807.05,-277.59 1807.05,-277.59"/>
-<polygon fill="black" stroke="black" points="1807.05,-281.09 1817.05,-277.59 1807.05,-274.09 1807.05,-281.09"/>
+<path fill="none" stroke="black" d="M1462,-233.62C1462,-249.99 1462,-271.59 1462,-271.59 1462,-271.59 1834.19,-271.59 1834.19,-271.59"/>
+<polygon fill="black" stroke="black" points="1834.19,-275.09 1844.19,-271.59 1834.19,-268.09 1834.19,-275.09"/>
 </g>
 <!-- SacUploadMultipleComponent -->
 <g id="node4" class="node">
 <title>SacUploadMultipleComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1350.48,-233.59 1159.52,-233.59 1159.52,-197.59 1350.48,-197.59 1350.48,-233.59"/>
-<text text-anchor="middle" x="1255" y="-211.39" font-family="Times,serif" font-size="14.00">SacUploadMultipleComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="1372.48,-233.59 1181.52,-233.59 1181.52,-197.59 1372.48,-197.59 1372.48,-233.59"/>
+<text text-anchor="middle" x="1277" y="-211.39" font-family="Times,serif" font-size="14.00">SacUploadMultipleComponent</text>
 </g>
 <!-- SacUploadMultipleComponent&#45;&gt;SACBootstrap3UploadModule -->
 <g id="edge8" class="edge">
 <title>SacUploadMultipleComponent&#45;&gt;SACBootstrap3UploadModule</title>
-<path fill="none" stroke="black" d="M1255,-233.72C1255,-254.16 1255,-284.59 1255,-284.59 1255,-284.59 1807.17,-284.59 1807.17,-284.59"/>
-<polygon fill="black" stroke="black" points="1807.17,-288.09 1817.17,-284.59 1807.17,-281.09 1807.17,-288.09"/>
+<path fill="none" stroke="black" d="M1277,-233.7C1277,-252.93 1277,-280.59 1277,-280.59 1277,-280.59 1834.15,-280.59 1834.15,-280.59"/>
+<polygon fill="black" stroke="black" points="1834.15,-284.09 1844.15,-280.59 1834.15,-277.09 1834.15,-284.09"/>
 </g>
 <!-- SacDropzoneMultipleComponent  -->
 <g id="node12" class="node">
 <title>SacDropzoneMultipleComponent </title>
-<polygon fill="#fb8072" stroke="black" points="2331.46,-363.59 2122.54,-363.59 2122.54,-327.59 2331.46,-327.59 2331.46,-363.59"/>
-<text text-anchor="middle" x="2227" y="-341.39" font-family="Times,serif" font-size="14.00">SacDropzoneMultipleComponent </text>
+<polygon fill="#fb8072" stroke="black" points="2358.46,-363.59 2149.54,-363.59 2149.54,-327.59 2358.46,-327.59 2358.46,-363.59"/>
+<text text-anchor="middle" x="2254" y="-341.39" font-family="Times,serif" font-size="14.00">SacDropzoneMultipleComponent </text>
 </g>
 <!-- SACBootstrap3UploadModule&#45;&gt;SacDropzoneMultipleComponent  -->
 <g id="edge11" class="edge">
 <title>SACBootstrap3UploadModule&#45;&gt;SacDropzoneMultipleComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M2006.96,-291.59C2094.89,-291.59 2212.12,-291.59 2212.12,-291.59 2212.12,-291.59 2212.12,-317.31 2212.12,-317.31"/>
-<polygon fill="black" stroke="black" points="2208.63,-317.31 2212.12,-327.31 2215.63,-317.31 2208.63,-317.31"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M2033.88,-291.59C2120.47,-291.59 2235.01,-291.59 2235.01,-291.59 2235.01,-291.59 2235.01,-317.31 2235.01,-317.31"/>
+<polygon fill="black" stroke="black" points="2231.51,-317.31 2235.01,-327.31 2238.51,-317.31 2231.51,-317.31"/>
 </g>
 <!-- SacDropzoneSingleComponent  -->
 <g id="node13" class="node">
 <title>SacDropzoneSingleComponent </title>
-<polygon fill="#fb8072" stroke="black" points="2105.02,-363.59 1908.98,-363.59 1908.98,-327.59 2105.02,-327.59 2105.02,-363.59"/>
-<text text-anchor="middle" x="2007" y="-341.39" font-family="Times,serif" font-size="14.00">SacDropzoneSingleComponent </text>
+<polygon fill="#fb8072" stroke="black" points="2132.02,-363.59 1935.98,-363.59 1935.98,-327.59 2132.02,-327.59 2132.02,-363.59"/>
+<text text-anchor="middle" x="2034" y="-341.39" font-family="Times,serif" font-size="14.00">SacDropzoneSingleComponent </text>
 </g>
 <!-- SACBootstrap3UploadModule&#45;&gt;SacDropzoneSingleComponent  -->
 <g id="edge12" class="edge">
 <title>SACBootstrap3UploadModule&#45;&gt;SacDropzoneSingleComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1957.85,-298.7C1957.85,-298.7 1957.85,-317.58 1957.85,-317.58"/>
-<polygon fill="black" stroke="black" points="1954.35,-317.58 1957.85,-327.58 1961.35,-317.58 1954.35,-317.58"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1984.85,-298.7C1984.85,-298.7 1984.85,-317.58 1984.85,-317.58"/>
+<polygon fill="black" stroke="black" points="1981.35,-317.58 1984.85,-327.58 1988.35,-317.58 1981.35,-317.58"/>
 </g>
 <!-- SacUploadComponent  -->
 <g id="node14" class="node">
 <title>SacUploadComponent </title>
-<polygon fill="#fb8072" stroke="black" points="1891.26,-363.59 1744.74,-363.59 1744.74,-327.59 1891.26,-327.59 1891.26,-363.59"/>
-<text text-anchor="middle" x="1818" y="-341.39" font-family="Times,serif" font-size="14.00">SacUploadComponent </text>
+<polygon fill="#fb8072" stroke="black" points="1918.26,-363.59 1771.74,-363.59 1771.74,-327.59 1918.26,-327.59 1918.26,-363.59"/>
+<text text-anchor="middle" x="1845" y="-341.39" font-family="Times,serif" font-size="14.00">SacUploadComponent </text>
 </g>
 <!-- SACBootstrap3UploadModule&#45;&gt;SacUploadComponent  -->
 <g id="edge13" class="edge">
 <title>SACBootstrap3UploadModule&#45;&gt;SacUploadComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1854.21,-298.7C1854.21,-298.7 1854.21,-317.58 1854.21,-317.58"/>
-<polygon fill="black" stroke="black" points="1850.71,-317.58 1854.21,-327.58 1857.71,-317.58 1850.71,-317.58"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1881.21,-298.7C1881.21,-298.7 1881.21,-317.58 1881.21,-317.58"/>
+<polygon fill="black" stroke="black" points="1877.71,-317.58 1881.21,-327.58 1884.71,-317.58 1877.71,-317.58"/>
 </g>
 <!-- SacUploadMultipleComponent  -->
 <g id="node15" class="node">
 <title>SacUploadMultipleComponent </title>
-<polygon fill="#fb8072" stroke="black" points="1727.48,-363.59 1532.52,-363.59 1532.52,-327.59 1727.48,-327.59 1727.48,-363.59"/>
-<text text-anchor="middle" x="1630" y="-341.39" font-family="Times,serif" font-size="14.00">SacUploadMultipleComponent </text>
+<polygon fill="#fb8072" stroke="black" points="1754.48,-363.59 1559.52,-363.59 1559.52,-327.59 1754.48,-327.59 1754.48,-363.59"/>
+<text text-anchor="middle" x="1657" y="-341.39" font-family="Times,serif" font-size="14.00">SacUploadMultipleComponent </text>
 </g>
 <!-- SACBootstrap3UploadModule&#45;&gt;SacUploadMultipleComponent  -->
 <g id="edge14" class="edge">
 <title>SACBootstrap3UploadModule&#45;&gt;SacUploadMultipleComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1817.11,-291.59C1745.34,-291.59 1659.09,-291.59 1659.09,-291.59 1659.09,-291.59 1659.09,-317.31 1659.09,-317.31"/>
-<polygon fill="black" stroke="black" points="1655.59,-317.31 1659.09,-327.31 1662.59,-317.31 1655.59,-317.31"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1843.92,-289.59C1762.05,-289.59 1657,-289.59 1657,-289.59 1657,-289.59 1657,-317.56 1657,-317.56"/>
+<polygon fill="black" stroke="black" points="1653.5,-317.56 1657,-327.56 1660.5,-317.56 1653.5,-317.56"/>
 </g>
 <!-- {
  &#160;&#160;&#160;provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacDropzoneMultipleComponent,
@@ -153,10 +153,10 @@
 <title>{
  &#160;&#160;&#160;provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacDropzoneMultipleComponent,
 }</title>
-<ellipse fill="#fdb462" stroke="black" cx="3074" cy="-127.3" rx="404.48" ry="41.09"/>
-<text text-anchor="middle" x="3074" y="-139.9" font-family="Times,serif" font-size="14.00">{</text>
-<text text-anchor="middle" x="3074" y="-123.1" font-family="Times,serif" font-size="14.00"> &#160;&#160;&#160;provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacDropzoneMultipleComponent,</text>
-<text text-anchor="middle" x="3074" y="-106.3" font-family="Times,serif" font-size="14.00">}</text>
+<ellipse fill="#fdb462" stroke="black" cx="1352" cy="-127.3" rx="404.48" ry="41.09"/>
+<text text-anchor="middle" x="1352" y="-139.9" font-family="Times,serif" font-size="14.00">{</text>
+<text text-anchor="middle" x="1352" y="-123.1" font-family="Times,serif" font-size="14.00"> &#160;&#160;&#160;provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacDropzoneMultipleComponent,</text>
+<text text-anchor="middle" x="1352" y="-106.3" font-family="Times,serif" font-size="14.00">}</text>
 </g>
 <!-- {
  &#160;&#160;&#160;provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacDropzoneMultipleComponent,
@@ -165,8 +165,8 @@
 <title>{
  &#160;&#160;&#160;provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacDropzoneMultipleComponent,
 }&#45;&gt;SacDropzoneMultipleComponent</title>
-<path fill="none" stroke="black" d="M3074,-168.6C3074,-191.58 3074,-215.59 3074,-215.59 3074,-215.59 2311.52,-215.59 2311.52,-215.59"/>
-<polygon fill="black" stroke="black" points="2311.52,-212.09 2301.52,-215.59 2311.52,-219.09 2311.52,-212.09"/>
+<path fill="none" stroke="black" d="M1654,-155.23C1654,-155.23 1654,-187.56 1654,-187.56"/>
+<polygon fill="black" stroke="black" points="1650.5,-187.56 1654,-197.56 1657.5,-187.56 1650.5,-187.56"/>
 </g>
 <!-- {
  &#160;&#160;&#160;provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() =&gt; SacDropzoneMultipleComponent),
@@ -175,10 +175,10 @@
 <title>{
  &#160;&#160;&#160;provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() =&gt; SacDropzoneMultipleComponent),
 }</title>
-<ellipse fill="#fdb462" stroke="black" cx="2199" cy="-127.3" rx="452.99" ry="41.09"/>
-<text text-anchor="middle" x="2199" y="-139.9" font-family="Times,serif" font-size="14.00">{</text>
-<text text-anchor="middle" x="2199" y="-123.1" font-family="Times,serif" font-size="14.00"> &#160;&#160;&#160;provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() =&gt; SacDropzoneMultipleComponent),</text>
-<text text-anchor="middle" x="2199" y="-106.3" font-family="Times,serif" font-size="14.00">}</text>
+<ellipse fill="#fdb462" stroke="black" cx="477" cy="-127.3" rx="452.99" ry="41.09"/>
+<text text-anchor="middle" x="477" y="-139.9" font-family="Times,serif" font-size="14.00">{</text>
+<text text-anchor="middle" x="477" y="-123.1" font-family="Times,serif" font-size="14.00"> &#160;&#160;&#160;provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() =&gt; SacDropzoneMultipleComponent),</text>
+<text text-anchor="middle" x="477" y="-106.3" font-family="Times,serif" font-size="14.00">}</text>
 </g>
 <!-- {
  &#160;&#160;&#160;provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() =&gt; SacDropzoneMultipleComponent),
@@ -187,8 +187,8 @@
 <title>{
  &#160;&#160;&#160;provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() =&gt; SacDropzoneMultipleComponent),
 }&#45;&gt;SacDropzoneMultipleComponent</title>
-<path fill="none" stroke="black" d="M2199,-168.6C2199,-168.6 2199,-187.26 2199,-187.26"/>
-<polygon fill="black" stroke="black" points="2195.5,-187.26 2199,-197.26 2202.5,-187.26 2195.5,-187.26"/>
+<path fill="none" stroke="black" d="M477,-168.7C477,-203.84 477,-248.59 477,-248.59 477,-248.59 1555.64,-248.59 1555.64,-248.59 1555.64,-248.59 1555.64,-243.63 1555.64,-243.63"/>
+<polygon fill="black" stroke="black" points="1559.14,-243.63 1555.64,-233.63 1552.14,-243.63 1559.14,-243.63"/>
 </g>
 <!-- {
  &#160;&#160;&#160;provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacDropzoneSingleComponent,
@@ -197,10 +197,10 @@
 <title>{
  &#160;&#160;&#160;provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacDropzoneSingleComponent,
 }</title>
-<ellipse fill="#fdb462" stroke="black" cx="1326" cy="-127.3" rx="395.88" ry="41.09"/>
-<text text-anchor="middle" x="1326" y="-139.9" font-family="Times,serif" font-size="14.00">{</text>
-<text text-anchor="middle" x="1326" y="-123.1" font-family="Times,serif" font-size="14.00"> &#160;&#160;&#160;provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacDropzoneSingleComponent,</text>
-<text text-anchor="middle" x="1326" y="-106.3" font-family="Times,serif" font-size="14.00">}</text>
+<ellipse fill="#fdb462" stroke="black" cx="3082" cy="-127.3" rx="395.88" ry="41.09"/>
+<text text-anchor="middle" x="3082" y="-139.9" font-family="Times,serif" font-size="14.00">{</text>
+<text text-anchor="middle" x="3082" y="-123.1" font-family="Times,serif" font-size="14.00"> &#160;&#160;&#160;provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacDropzoneSingleComponent,</text>
+<text text-anchor="middle" x="3082" y="-106.3" font-family="Times,serif" font-size="14.00">}</text>
 </g>
 <!-- {
  &#160;&#160;&#160;provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacDropzoneSingleComponent,
@@ -209,8 +209,8 @@
 <title>{
  &#160;&#160;&#160;provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacDropzoneSingleComponent,
 }&#45;&gt;SacDropzoneSingleComponent</title>
-<path fill="none" stroke="black" d="M1657.71,-150.03C1657.71,-150.03 1657.71,-187.38 1657.71,-187.38"/>
-<polygon fill="black" stroke="black" points="1654.21,-187.38 1657.71,-197.38 1661.21,-187.38 1654.21,-187.38"/>
+<path fill="none" stroke="black" d="M3082,-168.6C3082,-191.58 3082,-215.59 3082,-215.59 3082,-215.59 2330.34,-215.59 2330.34,-215.59"/>
+<polygon fill="black" stroke="black" points="2330.34,-212.09 2320.34,-215.59 2330.34,-219.09 2330.34,-212.09"/>
 </g>
 <!-- {
  &#160;&#160;&#160;provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() =&gt; SacDropzoneSingleComponent),
@@ -219,10 +219,10 @@
 <title>{
  &#160;&#160;&#160;provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() =&gt; SacDropzoneSingleComponent),
 }</title>
-<ellipse fill="#fdb462" stroke="black" cx="468" cy="-127.3" rx="444.4" ry="41.09"/>
-<text text-anchor="middle" x="468" y="-139.9" font-family="Times,serif" font-size="14.00">{</text>
-<text text-anchor="middle" x="468" y="-123.1" font-family="Times,serif" font-size="14.00"> &#160;&#160;&#160;provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() =&gt; SacDropzoneSingleComponent),</text>
-<text text-anchor="middle" x="468" y="-106.3" font-family="Times,serif" font-size="14.00">}</text>
+<ellipse fill="#fdb462" stroke="black" cx="2224" cy="-127.3" rx="444.4" ry="41.09"/>
+<text text-anchor="middle" x="2224" y="-139.9" font-family="Times,serif" font-size="14.00">{</text>
+<text text-anchor="middle" x="2224" y="-123.1" font-family="Times,serif" font-size="14.00"> &#160;&#160;&#160;provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() =&gt; SacDropzoneSingleComponent),</text>
+<text text-anchor="middle" x="2224" y="-106.3" font-family="Times,serif" font-size="14.00">}</text>
 </g>
 <!-- {
  &#160;&#160;&#160;provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() =&gt; SacDropzoneSingleComponent),
@@ -231,8 +231,8 @@
 <title>{
  &#160;&#160;&#160;provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() =&gt; SacDropzoneSingleComponent),
 }&#45;&gt;SacDropzoneSingleComponent</title>
-<path fill="none" stroke="black" d="M468,-168.8C468,-177.24 468,-183.59 468,-183.59 468,-183.59 1593.72,-183.59 1593.72,-183.59 1593.72,-183.59 1593.72,-187.35 1593.72,-187.35"/>
-<polygon fill="black" stroke="black" points="1590.22,-187.35 1593.72,-197.35 1597.22,-187.35 1590.22,-187.35"/>
+<path fill="none" stroke="black" d="M2224,-168.6C2224,-168.6 2224,-187.26 2224,-187.26"/>
+<polygon fill="black" stroke="black" points="2220.5,-187.26 2224,-197.26 2227.5,-187.26 2220.5,-187.26"/>
 </g>
 <!-- SACBootstrap3LayoutModule -->
 <g id="node10" class="node">
@@ -243,8 +243,8 @@
 <!-- SACBootstrap3LayoutModule&#45;&gt;SACBootstrap3UploadModule -->
 <g id="edge9" class="edge">
 <title>SACBootstrap3LayoutModule&#45;&gt;SACBootstrap3UploadModule</title>
-<path fill="none" stroke="black" d="M3804,-233.72C3804,-254.16 3804,-284.59 3804,-284.59 3804,-284.59 2016.8,-284.59 2016.8,-284.59"/>
-<polygon fill="black" stroke="black" points="2016.8,-281.09 2006.8,-284.59 2016.8,-288.09 2016.8,-281.09"/>
+<path fill="none" stroke="black" d="M3804,-233.72C3804,-254.16 3804,-284.59 3804,-284.59 3804,-284.59 2043.73,-284.59 2043.73,-284.59"/>
+<polygon fill="black" stroke="black" points="2043.73,-281.09 2033.73,-284.59 2043.73,-288.09 2043.73,-281.09"/>
 </g>
 <!-- SACBootstrap3TooltipModule -->
 <g id="node11" class="node">
@@ -255,8 +255,8 @@
 <!-- SACBootstrap3TooltipModule&#45;&gt;SACBootstrap3UploadModule -->
 <g id="edge10" class="edge">
 <title>SACBootstrap3TooltipModule&#45;&gt;SACBootstrap3UploadModule</title>
-<path fill="none" stroke="black" d="M3597,-233.86C3597,-252.15 3597,-277.59 3597,-277.59 3597,-277.59 2016.81,-277.59 2016.81,-277.59"/>
-<polygon fill="black" stroke="black" points="2016.81,-274.09 2006.81,-277.59 2016.81,-281.09 2016.81,-274.09"/>
+<path fill="none" stroke="black" d="M3597,-233.86C3597,-252.15 3597,-277.59 3597,-277.59 3597,-277.59 2043.79,-277.59 2043.79,-277.59"/>
+<polygon fill="black" stroke="black" points="2043.79,-274.09 2033.79,-277.59 2043.79,-281.09 2043.79,-274.09"/>
 </g>
 </g>
 </svg>

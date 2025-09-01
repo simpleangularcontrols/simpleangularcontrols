@@ -37,7 +37,7 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     /**
      * public public public public public public public public public public public public public ControlHeight enum for use in HTML markup
      */
-    ControlHeight: typeof ControlHeight = ControlHeight;
+    public ControlHeight: typeof ControlHeight = ControlHeight;
 
     /**
      * Unique Index für RadioButton
@@ -205,6 +205,10 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     public ngOnInit(): void {
         // set method to display helptext
         this.setHelpTextMode();
+
+        if (this.value === this.sacRadioButtons.value) {
+            this.checked = true;
+        }
     }
 
     // #endregion Public Methods

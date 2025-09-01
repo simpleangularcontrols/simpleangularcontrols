@@ -167,23 +167,23 @@
         <sac-radiobuttons
             name="radiobuttons3"
             label="Radiobuttons 3"
-            [(ngModel)]="values.radiobuttons2"
+            [(ngModel)]="values.radiobuttons3"
             [disabled]="true"
             helptext="Dies ist ein Helptext"
             helptextmode="tooltip">
             <sac-radiobutton
                 name="rb1"
-                value="1"
+                [value]="1"
                 label="Wert 1">
             </sac-radiobutton>
             <sac-radiobutton
                 name="rb2"
-                value="2"
+                [value]="2"
                 label="Wert 2">
             </sac-radiobutton>
             <sac-radiobutton
                 name="rb3"
-                value="3"
+                [value]="3"
                 label="Wert 3">
             </sac-radiobutton>
         </sac-radiobuttons>
@@ -191,7 +191,7 @@
         <sac-radiobuttons
             name="radiobuttons4"
             label="Radiobuttons 4"
-            [(ngModel)]="values.radiobuttons2"
+            [(ngModel)]="values.radiobuttons4"
             [disabled]="true"
             [disablelabel]="true">
             <sac-radiobutton
@@ -217,7 +217,7 @@
         <sac-radiobuttons
             name="radiobuttons5"
             label="Radiobuttons 5"
-            [(ngModel)]="values.radiobuttons2"
+            [(ngModel)]="values.radiobuttons5"
             helptext="Dies ist ein Helptext"
             [disabled]="true"
             [disablelabel]="true">

@@ -159,6 +159,7 @@
                                 <a href="#configurationService" >configurationService</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#ControlHeight" >ControlHeight</a>
                             </li>
                             <li>
@@ -835,6 +836,7 @@
                 <td class="col-md-4">
                     <a name="ControlHeight"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>ControlHeight</b></span>
                         <a href="#ControlHeight"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -1218,7 +1220,7 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     /**
      * public public public public public public public public public public public public public ControlHeight enum for use in HTML markup
      */
-    ControlHeight: typeof ControlHeight &#x3D; ControlHeight;
+    public ControlHeight: typeof ControlHeight &#x3D; ControlHeight;
 
     /**
      * Unique Index für RadioButton
@@ -1386,6 +1388,10 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     public ngOnInit(): void {
         // set method to display helptext
         this.setHelpTextMode();
+
+        if (this.value &#x3D;&#x3D;&#x3D; this.sacRadioButtons.value) {
+            this.checked &#x3D; true;
+        }
     }
 
     // #endregion Public Methods

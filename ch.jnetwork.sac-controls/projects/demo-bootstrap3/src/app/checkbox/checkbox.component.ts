@@ -6,20 +6,30 @@ import { SacFormDirective } from '@simpleangularcontrols/sac-bootstrap3';
   templateUrl: './checkbox.component.html',
 })
 export class DemoCheckboxComponent {
-  public values: any = {
-    checkbox1: false,
-    checkbox2: false,
-    checkbox3: false,
-    checkbox4: false,
-    checkbox5: false,
-    radiobuttons1: '1',
-    radiobuttons2: '2',
-  };
+    // #region Properties
 
-  @ViewChild('myForm') myForm: SacFormDirective;
+    @ViewChild('myForm') public myForm: SacFormDirective;
+    public values: any = {
+        checkbox1: false,
+        checkbox2: false,
+        checkbox3: false,
+        checkbox4: false,
+        checkbox5: false,
+        radiobuttons1: '1',
+        radiobuttons2: null,
+        radiobuttons3: 2,
+        radiobuttons4: '2',
+        radiobuttons5: '2',
+    };
 
-  public debugAction(): void {
-    this.myForm.markAsTouched();
-    alert('Action');
-  }
+    // #endregion Properties
+
+    // #region Public Methods
+
+    public debugAction(): void {
+        this.myForm.markAsTouched();
+        alert('Action');
+    }
+
+    // #endregion Public Methods
 }

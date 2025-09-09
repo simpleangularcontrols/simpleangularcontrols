@@ -61,6 +61,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -81,6 +95,10 @@
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -574,7 +592,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:99</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:96</a></div>
                             </td>
                         </tr>
 
@@ -683,7 +701,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:135</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:132</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -710,7 +728,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="149" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:149</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="146" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:146</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -742,7 +760,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:84</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:81</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -774,7 +792,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:89</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:86</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -806,7 +824,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:94</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:91</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -838,7 +856,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:99</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:96</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -1866,8 +1884,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="197"
-                            class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:197</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="194"
+                            class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:194</a></div>
                 </td>
             </tr>
 
@@ -1909,8 +1927,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="180"
-                                    class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:180</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="177"
+                                    class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:177</a></div>
                         </td>
                     </tr>
 
@@ -1986,7 +2004,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:166</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:163</a></code>
 </div>
                         </td>
                     </tr>
@@ -2033,7 +2051,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:173</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:170</a></code>
 </div>
                         </td>
                     </tr>
@@ -2112,8 +2130,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="197"
-                                    class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:197</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="194"
+                                    class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:194</a></div>
                         </td>
                     </tr>
 
@@ -2179,8 +2197,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="212"
-                                    class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:212</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="209"
+                                    class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:209</a></div>
                         </td>
                     </tr>
 
@@ -2226,7 +2244,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:228</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:225</a></code>
 </div>
                         </td>
                     </tr>
@@ -2303,7 +2321,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:337</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:342</a></code>
 </div>
                         </td>
                     </tr>
@@ -2348,7 +2366,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:341</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:346</a></code>
 </div>
                         </td>
                     </tr>
@@ -2607,7 +2625,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:348</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:353</a></code>
 </div>
                         </td>
                     </tr>
@@ -2654,7 +2672,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:394</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:399</a></code>
 </div>
                         </td>
                     </tr>
@@ -2791,7 +2809,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:271</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:276</a></code>
 </div>
                         </td>
                     </tr>
@@ -2838,7 +2856,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:283</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:288</a></code>
 </div>
                         </td>
                     </tr>
@@ -2915,7 +2933,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:320</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:325</a></code>
 </div>
                         </td>
                     </tr>
@@ -3776,7 +3794,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:69</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:66</a></div>
                         </td>
                     </tr>
 
@@ -3814,7 +3832,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:74</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:71</a></div>
                         </td>
                     </tr>
 
@@ -3929,7 +3947,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:24</a></div>
                         </td>
                     </tr>
 
@@ -3967,7 +3985,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:79</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:76</a></code>
 </div>
                         </td>
                     </tr>
@@ -5080,7 +5098,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:127</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:124</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -5114,7 +5132,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:135</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:132</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -5175,7 +5193,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="149" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:149</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="146" class="link-to-prism">projects/sac-common/src/controls/datetime/datetime.ts:146</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -5245,9 +5263,6 @@ export abstract class SacDateTimeCommon extends SacBaseDateTimeControl {
      */
     public readonly DATEFORMAT: string &#x3D; &#x27;DD.MM.YYYY HH:mm&#x27;;
 
-    /**
-     * Maske
-     */
     /**
      * Maske
      */

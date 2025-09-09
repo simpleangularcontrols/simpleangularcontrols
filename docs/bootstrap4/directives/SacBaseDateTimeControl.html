@@ -61,6 +61,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -81,6 +95,10 @@
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -1580,8 +1598,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="337"
-                                    class="link-to-prism">projects/sac-common/src/common/basedatetimecontrol.ts:337</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="342"
+                                    class="link-to-prism">projects/sac-common/src/common/basedatetimecontrol.ts:342</a></div>
                         </td>
                     </tr>
 
@@ -1619,8 +1637,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="341"
-                                    class="link-to-prism">projects/sac-common/src/common/basedatetimecontrol.ts:341</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="346"
+                                    class="link-to-prism">projects/sac-common/src/common/basedatetimecontrol.ts:346</a></div>
                         </td>
                     </tr>
 
@@ -1890,8 +1908,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="348"
-                                    class="link-to-prism">projects/sac-common/src/common/basedatetimecontrol.ts:348</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="353"
+                                    class="link-to-prism">projects/sac-common/src/common/basedatetimecontrol.ts:353</a></div>
                         </td>
                     </tr>
 
@@ -1931,8 +1949,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="394"
-                                    class="link-to-prism">projects/sac-common/src/common/basedatetimecontrol.ts:394</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="399"
+                                    class="link-to-prism">projects/sac-common/src/common/basedatetimecontrol.ts:399</a></div>
                         </td>
                     </tr>
 
@@ -2128,7 +2146,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:271</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:276</a></code>
 </div>
                         </td>
                     </tr>
@@ -2169,8 +2187,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="283"
-                                    class="link-to-prism">projects/sac-common/src/common/basedatetimecontrol.ts:283</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="288"
+                                    class="link-to-prism">projects/sac-common/src/common/basedatetimecontrol.ts:288</a></div>
                         </td>
                     </tr>
 
@@ -2246,7 +2264,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:290</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:295</a></code>
 </div>
                         </td>
                     </tr>
@@ -2323,7 +2341,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:320</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:325</a></code>
 </div>
                         </td>
                     </tr>
@@ -4630,6 +4648,11 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl&lt;Date
     }
 
     public ngOnDestroy(): void {
+        // Remove Picker if is visible
+        if (this._showselector &amp;&amp; this.pickercontainer?.nativeElement) {
+            document.body.removeChild(this.pickercontainer.nativeElement);
+        }
+
         // Unregister Event Listener
         window.removeEventListener(&#x27;scroll&#x27;, this.onContentChange, true);
         window.removeEventListener(&#x27;resize&#x27;, this.onContentChange, true);

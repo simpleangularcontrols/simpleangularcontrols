@@ -61,6 +61,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -81,6 +95,10 @@
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -2303,7 +2321,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:337</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:342</a></code>
 </div>
                         </td>
                     </tr>
@@ -2348,7 +2366,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:341</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:346</a></code>
 </div>
                         </td>
                     </tr>
@@ -2607,7 +2625,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:348</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:353</a></code>
 </div>
                         </td>
                     </tr>
@@ -2654,7 +2672,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:394</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:399</a></code>
 </div>
                         </td>
                     </tr>
@@ -2791,7 +2809,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:271</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:276</a></code>
 </div>
                         </td>
                     </tr>
@@ -2838,7 +2856,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:283</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:288</a></code>
 </div>
                         </td>
                     </tr>
@@ -2915,7 +2933,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:320</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:325</a></code>
 </div>
                         </td>
                     </tr>

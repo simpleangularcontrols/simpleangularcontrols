@@ -61,6 +61,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -81,6 +95,10 @@
                <!-- START CONTENT -->
                <div class="content component">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -156,12 +174,8 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                                <code><a href="../components/SacInputAreaComponent.html" target="_self" >{
-    provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacInputAreaComponent,
-}</a></code>
-                                <code><a href="../components/SacInputAreaComponent.html" target="_self" >{
-    provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; SacInputAreaComponent),
-}</a></code>
+                                <code><a href="../components/SacInputAreaComponent.html" target="_self" >SacInputAreaComponent</a></code>
+                            <code>)</code>
                 </td>
             </tr>
 

@@ -61,6 +61,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -81,6 +95,10 @@
                <!-- START CONTENT -->
                <div class="content module">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -117,13 +135,13 @@
 <title>cluster_SACBootstrap3ValidationSummaryModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="109,-70 109,-268 387,-268 387,-70 109,-70"/>
 </g>
-<g id="clust5" class="cluster">
-<title>cluster_SACBootstrap3ValidationSummaryModule_exports</title>
-<polygon fill="none" stroke="black" points="131,-208 131,-260 365,-260 365,-208 131,-208"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap3ValidationSummaryModule_declarations</title>
 <polygon fill="none" stroke="black" points="132,-78 132,-130 364,-130 364,-78 132,-78"/>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_SACBootstrap3ValidationSummaryModule_exports</title>
+<polygon fill="none" stroke="black" points="131,-208 131,-260 365,-260 365,-208 131,-208"/>
 </g>
 <!-- SacValidationSummaryComponent -->
 <g id="node1" class="node">

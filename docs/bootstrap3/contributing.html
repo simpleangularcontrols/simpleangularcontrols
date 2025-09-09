@@ -61,6 +61,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -79,12 +93,16 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content getting-started">
+               <div class="content contributing">
                    <div class="content-data">
+
+
+
 
 <p>﻿These packages are maintained and updated by exanic AG and jNetwork GmbH.</p>
 <p>The packages may be used freely. Any licence conditions regarding dependencies must be observed in each case.</p>
 <p>Errors may be reported at any time or corrected with a pull request. We reserve the right to reject pull requests if they do not fit in with the concept and idea of the library.</p>
+
 
 
 
@@ -131,7 +149,7 @@
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'contributing';
             var COMPODOC_CURRENT_PAGE_URL = 'contributing.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>

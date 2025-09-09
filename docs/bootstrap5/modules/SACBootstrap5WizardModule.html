@@ -61,6 +61,20 @@
                }
                toggleDarkMode(darkModeState);
           </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
@@ -81,6 +95,10 @@
                <!-- START CONTENT -->
                <div class="content module">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -117,10 +135,6 @@
 <title>cluster_SACBootstrap5WizardModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 581,-268 581,-70 8,-70"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_SACBootstrap5WizardModule_exports</title>
-<polygon fill="none" stroke="black" points="102,-208 102,-260 454,-260 454,-208 102,-208"/>
-</g>
 <g id="clust5" class="cluster">
 <title>cluster_SACBootstrap5WizardModule_imports</title>
 <polygon fill="none" stroke="black" points="369,-78 369,-130 573,-130 573,-78 369,-78"/>
@@ -128,6 +142,10 @@
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap5WizardModule_declarations</title>
 <polygon fill="none" stroke="black" points="16,-78 16,-130 361,-130 361,-78 16,-78"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_SACBootstrap5WizardModule_exports</title>
+<polygon fill="none" stroke="black" points="102,-208 102,-260 454,-260 454,-208 102,-208"/>
 </g>
 <!-- SacWizardComponent -->
 <g id="node1" class="node">

@@ -2,42 +2,47 @@ import { Component, ViewChild } from '@angular/core';
 import { SacFormDirective } from '@simpleangularcontrols/sac-bootstrap5';
 
 @Component({
-  selector: 'app-datetime',
-  templateUrl: './datetime.component.html',
+    selector: 'app-datetime',
+    templateUrl: './datetime.component.html',
 })
 export class DemoDatetimeComponent {
-  // #region Properties
+    // #region Properties
 
-  @ViewChild('myForm') public myForm: SacFormDirective;
+    @ViewChild('myForm') public myForm: SacFormDirective;
+    public values: any = {
+        datum1: '',
+        datum2: new Date(Date.now()),
+        datum3: '',
+        datum4: '',
+        datum5: '',
+        time1: new Date(Date.now()),
+        time2: '',
+        time3: '',
+        time4: '',
+        time5: new Date(Date.now()),
+        time6: '',
+        datumzeit1: new Date(Date.now()),
+        datumzeit2: '2024-11-22T17:10:00+01:00',
+        datumzeit3: '',
+        datumzeit4: '',
+        datumzeit5: '',
+        datumzeit6: '2024-11-18T07:54:28.870Z',
+        datumzeit7: '2024-11-18T07:54:28.870Z',
+        datumzeit7visible: true,
+    };
 
-  public values: any = {
-    datum1: '',
-    datum2: new Date(Date.now()),
-    datum3: '',
-    datum4: '',
-    datum5: '',
-    time1: new Date(Date.now()),
-    time2: '',
-    time3: '',
-    time4: '',
-    time5: new Date(Date.now()),
-    time6: '',
-    datumzeit1: new Date(Date.now()),
-    datumzeit2: '2024-11-22T17:10:00+01:00',
-    datumzeit3: '',
-    datumzeit4: '',
-    datumzeit5: '',
-    datumzeit6: '2024-11-18T07:54:28.870Z',
-  };
+    // #endregion Properties
 
-  // #endregion Properties
+    // #region Public Methods
 
-  // #region Public Methods
+    public debugAction(): void {
+        this.myForm.markAsTouched();
+        alert('Action');
+    }
 
-  public debugAction(): void {
-    this.myForm.markAsTouched();
-    alert('Action');
-  }
+    public hideDatumzeit7(): void {
+        this.values.datumzeit7visible = false;
+    }
 
-  // #endregion Public Methods
+    // #endregion Public Methods
 }

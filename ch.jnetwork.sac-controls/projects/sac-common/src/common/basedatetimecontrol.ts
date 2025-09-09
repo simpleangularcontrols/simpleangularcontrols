@@ -260,6 +260,11 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
     }
 
     public ngOnDestroy(): void {
+        // Remove Picker if is visible
+        if (this._showselector && this.pickercontainer?.nativeElement) {
+            document.body.removeChild(this.pickercontainer.nativeElement);
+        }
+
         // Unregister Event Listener
         window.removeEventListener('scroll', this.onContentChange, true);
         window.removeEventListener('resize', this.onContentChange, true);

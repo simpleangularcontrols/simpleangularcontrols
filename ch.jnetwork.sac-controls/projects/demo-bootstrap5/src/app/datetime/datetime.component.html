@@ -171,6 +171,20 @@
             [isrequired]="true">
         </sac-datetime>
 
+        <sac-datetime
+            *ngIf="values.datumzeit7visible"
+            name="datetime7"
+            label="Datum & Zeit 7 (Required)"
+            [(ngModel)]="values.datumzeit7"
+            [isrequired]="true">
+        </sac-datetime>
+
+        <button
+            class="btn btn-secondary"
+            (click)="hideDatumzeit7()"
+            >Hide Datum & Zeit 7 (Required)</button
+        >
+
         <sac-dateselector
             name="selector1"
             dateselection="true"

@@ -21,9 +21,6 @@ export abstract class SacDateTimeCommon extends SacBaseDateTimeControl {
     /**
      * Maske
      */
-    /**
-     * Maske
-     */
     public readonly imaskDate = {
         mask: this.DATEFORMAT,
         blocks: {

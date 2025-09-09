@@ -1,6 +1,13 @@
+import { NgIf } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
-import { SacFormDirective, SACBootstrap3FormModule, SACBootstrap3ButtonModule, SACBootstrap3ValidationSummaryModule, SACBootstrap3DateTimeModule } from '@simpleangularcontrols/sac-bootstrap3';
 import { FormsModule } from '@angular/forms';
+import {
+    SACBootstrap3ButtonModule,
+    SACBootstrap3DateTimeModule,
+    SACBootstrap3FormModule,
+    SACBootstrap3ValidationSummaryModule,
+    SacFormDirective,
+} from '@simpleangularcontrols/sac-bootstrap3';
 
 @Component({
     selector: 'app-datetime',
@@ -12,6 +19,7 @@ import { FormsModule } from '@angular/forms';
         SACBootstrap3ButtonModule,
         SACBootstrap3ValidationSummaryModule,
         SACBootstrap3DateTimeModule,
+        NgIf,
     ],
 })
 export class DemoDatetimeComponent {

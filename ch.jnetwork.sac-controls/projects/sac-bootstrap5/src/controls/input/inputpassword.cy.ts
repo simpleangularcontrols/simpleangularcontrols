@@ -208,8 +208,7 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
             {
-                declarations: [SacFormDirective, SacInputPasswordComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputPasswordComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Value',
@@ -229,8 +228,7 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
             {
-                declarations: [SacFormDirective, SacInputPasswordComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputPasswordComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Value',
@@ -250,8 +248,7 @@ describe('ngInputPasswordComponent', () => {
       </sac-inputpassword>
       </form>`,
             {
-                declarations: [SacFormDirective, SacInputPasswordComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputPasswordComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Value',

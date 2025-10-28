@@ -1,7 +1,16 @@
 import { ISacIconService } from '../interfaces/ISacIconService';
 import { Injectable, InjectionToken } from '@angular/core';
 
-// #region Classes
+// #region Variables
+
+/**
+ * injection token for component icon service
+ */
+export const SACICON_SERVICE = new InjectionToken<ISacIconService>('SacIconService');
+
+// #endregion Variables
+
+// #region Exported Classes
 
 /**
  * abstract class for icon providing in components
@@ -89,6 +98,16 @@ export abstract class SacAbstractIconService implements ISacIconService {
      * @inheritdoc
      */
     public abstract get GridComponentSortUp(): string;
+
+    /**
+     * @inheritdoc
+     */
+    public abstract get InputPasswordEyeHiddenIcon(): string;
+
+    /**
+     * @inheritdoc
+     */
+    public abstract get InputPasswordEyeVisibleIcon(): string;
 
     /**
      * @inheritdoc
@@ -270,6 +289,20 @@ export class SacDefaultIconService extends SacAbstractIconService {
     /**
      * @inheritdoc
      */
+    public get InputPasswordEyeHiddenIcon(): string {
+        return 'fa fa-eye-slash';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public get InputPasswordEyeVisibleIcon(): string {
+        return 'fa fa-eye';
+    }
+
+    /**
+     * @inheritdoc
+     */
     public get InputSearchButtonIcon(): string {
         return 'fas fa-search';
     }
@@ -347,13 +380,4 @@ export class SacDefaultIconService extends SacAbstractIconService {
     // #endregion Public Getters And Setters
 }
 
-// #endregion Classes
-
-// #region Variables
-
-/**
- * injection token for component icon service
- */
-export const SACICON_SERVICE = new InjectionToken<ISacIconService>('SacIconService');
-
-// #endregion Variables
+// #endregion Exported Classes

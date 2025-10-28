@@ -58,7 +58,7 @@ namespace Build.tasks
             {
                 Access = NpmPublishAccess.Public,
                 WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath()).Combine(distFolder.ToDirectoryPath()),
-                ArgumentCustomization = args => args.Append("--provenance")
+                ArgumentCustomization = args => args.Append("--provenance").Append("--verbose")
             };
 
             context.NpmPublish(settings);

@@ -32,13 +32,13 @@
 <title>cluster_SACBootstrap5StaticLabelModule_declarations</title>
 <polygon fill="none" stroke="black" points="436,-143 436,-195 618,-195 618,-143 436,-143"/>
 </g>
-<g id="clust5" class="cluster">
-<title>cluster_SACBootstrap5StaticLabelModule_imports</title>
-<polygon fill="none" stroke="black" points="16,-143 16,-195 428,-195 428,-143 16,-143"/>
-</g>
 <g id="clust6" class="cluster">
 <title>cluster_SACBootstrap5StaticLabelModule_exports</title>
 <polygon fill="none" stroke="black" points="227,-273 227,-325 652,-325 652,-273 227,-273"/>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_SACBootstrap5StaticLabelModule_imports</title>
+<polygon fill="none" stroke="black" points="16,-143 16,-195 428,-195 428,-143 16,-143"/>
 </g>
 <!-- SacStaticFormContainerComponent -->
 <g id="node1" class="node">

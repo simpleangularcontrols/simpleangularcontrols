@@ -209,4 +209,74 @@ describe('ngInputPasswordComponent', () => {
 
         cy.shouldBeValid();
     });
+
+    it('should not show password eye', () => {
+        cy.mount(
+            `<form>
+      <sac-inputpassword name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputpassword>
+      </form>`,
+            {
+                declarations: [SacFormDirective, SacInputPasswordComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Value',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.get('input').parent().get('a').should('not.exist');
+        cy.get('input').parent().get('.btn').should('not.exist');
+    });
+
+    it('should show password eye', () => {
+        cy.mount(
+            `<form>
+      <sac-inputpassword name="field" [label]="label" [passwordeye]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputpassword>
+      </form>`,
+            {
+                declarations: [SacFormDirective, SacInputPasswordComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Value',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.get('input').parent().get('a').should('exist');
+        cy.get('input').parent().get('.btn').should('exist');
+    });
+
+    it('password eye enabled should show password', () => {
+        cy.mount(
+            `<form>
+      <sac-inputpassword name="field" [label]="label" [passwordeye]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputpassword>
+      </form>`,
+            {
+                declarations: [SacFormDirective, SacInputPasswordComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Value',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.get('input').should('have.attr', 'type', 'password');
+        cy.get('input').parent().get('a').should('exist');
+        cy.get('input').parent().get('.btn').should('exist');
+
+        cy.get('input').parent().get('a').click();
+        cy.get('input').should('have.attr', 'type', 'text');
+
+        cy.get('input').parent().get('a').click();
+        cy.get('input').should('have.attr', 'type', 'password');
+    });
 });

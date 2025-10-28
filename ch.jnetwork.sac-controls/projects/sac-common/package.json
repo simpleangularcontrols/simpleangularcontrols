@@ -1,23 +1,23 @@
 {
-  "name": "@simpleangularcontrols/sac-common",
-  "version": "10.0.0-rc.26",
-  "peerDependencies": {
-    "@angular/common": "^10.1.5",
-    "@angular/core": "^10.1.5",
-    "moment": "~2.29.1",
-    "angular-imask": "6.0.5",
-    "ngx-uploadx": "3.5.2"
-  },
-  "author": {
-    "name": "jNetwork GmbH",
-    "email": "info@jnetwork.ch",
-    "url": "https://www.jnetwork.ch"
-  },
-  "scripts": {
-    "postinstall": "ngcc"
-  },
-  "description": "Core Library für Angular Controls",
-  "dependencies": {
-    "tslib": "^2.0.0"
-  }
+    "name": "@simpleangularcontrols/sac-common",
+    "version": "10.0.0-rc.25",
+    "peerDependencies": {
+        "@angular/common": "^10.1.5",
+        "@angular/core": "^10.1.5",
+        "moment": "~2.29.1",
+        "angular-imask": "6.0.5",
+        "ngx-uploadx": "3.5.2"
+    },
+    "author": {
+        "name": "jNetwork GmbH",
+        "email": "info@jnetwork.ch",
+        "url": "https://www.jnetwork.ch"
+    },
+    "scripts": {
+        "postinstall": "ngcc"
+    },
+    "description": "Core Library für Angular Controls",
+    "dependencies": {
+        "tslib": "^2.0.0"
+    }
 }

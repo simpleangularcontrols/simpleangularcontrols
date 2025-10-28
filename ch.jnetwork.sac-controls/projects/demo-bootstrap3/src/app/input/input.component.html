@@ -285,6 +285,16 @@
             helptextmode="tooltip">
         </sac-inputpassword>
         <sac-inputpassword
+            name="fieldpassword3c"
+            label="Passwort 3 (Max 10)"
+            [(ngModel)]="values.fieldpassword3"
+            [maxtextlength]="10"
+            disablelabel="true"
+            [passwordeye]="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputpassword>
+        <sac-inputpassword
             name="fieldpassword4"
             label="Passwort 4"
             [(ngModel)]="values.fieldpassword4"
@@ -296,6 +306,14 @@
             label="Passwort 5"
             [mintextlength]="6"
             [(ngModel)]="values.fieldpassword5"
+            helptext="Dies ist ein Helptext">
+        </sac-inputpassword>
+        <sac-inputpassword
+            name="fieldpassword6"
+            [passwordeye]="true"
+            label="Passwort 6"
+            [mintextlength]="6"
+            [(ngModel)]="values.fieldpassword6"
             helptext="Dies ist ein Helptext">
         </sac-inputpassword>
 

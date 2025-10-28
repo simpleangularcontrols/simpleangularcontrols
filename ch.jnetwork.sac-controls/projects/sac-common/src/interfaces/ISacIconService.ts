@@ -85,6 +85,16 @@ export interface ISacIconService {
     GridComponentSortUp: string;
 
     /**
+     * Icon used by InputPassword to hide the password in the input field
+     */
+    InputPasswordEyeHiddenIcon: string;
+
+    /**
+     * Icon used by InputPassword to display the password in plain text during input
+     */
+    InputPasswordEyeVisibleIcon: string;
+
+    /**
      * Icon which is used by the InputSearch component on the button.
      */
     InputSearchButtonIcon: string;

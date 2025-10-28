@@ -56,6 +56,7 @@ export class DemoInputComponent {
         fieldpassword3: '',
         fieldpassword4: '',
         fieldpassword5: '',
+        fieldpassword6: '',
     };
 
     // #endregion Properties

@@ -2,20 +2,6 @@
  * interface for service which provides icons to components
  */
 export interface ISacIconService {
-    // #region Properties
-
-    /**
-     * Icon for HelpText Tooltip in any controls
-     */
-    GenericHelptextIcon: string;
-
-    /**
-     * Icon which is used by the InputSearch component on the button.
-     */
-    InputSearchButtonIcon: string;
-
-    // #endregion Properties
-
     // #region Getters And Setters
 
     /**
@@ -84,6 +70,11 @@ export interface ISacIconService {
     get DateTimeSelectorComponentMonthPrevIcon(): string;
 
     /**
+     * Icon for HelpText Tooltip in any controls
+     */
+    get GenericHelptextIcon(): string;
+
+    /**
      * sort down icon for grid
      */
     get GridComponentSortDown(): string;
@@ -92,6 +83,21 @@ export interface ISacIconService {
      * sort up icon for grid
      */
     get GridComponentSortUp(): string;
+
+    /**
+     * Icon used by InputPassword to hide the password in the input field
+     */
+    get InputPasswordEyeHiddenIcon(): string;
+
+    /**
+     * Icon used by InputPassword to display the password in plain text during input
+     */
+    get InputPasswordEyeVisibleIcon(): string;
+
+    /**
+     * Icon which is used by the InputSearch component on the button.
+     */
+    get InputSearchButtonIcon(): string;
 
     /**
      * icon for select button in time component

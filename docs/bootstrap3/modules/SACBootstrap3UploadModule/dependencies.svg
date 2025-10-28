@@ -28,17 +28,17 @@
 <title>cluster_SACBootstrap3UploadModule_declarations</title>
 <polygon fill="none" stroke="black" points="436,-143 436,-195 1273,-195 1273,-143 436,-143"/>
 </g>
-<g id="clust3" class="cluster">
-<title>cluster_SACBootstrap3UploadModule_SacDropzoneMultipleComponent_providers</title>
+<g id="clust8" class="cluster">
+<title>cluster_SACBootstrap3UploadModule_exports</title>
+<polygon fill="none" stroke="black" points="244,-273 244,-325 1058,-325 1058,-273 244,-273"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_SACBootstrap3UploadModule_SacDropzoneSingleComponent_providers</title>
 <polygon fill="none" stroke="black" points="992,-78 992,-130 1062,-130 1062,-78 992,-78"/>
 </g>
 <g id="clust7" class="cluster">
 <title>cluster_SACBootstrap3UploadModule_imports</title>
 <polygon fill="none" stroke="black" points="16,-143 16,-195 428,-195 428,-143 16,-143"/>
-</g>
-<g id="clust8" class="cluster">
-<title>cluster_SACBootstrap3UploadModule_exports</title>
-<polygon fill="none" stroke="black" points="244,-273 244,-325 1058,-325 1058,-273 244,-273"/>
 </g>
 <!-- SacDropzoneMultipleComponent -->
 <g id="node1" class="node">

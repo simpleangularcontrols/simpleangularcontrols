@@ -24,13 +24,13 @@
 <title>cluster_SACBootstrap4DropdownModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 827,-268 827,-70 8,-70"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_SACBootstrap4DropdownModule_exports</title>
-<polygon fill="none" stroke="black" points="111,-208 111,-260 500,-260 500,-208 111,-208"/>
-</g>
 <g id="clust5" class="cluster">
 <title>cluster_SACBootstrap4DropdownModule_imports</title>
 <polygon fill="none" stroke="black" points="407,-78 407,-130 819,-130 819,-78 407,-78"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_SACBootstrap4DropdownModule_exports</title>
+<polygon fill="none" stroke="black" points="111,-208 111,-260 500,-260 500,-208 111,-208"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap4DropdownModule_declarations</title>

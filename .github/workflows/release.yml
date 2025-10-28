@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Select Version"
+        description: 'Select Version'
         required: true
         type: choice
         options:
@@ -88,10 +88,11 @@ jobs:
           dotnet-version: 3.1.x
 
       # Node/npm for publish
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          registry-url: "https://registry.npmjs.org"
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Test
         run: dotnet run --project build/Build.csproj --target=release --nopublish --${{ github.event.inputs.version }}

@@ -16,6 +16,10 @@ on:
           - major
           - prerelease
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   check-branch:
     runs-on: ubuntu-latest
@@ -83,22 +87,21 @@ jobs:
         with:
           dotnet-version: 3.1.x
 
-      - name: Configure .npmrc with token
-        run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # Node/npm for publish
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
 
       - name: Test
         run: dotnet run --project build/Build.csproj --target=release --nopublish --${{ github.event.inputs.version }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Documentation
         run: dotnet run --project build/Build.csproj --target=doc
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Release
         run: dotnet run --project build/Build.csproj --target=release

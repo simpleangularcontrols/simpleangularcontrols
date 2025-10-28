@@ -1,5 +1,6 @@
 ﻿using Build.context;
 using Build.extensions;
+using Cake.Core;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 using Cake.Frosting;
@@ -57,6 +58,7 @@ namespace Build.tasks
             {
                 Access = NpmPublishAccess.Public,
                 WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath()).Combine(distFolder.ToDirectoryPath()),
+                ArgumentCustomization = args => args.AppendSwitch("--", "provenance")
             };
 
             context.NpmPublish(settings);

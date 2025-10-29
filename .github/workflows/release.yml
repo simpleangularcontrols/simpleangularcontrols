@@ -16,10 +16,6 @@ on:
           - major
           - prerelease
 
-permissions:
-  contents: read
-  id-token: write
-
 jobs:
   check-branch:
     runs-on: ubuntu-latest
@@ -87,12 +83,10 @@ jobs:
         with:
           dotnet-version: 3.1.x
 
-      # Node/npm for publish
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          registry-url: "https://registry.npmjs.org"
+      - name: Configure .npmrc with token
+        run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Test
         run: dotnet run --project build/Build.csproj --target=release --nopublish --${{ github.event.inputs.version }}
@@ -103,9 +97,6 @@ jobs:
         run: dotnet run --project build/Build.csproj --target=doc
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Debug NPM
-        run: npm view @simpleangularcontrols/sac-common versions
 
       - name: Release
         run: dotnet run --project build/Build.csproj --target=release

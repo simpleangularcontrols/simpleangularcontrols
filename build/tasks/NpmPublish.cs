@@ -1,6 +1,5 @@
 ﻿using Build.context;
 using Build.extensions;
-using Cake.Core;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 using Cake.Frosting;
@@ -57,8 +56,7 @@ namespace Build.tasks
             NpmPublishSettings settings = new NpmPublishSettings()
             {
                 Access = NpmPublishAccess.Public,
-                WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath()).Combine(distFolder.ToDirectoryPath()),
-                ArgumentCustomization = args => args.Append("--provenance").Append("--verbose")
+                WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath()).Combine(distFolder.ToDirectoryPath())
             };
 
             context.NpmPublish(settings);
@@ -82,7 +80,6 @@ namespace Build.tasks
 
             JObject boostrap5Json = context.ParseJsonFromFile(boostrap5Package);
             string bootstrap5Version = boostrap5Json["version"].Value<string>();
-
 
             // Remove NYC Part
             if (boostrap3Json.ContainsKey("nyc"))

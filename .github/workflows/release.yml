@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Select Version'
+        description: "Select Version"
         required: true
         type: choice
         options:
@@ -91,8 +91,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
 
       - name: Test
         run: dotnet run --project build/Build.csproj --target=release --nopublish --${{ github.event.inputs.version }}
@@ -104,8 +104,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Debug NPM
+        run: npm view @simpleangularcontrols/sac-common versions
+
       - name: Release
         run: dotnet run --project build/Build.csproj --target=release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -896,7 +896,7 @@ getrennt durch Komma für mehr als eine Erweiterung (Example: &quot;.jpg,.gif&qu
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>document:click(targetElement)</code>
+<code>document:click(targetElement: unknown)</code>
                 </td>
             </tr>
 
@@ -1599,7 +1599,7 @@ getrennt durch Komma für mehr als eine Erweiterung (Example: &quot;.jpg,.gif&qu
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>exitEditMode(targetElement)</code>
+                    <code>exitEditMode(targetElement: unknown)</code>
                 </td>
             </tr>
 
@@ -1637,12 +1637,16 @@ getrennt durch Komma für mehr als eine Erweiterung (Example: &quot;.jpg,.gif&qu
                                     <thead>
                                         <tr>
                                             <td>Name</td>
+                                                <td>Type</td>
                                             <td>Optional</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                                 <td>targetElement</td>
+                                            <td>
+                                                        <code>unknown</code>
+                                            </td>
 
                                             <td>
                                                     No

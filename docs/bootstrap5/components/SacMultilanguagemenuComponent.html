@@ -717,7 +717,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>document:click(targetElement)</code>
+<code>document:click(targetElement: unknown)</code>
                 </td>
             </tr>
 
@@ -953,7 +953,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onClick(targetElement)</code>
+                    <code>onClick(targetElement: unknown)</code>
                 </td>
             </tr>
 
@@ -991,12 +991,16 @@
                                     <thead>
                                         <tr>
                                             <td>Name</td>
+                                                <td>Type</td>
                                             <td>Optional</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                                 <td>targetElement</td>
+                                            <td>
+                                                        <code>unknown</code>
+                                            </td>
 
                                             <td>
                                                     No

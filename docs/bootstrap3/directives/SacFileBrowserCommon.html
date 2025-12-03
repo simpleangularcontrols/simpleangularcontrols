@@ -1296,7 +1296,7 @@ Ordner gelöscht werden soll.</p>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>exitEditMode(targetElement)</code>
+                    <code>exitEditMode(targetElement: unknown)</code>
                 </td>
             </tr>
 
@@ -1328,12 +1328,16 @@ Ordner gelöscht werden soll.</p>
                                     <thead>
                                         <tr>
                                             <td>Name</td>
+                                                <td>Type</td>
                                             <td>Optional</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                                 <td>targetElement</td>
+                                            <td>
+                                                        <code>unknown</code>
+                                            </td>
 
                                             <td>
                                                     No
@@ -2458,8 +2462,6 @@ Struktur verschoben wurde.</p>
                                                     </tr>
                                             </tbody>
                                         </table>
-                                </div>
-                                <div>
                                 </div>
                                 <div class="io-description">
                                     <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>

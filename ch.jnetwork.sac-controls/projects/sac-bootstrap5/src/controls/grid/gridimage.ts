@@ -1,5 +1,6 @@
-import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
-import { SacGridCommon, SacGridImageCommon } from '@simpleangularcontrols/sac-common';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { SacGridImageCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Image Item für Grid
@@ -7,24 +8,7 @@ import { SacGridCommon, SacGridImageCommon } from '@simpleangularcontrols/sac-co
 @Component({
     selector: 'sac-gridimage',
     templateUrl: './gridimage.html',
-    standalone: true
+    imports: [CommonModule],
+    standalone: true,
 })
-export class SacGridImageComponent extends SacGridImageCommon {
-
-  /**
-   * Gibt die CSS Klassen für Sprite Images zurück
-   * @returns CSS Klasse
-   */
-  public getIconClass(): string {
-    switch (this.iconstyle) {
-      case 'edit':
-        return 'sprite icon-sprite-base-main_edit';
-      case 'delete':
-        return 'sprite icon-sprite-base-main_delete';
-      default:
-        return this.iconstyle;
-    }
-  }
-
-
-}
+export class SacGridImageComponent extends SacGridImageCommon {}

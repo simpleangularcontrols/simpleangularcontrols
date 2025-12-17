@@ -12,7 +12,7 @@
         <sac-gridcolumnaction
             name="editCol"
             [type]="type"
-            width="98px">
+            width="116px">
             <sac-gridbutton
                 name="editrow"
                 icon="edit"
@@ -31,7 +31,7 @@
                 icon="fa-info-circle"
                 isdisabled="true"
                 (clicked)="action('info')"></sac-gridbutton>
-            <sac-gridimage iconstyle="sprite icon-sprite-base-main_info"></sac-gridimage>
+            <sac-gridimage iconstyle="fa fa-exclamation-triangle"></sac-gridimage>
         </sac-gridcolumnaction>
         <sac-gridcolumn
             name="someName44"
@@ -56,7 +56,7 @@
 
 <h2>Ellipsis</h2>
 <sac-grid
-    name="gridDefault"
+    name="gridEllipsis"
     [value]="dataDefault"
     placeholder="grid"
     label="imgrid"
@@ -68,7 +68,7 @@
         <sac-gridcolumnaction
             name="editCol"
             [type]="type"
-            width="98px">
+            width="116px">
             <sac-gridbutton
                 icon="edit"
                 (clicked)="action($event)"
@@ -85,7 +85,7 @@
                 icon="fa-info-circle"
                 isdisabled="true"
                 (clicked)="action('info')"></sac-gridbutton>
-            <sac-gridimage iconstyle="sprite icon-sprite-base-main_info"></sac-gridimage>
+            <sac-gridimage iconstyle="fa fa-exclamation-triangle"></sac-gridimage>
         </sac-gridcolumnaction>
         <sac-gridcolumn
             name="someName44"
@@ -111,7 +111,7 @@
 
 <h2>Multiline Rows</h2>
 <sac-grid
-    name="gridDefault"
+    name="gridMultilineRows"
     [value]="dataDefault"
     placeholder="grid"
     label="imgrid"
@@ -123,7 +123,7 @@
         <sac-gridcolumnaction
             name="editCol"
             [type]="type"
-            width="98px">
+            width="116px">
             <sac-gridbutton
                 icon="edit"
                 (clicked)="action($event)"
@@ -140,7 +140,7 @@
                 icon="fa-info-circle"
                 isdisabled="true"
                 (clicked)="action('info')"></sac-gridbutton>
-            <sac-gridimage iconstyle="sprite icon-sprite-base-main_info"></sac-gridimage>
+            <sac-gridimage iconstyle="fa fa-exclamation-triangle"></sac-gridimage>
         </sac-gridcolumnaction>
         <sac-gridcolumn
             name="someName44"
@@ -178,7 +178,7 @@
         <sac-gridcolumnaction
             name="editCol"
             [type]="type"
-            width="98px">
+            width="116px">
             <sac-gridbutton
                 icon="edit"
                 (clicked)="action($event)"
@@ -195,7 +195,7 @@
                 icon="fa-info-circle"
                 isdisabled="true"
                 (clicked)="action('info')"></sac-gridbutton>
-            <sac-gridimage iconstyle="sprite icon-sprite-base-main_info"></sac-gridimage>
+            <sac-gridimage iconstyle="fa fa-exclamation-triangle"></sac-gridimage>
         </sac-gridcolumnaction>
         <sac-gridcolumn
             name="someName44"
@@ -232,7 +232,7 @@
         <sac-gridcolumnaction
             name="editCol"
             [type]="type"
-            width="98px">
+            width="116px">
             <sac-gridbutton
                 icon="edit"
                 (clicked)="action($event)"
@@ -249,7 +249,7 @@
                 icon="fa-info-circle"
                 isdisabled="true"
                 (clicked)="action('info')"></sac-gridbutton>
-            <sac-gridimage iconstyle="sprite icon-sprite-base-main_info"></sac-gridimage>
+            <sac-gridimage iconstyle="fa fa-exclamation-triangle"></sac-gridimage>
         </sac-gridcolumnaction>
         <sac-gridcolumn
             name="someName44"
@@ -285,7 +285,7 @@
         <sac-gridcolumnaction
             name="editCol"
             [type]="type"
-            width="98px">
+            width="116px">
             <sac-gridbutton
                 icon="edit"
                 (clicked)="action($event)"
@@ -302,7 +302,7 @@
                 icon="fa-info-circle"
                 isdisabled="true"
                 (clicked)="action('info')"></sac-gridbutton>
-            <sac-gridimage iconstyle="sprite icon-sprite-base-main_info"></sac-gridimage>
+            <sac-gridimage iconstyle="fa fa-exclamation-triangle"></sac-gridimage>
         </sac-gridcolumnaction>
         <sac-gridcolumn
             name="someName44"
@@ -345,7 +345,7 @@
         <sac-gridcolumnaction
             name="editCol"
             [type]="type"
-            width="98px">
+            width="116px">
             <sac-gridbutton
                 icon="edit"
                 (clicked)="action($event)"
@@ -362,7 +362,7 @@
                 icon="fa-info-circle"
                 isdisabled="true"
                 (clicked)="action('info')"></sac-gridbutton>
-            <sac-gridimage iconstyle="sprite icon-sprite-base-main_info"></sac-gridimage>
+            <sac-gridimage iconstyle="fa fa-exclamation-triangle"></sac-gridimage>
         </sac-gridcolumnaction>
         <sac-gridcolumn
             name="someName44"
@@ -388,6 +388,126 @@
             name="someName15"
             [type]="type"
             header="Unsortable"
+            [value]="row.Bezeichnung"
+            width="25%"></sac-gridcolumn>
+    </ng-template>
+</sac-grid>
+
+<h2>Right aligned</h2>
+<sac-grid
+    name="gridRightAligned"
+    [value]="dataDefault"
+    placeholder="grid"
+    label="imgrid"
+    (paging)="pagingDefault($event)"
+    [pagerdata]="pagerDefault">
+    <ng-template
+        let-row="row"
+        let-type="type">
+        <sac-gridcolumnaction
+            name="editCol"
+            alignment="right"
+            [type]="type"
+            width="200px">
+            <sac-gridbutton
+                name="editrow"
+                icon="edit"
+                (clicked)="action($event)"
+                [isdisabled]="true"></sac-gridbutton>
+            <sac-gridbutton
+                name="deleterow"
+                icon="delete"
+                (clicked)="action($event)"></sac-gridbutton>
+            <sac-gridbutton
+                iconstyle="fa"
+                icon="fa-info-circle"
+                (clicked)="action('info')"></sac-gridbutton>
+            <sac-gridbutton
+                iconstyle="fa"
+                icon="fa-info-circle"
+                isdisabled="true"
+                (clicked)="action('info')"></sac-gridbutton>
+            <sac-gridimage iconstyle="fa fa-exclamation-triangle"></sac-gridimage>
+        </sac-gridcolumnaction>
+        <sac-gridcolumn
+            name="someName44"
+            alignment="right"
+            [type]="type"
+            header="ID"
+            [value]="row.Id"
+            (rowclicked)="action(row.Id)"></sac-gridcolumn>
+        <sac-gridcolumn
+            name="someName14"
+            alignment="right"
+            [type]="type"
+            header="Bild"
+            [value]="row.Image"
+            width="25%"></sac-gridcolumn>
+        <sac-gridcolumn
+            name="someName35"
+            alignment="right"
+            [type]="type"
+            header="Bezeichnung"
+            [value]="row.Bezeichnung"
+            width="25%"></sac-gridcolumn>
+    </ng-template>
+</sac-grid>
+
+<h2>Center aligned</h2>
+<sac-grid
+    name="gridCenterAligned"
+    [value]="dataDefault"
+    placeholder="grid"
+    label="imgrid"
+    (paging)="pagingDefault($event)"
+    [pagerdata]="pagerDefault">
+    <ng-template
+        let-row="row"
+        let-type="type">
+        <sac-gridcolumnaction
+            name="editCol"
+            alignment="center"
+            [type]="type"
+            width="200px">
+            <sac-gridbutton
+                name="editrow"
+                icon="edit"
+                (clicked)="action($event)"
+                [isdisabled]="true"></sac-gridbutton>
+            <sac-gridbutton
+                name="deleterow"
+                icon="delete"
+                (clicked)="action($event)"></sac-gridbutton>
+            <sac-gridbutton
+                iconstyle="fa"
+                icon="fa-info-circle"
+                (clicked)="action('info')"></sac-gridbutton>
+            <sac-gridbutton
+                iconstyle="fa"
+                icon="fa-info-circle"
+                isdisabled="true"
+                (clicked)="action('info')"></sac-gridbutton>
+            <sac-gridimage iconstyle="fa fa-exclamation-triangle"></sac-gridimage>
+        </sac-gridcolumnaction>
+        <sac-gridcolumn
+            name="someName44"
+            alignment="center"
+            [type]="type"
+            header="ID"
+            [value]="row.Id"
+            (rowclicked)="action(row.Id)"></sac-gridcolumn>
+        <sac-gridcolumn
+            name="someName14"
+            alignment="center"
+            [type]="type"
+            header="Bild"
+            [value]="row.Image"
+            width="25%"></sac-gridcolumn>
+        <sac-gridcolumn
+            name="someName35"
+            alignment="center"
+            [type]="type"
+            header="Bezeichnung"
             [value]="row.Bezeichnung"
             width="25%"></sac-gridcolumn>
     </ng-template>

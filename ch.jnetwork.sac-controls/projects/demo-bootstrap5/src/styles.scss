@@ -1,25 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 .calendar-selector {
     .day-selected {
-      font-weight: bold;
+        font-weight: bold;
     }
-  
+
     .day-new {
-      background-color: blue;
-      color: white;
+        background-color: blue;
+        color: white;
     }
-  
+
     .day-current {
-      border: 1px solid red;
+        border: 1px solid red;
     }
-  }
-  
-  .tox {
+}
+
+.tox {
     &.tox-tinymce-aux {
-      z-index: 900;
-      .tox-dialog-wrap {
-        z-index: 800;
-      }
+        z-index: 900;
+        .tox-dialog-wrap {
+            z-index: 800;
+        }
     }
-  }
-  
+}
+
+// Custom Disabled Style for FA Icons
+.fa.disabled {
+    color: lightgrey;
+}

@@ -1,4 +1,6 @@
-import { Directive, EventEmitter, Input, Output } from '@angular/core';
+import { ISacIconService } from '../../interfaces/ISacIconService';
+import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
+import { Directive, EventEmitter, Injector, Input, Output } from '@angular/core';
 
 /**
  * Base Grid Action Button
@@ -6,6 +8,11 @@ import { Directive, EventEmitter, Input, Output } from '@angular/core';
 @Directive()
 export class SacGridButtonCommon {
     // #region Properties
+
+    /**
+     * Service for reading standard icon
+     */
+    private iconService: ISacIconService;
 
     /**
      * Button is deactivated
@@ -38,6 +45,19 @@ export class SacGridButtonCommon {
 
     // #endregion Properties
 
+    // #region Constructors
+
+    /**
+     * Constructor
+     *
+     * @param injector Injector to resovle services
+     */
+    constructor(protected readonly injector: Injector) {
+        this.iconService = injector.get(SACICON_SERVICE, new SacDefaultIconService());
+    }
+
+    // #endregion Constructors
+
     // #region Public Getters And Setters
 
     public get isdisabled(): boolean | string {
@@ -69,6 +89,39 @@ export class SacGridButtonCommon {
         if (!this._isdisabledvalue) {
             this.clicked.emit(this.iconstyle);
         }
+    }
+
+    /**
+     * Defines the CSS class for the icon on the button
+     */
+    public getIconClass(): string {
+        let cssclass;
+
+        // Handle Default Icons
+        if (this.iconstyle === '') {
+            switch (this.icon) {
+                case 'edit':
+                    cssclass = `${this.iconService.GridButtonDefaultEditIconSet} ${this.iconService.GridButtonDefaultEditIcon}`;
+                    break;
+                case 'delete':
+                    cssclass = `${this.iconService.GridButtonDefaultDeleteIconSet} ${this.iconService.GridButtonDefaultDeleteIcon}`;
+                    break;
+                default:
+                    cssclass = this.icon;
+                    break;
+            }
+        } else {
+            cssclass = `${this.iconstyle} ${this.icon}`;
+        }
+
+        // trim style
+        cssclass = cssclass.trim();
+
+        if (this._isdisabledvalue) {
+            cssclass += this.iconService.GridButtonDisabledIconSuffix;
+        }
+
+        return cssclass;
     }
 
     // #endregion Public Methods

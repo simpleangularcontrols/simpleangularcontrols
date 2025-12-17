@@ -75,6 +75,31 @@ export interface ISacIconService {
     get GenericHelptextIcon(): string;
 
     /**
+     * Default Icon Class for Delete Button in Grid
+     */
+    get GridButtonDefaultDeleteIcon(): string;
+
+    /**
+     * Default IconSet for Delete Button in Grid
+     */
+    get GridButtonDefaultDeleteIconSet(): string;
+
+    /**
+     * Default Icon Class for Edit Button in Grid
+     */
+    get GridButtonDefaultEditIcon(): string;
+
+    /**
+     * Default IconSet for Edit Button in Grid
+     */
+    get GridButtonDefaultEditIconSet(): string;
+
+    /**
+     * Suffix that is added to all icon classes when the button is disabled.
+     */
+    get GridButtonDisabledIconSuffix(): string;
+
+    /**
      * sort down icon for grid
      */
     get GridComponentSortDown(): string;

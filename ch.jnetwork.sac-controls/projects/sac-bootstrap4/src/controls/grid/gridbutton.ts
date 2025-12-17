@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Injector } from '@angular/core';
 import { SacGridButtonCommon } from '@simpleangularcontrols/sac-common';
 
 /**
@@ -10,36 +10,16 @@ import { SacGridButtonCommon } from '@simpleangularcontrols/sac-common';
     standalone: true
 })
 export class SacGridButtonComponent extends SacGridButtonCommon {
-  // #region Public Methods
+    // #region Constructors
 
-  /**
-   * Returns the icon for the button
-   */
-  public getIconClass(): string {
-    let iconset: string = this.iconstyle;
-    let iconcss: string = this.icon;
-
-    if (iconset === '') {
-      switch (this.icon) {
-        case 'edit':
-          iconset = 'sprite';
-          iconcss = 'icon-sprite-base-main_edit';
-          break;
-        case 'delete':
-          iconset = 'sprite';
-          iconcss = 'icon-sprite-base-main_delete';
-          break;
-      }
+    /**
+     * Construtor
+     *
+     * @param injector Injector to resolve  icons
+     */
+    constructor(injector: Injector) {
+        super(injector);
     }
 
-    if (this._isdisabledvalue) {
-      iconcss += '_disabled';
-    }
-
-    const result = iconset + ' ' + iconcss;
-
-    return result.trim();
-  }
-
-  // #endregion Public Methods
+    // #endregion Constructors
 }

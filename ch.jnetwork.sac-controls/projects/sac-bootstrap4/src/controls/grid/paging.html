@@ -47,6 +47,7 @@
             <select
                 class="form-control form-control-sm"
                 style="width: 85px"
+                id="{{ name }}_pagesize"
                 [ngModel]="pageSize"
                 (ngModelChange)="changePageSize($event)">
                 <option

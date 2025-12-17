@@ -1,41 +1,36 @@
-<table class="table table-striped table-condensed table-hover" id="{{name}}">
-  <thead>
-    <tr>
-      <ng-container
-        *ngTemplateOutlet="template; context { row: {}, type: 'header'}"
-      >
-      </ng-container>
-    </tr>
-  </thead>
-  <tbody>
-    <ng-container *ngFor="let item of value; let i=index">
-      <tr>
-        <ng-container
-          *ngTemplateOutlet="template; context { row: item, type: 'body'}"
-        >
+<table
+    class="table table-striped table-condensed table-hover"
+    id="{{ name }}">
+    <thead>
+        <tr>
+            <ng-container *ngTemplateOutlet="template; context: { row: {}, type: 'header' }"> </ng-container>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let item of value; let i = index">
+            <tr>
+                <ng-container *ngTemplateOutlet="template; context: { row: item, type: 'body' }"> </ng-container>
+            </tr>
         </ng-container>
-      </tr>
-    </ng-container>
-    <tr
-      *ngIf="value === undefined || value === null || value.length === 0"
-      data-e2e="emptyrow"
-    >
-      <td [attr.colspan]="ColumnCount">{{emptytext}}</td>
-    </tr>
-  </tbody>
-  <tfoot *ngIf="pagerdata">
-    <tr>
-      <td [attr.colspan]="ColumnCount">
-        <div class="container-fluid">
-          <sac-paging
-            name="{{name}}Paging"
-            (paging)="pageChange($event)"
-            [pagerdata]="pagerdata"
-            [pagingtext]="pagingtext"
-            [pagesizetext]="pagesizetext"
-          ></sac-paging>
-        </div>
-      </td>
-    </tr>
-  </tfoot>
+        <tr
+            *ngIf="value === undefined || value === null || value.length === 0"
+            data-e2e="emptyrow">
+            <td [attr.colspan]="ColumnCount">{{ emptytext }}</td>
+        </tr>
+    </tbody>
+    <tfoot *ngIf="pagerdata">
+        <tr>
+            <td [attr.colspan]="ColumnCount">
+                <div class="container-fluid">
+                    <sac-paging
+                        name="{{ name }}Paging"
+                        (paging)="pageChange($event)"
+                        [pagerdata]="pagerdata"
+                        [pagingtext]="pagingtext"
+                        [pagesizetext]="pagesizetext"
+                        [pagesizedisabled]="pagesizedisabled"></sac-paging>
+                </div>
+            </td>
+        </tr>
+    </tfoot>
 </table>

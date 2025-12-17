@@ -1,4 +1,16 @@
-<th scope="col" *ngIf="IsHeader()" [style.width]="width"><span></span></th>
-<td scope="col" class="px-2" *ngIf="IsBody()">
-   <ng-content></ng-content>
+<th
+    scope="col"
+    *ngIf="IsHeader()"
+    [style.width]="width"
+    [class.text-right]="alignment === 'right'"
+    [class.text-center]="alignment === 'center'">
+    <span></span>
+</th>
+<td
+    scope="col"
+    class="px-2"
+    [class.text-right]="alignment === 'right'"
+    [class.text-center]="alignment === 'center'"
+    *ngIf="IsBody()">
+    <ng-content></ng-content>
 </td>

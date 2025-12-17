@@ -11,9 +11,9 @@ namespace SimpleAngularControls.Api.Services
     public class GridController : ControllerBase
     {
         /// <summary>
-        /// static list of grid items
+        /// list of grid items
         /// </summary>
-        public static List<GridItemDto>? Items { get; set; } = null;
+        public List<GridItemDto>? Items { get; set; } = null;
 
         /// <summary>
         /// get methode for demonstrating grid component

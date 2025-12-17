@@ -2,6 +2,8 @@
     scope="col"
     *ngIf="IsHeader()"
     [style.width]="width"
+    [class.text-right]="alignment === 'right'"
+    [class.text-center]="alignment === 'center'"
     (click)="SortByColumn()">
     <span>{{ header }}</span>
     <span
@@ -22,7 +24,9 @@
     [style.max-width]="IsEllipsis() ? width : null"
     [style.overflow]="IsEllipsis() ? 'hidden' : null"
     [style.text-overflow]="IsEllipsis() ? 'ellipsis' : null"
-    [style.white-space]="IsEllipsis() ? 'nowrap' : null">
+    [style.white-space]="IsEllipsis() ? 'nowrap' : null"
+    [class.text-right]="alignment === 'right'"
+    [class.text-center]="alignment === 'center'">
     <span
         [attr.title]="IsEllipsis() ? value : null"
         [innerHtml]="value"></span>

@@ -92,6 +92,31 @@ export abstract class SacAbstractIconService implements ISacIconService {
     /**
      * @inheritdoc
      */
+    public abstract get GridButtonDefaultDeleteIcon(): string;
+
+    /**
+     * @inheritdoc
+     */
+    public abstract get GridButtonDefaultDeleteIconSet(): string;
+
+    /**
+     * @inheritdoc
+     */
+    public abstract get GridButtonDefaultEditIcon(): string;
+
+    /**
+     * @inheritdoc
+     */
+    public abstract get GridButtonDefaultEditIconSet(): string;
+
+    /**
+     * @inheritdoc
+     */
+    public abstract get GridButtonDisabledIconSuffix(): string;
+
+    /**
+     * @inheritdoc
+     */
     public abstract get GridComponentSortDown(): string;
 
     /**
@@ -270,6 +295,41 @@ export class SacDefaultIconService extends SacAbstractIconService {
      */
     public get GenericHelptextIcon(): string {
         return 'fa fa-info-circle';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public get GridButtonDefaultDeleteIcon(): string {
+        return 'fa-trash';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public get GridButtonDefaultDeleteIconSet(): string {
+        return 'fa';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public get GridButtonDefaultEditIcon(): string {
+        return 'fa-pen';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public get GridButtonDefaultEditIconSet(): string {
+        return 'fa';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public get GridButtonDisabledIconSuffix(): string {
+        return ' disabled';
     }
 
     /**

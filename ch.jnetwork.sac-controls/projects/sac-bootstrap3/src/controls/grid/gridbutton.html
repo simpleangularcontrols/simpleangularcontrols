@@ -2,6 +2,7 @@
     (click)="callaction()"
     [attr.data-e2e]="name"
     style="padding-right: 5px"
+    [style.cursor]="!isdisabled ? 'pointer' : null"
     [class.disabled]="isdisabled"
     [attr.disabled]="isdisabled ? 'disabled' : null"
     ><span class="{{ getIconClass() }}"></span

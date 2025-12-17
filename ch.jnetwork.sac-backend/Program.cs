@@ -10,12 +10,6 @@ builder.Services.AddControllers()
                     opts.SerializerSettings.ContractResolver = new DefaultContractResolver();
                 });
 
-builder.Services.AddControllers()
-                .AddNewtonsoftJson(opts =>
-                {
-                    opts.SerializerSettings.ContractResolver = new DefaultContractResolver();
-                });
-
 builder.Services.Configure<ForwardedHeadersOptions>(opts =>
 {
     opts.ForwardedHeaders = Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedFor

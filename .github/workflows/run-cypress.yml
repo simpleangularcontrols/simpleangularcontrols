@@ -15,12 +15,12 @@ jobs:
      
     steps:
       - name: Get Source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: 3.1.x
+          dotnet-version: 8.0.x
 
       - name: Test
         run: dotnet run --project build/Build.csproj --target=test

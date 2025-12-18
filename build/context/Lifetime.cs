@@ -6,7 +6,7 @@ namespace Build.context
 {
     public class Lifetime : FrostingLifetime<BuildContext>
     {
-        public override void Setup(BuildContext context)
+        public override void Setup(BuildContext context, ISetupContext info)
         {
             context.Log.Information("Setup Build");
 

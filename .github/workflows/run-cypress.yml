@@ -4,15 +4,17 @@
 name: Run Cypress Tests
 
 on:
+  push:
+    branches-ignore: ['angular/*']
   pull_request:
-    branches: ["angular/*"]
+    branches: ['angular/*']
 
 jobs:
   test:
     runs-on: ubuntu-22.04
     env:
       DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: 1
-     
+
     steps:
       - name: Get Source
         uses: actions/checkout@v5

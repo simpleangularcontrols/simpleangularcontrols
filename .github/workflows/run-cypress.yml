@@ -4,8 +4,6 @@
 name: Run Cypress Tests
 
 on:
-  push:
-    branches-ignore: ['angular/*']
   pull_request:
     branches: ['angular/*']
 
@@ -33,9 +31,15 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           cat ch.jnetwork.sac-controls/reports/bs3.md  >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
+          cat ch.jnetwork.sac-controls/reports/coverage-bootstrap3/SummaryGithub.md  >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
           echo "# Bootstrap 4 Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           cat ch.jnetwork.sac-controls/reports/bs4.md  >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          cat ch.jnetwork.sac-controls/reports/coverage-bootstrap4/SummaryGithub.md  >> $GITHUB_STEP_SUMMARY
           echo "# Bootstrap 5 Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           cat ch.jnetwork.sac-controls/reports/bs5.md  >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          cat ch.jnetwork.sac-controls/reports/coverage-bootstrap5/SummaryGithub.md  >> $GITHUB_STEP_SUMMARY

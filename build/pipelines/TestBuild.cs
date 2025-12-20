@@ -13,6 +13,7 @@ namespace Build.pipelines
     [IsDependentOn(typeof(NpmBuild))]
     [IsDependentOn(typeof(CypressRun))]
     [IsDependentOn(typeof(CypressReport))]
+    [IsDependentOn(typeof(CoverageReport))]
     public class TestBuild : FrostingTask<BuildContext>
     {
         /// <summary>

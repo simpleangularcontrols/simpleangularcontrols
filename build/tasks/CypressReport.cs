@@ -8,7 +8,7 @@ using Cake.Npx;
 namespace Build.tasks
 {
     [TaskName("CypressReport")]
-    [TaskDescription("Run Cypress Tests")]
+    [TaskDescription("Run Cypress Test Reporting")]
     public class CypressReport : FrostingTask<BuildContext>
     {
         /// <summary>

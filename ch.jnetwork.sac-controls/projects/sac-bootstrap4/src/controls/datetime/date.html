@@ -72,8 +72,8 @@
                     class="popover fade show position-absolute m-0"
                     role="tooltip"
                     *ngIf="_showselector"
-                    [class.bs-popover-bottom]="GetPickerPosition() == TooltipPosition.bottom || GetPickerPosition() == TooltipPosition.bottomend"
-                    [class.bs-popover-top]="GetPickerPosition() == TooltipPosition.top || GetPickerPosition() == TooltipPosition.topend"
+                    [class.bs-popover-bottom]="GetPickerPosition() === TooltipPosition.bottom || GetPickerPosition() === TooltipPosition.bottomend"
+                    [class.bs-popover-top]="GetPickerPosition() === TooltipPosition.top || GetPickerPosition() === TooltipPosition.topend"
                     [style.left.px]="posPopupLeft"
                     [style.top.px]="posPopupTop">
                     <div

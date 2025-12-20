@@ -192,6 +192,8 @@ export * from './utilities/interpolation';
 
 export * from './utilities/positioning';
 
+export * from './utilities/testingattribute.pipe';
+
 // Export Base Components for Developers
 export * from './common/basedatetimecontrol';
 

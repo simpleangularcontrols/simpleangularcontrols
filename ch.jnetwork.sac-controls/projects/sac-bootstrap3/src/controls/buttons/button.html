@@ -1,29 +1,27 @@
 <a
-  [id]="name"
-  class="btn"
-  [class.btn-primary]="role === 'primary'"
-  [class.btn-secondary]="role === 'secondary'"
-  [class.btn-success]="role === 'success'"
-  [class.btn-danger]="role === 'danger'"
-  [class.btn-warning]="role === 'warning'"
-  [class.btn-info]="role === 'info'"
-  [class.btn-default]="role === 'default'"
-  [class.btn-link]="role === 'link'"
-  [attr.disabled]="_isdisabled ? 'disabled' : null"
-  (click)="buttonClick()"
->
-  <i
-    *ngIf="isloading"
-    class=""
-    role="status"
-    aria-hidden="true"
-    class="glyphicon glyphicon-repeat spin"
-    [ngStyle]="{ 'margin-right': text ? '0.5rem': null}"
-  ></i>
-  <i
-    *ngIf="!isloading && icon !== ''"
-    [ngClass]="icon"
-    [ngStyle]="{ 'margin-right': text ? '0.5rem': null}"
-  ></i>
-  {{text}}
+    [id]="name"
+    class="btn"
+    [class.btn-primary]="role === 'primary'"
+    [class.btn-secondary]="role === 'secondary'"
+    [class.btn-success]="role === 'success'"
+    [class.btn-danger]="role === 'danger'"
+    [class.btn-warning]="role === 'warning'"
+    [class.btn-info]="role === 'info'"
+    [class.btn-default]="role === 'default'"
+    [class.btn-link]="role === 'link'"
+    [attr.disabled]="_isdisabled ? 'disabled' : null"
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier"
+    (click)="buttonClick()">
+    <i
+        *ngIf="isloading"
+        class=""
+        role="status"
+        aria-hidden="true"
+        class="glyphicon glyphicon-repeat spin"
+        [ngStyle]="{ 'margin-right': text ? '0.5rem' : null }"></i>
+    <i
+        *ngIf="!isloading && icon !== ''"
+        [ngClass]="icon"
+        [ngStyle]="{ 'margin-right': text ? '0.5rem' : null }"></i>
+    {{ text }}
 </a>

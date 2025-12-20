@@ -4,68 +4,72 @@ import { ControlHeight } from '../enums/ControlHeight';
  * interface for service which provides global configuration settings to components
  */
 export interface ISacConfigurationService {
-  /**
-   * Defines the default display for a checkbox. You can choose between a checkbox and a switch.
-   */
-  CheckboxStyle: 'checkbox' | 'switch';
+    // #region Getters And Setters
 
-  /**
-   * Defines the standard height of the components
-   */
-  ComponentHeight: ControlHeight | null;
+    /**
+     * Defines the default display for a checkbox. You can choose between a checkbox and a switch.
+     */
+    get CheckboxStyle(): 'checkbox' | 'switch';
 
-  /**
-   * Defines the standard text for currencies. e.g. $, €, CHF
-   */
-  CurrencyText: string;
+    /**
+     * Defines the standard height of the components
+     */
+    get ComponentHeight(): ControlHeight | null;
 
-  /**
-   * Mode for display helptext
-   */
-  HelptextMode: 'tooltip' | 'text';
+    /**
+     * Defines the standard text for currencies. e.g. $, €, CHF
+     */
+    get CurrencyText(): string;
 
-  /**
-   * Activates the error messages below the controls
-   */
-  InlineErrorEnabled: boolean;
+    /**
+     * Mode for display helptext
+     */
+    get HelptextMode(): 'tooltip' | 'text';
 
-  /**
-   * Defines if InputSearch uses an icon at the button or the text
-   */
-  InputSearchIconMode: 'text' | 'icon' | 'mixed';
+    /**
+     * Activates the error messages below the controls
+     */
+    get InlineErrorEnabled(): boolean;
 
-  /**
-   * default labe size for large devices
-   */
-  LabelSizeLg: number | null;
+    /**
+     * Defines if InputSearch uses an icon at the button or the text
+     */
+    get InputSearchIconMode(): 'text' | 'icon' | 'mixed';
 
-  /**
-   * default label size for medium devices
-   */
-  LabelSizeMd: number | null;
+    /**
+     * default labe size for large devices
+     */
+    get LabelSizeLg(): number | null;
 
-  /**
-   * default label size for small devices
-   */
-  LabelSizeSm: number | null;
+    /**
+     * default label size for medium devices
+     */
+    get LabelSizeMd(): number | null;
 
-  /**
-   * default label size for extra large devices
-   */
-  LabelSizeXl: number | null;
+    /**
+     * default label size for small devices
+     */
+    get LabelSizeSm(): number | null;
 
-  /**
-   * default label column size
-   */
-  LabelSizeXs: number | null;
+    /**
+     * default label size for extra large devices
+     */
+    get LabelSizeXl(): number | null;
 
-  /**
-   * default label size for extra extra large devices
-   */
-  get LabelSizeXxl(): number | null;
+    /**
+     * default label column size
+     */
+    get LabelSizeXs(): number | null;
 
-  /**
-   * Detach label text and tooltip from each other in Label so that label and tooltip can be aligned differently. This is in Bootstrap 3 not supported!
-   */
-  SplitLabelAndHelptext: boolean;
+    /**
+     * default label size for extra extra large devices
+     */
+    get LabelSizeXxl(): number | null;
+
+    /**
+     * Detach label text and tooltip from each other in Label so that label and tooltip can be aligned differently. This is in Bootstrap 3 not supported!
+     */
+    get SplitLabelAndHelptext(): boolean;
+
+    // #endregion Getters And Setters
 }

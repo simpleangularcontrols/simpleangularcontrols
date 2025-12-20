@@ -1,30 +1,35 @@
 export interface ISacLabelSizes {
-  // #region Properties
+    // #region Getters And Setters
 
-  /**
-   * default label size for medium devices
-   */
-  labelSizeMd: number;
-  /**
-   * default label size for small devices
-   */
-  labelSizeSm: number;
-  /**
-   * default label column size
-   */
-  labelSizeXs: number;
-  /**
-   * default label size for extra extra large devices
-   */
-  labelSizeXxl: number;
-  /**
-   * default labe size for large devices
-   */
-  labelSizeLg: number;
-  /**
-   * default label size for extra large devices
-   */
-  labelSizeXl: number;
+    /**
+     * default labe size for large devices
+     */
+    get labelSizeLg(): number;
 
-  // #endregion Properties
+    /**
+     * default label size for medium devices
+     */
+    get labelSizeMd(): number;
+
+    /**
+     * default label size for small devices
+     */
+    get labelSizeSm(): number;
+
+    /**
+     * default label size for extra large devices
+     */
+    get labelSizeXl(): number;
+
+    /**
+     * default label column size
+     */
+    get labelSizeXs(): number;
+
+    /**
+     * default label size for extra extra large devices
+     */
+    get labelSizeXxl(): number;
+
+    // #endregion Getters And Setters
 }

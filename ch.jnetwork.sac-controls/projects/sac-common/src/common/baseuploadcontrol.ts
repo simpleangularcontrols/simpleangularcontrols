@@ -6,7 +6,19 @@ import { SACVALIDATIONKEY_SERVICE, SacDefaultValidationKeyService } from '../ser
 import { SACLOCALISATION_SERVICE, SacDefaultLocalisationService } from '../services/sac-localisation.service';
 import { Validation } from '../validation';
 import { SacBaseModelControl } from './basemodelcontrol';
-import { Directive, ElementRef, EventEmitter, Injector, Input, NgZone, OnDestroy, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
+import {
+    Directive,
+    ElementRef,
+    EventEmitter,
+    Injector,
+    Input,
+    NgZone,
+    OnDestroy,
+    OnInit,
+    Output,
+    Renderer2,
+    ViewChild,
+} from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { UploadState, UploadxOptions, UploadxService } from 'ngx-uploadx';
 import { Observable, of } from 'rxjs';
@@ -73,7 +85,8 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     /**
      * Definiert das Control als Required
      */
-    @Input() public isrequired: boolean = false;
+    @Input()
+    public isrequired: boolean = false;
 
     /**
      * Listener für Files
@@ -88,7 +101,8 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     /**
      * Max. Dateigrösse für Files die hochgeladen werden können. 0 deaktiviert den Filter
      */
-    @Input() public maxfilesize: number = 0;
+    @Input()
+    public maxfilesize: number = 0;
 
     /**
      * Event when an error is triggered in the component.
@@ -110,7 +124,8 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     /**
      * Resource Key für Validation Message Required bei Control
      */
-    @Input() public validationmessagerequired: string = this.validationKeyService.ValidationErrorRequired;
+    @Input()
+    public validationmessagerequired: string = this.validationKeyService.ValidationErrorRequired;
 
     /**
      * Resource Key für Validation Message Required in Validation Summary

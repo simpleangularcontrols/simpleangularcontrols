@@ -125,7 +125,7 @@
       "root": "projects/sac-common",
       "sourceRoot": "projects/sac-common/src",
       "projectType": "library",
-      "prefix": "ng",
+      "prefix": "sac",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -167,7 +167,7 @@
       "root": "projects/sac-bootstrap4",
       "sourceRoot": "projects/sac-bootstrap4/src",
       "projectType": "library",
-      "prefix": "ng",
+      "prefix": "sac",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -207,7 +207,7 @@
       "root": "projects/sac-bootstrap3",
       "sourceRoot": "projects/sac-bootstrap3/src",
       "projectType": "library",
-      "prefix": "ng",
+      "prefix": "sac",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",

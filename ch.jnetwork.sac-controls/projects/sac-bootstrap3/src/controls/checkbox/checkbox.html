@@ -30,6 +30,7 @@
                 <input
                     id="{{ name }}"
                     name="{{ name }}"
+                    [attr.data-e2e-key]="name | testingattribute : e2eidentifier"
                     type="checkbox"
                     class="visible-checkbox"
                     [checked]="value"

@@ -69,8 +69,6 @@ jobs:
     runs-on: ubuntu-22.04
     needs: [authorize, check-branch]
     if: needs.authorize.outputs.authorized == 'true' && needs.check-branch.outputs.valid == 'true'
-    env:
-      DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: 1
 
     steps:
       - name: Get Source

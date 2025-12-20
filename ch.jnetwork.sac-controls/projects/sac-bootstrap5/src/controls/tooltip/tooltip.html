@@ -20,13 +20,13 @@
             [class.right]="GetTooltipPosition() === TooltipPosition.right"
             [class.bottom]="GetTooltipPosition() === TooltipPosition.bottom"
             [attr.data-popper-placement]="
-                GetTooltipPosition() == TooltipPosition.right
+                GetTooltipPosition() === TooltipPosition.right
                     ? 'right'
-                    : GetTooltipPosition() == TooltipPosition.left
+                    : GetTooltipPosition() === TooltipPosition.left
                     ? 'left'
-                    : GetTooltipPosition() == TooltipPosition.top
+                    : GetTooltipPosition() === TooltipPosition.top
                     ? 'top'
-                    : GetTooltipPosition() == TooltipPosition.bottom
+                    : GetTooltipPosition() === TooltipPosition.bottom
                     ? 'bottom'
                     : null
             ">

@@ -70,13 +70,13 @@
                     class="popover fade show position-absolute bs-popover-auto"
                     role="tooltip"
                     [attr.data-popper-placement]="
-                        GetPickerPosition() == TooltipPosition.right
+                        GetPickerPosition() === TooltipPosition.right
                             ? 'right'
-                            : GetPickerPosition() == TooltipPosition.left
+                            : GetPickerPosition() === TooltipPosition.left
                             ? 'left'
-                            : GetPickerPosition() == TooltipPosition.top || GetPickerPosition() == TooltipPosition.topend
+                            : GetPickerPosition() === TooltipPosition.top || GetPickerPosition() === TooltipPosition.topend
                             ? 'top'
-                            : GetPickerPosition() == TooltipPosition.bottom || GetPickerPosition() == TooltipPosition.bottomend
+                            : GetPickerPosition() === TooltipPosition.bottom || GetPickerPosition() === TooltipPosition.bottomend
                             ? 'bottom'
                             : null
                     "

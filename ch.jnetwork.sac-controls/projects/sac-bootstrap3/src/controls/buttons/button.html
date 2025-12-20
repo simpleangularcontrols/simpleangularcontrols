@@ -9,12 +9,11 @@
     [class.btn-info]="role === 'info'"
     [class.btn-default]="role === 'default'"
     [class.btn-link]="role === 'link'"
-    [attr.disabled]="_isdisabled ? 'disabled' : null"
+    [attr.disabled]="_isdisabled || isloading ? 'disabled' : null"
     [attr.data-e2e-key]="name | testingattribute : e2eidentifier"
     (click)="buttonClick()">
     <i
         *ngIf="isloading"
-        class=""
         role="status"
         aria-hidden="true"
         class="glyphicon glyphicon-repeat spin"

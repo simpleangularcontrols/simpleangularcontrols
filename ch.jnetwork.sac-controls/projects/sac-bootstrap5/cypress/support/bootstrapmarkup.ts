@@ -5,6 +5,8 @@ declare namespace Cypress {
         shouldHaveLabel(label: string): Chainable;
         shouldNotHaveLabel(): Chainable;
         shouldHaveErrorMessage(errorMessage: string): Chainable;
+        shouldHaveTestAttributeWithName(tagName: string, testkey: string): Chainable;
+        shouldHaveDisabledTestAttribute(tagName: string): Chainable;
     }
 }
 
@@ -28,4 +30,12 @@ Cypress.Commands.add('shouldBeInvalid', (tagName: string = 'input') => {
 
 Cypress.Commands.add('shouldHaveErrorMessage', (errorMessage: string) => {
     cy.get('.invalid-feedback').contains(errorMessage);
+});
+
+Cypress.Commands.add('shouldHaveTestAttributeWithName', (tagName: string, testkey: string) => {
+    cy.get(tagName).should('have.attr', 'data-e2e-key', testkey);
+});
+
+Cypress.Commands.add('shouldHaveDisabledTestAttribute', (tagName: string) => {
+    cy.get(tagName).should('not.have.attr', 'data-e2e-key');
 });

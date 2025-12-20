@@ -12,8 +12,8 @@ describe('SacButtonComponent', () => {
             },
         });
 
-        cy.get('#button').should('have.text', 'My Button\n');
-        cy.get('#button').should('have.class', 'btn-secondary');
+        cy.get('#button').should('have.text', ' My Button\n');
+        cy.get('#button').should('have.class', 'btn-default');
         cy.get('#button span.spinner-border').should('not.exist');
         cy.get('#button').click();
         cy.get('@clickedSpy').should('be.calledOnce');
@@ -29,9 +29,9 @@ describe('SacButtonComponent', () => {
             },
         });
 
-        cy.get('#button').should('have.text', 'My Button\n');
-        cy.get('#button').should('have.class', 'btn-secondary');
-        cy.get('#button').should('be.disabled');
+        cy.get('#button').should('have.text', ' My Button\n');
+        cy.get('#button').should('have.class', 'btn-default');
+        cy.get('#button').should('have.attr', 'disabled');
         cy.get('#button').click({ force: true });
         cy.get('@clickedSpy').should('not.have.been.called');
     });
@@ -71,10 +71,10 @@ describe('SacButtonComponent', () => {
             },
         });
 
-        cy.get('#button').should('have.text', 'My Button\n');
-        cy.get('#button').should('have.class', 'btn-secondary');
-        cy.get('#button span.spinner-border').should('exist');
-        cy.get('#button').should('be.disabled');
+        cy.get('#button').should('have.text', ' My Button\n');
+        cy.get('#button').should('have.class', 'btn-default');
+        cy.get('#button i.glyphicon-repeat.spin').should('exist');
+        cy.get('#button').should('have.attr', 'disabled');
         cy.get('#button').click({ force: true });
         cy.get('@clickedSpy').should('not.have.been.called');
     });
@@ -96,7 +96,7 @@ describe('SacButtonComponent', () => {
             ],
         });
 
-        cy.shouldHaveTestAttributeWithName('button', 'myControl');
+        cy.shouldHaveTestAttributeWithName('a', 'myControl');
     });
 
     it('should has e2 testkey with testidentifier when name exists', () => {
@@ -117,7 +117,7 @@ describe('SacButtonComponent', () => {
             ],
         });
 
-        cy.shouldHaveTestAttributeWithName('button', 'myTestidentifier');
+        cy.shouldHaveTestAttributeWithName('a', 'myTestidentifier');
     });
 
     it('should has e2 testkey with testidentifier when name not exists', () => {
@@ -137,7 +137,7 @@ describe('SacButtonComponent', () => {
             ],
         });
 
-        cy.shouldHaveTestAttributeWithName('button', 'myTestidentifier');
+        cy.shouldHaveTestAttributeWithName('a', 'myTestidentifier');
     });
 
     it('should not has e2 testkey with name', () => {
@@ -157,6 +157,6 @@ describe('SacButtonComponent', () => {
             ],
         });
 
-        cy.shouldHaveDisabledTestAttribute('button');
+        cy.shouldHaveDisabledTestAttribute('a');
     });
 });

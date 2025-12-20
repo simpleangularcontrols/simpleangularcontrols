@@ -18,6 +18,7 @@ public static class Program
             .UseContext<BuildContext>()
             .UseLifetime<Lifetime>()
             .InstallTool(new Uri("nuget:?package=NuGet.CommandLine&version=5.11.0"))
+            .InstallTool(new Uri("dotnet:?package=dotnet-reportgenerator-globaltool&version=5.5.1"))
             .Run(args);
     }
 }

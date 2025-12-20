@@ -8,7 +8,7 @@ using Cake.Npx;
 namespace Build.tasks
 {
     [TaskName("CypressReport")]
-    [TaskDescription("Run Cypress Tests")]
+    [TaskDescription("Run Cypress Test Reporting")]
     public class CypressReport : FrostingTask<BuildContext>
     {
         /// <summary>
@@ -38,7 +38,7 @@ namespace Build.tasks
 
                 context.Npx("mochawesome-json-to-md", args => args.AppendSwitch("-p", "./reports/bs3.json")
                                                                   .AppendSwitch("-o", "./reports/bs3.md")
-                                                                  .AppendSwitch("-t", "./node_modules/mochawesome-json-to-md/sample-template.md")
+                                                                  .AppendSwitch("-t", "./templates/testresult.md")
                 , settings =>
                 {
                     settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
@@ -56,7 +56,7 @@ namespace Build.tasks
 
                 context.Npx("mochawesome-json-to-md", args => args.AppendSwitch("-p", "./reports/bs4.json")
                                                                   .AppendSwitch("-o", "./reports/bs4.md")
-                                                                  .AppendSwitch("-t", "./node_modules/mochawesome-json-to-md/sample-template.md")
+                                                                  .AppendSwitch("-t", "./templates/testresult.md")
                 , settings =>
                 {
                     settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());
@@ -74,7 +74,7 @@ namespace Build.tasks
 
                 context.Npx("mochawesome-json-to-md", args => args.AppendSwitch("-p", "./reports/bs5.json")
                                                                   .AppendSwitch("-o", "./reports/bs5.md")
-                                                                  .AppendSwitch("-t", "./node_modules/mochawesome-json-to-md/sample-template.md")
+                                                                  .AppendSwitch("-t", "./templates/testresult.md")
                 , settings =>
                 {
                     settings.WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath());

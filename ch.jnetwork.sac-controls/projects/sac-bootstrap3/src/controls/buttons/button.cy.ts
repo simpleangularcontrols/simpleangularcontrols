@@ -147,14 +147,6 @@ describe('SacButtonComponent', () => {
                 role: 'primary',
                 text: 'My Button',
             },
-            providers: [
-                {
-                    provide: SACCONFIGURATION_SERVICE,
-                    useValue: {
-                        EnableE2EAttributes: false,
-                    },
-                },
-            ],
         });
 
         cy.shouldHaveDisabledTestAttribute('a');

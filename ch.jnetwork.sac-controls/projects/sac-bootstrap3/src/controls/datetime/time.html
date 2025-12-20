@@ -76,8 +76,8 @@
                     class="popover in"
                     role="tooltip"
                     style="display: block; max-width: unset; margin: 0"
-                    [class.bottom]="GetPickerPosition() == TooltipPosition.bottom || GetPickerPosition() == TooltipPosition.bottomend"
-                    [class.top]="GetPickerPosition() == TooltipPosition.top || GetPickerPosition() == TooltipPosition.topend"
+                    [class.bottom]="GetPickerPosition() === TooltipPosition.bottom || GetPickerPosition() === TooltipPosition.bottomend"
+                    [class.top]="GetPickerPosition() === TooltipPosition.top || GetPickerPosition() === TooltipPosition.topend"
                     [style.left.px]="posPopupLeft"
                     [style.top.px]="posPopupTop">
                     <div

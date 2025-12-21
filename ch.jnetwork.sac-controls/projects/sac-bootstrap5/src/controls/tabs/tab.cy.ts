@@ -107,10 +107,7 @@ describe('SacTabComponent', () => {
         );
 
         cy.get('@tabselectedSpy').should('be.calledOnceWith', 'tab1');
-        cy.get('@tabselectedSpy').then((spy) => {
-            if (spy && spy.resetHistory) spy.resetHistory();
-            else if (spy && spy.reset) spy.reset();
-        });
+        cy.resetSpy('@tabselectedSpy');
 
         cy.get('#tabroot_tab1').should('have.class', 'active');
         cy.get('.tab-content').should('have.text', 'Tab 1');

@@ -1,26 +1,22 @@
+import { NgForOf } from '@angular/common';
 import { Component } from '@angular/core';
-import {
-  SACBootstrap5ContextmenuModule,
-  SACBootstrap5FormModule,
-  SACBootstrap5TabsModule,
-} from '@simpleangularcontrols/sac-bootstrap5';
 import { FormsModule } from '@angular/forms';
-
-@Component({
-  selector: 'app-tabs',
-  templateUrl: './tabs.component.html',
-  standalone: true,
-  imports: [
-    FormsModule,
+import {
+    SACBootstrap5ContextmenuModule,
     SACBootstrap5FormModule,
     SACBootstrap5TabsModule,
-    SACBootstrap5ContextmenuModule,
-  ],
+} from '@simpleangularcontrols/sac-bootstrap5';
+
+@Component({
+    selector: 'app-tabs',
+    templateUrl: './tabs.component.html',
+    standalone: true,
+    imports: [FormsModule, NgForOf, SACBootstrap5FormModule, SACBootstrap5TabsModule, SACBootstrap5ContextmenuModule],
 })
 export class DemoTabsComponent {
-  // #region Properties
+    // #region Properties
 
-  public languages = ['de', 'fr', 'it'];
+    public languages = ['de', 'fr', 'it'];
 
-  // #endregion Properties
+    // #endregion Properties
 }

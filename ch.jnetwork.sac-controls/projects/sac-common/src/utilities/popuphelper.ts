@@ -419,7 +419,7 @@ export class PopUpHelper {
         }
 
         const parentValue = this.getOffsetTopParent(element.offsetParent as HTMLElement);
-        let offset = element.offsetTop;
+        const offset = element.offsetTop;
         return parentValue + offset;
     }
 

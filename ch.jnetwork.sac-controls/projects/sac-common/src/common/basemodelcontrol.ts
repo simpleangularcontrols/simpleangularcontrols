@@ -178,7 +178,8 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     /**
      * Name des Controls
      */
-    @Input() public name: string = createGuid();
+    @Input()
+    public name: string = createGuid();
 
     /**
      * Leere Implementation von "propagateChange". Muss gemacht werden, damit kein Fehler entsteht

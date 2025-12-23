@@ -30,6 +30,12 @@
     "tslib": "^2.3.0"
   },
   "nyc": {
-    "report-dir": "../../coverage/bootstrap5"
+    "report-dir": "../../coverage/bootstrap5",
+    "reporter": [
+      "lcov",
+      "text",
+      "cobertura"
+    ],
+    "all": true
   }
 }

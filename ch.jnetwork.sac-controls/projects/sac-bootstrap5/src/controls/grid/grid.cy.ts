@@ -1,7 +1,7 @@
 import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
+import { SACBootstrap5GridModule } from './grid.module';
 import { FormsModule } from '@angular/forms';
-import { SACBootstrap5GridModule } from '@simpleangularcontrols/sac-bootstrap5';
 
 describe('SacGridComponent', () => {
     it('should show label and component', () => {

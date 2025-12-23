@@ -1,7 +1,7 @@
 import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
+import { SACBootstrap5TinyMceModule } from './tinymce.module';
 import { FormsModule } from '@angular/forms';
-import { SACBootstrap5TinyMceModule } from '@simpleangularcontrols/sac-bootstrap5';
 import { TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 
 describe('SacTinyMceComponent', () => {

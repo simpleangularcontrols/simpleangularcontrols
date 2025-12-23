@@ -1,7 +1,7 @@
 import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
+import { SACBootstrap5TreeviewModule } from './treeview.module';
 import { FormsModule } from '@angular/forms';
-import { SACBootstrap5TreeviewModule } from '@simpleangularcontrols/sac-bootstrap5';
 
 describe('SacTreeviewComponent', () => {
     it('should show label and component', () => {

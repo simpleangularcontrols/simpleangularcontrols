@@ -25,4 +25,32 @@ describe('SacTinyMceComponent', () => {
         cy.shouldHaveLabel('My Label');
         cy.get('.tox-tinymce').should('be.visible');
     });
+
+    it('should be required', () => {
+        cy.mount(
+            `<form>
+                <sac-tinymce name="tinyMceControl"
+                    [label]="label"
+                    [isrequired]="true"
+                    [(ngModel)]="value"
+                    [config]="config">
+                </sac-tinymce>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5TinyMceModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    config: {
+                        base_url: '/__cypress/src/tinymce', // This is needed so that plugins and skins load correctly.
+                    },
+                },
+                providers: [{ provide: TINYMCE_SCRIPT_SRC, useValue: '/__cypress/src/tinymce/tinymce.min.js' }],
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('.tox-tinymce').should('be.visible');
+        cy.get('form').should('have.class', 'ng-invalid');
+    });
 });

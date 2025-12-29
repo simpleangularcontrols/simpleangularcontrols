@@ -1,6 +1,6 @@
 import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
-import { SacDropdownComponent } from './dropdown';
+import { SACBootstrap5DropdownModule } from './dropdown.module';
 import { FormsModule } from '@angular/forms';
 
 describe('SacDropdownComponent', () => {
@@ -10,7 +10,7 @@ describe('SacDropdownComponent', () => {
                 <sac-dropdown name="dropdown" [label]="label" [emptyvalue]="null" emptylabel="Please select" [ngModel]="null"></sac-dropdown>
             </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacDropdownComponent, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap5DropdownModule, SACBootstrap5LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                 },

@@ -1,6 +1,6 @@
 import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
-import { SacListboxComponent } from './listbox';
+import { SACBootstrap5ListModule } from './list.module';
 import { FormsModule } from '@angular/forms';
 
 describe('SacListboxComponent', () => {
@@ -14,7 +14,7 @@ describe('SacListboxComponent', () => {
                 </sac-listbox>
             </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacListboxComponent, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap5ListModule, SACBootstrap5LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: [1],

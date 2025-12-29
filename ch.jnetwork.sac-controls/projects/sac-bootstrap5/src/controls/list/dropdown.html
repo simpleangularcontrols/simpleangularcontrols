@@ -39,9 +39,9 @@
                 [disabled]="isdisabled">
                 <option
                     *ngIf="emptylabel !== ''"
-                    [ngValue]="emptyvalue">
-                    {{ emptylabel }}
-                </option>
+                    [ngValue]="emptyvalue"
+                    >{{ emptylabel }}</option
+                >
 
                 <ng-content></ng-content>
 
@@ -97,6 +97,6 @@
 
 <ng-template
     #defaultItemLabelTemplate
-    let-label="label">
-    {{ label }}
-</ng-template>
+    let-label="label"
+    >{{ label }}</ng-template
+>

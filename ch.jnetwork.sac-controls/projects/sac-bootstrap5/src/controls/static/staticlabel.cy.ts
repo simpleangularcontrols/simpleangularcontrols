@@ -24,4 +24,25 @@ describe('SacStaticLabelComponent', () => {
         cy.get('label').should('exist');
         cy.get('.form-control-plaintext').should('exist');
     });
+
+    it('should call validator without validation', () => {
+        cy.mount(
+            `<form>
+                <sac-staticlabel name="staticlabel" [label]="label" [value]="text" [isrequired]="true">
+                </sac-staticlabel>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacStaticLabelComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    text: 'Component Text',
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('sac-staticlabel').should('exist');
+        cy.get('label').should('exist');
+        cy.get('form').should('have.class', 'ng-valid');
+    });
 });

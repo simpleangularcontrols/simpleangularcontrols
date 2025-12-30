@@ -302,8 +302,8 @@ describe('SacTimeComponent', () => {
         cy.get('button').click();
 
         // set minutes
-        cy.get('input[max="23"]').clear().type(hours);
-        cy.get('input[max="59"]').clear().type(minutes);
+        cy.get('input[max="23"]').clear().type(`${hours}{del}{del}`);
+        cy.get('input[max="59"]').clear().type(`${minutes}{del}{del}`);
 
         cy.get('.calendar-selector button.btn-primary').click();
 

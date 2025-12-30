@@ -19,4 +19,26 @@ describe('SacDropzoneSingleComponent', () => {
 
         cy.shouldHaveLabel('My Label');
     });
+
+    it('should handle model binding', () => {});
+
+    it('should can upload file', () => {});
+
+    it('should validate file extension', () => {});
+
+    it('should validate file size', () => {});
+
+    it('should validate required state', () => {});
+
+    it('should can cancel upload', () => {});
+
+    it('should can delete uploaded file', () => {});
+
+    it('should can pause and continue upload', () => {});
+
+    it('should use custom icons from iconservice', () => {});
+
+    it('should not can select multiple files for uploading', () => {});
+
+    it('should can drop file in dropzone', () => {});
 });

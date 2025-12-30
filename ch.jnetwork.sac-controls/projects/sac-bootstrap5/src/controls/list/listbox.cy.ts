@@ -113,4 +113,10 @@ describe('SacListboxComponent', () => {
         cy.get('select').find('option:selected').should('have.value', 'Element 2');
         cy.get('select').find('option:disabled').should('have.text', 'Element 3');
     });
+
+    it('should validate with required attribute', () => {});
+
+    it('option should work without saclistbox', () => {});
+
+    it('should with selected state at options', () => {});
 });

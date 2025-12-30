@@ -279,4 +279,24 @@ describe('NgRadiobuttonComponent', () => {
 
         cy.shouldHaveDisabledTestAttribute('div.row');
     });
+
+    it('should have helptext at radio button', () => {
+        // TODO: test required
+    });
+
+    it('should not visible with hidden attribute', () => {
+        // TODO: test required
+    });
+
+    it('should unset value when selected value is hidden', () => {
+        // TODO: test required
+    });
+
+    it('should use helptext mode from control', () => {
+        // TODO: test required
+    });
+
+    it('should use helptext mode from form layout', () => {
+        // TODO: test required
+    });
 });

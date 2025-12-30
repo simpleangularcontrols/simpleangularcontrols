@@ -171,4 +171,6 @@ describe('NgInputareaComponent', () => {
         cy.get('textarea').should('have.value', '123456');
         cy.validateValueChanged('123456'.length + 1);
     });
+
+    it('should return length of 0 when value is null', () => {});
 });

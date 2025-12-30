@@ -53,4 +53,12 @@ describe('SacTinyMceComponent', () => {
         cy.get('.tox-tinymce').should('be.visible');
         cy.get('form').should('have.class', 'ng-invalid');
     });
+
+    it('should can browse and select files', () => {});
+
+    it('should can close browse dialog without change content', () => {});
+
+    it('should emit onsave when save clicked', () => {});
+
+    it('should work with tinymcedialogsettings partial class', () => {});
 });

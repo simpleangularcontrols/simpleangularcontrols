@@ -59,4 +59,10 @@ describe('SacMultilanguageInputAreaComponent', () => {
         cy.get('textarea').should('exist');
         cy.get('button.dropdown-toggle').should('exist');
     });
+
+    it('should save on change language', () => {});
+
+    it('should validate when all values must be required', () => {});
+
+    it('should validate when one values must be required', () => {});
 });

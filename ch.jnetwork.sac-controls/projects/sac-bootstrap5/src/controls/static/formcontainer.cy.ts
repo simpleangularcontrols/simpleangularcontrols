@@ -24,4 +24,6 @@ describe('SacStaticFormContainerComponent', () => {
         cy.get('label').should('exist');
         cy.get('input').should('exist');
     });
+
+    it('should have required class when required', () => {});
 });

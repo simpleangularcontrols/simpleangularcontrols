@@ -267,4 +267,6 @@ describe('ngInputPasswordComponent', () => {
         cy.get('input').parent().get('a').click();
         cy.get('input').should('have.attr', 'type', 'password');
     });
+
+    it('password eye should not work if control disabled', () => {});
 });

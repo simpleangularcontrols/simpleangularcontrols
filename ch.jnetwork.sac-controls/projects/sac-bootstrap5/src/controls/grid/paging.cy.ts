@@ -21,4 +21,36 @@ describe('SacPagingComponent', () => {
 
         cy.get('.col-summary').should('exist');
     });
+
+    it('should emit paged event on page change', () => {
+        // TODO: test required
+    });
+
+    it('should emit paged event on click firstPage', () => {
+        // TODO: test required
+    });
+
+    it('should emit paged event on click lastPage', () => {
+        // TODO: test required
+    });
+
+    it('should emit paged event on click nextPage', () => {
+        // TODO: test required
+    });
+
+    it('should emit paged event on click prevPage', () => {
+        // TODO: test required
+    });
+
+    it('should emit paging event on pagesize change', () => {
+        // TODO: test required
+    });
+
+    it('should fix pageindex on invalid pageindex', () => {
+        // TODO: test required
+    });
+
+    it('should set page 1 on empty data', () => {
+        // TODO: test required
+    });
 });

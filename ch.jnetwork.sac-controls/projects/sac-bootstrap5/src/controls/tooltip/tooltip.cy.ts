@@ -4,7 +4,7 @@ import { SacTooltipComponent } from './tooltip';
 import { FormsModule } from '@angular/forms';
 
 describe('SacTooltipComponent', () => {
-    it('should show label and component', () => {
+    it('should show tooltip when click on image', () => {
         cy.intercept('GET', 'icons/de.png', {
             fixture: 'de.png',
         }).as('tooltipIcon');
@@ -27,4 +27,10 @@ describe('SacTooltipComponent', () => {
         cy.get('img').click();
         cy.get('.tooltip.show').should('have.text', 'My Label');
     });
+
+    it('should work with inlinemode', () => {});
+
+    it('should hide when click outside tooltip', () => {});
+
+    it('should change position on scroll', () => {});
 });

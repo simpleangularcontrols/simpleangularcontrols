@@ -197,4 +197,16 @@ describe('sac-checkboxComponent', () => {
 
         cy.shouldHaveDisabledTestAttribute('input');
     });
+
+    it('should use checkbox style from control', () => {
+        // TODO: test required
+    });
+
+    it('should use checkbox style from form layout', () => {
+        // TODO: test required
+    });
+
+    it('should use checkbox style from service', () => {
+        // TODO: test required
+    });
 });

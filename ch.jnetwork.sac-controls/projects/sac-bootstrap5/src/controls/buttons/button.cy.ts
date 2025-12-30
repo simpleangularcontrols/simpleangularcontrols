@@ -151,4 +151,16 @@ describe('SacButtonComponent', () => {
 
         cy.shouldHaveDisabledTestAttribute('button');
     });
+
+    it('should disable with string attribute', () => {
+        // TODO: test required
+    });
+
+    it('should isloading with string attribute', () => {
+        // TODO: test required
+    });
+
+    it('should default style with empty role', () => {
+        // TODO: test required
+    });
 });

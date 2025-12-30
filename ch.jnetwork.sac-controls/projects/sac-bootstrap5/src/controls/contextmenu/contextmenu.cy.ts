@@ -175,4 +175,16 @@ describe('SacContextmenuComponent', () => {
 
         cy.contains('ul li button', 'Action 1').should('exist').should('be.visible');
     });
+
+    it('should close menu on item click', () => {
+        // TODO: test required
+    });
+
+    it('should disable with boolean type', () => {
+        // TODO: test required
+    });
+
+    it('should disable icon with boolean type', () => {
+        // TODO: test required
+    });
 });

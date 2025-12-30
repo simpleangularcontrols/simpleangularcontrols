@@ -144,4 +144,20 @@ describe('SacDateSelectorComponent', () => {
         cy.get('input[max="23"]').should('have.value', 16);
         cy.get('input[max="59"]').should('have.value', 56);
     });
+
+    it('should set correct date with initialvalue', () => {
+        // TODO: test required
+    });
+
+    it('should switch to december to january when click back', () => {
+        // TODO: test required
+    });
+
+    it('should switch to january to december when click next', () => {
+        // TODO: test required
+    });
+
+    it('should auto set value with auto apply', () => {
+        // TODO: test required
+    });
 });

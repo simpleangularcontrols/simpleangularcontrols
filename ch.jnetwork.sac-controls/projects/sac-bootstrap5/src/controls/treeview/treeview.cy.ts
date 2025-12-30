@@ -36,4 +36,24 @@ describe('SacTreeviewComponent', () => {
         cy.get('li[data-path="/1"]').should('have.text', 'Root');
         cy.get('li[data-path="/1/3"]').should('have.text', 'Sub Item 2');
     });
+
+    it('should have expanded and collabsed icons', () => {});
+
+    it('should have action icon', () => {});
+
+    it('should work with custom children field', () => {});
+
+    it('should work with custom text field', () => {});
+
+    it('should have disabled state', () => {});
+
+    it('should emit action event', () => {});
+
+    it('should change selected state on click element', () => {});
+
+    it('should have hover state on hover element', () => {});
+
+    it('should validate required state', () => {});
+
+    it('should handle model binding', () => {});
 });

@@ -4,7 +4,7 @@ import { SACBootstrap5ValidationSummaryModule } from './validationsummary.module
 import { FormsModule } from '@angular/forms';
 
 describe('SacValidationSummaryComponent', () => {
-    it('should show label and component', () => {
+    it('component should exists', () => {
         cy.mount(
             `<form>
                 <sac-validationsummary name="uploadControl"></sac-validationsummary>
@@ -22,4 +22,10 @@ describe('SacValidationSummaryComponent', () => {
 
         cy.get('sac-validationsummary').should('exist');
     });
+
+    it('should show error message when control is invalid', () => {});
+
+    it('should show multiple error messages when multiple controls are invalid', () => {});
+
+    it('should work with reactive forms', () => {});
 });

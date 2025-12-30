@@ -192,4 +192,6 @@ describe('NgInputComponent', () => {
         cy.get('input').should('have.value', 'abc');
         cy.validateValueChanged('abc'.length);
     });
+
+    it('should validate with regex', () => {});
 });

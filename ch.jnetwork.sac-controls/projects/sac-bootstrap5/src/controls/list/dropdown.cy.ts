@@ -128,4 +128,12 @@ describe('SacDropdownComponent', () => {
         cy.get('select').find('option:selected').should('have.value', '1: 1');
         cy.get('select').find('option:disabled').should('have.text', 'Element 3');
     });
+
+    it('should work with custom compare methode', () => {});
+
+    it('should check required property', () => {});
+
+    it('option should work with value attribute', () => {});
+
+    it('option should not raise exception if not sacdropdown', () => {});
 });

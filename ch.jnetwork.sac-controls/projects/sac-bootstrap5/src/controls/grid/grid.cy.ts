@@ -58,4 +58,32 @@ describe('SacGridComponent', () => {
 
         cy.get('table').should('exist');
     });
+
+    it('should emit sort event on column click', () => {
+        // TODO: test required
+    });
+
+    it('should emit page event', () => {
+        // TODO: test required
+    });
+
+    it('should emit clicked event on button action', () => {
+        // TODO: test required
+    });
+
+    it('should have custom image on button', () => {
+        // TODO: test required
+    });
+
+    it('button should be disabled with string attribute', () => {
+        // TODO: test required
+    });
+
+    it('should ellipsis column when text too long', () => {
+        // TODO: test required
+    });
+
+    it('should have footer', () => {
+        // TODO: test required
+    });
 });

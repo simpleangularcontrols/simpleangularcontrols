@@ -377,4 +377,8 @@ describe('SacDialogComponent', () => {
 
         cy.get('body').should('not.have.class', 'modal-open');
     });
+
+    it('should change isvisible when dialog closed', () => {
+        // TODO: test required
+    });
 });

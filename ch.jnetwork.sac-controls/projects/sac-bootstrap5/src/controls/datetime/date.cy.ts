@@ -421,4 +421,16 @@ describe('SacDateComponent', () => {
             expect(dateCount).to.equal(1);
         });
     });
+
+    it('should disable max validator when maxdate is invalid', () => {
+        // TODO: test required
+    });
+
+    it('should disable mix validator when mindate is invalid', () => {
+        // TODO: test required
+    });
+
+    it('should toggle window when click button', () => {
+        // TODO: test required
+    });
 });

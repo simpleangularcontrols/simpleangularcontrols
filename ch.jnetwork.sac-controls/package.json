@@ -55,6 +55,7 @@
         "@tinymce/tinymce-angular": "7.0.0",
         "angular-imask": "7.0.0",
         "core-js": "3.6.5",
+        "cypress-file-upload": "^5.0.8",
         "imask": "7.0.1",
         "moment": "2.29.1",
         "ngx-toastr": "17.0.2",

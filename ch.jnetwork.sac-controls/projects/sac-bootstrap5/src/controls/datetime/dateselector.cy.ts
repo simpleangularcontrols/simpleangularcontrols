@@ -30,8 +30,8 @@ describe('SacDateSelectorComponent', () => {
         );
 
         const _now = new Date();
-        const tag = _now.getDate();
-        const monat = ('0' + (_now.getMonth() + 1)).slice(-2);
+        const tagWithoutLeadingZero = _now.getDate();
+        const monthWithoutLeadingZero = _now.getMonth() + 1;
         const jahr = _now.getFullYear().toString().padStart(4, '0');
 
         cy.get('.calendar-selector').should('exist');
@@ -39,9 +39,9 @@ describe('SacDateSelectorComponent', () => {
         cy.get('input[max="23"]').should('not.exist');
         cy.get('input[max="59"]').should('not.exist');
 
-        cy.contains('div.col.text-center', `${monat}/${jahr}`).should('exist');
+        cy.contains('div.col.text-center', `${monthWithoutLeadingZero}/${jahr}`).should('exist');
 
-        cy.get('div.day-current').should('have.text', tag);
+        cy.get('div.day-current').should('have.text', tagWithoutLeadingZero);
     });
 
     it('should show component only with time', () => {
@@ -56,7 +56,7 @@ describe('SacDateSelectorComponent', () => {
         );
 
         const _now = new Date();
-        const monat = ('0' + (_now.getMonth() + 1)).slice(-2);
+        const monthWithoutLeadingZero = _now.getMonth() + 1;
         const jahr = _now.getFullYear().toString().padStart(4, '0');
 
         cy.get('.calendar-selector').should('exist');
@@ -64,7 +64,7 @@ describe('SacDateSelectorComponent', () => {
         cy.get('input[max="23"]').should('exist');
         cy.get('input[max="59"]').should('exist');
 
-        cy.contains('div.col.text-center', `${monat}/${jahr}`).should('not.exist');
+        cy.contains('div.col.text-center', `${monthWithoutLeadingZero}/${jahr}`).should('not.exist');
     });
 
     it('displays initial month/year when initialvalue is set', () => {

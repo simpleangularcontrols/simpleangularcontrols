@@ -306,13 +306,14 @@ describe('SacDateTimeComponent', () => {
         // aktuelle Tageswerte (Tag, Monat, Jahr) mit Formatierung
         const _now = new Date();
         const tag = ('0' + _now.getDate()).slice(-2);
+        const dayWithoutLeadingZero = _now.getDate();
         const monat = ('0' + (_now.getMonth() + 1)).slice(-2);
         const jahr = _now.getFullYear().toString().padStart(4, '0');
         const hours = _now.getHours().toString().padStart(2, '0');
         const minutes = _now.getMinutes().toString().padStart(2, '0');
 
         cy.get('button').click();
-        cy.contains('.calendar-selector div', tag).click();
+        cy.contains('.calendar-selector div', dayWithoutLeadingZero).click();
 
         // set minutes
         cy.get('input[max="23"]').clear().type(hours);
@@ -370,10 +371,10 @@ describe('SacDateTimeComponent', () => {
 
         // aktuelle Tageswerte (Tag, Monat, Jahr) mit Formatierung
         const _now = new Date();
-        const tag = ('0' + _now.getDate()).slice(-2);
+        const dayWithoutLeadingZero = _now.getDate();
 
         cy.get('button').click();
-        cy.contains('.calendar-selector div', tag).click();
+        cy.contains('.calendar-selector div', dayWithoutLeadingZero).click();
         cy.get('#field').click();
 
         cy.get('.calendar-selector').should('not.exist');
@@ -459,7 +460,7 @@ describe('SacDateTimeComponent', () => {
             expect(dateCount).to.equal(1);
         });
     });
-    
+
     it('should disable max validator when maxdate is invalid', () => {
         // TODO: test required
     });

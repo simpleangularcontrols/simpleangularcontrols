@@ -299,11 +299,12 @@ describe('SacDateComponent', () => {
         // aktuelle Tageswerte (Tag, Monat, Jahr) mit Formatierung
         const _now = new Date();
         const tag = ('0' + _now.getDate()).slice(-2);
+        const tagWithoutLeadingZero = _now.getDate();
         const monat = ('0' + (_now.getMonth() + 1)).slice(-2);
         const jahr = _now.getFullYear().toString().padStart(4, '0');
 
         cy.get('button').click();
-        cy.contains('.calendar-selector div', tag).click();
+        cy.contains('.calendar-selector div', tagWithoutLeadingZero).click();
         cy.get('.calendar-selector button.btn-primary').click();
 
         cy.get('input').should('have.value', `${tag}.${monat}.${jahr}`);
@@ -347,11 +348,12 @@ describe('SacDateComponent', () => {
         // aktuelle Tageswerte (Tag, Monat, Jahr) mit Formatierung
         const _now = new Date();
         const tag = ('0' + _now.getDate()).slice(-2);
+        const tagWithoutLeadingZero = _now.getDate();
         const monat = ('0' + (_now.getMonth() + 1)).slice(-2);
         const jahr = _now.getFullYear().toString().padStart(4, '0');
 
         cy.get('button').click();
-        cy.contains('.calendar-selector div', tag).click();
+        cy.contains('.calendar-selector div', tagWithoutLeadingZero).click();
         cy.get('#field').click();
 
         cy.get('.calendar-selector').should('not.exist');

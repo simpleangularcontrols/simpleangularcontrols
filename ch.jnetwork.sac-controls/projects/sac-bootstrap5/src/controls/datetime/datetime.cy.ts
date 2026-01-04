@@ -303,12 +303,12 @@ describe('SacDateTimeComponent', () => {
 
         cy.resetSpy('@valueSpy');
 
-        // aktuelle Tageswerte (Tag, Monat, Jahr) mit Formatierung
+        // Current daily values (day, month, year) with formatting
         const _now = new Date();
-        const tag = ('0' + _now.getDate()).slice(-2);
+        const day = ('0' + _now.getDate()).slice(-2);
         const dayWithoutLeadingZero = _now.getDate();
-        const monat = ('0' + (_now.getMonth() + 1)).slice(-2);
-        const jahr = _now.getFullYear().toString().padStart(4, '0');
+        const month = ('0' + (_now.getMonth() + 1)).slice(-2);
+        const year = _now.getFullYear().toString().padStart(4, '0');
         const hours = _now.getHours().toString().padStart(2, '0');
         const minutes = _now.getMinutes().toString().padStart(2, '0');
 
@@ -321,7 +321,7 @@ describe('SacDateTimeComponent', () => {
 
         cy.get('.calendar-selector button.btn-primary').click();
 
-        cy.get('input').should('have.value', `${tag}.${monat}.${jahr} ${hours}:${minutes}`);
+        cy.get('input').should('have.value', `${day}.${month}.${year} ${hours}:${minutes}`);
 
         cy.get('@valueSpy').then((spy: any) => {
             const calls = spy.getCalls ? spy.getCalls() : spy.calls && spy.calls.all ? spy.calls.all() : [];
@@ -369,7 +369,7 @@ describe('SacDateTimeComponent', () => {
 
         cy.resetSpy('@valueSpy');
 
-        // aktuelle Tageswerte (Tag, Monat, Jahr) mit Formatierung
+        // Current daily values (day, month, year) with formatting
         const _now = new Date();
         const dayWithoutLeadingZero = _now.getDate();
 
@@ -423,11 +423,11 @@ describe('SacDateTimeComponent', () => {
 
         cy.resetSpy('@valueSpy');
 
-        // aktuelle Tageswerte (Tag, Monat, Jahr) mit Formatierung
+        // Current daily values (day, month, year) with formatting
         const _now = new Date();
-        const tag = ('0' + _now.getDate()).slice(-2);
-        const monat = ('0' + (_now.getMonth() + 1)).slice(-2);
-        const jahr = _now.getFullYear().toString().padStart(4, '0');
+        const day = ('0' + _now.getDate()).slice(-2);
+        const month = ('0' + (_now.getMonth() + 1)).slice(-2);
+        const year = _now.getFullYear().toString().padStart(4, '0');
         const hours = _now.getHours().toString().padStart(2, '0');
         const minutes = _now.getMinutes().toString().padStart(2, '0');
 
@@ -436,7 +436,7 @@ describe('SacDateTimeComponent', () => {
         cy.get('.calendar-selector button.btn-primary').click();
 
         cy.get('.calendar-selector').should('not.exist');
-        cy.get('input').should('have.value', `${tag}.${monat}.${jahr} ${hours}:${minutes}`);
+        cy.get('input').should('have.value', `${day}.${month}.${year} ${hours}:${minutes}`);
 
         cy.get('@valueSpy').then((spy: any) => {
             const calls = spy.getCalls ? spy.getCalls() : spy.calls && spy.calls.all ? spy.calls.all() : [];

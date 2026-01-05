@@ -15,7 +15,7 @@ describe('ServiceConfirm', () => {
         })
         class HostComponent {
             public result = '';
-            constructor(private confirm: ServiceConfirm) {}
+            constructor(private readonly confirm: ServiceConfirm) {}
             public open() {
                 this.confirm
                     .ConfirmMessage('Titel', 'Frage')
@@ -59,7 +59,7 @@ describe('ServiceConfirm', () => {
         })
         class HostComponent {
             public result = '';
-            constructor(private confirm: ServiceConfirm) {}
+            constructor(private readonly confirm: ServiceConfirm) {}
             public open() {
                 this.confirm
                     .ConfirmMessage('Titel', 'Frage')
@@ -97,7 +97,7 @@ describe('ServiceConfirm', () => {
         })
         class HostComponent {
             public result = '';
-            constructor(private confirm: ServiceConfirm) {}
+            constructor(private readonly confirm: ServiceConfirm) {}
             public open() {
                 this.confirm
                     .ConfirmMessage('Titel', 'Frage', [

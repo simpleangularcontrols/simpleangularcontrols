@@ -462,14 +462,65 @@ describe('SacDateTimeComponent', () => {
     });
 
     it('should disable max validator when maxdate is invalid', () => {
-        // TODO: test required
+        cy.mount(
+            `<form>
+                <sac-datetime name="field" [label]="label" [maxdate]="maxdate" [ngModel]="value">
+                </sac-datetime>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacDateTimeComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    maxdate: '55.01.2000 11:20',
+                    value: new Date(2000, 0, 2, 14, 53),
+                },
+            }
+        );
+
+        cy.shouldBeValid();
     });
 
     it('should disable mix validator when mindate is invalid', () => {
-        // TODO: test required
+        cy.mount(
+            `<form>
+                <sac-datetime name="field" [label]="label" [mindate]="mindate" [ngModel]="value">
+                </sac-datetime>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacDateTimeComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    mindate: '44.12.1999 18:15',
+                    value: new Date(1999, 11, 31, 17, 20, 0),
+                },
+            }
+        );
+
+        cy.shouldBeValid();
     });
 
     it('should toggle window when click button', () => {
-        // TODO: test required
+        cy.mount(
+            `<form>
+                <div id="clicktarget"></div>
+                <sac-datetime name="field" [label]="label" [mindate]="mindate" [ngModel]="value">
+                </sac-datetime>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacDateTimeComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: null,
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.get('button').click();
+        cy.get('.calendar-selector').should('exist');
+
+        cy.get('#clicktarget').click({ force: true });
+
+        cy.get('.calendar-selector').should('not.exist');
     });
 });

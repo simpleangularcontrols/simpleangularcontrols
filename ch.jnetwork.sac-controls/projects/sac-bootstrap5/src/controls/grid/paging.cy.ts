@@ -2,7 +2,8 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SACBootstrap5GridModule } from './grid.module';
 import { FormsModule } from '@angular/forms';
-import { PagerData } from '@simpleangularcontrols/sac-common';
+import { PagerData, PagerRequest } from '@simpleangularcontrols/sac-common';
+import { createOutputSpy } from 'cypress/angular';
 
 describe('SacPagingComponent', () => {
     it('should show label and component', () => {
@@ -23,34 +24,177 @@ describe('SacPagingComponent', () => {
     });
 
     it('should emit paged event on page change', () => {
-        // TODO: test required
+        cy.mount(
+            `<form>
+                <sac-paging name="pagingControl" [pagerdata]="pagerdata" (paging)="pageEvent.emit($event)">
+                </sac-paging>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5GridModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    pagerdata: new PagerData(20, 0, 100),
+                    pageEvent: createOutputSpy('pageEvent'),
+                },
+            }
+        );
+
+        cy.get('.col-summary').should('exist');
+
+        cy.get('.pagination li').contains('3').click();
+        cy.get('@pageEvent').should('be.calledWith', new PagerRequest(20, 2));
     });
 
     it('should emit paged event on click firstPage', () => {
-        // TODO: test required
+        cy.mount(
+            `<form>
+                <sac-paging name="pagingControl" [pagerdata]="pagerdata" (paging)="pageEvent.emit($event)">
+                </sac-paging>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5GridModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    pagerdata: new PagerData(20, 2, 100),
+                    pageEvent: createOutputSpy('pageEvent'),
+                },
+            }
+        );
+
+        cy.get('.col-summary').should('exist');
+
+        cy.get('.pagination li.active').should('have.text', '3');
+        cy.get('.pagination li').first().click();
+        cy.get('@pageEvent').should('be.calledWith', new PagerRequest(20, 0));
     });
 
     it('should emit paged event on click lastPage', () => {
-        // TODO: test required
+        cy.mount(
+            `<form>
+                <sac-paging name="pagingControl" [pagerdata]="pagerdata" (paging)="pageEvent.emit($event)">
+                </sac-paging>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5GridModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    pagerdata: new PagerData(20, 2, 100),
+                    pageEvent: createOutputSpy('pageEvent'),
+                },
+            }
+        );
+
+        cy.get('.col-summary').should('exist');
+
+        cy.get('.pagination li.active').should('have.text', '3');
+        cy.get('.pagination li').last().click();
+        cy.get('@pageEvent').should('be.calledWith', new PagerRequest(20, 4));
     });
 
-    it('should emit paged event on click nextPage', () => {
-        // TODO: test required
+    /**
+     * Next Button is currently not available
+     */
+    it.skip('should emit paged event on click nextPage', () => {
+        cy.mount(
+            `<form>
+                <sac-paging name="pagingControl" [pagerdata]="pagerdata" (paging)="pageEvent.emit($event)">
+                </sac-paging>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5GridModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    pagerdata: new PagerData(20, 2, 100),
+                    pageEvent: createOutputSpy('pageEvent'),
+                },
+            }
+        );
+
+        cy.get('.col-summary').should('exist');
+
+        cy.get('.pagination li.active').should('have.text', '3');
+        cy.get('.pagination li').eq(5).click();
+        cy.get('@pageEvent').should('be.calledWith', new PagerRequest(20, 4));
     });
 
-    it('should emit paged event on click prevPage', () => {
-        // TODO: test required
+    /**
+     * Prev. Button is currently not available
+     */
+    it.skip('should emit paged event on click prevPage', () => {
+        cy.mount(
+            `<form>
+                <sac-paging name="pagingControl" [pagerdata]="pagerdata" (paging)="pageEvent.emit($event)">
+                </sac-paging>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5GridModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    pagerdata: new PagerData(20, 2, 100),
+                    pageEvent: createOutputSpy('pageEvent'),
+                },
+            }
+        );
+
+        cy.get('.col-summary').should('exist');
+
+        cy.get('.pagination li.active').should('have.text', '3');
+        cy.get('.pagination li').eq(1).click();
+        cy.get('@pageEvent').should('be.calledWith', new PagerRequest(20, 1));
     });
 
     it('should emit paging event on pagesize change', () => {
-        // TODO: test required
+        cy.mount(
+            `<form>
+                <sac-paging name="pagingControl" [pagerdata]="pagerdata" (paging)="pageEvent.emit($event)">
+                </sac-paging>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5GridModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    pagerdata: new PagerData(20, 2, 100),
+                    pageEvent: createOutputSpy('pageEvent'),
+                },
+            }
+        );
+
+        cy.get('.col-summary').should('exist');
+
+        cy.get('select').select('50');
+        cy.get('@pageEvent').should('be.calledWith', new PagerRequest(50, 2));
+        cy.get('select').should('have.value', '1: 50');
     });
 
     it('should fix pageindex on invalid pageindex', () => {
-        // TODO: test required
+        cy.mount(
+            `<form>
+                <sac-paging name="pagingControl" [pagerdata]="pagerdata" (paging)="pageEvent.emit($event)">
+                </sac-paging>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5GridModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    pagerdata: new PagerData(20, 10, 100),
+                    pageEvent: createOutputSpy('pageEvent'),
+                },
+            }
+        );
+
+        cy.get('.col-summary').should('exist');
+        cy.get('.pagination li.active').should('have.text', '5');
     });
 
     it('should set page 1 on empty data', () => {
-        // TODO: test required
+        cy.mount(
+            `<form>
+                <sac-paging name="pagingControl" [pagerdata]="pagerdata" (paging)="pageEvent.emit($event)">
+                </sac-paging>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5GridModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    pagerdata: null,
+                    pageEvent: createOutputSpy('pageEvent'),
+                },
+            }
+        );
+
+        cy.get('.col-summary').should('exist');
+        cy.get('.pagination li.active').should('have.text', '1');
     });
 });

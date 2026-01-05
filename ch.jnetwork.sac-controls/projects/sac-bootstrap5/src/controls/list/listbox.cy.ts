@@ -114,9 +114,75 @@ describe('SacListboxComponent', () => {
         cy.get('select').find('option:disabled').should('have.text', 'Element 3');
     });
 
-    it('should validate with required attribute', () => {});
+    it('should validate with required attribute', () => {
+        cy.mount(
+            `<form>
+                <sac-listbox 
+                    name="listbox"
+                    [label]="label"
+                    [(ngModel)]="value" 
+                    [options]="options"
+                    optionvalue="id"
+                    optionlabel="value"
+                    optionenabled="enabled"
+                    [isrequired]="true">           
+                </sac-listbox>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5ListModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: [],
+                    options: [
+                        { id: 1, value: 'Element 1', enabled: false },
+                        { id: 2, value: 'Element 2', enabled: false },
+                        { id: 3, value: 'Element 3', enabled: false },
+                    ],
+                },
+            }
+        );
 
-    it('option should work without saclistbox', () => {});
+        cy.get('select').shouldBeInvalid('select');
+    });
 
-    it('should with selected state at options', () => {});
+    it('option should not raise exception if not saclistbox', () => {
+        cy.mount(
+            `<form>
+                <select multiple name="defaultSelect" [ngModel]="value">
+                    <option [value]="0">Value Item 1</option>
+                    <option [value]="1">Value Item 2</option>
+                    <option [value]="2">Value Item 3</option>
+                </select>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5ListModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: [1],
+                },
+            }
+        );
+        cy.get('select').find('option:selected').should('have.text', 'Value Item 2');
+    });
+
+    it('should with selected state at options', () => {
+        cy.mount(
+            `<form>
+                <sac-listbox name="listbox" [label]="label" [(ngModel)]="value">
+                    <option [value]="1">Value 1</option>
+                    <option [value]="2" selected="true">Value 2</option>
+                    <option [value]="3">Value 4</option>                
+                </sac-listbox>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5ListModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: [],
+                },
+            }
+        );
+
+        cy.get('select').find('option:selected').should('have.text', 'Value 2');
+    });
 });

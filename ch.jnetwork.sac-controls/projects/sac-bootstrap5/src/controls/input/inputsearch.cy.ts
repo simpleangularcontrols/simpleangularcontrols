@@ -1,44 +1,192 @@
 import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
-import { SacInputPasswordComponent } from './inputpassword';
+import { SacInputSearchComponent } from './inputsearch';
 import { FormsModule } from '@angular/forms';
+import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
-describe('ngInputPasswordComponent', () => {
+describe('SacInputSearchComponent', () => {
     it('should emit clicked when search', () => {
         cy.mount(
             `<form>
-      <sac-inputpassword name="field" [label]="label" [passwordeye]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-inputpassword>
-      </form>`,
+                <sac-inputsearch name="field" [label]="label" [ngModel]="value" buttontext="Suchen" (ngModelChange)="valueChange.emit($event)" (clicked)="searchAction.emit($event)">
+                </sac-inputsearch>
+            </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputPasswordComponent, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
                     label: 'My Label',
-                    value: 'My Value',
-                    valueChange: createOutputSpy('valueSpy'),
+                    value: 'Search Value',
+                    valueChange: createOutputSpy('valueChange'),
+                    searchAction: createOutputSpy('searchAction'),
                 },
             }
         );
 
-        cy.get('input').should('have.attr', 'type', 'password');
-        cy.get('input').parent().get('a').should('exist');
-        cy.get('input').parent().get('.btn').should('exist');
-
-        cy.get('input').parent().get('a').click();
-        cy.get('input').should('have.attr', 'type', 'text');
-
-        cy.get('input').parent().get('a').click();
-        cy.get('input').should('have.attr', 'type', 'password');
+        cy.get('button').click();
+        cy.get('@searchAction').should('be.calledWith', 'Search Value');
     });
 
-    it('should have button with text', () => {});
+    it('should work with model binding', () => {
+        cy.mount(
+            `<form>
+                <sac-inputsearch name="field" [label]="label" [ngModel]="value" buttontext="Suchen" (ngModelChange)="valueChange.emit($event)" (clicked)="searchAction.emit($event)">
+                </sac-inputsearch>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'Search Value',
+                    valueChange: createOutputSpy('valueChange'),
+                    searchAction: createOutputSpy('searchAction'),
+                },
+            }
+        );
 
-    it('should have button with icon', () => {});
+        cy.get('input').clear().type('New search String');
+        cy.get('@valueChange').should('be.calledWith', 'New search String');
+    });
 
-    it('should have button with icon and text', () => {});
+    it('should have button with text', () => {
+        cy.mount(
+            `<form>
+                <sac-inputsearch name="field" [label]="label" [ngModel]="value" buttontext="Suchen" (ngModelChange)="valueChange.emit($event)" (clicked)="searchAction.emit($event)">
+                </sac-inputsearch>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'Search Value',
+                    valueChange: createOutputSpy('valueChange'),
+                    searchAction: createOutputSpy('searchAction'),
+                },
+            }
+        );
 
-    it('should have button mode from control', () => {});
+        cy.get('input').should('have.value', 'Search Value');
+        cy.get('button').should('have.text', 'Suchen');
+        cy.get('button i').should('not.exist');
+    });
 
-    it('should have button mode from layout', () => {});
+    it('should have button with icon', () => {
+        cy.mount(
+            `<form>
+                <sac-inputsearch name="field" buttonmode="icon" iconname="fa fa-search" [label]="label" [ngModel]="value" buttontext="Suchen" (ngModelChange)="valueChange.emit($event)" (clicked)="searchAction.emit($event)">
+                </sac-inputsearch>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'Search Value',
+                    valueChange: createOutputSpy('valueChange'),
+                    searchAction: createOutputSpy('searchAction'),
+                },
+            }
+        );
+
+        cy.get('input').should('have.value', 'Search Value');
+        cy.get('button').should('not.have.text', 'Suchen');
+        cy.get('button i').should('have.class', 'fa fa-search');
+    });
+
+    it('should have button with icon and text', () => {
+        cy.mount(
+            `<form>
+                <sac-inputsearch name="field" buttonmode="mixed" iconname="fa fa-search" [label]="label" [ngModel]="value" buttontext="Suchen" (ngModelChange)="valueChange.emit($event)" (clicked)="searchAction.emit($event)">
+                </sac-inputsearch>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'Search Value',
+                    valueChange: createOutputSpy('valueChange'),
+                    searchAction: createOutputSpy('searchAction'),
+                },
+            }
+        );
+
+        cy.get('input').should('have.value', 'Search Value');
+        cy.get('button').should('have.text', 'Suchen');
+        cy.get('button i').should('have.class', 'fa fa-search');
+    });
+
+    it('should have button mode from control', () => {
+        cy.mount(
+            `<form>
+                <sac-inputsearch name="field" buttonmode="mixed" iconname="fa fa-search" [label]="label" [ngModel]="value" buttontext="Suchen" (ngModelChange)="valueChange.emit($event)" (clicked)="searchAction.emit($event)">
+                </sac-inputsearch>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'Search Value',
+                    valueChange: createOutputSpy('valueChange'),
+                    searchAction: createOutputSpy('searchAction'),
+                },
+            }
+        );
+
+        cy.get('input').should('have.value', 'Search Value');
+        cy.get('button').should('have.text', 'Suchen');
+        cy.get('button i').should('have.class', 'fa fa-search');
+    });
+
+    it('should have button mode from layout', () => {
+        cy.mount(
+            `<form sacFormLayout inputsearchiconmode="mixed">
+                <sac-inputsearch name="field"  iconname="fa fa-search" [label]="label" [ngModel]="value" buttontext="Suchen" (ngModelChange)="valueChange.emit($event)" (clicked)="searchAction.emit($event)">
+                </sac-inputsearch>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'Search Value',
+                    valueChange: createOutputSpy('valueChange'),
+                    searchAction: createOutputSpy('searchAction'),
+                },
+            }
+        );
+
+        cy.get('input').should('have.value', 'Search Value');
+        cy.get('button').should('have.text', 'Suchen');
+        cy.get('button i').should('have.class', 'fa fa-search');
+    });
+
+    it('should have button mode from configuration service', () => {
+        cy.mount(
+            `<form>
+                <sac-inputsearch name="field"  iconname="fa fa-search" [label]="label" [ngModel]="value" buttontext="Suchen" (ngModelChange)="valueChange.emit($event)" (clicked)="searchAction.emit($event)">
+                </sac-inputsearch>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'Search Value',
+                    valueChange: createOutputSpy('valueChange'),
+                    searchAction: createOutputSpy('searchAction'),
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            InputSearchIconMode: 'mixed',
+                            LabelSizeXs: 12,
+                            LabelSizeSm: 4,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.get('input').should('have.value', 'Search Value');
+        cy.get('button').should('have.text', 'Suchen');
+        cy.get('button i').should('have.class', 'fa fa-search');
+    });
 });

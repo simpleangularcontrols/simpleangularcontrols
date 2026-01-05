@@ -427,14 +427,67 @@ describe('SacTimeComponent', () => {
     });
 
     it('should disable max validator when maxdate is invalid', () => {
-        // TODO: test required
+        cy.mount(
+            `<form>
+                <sac-time name="field" [label]="label" [maxtime]="maxtime" [ngModel]="value" [validationmessagemaxtime]="validationmessagemaxtime"></sac-time>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacTimeComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    maxtime: '11:666',
+                    value: new Date(0, 0, 1, 14, 53),
+                    validationmessagemaxtime: 'MaxTimeMsg',
+                    validationmessagesummarymaxtime: 'SummaryMax',
+                },
+            }
+        );
+
+        cy.shouldBeValid();
     });
 
     it('should disable mix validator when mindate is invalid', () => {
-        // TODO: test required
+        cy.mount(
+            `<form>
+                <sac-time name="field" [label]="label" [mintime]="mintime" [ngModel]="value" [validationmessagemintime]="validationmessagemintime"></sac-time>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacTimeComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    mintime: '18:444',
+                    value: new Date(0, 0, 1, 17, 20, 0),
+                    validationmessagemintime: 'MinTimeMsg',
+                    validationmessagesummarymintime: 'SummaryMin',
+                },
+            }
+        );
+
+        cy.shouldBeValid();
     });
 
     it('should toggle window when click button', () => {
-        // TODO: test required
+        cy.mount(
+            `<form>
+                <div id="clicktarget"></div>
+                <sac-time name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-time>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacTimeComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: null,
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.get('button').click();
+        cy.get('.calendar-selector').should('exist');
+
+        cy.get('#clicktarget').click({ force: true });
+
+        cy.get('.calendar-selector').should('not.exist');
     });
 });

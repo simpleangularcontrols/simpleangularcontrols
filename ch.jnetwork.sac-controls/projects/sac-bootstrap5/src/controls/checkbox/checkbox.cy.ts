@@ -1,4 +1,5 @@
 import { SacFormDirective } from '../form';
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacCheckboxComponent } from './checkbox';
 import { FormsModule } from '@angular/forms';
@@ -9,9 +10,9 @@ describe('sac-checkboxComponent', () => {
     it('should show label and checkbox text', () => {
         cy.mount(
             `<form>
-      <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-checkbox>
-      </form>`,
+                <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-checkbox>
+            </form>`,
             {
                 declarations: [],
                 imports: [FormsModule, SacCheckboxComponent, SacFormDirective, SACBootstrap5LayoutModule],
@@ -36,9 +37,9 @@ describe('sac-checkboxComponent', () => {
     it('should be disabled', () => {
         cy.mount(
             `<form>
-      <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [disabled]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-checkbox>
-      </form>`,
+                <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [disabled]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-checkbox>
+            </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacCheckboxComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
@@ -59,9 +60,9 @@ describe('sac-checkboxComponent', () => {
     it('should not show label', () => {
         cy.mount(
             `<form>
-      <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-checkbox>
-      </form>`,
+                <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-checkbox>
+            </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacCheckboxComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
@@ -199,14 +200,105 @@ describe('sac-checkboxComponent', () => {
     });
 
     it('should use checkbox style from control', () => {
-        // TODO: test required
+        cy.mount(
+            `<form>
+                <sac-checkbox name="checkbox" [label]="label" checkboxstyle="switch" [checkboxtext]="checkboxtext" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-checkbox>
+            </form>`,
+            {
+                declarations: [],
+                imports: [FormsModule, SacCheckboxComponent, SacFormDirective, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'Control Label',
+                    checkboxtext: 'Checkbox Test',
+                    value: false,
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.get('.row .col-12 label.col-form-label').first().should('have.text', 'Control Label');
+        cy.get('.form-check label').should('have.text', 'Checkbox Test');
+        cy.get('.form-check').should('have.class', 'form-switch');
+        cy.get('input').click();
+        cy.get('@valueSpy').should('be.calledWith', true);
+        cy.get('input').click();
+        cy.get('@valueSpy').should('be.calledWith', false);
     });
 
     it('should use checkbox style from form layout', () => {
-        // TODO: test required
+        cy.mount(
+            `<form sacFormLayout checkboxstyle="switch">
+                <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-checkbox>
+            </form>`,
+            {
+                declarations: [],
+                imports: [
+                    FormsModule,
+                    SacCheckboxComponent,
+                    SacFormDirective,
+                    SacFormLayoutDirective,
+                    SACBootstrap5LayoutModule,
+                ],
+                componentProperties: {
+                    label: 'Control Label',
+                    checkboxtext: 'Checkbox Test',
+                    value: false,
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.get('.row .col-12 label.col-form-label').first().should('have.text', 'Control Label');
+        cy.get('.form-check label').should('have.text', 'Checkbox Test');
+        cy.get('.form-check').should('have.class', 'form-switch');
+        cy.get('input').click();
+        cy.get('@valueSpy').should('be.calledWith', true);
+        cy.get('input').click();
+        cy.get('@valueSpy').should('be.calledWith', false);
     });
 
     it('should use checkbox style from service', () => {
-        // TODO: test required
+        cy.mount(
+            `<form>
+                <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-checkbox>
+            </form>`,
+            {
+                declarations: [],
+                imports: [
+                    FormsModule,
+                    SacCheckboxComponent,
+                    SacFormDirective,
+                    SacFormLayoutDirective,
+                    SACBootstrap5LayoutModule,
+                ],
+                componentProperties: {
+                    label: 'Control Label',
+                    checkboxtext: 'Checkbox Test',
+                    value: false,
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            CheckboxStyle: 'switch',
+                            LabelSizeXs: 12,
+                            LabelSizeSm: 4,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.get('.row .col-12 label.col-form-label').first().should('have.text', 'Control Label');
+        cy.get('.form-check label').should('have.text', 'Checkbox Test');
+        cy.get('.form-check').should('have.class', 'form-switch');
+        cy.get('input').click();
+        cy.get('@valueSpy').should('be.calledWith', true);
+        cy.get('input').click();
+        cy.get('@valueSpy').should('be.calledWith', false);
     });
 });

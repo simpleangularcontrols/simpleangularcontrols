@@ -228,6 +228,11 @@ export class SacDateSelectorCommon implements OnInit {
             this._selectedValue = tempValue.utc();
         }
 
+        if (this._selectedValue === null) {
+            this.selectdate.emit({ date: this._initialValue.local() });
+            return;
+        }
+
         this.selectdate.emit({
             date: this._selectedValue,
         });

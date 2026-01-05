@@ -2,6 +2,7 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacDateSelectorComponent } from './dateselector';
 import { FormsModule } from '@angular/forms';
+import { createOutputSpy } from 'cypress/angular';
 
 describe('SacDateSelectorComponent', () => {
     it('should show component', () => {
@@ -145,19 +146,147 @@ describe('SacDateSelectorComponent', () => {
         cy.get('input[max="59"]').should('have.value', 56);
     });
 
+    it('should set correct date with selected date', () => {
+        const initial = new Date(2022, 4, 15, 0, 0, 0, 0); // May 14, 2022
+
+        cy.mount(
+            `<form>
+                <sac-dateselector name="controlname" [dateselection]="dateselection" [initialvalue]="initialvalue" (selectdate)="valueChange.emit($event)"></sac-dateselector>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacDateSelectorComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    initialvalue: initial,
+                    dateselection: true,
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.contains('.calendar-selector div', '10').click();
+        cy.get('.calendar-selector button.btn-primary').click();
+
+        cy.get('@valueSpy')
+            .should('have.been.called')
+            .its('lastCall.args.0.date')
+            .invoke('format', 'YYYY-MM-DD HH:mm:ss')
+            .should('contain', '2022-05-10 00:00:00');
+    });
+
     it('should set correct date with initialvalue', () => {
-        // TODO: test required
+        const initial = new Date(2022, 4, 15, 0, 0, 0, 0); // May 14, 2022
+
+        cy.mount(
+            `<form>
+                <sac-dateselector name="controlname" [dateselection]="dateselection" [initialvalue]="initialvalue" (selectdate)="valueChange.emit($event)"></sac-dateselector>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacDateSelectorComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    initialvalue: initial,
+                    dateselection: true,
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.get('sac-dateselector')
+            .find('.calendar-selector .container .row .col.text-center')
+            .first()
+            .should('contain', `${initial.getMonth() + 1}/${initial.getFullYear()}`);
+
+        cy.get('div.day-selected').should('have.text', '15');
+
+        cy.get('.calendar-selector button.btn-primary').click();
+
+        cy.get('@valueSpy')
+            .should('have.been.called')
+            .its('lastCall.args.0.date')
+            .invoke('format', 'YYYY-MM-DD HH:mm:ss')
+            .should('contain', '2022-05-15 00:00:00');
     });
 
     it('should switch to december to january when click back', () => {
-        // TODO: test required
+        const initial = new Date(2022, 0, 1); // Jan 2022
+
+        cy.mount(
+            `<form>
+                <sac-dateselector name="controlname" [dateselection]="dateselection" [initialvalue]="initialvalue"></sac-dateselector>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacDateSelectorComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    initialvalue: initial,
+                    dateselection: true,
+                },
+            }
+        );
+
+        cy.get('sac-dateselector')
+            .find('.calendar-selector .container .row .col.text-center')
+            .first()
+            .should('contain', '1/2022');
+
+        // click prev (left control)
+        cy.get('sac-dateselector').find('.calendar-selector .row .col.text-start a').click();
+        cy.get('sac-dateselector')
+            .find('.calendar-selector .container .row .col.text-center')
+            .first()
+            .should('contain', '12/2021');
     });
 
     it('should switch to january to december when click next', () => {
-        // TODO: test required
+        const initial = new Date(2022, 11, 31); // Jan 2022
+
+        cy.mount(
+            `<form>
+                <sac-dateselector name="controlname" [dateselection]="dateselection" [initialvalue]="initialvalue"></sac-dateselector>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacDateSelectorComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    initialvalue: initial,
+                    dateselection: true,
+                },
+            }
+        );
+
+        cy.get('sac-dateselector')
+            .find('.calendar-selector .container .row .col.text-center')
+            .first()
+            .should('contain', '12/2022');
+
+        // click prev (right control)
+        cy.get('sac-dateselector').find('.calendar-selector .row .col.text-end a').click();
+        cy.get('sac-dateselector')
+            .find('.calendar-selector .container .row .col.text-center')
+            .first()
+            .should('contain', '1/2023');
     });
 
     it('should auto set value with auto apply', () => {
-        // TODO: test required
+        const initial = new Date(2022, 4, 15, 0, 0, 0, 0); // May 14, 2022
+
+        cy.mount(
+            `<form>
+                <sac-dateselector name="controlname" [dateselection]="dateselection" [initialvalue]="initialvalue" [autoapplyselection]="true" (selectdate)="valueChange.emit($event)"></sac-dateselector>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacDateSelectorComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    initialvalue: initial,
+                    dateselection: true,
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.contains('.calendar-selector div', '10').click();
+
+        cy.get('@valueSpy')
+            .should('have.been.called')
+            .its('lastCall.args.0.date')
+            .invoke('format', 'YYYY-MM-DD HH:mm:ss')
+            .should('contain', '2022-05-10 00:00:00');
     });
 });

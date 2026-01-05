@@ -4,6 +4,7 @@ import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacDialogComponent } from './dialog';
 import { NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { createOutputSpy } from 'cypress/angular';
 
 describe('SacDialogComponent', () => {
     it('should show component', () => {
@@ -379,6 +380,41 @@ describe('SacDialogComponent', () => {
     });
 
     it('should change isvisible when dialog closed', () => {
-        // TODO: test required
+        cy.mount(
+            `<form>
+                <div id="clicktarget"></div>
+                <sac-dialog #modaldialog [isvisible]="value" (isvisibleChange)="valueChange.emit($event)">
+                    <div dialogbody>Dialog Header</div>
+                    <div dialogfooter>
+                        <sac-button
+                            name="modalClose1"
+                            text="Close"
+                            (clicked)="modaldialog.hide()">
+                        </sac-button>
+                    </div>                
+                </sac-dialog>
+            </form>`,
+            {
+                imports: [
+                    FormsModule,
+                    SacFormDirective,
+                    SacDialogComponent,
+                    SacButtonComponent,
+                    SACBootstrap5LayoutModule,
+                ],
+                componentProperties: {
+                    value: true,
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.get('div.modal').should('exist');
+
+        cy.get('div.modal').click({ force: true });
+
+        cy.get('div.modal').should('not.exist');
+
+        cy.get('@valueSpy').should('be.calledWith', false);
     });
 });

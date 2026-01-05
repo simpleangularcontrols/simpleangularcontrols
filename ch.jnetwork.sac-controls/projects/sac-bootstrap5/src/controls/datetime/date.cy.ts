@@ -422,14 +422,65 @@ describe('SacDateComponent', () => {
     });
 
     it('should disable max validator when maxdate is invalid', () => {
-        // TODO: test required
+        cy.mount(
+            `<form>
+                <sac-date name="field" [label]="label" [maxdate]="maxdate" [ngModel]="value">
+                </sac-date>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacDateComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    maxdate: '45.12.2000',
+                    value: new Date(2000, 0, 2),
+                },
+            }
+        );
+
+        cy.shouldBeValid();
     });
 
     it('should disable mix validator when mindate is invalid', () => {
-        // TODO: test required
+        cy.mount(
+            `<form>
+                <sac-date name="field" [label]="label" [mindate]="mindate" [ngModel]="value">
+                </sac-date>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacDateComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    mindate: '37.01.2000',
+                    value: new Date(1999, 11, 31),
+                },
+            }
+        );
+
+        cy.shouldBeValid();
     });
 
     it('should toggle window when click button', () => {
-        // TODO: test required
+        cy.mount(
+            `<form>
+                <div id="clicktarget"></div>
+                <sac-date name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-date>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacDateComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: null,
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.get('button').click();
+        cy.get('.calendar-selector').should('exist');
+
+        cy.get('#clicktarget').click({ force: true });
+
+        cy.get('.calendar-selector').should('not.exist');
     });
 });

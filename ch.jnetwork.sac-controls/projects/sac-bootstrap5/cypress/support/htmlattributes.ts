@@ -4,6 +4,7 @@ declare namespace Cypress {
         shouldBeDisabled(tagName?: string): Chainable;
         shouldHavePlaceholder(text: string, tagName?: string): Chainable;
         isTruncated(): Chainable;
+        filterByText(text: string): Chainable;
         tinyMceType(text: string): Chainable;
         tinyMceTouch(): Chainable;
         tinyMceWaitForInit(): Chainable;
@@ -26,6 +27,10 @@ Cypress.Commands.add('isTruncated', { prevSubject: ['element'] }, (subject) => {
     const el = subject[0];
     expect(el.scrollWidth).to.be.greaterThan(el.offsetWidth);
     return cy.wrap(subject);
+});
+
+Cypress.Commands.add('filterByText', { prevSubject: ['element'] }, (subject, text: string) => {
+    return cy.wrap(subject).filter((_, el) => el.innerText.trim() === text);
 });
 
 Cypress.Commands.add('tinyMceWaitForInit', { prevSubject: ['element'] }, (subject) => {

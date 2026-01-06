@@ -34,6 +34,7 @@
                 [ngModelOptions]="{ standalone: true }"
                 (ngModelChange)="setValue($event)"
                 (onSaveContent)="save($event.event.content)"
+                (onBlur)="blur()"
                 [disabled]="disabled"
                 [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)"></editor>
             <div

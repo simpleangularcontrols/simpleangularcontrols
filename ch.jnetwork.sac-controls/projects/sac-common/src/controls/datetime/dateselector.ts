@@ -221,14 +221,14 @@ export class SacDateSelectorCommon implements OnInit {
         }
 
         if (this.dateselection === false && this._selectedValue !== null) {
-            const tempValue: Moment = this._selectedValue.local();
+            const tempValue: moment_.Moment = this._selectedValue.local();
             tempValue.date(1);
             tempValue.month(0);
             tempValue.year(1900);
             this._selectedValue = tempValue.utc();
         }
 
-        if (this._selectedValue === null) {
+        if (this._selectedValue === null && this._initialValue !== null) {
             this.selectdate.emit({ date: this._initialValue.local() });
             return;
         }

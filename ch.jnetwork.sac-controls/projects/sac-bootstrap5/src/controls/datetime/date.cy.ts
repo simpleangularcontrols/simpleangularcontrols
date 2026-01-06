@@ -304,7 +304,11 @@ describe('SacDateComponent', () => {
         const year = _now.getFullYear().toString().padStart(4, '0');
 
         cy.get('button').click();
-        cy.contains('.calendar-selector div', dayWithoutLeadingZero).click();
+
+        cy.get('.calendar-selector div')
+            .filter((index, el) => el.innerText.trim() === dayWithoutLeadingZero.toString())
+            .click();
+
         cy.get('.calendar-selector button.btn-primary').click();
 
         cy.get('input').should('have.value', `${day}.${month}.${year}`);

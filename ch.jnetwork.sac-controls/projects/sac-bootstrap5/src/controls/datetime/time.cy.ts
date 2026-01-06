@@ -234,7 +234,7 @@ describe('SacTimeComponent', () => {
         cy.get('@valueSpy').should('not.be.called');
     });
 
-    it('should reset date via selector', () => {
+    it('should reset time via selector', () => {
         cy.mount(
             `<form>
                 <sac-time name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">

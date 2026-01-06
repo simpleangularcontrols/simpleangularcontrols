@@ -57,7 +57,7 @@ describe('SacTinyMceComponent', () => {
         cy.get('editor').should('have.class', 'is-invalid');
     });
 
-    it('should can browse and select files', () => {
+    it('should can browse and select image files', () => {
         cy.intercept('POST', '/api/browser/getnodes', {
             statusCode: 200,
             body: {
@@ -118,12 +118,167 @@ describe('SacTinyMceComponent', () => {
         cy.get('.modal-dialog table.table td').contains('Image_250x250.jpg').click();
         cy.get('.modal-dialog .modal-footer button.btn-primary').click();
 
-        cy.get('.tox-dialog__body').get('button.tox-button[title="Save"]').click();
-
+        // wait for image to set correct size
         cy.wait('@getImage');
 
+        cy.get('.tox-dialog__body').get('button.tox-button[title="Save"]').click();
+
         cy.get('editor').tinyMceTouch();
-        cy.get('@valueChange').should('be.calledWith', '<div><img src="Image_250x250.jpg" alt="" /></div>');
+        cy.get('@valueChange').should(
+            'be.calledWith',
+            '<div><img src="Image_250x250.jpg" alt="" width="16" height="11" /></div>'
+        );
+    });
+
+    it('should can browse and select media files', () => {
+        cy.intercept('POST', '/api/browser/getnodes', {
+            statusCode: 200,
+            body: {
+                Node: {
+                    Name: 'Files',
+                    ChildNodes: [],
+                    Files: [
+                        {
+                            Filename: 'video.mov',
+                            Size: 58092,
+                        },
+                    ],
+                },
+            },
+        }).as('getNodes');
+
+        cy.intercept('GET', '/video.mov', {
+            fixture: 'de.png',
+        }).as('getMovie');
+
+        cy.mount(
+            `<div class="tox tox-tinymce-aux"></div><form>
+                <sac-tinymce name="tinyMceControl"
+                    [label]="label"
+                    filebrowserapiurl="/api/browser"
+                    [ngModel]="value"
+                    (ngModelChange)="valueChange.emit($event)"
+                    [config]="config">
+                </sac-tinymce>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5TinyMceModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '<div></div>',
+                    config: {
+                        base_url: '/__cypress/src/tinymce', // This is needed so that plugins and skins load correctly.
+                        document_base_url: 'http://localhost/', // is required to intercept request to image
+                        plugins: 'media',
+                        toolbar: 'media',
+                    },
+                    valueChange: createOutputSpy('valueChange'),
+                },
+                providers: [{ provide: TINYMCE_SCRIPT_SRC, useValue: '/__cypress/src/tinymce/tinymce.min.js' }],
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('.tox-tinymce').should('be.visible');
+        cy.get('editor').tinyMceWaitForInit();
+
+        cy.get('editor').get('button.tox-tbtn[title="Insert/edit media"]').click();
+
+        cy.get('.tox-dialog__body').get('button.tox-button[title="Source"]').click();
+
+        cy.wait('@getNodes');
+
+        cy.get('.modal-dialog table.table td').contains('video.mov').click();
+        cy.get('.modal-dialog .modal-footer button.btn-primary').click();
+
+        cy.get('.tox-dialog__body').get('button.tox-button[title="Save"]').click();
+
+        cy.wait('@getMovie');
+
+        cy.get('editor').tinyMceTouch();
+        cy.get('@valueChange').should(
+            'be.calledWith',
+            '<div><video controls="controls" width="300" height="150">\n<source src="video.mov" /></video></div>'
+        );
+    });
+
+    it('should can browse and select link files', () => {
+        cy.intercept('POST', '/api/browser/getnodes', {
+            statusCode: 200,
+            body: {
+                Node: {
+                    Name: 'Files',
+                    ChildNodes: [],
+                    Files: [
+                        {
+                            Filename: 'file.csv',
+                            Size: 600572,
+                        },
+                    ],
+                },
+            },
+        }).as('getNodes');
+
+        cy.mount(
+            `<div class="tox tox-tinymce-aux"></div><form>
+                <sac-tinymce name="tinyMceControl"
+                    [label]="label"
+                    filebrowserapiurl="/api/browser"
+                    [ngModel]="value"
+                    (ngModelChange)="valueChange.emit($event)"
+                    [config]="config">
+                </sac-tinymce>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5TinyMceModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '<div></div>',
+                    config: {
+                        base_url: '/__cypress/src/tinymce', // This is needed so that plugins and skins load correctly.
+                        document_base_url: 'http://localhost/', // is required to intercept request to image
+                        plugins: 'link',
+                        toolbar: 'link',
+                    },
+                    valueChange: createOutputSpy('valueChange'),
+                },
+                providers: [{ provide: TINYMCE_SCRIPT_SRC, useValue: '/__cypress/src/tinymce/tinymce.min.js' }],
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('.tox-tinymce').should('be.visible');
+        cy.get('editor').tinyMceWaitForInit();
+
+        cy.get('editor').get('button.tox-tbtn[title="Insert/edit link"]').click();
+
+        cy.get('.tox-dialog__body').get('button.tox-button[title="URL"]').click();
+
+        cy.wait('@getNodes');
+
+        cy.get('.modal-dialog table.table td').contains('file.csv').click();
+        cy.get('.modal-dialog .modal-footer button.btn-primary').click();
+
+        cy.get('.tox-dialog__body label')
+            .filterByText('Text to display')
+            .parent()
+            .find('input')
+            .clear()
+            .type('Download CSV');
+        cy.get('.tox-dialog__body label')
+            .filterByText('Title')
+            .parent()
+            .find('input')
+            .clear()
+            .type('Click to download csv');
+
+        cy.get('.tox-dialog__body').get('button.tox-button[title="Save"]').click();
+
+        cy.get('editor').tinyMceTouch();
+        cy.get('@valueChange').should(
+            'be.calledWith',
+            '<div><a title="Click to download csv" href="file.csv">Download CSV</a></div>'
+        );
     });
 
     it('should can close browse dialog without change content', () => {

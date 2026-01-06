@@ -213,7 +213,7 @@ describe('SacDropdownComponent', () => {
         cy.get('select').find('option:selected').should('have.text', 'Please select');
         cy.get('select').find('option:selected').should('have.value', '0: null');
 
-        cy.get('select').shouldBeInvalid;
+        cy.get('select').shouldBeInvalid('select');
     });
 
     it('option should work with value attribute', () => {

@@ -45,7 +45,6 @@ describe('SacListboxComponent', () => {
         );
 
         cy.shouldHaveLabel('My Label');
-        // cy.get('select').select('Value 3');
         cy.get('select').find('option:selected').should('have.value', 'Element 3');
         cy.get('select').should('exist');
     });
@@ -77,7 +76,6 @@ describe('SacListboxComponent', () => {
         );
 
         cy.shouldHaveLabel('My Label');
-        // cy.get('select').select('Value 3');
         cy.get('select').find('option:selected').should('have.value', 'Element 3');
         cy.get('select').should('exist');
     });

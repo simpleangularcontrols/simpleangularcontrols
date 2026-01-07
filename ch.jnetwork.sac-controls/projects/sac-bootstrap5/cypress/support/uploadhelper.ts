@@ -34,7 +34,6 @@ Cypress.Commands.add('registerUploadController', (filesize: number) => {
                 statusCode: 308,
                 headers: {
                     Range: `bytes=0-${receivedSize}`,
-                    Connection: 'close',
                 },
                 body: { documentid: null, status: 'incomplete' },
                 delay: 50,

@@ -411,7 +411,7 @@ describe('SacUploadComponent', () => {
                 statusCode: 201,
                 headers: { Location: '/api/upload/64f206db-1b40-42e7-859e-d0d792464dbc' },
             }
-        ).as('uploadRegister1');
+        ).as('uploadRegister2');
 
         cy.intercept(
             { method: 'POST', url: '/api/upload/register', times: 1 },
@@ -419,7 +419,7 @@ describe('SacUploadComponent', () => {
                 statusCode: 201,
                 headers: { Location: '/api/upload/11784817-c210-48da-8da1-6e369e666daa' },
             }
-        ).as('uploadRegister2');
+        ).as('uploadRegister1');
 
         cy.intercept('PUT', '/api/upload/64f206db-1b40-42e7-859e-d0d792464dbc', {
             statusCode: 200,
@@ -428,7 +428,7 @@ describe('SacUploadComponent', () => {
                 documentid: '64f206db-1b40-42e7-859e-d0d792464dbc',
                 status: 'done',
             },
-        }).as('uploadFile1');
+        }).as('uploadFile2');
 
         cy.intercept('PUT', '/api/upload/11784817-c210-48da-8da1-6e369e666daa', {
             statusCode: 200,
@@ -437,7 +437,7 @@ describe('SacUploadComponent', () => {
                 documentid: '11784817-c210-48da-8da1-6e369e666daa',
                 status: 'done',
             },
-        }).as('uploadFile2');
+        }).as('uploadFile1');
 
         cy.mount(
             `<form>
@@ -458,15 +458,12 @@ describe('SacUploadComponent', () => {
         cy.get('button').filterByText('Upload').click();
 
         cy.wait('@uploadRegister1');
-        cy.wait('@uploadRegister2');
+        cy.get('@uploadRegister2.all').should('have.length', 0);
         cy.wait('@uploadFile1');
-        cy.wait('@uploadFile2');
+        cy.get('@uploadFile2.all').should('have.length', 0);
 
         cy.get('.progress-text').should('have.length', 1);
         cy.get('.progress-text').should('have.text', 'upload.file1.txt');
         cy.get('.progress-bar').eq(0).should('have.attr', 'style', 'width: 100%;');
-
-        cy.get('@uploadRegister2').should('not.have.been.called');
-        cy.get('@uploadFile2').should('not.have.been.called');
     });
 });

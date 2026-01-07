@@ -9,8 +9,8 @@ describe('SacDropzoneMultipleComponent', () => {
     it('should show label and component', () => {
         cy.mount(
             `<form>
-        <sac-dropzonemultiple name="uploadControl" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
-      </form>`,
+                <sac-dropzonemultiple name="uploadControl" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
+            </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                 componentProperties: {
@@ -25,8 +25,8 @@ describe('SacDropzoneMultipleComponent', () => {
     it('should not have label but text in zone', () => {
         cy.mount(
             `<form>
-        <sac-dropzonemultiple [disablelabel]="true" name="uploadControl" endpoint="/api/upload/register" [label]="label">Drop File here</sac-dropzonemultiple>
-      </form>`,
+                <sac-dropzonemultiple [disablelabel]="true" name="uploadControl" endpoint="/api/upload/register" [label]="label">Drop File here</sac-dropzonemultiple>
+            </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                 componentProperties: {
@@ -44,8 +44,8 @@ describe('SacDropzoneMultipleComponent', () => {
         cy.registerUploadController(filesize).then((chunks) => {
             cy.mount(
                 `<form>
-          <sac-dropzonemultiple name="uploadControl" [ngModel]="value" (ngModelChange)="valueAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
-        </form>`,
+                    <sac-dropzonemultiple name="uploadControl" [ngModel]="value" (ngModelChange)="valueAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
+                </form>`,
                 {
                     imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
@@ -68,8 +68,8 @@ describe('SacDropzoneMultipleComponent', () => {
         cy.registerUploadController(filesize).then((chunks) => {
             cy.mount(
                 `<form>
-        <sac-dropzonemultiple name="uploadControl" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
-      </form>`,
+                    <sac-dropzonemultiple name="uploadControl" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
+                </form>`,
                 {
                     imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
@@ -92,8 +92,8 @@ describe('SacDropzoneMultipleComponent', () => {
         cy.registerUploadController(filesize).then((_) => {
             cy.mount(
                 `<form>
-          <sac-dropzonemultiple name="uploadControl" allowedtypes=".txt|.csv" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
-        </form>`,
+                    <sac-dropzonemultiple name="uploadControl" allowedtypes=".txt|.csv" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
+                </form>`,
                 {
                     imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
@@ -114,8 +114,8 @@ describe('SacDropzoneMultipleComponent', () => {
         cy.registerUploadController(filesize).then((_) => {
             cy.mount(
                 `<form>
-        <sac-dropzonemultiple name="uploadControl" [maxfilesize]=100000 (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
-      </form>`,
+                    <sac-dropzonemultiple name="uploadControl" [maxfilesize]=100000 (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
+                </form>`,
                 {
                     imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
@@ -136,8 +136,8 @@ describe('SacDropzoneMultipleComponent', () => {
         cy.registerUploadController(filesize).then((chunks) => {
             cy.mount(
                 `<form>
-          <sac-dropzonemultiple name="uploadControl" [(ngModel)]="value" [isrequired]="true" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
-        </form>`,
+                    <sac-dropzonemultiple name="uploadControl" [(ngModel)]="value" [isrequired]="true" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
+                </form>`,
                 {
                     imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
@@ -163,8 +163,8 @@ describe('SacDropzoneMultipleComponent', () => {
         cy.registerUploadController(filesize).then((chunks) => {
             cy.mount(
                 `<form>
-          <sac-dropzonemultiple name="uploadControl" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
-        </form>`,
+                    <sac-dropzonemultiple name="uploadControl" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
+                </form>`,
                 {
                     imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
@@ -194,8 +194,8 @@ describe('SacDropzoneMultipleComponent', () => {
         cy.registerUploadController(filesize).then((chunks) => {
             cy.mount(
                 `<form>
-          <sac-dropzonemultiple name="uploadControl" [enablepause]="true" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
-        </form>`,
+                    <sac-dropzonemultiple name="uploadControl" [enablepause]="true" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
+                </form>`,
                 {
                     imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
@@ -252,8 +252,8 @@ describe('SacDropzoneMultipleComponent', () => {
         cy.registerUploadController(filesize).then((chunks) => {
             cy.mount(
                 `<form>
-        <sac-dropzonemultiple name="uploadControl" [enablepause]="true" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
-      </form>`,
+                    <sac-dropzonemultiple name="uploadControl" [enablepause]="true" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
+                </form>`,
                 {
                     imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
@@ -307,8 +307,8 @@ describe('SacDropzoneMultipleComponent', () => {
         cy.registerUploadController(filesize).then((chunks) => {
             cy.mount(
                 `<form>
-        <sac-dropzonemultiple name="uploadControl" [enablepause]="true" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
-      </form>`,
+                    <sac-dropzonemultiple name="uploadControl" [enablepause]="true" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
+                </form>`,
                 {
                     imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
@@ -337,42 +337,6 @@ describe('SacDropzoneMultipleComponent', () => {
             cy.get('.dropzone-uploadstates a span.fa-times').click();
             cy.wait('@deleteFile');
             cy.get('.dropzone-uploadstates .progress-bar').should('not.exist');
-        });
-    });
-
-    it('should use custom icons from iconservice', () => {
-        const filesize = 1000000;
-        cy.registerUploadController(filesize).then((chunks) => {
-            cy.mount(
-                `<form>
-          <sac-dropzonemultiple name="uploadControl" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
-        </form>`,
-                {
-                    imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
-                    componentProperties: {
-                        value: null,
-                        label: 'My Label',
-                        valueAction: createOutputSpy('valueAction'),
-                    },
-                    providers: [
-                        {
-                            provide: SACICON_SERVICE,
-                            useValue: {
-                                UploadComponentBrowseIcon: 'fa fa-database',
-                                UploadComponentContinueIcon: 'fa fa-window-restore',
-                                UploadComponentDeleteIcon: 'fa fa-window-close',
-                                UploadComponentPauseIcon: 'fa fa-hdd',
-                                UploadComponentUploadIcon: 'fa fa-upload',
-                            },
-                        },
-                    ],
-                }
-            );
-
-            cy.get('input[type="file"]').createFile(filesize);
-            cy.waitForUploadComplete(chunks);
-
-            cy.get('.dropzone-uploadstates a span.fa-window-close').should('exist');
         });
     });
 
@@ -413,8 +377,8 @@ describe('SacDropzoneMultipleComponent', () => {
 
         cy.mount(
             `<form>
-        <sac-dropzonemultiple name="uploadControl" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
-      </form>`,
+                <sac-dropzonemultiple name="uploadControl" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
+            </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                 componentProperties: {
@@ -437,6 +401,43 @@ describe('SacDropzoneMultipleComponent', () => {
         cy.get('.dropzone-uploadstates').eq(1).should('have.text', 'upload.file2.txt');
         cy.get('.progress-bar').eq(0).should('have.attr', 'style', 'width: 100%;');
         cy.get('.progress-bar').eq(1).should('have.attr', 'style', 'width: 100%;');
+    });
+
+    it('should use custom icons from iconservice', () => {
+        const filesize = 1000000;
+        cy.registerUploadController(filesize).then((chunks) => {
+            cy.mount(
+                `<form>
+                    <sac-dropzonemultiple name="uploadControl" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
+                </form>`,
+                {
+                    imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
+                    componentProperties: {
+                        value: null,
+                        label: 'My Label',
+                        valueAction: createOutputSpy('valueAction'),
+                    },
+                    providers: [
+                        {
+                            provide: SACICON_SERVICE,
+                            useValue: {
+                                UploadComponentBrowseIcon: 'fa fa-database',
+                                UploadComponentContinueIcon: 'fa fa-window-restore',
+                                UploadComponentDeleteIcon: 'fa fa-window-close',
+                                UploadComponentPauseIcon: 'fa fa-hdd',
+                                UploadComponentUploadIcon: 'fa fa-upload',
+                            },
+                        },
+                    ],
+                }
+            );
+
+            console.log(chunks);
+            cy.get('input[type="file"]').createFile(filesize);
+            cy.waitForUploadComplete(chunks);
+
+            cy.get('.dropzone-uploadstates a span.fa-window-close').should('exist');
+        });
     });
 
     it('should can drop multiple files in dropzone', () => {
@@ -476,8 +477,8 @@ describe('SacDropzoneMultipleComponent', () => {
 
         cy.mount(
             `<form>
-        <sac-dropzonemultiple name="uploadControl" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
-      </form>`,
+                <sac-dropzonemultiple name="uploadControl" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
+            </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                 componentProperties: {
@@ -486,14 +487,17 @@ describe('SacDropzoneMultipleComponent', () => {
             }
         );
 
-        cy.get('input[type="file"]').selectFile([
-            { contents: Cypress.Buffer.from('This is a Test'), fileName: 'upload.file1.txt', lastModified: Date.now() },
-            {
-                contents: Cypress.Buffer.from('This is another Test'),
-                fileName: 'upload.file2.txt',
-                lastModified: Date.now(),
-            },
-        ]);
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(
+            new File([Cypress.Buffer.from('This is a Test')], 'upload.file1.txt', { type: 'text/plain' })
+        );
+        dataTransfer.items.add(
+            new File([Cypress.Buffer.from('This is a second file')], 'upload.file2.txt', { type: 'text/plain' })
+        );
+
+        cy.get('input[type="file"]').trigger('drop', {
+            dataTransfer,
+        });
 
         cy.wait('@uploadRegister1');
         cy.wait('@uploadRegister2');
@@ -504,5 +508,54 @@ describe('SacDropzoneMultipleComponent', () => {
         cy.get('.dropzone-uploadstates').eq(1).should('have.text', 'upload.file2.txt');
         cy.get('.progress-bar').eq(0).should('have.attr', 'style', 'width: 100%;');
         cy.get('.progress-bar').eq(1).should('have.attr', 'style', 'width: 100%;');
+    });
+
+    it('should set active on drag single file in dropzone', () => {
+        cy.intercept(
+            { method: 'POST', url: '/api/upload/register', times: 1 },
+            {
+                statusCode: 201,
+                headers: { Location: '/api/upload/11784817-c210-48da-8da1-6e369e666daa' },
+            }
+        ).as('uploadRegister1');
+
+        cy.intercept('PUT', '/api/upload/11784817-c210-48da-8da1-6e369e666daa', {
+            statusCode: 200,
+            headers: { 'content-length': '21' },
+            body: {
+                documentid: '11784817-c210-48da-8da1-6e369e666daa',
+                status: 'done',
+            },
+        }).as('uploadFile1');
+
+        cy.mount(
+            `<form>
+                <sac-dropzonemultiple name="uploadControl" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    fileerrorAction: createOutputSpy('fileerrorAction'),
+                },
+            }
+        );
+
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(
+            new File([Cypress.Buffer.from('This is a Test')], 'upload.file1.txt', { type: 'text/plain' })
+        );
+
+        cy.get('input[type="file"]').trigger('drag', {
+            dataTransfer,
+        });
+
+        cy.get('.dropzone').should('not.have.class', 'active');
+
+        cy.get('input[type="file"]').trigger('dragover', {
+            dataTransfer,
+        });
+
+        cy.get('.dropzone').should('have.class', 'active');
     });
 });

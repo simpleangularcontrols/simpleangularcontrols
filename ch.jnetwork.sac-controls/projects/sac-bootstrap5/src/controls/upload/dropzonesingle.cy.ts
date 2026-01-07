@@ -383,7 +383,7 @@ describe('SacDropzoneSingleComponent', () => {
                 statusCode: 201,
                 headers: { Location: '/api/upload/64f206db-1b40-42e7-859e-d0d792464dbc' },
             }
-        ).as('uploadRegister1');
+        ).as('uploadRegister2');
 
         cy.intercept(
             { method: 'POST', url: '/api/upload/register', times: 1 },
@@ -391,7 +391,7 @@ describe('SacDropzoneSingleComponent', () => {
                 statusCode: 201,
                 headers: { Location: '/api/upload/11784817-c210-48da-8da1-6e369e666daa' },
             }
-        ).as('uploadRegister2');
+        ).as('uploadRegister1');
 
         cy.intercept('PUT', '/api/upload/64f206db-1b40-42e7-859e-d0d792464dbc', {
             statusCode: 200,
@@ -400,7 +400,7 @@ describe('SacDropzoneSingleComponent', () => {
                 documentid: '64f206db-1b40-42e7-859e-d0d792464dbc',
                 status: 'done',
             },
-        }).as('uploadFile1');
+        }).as('uploadFile2');
 
         cy.intercept('PUT', '/api/upload/11784817-c210-48da-8da1-6e369e666daa', {
             statusCode: 200,
@@ -409,7 +409,7 @@ describe('SacDropzoneSingleComponent', () => {
                 documentid: '11784817-c210-48da-8da1-6e369e666daa',
                 status: 'done',
             },
-        }).as('uploadFile2');
+        }).as('uploadFile1');
 
         cy.mount(
             `<form>
@@ -429,23 +429,23 @@ describe('SacDropzoneSingleComponent', () => {
         ]);
 
         cy.wait('@uploadRegister1');
-        cy.wait('@uploadRegister2');
+        cy.get('@uploadRegister2.all').should('have.length', 0);
         cy.wait('@uploadFile1');
-        cy.wait('@uploadFile2');
+        cy.get('@uploadFile2.all').should('have.length', 0);
 
         cy.get('.dropzone-uploadstates').should('have.length', 1);
         cy.get('.dropzone-uploadstates').should('have.text', 'upload.file1.txt');
         cy.get('.progress-bar').eq(0).should('have.attr', 'style', 'width: 100%;');
     });
 
-    it('should can drop file in dropzone', () => {
+    it('should cant drop to many files in dropzone', () => {
         cy.intercept(
             { method: 'POST', url: '/api/upload/register', times: 1 },
             {
                 statusCode: 201,
                 headers: { Location: '/api/upload/64f206db-1b40-42e7-859e-d0d792464dbc' },
             }
-        ).as('uploadRegister1');
+        ).as('uploadRegister2');
 
         cy.intercept(
             { method: 'POST', url: '/api/upload/register', times: 1 },
@@ -453,7 +453,7 @@ describe('SacDropzoneSingleComponent', () => {
                 statusCode: 201,
                 headers: { Location: '/api/upload/11784817-c210-48da-8da1-6e369e666daa' },
             }
-        ).as('uploadRegister2');
+        ).as('uploadRegister1');
 
         cy.intercept('PUT', '/api/upload/64f206db-1b40-42e7-859e-d0d792464dbc', {
             statusCode: 200,
@@ -462,45 +462,146 @@ describe('SacDropzoneSingleComponent', () => {
                 documentid: '64f206db-1b40-42e7-859e-d0d792464dbc',
                 status: 'done',
             },
-        }).as('uploadFile1');
+        }).as('uploadFile2');
 
         cy.intercept('PUT', '/api/upload/11784817-c210-48da-8da1-6e369e666daa', {
             statusCode: 200,
-            headers: { 'content-length': '14' },
+            headers: { 'content-length': '21' },
             body: {
                 documentid: '11784817-c210-48da-8da1-6e369e666daa',
                 status: 'done',
             },
-        }).as('uploadFile2');
+        }).as('uploadFile1');
 
         cy.mount(
             `<form>
-                <sac-dropzonemultiple name="uploadControl" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
+                <sac-dropzonesingle name="uploadControl" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonesingle>
             </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                 componentProperties: {
                     label: 'My Label',
+                    fileerrorAction: createOutputSpy('fileerrorAction'),
                 },
             }
         );
 
-        cy.get('input[type="file"]').selectFile([
-            { contents: Cypress.Buffer.from('This is a Test'), fileName: 'upload.file1.txt', lastModified: Date.now() },
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(
+            new File([Cypress.Buffer.from('This is a Test')], 'upload.file1.txt', { type: 'text/plain' })
+        );
+        dataTransfer.items.add(
+            new File([Cypress.Buffer.from('This is a second file')], 'upload.file2.txt', { type: 'text/plain' })
+        );
+
+        cy.get('input[type="file"]').trigger('drop', {
+            dataTransfer,
+        });
+
+        cy.get('@fileerrorAction').should('be.calledWith', 'INVALID_DRAGDROP_MAXFILES');
+
+        cy.get('@uploadRegister1.all').should('have.length', 0);
+        cy.get('@uploadRegister2.all').should('have.length', 0);
+        cy.get('@uploadFile1.all').should('have.length', 0);
+        cy.get('@uploadFile2.all').should('have.length', 0);
+
+        cy.get('.dropzone-uploadstates').should('have.length', 0);
+    });
+
+    it('should drop single file in dropzone', () => {
+        cy.intercept(
+            { method: 'POST', url: '/api/upload/register', times: 1 },
             {
-                contents: Cypress.Buffer.from('This is another Test'),
-                fileName: 'upload.file2.txt',
-                lastModified: Date.now(),
+                statusCode: 201,
+                headers: { Location: '/api/upload/11784817-c210-48da-8da1-6e369e666daa' },
+            }
+        ).as('uploadRegister1');
+
+        cy.intercept('PUT', '/api/upload/11784817-c210-48da-8da1-6e369e666daa', {
+            statusCode: 200,
+            headers: { 'content-length': '21' },
+            body: {
+                documentid: '11784817-c210-48da-8da1-6e369e666daa',
+                status: 'done',
             },
-        ]);
+        }).as('uploadFile1');
+
+        cy.mount(
+            `<form>
+                <sac-dropzonesingle name="uploadControl" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonesingle>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    fileerrorAction: createOutputSpy('fileerrorAction'),
+                },
+            }
+        );
+
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(
+            new File([Cypress.Buffer.from('This is a Test')], 'upload.file1.txt', { type: 'text/plain' })
+        );
+
+        cy.get('input[type="file"]').trigger('drop', {
+            dataTransfer,
+        });
 
         cy.wait('@uploadRegister1');
-        cy.wait('@uploadRegister2');
         cy.wait('@uploadFile1');
-        cy.wait('@uploadFile2');
 
         cy.get('.dropzone-uploadstates').should('have.length', 1);
         cy.get('.dropzone-uploadstates').should('have.text', 'upload.file1.txt');
         cy.get('.progress-bar').eq(0).should('have.attr', 'style', 'width: 100%;');
+    });
+
+    it('should set active on drag single file in dropzone', () => {
+        cy.intercept(
+            { method: 'POST', url: '/api/upload/register', times: 1 },
+            {
+                statusCode: 201,
+                headers: { Location: '/api/upload/11784817-c210-48da-8da1-6e369e666daa' },
+            }
+        ).as('uploadRegister1');
+
+        cy.intercept('PUT', '/api/upload/11784817-c210-48da-8da1-6e369e666daa', {
+            statusCode: 200,
+            headers: { 'content-length': '21' },
+            body: {
+                documentid: '11784817-c210-48da-8da1-6e369e666daa',
+                status: 'done',
+            },
+        }).as('uploadFile1');
+
+        cy.mount(
+            `<form>
+                <sac-dropzonesingle name="uploadControl" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonesingle>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    fileerrorAction: createOutputSpy('fileerrorAction'),
+                },
+            }
+        );
+
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(
+            new File([Cypress.Buffer.from('This is a Test')], 'upload.file1.txt', { type: 'text/plain' })
+        );
+
+        cy.get('input[type="file"]').trigger('drag', {
+            dataTransfer,
+        });
+
+        cy.get('.dropzone').should('not.have.class', 'active');
+
+        cy.get('input[type="file"]').trigger('dragover', {
+            dataTransfer,
+        });
+
+        cy.get('.dropzone').should('have.class', 'active');
     });
 });

@@ -8,7 +8,7 @@ export default defineConfig({
     reporterOptions: {
         reportDir: 'reports/bs5',
         overwrite: false,
-        html: true,
+        html: false,
         json: true,
     },
 

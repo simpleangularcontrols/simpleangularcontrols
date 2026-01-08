@@ -1,7 +1,7 @@
-import { Component, forwardRef, Injector } from '@angular/core';
-import { NG_VALIDATORS, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
-import { SacPagingCommon } from '@simpleangularcontrols/sac-common';
-import { NgClass, NgFor, NgIf, AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
+import { Component, Injector, forwardRef } from '@angular/core';
+import { FormsModule, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SacPagingCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 /**
  * Paging Komponente
@@ -19,20 +19,18 @@ import { NgClass, NgFor, NgIf, AsyncPipe } from '@angular/common';
         },
     ],
     standalone: true,
-    imports: [
-        NgClass,
-        NgFor,
-        NgIf,
-        FormsModule,
-        AsyncPipe,
-    ],
+    imports: [NgClass, NgFor, NgIf, FormsModule, AsyncPipe, SacTestingAttributePipe],
 })
 export class SacPagingComponent extends SacPagingCommon {
-  /**
-   * Konstruktor
-   * @param injector Angular Dependency Injection Service
-   */
-  constructor(injector: Injector) {
-    super(injector);
-  }
+    // #region Constructors
+
+    /**
+     * Konstruktor
+     * @param injector Angular Dependency Injection Service
+     */
+    constructor(injector: Injector) {
+        super(injector);
+    }
+
+    // #endregion Constructors
 }

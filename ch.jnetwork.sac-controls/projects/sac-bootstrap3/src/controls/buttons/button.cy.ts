@@ -3,7 +3,7 @@ import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('SacButtonComponent', () => {
-    it('should show label and click event', () => {
+    it('should show button and click event', () => {
         cy.mount(SacButtonComponent, {
             componentProperties: {
                 name: 'button',
@@ -12,9 +12,9 @@ describe('SacButtonComponent', () => {
             },
         });
 
-        cy.get('#button').should('have.text', ' My Button\n');
+        cy.get('#button').should('have.text', 'My Button\n');
         cy.get('#button').should('have.class', 'btn-default');
-        cy.get('#button span.spinner-border').should('not.exist');
+        cy.get('#button i.glyphicon-repeat.spin').should('not.exist');
         cy.get('#button').click();
         cy.get('@clickedSpy').should('be.calledOnce');
     });
@@ -29,7 +29,7 @@ describe('SacButtonComponent', () => {
             },
         });
 
-        cy.get('#button').should('have.text', ' My Button\n');
+        cy.get('#button').should('have.text', 'My Button\n');
         cy.get('#button').should('have.class', 'btn-default');
         cy.get('#button').should('have.attr', 'disabled');
         cy.get('#button').click({ force: true });
@@ -71,7 +71,7 @@ describe('SacButtonComponent', () => {
             },
         });
 
-        cy.get('#button').should('have.text', ' My Button\n');
+        cy.get('#button').should('have.text', 'My Button\n');
         cy.get('#button').should('have.class', 'btn-default');
         cy.get('#button i.glyphicon-repeat.spin').should('exist');
         cy.get('#button').should('have.attr', 'disabled');
@@ -150,5 +150,53 @@ describe('SacButtonComponent', () => {
         });
 
         cy.shouldHaveDisabledTestAttribute('a');
+    });
+
+    it('should disable with string attribute', () => {
+        cy.mount(SacButtonComponent, {
+            componentProperties: {
+                name: 'button',
+                text: 'My Button',
+                isdisabled: 'true',
+                clicked: createOutputSpy('clickedSpy'),
+            },
+        });
+
+        cy.get('#button').should('have.text', 'My Button\n');
+        cy.get('#button').should('have.class', 'btn-default');
+        cy.get('#button').should('have.attr', 'disabled');
+        cy.get('#button').click({ force: true });
+        cy.get('@clickedSpy').should('not.have.been.called');
+    });
+
+    it('should isloading with string attribute', () => {
+        cy.mount(SacButtonComponent, {
+            componentProperties: {
+                name: 'button',
+                text: 'My Button',
+                isloading: 'true',
+                clicked: createOutputSpy('clickedSpy'),
+            },
+        });
+
+        cy.get('#button').should('have.text', 'My Button\n');
+        cy.get('#button').should('have.class', 'btn-default');
+        cy.get('#button i.glyphicon-repeat.spin').should('exist');
+        cy.get('#button').should('have.attr', 'disabled');
+        cy.get('#button').click({ force: true });
+        cy.get('@clickedSpy').should('not.have.been.called');
+    });
+
+    it('should default style with empty role', () => {
+        cy.mount(SacButtonComponent, {
+            componentProperties: {
+                name: 'button',
+                text: 'My Button',
+                role: '',
+            },
+        });
+
+        cy.get('#button').should('have.text', 'My Button\n');
+        cy.get('#button').should('have.class', 'btn-default');
     });
 });

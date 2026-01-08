@@ -3,7 +3,7 @@ import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('SacButtonComponent', () => {
-    it('should show label and click event', () => {
+    it('should show button and click event', () => {
         cy.mount(SacButtonComponent, {
             componentProperties: {
                 name: 'button',

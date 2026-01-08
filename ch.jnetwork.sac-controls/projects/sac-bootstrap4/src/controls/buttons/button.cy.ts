@@ -151,4 +151,52 @@ describe('SacButtonComponent', () => {
 
         cy.shouldHaveDisabledTestAttribute('button');
     });
+
+    it('should disable with string attribute', () => {
+        cy.mount(SacButtonComponent, {
+            componentProperties: {
+                name: 'button',
+                text: 'My Button',
+                isdisabled: 'true',
+                clicked: createOutputSpy('clickedSpy'),
+            },
+        });
+
+        cy.get('#button').should('have.text', 'My Button\n');
+        cy.get('#button').should('have.class', 'btn-secondary');
+        cy.get('#button').should('be.disabled');
+        cy.get('#button').click({ force: true });
+        cy.get('@clickedSpy').should('not.have.been.called');
+    });
+
+    it('should isloading with string attribute', () => {
+        cy.mount(SacButtonComponent, {
+            componentProperties: {
+                name: 'button',
+                text: 'My Button',
+                isloading: 'true',
+                clicked: createOutputSpy('clickedSpy'),
+            },
+        });
+
+        cy.get('#button').should('have.text', 'My Button\n');
+        cy.get('#button').should('have.class', 'btn-secondary');
+        cy.get('#button span.spinner-border').should('exist');
+        cy.get('#button').should('be.disabled');
+        cy.get('#button').click({ force: true });
+        cy.get('@clickedSpy').should('not.have.been.called');
+    });
+
+    it('should default style with empty role', () => {
+        cy.mount(SacButtonComponent, {
+            componentProperties: {
+                name: 'button',
+                text: 'My Button',
+                role: '',
+            },
+        });
+
+        cy.get('#button').should('have.text', 'My Button\n');
+        cy.get('#button').should('have.class', 'btn-secondary');
+    });
 });

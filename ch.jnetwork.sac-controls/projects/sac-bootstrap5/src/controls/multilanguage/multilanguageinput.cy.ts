@@ -407,7 +407,7 @@ describe('SacMultilanguageInputComponent', () => {
 
         cy.mount(
             `<form>
-                <sac-multilanguageinput name="multilngcontrol" label="my Label"></sac-multilanguageinput>
+                <sac-multilanguageinput name="myControl" label="my Label"></sac-multilanguageinput>
             </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacMultilanguageInputComponent, SACBootstrap5LayoutModule],
@@ -462,7 +462,7 @@ describe('SacMultilanguageInputComponent', () => {
 
         cy.mount(
             `<form>
-                <sac-multilanguageinput name="multilngcontrol" e2eidentifier="myTestidentifier" label="my Label"></sac-multilanguageinput>
+                <sac-multilanguageinput name="myControl" e2eidentifier="myTestidentifier" label="my Label"></sac-multilanguageinput>
             </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacMultilanguageInputComponent, SACBootstrap5LayoutModule],

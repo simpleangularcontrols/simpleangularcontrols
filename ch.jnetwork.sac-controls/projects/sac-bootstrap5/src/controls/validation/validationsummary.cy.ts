@@ -3,9 +3,9 @@ import { SacInputComponent } from '../input';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SACBootstrap5ValidationSummaryModule } from './validationsummary.module';
 import { FormsModule, ReactiveFormsModule, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
-import { Validation } from '@simpleangularcontrols/sac-common';
+import { SACCONFIGURATION_SERVICE, Validation } from '@simpleangularcontrols/sac-common';
 
-describe('SacValidationSummaryComponent', () => {
+describe('SACBootstrap5ValidationSummaryModule', () => {
     it('component should exists', () => {
         cy.mount(
             `<form>
@@ -174,5 +174,121 @@ describe('SacValidationSummaryComponent', () => {
         cy.get('div.alert').should('be.visible');
         cy.get('div.alert ul li').eq(0).should('have.text', 'Feld "Invalid Input" ist erforderlich.');
         cy.get('div.alert ul li').eq(1).should('have.text', 'Feld "Invalid Text" ist erforderlich.');
+    });
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-validationsummary name="myControl">
+                </sac-validationsummary>
+                <sac-input name="txtinput" label="Invalid Input" [(ngModel)]="value" [isrequired]="true"></sac-input>
+            </form>`,
+            {
+                imports: [
+                    FormsModule,
+                    SacFormDirective,
+                    SACBootstrap5ValidationSummaryModule,
+                    SacInputComponent,
+                    SACBootstrap5LayoutModule,
+                ],
+                componentProperties: { value: '' },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.get('#txtinput').shouldBeInvalid();
+        cy.shouldHaveTestAttributeWithName('sac-validationsummary > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                <sac-validationsummary name="myControl" e2eidentifier="myTestidentifier">
+                </sac-validationsummary>
+                <sac-input name="txtinput" label="Invalid Input" [(ngModel)]="value" [isrequired]="true"></sac-input>
+            </form>`,
+            {
+                imports: [
+                    FormsModule,
+                    SacFormDirective,
+                    SACBootstrap5ValidationSummaryModule,
+                    SacInputComponent,
+                    SACBootstrap5LayoutModule,
+                ],
+                componentProperties: { value: '' },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.get('#txtinput').shouldBeInvalid();
+        cy.shouldHaveTestAttributeWithName('sac-validationsummary > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                <sac-validationsummary e2eidentifier="myTestidentifier">
+                </sac-validationsummary>
+                <sac-input name="txtinput" label="Invalid Input" [(ngModel)]="value" [isrequired]="true"></sac-input>
+            </form>`,
+            {
+                imports: [
+                    FormsModule,
+                    SacFormDirective,
+                    SACBootstrap5ValidationSummaryModule,
+                    SacInputComponent,
+                    SACBootstrap5LayoutModule,
+                ],
+                componentProperties: { value: '' },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.get('#txtinput').shouldBeInvalid();
+        cy.shouldHaveTestAttributeWithName('sac-validationsummary > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-validationsummary>
+                </sac-validationsummary>
+                <sac-input name="txtinput" label="Invalid Input" [(ngModel)]="value" [isrequired]="true"></sac-input>
+            </form>`,
+            {
+                imports: [
+                    FormsModule,
+                    SacFormDirective,
+                    SACBootstrap5ValidationSummaryModule,
+                    SacInputComponent,
+                    SACBootstrap5LayoutModule,
+                ],
+                componentProperties: { value: '' },
+            }
+        );
+
+        cy.get('#txtinput').shouldBeInvalid();
+        cy.shouldHaveDisabledTestAttribute('sac-validationsummary > div');
     });
 });

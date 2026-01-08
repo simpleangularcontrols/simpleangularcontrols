@@ -2,6 +2,7 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacInputDecimalComponent } from './inputdecimal';
 import { FormsModule } from '@angular/forms';
+import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('NgInputDecimalComponent', () => {
@@ -323,4 +324,88 @@ describe('NgInputDecimalComponent', () => {
     it('should add leading zero when start with dot', () => {});
 
     it('should not allow more than one dot', () => {});
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputdecimal name="myControl" label="my Label">
+                    </sac-inputdecimal>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-inputdecimal > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputdecimal name="myControl" e2eidentifier="myTestidentifier" label="my Label">
+                    </sac-inputdecimal>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-inputdecimal > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputdecimal e2eidentifier="myTestidentifier" label="my Label">
+                    </sac-inputdecimal>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-inputdecimal > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputdecimal label="my Label">
+                    </sac-inputdecimal>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-inputdecimal > div');
+    });
 });

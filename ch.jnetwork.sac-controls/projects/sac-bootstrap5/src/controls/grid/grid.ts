@@ -1,15 +1,8 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  ContentChild,
-  forwardRef,
-  Injector,
-  TemplateRef,
-} from '@angular/core';
-import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacGridCommon } from '@simpleangularcontrols/sac-common';
 import { SacPagingComponent } from './paging';
-import { NgTemplateOutlet, NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
+import { ChangeDetectorRef, Component, ContentChild, Injector, TemplateRef, forwardRef } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SacGridCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 /**
  * Grid Komponente
@@ -27,38 +20,33 @@ import { NgTemplateOutlet, NgFor, NgIf } from '@angular/common';
         },
     ],
     standalone: true,
-    imports: [
-        NgTemplateOutlet,
-        NgFor,
-        NgIf,
-        SacPagingComponent,
-    ],
+    imports: [NgTemplateOutlet, NgFor, NgIf, SacPagingComponent, SacTestingAttributePipe],
 })
 export class SacGridComponent extends SacGridCommon {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Referenz auf Column Template
-   */
-  @ContentChild(TemplateRef, { static: false })
-  public template: TemplateRef<any>;
+    /**
+     * Setzt die Ellipsis Funktion auf der Column
+     */
+    public ellipsis: boolean = false;
 
-  /**
-   * Setzt die Ellipsis Funktion auf der Column
-   */
-  public ellipsis: boolean = false;
+    /**
+     * Referenz auf Column Template
+     */
+    @ContentChild(TemplateRef, { static: false })
+    public template: TemplateRef<any>;
 
-  // #endregion Properties
+    // #endregion Properties
 
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Konstrukor
-   * @param cdRef Change Detection Reference
-   */
-  constructor(cdRef: ChangeDetectorRef, injector: Injector) {
-    super(cdRef, injector);
-  }
+    /**
+     * Konstrukor
+     * @param cdRef Change Detection Reference
+     */
+    constructor(cdRef: ChangeDetectorRef, injector: Injector) {
+        super(cdRef, injector);
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 }

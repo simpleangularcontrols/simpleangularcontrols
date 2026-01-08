@@ -3,7 +3,9 @@ import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacContextmenuComponent } from './contextmenu';
 import { SACBootstrap5ContextmenuModule } from './contextmenu.module';
 import { SacContextmenuItemButtonComponent } from './contextmenuitembutton';
+import { SacContextmenuItemSplitterComponent } from './contextmenuitemsplitter';
 import { FormsModule } from '@angular/forms';
+import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('SacContextmenuComponent', () => {
@@ -107,6 +109,50 @@ describe('SacContextmenuComponent', () => {
         cy.get('ul sac-contextmenubutton:last-child button div div').should('have.length', 1);
     });
 
+    it('should show component with splitter', () => {
+        cy.intercept('GET', 'assets/icons/icon.png', {
+            fixture: 'question.png',
+        }).as('getConfirmIcon');
+
+        cy.mount(
+            `<form>
+                <sac-contextmenu>
+                    <sac-contextmenubutton text="Action 1" image="/assets/icons/icon.png" [isicondisabled]="true"> </sac-contextmenubutton>
+                    <sac-contextmenubutton text="Action 2" [isicondisabled]="true"> </sac-contextmenubutton>
+                    <sac-contextmenusplitter></sac-contextmenusplitter>
+                    <sac-contextmenubutton text="Action 3" [isicondisabled]="true"> </sac-contextmenubutton>
+                </sac-contextmenu>
+            </form>`,
+            {
+                imports: [
+                    FormsModule,
+                    SacFormDirective,
+                    SacContextmenuComponent,
+                    SacContextmenuItemButtonComponent,
+                    SacContextmenuItemSplitterComponent,
+                    SACBootstrap5LayoutModule,
+                ],
+                componentProperties: {},
+            }
+        );
+
+        cy.get('sac-contextmenu').should('exist');
+
+        cy.get('ul').should('not.be.visible');
+        cy.contains('ul li button', 'Action 1').should('exist').should('not.be.visible');
+
+        cy.get('div.dropdown > button').click();
+        cy.get('ul').should('be.visible');
+
+        cy.contains('ul li button', 'Action 1').should('exist').should('be.visible');
+        cy.get('ul li button img[src="/assets/icons/icon.png"]').should('not.exist');
+
+        cy.get('ul sac-contextmenubutton:last-child button').should('not.have.descendants', 'img');
+        cy.get('ul sac-contextmenubutton:last-child button div div').should('have.length', 1);
+
+        cy.get('ul li div.dropdown-divider').should('have.length', 1);
+    });
+
     it('validate click events on buttons', () => {
         cy.mount(
             `<form>
@@ -186,5 +232,101 @@ describe('SacContextmenuComponent', () => {
 
     it('should disable icon with boolean type', () => {
         // TODO: test required
+    });
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-contextmenu name="myContextMenu">
+                    <sac-contextmenubutton text="Action 1"> </sac-contextmenubutton>
+                    <sac-contextmenubutton text="Action 2"> </sac-contextmenubutton>
+                    <sac-contextmenubutton text="Action 3"> </sac-contextmenubutton>
+                </sac-contextmenu>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5ContextmenuModule, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-contextmenu > div', 'myContextMenu');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                <sac-contextmenu name="myContextMenu" e2eidentifier="myTestidentifier">
+                    <sac-contextmenubutton text="Action 1"> </sac-contextmenubutton>
+                    <sac-contextmenubutton text="Action 2"> </sac-contextmenubutton>
+                    <sac-contextmenubutton text="Action 3"> </sac-contextmenubutton>
+                </sac-contextmenu>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5ContextmenuModule, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-contextmenu > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                <sac-contextmenu e2eidentifier="myTestidentifier">
+                    <sac-contextmenubutton text="Action 1"> </sac-contextmenubutton>
+                    <sac-contextmenubutton text="Action 2"> </sac-contextmenubutton>
+                    <sac-contextmenubutton text="Action 3"> </sac-contextmenubutton>
+                </sac-contextmenu>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5ContextmenuModule, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-contextmenu > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-contextmenu>
+                    <sac-contextmenubutton text="Action 1"> </sac-contextmenubutton>
+                    <sac-contextmenubutton text="Action 2"> </sac-contextmenubutton>
+                    <sac-contextmenubutton text="Action 3"> </sac-contextmenubutton>
+                </sac-contextmenu>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5ContextmenuModule, SACBootstrap5LayoutModule],
+                componentProperties: {},
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-contextmenu > div');
     });
 });

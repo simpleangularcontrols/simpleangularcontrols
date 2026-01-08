@@ -1,5 +1,6 @@
 <div
     class="d-flex justify-content-between align-items-center flex-wrap"
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier"
     id="{{ name }}">
     <div
         class="col-pagination order-2 order-md-1"

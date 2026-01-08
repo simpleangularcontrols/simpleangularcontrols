@@ -170,7 +170,7 @@ describe('NgRadiobuttonComponent', () => {
             }
         );
 
-        cy.shouldHaveTestAttributeWithName('div.row', 'myRadioButtons');
+        cy.shouldHaveTestAttributeWithName('sac-radiobuttons > div', 'myRadioButtons');
     });
 
     it('should has e2 testkey with testidentifier when name exists', () => {
@@ -209,7 +209,7 @@ describe('NgRadiobuttonComponent', () => {
             }
         );
 
-        cy.shouldHaveTestAttributeWithName('div.row', 'myTestidentifier');
+        cy.shouldHaveTestAttributeWithName('sac-radiobuttons > div', 'myTestidentifier');
     });
 
     it('should has e2 testkey with testidentifier when name not exists', () => {
@@ -247,7 +247,7 @@ describe('NgRadiobuttonComponent', () => {
             }
         );
 
-        cy.shouldHaveTestAttributeWithName('div.row', 'myTestidentifier');
+        cy.shouldHaveTestAttributeWithName('sac-radiobuttons > div', 'myTestidentifier');
     });
 
     it('should not has e2 testkey with name', () => {
@@ -277,7 +277,7 @@ describe('NgRadiobuttonComponent', () => {
             }
         );
 
-        cy.shouldHaveDisabledTestAttribute('div.row');
+        cy.shouldHaveDisabledTestAttribute('sac-radiobuttons > div');
     });
 
     it('should have helptext at radio button', () => {

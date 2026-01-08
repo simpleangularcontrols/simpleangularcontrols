@@ -2,6 +2,7 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacInputAreaComponent } from './inputarea';
 import { FormsModule } from '@angular/forms';
+import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('NgInputareaComponent', () => {
@@ -173,4 +174,88 @@ describe('NgInputareaComponent', () => {
     });
 
     it('should return length of 0 when value is null', () => {});
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputarea name="myControl" label="my Label">
+                    </sac-inputarea>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-inputarea > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputarea name="myControl" e2eidentifier="myTestidentifier" label="my Label">
+                    </sac-inputarea>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-inputarea > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputarea e2eidentifier="myTestidentifier" label="my Label">
+                    </sac-inputarea>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-inputarea > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputarea label="my Label">
+                    </sac-inputarea>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-inputarea > div');
+    });
 });

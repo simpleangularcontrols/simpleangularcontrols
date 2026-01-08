@@ -2,6 +2,7 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacStaticLabelComponent } from './staticlabel';
 import { FormsModule } from '@angular/forms';
+import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 
 describe('SacStaticLabelComponent', () => {
     it('should show label and component', () => {
@@ -44,5 +45,89 @@ describe('SacStaticLabelComponent', () => {
         cy.get('sac-staticlabel').should('exist');
         cy.get('label').should('exist');
         cy.get('form').should('have.class', 'ng-valid');
+    });
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-staticlabel label="my Label" name="myControl" value="Label Value">
+                    </sac-staticlabel>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacStaticLabelComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-staticlabel > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-staticlabel label="my Label" name="myControl" e2eidentifier="myTestidentifier" value="Label Value">
+                    </sac-staticlabel>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacStaticLabelComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-staticlabel > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-staticlabel label="my Label" e2eidentifier="myTestidentifier" value="Label Value">
+                    </sac-staticlabel>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacStaticLabelComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-staticlabel > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-staticlabel label="my Label" value="Label Value">
+                    </sac-staticlabel>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacStaticLabelComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-staticlabel > div');
     });
 });

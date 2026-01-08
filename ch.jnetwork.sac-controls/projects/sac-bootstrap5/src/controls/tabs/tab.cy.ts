@@ -3,6 +3,7 @@ import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacTabComponent } from './tab';
 import { SacTabItemComponent } from './tabitem';
 import { FormsModule } from '@angular/forms';
+import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('SacTabComponent', () => {
@@ -217,5 +218,137 @@ describe('SacTabComponent', () => {
         cy.get('.tab-content').should('have.text', 'Tab 2');
         cy.get('#tab2').should('have.text', 'Tab 2');
         cy.get('#tab1 .tab-pane').should('not.exist');
+    });
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-tab name="myControl">
+                    <sac-tabitem id="tab1" label="Tab 1">
+                        <ng-template><p>Tab 1</p></ng-template>
+                    </sac-tabitem>
+                    <sac-tabitem id="tab2" label="Tab 2">
+                        <ng-template><p>Tab 2</p></ng-template>
+                    </sac-tabitem>
+                </sac-tab>
+            </form>`,
+            {
+                imports: [
+                    FormsModule,
+                    SacFormDirective,
+                    SacTabComponent,
+                    SacTabItemComponent,
+                    SACBootstrap5LayoutModule,
+                ],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-tab > ul', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                <sac-tab name="myControl" e2eidentifier="myTestidentifier">
+                    <sac-tabitem id="tab1" label="Tab 1">
+                        <ng-template><p>Tab 1</p></ng-template>
+                    </sac-tabitem>
+                    <sac-tabitem id="tab2" label="Tab 2">
+                        <ng-template><p>Tab 2</p></ng-template>
+                    </sac-tabitem>
+                </sac-tab>
+            </form>`,
+            {
+                imports: [
+                    FormsModule,
+                    SacFormDirective,
+                    SacTabComponent,
+                    SacTabItemComponent,
+                    SACBootstrap5LayoutModule,
+                ],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-tab > ul', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                <sac-tab e2eidentifier="myTestidentifier">
+                    <sac-tabitem id="tab1" label="Tab 1">
+                        <ng-template><p>Tab 1</p></ng-template>
+                    </sac-tabitem>
+                    <sac-tabitem id="tab2" label="Tab 2">
+                        <ng-template><p>Tab 2</p></ng-template>
+                    </sac-tabitem>
+                </sac-tab>
+            </form>`,
+            {
+                imports: [
+                    FormsModule,
+                    SacFormDirective,
+                    SacTabComponent,
+                    SacTabItemComponent,
+                    SACBootstrap5LayoutModule,
+                ],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-tab > ul', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-tab>
+                    <sac-tabitem id="tab1" label="Tab 1">
+                        <ng-template><p>Tab 1</p></ng-template>
+                    </sac-tabitem>
+                    <sac-tabitem id="tab2" label="Tab 2">
+                        <ng-template><p>Tab 2</p></ng-template>
+                    </sac-tabitem>
+                </sac-tab>
+            </form>`,
+            {
+                imports: [
+                    FormsModule,
+                    SacFormDirective,
+                    SacTabComponent,
+                    SacTabItemComponent,
+                    SACBootstrap5LayoutModule,
+                ],
+                componentProperties: {},
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-tab > ul');
     });
 });

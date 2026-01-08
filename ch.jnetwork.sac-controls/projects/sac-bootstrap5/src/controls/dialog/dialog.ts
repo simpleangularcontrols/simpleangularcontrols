@@ -1,12 +1,6 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
-import { SacDialogCommon } from '@simpleangularcontrols/sac-common';
 import { NgIf } from '@angular/common';
+import { ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import { SacDialogCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 /**
  * Dialog Komponente
@@ -15,44 +9,53 @@ import { NgIf } from '@angular/common';
     selector: 'sac-dialog',
     templateUrl: './dialog.html',
     standalone: true,
-    imports: [NgIf],
+    imports: [NgIf, SacTestingAttributePipe],
 })
-export class SacDialogComponent
-  extends SacDialogCommon
-  implements OnInit, OnDestroy
-{
-  /**
-   * Referenz auf DOM Element
-   */
-  private element: any;
+export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDestroy {
+    // #region Properties
 
-  /**
-   * Konstruktor
-   * @param el DOM Element Referenz
-   * @param cdRef Change Detection Service
-   */
-  constructor(el: ElementRef, cdRef: ChangeDetectorRef) {
-    super(cdRef);
+    /**
+     * Referenz auf DOM Element
+     */
+    private element: any;
 
-    this.element = el.nativeElement;
-  }
+    // #endregion Properties
 
-  /**
-   * Event wenn Komponente initialisiert wird
-   */
-  ngOnInit() {
-    // Element an Body für korrektes Styling unter Bootstrap 3 verschieben
-    document.body.appendChild(this.element);
-  }
+    // #region Constructors
 
-  /**
-   * Event wenn Element entfernt wird
-   */
-  ngOnDestroy() {
-    this.hide();
-    if (document.body.contains(this.element)) {
-      document.body.removeChild(this.element);
+    /**
+     * Konstruktor
+     * @param el DOM Element Referenz
+     * @param cdRef Change Detection Service
+     */
+    constructor(el: ElementRef, cdRef: ChangeDetectorRef) {
+        super(cdRef);
+
+        this.element = el.nativeElement;
     }
-    super.ngOnDestroy();
-  }
+
+    // #endregion Constructors
+
+    // #region Public Methods
+
+    /**
+     * Event wenn Element entfernt wird
+     */
+    public ngOnDestroy() {
+        this.hide();
+        if (document.body.contains(this.element)) {
+            document.body.removeChild(this.element);
+        }
+        super.ngOnDestroy();
+    }
+
+    /**
+     * Event wenn Komponente initialisiert wird
+     */
+    public ngOnInit() {
+        // Element an Body für korrektes Styling unter Bootstrap 3 verschieben
+        document.body.appendChild(this.element);
+    }
+
+    // #endregion Public Methods
 }

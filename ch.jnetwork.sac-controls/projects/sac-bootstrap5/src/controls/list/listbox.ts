@@ -7,9 +7,29 @@ import { SacTooltipComponent } from '../tooltip/tooltip';
 import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, Directive, ElementRef, Host, Injector, Optional, Renderer2, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacListboxCommon, SacListboxOptionCommon } from '@simpleangularcontrols/sac-common';
+import { SacListboxCommon, SacListboxOptionCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
-// #region Classes
+// #region Exported Classes
+
+/**
+ * Option Item in Listbox
+ */
+@Directive({ selector: '[sacOption],option', standalone: true })
+export class SacListboxOptionDirective extends SacListboxOptionCommon {
+    // #region Constructors
+
+    /**
+     * Konstruktor
+     * @param elementRef Referenz auf DOM Element
+     * @param renderer Angular Rendering Engine
+     * @param listbox Referenz auf Listbox Komponente
+     */
+    constructor(elementRef: ElementRef, renderer: Renderer2, @Optional() @Host() listbox: SacListboxComponent) {
+        super(elementRef, renderer, listbox);
+    }
+
+    // #endregion Constructors
+}
 
 /**
  * Listbox Komponente
@@ -42,6 +62,7 @@ import { SacListboxCommon, SacListboxOptionCommon } from '@simpleangularcontrols
         SacToLabelHeightPipe,
         SacTooltipComponent,
         SacToControlHeightPipe,
+        SacTestingAttributePipe
     ],
 })
 export class SacListboxComponent extends SacListboxCommon {
@@ -59,24 +80,4 @@ export class SacListboxComponent extends SacListboxCommon {
     // #endregion Constructors
 }
 
-/**
- * Option Item in Listbox
- */
-@Directive({ selector: '[sacOption],option', standalone: true })
-export class SacListboxOptionDirective extends SacListboxOptionCommon {
-    // #region Constructors
-
-    /**
-     * Konstruktor
-     * @param elementRef Referenz auf DOM Element
-     * @param renderer Angular Rendering Engine
-     * @param listbox Referenz auf Listbox Komponente
-     */
-    constructor(elementRef: ElementRef, renderer: Renderer2, @Optional() @Host() listbox: SacListboxComponent) {
-        super(elementRef, renderer, listbox);
-    }
-
-    // #endregion Constructors
-}
-
-// #endregion Classes
+// #endregion Exported Classes

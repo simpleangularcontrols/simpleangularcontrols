@@ -2,6 +2,7 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SACBootstrap5ListModule } from './list.module';
 import { FormsModule } from '@angular/forms';
+import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 
 describe('SacListboxComponent', () => {
     it('should show label and component', () => {
@@ -182,5 +183,121 @@ describe('SacListboxComponent', () => {
         );
 
         cy.get('select').find('option:selected').should('have.text', 'Value 2');
+    });
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                        <sac-listbox 
+                            name="myControl" 
+                            label="MyLabel"
+                            [emptyvalue]="null" 
+                            emptylabel="Please select"
+                            [ngModel]="null">
+                            <option [ngValue]="0">Value Item 1</option>
+                            <option [ngValue]="1">Value Item 2</option>
+                            <option [ngValue]="2">Value Item 3</option>                    
+                        </sac-listbox>
+                      </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5ListModule, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-listbox > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                        <sac-listbox 
+                            name="myControl"
+                            e2eidentifier="myTestidentifier"
+                            label="MyLabel"
+                            [emptyvalue]="null" 
+                            emptylabel="Please select"
+                            [ngModel]="null">
+                            <option [ngValue]="0">Value Item 1</option>
+                            <option [ngValue]="1">Value Item 2</option>
+                            <option [ngValue]="2">Value Item 3</option>                    
+                        </sac-listbox>
+                      </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5ListModule, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-listbox > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                        <sac-listbox 
+                            e2eidentifier="myTestidentifier"
+                            label="MyLabel"
+                            [emptyvalue]="null" 
+                            emptylabel="Please select"
+                            [ngModel]="null">
+                            <option [ngValue]="0">Value Item 1</option>
+                            <option [ngValue]="1">Value Item 2</option>
+                            <option [ngValue]="2">Value Item 3</option>                    
+                        </sac-listbox>
+                      </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5ListModule, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-listbox > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                        <sac-listbox 
+                            label="MyLabel"
+                            [emptyvalue]="null" 
+                            emptylabel="Please select"
+                            [ngModel]="null">
+                            <option [ngValue]="0">Value Item 1</option>
+                            <option [ngValue]="1">Value Item 2</option>
+                            <option [ngValue]="2">Value Item 3</option>                    
+                        </sac-listbox>
+                      </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5ListModule, SACBootstrap5LayoutModule],
+                componentProperties: {},
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-listbox > div');
     });
 });

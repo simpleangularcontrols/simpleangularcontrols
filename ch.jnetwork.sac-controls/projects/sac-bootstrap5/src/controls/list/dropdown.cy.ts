@@ -2,6 +2,7 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SACBootstrap5DropdownModule } from './dropdown.module';
 import { FormsModule } from '@angular/forms';
+import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('SacDropdownComponent', () => {
@@ -263,5 +264,121 @@ describe('SacDropdownComponent', () => {
         );
         cy.get('select').find('option:selected').should('have.text', 'Value Item 2');
         cy.get('select').find('option:selected').should('have.value', '1');
+    });
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-dropdown 
+                        name="myControl" 
+                        label="MyLabel"
+                        [emptyvalue]="null" 
+                        emptylabel="Please select"
+                        [ngModel]="null">
+                        <option [ngValue]="0">Value Item 1</option>
+                        <option [ngValue]="1">Value Item 2</option>
+                        <option [ngValue]="2">Value Item 3</option>                    
+                    </sac-dropdown>
+                  </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5DropdownModule, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-dropdown > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-dropdown 
+                        name="myControl"
+                        e2eidentifier="myTestidentifier"
+                        label="MyLabel"
+                        [emptyvalue]="null" 
+                        emptylabel="Please select"
+                        [ngModel]="null">
+                        <option [ngValue]="0">Value Item 1</option>
+                        <option [ngValue]="1">Value Item 2</option>
+                        <option [ngValue]="2">Value Item 3</option>                    
+                    </sac-dropdown>
+                  </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5DropdownModule, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-dropdown > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-dropdown 
+                        e2eidentifier="myTestidentifier"
+                        label="MyLabel"
+                        [emptyvalue]="null" 
+                        emptylabel="Please select"
+                        [ngModel]="null">
+                        <option [ngValue]="0">Value Item 1</option>
+                        <option [ngValue]="1">Value Item 2</option>
+                        <option [ngValue]="2">Value Item 3</option>                    
+                    </sac-dropdown>
+                  </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5DropdownModule, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-dropdown > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-dropdown 
+                        label="MyLabel"
+                        [emptyvalue]="null" 
+                        emptylabel="Please select"
+                        [ngModel]="null">
+                        <option [ngValue]="0">Value Item 1</option>
+                        <option [ngValue]="1">Value Item 2</option>
+                        <option [ngValue]="2">Value Item 3</option>                    
+                    </sac-dropdown>
+                  </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5DropdownModule, SACBootstrap5LayoutModule],
+                componentProperties: {},
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-dropdown > div');
     });
 });

@@ -7,7 +7,7 @@ import { SacTooltipComponent } from '../tooltip/tooltip';
 import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, Host, Injector, NgZone, Optional, Renderer2, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacUploadMultipleCommon } from '@simpleangularcontrols/sac-common';
+import { SacTestingAttributePipe, SacUploadMultipleCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Upload Komponente für den Upload mehrer Files
@@ -40,6 +40,7 @@ import { SacUploadMultipleCommon } from '@simpleangularcontrols/sac-common';
         SacToLabelHeightPipe,
         SacTooltipComponent,
         SacToControlHeightPipe,
+        SacTestingAttributePipe,
     ],
 })
 export class SacUploadMultipleComponent extends SacUploadMultipleCommon {

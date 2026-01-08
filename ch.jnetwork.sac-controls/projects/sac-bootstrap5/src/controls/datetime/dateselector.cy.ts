@@ -2,6 +2,7 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacDateSelectorComponent } from './dateselector';
 import { FormsModule } from '@angular/forms';
+import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('SacDateSelectorComponent', () => {
@@ -288,5 +289,97 @@ describe('SacDateSelectorComponent', () => {
             .its('lastCall.args.0.date')
             .invoke('format', 'YYYY-MM-DD HH:mm:ss')
             .should('contain', '2022-05-10 00:00:00');
+    });
+
+    it('should has e2 testkey with name', () => {
+        const initial = new Date(2022, 4, 15, 0, 0, 0, 0); // May 14, 2022
+        cy.mount(
+            `<form>
+                <sac-dateselector name="myControl" [label]="label" [initialvalue]="initialvalue" dateselection="true"></sac-dateselector>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacDateSelectorComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    initialvalue: initial,
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-dateselector > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        const initial = new Date(2022, 4, 15, 0, 0, 0, 0); // May 14, 2022
+        cy.mount(
+            `<form>
+                <sac-dateselector name="myControl" e2eidentifier="myTestidentifier" [label]="label" [initialvalue]="initialvalue" dateselection="true"></sac-dateselector>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacDateSelectorComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    initialvalue: initial,
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-dateselector > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        const initial = new Date(2022, 4, 15, 0, 0, 0, 0); // May 14, 2022
+        cy.mount(
+            `<form>
+                <sac-dateselector [label]="label" e2eidentifier="myTestidentifier" [initialvalue]="initialvalue" dateselection="true"></sac-dateselector>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacDateSelectorComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    initialvalue: initial,
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-dateselector > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        const initial = new Date(2022, 4, 15, 0, 0, 0, 0); // May 14, 2022
+        cy.mount(
+            `<form>
+                <sac-dateselector [label]="label" [initialvalue]="initialvalue" dateselection="true"></sac-dateselector>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacDateSelectorComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    initialvalue: initial,
+                },
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-dateselector > div');
     });
 });

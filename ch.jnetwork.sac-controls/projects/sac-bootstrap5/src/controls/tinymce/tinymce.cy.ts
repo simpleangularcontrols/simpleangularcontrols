@@ -2,10 +2,11 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SACBootstrap5TinyMceModule } from './tinymce.module';
 import { FormsModule } from '@angular/forms';
+import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { createOutputSpy } from 'cypress/angular';
 
-describe('SacTinyMceComponent', () => {
+describe('SACBootstrap5TinyMceModule', () => {
     it('should show label and component', () => {
         cy.mount(
             `<form>
@@ -378,5 +379,115 @@ describe('SacTinyMceComponent', () => {
 
         cy.get('@valueChange').should('be.calledWith', '<p>Enter a new Text</p>');
         cy.get('@saveAction').should('be.calledWith', '<p>Enter a new Text</p>');
+    });
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-tinymce label="my Label" name="myControl" value="Label Value">
+                </sac-tinymce>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5TinyMceModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    config: {
+                        base_url: '/__cypress/src/tinymce', // This is needed so that plugins and skins load correctly.
+                    },
+                },
+                providers: [
+                    { provide: TINYMCE_SCRIPT_SRC, useValue: '/__cypress/src/tinymce/tinymce.min.js' },
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-tinymce > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                <sac-tinymce label="my Label" name="myControl" e2eidentifier="myTestidentifier" value="Label Value">
+                </sac-tinymce>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5TinyMceModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    config: {
+                        base_url: '/__cypress/src/tinymce', // This is needed so that plugins and skins load correctly.
+                    },
+                },
+                providers: [
+                    { provide: TINYMCE_SCRIPT_SRC, useValue: '/__cypress/src/tinymce/tinymce.min.js' },
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-tinymce > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                <sac-tinymce label="my Label" e2eidentifier="myTestidentifier" value="Label Value">
+                </sac-tinymce>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5TinyMceModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    config: {
+                        base_url: '/__cypress/src/tinymce', // This is needed so that plugins and skins load correctly.
+                    },
+                },
+                providers: [
+                    { provide: TINYMCE_SCRIPT_SRC, useValue: '/__cypress/src/tinymce/tinymce.min.js' },
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-tinymce > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-tinymce label="my Label" value="Label Value">
+                </sac-tinymce>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5TinyMceModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    config: {
+                        base_url: '/__cypress/src/tinymce', // This is needed so that plugins and skins load correctly.
+                    },
+                },
+                providers: [
+                    { provide: TINYMCE_SCRIPT_SRC, useValue: '/__cypress/src/tinymce/tinymce.min.js' },
+                ],
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-tinymce > div');
     });
 });

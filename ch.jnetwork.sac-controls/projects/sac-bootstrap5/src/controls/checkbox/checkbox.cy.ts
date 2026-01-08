@@ -123,7 +123,7 @@ describe('sac-checkboxComponent', () => {
             }
         );
 
-        cy.shouldHaveTestAttributeWithName('input', 'myCheckbox');
+        cy.shouldHaveTestAttributeWithName('sac-checkbox > div', 'myCheckbox');
     });
 
     it('should has e2 testkey with testidentifier when name exists', () => {
@@ -151,7 +151,7 @@ describe('sac-checkboxComponent', () => {
             }
         );
 
-        cy.shouldHaveTestAttributeWithName('input', 'myTestidentifier');
+        cy.shouldHaveTestAttributeWithName('sac-checkbox > div', 'myTestidentifier');
     });
 
     it('should has e2 testkey with testidentifier when name not exists', () => {
@@ -178,7 +178,7 @@ describe('sac-checkboxComponent', () => {
             }
         );
 
-        cy.shouldHaveTestAttributeWithName('input', 'myTestidentifier');
+        cy.shouldHaveTestAttributeWithName('sac-checkbox > div', 'myTestidentifier');
     });
 
     it('should not has e2 testkey with name', () => {
@@ -196,7 +196,7 @@ describe('sac-checkboxComponent', () => {
             }
         );
 
-        cy.shouldHaveDisabledTestAttribute('input');
+        cy.shouldHaveDisabledTestAttribute('sac-checkbox > div');
     });
 
     it('should use checkbox style from control', () => {

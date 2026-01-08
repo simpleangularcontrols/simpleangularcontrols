@@ -1,5 +1,6 @@
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacTooltipComponent } from './tooltip';
+import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 
 describe('SacTooltipComponent', () => {
     it('should show tooltip when click on image', () => {
@@ -179,5 +180,113 @@ describe('SacTooltipComponent', () => {
         cy.get('img').click();
         cy.get('.tooltip.show').should('have.text', 'My Label');
         cy.get('.tooltip.show').should('have.class', 'top');
+    });
+
+    it('should has e2 testkey with name', () => {
+        cy.intercept('GET', 'icons/de.png', {
+            fixture: 'de.png',
+        }).as('tooltipIcon');
+
+        cy.mount(
+            `<sac-tooltip name="myControl" [tooltiptext]="tooltiptext">
+                <img src="/icons/de.png" />
+            </sac-tooltip>
+            `,
+            {
+                imports: [SacTooltipComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    tooltiptext: 'My Label',
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-tooltip > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.intercept('GET', 'icons/de.png', {
+            fixture: 'de.png',
+        }).as('tooltipIcon');
+
+        cy.mount(
+            `<sac-tooltip name="myControl" e2eidentifier="myTestidentifier" [tooltiptext]="tooltiptext">
+                <img src="/icons/de.png" />
+            </sac-tooltip>
+            `,
+            {
+                imports: [SacTooltipComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    tooltiptext: 'My Label',
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-tooltip > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.intercept('GET', 'icons/de.png', {
+            fixture: 'de.png',
+        }).as('tooltipIcon');
+
+        cy.mount(
+            `<sac-tooltip e2eidentifier="myTestidentifier" [tooltiptext]="tooltiptext">
+                <img src="/icons/de.png" />
+            </sac-tooltip>
+            `,
+            {
+                imports: [SacTooltipComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    tooltiptext: 'My Label',
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-tooltip > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.intercept('GET', 'icons/de.png', {
+            fixture: 'de.png',
+        }).as('tooltipIcon');
+
+        cy.mount(
+            `<sac-tooltip [tooltiptext]="tooltiptext">
+                <img src="/icons/de.png" />
+            </sac-tooltip>
+            `,
+            {
+                imports: [SacTooltipComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    tooltiptext: 'My Label',
+                },
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-tooltip > div');
     });
 });

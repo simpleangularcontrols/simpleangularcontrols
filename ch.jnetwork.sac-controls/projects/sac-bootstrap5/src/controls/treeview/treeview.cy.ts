@@ -2,6 +2,7 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SACBootstrap5TreeviewModule } from './treeview.module';
 import { FormsModule } from '@angular/forms';
+import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('SacTreeviewComponent', () => {
@@ -472,5 +473,145 @@ describe('SacTreeviewComponent', () => {
         );
 
         cy.get('li[data-path="/1/4"] a i').should('exist');
+    });
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-treeview name="myControl" [label]="label" [data]="data"></sac-treeview>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5TreeviewModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    data: [
+                        {
+                            id: 1,
+                            label: 'Root',
+                            icon: '',
+                            expanded: true,
+                            children: [
+                                { id: 2, label: 'Sub Item 1', icon: '', expanded: false, children: [] },
+                                { id: 3, label: 'Sub Item 2', icon: '', expanded: false, children: [] },
+                                { id: 4, label: 'Sub Item 3', icon: '', expanded: false, children: [] },
+                            ],
+                        },
+                    ],
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-treeview > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                <sac-treeview name="myControl" e2eidentifier="myTestidentifier" [label]="label" [data]="data"></sac-treeview>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5TreeviewModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    data: [
+                        {
+                            id: 1,
+                            label: 'Root',
+                            icon: '',
+                            expanded: true,
+                            children: [
+                                { id: 2, label: 'Sub Item 1', icon: '', expanded: false, children: [] },
+                                { id: 3, label: 'Sub Item 2', icon: '', expanded: false, children: [] },
+                                { id: 4, label: 'Sub Item 3', icon: '', expanded: false, children: [] },
+                            ],
+                        },
+                    ],
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-treeview > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                <sac-treeview e2eidentifier="myTestidentifier" [label]="label" [data]="data"></sac-treeview>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5TreeviewModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    data: [
+                        {
+                            id: 1,
+                            label: 'Root',
+                            icon: '',
+                            expanded: true,
+                            children: [
+                                { id: 2, label: 'Sub Item 1', icon: '', expanded: false, children: [] },
+                                { id: 3, label: 'Sub Item 2', icon: '', expanded: false, children: [] },
+                                { id: 4, label: 'Sub Item 3', icon: '', expanded: false, children: [] },
+                            ],
+                        },
+                    ],
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-treeview > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-treeview [label]="label" [data]="data"></sac-treeview>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5TreeviewModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    data: [
+                        {
+                            id: 1,
+                            label: 'Root',
+                            icon: '',
+                            expanded: true,
+                            children: [
+                                { id: 2, label: 'Sub Item 1', icon: '', expanded: false, children: [] },
+                                { id: 3, label: 'Sub Item 2', icon: '', expanded: false, children: [] },
+                                { id: 4, label: 'Sub Item 3', icon: '', expanded: false, children: [] },
+                            ],
+                        },
+                    ],
+                },
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-treeview > div');
     });
 });

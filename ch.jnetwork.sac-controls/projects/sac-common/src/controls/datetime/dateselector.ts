@@ -1,6 +1,7 @@
 import { Moment } from 'moment';
 import { ISacIconService } from '../../interfaces/ISacIconService';
 import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
+import { createGuid } from '../../utilities/guid';
 import { Directive, EventEmitter, Injector, Input, OnInit, Output } from '@angular/core';
 import * as moment_ from 'moment';
 
@@ -132,10 +133,22 @@ export class SacDateSelectorCommon implements OnInit {
     public dateselection: boolean = false;
 
     /**
+     * Identifier used for the E2E data attribute.
+     */
+    @Input()
+    public e2eidentifier: string | null = null;
+
+    /**
      * Monat
      */
     @Input()
     public month: number = 4;
+
+    /**
+     * name of control
+     */
+    @Input()
+    public name: string = createGuid();
 
     /**
      * Output Event beim Datum Selektieren

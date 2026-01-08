@@ -4,6 +4,7 @@ import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacDialogComponent } from './dialog';
 import { NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('SacDialogComponent', () => {
@@ -416,5 +417,145 @@ describe('SacDialogComponent', () => {
         cy.get('div.modal').should('not.exist');
 
         cy.get('@valueSpy').should('be.calledWith', false);
+    });
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-dialog name="myControl" #modaldialog [isvisible]="true">
+                    <div dialogbody>Dialog Header</div>
+                    <div dialogfooter>
+                        <sac-button
+                            name="modalClose1"
+                            text="Close"
+                            (clicked)="modaldialog.hide()">
+                        </sac-button>
+                    </div>                
+                </sac-dialog>
+            </form>`,
+            {
+                imports: [
+                    FormsModule,
+                    SacFormDirective,
+                    SacDialogComponent,
+                    SacButtonComponent,
+                    SACBootstrap5LayoutModule,
+                ],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-dialog > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                <sac-dialog name="myControl" e2eidentifier="myTestidentifier" #modaldialog [isvisible]="true">
+                    <div dialogbody>Dialog Header</div>
+                    <div dialogfooter>
+                        <sac-button
+                            name="modalClose1"
+                            text="Close"
+                            (clicked)="modaldialog.hide()">
+                        </sac-button>
+                    </div>                
+                </sac-dialog>
+            </form>`,
+            {
+                imports: [
+                    FormsModule,
+                    SacFormDirective,
+                    SacDialogComponent,
+                    SacButtonComponent,
+                    SACBootstrap5LayoutModule,
+                ],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-dialog > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                <sac-dialog e2eidentifier="myTestidentifier" #modaldialog [isvisible]="true">
+                    <div dialogbody>Dialog Header</div>
+                    <div dialogfooter>
+                        <sac-button
+                            name="modalClose1"
+                            text="Close"
+                            (clicked)="modaldialog.hide()">
+                        </sac-button>
+                    </div>                
+                </sac-dialog>
+            </form>`,
+            {
+                imports: [
+                    FormsModule,
+                    SacFormDirective,
+                    SacDialogComponent,
+                    SacButtonComponent,
+                    SACBootstrap5LayoutModule,
+                ],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-dialog > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-dialog #modaldialog [isvisible]="true">
+                    <div dialogbody>Dialog Header</div>
+                    <div dialogfooter>
+                        <sac-button
+                            name="modalClose1"
+                            text="Close"
+                            (clicked)="modaldialog.hide()">
+                        </sac-button>
+                    </div>                
+                </sac-dialog>
+            </form>`,
+            {
+                imports: [
+                    FormsModule,
+                    SacFormDirective,
+                    SacDialogComponent,
+                    SacButtonComponent,
+                    SACBootstrap5LayoutModule,
+                ],
+                componentProperties: {},
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-dialog > div');
     });
 });

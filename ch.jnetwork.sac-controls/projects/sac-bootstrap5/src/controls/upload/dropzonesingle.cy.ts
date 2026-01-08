@@ -2,7 +2,7 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SACBootstrap5UploadModule } from './upload.module';
 import { FormsModule } from '@angular/forms';
-import { SACICON_SERVICE } from '@simpleangularcontrols/sac-common';
+import { SACCONFIGURATION_SERVICE, SACICON_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('SacDropzoneSingleComponent', () => {
@@ -607,5 +607,93 @@ describe('SacDropzoneSingleComponent', () => {
         cy.get('input[type="file"]').trigger('dragleave');
 
         cy.get('.dropzone').should('not.have.class', 'active');
+    });
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-dropzonesingle name="myControl" endpoint="/api/upload/register" [label]="label"></sac-dropzonesingle>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-dropzonesingle > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-dropzonesingle name="myControl" e2eidentifier="myTestidentifier" endpoint="/api/upload/register" [label]="label"></sac-dropzonesingle>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-dropzonesingle > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-dropzonesingle e2eidentifier="myTestidentifier" endpoint="/api/upload/register" [label]="label"></sac-dropzonesingle>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-dropzonesingle > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-dropzonesingle endpoint="/api/upload/register" [label]="label"></sac-dropzonesingle>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                },
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-dropzonesingle > div');
     });
 });

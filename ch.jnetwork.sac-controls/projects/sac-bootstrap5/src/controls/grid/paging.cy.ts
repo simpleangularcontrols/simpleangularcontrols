@@ -2,7 +2,7 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SACBootstrap5GridModule } from './grid.module';
 import { FormsModule } from '@angular/forms';
-import { PagerData, PagerRequest } from '@simpleangularcontrols/sac-common';
+import { PagerData, PagerRequest, SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('SacPagingComponent', () => {
@@ -196,5 +196,97 @@ describe('SacPagingComponent', () => {
 
         cy.get('.col-summary').should('exist');
         cy.get('.pagination li.active').should('have.text', '1');
+    });
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-paging name="myControl" [pagerdata]="pagerdata">
+                </sac-paging>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5GridModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    pagerdata: new PagerData(20, 0, 10),
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-paging > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                <sac-paging name="myControl" e2eidentifier="myTestidentifier" [pagerdata]="pagerdata">
+                </sac-paging>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5GridModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    pagerdata: new PagerData(20, 0, 10),
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-paging > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                <sac-paging e2eidentifier="myTestidentifier" [pagerdata]="pagerdata">
+                </sac-paging>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5GridModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    pagerdata: new PagerData(20, 0, 10),
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-paging > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-paging [pagerdata]="pagerdata">
+                </sac-paging>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5GridModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    pagerdata: new PagerData(20, 0, 10),
+                },
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-paging > div');
     });
 });

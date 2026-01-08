@@ -2,7 +2,7 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacMultilanguageInputComponent } from './multilanguageinput';
 import { FormsModule } from '@angular/forms';
-import { IconType, SACLANGUAGE_SERVICE } from '@simpleangularcontrols/sac-common';
+import { IconType, SACCONFIGURATION_SERVICE, SACLANGUAGE_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 import { of } from 'rxjs';
 
@@ -390,5 +390,219 @@ describe('SacMultilanguageInputComponent', () => {
         cy.shouldHaveLabel('My Label');
         cy.get('input').should('exist');
         cy.get('input').shouldBeValid();
+    });
+
+    it('should has e2 testkey with name', () => {
+        cy.intercept('GET', 'icons/de.png', {
+            fixture: 'de.png',
+        }).as('getIconDe');
+
+        cy.intercept('GET', 'icons/en.png', {
+            fixture: 'en.png',
+        }).as('getIconEn');
+
+        cy.intercept('GET', 'icons/fr.png', {
+            fixture: 'fr.png',
+        }).as('getIconEn');
+
+        cy.mount(
+            `<form>
+                <sac-multilanguageinput name="multilngcontrol" label="my Label"></sac-multilanguageinput>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacMultilanguageInputComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACLANGUAGE_SERVICE,
+                        useValue: {
+                            GetLanguages() {
+                                return of([
+                                    {
+                                        IsoCode: 'de',
+                                        Text: 'Deutsch',
+                                        Icon: '/icons/de.png',
+                                        IconType: IconType.Image,
+                                    },
+                                    {
+                                        IsoCode: 'en',
+                                        Text: 'English',
+                                        Icon: '/icons/en.png',
+                                        IconType: IconType.Image,
+                                    },
+                                ]);
+                            },
+                        },
+                    },
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-multilanguageinput > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.intercept('GET', 'icons/de.png', {
+            fixture: 'de.png',
+        }).as('getIconDe');
+
+        cy.intercept('GET', 'icons/en.png', {
+            fixture: 'en.png',
+        }).as('getIconEn');
+
+        cy.intercept('GET', 'icons/fr.png', {
+            fixture: 'fr.png',
+        }).as('getIconEn');
+
+        cy.mount(
+            `<form>
+                <sac-multilanguageinput name="multilngcontrol" e2eidentifier="myTestidentifier" label="my Label"></sac-multilanguageinput>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacMultilanguageInputComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACLANGUAGE_SERVICE,
+                        useValue: {
+                            GetLanguages() {
+                                return of([
+                                    {
+                                        IsoCode: 'de',
+                                        Text: 'Deutsch',
+                                        Icon: '/icons/de.png',
+                                        IconType: IconType.Image,
+                                    },
+                                    {
+                                        IsoCode: 'en',
+                                        Text: 'English',
+                                        Icon: '/icons/en.png',
+                                        IconType: IconType.Image,
+                                    },
+                                ]);
+                            },
+                        },
+                    },
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-multilanguageinput > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.intercept('GET', 'icons/de.png', {
+            fixture: 'de.png',
+        }).as('getIconDe');
+
+        cy.intercept('GET', 'icons/en.png', {
+            fixture: 'en.png',
+        }).as('getIconEn');
+
+        cy.intercept('GET', 'icons/fr.png', {
+            fixture: 'fr.png',
+        }).as('getIconEn');
+
+        cy.mount(
+            `<form>
+                <sac-multilanguageinput e2eidentifier="myTestidentifier" label="my Label"></sac-multilanguageinput>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacMultilanguageInputComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACLANGUAGE_SERVICE,
+                        useValue: {
+                            GetLanguages() {
+                                return of([
+                                    {
+                                        IsoCode: 'de',
+                                        Text: 'Deutsch',
+                                        Icon: '/icons/de.png',
+                                        IconType: IconType.Image,
+                                    },
+                                    {
+                                        IsoCode: 'en',
+                                        Text: 'English',
+                                        Icon: '/icons/en.png',
+                                        IconType: IconType.Image,
+                                    },
+                                ]);
+                            },
+                        },
+                    },
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-multilanguageinput > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.intercept('GET', 'icons/de.png', {
+            fixture: 'de.png',
+        }).as('getIconDe');
+
+        cy.intercept('GET', 'icons/en.png', {
+            fixture: 'en.png',
+        }).as('getIconEn');
+
+        cy.intercept('GET', 'icons/fr.png', {
+            fixture: 'fr.png',
+        }).as('getIconEn');
+
+        cy.mount(
+            `<form>
+                <sac-multilanguageinput label="my Label"></sac-multilanguageinput>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacMultilanguageInputComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACLANGUAGE_SERVICE,
+                        useValue: {
+                            GetLanguages() {
+                                return of([
+                                    {
+                                        IsoCode: 'de',
+                                        Text: 'Deutsch',
+                                        Icon: '/icons/de.png',
+                                        IconType: IconType.Image,
+                                    },
+                                    {
+                                        IsoCode: 'en',
+                                        Text: 'English',
+                                        Icon: '/icons/en.png',
+                                        IconType: IconType.Image,
+                                    },
+                                ]);
+                            },
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-multilanguageinput > div');
     });
 });

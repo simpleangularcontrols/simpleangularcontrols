@@ -2,6 +2,7 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacTimeComponent } from './time';
 import { FormsModule } from '@angular/forms';
+import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('SacTimeComponent', () => {
@@ -489,5 +490,81 @@ describe('SacTimeComponent', () => {
         cy.get('#clicktarget').click({ force: true });
 
         cy.get('.calendar-selector').should('not.exist');
+    });
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-time name="myControl" [label]="label"></sac-time>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacTimeComponent, SACBootstrap5LayoutModule],
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-time > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-time name="myControl" e2eidentifier="myTestidentifier" [label]="label"></sac-time>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacTimeComponent, SACBootstrap5LayoutModule],
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-time > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-time [label]="label" e2eidentifier="myTestidentifier"></sac-time>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacTimeComponent, SACBootstrap5LayoutModule],
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-time > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-time [label]="label"></sac-time>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacTimeComponent, SACBootstrap5LayoutModule],
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-time > div');
     });
 });

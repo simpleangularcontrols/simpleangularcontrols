@@ -2,7 +2,7 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SACBootstrap5GridModule } from './grid.module';
 import { FormsModule } from '@angular/forms';
-import { PagerRequest, SortDescriptor, SortOrder } from '@simpleangularcontrols/sac-common';
+import { PagerRequest, SACCONFIGURATION_SERVICE, SortDescriptor, SortOrder } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('SacGridComponent', () => {
@@ -492,5 +492,249 @@ describe('SacGridComponent', () => {
 
         cy.get('table').should('exist');
         cy.get('table tr td').eq(3).isTruncated();
+    });
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-grid name="myControl" [value]="values" emptytext="No Data">
+                    <ng-template
+                    let-row="row"
+                    let-type="type">
+                    <sac-gridcolumnaction
+                        name="actionCol"
+                        [type]="type"
+                        width="116px">
+                        <sac-gridbutton
+                            name="editrow"
+                            icon="edit"
+                            (clicked)="action($event)">
+                        </sac-gridbutton>
+                        <sac-gridbutton
+                            name="deleterow"
+                            icon="delete"
+                            (clicked)="action($event)"
+                            [isdisabled]="true">
+                        </sac-gridbutton>
+                        <sac-gridbutton
+                            iconstyle="fa"
+                            icon="fa-info-circle"
+                            (clicked)="action('info')">
+                        </sac-gridbutton>
+                        <sac-gridimage iconstyle="fa fa-exclamation-triangle"></sac-gridimage>
+                    </sac-gridcolumnaction>
+                    <sac-gridcolumn
+                        name="columnId"
+                        [type]="type"
+                        header="ID"
+                        [value]="row.Id"
+                        (rowclicked)="action(row.Id)"></sac-gridcolumn>
+                    <sac-gridcolumn
+                        name="columnText"
+                        [type]="type"
+                        header="Bild"
+                        [value]="row.Image"
+                        width="25%"></sac-gridcolumn>
+                    </ng-template>
+                </sac-grid>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5GridModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    values: [],
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-grid > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                <sac-grid name="myControl" e2eidentifier="myTestidentifier" [value]="values" emptytext="No Data">
+                    <ng-template
+                    let-row="row"
+                    let-type="type">
+                    <sac-gridcolumnaction
+                        name="actionCol"
+                        [type]="type"
+                        width="116px">
+                        <sac-gridbutton
+                            name="editrow"
+                            icon="edit"
+                            (clicked)="action($event)">
+                        </sac-gridbutton>
+                        <sac-gridbutton
+                            name="deleterow"
+                            icon="delete"
+                            (clicked)="action($event)"
+                            [isdisabled]="true">
+                        </sac-gridbutton>
+                        <sac-gridbutton
+                            iconstyle="fa"
+                            icon="fa-info-circle"
+                            (clicked)="action('info')">
+                        </sac-gridbutton>
+                        <sac-gridimage iconstyle="fa fa-exclamation-triangle"></sac-gridimage>
+                    </sac-gridcolumnaction>
+                    <sac-gridcolumn
+                        name="columnId"
+                        [type]="type"
+                        header="ID"
+                        [value]="row.Id"
+                        (rowclicked)="action(row.Id)"></sac-gridcolumn>
+                    <sac-gridcolumn
+                        name="columnText"
+                        [type]="type"
+                        header="Bild"
+                        [value]="row.Image"
+                        width="25%"></sac-gridcolumn>
+                    </ng-template>
+                </sac-grid>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5GridModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    values: [],
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-grid > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                <sac-grid e2eidentifier="myTestidentifier" [value]="values" emptytext="No Data">
+                    <ng-template
+                    let-row="row"
+                    let-type="type">
+                    <sac-gridcolumnaction
+                        name="actionCol"
+                        [type]="type"
+                        width="116px">
+                        <sac-gridbutton
+                            name="editrow"
+                            icon="edit"
+                            (clicked)="action($event)">
+                        </sac-gridbutton>
+                        <sac-gridbutton
+                            name="deleterow"
+                            icon="delete"
+                            (clicked)="action($event)"
+                            [isdisabled]="true">
+                        </sac-gridbutton>
+                        <sac-gridbutton
+                            iconstyle="fa"
+                            icon="fa-info-circle"
+                            (clicked)="action('info')">
+                        </sac-gridbutton>
+                        <sac-gridimage iconstyle="fa fa-exclamation-triangle"></sac-gridimage>
+                    </sac-gridcolumnaction>
+                    <sac-gridcolumn
+                        name="columnId"
+                        [type]="type"
+                        header="ID"
+                        [value]="row.Id"
+                        (rowclicked)="action(row.Id)"></sac-gridcolumn>
+                    <sac-gridcolumn
+                        name="columnText"
+                        [type]="type"
+                        header="Bild"
+                        [value]="row.Image"
+                        width="25%"></sac-gridcolumn>
+                    </ng-template>
+                </sac-grid>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5GridModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    values: [],
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-grid > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-grid name="myControl" [value]="values" emptytext="No Data">
+                    <ng-template
+                    let-row="row"
+                    let-type="type">
+                    <sac-gridcolumnaction
+                        name="actionCol"
+                        [type]="type"
+                        width="116px">
+                        <sac-gridbutton
+                            name="editrow"
+                            icon="edit"
+                            (clicked)="action($event)">
+                        </sac-gridbutton>
+                        <sac-gridbutton
+                            name="deleterow"
+                            icon="delete"
+                            (clicked)="action($event)"
+                            [isdisabled]="true">
+                        </sac-gridbutton>
+                        <sac-gridbutton
+                            iconstyle="fa"
+                            icon="fa-info-circle"
+                            (clicked)="action('info')">
+                        </sac-gridbutton>
+                        <sac-gridimage iconstyle="fa fa-exclamation-triangle"></sac-gridimage>
+                    </sac-gridcolumnaction>
+                    <sac-gridcolumn
+                        name="columnId"
+                        [type]="type"
+                        header="ID"
+                        [value]="row.Id"
+                        (rowclicked)="action(row.Id)"></sac-gridcolumn>
+                    <sac-gridcolumn
+                        name="columnText"
+                        [type]="type"
+                        header="Bild"
+                        [value]="row.Image"
+                        width="25%"></sac-gridcolumn>
+                    </ng-template>
+                </sac-grid>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5GridModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    values: [],
+                },
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-grid > div');
     });
 });

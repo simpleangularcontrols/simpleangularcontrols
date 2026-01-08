@@ -189,4 +189,88 @@ describe('SacInputSearchComponent', () => {
         cy.get('button').should('have.text', 'Suchen');
         cy.get('button i').should('have.class', 'fa fa-search');
     });
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputsearch name="myControl" label="my Label">
+                    </sac-inputsearch>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-inputsearch > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputsearch name="myControl" e2eidentifier="myTestidentifier" label="my Label">
+                    </sac-inputsearch>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-inputsearch > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputsearch e2eidentifier="myTestidentifier" label="my Label">
+                    </sac-inputsearch>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-inputsearch > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputsearch label="my Label">
+                    </sac-inputsearch>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-inputsearch > div');
+    });
 });

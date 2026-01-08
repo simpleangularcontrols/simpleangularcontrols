@@ -2,7 +2,7 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SACBootstrap5UploadModule } from './upload.module';
 import { FormsModule } from '@angular/forms';
-import { SACICON_SERVICE } from '@simpleangularcontrols/sac-common';
+import { SACCONFIGURATION_SERVICE, SACICON_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('SacUploadMultipleComponent', () => {
@@ -526,5 +526,93 @@ describe('SacUploadMultipleComponent', () => {
         cy.get('.progress-text').should('have.length', 1);
         cy.get('.progress-text').eq(0).should('have.text', 'upload.file1.txt');
         cy.get('.progress-bar').eq(0).should('have.attr', 'style', 'width: 100%;');
+    });
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-uploadmultiple name="myControl" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-uploadmultiple > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-uploadmultiple name="myControl" e2eidentifier="myTestidentifier" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-uploadmultiple > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-uploadmultiple e2eidentifier="myTestidentifier" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-uploadmultiple > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-uploadmultiple endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                },
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-uploadmultiple > div');
     });
 });

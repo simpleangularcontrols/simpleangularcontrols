@@ -287,6 +287,7 @@ describe('SacUploadComponent', () => {
             }
 
             cy.get('.upload-component button span.fa-pause').click();
+            cy.wait(1000); // wait for BS5 animation complete
 
             cy.get('.progress-bar')
                 .eq(0)
@@ -346,6 +347,7 @@ describe('SacUploadComponent', () => {
             }
 
             cy.get('.upload-component button span.fa-pause').click();
+            cy.wait(1000); // wait for BS5 animation complete
 
             cy.get('.progress-bar')
                 .eq(0)
@@ -353,10 +355,12 @@ describe('SacUploadComponent', () => {
                     const setupProgress = $el.css('width');
                     cy.wait(5000); // wait if more chunks are uploaded
 
-                    cy.get('.progress-bar').should(($elAfter) => {
-                        const currentProgress = $elAfter.css('width');
-                        expect(currentProgress).to.equal(setupProgress);
-                    });
+                    cy.get('.progress-bar')
+                        .eq(0)
+                        .should(($elAfter) => {
+                            const currentProgress = $elAfter.css('width');
+                            expect(currentProgress).to.equal(setupProgress);
+                        });
                     cy.get('.progress-bar').eq(0).should('not.have.attr', 'style', 'width: 100%;');
 
                     // resume upload

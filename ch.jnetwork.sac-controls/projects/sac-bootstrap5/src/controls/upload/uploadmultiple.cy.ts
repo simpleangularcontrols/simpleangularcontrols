@@ -287,6 +287,7 @@ describe('SacUploadMultipleComponent', () => {
             }
 
             cy.get('.upload-component button span.fa-pause').eq(0).click();
+            cy.wait(1000); // wait for BS5 animation complete
 
             cy.get('.progress-bar')
                 .eq(0)
@@ -346,6 +347,7 @@ describe('SacUploadMultipleComponent', () => {
             }
 
             cy.get('.upload-component button span.fa-pause').eq(0).click();
+            cy.wait(1000); // wait for BS5 animation complete
 
             cy.get('.progress-bar')
                 .eq(0)

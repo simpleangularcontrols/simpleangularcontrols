@@ -1,4 +1,5 @@
 <div
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier"
     class="row"
     [class.no-gutters]="disablelabel"
     [class.form-group]="!stacked">
@@ -42,7 +43,6 @@
                 [class.form-check-input-lg]="componentHeight === ControlHeight.Large"
                 id="{{ name }}"
                 name="{{ name }}"
-                [attr.data-e2e-key]="name | testingattribute : e2eidentifier"
                 type="checkbox"
                 [checked]="value"
                 (blur)="onTouch()"

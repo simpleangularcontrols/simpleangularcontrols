@@ -1,9 +1,7 @@
 import { SacFormDirective } from '../form';
-import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
-import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
+import { SACBootstrap3LayoutModule } from '../layout/layout.module';
 import { SacCheckboxComponent } from './checkbox';
 import { FormsModule } from '@angular/forms';
-import { SACBootstrap3LayoutModule } from '@simpleangularcontrols/sac-bootstrap3';
 import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
@@ -11,17 +9,12 @@ describe('sac-checkboxComponent', () => {
     it('should show label and checkbox text', () => {
         cy.mount(
             `<form>
-      <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-checkbox>
-      </form>`,
+                <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-checkbox>
+            </form>`,
             {
-                imports: [
-                    FormsModule,
-                    SacFormDirective,
-                    SacCheckboxComponent,
-                    SacToLabelWidthCssPipe,
-                    SacToControlWidthCssPipe,
-                ],
+                declarations: [],
+                imports: [FormsModule, SacCheckboxComponent, SacFormDirective, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'Control Label',
                     checkboxtext: 'Checkbox Test',
@@ -43,17 +36,11 @@ describe('sac-checkboxComponent', () => {
     it('should be disabled', () => {
         cy.mount(
             `<form>
-      <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [disabled]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-checkbox>
-      </form>`,
+                <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [disabled]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-checkbox>
+            </form>`,
             {
-                imports: [
-                    FormsModule,
-                    SacFormDirective,
-                    SacCheckboxComponent,
-                    SacToLabelWidthCssPipe,
-                    SacToControlWidthCssPipe,
-                ],
+                imports: [FormsModule, SacFormDirective, SacCheckboxComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'Control Label',
                     checkboxtext: 'Checkbox Test',
@@ -72,17 +59,11 @@ describe('sac-checkboxComponent', () => {
     it('should not show label', () => {
         cy.mount(
             `<form>
-      <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-checkbox>
-      </form>`,
+                <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-checkbox>
+            </form>`,
             {
-                imports: [
-                    FormsModule,
-                    SacFormDirective,
-                    SacCheckboxComponent,
-                    SacToLabelWidthCssPipe,
-                    SacToControlWidthCssPipe,
-                ],
+                imports: [FormsModule, SacFormDirective, SacCheckboxComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'Control Label',
                     checkboxtext: 'Checkbox Test',
@@ -93,23 +74,18 @@ describe('sac-checkboxComponent', () => {
         );
 
         cy.get('.form-group .control-label').should('not.exist');
+        cy.get('.row label.control-label').should('not.exist');
         cy.get('.checkbox label span').should('have.text', 'Checkbox Test');
     });
 
     it('should be work with true string', () => {
         cy.mount(
             `<form>
-      <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-checkbox>
-      </form>`,
+                <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-checkbox>
+            </form>`,
             {
-                imports: [
-                    FormsModule,
-                    SacFormDirective,
-                    SacCheckboxComponent,
-                    SacToLabelWidthCssPipe,
-                    SacToControlWidthCssPipe,
-                ],
+                imports: [FormsModule, SacFormDirective, SacCheckboxComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'Control Label',
                     checkboxtext: 'Checkbox Test',
@@ -125,9 +101,9 @@ describe('sac-checkboxComponent', () => {
     it('should has e2 testkey with name', () => {
         cy.mount(
             `<form>
-                    <sac-checkbox [name]="name" [label]="label" [checkboxtext]="checkboxtext">
-                    </sac-checkbox>
-                </form>`,
+                <sac-checkbox [name]="name" [label]="label" [checkboxtext]="checkboxtext">
+                </sac-checkbox>
+            </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacCheckboxComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
@@ -146,15 +122,15 @@ describe('sac-checkboxComponent', () => {
             }
         );
 
-        cy.shouldHaveTestAttributeWithName('input', 'myCheckbox');
+        cy.shouldHaveTestAttributeWithName('sac-checkbox > div', 'myCheckbox');
     });
 
     it('should has e2 testkey with testidentifier when name exists', () => {
         cy.mount(
             `<form>
-                    <sac-checkbox [name]="name" [e2eidentifier]="e2eidentifier" [label]="label" [checkboxtext]="checkboxtext">
-                    </sac-checkbox>
-                </form>`,
+                <sac-checkbox [name]="name" [e2eidentifier]="e2eidentifier" [label]="label" [checkboxtext]="checkboxtext">
+                </sac-checkbox>
+            </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacCheckboxComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
@@ -174,15 +150,15 @@ describe('sac-checkboxComponent', () => {
             }
         );
 
-        cy.shouldHaveTestAttributeWithName('input', 'myTestidentifier');
+        cy.shouldHaveTestAttributeWithName('sac-checkbox > div', 'myTestidentifier');
     });
 
     it('should has e2 testkey with testidentifier when name not exists', () => {
         cy.mount(
             `<form>
-                    <sac-checkbox [e2eidentifier]="e2eidentifier" [label]="label" [checkboxtext]="checkboxtext">
-                    </sac-checkbox>
-                </form>`,
+                <sac-checkbox [e2eidentifier]="e2eidentifier" [label]="label" [checkboxtext]="checkboxtext">
+                </sac-checkbox>
+            </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacCheckboxComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
@@ -201,15 +177,15 @@ describe('sac-checkboxComponent', () => {
             }
         );
 
-        cy.shouldHaveTestAttributeWithName('input', 'myTestidentifier');
+        cy.shouldHaveTestAttributeWithName('sac-checkbox > div', 'myTestidentifier');
     });
 
     it('should not has e2 testkey with name', () => {
         cy.mount(
             `<form>
-                    <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext">
-                    </sac-checkbox>
-                </form>`,
+                <sac-checkbox name="checkbox" [label]="label" [checkboxtext]="checkboxtext">
+                </sac-checkbox>
+            </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacCheckboxComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
@@ -219,6 +195,6 @@ describe('sac-checkboxComponent', () => {
             }
         );
 
-        cy.shouldHaveDisabledTestAttribute('input');
+        cy.shouldHaveDisabledTestAttribute('sac-checkbox > div');
     });
 });

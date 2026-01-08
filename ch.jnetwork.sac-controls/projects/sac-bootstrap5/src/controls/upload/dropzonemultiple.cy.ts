@@ -616,5 +616,9 @@ describe('SacDropzoneMultipleComponent', () => {
         });
 
         cy.get('.dropzone').should('have.class', 'active');
+
+        cy.get('input[type="file"]').trigger('dragleave');
+
+        cy.get('.dropzone').should('not.have.class', 'active');
     });
 });

@@ -467,4 +467,64 @@ describe('SacUploadMultipleComponent', () => {
         cy.get('.progress-bar').eq(0).should('have.attr', 'style', 'width: 100%;');
         cy.get('.progress-bar').eq(1).should('have.attr', 'style', 'width: 100%;');
     });
+
+    it('should limit files with maxfiles', () => {
+        cy.intercept(
+            { method: 'POST', url: '/api/upload/register', times: 1 },
+            {
+                statusCode: 201,
+                headers: { Location: '/api/upload/64f206db-1b40-42e7-859e-d0d792464dbc' },
+            }
+        ).as('uploadRegister1');
+
+        cy.intercept(
+            { method: 'POST', url: '/api/upload/register', times: 1 },
+            {
+                statusCode: 201,
+                headers: { Location: '/api/upload/11784817-c210-48da-8da1-6e369e666daa' },
+            }
+        ).as('uploadRegister2');
+
+        cy.intercept('PUT', '/api/upload/64f206db-1b40-42e7-859e-d0d792464dbc', {
+            statusCode: 200,
+            headers: { 'content-length': '14' },
+            body: {
+                documentid: '64f206db-1b40-42e7-859e-d0d792464dbc',
+                status: 'done',
+            },
+        }).as('uploadFile1');
+
+        cy.intercept('PUT', '/api/upload/11784817-c210-48da-8da1-6e369e666daa', {
+            statusCode: 200,
+            headers: { 'content-length': '21' },
+            body: {
+                documentid: '11784817-c210-48da-8da1-6e369e666daa',
+                status: 'done',
+            },
+        }).as('uploadFile2');
+
+        cy.mount(
+            `<form>
+                <sac-uploadmultiple name="uploadControl" maxfiles="1" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    fileerrorAction: createOutputSpy('fileerrorAction'),
+                },
+            }
+        );
+
+        cy.get('input[type="file"]').selectFile([
+            'cypress/fixtures/upload.file1.txt',
+            'cypress/fixtures/upload.file2.txt',
+        ]);
+        cy.get('button').filterByText('Upload').eq(0).click();
+
+        cy.get('@fileerrorAction').should('be.calledWith', 'INVALID_MAXFILES');
+        cy.get('.progress-text').should('have.length', 1);
+        cy.get('.progress-text').eq(0).should('have.text', 'upload.file1.txt');
+        cy.get('.progress-bar').eq(0).should('have.attr', 'style', 'width: 100%;');
+    });
 });

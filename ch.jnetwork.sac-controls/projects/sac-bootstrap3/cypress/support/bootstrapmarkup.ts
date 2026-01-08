@@ -11,7 +11,7 @@ declare namespace Cypress {
 }
 
 Cypress.Commands.add('shouldNotHaveLabel', () => {
-    cy.get('label').should('have.class', 'sr-only');
+    cy.get('label').should('not.exist');
 });
 
 Cypress.Commands.add('shouldHaveLabel', (label: string) => {
@@ -19,17 +19,19 @@ Cypress.Commands.add('shouldHaveLabel', (label: string) => {
 });
 
 Cypress.Commands.add('shouldBeValid', (tagName: string = 'input') => {
-    cy.get(tagName).focus().blur();
+    // trigger blur manuell, does not works with integrated blur()
+    cy.get(tagName).focus().trigger('blur');
     cy.get(tagName).should('not.have.class', 'is-invalid');
 });
 
 Cypress.Commands.add('shouldBeInvalid', (tagName: string = 'input') => {
-    cy.get(tagName).focus().blur();
+    // trigger blur manuell, does not works with integrated blur()
+    cy.get(tagName).focus().trigger('blur');
     cy.get(tagName).should('have.class', 'is-invalid');
 });
 
 Cypress.Commands.add('shouldHaveErrorMessage', (errorMessage: string) => {
-    cy.get('.invalid-feedback').contains(errorMessage);
+    cy.get('.help-block-error').contains(errorMessage);
 });
 
 Cypress.Commands.add('shouldHaveTestAttributeWithName', (tagName: string, testkey: string) => {

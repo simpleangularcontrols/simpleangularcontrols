@@ -1,16 +1,13 @@
-import { SacContextmenuComponent } from '../contextmenu';
-import { SacContextmenuItemButtonComponent } from '../contextmenu/contextmenuitembutton';
-import { SacContextmenuItemSplitterComponent } from '../contextmenu/contextmenuitemsplitter';
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 import { SacToControlHeightPipe } from '../layout/tocontrolheight.pipe';
 import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
 import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 import { SacTooltipComponent } from '../tooltip/tooltip';
-import { AsyncPipe, JsonPipe, NgClass, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
+import { AsyncPipe, NgClass, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacTreeviewCommon } from '@simpleangularcontrols/sac-common';
+import { SacTestingAttributePipe, SacTreeviewCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Treeview Compomnent
@@ -33,19 +30,16 @@ import { SacTreeviewCommon } from '@simpleangularcontrols/sac-common';
     standalone: true,
     imports: [
         NgIf,
-        JsonPipe,
         NgFor,
         NgTemplateOutlet,
         NgClass,
-        SacContextmenuComponent,
-        SacContextmenuItemButtonComponent,
-        SacContextmenuItemSplitterComponent,
         SacToLabelWidthCssPipe,
         SacToLabelHeightPipe,
         SacTooltipComponent,
         SacToControlWidthCssPipe,
         AsyncPipe,
         SacToControlHeightPipe,
+        SacTestingAttributePipe,
     ],
 })
 export class SacTreeviewComponent extends SacTreeviewCommon {

@@ -295,7 +295,7 @@ describe('SacDateSelectorComponent', () => {
         const initial = new Date(2022, 4, 15, 0, 0, 0, 0); // May 14, 2022
         cy.mount(
             `<form>
-                <sac-dateselector name="myControl" [label]="label" [initialvalue]="initialvalue" dateselection="true"></sac-dateselector>
+                <sac-dateselector name="myControl" [initialvalue]="initialvalue" dateselection="true"></sac-dateselector>
             </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacDateSelectorComponent, SACBootstrap4LayoutModule],
@@ -320,7 +320,7 @@ describe('SacDateSelectorComponent', () => {
         const initial = new Date(2022, 4, 15, 0, 0, 0, 0); // May 14, 2022
         cy.mount(
             `<form>
-                <sac-dateselector name="myControl" e2eidentifier="myTestidentifier" [label]="label" [initialvalue]="initialvalue" dateselection="true"></sac-dateselector>
+                <sac-dateselector name="myControl" e2eidentifier="myTestidentifier" [initialvalue]="initialvalue" dateselection="true"></sac-dateselector>
             </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacDateSelectorComponent, SACBootstrap4LayoutModule],
@@ -345,7 +345,7 @@ describe('SacDateSelectorComponent', () => {
         const initial = new Date(2022, 4, 15, 0, 0, 0, 0); // May 14, 2022
         cy.mount(
             `<form>
-                <sac-dateselector [label]="label" e2eidentifier="myTestidentifier" [initialvalue]="initialvalue" dateselection="true"></sac-dateselector>
+                <sac-dateselector e2eidentifier="myTestidentifier" [initialvalue]="initialvalue" dateselection="true"></sac-dateselector>
             </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacDateSelectorComponent, SACBootstrap4LayoutModule],
@@ -370,7 +370,7 @@ describe('SacDateSelectorComponent', () => {
         const initial = new Date(2022, 4, 15, 0, 0, 0, 0); // May 14, 2022
         cy.mount(
             `<form>
-                <sac-dateselector [label]="label" [initialvalue]="initialvalue" dateselection="true"></sac-dateselector>
+                <sac-dateselector [initialvalue]="initialvalue" dateselection="true"></sac-dateselector>
             </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacDateSelectorComponent, SACBootstrap4LayoutModule],

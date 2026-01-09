@@ -482,9 +482,7 @@ describe('SACBootstrap5TinyMceModule', () => {
                         base_url: '/__cypress/src/tinymce', // This is needed so that plugins and skins load correctly.
                     },
                 },
-                providers: [
-                    { provide: TINYMCE_SCRIPT_SRC, useValue: '/__cypress/src/tinymce/tinymce.min.js' },
-                ],
+                providers: [{ provide: TINYMCE_SCRIPT_SRC, useValue: '/__cypress/src/tinymce/tinymce.min.js' }],
             }
         );
 

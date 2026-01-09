@@ -1,5 +1,5 @@
 import { SacFormDirective } from '../form';
-import { SACBootstrap4LayoutModule } from '../layout/layout.module';
+import { SACBootstrap3LayoutModule } from '../layout/layout.module';
 import { SacInputComponent } from './input';
 import { FormsModule } from '@angular/forms';
 import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
@@ -13,7 +13,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
               </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -29,11 +29,11 @@ describe('NgInputComponent', () => {
     it('should show required', () => {
         cy.mount(
             `<form>
-      <sac-input name="field" [label]="label" [isrequired]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-input>
-      </form>`,
+                <sac-input name="field" [label]="label" [isrequired]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -56,11 +56,11 @@ describe('NgInputComponent', () => {
     it('should hide label', () => {
         cy.mount(
             `<form>
-      <sac-input name="field" [label]="label" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-input>
-      </form>`,
+                <sac-input name="field" [label]="label" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Value',
@@ -76,11 +76,11 @@ describe('NgInputComponent', () => {
     it('should have placeholder', () => {
         cy.mount(
             `<form>
-      <sac-input name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-input>
-      </form>`,
+                <sac-input name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -95,11 +95,11 @@ describe('NgInputComponent', () => {
     it('should have be readonly', () => {
         cy.mount(
             `<form>
-      <sac-input name="field" [label]="label" [readonly]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-input>
-      </form>`,
+                <sac-input name="field" [label]="label" [readonly]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'MyValue',
@@ -114,11 +114,11 @@ describe('NgInputComponent', () => {
     it('should have be disabled', () => {
         cy.mount(
             `<form>
-      <sac-input name="field" [label]="label" [disabled]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-input>
-      </form>`,
+                <sac-input name="field" [label]="label" [disabled]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'MyValue',
@@ -133,11 +133,11 @@ describe('NgInputComponent', () => {
     it('should handle model binding', () => {
         cy.mount(
             `<form>
-      <sac-input name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-input>
-      </form>`,
+                <sac-input name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'first value',
@@ -155,11 +155,11 @@ describe('NgInputComponent', () => {
     it('should limit string', () => {
         cy.mount(
             `<form>
-      <sac-input name="field" [label]="label" [maxtextlength]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-input>
-      </form>`,
+                <sac-input name="field" [label]="label" [maxtextlength]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'first value',
@@ -176,11 +176,11 @@ describe('NgInputComponent', () => {
     it('should limit characters', () => {
         cy.mount(
             `<form>
-      <sac-input name="field" [label]="label" allowedchars="abc" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-input>
-      </form>`,
+                <sac-input name="field" [label]="label" allowedchars="abc" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -203,7 +203,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
             </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {},
                 providers: [
                     {
@@ -226,7 +226,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
             </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {},
                 providers: [
                     {
@@ -249,7 +249,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
             </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {},
                 providers: [
                     {
@@ -272,7 +272,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
             </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {},
             }
         );

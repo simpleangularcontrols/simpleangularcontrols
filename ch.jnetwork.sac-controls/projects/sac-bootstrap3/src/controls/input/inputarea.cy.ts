@@ -1,5 +1,5 @@
 import { SacFormDirective } from '../form';
-import { SACBootstrap4LayoutModule } from '../layout/layout.module';
+import { SACBootstrap3LayoutModule } from '../layout/layout.module';
 import { SacInputAreaComponent } from './inputarea';
 import { FormsModule } from '@angular/forms';
 import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
@@ -13,7 +13,7 @@ describe('NgInputareaComponent', () => {
       </sac-inputarea>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -33,7 +33,7 @@ describe('NgInputareaComponent', () => {
       </sac-inputarea>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -60,7 +60,7 @@ describe('NgInputareaComponent', () => {
       </sac-inputarea>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Value',
@@ -80,7 +80,7 @@ describe('NgInputareaComponent', () => {
       </sac-inputarea>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -99,7 +99,7 @@ describe('NgInputareaComponent', () => {
       </sac-inputarea>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'MyValue',
@@ -118,7 +118,7 @@ describe('NgInputareaComponent', () => {
       </sac-inputarea>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'MyValue',
@@ -137,7 +137,7 @@ describe('NgInputareaComponent', () => {
       </sac-inputarea>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'first value',
@@ -159,7 +159,7 @@ describe('NgInputareaComponent', () => {
       </sac-inputarea>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'first value',
@@ -182,7 +182,7 @@ describe('NgInputareaComponent', () => {
                     </sac-inputarea>
                 </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap3LayoutModule],
                 componentProperties: {},
                 providers: [
                     {
@@ -205,7 +205,7 @@ describe('NgInputareaComponent', () => {
                     </sac-inputarea>
                 </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap3LayoutModule],
                 componentProperties: {},
                 providers: [
                     {
@@ -228,7 +228,7 @@ describe('NgInputareaComponent', () => {
                     </sac-inputarea>
                 </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap3LayoutModule],
                 componentProperties: {},
                 providers: [
                     {
@@ -251,7 +251,7 @@ describe('NgInputareaComponent', () => {
                     </sac-inputarea>
                 </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap3LayoutModule],
                 componentProperties: {},
             }
         );

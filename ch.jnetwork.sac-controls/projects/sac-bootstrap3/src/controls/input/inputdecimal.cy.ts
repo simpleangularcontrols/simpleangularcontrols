@@ -1,39 +1,39 @@
 import { SacFormDirective } from '../form';
-import { SACBootstrap4LayoutModule } from '../layout/layout.module';
-import { SacInputIntegerComponent } from './inputinteger';
+import { SACBootstrap3LayoutModule } from '../layout/layout.module';
+import { SacInputDecimalComponent } from './inputdecimal';
 import { FormsModule } from '@angular/forms';
 import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
-describe('ngInputIntegerComponent', () => {
+describe('NgInputDecimalComponent', () => {
     it('should show label and text', () => {
         cy.mount(
             `<form>
-      <sac-inputinteger name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-inputinteger>
+      <sac-inputdecimal name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputdecimal>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputIntegerComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
-                    value: 133,
+                    value: 1.33,
                     valueChange: createOutputSpy('valueSpy'),
                 },
             }
         );
 
         cy.shouldHaveLabel('My Label');
-        cy.get('input').should('have.value', '133');
+        cy.get('input').should('have.value', '1.33');
     });
 
     it('should show required', () => {
         cy.mount(
             `<form>
-      <sac-inputinteger name="field" [label]="label" [isrequired]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-inputinteger>
+      <sac-inputdecimal name="field" [label]="label" [isrequired]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputdecimal>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputIntegerComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -46,24 +46,24 @@ describe('ngInputIntegerComponent', () => {
         cy.shouldBeInvalid();
 
         cy.get('input').should('have.value', '');
-        cy.get('input').type('145');
+        cy.get('input').type('145.54');
 
         cy.shouldBeValid();
 
-        cy.get('input').should('have.value', '145');
+        cy.get('input').should('have.value', '145.54');
     });
 
     it('should hide label', () => {
         cy.mount(
             `<form>
-      <sac-inputinteger name="field" [label]="label" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-inputinteger>
+      <sac-inputdecimal name="field" [label]="label" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputdecimal>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputIntegerComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
-                    value: 145,
+                    value: 1.45,
                     valueChange: createOutputSpy('valueSpy'),
                 },
             }
@@ -76,11 +76,11 @@ describe('ngInputIntegerComponent', () => {
     it('should have placeholder', () => {
         cy.mount(
             `<form>
-      <sac-inputinteger name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-inputinteger>
+      <sac-inputdecimal name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputdecimal>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputIntegerComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -95,14 +95,14 @@ describe('ngInputIntegerComponent', () => {
     it('should have be readonly', () => {
         cy.mount(
             `<form>
-      <sac-inputinteger name="field" [label]="label" [readonly]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-inputinteger>
+      <sac-inputdecimal name="field" [label]="label" [readonly]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputdecimal>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputIntegerComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
-                    value: 145,
+                    value: 1.45,
                     valueChange: createOutputSpy('valueSpy'),
                 },
             }
@@ -114,14 +114,14 @@ describe('ngInputIntegerComponent', () => {
     it('should have be disabled', () => {
         cy.mount(
             `<form>
-      <sac-inputinteger name="field" [label]="label" [disabled]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-inputinteger>
+      <sac-inputdecimal name="field" [label]="label" [disabled]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputdecimal>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputIntegerComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
-                    value: 199,
+                    value: 1.99,
                     valueChange: createOutputSpy('valueSpy'),
                 },
             }
@@ -133,11 +133,11 @@ describe('ngInputIntegerComponent', () => {
     it('should handle model binding', () => {
         cy.mount(
             `<form>
-      <sac-inputinteger name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-inputinteger>
+      <sac-inputdecimal name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputdecimal>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputIntegerComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 15,
@@ -155,11 +155,11 @@ describe('ngInputIntegerComponent', () => {
     it('should use maxvalue', () => {
         cy.mount(
             `<form>
-      <sac-inputinteger name="field" [label]="label" [maxvalue]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-inputinteger>
+      <sac-inputdecimal name="field" [label]="label" [maxvalue]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputdecimal>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputIntegerComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 4,
@@ -180,11 +180,11 @@ describe('ngInputIntegerComponent', () => {
     it('should use minvalue', () => {
         cy.mount(
             `<form>
-      <sac-inputinteger name="field" [label]="label" [minvalue]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-inputinteger>
+      <sac-inputdecimal name="field" [label]="label" [minvalue]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputdecimal>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputIntegerComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 8,
@@ -205,11 +205,11 @@ describe('ngInputIntegerComponent', () => {
     it('should allow negativ numbers', () => {
         cy.mount(
             `<form>
-      <sac-inputinteger name="field" [label]="label" [allownegativ]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-inputinteger>
+      <sac-inputdecimal name="field" [label]="label" [allownegativ]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputdecimal>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputIntegerComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 8,
@@ -230,11 +230,11 @@ describe('ngInputIntegerComponent', () => {
     it('should allow only positiv numbers', () => {
         cy.mount(
             `<form>
-      <sac-inputinteger name="field" [label]="label" [allownegativ]="false" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-inputinteger>
+      <sac-inputdecimal name="field" [label]="label" [allownegativ]="false" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputdecimal>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputIntegerComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 8,
@@ -255,11 +255,11 @@ describe('ngInputIntegerComponent', () => {
     it('should not allow chars', () => {
         cy.mount(
             `<form>
-      <sac-inputinteger name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-inputinteger>
+      <sac-inputdecimal name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputdecimal>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputIntegerComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 0,
@@ -275,14 +275,14 @@ describe('ngInputIntegerComponent', () => {
         cy.get('input').should('have.value', '0');
     });
 
-    it('should not allow decimal char', () => {
+    it('should allow decimal char', () => {
         cy.mount(
             `<form>
-      <sac-inputinteger name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-inputinteger>
+      <sac-inputdecimal name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputdecimal>
       </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputIntegerComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 0,
@@ -295,17 +295,44 @@ describe('ngInputIntegerComponent', () => {
 
         cy.get('input').should('have.value', '0');
         cy.get('input').type('1.4');
-        cy.get('input').should('have.value', '14');
+        cy.get('input').should('have.value', '1.4');
     });
+
+    it('should not allow multiple decimal char', () => {
+        cy.mount(
+            `<form>
+      <sac-inputdecimal name="field" [label]="label" [maxvalue]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputdecimal>
+      </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap3LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 0,
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+
+        cy.get('input').should('have.value', '0');
+        cy.get('input').type('1.4.4');
+        cy.get('input').should('have.value', '1.44');
+    });
+
+    it('should add leading zero when start with dot', () => {});
+
+    it('should not allow more than one dot', () => {});
 
     it('should has e2 testkey with name', () => {
         cy.mount(
             `<form>
-                  <sac-inputinteger name="myControl" label="my Label">
-                  </sac-inputinteger>
-              </form>`,
+                    <sac-inputdecimal name="myControl" label="my Label">
+                    </sac-inputdecimal>
+                </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputIntegerComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap3LayoutModule],
                 componentProperties: {},
                 providers: [
                     {
@@ -318,17 +345,17 @@ describe('ngInputIntegerComponent', () => {
             }
         );
 
-        cy.shouldHaveTestAttributeWithName('sac-inputinteger > div', 'myControl');
+        cy.shouldHaveTestAttributeWithName('sac-inputdecimal > div', 'myControl');
     });
 
     it('should has e2 testkey with testidentifier when name exists', () => {
         cy.mount(
             `<form>
-                  <sac-inputinteger name="myControl" e2eidentifier="myTestidentifier" label="my Label">
-                  </sac-inputinteger>
-              </form>`,
+                    <sac-inputdecimal name="myControl" e2eidentifier="myTestidentifier" label="my Label">
+                    </sac-inputdecimal>
+                </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputIntegerComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap3LayoutModule],
                 componentProperties: {},
                 providers: [
                     {
@@ -341,17 +368,17 @@ describe('ngInputIntegerComponent', () => {
             }
         );
 
-        cy.shouldHaveTestAttributeWithName('sac-inputinteger > div', 'myTestidentifier');
+        cy.shouldHaveTestAttributeWithName('sac-inputdecimal > div', 'myTestidentifier');
     });
 
     it('should has e2 testkey with testidentifier when name not exists', () => {
         cy.mount(
             `<form>
-                  <sac-inputinteger e2eidentifier="myTestidentifier" label="my Label">
-                  </sac-inputinteger>
-              </form>`,
+                    <sac-inputdecimal e2eidentifier="myTestidentifier" label="my Label">
+                    </sac-inputdecimal>
+                </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputIntegerComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap3LayoutModule],
                 componentProperties: {},
                 providers: [
                     {
@@ -364,21 +391,21 @@ describe('ngInputIntegerComponent', () => {
             }
         );
 
-        cy.shouldHaveTestAttributeWithName('sac-inputinteger > div', 'myTestidentifier');
+        cy.shouldHaveTestAttributeWithName('sac-inputdecimal > div', 'myTestidentifier');
     });
 
     it('should not has e2 testkey with name', () => {
         cy.mount(
             `<form>
-                  <sac-inputinteger label="my Label">
-                  </sac-inputinteger>
-              </form>`,
+                    <sac-inputdecimal label="my Label">
+                    </sac-inputdecimal>
+                </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputIntegerComponent, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputDecimalComponent, SACBootstrap3LayoutModule],
                 componentProperties: {},
             }
         );
 
-        cy.shouldHaveDisabledTestAttribute('sac-inputinteger > div');
+        cy.shouldHaveDisabledTestAttribute('sac-inputdecimal > div');
     });
 });

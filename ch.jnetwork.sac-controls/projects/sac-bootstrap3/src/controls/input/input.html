@@ -1,7 +1,8 @@
 <div
     class="row form-group"
     [class.has-error]="invalid && (dirty || touched)"
-    [ngClass]="componentHeight | toLabelHeight">
+    [ngClass]="componentHeight | toLabelHeight"
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier">
     <label
         *ngIf="disablelabel === false && !isAdaptiveLabel"
         id="{{ name }}label"
@@ -30,10 +31,12 @@
                 type="text"
                 class="form-control"
                 [ngClass]="[componentHeight | toControlHeight]"
+                [class.is-invalid]="invalid && (dirty || touched)"
                 [value]="value"
                 [attr.placeholder]="placeholder"
                 (blur)="onTouch()"
                 (input)="setValue($event.target.value)"
+                (keypress)="onKeyPress($event)"
                 [attr.maxlength]="maxtextlength"
                 [disabled]="isdisabled"
                 [readonly]="readonly" />

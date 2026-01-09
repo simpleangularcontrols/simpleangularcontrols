@@ -1,5 +1,5 @@
 import { SacFormDirective } from '../form';
-import { SACBootstrap5LayoutModule } from '../layout/layout.module';
+import { SACBootstrap4LayoutModule } from '../layout/layout.module';
 import { SacInputSearchComponent } from './inputsearch';
 import { FormsModule } from '@angular/forms';
 import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
@@ -13,7 +13,7 @@ describe('SacInputSearchComponent', () => {
                 </sac-inputsearch>
             </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'Search Value',
@@ -34,7 +34,7 @@ describe('SacInputSearchComponent', () => {
                 </sac-inputsearch>
             </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'Search Value',
@@ -55,7 +55,7 @@ describe('SacInputSearchComponent', () => {
                 </sac-inputsearch>
             </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'Search Value',
@@ -77,7 +77,7 @@ describe('SacInputSearchComponent', () => {
                 </sac-inputsearch>
             </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'Search Value',
@@ -99,7 +99,7 @@ describe('SacInputSearchComponent', () => {
                 </sac-inputsearch>
             </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'Search Value',
@@ -121,7 +121,7 @@ describe('SacInputSearchComponent', () => {
                 </sac-inputsearch>
             </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'Search Value',
@@ -143,7 +143,7 @@ describe('SacInputSearchComponent', () => {
                 </sac-inputsearch>
             </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'Search Value',
@@ -165,7 +165,7 @@ describe('SacInputSearchComponent', () => {
                 </sac-inputsearch>
             </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'Search Value',
@@ -197,14 +197,13 @@ describe('SacInputSearchComponent', () => {
                     </sac-inputsearch>
                 </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap4LayoutModule],
                 componentProperties: {},
                 providers: [
                     {
                         provide: SACCONFIGURATION_SERVICE,
                         useValue: {
                             EnableE2EAttributes: true,
-                            CurrencyText: 'CHF',
                         },
                     },
                 ],
@@ -221,14 +220,13 @@ describe('SacInputSearchComponent', () => {
                     </sac-inputsearch>
                 </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap4LayoutModule],
                 componentProperties: {},
                 providers: [
                     {
                         provide: SACCONFIGURATION_SERVICE,
                         useValue: {
                             EnableE2EAttributes: true,
-                            CurrencyText: 'CHF',
                         },
                     },
                 ],
@@ -245,14 +243,13 @@ describe('SacInputSearchComponent', () => {
                     </sac-inputsearch>
                 </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap4LayoutModule],
                 componentProperties: {},
                 providers: [
                     {
                         provide: SACCONFIGURATION_SERVICE,
                         useValue: {
                             EnableE2EAttributes: true,
-                            CurrencyText: 'CHF',
                         },
                     },
                 ],
@@ -269,7 +266,7 @@ describe('SacInputSearchComponent', () => {
                     </sac-inputsearch>
                 </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap4LayoutModule],
                 componentProperties: {},
             }
         );

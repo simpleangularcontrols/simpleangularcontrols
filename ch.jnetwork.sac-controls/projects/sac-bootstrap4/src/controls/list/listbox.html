@@ -1,6 +1,7 @@
 <div
     class="row form-group"
-    [class.no-gutters]="disablelabel">
+    [class.no-gutters]="disablelabel"
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier">
     <label
         for="{{ name }}"
         class="col-12 col-form-label d-flex"
@@ -42,9 +43,9 @@
                     <option
                         *ngFor="let option of options"
                         [value]="option[optionvalue]"
-                        [disabled]="optionenabled !== '' && option[optionenabled] === false">
-                        {{ option[optionlabel] }}
-                    </option>
+                        [disabled]="optionenabled !== '' && option[optionenabled] === false"
+                        >{{ option[optionlabel] }}</option
+                    >
                 </ng-container>
                 <ng-container *ngIf="groupitems !== ''">
                     <optgroup

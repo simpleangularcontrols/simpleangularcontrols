@@ -1,4 +1,6 @@
-<div class="row form-group">
+<div
+    class="row form-group"
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier">
     <label
         for="{{ name }}"
         class="col-12 col-form-label d-flex"

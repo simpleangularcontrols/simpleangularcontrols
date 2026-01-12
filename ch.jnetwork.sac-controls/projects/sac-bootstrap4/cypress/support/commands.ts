@@ -4,13 +4,13 @@
 // IDE or Text Editor.
 // ***********************************************
 // declare namespace Cypress {
-//   interface Chainable<Subject = any> {
-//     customCommand(param: any): typeof customCommand;
-//   }
+// interface Chainable<Subject = any> {
+// customCommand(param: any): typeof customCommand;
+// }
 // }
 //
 // function customCommand(param: any): void {
-//   console.warn(param);
+// console.warn(param);
 // }
 //
 // NOTE: You can use it like so:
@@ -46,3 +46,4 @@
 import './bootstrapmarkup';
 import './htmlattributes';
 import './modelchanged';
+import './uploadhelper';

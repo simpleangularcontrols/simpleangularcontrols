@@ -221,7 +221,7 @@ describe('SacDropzoneSingleComponent', () => {
             }
 
             cy.get('.upload-component a span.fa-pause').click();
-            cy.wait(1000); // wait for BS5 animation complete
+            cy.wait(1500); // wait for BS5 animation complete
 
             cy.get('.dropzone-uploadstates .progress-bar')
                 .eq(0)
@@ -280,7 +280,7 @@ describe('SacDropzoneSingleComponent', () => {
             }
 
             cy.get('.upload-component a span.fa-pause').click();
-            cy.wait(1000); // wait for BS5 animation complete
+            cy.wait(1500); // wait for BS5 animation complete
 
             cy.get('.dropzone-uploadstates .progress-bar')
                 .eq(0)

@@ -178,6 +178,8 @@ describe('SacTooltipComponent', () => {
         );
         cy.get('sac-tooltip').should('exist');
         cy.get('img').click();
+        cy.get('html').invoke('outerHeight').should('eq', 759);
+
         cy.get('.tooltip.show').should('have.text', 'My Label');
         cy.get('.tooltip.show').should('have.class', 'top');
     });

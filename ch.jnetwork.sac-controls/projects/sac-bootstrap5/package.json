@@ -32,7 +32,9 @@
     "nyc": {
         "report-dir": "../../coverage/bootstrap5",
         "exclude": [
-            "cypress/**"
+            "cypress/**",
+            "cypress.config.ts",
+            "karma.cofn.js"
         ],
         "reporter": [
             "lcov",

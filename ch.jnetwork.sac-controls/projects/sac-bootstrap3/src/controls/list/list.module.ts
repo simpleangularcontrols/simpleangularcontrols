@@ -1,6 +1,8 @@
 import { SacTooltipComponent } from '../tooltip/tooltip';
-import { SacDropdownComponent, SacDropdownOptionDirective } from './dropdown';
-import { SacListboxComponent, SacListboxOptionDirective } from './listbox';
+import { SacDropdownComponent } from './dropdown';
+import { SacDropdownOptionDirective } from './dropdownoption.directive';
+import { SacListboxComponent } from './listbox';
+import { SacListboxOptionDirective } from './listboxoption.directive';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';

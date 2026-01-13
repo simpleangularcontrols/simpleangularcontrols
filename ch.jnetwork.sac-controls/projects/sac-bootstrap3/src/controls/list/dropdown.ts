@@ -4,35 +4,19 @@ import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
 import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 import { SacTooltipComponent } from '../tooltip/tooltip';
+import { SacDropdownOptionDirective } from './dropdownoption.directive';
+import { DROPDOWN_TOKEN } from './list.token';
 import { AsyncPipe, NgClass, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
-import { Component, Directive, ElementRef, Host, Injector, Optional, Renderer2, forwardRef } from '@angular/core';
+import { Component, ElementRef, Host, Injector, Optional, Renderer2, forwardRef } from '@angular/core';
 import { FormsModule, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacDropdownCommon, SacDropdownOptionCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
-
-// #region Exported Classes
-
-@Directive({ selector: 'option,[sacOption]', standalone: true })
-export class SacDropdownOptionDirective extends SacDropdownOptionCommon {
-    // #region Constructors
-
-    /**
-     * Konstruktor
-     * @param elementRef Referenz auf HTML DOM Element
-     * @param renderer Angular Rendering Engine
-     * @param dropdownList Referenz auf DropDown Komponente
-     */
-    constructor(elementRef: ElementRef, renderer: Renderer2, @Optional() @Host() dropdownList: SacDropdownComponent) {
-        super(elementRef, renderer, dropdownList);
-    }
-
-    // #endregion Constructors
-}
+import { SacDropdownCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 @Component({
     selector: 'sac-dropdown',
     templateUrl: './dropdown.html',
     // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
     providers: [
+        { provide: DROPDOWN_TOKEN, useExisting: forwardRef(() => SacDropdownComponent) },
         {
             provide: NG_VALUE_ACCESSOR,
             multi: true,
@@ -49,7 +33,6 @@ export class SacDropdownOptionDirective extends SacDropdownOptionCommon {
         NgClass,
         NgIf,
         FormsModule,
-        forwardRef(() => SacDropdownOptionDirective),
         NgFor,
         NgTemplateOutlet,
         AsyncPipe,
@@ -59,6 +42,7 @@ export class SacDropdownOptionDirective extends SacDropdownOptionCommon {
         SacToControlHeightPipe,
         SacTooltipComponent,
         SacTestingAttributePipe,
+        SacDropdownOptionDirective,
     ],
 })
 export class SacDropdownComponent extends SacDropdownCommon {
@@ -82,5 +66,3 @@ export class SacDropdownComponent extends SacDropdownCommon {
 
     // #endregion Constructors
 }
-
-// #endregion Exported Classes

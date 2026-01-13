@@ -4,32 +4,12 @@ import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
 import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 import { SacTooltipComponent } from '../tooltip/tooltip';
+import { LISTBOX_TOKEN } from './list.token';
+import { SacListboxOptionDirective } from './listboxoption.directive';
 import { AsyncPipe, NgClass, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
-import { Component, Directive, ElementRef, Host, Injector, Optional, Renderer2, forwardRef } from '@angular/core';
+import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacListboxCommon, SacListboxOptionCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
-
-// #region Exported Classes
-
-/**
- * Option Item in Listbox
- */
-@Directive({ selector: '[sacOption],option', standalone: true })
-export class SacListboxOptionDirective extends SacListboxOptionCommon {
-    // #region Constructors
-
-    /**
-     * Konstruktor
-     * @param elementRef Referenz auf DOM Element
-     * @param renderer Angular Rendering Engine
-     * @param listbox Referenz auf Listbox Komponente
-     */
-    constructor(elementRef: ElementRef, renderer: Renderer2, @Optional() @Host() listbox: SacListboxComponent) {
-        super(elementRef, renderer, listbox);
-    }
-
-    // #endregion Constructors
-}
+import { SacListboxCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 /**
  * Listbox Komponente
@@ -39,6 +19,7 @@ export class SacListboxOptionDirective extends SacListboxOptionCommon {
     templateUrl: './listbox.html',
     // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
     providers: [
+        { provide: LISTBOX_TOKEN, useExisting: SacListboxComponent },
         {
             provide: NG_VALUE_ACCESSOR,
             multi: true,
@@ -57,13 +38,13 @@ export class SacListboxOptionDirective extends SacListboxOptionCommon {
         NgFor,
         NgTemplateOutlet,
         AsyncPipe,
-        forwardRef(() => SacListboxOptionDirective),
         SacToLabelWidthCssPipe,
         SacToControlWidthCssPipe,
         SacToLabelHeightPipe,
         SacToControlHeightPipe,
         SacTooltipComponent,
         SacTestingAttributePipe,
+        SacListboxOptionDirective,
     ],
 })
 export class SacListboxComponent extends SacListboxCommon {
@@ -80,5 +61,3 @@ export class SacListboxComponent extends SacListboxCommon {
 
     // #endregion Constructors
 }
-
-// #endregion Exported Classes

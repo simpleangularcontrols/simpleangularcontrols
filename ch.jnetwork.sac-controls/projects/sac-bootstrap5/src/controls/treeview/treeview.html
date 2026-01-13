@@ -1,4 +1,5 @@
 <div
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier"
     class="row mb-3"
     [class.g-0]="disablelabel">
     <label
@@ -148,9 +149,7 @@
     #defaultTemplateLabel
     let-label="label"
     let-node="node">
-    <span [title]="label">
-        {{ label }}
-    </span>
+    <span [title]="label">{{ label }}</span>
 </ng-template>
 
 <ng-template

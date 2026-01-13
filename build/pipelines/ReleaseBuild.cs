@@ -1,4 +1,5 @@
 ﻿using Build.context;
+using Build.extensions;
 using Build.tasks;
 using Cake.Core.Diagnostics;
 using Cake.Frosting;
@@ -26,6 +27,7 @@ namespace Build.pipelines
         {
             base.Run(context);
 
+            context.ValidateRunException();
             context.Log.Information("Task done");
         }
     }

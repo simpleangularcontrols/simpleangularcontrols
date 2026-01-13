@@ -1,6 +1,7 @@
 <div
     class="row form-group"
-    [class.no-gutters]="disablelabel">
+    [class.no-gutters]="disablelabel"
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier">
     <label
         for="{{ name }}"
         class="col-12 col-form-label d-flex"
@@ -38,9 +39,9 @@
                 [disabled]="isdisabled">
                 <option
                     *ngIf="emptylabel !== ''"
-                    [ngValue]="emptyvalue">
-                    {{ emptylabel }}
-                </option>
+                    [ngValue]="emptyvalue"
+                    >{{ emptylabel }}</option
+                >
 
                 <ng-content></ng-content>
 
@@ -96,6 +97,6 @@
 
 <ng-template
     #defaultItemLabelTemplate
-    let-label="label">
-    {{ label }}
-</ng-template>
+    let-label="label"
+    >{{ label }}</ng-template
+>

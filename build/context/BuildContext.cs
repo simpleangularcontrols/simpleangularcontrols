@@ -3,6 +3,7 @@ using Cake.Common;
 using Cake.Core;
 using Cake.Core.IO;
 using Cake.Frosting;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Build.context
@@ -70,5 +71,7 @@ namespace Build.context
         public string GitName { get; } = "GitHub Actions";
         public string GitUsername { get; } = "actions@github.com";
         public ReleaseType ReleaseType { get; set; }
+
+        public List<string> FailedTasks { get; } = new List<string>();
     }
 }

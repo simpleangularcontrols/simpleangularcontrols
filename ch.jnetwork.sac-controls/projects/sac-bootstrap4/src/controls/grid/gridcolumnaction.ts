@@ -1,9 +1,6 @@
-import { Component, ElementRef, Injector, forwardRef } from '@angular/core';
-import {
-  SacGridColumnActionCommon,
-  SacGridColumnBaseCommon,
-} from '@simpleangularcontrols/sac-common';
 import { SacGridComponent } from './grid';
+import { Component, ElementRef, Injector, forwardRef } from '@angular/core';
+import { SacGridColumnActionCommon, SacGridColumnBaseCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Grid Action Komponent
@@ -19,6 +16,8 @@ import { SacGridComponent } from './grid';
   ],
 })
 export class SacGridColumnActionComponent extends SacGridColumnActionCommon {
+  // #region Constructors
+
   /**
    * Konstruktor
    * @param grid Referenz auf Grid
@@ -29,4 +28,6 @@ export class SacGridColumnActionComponent extends SacGridColumnActionCommon {
 
     this.width = '60px';
   }
+
+  // #endregion Constructors
 }

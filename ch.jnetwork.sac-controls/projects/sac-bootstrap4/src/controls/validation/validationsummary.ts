@@ -1,7 +1,7 @@
+import { SacFormDirective } from '../form';
 import { Component, Host, Injector, Optional } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacValidationSummaryCommon } from '@simpleangularcontrols/sac-common';
-import { SacFormDirective } from '../form/form';
 
 /**
  * Validation Summary Kompontente
@@ -19,19 +19,16 @@ import { SacFormDirective } from '../form/form';
   ],
 })
 export class SacValidationSummaryComponent extends SacValidationSummaryCommon {
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Constructor
-   * @param formControl Instance of Form Component to receive invalid form controls
-   * @param injector Injector for injecting services
-   */
-  constructor(
-    @Host() @Optional() parentForm: SacFormDirective,
-    injector: Injector
-  ) {
-    super(parentForm, injector);
-  }
+    /**
+     * Constructor
+     * @param formControl Instance of Form Component to receive invalid form controls
+     * @param injector Injector for injecting services
+     */
+    constructor(@Host() @Optional() parentForm: SacFormDirective, injector: Injector) {
+        super(parentForm, injector);
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 }

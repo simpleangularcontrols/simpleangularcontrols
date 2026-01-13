@@ -5,13 +5,13 @@ import { Directive, Input } from '@angular/core';
  */
 @Directive()
 export class SacGridImageCommon {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Style of the icon
-   */
-  @Input()
-  public iconstyle: string;
+    /**
+     * Style of the icon
+     */
+    @Input()
+    public iconstyle: string;
 
-  // #endregion Properties
+    // #endregion Properties
 }

@@ -30,6 +30,16 @@
     "tslib": "^2.0.0"
   },
   "nyc": {
-    "report-dir": "../../coverage/bootstrap4"
+    "report-dir": "../../coverage/bootstrap4",
+    "exclude": [
+      "cypress/**",
+      "cypress.config.ts",
+      "karma.cofn.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "all": true
   }
 }

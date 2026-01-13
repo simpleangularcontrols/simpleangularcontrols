@@ -1,4 +1,5 @@
 <div
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier"
     class="row mb-3"
     [class.g-0]="disablelabel">
     <div
@@ -33,8 +34,8 @@
         <ng-content></ng-content>
         <div
             *ngIf="helptextmode === 'text' && helptext"
-            class="form-text">
-            {{ helptext }}
-        </div>
+            class="form-text"
+            >{{ helptext }}</div
+        >
     </div>
 </div>

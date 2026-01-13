@@ -1,7 +1,8 @@
 <div
     class="row form-group"
     [class.has-error]="invalid && (dirty || touched)"
-    [ngClass]="componentHeight | toLabelHeight">
+    [ngClass]="componentHeight | toLabelHeight"
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier">
     <label
         *ngIf="disablelabel === false && !isAdaptiveLabel"
         id="{{ name }}label"
@@ -30,14 +31,15 @@
                 name="{{ name }}"
                 class="form-control"
                 [ngClass]="[componentHeight | toControlHeight]"
+                [class.is-invalid]="invalid && (dirty || touched)"
                 (blur)="onTouch()"
                 (change)="setValue(dropdownitem.value)"
                 [disabled]="isdisabled">
                 <option
                     *ngIf="emptylabel !== ''"
-                    [ngValue]="emptyvalue">
-                    {{ emptylabel }}
-                </option>
+                    [ngValue]="emptyvalue"
+                    >{{ emptylabel }}</option
+                >
 
                 <ng-content></ng-content>
 
@@ -96,6 +98,6 @@
 
 <ng-template
     #defaultItemLabelTemplate
-    let-label="label">
-    {{ label }}
-</ng-template>
+    let-label="label"
+    >{{ label }}</ng-template
+>

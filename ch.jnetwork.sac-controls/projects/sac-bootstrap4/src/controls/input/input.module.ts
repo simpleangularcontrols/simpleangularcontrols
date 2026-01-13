@@ -1,5 +1,3 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
 import { SACBootstrap4LayoutModule } from '../layout/layout.module';
 import { SACBootstrap4TooltipModule } from '../tooltip/tooltip.module';
 import { SacInputComponent } from './input';
@@ -10,6 +8,9 @@ import { SacInputEmailComponent } from './inputemail';
 import { SacInputIntegerComponent } from './inputinteger';
 import { SacInputPasswordComponent } from './inputpassword';
 import { SacInputSearchComponent } from './inputsearch';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { SacInputSearchComponent } from './inputsearch';
   imports: [
     CommonModule,
     SACBootstrap4LayoutModule,
-    SACBootstrap4TooltipModule,
+    SACBootstrap4TooltipModule, SACCommonUtliltiesModule
   ],
   exports: [
     SacInputComponent,

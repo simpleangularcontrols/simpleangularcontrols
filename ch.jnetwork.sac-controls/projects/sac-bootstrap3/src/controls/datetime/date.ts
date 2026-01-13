@@ -1,10 +1,17 @@
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 import { ChangeDetectorRef, Component, ElementRef, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacDateCommon } from '@simpleangularcontrols/sac-common';
+import { SacDateCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
+import { IMaskDirective } from 'angular-imask';
 import * as moment_ from 'moment';
 
-// #region Classes
+// #region Variables
+
+const moment = moment_['default'];
+
+// #endregion Variables
+
+// #region Exported Classes
 
 @Component({
     selector: 'sac-date',
@@ -45,10 +52,4 @@ export class SacDateComponent extends SacDateCommon {
     // #endregion Constructors
 }
 
-// #endregion Classes
-
-// #region Variables
-
-const moment = moment_['default'];
-
-// #endregion Variables
+// #endregion Exported Classes

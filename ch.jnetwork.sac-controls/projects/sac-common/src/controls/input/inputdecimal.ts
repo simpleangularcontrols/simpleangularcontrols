@@ -1,7 +1,7 @@
-import { Directive, Input } from '@angular/core';
-import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { SacInputBase } from '../../common/baseinputcontrol';
 import { Validation } from '../../validation';
+import { Directive, Input } from '@angular/core';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 /**
  * Basis Komponente für SacInputDecimal
@@ -14,39 +14,47 @@ export class SacInputDecimalCommon extends SacInputBase<number> {
    * Definiert das Negative Werte erlaubt sind
    */
   @Input() public allownegativ: boolean = false;
+
   /**
    * Definiert den maximalen Wert
    */
   @Input() public maxvalue: number = undefined;
+
   /**
    * Definiert den minimalen Wert
    */
   @Input() public minvalue: number = undefined;
+
   /**
    * Resource Key für Validation Message MaxValue bei Control
    */
   @Input() public validationmessagemaxvalue: string =
     this.validationKeyService.ValidationErrorMaxValue;
+
   /**
    * Resource Key für Validation Message MinValue bei Control
    */
   @Input() public validationmessageminvalue: string =
     this.validationKeyService.ValidationErrorMinValue;
+
   /**
    * Resource Key für Validation Message Required bei Control
    */
   @Input() public validationmessagerequired: string =
     this.validationKeyService.ValidationErrorRequired;
+
   /**
    * Resource Key für Validation Message MaxValue in Validation Summary
    */
   @Input() public validationmessagesummarymaxvalue: string =
     this.validationKeyService.ValidationErrorSummaryMaxValue;
+
   /**
    * Resource Key für Validation Message MinValue in Validation Summary
    */
   @Input() public validationmessagesummaryminvalue: string =
     this.validationKeyService.ValidationErrorSummaryMinValue;
+
   /**
    * Resource Key für Validation Message Required in Validation Summary
    */

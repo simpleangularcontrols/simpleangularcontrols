@@ -2,6 +2,7 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacInputAreaComponent } from './inputarea';
 import { FormsModule } from '@angular/forms';
+import { SACCONFIGURATION_SERVICE, SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('NgInputareaComponent', () => {
@@ -13,7 +14,7 @@ describe('NgInputareaComponent', () => {
       </form>`,
             {
                 declarations: [SacFormDirective, SacInputAreaComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -34,7 +35,7 @@ describe('NgInputareaComponent', () => {
       </form>`,
             {
                 declarations: [SacFormDirective, SacInputAreaComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -62,7 +63,7 @@ describe('NgInputareaComponent', () => {
       </form>`,
             {
                 declarations: [SacFormDirective, SacInputAreaComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Value',
@@ -83,7 +84,7 @@ describe('NgInputareaComponent', () => {
       </form>`,
             {
                 declarations: [SacFormDirective, SacInputAreaComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -103,7 +104,7 @@ describe('NgInputareaComponent', () => {
       </form>`,
             {
                 declarations: [SacFormDirective, SacInputAreaComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'MyValue',
@@ -123,7 +124,7 @@ describe('NgInputareaComponent', () => {
       </form>`,
             {
                 declarations: [SacFormDirective, SacInputAreaComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'MyValue',
@@ -143,7 +144,7 @@ describe('NgInputareaComponent', () => {
       </form>`,
             {
                 declarations: [SacFormDirective, SacInputAreaComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'first value',
@@ -166,7 +167,7 @@ describe('NgInputareaComponent', () => {
       </form>`,
             {
                 declarations: [SacFormDirective, SacInputAreaComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'first value',
@@ -178,5 +179,95 @@ describe('NgInputareaComponent', () => {
         cy.get('textarea').clear().type('12345678');
         cy.get('textarea').should('have.value', '123456');
         cy.validateValueChanged('123456'.length + 1);
+    });
+
+    it('should return length of 0 when value is null', () => {});
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputarea name="myControl" label="my Label">
+                    </sac-inputarea>
+                </form>`,
+            {
+                declarations: [SacFormDirective, SacInputAreaComponent],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-inputarea > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputarea name="myControl" e2eidentifier="myTestidentifier" label="my Label">
+                    </sac-inputarea>
+                </form>`,
+            {
+                declarations: [SacFormDirective, SacInputAreaComponent],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-inputarea > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputarea e2eidentifier="myTestidentifier" label="my Label">
+                    </sac-inputarea>
+                </form>`,
+            {
+                declarations: [SacFormDirective, SacInputAreaComponent],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-inputarea > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputarea label="my Label">
+                    </sac-inputarea>
+                </form>`,
+            {
+                declarations: [SacFormDirective, SacInputAreaComponent],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {},
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-inputarea > div');
     });
 });

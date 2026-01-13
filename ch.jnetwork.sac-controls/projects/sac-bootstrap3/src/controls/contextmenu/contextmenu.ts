@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, ElementRef, Inject, Injector, NgZone, Renderer2 } from '@angular/core';
-import { SacContextmenuCommon } from '@simpleangularcontrols/sac-common';
+import { SacContextmenuCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 /**
  * Component for context menu

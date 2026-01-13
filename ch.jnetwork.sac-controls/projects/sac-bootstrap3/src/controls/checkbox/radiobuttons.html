@@ -1,7 +1,8 @@
 <div
     class="row form-group"
     [class.has-error]="invalid && (dirty || touched)"
-    [ngClass]="componentHeight | toLabelHeight">
+    [ngClass]="componentHeight | toLabelHeight"
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier">
     <label
         *ngIf="disablelabel === false"
         for="{{ name }}"
@@ -26,8 +27,8 @@
         </div>
         <p
             *ngIf="helptextmode === 'text' && helptext"
-            class="help-block">
-            {{ helptext }}
-        </p>
+            class="help-block"
+            >{{ helptext }}</p
+        >
     </div>
 </div>

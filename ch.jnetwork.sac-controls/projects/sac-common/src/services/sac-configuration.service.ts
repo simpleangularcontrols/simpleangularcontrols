@@ -38,6 +38,11 @@ export abstract class SacAbstractConfigurationService implements ISacConfigurati
     /**
      * @inheritdoc
      */
+    public abstract get EnableE2EAttributes(): boolean;
+
+    /**
+     * @inheritdoc
+     */
     public abstract get HelptextMode(): 'tooltip' | 'text';
 
     /**
@@ -114,6 +119,13 @@ export class SacDefaultConfigurationService extends SacAbstractConfigurationServ
      */
     public get CurrencyText(): string {
         return 'CHF';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public get EnableE2EAttributes(): boolean {
+        return false;
     }
 
     /**

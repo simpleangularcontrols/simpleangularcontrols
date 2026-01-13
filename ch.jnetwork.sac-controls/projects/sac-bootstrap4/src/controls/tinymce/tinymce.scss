@@ -1,3 +1,15 @@
 .is-invalid {
     border: 1px solid var(--red);
 }
+
+// required because default z-index in bootstrap is lower than in tinymce
+::ng-deep {
+    .tox {
+        &.tox-tinymce-aux {
+            z-index: 900;
+            .tox-dialog-wrap {
+                z-index: 800;
+            }
+        }
+    }
+}

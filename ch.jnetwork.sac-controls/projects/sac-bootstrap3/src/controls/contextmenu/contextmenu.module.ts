@@ -5,6 +5,7 @@ import { SacContextmenuItemButtonComponent } from './contextmenuitembutton';
 import { SacContextmenuItemSplitterComponent } from './contextmenuitemsplitter';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 
 @NgModule({
     declarations: [
@@ -14,7 +15,7 @@ import { NgModule } from '@angular/core';
         SacContextmenuAnchorDirective,
         SacContextmenuContainerDirective,
     ],
-    imports: [CommonModule],
+    imports: [CommonModule, SACCommonUtliltiesModule],
     exports: [
         SacContextmenuComponent,
         SacContextmenuItemButtonComponent,

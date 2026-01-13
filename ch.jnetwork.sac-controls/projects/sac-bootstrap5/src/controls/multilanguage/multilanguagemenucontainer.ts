@@ -5,24 +5,24 @@ import { SacContextMenuContrainerCommon } from '@simpleangularcontrols/sac-commo
  * Marker Komponente für Context Menü
  */
 @Directive({
-  selector: '[sacMultilanguageMenuContainer]',
-  providers: [
-    {
-      provide: SacContextMenuContrainerCommon,
-      useExisting: forwardRef(() => SacMultilanguagemenuContainerDirective),
-    },
-  ],
+    selector: '[sacMultilanguageMenuContainer]',
+    providers: [
+        {
+            provide: SacContextMenuContrainerCommon,
+            useExisting: forwardRef(() => SacMultilanguagemenuContainerDirective),
+        },
+    ],
 })
 export class SacMultilanguagemenuContainerDirective extends SacContextMenuContrainerCommon {
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Konstruktor
-   * @param elementRef Referenz auf DOM Element
-   */
-  constructor(elementRef: ElementRef<HTMLElement>) {
-    super(elementRef);
-  }
+    /**
+     * Konstruktor
+     * @param elementRef Referenz auf DOM Element
+     */
+    constructor(elementRef: ElementRef<HTMLElement>) {
+        super(elementRef);
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 }

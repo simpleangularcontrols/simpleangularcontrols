@@ -7,6 +7,7 @@ import { SacUploadMultipleComponent } from './uploadmultiple';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 
 @NgModule({
     declarations: [
@@ -15,7 +16,13 @@ import { FormsModule } from '@angular/forms';
         SacDropzoneSingleComponent,
         SacDropzoneMultipleComponent,
     ],
-    imports: [CommonModule, FormsModule, SACBootstrap3LayoutModule, SACBootstrap3TooltipModule],
+    imports: [
+        CommonModule,
+        FormsModule,
+        SACBootstrap3LayoutModule,
+        SACBootstrap3TooltipModule,
+        SACCommonUtliltiesModule,
+    ],
     exports: [SacUploadComponent, SacUploadMultipleComponent, SacDropzoneSingleComponent, SacDropzoneMultipleComponent],
 })
 export class SACBootstrap3UploadModule {}

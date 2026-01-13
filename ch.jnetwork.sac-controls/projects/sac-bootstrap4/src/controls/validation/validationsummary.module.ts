@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
 import { SacValidationSummaryComponent } from './validationsummary';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 
 @NgModule({
   declarations: [SacValidationSummaryComponent],
   imports: [
-    CommonModule
+    CommonModule, SACCommonUtliltiesModule
   ],
   exports: [SacValidationSummaryComponent]
 })

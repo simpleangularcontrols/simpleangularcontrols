@@ -1,5 +1,6 @@
 <div
     class="row mb-3"
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier"
     [class.g-0]="disablelabel">
     <label
         for="{{ name }}"
@@ -92,6 +93,7 @@
 
                     <div class="popover-body">
                         <sac-dateselector
+                            name="{{ name }}_picker"
                             [initialvalue]="value"
                             (selectdate)="dateselect($event)"
                             dateselection="true"

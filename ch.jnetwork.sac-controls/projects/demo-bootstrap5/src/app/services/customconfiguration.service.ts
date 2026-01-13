@@ -19,6 +19,10 @@ export class CustomConfigurationService extends SacAbstractConfigurationService 
         return 'CHF';
     }
 
+    public get EnableE2EAttributes(): boolean {
+        return true;
+    }
+
     public get HelptextMode(): 'tooltip' | 'text' {
         return 'text';
     }

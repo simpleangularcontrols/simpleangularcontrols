@@ -57,4 +57,15 @@ export class SacUploadSingleCommon extends SacUploadBase<string> {
     }
 
     // #endregion Public Methods
+
+    // #region Protected Methods
+
+    /**
+     * @inheritdoc
+     */
+    protected GetMaxFiles(): number {
+        return 1;
+    }
+
+    // #endregion Protected Methods
 }

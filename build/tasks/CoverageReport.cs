@@ -40,7 +40,7 @@ namespace Build.tasks
 
             ReportGeneratorSettings setting = new ReportGeneratorSettings
             {
-                ReportTypes = new List<ReportGeneratorReportType> { ReportGeneratorReportType.MarkdownSummaryGithub },
+                ReportTypes = new List<ReportGeneratorReportType> { ReportGeneratorReportType.MarkdownSummaryGithub, ReportGeneratorReportType.Html },
                 WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath())
                                                                        .Combine("projects")
                                                                        .Combine($"sac-{bootstrapVersion}"),

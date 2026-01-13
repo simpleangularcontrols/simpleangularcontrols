@@ -1,9 +1,8 @@
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
-import { Component, Directive, ElementRef, Host, Injector, Optional, Renderer2, forwardRef } from '@angular/core';
+import { LISTBOX_TOKEN } from './list.token';
+import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacListboxCommon, SacListboxOptionCommon } from '@simpleangularcontrols/sac-common';
-
-// #region Classes
+import { SacListboxCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Listbox Komponente
@@ -13,6 +12,7 @@ import { SacListboxCommon, SacListboxOptionCommon } from '@simpleangularcontrols
     templateUrl: './listbox.html',
     // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
     providers: [
+        { provide: LISTBOX_TOKEN, useExisting: SacListboxComponent },
         {
             provide: NG_VALUE_ACCESSOR,
             multi: true,
@@ -39,25 +39,3 @@ export class SacListboxComponent extends SacListboxCommon {
 
     // #endregion Constructors
 }
-
-/**
- * Option Item in Listbox
- */
-@Directive({ selector: '[sacOption],option' })
-export class SacListboxOptionDirective extends SacListboxOptionCommon {
-    // #region Constructors
-
-    /**
-     * Konstruktor
-     * @param elementRef Referenz auf DOM Element
-     * @param renderer Angular Rendering Engine
-     * @param listbox Referenz auf Listbox Komponente
-     */
-    constructor(elementRef: ElementRef, renderer: Renderer2, @Optional() @Host() listbox: SacListboxComponent) {
-        super(elementRef, renderer, listbox);
-    }
-
-    // #endregion Constructors
-}
-
-// #endregion Classes

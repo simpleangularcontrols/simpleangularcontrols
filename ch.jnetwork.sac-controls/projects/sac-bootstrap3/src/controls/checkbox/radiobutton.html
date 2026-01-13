@@ -15,9 +15,9 @@
         <ng-template *ngTemplateOutlet="labeltemplate || defaultItemLabelTemplate; context: { label: label }"></ng-template>
         <p
             *ngIf="helptextmode === 'text' && helptext"
-            class="help-block">
-            {{ helptext }}
-        </p>
+            class="help-block"
+            >{{ helptext }}</p
+        >
     </label>
 
     <div

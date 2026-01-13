@@ -1,6 +1,6 @@
 import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacInputAreaCommon } from '@simpleangularcontrols/sac-common';
+import { SacInputAreaCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 
 /**
@@ -33,19 +33,16 @@ import { SacFormLayoutDirective } from '../layout/formlayout.directive';
   ],
 })
 export class SacInputAreaComponent extends SacInputAreaCommon {
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Constructor
-   * @param formLayout SacFormLayout to define scoped layout settings
-   * @param injector Injector for injecting services
-   */
-  constructor(
-    @Host() @Optional() formLayout: SacFormLayoutDirective,
-    injector: Injector
-  ) {
-    super(formLayout, injector);
-  }
+    /**
+     * Constructor
+     * @param formLayout SacFormLayout to define scoped layout settings
+     * @param injector Injector for injecting services
+     */
+    constructor(@Host() @Optional() formLayout: SacFormLayoutDirective, injector: Injector) {
+        super(formLayout, injector);
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 }

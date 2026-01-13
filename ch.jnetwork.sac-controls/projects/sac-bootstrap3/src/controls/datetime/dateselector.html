@@ -1,6 +1,7 @@
 <div
     class="calendar-selector"
-    style="min-width: 265px">
+    style="min-width: 265px"
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier">
     <table
         class="table-condensed"
         style="width: 100%"
@@ -41,9 +42,9 @@
                         *ngFor="let item of week"
                         [ngStyle]="{ cursor: item.isenabled ? 'pointer' : null }"
                         [ngClass]="{ 'day-current': item.iscurrent, 'day-selected': item.isselected, 'day-new': item.isnew, 'day-disabled': !item.isenabled }"
-                        (click)="selectDate(item)">
-                        {{ item.displaytext }}
-                    </td>
+                        (click)="selectDate(item)"
+                        >{{ item.displaytext }}</td
+                    >
                 </tr>
             </ng-container>
         </tbody>

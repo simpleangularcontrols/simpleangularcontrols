@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SacDialogComponent } from './dialog';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 
 @NgModule({
-  declarations: [SacDialogComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [SacDialogComponent]
+    declarations: [SacDialogComponent],
+    imports: [CommonModule, SACCommonUtliltiesModule],
+    exports: [SacDialogComponent],
 })
-export class SACBootstrap3DialogModule { }
+export class SACBootstrap3DialogModule {}

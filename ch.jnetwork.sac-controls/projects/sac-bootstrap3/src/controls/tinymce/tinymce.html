@@ -1,7 +1,8 @@
 <div
     class="row form-group"
     [class.has-error]="invalid && (dirty || touched)"
-    [ngClass]="componentHeight | toLabelHeight">
+    [ngClass]="componentHeight | toLabelHeight"
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier">
     <label
         for="{{ name }}"
         class="col-xs-12 control-label"
@@ -32,6 +33,7 @@
                 [ngModelOptions]="{ standalone: true }"
                 (ngModelChange)="setValue($event)"
                 (onSaveContent)="save($event.event.content)"
+                (onBlur)="blur()"
                 [disabled]="disabled"
                 [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)"></editor>
             <p

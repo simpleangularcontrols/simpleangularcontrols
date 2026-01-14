@@ -1,6 +1,7 @@
 <div
     class="row mb-3"
-    [class.g-0]="disablelabel">
+    [class.g-0]="disablelabel"
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier">
     <label
         for="{{ name }}"
         class="col-12 col-form-label d-flex"

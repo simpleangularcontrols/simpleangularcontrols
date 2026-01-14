@@ -7,7 +7,7 @@ import {
   Optional,
 } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacTinyMceCommon } from '@simpleangularcontrols/sac-common';
+import { SacTinyMceCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 
 @Component({
@@ -28,33 +28,29 @@ import { SacFormLayoutDirective } from '../layout/formlayout.directive';
   ],
 })
 export class SacTinyMceComponent extends SacTinyMceCommon {
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Constructor
-   * @param formLayout SacFormLayout to define scoped layout settings
-   * @param injector Injector for injecting services
-   * @param ngZone ngZone to manage external javascripts
-   */
-  constructor(
-    @Host() @Optional() formLayout: SacFormLayoutDirective,
-    injector: Injector,
-    ngZone: NgZone
-  ) {
-    super(formLayout, injector, ngZone);
-  }
+    /**
+     * Constructor
+     * @param formLayout SacFormLayout to define scoped layout settings
+     * @param injector Injector for injecting services
+     * @param ngZone ngZone to manage external javascripts
+     */
+    constructor(@Host() @Optional() formLayout: SacFormLayoutDirective, injector: Injector, ngZone: NgZone) {
+        super(formLayout, injector, ngZone);
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 
-  // #region Public Methods
+    // #region Public Methods
 
-  /**
-   * overwrite tinymce defaults
-   * @returns boostrap3 does not support file browser
-   */
-  public overwriteDefaultSettings() {
-    return { file_picker_types: undefined, file_picker_callback: undefined };
-  }
+    /**
+     * overwrite tinymce defaults
+     * @returns boostrap3 does not support file browser
+     */
+    public overwriteDefaultSettings() {
+        return { file_picker_types: undefined, file_picker_callback: undefined };
+    }
 
-  // #endregion Public Methods
+    // #endregion Public Methods
 }

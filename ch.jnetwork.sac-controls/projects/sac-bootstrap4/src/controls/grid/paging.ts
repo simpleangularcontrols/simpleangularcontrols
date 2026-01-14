@@ -1,4 +1,4 @@
-import { Component, forwardRef, Injector } from '@angular/core';
+import { Component, Injector, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacPagingCommon } from '@simpleangularcontrols/sac-common';
 
@@ -19,11 +19,15 @@ import { SacPagingCommon } from '@simpleangularcontrols/sac-common';
   ],
 })
 export class SacPagingComponent extends SacPagingCommon {
-  /**
-   * Konstruktor
-   * @param injector Angular Dependency Injection Service
-   */
-  constructor(injector: Injector) {
-    super(injector);
-  }
+    // #region Constructors
+
+    /**
+     * Konstruktor
+     * @param injector Angular Dependency Injection Service
+     */
+    constructor(injector: Injector) {
+        super(injector);
+    }
+
+    // #endregion Constructors
 }

@@ -21,32 +21,32 @@ import { SacTooltipCommon } from '@simpleangularcontrols/sac-common';
  *
  */
 @Component({
-  selector: 'sac-tooltip',
-  templateUrl: './tooltip.html',
+    selector: 'sac-tooltip',
+    templateUrl: './tooltip.html',
 })
 export class SacTooltipComponent extends SacTooltipCommon {
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Konstrukor
-   * @param parent SacFormular Instanz
-   * @param injector Component Injector
-   */
-  constructor(cdRef: ChangeDetectorRef, ref: ElementRef) {
-    super(cdRef, ref);
-  }
+    /**
+     * Konstrukor
+     * @param parent SacFormular Instanz
+     * @param injector Component Injector
+     */
+    constructor(cdRef: ChangeDetectorRef, ref: ElementRef) {
+        super(cdRef, ref);
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 
-  // #region Protected Methods
+    // #region Protected Methods
 
-  /**
-   * Padding Value for Bootstrap5 Tooltip Padding
-   * @returns Static Padding Value for BS5
-   */
-  protected getTooltipOffset(): number {
-    return 8;
-  }
+    /**
+     * Padding Value for Bootstrap5 Tooltip Padding
+     * @returns Static Padding Value for BS5
+     */
+    protected getTooltipOffset(): number {
+        return 8;
+    }
 
-  // #endregion Protected Methods
+    // #endregion Protected Methods
 }

@@ -1,12 +1,13 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { SacGridComponent } from './grid';
 import { SacGridButtonComponent } from './gridbutton';
 import { SacGridColumnComponent } from './gridcolumn';
 import { SacGridColumnActionComponent } from './gridcolumnaction';
 import { SacGridImageComponent } from './gridimage';
 import { SacPagingComponent } from './paging';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { SacPagingComponent } from './paging';
     SacGridButtonComponent,
     SacGridImageComponent,
   ],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, SACCommonUtliltiesModule],
   exports: [
     SacGridComponent,
     SacGridColumnComponent,

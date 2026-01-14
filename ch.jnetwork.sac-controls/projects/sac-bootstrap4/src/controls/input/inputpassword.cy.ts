@@ -2,6 +2,7 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap4LayoutModule } from '../layout/layout.module';
 import { SacInputPasswordComponent } from './inputpassword';
 import { FormsModule } from '@angular/forms';
+import { SACCONFIGURATION_SERVICE, SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('ngInputPasswordComponent', () => {
@@ -13,7 +14,7 @@ describe('ngInputPasswordComponent', () => {
       </form>`,
             {
                 declarations: [SacFormDirective, SacInputPasswordComponent],
-                imports: [FormsModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -34,7 +35,7 @@ describe('ngInputPasswordComponent', () => {
       </form>`,
             {
                 declarations: [SacFormDirective, SacInputPasswordComponent],
-                imports: [FormsModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -62,7 +63,7 @@ describe('ngInputPasswordComponent', () => {
       </form>`,
             {
                 declarations: [SacFormDirective, SacInputPasswordComponent],
-                imports: [FormsModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Value',
@@ -83,7 +84,7 @@ describe('ngInputPasswordComponent', () => {
       </form>`,
             {
                 declarations: [SacFormDirective, SacInputPasswordComponent],
-                imports: [FormsModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -103,7 +104,7 @@ describe('ngInputPasswordComponent', () => {
       </form>`,
             {
                 declarations: [SacFormDirective, SacInputPasswordComponent],
-                imports: [FormsModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'MyValue',
@@ -123,7 +124,7 @@ describe('ngInputPasswordComponent', () => {
       </form>`,
             {
                 declarations: [SacFormDirective, SacInputPasswordComponent],
-                imports: [FormsModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'MyValue',
@@ -143,7 +144,7 @@ describe('ngInputPasswordComponent', () => {
       </form>`,
             {
                 declarations: [SacFormDirective, SacInputPasswordComponent],
-                imports: [FormsModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'first value',
@@ -166,7 +167,7 @@ describe('ngInputPasswordComponent', () => {
       </form>`,
             {
                 declarations: [SacFormDirective, SacInputPasswordComponent],
-                imports: [FormsModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'first value',
@@ -188,7 +189,7 @@ describe('ngInputPasswordComponent', () => {
       </form>`,
             {
                 declarations: [SacFormDirective, SacInputPasswordComponent],
-                imports: [FormsModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'first value',
@@ -208,5 +209,165 @@ describe('ngInputPasswordComponent', () => {
         cy.get('input').clear().type('12345678');
 
         cy.shouldBeValid();
+    });
+
+    it('should not show password eye', () => {
+        cy.mount(
+            `<form>
+      <sac-inputpassword name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputpassword>
+      </form>`,
+            {
+                declarations: [SacFormDirective, SacInputPasswordComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Value',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.get('input').parent().get('a').should('not.exist');
+        cy.get('input').parent().get('.btn').should('not.exist');
+    });
+
+    it('should show password eye', () => {
+        cy.mount(
+            `<form>
+      <sac-inputpassword name="field" [label]="label" [passwordeye]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputpassword>
+      </form>`,
+            {
+                declarations: [SacFormDirective, SacInputPasswordComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Value',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.get('input').parent().get('a').should('exist');
+        cy.get('input').parent().get('.btn').should('exist');
+    });
+
+    it('password eye enabled should show password', () => {
+        cy.mount(
+            `<form>
+      <sac-inputpassword name="field" [label]="label" [passwordeye]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+      </sac-inputpassword>
+      </form>`,
+            {
+                declarations: [SacFormDirective, SacInputPasswordComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Value',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.get('input').should('have.attr', 'type', 'password');
+        cy.get('input').parent().get('a').should('exist');
+        cy.get('input').parent().get('.btn').should('exist');
+
+        cy.get('input').parent().get('a').click();
+        cy.get('input').should('have.attr', 'type', 'text');
+
+        cy.get('input').parent().get('a').click();
+        cy.get('input').should('have.attr', 'type', 'password');
+    });
+
+    it('password eye should not work if control disabled', () => {});
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputpassword name="myControl" label="my Label">
+                    </sac-inputpassword>
+                </form>`,
+            {
+                declarations: [SacFormDirective, SacInputPasswordComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-inputpassword > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputpassword name="myControl" e2eidentifier="myTestidentifier" label="my Label">
+                    </sac-inputpassword>
+                </form>`,
+            {
+                declarations: [SacFormDirective, SacInputPasswordComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-inputpassword > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputpassword e2eidentifier="myTestidentifier" label="my Label">
+                    </sac-inputpassword>
+                </form>`,
+            {
+                declarations: [SacFormDirective, SacInputPasswordComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-inputpassword > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputpassword label="my Label">
+                    </sac-inputpassword>
+                </form>`,
+            {
+                declarations: [SacFormDirective, SacInputPasswordComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {},
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-inputpassword > div');
     });
 });

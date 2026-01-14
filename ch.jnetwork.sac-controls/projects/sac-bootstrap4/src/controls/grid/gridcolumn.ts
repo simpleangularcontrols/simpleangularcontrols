@@ -1,9 +1,6 @@
-import { Component, ElementRef, Injector, forwardRef } from '@angular/core';
-import {
-  SacGridColumnBaseCommon,
-  SacGridColumnCommon,
-} from '@simpleangularcontrols/sac-common';
 import { SacGridComponent } from './grid';
+import { Component, ElementRef, Injector, forwardRef } from '@angular/core';
+import { SacGridColumnBaseCommon, SacGridColumnCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Grid Column Komponente
@@ -19,6 +16,8 @@ import { SacGridComponent } from './grid';
   ],
 })
 export class SacGridColumnComponent extends SacGridColumnCommon {
+  // #region Constructors
+
   /**
    * Konstruktor
    * @param grid Grid Referenz
@@ -27,4 +26,6 @@ export class SacGridColumnComponent extends SacGridColumnCommon {
   constructor(grid: SacGridComponent, injector: Injector, el: ElementRef) {
     super(grid, injector, el);
   }
+
+  // #endregion Constructors
 }

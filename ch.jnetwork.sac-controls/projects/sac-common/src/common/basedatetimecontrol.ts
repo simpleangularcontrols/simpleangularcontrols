@@ -17,6 +17,7 @@ import {
     ViewChild,
 } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { IMaskDirective } from 'angular-imask';
 import * as moment_ from 'moment';
 
 /**
@@ -50,6 +51,12 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
      * Definiert ob der Date Selector angezeigt wird
      */
     public _showselector: boolean = false;
+
+    /**
+     * Reference to imask directive in any datetime controls
+     */
+    @ViewChild(IMaskDirective, { static: false })
+    public iMask: IMaskDirective<any>;
 
     /**
      * Definiert das Control als Required
@@ -196,6 +203,10 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
         } else {
             this.value = null;
         }
+
+        // update imaks reference
+        this.cdRef.detectChanges();
+        this.iMask.maskRef.updateControl();
     }
 
     // #endregion Public Getters And Setters

@@ -1,4 +1,5 @@
 <div
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier"
     class="row mb-3"
     [class.g-0]="disablelabel">
     <label
@@ -43,9 +44,9 @@
                     <option
                         *ngFor="let option of options"
                         [value]="option[optionvalue]"
-                        [disabled]="optionenabled !== '' && option[optionenabled] === false">
-                        {{ option[optionlabel] }}
-                    </option>
+                        [disabled]="optionenabled !== '' && option[optionenabled] === false"
+                        >{{ option[optionlabel] }}</option
+                    >
                 </ng-container>
                 <ng-container *ngIf="groupitems !== ''">
                     <optgroup
@@ -54,9 +55,9 @@
                         <option
                             *ngFor="let item of option[groupitems]"
                             [value]="item[optionvalue]"
-                            [disabled]="optionenabled !== '' && item[optionenabled] === false">
-                            {{ item[optionlabel] }}
-                        </option>
+                            [disabled]="optionenabled !== '' && item[optionenabled] === false"
+                            >{{ item[optionlabel] }}</option
+                        >
                     </optgroup>
                 </ng-container>
             </select>

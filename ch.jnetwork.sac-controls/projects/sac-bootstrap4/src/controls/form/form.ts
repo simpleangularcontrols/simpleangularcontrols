@@ -19,6 +19,18 @@ import { SacFormCommon } from '@simpleangularcontrols/sac-common';
   exportAs: 'sacform',
 })
 export class SacFormDirective extends SacFormCommon {
+  // #region Properties
+
+  /**
+   * Setzt die Standard CSS Klasse für auf dem Form Container
+   */
+  @HostBinding('class.form')
+  public cssClassForm: boolean = true;
+
+  // #endregion Properties
+
+  // #region Constructors
+
   /**
    * Konstruktor
    * @param form Instanz von NgForm für eigene automatische Formular Logik
@@ -27,9 +39,5 @@ export class SacFormDirective extends SacFormCommon {
     super(form);
   }
 
-  /**
-   * Setzt die Standard CSS Klasse für auf dem Form Container
-   */
-  @HostBinding('class.form')
-  cssClassForm: boolean = true;
+  // #endregion Constructors
 }

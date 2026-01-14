@@ -2,6 +2,7 @@
     class="row"
     [class.form-group]="!stacked"
     [class.has-error]="invalid && (dirty || touched)"
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier"
     [ngClass]="componentHeight | toLabelHeight">
     <label
         *ngIf="!disablelabel && !stacked"

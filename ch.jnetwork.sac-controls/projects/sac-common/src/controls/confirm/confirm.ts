@@ -1,14 +1,36 @@
-import { EventEmitter, Input, Output, Directive } from '@angular/core';
 import { IConfirmComponent } from '../../interfaces/iconfirmcomponent';
 import { SacConfirmButton } from './confirm.button';
+import { Directive, EventEmitter, Input, Output } from '@angular/core';
 
 /**
  * Basis Klasse für Confirm Dialog
  */
 @Directive()
 export class SacConfirmCommon implements IConfirmComponent {
+  // #region Properties
 
-  //#region Input / Output Properties
+  /**
+   * Map mit Buttons die in Dialog angezeigt werden.
+   */
+  @Input()
+  public buttons: SacConfirmButton[] = [];
+
+  /**
+   * Icon welches auf dem Dialog angezeigt wird
+   */
+  @Input()
+  public image: string = '';
+
+  /**
+   * Definiert ob der Dialog sichtbar ist
+   */
+  public isvisible: boolean = false;
+
+  /**
+   * Nachricht die auf dem Dialog angezeigt wird
+   */
+  @Input()
+  public message: string = '';
 
   /**
    * Event wenn Dialog geschlossen wird
@@ -22,43 +44,9 @@ export class SacConfirmCommon implements IConfirmComponent {
   @Input()
   public title: string = '';
 
-  /**
-   * Nachricht die auf dem Dialog angezeigt wird
-   */
-  @Input()
-  public message: string = '';
+  // #endregion Properties
 
-  /**
-   * Icon welches auf dem Dialog angezeigt wird
-   */
-  @Input()
-  public image: string = '';
-
-  /**
-   * Map mit Buttons die in Dialog angezeigt werden.
-   */
-  @Input()
-  public buttons: SacConfirmButton[] = [];
-
-  //#endregion
-
-  //#region Internal Properties and Methods
-
-  /**
-   * Definiert ob der Dialog sichtbar ist
-   */
-  isvisible: boolean = false;
-
-  /**
-   * Definiert, ob für den Dialog ein Image definiert wurde
-   */
-  hasImage(): boolean {
-    return this.image !== '';
-  }
-
-  //#endregion
-
-  //#region Public Methods
+  // #region Public Methods
 
   /**
    * Action wenn Button auf Dialog geklickt wurde. Löst den EventEmitter aus und blendet den Dialog aus.
@@ -70,10 +58,10 @@ export class SacConfirmCommon implements IConfirmComponent {
   }
 
   /**
-   * Zeigt den Dialog an
+   * Definiert, ob für den Dialog ein Image definiert wurde
    */
-  public show(): void {
-    this.isvisible = true;
+  public hasImage(): boolean {
+    return this.image !== '';
   }
 
   /**
@@ -83,6 +71,12 @@ export class SacConfirmCommon implements IConfirmComponent {
     this.isvisible = false;
   }
 
-  //#endregion
+  /**
+   * Zeigt den Dialog an
+   */
+  public show(): void {
+    this.isvisible = true;
+  }
 
+  // #endregion Public Methods
 }

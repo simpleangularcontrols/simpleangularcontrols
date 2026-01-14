@@ -1,9 +1,29 @@
+import { SacFormDirective } from './form';
 import { Directive, Injector, SkipSelf } from '@angular/core';
 import { ControlContainer, NgForm } from '@angular/forms';
 import { SacFormCommon } from '@simpleangularcontrols/sac-common';
-import { SacFormDirective } from './form';
 
-// #region Classes
+// #region Exported Functions
+
+/**
+ * Factory Methode für NgForm
+ * @param form NgForm
+ */
+export function NGFORM_FACTORY(form: NgForm) {
+  return form;
+}
+
+/**
+ * Factory Methode für SacForm
+ * @param form SacFormular
+ */
+export function SACFORM_FACTORY(form: SacFormDirective) {
+  return form;
+}
+
+// #endregion Exported Functions
+
+// #region Exported Classes
 
 /**
  * Directive to inherit an NgForm/NgForm from a parent component
@@ -38,24 +58,4 @@ export class SacInheritFormDirective extends SacFormCommon {
   // #endregion Constructors
 }
 
-// #endregion Classes
-
-// #region Functions
-
-/**
- * Factory Methode für NgForm
- * @param form NgForm
- */
-export function NGFORM_FACTORY(form: NgForm) {
-  return form;
-}
-
-/**
- * Factory Methode für SacForm
- * @param form SacFormular
- */
-export function SACFORM_FACTORY(form: SacFormDirective) {
-  return form;
-}
-
-// #endregion Functions
+// #endregion Exported Classes

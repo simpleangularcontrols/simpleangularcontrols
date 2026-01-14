@@ -1,208 +1,191 @@
-import { Directive, Injector, Input } from '@angular/core';
-import { AbstractControl, FormArray, FormGroup, NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { ISacLocalisationService } from '../../interfaces/ISacLocalisationService';
 import { ISacValidationKeyService } from '../../interfaces/ISacValidationKeyService';
 import { IAbstractControlLabelExtension } from '../../interfaces/iabstractcontrollabel';
-import {
-  SACLOCALISATION_SERVICE,
-  SacDefaultLocalisationService,
-} from '../../services/sac-localisation.service';
-import {
-  SACVALIDATIONKEY_SERVICE,
-  SacDefaultValidationKeyService,
-} from '../../services/sac-validationkey.service';
+import { SACLOCALISATION_SERVICE, SacDefaultLocalisationService } from '../../services/sac-localisation.service';
+import { SACVALIDATIONKEY_SERVICE, SacDefaultValidationKeyService } from '../../services/sac-validationkey.service';
+import { createGuid } from '../../utilities/guid';
 import { ValidationErrorItem } from '../../validation';
 import { SacFormCommon } from '../form/form';
+import { Directive, Injector, Input } from '@angular/core';
+import { AbstractControl, FormArray, FormGroup, NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 /**
  * Basis Komponente für SacValidationSummary
  */
 @Directive()
 export class SacValidationSummaryCommon {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Service für Error Localisation
-   */
-  protected lngResourceService: ISacLocalisationService;
-  /**
-   * Parent Formular
-   */
-  protected parent: SacFormCommon;
-  /**
-   * Service to receive standard validation message keys and texts
-   */
-  protected validationKeyService: ISacValidationKeyService;
+    /**
+     * Service für Error Localisation
+     */
+    protected lngResourceService: ISacLocalisationService;
 
-  /**
-   * reactive form instance
-   */
-  @Input()
-  public form: FormGroup;
-  /**
-   * Form groupname to filter summary to formgroup
-   *
-   * Important: it works only in reactive forms mode.
-   */
-  @Input()
-  public formGroupName: string;
-  /**
-   * Name-Property
-   */
-  @Input()
-  public name: string = '';
+    /**
+     * Parent Formular
+     */
+    protected parent: SacFormCommon;
 
-  // #endregion Properties
+    /**
+     * Service to receive standard validation message keys and texts
+     */
+    protected validationKeyService: ISacValidationKeyService;
 
-  // #region Constructors
+    /**
+     * Identifier used for the E2E data attribute.
+     */
+    @Input()
+    public e2eidentifier: string | null = null;
 
-  /**
-   * Konstruktor
-   * Inject des Formulars
-   */
-  constructor(parent: SacFormCommon, injector: Injector) {
-    this.parent = parent;
+    /**
+     * reactive form instance
+     */
+    @Input()
+    public form: FormGroup;
 
-    this.validationKeyService = injector.get(
-      SACVALIDATIONKEY_SERVICE,
-      new SacDefaultValidationKeyService()
-    );
-    this.lngResourceService = injector.get(
-      SACLOCALISATION_SERVICE,
-      new SacDefaultLocalisationService(this.validationKeyService)
-    );
-  }
+    /**
+     * Form groupname to filter summary to formgroup
+     *
+     * Important: it works only in reactive forms mode.
+     */
+    @Input()
+    public formGroupName: string;
 
-  // #endregion Constructors
+    /**
+     * name of control
+     */
+    @Input()
+    public name: string = createGuid();
 
-  // #region Public Getters And Setters
+    // #endregion Properties
 
-  /**
-   * Validation Methode
-   */
-  public get formErrors(): Observable<string>[] {
-    const collection: Array<Observable<string>> = new Array<
-      Observable<string>
-    >();
+    // #region Constructors
 
-    let formBase: FormGroup;
-    if (this.parent) {
-      formBase = this.parent.getForm().form;
-    } else if (this.form instanceof FormGroup) {
-      formBase = this.form;
+    /**
+     * Konstruktor
+     * Inject des Formulars
+     */
+    constructor(parent: SacFormCommon, injector: Injector) {
+        this.parent = parent;
 
-      // formgroup can only be get in reactive forms mode
-      if (this.formGroupName) {
-        formBase = formBase.get(this.formGroupName) as FormGroup;
-      }
-    } else {
-      throw new Error('missing form');
+        this.validationKeyService = injector.get(SACVALIDATIONKEY_SERVICE, new SacDefaultValidationKeyService());
+        this.lngResourceService = injector.get(
+            SACLOCALISATION_SERVICE,
+            new SacDefaultLocalisationService(this.validationKeyService)
+        );
     }
 
-    const items: Array<NgForm | FormArray> = Object.keys(formBase.controls).map(
-      (key) => {
-        return <NgForm | FormArray>formBase.controls[key];
-      }
-    );
+    // #endregion Constructors
 
-    this.getErrorCollection(items, collection);
+    // #region Public Getters And Setters
 
-    return collection.filter((item) => item !== null);
-  }
+    /**
+     * Validation Methode
+     */
+    public get formErrors(): Observable<string>[] {
+        const collection: Array<Observable<string>> = new Array<Observable<string>>();
 
-  /**
-   * Getter wenn Errors entstehen
-   */
-  public get hasErrors() {
-    return this.formErrors.length > 0;
-  }
+        let formBase: FormGroup;
+        if (this.parent) {
+            formBase = this.parent.getForm().form;
+        } else if (this.form instanceof FormGroup) {
+            formBase = this.form;
 
-  // #endregion Public Getters And Setters
+            // formgroup can only be get in reactive forms mode
+            if (this.formGroupName) {
+                formBase = formBase.get(this.formGroupName) as FormGroup;
+            }
+        } else {
+            throw new Error('missing form');
+        }
 
-  // #region Private Methods
-
-  /**
-   * Fügt einen Validation Error in die Error Collection hinzu
-   * @param ctl Fehlerhaftes Control
-   * @param collection Collection aller Fehlermeldungen
-   */
-  private addErrorToCollection(
-    ctl: AbstractControl,
-    collection: Array<Observable<string>>
-  ): void {
-    if (ctl.errors === null || ctl.touched === false || ctl.valid === true) {
-      return;
-    }
-
-    const keys: string[] = Object.keys(ctl.errors);
-
-    if (keys.length <= 0) {
-      return;
-    }
-
-    const errorItem: ValidationErrorItem = ctl.errors[keys[0]];
-
-    // Validation Parameters
-    const parameters = {};
-    if (errorItem.parameters !== null && errorItem.parameters !== undefined) {
-      errorItem.parameters.forEach((v, k) => {
-        parameters[k] = v;
-      });
-    }
-
-    if ((ctl as unknown as IAbstractControlLabelExtension)?.controllabel) {
-      parameters['FIELD'] = (
-        ctl as unknown as IAbstractControlLabelExtension
-      ).controllabel;
-    } else {
-      parameters['FIELD'] = errorItem.fieldName;
-    }
-
-    collection.push(
-      this.lngResourceService.GetString(
-        errorItem.errorMessageValidationSummaryKey,
-        parameters
-      )
-    );
-  }
-
-  /**
-   * Die Methode gibt Collection von Errors. Verlangt controls: Array<NgForm | FormArray> und  collection: Array<Observable<string>>
-   */
-  private getErrorCollection(
-    controls: Array<NgForm | FormArray>,
-    collection: Array<Observable<string>>
-  ): void {
-    controls.forEach((ctl) => {
-      if (ctl.controls === undefined || ctl.controls === null) {
-        this.addErrorToCollection(<AbstractControl>ctl, collection);
-      } else {
-        Object.keys(ctl.controls).map((controlKey) => {
-          const control = ctl.controls[controlKey];
-
-          // Cancel Analyse wenn Item not Touched oder Valid
-          if (control.touched === false || control.valid === true) {
-            return;
-          }
-
-          // Handle wenn Control kein Container ist
-          if (control.controls === undefined || control.controls === null) {
-            this.addErrorToCollection(control, collection);
-          } else {
-            // Handling eines Control Containers
-            const items: Array<NgForm | FormArray> = Object.keys(
-              control.controls
-            ).map((formKey) => {
-              return <NgForm | FormArray>control.controls[formKey];
-            });
-
-            this.getErrorCollection(items, collection);
-          }
+        const items: Array<NgForm | FormArray> = Object.keys(formBase.controls).map((key) => {
+            return <NgForm | FormArray>formBase.controls[key];
         });
-      }
-    });
-  }
 
-  // #endregion Private Methods
+        this.getErrorCollection(items, collection);
+
+        return collection.filter((item) => item !== null);
+    }
+
+    /**
+     * Getter wenn Errors entstehen
+     */
+    public get hasErrors() {
+        return this.formErrors.length > 0;
+    }
+
+    // #endregion Public Getters And Setters
+
+    // #region Private Methods
+
+    /**
+     * Fügt einen Validation Error in die Error Collection hinzu
+     * @param ctl Fehlerhaftes Control
+     * @param collection Collection aller Fehlermeldungen
+     */
+    private addErrorToCollection(ctl: AbstractControl, collection: Array<Observable<string>>): void {
+        if (ctl.errors === null || ctl.touched === false || ctl.valid === true) {
+            return;
+        }
+
+        const keys: string[] = Object.keys(ctl.errors);
+
+        if (keys.length <= 0) {
+            return;
+        }
+
+        const errorItem: ValidationErrorItem = ctl.errors[keys[0]];
+
+        // Validation Parameters
+        const parameters = {};
+        if (errorItem.parameters !== null && errorItem.parameters !== undefined) {
+            errorItem.parameters.forEach((v, k) => {
+                parameters[k] = v;
+            });
+        }
+
+        if ((ctl as unknown as IAbstractControlLabelExtension)?.controllabel) {
+            parameters['FIELD'] = (ctl as unknown as IAbstractControlLabelExtension).controllabel;
+        } else {
+            parameters['FIELD'] = errorItem.fieldName;
+        }
+
+        collection.push(this.lngResourceService.GetString(errorItem.errorMessageValidationSummaryKey, parameters));
+    }
+
+    /**
+     * Die Methode gibt Collection von Errors. Verlangt controls: Array<NgForm | FormArray> und  collection: Array<Observable<string>>
+     */
+    private getErrorCollection(controls: Array<NgForm | FormArray>, collection: Array<Observable<string>>): void {
+        controls.forEach((ctl) => {
+            if (ctl.controls === undefined || ctl.controls === null) {
+                this.addErrorToCollection(<AbstractControl>ctl, collection);
+            } else {
+                Object.keys(ctl.controls).map((controlKey) => {
+                    const control = ctl.controls[controlKey];
+
+                    // Cancel Analyse wenn Item not Touched oder Valid
+                    if (control.touched === false || control.valid === true) {
+                        return;
+                    }
+
+                    // Handle wenn Control kein Container ist
+                    if (control.controls === undefined || control.controls === null) {
+                        this.addErrorToCollection(control, collection);
+                    } else {
+                        // Handling eines Control Containers
+                        const items: Array<NgForm | FormArray> = Object.keys(control.controls).map((formKey) => {
+                            return <NgForm | FormArray>control.controls[formKey];
+                        });
+
+                        this.getErrorCollection(items, collection);
+                    }
+                });
+            }
+        });
+    }
+
+    // #endregion Private Methods
 }

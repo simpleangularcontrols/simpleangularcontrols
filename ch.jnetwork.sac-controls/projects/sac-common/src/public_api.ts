@@ -159,6 +159,9 @@ export {
     SacAbstractLocalisationService,
 } from './services';
 
+// Export Common Modules
+export { SACCommonUtliltiesModule } from './utilities/utilities.module';
+
 // Export Interfaces
 export * from './interfaces/iabstractcontrollabel';
 
@@ -192,6 +195,8 @@ export * from './utilities/enums';
 export * from './utilities/interpolation';
 
 export * from './utilities/positioning';
+
+export * from './utilities/testingattribute.pipe';
 
 // Export Base Components for Developers
 export * from './common/basedatetimecontrol';

@@ -1,86 +1,48 @@
-import {
-  Component,
-  Directive,
-  ElementRef,
-  forwardRef,
-  Host,
-  Injector,
-  Optional,
-  Renderer2,
-} from '@angular/core';
-import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import {
-  SacDropdownCommon,
-  SacDropdownOptionCommon,
-} from '@simpleangularcontrols/sac-common';
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
-
-// #region Classes
+import { DROPDOWN_TOKEN } from './list.token';
+import { Component, ElementRef, Host, Injector, Optional, Renderer2, forwardRef } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SacDropdownCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Dropdown Komponente
  */
 @Component({
-  selector: 'sac-dropdown',
-  templateUrl: './dropdown.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: SacDropdownComponent,
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() => SacDropdownComponent),
-    },
-  ],
+    selector: 'sac-dropdown',
+    templateUrl: './dropdown.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        { provide: DROPDOWN_TOKEN, useExisting: forwardRef(() => SacDropdownComponent) },
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SacDropdownComponent,
+        },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() => SacDropdownComponent),
+        },
+    ],
 })
 export class SacDropdownComponent extends SacDropdownCommon {
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Constructor
-   * @param formLayout SacFormLayout to define scoped layout settings
-   * @param injector Injector for injecting services
-   * @param renderer Angular rendering engine
-   * @param elementRef Reference to html dom element
-   */
-  constructor(
-    @Host() @Optional() formLayout: SacFormLayoutDirective,
-    injector: Injector,
-    renderer: Renderer2,
-    elementRef: ElementRef
-  ) {
-    super(formLayout, injector, renderer, elementRef);
-  }
+    /**
+     * Constructor
+     * @param formLayout SacFormLayout to define scoped layout settings
+     * @param injector Injector for injecting services
+     * @param renderer Angular rendering engine
+     * @param elementRef Reference to html dom element
+     */
+    constructor(
+        @Host() @Optional() formLayout: SacFormLayoutDirective,
+        injector: Injector,
+        renderer: Renderer2,
+        elementRef: ElementRef
+    ) {
+        super(formLayout, injector, renderer, elementRef);
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 }
-
-/**
- * Direktive für Dropdown Option List
- */
-@Directive({ selector: '[sacOption],option' })
-export class SacDropdownOptionDirective extends SacDropdownOptionCommon {
-  // #region Constructors
-
-  /**
-   * Konstruktor
-   * @param elementRef Referenz auf HTML DOM Element
-   * @param renderer Angular Rendering Engine
-   * @param dropdownList Referenz auf DropDown Komponente
-   */
-  constructor(
-    elementRef: ElementRef,
-    renderer: Renderer2,
-    @Optional() @Host() dropdownList: SacDropdownComponent
-  ) {
-    super(elementRef, renderer, dropdownList);
-  }
-
-  // #endregion Constructors
-}
-
-// #endregion Classes

@@ -467,7 +467,8 @@ describe('SacDropdownComponent', () => {
                     </sac-dropdown>
                 </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SACBootstrap4DropdownModule, SACBootstrap4LayoutModule],
+                declarations: [SacFormDirective],
+                imports: [FormsModule, SACBootstrap4DropdownModule, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 0,
@@ -495,7 +496,8 @@ describe('SacDropdownComponent', () => {
                     </sac-dropdown>
                 </form>`,
             {
-                imports: [FormsModule, SacFormDirective, SACBootstrap4DropdownModule, SACBootstrap4LayoutModule],
+                declarations: [SacFormDirective],
+                imports: [FormsModule, SACBootstrap4DropdownModule, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'notset',

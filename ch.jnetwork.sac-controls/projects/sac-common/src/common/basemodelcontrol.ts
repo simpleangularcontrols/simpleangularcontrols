@@ -141,11 +141,6 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     @Input() public inlineError: boolean = true;
 
     /**
-     * defines that the labels are displayed as adaptive labels
-     */
-    @Input() public isAdaptiveLabel: boolean = false;
-
-    /**
      * default labe size for large devices
      */
     @Input()
@@ -435,9 +430,6 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
         // set component heigth from fromlayout directive
         this.setComponentHeight();
 
-        // set adaptive label property from formlayout directive
-        this.setIsAdaptiveLabel();
-
         // set method to display helptext
         this.setHelpTextMode();
 
@@ -579,19 +571,6 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
                 this.helptextmode = this.formlayout.helptextmode;
             } else {
                 this.helptextmode = this.configurationService.HelptextMode;
-            }
-        }
-    }
-
-    /**
-     * Set adaptive label property from parent layout control
-     */
-    private setIsAdaptiveLabel() {
-        if (!this.isAdaptiveLabel) {
-            if (this.formlayout?.isAdaptiveLabel !== undefined) {
-                this.isAdaptiveLabel = this.formlayout.isAdaptiveLabel;
-            } else {
-                this.isAdaptiveLabel = false;
             }
         }
     }

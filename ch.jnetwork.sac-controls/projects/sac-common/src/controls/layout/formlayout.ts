@@ -37,11 +37,6 @@ export class SacFormLayoutCommon {
     public inputsearchiconmode: 'text' | 'icon' | 'mixed' | null = null;
 
     /**
-     * defines that the labels are displayed as adaptive labels
-     */
-    @Input() public isAdaptiveLabel: boolean = false;
-
-    /**
      * default labe size for large devices
      */
     @Input()

@@ -3,7 +3,7 @@
     class="row mb-3"
     [class.g-0]="disablelabel">
     <label
-        *ngIf="disablelabel === false && !isAdaptiveLabel"
+        *ngIf="disablelabel === false"
         id="{{ name }}_label"
         for="{{ name }}"
         class="col-12 col-form-label d-flex"
@@ -36,7 +36,7 @@
                 for="{{ name }}"
                 class="form-label-adaptive form-label-fixed"
                 [ngClass]="{ required: isrequired }"
-                *ngIf="isAdaptiveLabel && !disablelabel"
+                *ngIf="!disablelabel"
                 >{{ label }}</label
             >
             <div

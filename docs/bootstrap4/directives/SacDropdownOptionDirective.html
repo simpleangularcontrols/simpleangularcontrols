@@ -132,7 +132,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/sac-bootstrap4/src/controls/list/dropdown.ts</code>
+            <code>projects/sac-bootstrap4/src/controls/list/dropdownoption.directive.ts</code>
         </p>
 
 
@@ -226,12 +226,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(elementRef: ElementRef, renderer: Renderer2, dropdownList: <a href="../components/SacDropdownComponent.html" target="_self">SacDropdownComponent</a>)</code>
+<code>constructor(elementRef: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, renderer: <a href="https://angular.io/api/core/Renderer2" target="_blank">Renderer2</a>, dropdownList: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">projects/sac-bootstrap4/src/controls/list/dropdown.ts:66</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">projects/sac-bootstrap4/src/controls/list/dropdownoption.directive.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -255,7 +255,7 @@
                                                         <td>elementRef</td>
                                                   
                                                         <td>
-                                                                    <code>ElementRef</code>
+                                                                        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -271,7 +271,7 @@
                                                         <td>renderer</td>
                                                   
                                                         <td>
-                                                                    <code>Renderer2</code>
+                                                                        <code><a href="https://angular.io/api/core/Renderer2" target="_blank" >Renderer2</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -287,7 +287,7 @@
                                                         <td>dropdownList</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../components/SacDropdownComponent.html" target="_self" >SacDropdownComponent</a></code>
+                                                                        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -415,7 +415,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:65</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:69</a></code>
 </div>
                         </td>
                     </tr>
@@ -497,7 +497,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:72</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:76</a></code>
 </div>
                         </td>
                     </tr>
@@ -523,92 +523,29 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
-  Component,
-  Directive,
-  ElementRef,
-  forwardRef,
-  Host,
-  Injector,
-  Optional,
-  Renderer2,
-} from &#x27;@angular/core&#x27;;
-import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
-import {
-  SacDropdownCommon,
-  SacDropdownOptionCommon,
-} from &#x27;@simpleangularcontrols/sac-common&#x27;;
-import { SacFormLayoutDirective } from &#x27;../layout/formlayout.directive&#x27;;
-
-// #region Classes
-
-/**
- * Dropdown Komponente
- */
-@Component({
-  selector: &#x27;sac-dropdown&#x27;,
-  templateUrl: &#x27;./dropdown.html&#x27;,
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: SacDropdownComponent,
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() &#x3D;&gt; SacDropdownComponent),
-    },
-  ],
-})
-export class SacDropdownComponent extends SacDropdownCommon {
-  // #region Constructors
-
-  /**
-   * Constructor
-   * @param formLayout SacFormLayout to define scoped layout settings
-   * @param injector Injector for injecting services
-   * @param renderer Angular rendering engine
-   * @param elementRef Reference to html dom element
-   */
-  constructor(
-    @Host() @Optional() formLayout: SacFormLayoutDirective,
-    injector: Injector,
-    renderer: Renderer2,
-    elementRef: ElementRef
-  ) {
-    super(formLayout, injector, renderer, elementRef);
-  }
-
-  // #endregion Constructors
-}
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DROPDOWN_TOKEN } from &#x27;./list.token&#x27;;
+import { Directive, ElementRef, Inject, Optional, Renderer2 } from &#x27;@angular/core&#x27;;
+import { SacDropdownOptionCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 /**
  * Direktive für Dropdown Option List
  */
 @Directive({ selector: &#x27;[sacOption],option&#x27; })
 export class SacDropdownOptionDirective extends SacDropdownOptionCommon {
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Konstruktor
-   * @param elementRef Referenz auf HTML DOM Element
-   * @param renderer Angular Rendering Engine
-   * @param dropdownList Referenz auf DropDown Komponente
-   */
-  constructor(
-    elementRef: ElementRef,
-    renderer: Renderer2,
-    @Optional() @Host() dropdownList: SacDropdownComponent
-  ) {
-    super(elementRef, renderer, dropdownList);
-  }
+    /**
+     * Konstruktor
+     * @param elementRef Referenz auf HTML DOM Element
+     * @param renderer Angular Rendering Engine
+     * @param dropdownList Referenz auf DropDown Komponente
+     */
+    constructor(elementRef: ElementRef, renderer: Renderer2, @Optional() @Inject(DROPDOWN_TOKEN) dropdownList: any) {
+        super(elementRef, renderer, dropdownList);
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 }
-
-// #endregion Classes
 </code></pre>
     </div>
 

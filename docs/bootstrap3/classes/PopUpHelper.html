@@ -777,7 +777,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getPositionLeft(referenceContainer: ElementRef<HTMLElement>, popupContainer: ElementRef<HTMLElement>, controlReference: ElementRef, arrowWidth: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, arrowHeight: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, requestedPosition: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, referenceIsContainer: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    <code>getPositionLeft(referenceContainer: ElementRef<HTMLElement>, popupContainer: ElementRef<HTMLElement>, controlReference: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, arrowWidth: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, arrowHeight: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, requestedPosition: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, referenceIsContainer: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                 </td>
             </tr>
 
@@ -843,7 +843,7 @@
                                         <tr>
                                                 <td>controlReference</td>
                                             <td>
-                                                        <code>ElementRef</code>
+                                                            <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
                                             </td>
 
                                             <td>
@@ -943,7 +943,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getPositionTop(referenceContainer: ElementRef<HTMLElement>, popupContainer: ElementRef<HTMLElement>, controlReference: ElementRef, arrowWidth: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, arrowHeight: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, requestedPosition: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, referenceIsContainer: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    <code>getPositionTop(referenceContainer: ElementRef<HTMLElement>, popupContainer: ElementRef<HTMLElement>, controlReference: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, arrowWidth: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, arrowHeight: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, requestedPosition: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, referenceIsContainer: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                 </td>
             </tr>
 
@@ -1009,7 +1009,7 @@
                                         <tr>
                                                 <td>controlReference</td>
                                             <td>
-                                                        <code>ElementRef</code>
+                                                            <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
                                             </td>
 
                                             <td>
@@ -1109,7 +1109,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>hasPosition(allowedPositions: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, requestedPosition: <a href="../undefineds/TooltipPosition.html" target="_self">TooltipPosition</a>)</code>
+                    <code>hasPosition(allowedPositions: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, requestedPosition: <a href="../miscellaneous/enumerations.html#TooltipPosition" target="_self">TooltipPosition</a>)</code>
                 </td>
             </tr>
 
@@ -1812,7 +1812,7 @@ export class PopUpHelper {
         }
 
         const parentValue &#x3D; this.getOffsetTopParent(element.offsetParent as HTMLElement);
-        let offset &#x3D; element.offsetTop;
+        const offset &#x3D; element.offsetTop;
         return parentValue + offset;
     }
 

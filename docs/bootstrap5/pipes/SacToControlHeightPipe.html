@@ -175,7 +175,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>transform(value: <a href="../undefineds/ControlHeight.html" target="_self">ControlHeight | null</a>)</code>
+                    <code>transform(value: <a href="../miscellaneous/enumerations.html#ControlHeight" target="_self">ControlHeight | null</a>)</code>
                 </td>
             </tr>
 
@@ -246,32 +246,32 @@
 import { ControlHeight } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 @Pipe({
-  name: &#x27;toControlHeight&#x27;,
+    name: &#x27;toControlHeight&#x27;,
 })
 export class SacToControlHeightPipe implements PipeTransform {
-  // #region Public Methods
+    // #region Public Methods
 
-  /**
-   * Returns the CSS class that defines the height for the control
-   * @param value ControlHeight value or null
-   */
-  public transform(value: ControlHeight | null): string {
-    // Return default value
-    if (!value) {
-      return &#x27;&#x27;;
+    /**
+     * Returns the CSS class that defines the height for the control
+     * @param value ControlHeight value or null
+     */
+    public transform(value: ControlHeight | null): string {
+        // Return default value
+        if (!value) {
+            return &#x27;&#x27;;
+        }
+
+        switch (value) {
+            case ControlHeight.Small:
+                return &#x27;form-control-sm&#x27;;
+            case ControlHeight.Large:
+                return &#x27;form-control-lg&#x27;;
+            default:
+                return &#x27;&#x27;;
+        }
     }
 
-    switch (value) {
-      case ControlHeight.Small:
-        return &#x27;form-control-sm&#x27;;
-      case ControlHeight.Large:
-        return &#x27;form-control-lg&#x27;;
-      default:
-        return &#x27;&#x27;;
-    }
-  }
-
-  // #endregion Public Methods
+    // #endregion Public Methods
 }
 </code></pre>
     </div>

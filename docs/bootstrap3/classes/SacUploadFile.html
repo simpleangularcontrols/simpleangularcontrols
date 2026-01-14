@@ -208,7 +208,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="621" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:621</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="667" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:667</a></div>
                             </td>
                         </tr>
 
@@ -278,7 +278,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="601" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:601</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="647" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:647</a></div>
                         </td>
                     </tr>
 
@@ -311,7 +311,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="606" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:606</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="652" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:652</a></div>
                         </td>
                     </tr>
 
@@ -344,7 +344,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="611" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:611</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="657" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:657</a></div>
                         </td>
                     </tr>
 
@@ -377,7 +377,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="616" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:616</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="662" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:662</a></div>
                         </td>
                     </tr>
 
@@ -410,7 +410,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="621" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:621</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="667" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:667</a></div>
                         </td>
                     </tr>
 
@@ -443,7 +443,19 @@ import { SACVALIDATIONKEY_SERVICE, SacDefaultValidationKeyService } from &#x27;.
 import { SACLOCALISATION_SERVICE, SacDefaultLocalisationService } from &#x27;../services/sac-localisation.service&#x27;;
 import { Validation } from &#x27;../validation&#x27;;
 import { SacBaseModelControl } from &#x27;./basemodelcontrol&#x27;;
-import { Directive, ElementRef, EventEmitter, Injector, Input, NgZone, OnDestroy, OnInit, Output, Renderer2, ViewChild } from &#x27;@angular/core&#x27;;
+import {
+    Directive,
+    ElementRef,
+    EventEmitter,
+    Injector,
+    Input,
+    NgZone,
+    OnDestroy,
+    OnInit,
+    Output,
+    Renderer2,
+    ViewChild,
+} from &#x27;@angular/core&#x27;;
 import { AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
 import { UploadState, UploadxOptions, UploadxService } from &#x27;ngx-uploadx&#x27;;
 import { Observable, of } from &#x27;rxjs&#x27;;
@@ -502,15 +514,38 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
      * Handling von neuen Files im Input Control
      */
     public fileListener &#x3D; () &#x3D;&gt; {
-        if (this.uploadInput.nativeElement.files) {
-            this.uploadService.handleFileList(this.uploadInput.nativeElement.files);
+        // exit if files is null or undefined
+        if (!this.uploadInput.nativeElement.files) {
+            return;
         }
+
+        if (this.GetMaxFiles() &gt; 0) {
+            const maxFiles &#x3D; this.GetMaxFiles() + this.UploadedFileCount();
+            const possibleFiles &#x3D; maxFiles - this.uploadInput.nativeElement.files.length;
+
+            if (possibleFiles &lt; 0) {
+                const dataTransfer &#x3D; new DataTransfer();
+
+                const files &#x3D; Array.from(this.uploadInput.nativeElement.files).splice(
+                    0,
+                    this.uploadInput.nativeElement.files.length + possibleFiles
+                );
+
+                // clone files
+                files.forEach((file: File) &#x3D;&gt; dataTransfer.items.add(file));
+
+                this.uploadInput.nativeElement.files &#x3D; dataTransfer.files;
+            }
+        }
+
+        this.uploadService.handleFileList(this.uploadInput.nativeElement.files);
     };
 
     /**
      * Definiert das Control als Required
      */
-    @Input() public isrequired: boolean &#x3D; false;
+    @Input()
+    public isrequired: boolean &#x3D; false;
 
     /**
      * Listener für Files
@@ -525,7 +560,8 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     /**
      * Max. Dateigrösse für Files die hochgeladen werden können. 0 deaktiviert den Filter
      */
-    @Input() public maxfilesize: number &#x3D; 0;
+    @Input()
+    public maxfilesize: number &#x3D; 0;
 
     /**
      * Event when an error is triggered in the component.
@@ -547,7 +583,8 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     /**
      * Resource Key für Validation Message Required bei Control
      */
-    @Input() public validationmessagerequired: string &#x3D; this.validationKeyService.ValidationErrorRequired;
+    @Input()
+    public validationmessagerequired: string &#x3D; this.validationKeyService.ValidationErrorRequired;
 
     /**
      * Resource Key für Validation Message Required in Validation Summary
@@ -949,6 +986,15 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     }
 
     // #endregion Public Methods
+
+    // #region Protected Methods
+
+    /**
+     * get max. files that can be uploaded
+     */
+    protected abstract GetMaxFiles(): number;
+
+    // #endregion Protected Methods
 
     // #region Private Methods
 

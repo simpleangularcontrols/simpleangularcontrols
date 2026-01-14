@@ -135,13 +135,13 @@
 <title>cluster_SACBootstrap5LayoutModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 931,-268 931,-70 8,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap5LayoutModule_declarations</title>
-<polygon fill="none" stroke="black" points="25,-78 25,-130 914,-130 914,-78 25,-78"/>
-</g>
 <g id="clust9" class="cluster">
 <title>cluster_SACBootstrap5LayoutModule_exports</title>
 <polygon fill="none" stroke="black" points="16,-208 16,-260 923,-260 923,-208 16,-208"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_SACBootstrap5LayoutModule_declarations</title>
+<polygon fill="none" stroke="black" points="25,-78 25,-130 914,-130 914,-78 25,-78"/>
 </g>
 <!-- SacFormLayoutDirective -->
 <g id="node1" class="node">
@@ -365,30 +365,30 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { NgModule } from &#x27;@angular/core&#x27;;
-import { SacFormLayoutDirective } from &#x27;./formlayout.directive&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacFormLayoutDirective } from &#x27;./formlayout.directive&#x27;;
 import { SacToControlHeightPipe } from &#x27;./tocontrolheight.pipe&#x27;;
 import { SacToControlWidthCssPipe } from &#x27;./tocontrolwidthcss.pipe&#x27;;
 import { SacToLabelHeightPipe } from &#x27;./tolabelheight.pipe&#x27;;
 import { SacToLabelWidthCssPipe } from &#x27;./tolabelwidthcss.pipe&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 
 @NgModule({
-  declarations: [
-    SacFormLayoutDirective,
-    SacToControlHeightPipe,
-    SacToControlWidthCssPipe,
-    SacToLabelHeightPipe,
-    SacToLabelWidthCssPipe,
-  ],
-  imports: [CommonModule],
-  exports: [
-    SacFormLayoutDirective,
-    SacToControlHeightPipe,
-    SacToControlWidthCssPipe,
-    SacToLabelHeightPipe,
-    SacToLabelWidthCssPipe,
-  ],
+    declarations: [
+        SacFormLayoutDirective,
+        SacToControlHeightPipe,
+        SacToControlWidthCssPipe,
+        SacToLabelHeightPipe,
+        SacToLabelWidthCssPipe,
+    ],
+    imports: [CommonModule],
+    exports: [
+        SacFormLayoutDirective,
+        SacToControlHeightPipe,
+        SacToControlWidthCssPipe,
+        SacToLabelHeightPipe,
+        SacToLabelWidthCssPipe,
+    ],
 })
 export class SACBootstrap5LayoutModule {}
 </code></pre>

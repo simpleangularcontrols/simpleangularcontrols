@@ -167,6 +167,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Abstract</span>
                                 <a href="#GetLanguages" >GetLanguages</a>
                             </li>
@@ -194,6 +195,7 @@
                 <td class="col-md-4">
                     <a name="GetLanguages"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                             <span class="modifier">Abstract</span>
                         <span ><b>GetLanguages</b></span>
                         <a href="#GetLanguages"><span class="icon ion-ios-link"></span></a>
@@ -210,8 +212,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="24"
-                                    class="link-to-prism">projects/sac-common/src/services/sac-language.service.ts:24</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="28"
+                                    class="link-to-prism">projects/sac-common/src/services/sac-language.service.ts:28</a></div>
                         </td>
                     </tr>
 
@@ -260,30 +262,36 @@ export class CustomLanguageService extends SacAbstractLanguageService {
     </div>
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, InjectionToken } from &#x27;@angular/core&#x27;;
-import { Observable } from &#x27;rxjs&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IconType } from &#x27;../enums/IconType&#x27;;
 import { ISacLanguageService } from &#x27;../interfaces/ISacLanguageService&#x27;;
 import { LanguageModel } from &#x27;../models/languagemodel&#x27;;
-import { IconType } from &#x27;../enums/IconType&#x27;;
+import { Injectable, InjectionToken } from &#x27;@angular/core&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+
+// #region Variables
 
 /**
  * injection token for language service
  */
-export const SACLANGUAGE_SERVICE &#x3D; new InjectionToken&lt;ISacLanguageService&gt;(
-  &#x27;SacLanguageService&#x27;
-);
+export const SACLANGUAGE_SERVICE &#x3D; new InjectionToken&lt;ISacLanguageService&gt;(&#x27;SacLanguageService&#x27;);
+
+// #endregion Variables
+
+// #region Exported Classes
 
 /**
  * abstract class for languages provides in components
  */
 @Injectable({ providedIn: &#x27;root&#x27; })
-export abstract class SacAbstractLanguageService
-  implements ISacLanguageService
-{
-  /**
-   * @inheritdoc
-   */
-  abstract GetLanguages(): Observable&lt;LanguageModel[]&gt;;
+export abstract class SacAbstractLanguageService implements ISacLanguageService {
+    // #region Public Methods
+
+    /**
+     * @inheritdoc
+     */
+    public abstract GetLanguages(): Observable&lt;LanguageModel[]&gt;;
+
+    // #endregion Public Methods
 }
 
 /**
@@ -291,25 +299,31 @@ export abstract class SacAbstractLanguageService
  * */
 @Injectable({ providedIn: &#x27;root&#x27; })
 export class SacDefaultLanguageService extends SacAbstractLanguageService {
-  /**
-   * @inheritdoc
-   */
-  public GetLanguages(): Observable&lt;LanguageModel[]&gt; {
-    return new Observable&lt;LanguageModel[]&gt;((observer) &#x3D;&gt; {
-      const result: LanguageModel[] &#x3D; [];
+    // #region Public Methods
 
-      result.push({
-        Icon: &#x27;/icons/en.png&#x27;,
-        IconType: IconType.Image,
-        IsoCode: &#x27;en&#x27;,
-        Text: &#x27;English&#x27;,
-      });
+    /**
+     * @inheritdoc
+     */
+    public GetLanguages(): Observable&lt;LanguageModel[]&gt; {
+        return new Observable&lt;LanguageModel[]&gt;((observer) &#x3D;&gt; {
+            const result: LanguageModel[] &#x3D; [];
 
-      observer.next(result);
-      observer.complete();
-    });
-  }
+            result.push({
+                Icon: &#x27;/icons/en.png&#x27;,
+                IconType: IconType.Image,
+                IsoCode: &#x27;en&#x27;,
+                Text: &#x27;English&#x27;,
+            });
+
+            observer.next(result);
+            observer.complete();
+        });
+    }
+
+    // #endregion Public Methods
 }
+
+// #endregion Exported Classes
 </code></pre>
     </div>
 

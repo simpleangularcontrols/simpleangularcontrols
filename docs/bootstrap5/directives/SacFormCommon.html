@@ -219,12 +219,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(form: NgForm)</code>
+<code>constructor(form: <a href="https://angular.io/api/forms/NgForm" target="_blank">NgForm</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/sac-common/src/controls/form/form.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/sac-common/src/controls/form/form.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -248,7 +248,7 @@
                                                         <td>form</td>
                                                   
                                                         <td>
-                                                                    <code>NgForm</code>
+                                                                        <code><a href="https://angular.io/api/forms/NgForm" target="_blank" >NgForm</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -287,7 +287,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">projects/sac-common/src/controls/form/form.ts:52</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/sac-common/src/controls/form/form.ts:42</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -329,8 +329,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="64"
-                                    class="link-to-prism">projects/sac-common/src/controls/form/form.ts:64</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">projects/sac-common/src/controls/form/form.ts:54</a></div>
                         </td>
                     </tr>
 
@@ -341,7 +341,7 @@
 </div>
 
                         <div class="io-description">
-                            <b>Returns : </b>    <code>NgForm</code>
+                            <b>Returns : </b>        <code><a href="https://angular.io/api/forms/NgForm" target="_blank" >NgForm</a></code>
 
                         </div>
                 </td>
@@ -370,8 +370,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="71"
-                                    class="link-to-prism">projects/sac-common/src/controls/form/form.ts:71</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="61"
+                                    class="link-to-prism">projects/sac-common/src/controls/form/form.ts:61</a></div>
                         </td>
                     </tr>
 
@@ -411,8 +411,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="80"
-                                    class="link-to-prism">projects/sac-common/src/controls/form/form.ts:80</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="70"
+                                    class="link-to-prism">projects/sac-common/src/controls/form/form.ts:70</a></div>
                         </td>
                     </tr>
 
@@ -486,18 +486,18 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/sac-common/src/controls/form/form.ts:44</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/sac-common/src/controls/form/form.ts:34</a></div>
                                 </td>
                             </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <span class="accessor"><b>set</b><code>updateon(v: <a href="../undefineds/FormHooks.html" target="_self">FormHooks</a>)</code></span>
+                        <span class="accessor"><b>set</b><code>updateon(v: <a href="../miscellaneous/typealiases.html#FormHooks" target="_self">FormHooks</a>)</code></span>
                     </td>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">projects/sac-common/src/controls/form/form.ts:52</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/sac-common/src/controls/form/form.ts:42</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -547,139 +547,136 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, Input } from &#x27;@angular/core&#x27;;
 import { AbstractControl, FormGroup, NgForm } from &#x27;@angular/forms&#x27;;
-import { convertToBoolean } from &#x27;../../utilities/convertion&#x27;;
 
-// #region Type aliases
-
-/**
- * Type for form actions
- */
-export type FormHooks &#x3D; &#x27;change&#x27; | &#x27;blur&#x27; | &#x27;submit&#x27;;
-
-// #endregion Type aliases
-
-// #region Classes
+// #region Exported Classes
 
 /**
  * Base Komponente für SacFormular
  */
 @Directive()
 export class SacFormCommon {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Standardwert wann die Werte via NgModel aktualisiert werden
-   */
-  private _updateon: FormHooks &#x3D; &#x27;change&#x27;;
+    /**
+     * Standardwert wann die Werte via NgModel aktualisiert werden
+     */
+    private _updateon: FormHooks &#x3D; &#x27;change&#x27;;
 
-  // #endregion Properties
+    // #endregion Properties
 
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Konstruktor
-   * @param form Instanz von NgForm
-   */
-  constructor(private form: NgForm) {
-    this.form.options &#x3D; { updateOn: this._updateon };
-  }
-
-  // #endregion Constructors
-
-  // #region Public Getters And Setters
-
-  public get updateon(): FormHooks {
-    return this._updateon;
-  }
-
-  /**
-   * Definiert, wenn das Model geupdatet wird
-   */
-  @Input()
-  public set updateon(v: FormHooks) {
-    this._updateon &#x3D; v;
-    this.form.options.updateOn &#x3D; v;
-  }
-
-  // #endregion Public Getters And Setters
-
-  // #region Public Methods
-
-  /**
-   * Gibt die NgForm Instanz zurück
-   */
-  public getForm(): NgForm {
-    return this.form;
-  }
-
-  /**
-   * Markiert alle Controls innerhalb des Formulares als Touched
-   */
-  public markAsTouched(): void {
-    if (this.form &amp;&amp; this.form.invalid) {
-      this.markAsTouchedInternal(this.form.controls);
+    /**
+     * Konstruktor
+     * @param form Instanz von NgForm
+     */
+    constructor(private form: NgForm) {
+        this.form.options &#x3D; { updateOn: this._updateon };
     }
-  }
 
-  /**
-   * Aktualisiert die Werte und den Gültigkeitsstatus des Formulars
-   */
-  public updateValueAndValidity(markAsTouched: boolean &#x3D; true): void {
-    // Update all Controls
-    this.updateValueAndValidityInternal(this.form.controls);
-    // Update Main Form
-    this.getForm().form.updateValueAndValidity();
+    // #endregion Constructors
 
-    // Mark all Controls as Touched
-    if (markAsTouched) {
-      this.markAsTouched();
+    // #region Public Getters And Setters
+
+    public get updateon(): FormHooks {
+        return this._updateon;
     }
-  }
 
-  // #endregion Public Methods
-
-  // #region Private Methods
-
-  /**
-   * Markiert alle Controls inkl. dem Tree als Touched
-   * @param controls Controls Collection
-   */
-  private markAsTouchedInternal(controls: { [key: string]: AbstractControl }) {
-    const keyList: string[] &#x3D; Object.keys(controls);
-
-    for (const field of keyList) {
-      const control &#x3D; controls[field];
-      if (control instanceof FormGroup) {
-        this.markAsTouchedInternal(control.controls);
-      } else {
-        control.markAsTouched({ onlySelf: true });
-      }
+    /**
+     * Definiert, wenn das Model geupdatet wird
+     */
+    @Input()
+    public set updateon(v: FormHooks) {
+        this._updateon &#x3D; v;
+        this.form.options.updateOn &#x3D; v;
     }
-  }
 
-  /**
-   * Aktualisiert die Werte und die gültigkeit des Formulars
-   * @param controls Controls Collection
-   */
-  private updateValueAndValidityInternal(controls: {
-    [key: string]: AbstractControl;
-  }) {
-    const keyList: string[] &#x3D; Object.keys(controls);
+    // #endregion Public Getters And Setters
 
-    for (const field of keyList) {
-      const control &#x3D; controls[field];
-      if (control instanceof FormGroup) {
-        this.updateValueAndValidityInternal(control.controls);
-      } else {
-        control.updateValueAndValidity({ onlySelf: true });
-      }
+    // #region Public Methods
+
+    /**
+     * Gibt die NgForm Instanz zurück
+     */
+    public getForm(): NgForm {
+        return this.form;
     }
-  }
 
-  // #endregion Private Methods
+    /**
+     * Markiert alle Controls innerhalb des Formulares als Touched
+     */
+    public markAsTouched(): void {
+        if (this.form &amp;&amp; this.form.invalid) {
+            this.markAsTouchedInternal(this.form.controls);
+        }
+    }
+
+    /**
+     * Aktualisiert die Werte und den Gültigkeitsstatus des Formulars
+     */
+    public updateValueAndValidity(markAsTouched: boolean &#x3D; true): void {
+        // Update all Controls
+        this.updateValueAndValidityInternal(this.form.controls);
+        // Update Main Form
+        this.getForm().form.updateValueAndValidity();
+
+        // Mark all Controls as Touched
+        if (markAsTouched) {
+            this.markAsTouched();
+        }
+    }
+
+    // #endregion Public Methods
+
+    // #region Private Methods
+
+    /**
+     * Markiert alle Controls inkl. dem Tree als Touched
+     * @param controls Controls Collection
+     */
+    private markAsTouchedInternal(controls: { [key: string]: AbstractControl }) {
+        const keyList: string[] &#x3D; Object.keys(controls);
+
+        for (const field of keyList) {
+            const control &#x3D; controls[field];
+            if (control instanceof FormGroup) {
+                this.markAsTouchedInternal(control.controls);
+            } else {
+                control.markAsTouched({ onlySelf: true });
+            }
+        }
+    }
+
+    /**
+     * Aktualisiert die Werte und die gültigkeit des Formulars
+     * @param controls Controls Collection
+     */
+    private updateValueAndValidityInternal(controls: { [key: string]: AbstractControl }) {
+        const keyList: string[] &#x3D; Object.keys(controls);
+
+        for (const field of keyList) {
+            const control &#x3D; controls[field];
+            if (control instanceof FormGroup) {
+                this.updateValueAndValidityInternal(control.controls);
+            } else {
+                control.updateValueAndValidity({ onlySelf: true });
+            }
+        }
+    }
+
+    // #endregion Private Methods
 }
 
-// #endregion Classes
+// #endregion Exported Classes
+
+// #region Exported Types
+
+/**
+ * Type for form actions
+ */
+export type FormHooks &#x3D; &#x27;change&#x27; | &#x27;blur&#x27; | &#x27;submit&#x27;;
+
+// #endregion Exported Types
 </code></pre>
     </div>
 

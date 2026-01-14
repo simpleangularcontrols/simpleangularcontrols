@@ -247,47 +247,47 @@
 import { ISacLabelSizes } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 @Pipe({
-  name: &#x27;toLabelWidthCss&#x27;,
+    name: &#x27;toLabelWidthCss&#x27;,
 })
 export class SacToLabelWidthCssPipe implements PipeTransform {
-  // #region Public Methods
+    // #region Public Methods
 
-  /**
-   * Get CSS classes from label width configuration to set label size
-   * @param value Configuration with grid columns for different viewports
-   * @returns string with css classe for bootstrap3
-   */
-  public transform(value: ISacLabelSizes): string {
-    const classes: string[] &#x3D; [];
+    /**
+     * Get CSS classes from label width configuration to set label size
+     * @param value Configuration with grid columns for different viewports
+     * @returns string with css classe for bootstrap3
+     */
+    public transform(value: ISacLabelSizes): string {
+        const classes: string[] &#x3D; [];
 
-    if (value.labelSizeXs) {
-      classes.push(&#x27;col-&#x27; + value.labelSizeXs);
+        if (value.labelSizeXs) {
+            classes.push(&#x27;col-&#x27; + value.labelSizeXs);
+        }
+
+        if (value.labelSizeSm) {
+            classes.push(&#x27;col-sm-&#x27; + value.labelSizeSm);
+        }
+
+        if (value.labelSizeMd) {
+            classes.push(&#x27;col-md-&#x27; + value.labelSizeMd);
+        }
+
+        if (value.labelSizeLg) {
+            classes.push(&#x27;col-lg-&#x27; + value.labelSizeLg);
+        }
+
+        if (value.labelSizeXl) {
+            classes.push(&#x27;col-xl-&#x27; + value.labelSizeXl);
+        }
+
+        if (value.labelSizeXxl) {
+            classes.push(&#x27;col-xxl-&#x27; + value.labelSizeXxl);
+        }
+
+        return classes.join(&#x27; &#x27;);
     }
 
-    if (value.labelSizeSm) {
-      classes.push(&#x27;col-sm-&#x27; + value.labelSizeSm);
-    }
-
-    if (value.labelSizeMd) {
-      classes.push(&#x27;col-md-&#x27; + value.labelSizeMd);
-    }
-
-    if (value.labelSizeLg) {
-      classes.push(&#x27;col-lg-&#x27; + value.labelSizeLg);
-    }
-
-    if (value.labelSizeXl) {
-      classes.push(&#x27;col-xl-&#x27; + value.labelSizeXl);
-    }
-
-    if (value.labelSizeXxl) {
-      classes.push(&#x27;col-xxl-&#x27; + value.labelSizeXxl);
-    }
-
-    return classes.join(&#x27; &#x27;);
-  }
-
-  // #endregion Public Methods
+    // #endregion Public Methods
 }
 </code></pre>
     </div>

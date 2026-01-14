@@ -191,12 +191,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(sortcolumn?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, sortorder?: <a href="../undefineds/SortOrder.html" target="_self">SortOrder</a>)</code>
+<code>constructor(sortcolumn?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, sortorder?: <a href="../miscellaneous/enumerations.html#SortOrder" target="_self">SortOrder</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:108</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:131</a></div>
                             </td>
                         </tr>
 
@@ -282,7 +282,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:104</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="126" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:126</a></div>
                         </td>
                     </tr>
 
@@ -315,7 +315,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:108</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:131</a></div>
                         </td>
                     </tr>
 
@@ -340,150 +340,148 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class GridResponse&lt;T&gt; {
-  // #region Properties
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export enum SortOrder {
+    /**
+     * No sorting
+     */
+    None &#x3D; 0,
+    /**
+     * Ascending
+     */
+    Ascending &#x3D; 1,
+    /**
+     * Descending
+     */
+    Descending &#x3D; 2,
+}
 
-  /**
-   * Data
-   */
-  public Data: T[];
-  /**
-   * Total number of data records
-   */
-  public TotalRowCount: number;
+// #endregion Exported Enums
 
-  // #endregion Properties
+// #region Exported Classes
+
+export class GridResponse&lt;T&gt; {
+    // #region Properties
+
+    /**
+     * Data
+     */
+    public Data: T[];
+
+    /**
+     * Total number of data records
+     */
+    public TotalRowCount: number;
+
+    // #endregion Properties
 }
 
 /**
  * Model for pager settings
  */
 export class PagerData {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Current index of the page
-   */
-  public CurrentPageIndex &#x3D; 0;
-  /**
-   * Number of elements on the page
-   */
-  public PageSize &#x3D; 20;
-  /**
-   * Total number of data records
-   */
-  public TotalRowCount &#x3D; 0;
+    /**
+     * Current index of the page
+     */
+    public CurrentPageIndex &#x3D; 0;
 
-  // #endregion Properties
+    /**
+     * Number of elements on the page
+     */
+    public PageSize &#x3D; 20;
 
-  // #region Constructors
+    /**
+     * Total number of data records
+     */
+    public TotalRowCount &#x3D; 0;
 
-  /**
-   * Constructor
-   * @param PageSize Number of elements per page
-   * @param CurrentPageIndex Current page
-   * @param TotalRowCount Total Rows in database
-   */
-  constructor(
-    PageSize: number,
-    CurrentPageIndex: number,
-    TotalRowCount: number
-  ) {
-    this.PageSize &#x3D; PageSize;
-    this.CurrentPageIndex &#x3D; CurrentPageIndex;
-    this.TotalRowCount &#x3D; TotalRowCount;
-  }
+    // #endregion Properties
 
-  // #endregion Constructors
+    // #region Constructors
+
+    /**
+     * Constructor
+     * @param PageSize Number of elements per page
+     * @param CurrentPageIndex Current page
+     * @param TotalRowCount Total Rows in database
+     */
+    constructor(PageSize: number, CurrentPageIndex: number, TotalRowCount: number) {
+        this.PageSize &#x3D; PageSize;
+        this.CurrentPageIndex &#x3D; CurrentPageIndex;
+        this.TotalRowCount &#x3D; TotalRowCount;
+    }
+
+    // #endregion Constructors
 }
 
 /**
  * Model if page is to be changed
  */
 export class PagerRequest {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Index of the page to which you want to switch
-   */
-  public NewPageIndex: number &#x3D; 0;
-  /**
-   * Number of elements on the page
-   */
-  public PageSize: number &#x3D; 0;
+    /**
+     * Index of the page to which you want to switch
+     */
+    public NewPageIndex: number &#x3D; 0;
 
-  // #endregion Properties
+    /**
+     * Number of elements on the page
+     */
+    public PageSize: number &#x3D; 0;
 
-  // #region Constructors
+    // #endregion Properties
 
-  /**
-   * Constructor
-   * @param PageSize Page size / number of elements per page
-   * @param NewPageIndex New page index
-   */
-  constructor(PageSize: number, NewPageIndex: number) {
-    this.PageSize &#x3D; PageSize;
-    this.NewPageIndex &#x3D; NewPageIndex;
-  }
+    // #region Constructors
 
-  // #endregion Constructors
+    /**
+     * Constructor
+     * @param PageSize Page size / number of elements per page
+     * @param NewPageIndex New page index
+     */
+    constructor(PageSize: number, NewPageIndex: number) {
+        this.PageSize &#x3D; PageSize;
+        this.NewPageIndex &#x3D; NewPageIndex;
+    }
+
+    // #endregion Constructors
 }
 
 /**
  * Model for sorting
  */
 export class SortDescriptor {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Description / Key for sorting
-   */
-  public SortColumn: string;
-  /**
-   * Sort order
-   */
-  public SortOrder: SortOrder;
+    /**
+     * Description / Key for sorting
+     */
+    public SortColumn: string;
 
-  // #endregion Properties
+    /**
+     * Sort order
+     */
+    public SortOrder: SortOrder;
 
-  // #region Constructors
+    // #endregion Properties
 
-  /**
-   * Constructor
-   * @param sortcolumn Column by which to sort
-   * @param sortorder Type of sorting
-   */
-  constructor(sortcolumn?: string, sortorder?: SortOrder) {
-    this.SortColumn &#x3D; sortcolumn;
-    this.SortOrder &#x3D; sortorder;
-  }
+    // #region Constructors
 
-  // #endregion Constructors
+    /**
+     * Constructor
+     * @param sortcolumn Column by which to sort
+     * @param sortorder Type of sorting
+     */
+    constructor(sortcolumn?: string, sortorder?: SortOrder) {
+        this.SortColumn &#x3D; sortcolumn;
+        this.SortOrder &#x3D; sortorder;
+    }
+
+    // #endregion Constructors
 }
 
-// #endregion Classes
-
-// #region Enums
-
-/**
- * Enum for sorting
- */
-export enum SortOrder {
-  /**
-   * No sorting
-   */
-  None &#x3D; 0,
-  /**
-   * Ascending
-   */
-  Ascending &#x3D; 1,
-  /**
-   * Descending
-   */
-  Descending &#x3D; 2,
-}
-
-// #endregion Enums
+// #endregion Exported Classes
 </code></pre>
     </div>
 </div>

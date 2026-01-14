@@ -149,7 +149,7 @@
                 <h3>Implements</h3>
             </p>
             <p class="comment">
-                        <code>OnDestroy</code>
+                            <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
             </p>
 
 
@@ -227,12 +227,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(_element: ElementRef, _renderer: Renderer2, _dropdown: <a href="../directives/SacDropdownCommon.html" target="_self">SacDropdownCommon</a>)</code>
+<code>constructor(_element: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, _renderer: <a href="https://angular.io/api/core/Renderer2" target="_blank">Renderer2</a>, _dropdown: <a href="../directives/SacDropdownCommon.html" target="_self">SacDropdownCommon</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/sac-common/src/controls/list/dropdownoptions.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/sac-common/src/controls/list/dropdownoptions.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -256,7 +256,7 @@
                                                         <td>_element</td>
                                                   
                                                         <td>
-                                                                    <code>ElementRef</code>
+                                                                        <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -272,7 +272,7 @@
                                                         <td>_renderer</td>
                                                   
                                                         <td>
-                                                                    <code>Renderer2</code>
+                                                                        <code><a href="https://angular.io/api/core/Renderer2" target="_blank" >Renderer2</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -396,8 +396,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="65"
-                                    class="link-to-prism">projects/sac-common/src/controls/list/dropdownoptions.ts:65</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="69"
+                                    class="link-to-prism">projects/sac-common/src/controls/list/dropdownoptions.ts:69</a></div>
                         </td>
                     </tr>
 
@@ -472,8 +472,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="72"
-                                    class="link-to-prism">projects/sac-common/src/controls/list/dropdownoptions.ts:72</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">projects/sac-common/src/controls/list/dropdownoptions.ts:76</a></div>
                         </td>
                     </tr>
 
@@ -621,82 +621,88 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
-  Directive,
-  ElementRef,
-  Input,
-  OnDestroy,
-  Renderer2,
-} from &#x27;@angular/core&#x27;;
-import { _buildValueString } from &#x27;./buildvaluestring&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { _buildValueString } from &#x27;./buildvaluestring&#x27;;
 import { SacDropdownCommon } from &#x27;./dropdown&#x27;;
+import { Directive, ElementRef, Input, OnDestroy, Renderer2 } from &#x27;@angular/core&#x27;;
 
 /**
  * SacDropdownOption-Klasse
  */
 @Directive()
 export class SacDropdownOptionCommon implements OnDestroy {
-  /**
-   * ID-String
-   */
-  private id: string &#x3D; null;
+    // #region Properties
 
-  /**
-   * Konstruktor
-   * @param _element Referenz auf HTML Element
-   * @param _renderer Render Engine
-   * @param _dropdown Dropdown Instanz
-   */
-  constructor(
-    private _element: ElementRef,
-    private _renderer: Renderer2,
-    private _dropdown: SacDropdownCommon
-  ) {
-    if (this._dropdown) {
-      this.id &#x3D; this._dropdown.registerOption();
-    }
-  }
+    /**
+     * ID-String
+     */
+    private id: string &#x3D; null;
 
-  /**
-   * Option ngValue
-   */
-  @Input()
-  public set ngValue(value: any) {
-    // Cancel wenn kein Parent Dropdown vorhanden
-    if (this._dropdown &#x3D;&#x3D; null) {
-      return;
+    // #endregion Properties
+
+    // #region Constructors
+
+    /**
+     * Konstruktor
+     * @param _element Referenz auf HTML Element
+     * @param _renderer Render Engine
+     * @param _dropdown Dropdown Instanz
+     */
+    constructor(private _element: ElementRef, private _renderer: Renderer2, private _dropdown: SacDropdownCommon) {
+        if (this._dropdown) {
+            this.id &#x3D; this._dropdown.registerOption();
+        }
     }
 
-    this._dropdown.setOptionMap(this.id, value);
-    this._setElementValue(_buildValueString(this.id, value));
+    // #endregion Constructors
 
-    this._dropdown.writeValue(this._dropdown.value);
-  }
+    // #region Public Getters And Setters
 
-  /**
-   * Wert-Setter
-   */
-  @Input()
-  public set value(value: any) {
-    this._setElementValue(value);
-  }
+    /**
+     * Option ngValue
+     */
+    @Input()
+    public set ngValue(value: any) {
+        // Cancel wenn kein Parent Dropdown vorhanden
+        if (this._dropdown &#x3D;&#x3D; null) {
+            return;
+        }
 
-  /**
-   * Den Wert vom Option-Element einstellen
-   * @param value Wert
-   */
-  public _setElementValue(value: string): void {
-    this._renderer.setProperty(this._element.nativeElement, &#x27;value&#x27;, value);
-  }
+        this._dropdown.setOptionMap(this.id, value);
+        this._setElementValue(_buildValueString(this.id, value));
 
-  /**
-   * OnDestroy Event
-   */
-  public ngOnDestroy(): void {
-    if (this._dropdown) {
-      this._dropdown._optionMap.delete(this.id);
+        this._dropdown.writeValue(this._dropdown.value);
     }
-  }
+
+    /**
+     * Wert-Setter
+     */
+    @Input()
+    public set value(value: any) {
+        this._setElementValue(value);
+    }
+
+    // #endregion Public Getters And Setters
+
+    // #region Public Methods
+
+    /**
+     * Den Wert vom Option-Element einstellen
+     * @param value Wert
+     */
+    public _setElementValue(value: string): void {
+        this._renderer.setProperty(this._element.nativeElement, &#x27;value&#x27;, value);
+    }
+
+    /**
+     * OnDestroy Event
+     */
+    public ngOnDestroy(): void {
+        if (this._dropdown) {
+            this._dropdown._optionMap.delete(this.id);
+        }
+    }
+
+    // #endregion Public Methods
 }
 </code></pre>
     </div>

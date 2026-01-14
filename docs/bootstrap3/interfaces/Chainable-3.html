@@ -148,6 +148,12 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
+                                    <a href="#resetSpy" 
+>
+                                        resetSpy
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="#validateValueChanged" 
 >
                                         validateValueChanged
@@ -165,6 +171,73 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetSpy"></a>
+                    <span class="name">
+                        <span ><b>resetSpy</b></span>
+                        <a href="#resetSpy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resetSpy(identifier: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="4"
+                                    class="link-to-prism">projects/sac-bootstrap3/cypress/support/modelchanged.ts:4</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>identifier</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Chainable.html" target="_self" >Chainable</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -239,16 +312,23 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">declare namespace Cypress {
-  interface Chainable {
-    validateValueChanged(requiredCount: number): Chainable;
-  }
+    interface Chainable {
+        validateValueChanged(requiredCount: number): Chainable;
+        resetSpy(identifier: string): Chainable;
+    }
 }
 
 Cypress.Commands.add(&#x27;validateValueChanged&#x27;, (requiredCount: number) &#x3D;&gt; {
-  cy.get(&#x27;@valueSpy&#x27;).should(&#x27;have.been.called&#x27;);
-  cy.get(&#x27;@valueSpy&#x27;).its(&#x27;callCount&#x27;).should(&#x27;equal&#x27;, requiredCount);
+    cy.get(&#x27;@valueSpy&#x27;).should(&#x27;have.been.called&#x27;);
+    cy.get(&#x27;@valueSpy&#x27;).its(&#x27;callCount&#x27;).should(&#x27;equal&#x27;, requiredCount);
 });
 
+Cypress.Commands.add(&#x27;resetSpy&#x27;, (identifier: string) &#x3D;&gt; {
+    cy.get(identifier).then((spy: any) &#x3D;&gt; {
+        if (spy &amp;&amp; typeof spy.resetHistory &#x3D;&#x3D;&#x3D; &#x27;function&#x27;) spy.resetHistory();
+        else if (spy &amp;&amp; typeof spy.reset &#x3D;&#x3D;&#x3D; &#x27;function&#x27;) spy.reset();
+    });
+});
 </code></pre>
     </div>
 </div>

@@ -244,7 +244,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/sac-bootstrap4/src/controls/form/inheritform.directive.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/sac-bootstrap4/src/controls/form/inheritform.directive.ts:47</a></div>
                             </td>
                         </tr>
 
@@ -313,7 +313,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:52</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:42</a></code>
 </div>
                             </td>
                         </tr>
@@ -362,7 +362,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:64</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:54</a></code>
 </div>
                         </td>
                     </tr>
@@ -409,7 +409,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:71</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:61</a></code>
 </div>
                         </td>
                     </tr>
@@ -456,7 +456,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:80</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:70</a></code>
 </div>
                         </td>
                     </tr>
@@ -549,12 +549,32 @@ export class DemoSubFormComponent {
     </div>
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, Injector, SkipSelf } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacFormDirective } from &#x27;./form&#x27;;
+import { Directive, Injector, SkipSelf } from &#x27;@angular/core&#x27;;
 import { ControlContainer, NgForm } from &#x27;@angular/forms&#x27;;
 import { SacFormCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
-import { SacFormDirective } from &#x27;./form&#x27;;
 
-// #region Classes
+// #region Exported Functions
+
+/**
+ * Factory Methode für NgForm
+ * @param form NgForm
+ */
+export function NGFORM_FACTORY(form: NgForm) {
+  return form;
+}
+
+/**
+ * Factory Methode für SacForm
+ * @param form SacFormular
+ */
+export function SACFORM_FACTORY(form: SacFormDirective) {
+  return form;
+}
+
+// #endregion Exported Functions
+
+// #region Exported Classes
 
 /**
  * Directive to inherit an NgForm/NgForm from a parent component
@@ -589,27 +609,7 @@ export class SacInheritFormDirective extends SacFormCommon {
   // #endregion Constructors
 }
 
-// #endregion Classes
-
-// #region Functions
-
-/**
- * Factory Methode für NgForm
- * @param form NgForm
- */
-export function NGFORM_FACTORY(form: NgForm) {
-  return form;
-}
-
-/**
- * Factory Methode für SacForm
- * @param form SacFormular
- */
-export function SACFORM_FACTORY(form: SacFormDirective) {
-  return form;
-}
-
-// #endregion Functions
+// #endregion Exported Classes
 </code></pre>
     </div>
 

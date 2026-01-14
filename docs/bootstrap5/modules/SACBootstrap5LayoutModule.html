@@ -354,30 +354,30 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { NgModule } from &#x27;@angular/core&#x27;;
-import { SacFormLayoutDirective } from &#x27;./formlayout.directive&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacFormLayoutDirective } from &#x27;./formlayout.directive&#x27;;
 import { SacToControlHeightPipe } from &#x27;./tocontrolheight.pipe&#x27;;
 import { SacToControlWidthCssPipe } from &#x27;./tocontrolwidthcss.pipe&#x27;;
 import { SacToLabelHeightPipe } from &#x27;./tolabelheight.pipe&#x27;;
 import { SacToLabelWidthCssPipe } from &#x27;./tolabelwidthcss.pipe&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 
 @NgModule({
-  declarations: [
-    SacFormLayoutDirective,
-    SacToControlHeightPipe,
-    SacToControlWidthCssPipe,
-    SacToLabelHeightPipe,
-    SacToLabelWidthCssPipe,
-  ],
-  imports: [CommonModule],
-  exports: [
-    SacFormLayoutDirective,
-    SacToControlHeightPipe,
-    SacToControlWidthCssPipe,
-    SacToLabelHeightPipe,
-    SacToLabelWidthCssPipe,
-  ],
+    declarations: [
+        SacFormLayoutDirective,
+        SacToControlHeightPipe,
+        SacToControlWidthCssPipe,
+        SacToLabelHeightPipe,
+        SacToLabelWidthCssPipe,
+    ],
+    imports: [CommonModule],
+    exports: [
+        SacFormLayoutDirective,
+        SacToControlHeightPipe,
+        SacToControlWidthCssPipe,
+        SacToLabelHeightPipe,
+        SacToLabelWidthCssPipe,
+    ],
 })
 export class SACBootstrap5LayoutModule {}
 </code></pre>

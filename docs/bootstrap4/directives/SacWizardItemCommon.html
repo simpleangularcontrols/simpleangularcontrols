@@ -196,7 +196,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/sac-common/src/controls/wizard/wizarditem.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/sac-common/src/controls/wizard/wizarditem.ts:14</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -228,7 +228,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/sac-common/src/controls/wizard/wizarditem.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/sac-common/src/controls/wizard/wizarditem.ts:20</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -255,7 +255,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/sac-common/src/controls/wizard/wizarditem.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/sac-common/src/controls/wizard/wizarditem.ts:26</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -287,7 +287,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/sac-common/src/controls/wizard/wizarditem.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/sac-common/src/controls/wizard/wizarditem.ts:32</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -314,7 +314,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/sac-common/src/controls/wizard/wizarditem.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/sac-common/src/controls/wizard/wizarditem.ts:38</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -343,32 +343,39 @@
  */
 @Directive()
 export class SacWizardItemCommon {
-  /**
-   * Prüft ob der aktuelle Schritt aktiv ist.
-   */
-  @Input()
-  active: boolean;
-  /**
-   * Prüft ob der Schritt abgeschlossen wurde.
-   */
-  @Input()
-  iscomplete: boolean &#x3D; false;
-  /**
-   * Prüft ob der Schritt disabled ist.
-   */
-  @Input()
-  disabled: boolean &#x3D; true;
-  /**
-   * ID-String
-   */
-  @Input()
-  id: string;
-  /**
-   * Label-Property, das angezeigt wird
-   */
-  @Input()
-  label: string;
+    // #region Properties
 
+    /**
+     * Prüft ob der aktuelle Schritt aktiv ist.
+     */
+    @Input()
+    public active: boolean;
+
+    /**
+     * Prüft ob der Schritt disabled ist.
+     */
+    @Input()
+    public disabled: boolean &#x3D; true;
+
+    /**
+     * ID-String
+     */
+    @Input()
+    public id: string;
+
+    /**
+     * Prüft ob der Schritt abgeschlossen wurde.
+     */
+    @Input()
+    public iscomplete: boolean &#x3D; false;
+
+    /**
+     * Label-Property, das angezeigt wird
+     */
+    @Input()
+    public label: string;
+
+    // #endregion Properties
 }
 </code></pre>
     </div>

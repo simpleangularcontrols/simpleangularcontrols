@@ -244,7 +244,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/sac-bootstrap5/src/controls/form/inheritform.directive.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/sac-bootstrap5/src/controls/form/inheritform.directive.ts:47</a></div>
                             </td>
                         </tr>
 
@@ -313,7 +313,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:52</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:42</a></code>
 </div>
                             </td>
                         </tr>
@@ -362,7 +362,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:64</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:54</a></code>
 </div>
                         </td>
                     </tr>
@@ -409,7 +409,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:71</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:61</a></code>
 </div>
                         </td>
                     </tr>
@@ -456,7 +456,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:80</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:70</a></code>
 </div>
                         </td>
                     </tr>
@@ -518,87 +518,50 @@
         <p><h1>Examples</h1>
 <h2>Inherit Form</h2>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;div sacInheritForm&gt;
-  &lt;div&gt;SubForm&lt;/div&gt;
-  &lt;div&gt;
-    &lt;ngInput [(ngModel)]=&quot;mymodel.fieldarea2&quot; name=&quot;subformField3&quot; label=&quot;field 3&quot; [isrequired]=&quot;true&quot;&gt;&lt;/ngInput&gt;
-  &lt;/div&gt;
+    &lt;div&gt;SubForm&lt;/div&gt;
+    &lt;div&gt;
+        &lt;ngInput [(ngModel)]=&quot;mymodel.fieldarea2&quot; name=&quot;subformField3&quot; label=&quot;field 3&quot; [isrequired]=&quot;true&quot;&gt;&lt;/ngInput&gt;
+    &lt;/div&gt;
 &lt;/div&gt;</code></pre></div><h2>Inherit Form with access to Form</h2>
 <p>HTML Template with access to form.</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;div sacInheritForm #formaccess=&quot;sacinheritform&quot;&gt;
-  &lt;div&gt;SubForm&lt;/div&gt;
-  &lt;div&gt;
-    &lt;ngInput [(ngModel)]=&quot;mymodel.fieldarea2&quot; name=&quot;subformField3&quot; label=&quot;field 3&quot; [isrequired]=&quot;true&quot;&gt;&lt;/ngInput&gt;
-  &lt;/div&gt;
+    &lt;div&gt;SubForm&lt;/div&gt;
+    &lt;div&gt;
+        &lt;ngInput [(ngModel)]=&quot;mymodel.fieldarea2&quot; name=&quot;subformField3&quot; label=&quot;field 3&quot; [isrequired]=&quot;true&quot;&gt;&lt;/ngInput&gt;
+    &lt;/div&gt;
 &lt;/div&gt;</code></pre></div><p>Code behind file with access to form.</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Component, Input, Output, ViewChild } from &#39;&#64;angular/core&#39;;
 import { SacInheritFormDirective } from &#39;&#64;simpleangularcontrols/sac-bootstrap5&#39;;
 
 &#64;Component({
-  selector: &#39;app-subform&#39;,
-  templateUrl: &#39;./subform.component.html&#39;,
+    selector: &#39;app-subform&#39;,
+    templateUrl: &#39;./subform.component.html&#39;,
 })
 export class DemoSubFormComponent {
-  &#64;Input() mymodel;
-  &#64;Output() mymodelChange = new EventEmitter();
-  &#64;ViewChild(&#39;formaccess&#39;) public form: SacInheritFormDirective;
+    &#64;Input() mymodel;
+    &#64;Output() mymodelChange = new EventEmitter();
+    &#64;ViewChild(&#39;formaccess&#39;) public form: SacInheritFormDirective;
 
-  public accessToForm() {
-    console.log(this.form.getForm().dirty);
-  }
+    public accessToForm() {
+        console.log(this.form.getForm().dirty);
+    }
 }</code></pre></div></p>
     </div>
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, Injector, SkipSelf } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacFormDirective } from &#x27;./form&#x27;;
+import { Directive, Injector, SkipSelf } from &#x27;@angular/core&#x27;;
 import { ControlContainer, NgForm } from &#x27;@angular/forms&#x27;;
 import { SacFormCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
-import { SacFormDirective } from &#x27;./form&#x27;;
 
-// #region Classes
-
-/**
- * Directive to inherit an NgForm/NgForm from a parent component
- */
-@Directive({
-  selector: &#x27;[sacInheritForm]&#x27;,
-  exportAs: &#x27;sacinheritform&#x27;,
-  providers: [
-    {
-      provide: SacFormDirective,
-      useFactory: SACFORM_FACTORY,
-      deps: [[new SkipSelf(), SacFormDirective]],
-    },
-    {
-      provide: ControlContainer,
-      useFactory: NGFORM_FACTORY,
-      deps: [NgForm],
-    },
-  ],
-})
-export class SacInheritFormDirective extends SacFormCommon {
-  // #region Constructors
-
-  /**
-   * Construtor
-   * @param injector: injector to receive the NgForm instance
-   */
-  constructor(injector: Injector) {
-    super(injector.get(NgForm));
-  }
-
-  // #endregion Constructors
-}
-
-// #endregion Classes
-
-// #region Functions
+// #region Exported Functions
 
 /**
  * Factory Methode für NgForm
  * @param form NgForm
  */
 export function NGFORM_FACTORY(form: NgForm) {
-  return form;
+    return form;
 }
 
 /**
@@ -606,10 +569,47 @@ export function NGFORM_FACTORY(form: NgForm) {
  * @param form SacFormular
  */
 export function SACFORM_FACTORY(form: SacFormDirective) {
-  return form;
+    return form;
 }
 
-// #endregion Functions
+// #endregion Exported Functions
+
+// #region Exported Classes
+
+/**
+ * Directive to inherit an NgForm/NgForm from a parent component
+ */
+@Directive({
+    selector: &#x27;[sacInheritForm]&#x27;,
+    exportAs: &#x27;sacinheritform&#x27;,
+    providers: [
+        {
+            provide: SacFormDirective,
+            useFactory: SACFORM_FACTORY,
+            deps: [[new SkipSelf(), SacFormDirective]],
+        },
+        {
+            provide: ControlContainer,
+            useFactory: NGFORM_FACTORY,
+            deps: [NgForm],
+        },
+    ],
+})
+export class SacInheritFormDirective extends SacFormCommon {
+    // #region Constructors
+
+    /**
+     * Construtor
+     * @param injector: injector to receive the NgForm instance
+     */
+    constructor(injector: Injector) {
+        super(injector.get(NgForm));
+    }
+
+    // #endregion Constructors
+}
+
+// #endregion Exported Classes
 </code></pre>
     </div>
 

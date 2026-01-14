@@ -193,7 +193,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">projects/sac-common/src/controls/tinymce/tinymcedialogsettings.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/sac-common/src/controls/tinymce/tinymcedialogsettings.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -263,7 +263,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/sac-common/src/controls/tinymce/tinymcedialogsettings.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/sac-common/src/controls/tinymce/tinymcedialogsettings.ts:12</a></div>
                         </td>
                     </tr>
 
@@ -296,7 +296,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/sac-common/src/controls/tinymce/tinymcedialogsettings.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/sac-common/src/controls/tinymce/tinymcedialogsettings.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -329,7 +329,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/sac-common/src/controls/tinymce/tinymcedialogsettings.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/sac-common/src/controls/tinymce/tinymcedialogsettings.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -362,7 +362,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/sac-common/src/controls/tinymce/tinymcedialogsettings.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/sac-common/src/controls/tinymce/tinymcedialogsettings.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -393,30 +393,41 @@
  * Settings für TinyMCE Dialog
  */
 export class TinyMceDialogSettings {
-  /**
-   * Konstruktor
-   * @param init Initale Werte
-   */
-  constructor(init?: Partial&lt;TinyMceDialogSettings&gt;) {
-    Object.assign(this, init);
-  }
+    // #region Properties
 
-  /**
-   * Callback Methode für Dialog
-   */
-  public callback: any;
-  /**
-   * Wert aus Dialog
-   */
-  public value: string;
-  /**
-   * Meta Daten zu Dialog
-   */
-  public meta: TinyMceDialogSettingsMeta;
-  /**
-   * File Type Filter
-   */
-  public allowedtypes: string;
+    /**
+     * File Type Filter
+     */
+    public allowedtypes: string;
+
+    /**
+     * Callback Methode für Dialog
+     */
+    public callback: any;
+
+    /**
+     * Meta Daten zu Dialog
+     */
+    public meta: TinyMceDialogSettingsMeta;
+
+    /**
+     * Wert aus Dialog
+     */
+    public value: string;
+
+    // #endregion Properties
+
+    // #region Constructors
+
+    /**
+     * Konstruktor
+     * @param init Initale Werte
+     */
+    constructor(init?: Partial&lt;TinyMceDialogSettings&gt;) {
+        Object.assign(this, init);
+    }
+
+    // #endregion Constructors
 }
 </code></pre>
     </div>

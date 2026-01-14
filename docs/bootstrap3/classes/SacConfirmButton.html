@@ -190,7 +190,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.button.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.button.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -336,7 +336,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.button.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.button.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -374,7 +374,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.button.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.button.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -405,42 +405,40 @@
  * Class for button templates in Confirm Button
  */
 export class SacConfirmButton {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Key of the button. Is returned as a result when confirming
-   */
-  public key: string &#x3D; &#x27;&#x27;;
-  /**
-   * Layout of the button
-   */
-  public role?: BUTTONROLETYPE | null &#x3D; &#x27;secondary&#x27;;
-  /**
-   * Display text of the buttonAnzeigetext des Buttons
-   */
-  public text: string &#x3D; &#x27;&#x27;;
+    /**
+     * Key of the button. Is returned as a result when confirming
+     */
+    public key: string &#x3D; &#x27;&#x27;;
 
-  // #endregion Properties
+    /**
+     * Layout of the button
+     */
+    public role?: BUTTONROLETYPE | null &#x3D; &#x27;secondary&#x27;;
 
-  // #region Constructors
+    /**
+     * Display text of the buttonAnzeigetext des Buttons
+     */
+    public text: string &#x3D; &#x27;&#x27;;
 
-  /**
-   * Konstruktor
-   * @param key Key for button
-   * @param text Text for button
-   * @param role Role type for the button. Default is ‘secondary’
-   */
-  constructor(
-    key: string &#x3D; &#x27;&#x27;,
-    text: string &#x3D; &#x27;&#x27;,
-    role: BUTTONROLETYPE &#x3D; &#x27;default&#x27;
-  ) {
-    this.key &#x3D; key;
-    this.text &#x3D; text;
-    this.role &#x3D; role;
-  }
+    // #endregion Properties
 
-  // #endregion Constructors
+    // #region Constructors
+
+    /**
+     * Konstruktor
+     * @param key Key for button
+     * @param text Text for button
+     * @param role Role type for the button. Default is ‘secondary’
+     */
+    constructor(key: string &#x3D; &#x27;&#x27;, text: string &#x3D; &#x27;&#x27;, role: BUTTONROLETYPE &#x3D; &#x27;default&#x27;) {
+        this.key &#x3D; key;
+        this.text &#x3D; text;
+        this.role &#x3D; role;
+    }
+
+    // #endregion Constructors
 }
 </code></pre>
     </div>

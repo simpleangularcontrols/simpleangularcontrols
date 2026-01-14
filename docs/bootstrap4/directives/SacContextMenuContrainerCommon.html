@@ -279,26 +279,26 @@
  */
 @Directive()
 export class SacContextMenuContrainerCommon {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Referenz auf das HTML Element des Menü Containers
-   */
-  public nativeElement: HTMLElement;
+    /**
+     * Referenz auf das HTML Element des Menü Containers
+     */
+    public nativeElement: HTMLElement;
 
-  // #endregion Properties
+    // #endregion Properties
 
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Konstruktor
-   * @param elementRef Referenz auf das HTML Element mit der Marker Direktive
-   */
-  constructor(elementRef: ElementRef&lt;HTMLElement&gt;) {
-    this.nativeElement &#x3D; elementRef.nativeElement;
-  }
+    /**
+     * Konstruktor
+     * @param elementRef Referenz auf das HTML Element mit der Marker Direktive
+     */
+    constructor(elementRef: ElementRef&lt;HTMLElement&gt;) {
+        this.nativeElement &#x3D; elementRef.nativeElement;
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 }
 </code></pre>
     </div>

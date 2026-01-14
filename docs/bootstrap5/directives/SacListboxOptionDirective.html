@@ -197,7 +197,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#ngvalue" >ngvalue</a>
+                                <a href="#ngValue" >ngValue</a>
                             </li>
                             <li>
                                 <a href="#value" >value</a>
@@ -224,7 +224,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">projects/sac-bootstrap5/src/controls/list/listbox.ts:66</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/sac-bootstrap5/src/controls/list/listbox.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -307,8 +307,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="ngvalue"></a>
-                        <b>ngvalue</b>
+                        <a name="ngValue"></a>
+                        <b>ngValue</b>
                     </td>
                 </tr>
                 <tr>
@@ -325,7 +325,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacListboxOptionCommon.html#source" target="_self" >SacListboxOptionCommon:78</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacListboxOptionCommon.html#source" target="_self" >SacListboxOptionCommon:66</a></code>
 </div>
                             </td>
                         </tr>
@@ -359,7 +359,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacListboxOptionCommon.html#source" target="_self" >SacListboxOptionCommon:88</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacListboxOptionCommon.html#source" target="_self" >SacListboxOptionCommon:76</a></code>
 </div>
                             </td>
                         </tr>
@@ -408,7 +408,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacListboxOptionCommon.html#source" target="_self" >SacListboxOptionCommon:106</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacListboxOptionCommon.html#source" target="_self" >SacListboxOptionCommon:94</a></code>
 </div>
                         </td>
                     </tr>
@@ -490,7 +490,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacListboxOptionCommon.html#source" target="_self" >SacListboxOptionCommon:117</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacListboxOptionCommon.html#source" target="_self" >SacListboxOptionCommon:101</a></code>
 </div>
                         </td>
                     </tr>
@@ -525,9 +525,29 @@ import { SacTooltipComponent } from &#x27;../tooltip/tooltip&#x27;;
 import { AsyncPipe, NgClass, NgFor, NgIf } from &#x27;@angular/common&#x27;;
 import { Component, Directive, ElementRef, Host, Injector, Optional, Renderer2, forwardRef } from &#x27;@angular/core&#x27;;
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
-import { SacListboxCommon, SacListboxOptionCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { SacListboxCommon, SacListboxOptionCommon, SacTestingAttributePipe } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
-// #region Classes
+// #region Exported Classes
+
+/**
+ * Option Item in Listbox
+ */
+@Directive({ selector: &#x27;[sacOption],option&#x27;, standalone: true })
+export class SacListboxOptionDirective extends SacListboxOptionCommon {
+    // #region Constructors
+
+    /**
+     * Konstruktor
+     * @param elementRef Referenz auf DOM Element
+     * @param renderer Angular Rendering Engine
+     * @param listbox Referenz auf Listbox Komponente
+     */
+    constructor(elementRef: ElementRef, renderer: Renderer2, @Optional() @Host() listbox: SacListboxComponent) {
+        super(elementRef, renderer, listbox);
+    }
+
+    // #endregion Constructors
+}
 
 /**
  * Listbox Komponente
@@ -560,6 +580,7 @@ import { SacListboxCommon, SacListboxOptionCommon } from &#x27;@simpleangularcon
         SacToLabelHeightPipe,
         SacTooltipComponent,
         SacToControlHeightPipe,
+        SacTestingAttributePipe
     ],
 })
 export class SacListboxComponent extends SacListboxCommon {
@@ -577,27 +598,7 @@ export class SacListboxComponent extends SacListboxCommon {
     // #endregion Constructors
 }
 
-/**
- * Option Item in Listbox
- */
-@Directive({ selector: &#x27;[sacOption],option&#x27;, standalone: true })
-export class SacListboxOptionDirective extends SacListboxOptionCommon {
-    // #region Constructors
-
-    /**
-     * Konstruktor
-     * @param elementRef Referenz auf DOM Element
-     * @param renderer Angular Rendering Engine
-     * @param listbox Referenz auf Listbox Komponente
-     */
-    constructor(elementRef: ElementRef, renderer: Renderer2, @Optional() @Host() listbox: SacListboxComponent) {
-        super(elementRef, renderer, listbox);
-    }
-
-    // #endregion Constructors
-}
-
-// #endregion Classes
+// #endregion Exported Classes
 </code></pre>
     </div>
 

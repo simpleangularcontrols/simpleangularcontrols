@@ -193,15 +193,18 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SACBootstrap3ListModule.html" data-type="entity-link" >SACBootstrap3ListModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                        'data-bs-target="#directives-links-module-SACBootstrap3ListModule-73ba0ea8e7b26647ce72d40b68de59d806ca16e7ec51b60c0b6c6c49f37c4d24e1a723e122e3649a07437addaf71e21b75962fc6ca920e9e4621b023269f024d"' : 'data-bs-target="#xs-directives-links-module-SACBootstrap3ListModule-73ba0ea8e7b26647ce72d40b68de59d806ca16e7ec51b60c0b6c6c49f37c4d24e1a723e122e3649a07437addaf71e21b75962fc6ca920e9e4621b023269f024d"' }>
+                                        'data-bs-target="#directives-links-module-SACBootstrap3ListModule-6ca07b2134e5d91d29707298bf74a83553771ba1f7b6a9be2db8e0dfde2b6b21a8fe71a7608b3e6a3acffbc3feb5ea31647f309dddf75424d0f14ae8a86392b8"' : 'data-bs-target="#xs-directives-links-module-SACBootstrap3ListModule-6ca07b2134e5d91d29707298bf74a83553771ba1f7b6a9be2db8e0dfde2b6b21a8fe71a7608b3e6a3acffbc3feb5ea31647f309dddf75424d0f14ae8a86392b8"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-SACBootstrap3ListModule-73ba0ea8e7b26647ce72d40b68de59d806ca16e7ec51b60c0b6c6c49f37c4d24e1a723e122e3649a07437addaf71e21b75962fc6ca920e9e4621b023269f024d"' :
-                                        'id="xs-directives-links-module-SACBootstrap3ListModule-73ba0ea8e7b26647ce72d40b68de59d806ca16e7ec51b60c0b6c6c49f37c4d24e1a723e122e3649a07437addaf71e21b75962fc6ca920e9e4621b023269f024d"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-SACBootstrap3ListModule-6ca07b2134e5d91d29707298bf74a83553771ba1f7b6a9be2db8e0dfde2b6b21a8fe71a7608b3e6a3acffbc3feb5ea31647f309dddf75424d0f14ae8a86392b8"' :
+                                        'id="xs-directives-links-module-SACBootstrap3ListModule-6ca07b2134e5d91d29707298bf74a83553771ba1f7b6a9be2db8e0dfde2b6b21a8fe71a7608b3e6a3acffbc3feb5ea31647f309dddf75424d0f14ae8a86392b8"' }>
                                         <li class="link">
                                             <a href="directives/SacDropdownOptionDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacDropdownOptionDirective</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="directives/SacListboxOptionDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacListboxOptionDirective</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -518,6 +521,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="directives/SacListboxOptionCommon.html" data-type="entity-link" >SacListboxOptionCommon</a>
                                 </li>
                                 <li class="link">
+                                    <a href="directives/SacListboxOptionDirective.html" data-type="entity-link" >SacListboxOptionDirective</a>
+                                </li>
+                                <li class="link">
                                     <a href="directives/SacMultilanguageInputAreaCommon.html" data-type="entity-link" >SacMultilanguageInputAreaCommon</a>
                                 </li>
                                 <li class="link">
@@ -722,6 +728,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/Chainable-3.html" data-type="entity-link" >Chainable</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/Chainable-4.html" data-type="entity-link" >Chainable</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/ClientRect.html" data-type="entity-link" >ClientRect</a>
                             </li>
                             <li class="link">
@@ -797,6 +806,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <span class="icon ion-ios-arrow-down"></span>
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="pipes-links"' : 'id="xs-pipes-links"' }>
+                                <li class="link">
+                                    <a href="pipes/SacTestingAttributePipe.html" data-type="entity-link" >SacTestingAttributePipe</a>
+                                </li>
                                 <li class="link">
                                     <a href="pipes/SacToControlHeightPipe.html" data-type="entity-link" >SacToControlHeightPipe</a>
                                 </li>

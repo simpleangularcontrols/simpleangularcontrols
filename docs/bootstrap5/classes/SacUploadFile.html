@@ -197,7 +197,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="640" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:640</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="663" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:663</a></div>
                             </td>
                         </tr>
 
@@ -267,7 +267,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="620" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:620</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="643" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:643</a></div>
                         </td>
                     </tr>
 
@@ -300,7 +300,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="625" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:625</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="648" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:648</a></div>
                         </td>
                     </tr>
 
@@ -333,7 +333,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="630" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:630</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="653" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:653</a></div>
                         </td>
                     </tr>
 
@@ -366,7 +366,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="635" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:635</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="658" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:658</a></div>
                         </td>
                     </tr>
 
@@ -399,7 +399,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="640" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:640</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="663" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:663</a></div>
                         </td>
                     </tr>
 
@@ -446,15 +446,7 @@ import {
     ViewChild,
 } from &#x27;@angular/core&#x27;;
 import { AbstractControl, ValidationErrors } from &#x27;@angular/forms&#x27;;
-import {
-    IdService,
-    UPLOADX_AJAX,
-    UPLOADX_FACTORY_OPTIONS,
-    UPLOADX_OPTIONS,
-    UploadState,
-    UploadxOptions,
-    UploadxService,
-} from &#x27;ngx-uploadx&#x27;;
+import { UploadState, UploadxOptions, UploadxService } from &#x27;ngx-uploadx&#x27;;
 import { Observable, of } from &#x27;rxjs&#x27;;
 
 // #region Exported Classes
@@ -511,9 +503,31 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
      * Handling von neuen Files im Input Control
      */
     public fileListener &#x3D; () &#x3D;&gt; {
-        if (this.uploadInput.nativeElement.files) {
-            this.uploadService.handleFiles(this.uploadInput.nativeElement.files);
+        // exit if files is null or undefined
+        if (!this.uploadInput.nativeElement.files) {
+            return;
         }
+
+        if (this.GetMaxFiles() &gt; 0) {
+            const maxFiles &#x3D; this.GetMaxFiles() + this.UploadedFileCount();
+            const possibleFiles &#x3D; maxFiles - this.uploadInput.nativeElement.files.length;
+
+            if (possibleFiles &lt; 0) {
+                const dataTransfer &#x3D; new DataTransfer();
+
+                const files &#x3D; Array.from(this.uploadInput.nativeElement.files).splice(
+                    0,
+                    this.uploadInput.nativeElement.files.length + possibleFiles
+                );
+
+                // clone files
+                files.forEach((file: File) &#x3D;&gt; dataTransfer.items.add(file));
+
+                this.uploadInput.nativeElement.files &#x3D; dataTransfer.files;
+            }
+        }
+
+        this.uploadService.handleFiles(this.uploadInput.nativeElement.files);
     };
 
     /**
@@ -601,9 +615,9 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
             &#x27;Content-Disposition&#x27;: &#x60;filename&#x3D;${encodeURI(f.name)}&#x60;,
         });
 
-    // Init new Service Instance
-    this.uploadService &#x3D; new UploadxService();
-    this.uploadService.init(this.options);
+        // Init new Service Instance
+        this.uploadService &#x3D; new UploadxService();
+        this.uploadService.init(this.options);
 
         // Subscripe Event for State changes
         this.uploadService.events.subscribe((ufile: UploadState) &#x3D;&gt; this.onUpload(ufile));
@@ -957,6 +971,15 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     }
 
     // #endregion Public Methods
+
+    // #region Protected Methods
+
+    /**
+     * get max. files that can be uploaded
+     */
+    protected abstract GetMaxFiles(): number;
+
+    // #endregion Protected Methods
 
     // #region Private Methods
 

@@ -35,7 +35,7 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
     /**
      * Option Value für Empty Item
      */
-    @Input() public emptyvalue: string = null;
+    @Input() public emptyvalue: string | null | number = null;
 
     /**
      * Resource Key für Validation Message Required bei Control

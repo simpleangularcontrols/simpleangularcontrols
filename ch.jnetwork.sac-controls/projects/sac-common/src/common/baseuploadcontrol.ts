@@ -85,9 +85,31 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
      * Handling von neuen Files im Input Control
      */
     public fileListener = () => {
-        if (this.uploadInput.nativeElement.files) {
-            this.uploadService.handleFiles(this.uploadInput.nativeElement.files);
+        // exit if files is null or undefined
+        if (!this.uploadInput.nativeElement.files) {
+            return;
         }
+
+        if (this.GetMaxFiles() > 0) {
+            const maxFiles = this.GetMaxFiles() + this.UploadedFileCount();
+            const possibleFiles = maxFiles - this.uploadInput.nativeElement.files.length;
+
+            if (possibleFiles < 0) {
+                const dataTransfer = new DataTransfer();
+
+                const files = Array.from(this.uploadInput.nativeElement.files).splice(
+                    0,
+                    this.uploadInput.nativeElement.files.length + possibleFiles
+                );
+
+                // clone files
+                files.forEach((file: File) => dataTransfer.items.add(file));
+
+                this.uploadInput.nativeElement.files = dataTransfer.files;
+            }
+        }
+
+        this.uploadService.handleFiles(this.uploadInput.nativeElement.files);
     };
 
     /**
@@ -537,6 +559,15 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     }
 
     // #endregion Public Methods
+
+    // #region Protected Methods
+
+    /**
+     * get max. files that can be uploaded
+     */
+    protected abstract GetMaxFiles(): number;
+
+    // #endregion Protected Methods
 
     // #region Private Methods
 

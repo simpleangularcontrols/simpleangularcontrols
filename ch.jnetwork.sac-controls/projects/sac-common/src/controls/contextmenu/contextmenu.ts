@@ -1,5 +1,6 @@
 import { ISacIconService } from '../../interfaces/ISacIconService';
 import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
+import { createGuid } from '../../utilities/guid';
 import { PlacementArray, positionElements } from '../../utilities/positioning';
 import { ISacContextmenuCommon } from './contextmenu.interface';
 import { SacContextmenuAnchorCommon } from './contextmenuanchor';
@@ -84,6 +85,12 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     public cssclass: string = '';
 
     /**
+     * Identifier used for the E2E data attribute.
+     */
+    @Input()
+    public e2eidentifier: string | null = null;
+
+    /**
      * Definiert ob das Dropdown offen ist.
      */
     @Input()
@@ -94,6 +101,12 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
      */
     @ContentChildren(SacContextmenuItemCommon)
     public menuitems!: QueryList<SacContextmenuItemCommon>;
+
+    /**
+     * name of control
+     */
+    @Input()
+    public name: string = createGuid();
 
     /**
      * The preferred placement of the dropdown.

@@ -1,9 +1,8 @@
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
-import { Component, Directive, ElementRef, Host, Injector, Optional, Renderer2, forwardRef } from '@angular/core';
+import { DROPDOWN_TOKEN } from './list.token';
+import { Component, ElementRef, Host, Injector, Optional, Renderer2, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacDropdownCommon, SacDropdownOptionCommon } from '@simpleangularcontrols/sac-common';
-
-// #region Classes
+import { SacDropdownCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Dropdown Komponente
@@ -13,6 +12,7 @@ import { SacDropdownCommon, SacDropdownOptionCommon } from '@simpleangularcontro
     templateUrl: './dropdown.html',
     // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
     providers: [
+        { provide: DROPDOWN_TOKEN, useExisting: forwardRef(() => SacDropdownComponent) },
         {
             provide: NG_VALUE_ACCESSOR,
             multi: true,
@@ -46,25 +46,3 @@ export class SacDropdownComponent extends SacDropdownCommon {
 
     // #endregion Constructors
 }
-
-/**
- * Direktive für Dropdown Option List
- */
-@Directive({ selector: '[sacOption],option' })
-export class SacDropdownOptionDirective extends SacDropdownOptionCommon {
-    // #region Constructors
-
-    /**
-     * Konstruktor
-     * @param elementRef Referenz auf HTML DOM Element
-     * @param renderer Angular Rendering Engine
-     * @param dropdownList Referenz auf DropDown Komponente
-     */
-    constructor(elementRef: ElementRef, renderer: Renderer2, @Optional() @Host() dropdownList: SacDropdownComponent) {
-        super(elementRef, renderer, dropdownList);
-    }
-
-    // #endregion Constructors
-}
-
-// #endregion Classes

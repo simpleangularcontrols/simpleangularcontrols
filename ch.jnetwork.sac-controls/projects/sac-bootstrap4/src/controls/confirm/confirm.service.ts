@@ -1,20 +1,8 @@
-import {
-  ApplicationRef,
-  ComponentFactory,
-  ComponentFactoryResolver,
-  EventEmitter,
-  Inject,
-  Injectable,
-  Injector,
-} from '@angular/core';
-import {
-  SacConfirmButton,
-  ServiceConfirmCommon,
-  isDefined,
-} from '@simpleangularcontrols/sac-common';
+import { SacConfirmComponent } from './confirm';
+import { ApplicationRef, ComponentFactory, ComponentFactoryResolver, EventEmitter, Inject, Injectable, Injector } from '@angular/core';
+import { SacConfirmButton, ServiceConfirmCommon, isDefined } from '@simpleangularcontrols/sac-common';
 import { forkJoin } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { SacConfirmComponent } from './confirm';
 
 /**
  * Service für Confirm Messages in TypeScript Code
@@ -38,10 +26,12 @@ export class ServiceConfirm extends ServiceConfirmCommon {
    * Collection von Buttons die angezeigt werden müssen.
    */
   private buttons: SacConfirmButton[] = [];
+
   /**
    * Message die in Dialog angezeigt werden soll.
    */
   private message: string = '';
+
   /**
    * Titel der im Dialog angezeigt werden soll.
    */

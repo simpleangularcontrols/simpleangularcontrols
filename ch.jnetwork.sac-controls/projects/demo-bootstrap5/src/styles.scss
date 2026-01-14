@@ -14,15 +14,6 @@
     }
 }
 
-.tox {
-    &.tox-tinymce-aux {
-        z-index: 900;
-        .tox-dialog-wrap {
-            z-index: 800;
-        }
-    }
-}
-
 // Custom Disabled Style for FA Icons
 .fa.disabled {
     color: lightgrey;

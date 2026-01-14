@@ -1,0 +1,295 @@
+import { SacFormDirective } from '../form';
+import { SACBootstrap3LayoutModule } from '../layout/layout.module';
+import { SacInputComponent } from './input';
+import { FormsModule } from '@angular/forms';
+import { SACCONFIGURATION_SERVICE, SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
+import { createOutputSpy } from 'cypress/angular';
+
+describe('NgInputComponent', () => {
+    it('should show label and text', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+              </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Text',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('input').should('have.value', 'My Text');
+    });
+
+    it('should show required', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [label]="label" [isrequired]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.shouldBeInvalid();
+
+        cy.get('input').should('have.value', '');
+        cy.get('input').type('My Text');
+
+        cy.shouldBeValid();
+
+        cy.get('input').should('have.value', 'My Text');
+    });
+
+    it('should hide label', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [label]="label" [disablelabel]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Value',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.shouldNotHaveLabel();
+        cy.get('input').should('exist');
+    });
+
+    it('should have placeholder', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.shouldHavePlaceholder('My Placeholder');
+    });
+
+    it('should have be readonly', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [label]="label" [readonly]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'MyValue',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.shouldBeReadonly();
+    });
+
+    it('should have be disabled', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [label]="label" [disabled]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'MyValue',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.shouldBeDisabled();
+    });
+
+    it('should handle model binding', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'first value',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.get('input').should('have.value', 'first value');
+        cy.get('input').clear().type('second value');
+        cy.get('input').should('have.value', 'second value');
+        cy.validateValueChanged('second value'.length + 1);
+    });
+
+    it('should limit string', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [label]="label" [maxtextlength]="6" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'first value',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.get('input').clear().type('12345678');
+        cy.get('input').should('have.value', '123456');
+        cy.validateValueChanged('123456'.length + 1);
+    });
+
+    it('should limit characters', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [label]="label" allowedchars="abc" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.get('input').type('abcde');
+        cy.get('input').should('have.value', 'abc');
+        cy.validateValueChanged('abc'.length);
+    });
+
+    it('should validate with regex', () => {});
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="myControl" label="my Label">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-input > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="myControl" e2eidentifier="myTestidentifier" label="my Label">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-input > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                <sac-input e2eidentifier="myTestidentifier" label="my Label">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-input > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-input label="my Label">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {},
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-input > div');
+    });
+});

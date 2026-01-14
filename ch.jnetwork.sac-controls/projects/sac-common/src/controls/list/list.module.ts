@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 
 @NgModule({
-  declarations: [],
-  imports: [],
-  exports: []
+    declarations: [],
+    imports: [],
+    exports: [],
 })
-export class SACCommonListboxOptionModule { }
+export class SACCommonListboxOptionModule {}

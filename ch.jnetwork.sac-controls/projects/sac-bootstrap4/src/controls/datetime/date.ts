@@ -4,7 +4,16 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacDateCommon } from '@simpleangularcontrols/sac-common';
 import * as moment_ from 'moment';
 
-// #region Classes
+// #region Variables
+
+/**
+ * Referenz auf Moment.JS
+ */
+const moment = moment_['default'];
+
+// #endregion Variables
+
+// #region Exported Classes
 
 /**
  * Komponente für Datumauswahl
@@ -48,13 +57,4 @@ export class SacDateComponent extends SacDateCommon {
     // #endregion Constructors
 }
 
-// #endregion Classes
-
-// #region Variables
-
-/**
- * Referenz auf Moment.JS
- */
-const moment = moment_['default'];
-
-// #endregion Variables
+// #endregion Exported Classes

@@ -1,2 +1,3 @@
-export { SacDropdownComponent, SacDropdownOptionDirective } from './dropdown';
-export { SacListboxComponent, SacListboxOptionDirective } from './listbox';
+export { SacDropdownComponent } from './dropdown';
+
+export { SacListboxComponent } from './listbox';

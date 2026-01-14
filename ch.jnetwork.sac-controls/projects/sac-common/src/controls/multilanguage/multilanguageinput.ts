@@ -1,5 +1,3 @@
-import { Directive, Host, Injector, Input } from '@angular/core';
-import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { SacInputBase } from '../../common/baseinputcontrol';
 import { IconType } from '../../enums/IconType';
 import { ISacLanguageService } from '../../interfaces/ISacLanguageService';
@@ -7,6 +5,8 @@ import { LanguageModel } from '../../models/languagemodel';
 import { SACLANGUAGE_SERVICE, SacDefaultLanguageService } from '../../services/sac-language.service';
 import { Validation } from '../../validation';
 import { SacFormLayoutCommon } from '../layout/formlayout';
+import { Directive, Host, Injector, Input } from '@angular/core';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 /**
  * Base Klasse für Multi Language Input Control
@@ -19,6 +19,7 @@ export class SacMultilanguageInputCommon extends SacInputBase<any> {
      * Sprache für das Control
      */
     private languages: LanguageModel[] = [];
+
     /**
      * Selektierte Sprace des Controls
      */
@@ -33,29 +34,35 @@ export class SacMultilanguageInputCommon extends SacInputBase<any> {
      * Fix breite für das Control definieren.
      */
     @Input() public controlwidth: string = null;
+
     /**
      * Max length of characters for input field
      */
     @Input() public maxtextlength: number = null;
+
     /**
      * Aktiviert den Validator, das min. eine Sprache erfasst sein muss
      */
     @Input() public requiredany: boolean = false;
+
     /**
      * Resource Key für Validation Message Required bei Control
      */
     @Input() public validationmessagerequired: string = this.validationKeyService.ValidationErrorMultilanguageRequired;
+
     /**
      * Resource Key für Validation Message Pattern bei Control
      */
     @Input() public validationmessagerequiredany: string =
         this.validationKeyService.ValidationErrorMultilanguageRequiredAny;
+
     /**
      * Resource Key für Validation Message Required in Validation Summary
      */
     @Input()
     public validationmessagesummaryrequired: string =
         this.validationKeyService.ValidationErrorSummaryMultilanguageRequired;
+
     /**
      * Resource Key für Validation Message Pattern in Validation Summary
      */

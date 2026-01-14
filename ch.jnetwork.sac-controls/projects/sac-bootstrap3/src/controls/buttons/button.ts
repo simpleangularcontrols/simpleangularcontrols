@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { SacButtonCommon } from '@simpleangularcontrols/sac-common';
+import { SacButtonCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 @Component({
   selector: 'sac-button',

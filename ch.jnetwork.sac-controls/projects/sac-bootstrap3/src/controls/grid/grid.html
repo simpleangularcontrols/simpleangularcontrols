@@ -1,6 +1,7 @@
 <table
     class="table table-striped table-condensed table-hover"
-    id="{{ name }}">
+    id="{{ name }}"
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier">
     <thead>
         <tr>
             <ng-container *ngTemplateOutlet="template; context: { row: {}, type: 'header' }"> </ng-container>

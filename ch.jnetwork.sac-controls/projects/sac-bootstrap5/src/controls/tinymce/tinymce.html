@@ -1,4 +1,5 @@
 <div
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier"
     class="row mb-3"
     [class.g-0]="disablelabel">
     <label
@@ -34,6 +35,7 @@
                 [ngModelOptions]="{ standalone: true }"
                 (ngModelChange)="setValue($event)"
                 (onSaveContent)="save($event.event.content)"
+                (onBlur)="blur()"
                 [disabled]="disabled"
                 [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)"></editor>
             <div

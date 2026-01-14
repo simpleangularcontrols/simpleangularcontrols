@@ -1,22 +1,17 @@
-import {
-  Directive,
-  ElementRef,
-  Host,
-  Injector,
-  Input,
-  Renderer2,
-} from '@angular/core';
-import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { SacBaseSelectControl } from '../../common/baseselectcontrol';
 import { Validation } from '../../validation';
 import { SacFormLayoutCommon } from '../layout/formlayout';
 import { _buildValueString } from './buildvaluestring';
+import { Directive, ElementRef, Host, Injector, Input, Renderer2 } from '@angular/core';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 /**
  * Base Dropdown Komponente
  */
 @Directive()
 export class SacDropdownCommon extends SacBaseSelectControl<any> {
+  // #region Properties
+
   /**
    * compareWith-Funktion
    */
@@ -40,7 +35,7 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
   /**
    * Option Value für Empty Item
    */
-  @Input() public emptyvalue: string = null;
+  @Input() public emptyvalue: string| null | number = null;
 
   /**
    * Resource Key für Validation Message Required bei Control
@@ -54,6 +49,10 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
   @Input()
   public validationmessagesummaryrequired: string =
     this.validationKeyService.ValidationErrorSummaryRequired;
+
+  // #endregion Properties
+
+  // #region Constructors
 
   /**
    * Constructor
@@ -71,6 +70,10 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
     super(formlayout, injector);
   }
 
+  // #endregion Constructors
+
+  // #region Public Getters And Setters
+
   /**
    * compareWith-Funktion
    */
@@ -83,6 +86,10 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
     }
     this._compareWith = fn;
   }
+
+  // #endregion Public Getters And Setters
+
+  // #region Public Methods
 
   /**
    * Registriert das OptionID-Counter als String
@@ -151,6 +158,10 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
     super.writeValue(value);
   }
 
+  // #endregion Public Methods
+
+  // #region Private Methods
+
   /**
    * ID extrahieren
    * @param valueString String bei welchem die ID Extrahiert werden soll
@@ -202,4 +213,6 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
       this.renderer.setProperty(selectItem, 'value', valueString);
     }
   }
+
+  // #endregion Private Methods
 }

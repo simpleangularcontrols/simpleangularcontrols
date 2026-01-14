@@ -379,4 +379,60 @@ describe('SacDropdownComponent', () => {
 
         cy.shouldHaveDisabledTestAttribute('sac-dropdown > div');
     });
+
+    it('should allow numbers as empty value', () => {
+        cy.mount(
+            `<form>
+                        <sac-dropdown 
+                            name="dropdown" 
+                            [label]="label"
+                            [emptyvalue]="0" 
+                            emptylabel="Please select"
+                            [(ngModel)]="value">
+                            <option [ngValue]="1">Value Item 1</option>
+                            <option [ngValue]="2">Value Item 2</option>
+                            <option [ngValue]="3">Value Item 3</option>
+                        </sac-dropdown>
+                    </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap3ListModule, SACBootstrap3LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 0,
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('select').find('option:selected').should('have.text', 'Please select');
+        cy.get('select').find('option:selected').should('have.value', '3: 0');
+    });
+
+    it('should allow string as empty value', () => {
+        cy.mount(
+            `<form>
+                        <sac-dropdown 
+                            name="dropdown" 
+                            [label]="label"
+                            emptyvalue="notset" 
+                            emptylabel="Please select"
+                            [(ngModel)]="value">
+                            <option [ngValue]="value1">Value Item 1</option>
+                            <option [ngValue]="value2">Value Item 2</option>
+                            <option [ngValue]="value3">Value Item 3</option>
+                        </sac-dropdown>
+                    </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap3ListModule, SACBootstrap3LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'notset',
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('select').find('option:selected').should('have.text', 'Please select');
+        cy.get('select').find('option:selected').should('have.value', '3: notset');
+    });
 });

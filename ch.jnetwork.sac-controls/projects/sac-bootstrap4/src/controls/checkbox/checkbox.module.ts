@@ -8,20 +8,8 @@ import { NgModule } from '@angular/core';
 import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 
 @NgModule({
-  declarations: [
-    SacCheckboxComponent,
-    SacRadiobuttonComponent,
-    SacRadiobuttonsComponent,
-  ],
-  imports: [
-    CommonModule,
-    SACBootstrap4LayoutModule,
-    SACBootstrap4TooltipModule, SACCommonUtliltiesModule
-  ],
-  exports: [
-    SacCheckboxComponent,
-    SacRadiobuttonComponent,
-    SacRadiobuttonsComponent,
-  ],
+    declarations: [SacCheckboxComponent, SacRadiobuttonComponent, SacRadiobuttonsComponent],
+    imports: [CommonModule, SACBootstrap4LayoutModule, SACBootstrap4TooltipModule, SACCommonUtliltiesModule],
+    exports: [SacCheckboxComponent, SacRadiobuttonComponent, SacRadiobuttonsComponent],
 })
 export class SACBootstrap4CheckboxModule {}

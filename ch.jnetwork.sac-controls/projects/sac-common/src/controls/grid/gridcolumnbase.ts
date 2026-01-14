@@ -2,7 +2,17 @@ import { ISacIconService } from '../../interfaces/ISacIconService';
 import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
 import { SacGridCommon } from './grid';
 import { SortOrder } from './model';
-import { Directive, ElementRef, EventEmitter, Injector, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import {
+    Directive,
+    ElementRef,
+    EventEmitter,
+    Injector,
+    Input,
+    OnDestroy,
+    OnInit,
+    Output,
+    ViewChild,
+} from '@angular/core';
 
 /**
  * Base component for GridColumn
@@ -23,10 +33,22 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
     public alignment: 'left' | 'right' | 'center' = 'left';
 
     /**
+     * reference to body cell
+     */
+    @ViewChild('bodyElement', { static: false })
+    public bodyElement: ElementRef;
+
+    /**
      * Value of the cell if the type is `header`.
      */
     @Input()
     public header: string;
+
+    /**
+     * reference to header cell
+     */
+    @ViewChild('headerElement', { static: false })
+    public headerElement: ElementRef;
 
     /**
      * Name of the column
@@ -164,6 +186,14 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
      * Called when the component is destroyed.
      */
     public ngOnDestroy(): void {
+        if (this.headerElement) {
+            this.headerElement.nativeElement.remove();
+        }
+
+        if (this.bodyElement) {
+            this.bodyElement.nativeElement.remove();
+        }
+
         if (this.IsHeader()) {
             this.grid.UnregisterColumn();
         }

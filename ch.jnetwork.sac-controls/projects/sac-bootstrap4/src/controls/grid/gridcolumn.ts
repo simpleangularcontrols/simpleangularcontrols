@@ -6,26 +6,26 @@ import { SacGridColumnBaseCommon, SacGridColumnCommon } from '@simpleangularcont
  * Grid Column Komponente
  */
 @Component({
-  selector: 'sac-gridcolumn',
-  templateUrl: './gridcolumn.html',
-  providers: [
-    {
-      provide: SacGridColumnBaseCommon,
-      useExisting: forwardRef(() => SacGridColumnComponent),
-    },
-  ],
+    selector: 'sac-gridcolumn',
+    templateUrl: './gridcolumn.html',
+    providers: [
+        {
+            provide: SacGridColumnBaseCommon,
+            useExisting: forwardRef(() => SacGridColumnComponent),
+        },
+    ],
 })
 export class SacGridColumnComponent extends SacGridColumnCommon {
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Konstruktor
-   * @param grid Grid Referenz
-   * @param el HTML DOM Element
-   */
-  constructor(grid: SacGridComponent, injector: Injector, el: ElementRef) {
-    super(grid, injector, el);
-  }
+    /**
+     * Konstruktor
+     * @param grid Grid Referenz
+     * @param el HTML DOM Element
+     */
+    constructor(grid: SacGridComponent, injector: Injector, el: ElementRef) {
+        super(grid, injector, el);
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 }

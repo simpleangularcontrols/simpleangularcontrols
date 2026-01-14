@@ -754,4 +754,66 @@ describe('SacGridComponent', () => {
 
         cy.shouldHaveDisabledTestAttribute('sac-grid > div');
     });
+
+    it('should hide column with ngif', () => {
+        cy.mount(
+            `<form>
+                <button id="hidebutton" (click)="columnvisible = false">Hide</button>
+                <button id="showbutton" (click)="columnvisible = true">Show</button>
+                <sac-grid name="gridDefault" [value]="values" emptytext="No Data">
+                    <ng-template
+                    let-row="row"
+                    let-type="type">
+                        <sac-gridcolumn
+                            name="columnId"
+                            [type]="type"
+                            header="ID"
+                            [value]="row.Id"
+                            (rowclicked)="action(row.Id)">
+                        </sac-gridcolumn>
+                        <sac-gridcolumn
+                            *ngIf="columnvisible"
+                            name="columnText"
+                            [type]="type"
+                            header="Bild"
+                            [value]="row.Image"
+                            width="25%">
+                        </sac-gridcolumn>
+                    </ng-template>
+                </sac-grid>
+            </form>`,
+            {
+                declarations: [SacFormDirective],
+                imports: [FormsModule, SACBootstrap4GridModule, SACBootstrap4LayoutModule],
+                componentProperties: {
+                    values: [
+                        { Id: 1, Image: 'Bild 1' },
+                        { Id: 2, Image: 'Bild 2' },
+                    ],
+                    columnvisible: true,
+                },
+            }
+        );
+
+        cy.get('table').should('exist');
+
+        cy.get('#hidebutton').click();
+        cy.get('table')
+            .contains('th', /^Bild$/)
+            .should('not.exist');
+
+        cy.get('table')
+            .contains('td', /^Bild 1$/)
+            .should('not.exist');
+
+        cy.get('#showbutton').click();
+        cy.get('table th').should('exist');
+        cy.get('table')
+            .contains('th', /^Bild$/)
+            .should('exist');
+
+        cy.get('table')
+            .contains('td', /^Bild 1$/)
+            .should('exist');
+    });
 });

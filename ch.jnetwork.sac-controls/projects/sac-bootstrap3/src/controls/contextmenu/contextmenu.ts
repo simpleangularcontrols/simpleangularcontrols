@@ -2,7 +2,7 @@ import { SacContextmenuAnchorDirective } from './contextmenuanchor';
 import { SacContextmenuContainerDirective } from './contextmenucontainer';
 import { DOCUMENT, NgClass, NgTemplateOutlet } from '@angular/common';
 import { Component, ElementRef, Inject, Injector, NgZone, Renderer2 } from '@angular/core';
-import { SacContextmenuCommon } from '@simpleangularcontrols/sac-common';
+import { SacContextmenuCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 /**
  * Component for context menu
@@ -11,7 +11,13 @@ import { SacContextmenuCommon } from '@simpleangularcontrols/sac-common';
     selector: 'sac-contextmenu',
     templateUrl: './contextmenu.html',
     standalone: true,
-    imports: [NgClass, NgTemplateOutlet, SacContextmenuContainerDirective, SacContextmenuAnchorDirective],
+    imports: [
+        NgClass,
+        NgTemplateOutlet,
+        SacContextmenuContainerDirective,
+        SacContextmenuAnchorDirective,
+        SacTestingAttributePipe,
+    ],
 })
 export class SacContextmenuComponent extends SacContextmenuCommon {
     // #region Constructors

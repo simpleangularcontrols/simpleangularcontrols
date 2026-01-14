@@ -2,6 +2,7 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacInputPasswordComponent } from './inputpassword';
 import { FormsModule } from '@angular/forms';
+import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('ngInputPasswordComponent', () => {
@@ -266,5 +267,91 @@ describe('ngInputPasswordComponent', () => {
 
         cy.get('input').parent().get('a').click();
         cy.get('input').should('have.attr', 'type', 'password');
+    });
+
+    it('password eye should not work if control disabled', () => {});
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputpassword name="myControl" label="my Label">
+                    </sac-inputpassword>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputPasswordComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-inputpassword > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputpassword name="myControl" e2eidentifier="myTestidentifier" label="my Label">
+                    </sac-inputpassword>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputPasswordComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-inputpassword > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputpassword e2eidentifier="myTestidentifier" label="my Label">
+                    </sac-inputpassword>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputPasswordComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-inputpassword > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputpassword label="my Label">
+                    </sac-inputpassword>
+                </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputPasswordComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-inputpassword > div');
     });
 });

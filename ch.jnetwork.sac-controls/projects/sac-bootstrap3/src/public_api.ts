@@ -1,7 +1,6 @@
 /*
  * Public API Surface of sac-bootstrap3
  */
-
 export * from './controls/buttons/button.module';
 
 export * from './controls/checkbox/checkbox.module';
@@ -116,7 +115,11 @@ export * from './controls/layout/tolabelwidthcss.pipe';
 
 export * from './controls/list/dropdown';
 
+export * from './controls/list/dropdownoption.directive';
+
 export * from './controls/list/listbox';
+
+export * from './controls/list/listboxoption.directive';
 
 export * from './controls/static/formcontainer';
 

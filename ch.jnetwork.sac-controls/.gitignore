@@ -44,6 +44,8 @@ Thumbs.db
 
 # Test and Coverage Files
 coverage/
+cypress/screenshots/
+cypress/videos/
 
 projects/sac-bootstrap3/.angular/
 projects/sac-bootstrap3/.nyc_output/

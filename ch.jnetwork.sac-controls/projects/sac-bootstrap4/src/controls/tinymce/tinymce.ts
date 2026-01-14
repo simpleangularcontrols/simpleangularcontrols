@@ -12,7 +12,7 @@ import { SacTooltipComponent } from '../tooltip/tooltip';
 import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import { Component, Host, Injector, NgZone, Optional, forwardRef } from '@angular/core';
 import { FormsModule, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacTinyMceCommon } from '@simpleangularcontrols/sac-common';
+import { SacTestingAttributePipe, SacTinyMceCommon } from '@simpleangularcontrols/sac-common';
 import { EditorComponent } from '@tinymce/tinymce-angular';
 
 /**
@@ -50,6 +50,7 @@ import { EditorComponent } from '@tinymce/tinymce-angular';
         SacToLabelHeightPipe,
         SacTooltipComponent,
         SacToControlHeightPipe,
+        SacTestingAttributePipe,
     ],
 })
 export class SacTinyMceComponent extends SacTinyMceCommon {

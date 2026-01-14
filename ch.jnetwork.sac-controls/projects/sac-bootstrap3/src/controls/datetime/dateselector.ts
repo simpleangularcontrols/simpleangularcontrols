@@ -1,11 +1,11 @@
 import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
-import { SacDateSelectorCommon } from '@simpleangularcontrols/sac-common';
+import { SacDateSelectorCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 @Component({
-  selector: 'sac-dateselector',
-  templateUrl: './dateselector.html',
-  standalone: true,
-  imports: [NgIf, NgFor, NgStyle, NgClass],
+    selector: 'sac-dateselector',
+    templateUrl: './dateselector.html',
+    standalone: true,
+    imports: [NgIf, NgFor, NgStyle, NgClass, SacTestingAttributePipe],
 })
 export class SacDateSelectorComponent extends SacDateSelectorCommon {}

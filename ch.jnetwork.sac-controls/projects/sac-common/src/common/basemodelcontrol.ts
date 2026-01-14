@@ -119,6 +119,12 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     @Input() public disablelabel: boolean = false;
 
     /**
+     * Identifier used for the E2E data attribute.
+     */
+    @Input()
+    public e2eidentifier: string | null = null;
+
+    /**
      * Text to support the user during input.
      */
     @Input() public helptext: string = '';

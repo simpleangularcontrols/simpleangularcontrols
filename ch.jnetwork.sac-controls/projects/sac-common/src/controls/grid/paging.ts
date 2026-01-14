@@ -1,22 +1,11 @@
-import {
-  Directive,
-  EventEmitter,
-  Injector,
-  Input,
-  Output,
-} from '@angular/core';
-import { Observable } from 'rxjs';
 import { ISacLocalisationService } from '../../interfaces/ISacLocalisationService';
 import { ISacValidationKeyService } from '../../interfaces/ISacValidationKeyService';
-import {
-  SACLOCALISATION_SERVICE,
-  SacDefaultLocalisationService,
-} from '../../services/sac-localisation.service';
-import {
-  SACVALIDATIONKEY_SERVICE,
-  SacDefaultValidationKeyService,
-} from '../../services/sac-validationkey.service';
+import { SACLOCALISATION_SERVICE, SacDefaultLocalisationService } from '../../services/sac-localisation.service';
+import { SACVALIDATIONKEY_SERVICE, SacDefaultValidationKeyService } from '../../services/sac-validationkey.service';
+import { createGuid } from '../../utilities/guid';
 import { PagerData, PagerRequest } from './model';
+import { Directive, EventEmitter, Injector, Input, Output } from '@angular/core';
+import { Observable } from 'rxjs';
 
 /**
  * Basic component for paging
@@ -34,21 +23,50 @@ export abstract class SacPagingCommon {
    * Service for error localization
    */
   protected lngResourceService: ISacLocalisationService;
+
   /**
    * Total number of rows
    */
   protected totalRowCount: number = 0;
 
   /**
-   * Name of the grid. Used for ID and name designations
+   * Active page index
    */
-  @Input()
-  public name: string;
+  public activePageIndex: number = 0;
+
+    /**
+     * Identifier used for the E2E data attribute.
+     */
+    @Input()
+    public e2eidentifier: string | null = null;
+
+  /**
+   * First page index
+   */
+  public firstPageIndex: number = 0;
+
+  /**
+   * Last page index
+   */
+  public lastPageIndex: number = 0;
+
+    /**
+     * name of control
+     */
+    @Input()
+    public name: string = createGuid();
+
+  /**
+   * Number of elements per page
+   */
+  public pageSize: number = 20;
+
   /**
    * Deactivate page size selection
    */
   @Input()
   public pagesizedisabled: boolean = false;
+
   /**
    * Text in Page for number of page elements per page. The following interpolation texts are available:
    *
@@ -56,6 +74,7 @@ export abstract class SacPagingCommon {
    */
   @Input()
   public pagesizes: string = '20|50|100';
+
   /**
    * Text in Page for number of page elements per page. The following interpolation texts are available:
    *
@@ -63,13 +82,12 @@ export abstract class SacPagingCommon {
    */
   @Input()
   public pagesizetext: string = '';
+
   /**
-   * Text in pager for 'Page x of y'. The following interpolation texts are available:
-   * {{CURRENTPAGE}}: Current page
-   * {{TOTALPAGES}}: Number of pages
+   * Item for each paging element (page number)
    */
-  @Input()
-  public pagingtext: string = '';
+  public paginators: Array<any> = [];
+
   /**
    * Event when the page is changed in the grid. The new PageIndex is given as a parameter.
    */
@@ -77,25 +95,12 @@ export abstract class SacPagingCommon {
   public paging: EventEmitter<PagerRequest> = new EventEmitter<PagerRequest>();
 
   /**
-   * Active page index
+   * Text in pager for 'Page x of y'. The following interpolation texts are available:
+   * {{CURRENTPAGE}}: Current page
+   * {{TOTALPAGES}}: Number of pages
    */
-  public activePageIndex: number = 0;
-  /**
-   * First page index
-   */
-  public firstPageIndex: number = 0;
-  /**
-   * Last page index
-   */
-  public lastPageIndex: number = 0;
-  /**
-   * Number of elements per page
-   */
-  public pageSize: number = 20;
-  /**
-   * Item for each paging element (page number)
-   */
-  public paginators: Array<any> = [];
+  @Input()
+  public pagingtext: string = '';
 
   // #endregion Properties
 
@@ -127,20 +132,6 @@ export abstract class SacPagingCommon {
   // #region Public Getters And Setters
 
   /**
-   * Property for Pager Data
-   */
-  @Input()
-  public set pagerdata(p: PagerData) {
-    if (p != null) {
-      this.totalRowCount = p.TotalRowCount;
-      this.activePageIndex = p.CurrentPageIndex;
-      this.pageSize = p.PageSize;
-    }
-
-    this.createPager();
-  }
-
-  /**
    * Property with text for total entries in page
    */
   public get PageSizeText(): Observable<string> {
@@ -162,6 +153,20 @@ export abstract class SacPagingCommon {
    */
   public get getPageSizes(): number[] {
     return this.pagesizes.split('|').map((itm) => Number(itm));
+  }
+
+  /**
+   * Property for Pager Data
+   */
+  @Input()
+  public set pagerdata(p: PagerData) {
+    if (p != null) {
+      this.totalRowCount = p.TotalRowCount;
+      this.activePageIndex = p.CurrentPageIndex;
+      this.pageSize = p.PageSize;
+    }
+
+    this.createPager();
   }
 
   // #endregion Public Getters And Setters

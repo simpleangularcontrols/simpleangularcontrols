@@ -22,6 +22,11 @@ export interface ISacConfigurationService {
     get CurrencyText(): string;
 
     /**
+     * Activates an E2E data attribute on all controls that can be used for testing.
+     */
+    get EnableE2EAttributes(): boolean;
+
+    /**
      * Mode for display helptext
      */
     get HelptextMode(): 'tooltip' | 'text';

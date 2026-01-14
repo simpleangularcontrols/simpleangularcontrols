@@ -1,22 +1,27 @@
-import { Component, ContentChildren, QueryList } from '@angular/core';
 import { SacTabItemComponent } from './tabitem';
-import { SacTabCommon, SacTabItemCommon } from '@simpleangularcontrols/sac-common';
-import { NgFor, NgClass, NgStyle, NgTemplateOutlet } from '@angular/common';
+import { NgClass, NgFor, NgStyle, NgTemplateOutlet } from '@angular/common';
+import { Component, ContentChildren, QueryList } from '@angular/core';
+import { SacTabCommon, SacTabItemCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 @Component({
     selector: 'sac-tab',
     templateUrl: './tab.html',
     standalone: true,
-    imports: [NgFor, NgClass, NgStyle, NgTemplateOutlet]
+    imports: [NgFor, NgClass, NgStyle, NgTemplateOutlet, SacTestingAttributePipe],
 })
-
 export class SacTabComponent extends SacTabCommon {
+    // #region Properties
 
-  @ContentChildren(SacTabItemComponent)
-  _tabItems: QueryList<SacTabItemComponent>;
+    @ContentChildren(SacTabItemComponent)
+    public _tabItems: QueryList<SacTabItemComponent>;
 
-  tabItems(): SacTabItemCommon[] {
-    return this._tabItems.toArray() as Array<SacTabItemCommon>;
-  }
+    // #endregion Properties
 
+    // #region Public Methods
+
+    public tabItems(): SacTabItemCommon[] {
+        return this._tabItems.toArray() as Array<SacTabItemCommon>;
+    }
+
+    // #endregion Public Methods
 }

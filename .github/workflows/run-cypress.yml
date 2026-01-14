@@ -5,7 +5,11 @@ name: Run Cypress Tests
 
 on:
   pull_request:
-    branches: ["angular/*"]
+    branches: ['angular/*']
+
+# Sets permissions of the GITHUB_TOKEN to allow create comments
+permissions:
+  pull-requests: write
 
 jobs:
   test:
@@ -41,3 +45,27 @@ jobs:
           cat ch.jnetwork.sac-controls/reports/bs5.md  >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           cat ch.jnetwork.sac-controls/reports/coverage-bootstrap5/SummaryGithub.md  >> $GITHUB_STEP_SUMMARY
+
+      - name: Add comment to PR # Only applicable if 'MarkdownSummaryGithub' or one of the other Markdown report types is generated
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "# Bootstrap 3 Summary" >> ch.jnetwork.sac-controls/reports/prcomment.md
+          echo "" >> ch.jnetwork.sac-controls/reports/prcomment.md
+          cat ch.jnetwork.sac-controls/reports/bs3.md  >> ch.jnetwork.sac-controls/reports/prcomment.md
+          echo "" >> ch.jnetwork.sac-controls/reports/prcomment.md
+          cat ch.jnetwork.sac-controls/reports/coverage-bootstrap3/SummaryGithub.md  >> ch.jnetwork.sac-controls/reports/prcomment.md
+          echo "" >> ch.jnetwork.sac-controls/reports/prcomment.md
+          echo "# Bootstrap 4 Summary" >> ch.jnetwork.sac-controls/reports/prcomment.md
+          echo "" >> ch.jnetwork.sac-controls/reports/prcomment.md
+          cat ch.jnetwork.sac-controls/reports/bs4.md  >> ch.jnetwork.sac-controls/reports/prcomment.md
+          echo "" >> ch.jnetwork.sac-controls/reports/prcomment.md
+          cat ch.jnetwork.sac-controls/reports/coverage-bootstrap4/SummaryGithub.md  >> ch.jnetwork.sac-controls/reports/prcomment.md
+          echo "# Bootstrap 5 Summary" >> ch.jnetwork.sac-controls/reports/prcomment.md
+          echo "" >> ch.jnetwork.sac-controls/reports/prcomment.md
+          cat ch.jnetwork.sac-controls/reports/bs5.md  >> ch.jnetwork.sac-controls/reports/prcomment.md
+          echo "" >> ch.jnetwork.sac-controls/reports/prcomment.md
+          cat ch.jnetwork.sac-controls/reports/coverage-bootstrap5/SummaryGithub.md  >> ch.jnetwork.sac-controls/reports/prcomment.md
+          gh pr comment $PR_NUMBER --edit-last --create-if-none --body-file ch.jnetwork.sac-controls/reports/prcomment.md # Adjust path and filename if necessary
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.number }}

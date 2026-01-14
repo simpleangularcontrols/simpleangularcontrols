@@ -8,7 +8,7 @@ import { SacDateSelectorComponent } from './dateselector';
 import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import { ChangeDetectorRef, Component, ElementRef, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacDateTimeCommon } from '@simpleangularcontrols/sac-common';
+import { SacDateTimeCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 import { IMaskDirective } from 'angular-imask';
 
 @Component({
@@ -39,6 +39,7 @@ import { IMaskDirective } from 'angular-imask';
         SacToLabelHeightPipe,
         SacToControlHeightPipe,
         SacTooltipComponent,
+        SacTestingAttributePipe,
     ],
 })
 export class SacDateTimeComponent extends SacDateTimeCommon {

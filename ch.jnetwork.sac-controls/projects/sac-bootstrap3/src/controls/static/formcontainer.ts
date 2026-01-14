@@ -6,7 +6,7 @@ import { SacTooltipComponent } from '../tooltip/tooltip';
 import { NgClass, NgIf } from '@angular/common';
 import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacStaticFormContainerCommon } from '@simpleangularcontrols/sac-common';
+import { SacStaticFormContainerCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 /**
  * Component für einbindung eines beliebigen Controls in die Form Struktur
@@ -46,6 +46,7 @@ import { SacStaticFormContainerCommon } from '@simpleangularcontrols/sac-common'
         SacToControlWidthCssPipe,
         SacToLabelHeightPipe,
         SacTooltipComponent,
+        SacTestingAttributePipe,
     ],
 })
 export class SacStaticFormContainerComponent extends SacStaticFormContainerCommon {

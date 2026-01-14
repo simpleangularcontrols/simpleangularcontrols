@@ -1,4 +1,6 @@
-<div class="form-group row">
+<div
+    class="form-group row"
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier">
     <label
         for="{{ name }}"
         class="col-12 col-form-label d-flex"
@@ -41,6 +43,7 @@
                     [value]="value"
                     (blur)="onTouch()"
                     (input)="setValue($event.target.value)"
+                    (keypress)="onKeyPress($event)"
                     [attr.placeholder]="placeholder"
                     [attr.maxlength]="maxtextlength"
                     autocomplete="email"

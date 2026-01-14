@@ -1,7 +1,8 @@
 <div
     class="row mb-3"
     [class.g-0]="disablelabel"
-    [class.has-error]="invalid && (dirty || touched)">
+    [class.has-error]="invalid && (dirty || touched)"
+    [attr.data-e2e-key]="name | testingattribute : e2eidentifier">
     <label
         *ngIf="disablelabel === false && !isAdaptiveLabel"
         id="{{ name }}label"
@@ -153,9 +154,7 @@
     #defaultTemplateLabel
     let-label="label"
     let-node="node">
-    <span [title]="label">
-        {{ label }}
-    </span>
+    <span [title]="label">{{ label }}</span>
 </ng-template>
 
 <ng-template

@@ -1,17 +1,8 @@
 import { convertToBoolean } from '../../utilities/convertion';
 import { TooltipPosition } from '../../utilities/enums';
+import { createGuid } from '../../utilities/guid';
 import { PopUpHelper } from '../../utilities/popuphelper';
-import {
-    AfterViewChecked,
-    ChangeDetectorRef,
-    Directive,
-    DoCheck,
-    ElementRef,
-    Input,
-    OnDestroy,
-    OnInit,
-    ViewChild,
-} from '@angular/core';
+import { AfterViewChecked, ChangeDetectorRef, Directive, DoCheck, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 /**
  * Tooltip Component
@@ -73,6 +64,18 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
      */
     @ViewChild('container', { static: true })
     public content: ElementRef<HTMLElement>;
+
+    /**
+     * Identifier used for the E2E data attribute.
+     */
+    @Input()
+    public e2eidentifier: string | null = null;
+
+    /**
+     * name of control
+     */
+    @Input()
+    public name: string = createGuid();
 
     /**
      * Position of the picker arrow at the left

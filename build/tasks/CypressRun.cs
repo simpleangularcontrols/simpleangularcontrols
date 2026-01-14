@@ -1,10 +1,12 @@
 ﻿using Build.context;
 using Build.extensions;
+using Cake.Common.Diagnostics;
 using Cake.Core.Diagnostics;
 using Cake.Frosting;
 using Cake.Npm;
 using Cake.Npm.Install;
 using Cake.Npm.RunScript;
+using System;
 
 namespace Build.tasks
 {
@@ -60,6 +62,18 @@ namespace Build.tasks
 
                 context.NpmRunScript(runSettings);
             }
+        }
+
+        /// <summary>
+        /// Handles an error that occurs during the build process by reporting the exception message to the build
+        /// context.
+        /// </summary>
+        /// <param name="exception">The exception that was thrown during the build process. Cannot be null.</param>
+        /// <param name="context">The build context used to report the error. Cannot be null.</param>
+        public override void OnError(Exception exception, BuildContext context)
+        {
+            context.FailedTasks.Add(nameof(CypressRun));
+            context.Error(exception.Message);
         }
 
         public override bool ShouldRun(BuildContext context)

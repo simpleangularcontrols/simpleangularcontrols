@@ -2,15 +2,16 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacInputComponent } from './input';
 import { FormsModule } from '@angular/forms';
+import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('NgInputComponent', () => {
     it('should show label and text', () => {
         cy.mount(
             `<form>
-      <sac-input name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-input>
-      </form>`,
+                <sac-input name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+              </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
@@ -191,5 +192,91 @@ describe('NgInputComponent', () => {
         cy.get('input').type('abcde');
         cy.get('input').should('have.value', 'abc');
         cy.validateValueChanged('abc'.length);
+    });
+
+    it('should validate with regex', () => {});
+
+    it('should has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="myControl" label="my Label">
+                </sac-input>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-input > div', 'myControl');
+    });
+
+    it('should has e2 testkey with testidentifier when name exists', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="myControl" e2eidentifier="myTestidentifier" label="my Label">
+                </sac-input>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-input > div', 'myTestidentifier');
+    });
+
+    it('should has e2 testkey with testidentifier when name not exists', () => {
+        cy.mount(
+            `<form>
+                <sac-input e2eidentifier="myTestidentifier" label="my Label">
+                </sac-input>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveTestAttributeWithName('sac-input > div', 'myTestidentifier');
+    });
+
+    it('should not has e2 testkey with name', () => {
+        cy.mount(
+            `<form>
+                <sac-input label="my Label">
+                </sac-input>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap5LayoutModule],
+                componentProperties: {},
+            }
+        );
+
+        cy.shouldHaveDisabledTestAttribute('sac-input > div');
     });
 });

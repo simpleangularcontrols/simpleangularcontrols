@@ -1,4 +1,5 @@
 <th
+    #headerElement
     scope="col"
     *ngIf="IsHeader()"
     [style.width]="width"
@@ -16,6 +17,7 @@
         *ngIf="IsSortedColumn() && GetSortDirection() === 'desc'"></span>
 </th>
 <td
+    #bodyElement
     scope="col"
     *ngIf="IsBody()"
     [style.width]="width"

@@ -42,6 +42,15 @@ export interface ISacConfigurationService {
     InputSearchIconMode: 'text' | 'icon' | 'mixed';
 
     /**
+     * Defines the default label mode for all components with labels
+     *
+     * Options are 'standard' and 'floating'
+     * Floating labels are only supported in Bootstrap 5
+     * Default is 'standard'
+     */
+    get LabelMode(): 'standard' | 'floating';
+
+    /**
      * default labe size for large devices
      */
     LabelSizeLg: number | null;

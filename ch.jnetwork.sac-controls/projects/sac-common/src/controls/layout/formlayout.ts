@@ -37,6 +37,14 @@ export class SacFormLayoutCommon {
     public inputsearchiconmode: 'text' | 'icon' | 'mixed' | null = null;
 
     /**
+     * Defines the default label mode for all components with labels
+     *
+     * Options are 'standard' and 'floating'
+     * Floating labels are only supported in Bootstrap 5
+     */
+    public labelMode: 'standard' | 'floating' | null = null;
+
+    /**
      * default labe size for large devices
      */
     @Input()

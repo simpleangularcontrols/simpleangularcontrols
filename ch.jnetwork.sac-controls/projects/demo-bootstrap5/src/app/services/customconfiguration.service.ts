@@ -35,6 +35,10 @@ export class CustomConfigurationService extends SacAbstractConfigurationService 
         return 'text';
     }
 
+    public get LabelMode(): 'standard' | 'floating' {
+        return 'standard';
+    }
+
     public get LabelSizeLg(): number | null {
         return 3;
     }

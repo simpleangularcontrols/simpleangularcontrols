@@ -7,7 +7,7 @@ import { SacTooltipComponent } from '../tooltip/tooltip';
 import { SacMultilanguagemenuComponent } from './multilanguagemenu';
 import { SacMultilanguagemenuAnchorDirective } from './multilanguagemenuanchor';
 import { SacMultilanguagemenuItemButtonComponent } from './multilanguagemenuitembutton';
-import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, NgClass, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IconType, SacMultilanguageInputCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
@@ -46,6 +46,7 @@ import { IconType, SacMultilanguageInputCommon, SacTestingAttributePipe } from '
         SacToControlHeightPipe,
         SacTooltipComponent,
         SacTestingAttributePipe,
+        NgTemplateOutlet,
     ],
 })
 export class SacMultilanguageInputComponent extends SacMultilanguageInputCommon {

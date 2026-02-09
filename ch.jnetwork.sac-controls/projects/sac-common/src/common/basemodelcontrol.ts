@@ -141,6 +141,12 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     @Input() public inlineError: boolean = true;
 
     /**
+     * Label Mode 'standard' | 'floating' or null (null = use global configuration)
+     */
+    @Input()
+    public labelMode: 'standard' | 'floating' | null = null;
+
+    /**
      * default labe size for large devices
      */
     @Input()
@@ -574,10 +580,37 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
         }
     }
 
+    private setLabelMode(): void {
+        if (!this.labelMode) {
+            if (this.formlayout?.labelMode) {
+                this.labelMode = this.formlayout.labelMode;
+            } else {
+                this.labelMode = this.configurationService.LabelMode;
+            }
+        }
+
+        // floating labels need always full width
+        if (this.labelMode === 'floating') {
+            this.labelSizeXxl = 12;
+            this.labelSizeXl = 12;
+            this.labelSizeLg = 12;
+            this.labelSizeMd = 12;
+            this.labelSizeSm = 12;
+            this.labelSizeXs = 12;
+        }
+    }
+
     /**
      * Set label sizes from property or parent layout control
      */
     private setLabelSizes() {
+        this.setLabelMode();
+
+        // floating labels need always full width
+        if (this.labelMode === 'floating') {
+            return;
+        }
+
         // set size extra small
         if (!this.labelSizeXs) {
             if (this.formlayout?.labelSizeXs) {

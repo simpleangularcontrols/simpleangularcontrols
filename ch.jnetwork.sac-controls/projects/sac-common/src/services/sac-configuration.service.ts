@@ -58,6 +58,11 @@ export abstract class SacAbstractConfigurationService implements ISacConfigurati
     /**
      * @inheritdoc
      */
+    public abstract get LabelMode(): 'standard' | 'floating';
+
+    /**
+     * @inheritdoc
+     */
     public abstract get LabelSizeLg(): number | null;
 
     /**
@@ -147,6 +152,13 @@ export class SacDefaultConfigurationService extends SacAbstractConfigurationServ
      */
     public get InputSearchIconMode(): 'text' | 'icon' | 'mixed' {
         return 'text';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public get LabelMode(): 'standard' | 'floating' {
+        return 'standard';
     }
 
     /**

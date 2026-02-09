@@ -3,6 +3,7 @@
     [class.g-0]="disablelabel"
     [attr.data-e2e-key]="name | testingattribute : e2eidentifier">
     <label
+        *ngIf="labelMode !== 'floating'"
         for="{{ name }}"
         class="col-12 col-form-label d-flex"
         [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'visually-hidden', componentHeight | toLabelHeight]"
@@ -25,8 +26,10 @@
     <div
         class="col-12"
         [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
-        [class.d-flex]="helptextmode === 'tooltip' && helptext && disablelabel">
-        <div [class.flex-grow-1]="helptextmode === 'tooltip' && helptext && disablelabel">
+        [class.d-flex]="helptextmode === 'tooltip' && helptext && (disablelabel || labelMode === 'floating')">
+        <div
+            [class.flex-grow-1]="helptextmode === 'tooltip' && helptext && (disablelabel || labelMode === 'floating')"
+            [class.form-floating]="labelMode === 'floating' && !disablelabel">
             <input
                 id="{{ name }}"
                 name="{{ name }}"
@@ -36,12 +39,23 @@
                 [value]="value"
                 (blur)="onTouch()"
                 (input)="setValue($event.target.value)"
-                [attr.placeholder]="placeholder"
+                [attr.placeholder]="placeholder || (labelMode === 'floating' && !disablelabel ? label : null)"
                 [readonly]="readonly"
                 (keypress)="onKeyPress($event)"
                 [disabled]="isdisabled"
                 [class.is-invalid]="invalid && (dirty || touched)"
                 [ngClass]="[componentHeight | toControlHeight]" />
+
+            <label
+                *ngIf="labelMode === 'floating' && !disablelabel"
+                for="{{ name }}"
+                [class.required]="isrequired">
+                <div
+                    class="text flex-grow-0"
+                    [class.flex-sm-grow-1]="splitlabelandhelptext">
+                    {{ label }}
+                </div>
+            </label>
 
             <div
                 *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"
@@ -56,7 +70,7 @@
         </div>
 
         <div
-            *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
+            *ngIf="helptextmode === 'tooltip' && helptext && (disablelabel || labelMode === 'floating')"
             class="form-control-plaintext align-self-top ms-2 me-1 w-auto"
             [ngClass]="[componentHeight | toControlHeight]">
             <sac-tooltip

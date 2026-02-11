@@ -12,6 +12,11 @@
     scope="col"
     *ngIf="IsBody()"
     [class.text-right]="alignment === 'right'"
-    [class.text-center]="alignment === 'center'">
+    [class.text-center]="alignment === 'center'"
+    [class.active]="contextstyle === 'active' || contextstyle === 'primary' || contextstyle === 'secondary' || contextstyle === 'light' || contextstyle === 'dark'"
+    [class.success]="contextstyle === 'success'"
+    [class.warning]="contextstyle === 'warning'"
+    [class.danger]="contextstyle === 'danger'"
+    [class.info]="contextstyle === 'info'">
     <ng-content></ng-content>
 </td>

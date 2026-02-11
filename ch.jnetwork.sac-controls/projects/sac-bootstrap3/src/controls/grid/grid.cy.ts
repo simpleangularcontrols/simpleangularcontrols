@@ -56,7 +56,7 @@ describe('SacGridComponent', () => {
                 componentProperties: {
                     values: [],
                 },
-            }
+            },
         );
 
         cy.get('table').should('exist');
@@ -118,7 +118,7 @@ describe('SacGridComponent', () => {
                     sortAction: createOutputSpy('sortAction'),
                     sortSorting: { SortColumn: 'Id', SortOrder: SortOrder.Ascending },
                 },
-            }
+            },
         );
 
         cy.get('table').should('exist');
@@ -199,7 +199,7 @@ describe('SacGridComponent', () => {
                     pageAction: createOutputSpy('pageAction'),
                     pageData: { TotalRowCount: 21, CurrentPageIndex: 0, PageSize: 20 },
                 },
-            }
+            },
         );
 
         cy.get('table').should('exist');
@@ -262,7 +262,7 @@ describe('SacGridComponent', () => {
                     ],
                     columnAction: createOutputSpy('columnAction'),
                 },
-            }
+            },
         );
 
         cy.get('table').should('exist');
@@ -336,7 +336,7 @@ describe('SacGridComponent', () => {
                         },
                     ],
                 },
-            }
+            },
         );
 
         cy.get('table').should('exist');
@@ -400,7 +400,7 @@ describe('SacGridComponent', () => {
                     ],
                     columnAction: createOutputSpy('columnAction'),
                 },
-            }
+            },
         );
 
         cy.get('table').should('exist');
@@ -488,11 +488,95 @@ describe('SacGridComponent', () => {
                         },
                     ],
                 },
-            }
+            },
         );
 
         cy.get('table').should('exist');
         cy.get('table tr td').eq(3).isTruncated();
+    });
+
+    it('should have context class at row', () => {
+        cy.mount(
+            `<form>
+                <sac-grid name="gridDefault" [value]="values" emptytext="No Data">
+                    <ng-template
+                    let-row="row"
+                    let-type="type">
+                    <sac-gridcolumnaction
+                        name="actionCol"
+                        [type]="type"
+                        [contextstyle]="row.Style"
+                        width="116px">
+                        <sac-gridbutton
+                            name="editrow"
+                            icon="edit"
+                            isdisabled="true"
+                            (clicked)="columnAction.emit(row.Id)">
+                        </sac-gridbutton>
+                        <sac-gridbutton
+                            name="deleterow"
+                            icon="delete"
+                            (clicked)="action($event)"
+                            [isdisabled]="true">
+                        </sac-gridbutton>
+                        <sac-gridbutton
+                            iconstyle="fa"
+                            icon="fa-info-circle"
+                            (clicked)="action('info')">
+                        </sac-gridbutton>
+                        <sac-gridimage iconstyle="fa fa-exclamation-triangle"></sac-gridimage>
+                    </sac-gridcolumnaction>
+                    <sac-gridcolumn
+                        name="columnId"
+                        [type]="type"
+                        header="ID"
+                        [value]="row.Id"
+                        sortkey="Id"
+                        [contextstyle]="row.Style"
+                        (rowclicked)="action(row.Id)">
+                    </sac-gridcolumn>
+                    <sac-gridcolumn
+                        name="columnText"
+                        [type]="type"
+                        header="Bild"
+                        [value]="row.Image"
+                        [contextstyle]="row.Style"
+                        width="25%">
+                    </sac-gridcolumn>
+                    </ng-template>
+                </sac-grid>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SACBootstrap3GridModule, SACBootstrap3LayoutModule],
+                componentProperties: {
+                    values: [
+                        {
+                            Id: 1,
+                            Image: 'Bild 1',
+                            Style: 'success',
+                        },
+                        {
+                            Id: 2,
+                            Image: 'Bild 2',
+                            Style: 'none',
+                        },
+                        {
+                            Id: 3,
+                            Image: 'Bild 3',
+                            Style: 'info',
+                        },
+                    ],
+                },
+            },
+        );
+
+        cy.get('table').should('exist');
+        cy.get('table tr td').eq(0).should('have.class', 'success');
+        cy.get('table tr td').eq(2).should('have.class', 'success');
+        cy.get('table tr td').eq(3).should('not.have.class', 'success');
+        cy.get('table tr td').eq(5).should('not.have.class', 'success');
+        cy.get('table tr td').eq(6).should('have.class', 'info');
+        cy.get('table tr td').eq(8).should('have.class', 'info');
     });
 
     it('should has e2 testkey with name', () => {
@@ -552,7 +636,7 @@ describe('SacGridComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-grid > table', 'myControl');
@@ -615,7 +699,7 @@ describe('SacGridComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-grid > table', 'myTestidentifier');
@@ -678,7 +762,7 @@ describe('SacGridComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-grid > table', 'myTestidentifier');
@@ -733,7 +817,7 @@ describe('SacGridComponent', () => {
                 componentProperties: {
                     values: [],
                 },
-            }
+            },
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-grid > table');
@@ -775,7 +859,7 @@ describe('SacGridComponent', () => {
                     ],
                     columnvisible: true,
                 },
-            }
+            },
         );
 
         cy.get('table').should('exist');

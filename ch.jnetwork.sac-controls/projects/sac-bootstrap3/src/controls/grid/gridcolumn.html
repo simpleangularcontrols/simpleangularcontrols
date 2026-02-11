@@ -28,7 +28,12 @@
     [style.text-overflow]="IsEllipsis() ? 'ellipsis' : null"
     [style.white-space]="IsEllipsis() ? 'nowrap' : null"
     [class.text-right]="alignment === 'right'"
-    [class.text-center]="alignment === 'center'">
+    [class.text-center]="alignment === 'center'"
+    [class.active]="contextstyle === 'active' || contextstyle === 'primary' || contextstyle === 'secondary' || contextstyle === 'light' || contextstyle === 'dark'"
+    [class.success]="contextstyle === 'success'"
+    [class.warning]="contextstyle === 'warning'"
+    [class.danger]="contextstyle === 'danger'"
+    [class.info]="contextstyle === 'info'">
     <span
         [attr.title]="IsEllipsis() ? value : null"
         [innerHtml]="value"></span>

@@ -33,7 +33,7 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
      * Property on the 'data' object that stores the expanded state. Property must be of type boolean. Default is 'expanded'
      */
     @Input()
-    public attrexanded = 'expanded';
+    public attrexpanded = 'expanded';
 
     /**
      * Property for saving the HoverState on the field. If the property is not present on the node, it is automatically created and removed again. The value can usually be left at the default value unless there is a conflict with a property on the node that is required for other purposes.
@@ -263,11 +263,11 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
     }
 
     public isExpandedState(node: any): boolean {
-        if (!node || !this.attrexanded) {
+        if (!node || !this.attrexpanded) {
             return false;
         }
 
-        let value = node[this.attrexanded];
+        let value = node[this.attrexpanded];
         return value === true || value === 'true';
     }
 
@@ -430,7 +430,7 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
     }
 
     private invertExpandedState(node: any) {
-        if (!node || !this.attrexanded) {
+        if (!node || !this.attrexpanded) {
             return;
         }
 
@@ -439,14 +439,14 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
             return;
         }
 
-        let value = node[this.attrexanded];
+        let value = node[this.attrexpanded];
 
         if (value === true || value === 'true') {
             this.collabsed.emit(node);
-            node[this.attrexanded] = false;
+            node[this.attrexpanded] = false;
         } else {
             this.expanded.emit(node);
-            node[this.attrexanded] = true;
+            node[this.attrexpanded] = true;
         }
     }
 

@@ -13,6 +13,14 @@
     class="px-2"
     [class.text-right]="alignment === 'right'"
     [class.text-center]="alignment === 'center'"
-    *ngIf="IsBody()">
+    *ngIf="IsBody()"
+    [class.table-primary]="contextstyle === 'active' || contextstyle === 'primary'"
+    [class.table-secondary]="contextstyle === 'secondary'"
+    [class.table-light]="contextstyle === 'light'"
+    [class.table-dark]="contextstyle === 'dark'"
+    [class.table-success]="contextstyle === 'success'"
+    [class.table-warning]="contextstyle === 'warning'"
+    [class.table-danger]="contextstyle === 'danger'"
+    [class.table-info]="contextstyle === 'info'">
     <ng-content></ng-content>
 </td>

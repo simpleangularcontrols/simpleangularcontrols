@@ -362,7 +362,7 @@
                                 <a href="#attrdisableaction" >attrdisableaction</a>
                             </li>
                             <li>
-                                <a href="#attrexanded" >attrexanded</a>
+                                <a href="#attrexpanded" >attrexpanded</a>
                             </li>
                             <li>
                                 <a href="#attrhoverstate" >attrhoverstate</a>
@@ -669,8 +669,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="attrexanded"></a>
-                        <b>attrexanded</b>
+                        <a name="attrexpanded"></a>
+                        <b>attrexpanded</b>
                     </td>
                 </tr>
                 <tr>
@@ -4723,7 +4723,7 @@ export class SacTreeviewCommon extends SacBaseModelControl&lt;any&gt; {
      * Property on the &#x27;data&#x27; object that stores the expanded state. Property must be of type boolean. Default is &#x27;expanded&#x27;
      */
     @Input()
-    public attrexanded &#x3D; &#x27;expanded&#x27;;
+    public attrexpanded &#x3D; &#x27;expanded&#x27;;
 
     /**
      * Property for saving the HoverState on the field. If the property is not present on the node, it is automatically created and removed again. The value can usually be left at the default value unless there is a conflict with a property on the node that is required for other purposes.
@@ -4953,11 +4953,11 @@ export class SacTreeviewCommon extends SacBaseModelControl&lt;any&gt; {
     }
 
     public isExpandedState(node: any): boolean {
-        if (!node || !this.attrexanded) {
+        if (!node || !this.attrexpanded) {
             return false;
         }
 
-        let value &#x3D; node[this.attrexanded];
+        let value &#x3D; node[this.attrexpanded];
         return value &#x3D;&#x3D;&#x3D; true || value &#x3D;&#x3D;&#x3D; &#x27;true&#x27;;
     }
 
@@ -5120,7 +5120,7 @@ export class SacTreeviewCommon extends SacBaseModelControl&lt;any&gt; {
     }
 
     private invertExpandedState(node: any) {
-        if (!node || !this.attrexanded) {
+        if (!node || !this.attrexpanded) {
             return;
         }
 
@@ -5129,14 +5129,14 @@ export class SacTreeviewCommon extends SacBaseModelControl&lt;any&gt; {
             return;
         }
 
-        let value &#x3D; node[this.attrexanded];
+        let value &#x3D; node[this.attrexpanded];
 
         if (value &#x3D;&#x3D;&#x3D; true || value &#x3D;&#x3D;&#x3D; &#x27;true&#x27;) {
             this.collabsed.emit(node);
-            node[this.attrexanded] &#x3D; false;
+            node[this.attrexpanded] &#x3D; false;
         } else {
             this.expanded.emit(node);
-            node[this.attrexanded] &#x3D; true;
+            node[this.attrexpanded] &#x3D; true;
         }
     }
 

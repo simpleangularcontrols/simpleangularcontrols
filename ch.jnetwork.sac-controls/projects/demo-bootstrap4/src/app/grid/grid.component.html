@@ -12,6 +12,7 @@
         <sac-gridcolumnaction
             name="editCol"
             [type]="type"
+            [contextstyle]="row.Id === 4 ? 'info' : 'none'"
             width="116px">
             <sac-gridbutton
                 name="editrow"
@@ -38,18 +39,21 @@
             [type]="type"
             header="ID"
             [value]="row.Id"
+            [contextstyle]="row.Id === 4 ? 'info' : 'none'"
             (rowclicked)="action(row.Id)"></sac-gridcolumn>
         <sac-gridcolumn
             name="someName14"
             [type]="type"
             header="Bild"
             [value]="row.Image"
+            [contextstyle]="row.Id === 4 ? 'info' : 'none'"
             width="25%"></sac-gridcolumn>
         <sac-gridcolumn
             name="someName35"
             [type]="type"
             header="Bezeichnung"
             [value]="row.Bezeichnung"
+            [contextstyle]="row.Id === 4 ? 'info' : 'none'"
             width="25%"></sac-gridcolumn>
     </ng-template>
 </sac-grid>

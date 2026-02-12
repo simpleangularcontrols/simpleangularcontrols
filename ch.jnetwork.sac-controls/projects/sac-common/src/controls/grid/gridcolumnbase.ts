@@ -39,6 +39,22 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
     public bodyElement: ElementRef;
 
     /**
+     * defines the style of the row
+     */
+    @Input()
+    public contextstyle:
+        | 'none'
+        | 'active'
+        | 'success'
+        | 'warning'
+        | 'danger'
+        | 'info'
+        | 'primary'
+        | 'secondary'
+        | 'light'
+        | 'dark' = 'none';
+
+    /**
      * Value of the cell if the type is `header`.
      */
     @Input()
@@ -96,7 +112,11 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
      * @param injector di injector to resolve icon service
      * @param el reference to html element
      */
-    constructor(private grid: SacGridCommon, protected injector: Injector, private el: ElementRef) {
+    constructor(
+        private grid: SacGridCommon,
+        protected injector: Injector,
+        private el: ElementRef,
+    ) {
         this.iconService = injector.get(SACICON_SERVICE, new SacDefaultIconService());
     }
 

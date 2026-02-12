@@ -429,7 +429,7 @@
                                 <a href="#attrdisableaction" >attrdisableaction</a>
                             </li>
                             <li>
-                                <a href="#attrexanded" >attrexanded</a>
+                                <a href="#attrexpanded" >attrexpanded</a>
                             </li>
                             <li>
                                 <a href="#attrhoverstate" >attrhoverstate</a>
@@ -729,8 +729,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="attrexanded"></a>
-                        <b>attrexanded</b>
+                        <a name="attrexpanded"></a>
+                        <b>attrexpanded</b>
                     </td>
                 </tr>
                 <tr>
@@ -4863,7 +4863,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
         &lt;/sac-contextmenubutton&gt;
     &lt;/sac-contextmenu&gt;
 &lt;/ng-template&gt;</code></pre></div><h2>Load nodes dynamically</h2>
-<p>It is possible to dynamically reload nodes when the parent node is expanded. To do this, the &#39;exanded&#39; event of the treeview must be processed. The child elements of the node can then be dynamically reloaded and added accordingly. It is important that the array is rewritten, otherwise the ChangeDetection will not work.</p>
+<p>It is possible to dynamically reload nodes when the parent node is expanded. To do this, the &#39;expanded&#39; event of the treeview must be processed. The child elements of the node can then be dynamically reloaded and added accordingly. It is important that the array is rewritten, otherwise the ChangeDetection will not work.</p>
 <p>In addition, the &#39;enableasynchload&#39; property must be set to true, as otherwise the &#39;expanded&#39; event will not be triggered if a node has no child elements.</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;sac-treeview [data]=&quot;data1&quot; [enableasynchload]=&quot;true&quot; attricon=&quot;icon&quot; (expanded)=&quot;appendNode($event)&quot;&gt; &lt;/sac-treeview&gt;</code></pre></div><b>Example :</b><div><pre class="line-numbers"><code class="language-ts">public appendNode(node: any) {
     node.children.push({
@@ -4930,7 +4930,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;sac-treeview
     [data]=&quot;tree&quot;
     attrchildren=&quot;children&quot;
-    attrexanded=&quot;expanded&quot;
+    attrexpanded=&quot;expanded&quot;
     attrid=&quot;id&quot;
     attricon=&quot;icon&quot;
     attrlabel=&quot;label&quot;

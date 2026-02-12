@@ -28,7 +28,15 @@
     [style.text-overflow]="IsEllipsis() ? 'ellipsis' : null"
     [style.white-space]="IsEllipsis() ? 'nowrap' : null"
     [class.text-right]="alignment === 'right'"
-    [class.text-center]="alignment === 'center'">
+    [class.text-center]="alignment === 'center'"
+    [class.table-primary]="contextstyle === 'active' || contextstyle === 'primary'"
+    [class.table-secondary]="contextstyle === 'secondary'"
+    [class.table-light]="contextstyle === 'light'"
+    [class.table-dark]="contextstyle === 'dark'"
+    [class.table-success]="contextstyle === 'success'"
+    [class.table-warning]="contextstyle === 'warning'"
+    [class.table-danger]="contextstyle === 'danger'"
+    [class.table-info]="contextstyle === 'info'">
     <span
         [attr.title]="IsEllipsis() ? value : null"
         [innerHtml]="value">

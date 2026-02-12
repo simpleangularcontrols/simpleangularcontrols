@@ -37,7 +37,7 @@ Important: If you use the context menu in combination with a button, you must se
 
 ## Load nodes dynamically
 
-It is possible to dynamically reload nodes when the parent node is expanded. To do this, the 'exanded' event of the treeview must be processed. The child elements of the node can then be dynamically reloaded and added accordingly. It is important that the array is rewritten, otherwise the ChangeDetection will not work.
+It is possible to dynamically reload nodes when the parent node is expanded. To do this, the 'expanded' event of the treeview must be processed. The child elements of the node can then be dynamically reloaded and added accordingly. It is important that the array is rewritten, otherwise the ChangeDetection will not work.
 
 In addition, the 'enableasynchload' property must be set to true, as otherwise the 'expanded' event will not be triggered if a node has no child elements.
 
@@ -123,7 +123,7 @@ Use of the treeview in the markup
 <sac-treeview
     [data]="tree"
     attrchildren="children"
-    attrexanded="expanded"
+    attrexpanded="expanded"
     attrid="id"
     attricon="icon"
     attrlabel="label"

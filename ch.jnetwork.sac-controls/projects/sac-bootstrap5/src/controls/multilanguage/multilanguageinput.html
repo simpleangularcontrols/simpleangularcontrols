@@ -1,5 +1,5 @@
 <div
-    [attr.data-e2e-key]="name | testingattribute : e2eidentifier"
+    [attr.data-e2e-key]="name | testingattribute: e2eidentifier"
     class="row mb-3"
     [class.g-0]="disablelabel">
     <label
@@ -93,8 +93,8 @@
         </div>
 
         <div
-            *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
-            class="form-control-plaintext align-self-top ms-2 me-1 w-auto"
+            *ngIf="helptextmode === 'tooltip' && helptext && (disablelabel || labelMode === 'floating')"
+            class="form-control-plaintext align-self-center ms-2 me-1 w-auto"
             [ngClass]="[componentHeight | toControlHeight]">
             <sac-tooltip
                 [tooltiptext]="helptext"

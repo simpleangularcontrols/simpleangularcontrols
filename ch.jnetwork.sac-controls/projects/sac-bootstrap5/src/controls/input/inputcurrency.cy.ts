@@ -20,7 +20,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 1.33,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -41,7 +41,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -69,7 +69,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 1.45,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldNotHaveLabel();
@@ -90,7 +90,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHavePlaceholder('My Placeholder');
@@ -110,7 +110,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 1.45,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldBeReadonly();
@@ -130,7 +130,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 1.99,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldBeDisabled();
@@ -150,7 +150,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 15,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.get('input').should('have.value', '15');
@@ -173,7 +173,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 4,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldBeValid();
@@ -199,7 +199,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 8,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldBeValid();
@@ -225,7 +225,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 8,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldBeValid();
@@ -251,7 +251,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 8,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldBeValid();
@@ -277,7 +277,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 0,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -301,7 +301,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 0,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -325,7 +325,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 0,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -353,7 +353,7 @@ describe('ngInputCurrencyComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputcurrency > div', 'myControl');
@@ -377,7 +377,7 @@ describe('ngInputCurrencyComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputcurrency > div', 'myTestidentifier');
@@ -401,7 +401,7 @@ describe('ngInputCurrencyComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputcurrency > div', 'myTestidentifier');
@@ -417,9 +417,103 @@ describe('ngInputCurrencyComponent', () => {
                 declarations: [SacFormDirective, SacInputCurrencyComponent],
                 imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {},
-            }
+            },
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-inputcurrency > div');
+    });
+
+    it('should have floating label with config service', () => {
+        cy.mount(
+            `<form>
+                <sac-inputcurrency name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-inputcurrency>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputCurrencyComponent],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            LabelMode: 'floating',
+                        },
+                    },
+                ],
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('input').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with layout directive', () => {
+        cy.mount(
+            `<form sacFormLayout labelMode="floating">
+                <sac-inputcurrency name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-inputcurrency>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputCurrencyComponent],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('input').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with component property', () => {
+        cy.mount(
+            `<form>
+                <sac-inputcurrency name="field" [label]="label" labelMode="floating" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-inputcurrency>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputCurrencyComponent],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('input').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with component property', () => {
+        cy.mount(
+            `<form>
+                    <sac-inputcurrency name="field" [label]="label" labelMode="floating" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                    </sac-inputcurrency>
+                </form>`,
+            {
+                declarations: [SacFormDirective, SacInputCurrencyComponent],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 15.5,
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            },
+        );
+
+        cy.get('input').should('have.value', 15.5);
     });
 });

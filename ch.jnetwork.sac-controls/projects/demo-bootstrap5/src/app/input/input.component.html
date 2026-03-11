@@ -18,6 +18,16 @@
             buttontext="Suchen"
             buttonmode="icon">
         </sac-inputsearch>
+
+        <sac-inputsearch
+            name="field4searchafloating"
+            labelMode="floating"
+            label="Feld 4 Search"
+            [(ngModel)]="values.field4"
+            buttontext="Suchen"
+            buttonmode="icon">
+        </sac-inputsearch>
+
         <sac-inputsearch
             name="field4searchb"
             label="Feld 4 Search"
@@ -27,6 +37,18 @@
             helptextmode="tooltip"
             buttonmode="mixed">
         </sac-inputsearch>
+
+        <sac-inputsearch
+            name="field4searchbfloating"
+            labelMode="floating"
+            label="Feld 4 Search"
+            [(ngModel)]="values.field4"
+            buttontext="Suchen"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip"
+            buttonmode="mixed">
+        </sac-inputsearch>
+
         <sac-inputsearch
             name="field4searchc"
             label="Feld 4 Search"
@@ -34,6 +56,16 @@
             buttontext="Suchen"
             helptext="Dies ist ein Helptext">
         </sac-inputsearch>
+
+        <sac-inputsearch
+            name="field4searchcfloating"
+            labelMode="floating"
+            label="Feld 4 Search"
+            [(ngModel)]="values.field4"
+            buttontext="Suchen"
+            helptext="Dies ist ein Helptext">
+        </sac-inputsearch>
+
         <sac-inputsearch
             name="field4search2"
             disablelabel="true"
@@ -79,12 +111,21 @@
             label="Feld 4"
             [(ngModel)]="values.field4">
         </sac-input>
+
+        <sac-input
+            name="field4floating"
+            labelMode="floating"
+            label="Feld 4"
+            [(ngModel)]="values.field4">
+        </sac-input>
+
         <sac-input
             name="field5"
             label="Feld 5"
             placeholder="Feld 5"
             [(ngModel)]="values.field5">
         </sac-input>
+
         <sac-input
             name="field6"
             label="Feld 6 (Max 10)"
@@ -92,6 +133,16 @@
             [maxtextlength]="10"
             helptext="Dies ist ein Helptext">
         </sac-input>
+
+        <sac-input
+            name="field6floating"
+            labelMode="floating"
+            label="Feld 6 (Max 10)"
+            [(ngModel)]="values.field6"
+            [maxtextlength]="10"
+            helptext="Dies ist ein Helptext">
+        </sac-input>
+
         <sac-input
             name="field7"
             label="Feld 7"
@@ -100,6 +151,17 @@
             helptext="Dies ist ein Helptext"
             helptextmode="tooltip">
         </sac-input>
+
+        <sac-input
+            name="field7floating"
+            labelMode="floating"
+            label="Feld 7"
+            [(ngModel)]="values.field7"
+            disabled="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-input>
+
         <sac-input
             name="field7b"
             label="Feld 7 (Tooltip)"
@@ -118,12 +180,22 @@
             disablelabel="true"
             [(ngModel)]="values.fieldd1">
         </sac-inputdecimal>
+
+        <sac-inputdecimal
+            name="fieldd1floating"
+            labelMode="floating"
+            label="Decimal 1 (Decimal)"
+            disablelabel="true"
+            [(ngModel)]="values.fieldd1">
+        </sac-inputdecimal>
+
         <sac-inputdecimal
             name="fieldd2"
             label="Decimal 2 (Decimal with Negativ)"
             [(ngModel)]="values.fieldd2"
             [allownegativ]="true">
         </sac-inputdecimal>
+
         <sac-inputdecimal
             name="fieldd3"
             label="Decimal 3 (Decimal with Negativ (10-20))"
@@ -134,6 +206,19 @@
             [maxvalue]="20"
             helptext="Dies ist ein Helptext">
         </sac-inputdecimal>
+
+        <sac-inputdecimal
+            name="fieldd3floating"
+            labelMode="floating"
+            label="Decimal 3 (Decimal with Negativ (10-20))"
+            [(ngModel)]="values.fieldd3"
+            [allownegativ]="true"
+            isrequired="true"
+            [minvalue]="10"
+            [maxvalue]="20"
+            helptext="Dies ist ein Helptext">
+        </sac-inputdecimal>
+
         <sac-inputdecimal
             name="fieldd4"
             label="Decimal 4 (Decimal)"
@@ -142,6 +227,17 @@
             helptext="Dies ist ein Helptext"
             helptextmode="tooltip">
         </sac-inputdecimal>
+
+        <sac-inputdecimal
+            name="fieldd4floating"
+            labelMode="floating"
+            label="Decimal 4 (Decimal)"
+            [(ngModel)]="values.fieldd1"
+            disabled="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputdecimal>
+
         <sac-inputdecimal
             name="fieldd4b"
             label="Decimal 4 (Decimal)"
@@ -156,6 +252,14 @@
             label="Integer 1 (Integer)"
             [(ngModel)]="values.fieldi1">
         </sac-inputinteger>
+
+        <sac-inputinteger
+            name="fieldi1floating"
+            labelMode="floating"
+            label="Integer 1 (Integer)"
+            [(ngModel)]="values.fieldi1">
+        </sac-inputinteger>
+
         <sac-inputinteger
             name="fieldi2"
             label="Integer 2 (Integer with Negativ)"
@@ -172,6 +276,19 @@
             [maxvalue]="20"
             helptext="Dies ist ein Helptext">
         </sac-inputinteger>
+
+        <sac-inputinteger
+            name="fieldi3floating"
+            labelMode="floating"
+            label="Integer 3 (Integer with Negativ (10-20))"
+            [(ngModel)]="values.fieldi3"
+            [allownegativ]="true"
+            isrequired="true"
+            [minvalue]="10"
+            [maxvalue]="20"
+            helptext="Dies ist ein Helptext">
+        </sac-inputinteger>
+
         <sac-inputinteger
             name="fieldi4"
             label="Integer 1 (Integer)"
@@ -180,6 +297,17 @@
             helptext="Dies ist ein Helptext"
             helptextmode="tooltip">
         </sac-inputinteger>
+
+        <sac-inputinteger
+            name="fieldi4floating"
+            labelMode="floating"
+            label="Integer 1 (Integer)"
+            [(ngModel)]="values.fieldi1"
+            disabled="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputinteger>
+
         <sac-inputinteger
             name="fieldi4b"
             label="Integer 1 (Integer)"
@@ -194,12 +322,21 @@
             label="Preis"
             [(ngModel)]="values.fieldcurrency1">
         </sac-inputcurrency>
+
+        <sac-inputcurrency
+            name="fieldcurrency1floating"
+            labelMode="floating"
+            label="Preis"
+            [(ngModel)]="values.fieldcurrency1">
+        </sac-inputcurrency>
+
         <sac-inputcurrency
             name="fieldcurrency2"
             label="Preis"
             [(ngModel)]="values.fieldcurrency2"
             disabled="true">
         </sac-inputcurrency>
+
         <sac-inputcurrency
             name="fieldcurrency3"
             label="Preis (Required)"
@@ -208,6 +345,17 @@
             validationmessagerequired="Please enter a valid price"
             helptext="Dies ist ein Helptext">
         </sac-inputcurrency>
+
+        <sac-inputcurrency
+            name="fieldcurrency3floating"
+            labelMode="floating"
+            label="Preis (Required)"
+            [(ngModel)]="values.fieldcurrency3"
+            [isrequired]="true"
+            validationmessagerequired="Please enter a valid price"
+            helptext="Dies ist ein Helptext">
+        </sac-inputcurrency>
+
         <sac-inputcurrency
             name="fieldcurrency4"
             label="Preis"
@@ -217,6 +365,18 @@
             helptext="Dies ist ein Helptext"
             helptextmode="tooltip">
         </sac-inputcurrency>
+
+        <sac-inputcurrency
+            name="fieldcurrency4floating"
+            labelMode="floating"
+            label="Preis"
+            [(ngModel)]="values.fieldcurrency4"
+            currency="$"
+            disabled="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputcurrency>
+
         <sac-inputcurrency
             name="fieldcurrency4b"
             label="Preis"
@@ -233,6 +393,14 @@
             label="E-Mail 1"
             [(ngModel)]="values.fieldemail1">
         </sac-inputemail>
+
+        <sac-inputemail
+            name="fieldemail1floating"
+            labelMode="floating"
+            label="E-Mail 1"
+            [(ngModel)]="values.fieldemail1">
+        </sac-inputemail>
+
         <sac-inputemail
             name="fieldemail2"
             label="E-Mail 2 (Max 10)"
@@ -240,6 +408,16 @@
             [maxtextlength]="10"
             helptext="Dies ist ein Helptext">
         </sac-inputemail>
+
+        <sac-inputemail
+            name="fieldemail2floating"
+            labelMode="floating"
+            label="E-Mail 2 (Max 10)"
+            [(ngModel)]="values.fieldemail2"
+            [maxtextlength]="10"
+            helptext="Dies ist ein Helptext">
+        </sac-inputemail>
+
         <sac-inputemail
             name="fieldemail3"
             label="E-Mail 3"
@@ -248,6 +426,17 @@
             helptext="Dies ist ein Helptext"
             helptextmode="tooltip">
         </sac-inputemail>
+
+        <sac-inputemail
+            name="fieldemail3floating"
+            labelMode="floating"
+            label="E-Mail 3"
+            [(ngModel)]="values.fieldemail3"
+            disabled="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputemail>
+
         <sac-inputemail
             name="fieldemail3"
             label="E-Mail 3"
@@ -262,6 +451,14 @@
             label="Passwort 1"
             [(ngModel)]="values.fieldpassword1">
         </sac-inputpassword>
+
+        <sac-inputpassword
+            name="fieldpassword1floating"
+            labelMode="floating"
+            label="Passwort 1"
+            [(ngModel)]="values.fieldpassword1">
+        </sac-inputpassword>
+
         <sac-inputpassword
             name="fieldpassword2"
             label="Passwort 2"
@@ -275,6 +472,17 @@
             helptext="Dies ist ein Helptext"
             helptextmode="tooltip">
         </sac-inputpassword>
+
+        <sac-inputpassword
+            name="fieldpassword3floating"
+            labelMode="floating"
+            label="Passwort 3 (Max 10)"
+            [(ngModel)]="values.fieldpassword3"
+            [maxtextlength]="10"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputpassword>
+
         <sac-inputpassword
             name="fieldpassword3b"
             label="Passwort 3 (Max 10)"
@@ -294,6 +502,7 @@
             helptext="Dies ist ein Helptext"
             helptextmode="tooltip">
         </sac-inputpassword>
+
         <sac-inputpassword
             name="fieldpassword4"
             label="Passwort 4"
@@ -301,6 +510,16 @@
             disabled="disabled"
             helptext="Dies ist ein Helptext">
         </sac-inputpassword>
+
+        <sac-inputpassword
+            name="fieldpassword4floating"
+            labelMode="floating"
+            label="Passwort 4"
+            [(ngModel)]="values.fieldpassword4"
+            disabled="disabled"
+            helptext="Dies ist ein Helptext">
+        </sac-inputpassword>
+
         <sac-inputpassword
             name="fieldpassword5"
             label="Passwort 5"
@@ -331,6 +550,14 @@
             label="Area 1"
             [(ngModel)]="values.fieldarea1">
         </sac-inputarea>
+
+        <sac-inputarea
+            name="fieldarea1floating"
+            labelMode="floating"
+            label="Area 1"
+            [(ngModel)]="values.fieldarea1">
+        </sac-inputarea>
+
         <sac-inputarea
             name="fieldarea2"
             label="Area 2"
@@ -338,6 +565,7 @@
             isrequired="true"
             rows="10">
         </sac-inputarea>
+
         <sac-inputarea
             name="fieldarea3"
             label="Area 3 (Max 50)"
@@ -345,6 +573,16 @@
             maxtextlength="50"
             helptext="Dies ist ein Helptext">
         </sac-inputarea>
+
+        <sac-inputarea
+            name="fieldarea3floating"
+            labelMode="floating"
+            label="Area 3 (Max 50)"
+            [(ngModel)]="values.fieldarea3"
+            maxtextlength="50"
+            helptext="Dies ist ein Helptext">
+        </sac-inputarea>
+
         <sac-inputarea
             name="fieldarea4"
             label="Area 4"
@@ -353,6 +591,17 @@
             helptext="Dies ist ein Helptext"
             helptextmode="tooltip">
         </sac-inputarea>
+
+        <sac-inputarea
+            name="fieldarea4floating"
+            labelMode="floating"
+            label="Area 4"
+            [(ngModel)]="values.fieldarea4"
+            disabled="true"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-inputarea>
+
         <sac-inputarea
             name="fieldarea4b"
             label="Area 4"

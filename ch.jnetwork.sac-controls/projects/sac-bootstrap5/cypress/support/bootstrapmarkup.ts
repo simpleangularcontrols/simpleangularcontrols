@@ -1,6 +1,7 @@
 declare namespace Cypress {
     interface Chainable {
         shouldBeInvalid(tagName?: string): Chainable;
+        shouldHaveFloatingClass(tagName?: string): Chainable;
         shouldBeValid(tagName?: string): Chainable;
         shouldHaveLabel(label: string): Chainable;
         shouldNotHaveLabel(): Chainable;
@@ -12,6 +13,10 @@ declare namespace Cypress {
 
 Cypress.Commands.add('shouldNotHaveLabel', () => {
     cy.get('label').should('have.class', 'visually-hidden');
+});
+
+Cypress.Commands.add('shouldHaveFloatingClass', (tagName: string = '.form-control') => {
+    cy.get(tagName).parent().should('have.class', 'form-floating');
 });
 
 Cypress.Commands.add('shouldHaveLabel', (label: string) => {

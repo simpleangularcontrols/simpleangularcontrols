@@ -19,7 +19,7 @@ describe('NgInputComponent', () => {
                     value: 'My Text',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -39,7 +39,7 @@ describe('NgInputComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -66,7 +66,7 @@ describe('NgInputComponent', () => {
                     value: 'My Value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldNotHaveLabel();
@@ -86,7 +86,7 @@ describe('NgInputComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHavePlaceholder('My Placeholder');
@@ -105,7 +105,7 @@ describe('NgInputComponent', () => {
                     value: 'MyValue',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldBeReadonly();
@@ -124,7 +124,7 @@ describe('NgInputComponent', () => {
                     value: 'MyValue',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldBeDisabled();
@@ -143,7 +143,7 @@ describe('NgInputComponent', () => {
                     value: 'first value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.get('input').should('have.value', 'first value');
@@ -165,7 +165,7 @@ describe('NgInputComponent', () => {
                     value: 'first value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.get('input').clear().type('12345678');
@@ -186,7 +186,7 @@ describe('NgInputComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.get('input').type('abcde');
@@ -213,7 +213,7 @@ describe('NgInputComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-input > div', 'myControl');
@@ -236,7 +236,7 @@ describe('NgInputComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-input > div', 'myTestidentifier');
@@ -259,7 +259,7 @@ describe('NgInputComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-input > div', 'myTestidentifier');
@@ -274,9 +274,99 @@ describe('NgInputComponent', () => {
             {
                 imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap5LayoutModule],
                 componentProperties: {},
-            }
+            },
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-input > div');
+    });
+
+    it('should have floating label with config service', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            LabelMode: 'floating',
+                        },
+                    },
+                ],
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('input').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with layout directive', () => {
+        cy.mount(
+            `<form sacFormLayout labelMode="floating">
+                <sac-input name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('input').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with component property', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [label]="label" labelMode="floating" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('input').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with component property', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [label]="label" labelMode="floating" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'This is a value',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            },
+        );
+
+        cy.get('input').should('have.value', 'This is a value');
     });
 });

@@ -42,6 +42,7 @@ export class SacFormLayoutCommon {
      * Options are 'standard' and 'floating'
      * Floating labels are only supported in Bootstrap 5
      */
+    @Input()
     public labelMode: 'standard' | 'floating' | null = null;
 
     /**

@@ -18,7 +18,24 @@
     </sac-dropdown>
 
     <sac-dropdown
+        name="dropdown1afloating"
+        labelMode="floating"
+        label="Dropdown 1"
+        [(ngModel)]="values.dropdown1"
+        [options]="values.dropdownitems">
+    </sac-dropdown>
+
+    <sac-dropdown
         name="dropdown1b"
+        label="Dropdown 1"
+        [(ngModel)]="values.dropdown1"
+        [options]="values.dropdownitems"
+        helptext="Dies ist ein Helptext">
+    </sac-dropdown>
+
+    <sac-dropdown
+        name="dropdown1bfloating"
+        labelMode="floating"
         label="Dropdown 1"
         [(ngModel)]="values.dropdown1"
         [options]="values.dropdownitems"
@@ -33,6 +50,17 @@
         helptext="Dies ist ein Helptext"
         helptextmode="tooltip">
     </sac-dropdown>
+
+    <sac-dropdown
+        name="dropdown1cfloating"
+        labelMode="floating"
+        label="Dropdown 1"
+        [(ngModel)]="values.dropdown1"
+        [options]="values.dropdownitems"
+        helptext="Dies ist ein Helptext"
+        helptextmode="tooltip">
+    </sac-dropdown>
+
     <sac-dropdown
         name="dropdown1d"
         label="Dropdown 1"

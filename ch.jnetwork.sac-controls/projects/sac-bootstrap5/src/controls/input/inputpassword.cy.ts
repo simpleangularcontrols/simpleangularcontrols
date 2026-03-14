@@ -19,7 +19,7 @@ describe('ngInputPasswordComponent', () => {
                     value: 'My Text',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -39,7 +39,7 @@ describe('ngInputPasswordComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -66,7 +66,7 @@ describe('ngInputPasswordComponent', () => {
                     value: 'My Value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldNotHaveLabel();
@@ -86,7 +86,7 @@ describe('ngInputPasswordComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHavePlaceholder('My Placeholder');
@@ -105,7 +105,7 @@ describe('ngInputPasswordComponent', () => {
                     value: 'MyValue',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldBeReadonly();
@@ -124,7 +124,7 @@ describe('ngInputPasswordComponent', () => {
                     value: 'MyValue',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldBeDisabled();
@@ -143,7 +143,7 @@ describe('ngInputPasswordComponent', () => {
                     value: 'first value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.get('input').should('have.value', 'first value');
@@ -165,7 +165,7 @@ describe('ngInputPasswordComponent', () => {
                     value: 'first value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.get('input').clear().type('12345678');
@@ -186,7 +186,7 @@ describe('ngInputPasswordComponent', () => {
                     value: 'first value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.get('input').clear().type('12345');
@@ -215,10 +215,10 @@ describe('ngInputPasswordComponent', () => {
                     value: 'My Value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
-        cy.get('input').parent().get('a').should('not.exist');
+        cy.get('input').parent().get('button').should('not.exist');
         cy.get('input').parent().get('.btn').should('not.exist');
     });
 
@@ -235,19 +235,19 @@ describe('ngInputPasswordComponent', () => {
                     value: 'My Value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
-        cy.get('input').parent().get('a').should('exist');
+        cy.get('input').parent().get('button').should('exist');
         cy.get('input').parent().get('.btn').should('exist');
     });
 
     it('password eye enabled should show password', () => {
         cy.mount(
             `<form>
-      <sac-inputpassword name="field" [label]="label" [passwordeye]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-      </sac-inputpassword>
-      </form>`,
+                <sac-inputpassword name="field" [label]="label" [passwordeye]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-inputpassword>
+            </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacInputPasswordComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
@@ -255,17 +255,17 @@ describe('ngInputPasswordComponent', () => {
                     value: 'My Value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.get('input').should('have.attr', 'type', 'password');
-        cy.get('input').parent().get('a').should('exist');
+        cy.get('input').parent().get('button').should('exist');
         cy.get('input').parent().get('.btn').should('exist');
 
-        cy.get('input').parent().get('a').click();
+        cy.get('input').parent().get('button').click();
         cy.get('input').should('have.attr', 'type', 'text');
 
-        cy.get('input').parent().get('a').click();
+        cy.get('input').parent().get('button').click();
         cy.get('input').should('have.attr', 'type', 'password');
     });
 
@@ -288,7 +288,7 @@ describe('ngInputPasswordComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputpassword > div', 'myControl');
@@ -311,7 +311,7 @@ describe('ngInputPasswordComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputpassword > div', 'myTestidentifier');
@@ -334,7 +334,7 @@ describe('ngInputPasswordComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputpassword > div', 'myTestidentifier');
@@ -343,15 +343,105 @@ describe('ngInputPasswordComponent', () => {
     it('should not has e2 testkey with name', () => {
         cy.mount(
             `<form>
-                    <sac-inputpassword label="my Label">
-                    </sac-inputpassword>
-                </form>`,
+                <sac-inputpassword label="my Label">
+                </sac-inputpassword>
+            </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacInputPasswordComponent, SACBootstrap5LayoutModule],
                 componentProperties: {},
-            }
+            },
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-inputpassword > div');
+    });
+
+    it('should have floating label with config service', () => {
+        cy.mount(
+            `<form>
+                <sac-inputpassword name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-inputpassword>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputPasswordComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            LabelMode: 'floating',
+                        },
+                    },
+                ],
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('input').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with layout directive', () => {
+        cy.mount(
+            `<form sacFormLayout labelMode="floating">
+                <sac-inputpassword name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-inputpassword>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputPasswordComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('input').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with component property', () => {
+        cy.mount(
+            `<form>
+                <sac-inputpassword name="field" [label]="label" labelMode="floating" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-inputpassword>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputPasswordComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('input').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with component property', () => {
+        cy.mount(
+            `<form>
+                <sac-inputpassword name="field" [label]="label" labelMode="floating" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-inputpassword>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputPasswordComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'This is a value',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            },
+        );
+
+        cy.get('input').should('have.value', 'This is a value');
     });
 });

@@ -6,7 +6,7 @@ import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 import { SacTooltipComponent } from '../tooltip/tooltip';
 import { SacDateSelectorComponent } from './dateselector';
 // Import Moment.JS
-import { AsyncPipe, NgClass, NgIf } from '@angular/common';
+import { AsyncPipe, NgClass, NgIf, NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectorRef, Component, ElementRef, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacDateCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
@@ -56,6 +56,7 @@ const moment = moment_['default'];
         SacToControlHeightPipe,
         SacTooltipComponent,
         SacTestingAttributePipe,
+        NgTemplateOutlet,
     ],
 })
 export class SacDateComponent extends SacDateCommon {

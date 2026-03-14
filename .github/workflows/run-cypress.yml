@@ -49,23 +49,62 @@ jobs:
       - name: Add comment to PR # Only applicable if 'MarkdownSummaryGithub' or one of the other Markdown report types is generated
         if: github.event_name == 'pull_request'
         run: |
-          echo "# Bootstrap 3 Summary" >> ch.jnetwork.sac-controls/reports/prcomment.md
-          echo "" >> ch.jnetwork.sac-controls/reports/prcomment.md
-          cat ch.jnetwork.sac-controls/reports/bs3.md  >> ch.jnetwork.sac-controls/reports/prcomment.md
-          echo "" >> ch.jnetwork.sac-controls/reports/prcomment.md
-          cat ch.jnetwork.sac-controls/reports/coverage-bootstrap3/SummaryGithub.md  >> ch.jnetwork.sac-controls/reports/prcomment.md
-          echo "" >> ch.jnetwork.sac-controls/reports/prcomment.md
-          echo "# Bootstrap 4 Summary" >> ch.jnetwork.sac-controls/reports/prcomment.md
-          echo "" >> ch.jnetwork.sac-controls/reports/prcomment.md
-          cat ch.jnetwork.sac-controls/reports/bs4.md  >> ch.jnetwork.sac-controls/reports/prcomment.md
-          echo "" >> ch.jnetwork.sac-controls/reports/prcomment.md
-          cat ch.jnetwork.sac-controls/reports/coverage-bootstrap4/SummaryGithub.md  >> ch.jnetwork.sac-controls/reports/prcomment.md
-          echo "# Bootstrap 5 Summary" >> ch.jnetwork.sac-controls/reports/prcomment.md
-          echo "" >> ch.jnetwork.sac-controls/reports/prcomment.md
-          cat ch.jnetwork.sac-controls/reports/bs5.md  >> ch.jnetwork.sac-controls/reports/prcomment.md
-          echo "" >> ch.jnetwork.sac-controls/reports/prcomment.md
-          cat ch.jnetwork.sac-controls/reports/coverage-bootstrap5/SummaryGithub.md  >> ch.jnetwork.sac-controls/reports/prcomment.md
-          gh pr comment $PR_NUMBER --edit-last --create-if-none --body-file ch.jnetwork.sac-controls/reports/prcomment.md # Adjust path and filename if necessary
+          echo "# Bootstrap 3 Summary" >> ch.jnetwork.sac-controls/reports/prcomment-bs3.md
+          echo "" >> ch.jnetwork.sac-controls/reports/prcomment-bs3.md
+          cat ch.jnetwork.sac-controls/reports/bs3.md  >> ch.jnetwork.sac-controls/reports/prcomment-bs3.md
+          echo "" >> ch.jnetwork.sac-controls/reports/prcomment-bs3.md
+          cat ch.jnetwork.sac-controls/reports/coverage-bootstrap3/SummaryGithub.md  >> ch.jnetwork.sac-controls/reports/prcomment-bs3.md
+          echo "" >> ch.jnetwork.sac-controls/reports/prcomment-bs3.md
+
+          echo "# Bootstrap 4 Summary" >> ch.jnetwork.sac-controls/reports/prcomment-bs4.md
+          echo "" >> ch.jnetwork.sac-controls/reports/prcomment-bs4.md
+          cat ch.jnetwork.sac-controls/reports/bs4.md  >> ch.jnetwork.sac-controls/reports/prcomment-bs4.md
+          echo "" >> ch.jnetwork.sac-controls/reports/prcomment-bs4.md
+          cat ch.jnetwork.sac-controls/reports/coverage-bootstrap4/SummaryGithub.md  >> ch.jnetwork.sac-controls/reports/prcomment-bs4.md
+
+          echo "# Bootstrap 5 Summary" >> ch.jnetwork.sac-controls/reports/prcomment-bs5.md
+          echo "" >> ch.jnetwork.sac-controls/reports/prcomment-bs5.md
+          cat ch.jnetwork.sac-controls/reports/bs5.md  >> ch.jnetwork.sac-controls/reports/prcomment-bs5.md
+          echo "" >> ch.jnetwork.sac-controls/reports/prcomment-bs5.md
+          cat ch.jnetwork.sac-controls/reports/coverage-bootstrap5/SummaryGithub.md  >> ch.jnetwork.sac-controls/reports/prcomment-bs5.md
+
+      - name: Post Sticky PR Comments
+        if: github.event_name == 'pull_request'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ github.event.number }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+
+          pr_number=${{ github.event.pull_request.number }}
+
+          function post_or_update_comment() {
+            local header=$1
+            local file_path=$2
+
+            # Insert a marker at the beginning
+            sed -i "1i <!-- HEADER: $header -->" $file_path
+
+            # Check whether a comment with this header already exists
+            comment_id=$(gh api \
+              -H "Accept: application/vnd.github+json" \
+              /repos/${{ github.repository }}/issues/$pr_number/comments \
+              | jq -r ".[] | select(.body | startswith(\"<!-- HEADER: $header -->\")) | .id")
+
+            if [ -n "$comment_id" ]; then
+              # Update comment
+              gh api \
+                -X PATCH \
+                -H "Accept: application/vnd.github+json" \
+                /repos/${{ github.repository }}/issues/comments/$comment_id \
+                -f body="$(cat $file_path)"
+              echo "Updated comment: $header"
+            else
+              # New comment
+              gh pr comment $pr_number --body-file $file_path
+              echo "Created new comment: $header"
+            fi
+          }
+
+          post_or_update_comment "sac-controls-report-bs3" ch.jnetwork.sac-controls/reports/prcomment-bs3.md
+          post_or_update_comment "sac-controls-report-bs4" ch.jnetwork.sac-controls/reports/prcomment-bs4.md
+          post_or_update_comment "sac-controls-report-bs5" ch.jnetwork.sac-controls/reports/prcomment-bs5.md

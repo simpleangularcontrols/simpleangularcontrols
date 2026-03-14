@@ -4,7 +4,7 @@ import { SacToControlWidthCssPipe } from '../layout/tocontrolwidthcss.pipe';
 import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 import { SacTooltipComponent } from '../tooltip/tooltip';
-import { NgClass, NgIf } from '@angular/common';
+import { NgClass, NgIf, NgTemplateOutlet } from '@angular/common';
 import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacInputSearchCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
@@ -32,6 +32,7 @@ import { SacInputSearchCommon, SacTestingAttributePipe } from '@simpleangularcon
     imports: [
         NgClass,
         NgIf,
+        NgTemplateOutlet,
         SacToControlWidthCssPipe,
         SacToLabelWidthCssPipe,
         SacToLabelHeightPipe,

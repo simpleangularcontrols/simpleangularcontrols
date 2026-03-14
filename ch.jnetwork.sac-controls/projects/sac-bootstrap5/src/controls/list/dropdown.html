@@ -1,8 +1,9 @@
 <div
-    [attr.data-e2e-key]="name | testingattribute : e2eidentifier"
+    [attr.data-e2e-key]="name | testingattribute: e2eidentifier"
     class="row mb-3"
-    [class.g-0]="disablelabel">
+    [class.g-0]="disablelabel || labelMode === 'floating'">
     <label
+        *ngIf="labelMode !== 'floating'"
         for="{{ name }}"
         class="col-12 col-form-label d-flex"
         [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'visually-hidden', componentHeight | toLabelHeight]"
@@ -25,8 +26,10 @@
     <div
         class="col-12"
         [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
-        [class.d-flex]="helptextmode === 'tooltip' && helptext && disablelabel">
-        <div [class.flex-grow-1]="helptextmode === 'tooltip' && helptext && disablelabel">
+        [class.d-flex]="helptextmode === 'tooltip' && helptext && (disablelabel || labelMode === 'floating')">
+        <div
+            [class.flex-grow-1]="helptextmode === 'tooltip' && helptext && (disablelabel || labelMode === 'floating')"
+            [class.form-floating]="labelMode === 'floating' && !disablelabel">
             <select
                 #dropdownitem
                 id="{{ name }}"
@@ -68,6 +71,18 @@
                     </optgroup>
                 </ng-container>
             </select>
+
+            <label
+                *ngIf="labelMode === 'floating' && !disablelabel"
+                for="{{ name }}"
+                [class.required]="isrequired">
+                <div
+                    class="text flex-grow-0"
+                    [class.flex-sm-grow-1]="splitlabelandhelptext"
+                    >{{ label }}</div
+                >
+            </label>
+
             <div
                 class="invalid-feedback"
                 *ngIf="isinlineerrorenabled && invalid && (dirty || touched)">
@@ -81,8 +96,8 @@
         </div>
 
         <div
-            *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
-            class="form-control-plaintext align-self-top ms-2 me-1 w-auto"
+            *ngIf="helptextmode === 'tooltip' && helptext && (disablelabel || labelMode === 'floating')"
+            class="form-control-plaintext align-self-center ms-2 me-1 w-auto"
             [ngClass]="[componentHeight | toControlHeight]">
             <sac-tooltip
                 [tooltiptext]="helptext"

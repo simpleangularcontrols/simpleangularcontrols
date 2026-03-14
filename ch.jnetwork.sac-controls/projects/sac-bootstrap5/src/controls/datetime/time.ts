@@ -5,7 +5,7 @@ import { SacToLabelHeightPipe } from '../layout/tolabelheight.pipe';
 import { SacToLabelWidthCssPipe } from '../layout/tolabelwidthcss.pipe';
 import { SacTooltipComponent } from '../tooltip/tooltip';
 import { SacDateSelectorComponent } from './dateselector';
-import { AsyncPipe, NgClass, NgIf } from '@angular/common';
+import { AsyncPipe, NgClass, NgIf, NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectorRef, Component, ElementRef, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacTestingAttributePipe, SacTimeCommon } from '@simpleangularcontrols/sac-common';
@@ -43,6 +43,7 @@ import { IMaskDirective } from 'angular-imask';
         SacToControlHeightPipe,
         SacTooltipComponent,
         SacTestingAttributePipe,
+        NgTemplateOutlet,
     ],
 })
 export class SacTimeComponent extends SacTimeCommon {

@@ -53,7 +53,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -108,7 +108,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.get('textarea').should('have.value', 'German Text');
@@ -166,7 +166,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.get('textarea').should('have.value', 'German Text');
@@ -222,7 +222,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -276,7 +276,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -330,7 +330,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -384,7 +384,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -441,7 +441,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-multilanguageinputarea > div', 'myControl');
@@ -496,7 +496,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-multilanguageinputarea > div', 'myTestidentifier');
@@ -551,7 +551,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-multilanguageinputarea > div', 'myTestidentifier');
@@ -600,9 +600,237 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-multilanguageinputarea > div');
+    });
+
+    it('should have floating label with config service', () => {
+        cy.intercept('GET', 'icons/de.png', {
+            fixture: 'de.png',
+        }).as('getIconDe');
+
+        cy.intercept('GET', 'icons/en.png', {
+            fixture: 'en.png',
+        }).as('getIconEn');
+
+        cy.intercept('GET', 'icons/fr.png', {
+            fixture: 'fr.png',
+        }).as('getIconEn');
+
+        cy.mount(
+            `<form>
+                <sac-multilanguageinputarea name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-multilanguageinputarea>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacMultilanguageInputAreaComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: { de: '', en: 'English Text' },
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            LabelMode: 'floating',
+                        },
+                    },
+                    {
+                        provide: SACLANGUAGE_SERVICE,
+                        useValue: {
+                            GetLanguages() {
+                                return of([
+                                    {
+                                        IsoCode: 'de',
+                                        Text: 'Deutsch',
+                                        Icon: '/icons/de.png',
+                                        IconType: IconType.Image,
+                                    },
+                                    {
+                                        IsoCode: 'en',
+                                        Text: 'English',
+                                        Icon: '/icons/en.png',
+                                        IconType: IconType.Image,
+                                    },
+                                ]);
+                            },
+                        },
+                    },
+                ],
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('textarea').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with layout directive', () => {
+        cy.intercept('GET', 'icons/de.png', {
+            fixture: 'de.png',
+        }).as('getIconDe');
+
+        cy.intercept('GET', 'icons/en.png', {
+            fixture: 'en.png',
+        }).as('getIconEn');
+
+        cy.intercept('GET', 'icons/fr.png', {
+            fixture: 'fr.png',
+        }).as('getIconEn');
+
+        cy.mount(
+            `<form sacFormLayout labelMode="floating">
+                <sac-multilanguageinputarea name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-multilanguageinputarea>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacMultilanguageInputAreaComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: { de: '', en: 'English Text' },
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+                providers: [
+                    {
+                        provide: SACLANGUAGE_SERVICE,
+                        useValue: {
+                            GetLanguages() {
+                                return of([
+                                    {
+                                        IsoCode: 'de',
+                                        Text: 'Deutsch',
+                                        Icon: '/icons/de.png',
+                                        IconType: IconType.Image,
+                                    },
+                                    {
+                                        IsoCode: 'en',
+                                        Text: 'English',
+                                        Icon: '/icons/en.png',
+                                        IconType: IconType.Image,
+                                    },
+                                ]);
+                            },
+                        },
+                    },
+                ],
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('textarea').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with component property', () => {
+        cy.intercept('GET', 'icons/de.png', {
+            fixture: 'de.png',
+        }).as('getIconDe');
+
+        cy.intercept('GET', 'icons/en.png', {
+            fixture: 'en.png',
+        }).as('getIconEn');
+
+        cy.intercept('GET', 'icons/fr.png', {
+            fixture: 'fr.png',
+        }).as('getIconEn');
+
+        cy.mount(
+            `<form>
+                <sac-multilanguageinputarea name="field" [label]="label" labelMode="floating" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-multilanguageinputarea>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacMultilanguageInputAreaComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: { de: '', en: 'English Text' },
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+                providers: [
+                    {
+                        provide: SACLANGUAGE_SERVICE,
+                        useValue: {
+                            GetLanguages() {
+                                return of([
+                                    {
+                                        IsoCode: 'de',
+                                        Text: 'Deutsch',
+                                        Icon: '/icons/de.png',
+                                        IconType: IconType.Image,
+                                    },
+                                    {
+                                        IsoCode: 'en',
+                                        Text: 'English',
+                                        Icon: '/icons/en.png',
+                                        IconType: IconType.Image,
+                                    },
+                                ]);
+                            },
+                        },
+                    },
+                ],
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('textarea').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with component property', () => {
+        cy.intercept('GET', 'icons/de.png', {
+            fixture: 'de.png',
+        }).as('getIconDe');
+
+        cy.intercept('GET', 'icons/en.png', {
+            fixture: 'en.png',
+        }).as('getIconEn');
+
+        cy.intercept('GET', 'icons/fr.png', {
+            fixture: 'fr.png',
+        }).as('getIconEn');
+
+        cy.mount(
+            `<form>
+                <sac-multilanguageinputarea name="field" [label]="label" labelMode="floating" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-multilanguageinputarea>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacMultilanguageInputAreaComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: { de: 'This is a value', en: 'English Text' },
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+                providers: [
+                    {
+                        provide: SACLANGUAGE_SERVICE,
+                        useValue: {
+                            GetLanguages() {
+                                return of([
+                                    {
+                                        IsoCode: 'de',
+                                        Text: 'Deutsch',
+                                        Icon: '/icons/de.png',
+                                        IconType: IconType.Image,
+                                    },
+                                    {
+                                        IsoCode: 'en',
+                                        Text: 'English',
+                                        Icon: '/icons/en.png',
+                                        IconType: IconType.Image,
+                                    },
+                                ]);
+                            },
+                        },
+                    },
+                ],
+            },
+        );
+
+        cy.get('textarea').should('have.value', 'This is a value');
     });
 });

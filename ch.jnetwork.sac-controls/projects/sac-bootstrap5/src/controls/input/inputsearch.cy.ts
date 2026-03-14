@@ -20,7 +20,7 @@ describe('SacInputSearchComponent', () => {
                     valueChange: createOutputSpy('valueChange'),
                     searchAction: createOutputSpy('searchAction'),
                 },
-            }
+            },
         );
 
         cy.get('button').click();
@@ -41,7 +41,7 @@ describe('SacInputSearchComponent', () => {
                     valueChange: createOutputSpy('valueChange'),
                     searchAction: createOutputSpy('searchAction'),
                 },
-            }
+            },
         );
 
         cy.get('input').clear().type('New search String');
@@ -62,7 +62,7 @@ describe('SacInputSearchComponent', () => {
                     valueChange: createOutputSpy('valueChange'),
                     searchAction: createOutputSpy('searchAction'),
                 },
-            }
+            },
         );
 
         cy.get('input').should('have.value', 'Search Value');
@@ -84,7 +84,7 @@ describe('SacInputSearchComponent', () => {
                     valueChange: createOutputSpy('valueChange'),
                     searchAction: createOutputSpy('searchAction'),
                 },
-            }
+            },
         );
 
         cy.get('input').should('have.value', 'Search Value');
@@ -106,7 +106,7 @@ describe('SacInputSearchComponent', () => {
                     valueChange: createOutputSpy('valueChange'),
                     searchAction: createOutputSpy('searchAction'),
                 },
-            }
+            },
         );
 
         cy.get('input').should('have.value', 'Search Value');
@@ -128,7 +128,7 @@ describe('SacInputSearchComponent', () => {
                     valueChange: createOutputSpy('valueChange'),
                     searchAction: createOutputSpy('searchAction'),
                 },
-            }
+            },
         );
 
         cy.get('input').should('have.value', 'Search Value');
@@ -150,7 +150,7 @@ describe('SacInputSearchComponent', () => {
                     valueChange: createOutputSpy('valueChange'),
                     searchAction: createOutputSpy('searchAction'),
                 },
-            }
+            },
         );
 
         cy.get('input').should('have.value', 'Search Value');
@@ -182,7 +182,7 @@ describe('SacInputSearchComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.get('input').should('have.value', 'Search Value');
@@ -208,7 +208,7 @@ describe('SacInputSearchComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputsearch > div', 'myControl');
@@ -232,7 +232,7 @@ describe('SacInputSearchComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputsearch > div', 'myTestidentifier');
@@ -256,7 +256,7 @@ describe('SacInputSearchComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputsearch > div', 'myTestidentifier');
@@ -271,9 +271,99 @@ describe('SacInputSearchComponent', () => {
             {
                 imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
                 componentProperties: {},
-            }
+            },
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-inputsearch > div');
+    });
+
+    it('should have floating label with config service', () => {
+        cy.mount(
+            `<form>
+                <sac-inputsearch name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)" buttontext="Search">
+                </sac-inputsearch>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            LabelMode: 'floating',
+                        },
+                    },
+                ],
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('input').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with layout directive', () => {
+        cy.mount(
+            `<form sacFormLayout labelMode="floating">
+                <sac-inputsearch name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)" buttontext="Search">
+                </sac-inputsearch>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('input').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with component property', () => {
+        cy.mount(
+            `<form>
+                <sac-inputsearch name="field" [label]="label" labelMode="floating" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)" buttontext="Search">
+                </sac-inputsearch>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('input').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with component property', () => {
+        cy.mount(
+            `<form>
+                <sac-inputsearch name="field" [label]="label" labelMode="floating" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)" buttontext="Search">
+                </sac-inputsearch>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'This is a value',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            },
+        );
+
+        cy.get('input').should('have.value', 'This is a value');
     });
 });

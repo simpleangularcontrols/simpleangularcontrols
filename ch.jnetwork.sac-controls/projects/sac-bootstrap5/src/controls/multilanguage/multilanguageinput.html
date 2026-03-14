@@ -1,8 +1,9 @@
 <div
-    [attr.data-e2e-key]="name | testingattribute : e2eidentifier"
+    [attr.data-e2e-key]="name | testingattribute: e2eidentifier"
     class="row mb-3"
     [class.g-0]="disablelabel">
     <label
+        *ngIf="labelMode !== 'floating'"
         for="{{ name }}"
         class="col-12 col-form-label d-flex"
         [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : 'visually-hidden', componentHeight | toLabelHeight]"
@@ -25,8 +26,8 @@
     <div
         class="col-12"
         [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : '']"
-        [class.d-flex]="helptextmode === 'tooltip' && helptext && disablelabel">
-        <div [class.flex-grow-1]="helptextmode === 'tooltip' && helptext && disablelabel">
+        [class.d-flex]="helptextmode === 'tooltip' && helptext && (disablelabel || labelMode === 'floating')">
+        <div [class.flex-grow-1]="helptextmode === 'tooltip' && helptext && (disablelabel || labelMode === 'floating')">
             <div
                 class="input-group"
                 [class.input-group-sm]="componentHeight === ControlHeight.Small"
@@ -39,19 +40,7 @@
                 [validationtemplate]="validationMessage"
                 #contextmenu>
                 <ng-template #menuInput>
-                    <input
-                        id="{{ name }}"
-                        name="{{ name }}"
-                        type="text"
-                        class="form-control"
-                        [value]="LanguageValue"
-                        [attr.placeholder]="placeholder"
-                        (blur)="onTouch()"
-                        (input)="SetLanguageValue($event.target.value)"
-                        [attr.maxlength]="maxtextlength"
-                        [class.is-invalid]="invalid && (dirty || touched)"
-                        [ngClass]="[componentHeight | toControlHeight]"
-                        [disabled]="isdisabled" />
+                    <ng-container *ngIf="labelMode === 'floating' && !disablelabel; then floatingWrapper; else inputBlock"></ng-container>
                 </ng-template>
 
                 <ng-template #menuButton>
@@ -104,8 +93,8 @@
         </div>
 
         <div
-            *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
-            class="form-control-plaintext align-self-top ms-2 me-1 w-auto"
+            *ngIf="helptextmode === 'tooltip' && helptext && (disablelabel || labelMode === 'floating')"
+            class="form-control-plaintext align-self-center ms-2 me-1 w-auto"
             [ngClass]="[componentHeight | toControlHeight]">
             <sac-tooltip
                 [tooltiptext]="helptext"
@@ -121,3 +110,37 @@
 <div class="row">
     <div class="col text-right"></div>
 </div>
+<ng-template #floatingWrapper>
+    <div
+        *ngIf="labelMode === 'floating'"
+        class="form-floating">
+        <ng-container *ngTemplateOutlet="inputBlock"></ng-container>
+    </div>
+</ng-template>
+
+<ng-template #inputBlock>
+    <input
+        id="{{ name }}"
+        name="{{ name }}"
+        type="text"
+        class="form-control"
+        [value]="LanguageValue"
+        [attr.placeholder]="placeholder || (labelMode === 'floating' && !disablelabel ? label : null)"
+        (blur)="onTouch()"
+        (input)="SetLanguageValue($event.target.value)"
+        [attr.maxlength]="maxtextlength"
+        [class.is-invalid]="invalid && (dirty || touched)"
+        [ngClass]="[componentHeight | toControlHeight]"
+        [disabled]="isdisabled" />
+
+    <label
+        *ngIf="labelMode === 'floating' && !disablelabel"
+        for="{{ name }}"
+        [class.required]="isrequired">
+        <div
+            class="text flex-grow-0"
+            [class.flex-sm-grow-1]="splitlabelandhelptext"
+            >{{ label }}</div
+        >
+    </label>
+</ng-template>

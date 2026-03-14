@@ -48,7 +48,7 @@ export interface ISacConfigurationService {
      * Floating labels are only supported in Bootstrap 5
      * Default is 'standard'
      */
-    get LabelMode(): 'standard' | 'floating';
+    LabelMode: 'standard' | 'floating';
 
     /**
      * default labe size for large devices

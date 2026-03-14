@@ -20,7 +20,7 @@ describe('inputEmail', () => {
                     value: 'info@jnetwork.ch',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -41,7 +41,7 @@ describe('inputEmail', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -68,7 +68,7 @@ describe('inputEmail', () => {
                     value: 'My Value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldNotHaveLabel();
@@ -89,7 +89,7 @@ describe('inputEmail', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHavePlaceholder('My Placeholder');
@@ -109,7 +109,7 @@ describe('inputEmail', () => {
                     value: 'info@jnetwork.ch',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldBeReadonly();
@@ -129,7 +129,7 @@ describe('inputEmail', () => {
                     value: 'info@jnetwork.ch',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldBeDisabled();
@@ -149,7 +149,7 @@ describe('inputEmail', () => {
                     value: 'info@jnetwork.ch',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.get('input').should('have.value', 'info@jnetwork.ch');
@@ -172,7 +172,7 @@ describe('inputEmail', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -224,7 +224,7 @@ describe('inputEmail', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputemail > div', 'myControl');
@@ -248,7 +248,7 @@ describe('inputEmail', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputemail > div', 'myTestidentifier');
@@ -272,7 +272,7 @@ describe('inputEmail', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputemail > div', 'myTestidentifier');
@@ -288,9 +288,103 @@ describe('inputEmail', () => {
                 declarations: [SacFormDirective, SacInputEmailComponent],
                 imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {},
-            }
+            },
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-inputemail > div');
+    });
+
+    it('should have floating label with config service', () => {
+        cy.mount(
+            `<form>
+                <sac-inputemail name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-inputemail>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputEmailComponent],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            LabelMode: 'floating',
+                        },
+                    },
+                ],
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('input').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with layout directive', () => {
+        cy.mount(
+            `<form sacFormLayout labelMode="floating">
+                <sac-inputemail name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-inputemail>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputEmailComponent],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('input').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with component property', () => {
+        cy.mount(
+            `<form>
+                <sac-inputemail name="field" [label]="label" labelMode="floating" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-inputemail>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputEmailComponent],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('input').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with component property', () => {
+        cy.mount(
+            `<form>
+                <sac-inputemail name="field" [label]="label" labelMode="floating" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-inputemail>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputEmailComponent],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'This is a value',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            },
+        );
+
+        cy.get('input').should('have.value', 'This is a value');
     });
 });

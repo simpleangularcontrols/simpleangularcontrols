@@ -5,7 +5,7 @@
     [ngClass]="componentHeight | toLabelHeight"
     [attr.data-e2e-key]="name | testingattribute : e2eidentifier">
     <label
-        *ngIf="disablelabel === false && !isAdaptiveLabel"
+        *ngIf="disablelabel === false"
         id="{{ name }}label"
         for="{{ name }}_uploadinput"
         class="col-xs-12 control-label"

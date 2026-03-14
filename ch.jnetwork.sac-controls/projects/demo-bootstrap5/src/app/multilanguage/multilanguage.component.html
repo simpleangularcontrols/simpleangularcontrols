@@ -14,6 +14,14 @@
         [(ngModel)]="values.Model1"
         label="Input 1">
     </sac-multilanguageinput>
+
+    <sac-multilanguageinput
+        name="mlInput1floating"
+        [(ngModel)]="values.Model1"
+        labelMode="floating"
+        label="Input 1">
+    </sac-multilanguageinput>
+
     <sac-multilanguageinput
         name="mlInput2"
         [(ngModel)]="values.Model2"
@@ -21,6 +29,16 @@
         label="Input 2"
         helptext="Dies ist ein Helptext">
     </sac-multilanguageinput>
+
+    <sac-multilanguageinput
+        name="mlInput2floating"
+        [(ngModel)]="values.Model2"
+        [requiredany]="true"
+        labelMode="floating"
+        label="Input 2"
+        helptext="Dies ist ein Helptext">
+    </sac-multilanguageinput>
+
     <sac-multilanguageinput
         name="mlInput3"
         [(ngModel)]="values.Model3"
@@ -29,6 +47,17 @@
         helptext="Dies ist ein Helptext"
         helptextmode="tooltip">
     </sac-multilanguageinput>
+
+    <sac-multilanguageinput
+        name="mlInput3floating"
+        [(ngModel)]="values.Model3"
+        [isrequired]="true"
+        labelMode="floating"
+        label="Input 3"
+        helptext="Dies ist ein Helptext"
+        helptextmode="tooltip">
+    </sac-multilanguageinput>
+
     <sac-multilanguageinput
         name="mlInput3b"
         [(ngModel)]="values.Model3"
@@ -45,12 +74,22 @@
         label="Input 4"
         [disabled]="true">
     </sac-multilanguageinput>
+
     <sac-multilanguageinputarea
         name="mlInput5a"
         [(ngModel)]="values.Model5"
         [requiredany]="true"
         label="Area 5">
     </sac-multilanguageinputarea>
+
+    <sac-multilanguageinputarea
+        name="mlInput5afloating"
+        [(ngModel)]="values.Model5"
+        [requiredany]="true"
+        labelMode="floating"
+        label="Area 5">
+    </sac-multilanguageinputarea>
+
     <sac-multilanguageinputarea
         name="mlInput5b"
         [(ngModel)]="values.Model5"
@@ -58,6 +97,16 @@
         label="Area 5"
         helptext="Dies ist ein Helptext">
     </sac-multilanguageinputarea>
+
+    <sac-multilanguageinputarea
+        name="mlInput5bfloating"
+        [(ngModel)]="values.Model5"
+        [requiredany]="true"
+        labelMode="floating"
+        label="Area 5"
+        helptext="Dies ist ein Helptext">
+    </sac-multilanguageinputarea>
+
     <sac-multilanguageinputarea
         name="mlInput5c"
         [(ngModel)]="values.Model5"
@@ -66,6 +115,17 @@
         helptext="Dies ist ein Helptext"
         helptextmode="tooltip">
     </sac-multilanguageinputarea>
+
+    <sac-multilanguageinputarea
+        name="mlInput5cfloating"
+        [(ngModel)]="values.Model5"
+        [requiredany]="true"
+        labelMode="floating"
+        label="Area 5"
+        helptext="Dies ist ein Helptext"
+        helptextmode="tooltip">
+    </sac-multilanguageinputarea>
+
     <sac-multilanguageinputarea
         name="mlInput5d"
         [(ngModel)]="values.Model5"

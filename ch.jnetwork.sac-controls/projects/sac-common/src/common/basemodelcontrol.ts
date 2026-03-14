@@ -141,9 +141,10 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     @Input() public inlineError: boolean = true;
 
     /**
-     * defines that the labels are displayed as adaptive labels
+     * Label Mode 'standard' | 'floating' or null (null = use global configuration)
      */
-    @Input() public isAdaptiveLabel: boolean = false;
+    @Input()
+    public labelMode: 'standard' | 'floating' | null = null;
 
     /**
      * default labe size for large devices
@@ -217,12 +218,15 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
      * @param formlayout SacFormLayoutCommon to define scoped layout settings
      * @param injector Injector for injecting services
      */
-    constructor(@Host() formlayout: SacFormLayoutCommon, private readonly injector: Injector) {
+    constructor(
+        @Host() formlayout: SacFormLayoutCommon,
+        private readonly injector: Injector,
+    ) {
         this.formlayout = formlayout;
         this.validationKeyService = injector.get(SACVALIDATIONKEY_SERVICE, new SacDefaultValidationKeyService());
         this.lngResourceService = injector.get(
             SACLOCALISATION_SERVICE,
-            new SacDefaultLocalisationService(this.validationKeyService)
+            new SacDefaultLocalisationService(this.validationKeyService),
         );
 
         this.configurationService = injector.get(SACCONFIGURATION_SERVICE, new SacDefaultConfigurationService());
@@ -435,9 +439,6 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
         // set component heigth from fromlayout directive
         this.setComponentHeight();
 
-        // set adaptive label property from formlayout directive
-        this.setIsAdaptiveLabel();
-
         // set method to display helptext
         this.setHelpTextMode();
 
@@ -583,16 +584,23 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
         }
     }
 
-    /**
-     * Set adaptive label property from parent layout control
-     */
-    private setIsAdaptiveLabel() {
-        if (!this.isAdaptiveLabel) {
-            if (this.formlayout?.isAdaptiveLabel !== undefined) {
-                this.isAdaptiveLabel = this.formlayout.isAdaptiveLabel;
+    private setLabelMode(): void {
+        if (!this.labelMode) {
+            if (this.formlayout?.labelMode) {
+                this.labelMode = this.formlayout.labelMode;
             } else {
-                this.isAdaptiveLabel = false;
+                this.labelMode = this.configurationService.LabelMode;
             }
+        }
+
+        // floating labels need always full width
+        if (this.labelMode === 'floating') {
+            this.labelSizeXxl = 12;
+            this.labelSizeXl = 12;
+            this.labelSizeLg = 12;
+            this.labelSizeMd = 12;
+            this.labelSizeSm = 12;
+            this.labelSizeXs = 12;
         }
     }
 
@@ -600,6 +608,13 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
      * Set label sizes from property or parent layout control
      */
     private setLabelSizes() {
+        this.setLabelMode();
+
+        // floating labels need always full width
+        if (this.labelMode === 'floating') {
+            return;
+        }
+
         // set size extra small
         if (!this.labelSizeXs) {
             if (this.formlayout?.labelSizeXs) {

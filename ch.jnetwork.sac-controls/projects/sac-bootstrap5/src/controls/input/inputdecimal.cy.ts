@@ -20,7 +20,7 @@ describe('NgInputDecimalComponent', () => {
                     value: 1.33,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -41,7 +41,7 @@ describe('NgInputDecimalComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -69,7 +69,7 @@ describe('NgInputDecimalComponent', () => {
                     value: 1.45,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldNotHaveLabel();
@@ -90,7 +90,7 @@ describe('NgInputDecimalComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHavePlaceholder('My Placeholder');
@@ -110,7 +110,7 @@ describe('NgInputDecimalComponent', () => {
                     value: 1.45,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldBeReadonly();
@@ -130,7 +130,7 @@ describe('NgInputDecimalComponent', () => {
                     value: 1.99,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldBeDisabled();
@@ -150,7 +150,7 @@ describe('NgInputDecimalComponent', () => {
                     value: 15,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.get('input').should('have.value', '15');
@@ -173,7 +173,7 @@ describe('NgInputDecimalComponent', () => {
                     value: 4,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldBeValid();
@@ -199,7 +199,7 @@ describe('NgInputDecimalComponent', () => {
                     value: 8,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldBeValid();
@@ -225,7 +225,7 @@ describe('NgInputDecimalComponent', () => {
                     value: 8,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldBeValid();
@@ -251,7 +251,7 @@ describe('NgInputDecimalComponent', () => {
                     value: 8,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldBeValid();
@@ -277,7 +277,7 @@ describe('NgInputDecimalComponent', () => {
                     value: 0,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -301,7 +301,7 @@ describe('NgInputDecimalComponent', () => {
                     value: 0,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -325,7 +325,7 @@ describe('NgInputDecimalComponent', () => {
                     value: 0,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            }
+            },
         );
 
         cy.shouldHaveLabel('My Label');
@@ -357,7 +357,7 @@ describe('NgInputDecimalComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputdecimal > div', 'myControl');
@@ -381,7 +381,7 @@ describe('NgInputDecimalComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputdecimal > div', 'myTestidentifier');
@@ -405,7 +405,7 @@ describe('NgInputDecimalComponent', () => {
                         },
                     },
                 ],
-            }
+            },
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputdecimal > div', 'myTestidentifier');
@@ -421,9 +421,103 @@ describe('NgInputDecimalComponent', () => {
                 declarations: [SacFormDirective, SacInputDecimalComponent],
                 imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {},
-            }
+            },
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-inputdecimal > div');
+    });
+
+    it('should have floating label with config service', () => {
+        cy.mount(
+            `<form>
+                <sac-inputdecimal name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-inputdecimal>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputDecimalComponent],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            LabelMode: 'floating',
+                        },
+                    },
+                ],
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('input').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with layout directive', () => {
+        cy.mount(
+            `<form sacFormLayout labelMode="floating">
+                <sac-inputdecimal name="field" [label]="label" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-inputdecimal>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputDecimalComponent],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('input').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with component property', () => {
+        cy.mount(
+            `<form>
+                <sac-inputdecimal name="field" [label]="label" labelMode="floating" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-inputdecimal>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputDecimalComponent],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            },
+        );
+
+        cy.shouldHaveFloatingClass();
+        cy.get('input').next('label').should('exist');
+        cy.get('label').should('have.text', 'My Label');
+    });
+
+    it('should have floating label with component property', () => {
+        cy.mount(
+            `<form>
+                <sac-inputdecimal name="field" [label]="label" labelMode="floating" placeholder="My Placeholder" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-inputdecimal>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputDecimalComponent],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 7,
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            },
+        );
+
+        cy.get('input').should('have.value', 7);
     });
 });

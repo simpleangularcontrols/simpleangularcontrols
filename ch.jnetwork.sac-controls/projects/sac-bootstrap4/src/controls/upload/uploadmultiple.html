@@ -4,7 +4,7 @@
     [class.no-gutters]="disablelabel"
     [attr.data-e2e-key]="name | testingattribute : e2eidentifier">
     <label
-        *ngIf="disablelabel === false && !isAdaptiveLabel"
+        *ngIf="disablelabel === false"
         id="{{ name }}_label"
         for="{{ name }}_uploadinput"
         class="col-12 col-form-label d-flex"

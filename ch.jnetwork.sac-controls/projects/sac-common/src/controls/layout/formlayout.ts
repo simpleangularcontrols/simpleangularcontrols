@@ -37,9 +37,13 @@ export class SacFormLayoutCommon {
     public inputsearchiconmode: 'text' | 'icon' | 'mixed' | null = null;
 
     /**
-     * defines that the labels are displayed as adaptive labels
+     * Defines the default label mode for all components with labels
+     *
+     * Options are 'standard' and 'floating'
+     * Floating labels are only supported in Bootstrap 5
      */
-    @Input() public isAdaptiveLabel: boolean = false;
+    @Input()
+    public labelMode: 'standard' | 'floating' | null = null;
 
     /**
      * default labe size for large devices

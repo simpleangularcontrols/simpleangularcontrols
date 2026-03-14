@@ -18,6 +18,13 @@
         </sac-date>
 
         <sac-date
+            name="datum1floating"
+            labelMode="floating"
+            label="Datum 1"
+            [(ngModel)]="values.datum1">
+        </sac-date>
+
+        <sac-date
             name="datum2"
             label="Datum 2"
             [(ngModel)]="values.datum2"
@@ -26,7 +33,26 @@
         </sac-date>
 
         <sac-date
+            name="datum2floating"
+            label="Datum 2"
+            labelMode="floating"
+            [(ngModel)]="values.datum2"
+            [isrequired]="true"
+            helptext="Dies ist ein Helptext">
+        </sac-date>
+
+        <sac-date
             name="datum3"
+            label="Datum 3 (Min 01.01.2018)"
+            [(ngModel)]="values.datum3"
+            mindate="01.01.2018"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-date>
+
+        <sac-date
+            name="datum3floating"
+            labelMode="floating"
             label="Datum 3 (Min 01.01.2018)"
             [(ngModel)]="values.datum3"
             mindate="01.01.2018"
@@ -66,6 +92,13 @@
         </sac-time>
 
         <sac-time
+            name="time1floating"
+            labelMode="floating"
+            label="Zeit 1"
+            [(ngModel)]="values.time1">
+        </sac-time>
+
+        <sac-time
             name="time2"
             label="Zeit 2 (Min. 10:00)"
             [(ngModel)]="values.time2"
@@ -81,7 +114,27 @@
         </sac-time>
 
         <sac-time
+            name="time3floating"
+            label="Zeit 3 (Max. 18:00)"
+            labelMode="floating"
+            [(ngModel)]="values.time3"
+            maxtime="18:00"
+            helptext="Dies ist ein Helptext">
+        </sac-time>
+
+        <sac-time
             name="time4"
+            label="Zeit 4 (10:00 - 18:00)"
+            [(ngModel)]="values.time4"
+            mintime="10:00"
+            maxtime="18:00"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-time>
+
+        <sac-time
+            name="time4floating"
+            labelMode="floating"
             label="Zeit 4 (10:00 - 18:00)"
             [(ngModel)]="values.time4"
             mintime="10:00"
@@ -123,6 +176,13 @@
         </sac-datetime>
 
         <sac-datetime
+            name="datetime1floating"
+            labelMode="floating"
+            label="Datum & Zeit 1"
+            [(ngModel)]="values.datumzeit1">
+        </sac-datetime>
+
+        <sac-datetime
             name="datetime2"
             label="Datum & Zeit 2 (Min. 19.08.2018 14:00)"
             [(ngModel)]="values.datumzeit2"
@@ -131,7 +191,26 @@
         </sac-datetime>
 
         <sac-datetime
+            name="datetime2floating"
+            label="Datum & Zeit 2 (Min. 19.08.2018 14:00)"
+            labelMode="floating"
+            [(ngModel)]="values.datumzeit2"
+            mindate="19.08.2018 14:00"
+            helptext="Dies ist ein Helptext">
+        </sac-datetime>
+
+        <sac-datetime
             name="datetime3"
+            label="Datum & Zeit 3 (Max. 19.08.2018 17:00)"
+            [(ngModel)]="values.datumzeit3"
+            maxdate="19.08.2018 17:00"
+            helptext="Dies ist ein Helptext"
+            helptextmode="tooltip">
+        </sac-datetime>
+
+        <sac-datetime
+            name="datetime3floating"
+            labelMode="floating"
             label="Datum & Zeit 3 (Max. 19.08.2018 17:00)"
             [(ngModel)]="values.datumzeit3"
             maxdate="19.08.2018 17:00"

@@ -20,7 +20,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 1.33,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -41,7 +41,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -69,7 +69,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 1.45,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldNotHaveLabel();
@@ -90,7 +90,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHavePlaceholder('My Placeholder');
@@ -110,7 +110,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 1.45,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldBeReadonly();
@@ -130,7 +130,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 1.99,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldBeDisabled();
@@ -150,7 +150,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 15,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', '15');
@@ -173,7 +173,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 4,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldBeValid();
@@ -199,7 +199,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 8,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldBeValid();
@@ -225,7 +225,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 8,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldBeValid();
@@ -251,7 +251,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 8,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldBeValid();
@@ -277,7 +277,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 0,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -301,7 +301,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 0,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -325,7 +325,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 0,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -353,7 +353,7 @@ describe('ngInputCurrencyComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputcurrency > div', 'myControl');
@@ -377,7 +377,7 @@ describe('ngInputCurrencyComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputcurrency > div', 'myTestidentifier');
@@ -401,7 +401,7 @@ describe('ngInputCurrencyComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputcurrency > div', 'myTestidentifier');
@@ -417,7 +417,7 @@ describe('ngInputCurrencyComponent', () => {
                 declarations: [SacFormDirective, SacInputCurrencyComponent],
                 imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {},
-            },
+            }
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-inputcurrency > div');
@@ -445,7 +445,7 @@ describe('ngInputCurrencyComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -467,7 +467,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -489,7 +489,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -511,7 +511,7 @@ describe('ngInputCurrencyComponent', () => {
                     value: 15.5,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', 15.5);

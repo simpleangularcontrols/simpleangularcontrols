@@ -15,29 +15,29 @@ import { SacFormCommon } from '@simpleangularcontrols/sac-common';
  *
  */
 @Directive({
-  selector: 'form:not([ngNoForm]):not([formGroup]),[ngForm]', // eslint-disable-line @angular-eslint/directive-selector -- required as extension to form
-  exportAs: 'sacform',
+    selector: 'form:not([ngNoForm]):not([formGroup]),[ngForm]', // eslint-disable-line @angular-eslint/directive-selector -- required as extension to form
+    exportAs: 'sacform',
 })
 export class SacFormDirective extends SacFormCommon {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Setzt die Standard CSS Klasse für auf dem Form Container
-   */
-  @HostBinding('class.form')
-  public cssClassForm: boolean = true;
+    /**
+     * Setzt die Standard CSS Klasse für auf dem Form Container
+     */
+    @HostBinding('class.form')
+    public cssClassForm: boolean = true;
 
-  // #endregion Properties
+    // #endregion Properties
 
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Konstruktor
-   * @param form Instanz von NgForm für eigene automatische Formular Logik
-   */
-  constructor(form: NgForm) {
-    super(form);
-  }
+    /**
+     * Konstruktor
+     * @param form Instanz von NgForm für eigene automatische Formular Logik
+     */
+    constructor(form: NgForm) {
+        super(form);
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 }

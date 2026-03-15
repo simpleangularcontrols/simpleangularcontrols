@@ -1,24 +1,24 @@
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacInputPasswordCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
-import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacInputPasswordCommon } from '@simpleangularcontrols/sac-common';
 
 @Component({
-  selector: 'sac-inputpassword',
-  templateUrl: './inputpassword.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: SacInputPasswordComponent,
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() => SacInputPasswordComponent),
-    },
-  ],
+    selector: 'sac-inputpassword',
+    templateUrl: './inputpassword.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SacInputPasswordComponent,
+        },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() => SacInputPasswordComponent),
+        },
+    ],
 })
 export class SacInputPasswordComponent extends SacInputPasswordCommon {
     // #region Constructors

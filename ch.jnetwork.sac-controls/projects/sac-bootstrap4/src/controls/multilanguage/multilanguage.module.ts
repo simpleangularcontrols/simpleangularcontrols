@@ -11,20 +11,15 @@ import { NgModule } from '@angular/core';
 import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 
 @NgModule({
-  declarations: [
-    SacMultilanguageInputComponent,
-    SacMultilanguageInputAreaComponent,
-    SacMultilanguagemenuComponent,
-    SacMultilanguagemenuAnchorDirective,
-    SacMultilanguagemenuContainerDirective,
-    SacMultilanguagemenuItemButtonComponent
-  ],
-  imports: [
-    CommonModule,
-    SACBootstrap4LayoutModule,
-    SACBootstrap4TooltipModule,
-    SACCommonUtliltiesModule
-  ],
-  exports: [SacMultilanguageInputComponent, SacMultilanguageInputAreaComponent],
+    declarations: [
+        SacMultilanguageInputComponent,
+        SacMultilanguageInputAreaComponent,
+        SacMultilanguagemenuComponent,
+        SacMultilanguagemenuAnchorDirective,
+        SacMultilanguagemenuContainerDirective,
+        SacMultilanguagemenuItemButtonComponent,
+    ],
+    imports: [CommonModule, SACBootstrap4LayoutModule, SACBootstrap4TooltipModule, SACCommonUtliltiesModule],
+    exports: [SacMultilanguageInputComponent, SacMultilanguageInputAreaComponent],
 })
 export class SACBootstrap4MultilanguageModule {}

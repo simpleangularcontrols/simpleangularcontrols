@@ -1,24 +1,24 @@
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacInputEmailCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
-import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacInputEmailCommon } from '@simpleangularcontrols/sac-common';
 
 @Component({
-  selector: 'sac-inputemail',
-  templateUrl: './inputemail.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: SacInputEmailComponent,
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() => SacInputEmailComponent),
-    },
-  ],
+    selector: 'sac-inputemail',
+    templateUrl: './inputemail.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SacInputEmailComponent,
+        },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() => SacInputEmailComponent),
+        },
+    ],
 })
 export class SacInputEmailComponent extends SacInputEmailCommon {
     // #region Constructors

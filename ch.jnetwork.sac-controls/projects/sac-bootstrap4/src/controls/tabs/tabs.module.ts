@@ -5,10 +5,8 @@ import { NgModule } from '@angular/core';
 import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 
 @NgModule({
-  declarations: [SacTabComponent, SacTabItemComponent],
-  imports: [
-    CommonModule, SACCommonUtliltiesModule
-  ],
-  exports: [SacTabComponent, SacTabItemComponent]
+    declarations: [SacTabComponent, SacTabItemComponent],
+    imports: [CommonModule, SACCommonUtliltiesModule],
+    exports: [SacTabComponent, SacTabItemComponent],
 })
-export class SACBootstrap4TabsModule { }
+export class SACBootstrap4TabsModule {}

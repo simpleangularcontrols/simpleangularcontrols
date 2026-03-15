@@ -1,33 +1,25 @@
-import {
-  Component,
-  Host,
-  Injector,
-  NgZone,
-  Optional,
-  Renderer2,
-  forwardRef,
-} from '@angular/core';
-import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacUploadMultipleCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { Component, Host, Injector, NgZone, Optional, Renderer2, forwardRef } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SacUploadMultipleCommon } from '@simpleangularcontrols/sac-common';
 
 // https://github.com/kukhariev/ngx-uploadx/
 @Component({
-  selector: 'sac-uploadmultiple',
-  templateUrl: './uploadmultiple.html',
-  styleUrls: ['./upload.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: SacUploadMultipleComponent,
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() => SacUploadMultipleComponent),
-    },
-  ],
+    selector: 'sac-uploadmultiple',
+    templateUrl: './uploadmultiple.html',
+    styleUrls: ['./upload.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SacUploadMultipleComponent,
+        },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() => SacUploadMultipleComponent),
+        },
+    ],
 })
 export class SacUploadMultipleComponent extends SacUploadMultipleCommon {
     // #region Constructors

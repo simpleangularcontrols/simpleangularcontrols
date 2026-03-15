@@ -7,21 +7,21 @@ import { SacRadiobuttonsCommon } from '@simpleangularcontrols/sac-common';
  * Radiobuttons Group Komponente
  */
 @Component({
-  selector: 'sac-radiobuttons',
-  templateUrl: './radiobuttons.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => SacRadiobuttonsComponent),
-      multi: true,
-    },
-    {
-      provide: NG_VALIDATORS,
-      useExisting: forwardRef(() => SacRadiobuttonsComponent),
-      multi: true,
-    },
-  ],
+    selector: 'sac-radiobuttons',
+    templateUrl: './radiobuttons.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => SacRadiobuttonsComponent),
+            multi: true,
+        },
+        {
+            provide: NG_VALIDATORS,
+            useExisting: forwardRef(() => SacRadiobuttonsComponent),
+            multi: true,
+        },
+    ],
 })
 export class SacRadiobuttonsComponent extends SacRadiobuttonsCommon {
     // #region Constructors

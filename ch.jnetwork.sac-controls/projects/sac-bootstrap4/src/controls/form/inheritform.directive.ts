@@ -10,7 +10,7 @@ import { SacFormCommon } from '@simpleangularcontrols/sac-common';
  * @param form NgForm
  */
 export function NGFORM_FACTORY(form: NgForm) {
-  return form;
+    return form;
 }
 
 /**
@@ -18,7 +18,7 @@ export function NGFORM_FACTORY(form: NgForm) {
  * @param form SacFormular
  */
 export function SACFORM_FACTORY(form: SacFormDirective) {
-  return form;
+    return form;
 }
 
 // #endregion Exported Functions
@@ -29,33 +29,33 @@ export function SACFORM_FACTORY(form: SacFormDirective) {
  * Directive to inherit an NgForm/NgForm from a parent component
  */
 @Directive({
-  selector: '[sacInheritForm]',
-  exportAs: 'sacinheritform',
-  providers: [
-    {
-      provide: SacFormDirective,
-      useFactory: SACFORM_FACTORY,
-      deps: [[new SkipSelf(), SacFormDirective]],
-    },
-    {
-      provide: ControlContainer,
-      useFactory: NGFORM_FACTORY,
-      deps: [NgForm],
-    },
-  ],
+    selector: '[sacInheritForm]',
+    exportAs: 'sacinheritform',
+    providers: [
+        {
+            provide: SacFormDirective,
+            useFactory: SACFORM_FACTORY,
+            deps: [[new SkipSelf(), SacFormDirective]],
+        },
+        {
+            provide: ControlContainer,
+            useFactory: NGFORM_FACTORY,
+            deps: [NgForm],
+        },
+    ],
 })
 export class SacInheritFormDirective extends SacFormCommon {
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Construtor
-   * @param injector: injector to receive the NgForm instance
-   */
-  constructor(injector: Injector) {
-    super(injector.get(NgForm));
-  }
+    /**
+     * Construtor
+     * @param injector: injector to receive the NgForm instance
+     */
+    constructor(injector: Injector) {
+        super(injector.get(NgForm));
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 }
 
 // #endregion Exported Classes

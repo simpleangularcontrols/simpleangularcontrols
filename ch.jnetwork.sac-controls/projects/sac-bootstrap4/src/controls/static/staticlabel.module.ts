@@ -7,12 +7,8 @@ import { NgModule } from '@angular/core';
 import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 
 @NgModule({
-  declarations: [SacStaticLabelComponent, SacStaticFormContainerComponent],
-  imports: [
-    CommonModule,
-    SACBootstrap4LayoutModule,
-    SACBootstrap4TooltipModule, SACCommonUtliltiesModule
-  ],
-  exports: [SacStaticLabelComponent, SacStaticFormContainerComponent],
+    declarations: [SacStaticLabelComponent, SacStaticFormContainerComponent],
+    imports: [CommonModule, SACBootstrap4LayoutModule, SACBootstrap4TooltipModule, SACCommonUtliltiesModule],
+    exports: [SacStaticLabelComponent, SacStaticFormContainerComponent],
 })
 export class SACBootstrap4StaticLabelModule {}

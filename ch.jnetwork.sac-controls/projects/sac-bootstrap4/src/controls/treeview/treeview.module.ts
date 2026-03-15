@@ -8,7 +8,13 @@ import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 
 @NgModule({
     declarations: [SacTreeviewComponent],
-    imports: [CommonModule, SACBootstrap4TooltipModule, SACBootstrap4LayoutModule, SACBootstrap4ContextmenuModule, SACCommonUtliltiesModule],
+    imports: [
+        CommonModule,
+        SACBootstrap4TooltipModule,
+        SACBootstrap4LayoutModule,
+        SACBootstrap4ContextmenuModule,
+        SACCommonUtliltiesModule,
+    ],
     exports: [SacTreeviewComponent],
 })
 export class SACBootstrap4TreeviewModule {}

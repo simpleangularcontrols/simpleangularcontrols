@@ -3,7 +3,7 @@
     type="button"
     class="btn d-flex justify-content-center align-items-center"
     [attr.disabled]="_isdisabled || isloading ? 'disabled' : null"
-    [attr.data-e2e-key]="name | testingattribute : e2eidentifier"
+    [attr.data-e2e-key]="name | testingattribute: e2eidentifier"
     (click)="buttonClick()"
     [class.btn-primary]="role === 'primary'"
     [class.btn-secondary]="role === 'secondary' || role === 'default'"

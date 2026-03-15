@@ -49,22 +49,18 @@ export class PopUpHelper {
             referenceIsContainer
         );
 
-        // tslint:disable-next-line:no-bitwise
         if (this.hasPosition(allowedPositions, TooltipPosition.right) && validPositions & TooltipPosition.right) {
             return TooltipPosition.right;
         }
 
-        // tslint:disable-next-line:no-bitwise
         if (this.hasPosition(allowedPositions, TooltipPosition.top) && validPositions & TooltipPosition.top) {
             return TooltipPosition.top;
         }
 
-        // tslint:disable-next-line:no-bitwise
         if (this.hasPosition(allowedPositions, TooltipPosition.left) && validPositions & TooltipPosition.left) {
             return TooltipPosition.left;
         }
 
-        // tslint:disable-next-line:no-bitwise
         if (this.hasPosition(allowedPositions, TooltipPosition.bottom) && validPositions & TooltipPosition.bottom) {
             return TooltipPosition.bottom;
         }
@@ -82,22 +78,18 @@ export class PopUpHelper {
 
         // Get Auto Position or Default
         if (this.isAutoPosition(allowedPositions)) {
-            // tslint:disable-next-line:no-bitwise
             if (validPositions & TooltipPosition.right) {
                 return TooltipPosition.right;
             }
 
-            // tslint:disable-next-line:no-bitwise
             if (validPositions & TooltipPosition.top) {
                 return TooltipPosition.top;
             }
 
-            // tslint:disable-next-line:no-bitwise
             if (validPositions & TooltipPosition.left) {
                 return TooltipPosition.left;
             }
 
-            // tslint:disable-next-line:no-bitwise
             if (validPositions & TooltipPosition.bottom) {
                 return TooltipPosition.bottom;
             }
@@ -368,32 +360,26 @@ export class PopUpHelper {
         const bottomHalfPosOk: boolean = basePosition.bottom + tooltipRect.height / 2 < window.innerHeight;
 
         if (topPosOk) {
-            // tslint:disable-next-line:no-bitwise
             allowedPositions = allowedPositions | TooltipPosition.topend;
         }
 
         if (bottomPosOk) {
-            // tslint:disable-next-line:no-bitwise
             allowedPositions = allowedPositions | TooltipPosition.bottomend;
         }
 
         if (leftPosOk && topHalfPosOk && bottomHalfPosOk) {
-            // tslint:disable-next-line:no-bitwise
             allowedPositions = allowedPositions | TooltipPosition.left;
         }
 
         if (rightPosOk && topHalfPosOk && bottomHalfPosOk) {
-            // tslint:disable-next-line:no-bitwise
             allowedPositions = allowedPositions | TooltipPosition.right;
         }
 
         if (topPosOk && leftHalfPosOk && rightHalfPosOk) {
-            // tslint:disable-next-line:no-bitwise
             allowedPositions = allowedPositions | TooltipPosition.top;
         }
 
         if (bottomPosOk && leftHalfPosOk && rightHalfPosOk) {
-            // tslint:disable-next-line:no-bitwise
             allowedPositions = allowedPositions | TooltipPosition.bottom;
         }
 

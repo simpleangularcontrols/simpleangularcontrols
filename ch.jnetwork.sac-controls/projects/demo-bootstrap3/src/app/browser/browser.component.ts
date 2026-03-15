@@ -6,7 +6,11 @@ import { Component } from '@angular/core';
     standalone: true,
 })
 export class DemoBrowserComponent {
-  public debugAction1(): void {
-    alert('Action 1');
-  }
+    // #region Public Methods
+
+    public debugAction1(): void {
+        alert('Action 1');
+    }
+
+    // #endregion Public Methods
 }

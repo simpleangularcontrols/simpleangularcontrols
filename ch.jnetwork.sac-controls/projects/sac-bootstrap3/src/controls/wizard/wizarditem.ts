@@ -1,12 +1,9 @@
-import { Component, } from '@angular/core';
+import { Component } from '@angular/core';
 import { SacWizardItemCommon } from '@simpleangularcontrols/sac-common';
 
 @Component({
     selector: 'sac-wizarditem',
     templateUrl: './wizarditem.html',
-    standalone: true
+    standalone: true,
 })
-export class SacWizardItemComponent extends SacWizardItemCommon {
-
-}
-
+export class SacWizardItemComponent extends SacWizardItemCommon {}

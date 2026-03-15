@@ -190,7 +190,9 @@ export * from './utilities/enums';
 
 export * from './utilities/interpolation';
 
-export * from './utilities/positioning';
+export * from './utilities/positioncalculator';
+
+export * from './utilities/positionelements';
 
 export * from './utilities/testingattribute.pipe';
 

@@ -1,29 +1,26 @@
 <sac-dialog
-  name="confirmDialog"
-  [(isvisible)]="isvisible"
-  [title]="title"
-  [allowesc]="false"
-  [closebutton]="false"
-  dialogsize="small"
->
-  <div dialogbody>
-    <div class="media">
-      <img
-        [attr.src]="image"
-        class="align-self-center mr-3"
-        *ngIf="hasImage()"
-      />
-      <div class="media-body">{{message}}</div>
+    name="confirmDialog"
+    [(isvisible)]="isvisible"
+    [title]="title"
+    [allowesc]="false"
+    [closebutton]="false"
+    dialogsize="small">
+    <div dialogbody>
+        <div class="media">
+            <img
+                [attr.src]="image"
+                class="align-self-center mr-3"
+                *ngIf="hasImage()" />
+            <div class="media-body">{{ message }}</div>
+        </div>
     </div>
-  </div>
-  <ng-container dialogfooter>
-    <ng-container *ngFor="let button of buttons">
-      <sac-button
-        [name]="button.key"
-        [text]="button.text"
-        [role]="button.role || 'default'"
-        (clicked)="confirm(button.key)"
-      ></sac-button>
+    <ng-container dialogfooter>
+        <ng-container *ngFor="let button of buttons">
+            <sac-button
+                [name]="button.key"
+                [text]="button.text"
+                [role]="button.role || 'default'"
+                (clicked)="confirm(button.key)"></sac-button>
+        </ng-container>
     </ng-container>
-  </ng-container>
 </sac-dialog>

@@ -19,7 +19,7 @@ describe('inputEmail', () => {
                     value: 'info@jnetwork.ch',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -39,7 +39,7 @@ describe('inputEmail', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -65,7 +65,7 @@ describe('inputEmail', () => {
                     value: 'My Value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldNotHaveLabel();
@@ -85,7 +85,7 @@ describe('inputEmail', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHavePlaceholder('My Placeholder');
@@ -104,7 +104,7 @@ describe('inputEmail', () => {
                     value: 'info@jnetwork.ch',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldBeReadonly();
@@ -123,7 +123,7 @@ describe('inputEmail', () => {
                     value: 'info@jnetwork.ch',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldBeDisabled();
@@ -142,7 +142,7 @@ describe('inputEmail', () => {
                     value: 'info@jnetwork.ch',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', 'info@jnetwork.ch');
@@ -164,7 +164,7 @@ describe('inputEmail', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -215,7 +215,7 @@ describe('inputEmail', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputemail > div', 'myControl');
@@ -238,7 +238,7 @@ describe('inputEmail', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputemail > div', 'myTestidentifier');
@@ -261,7 +261,7 @@ describe('inputEmail', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputemail > div', 'myTestidentifier');
@@ -276,7 +276,7 @@ describe('inputEmail', () => {
             {
                 imports: [FormsModule, SacFormDirective, SacInputEmailComponent, SACBootstrap5LayoutModule],
                 componentProperties: {},
-            },
+            }
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-inputemail > div');
@@ -303,7 +303,7 @@ describe('inputEmail', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -324,7 +324,7 @@ describe('inputEmail', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -345,7 +345,7 @@ describe('inputEmail', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -366,7 +366,7 @@ describe('inputEmail', () => {
                     value: 'This is a value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', 'This is a value');

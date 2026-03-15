@@ -2,7 +2,7 @@
     class="row form-group"
     [class.has-error]="isinvalid && errormessage"
     [ngClass]="componentHeight | toLabelHeight"
-    [attr.data-e2e-key]="name | testingattribute : e2eidentifier">
+    [attr.data-e2e-key]="name | testingattribute: e2eidentifier">
     <label
         *ngIf="disablelabel === false"
         id="{{ name }}label"

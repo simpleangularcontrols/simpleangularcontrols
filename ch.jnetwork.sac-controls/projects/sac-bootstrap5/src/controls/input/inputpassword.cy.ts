@@ -19,7 +19,7 @@ describe('ngInputPasswordComponent', () => {
                     value: 'My Text',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -39,7 +39,7 @@ describe('ngInputPasswordComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -66,7 +66,7 @@ describe('ngInputPasswordComponent', () => {
                     value: 'My Value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldNotHaveLabel();
@@ -86,7 +86,7 @@ describe('ngInputPasswordComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHavePlaceholder('My Placeholder');
@@ -105,7 +105,7 @@ describe('ngInputPasswordComponent', () => {
                     value: 'MyValue',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldBeReadonly();
@@ -124,7 +124,7 @@ describe('ngInputPasswordComponent', () => {
                     value: 'MyValue',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldBeDisabled();
@@ -143,7 +143,7 @@ describe('ngInputPasswordComponent', () => {
                     value: 'first value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', 'first value');
@@ -165,7 +165,7 @@ describe('ngInputPasswordComponent', () => {
                     value: 'first value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').clear().type('12345678');
@@ -186,7 +186,7 @@ describe('ngInputPasswordComponent', () => {
                     value: 'first value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').clear().type('12345');
@@ -215,7 +215,7 @@ describe('ngInputPasswordComponent', () => {
                     value: 'My Value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').parent().get('button').should('not.exist');
@@ -235,7 +235,7 @@ describe('ngInputPasswordComponent', () => {
                     value: 'My Value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').parent().get('button').should('exist');
@@ -255,7 +255,7 @@ describe('ngInputPasswordComponent', () => {
                     value: 'My Value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.attr', 'type', 'password');
@@ -288,7 +288,7 @@ describe('ngInputPasswordComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputpassword > div', 'myControl');
@@ -311,7 +311,7 @@ describe('ngInputPasswordComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputpassword > div', 'myTestidentifier');
@@ -334,7 +334,7 @@ describe('ngInputPasswordComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputpassword > div', 'myTestidentifier');
@@ -349,7 +349,7 @@ describe('ngInputPasswordComponent', () => {
             {
                 imports: [FormsModule, SacFormDirective, SacInputPasswordComponent, SACBootstrap5LayoutModule],
                 componentProperties: {},
-            },
+            }
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-inputpassword > div');
@@ -376,7 +376,7 @@ describe('ngInputPasswordComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -397,7 +397,7 @@ describe('ngInputPasswordComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -418,7 +418,7 @@ describe('ngInputPasswordComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -439,7 +439,7 @@ describe('ngInputPasswordComponent', () => {
                     value: 'This is a value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', 'This is a value');

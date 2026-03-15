@@ -1,60 +1,66 @@
-import { Directive, Input, TemplateRef } from '@angular/core';
 import { SacBaseModelControl } from './basemodelcontrol';
+import { Directive, Input, TemplateRef } from '@angular/core';
 
 /**
  * Abstract Klasse für SacBaseListControl. Extendes SacBaseModelControl
  */
 @Directive()
-export abstract class SacBaseListControl<
-  VALUE
-> extends SacBaseModelControl<VALUE> {
-  /**
-   * options. Typ: any
-   */
-  _options: any[];
+export abstract class SacBaseListControl<VALUE> extends SacBaseModelControl<VALUE> {
+    // #region Properties
 
-  /**
-   * Template für Value Element
-   */
-  @Input()
-  optionlabeltemplate: TemplateRef<any>;
+    /**
+     * options. Typ: any
+     */
+    public _options: any[];
 
-  /**
-   * Definiert das Label für das Option Element
-   */
-  @Input() optionlabel: string = 'label';
+    /**
+     * Definiert das Control als Required
+     */
+    @Input() public isrequired: boolean = false;
 
-  /**
-   * Definiert den Wert für das Option Element
-   */
-  @Input() optionvalue: string = 'value';
+    /**
+     * Definiert, ob das Option Element aktiv ist
+     */
+    @Input() public optionenabled: string = '';
 
-  /**
-   * Definiert, ob das Option Element aktiv ist
-   */
-  @Input() optionenabled: string = '';
+    /**
+     * Definiert das Label für das Option Element
+     */
+    @Input() public optionlabel: string = 'label';
 
-  /**
-   * Definiert das Control als Required
-   */
-  @Input() isrequired: boolean = false;
+    /**
+     * Template für Value Element
+     */
+    @Input()
+    public optionlabeltemplate: TemplateRef<any>;
 
-  /**
-   * Style Breite für List Control Element
-   */
-  @Input() width: string = null;
+    /**
+     * Definiert den Wert für das Option Element
+     */
+    @Input() public optionvalue: string = 'value';
 
-  /**
-   * Input property für options
-   */
-  @Input() get options(): any[] {
-    return this._options;
-  }
+    /**
+     * Style Breite für List Control Element
+     */
+    @Input() public width: string = null;
 
-  /**
-   * setter für options
-   */
-  set options(val: any[]) {
-    this._options = val;
-  }
+    // #endregion Properties
+
+    // #region Public Getters And Setters
+
+    /**
+     * Input property für options
+     */
+    @Input() public get options(): any[] {
+        return this._options;
+    }
+
+    /**
+     * setter für options
+     */
+    public set options(val: any[]) {
+        this._options = val;
+    }
+
+    // #endregion Public Getters And Setters
 }

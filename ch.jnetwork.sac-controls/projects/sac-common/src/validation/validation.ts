@@ -157,7 +157,11 @@ export class Validation {
      * @param validationMessage Validierungsmeldung die
      * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
      */
-    public static minTextLength(mintextlength: number, validationMessage: string, validationMessageSummary): ValidatorFn {
+    public static minTextLength(
+        mintextlength: number,
+        validationMessage: string,
+        validationMessageSummary
+    ): ValidatorFn {
         return minTextLengthValidator(mintextlength, validationMessage, validationMessageSummary);
     }
 

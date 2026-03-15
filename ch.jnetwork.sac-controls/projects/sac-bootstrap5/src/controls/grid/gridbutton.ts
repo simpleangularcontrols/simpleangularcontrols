@@ -7,7 +7,7 @@ import { SacGridButtonCommon } from '@simpleangularcontrols/sac-common';
 @Component({
     selector: 'sac-gridbutton',
     templateUrl: './gridbutton.html',
-    standalone: true
+    standalone: true,
 })
 export class SacGridButtonComponent extends SacGridButtonCommon {
     // #region Constructors

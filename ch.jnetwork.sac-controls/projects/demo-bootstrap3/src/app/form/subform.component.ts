@@ -1,47 +1,35 @@
-import {
-  Component,
-  DoCheck,
-  EventEmitter,
-  Input,
-  Output,
-  ViewChild,
-} from '@angular/core';
+import { Component, DoCheck, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  SACBootstrap3FormModule,
-  SACBootstrap3InputModule,
-  SacFormLayoutDirective,
-  SacInheritFormDirective,
+    SACBootstrap3FormModule,
+    SACBootstrap3InputModule,
+    SacFormLayoutDirective,
+    SacInheritFormDirective,
 } from '@simpleangularcontrols/sac-bootstrap3';
 
 @Component({
-  selector: 'app-subform',
-  templateUrl: './subform.component.html',
-  standalone: true,
-  imports: [
-    SACBootstrap3FormModule,
-    SACBootstrap3InputModule,
-    FormsModule,
-    SacFormLayoutDirective,
-  ],
+    selector: 'app-subform',
+    templateUrl: './subform.component.html',
+    standalone: true,
+    imports: [SACBootstrap3FormModule, SACBootstrap3InputModule, FormsModule, SacFormLayoutDirective],
 })
 export class DemoSubFormComponent implements DoCheck {
-  // #region Properties
+    // #region Properties
 
-  @Input() public mymodel;
-  @Output() public mymodelChange = new EventEmitter();
-  @ViewChild('formaccess') public form: SacInheritFormDirective;
+    @ViewChild('formaccess') public form: SacInheritFormDirective;
+    @Input() public mymodel;
+    @Output() public mymodelChange = new EventEmitter();
 
-  // #endregion Properties
+    // #endregion Properties
 
-  // #region Public Methods
+    // #region Public Methods
 
-  public ngDoCheck() {
-    if (this.form) {
-      console.log(this.form.getForm().dirty);
+    public ngDoCheck() {
+        if (this.form) {
+            console.log(this.form.getForm().dirty);
+        }
+        this.mymodelChange.next(this.mymodel);
     }
-    this.mymodelChange.next(this.mymodel);
-  }
 
-  // #endregion Public Methods
+    // #endregion Public Methods
 }

@@ -1,149 +1,151 @@
-// #region Classes
-
 /**
  * GridResponse class
  */
+
+/**
+ * Enum for sorting
+ */
+// #region Exported Enums
+
+export enum SortOrder {
+    /**
+     * No sorting
+     */
+    None = 0,
+    /**
+     * Ascending
+     */
+    Ascending = 1,
+    /**
+     * Descending
+     */
+    Descending = 2,
+}
+
+// #endregion Exported Enums
+
+// #region Exported Classes
+
 export class GridResponse<T> {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Data
-   */
-  public Data: T[];
-  /**
-   * Total number of data records
-   */
-  public TotalRowCount: number;
+    /**
+     * Data
+     */
+    public Data: T[];
 
-  // #endregion Properties
+    /**
+     * Total number of data records
+     */
+    public TotalRowCount: number;
+
+    // #endregion Properties
 }
 
 /**
  * Model for pager settings
  */
 export class PagerData {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Current index of the page
-   */
-  public CurrentPageIndex = 0;
-  /**
-   * Number of elements on the page
-   */
-  public PageSize = 20;
-  /**
-   * Total number of data records
-   */
-  public TotalRowCount = 0;
+    /**
+     * Current index of the page
+     */
+    public CurrentPageIndex = 0;
 
-  // #endregion Properties
+    /**
+     * Number of elements on the page
+     */
+    public PageSize = 20;
 
-  // #region Constructors
+    /**
+     * Total number of data records
+     */
+    public TotalRowCount = 0;
 
-  /**
-   * Constructor
-   * @param PageSize Number of elements per page
-   * @param CurrentPageIndex Current page
-   * @param TotalRowCount Total Rows in database
-   */
-  constructor(
-    PageSize: number,
-    CurrentPageIndex: number,
-    TotalRowCount: number
-  ) {
-    this.PageSize = PageSize;
-    this.CurrentPageIndex = CurrentPageIndex;
-    this.TotalRowCount = TotalRowCount;
-  }
+    // #endregion Properties
 
-  // #endregion Constructors
+    // #region Constructors
+
+    /**
+     * Constructor
+     * @param PageSize Number of elements per page
+     * @param CurrentPageIndex Current page
+     * @param TotalRowCount Total Rows in database
+     */
+    constructor(PageSize: number, CurrentPageIndex: number, TotalRowCount: number) {
+        this.PageSize = PageSize;
+        this.CurrentPageIndex = CurrentPageIndex;
+        this.TotalRowCount = TotalRowCount;
+    }
+
+    // #endregion Constructors
 }
 
 /**
  * Model if page is to be changed
  */
 export class PagerRequest {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Index of the page to which you want to switch
-   */
-  public NewPageIndex: number = 0;
-  /**
-   * Number of elements on the page
-   */
-  public PageSize: number = 0;
+    /**
+     * Index of the page to which you want to switch
+     */
+    public NewPageIndex: number = 0;
 
-  // #endregion Properties
+    /**
+     * Number of elements on the page
+     */
+    public PageSize: number = 0;
 
-  // #region Constructors
+    // #endregion Properties
 
-  /**
-   * Constructor
-   * @param PageSize Page size / number of elements per page
-   * @param NewPageIndex New page index
-   */
-  constructor(PageSize: number, NewPageIndex: number) {
-    this.PageSize = PageSize;
-    this.NewPageIndex = NewPageIndex;
-  }
+    // #region Constructors
 
-  // #endregion Constructors
+    /**
+     * Constructor
+     * @param PageSize Page size / number of elements per page
+     * @param NewPageIndex New page index
+     */
+    constructor(PageSize: number, NewPageIndex: number) {
+        this.PageSize = PageSize;
+        this.NewPageIndex = NewPageIndex;
+    }
+
+    // #endregion Constructors
 }
 
 /**
  * Model for sorting
  */
 export class SortDescriptor {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Description / Key for sorting
-   */
-  public SortColumn: string;
-  /**
-   * Sort order
-   */
-  public SortOrder: SortOrder;
+    /**
+     * Description / Key for sorting
+     */
+    public SortColumn: string;
 
-  // #endregion Properties
+    /**
+     * Sort order
+     */
+    public SortOrder: SortOrder;
 
-  // #region Constructors
+    // #endregion Properties
 
-  /**
-   * Constructor
-   * @param sortcolumn Column by which to sort
-   * @param sortorder Type of sorting
-   */
-  constructor(sortcolumn?: string, sortorder?: SortOrder) {
-    this.SortColumn = sortcolumn;
-    this.SortOrder = sortorder;
-  }
+    // #region Constructors
 
-  // #endregion Constructors
+    /**
+     * Constructor
+     * @param sortcolumn Column by which to sort
+     * @param sortorder Type of sorting
+     */
+    constructor(sortcolumn?: string, sortorder?: SortOrder) {
+        this.SortColumn = sortcolumn;
+        this.SortOrder = sortorder;
+    }
+
+    // #endregion Constructors
 }
 
-// #endregion Classes
-
-// #region Enums
-
-/**
- * Enum for sorting
- */
-export enum SortOrder {
-  /**
-   * No sorting
-   */
-  None = 0,
-  /**
-   * Ascending
-   */
-  Ascending = 1,
-  /**
-   * Descending
-   */
-  Descending = 2,
-}
-
-// #endregion Enums
+// #endregion Exported Classes

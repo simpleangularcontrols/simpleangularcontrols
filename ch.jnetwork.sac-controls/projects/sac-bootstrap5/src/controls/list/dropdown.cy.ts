@@ -25,7 +25,7 @@ describe('SacDropdownComponent', () => {
                 componentProperties: {
                     label: 'My Label',
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -55,7 +55,7 @@ describe('SacDropdownComponent', () => {
                     label: 'My Label',
                     value: 1,
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -88,7 +88,7 @@ describe('SacDropdownComponent', () => {
                         { id: 3, value: 'Element 3' },
                     ],
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -122,7 +122,7 @@ describe('SacDropdownComponent', () => {
                         { id: 3, value: 'Element 3', enabled: false },
                     ],
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -173,7 +173,7 @@ describe('SacDropdownComponent', () => {
                         return o1.id === o2.id;
                     },
                 },
-            },
+            }
         );
 
         cy.get('select').find(':selected').should('have.text', 'Element 1');
@@ -207,7 +207,7 @@ describe('SacDropdownComponent', () => {
                         { id: 3, value: 'Element 3' },
                     ],
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -237,7 +237,7 @@ describe('SacDropdownComponent', () => {
                     label: 'My Label',
                     value: 1,
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -260,7 +260,7 @@ describe('SacDropdownComponent', () => {
                     label: 'My Label',
                     value: 1,
                 },
-            },
+            }
         );
         cy.get('select').find('option:selected').should('have.text', 'Value Item 2');
         cy.get('select').find('option:selected').should('have.value', '1');
@@ -291,7 +291,7 @@ describe('SacDropdownComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-dropdown > div', 'myControl');
@@ -323,7 +323,7 @@ describe('SacDropdownComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-dropdown > div', 'myTestidentifier');
@@ -353,7 +353,7 @@ describe('SacDropdownComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-dropdown > div', 'myTestidentifier');
@@ -374,7 +374,7 @@ describe('SacDropdownComponent', () => {
             {
                 imports: [FormsModule, SacFormDirective, SACBootstrap5DropdownModule, SACBootstrap5LayoutModule],
                 componentProperties: {},
-            },
+            }
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-dropdown > div');
@@ -400,7 +400,7 @@ describe('SacDropdownComponent', () => {
                     label: 'My Label',
                     value: 0,
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -428,7 +428,7 @@ describe('SacDropdownComponent', () => {
                     label: 'My Label',
                     value: 'notset',
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -465,7 +465,7 @@ describe('SacDropdownComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass('.form-select');
@@ -494,7 +494,7 @@ describe('SacDropdownComponent', () => {
                         { id: 3, value: 'Element 3' },
                     ],
                 },
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass('.form-select');
@@ -523,7 +523,7 @@ describe('SacDropdownComponent', () => {
                         { id: 3, value: 'Element 3' },
                     ],
                 },
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass('.form-select');
@@ -552,7 +552,7 @@ describe('SacDropdownComponent', () => {
                         { id: 3, value: 'Element 3' },
                     ],
                 },
-            },
+            }
         );
 
         cy.get('select').should('have.value', '0: 1');
@@ -581,7 +581,7 @@ describe('SacDropdownComponent', () => {
                         { id: 3, value: 'Element 3' },
                     ],
                 },
-            },
+            }
         );
 
         cy.get('select').should('have.value', '0: null');

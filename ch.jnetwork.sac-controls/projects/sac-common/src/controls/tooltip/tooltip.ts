@@ -2,7 +2,17 @@ import { convertToBoolean } from '../../utilities/convertion';
 import { TooltipPosition } from '../../utilities/enums';
 import { createGuid } from '../../utilities/guid';
 import { PopUpHelper } from '../../utilities/popuphelper';
-import { AfterViewChecked, ChangeDetectorRef, Directive, DoCheck, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+    AfterViewChecked,
+    ChangeDetectorRef,
+    Directive,
+    DoCheck,
+    ElementRef,
+    Input,
+    OnDestroy,
+    OnInit,
+    ViewChild,
+} from '@angular/core';
 
 /**
  * Tooltip Component
@@ -109,7 +119,10 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
      * Konstruktor
      * @param ref Element Referenz
      */
-    constructor(private readonly cdRef: ChangeDetectorRef, private readonly ref: ElementRef) {}
+    constructor(
+        private readonly cdRef: ChangeDetectorRef,
+        private readonly ref: ElementRef
+    ) {}
 
     // #endregion Constructors
 

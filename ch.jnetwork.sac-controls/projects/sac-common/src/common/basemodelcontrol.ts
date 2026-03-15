@@ -219,13 +219,13 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
      */
     constructor(
         @Host() formlayout: SacFormLayoutCommon,
-        private readonly injector: Injector,
+        private readonly injector: Injector
     ) {
         this.formlayout = formlayout;
         this.validationKeyService = injector.get(SACVALIDATIONKEY_SERVICE, new SacDefaultValidationKeyService());
         this.lngResourceService = injector.get(
             SACLOCALISATION_SERVICE,
-            new SacDefaultLocalisationService(this.validationKeyService),
+            new SacDefaultLocalisationService(this.validationKeyService)
         );
 
         this.configurationService = injector.get(SACCONFIGURATION_SERVICE, new SacDefaultConfigurationService());

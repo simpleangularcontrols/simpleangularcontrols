@@ -1,9 +1,8 @@
-import { Moment } from 'moment';
 import { ISacIconService } from '../../interfaces/ISacIconService';
 import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
 import { createGuid } from '../../utilities/guid';
 import { Directive, EventEmitter, Injector, Input, OnInit, Output } from '@angular/core';
-import * as moment_ from 'moment';
+import moment, { Moment } from 'moment';
 
 // #region Classes
 
@@ -76,15 +75,6 @@ class DateSelectorItem {
 }
 
 // #endregion Classes
-
-// #region Variables
-
-/**
- * Moment
- */
-const moment = moment_['default'];
-
-// #endregion Variables
 
 // #region Exported Classes
 
@@ -234,7 +224,7 @@ export class SacDateSelectorCommon implements OnInit {
         }
 
         if (this.dateselection === false && this._selectedValue !== null) {
-            const tempValue: moment_.Moment = this._selectedValue.local();
+            const tempValue: Moment = this._selectedValue.local();
             tempValue.date(1);
             tempValue.month(0);
             tempValue.year(1900);

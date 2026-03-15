@@ -145,7 +145,10 @@ export abstract class SacGridCommon {
      * @param cd Change Detection Service
      * @param injector DI Injector
      */
-    constructor(private cd: ChangeDetectorRef, injector: Injector) {
+    constructor(
+        private cd: ChangeDetectorRef,
+        injector: Injector
+    ) {
         this.validationKeyService = injector.get(SACVALIDATIONKEY_SERVICE, new SacDefaultValidationKeyService());
 
         // Set Default Values from Injector

@@ -2,5 +2,9 @@
  * Interface to extend FormControl with label of control
  */
 export interface IAbstractControlLabelExtension {
-  controllabel: string;
+    // #region Properties
+
+    controllabel: string;
+
+    // #endregion Properties
 }

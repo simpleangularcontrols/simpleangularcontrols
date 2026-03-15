@@ -1,7 +1,7 @@
 import { ISacIconService } from '../../interfaces/ISacIconService';
 import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
 import { createGuid } from '../../utilities/guid';
-import { PlacementArray, positionElements } from '../../utilities/positioning';
+import { PlacementArray, positionElements } from '../../utilities/positionelements';
 import { ISacContextmenuCommon } from './contextmenu.interface';
 import { SacContextmenuAnchorCommon } from './contextmenuanchor';
 import { SacContextMenuContrainerCommon } from './contextmenucontainer';

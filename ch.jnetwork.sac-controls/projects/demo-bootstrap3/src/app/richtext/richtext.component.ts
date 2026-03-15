@@ -2,60 +2,63 @@ import { JsonPipe } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  SACBootstrap3ButtonModule,
-  SACBootstrap3FormModule,
-  SACBootstrap3TinyMceModule,
-  SACBootstrap3ValidationSummaryModule,
-  SacFormDirective,
+    SACBootstrap3ButtonModule,
+    SACBootstrap3FormModule,
+    SACBootstrap3TinyMceModule,
+    SACBootstrap3ValidationSummaryModule,
+    SacFormDirective,
 } from '@simpleangularcontrols/sac-bootstrap3';
 
 @Component({
-  selector: 'app-richtext',
-  templateUrl: './richtext.component.html',
-  styleUrls: ['./richtext.component.scss'],
-  standalone: true,
-  imports: [
-    FormsModule,
-    SACBootstrap3FormModule,
-    SACBootstrap3TinyMceModule,
-    SACBootstrap3ButtonModule,
-    SACBootstrap3ValidationSummaryModule,
-    JsonPipe,
-  ],
+    selector: 'app-richtext',
+    templateUrl: './richtext.component.html',
+    styleUrls: ['./richtext.component.scss'],
+    standalone: true,
+    imports: [
+        FormsModule,
+        SACBootstrap3FormModule,
+        SACBootstrap3TinyMceModule,
+        SACBootstrap3ButtonModule,
+        SACBootstrap3ValidationSummaryModule,
+        JsonPipe,
+    ],
 })
 export class DemoRichtextComponent {
-  public value1 = '';
-  public config1 = {};
+    // #region Properties
 
-  public value2 = '';
-  public config2 = {
-    plugins: 'image,code,link,media',
-    toolbar: 'image media link | code',
-    document_base_url: '/upload/browser/',
-  };
+    public config1 = {};
+    public config2 = {
+        plugins: 'image,code,link,media',
+        toolbar: 'image media link | code',
+        document_base_url: '/upload/browser/',
+    };
+    public config3 = {};
+    public config4 = {};
+    public config5 = { inline: true };
+    public config6 = {
+        plugins: 'save',
+        toolbar: 'save',
+    };
+    @ViewChild('myForm') public myForm: SacFormDirective;
+    public value1 = '';
+    public value2 = '';
+    public value3 = '<div>Hello World</div>';
+    public value4 = '<div>Hello World</div>';
+    public value5 = '<p>Text to Edit <strong>Inline</strong></p>';
+    public value6 = '<p>Text to Edit <strong>Inline</strong></p>';
 
-  public value3 = '<div>Hello World</div>';
-  public config3 = {};
+    // #endregion Properties
 
-  public value4 = '<div>Hello World</div>';
-  public config4 = {};
+    // #region Public Methods
 
-  public value5 = '<p>Text to Edit <strong>Inline</strong></p>';
-  public config5 = { inline: true };
+    public debugAction(): void {
+        this.myForm.markAsTouched();
+        alert('Action');
+    }
 
-  public value6 = '<p>Text to Edit <strong>Inline</strong></p>';
-  public config6 = {
-    plugins: 'save',
-    toolbar: 'save',
-  };
-  public save6(content: string): void {
-    alert('Save: ' + content);
-  }
+    public save6(content: string): void {
+        alert('Save: ' + content);
+    }
 
-  @ViewChild('myForm') myForm: SacFormDirective;
-
-  public debugAction(): void {
-    this.myForm.markAsTouched();
-    alert('Action');
-  }
+    // #endregion Public Methods
 }

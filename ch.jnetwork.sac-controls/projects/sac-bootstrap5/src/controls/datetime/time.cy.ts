@@ -16,7 +16,7 @@ describe('SacTimeComponent', () => {
                 componentProperties: {
                     label: 'My Label',
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -34,7 +34,7 @@ describe('SacTimeComponent', () => {
                     label: 'My Label',
                     value: new Date(0, 0, 1, 13, 17, 0, 0), // Month is Index and not Month Value
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', '13:17');
@@ -50,7 +50,7 @@ describe('SacTimeComponent', () => {
                 componentProperties: {
                     label: 'My Label',
                 },
-            },
+            }
         );
 
         cy.shouldNotHaveLabel();
@@ -70,7 +70,7 @@ describe('SacTimeComponent', () => {
                     mintime: '18:15',
                     value: new Date(0, 0, 1, 17, 20, 0),
                 },
-            },
+            }
         );
 
         cy.shouldBeInvalid();
@@ -89,7 +89,7 @@ describe('SacTimeComponent', () => {
                     maxtime: '11:20',
                     value: new Date(0, 0, 1, 14, 53),
                 },
-            },
+            }
         );
 
         cy.shouldBeInvalid();
@@ -109,7 +109,7 @@ describe('SacTimeComponent', () => {
                     validationmessagemintime: 'MinTimeMsg',
                     validationmessagesummarymintime: 'SummaryMin',
                 },
-            },
+            }
         );
 
         cy.shouldBeInvalid();
@@ -130,7 +130,7 @@ describe('SacTimeComponent', () => {
                     validationmessagemaxtime: 'MaxTimeMsg',
                     validationmessagesummarymaxtime: 'SummaryMax',
                 },
-            },
+            }
         );
 
         cy.shouldBeInvalid();
@@ -149,7 +149,7 @@ describe('SacTimeComponent', () => {
                     label: 'My Label',
                     value: null,
                 },
-            },
+            }
         );
 
         cy.shouldBeInvalid();
@@ -167,7 +167,7 @@ describe('SacTimeComponent', () => {
                     label: 'My Label',
                     value: null,
                 },
-            },
+            }
         );
 
         cy.shouldBeDisabled();
@@ -186,7 +186,7 @@ describe('SacTimeComponent', () => {
                     value: null,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', '__:__');
@@ -222,7 +222,7 @@ describe('SacTimeComponent', () => {
                     value: null,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', '__:__');
@@ -248,7 +248,7 @@ describe('SacTimeComponent', () => {
                     value: new Date(0, 0, 1, 13, 42), // Month is Index and not Month Value
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
         const _now = new Date();
 
@@ -288,7 +288,7 @@ describe('SacTimeComponent', () => {
                     value: null,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', '__:__');
@@ -339,7 +339,7 @@ describe('SacTimeComponent', () => {
                     value: new Date(0, 0, 1, 6, 44), // Month is Index and not Month Value
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', '06:44');
@@ -370,7 +370,7 @@ describe('SacTimeComponent', () => {
                             _now.getMonth(),
                             _now.getDate(),
                             _now.getHours(),
-                            _now.getMinutes(),
+                            _now.getMinutes()
                         ).getTime()
                 );
             }).length;
@@ -393,7 +393,7 @@ describe('SacTimeComponent', () => {
                     value: new Date(0, 0, 1, 8, 4), // Month is Index and not Month Value
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', '08:04');
@@ -441,7 +441,7 @@ describe('SacTimeComponent', () => {
                     validationmessagemaxtime: 'MaxTimeMsg',
                     validationmessagesummarymaxtime: 'SummaryMax',
                 },
-            },
+            }
         );
 
         cy.shouldBeValid();
@@ -461,7 +461,7 @@ describe('SacTimeComponent', () => {
                     validationmessagemintime: 'MinTimeMsg',
                     validationmessagesummarymintime: 'SummaryMin',
                 },
-            },
+            }
         );
 
         cy.shouldBeValid();
@@ -481,7 +481,7 @@ describe('SacTimeComponent', () => {
                     value: null,
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('button').click();
@@ -507,7 +507,7 @@ describe('SacTimeComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-time > div', 'myControl');
@@ -528,7 +528,7 @@ describe('SacTimeComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-time > div', 'myTestidentifier');
@@ -549,7 +549,7 @@ describe('SacTimeComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-time > div', 'myTestidentifier');
@@ -562,7 +562,7 @@ describe('SacTimeComponent', () => {
                 </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacTimeComponent, SACBootstrap5LayoutModule],
-            },
+            }
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-time > div');
@@ -589,7 +589,7 @@ describe('SacTimeComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -610,7 +610,7 @@ describe('SacTimeComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -631,7 +631,7 @@ describe('SacTimeComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -652,7 +652,7 @@ describe('SacTimeComponent', () => {
                     value: new Date(0, 0, 1, 14, 17),
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', '14:17');

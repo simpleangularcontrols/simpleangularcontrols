@@ -56,7 +56,7 @@ describe('SacGridComponent', () => {
                 componentProperties: {
                     values: [],
                 },
-            },
+            }
         );
 
         cy.get('table').should('exist');
@@ -118,7 +118,7 @@ describe('SacGridComponent', () => {
                     sortAction: createOutputSpy('sortAction'),
                     sortSorting: { SortColumn: 'Id', SortOrder: SortOrder.Ascending },
                 },
-            },
+            }
         );
 
         cy.get('table').should('exist');
@@ -199,7 +199,7 @@ describe('SacGridComponent', () => {
                     pageAction: createOutputSpy('pageAction'),
                     pageData: { TotalRowCount: 21, CurrentPageIndex: 0, PageSize: 20 },
                 },
-            },
+            }
         );
 
         cy.get('table').should('exist');
@@ -262,7 +262,7 @@ describe('SacGridComponent', () => {
                     ],
                     columnAction: createOutputSpy('columnAction'),
                 },
-            },
+            }
         );
 
         cy.get('table').should('exist');
@@ -336,7 +336,7 @@ describe('SacGridComponent', () => {
                         },
                     ],
                 },
-            },
+            }
         );
 
         cy.get('table').should('exist');
@@ -400,7 +400,7 @@ describe('SacGridComponent', () => {
                     ],
                     columnAction: createOutputSpy('columnAction'),
                 },
-            },
+            }
         );
 
         cy.get('table').should('exist');
@@ -488,7 +488,7 @@ describe('SacGridComponent', () => {
                         },
                     ],
                 },
-            },
+            }
         );
 
         cy.get('table').should('exist');
@@ -567,7 +567,7 @@ describe('SacGridComponent', () => {
                         },
                     ],
                 },
-            },
+            }
         );
 
         cy.get('table').should('exist');
@@ -636,7 +636,7 @@ describe('SacGridComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-grid > table', 'myControl');
@@ -699,7 +699,7 @@ describe('SacGridComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-grid > table', 'myTestidentifier');
@@ -762,7 +762,7 @@ describe('SacGridComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-grid > table', 'myTestidentifier');
@@ -817,7 +817,7 @@ describe('SacGridComponent', () => {
                 componentProperties: {
                     values: [],
                 },
-            },
+            }
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-grid > table');
@@ -859,7 +859,7 @@ describe('SacGridComponent', () => {
                     ],
                     columnvisible: true,
                 },
-            },
+            }
         );
 
         cy.get('table').should('exist');

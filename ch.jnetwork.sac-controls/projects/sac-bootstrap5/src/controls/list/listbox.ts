@@ -62,7 +62,7 @@ export class SacListboxOptionDirective extends SacListboxOptionCommon {
         SacToLabelHeightPipe,
         SacTooltipComponent,
         SacToControlHeightPipe,
-        SacTestingAttributePipe
+        SacTestingAttributePipe,
     ],
 })
 export class SacListboxComponent extends SacListboxCommon {

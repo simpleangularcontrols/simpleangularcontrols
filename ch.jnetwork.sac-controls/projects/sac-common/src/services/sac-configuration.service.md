@@ -10,36 +10,36 @@ Example of an implementation of a project-specific configuration
 import { SacAbstractConfigurationService } from '@simpleangularcontrols/sac-common';
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root',
 })
 export class CustomConfigurationService extends SacAbstractConfigurationService {
-  get ComponentHeight(): ControlHeight | null {
-    return ControlHeight.Default;
-  }
-  get CurrencyText(): string {
-    return 'CHF';
-  }
-  get InlineErrorEnabled(): boolean {
-    return true;
-  }
-  get LabelSizeLg(): number | null {
-    return 3;
-  }
-  get LabelSizeMd(): number | null {
-    return 4;
-  }
-  get LabelSizeSm(): number | null {
-    return 4;
-  }
-  get LabelSizeXl(): number | null {
-    return 2;
-  }
-  get LabelSizeXs(): number | null {
-    return 12;
-  }
-  get LabelSizeXxl(): number | null {
-    return 2;
-  }
+    get ComponentHeight(): ControlHeight | null {
+        return ControlHeight.Default;
+    }
+    get CurrencyText(): string {
+        return 'CHF';
+    }
+    get InlineErrorEnabled(): boolean {
+        return true;
+    }
+    get LabelSizeLg(): number | null {
+        return 3;
+    }
+    get LabelSizeMd(): number | null {
+        return 4;
+    }
+    get LabelSizeSm(): number | null {
+        return 4;
+    }
+    get LabelSizeXl(): number | null {
+        return 2;
+    }
+    get LabelSizeXs(): number | null {
+        return 12;
+    }
+    get LabelSizeXxl(): number | null {
+        return 2;
+    }
 }
 ```
 

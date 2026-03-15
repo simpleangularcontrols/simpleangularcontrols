@@ -1,13 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SacWizardComponent } from './wizard';
 import { SacWizardItemComponent } from './wizarditem';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        SacWizardComponent, SacWizardItemComponent
-    ],
-    exports: [SacWizardComponent, SacWizardItemComponent]
+    imports: [CommonModule, SacWizardComponent, SacWizardItemComponent],
+    exports: [SacWizardComponent, SacWizardItemComponent],
 })
-export class SACBootstrap3WizardModule { }
+export class SACBootstrap3WizardModule {}

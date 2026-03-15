@@ -3,7 +3,7 @@ import { Component, ContentChildren, QueryList } from '@angular/core';
 import { SacTabCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Komponente für Tabs
+ * Component for tabs
  */
 @Component({
     selector: 'sac-tab',
@@ -13,7 +13,7 @@ export class SacTabComponent extends SacTabCommon {
     // #region Properties
 
     /**
-     * Collection von TabItems
+     * Collection of tab items
      */
     @ContentChildren(SacTabItemComponent)
     public _tabItems: QueryList<SacTabItemComponent>;

@@ -4,7 +4,7 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacUploadSingleCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Upload Komponten
+ * Upload component
  * @see https://github.com/kukhariev/ngx-uploadx/
  */
 @Component({

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SacTabItemCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Tab Item Komponente
+ * Tab item component
  */
 @Component({
     selector: 'sac-tabitem',

@@ -10,12 +10,12 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacInputAreaCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 /**
- * Input Box für lange Texte
+ * Input box for long texts
  */
 @Component({
     selector: 'sac-inputarea',
     templateUrl: './inputarea.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

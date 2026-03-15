@@ -3,19 +3,19 @@ import { ChangeDetectorRef, Component, ElementRef } from '@angular/core';
 import { SacTestingAttributePipe, SacTooltipCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Tooltip Komponente
+ * Tooltip component
  *
  * @example ToolTip Control
  *
- *  <ngTooltip tooltiptext="Mein Tooltip" [inlinemode]="true">
+ *  <ngTooltip tooltiptext="My tooltip" [inlinemode]="true">
  *    <i class="tooltip"></i>
  *  </ngTooltip>
  *
- * @example ToolTip Control im Inline Mode. Style auf Icon kann auch in Klasse ausgelagert werden.
+ * @example ToolTip Control in inline mode. Style on icon can also be placed in class.
  *
  *  <div class="form-inline">
  *    <ngInputSearch iconname="Suchen"></ngInputSearch>
- *    <ngTooltip tooltiptext="Mein Tooltip" [inlinemode]="true">
+ *    <ngTooltip tooltiptext="My tooltip" [inlinemode]="true">
  *      <i class="tooltip" style="position: relative; left: 0; top: 3px; display: inline-block; margin-right: 10px;"></i>
  *    </ngTooltip>
  *  </div>
@@ -31,9 +31,9 @@ export class SacTooltipComponent extends SacTooltipCommon {
     // #region Constructors
 
     /**
-     * Konstrukor
-     * @param parent SacFormular Instanz
-     * @param injector Component Injector
+     * Constructor
+     * @param cdRef Change Detection Service
+     * @param ref Element Reference
      */
     constructor(cdRef: ChangeDetectorRef, ref: ElementRef) {
         super(cdRef, ref);

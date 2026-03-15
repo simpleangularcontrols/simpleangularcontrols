@@ -6,7 +6,7 @@ import { SacPagingCommon, SacTestingAttributePipe } from '@simpleangularcontrols
 @Component({
     selector: 'sac-paging',
     templateUrl: './paging.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -26,7 +26,7 @@ export class SacPagingComponent extends SacPagingCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
+     * Constructor
      */
     constructor(injector: Injector) {
         super(injector);

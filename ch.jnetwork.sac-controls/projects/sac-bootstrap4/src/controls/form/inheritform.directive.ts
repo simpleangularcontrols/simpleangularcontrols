@@ -6,7 +6,7 @@ import { SacFormCommon } from '@simpleangularcontrols/sac-common';
 // #region Exported Functions
 
 /**
- * Factory Methode für NgForm
+ * Factory method for NgForm
  * @param form NgForm
  */
 export function NGFORM_FACTORY(form: NgForm) {
@@ -14,8 +14,8 @@ export function NGFORM_FACTORY(form: NgForm) {
 }
 
 /**
- * Factory Methode für SacForm
- * @param form SacFormular
+ * Factory method for SacForm
+ * @param form SacForm
  */
 export function SACFORM_FACTORY(form: SacFormDirective) {
     return form;

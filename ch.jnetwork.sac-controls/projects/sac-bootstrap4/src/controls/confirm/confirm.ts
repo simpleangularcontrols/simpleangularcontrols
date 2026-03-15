@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
 import { SacConfirmCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Confirm Komponente
+ * Confirm component
  */
 @Component({
     selector: 'sac-confirm',

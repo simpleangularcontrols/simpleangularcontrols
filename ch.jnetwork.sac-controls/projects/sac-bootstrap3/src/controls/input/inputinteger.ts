@@ -12,7 +12,7 @@ import { SacInputIntegerCommon, SacTestingAttributePipe } from '@simpleangularco
 @Component({
     selector: 'sac-inputinteger',
     templateUrl: './inputinteger.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

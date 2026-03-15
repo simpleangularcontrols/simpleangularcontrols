@@ -7,7 +7,7 @@ import { SacTestingAttributePipe, SacValidationSummaryCommon } from '@simpleangu
 @Component({
     selector: 'sac-validationsummary',
     templateUrl: './validationsummary.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register value access provider so that value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -15,7 +15,7 @@ import { SacTestingAttributePipe, SacValidationSummaryCommon } from '@simpleangu
             useExisting: SacValidationSummaryComponent,
         },
     ],
-    // View Provider, damit das Formular an das Control gebunden werden kann
+    // View Provider so that the form can be bound to the control
     viewProviders: [{ provide: ControlContainer, useExisting: SacFormDirective }],
     standalone: true,
     imports: [NgIf, NgFor, AsyncPipe, SacTestingAttributePipe],

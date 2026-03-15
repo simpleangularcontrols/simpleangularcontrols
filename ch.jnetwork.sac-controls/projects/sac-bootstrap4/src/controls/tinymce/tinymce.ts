@@ -16,13 +16,13 @@ import { SacTestingAttributePipe, SacTinyMceCommon } from '@simpleangularcontrol
 import { EditorComponent } from '@tinymce/tinymce-angular';
 
 /**
- * TinyMCE Komponente
+ * TinyMCE component
  */
 @Component({
     selector: 'sac-tinymce',
     templateUrl: './tinymce.html',
     styleUrls: ['./tinymce.scss'],
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

@@ -14,7 +14,7 @@ import { SacDropdownCommon, SacTestingAttributePipe } from '@simpleangularcontro
 @Component({
     selector: 'sac-dropdown',
     templateUrl: './dropdown.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         { provide: DROPDOWN_TOKEN, useExisting: forwardRef(() => SacDropdownComponent) },
         {

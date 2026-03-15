@@ -26,8 +26,8 @@ export class SacTabComponent extends SacTabCommon {
     // #region Public Methods
 
     /**
-     * Gibt die TabItems zurück
-     * @returns Array von TabItems
+     * Returns the TabItems
+     * @returns Array of TabItems
      */
     public tabItems(): SacTabItemComponent[] {
         return this._tabItems.toArray() as Array<SacTabItemComponent>;

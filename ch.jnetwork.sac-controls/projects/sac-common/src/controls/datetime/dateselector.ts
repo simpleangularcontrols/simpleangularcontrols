@@ -355,7 +355,7 @@ export class SacDateSelectorCommon implements OnInit {
 
             const dateValue: Moment = moment(v.date);
 
-            // Übernehmen der Zeit aus dem bestehenden Wert
+            // Transfer the time from the existing value
             if (this._selectedValue === null) {
                 if (this._initialValue !== null) {
                     dateValue.hour(this._initialValue.hour());

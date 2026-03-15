@@ -10,7 +10,7 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacStaticFormContainerCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 /**
- * Component für einbindung eines beliebigen Controls in die Form Struktur
+ * Component for integrating any arbitrary control into the form structure
  *
  * @example
  *  <ngStaticFormContainer name='myformcontainer' label="My Custom Form Control" [isrequired]='false'>
@@ -18,7 +18,7 @@ import { SacStaticFormContainerCommon, SacTestingAttributePipe } from '@simplean
  *  </ngStaticFormContainer>
  *
  * @example
- * <ngStaticFormContainer name='myformcintainer' label="My Custom Form Control" [isrequired]='false' tooltiptext="Dies ist ein Tooltip Text">
+ * <ngStaticFormContainer name='myformcintainer' label="My Custom Form Control" [isrequired]='false' tooltiptext="This is a tooltip text">
  *     <input type="range" class="form-control" />
  * </ngStaticFormContainer>
  *
@@ -26,7 +26,7 @@ import { SacStaticFormContainerCommon, SacTestingAttributePipe } from '@simplean
 @Component({
     selector: 'sac-staticformcontainer',
     templateUrl: './formcontainer.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

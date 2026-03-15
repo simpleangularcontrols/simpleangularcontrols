@@ -151,6 +151,7 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
 
     /**
      * Indicates the direction of sorting. The possible values are `none`,`asc`,`desc`
+     * @returns The sort direction as string (none, asc, or desc)
      */
     public GetSortDirection(): string {
         switch (this.grid.sortDirection) {
@@ -167,6 +168,7 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
 
     /**
      * Defines whether the element is a cell in the table.
+     * @returns Boolean indicating if element is in table body
      */
     public IsBody(): boolean {
         return this.type === 'body';
@@ -174,6 +176,7 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
 
     /**
      * Defines whether the element is a cell in the footer of the table
+     * @returns Boolean indicating if element is in table footer
      */
     public IsFooter(): boolean {
         return this.type === 'footer';
@@ -181,6 +184,7 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
 
     /**
      * Defines whether the element is a cell in the table header
+     * @returns Boolean indicating if element is in table header
      */
     public IsHeader(): boolean {
         return this.type === 'header';
@@ -188,6 +192,7 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
 
     /**
      * Defines whether this column is sorted.
+     * @returns Boolean indicating if column is sorted
      */
     public IsSortedColumn(): boolean {
         return this.grid.sortColumn === this.sortkey;

@@ -105,23 +105,23 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
     public position = 'bottomend|topend';
 
     /**
-     * Resource Key für Validation Message DateTimeFormat bei Control
+     * Resource Key for Validation Message DateTimeFormat at Control
      */
     @Input() public validationmessagedatetimeformat: string = this.validationKeyService.ValidationErrorDatetimeFormat;
 
     /**
-     * Resource Key für Validation Message DateTimeFormat in Validation Summary
+     * Resource Key for Validation Message DateTimeFormat in Validation Summary
      */
     @Input() public validationmessagedatetimeformatsummary: string =
         this.validationKeyService.ValidationErrorSummaryDatetimeFormat;
 
     /**
-     * Resource Key für Validation Message Required bei Control
+     * Resource Key for Validation Message Required at Control
      */
     @Input() public validationmessagerequired: string = this.validationKeyService.ValidationErrorRequired;
 
     /**
-     * Resource Key für Validation Message Required in Validation Summary
+     * Resource Key for Validation Message Required in Validation Summary
      */
     @Input() public validationmessagerequiredsummary: string = this.validationKeyService.ValidationErrorSummaryRequired;
 
@@ -133,7 +133,8 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
      * Constructor
      * @param formlayout SacFormLayoutCommon to define scoped layout settings
      * @param injector Injector for injecting services
-     * @param elementRef reference to html element
+     * @param elementRef Reference to html element
+     * @param cdRef Change detector reference for updating component view
      */
     constructor(
         formlayout: SacFormLayoutCommon,
@@ -229,6 +230,8 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
 
     /**
      * Converts a JSON date string into a UTC DateTime object that can be used by the control
+     * @param timestamp Date timestamp to convert
+     * @returns Moment object in UTC
      */
     public getDate(timestamp): moment.Moment {
         const date = new Date(timestamp);
@@ -281,6 +284,7 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
 
     /**
      * Sets the value of type string to the property valuestring
+     * @param v String value to set
      */
     public setValueString(v: string) {
         this.valuestring = v;
@@ -318,6 +322,7 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
 
     /**
      * Overwrite WriteValue to Set correct Date Object
+     * @param value Date or string value to write to the control
      */
     public writeValue(value: Date | string) {
         if (value === '' || value === null || value === undefined) {
@@ -336,10 +341,18 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
 
     // #region Protected Methods
 
+    /**
+     * Gets the height of the arrow element
+     * @returns The height in pixels of the arrow element, or 0 if not present
+     */
     protected getArrowHeight(): number {
         return this.pickerarrow ? this.pickerarrow.nativeElement.offsetHeight : 0;
     }
 
+    /**
+     * Gets the width of the arrow element
+     * @returns The width in pixels of the arrow element, or 0 if not present
+     */
     protected getArrowWidth(): number {
         return this.pickerarrow ? this.pickerarrow.nativeElement.offsetWidth : 0;
     }
@@ -437,6 +450,9 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
         });
     };
 
+    /**
+     * Sets the date-time format string from the configured format property
+     */
     private setDateTimeFormat(): void {
         // HACK: Add addition property to FormControl. Can be fixed if solution for ticket: https://github.com/angular/angular/issues/19686
         if (this.ngControl) {

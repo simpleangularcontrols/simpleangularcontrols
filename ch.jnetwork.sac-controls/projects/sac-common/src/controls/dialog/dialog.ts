@@ -176,6 +176,7 @@ export class SacDialogCommon implements OnDestroy {
 
     /**
      * Allow Close by Click outside Dialog
+     * @param event Click event object
      */
     @HostListener('click', ['$event'])
     public onClick(event: any): void {
@@ -192,6 +193,7 @@ export class SacDialogCommon implements OnDestroy {
 
     /**
      * Allow Close by ESC
+     * @param event Keyboard event object
      */
     @HostListener('document:keydown', ['$event'])
     public onKeydownHandler(event: KeyboardEvent) {

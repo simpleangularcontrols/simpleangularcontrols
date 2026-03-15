@@ -545,8 +545,8 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     }
 
     /**
-     * Validiert das Upload Control
-     * @param c Control das validiert werden soll
+     * Validates the upload control
+     * @param c Control to be validated
      */
     public validateData(c: AbstractControl): ValidationErrors | null {
         let error: ValidationErrors | null = null;
@@ -571,6 +571,9 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
 
     // #region Private Methods
 
+    /**
+     * Updates the file count on the form control
+     */
     private UpdateFileCount(): void {
         // HACK: Add addition property to FormControl. Can be fixed if solution for ticket: https://github.com/angular/angular/issues/19686
         if (this.ngControl) {

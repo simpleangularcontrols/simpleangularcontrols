@@ -56,34 +56,30 @@ export class Validation {
 
     /**
      * Validates field for email address
-     * @param control Control to be validated
-     * @param fieldName Label of the control
-     * @param validationMessage Validation message that
-     * @param validationMessageSummary Validation message that is displayed in the Validation Summary
+     * @param validationMessage Validation message displayed at the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static email(validationMessage: string, validationMessageSummary): ValidatorFn {
         return emailValidator(validationMessage, validationMessageSummary);
     }
 
     /**
-   * Validator validate if value is the requiredValue
-   * @param requiredValue Value that control should have
-   * @param control Control to be validate
-   * @param fieldName Label of control
-   * @param validationMessage validation message near the control
-   * @param validationMessageSummary validation inside the validation summary
-
-   */
+     * Validator validate if value is the requiredValue
+     * @param requiredValue Value that control should have
+     * @param validationMessage Validation message near the control
+     * @param validationMessageSummary Validation message inside the validation summary
+     * @returns ValidatorFn validator function
+     */
     public static equals(requiredValue: any, validationMessage: string, validationMessageSummary): ValidatorFn {
         return equalsValueValidator(requiredValue, validationMessage, validationMessageSummary);
     }
 
     /**
      * Validator that checks if the value is a date.
-     * @param control Control with IDateTimeControl interface implementation
-     * @param fieldName Label of the control
-     * @param validationMessage Validation message that is displayed at the control
-     * @param validationMessageSummary Validation message that is displayed in the Validation Summary
+     * @param validationMessage Validation message displayed at the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static isValidDate(validationMessage: string, validationMessageSummary): ValidatorFn {
         return isValidDateValidator(validationMessage, validationMessageSummary);
@@ -91,11 +87,10 @@ export class Validation {
 
     /**
      * Validates if the date is older than maxDate
-     * @param control Control to be validated. Must implement IDateTimeControl
-     * @param maxDate max. date
-     * @param fieldName Label of the control
-     * @param validationMessage Validation message that
-     * @param validationMessageSummary Validation message that is displayed in the Validation Summary
+     * @param maxDate Maximum date allowed
+     * @param validationMessage Validation message displayed at the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static maxDate(maxDate: Date, validationMessage: string, validationMessageSummary): ValidatorFn {
         return maxDateValidator(maxDate, validationMessage, validationMessageSummary);
@@ -103,11 +98,10 @@ export class Validation {
 
     /**
      * Validates if the time is earlier than maxTime.
-     * @param control Control to be validated. Must implement IDateTimeControl
-     * @param maxTime Min. time
-     * @param fieldName Label of the control
-     * @param validationMessage Validation message that
-     * @param validationMessageSummary Validation message that is displayed in the Validation Summary
+     * @param maxTime Maximum time allowed
+     * @param validationMessage Validation message displayed at the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static maxTime(maxTime: Date, validationMessage: string, validationMessageSummary): ValidatorFn {
         return maxTimeValidator(maxTime, validationMessage, validationMessageSummary);
@@ -115,11 +109,10 @@ export class Validation {
 
     /**
      * Validator for Max Value
-     * @param control Control to be validated
-     * @param maxvalue Max. value
-     * @param fieldName Label of the control
-     * @param validationMessage Validation message that
-     * @param validationMessageSummary Validation message that is displayed in the Validation Summary
+     * @param maxvalue Maximum value allowed
+     * @param validationMessage Validation message displayed at the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static maxValue(maxvalue: number, validationMessage: string, validationMessageSummary): ValidatorFn {
         return maxValueValidator(maxvalue, validationMessage, validationMessageSummary);
@@ -127,11 +120,10 @@ export class Validation {
 
     /**
      * Validates if the date is newer than minDate
-     * @param control Control to be validated. Must implement IDateTimeControl
-     * @param minDate Min. date
-     * @param fieldName Label of the control
-     * @param validationMessage Validation message that
-     * @param validationMessageSummary Validation message that is displayed in the Validation Summary
+     * @param minDate Minimum date allowed
+     * @param validationMessage Validation message displayed at the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static minDate(minDate: Date, validationMessage: string, validationMessageSummary): ValidatorFn {
         return minDateValidator(minDate, validationMessage, validationMessageSummary);
@@ -139,11 +131,10 @@ export class Validation {
 
     /**
      * Validator for min. number of uploads
-     * @param control Control to be validated. Control must implement IUploadControl
-     * @param minFiles Min. number of files that must be uploaded
-     * @param fieldName Label of the control
-     * @param validationMessage Validation message that is displayed below the control
-     * @param validationMessageSummary Validation message that is displayed in the Validation Summary
+     * @param minFiles Minimum number of files that must be uploaded
+     * @param validationMessage Validation message displayed below the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static minFiles(minFiles: number, validationMessage: string, validationMessageSummary): ValidatorFn {
         return minFilesValidator(minFiles, validationMessage, validationMessageSummary);
@@ -151,11 +142,10 @@ export class Validation {
 
     /**
      * Validates the length of the value in the control
-     * @param control Control to be validated
-     * @param mintextlength Min. length of the value
-     * @param fieldName Label of the control
-     * @param validationMessage Validation message that
-     * @param validationMessageSummary Validation message that is displayed in the Validation Summary
+     * @param mintextlength Minimum length of the value
+     * @param validationMessage Validation message displayed at the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static minTextLength(
         mintextlength: number,
@@ -167,34 +157,32 @@ export class Validation {
 
     /**
      * Validates if the time is later than minTime.
-     * @param control Control to be validated. Must implement IDateTimeControl
-     * @param minTime Min. time
-     * @param fieldName Label of the control
-     * @param validationMessage Validation message that
-     * @param validationMessageSummary Validation message that is displayed in the Validation Summary
+     * @param minTime Minimum time allowed
+     * @param validationMessage Validation message displayed at the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static minTime(minTime: Date, validationMessage: string, validationMessageSummary: string): ValidatorFn {
         return minTimeValidator(minTime, validationMessage, validationMessageSummary);
     }
 
     /**
-     * Validator that checks if the value is a date.
-     * @param control Control with IDateTimeControl interface implementation
-     * @param fieldName Label of the control
-     * @param validationMessage Validation message that
-     * @param validationMessageSummary Validation message that is displayed in the Validation Summary
+     * Validator that checks if the value is greater than minValue.
+     * @param minvalue Minimum value allowed
+     * @param validationMessage Validation message displayed at the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static minValue(minvalue: number, validationMessage: string, validationMessageSummary): ValidatorFn {
         return minValueValidator(minvalue, validationMessage, validationMessageSummary);
     }
 
     /**
-     * Validation with a RegEx pattern
-     * @param control Control to be validated.
-     * @param pattern RegEx pattern
-     * @param fieldName Label of the control
-     * @param validationMessage Validation message that is displayed below the control
-     * @param validationMessageSummary Validation message that is displayed in the Validation Summary
+     * Validator for MultiLanguage Control that checks if a value has been entered in all languages
+     * @param languages Languages that can be captured in the control
+     * @param validationMessage Validation message displayed below the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static multilanguageRequired(
         languages: LanguageModel[],
@@ -205,12 +193,11 @@ export class Validation {
     }
 
     /**
-     * Validator for MultiLanguage Control, which checks if at least one value has been entered
-     * @param control Control to be validated
-     * @param languages Languages that can be captured in the control.
-     * @param fieldName Label of the control
-     * @param validationMessage Validation message that is displayed below the control
-     * @param validationMessageSummary Validation message that is displayed in the Validation Summary
+     * Validator for MultiLanguage Control that checks if at least one value has been entered
+     * @param languages Languages that can be captured in the control
+     * @param validationMessage Validation message displayed below the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static multilanguageRequiredAny(
         languages: LanguageModel[],
@@ -222,11 +209,10 @@ export class Validation {
 
     /**
      * Validator validate if value is not the invalidValue
-     * @param invalidValue Value that control doesn't should have
-     * @param control Control to be validate
-     * @param fieldName Label of control
-     * @param validationMessage validation message near the control
-     * @param validationMessageSummary validation inside the validation summary
+     * @param invalidValue Value that control should not have
+     * @param validationMessage Validation message near the control
+     * @param validationMessageSummary Validation message inside the validation summary
+     * @returns ValidatorFn validator function
      */
     public static notequals(invalidValue: any, validationMessage: string, validationMessageSummary): ValidatorFn {
         return notEqualsValueValidator(invalidValue, validationMessage, validationMessageSummary);
@@ -234,11 +220,10 @@ export class Validation {
 
     /**
      * Validation with a RegEx pattern
-     * @param control Control to be validated.
-     * @param pattern RegEx pattern
-     * @param fieldName Label of the control
-     * @param validationMessage Validation message that
-     * @param validationMessageSummary Validation message that is displayed in the Validation Summary
+     * @param pattern RegEx pattern that the value must match
+     * @param validationMessage Validation message displayed below the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static pattern(pattern: string, validationMessage: string, validationMessageSummary): ValidatorFn {
         return patternValidator(pattern, validationMessage, validationMessageSummary);
@@ -246,8 +231,7 @@ export class Validation {
 
     /**
      * Validator for Required State
-     * @param control Control to be validated
-     * @param fieldName Label of the control
+     * @returns ValidatorFn validator function
      * @param validationMessage Validation message that
      * @param validationMessageSummary Validation message that is displayed in the Validation Summary
      */

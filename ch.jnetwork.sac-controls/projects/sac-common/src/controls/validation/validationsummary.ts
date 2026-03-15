@@ -64,7 +64,8 @@ export class SacValidationSummaryCommon {
 
     /**
      * Constructor
-     * Inject of the form
+     * @param parent Parent form control component
+     * @param injector Service injector for dependency resolution
      */
     constructor(parent: SacFormCommon, injector: Injector) {
         this.parent = parent;

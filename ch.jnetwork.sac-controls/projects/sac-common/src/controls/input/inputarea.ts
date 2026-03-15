@@ -44,6 +44,8 @@ export class SacInputAreaCommon extends SacInputCommon {
 
     /**
      * Method returns 'true' when a key is pressed and maxtextlength is not defined
+     * @param event The keyboard event
+     * @returns Boolean indicating whether the key press is allowed (undefined if maxtextlength is not defined)
      */
     public onKeyPress(event: KeyboardEvent): Boolean {
         // Exist if MaxTextLength not defined

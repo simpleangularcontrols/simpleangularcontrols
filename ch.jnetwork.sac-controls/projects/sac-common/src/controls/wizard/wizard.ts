@@ -169,6 +169,10 @@ export abstract class SacWizardCommon implements AfterContentInit, ControlValueA
         }
     }
 
+    /**
+     * Sets the current step internally and notifies observers of the change
+     * @param step The step ID to set as current
+     */
     private setStepInternal(step: string): void {
         this._currentstep = step;
         this.propagateChange(this._currentstep);

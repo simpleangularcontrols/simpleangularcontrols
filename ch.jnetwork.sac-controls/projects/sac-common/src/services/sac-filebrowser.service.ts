@@ -140,6 +140,7 @@ export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService 
      * @param apiurl URL to API Service
      * @param path Path of the file to be deleted
      * @param allowedextensions Allowed extensions for files
+     * @returns Observable containing the file response after deletion
      */
     public DeleteFile(apiurl: string, path: string, allowedextensions: string): Observable<IBrowserFileResponse> {
         const url = `${apiurl}/deletefile`;
@@ -162,6 +163,7 @@ export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService 
      * Deletes a node
      * @param apiurl URL to API Service
      * @param path Path of the node to be deleted
+     * @returns Observable containing the node response after deletion
      */
     public DeleteNode(apiurl: string, path: string): Observable<IBrowserNodeResponse> {
         const url = `${apiurl}/deletenode`;
@@ -184,6 +186,7 @@ export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService 
      * @param apiurl URL to API Service
      * @param path Path of the node from which the files should be read
      * @param allowedextensions Allowed file extensions
+     * @returns Observable containing the file response
      */
     public GetFiles(apiurl: string, path: string, allowedextensions: string): Observable<IBrowserFileResponse> {
         const url = `${apiurl}/getfiles`;
@@ -207,6 +210,7 @@ export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService 
      * @param apiurl URL to API Service
      * @param path Path of the node being requested
      * @param allowedextensions Allowed extensions that may be displayed
+     * @returns Observable containing the node response
      */
     public GetNode(apiurl: string, path: string, allowedextensions: string): Observable<IBrowserNodeResponse> {
         const url = `${apiurl}/getnodes`;
@@ -231,6 +235,7 @@ export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService 
      * @param path Path to the file to be renamed
      * @param newFilename New filename
      * @param allowedextensions Allowed extension for files
+     * @returns Observable containing the file response after rename
      */
     public RenameFile(
         apiurl: string,
@@ -260,6 +265,7 @@ export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService 
      * @param apiurl URL to API Service
      * @param path Path of the node to be renamed
      * @param newFoldername New name of the node
+     * @returns Observable containing the node response after rename
      */
     public RenameNode(apiurl: string, path: string, newFoldername: string): Observable<IBrowserNodeResponse> {
         const url = `${apiurl}/renamenode`;
@@ -284,6 +290,7 @@ export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService 
      * @param path Path where the new file should be saved
      * @param id ID of the upload
      * @param allowedextensions Allowed extensions for the upload
+     * @returns Observable containing the file response after save
      */
     public SaveFile(
         apiurl: string,
@@ -313,6 +320,7 @@ export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService 
      * @param apiurl URL to API Service
      * @param path Path where the node should be saved
      * @param newFoldername Name of the new node
+     * @returns Observable containing the node response after save
      */
     public SaveNode(apiurl: string, path: string, newFoldername: string): Observable<IBrowserNodeResponse> {
         const url = `${apiurl}/newnode`;

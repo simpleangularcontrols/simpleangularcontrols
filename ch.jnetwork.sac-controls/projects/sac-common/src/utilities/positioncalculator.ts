@@ -18,7 +18,7 @@ export interface ClientRect {
 // #region Exported Classes
 
 /**
- * Position Utility Klasse
+ * Position utility class
  * @see https://github.com/ng-bootstrap/ng-bootstrap/blob/master/src/util/positioning.ts
  */
 export class PositionCalculator {
@@ -173,7 +173,7 @@ export class PositionCalculator {
                 break;
         }
 
-        /// The translate3d/gpu acceleration render a blurry text on chrome, the next line is commented until a browser fix
+        // The translate3d/gpu acceleration render a blurry text on chrome, the next line is commented until a browser fix
         // targetElement.style.transform = `translate3d(${Math.round(leftPosition)}px, ${Math.floor(topPosition)}px, 0px)`;
         targetElement.style.transform = `translate(${Math.round(leftPosition)}px, ${Math.round(topPosition)}px)`;
 

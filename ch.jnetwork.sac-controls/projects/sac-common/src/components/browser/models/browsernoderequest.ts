@@ -1,16 +1,16 @@
 /**
- * Klasse für den Request eines Nodes
+ * Class for the request of a node
  */
 export class BrowserNodeRequest {
     // #region Properties
 
     /**
-     * Erlaubte Dateitypen
+     * Allowed file types
      */
     public AllowedTypes: string;
 
     /**
-     * Pfad des Nodes
+     * Path of the node
      */
     public Path: string;
 
@@ -19,8 +19,8 @@ export class BrowserNodeRequest {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param init Initale Werte für die Instanz
+     * Constructor
+     * @param init Initial values for the instance
      */
     constructor(init?: Partial<BrowserNodeRequest>) {
         Object.assign(this, init);

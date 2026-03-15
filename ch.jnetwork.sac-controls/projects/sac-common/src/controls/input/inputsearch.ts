@@ -2,7 +2,7 @@ import { SacInputCommon } from './input';
 import { Directive, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 /**
- * Basis Komponente für SacInputSearch
+ * Base component for SacInputSearch
  */
 @Directive()
 export class SacInputSearchCommon extends SacInputCommon implements OnInit {
@@ -15,18 +15,18 @@ export class SacInputSearchCommon extends SacInputCommon implements OnInit {
     public buttonmode: 'icon' | 'text' | 'mixed';
 
     /**
-     * Text welcher auf dem Button angezeigt wird
+     * Text displayed on the button
      */
     @Input() public buttontext = '';
 
     /**
-     * Event wenn auf das Such-Icon geclickt wird
+     * Event when the search icon is clicked
      */
     @Output()
     public clicked: EventEmitter<any> = new EventEmitter<any>();
 
     /**
-     * Name des Such-Icons
+     * Name of the search icon
      */
     @Input() public iconname = '';
 
@@ -48,7 +48,7 @@ export class SacInputSearchCommon extends SacInputCommon implements OnInit {
     }
 
     /**
-     * Methode sendet den Wert des Inputs durch das Event
+     * Method sends the value of the input through the event
      */
     public searchClick() {
         this.clicked.emit(this.value);

@@ -45,7 +45,7 @@ describe('SacTreeviewComponent', () => {
         cy.get('tr[data-path="/1/3"]').should('have.text', 'Sub Item 2');
     });
 
-    it('should have expanded and collabsed icons', () => {
+    it('should have expanded and collapsed icons', () => {
         cy.mount(
             `<form>
                 <sac-treeview name="treeviewControl" [label]="label" [data]="data"></sac-treeview>

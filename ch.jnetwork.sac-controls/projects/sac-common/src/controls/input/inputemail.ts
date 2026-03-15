@@ -4,19 +4,19 @@ import { Directive, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 /**
- * Basis Komponente für SacInputEmail
+ * Base component for SacInputEmail
  */
 @Directive()
 export class SacInputEmailCommon extends SacInputCommon {
     // #region Properties
 
     /**
-     * Resource Key für Validation Message Email bei Control
+     * Resource key for validation message email in Control
      */
     @Input() public validationmessageemail: string = this.validationKeyService.ValidationErrorEmail;
 
     /**
-     * Resource Key für Validation Message Email in Validation Summary
+     * Resource key for the validation message email in the validation summary
      */
     @Input() public validationmessagesummaryemail: string = this.validationKeyService.ValidationErrorSummaryEmail;
 
@@ -25,7 +25,7 @@ export class SacInputEmailCommon extends SacInputCommon {
     // #region Public Methods
 
     /**
-     * Methode validiert, ob der Wert den gegebenen Kriteriten entspricht
+     * Method validates whether the value meets the given criteria
      */
     public validateData(c: AbstractControl): ValidationErrors | null {
         let error: ValidationErrors | null = super.validateData(c);

@@ -3,14 +3,14 @@ import { Directive, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 /**
- * Common Klasse für Static Label Control
+ * Common class for static label control
  **/
 @Directive()
 export class SacStaticLabelCommon extends SacInputBase<string> {
     // #region Properties
 
     /**
-     * Erlaubt HTML Content in der Anzeige des Wertes
+     * Allows HTML content in the display of the value
      */
     @Input()
     public allowhtml = false;
@@ -20,13 +20,13 @@ export class SacStaticLabelCommon extends SacInputBase<string> {
     // #region Public Methods
 
     /**
-     * Validierung des Controls
+     * Validation of the control
      *
-     * @param c Control das Validiert werden soll
-     * @returns Fehlermeldung aus Validation oder NULL
+     * @param c Control to be validated
+     * @returns Error message from validation or null
      */
     public validateData(c: AbstractControl): ValidationErrors | null {
-        // Keine Validierung, daher immer NULL
+        // No validation, therefore always null
         return null;
     }
 

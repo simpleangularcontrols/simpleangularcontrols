@@ -3,7 +3,7 @@ import moment, { Moment } from 'moment';
 // #region Exported Functions
 
 export function isDateValid(value: any, format: string) {
-    // NULL ist gültig
+    // NULL is valid
     if (value === null || value === undefined || value === '') {
         return true;
     }

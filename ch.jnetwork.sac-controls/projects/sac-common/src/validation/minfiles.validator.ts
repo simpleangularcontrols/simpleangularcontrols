@@ -12,7 +12,7 @@ export function minFilesValidator(
     return (control: AbstractControl): ValidationErrors | null => {
         const ctl = control as unknown as IUploadControl;
 
-        // Check abbrechen, wenn kein gültiges Datum
+        // Cancel check if minimum files requirement is disabled
         if (!minFiles || minFiles === 0) {
             return null;
         }

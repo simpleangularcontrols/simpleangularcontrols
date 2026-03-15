@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 
 /**
- * Base Komponente für Dialog
+ * Base component for Dialog
  */
 @Directive()
 export class SacDialogCommon implements OnDestroy {
@@ -21,36 +21,36 @@ export class SacDialogCommon implements OnDestroy {
     private hasSetBodyTag = false;
 
     /**
-     * Boolean Property definiert ob das Dialog angezeigt wird
+     * Boolean property defines whether the dialog is shown
      */
     public _show = false;
 
     /**
-     * Das property enthielt (wenn überhaupt gesetzt) entweder keywords für sizing oder custom css Klassen.
-     * Die akzeptabel keywordssind: 'small', 'large', 'extralarge', 'medium', ''.
+     * This property contains (if set) either keywords for sizing or custom CSS classes.
+     * The acceptable keywords are: 'small', 'large', 'extralarge', 'medium', ''.
      */
     public _size: 'small' | 'large' | 'extralarge' | 'medium' | '' = '';
 
     /**
-     * Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch ESC geschlossen werden. Default ist true.
+     * The input property accepts a boolean value. Defines whether the dialog can be closed by ESC. Default is true.
      */
     @Input()
     public allowesc = true;
 
     /**
-     * Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch click außerhalb des Dialog-Fenster geschlossen werden. Default ist true.
+     * The input property accepts a boolean value. Defines whether the dialog can be closed by clicking outside the dialog window. Default is true.
      */
     @Input()
     public backdrop = true;
 
     /**
-     * Steuert ob im Header des Dialogs ein Button angezeigt wird.
+     * Controls whether a button is displayed in the header of the dialog.
      */
     @Input()
     public closebutton = true;
 
     /**
-     * Name des Containers für den Dialog
+     * Name of the container for the dialog
      */
     public dialogElement: ElementRef;
 
@@ -61,7 +61,7 @@ export class SacDialogCommon implements OnDestroy {
     public e2eidentifier: string | null = null;
 
     /**
-     * Output Emitter. Wird aufgerufen, wenn das Wert des _show property geändert ist - damait das Dialog geöfnet/geschlossen wird.
+     * Output emitter. Called when the value of the _show property changes - so the dialog is opened/closed.
      */
     @Output()
     public isvisibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -73,7 +73,7 @@ export class SacDialogCommon implements OnDestroy {
     public name: string = createGuid();
 
     /**
-     * Input Property. Erhält den Title des Dialog. Default Value: 'Dialog'.
+     * Input property. Receives the title of the dialog. Default value: 'Dialog'.
      */
     @Input()
     public title = 'Dialog';
@@ -83,8 +83,8 @@ export class SacDialogCommon implements OnDestroy {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * Inject des Formulars
+     * Constructor
+     * Injects the form
      */
     constructor(private cdRef: ChangeDetectorRef) {}
 
@@ -93,7 +93,7 @@ export class SacDialogCommon implements OnDestroy {
     // #region Public Getters And Setters
 
     /**
-     * Implementation als Setter, da mit ngIf das Element bei Unsichtbarkeit UNDEFINED ist.
+     * Implementation as setter, because with ngIf the element is UNDEFINED when invisible.
      */
     @ViewChild('dialog', { static: false })
     public set dialogElementSetter(content: ElementRef) {
@@ -101,14 +101,14 @@ export class SacDialogCommon implements OnDestroy {
     }
 
     /**
-     * Getter. Ergibt das boolen Wert des _show property
+     * Getter. Returns the boolean value of the _show property
      */
     public get isvisible(): boolean {
         return this._show;
     }
 
     /**
-     * Setter. Erhält das boolen Wert des _show property
+     * Setter. Receives the boolean value of the _show property
      */
     @Input()
     public set isvisible(v: boolean) {
@@ -126,10 +126,10 @@ export class SacDialogCommon implements OnDestroy {
     }
 
     /**
-     * Das Input akzeptiert sowohl default size-css-Klassen als auch custom Klassen.
-     * case insensitive.
-     * Die akzeptabel default-size-Klassen sind: 'small', 'large', 'extralarge', 'medium', ''.
-     * Wenn size ist NICHT gesetzt (oder 'medium' oder ''), default ist in medium size: max-width 500px.
+     * The input accepts both default size CSS classes and custom classes.
+     * Case insensitive.
+     * The acceptable default size classes are: 'small', 'large', 'extralarge', 'medium', ''.
+     * If size is NOT set (or 'medium' or ''), default is medium size: max-width 500px.
      */
     @Input()
     public set size(v: 'small' | 'large' | 'extralarge' | 'medium' | '') {
@@ -152,7 +152,7 @@ export class SacDialogCommon implements OnDestroy {
     // #region Public Methods
 
     /**
-     * Die Methode setz den Wert des _show property auf false
+     * The method sets the value of the _show property to false
      */
     public hide(): void {
         if (this.hasSetBodyTag && document.body.classList.contains('modal-open')) {
@@ -165,7 +165,7 @@ export class SacDialogCommon implements OnDestroy {
     }
 
     /**
-     * Methode wenn Componente entfernt wird
+     * Method called when the component is destroyed
      */
     public ngOnDestroy(): void {
         if (this.hasSetBodyTag && document.body.classList.contains('modal-open')) {
@@ -203,7 +203,7 @@ export class SacDialogCommon implements OnDestroy {
     }
 
     /**
-     * Die Methode setz den Wert des _show property auf true
+     * The method sets the value of the _show property to true
      */
     public show(): void {
         this._show = true;

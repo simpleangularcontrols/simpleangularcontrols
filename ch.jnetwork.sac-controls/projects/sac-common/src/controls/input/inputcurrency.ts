@@ -2,7 +2,7 @@ import { SacInputDecimalCommon } from './inputdecimal';
 import { Directive, Input } from '@angular/core';
 
 /**
- * Basis Komponente für SacInputCurrency
+ * Base component for SacInputCurrency
  */
 @Directive()
 export class SacInputCurrencyCommon extends SacInputDecimalCommon {

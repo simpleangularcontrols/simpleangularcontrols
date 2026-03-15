@@ -4,14 +4,14 @@ import { Directive, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 /**
- * Basis Komponente für SacInput
+ * Base component for SacInput
  */
 @Directive()
 export class SacInputCommon extends SacInputBase<string> {
     // #region Properties
 
     /**
-     * Fix breite für das Control definieren.
+     * Define fixed width for the control.
      */
     @Input() public controlwidth: string = null;
 
@@ -21,22 +21,22 @@ export class SacInputCommon extends SacInputBase<string> {
     @Input() public maxtextlength: number = null;
 
     /**
-     * Resource Key für Validation Message Pattern bei Control
+     * Resource key for validation message pattern at control
      */
     @Input() public validationmessagepattern: string = this.validationKeyService.ValidationErrorPattern;
 
     /**
-     * Resource Key für Validation Message Required bei Control
+     * Resource key for validation message required at control
      */
     @Input() public validationmessagerequired: string = this.validationKeyService.ValidationErrorRequired;
 
     /**
-     * Resource Key für Validation Message Pattern in Validation Summary
+     * Resource key for validation message pattern in validation summary
      */
     @Input() public validationmessagesummarypattern: string = this.validationKeyService.ValidationErrorSummaryPattern;
 
     /**
-     * Resource Key für Validation Message Required in Validation Summary
+     * Resource key for validation message required in validation summary
      */
     @Input() public validationmessagesummaryrequired: string = this.validationKeyService.ValidationErrorSummaryRequired;
 
@@ -45,7 +45,7 @@ export class SacInputCommon extends SacInputBase<string> {
     // #region Public Methods
 
     /**
-     * Methode validiert, ob der Wert den gegebenen Kriterien entspricht
+     * Method validates whether the value meets the given criteria
      */
     public validateData(c: AbstractControl): ValidationErrors | null {
         let error: ValidationErrors | null = null;

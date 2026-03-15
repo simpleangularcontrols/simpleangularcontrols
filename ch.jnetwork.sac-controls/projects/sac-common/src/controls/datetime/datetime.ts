@@ -7,19 +7,19 @@ import * as IMask from 'imask';
 import * as moment_ from 'moment';
 
 /**
- * Komponente für SacDateTimeCommon. Extends SacBaseDateTimeControl
+ * Component for SacDateTimeCommon. Extends SacBaseDateTimeControl
  */
 @Directive()
 export abstract class SacDateTimeCommon extends SacBaseDateTimeControl {
     // #region Properties
 
     /**
-     * Format des Datums
+     * Date format
      */
     public readonly DATEFORMAT: string = 'DD.MM.YYYY HH:mm';
 
     /**
-     * Maske
+     * Mask
      */
     public readonly imaskDate = {
         mask: this.DATEFORMAT,
@@ -61,12 +61,12 @@ export abstract class SacDateTimeCommon extends SacBaseDateTimeControl {
     };
 
     /**
-     * Maximaler Wert des Datums
+     * Maximum value of the date
      */
     public _maxdate: Date = null;
 
     /**
-     * Minimaler Wert des Datums
+     * Minimum value of the date
      */
     public _mindate: Date = null;
 
@@ -76,22 +76,22 @@ export abstract class SacDateTimeCommon extends SacBaseDateTimeControl {
     public moment = moment_['default'];
 
     /**
-     * Resource Key für Validation Message MaxDate bei Control
+     * Resource key for validation message MaxDate at control
      */
     @Input() public validationmessagemaxdate: string = this.validationKeyService.ValidationErrorMaxDate;
 
     /**
-     * Resource Key für Validation Message MinDate bei Control
+     * Resource key for validation message MinDate at control
      */
     @Input() public validationmessagemindate: string = this.validationKeyService.ValidationErrorMinDate;
 
     /**
-     * Resource Key für Validation Message MaxDate in Validation Summary
+     * Resource key for validation message MaxDate in validation summary
      */
     @Input() public validationmessagesummarymaxdate: string = this.validationKeyService.ValidationErrorSummaryMaxDate;
 
     /**
-     * Resource Key für Validation Message MinDate in Validation Summary
+     * Resource key for validation message MinDate in validation summary
      */
     @Input() public validationmessagesummarymindate: string = this.validationKeyService.ValidationErrorSummaryMinDate;
 
@@ -158,21 +158,21 @@ export abstract class SacDateTimeCommon extends SacBaseDateTimeControl {
     // #region Public Methods
 
     /**
-     * Methode ergibt Datum-Format vom String
+     * Method returns date format from string
      */
     public GetDateTimeFormatString(): string {
         return this.DATEFORMAT;
     }
 
     /**
-     * Methode modifiziert den parsed Wert des Datums
+     * Method modifies the parsed value of the date
      */
     public ModifyParsedDateTimeValue(v: moment_.Moment): moment_.Moment {
         return v;
     }
 
     /**
-     * Methode ergibt das selektierte Datum
+     * Method returns the selected date
      */
     public dateselect(v: any) {
         if (v.date === null) {
@@ -204,11 +204,11 @@ export abstract class SacDateTimeCommon extends SacBaseDateTimeControl {
     }
 
     /**
-     * DateSelector wird beim Click-Event angezeigt
+     * DateSelector is shown on click event
      */
     public showDateSelector(): void {
         /**
-         * Touch Event auslösen
+         * Trigger a touch event
          */
         this.onTouch();
 

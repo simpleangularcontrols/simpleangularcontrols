@@ -1,14 +1,14 @@
 import { Directive, ElementRef } from '@angular/core';
 
 /**
- * Base Context Menu Anchor Component für Open/Close Event
+ * Base context menu anchor component for open/close event
  */
 @Directive()
 export class SacContextmenuAnchorCommon {
     // #region Properties
 
     /**
-     * Referenz auf das Native HTML Element
+     * Reference to the native HTML element
      */
     public nativeElement: HTMLElement;
 
@@ -17,8 +17,8 @@ export class SacContextmenuAnchorCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param elementRef Refernz auf das HTML welcher als Anker für das Context Menü verwendet wird
+     * Constructor
+     * @param elementRef Reference to the HTML element used as anchor for the context menu
      */
     constructor(elementRef: ElementRef<HTMLElement>) {
         this.nativeElement = elementRef.nativeElement;

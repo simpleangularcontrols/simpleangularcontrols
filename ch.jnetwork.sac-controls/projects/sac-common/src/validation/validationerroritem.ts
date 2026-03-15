@@ -1,5 +1,5 @@
 /**
- * Klasse für Validierungsfehler
+ * Class for validation errors
  * */
 export class ValidationErrorItem {
     // #region Properties
@@ -10,22 +10,22 @@ export class ValidationErrorItem {
     public errorMessageKey: string;
 
     /**
-     * Error Message Key für Validation Summary
+     * Error Message Key for Validation Summary
      */
     public errorMessageValidationSummaryKey: string;
 
     /**
-     * Typ den Fehler
+     * Type of the error
      */
     public errorType: string;
 
     /**
-     * Label oder Name des Feldes
+     * Label or name of the field
      */
     public fieldName: string = null;
 
     /**
-     * Map mit Parametern die in den Meldungen als Platzhalter verwendet werden können
+     * Map with parameters that can be used as placeholders in messages
      */
     public parameters: Map<string, any> = new Map<string, any>();
 
@@ -34,11 +34,11 @@ export class ValidationErrorItem {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param errorType Type des Fehlers
-     * @param errorMessageKey Key für Fehlermeldung
-     * @param errorMessageSummaryKey Key für Fehlermeldung in Validation Summary
-     * @param fieldName Name des Labels oder Bezeichnung des Feldes
+     * Constructor
+     * @param errorType Type of the error
+     * @param errorMessageKey Key for error message
+     * @param errorMessageSummaryKey Key for error message in Validation Summary
+     * @param fieldName Name of the label or designation of the field
      */
     constructor(errorType: string, errorMessageKey: string, errorMessageSummaryKey: string, fieldName: string = null) {
         this.errorType = errorType;

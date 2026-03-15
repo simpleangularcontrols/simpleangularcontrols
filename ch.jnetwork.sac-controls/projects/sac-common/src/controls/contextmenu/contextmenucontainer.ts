@@ -1,14 +1,14 @@
 import { Directive, ElementRef } from '@angular/core';
 
 /**
- * Common Marker Klasse für den Menü Container
+ * Common marker class for the menu container
  */
 @Directive()
 export class SacContextMenuContrainerCommon {
     // #region Properties
 
     /**
-     * Referenz auf das HTML Element des Menü Containers
+     * Reference to the HTML element of the menu container
      */
     public nativeElement: HTMLElement;
 
@@ -17,8 +17,8 @@ export class SacContextMenuContrainerCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param elementRef Referenz auf das HTML Element mit der Marker Direktive
+     * Constructor
+     * @param elementRef Reference to the HTML element with the marker directive
      */
     constructor(elementRef: ElementRef<HTMLElement>) {
         this.nativeElement = elementRef.nativeElement;

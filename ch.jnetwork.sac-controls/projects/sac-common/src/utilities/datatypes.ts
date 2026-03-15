@@ -1,7 +1,7 @@
 /**
- * Prüft ob ein Objekt Defined ist
- * @param value Objekt
- * @return Objekt ist definied. TRUE wenn Objekt definied. FALSE wenn Objekt NULL oder UNDEFINED.
+ * Checks if an object is defined
+ * @param value Object
+ * @return Object is defined. TRUE if object is defined. FALSE if object is NULL or UNDEFINED.
  */
 // #region Exported Functions
 

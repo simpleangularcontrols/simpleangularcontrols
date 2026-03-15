@@ -3,13 +3,13 @@ import { NgForm } from '@angular/forms';
 import { SacFormCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Erweiterung / Hooking für automatismen in Formular. Wird als Container für alle Controls benötigt.
+ * Extension/hooking for automatic form logic. Required as container for all form controls.
  *
- * @example Beispiel über Div Container
+ * @example Example using div container
  *
  * <div ngForm></div>
  *
- * @example Beispiel über Form Tag
+ * @example Example using form tag
  *
  * <form></form>
  *
@@ -22,7 +22,7 @@ export class SacFormDirective extends SacFormCommon {
     // #region Properties
 
     /**
-     * Setzt die Standard CSS Klasse für auf dem Form Container
+     * Set the standard CSS class on the form container
      */
     @HostBinding('class.form')
     public cssClassForm: boolean = true;
@@ -32,8 +32,8 @@ export class SacFormDirective extends SacFormCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param form Instanz von NgForm für eigene automatische Formular Logik
+     * Constructor
+     * @param form Instance of NgForm for own automatic form logic
      */
     constructor(form: NgForm) {
         super(form);

@@ -7,10 +7,10 @@ export class SacDropdownOptionDirective extends SacDropdownOptionCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param elementRef Referenz auf HTML DOM Element
+     * Constructor
+     * @param elementRef Reference to HTML DOM element
      * @param renderer Angular Rendering Engine
-     * @param dropdownComponent Referenz auf DropDown Komponente
+     * @param dropdownComponent Reference to Dropdown component
      */
     constructor(
         elementRef: ElementRef,

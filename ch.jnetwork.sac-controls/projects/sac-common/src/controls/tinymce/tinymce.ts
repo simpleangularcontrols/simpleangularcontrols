@@ -105,7 +105,7 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
      * Definiert das Control als Required
      */
     @Input()
-    public isrequired: boolean = false;
+    public isrequired = false;
 
     /**
      * Service für Error Localisation

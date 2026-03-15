@@ -9,7 +9,7 @@ export class Interpolation {
     /**
      *  Template zum Parsen der Platzhalter
      */
-    private templateMatcher: RegExp = /{{\s?([^{}\s]*)\s?}}/g;
+    private templateMatcher = /{{\s?([^{}\s]*)\s?}}/g;
 
     // #endregion Properties
 

@@ -11,13 +11,13 @@ export class SacTabItemCommon {
      * Boolean Property prüft ob das Tab aktiv ist
      */
     @Input()
-    public active: boolean = false;
+    public active = false;
 
     /**
      * Boolean Property prüft ob das Tab disabled ist
      */
     @Input()
-    public disabled: boolean = false;
+    public disabled = false;
 
     /**
      * ID-String
@@ -41,7 +41,7 @@ export class SacTabItemCommon {
      * Das Input property ekzeptiert boolen Wert. Default ist true. Definiert, ob die Komponente hidden sein sollte.
      */
     @Input()
-    public unloadwhenhidden: boolean = true;
+    public unloadwhenhidden = true;
 
     // #endregion Properties
 }

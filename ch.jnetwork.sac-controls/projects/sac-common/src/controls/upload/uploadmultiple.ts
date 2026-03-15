@@ -15,25 +15,25 @@ export class SacUploadMultipleCommon extends SacUploadBase<string[]> {
      * Label für Browse Button
      */
     @Input()
-    public buttonbrowse: string = '';
+    public buttonbrowse = '';
 
     /**
      * Label für Upload Button
      */
     @Input()
-    public buttonupload: string = '';
+    public buttonupload = '';
 
     /**
      * Max. Files die hochgeladen werden können. 0 deaktiviert das Limit
      */
     @Input()
-    public maxfiles: number = 0;
+    public maxfiles = 0;
 
     /**
      * Min. Files die hochgeladen werden müssen. 0 deaktiviert das Limit
      */
     @Input()
-    public minfiles: number = 0;
+    public minfiles = 0;
 
     /**
      * Resource Key für Validation Message Required bei Control

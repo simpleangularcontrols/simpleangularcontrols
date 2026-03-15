@@ -9,7 +9,7 @@ export class SacInputCurrencyCommon extends SacInputDecimalCommon {
     // #region Properties
 
     @Input()
-    public currency: string = '';
+    public currency = '';
 
     // #endregion Properties
 

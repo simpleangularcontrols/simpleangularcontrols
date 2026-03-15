@@ -11,7 +11,7 @@ export class SacInputAreaCommon extends SacInputCommon {
     /**
      * Property mit dem Custom CSS Klassen auf dem Form-Control definiert werden können.
      */
-    @Input() public customcssclass: string = '';
+    @Input() public customcssclass = '';
 
     /**
      * Definiert die Höhe der TextArea Box. Ist normalfall leer, da Höhe auch über Rows gesetzt werden kann.
@@ -21,7 +21,7 @@ export class SacInputAreaCommon extends SacInputCommon {
     /**
      * Definiert die Höhe der TextArea Box.
      */
-    @Input() public rows: number = 5;
+    @Input() public rows = 5;
 
     // #endregion Properties
 

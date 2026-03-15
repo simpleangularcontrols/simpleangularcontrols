@@ -91,12 +91,12 @@ export class PagerRequest {
     /**
      * Index of the page to which you want to switch
      */
-    public NewPageIndex: number = 0;
+    public NewPageIndex = 0;
 
     /**
      * Number of elements on the page
      */
-    public PageSize: number = 0;
+    public PageSize = 0;
 
     // #endregion Properties
 

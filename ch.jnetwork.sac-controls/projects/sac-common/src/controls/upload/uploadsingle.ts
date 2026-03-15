@@ -13,13 +13,13 @@ export class SacUploadSingleCommon extends SacUploadBase<string> {
      * Label für Browse Button
      */
     @Input()
-    public buttonbrowse: string = '';
+    public buttonbrowse = '';
 
     /**
      * Label für Upload Button
      */
     @Input()
-    public buttonupload: string = '';
+    public buttonupload = '';
 
     // #endregion Properties
 

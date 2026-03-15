@@ -11,7 +11,7 @@ export class SacButtonCommon {
     /**
      * Boolean Property definiert, ob das Button 'disabled' ist; default - false
      */
-    private _isdisabledvalue: boolean = false;
+    private _isdisabledvalue = false;
 
     /**
      * Das Property definiert die Rolle des Buttons. Standardwert ist 'default'.
@@ -21,7 +21,7 @@ export class SacButtonCommon {
     /**
      * Das boolean property ist benutzt für Aktivation des Spinner des Button. Default ist false.
      */
-    public _isloadingvalue: boolean = false;
+    public _isloadingvalue = false;
 
     /**
      * Output Event Emitter
@@ -43,17 +43,17 @@ export class SacButtonCommon {
     /**
      * Input Property für Icon Style Klasse; default Wert - ''
      */
-    @Input() public icon: string = '';
+    @Input() public icon = '';
 
     /**
      * Input Property für Name; default Wert - ''
      */
-    @Input() public name: string = '';
+    @Input() public name = '';
 
     /**
      * Input Property für Text des Buttons; default Wert - ''
      */
-    @Input() public text: string = '';
+    @Input() public text = '';
 
     // #endregion Properties
 

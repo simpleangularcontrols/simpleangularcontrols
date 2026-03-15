@@ -43,12 +43,12 @@ export class SacMultilanguageInputAreaCommon extends SacInputBase<any> {
     /**
      * Aktiviert den Validator, das min. eine Sprache erfasst sein muss
      */
-    @Input() public requiredany: boolean = false;
+    @Input() public requiredany = false;
 
     /**
      * Anzahl Rows für TextArea
      */
-    @Input() public rows: number = 7;
+    @Input() public rows = 7;
 
     /**
      * Resource Key für Validation Message Required bei Control

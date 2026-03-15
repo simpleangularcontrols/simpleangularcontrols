@@ -46,43 +46,43 @@ export abstract class SacFileBrowserCommon implements OnInit {
      * getrennt durch Komma für mehr als eine Erweiterung (Example: ".jpg,.gif")
      */
     @Input()
-    public allowedtypes: string = '';
+    public allowedtypes = '';
 
     /**
      * Erlaubt das löschen einer Datei
      */
     @Input()
-    public allowfiledelete: boolean = true;
+    public allowfiledelete = true;
 
     /**
      * Erlaubt das umbenennen einer Datei
      */
     @Input()
-    public allowfilerename: boolean = true;
+    public allowfilerename = true;
 
     /**
      * Erlaubt den Upload von Dateien
      */
     @Input()
-    public allowfileupload: boolean = true;
+    public allowfileupload = true;
 
     /**
      * Erlaubt das erstellen eines neuen Ordners
      */
     @Input()
-    public allowfoldercreate: boolean = true;
+    public allowfoldercreate = true;
 
     /**
      * Erlaubt das löschen eines Ordners
      */
     @Input()
-    public allowfolderdelete: boolean = true;
+    public allowfolderdelete = true;
 
     /**
      * Erlaubt das Umbenennen eines Ordners
      */
     @Input()
-    public allowfolderrename: boolean = true;
+    public allowfolderrename = true;
 
     /**
      * URL für Backend API

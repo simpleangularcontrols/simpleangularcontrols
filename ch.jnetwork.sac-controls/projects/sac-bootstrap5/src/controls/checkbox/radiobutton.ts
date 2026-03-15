@@ -16,7 +16,7 @@ export class SacRadiobuttonComponent extends SacRadiobuttonCommon {
 
     /**
      * Constructor
-     * @param SacRadioButtons Radio buttons group component
+     * @param sacRadioButtons Radio buttons group component
      * @param formlayout SacFormLayoutCommon to define scoped layout settings
      * @param injector Injector for injecting services
      */

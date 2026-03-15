@@ -13,6 +13,9 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
     // DOM Element
     private element: any;
 
+    /**
+     * Z-index positioning for the dialog overlay
+     */
     @Input()
     public zindex: number = 20002;
 
@@ -20,6 +23,11 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
 
     // #region Constructors
 
+    /**
+     * Constructor
+     * @param el DOM element reference
+     * @param cdRef Change Detection Service
+     */
     constructor(el: ElementRef, cdRef: ChangeDetectorRef) {
         super(cdRef);
 
@@ -52,6 +60,9 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
 
     // #region Public Methods
 
+    /**
+     * Cleanup lifecycle hook - removes dialog from DOM
+     */
     public ngOnDestroy() {
         this.hide();
         if (document.body.contains(this.element)) {
@@ -60,6 +71,9 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
         super.ngOnDestroy();
     }
 
+    /**
+     * Initialization lifecycle hook - appends dialog to body for correct styling under Bootstrap 3
+     */
     public ngOnInit() {
         // Move element to body for correct styling under Bootstrap 3
         document.body.appendChild(this.element);

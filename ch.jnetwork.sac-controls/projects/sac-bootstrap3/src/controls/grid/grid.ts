@@ -14,7 +14,14 @@ import { SacGridCommon } from '@simpleangularcontrols/sac-common';
 export class SacGridComponent extends SacGridCommon {
     // #region Properties
 
+    /**
+     * Whether to enable text ellipsis for grid cells
+     */
     public ellipsis: boolean = false;
+
+    /**
+     * Template reference for custom grid template
+     */
     @ContentChild(TemplateRef, { static: true })
     public template: TemplateRef<any>;
 

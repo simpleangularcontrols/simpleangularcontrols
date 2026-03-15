@@ -10,8 +10,9 @@
       ],
       "parserOptions": {
         "project": [
-          "projects/sac-bootstrap5/tsconfig.lib.json",
-          "projects/sac-bootstrap5/tsconfig.spec.json"
+          "projects/demo-bootstrap5/tsconfig.app.json",
+          "projects/demo-bootstrap5/tsconfig.spec.json",
+          "projects/demo-bootstrap5/e2e/tsconfig.json"
         ],
         "createDefaultProgram": true
       },
@@ -20,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "sac",
+            "prefix": "app",
             "style": "kebab-case"
           }
         ],
@@ -28,7 +29,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "sac",
+            "prefix": "app",
             "style": "camelCase"
           }
         ],

@@ -1,16 +1,16 @@
+import { DemoMultilanguageComponent } from './multilanguage.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DemoMultilanguageComponent } from './multilanguage.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: DemoMultilanguageComponent,
-  },
+    {
+        path: '',
+        component: DemoMultilanguageComponent,
+    },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
 })
 export class MultilanguageRoutingModule {}

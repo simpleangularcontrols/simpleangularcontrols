@@ -1,7 +1,7 @@
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacTestingAttributePipe, SacTreeviewCommon } from '@simpleangularcontrols/sac-common';
+import { SacTreeviewCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Treeview Compomnent

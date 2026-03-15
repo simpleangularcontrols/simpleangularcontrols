@@ -1,23 +1,23 @@
-import { Component, forwardRef, Host, Injector, Optional } from '@angular/core';
-import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacInputCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SacInputCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Input Komponente
  */
 @Component({
-  selector: 'sac-input',
-  templateUrl: './input.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacInputComponent },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() => SacInputComponent),
-    },
-  ],
+    selector: 'sac-input',
+    templateUrl: './input.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacInputComponent },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() => SacInputComponent),
+        },
+    ],
 })
 export class SacInputComponent extends SacInputCommon {
     // #region Constructors

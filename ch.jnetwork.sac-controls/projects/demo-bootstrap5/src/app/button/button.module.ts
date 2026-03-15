@@ -1,23 +1,24 @@
+import { ButtonRoutingModule } from './button-routing.module';
+import { DemoButtonComponent } from './button.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
-  SACBootstrap5FormModule,
-  SACBootstrap5ButtonModule,
-  SACBootstrap5ValidationSummaryModule,
-} from '@simpleangularcontrols/sac-bootstrap5';
-import { ButtonRoutingModule } from './button-routing.module';
-import { DemoButtonComponent } from './button.component';
-@NgModule({
-  declarations: [DemoButtonComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ButtonRoutingModule,
+    SACBootstrap5ButtonModule,
     SACBootstrap5FormModule,
-    SACBootstrap5ButtonModule,
     SACBootstrap5ValidationSummaryModule,
-    SACBootstrap5ButtonModule,
-  ],
+} from '@simpleangularcontrols/sac-bootstrap5';
+
+@NgModule({
+    declarations: [DemoButtonComponent],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ButtonRoutingModule,
+        SACBootstrap5FormModule,
+        SACBootstrap5ButtonModule,
+        SACBootstrap5ValidationSummaryModule,
+        SACBootstrap5ButtonModule,
+    ],
 })
 export class ButtonModule {}

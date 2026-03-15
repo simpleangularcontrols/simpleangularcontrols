@@ -1,13 +1,21 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
+    selector: 'app-form',
+    templateUrl: './form.component.html',
 })
 export class DemoFormComponent {
-  public model = { field1: '', field2: '' };
+    // #region Properties
 
-  public onAction(): void {
-    alert(JSON.stringify(this.model));
-  }
+    public model = { field1: '', field2: '' };
+
+    // #endregion Properties
+
+    // #region Public Methods
+
+    public onAction(): void {
+        alert(JSON.stringify(this.model));
+    }
+
+    // #endregion Public Methods
 }

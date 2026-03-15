@@ -1,7 +1,7 @@
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 import { Component, Host, Injector, NgZone, OnInit, Optional, Renderer2, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacDropzoneMultipleCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
+import { SacDropzoneMultipleCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Dropzone Komponente für mehrere Uploads

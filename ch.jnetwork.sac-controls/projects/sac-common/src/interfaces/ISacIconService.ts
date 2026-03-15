@@ -2,6 +2,45 @@
  * interface for service which provides icons to components
  */
 export interface ISacIconService {
+    // #region Properties
+
+    /**
+     * Default Icon Class for Delete Button in Grid
+     */
+    GridButtonDefaultDeleteIcon: string;
+
+    /**
+     * Default IconSet for Delete Button in Grid
+     */
+    GridButtonDefaultDeleteIconSet: string;
+
+    /**
+     * Default Icon Class for Edit Button in Grid
+     */
+    GridButtonDefaultEditIcon: string;
+
+    /**
+     * Default IconSet for Edit Button in Grid
+     */
+    GridButtonDefaultEditIconSet: string;
+
+    /**
+     * Suffix that is added to all icon classes when the button is disabled.
+     */
+    GridButtonDisabledIconSuffix: string;
+
+    /**
+     * Icon used by InputPassword to hide the password in the input field
+     */
+    InputPasswordEyeHiddenIcon: string;
+
+    /**
+     * Icon used by InputPassword to display the password in plain text during input
+     */
+    InputPasswordEyeVisibleIcon: string;
+
+    // #endregion Properties
+
     // #region Getters And Setters
 
     /**
@@ -75,31 +114,6 @@ export interface ISacIconService {
     get GenericHelptextIcon(): string;
 
     /**
-     * Default Icon Class for Delete Button in Grid
-     */
-    GridButtonDefaultDeleteIcon: string;
-
-    /**
-     * Default IconSet for Delete Button in Grid
-     */
-    GridButtonDefaultDeleteIconSet: string;
-
-    /**
-     * Default Icon Class for Edit Button in Grid
-     */
-    GridButtonDefaultEditIcon: string;
-
-    /**
-     * Default IconSet for Edit Button in Grid
-     */
-    GridButtonDefaultEditIconSet: string;
-
-    /**
-     * Suffix that is added to all icon classes when the button is disabled.
-     */
-    GridButtonDisabledIconSuffix: string;
-
-    /**
      * sort down icon for grid
      */
     get GridComponentSortDown(): string;
@@ -108,16 +122,6 @@ export interface ISacIconService {
      * sort up icon for grid
      */
     get GridComponentSortUp(): string;
-
-    /**
-     * Icon used by InputPassword to hide the password in the input field
-     */
-    InputPasswordEyeHiddenIcon: string;
-
-    /**
-     * Icon used by InputPassword to display the password in plain text during input
-     */
-    InputPasswordEyeVisibleIcon: string;
 
     /**
      * Icon which is used by the InputSearch component on the button.

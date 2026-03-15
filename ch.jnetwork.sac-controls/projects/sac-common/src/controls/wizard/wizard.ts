@@ -18,13 +18,13 @@ export abstract class SacWizardCommon implements AfterContentInit, ControlValueA
      * Boolean Property prüft ob Navigation im Wizard disabled ist; default Wert - false
      */
     @Input()
-    public disablenavigation: boolean = false;
+    public disablenavigation = false;
 
     /**
      * Name des Controls
      */
     @Input()
-    public name: string = '';
+    public name = '';
 
     /**
      * Leere Implementation von 'propagateChange'. Muss gemacht werden, damit kein Fehler entsteht
@@ -76,7 +76,7 @@ export abstract class SacWizardCommon implements AfterContentInit, ControlValueA
         const itemsCount: number = wizardItemsArray.length;
         const currentItemIndex = wizardItemsArray.findIndex((itm) => itm.id === step);
 
-        for (let i: number = 0; i < itemsCount; i++) {
+        for (let i = 0; i < itemsCount; i++) {
             const item: SacWizardItemCommon = wizardItemsArray[i];
 
             if (i < currentItemIndex) {

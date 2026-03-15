@@ -20,7 +20,7 @@ export abstract class SacRadiobuttonsCommon extends SacBaseModelControl<any> imp
     /**
      * Radio Button Index
      */
-    private radioButtonIndex: number = 0;
+    private radioButtonIndex = 0;
 
     /**
      * Resource Key für Validation Message Required bei Control

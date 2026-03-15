@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-browser',
-  templateUrl: './browser.component.html',
+    selector: 'app-browser',
+    templateUrl: './browser.component.html',
 })
 export class DemoBrowserComponent {
-  public debugAction1(): void {
-    alert('Action 1');
-  }
+    // #region Public Methods
+
+    public debugAction1(): void {
+        alert('Action 1');
+    }
+
+    // #endregion Public Methods
 }

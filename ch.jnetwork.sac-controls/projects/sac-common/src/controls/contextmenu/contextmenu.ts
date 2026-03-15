@@ -1,7 +1,7 @@
 import { ISacIconService } from '../../interfaces/ISacIconService';
 import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
 import { createGuid } from '../../utilities/guid';
-import { PlacementArray, positionElements } from '../../utilities/positioning';
+import { PlacementArray, positionElements } from '../../utilities/positionelements';
 import { ISacContextmenuCommon } from './contextmenu.interface';
 import { SacContextmenuAnchorCommon } from './contextmenuanchor';
 import { SacContextMenuContrainerCommon } from './contextmenucontainer';
@@ -82,7 +82,7 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
      * Extra CSS Klassen für das Control
      */
     @Input()
-    public cssclass: string = '';
+    public cssclass = '';
 
     /**
      * Identifier used for the E2E data attribute.
@@ -94,7 +94,7 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
      * Definiert ob das Dropdown offen ist.
      */
     @Input()
-    public isopen: boolean = false;
+    public isopen = false;
 
     /**
      * All directly assigned context menu elements that are defined in the direct template for the context menu.

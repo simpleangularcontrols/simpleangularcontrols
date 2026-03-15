@@ -64,7 +64,7 @@ describe('SacMultilanguageInputComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -125,7 +125,7 @@ describe('SacMultilanguageInputComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.get('input').should('have.value', 'German Text');
@@ -189,7 +189,7 @@ describe('SacMultilanguageInputComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.get('input').should('have.value', 'German Text');
@@ -251,7 +251,7 @@ describe('SacMultilanguageInputComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -311,7 +311,7 @@ describe('SacMultilanguageInputComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -371,7 +371,7 @@ describe('SacMultilanguageInputComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -431,7 +431,7 @@ describe('SacMultilanguageInputComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -494,7 +494,7 @@ describe('SacMultilanguageInputComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-multilanguageinput > div', 'myControl');
@@ -555,7 +555,7 @@ describe('SacMultilanguageInputComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-multilanguageinput > div', 'myTestidentifier');
@@ -616,7 +616,7 @@ describe('SacMultilanguageInputComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-multilanguageinput > div', 'myTestidentifier');
@@ -671,7 +671,7 @@ describe('SacMultilanguageInputComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-multilanguageinput > div');
@@ -737,7 +737,7 @@ describe('SacMultilanguageInputComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -799,7 +799,7 @@ describe('SacMultilanguageInputComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -861,7 +861,7 @@ describe('SacMultilanguageInputComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -923,7 +923,7 @@ describe('SacMultilanguageInputComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.get('input').should('have.value', 'This is a value');

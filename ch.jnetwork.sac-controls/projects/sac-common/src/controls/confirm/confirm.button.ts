@@ -9,7 +9,7 @@ export class SacConfirmButton {
     /**
      * Key of the button. Is returned as a result when confirming
      */
-    public key: string = '';
+    public key = '';
 
     /**
      * Layout of the button
@@ -19,7 +19,7 @@ export class SacConfirmButton {
     /**
      * Display text of the buttonAnzeigetext des Buttons
      */
-    public text: string = '';
+    public text = '';
 
     // #endregion Properties
 
@@ -31,7 +31,7 @@ export class SacConfirmButton {
      * @param text Text for button
      * @param role Role type for the button. Default is ‘secondary’
      */
-    constructor(key: string = '', text: string = '', role: BUTTONROLETYPE = 'default') {
+    constructor(key = '', text = '', role: BUTTONROLETYPE = 'default') {
         this.key = key;
         this.text = text;
         this.role = role;

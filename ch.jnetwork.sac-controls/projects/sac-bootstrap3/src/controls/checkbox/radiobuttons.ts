@@ -1,24 +1,24 @@
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacRadiobuttonsCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
-import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacRadiobuttonsCommon } from '@simpleangularcontrols/sac-common';
 
 @Component({
-  selector: 'sac-radiobuttons',
-  templateUrl: './radiobuttons.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => SacRadiobuttonsComponent),
-      multi: true,
-    },
-    {
-      provide: NG_VALIDATORS,
-      useExisting: forwardRef(() => SacRadiobuttonsComponent),
-      multi: true,
-    },
-  ],
+    selector: 'sac-radiobuttons',
+    templateUrl: './radiobuttons.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => SacRadiobuttonsComponent),
+            multi: true,
+        },
+        {
+            provide: NG_VALIDATORS,
+            useExisting: forwardRef(() => SacRadiobuttonsComponent),
+            multi: true,
+        },
+    ],
 })
 export class SacRadiobuttonsComponent extends SacRadiobuttonsCommon {
     // #region Constructors

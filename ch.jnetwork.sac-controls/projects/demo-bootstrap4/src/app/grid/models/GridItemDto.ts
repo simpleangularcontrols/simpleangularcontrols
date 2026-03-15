@@ -1,5 +1,9 @@
 export class GridItemDto {
-  public Id: number;
-  public Bezeichnung: string;
-  public Bild: string;
+    // #region Properties
+
+    public Bezeichnung: string;
+    public Bild: string;
+    public Id: number;
+
+    // #endregion Properties
 }

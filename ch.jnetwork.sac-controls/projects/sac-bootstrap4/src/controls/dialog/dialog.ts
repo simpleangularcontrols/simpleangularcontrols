@@ -5,8 +5,8 @@ import { SacDialogCommon } from '@simpleangularcontrols/sac-common';
  * Dialog Komponente
  */
 @Component({
-  selector: 'sac-dialog',
-  templateUrl: './dialog.html',
+    selector: 'sac-dialog',
+    templateUrl: './dialog.html',
 })
 export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDestroy {
     // #region Properties

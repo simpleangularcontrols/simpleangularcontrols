@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, ElementRef } from '@angular/core';
-import { SacTestingAttributePipe, SacTooltipCommon } from '@simpleangularcontrols/sac-common';
+import { SacTooltipCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Tooltip Komponente

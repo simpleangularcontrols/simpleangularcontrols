@@ -1,8 +1,7 @@
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 import { ChangeDetectorRef, Component, ElementRef, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacTestingAttributePipe, SacTimeCommon } from '@simpleangularcontrols/sac-common';
-import { IMaskDirective } from 'angular-imask';
+import { SacTimeCommon } from '@simpleangularcontrols/sac-common';
 
 @Component({
     selector: 'sac-time',

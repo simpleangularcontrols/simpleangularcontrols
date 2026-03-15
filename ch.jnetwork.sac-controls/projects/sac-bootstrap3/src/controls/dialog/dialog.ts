@@ -1,9 +1,9 @@
-import { Component, ElementRef, OnInit, OnDestroy, Input, ChangeDetectorRef } from '@angular/core';
-import { SacDialogCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
+import { ChangeDetectorRef, Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
+import { SacDialogCommon } from '@simpleangularcontrols/sac-common';
 
 @Component({
-  selector: 'sac-dialog',
-  templateUrl: './dialog.html'
+    selector: 'sac-dialog',
+    templateUrl: './dialog.html',
 })
 export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDestroy {
     // #region Properties

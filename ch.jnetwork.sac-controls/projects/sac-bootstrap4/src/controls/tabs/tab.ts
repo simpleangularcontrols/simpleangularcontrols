@@ -6,8 +6,8 @@ import { SacTabCommon } from '@simpleangularcontrols/sac-common';
  * Komponente für Tabs
  */
 @Component({
-  selector: 'sac-tab',
-  templateUrl: './tab.html',
+    selector: 'sac-tab',
+    templateUrl: './tab.html',
 })
 export class SacTabComponent extends SacTabCommon {
     // #region Properties

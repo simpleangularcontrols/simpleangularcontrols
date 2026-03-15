@@ -24,7 +24,11 @@ export class SacDropdownOptionCommon implements OnDestroy {
      * @param _renderer Render Engine
      * @param _dropdown Dropdown Instanz
      */
-    constructor(private _element: ElementRef, private _renderer: Renderer2, private _dropdown: SacDropdownCommon) {
+    constructor(
+        private _element: ElementRef,
+        private _renderer: Renderer2,
+        private _dropdown: SacDropdownCommon
+    ) {
         if (this._dropdown) {
             this.id = this._dropdown.registerOption();
         }

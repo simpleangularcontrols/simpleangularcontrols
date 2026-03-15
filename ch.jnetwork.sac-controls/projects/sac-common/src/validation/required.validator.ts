@@ -1,24 +1,16 @@
-import {
-  AbstractControl,
-  ValidationErrors,
-  ValidatorFn,
-  Validators,
-} from '@angular/forms';
 import { CreateValidationError } from './validationerrorcreator';
+import { AbstractControl, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 
-export function requiredValidator(
-  validationMessage: string,
-  validationMessageSummary: string
-): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    if (Validators.required(control) !== null) {
-      return CreateValidationError(
-        'required',
-        validationMessage,
-        validationMessageSummary
-      );
-    } else {
-      return null;
-    }
-  };
+// #region Exported Functions
+
+export function requiredValidator(validationMessage: string, validationMessageSummary: string): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+        if (Validators.required(control) !== null) {
+            return CreateValidationError('required', validationMessage, validationMessageSummary);
+        } else {
+            return null;
+        }
+    };
 }
+
+// #endregion Exported Functions

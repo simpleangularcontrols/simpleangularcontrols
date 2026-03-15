@@ -49,7 +49,11 @@ export class SacListboxOptionCommon implements OnDestroy {
      * @param _element: ElementRef
      * @param _renderer: Renderer2
      */
-    constructor(private _element: ElementRef, private _renderer: Renderer2, private _listbox: SacListboxCommon) {
+    constructor(
+        private _element: ElementRef,
+        private _renderer: Renderer2,
+        private _listbox: SacListboxCommon
+    ) {
         if (this._listbox) {
             this._listbox.registerOption(this);
         }
@@ -117,7 +121,7 @@ export class SacListboxCommon extends SacBaseSelectControl<Array<string>> {
     /**
      * Anzahl der Zeilen
      */
-    @Input() public rowsize: number = 5;
+    @Input() public rowsize = 5;
     /**
      * Resource Key für Validation Message Required bei Control
      */

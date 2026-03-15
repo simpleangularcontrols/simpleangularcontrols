@@ -1,0 +1,8 @@
+{
+    "private": true,
+    "dependencies": {
+        "sac-controls": "file:../..",
+        "tsco-cli": "2.0.15",
+        "typescript": "5.9.3"
+    }
+}

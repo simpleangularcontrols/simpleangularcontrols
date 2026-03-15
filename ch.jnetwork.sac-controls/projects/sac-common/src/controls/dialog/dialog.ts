@@ -1,5 +1,15 @@
 import { createGuid } from '../../utilities/guid';
-import { ChangeDetectorRef, Directive, ElementRef, EventEmitter, HostListener, Input, OnDestroy, Output, ViewChild } from '@angular/core';
+import {
+    ChangeDetectorRef,
+    Directive,
+    ElementRef,
+    EventEmitter,
+    HostListener,
+    Input,
+    OnDestroy,
+    Output,
+    ViewChild,
+} from '@angular/core';
 
 /**
  * Base Komponente für Dialog
@@ -13,7 +23,7 @@ export class SacDialogCommon implements OnDestroy {
     /**
      * Boolean Property definiert ob das Dialog angezeigt wird
      */
-    public _show: boolean = false;
+    public _show = false;
 
     /**
      * Das property enthielt (wenn überhaupt gesetzt) entweder keywords für sizing oder custom css Klassen.
@@ -25,19 +35,19 @@ export class SacDialogCommon implements OnDestroy {
      * Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch ESC geschlossen werden. Default ist true.
      */
     @Input()
-    public allowesc: boolean = true;
+    public allowesc = true;
 
     /**
      * Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch click außerhalb des Dialog-Fenster geschlossen werden. Default ist true.
      */
     @Input()
-    public backdrop: boolean = true;
+    public backdrop = true;
 
     /**
      * Steuert ob im Header des Dialogs ein Button angezeigt wird.
      */
     @Input()
-    public closebutton: boolean = true;
+    public closebutton = true;
 
     /**
      * Name des Containers für den Dialog
@@ -66,7 +76,7 @@ export class SacDialogCommon implements OnDestroy {
      * Input Property. Erhält den Title des Dialog. Default Value: 'Dialog'.
      */
     @Input()
-    public title: string = 'Dialog';
+    public title = 'Dialog';
 
     // #endregion Properties
 

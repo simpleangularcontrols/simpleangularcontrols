@@ -25,7 +25,7 @@ export class DemoConfirmComponent {
 
     public confirmExample(): void {
         this.confirmService
-            .ConfirmMessage('Benutzer löschen', 'Soll der Benutzer gelöscht werden?')
+            .ConfirmMessage('Delete user', 'Do you want to delete the user?')
             .subscribe((result) => {
                 console.log('Action called');
                 if (result === 'yes') {
@@ -38,9 +38,9 @@ export class DemoConfirmComponent {
 
     public confirmExample2(): void {
         this.confirmService
-            .ConfirmMessage('Benutzer löschen', 'Soll der Benutzer gelöscht werden?', [
+            .ConfirmMessage('Delete user', 'Do you want to delete the user?', [
                 { key: 'ok', text: 'OK', role: 'primary' },
-                { key: 'cancel', text: 'Abbrechen' },
+                { key: 'cancel', text: 'Cancel' },
             ])
             .pipe(take(1))
             .subscribe((result) => {

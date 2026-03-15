@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { SacFormDirective, SACBootstrap5BrowserModule } from '@simpleangularcontrols/sac-bootstrap5';
+import { Component } from '@angular/core';
+import { SACBootstrap5BrowserModule } from '@simpleangularcontrols/sac-bootstrap5';
 
 @Component({
     selector: 'app-browser',
@@ -8,7 +8,11 @@ import { SacFormDirective, SACBootstrap5BrowserModule } from '@simpleangularcont
     imports: [SACBootstrap5BrowserModule],
 })
 export class DemoBrowserComponent {
-  public debugAction1(): void {
-    alert('Action 1');
-  }
+    // #region Public Methods
+
+    public debugAction1(): void {
+        alert('Action 1');
+    }
+
+    // #endregion Public Methods
 }

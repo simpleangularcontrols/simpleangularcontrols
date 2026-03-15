@@ -1,14 +1,11 @@
-import { Component, } from '@angular/core';
-import { SacTabItemCommon } from '@simpleangularcontrols/sac-common';
 import { NgIf, NgTemplateOutlet } from '@angular/common';
+import { Component } from '@angular/core';
+import { SacTabItemCommon } from '@simpleangularcontrols/sac-common';
 
 @Component({
     selector: 'sac-tabitem',
     templateUrl: './tabitem.html',
     standalone: true,
-    imports: [NgIf, NgTemplateOutlet]
+    imports: [NgIf, NgTemplateOutlet],
 })
-export class SacTabItemComponent extends SacTabItemCommon {
-
-}
-
+export class SacTabItemComponent extends SacTabItemCommon {}

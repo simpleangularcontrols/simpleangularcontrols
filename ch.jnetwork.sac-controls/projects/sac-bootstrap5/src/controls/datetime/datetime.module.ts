@@ -1,16 +1,20 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SacDateComponent } from './date';
-import { SacDateTimeComponent } from './datetime';
 import { SacDateSelectorComponent } from './dateselector';
+import { SacDateTimeComponent } from './datetime';
 import { SacTimeComponent } from './time';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { IMaskModule } from 'angular-imask';
 
 @NgModule({
     imports: [
-        CommonModule, IMaskModule,
-        SacDateComponent, SacDateTimeComponent, SacTimeComponent, SacDateSelectorComponent
+        CommonModule,
+        IMaskModule,
+        SacDateComponent,
+        SacDateTimeComponent,
+        SacTimeComponent,
+        SacDateSelectorComponent,
     ],
-    exports: [SacDateComponent, SacDateTimeComponent, SacTimeComponent, SacDateSelectorComponent]
+    exports: [SacDateComponent, SacDateTimeComponent, SacTimeComponent, SacDateSelectorComponent],
 })
-export class SACBootstrap5DateTimeModule { }
+export class SACBootstrap5DateTimeModule {}

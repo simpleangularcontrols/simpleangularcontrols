@@ -1,24 +1,23 @@
-import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { CreateValidationError } from './validationerrorcreator';
+import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+
+// #region Exported Functions
 
 export function equalsValueValidator(
-  requiredvalue: any,
-  validationMessage: string,
-  validationMessageSummary: string
+    requiredvalue: any,
+    validationMessage: string,
+    validationMessageSummary: string
 ): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    if (control.value !== requiredvalue) {
-      const parameters: Map<string, any> = new Map<string, any>();
-      parameters.set('EQUALSVALUE', requiredvalue);
+    return (control: AbstractControl): ValidationErrors | null => {
+        if (control.value !== requiredvalue) {
+            const parameters: Map<string, any> = new Map<string, any>();
+            parameters.set('EQUALSVALUE', requiredvalue);
 
-      return CreateValidationError(
-        'equals',
-        validationMessage,
-        validationMessageSummary,
-        parameters
-      );
-    } else {
-      return null;
-    }
-  };
+            return CreateValidationError('equals', validationMessage, validationMessageSummary, parameters);
+        } else {
+            return null;
+        }
+    };
 }
+
+// #endregion Exported Functions

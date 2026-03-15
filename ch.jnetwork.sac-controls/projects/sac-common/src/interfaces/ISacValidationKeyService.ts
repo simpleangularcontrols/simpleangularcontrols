@@ -2,7 +2,7 @@
  * Interface describes all standard validation keys used in the controls
  */
 export interface ISacValidationKeyService {
-    // #region Public Getters And Setters
+    // #region Getters And Setters
 
     get ConfirmDefaultButtonNo(): string;
     get ConfirmDefaultButtonYes(): string;
@@ -52,5 +52,5 @@ export interface ISacValidationKeyService {
     get ValidationErrorSummaryPattern(): string;
     get ValidationErrorSummaryRequired(): string;
 
-    // #endregion Public Getters And Setters
+    // #endregion Getters And Setters
 }

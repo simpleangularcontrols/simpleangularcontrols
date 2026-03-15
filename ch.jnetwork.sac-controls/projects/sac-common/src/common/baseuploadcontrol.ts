@@ -35,17 +35,17 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     /**
      * Erlaubte Dateitypen
      */
-    private _allowedtypes: string = '*';
+    private _allowedtypes = '*';
 
     /**
      * Files automatisch hochladen
      */
-    private _autoupload: boolean = false;
+    private _autoupload = false;
 
     /**
      * Pausieren von Uploads erlauben
      */
-    private _enablepause: boolean = true;
+    private _enablepause = true;
 
     /**
      * API Endpoint
@@ -107,7 +107,7 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     /**
      * Definiert das Control als Required
      */
-    @Input() public isrequired: boolean = false;
+    @Input() public isrequired = false;
 
     /**
      * Listener für Files
@@ -122,7 +122,7 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     /**
      * Max. Dateigrösse für Files die hochgeladen werden können. 0 deaktiviert den Filter
      */
-    @Input() public maxfilesize: number = 0;
+    @Input() public maxfilesize = 0;
 
     /**
      * Event when an error is triggered in the component.
@@ -581,7 +581,7 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
             return true;
         }
 
-        let isValid: boolean = false;
+        let isValid = false;
         const extensions: string[] = this._allowedtypes.split(',');
 
         extensions.forEach((itm) => {

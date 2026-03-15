@@ -28,7 +28,7 @@ export class SacGridComponent extends SacGridCommon {
     /**
      * Setzt die Ellipsis Funktion auf der Column
      */
-    public ellipsis: boolean = false;
+    public ellipsis = false;
 
     /**
      * Referenz auf Column Template

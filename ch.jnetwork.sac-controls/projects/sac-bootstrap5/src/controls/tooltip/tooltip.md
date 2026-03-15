@@ -4,7 +4,7 @@
 
 ```html
 <sac-tooltip name="tooltipDefault" tooltiptext="Dies ist ein Tooltip">
-  <span>Tooltip by Text</span>
+    <span>Tooltip by Text</span>
 </sac-tooltip>
 ```
 
@@ -12,7 +12,7 @@
 
 ```html
 <sac-tooltip name="tooltipDefault" tooltiptext="Dies ist ein Tooltip" [inlinemode]="true">
-  <span>Tooltip by Text</span>
+    <span>Tooltip by Text</span>
 </sac-tooltip>
 ```
 
@@ -20,7 +20,7 @@
 
 ```html
 <sac-tooltip name="tooltipDefault" tooltiptext="Dies ist ein Tooltip">
-  <span class="bi bi-calendar3"></span>
+    <span class="bi bi-calendar3"></span>
 </sac-tooltip>
 ```
 
@@ -28,6 +28,6 @@
 
 ```html
 <sac-tooltip name="tooltipDefault" tooltiptext="Dies ist ein Tooltip">
-  <img src="image.png" />
+    <img src="image.png" />
 </sac-tooltip>
 ```

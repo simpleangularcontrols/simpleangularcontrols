@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
 import { ButtonRoutingModule } from './button-routing.module';
 import { DemoButtonComponent } from './button.component';
+import { NgModule } from '@angular/core';
+
 @NgModule({
-  imports: [ButtonRoutingModule, DemoButtonComponent],
+    imports: [ButtonRoutingModule, DemoButtonComponent],
 })
 export class ButtonModule {}

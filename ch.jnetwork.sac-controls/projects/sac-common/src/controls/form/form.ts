@@ -1,135 +1,132 @@
 import { Directive, Input } from '@angular/core';
-import { AbstractControl, UntypedFormGroup, NgForm } from '@angular/forms';
-import { convertToBoolean } from '../../utilities/convertion';
+import { AbstractControl, NgForm, UntypedFormGroup } from '@angular/forms';
 
-// #region Type aliases
-
-/**
- * Type for form actions
- */
-export type FormHooks = 'change' | 'blur' | 'submit';
-
-// #endregion Type aliases
-
-// #region Classes
+// #region Exported Classes
 
 /**
  * Base Komponente für SacFormular
  */
 @Directive()
 export class SacFormCommon {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Standardwert wann die Werte via NgModel aktualisiert werden
-   */
-  private _updateon: FormHooks = 'change';
+    /**
+     * Standardwert wann die Werte via NgModel aktualisiert werden
+     */
+    private _updateon: FormHooks = 'change';
 
-  // #endregion Properties
+    // #endregion Properties
 
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Konstruktor
-   * @param form Instanz von NgForm
-   */
-  constructor(private form: NgForm) {
-    this.form.options = { updateOn: this._updateon };
-  }
-
-  // #endregion Constructors
-
-  // #region Public Getters And Setters
-
-  /**
-   * Definiert, wenn das Model geupdatet wird
-   */
-  @Input()
-  public set updateon(v: FormHooks) {
-    this._updateon = v;
-    this.form.options.updateOn = v;
-  }
-
-  public get updateon(): FormHooks {
-    return this._updateon;
-  }
-
-  // #endregion Public Getters And Setters
-
-  // #region Public Methods
-
-  /**
-   * Gibt die NgForm Instanz zurück
-   */
-  public getForm(): NgForm {
-    return this.form;
-  }
-
-  /**
-   * Markiert alle Controls innerhalb des Formulares als Touched
-   */
-  public markAsTouched(): void {
-    if (this.form && this.form.invalid) {
-      this.markAsTouchedInternal(this.form.controls);
+    /**
+     * Konstruktor
+     * @param form Instanz von NgForm
+     */
+    constructor(private form: NgForm) {
+        this.form.options = { updateOn: this._updateon };
     }
-  }
 
-  /**
-   * Aktualisiert die Werte und den Gültigkeitsstatus des Formulars
-   */
-  public updateValueAndValidity(markAsTouched: boolean = true): void {
-    // Update all Controls
-    this.updateValueAndValidityInternal(this.form.controls);
-    // Update Main Form
-    this.getForm().form.updateValueAndValidity();
+    // #endregion Constructors
 
-    // Mark all Controls as Touched
-    if (markAsTouched) {
-      this.markAsTouched();
+    // #region Public Getters And Setters
+
+    public get updateon(): FormHooks {
+        return this._updateon;
     }
-  }
 
-  // #endregion Public Methods
-
-  // #region Private Methods
-
-  /**
-   * Markiert alle Controls inkl. dem Tree als Touched
-   * @param controls Controls Collection
-   */
-  private markAsTouchedInternal(controls: { [key: string]: AbstractControl }) {
-    const keyList: string[] = Object.keys(controls);
-
-    for (const field of keyList) {
-      const control = controls[field];
-      if (control instanceof UntypedFormGroup) {
-        this.markAsTouchedInternal(control.controls);
-      } else {
-        control.markAsTouched({ onlySelf: true });
-      }
+    /**
+     * Definiert, wenn das Model geupdatet wird
+     */
+    @Input()
+    public set updateon(v: FormHooks) {
+        this._updateon = v;
+        this.form.options.updateOn = v;
     }
-  }
 
-  /**
-   * Aktualisiert die Werte und die gültigkeit des Formulars
-   * @param controls Controls Collection
-   */
-  private updateValueAndValidityInternal(controls: {
-    [key: string]: AbstractControl;
-  }) {
-    const keyList: string[] = Object.keys(controls);
+    // #endregion Public Getters And Setters
 
-    for (const field of keyList) {
-      const control = controls[field];
-      if (control instanceof UntypedFormGroup) {
-        this.updateValueAndValidityInternal(control.controls);
-      } else {
-        control.updateValueAndValidity({ onlySelf: true });
-      }
+    // #region Public Methods
+
+    /**
+     * Gibt die NgForm Instanz zurück
+     */
+    public getForm(): NgForm {
+        return this.form;
     }
-  }
 
-  // #endregion Private Methods
+    /**
+     * Markiert alle Controls innerhalb des Formulares als Touched
+     */
+    public markAsTouched(): void {
+        if (this.form && this.form.invalid) {
+            this.markAsTouchedInternal(this.form.controls);
+        }
+    }
+
+    /**
+     * Aktualisiert die Werte und den Gültigkeitsstatus des Formulars
+     */
+    public updateValueAndValidity(markAsTouched = true): void {
+        // Update all Controls
+        this.updateValueAndValidityInternal(this.form.controls);
+        // Update Main Form
+        this.getForm().form.updateValueAndValidity();
+
+        // Mark all Controls as Touched
+        if (markAsTouched) {
+            this.markAsTouched();
+        }
+    }
+
+    // #endregion Public Methods
+
+    // #region Private Methods
+
+    /**
+     * Markiert alle Controls inkl. dem Tree als Touched
+     * @param controls Controls Collection
+     */
+    private markAsTouchedInternal(controls: { [key: string]: AbstractControl }) {
+        const keyList: string[] = Object.keys(controls);
+
+        for (const field of keyList) {
+            const control = controls[field];
+            if (control instanceof UntypedFormGroup) {
+                this.markAsTouchedInternal(control.controls);
+            } else {
+                control.markAsTouched({ onlySelf: true });
+            }
+        }
+    }
+
+    /**
+     * Aktualisiert die Werte und die gültigkeit des Formulars
+     * @param controls Controls Collection
+     */
+    private updateValueAndValidityInternal(controls: { [key: string]: AbstractControl }) {
+        const keyList: string[] = Object.keys(controls);
+
+        for (const field of keyList) {
+            const control = controls[field];
+            if (control instanceof UntypedFormGroup) {
+                this.updateValueAndValidityInternal(control.controls);
+            } else {
+                control.updateValueAndValidity({ onlySelf: true });
+            }
+        }
+    }
+
+    // #endregion Private Methods
 }
 
-// #endregion Classes
+// #endregion Exported Classes
+
+// #region Exported Types
+
+/**
+ * Type for form actions
+ */
+export type FormHooks = 'change' | 'blur' | 'submit';
+
+// #endregion Exported Types

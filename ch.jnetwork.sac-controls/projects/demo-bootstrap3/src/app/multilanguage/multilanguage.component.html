@@ -1,11 +1,19 @@
 <h2>Multilanguage</h2>
-<form #myForm="sacform" labelsize="3">
-  <div class="mb-2">
-    <sac-button (clicked)="debugAction()" text="Validate"></sac-button>
-  </div>
-  <sac-validationsummary></sac-validationsummary>
-  <div class="alert alert-info" role="alert">Currently not supported</div>
-  <!--
+<form
+    #myForm="sacform"
+    labelsize="3">
+    <div class="mb-2">
+        <sac-button
+            (clicked)="debugAction()"
+            text="Validate"></sac-button>
+    </div>
+    <sac-validationsummary></sac-validationsummary>
+    <div
+        class="alert alert-info"
+        role="alert"
+        >Currently not supported</div
+    >
+    <!--
   <sac-multilanguageinput
     name="mlInput1"
     [(ngModel)]="values.Model1"

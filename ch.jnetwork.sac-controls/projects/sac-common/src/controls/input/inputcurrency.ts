@@ -1,30 +1,30 @@
-import { Directive, Input } from '@angular/core';
 import { SacInputDecimalCommon } from './inputdecimal';
+import { Directive, Input } from '@angular/core';
 
 /**
  * Basis Komponente für SacInputCurrency
  */
 @Directive()
 export class SacInputCurrencyCommon extends SacInputDecimalCommon {
-  // #region Properties
+    // #region Properties
 
-  @Input()
-  public currency: string = '';
+    @Input()
+    public currency = '';
 
-  // #endregion Properties
+    // #endregion Properties
 
-  // #region Protected Methods
+    // #region Protected Methods
 
-  /**
-   * Set currency during initialization if no value is defined.
-   */
-  protected OnClassInit(): void {
-    super.OnClassInit();
+    /**
+     * Set currency during initialization if no value is defined.
+     */
+    protected OnClassInit(): void {
+        super.OnClassInit();
 
-    if (!this.currency) {
-      this.currency = this.configurationService.CurrencyText;
+        if (!this.currency) {
+            this.currency = this.configurationService.CurrencyText;
+        }
     }
-  }
 
-  // #endregion Protected Methods
+    // #endregion Protected Methods
 }

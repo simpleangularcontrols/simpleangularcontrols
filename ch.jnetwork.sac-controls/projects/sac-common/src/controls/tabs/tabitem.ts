@@ -5,36 +5,43 @@ import { ContentChild, Directive, Input, TemplateRef } from '@angular/core';
  */
 @Directive()
 export class SacTabItemCommon {
-  /**
-   * Boolean Property prüft ob das Tab aktiv ist
-   */
-  @Input()
-  active: boolean = false;
-  /**
-   * Boolean Property prüft ob das Tab disabled ist
-   */
-  @Input()
-  disabled: boolean = false;
-  /**
-   * ID-String
-   */
-  @Input()
-  id: string;
-  /**
-   * Label Text vom Control
-   */
-  @Input()
-  label: string;
+    // #region Properties
 
-  /**
-   * Das Input property ekzeptiert boolen Wert. Default ist true. Definiert, ob die Komponente hidden sein sollte.
-   */
-  @Input()
-  unloadwhenhidden: boolean = true;
+    /**
+     * Boolean Property prüft ob das Tab aktiv ist
+     */
+    @Input()
+    public active = false;
 
-  /**
-   * ContentChild Decorator
-   */
-  @ContentChild(TemplateRef, { static: true })
-  templateRef: TemplateRef<any>;
+    /**
+     * Boolean Property prüft ob das Tab disabled ist
+     */
+    @Input()
+    public disabled = false;
+
+    /**
+     * ID-String
+     */
+    @Input()
+    public id: string;
+
+    /**
+     * Label Text vom Control
+     */
+    @Input()
+    public label: string;
+
+    /**
+     * ContentChild Decorator
+     */
+    @ContentChild(TemplateRef, { static: true })
+    public templateRef: TemplateRef<any>;
+
+    /**
+     * Das Input property ekzeptiert boolen Wert. Default ist true. Definiert, ob die Komponente hidden sein sollte.
+     */
+    @Input()
+    public unloadwhenhidden = true;
+
+    // #endregion Properties
 }

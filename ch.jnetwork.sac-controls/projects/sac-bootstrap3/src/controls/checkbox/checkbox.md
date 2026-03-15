@@ -10,8 +10,18 @@
 
 ```html
 <sac-staticformcontainer label="Checkbox Group">
-  <sac-checkbox name="groupcheckbox1" checkboxtext="Option 1" stacked="true" [(ngModel)]="values.checkbox1"></sac-checkbox>
-  <sac-checkbox name="groupcheckbox2" checkboxtext="Option 2" stacked="true" [(ngModel)]="values.checkbox2"></sac-checkbox>
+    <sac-checkbox
+        name="groupcheckbox1"
+        checkboxtext="Option 1"
+        stacked="true"
+        [(ngModel)]="values.checkbox1"
+    ></sac-checkbox>
+    <sac-checkbox
+        name="groupcheckbox2"
+        checkboxtext="Option 2"
+        stacked="true"
+        [(ngModel)]="values.checkbox2"
+    ></sac-checkbox>
 </sac-staticformcontainer>
 ```
 

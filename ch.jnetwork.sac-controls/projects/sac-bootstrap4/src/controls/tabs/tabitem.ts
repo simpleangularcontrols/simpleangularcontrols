@@ -1,6 +1,6 @@
+import { NgIf, NgTemplateOutlet } from '@angular/common';
 import { Component } from '@angular/core';
 import { SacTabItemCommon } from '@simpleangularcontrols/sac-common';
-import { NgIf, NgTemplateOutlet } from '@angular/common';
 
 /**
  * Tab Item Komponente

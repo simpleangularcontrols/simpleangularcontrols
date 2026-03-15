@@ -1,3 +1,7 @@
+// #region Variables
+
 export const environment = {
-  production: true
+    production: true,
 };
+
+// #endregion Variables

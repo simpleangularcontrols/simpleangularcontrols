@@ -3,7 +3,7 @@
     role="alert"
     *ngIf="hasErrors"
     [id]="name"
-    [attr.data-e2e-key]="name | testingattribute : e2eidentifier">
+    [attr.data-e2e-key]="name | testingattribute: e2eidentifier">
     <ul>
         <li *ngFor="let error of formErrors">{{ error | async }}</li>
     </ul>

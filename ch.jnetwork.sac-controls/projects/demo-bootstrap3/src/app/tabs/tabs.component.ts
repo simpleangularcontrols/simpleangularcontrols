@@ -1,21 +1,17 @@
 import { Component } from '@angular/core';
-import { SACBootstrap3FormModule, SACBootstrap3TabsModule } from '@simpleangularcontrols/sac-bootstrap3';
 import { FormsModule } from '@angular/forms';
+import { SACBootstrap3FormModule, SACBootstrap3TabsModule } from '@simpleangularcontrols/sac-bootstrap3';
 
 @Component({
     selector: 'app-tabs',
     templateUrl: './tabs.component.html',
     standalone: true,
-    imports: [
-        FormsModule,
-        SACBootstrap3FormModule,
-        SACBootstrap3TabsModule,
-    ],
+    imports: [FormsModule, SACBootstrap3FormModule, SACBootstrap3TabsModule],
 })
 export class DemoTabsComponent {
-  // #region Properties
+    // #region Properties
 
-  public languages = ['de', 'fr', 'it'];
+    public languages = ['de', 'fr', 'it'];
 
-  // #endregion Properties
+    // #endregion Properties
 }

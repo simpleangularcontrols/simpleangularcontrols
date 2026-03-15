@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
 import { BrowserRoutingModule } from './browser-routing.module';
 import { DemoBrowserComponent } from './browser.component';
+import { NgModule } from '@angular/core';
+
 @NgModule({
-  imports: [BrowserRoutingModule, DemoBrowserComponent],
+    imports: [BrowserRoutingModule, DemoBrowserComponent],
 })
 export class BrowserModule {}

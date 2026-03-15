@@ -9,23 +9,23 @@ Example of the implementation of a SacAbstractLanguageService
 ```ts
 @Injectable()
 export class CustomLanguageService extends SacAbstractLanguageService {
-  constructor(private http: HttpClient) {
-    super();
-  }
+    constructor(private http: HttpClient) {
+        super();
+    }
 
-  configUrl = 'assets/languages.json';
+    configUrl = 'assets/languages.json';
 
-  public GetLanguages(): Observable<LanguageModel[]> {
-    const languages: LanguageModel[] = [];
+    public GetLanguages(): Observable<LanguageModel[]> {
+        const languages: LanguageModel[] = [];
 
-    languages.push({
-      Text: 'English',
-      Icon: 'assets/icons/en.png',
-      IconType: IconType.Image,
-      IsoCode: 'en',
-    });
+        languages.push({
+            Text: 'English',
+            Icon: 'assets/icons/en.png',
+            IconType: IconType.Image,
+            IsoCode: 'en',
+        });
 
-    return of(languages);
-  }
+        return of(languages);
+    }
 }
 ```

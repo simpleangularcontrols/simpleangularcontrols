@@ -53,7 +53,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -108,7 +108,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.get('textarea').should('have.value', 'German Text');
@@ -166,7 +166,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.get('textarea').should('have.value', 'German Text');
@@ -222,7 +222,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -276,7 +276,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -330,7 +330,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -384,7 +384,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -441,7 +441,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-multilanguageinputarea > div', 'myControl');
@@ -496,7 +496,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-multilanguageinputarea > div', 'myTestidentifier');
@@ -551,7 +551,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-multilanguageinputarea > div', 'myTestidentifier');
@@ -600,7 +600,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-multilanguageinputarea > div');
@@ -660,7 +660,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -716,7 +716,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -772,7 +772,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -828,7 +828,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.get('textarea').should('have.value', 'This is a value');

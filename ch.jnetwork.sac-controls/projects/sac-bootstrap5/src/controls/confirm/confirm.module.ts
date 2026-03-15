@@ -1,6 +1,6 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
 import { SacConfirmComponent } from './confirm';
 import { ServiceConfirm } from './confirm.service';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 
 /**
  *  Module für Confirm Messages
@@ -9,16 +9,20 @@ import { ServiceConfirm } from './confirm.service';
  *
  */
 @NgModule({
-  imports: [SacConfirmComponent],
-  exports: [SacConfirmComponent],
+    imports: [SacConfirmComponent],
+    exports: [SacConfirmComponent],
 })
 export class SACBootstrap5ConfirmModule {
-  static forRoot(): ModuleWithProviders<SACBootstrap5ConfirmModule> {
-    return {
-      ngModule: SACBootstrap5ConfirmModule,
-      providers: [ServiceConfirm],
-    };
-  }
+    // #region Public Static Methods
+
+    public static forRoot(): ModuleWithProviders<SACBootstrap5ConfirmModule> {
+        return {
+            ngModule: SACBootstrap5ConfirmModule,
+            providers: [ServiceConfirm],
+        };
+    }
+
+    // #endregion Public Static Methods
 }
 
 export { ServiceConfirm } from './confirm.service';

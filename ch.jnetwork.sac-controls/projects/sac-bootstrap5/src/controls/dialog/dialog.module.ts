@@ -1,12 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SacDialogComponent } from './dialog';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        SacDialogComponent
-    ],
-    exports: [SacDialogComponent]
+    imports: [CommonModule, SacDialogComponent],
+    exports: [SacDialogComponent],
 })
-export class SACBootstrap5DialogModule { }
+export class SACBootstrap5DialogModule {}

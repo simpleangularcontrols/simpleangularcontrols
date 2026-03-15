@@ -1,50 +1,50 @@
 .dropzone {
-  min-height: 9.75rem;
-  border: 0.125rem dashed lightgray;
-  border-radius: 0.5rem;
-  background: transparent;
+    min-height: 9.75rem;
+    border: 0.125rem dashed lightgray;
+    border-radius: 0.5rem;
+    background: transparent;
 
-  &.is-invalid {
-    border-color: var(--red);
-  }
-
-  .content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    .is-invalid {
-      color: var(--red);
+    &.is-invalid {
+        border-color: var(--red);
     }
 
-    .progress-container {
-      min-width: 50%;
-      z-index: 100;
-    }
+    .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
 
-    .dropzone-uploadstates {
-      .upload-progress {
-        padding: 0;
-
-        .progress {
-          height: 100%;
-          border-top-right-radius: 0;
-          border-bottom-right-radius: 0;
-
-          .progress-text {
-            left: 0;
-            right: 0;
-            position: absolute;
-          }
+        .is-invalid {
+            color: var(--red);
         }
-      }
-    }
-  }
 
-  .custom-file-input {
-    min-height: 100%;
-    height: unset;
-  }
+        .progress-container {
+            min-width: 50%;
+            z-index: 100;
+        }
+
+        .dropzone-uploadstates {
+            .upload-progress {
+                padding: 0;
+
+                .progress {
+                    height: 100%;
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+
+                    .progress-text {
+                        left: 0;
+                        right: 0;
+                        position: absolute;
+                    }
+                }
+            }
+        }
+    }
+
+    .custom-file-input {
+        min-height: 100%;
+        height: unset;
+    }
 }

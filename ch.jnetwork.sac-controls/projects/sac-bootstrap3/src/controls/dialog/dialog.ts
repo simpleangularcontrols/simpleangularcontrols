@@ -11,13 +11,13 @@ import { SacDialogCommon, SacTestingAttributePipe } from '@simpleangularcontrols
 export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDestroy {
     // #region Properties
 
-    private _lastDialogMarginTop: number = 0;
+    private _lastDialogMarginTop = 0;
 
     // DOM Element
     private element: any;
 
     @Input()
-    public zindex: number = 20002;
+    public zindex = 20002;
 
     // #endregion Properties
 
@@ -35,7 +35,7 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
 
     // Margin Top für Center Position des Dialogs berechnen
     public get dialogMarginTop(): number {
-        let result: number = 0;
+        let result = 0;
 
         // ContentPlaceholder kann NULL/UNDEFINED sein wenn Dialog nicht angezeigt wird
         if (this.dialogElement !== null && this.dialogElement !== undefined) {

@@ -19,7 +19,7 @@ describe('NgInputComponent', () => {
                     value: 'My Text',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -39,7 +39,7 @@ describe('NgInputComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -66,7 +66,7 @@ describe('NgInputComponent', () => {
                     value: 'My Value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldNotHaveLabel();
@@ -86,7 +86,7 @@ describe('NgInputComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHavePlaceholder('My Placeholder');
@@ -105,7 +105,7 @@ describe('NgInputComponent', () => {
                     value: 'MyValue',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldBeReadonly();
@@ -124,7 +124,7 @@ describe('NgInputComponent', () => {
                     value: 'MyValue',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldBeDisabled();
@@ -143,7 +143,7 @@ describe('NgInputComponent', () => {
                     value: 'first value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', 'first value');
@@ -165,7 +165,7 @@ describe('NgInputComponent', () => {
                     value: 'first value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').clear().type('12345678');
@@ -186,7 +186,7 @@ describe('NgInputComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').type('abcde');
@@ -213,7 +213,7 @@ describe('NgInputComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-input > div', 'myControl');
@@ -236,7 +236,7 @@ describe('NgInputComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-input > div', 'myTestidentifier');
@@ -259,7 +259,7 @@ describe('NgInputComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-input > div', 'myTestidentifier');
@@ -274,7 +274,7 @@ describe('NgInputComponent', () => {
             {
                 imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap5LayoutModule],
                 componentProperties: {},
-            },
+            }
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-input > div');
@@ -301,7 +301,7 @@ describe('NgInputComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -322,7 +322,7 @@ describe('NgInputComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -343,7 +343,7 @@ describe('NgInputComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -364,7 +364,7 @@ describe('NgInputComponent', () => {
                     value: 'This is a value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', 'This is a value');

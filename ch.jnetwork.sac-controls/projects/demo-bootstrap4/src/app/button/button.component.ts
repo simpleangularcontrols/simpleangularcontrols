@@ -6,14 +6,14 @@ import { SACBootstrap4ButtonModule, SACBootstrap4FormModule } from '@simpleangul
     selector: 'app-button',
     templateUrl: './button.component.html',
     standalone: true,
-    imports: [
-        FormsModule,
-        SACBootstrap4FormModule,
-        SACBootstrap4ButtonModule,
-    ],
+    imports: [FormsModule, SACBootstrap4FormModule, SACBootstrap4ButtonModule],
 })
 export class DemoButtonComponent {
-  public debugAction1(): void {
-    alert('Action 1');
-  }
+    // #region Public Methods
+
+    public debugAction1(): void {
+        alert('Action 1');
+    }
+
+    // #endregion Public Methods
 }

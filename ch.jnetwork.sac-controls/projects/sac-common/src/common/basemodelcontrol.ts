@@ -45,7 +45,7 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     /**
      * Label Text
      */
-    private _label: string = '';
+    private _label = '';
 
     /**
      * Service for loading default settings for the controls
@@ -55,12 +55,12 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     /**
      * Boolean Property dirty; default Wert - false
      */
-    protected _dirty: boolean = false;
+    protected _dirty = false;
 
     /**
      * SacModel Form ist disabled
      */
-    protected _disabledForm: boolean = false;
+    protected _disabledForm = false;
 
     /**
      * Validator
@@ -70,7 +70,7 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     /**
      * Boolean Property touched; default Wert - false
      */
-    protected _touched: boolean = false;
+    protected _touched = false;
 
     /**
      * Interne Variable, die den Wert des Controls hält
@@ -111,12 +111,12 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     /**
      * Deaktiviert das Input Control
      */
-    @Input() public disabled: boolean = false;
+    @Input() public disabled = false;
 
     /**
      * Deaktiviert das Label im Template
      */
-    @Input() public disablelabel: boolean = false;
+    @Input() public disablelabel = false;
 
     /**
      * Identifier used for the E2E data attribute.
@@ -127,7 +127,7 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     /**
      * Text to support the user during input.
      */
-    @Input() public helptext: string = '';
+    @Input() public helptext = '';
 
     /**
      * Mode for display helptext
@@ -138,7 +138,7 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     /**
      * defines that error messages are displayed under the controls
      */
-    @Input() public inlineError: boolean = true;
+    @Input() public inlineError = true;
 
     /**
      * Label Mode 'standard' | 'floating' or null (null = use global configuration)
@@ -219,13 +219,13 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
      */
     constructor(
         @Host() formlayout: SacFormLayoutCommon,
-        private readonly injector: Injector,
+        private readonly injector: Injector
     ) {
         this.formlayout = formlayout;
         this.validationKeyService = injector.get(SACVALIDATIONKEY_SERVICE, new SacDefaultValidationKeyService());
         this.lngResourceService = injector.get(
             SACLOCALISATION_SERVICE,
-            new SacDefaultLocalisationService(this.validationKeyService),
+            new SacDefaultLocalisationService(this.validationKeyService)
         );
 
         this.configurationService = injector.get(SACCONFIGURATION_SERVICE, new SacDefaultConfigurationService());

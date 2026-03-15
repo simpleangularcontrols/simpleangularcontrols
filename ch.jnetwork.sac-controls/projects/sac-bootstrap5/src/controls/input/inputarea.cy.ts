@@ -19,7 +19,7 @@ describe('NgInputareaComponent', () => {
                     value: 'My Text',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -39,7 +39,7 @@ describe('NgInputareaComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveLabel('My Label');
@@ -66,7 +66,7 @@ describe('NgInputareaComponent', () => {
                     value: 'My Value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldNotHaveLabel();
@@ -86,7 +86,7 @@ describe('NgInputareaComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHavePlaceholder('My Placeholder', 'textarea');
@@ -105,7 +105,7 @@ describe('NgInputareaComponent', () => {
                     value: 'MyValue',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldBeReadonly('textarea');
@@ -124,7 +124,7 @@ describe('NgInputareaComponent', () => {
                     value: 'MyValue',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldBeDisabled('textarea');
@@ -143,7 +143,7 @@ describe('NgInputareaComponent', () => {
                     value: 'first value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('textarea').should('have.value', 'first value');
@@ -165,7 +165,7 @@ describe('NgInputareaComponent', () => {
                     value: 'first value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('textarea').clear().type('12345678');
@@ -192,7 +192,7 @@ describe('NgInputareaComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputarea > div', 'myControl');
@@ -215,7 +215,7 @@ describe('NgInputareaComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputarea > div', 'myTestidentifier');
@@ -238,7 +238,7 @@ describe('NgInputareaComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputarea > div', 'myTestidentifier');
@@ -253,7 +253,7 @@ describe('NgInputareaComponent', () => {
             {
                 imports: [FormsModule, SacFormDirective, SacInputAreaComponent, SACBootstrap5LayoutModule],
                 componentProperties: {},
-            },
+            }
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-inputarea > div');
@@ -280,7 +280,7 @@ describe('NgInputareaComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -301,7 +301,7 @@ describe('NgInputareaComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -322,7 +322,7 @@ describe('NgInputareaComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -343,7 +343,7 @@ describe('NgInputareaComponent', () => {
                     value: 'This is a value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('textarea').should('have.value', 'This is a value');

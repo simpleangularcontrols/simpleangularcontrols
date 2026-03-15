@@ -20,7 +20,7 @@ describe('SacInputSearchComponent', () => {
                     valueChange: createOutputSpy('valueChange'),
                     searchAction: createOutputSpy('searchAction'),
                 },
-            },
+            }
         );
 
         cy.get('button').click();
@@ -41,7 +41,7 @@ describe('SacInputSearchComponent', () => {
                     valueChange: createOutputSpy('valueChange'),
                     searchAction: createOutputSpy('searchAction'),
                 },
-            },
+            }
         );
 
         cy.get('input').clear().type('New search String');
@@ -62,7 +62,7 @@ describe('SacInputSearchComponent', () => {
                     valueChange: createOutputSpy('valueChange'),
                     searchAction: createOutputSpy('searchAction'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', 'Search Value');
@@ -84,7 +84,7 @@ describe('SacInputSearchComponent', () => {
                     valueChange: createOutputSpy('valueChange'),
                     searchAction: createOutputSpy('searchAction'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', 'Search Value');
@@ -106,7 +106,7 @@ describe('SacInputSearchComponent', () => {
                     valueChange: createOutputSpy('valueChange'),
                     searchAction: createOutputSpy('searchAction'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', 'Search Value');
@@ -128,7 +128,7 @@ describe('SacInputSearchComponent', () => {
                     valueChange: createOutputSpy('valueChange'),
                     searchAction: createOutputSpy('searchAction'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', 'Search Value');
@@ -150,7 +150,7 @@ describe('SacInputSearchComponent', () => {
                     valueChange: createOutputSpy('valueChange'),
                     searchAction: createOutputSpy('searchAction'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', 'Search Value');
@@ -182,7 +182,7 @@ describe('SacInputSearchComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.get('input').should('have.value', 'Search Value');
@@ -208,7 +208,7 @@ describe('SacInputSearchComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputsearch > div', 'myControl');
@@ -232,7 +232,7 @@ describe('SacInputSearchComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputsearch > div', 'myTestidentifier');
@@ -256,7 +256,7 @@ describe('SacInputSearchComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveTestAttributeWithName('sac-inputsearch > div', 'myTestidentifier');
@@ -271,7 +271,7 @@ describe('SacInputSearchComponent', () => {
             {
                 imports: [FormsModule, SacFormDirective, SacInputSearchComponent, SACBootstrap5LayoutModule],
                 componentProperties: {},
-            },
+            }
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-inputsearch > div');
@@ -298,7 +298,7 @@ describe('SacInputSearchComponent', () => {
                         },
                     },
                 ],
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -319,7 +319,7 @@ describe('SacInputSearchComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -340,7 +340,7 @@ describe('SacInputSearchComponent', () => {
                     value: '',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.shouldHaveFloatingClass();
@@ -361,7 +361,7 @@ describe('SacInputSearchComponent', () => {
                     value: 'This is a value',
                     valueChange: createOutputSpy('valueSpy'),
                 },
-            },
+            }
         );
 
         cy.get('input').should('have.value', 'This is a value');

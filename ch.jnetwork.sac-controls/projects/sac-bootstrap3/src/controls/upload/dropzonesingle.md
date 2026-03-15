@@ -4,6 +4,6 @@ Bootstrap 3 has no implementation for the implementation of a drop zone by defau
 
 However, there are selectors that can be used for customizing. These are the following CSS classes:
 
--   dropzone
--   content
--   upload-component
+- dropzone
+- content
+- upload-component

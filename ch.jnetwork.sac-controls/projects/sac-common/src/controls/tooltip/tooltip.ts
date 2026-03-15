@@ -119,7 +119,10 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
      * Konstruktor
      * @param ref Element Referenz
      */
-    constructor(private readonly cdRef: ChangeDetectorRef, private readonly ref: ElementRef) {}
+    constructor(
+        private readonly cdRef: ChangeDetectorRef,
+        private readonly ref: ElementRef
+    ) {}
 
     // #endregion Constructors
 

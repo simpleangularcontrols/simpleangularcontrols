@@ -1,5 +1,15 @@
 import { createGuid } from '../../utilities/guid';
-import { ChangeDetectorRef, Directive, ElementRef, EventEmitter, HostListener, Input, OnDestroy, Output, ViewChild } from '@angular/core';
+import {
+    ChangeDetectorRef,
+    Directive,
+    ElementRef,
+    EventEmitter,
+    HostListener,
+    Input,
+    OnDestroy,
+    Output,
+    ViewChild,
+} from '@angular/core';
 
 /**
  * Base Komponente für Dialog

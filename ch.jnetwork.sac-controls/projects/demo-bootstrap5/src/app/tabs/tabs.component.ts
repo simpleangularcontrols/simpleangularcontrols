@@ -1,9 +1,8 @@
-import { NgForOf } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-tabs',
-  templateUrl: './tabs.component.html',
+    selector: 'app-tabs',
+    templateUrl: './tabs.component.html',
 })
 export class DemoTabsComponent {
     // #region Properties

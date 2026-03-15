@@ -1,4 +1,8 @@
 export class GridResultDto<T> {
-  public TotalRowCount: number;
-  public Data: T[];
+    // #region Properties
+
+    public Data: T[];
+    public TotalRowCount: number;
+
+    // #endregion Properties
 }

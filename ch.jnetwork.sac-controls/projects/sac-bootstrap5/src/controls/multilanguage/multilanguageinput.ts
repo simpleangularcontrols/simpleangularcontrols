@@ -7,21 +7,21 @@ import { IconType, SacMultilanguageInputCommon } from '@simpleangularcontrols/sa
  * Componente für Mehrsprache Texte
  */
 @Component({
-  selector: 'sac-multilanguageinput',
-  templateUrl: './multilanguageinput.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: SacMultilanguageInputComponent,
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() => SacMultilanguageInputComponent),
-    },
-  ],
+    selector: 'sac-multilanguageinput',
+    templateUrl: './multilanguageinput.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SacMultilanguageInputComponent,
+        },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() => SacMultilanguageInputComponent),
+        },
+    ],
 })
 export class SacMultilanguageInputComponent extends SacMultilanguageInputCommon {
     // #region Properties

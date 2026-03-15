@@ -1,6 +1,6 @@
 <div
     [style.display]="inlinemode ? 'inline' : null"
-    [attr.data-e2e-key]="name | testingattribute : e2eidentifier">
+    [attr.data-e2e-key]="name | testingattribute: e2eidentifier">
     <div
         #container
         (mouseenter)="ShowTooltip()"
@@ -25,12 +25,12 @@
                 GetTooltipPosition() === TooltipPosition.right
                     ? 'right'
                     : GetTooltipPosition() === TooltipPosition.left
-                    ? 'left'
-                    : GetTooltipPosition() === TooltipPosition.top
-                    ? 'top'
-                    : GetTooltipPosition() === TooltipPosition.bottom
-                    ? 'bottom'
-                    : null
+                      ? 'left'
+                      : GetTooltipPosition() === TooltipPosition.top
+                        ? 'top'
+                        : GetTooltipPosition() === TooltipPosition.bottom
+                          ? 'bottom'
+                          : null
             ">
             <div
                 class="tooltip-arrow"

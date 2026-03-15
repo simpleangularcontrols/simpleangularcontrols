@@ -1,11 +1,12 @@
 /**
  * GridResponse class
  */
-// #region Exported Enums
 
 /**
  * Enum for sorting
  */
+// #region Exported Enums
+
 export enum SortOrder {
     /**
      * No sorting

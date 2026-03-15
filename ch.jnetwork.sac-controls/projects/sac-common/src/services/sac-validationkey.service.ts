@@ -1,5 +1,16 @@
-import { Injectable, InjectionToken } from '@angular/core';
 import { ISacValidationKeyService } from '../interfaces/ISacValidationKeyService';
+import { Injectable, InjectionToken } from '@angular/core';
+
+// #region Variables
+
+/**
+ * injection token for localisation service
+ */
+export const SACVALIDATIONKEY_SERVICE = new InjectionToken<ISacValidationKeyService>('SacValidationkeyService');
+
+// #endregion Variables
+
+// #region Exported Classes
 
 @Injectable({ providedIn: 'root' })
 export class SacDefaultValidationKeyService implements ISacValidationKeyService {
@@ -197,7 +208,4 @@ export class SacDefaultValidationKeyService implements ISacValidationKeyService 
     // #endregion Public Getters And Setters
 }
 
-/**
- * injection token for localisation service
- */
-export const SACVALIDATIONKEY_SERVICE = new InjectionToken<ISacValidationKeyService>('SacValidationkeyService');
+// #endregion Exported Classes

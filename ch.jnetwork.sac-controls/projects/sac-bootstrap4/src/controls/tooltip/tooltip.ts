@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, ElementRef } from '@angular/core';
-import { SacTestingAttributePipe, SacTooltipCommon } from '@simpleangularcontrols/sac-common';
+import { SacTooltipCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Tooltip Komponente
@@ -21,8 +21,8 @@ import { SacTestingAttributePipe, SacTooltipCommon } from '@simpleangularcontrol
  *
  */
 @Component({
-  selector: 'sac-tooltip',
-  templateUrl: './tooltip.html',
+    selector: 'sac-tooltip',
+    templateUrl: './tooltip.html',
 })
 export class SacTooltipComponent extends SacTooltipCommon {
     // #region Constructors

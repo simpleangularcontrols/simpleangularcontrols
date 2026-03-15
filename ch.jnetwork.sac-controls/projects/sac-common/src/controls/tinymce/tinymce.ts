@@ -154,7 +154,11 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
      * @param injector Injector for injecting services
      * @param ngZone ngzone for handling external javascripts
      */
-    constructor(@Host() formlayout: SacFormLayoutCommon, injector: Injector, protected ngZone: NgZone) {
+    constructor(
+        @Host() formlayout: SacFormLayoutCommon,
+        injector: Injector,
+        protected ngZone: NgZone
+    ) {
         super(formlayout, injector);
 
         this.validationKeyService = injector.get(SACVALIDATIONKEY_SERVICE, new SacDefaultValidationKeyService());

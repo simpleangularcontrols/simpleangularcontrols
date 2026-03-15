@@ -1,12 +1,15 @@
-import { Component, ViewChild } from '@angular/core';
-import { SacFormDirective } from '@simpleangularcontrols/sac-bootstrap4';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-button',
-  templateUrl: './button.component.html',
+    selector: 'app-button',
+    templateUrl: './button.component.html',
 })
 export class DemoButtonComponent {
-  public debugAction1(): void {
-    alert('Action 1');
-  }
+    // #region Public Methods
+
+    public debugAction1(): void {
+        alert('Action 1');
+    }
+
+    // #endregion Public Methods
 }

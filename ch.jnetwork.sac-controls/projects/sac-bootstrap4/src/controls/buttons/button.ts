@@ -7,7 +7,7 @@ import { SacButtonCommon } from '@simpleangularcontrols/sac-common';
  * <example-url>http://localhost/demo/mysample.component.html</example-url>
  */
 @Component({
-  selector: 'sac-button',
-  templateUrl: './button.html',
+    selector: 'sac-button',
+    templateUrl: './button.html',
 })
 export class SacButtonComponent extends SacButtonCommon {}

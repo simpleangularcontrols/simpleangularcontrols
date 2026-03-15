@@ -10,23 +10,19 @@ import { FormsModule } from '@angular/forms';
 import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 
 @NgModule({
-  declarations: [
-    SacUploadComponent,
-    SacUploadMultipleComponent,
-    SacDropzoneSingleComponent,
-    SacDropzoneMultipleComponent,
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    SACBootstrap4LayoutModule,
-    SACBootstrap4TooltipModule,SACCommonUtliltiesModule
-  ],
-  exports: [
-    SacUploadComponent,
-    SacUploadMultipleComponent,
-    SacDropzoneSingleComponent,
-    SacDropzoneMultipleComponent,
-  ],
+    declarations: [
+        SacUploadComponent,
+        SacUploadMultipleComponent,
+        SacDropzoneSingleComponent,
+        SacDropzoneMultipleComponent,
+    ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        SACBootstrap4LayoutModule,
+        SACBootstrap4TooltipModule,
+        SACCommonUtliltiesModule,
+    ],
+    exports: [SacUploadComponent, SacUploadMultipleComponent, SacDropzoneSingleComponent, SacDropzoneMultipleComponent],
 })
 export class SACBootstrap4UploadModule {}

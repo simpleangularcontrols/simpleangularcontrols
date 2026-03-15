@@ -8,19 +8,19 @@ import { NgModule } from '@angular/core';
 import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 
 @NgModule({
-  declarations: [
-    SacContextmenuComponent,
-    SacContextmenuItemButtonComponent,
-    SacContextmenuItemSplitterComponent,
-    SacContextmenuAnchorDirective,
-    SacContextmenuContainerDirective,
-  ],
-  imports: [CommonModule, SACCommonUtliltiesModule],
-  exports: [
-    SacContextmenuComponent,
-    SacContextmenuItemButtonComponent,
-    SacContextmenuItemSplitterComponent,
-    SacContextmenuAnchorDirective,
-  ],
+    declarations: [
+        SacContextmenuComponent,
+        SacContextmenuItemButtonComponent,
+        SacContextmenuItemSplitterComponent,
+        SacContextmenuAnchorDirective,
+        SacContextmenuContainerDirective,
+    ],
+    imports: [CommonModule, SACCommonUtliltiesModule],
+    exports: [
+        SacContextmenuComponent,
+        SacContextmenuItemButtonComponent,
+        SacContextmenuItemSplitterComponent,
+        SacContextmenuAnchorDirective,
+    ],
 })
 export class SACBootstrap4ContextmenuModule {}

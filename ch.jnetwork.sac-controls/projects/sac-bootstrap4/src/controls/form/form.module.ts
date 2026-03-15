@@ -6,8 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 
 @NgModule({
-  declarations: [SacFormDirective, SacInheritFormDirective],
-  imports: [CommonModule, FormsModule, SACCommonUtliltiesModule],
-  exports: [SacFormDirective, SacInheritFormDirective],
+    declarations: [SacFormDirective, SacInheritFormDirective],
+    imports: [CommonModule, FormsModule, SACCommonUtliltiesModule],
+    exports: [SacFormDirective, SacInheritFormDirective],
 })
 export class SACBootstrap4FormModule {}

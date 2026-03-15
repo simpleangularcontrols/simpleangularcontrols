@@ -7,16 +7,16 @@ import { SacValidationSummaryCommon } from '@simpleangularcontrols/sac-common';
  * Validation Summary Kompontente
  */
 @Component({
-  selector: 'sac-validationsummary',
-  templateUrl: './validationsummary.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: SacValidationSummaryComponent,
-    },
-  ],
+    selector: 'sac-validationsummary',
+    templateUrl: './validationsummary.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SacValidationSummaryComponent,
+        },
+    ],
 })
 export class SacValidationSummaryComponent extends SacValidationSummaryCommon {
     // #region Constructors

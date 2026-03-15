@@ -11,17 +11,18 @@ import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 import { EditorModule } from '@tinymce/tinymce-angular';
 
 @NgModule({
-  declarations: [SacTinyMceComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    EditorModule,
-    SACBootstrap4LayoutModule,
-    SACBootstrap4ButtonModule,
-    SACBootstrap4DialogModule,
-    SACBootstrap4BrowserModule,
-    SACBootstrap4TooltipModule, SACCommonUtliltiesModule
-  ],
-  exports: [SacTinyMceComponent],
+    declarations: [SacTinyMceComponent],
+    imports: [
+        CommonModule,
+        FormsModule,
+        EditorModule,
+        SACBootstrap4LayoutModule,
+        SACBootstrap4ButtonModule,
+        SACBootstrap4DialogModule,
+        SACBootstrap4BrowserModule,
+        SACBootstrap4TooltipModule,
+        SACCommonUtliltiesModule,
+    ],
+    exports: [SacTinyMceComponent],
 })
 export class SACBootstrap4TinyMceModule {}

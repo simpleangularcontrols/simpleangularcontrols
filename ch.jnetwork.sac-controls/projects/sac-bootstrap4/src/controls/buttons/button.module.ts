@@ -4,10 +4,8 @@ import { NgModule } from '@angular/core';
 import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 
 @NgModule({
-  declarations: [SacButtonComponent],
-  imports: [
-    CommonModule, SACCommonUtliltiesModule
-  ],
-  exports: [SacButtonComponent]
+    declarations: [SacButtonComponent],
+    imports: [CommonModule, SACCommonUtliltiesModule],
+    exports: [SacButtonComponent],
 })
 export class SACBootstrap4ButtonModule {}

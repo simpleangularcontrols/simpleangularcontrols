@@ -15,19 +15,19 @@ import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 @NgModule({
     declarations: [SacConfirmComponent],
     imports: [CommonModule, SACBootstrap4DialogModule, SACBootstrap4ButtonModule, SACCommonUtliltiesModule],
-    exports: [SacConfirmComponent]
+    exports: [SacConfirmComponent],
 })
 export class SACBootstrap4ConfirmModule {
-  // #region Public Static Methods
+    // #region Public Static Methods
 
-  public static forRoot(): ModuleWithProviders<SACBootstrap4ConfirmModule> {
-    return {
-      ngModule: SACBootstrap4ConfirmModule,
-      providers: [ServiceConfirm]
-    };
-  }
+    public static forRoot(): ModuleWithProviders<SACBootstrap4ConfirmModule> {
+        return {
+            ngModule: SACBootstrap4ConfirmModule,
+            providers: [ServiceConfirm],
+        };
+    }
 
-  // #endregion Public Static Methods
+    // #endregion Public Static Methods
 }
 
 export { ServiceConfirm } from './confirm.service';

@@ -1,30 +1,27 @@
-import { Component, forwardRef, Host, Injector, Optional } from '@angular/core';
-import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import {
-  IconType,
-    SacMultilanguageInputCommon, SacTestingAttributePipe
-} from '@simpleangularcontrols/sac-common';
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { IconType, SacMultilanguageInputCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Componente für Mehrsprache Texte
  */
 @Component({
-  selector: 'sac-multilanguageinput',
-  templateUrl: './multilanguageinput.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: SacMultilanguageInputComponent,
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() => SacMultilanguageInputComponent),
-    },
-  ],
+    selector: 'sac-multilanguageinput',
+    templateUrl: './multilanguageinput.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SacMultilanguageInputComponent,
+        },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() => SacMultilanguageInputComponent),
+        },
+    ],
 })
 export class SacMultilanguageInputComponent extends SacMultilanguageInputCommon {
     // #region Properties

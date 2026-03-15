@@ -2,7 +2,7 @@
     id="{{ name }}"
     class="row mb-3"
     [class.g-0]="disablelabel"
-    [attr.data-e2e-key]="name | testingattribute : e2eidentifier">
+    [attr.data-e2e-key]="name | testingattribute: e2eidentifier">
     <label
         *ngIf="disablelabel === false"
         id="{{ name }}_label"

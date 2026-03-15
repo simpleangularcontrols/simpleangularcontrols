@@ -5,17 +5,7 @@ import { PopUpHelper } from '../utilities/popuphelper';
 import { Validation } from '../validation';
 import { CreateValidationError } from '../validation/validationerrorcreator';
 import { SacBaseModelControl } from './basemodelcontrol';
-import {
-    ChangeDetectorRef,
-    Directive,
-    DoCheck,
-    ElementRef,
-    Injector,
-    Input,
-    OnDestroy,
-    OnInit,
-    ViewChild,
-} from '@angular/core';
+import { ChangeDetectorRef, Directive, ElementRef, Injector, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { IMaskDirective } from 'angular-imask';
 import * as moment_ from 'moment';
@@ -24,7 +14,7 @@ import * as moment_ from 'moment';
  * Base Klasse für Date/Time Controls
  */
 @Directive()
-export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> implements OnInit, OnDestroy, DoCheck {
+export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> implements OnInit, OnDestroy {
     // #region Properties
 
     /**
@@ -264,10 +254,6 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
      */
     public getPickerWidth(): number {
         return this.popupHelper.getPopupWidth(this.pickercontainer);
-    }
-
-    public ngDoCheck(): void {
-        // this.onContentChange();
     }
 
     public ngOnDestroy(): void {

@@ -1,27 +1,27 @@
-import { Component, forwardRef, Host, Injector, Optional } from '@angular/core';
-import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacInputCurrencyCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { SacInputCurrencyCommon } from '@simpleangularcontrols/sac-common';
 
 /**
  * Input Control für Währungen
  */
 @Component({
-  selector: 'sac-inputcurrency',
-  templateUrl: './inputcurrency.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: forwardRef(() => SacInputCurrencyComponent),
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() => SacInputCurrencyComponent),
-    },
-  ],
+    selector: 'sac-inputcurrency',
+    templateUrl: './inputcurrency.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: forwardRef(() => SacInputCurrencyComponent),
+        },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() => SacInputCurrencyComponent),
+        },
+    ],
 })
 export class SacInputCurrencyComponent extends SacInputCurrencyCommon {
     // #region Constructors

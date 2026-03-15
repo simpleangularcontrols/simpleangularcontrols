@@ -115,7 +115,7 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
     constructor(
         private grid: SacGridCommon,
         protected injector: Injector,
-        private el: ElementRef,
+        private el: ElementRef
     ) {
         this.iconService = injector.get(SACICON_SERVICE, new SacDefaultIconService());
     }

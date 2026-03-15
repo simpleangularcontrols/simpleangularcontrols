@@ -1,24 +1,24 @@
+import { SacFormLayoutDirective } from '../layout/formlayout.directive';
 import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SacInputDecimalCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
-import { SacFormLayoutDirective } from '../layout/formlayout.directive';
+import { SacInputDecimalCommon } from '@simpleangularcontrols/sac-common';
 
 @Component({
-  selector: 'sac-inputdecimal',
-  templateUrl: './inputdecimal.html',
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: SacInputDecimalComponent,
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: forwardRef(() => SacInputDecimalComponent),
-    },
-  ],
+    selector: 'sac-inputdecimal',
+    templateUrl: './inputdecimal.html',
+    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            multi: true,
+            useExisting: SacInputDecimalComponent,
+        },
+        {
+            provide: NG_VALIDATORS,
+            multi: true,
+            useExisting: forwardRef(() => SacInputDecimalComponent),
+        },
+    ],
 })
 export class SacInputDecimalComponent extends SacInputDecimalCommon {
     // #region Constructors

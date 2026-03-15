@@ -1,28 +1,43 @@
 import { Component, ViewChild } from '@angular/core';
 import { SacFormDirective } from '@simpleangularcontrols/sac-bootstrap5';
 
-export class MultiLanguageDataModel {
-  public de: string = '';
-  public en: string = '';
-}
+// #region Exported Classes
 
 @Component({
-  selector: 'app-multilanguage',
-  templateUrl: './multilanguage.component.html',
+    selector: 'app-multilanguage',
+    templateUrl: './multilanguage.component.html',
 })
 export class DemoMultilanguageComponent {
-  public values: any = {
-    Model1: new MultiLanguageDataModel(),
-    Model2: new MultiLanguageDataModel(),
-    Model3: new MultiLanguageDataModel(),
-    Model4: { de: 'Wert Deutsch', en: 'Wert Englisch' },
-    Model5: { de: 'Wert Deutsch', en: 'Wert Englisch' },
-  };
+    // #region Properties
 
-  @ViewChild('myForm') myForm: SacFormDirective;
+    @ViewChild('myForm') public myForm: SacFormDirective;
+    public values: any = {
+        Model1: new MultiLanguageDataModel(),
+        Model2: new MultiLanguageDataModel(),
+        Model3: new MultiLanguageDataModel(),
+        Model4: { de: 'Wert Deutsch', en: 'Wert Englisch' },
+        Model5: { de: 'Wert Deutsch', en: 'Wert Englisch' },
+    };
 
-  public debugAction(): void {
-    this.myForm.markAsTouched();
-    alert('Action');
-  }
+    // #endregion Properties
+
+    // #region Public Methods
+
+    public debugAction(): void {
+        this.myForm.markAsTouched();
+        alert('Action');
+    }
+
+    // #endregion Public Methods
 }
+
+export class MultiLanguageDataModel {
+    // #region Properties
+
+    public de: string = '';
+    public en: string = '';
+
+    // #endregion Properties
+}
+
+// #endregion Exported Classes

@@ -20,7 +20,7 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
     /**
      * Counter vom OptionID; default Wert = 0
      */
-    public _optionIdCounter: number = 0;
+    public _optionIdCounter = 0;
 
     /**
      * OptionMap
@@ -30,7 +30,7 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
     /**
      * Label Text für Empty Item
      */
-    @Input() public emptylabel: string = '';
+    @Input() public emptylabel = '';
 
     /**
      * Option Value für Empty Item

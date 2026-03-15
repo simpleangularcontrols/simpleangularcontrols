@@ -1,10 +1,14 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styles: [],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styles: [],
 })
 export class AppComponent {
-  title = "demo-bootstrap4";
+    // #region Properties
+
+    public title = 'demo-bootstrap4';
+
+    // #endregion Properties
 }

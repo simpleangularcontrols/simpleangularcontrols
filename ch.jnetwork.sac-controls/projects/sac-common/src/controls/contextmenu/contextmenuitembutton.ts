@@ -11,12 +11,12 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
     /**
      * Menu Item ist deaktiviert
      */
-    protected _isdisabled: boolean = false;
+    protected _isdisabled = false;
 
     /**
      * Icon Column in Menü ist deaktiviert
      */
-    protected _isicondisabled: boolean = false;
+    protected _isicondisabled = false;
 
     /**
      * Event wenn auf den Button geklickt wird
@@ -28,7 +28,7 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
      * css class for button styling
      */
     @Input()
-    public cssclass: string = '';
+    public cssclass = '';
 
     /**
      * Icon für Menü
@@ -40,7 +40,7 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
      * Input Property für Styling des Buttons. Definiert die Css Klassen des Buttons
      */
     @Input()
-    public iconstyle: string = '';
+    public iconstyle = '';
 
     /**
      * Image für Menü. Wird benötigt wenn das Icon für den Button ein File und nicht ein Icon Font ist.
@@ -52,7 +52,7 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
      * name of button. used for generate id and name
      */
     @Input()
-    public name: string = '';
+    public name = '';
 
     /**
      * Text für Menü Item.

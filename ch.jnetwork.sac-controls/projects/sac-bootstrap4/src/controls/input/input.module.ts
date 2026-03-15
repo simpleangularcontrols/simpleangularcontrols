@@ -13,30 +13,26 @@ import { NgModule } from '@angular/core';
 import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 
 @NgModule({
-  declarations: [
-    SacInputComponent,
-    SacInputAreaComponent,
-    SacInputCurrencyComponent,
-    SacInputDecimalComponent,
-    SacInputEmailComponent,
-    SacInputIntegerComponent,
-    SacInputPasswordComponent,
-    SacInputSearchComponent,
-  ],
-  imports: [
-    CommonModule,
-    SACBootstrap4LayoutModule,
-    SACBootstrap4TooltipModule, SACCommonUtliltiesModule
-  ],
-  exports: [
-    SacInputComponent,
-    SacInputAreaComponent,
-    SacInputCurrencyComponent,
-    SacInputDecimalComponent,
-    SacInputEmailComponent,
-    SacInputIntegerComponent,
-    SacInputPasswordComponent,
-    SacInputSearchComponent,
-  ],
+    declarations: [
+        SacInputComponent,
+        SacInputAreaComponent,
+        SacInputCurrencyComponent,
+        SacInputDecimalComponent,
+        SacInputEmailComponent,
+        SacInputIntegerComponent,
+        SacInputPasswordComponent,
+        SacInputSearchComponent,
+    ],
+    imports: [CommonModule, SACBootstrap4LayoutModule, SACBootstrap4TooltipModule, SACCommonUtliltiesModule],
+    exports: [
+        SacInputComponent,
+        SacInputAreaComponent,
+        SacInputCurrencyComponent,
+        SacInputDecimalComponent,
+        SacInputEmailComponent,
+        SacInputIntegerComponent,
+        SacInputPasswordComponent,
+        SacInputSearchComponent,
+    ],
 })
 export class SACBootstrap4InputModule {}

@@ -47,7 +47,10 @@ export abstract class ServiceConfirmCommon {
      * @param appRef ApplicationRef zum Anhängen des Dialogs an den Content
      * @param injector Injector um die Instanz zu erzeuge
      */
-    constructor(private appRef: ApplicationRef, private injector: Injector) {
+    constructor(
+        private appRef: ApplicationRef,
+        private injector: Injector
+    ) {
         this.validationKeyService = injector.get(SACVALIDATIONKEY_SERVICE, new SacDefaultValidationKeyService());
         this.localisationService = injector.get(
             SACLOCALISATION_SERVICE,

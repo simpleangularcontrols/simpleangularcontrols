@@ -1,9 +1,8 @@
-import { Moment } from 'moment';
 import { ISacIconService } from '../../interfaces/ISacIconService';
 import { SACICON_SERVICE, SacDefaultIconService } from '../../services';
 import { createGuid } from '../../utilities/guid';
 import { Directive, EventEmitter, Injector, Input, OnInit, Output } from '@angular/core';
-import * as moment_ from 'moment';
+import moment, { Moment } from 'moment';
 
 // #region Classes
 
@@ -21,27 +20,27 @@ class DateSelectorItem {
     /**
      * DisplayText Property; default Wert - ''
      */
-    public displaytext: string = '';
+    public displaytext = '';
 
     /**
      * Boolean Property, die zeigt, ob das Element aktuell ist; default Wert - false
      */
-    public iscurrent: boolean = false;
+    public iscurrent = false;
 
     /**
      * Boolean Property, die zeigt, ob das Control enabled ist; default Wert - false
      */
-    public isenabled: boolean = false;
+    public isenabled = false;
 
     /**
      * Boolean Property, die zeigt, ob das Element neu ist; default Wert - false
      */
-    public isnew: boolean = false;
+    public isnew = false;
 
     /**
      * Boolean Property, die zeigt, ob das Element selektiert ist; default Wert - false
      */
-    public isselected: boolean = false;
+    public isselected = false;
 
     // #endregion Properties
 
@@ -77,15 +76,6 @@ class DateSelectorItem {
 
 // #endregion Classes
 
-// #region Variables
-
-/**
- * Moment
- */
-const moment = moment_['default'];
-
-// #endregion Variables
-
 // #region Exported Classes
 
 /**
@@ -108,7 +98,7 @@ export class SacDateSelectorCommon implements OnInit {
     /**
      * Anfang des Kalenders
      */
-    private beginOfCalendar: number = 1;
+    private beginOfCalendar = 1;
 
     /**
      * icon service to resolve icons
@@ -130,7 +120,7 @@ export class SacDateSelectorCommon implements OnInit {
      * Datum Selector
      */
     @Input()
-    public dateselection: boolean = false;
+    public dateselection = false;
 
     /**
      * Identifier used for the E2E data attribute.
@@ -142,7 +132,7 @@ export class SacDateSelectorCommon implements OnInit {
      * Monat
      */
     @Input()
-    public month: number = 4;
+    public month = 4;
 
     /**
      * name of control
@@ -160,13 +150,13 @@ export class SacDateSelectorCommon implements OnInit {
      * Time Selector
      */
     @Input()
-    public timeselection: boolean = false;
+    public timeselection = false;
 
     /**
      * Jahr
      */
     @Input()
-    public year: number = 2018;
+    public year = 2018;
 
     // #endregion Properties
 
@@ -234,7 +224,7 @@ export class SacDateSelectorCommon implements OnInit {
         }
 
         if (this.dateselection === false && this._selectedValue !== null) {
-            const tempValue: moment_.Moment = this._selectedValue.local();
+            const tempValue: moment.Moment = this._selectedValue.local();
             tempValue.date(1);
             tempValue.month(0);
             tempValue.year(1900);
@@ -516,8 +506,8 @@ export class SacDateSelectorCommon implements OnInit {
 
         // Add all Days in Month
         for (let dayinmonth = 1; dayinmonth <= currentMonth.daysInMonth(); dayinmonth++) {
-            let isSelectedDate: boolean = false;
-            let isNewDate: boolean = false;
+            let isSelectedDate = false;
+            let isNewDate = false;
             const isCurrentDate: boolean =
                 moment().month() === this.month && moment().year() === this.year && moment().date() === dayinmonth;
 

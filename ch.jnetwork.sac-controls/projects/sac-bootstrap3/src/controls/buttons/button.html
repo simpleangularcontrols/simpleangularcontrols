@@ -10,7 +10,7 @@
     [class.btn-default]="role === 'default'"
     [class.btn-link]="role === 'link'"
     [attr.disabled]="_isdisabled || isloading ? 'disabled' : null"
-    [attr.data-e2e-key]="name | testingattribute : e2eidentifier"
+    [attr.data-e2e-key]="name | testingattribute: e2eidentifier"
     (click)="buttonClick()">
     <i
         *ngIf="isloading"

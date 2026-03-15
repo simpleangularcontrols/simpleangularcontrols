@@ -2,20 +2,29 @@
  * Klasse für API Request zum löschen eines Files
  */
 export class BrowserFileDeleteRequest {
-  /**
-   * Konstruktor
-   * @param init Initale Werte der Klasse
-   */
-  constructor(init?: Partial<BrowserFileDeleteRequest>) {
-    Object.assign(this, init);
-  }
+    // #region Properties
 
-  /**
-   * Pfad
-   */
-  Path: string;
-  /**
-   * Erlaubte Dateitypen
-   */
-  AllowedTypes: string;
+    /**
+     * Erlaubte Dateitypen
+     */
+    public AllowedTypes: string;
+
+    /**
+     * Pfad
+     */
+    public Path: string;
+
+    // #endregion Properties
+
+    // #region Constructors
+
+    /**
+     * Konstruktor
+     * @param init Initale Werte der Klasse
+     */
+    constructor(init?: Partial<BrowserFileDeleteRequest>) {
+        Object.assign(this, init);
+    }
+
+    // #endregion Constructors
 }

@@ -23,7 +23,7 @@ export class SacCheckboxCommon extends SacBaseModelControl<boolean> implements O
     /**
      * Defines that the checkbox can be used in a list of checkboxes and is not handled as a single form control
      */
-    @Input() public stacked: boolean = false;
+    @Input() public stacked = false;
 
     // #endregion Properties
 

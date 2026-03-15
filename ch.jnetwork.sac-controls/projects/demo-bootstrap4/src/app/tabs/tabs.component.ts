@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-tabs',
-  templateUrl: './tabs.component.html',
+    selector: 'app-tabs',
+    templateUrl: './tabs.component.html',
 })
 export class DemoTabsComponent {
-  // #region Properties
+    // #region Properties
 
-  public languages = ['de', 'fr', 'it'];
+    public languages = ['de', 'fr', 'it'];
 
-  // #endregion Properties
+    // #endregion Properties
 }

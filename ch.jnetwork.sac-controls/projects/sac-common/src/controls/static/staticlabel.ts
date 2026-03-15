@@ -13,7 +13,7 @@ export class SacStaticLabelCommon extends SacInputBase<string> {
      * Erlaubt HTML Content in der Anzeige des Wertes
      */
     @Input()
-    public allowhtml: boolean = false;
+    public allowhtml = false;
 
     // #endregion Properties
 

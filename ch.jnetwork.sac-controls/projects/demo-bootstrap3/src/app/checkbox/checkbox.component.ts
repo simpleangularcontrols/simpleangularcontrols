@@ -2,8 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { SacFormDirective } from '@simpleangularcontrols/sac-bootstrap3';
 
 @Component({
-  selector: 'app-checkbox',
-  templateUrl: './checkbox.component.html',
+    selector: 'app-checkbox',
+    templateUrl: './checkbox.component.html',
 })
 export class DemoCheckboxComponent {
     // #region Properties

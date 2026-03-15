@@ -1,5 +1,5 @@
 /**
- * Enum für Icon Types in Componenten
+ * Enum for Icon Types in Components
  */
 export enum IconType {
     Image = 1,

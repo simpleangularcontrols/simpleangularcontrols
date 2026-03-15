@@ -4,54 +4,54 @@ import { Directive, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 /**
- * Basis Komponente für SacInputDecimal
+ * Base component for SacInputDecimal
  */
 @Directive()
 export class SacInputDecimalCommon extends SacInputBase<number> {
     // #region Properties
 
     /**
-     * Definiert das Negative Werte erlaubt sind
+     * Defines whether negative values are allowed
      */
     @Input() public allownegativ = false;
 
     /**
-     * Definiert den maximalen Wert
+     * Defines the maximum value
      */
     @Input() public maxvalue: number = undefined;
 
     /**
-     * Definiert den minimalen Wert
+     * Defines the minimum value
      */
     @Input() public minvalue: number = undefined;
 
     /**
-     * Resource Key für Validation Message MaxValue bei Control
+     * Resource key for validation message MaxValue at control
      */
     @Input() public validationmessagemaxvalue: string = this.validationKeyService.ValidationErrorMaxValue;
 
     /**
-     * Resource Key für Validation Message MinValue bei Control
+     * Resource key for validation message MinValue at control
      */
     @Input() public validationmessageminvalue: string = this.validationKeyService.ValidationErrorMinValue;
 
     /**
-     * Resource Key für Validation Message Required bei Control
+     * Resource key for validation message Required at control
      */
     @Input() public validationmessagerequired: string = this.validationKeyService.ValidationErrorRequired;
 
     /**
-     * Resource Key für Validation Message MaxValue in Validation Summary
+     * Resource key for validation message MaxValue in validation summary
      */
     @Input() public validationmessagesummarymaxvalue: string = this.validationKeyService.ValidationErrorSummaryMaxValue;
 
     /**
-     * Resource Key für Validation Message MinValue in Validation Summary
+     * Resource key for validation message MinValue in validation summary
      */
     @Input() public validationmessagesummaryminvalue: string = this.validationKeyService.ValidationErrorSummaryMinValue;
 
     /**
-     * Resource Key für Validation Message Required in Validation Summary
+     * Resource key for validation message Required in validation summary
      */
     @Input() public validationmessagesummaryrequired: string = this.validationKeyService.ValidationErrorRequired;
 
@@ -60,11 +60,11 @@ export class SacInputDecimalCommon extends SacInputBase<number> {
     // #region Public Methods
 
     /**
-     * Methode validiert ob der Wert entspricht den gegebenen Kriterien
+     * Method validates whether the value meets the given criteria
      */
     public validateData(c: AbstractControl): ValidationErrors | null {
         /**
-         * Error Meldung, die angezeigt wird, wenn die Kriterien nicht erfüllt sind
+         * Error message shown when the criteria are not met
          */
         let error: ValidationErrors | null = null;
 
@@ -96,7 +96,7 @@ export class SacInputDecimalCommon extends SacInputBase<number> {
     // #region Protected Methods
 
     /**
-     * Konvertiert den Wert des Inputs
+     * Converts the input value
      */
     protected ConvertInputValue(value: any): any {
         if (value === '' || value === null) {
@@ -113,13 +113,13 @@ export class SacInputDecimalCommon extends SacInputBase<number> {
     }
 
     /**
-     * Methode die erzeugt den Control in Abhängigkeit davon, ob negative Were erlaubt sing oder nicht
+     * Method that creates the control depending on whether negative values are allowed
      */
     protected OnClassInit(): void {
         super.OnClassInit();
 
         /**
-         * Definiert die Werte die erlaubt sind
+         * Defines the allowed characters
          */
         this.allowedchars = '0123456789' + this.GetDecimalSymbol();
 
@@ -129,7 +129,7 @@ export class SacInputDecimalCommon extends SacInputBase<number> {
     }
 
     /**
-     * Methode validiert ob der Wert entspricht den gegebenen Kriterien wenn ein Key gedrückt wird
+     * Method validates whether the value meets the given criteria when a key is pressed
      */
     protected OnKeyPressValidation(position: number, character: string): boolean {
         if (
@@ -139,7 +139,7 @@ export class SacInputDecimalCommon extends SacInputBase<number> {
             return false;
         }
 
-        // Verhindern von Doppelpunkt Eingabe (45..545)
+        // Preventing the entry of a colon (45..545)
         if (this._value !== null && this._value.toString().length < position && character === '.') {
             return false;
         }

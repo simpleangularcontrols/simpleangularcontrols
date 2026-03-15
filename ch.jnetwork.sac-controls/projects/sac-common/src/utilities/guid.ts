@@ -1,5 +1,5 @@
 /**
- * create a guid with crypto library if availabe and a fallback to Math.Random implementation
+ * Create a GUID with crypto library if available and a fallback to Math.Random implementation
  */
 // #region Exported Functions
 

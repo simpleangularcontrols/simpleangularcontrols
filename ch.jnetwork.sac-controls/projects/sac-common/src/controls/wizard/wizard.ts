@@ -3,41 +3,41 @@ import { AfterContentInit, Directive, EventEmitter, Input, Output, QueryList } f
 import { ControlValueAccessor } from '@angular/forms';
 
 /**
- * Base Komponente für SacWizardCommon
+ * Base component for SacWizardCommon
  */
 @Directive()
 export abstract class SacWizardCommon implements AfterContentInit, ControlValueAccessor {
     // #region Properties
 
     /**
-     * Aktueller Schritt im Wizard
+     * Current step in wizard
      */
     private _currentstep: string;
 
     /**
-     * Boolean Property prüft ob Navigation im Wizard disabled ist; default Wert - false
+     * Boolean property checks if navigation in wizard is disabled; default value - false
      */
     @Input()
     public disablenavigation = false;
 
     /**
-     * Name des Controls
+     * Name of the control
      */
     @Input()
     public name = '';
 
     /**
-     * Leere Implementation von 'propagateChange'. Muss gemacht werden, damit kein Fehler entsteht
+     * Empty implementation of 'propagateChange'. Must be done so that no error occurs
      */
     public propagateChange: any = () => {};
 
     /**
-     * Leere Implementation von 'propagateTouch'. Muss gemacht werden, damit kein Fehler entsteht
+     * Empty implementation of 'propagateTouch'. Must be done so that no error occurs
      */
     public propagateTouch: any = () => {};
 
     /**
-     * EventEmitter wenn der Schritt geändert wird
+     * EventEmitter when the step is changed
      */
     @Output()
     public stepchanged: EventEmitter<string> = new EventEmitter<string>();
@@ -51,7 +51,7 @@ export abstract class SacWizardCommon implements AfterContentInit, ControlValueA
     }
 
     /**
-     * Setter und Getter für aktueller Schritt
+     * Setter and getter for current step
      */
     @Input()
     public set currentstep(v: string | null) {
@@ -64,8 +64,8 @@ export abstract class SacWizardCommon implements AfterContentInit, ControlValueA
     // #region Public Methods
 
     /**
-     * Auf nächsten/vorherigen Schritt gehen
-     * @param step Step auf welchen gewechselt werden soll
+     * Go to next/previous step
+     * @param step Step to which should be switched
      */
     public changeStep(step: string | null) {
         if (this.wizardItems() === undefined || this.wizardItems() === null) {
@@ -110,23 +110,23 @@ export abstract class SacWizardCommon implements AfterContentInit, ControlValueA
     }
 
     /**
-     * Methode, damit andere Controls änderungen im Control mitbekommen können
-     * Zur Änderungsinfo die Methode propagateChange aufrufen.
+     * Method so that other controls can get changes in the control
+     * To change info call the propagateChange method.
      */
     public registerOnChange(fn: any): void {
         this.propagateChange = (obj) => fn(obj);
     }
 
     /**
-     * Methode, damit andere Controls änderungen mitbekommen, wenn das Control aktiviert (Focus) wird.
+     * Method so that other controls get changes when the control is activated (Focus).
      */
     public registerOnTouched(fn: any): void {
         this.propagateTouch = (obj) => fn(obj);
     }
 
     /**
-     * Schritt selektieren
-     * @param step Step welcher selektiert werden soll
+     * Select step
+     * @param step Step which should be selected
      */
     public selectStep(step: SacWizardItemCommon): void {
         // Cancel if Navigation disabled
@@ -138,12 +138,12 @@ export abstract class SacWizardCommon implements AfterContentInit, ControlValueA
     }
 
     /**
-     * Abstrakte QueryList von SacWizardItemCommon
+     * Abstract QueryList of SacWizardItemCommon
      */
     public abstract wizardItems(): QueryList<SacWizardItemCommon>;
 
     /**
-     * Methode zum schreiben von Werten aus dem Model in das Control
+     * Method to write values from the model into the control
      */
     public writeValue(value: string | null) {
         if (value) {
@@ -156,7 +156,7 @@ export abstract class SacWizardCommon implements AfterContentInit, ControlValueA
     // #region Private Methods
 
     /**
-     * Ursprünglicher Schritt wird selektiert
+     * Original step is selected
      */
     private initSteps(): void {
         const activeStep = this.wizardItems().filter((step) => step.active);

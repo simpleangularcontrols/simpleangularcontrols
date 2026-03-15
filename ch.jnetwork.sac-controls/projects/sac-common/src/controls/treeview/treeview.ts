@@ -6,7 +6,7 @@ import { Directive, EventEmitter, Host, Injector, Input, Output, TemplateRef } f
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 /**
- * Basis Komponente für SacTreeView
+ * Base component for SacTreeView
  */
 @Directive()
 export class SacTreeviewCommon extends SacBaseModelControl<any> {
@@ -78,7 +78,7 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
     public data: any[] = [];
 
     /**
-     * Activates the 'expand' and 'collabse' event even if a node has no children. This is helpful if node elements are to be reloaded at runtime.
+     * Activates the 'expand' and 'collapse' event even if a node has no children. This is helpful if node elements are to be reloaded at runtime.
      */
     @Input()
     public enableasynchload: boolean | string = false;
@@ -150,12 +150,12 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
     public templatelabel: TemplateRef<any>;
 
     /**
-     * Resource Key für Validation Message Required bei Control
+     * Resource key required for validation message at control
      */
     @Input() public validationmessagerequired: string = this.validationKeyService.ValidationErrorRequired;
 
     /**
-     * Resource Key für Validation Message Required in Validation Summary
+     * Resource key required for validation message in the validation summary
      */
     @Input()
     public validationmessagesummaryrequired: string = this.validationKeyService.ValidationErrorSummaryRequired;
@@ -181,7 +181,7 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
     }
 
     /**
-     * CSS icon for folders in tree there are collabsed
+     * CSS icon for folders in tree that are collapsed
      * @returns css class with icon
      */
     public get iconFolderCollabsed(): string {
@@ -434,7 +434,7 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
             return;
         }
 
-        // Items with no children cannot be collabsed
+        // Items with no children cannot be collapsed
         if (!this.hasChildren(node) && !(this.enableasynchload === true || this.enableasynchload === 'true')) {
             return;
         }

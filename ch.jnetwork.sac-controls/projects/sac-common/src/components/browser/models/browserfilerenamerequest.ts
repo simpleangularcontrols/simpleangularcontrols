@@ -1,21 +1,21 @@
 /**
- * Klasse für den API Request zum umbenennen einer Datei
+ * Class for API request to rename a file
  */
 export class BrowserFileRenameRequest {
     // #region Properties
 
     /**
-     * Erlaubte Dateierweiterungen
+     * Allowed file extensions
      */
     public AllowedTypes: string;
 
     /**
-     * Neuer Dateiname
+     * New file name
      */
     public NewFilename: string;
 
     /**
-     * Pfad zu Datei
+     * Path to file
      */
     public Path: string;
 
@@ -24,8 +24,8 @@ export class BrowserFileRenameRequest {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param init Initiale Werte
+     * Constructor
+     * @param init Initial values
      */
     constructor(init?: Partial<BrowserFileRenameRequest>) {
         Object.assign(this, init);

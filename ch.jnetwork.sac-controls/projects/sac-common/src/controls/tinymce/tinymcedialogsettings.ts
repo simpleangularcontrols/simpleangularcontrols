@@ -1,7 +1,7 @@
 import { TinyMceDialogSettingsMeta } from './tinymcedialogsettingsmeta';
 
 /**
- * Settings für TinyMCE Dialog
+ * Settings for TinyMCE dialog
  */
 export class TinyMceDialogSettings {
     // #region Properties
@@ -12,17 +12,17 @@ export class TinyMceDialogSettings {
     public allowedtypes: string;
 
     /**
-     * Callback Methode für Dialog
+     * Callback method for dialog
      */
     public callback: any;
 
     /**
-     * Meta Daten zu Dialog
+     * Meta data for dialog
      */
     public meta: TinyMceDialogSettingsMeta;
 
     /**
-     * Wert aus Dialog
+     * Value from dialog
      */
     public value: string;
 
@@ -31,8 +31,8 @@ export class TinyMceDialogSettings {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param init Initale Werte
+     * Constructor
+     * @param init Initial values
      */
     constructor(init?: Partial<TinyMceDialogSettings>) {
         Object.assign(this, init);

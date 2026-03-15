@@ -7,17 +7,17 @@ import { Validation } from '../../validation';
 // #region Interfaces
 
 /**
- * Wrapper für HTML Options
+ * Wrapper for HTML options
  */
 interface HTMLOption {
     // #region Properties
 
     /**
-     * Boolean Property für Selektierte Elemente
+     * Boolean property for selected elements
      */
     selected: boolean;
     /**
-     * Wert
+     * Value
      */
     value: string;
 
@@ -29,14 +29,14 @@ interface HTMLOption {
 // #region Classes
 
 /**
- * Basis Komponente für SacListboxOption
+ * Base component for SacListboxOption
  */
 @Directive()
 export class SacListboxOptionCommon implements OnDestroy {
     // #region Properties
 
     /**
-     * Value von Selected Option Item
+     * Value of selected option item
      */
     private _value: any = null;
 
@@ -45,7 +45,7 @@ export class SacListboxOptionCommon implements OnDestroy {
     // #region Constructors
 
     /**
-     * Konstruktor
+     * Constructor
      * @param _element: ElementRef
      * @param _renderer: Renderer2
      */
@@ -64,7 +64,7 @@ export class SacListboxOptionCommon implements OnDestroy {
     // #region Public Getters And Setters
 
     /**
-     * NgValue des Controls. Wird für die Mehrfachauswahl benötigt
+     * NgValue of the control. Needed for multiple selection
      */
     @Input()
     public set ngValue(value: any) {
@@ -74,7 +74,7 @@ export class SacListboxOptionCommon implements OnDestroy {
     }
 
     /**
-     * Definiert den Wert der Listbox
+     * Defines the value of the listbox
      */
     @Input()
     public set value(value: any) {
@@ -92,15 +92,15 @@ export class SacListboxOptionCommon implements OnDestroy {
     // #region Public Methods
 
     /**
-     * Methode ergibt den Status der Elemente, die selektiert wurden
-     * @param selected Element ist selektiert
+     * Method returns the status of the elements that were selected
+     * @param selected Element is selected
      */
     public _setSelected(selected: boolean) {
         this._renderer.setProperty(this._element.nativeElement, 'selected', selected);
     }
 
     /**
-     * OnDestroy Event
+     * OnDestroy event
      */
     public ngOnDestroy(): void {
         if (this._listbox) {
@@ -112,35 +112,35 @@ export class SacListboxOptionCommon implements OnDestroy {
 }
 
 /**
- * Komponente für SacListboxCommon. Extends SacBaseSelectControl
+ * Component for SacListboxCommon. Extends SacBaseSelectControl
  */
 @Directive()
 export class SacListboxCommon extends SacBaseSelectControl<Array<string>> {
     // #region Properties
 
     /**
-     * Anzahl der Zeilen
+     * Number of rows
      */
     @Input() public rowsize = 5;
     /**
-     * Resource Key für Validation Message Required bei Control
+     * Resource key for validation message required at control
      */
     @Input() public validationmessagerequired: string = this.validationKeyService.ValidationErrorRequired;
 
     /**
-     * Resource Key für Validation Message Required in Validation Summary
+     * Resource key for validation message required in validation summary
      */
     @Input()
     public validationmessagesummaryrequired: string = this.validationKeyService.ValidationErrorSummaryRequired;
 
     /**
-     * ViewChildren Methode
+     * ViewChildren method
      */
     @ViewChildren(SacListboxOptionCommon)
     public contentOptions: QueryList<SacListboxOptionCommon>;
 
     /**
-     * OptionMap
+     * Option list
      */
     public optionlist: Array<SacListboxOptionCommon> = new Array<SacListboxOptionCommon>();
 
@@ -149,7 +149,7 @@ export class SacListboxCommon extends SacBaseSelectControl<Array<string>> {
     // #region Public Methods
 
     /**
-     * Getter für selektierte Elemente
+     * Getter for selected items
      */
     public getSelectedItems(selectelement: any) {
         const selectedValues: Array<string> = new Array<string>();
@@ -175,16 +175,16 @@ export class SacListboxCommon extends SacBaseSelectControl<Array<string>> {
     }
 
     /**
-     * Registriert ein Listbox Element
-     * @param option Listbox Option Item das registriert werden soll
+     * Registers a listbox element
+     * @param option Listbox option item to be registered
      */
     public registerOption(option: SacListboxOptionCommon): void {
         this.optionlist.push(option);
     }
 
     /**
-     * Hebt die Registration eines Listbox Items auf
-     * @param option Listbox Option Item das deregistriert werden soll
+     * Cancels the registration of a listbox item
+     * @param option Listbox option item to be deregistered
      */
     public unregisterOption(option: SacListboxOptionCommon): void {
         const index = this.optionlist.indexOf(option);
@@ -192,7 +192,7 @@ export class SacListboxCommon extends SacBaseSelectControl<Array<string>> {
     }
 
     /**
-     * Validator Methode
+     * Validator method
      */
     public validateData(c: AbstractControl): ValidationErrors | null {
         let error: ValidationErrors | null = null;
@@ -205,7 +205,7 @@ export class SacListboxCommon extends SacBaseSelectControl<Array<string>> {
     }
 
     /**
-     * Methode schreibt neuen Wert
+     * Method writes new value
      */
     public writeValue(value: Array<string>) {
         if (this.optionlist && value) {
@@ -223,13 +223,13 @@ export class SacListboxCommon extends SacBaseSelectControl<Array<string>> {
 }
 
 /**
- * Wrapper für HTML Select
+ * Wrapper for HTML select
  */
 abstract class HTMLCollection {
     // #region Properties
 
     /**
-     * Länge
+     * Length
      */
     public length: number;
 

@@ -1,4 +1,4 @@
-# Uages
+# Usage
 
 Create your own service for the translation of resource keys into texts. If you want to change the standard keys of the texts, implement a service with the interface `ISacLocalisationService` to change the keys.
 

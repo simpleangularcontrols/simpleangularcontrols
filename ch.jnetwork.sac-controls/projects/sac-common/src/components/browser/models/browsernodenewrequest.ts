@@ -1,16 +1,16 @@
 /**
- * Klasse für API Request zum anlegen eines neuen Nodes
+ * Class for API request to create a new node
  */
 export class BrowserNodeNewRequest {
     // #region Properties
 
     /**
-     * Name des neuen Nodes
+     * Name of the new node
      */
     public NewFoldername: string;
 
     /**
-     * Pfad
+     * Path
      */
     public Path: string;
 
@@ -19,8 +19,8 @@ export class BrowserNodeNewRequest {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param init Initiale Werte
+     * Constructor
+     * @param init Initial values
      */
     constructor(init?: Partial<BrowserNodeNewRequest>) {
         Object.assign(this, init);

@@ -190,7 +190,7 @@ export abstract class SacPagingCommon {
     }
 
     /**
-     *Switch to 1st page
+     * Switch to 1st page
      */
     public firstPage() {
         if (this.activePageIndex !== this.firstPageIndex) {
@@ -252,17 +252,17 @@ export abstract class SacPagingCommon {
         if (this.totalRowCount > 0) {
             let totalPageCount = Math.ceil(this.totalRowCount / this.pageSize);
 
-            // PageCount auf 1 stellen, wenn keine Records vorhanden sind.
+            // Set PageCount to 1 if there are no records.
             if (totalPageCount === 0) {
                 totalPageCount = 1;
             }
 
-            // PageIndex berechnen
+            // Calculate PageIndex
             this.lastPageIndex = totalPageCount - 1;
             const startPageIndex = this.getStartPageIndex(totalPageCount);
             const endPageIndex = this.getEndPageIndex(totalPageCount);
 
-            // Index Fix wenn Aktive Seite grösser als letze Seite
+            // Set index if current page is greater than last page
             if (this.activePageIndex > this.lastPageIndex) {
                 this.activePageIndex = this.lastPageIndex;
             }

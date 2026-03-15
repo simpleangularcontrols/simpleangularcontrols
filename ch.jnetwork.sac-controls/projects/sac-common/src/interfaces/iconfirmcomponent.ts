@@ -1,13 +1,13 @@
 import { EventEmitter } from '@angular/core';
 
 /**
- * Interface für Comfirm Dialog implementation
+ * Interface for Confirm Dialog implementation
  */
 export interface IConfirmComponent {
     // #region Properties
 
     /**
-     * EventEmitter beim Bestätigen
+     * EventEmitter on confirmation
      */
     onconfirm: EventEmitter<string>;
 
@@ -16,12 +16,12 @@ export interface IConfirmComponent {
     // #region Methods
 
     /**
-     * Ausblenden
+     * Hide
      */
     hide(): void;
 
     /**
-     * Anzeigen
+     * Show
      */
     show(): void;
 

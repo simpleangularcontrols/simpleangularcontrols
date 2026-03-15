@@ -6,7 +6,7 @@ import 'zone.js';
 import 'zone.js/testing';
 
 /**
- * property von typ any
+ * Property of type any
  */
 declare const require: any;
 
@@ -17,7 +17,7 @@ getTestBed().initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDyn
 
 // Then we find all the tests.
 /**
- * das Property findet all context mit einem Regex patern
+ * This property finds all contexts using a regex pattern
  */
 const context = require.context('./', true, /\.spec\.ts$/);
 

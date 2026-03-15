@@ -7,19 +7,19 @@ import * as IMask from 'imask';
 import * as moment_ from 'moment';
 
 /**
- * Komponente für SacTimeCommon. Extends SacBaseDateTimeControl
+ * Component for SacTimeCommon. Extends SacBaseDateTimeControl
  */
 @Directive()
 export class SacTimeCommon extends SacBaseDateTimeControl {
     // #region Properties
 
     /**
-     * Format des Datums
+     * Date format
      */
     public readonly TIMEFORMAT: string = 'HH:mm';
 
     /**
-     * Maske
+     * Mask
      */
     public readonly imaskDate = {
         mask: this.TIMEFORMAT,
@@ -59,22 +59,22 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
     public moment = moment_['default'];
 
     /**
-     * Resource Key für Validation Message MinTime bei Control
+     * Resource Key for Validation Message MinTime at Control
      */
     @Input() public validationmessagemaxtime: string = this.validationKeyService.ValidationErrorMaxTime;
 
     /**
-     * Resource Key für Validation Message MinTime bei Control
+     * Resource Key for Validation Message MinTime at Control
      */
     @Input() public validationmessagemintime: string = this.validationKeyService.ValidationErrorMinTime;
 
     /**
-     * Resource Key für Validation Message MinTime in Validation Summary
+     * Resource Key for Validation Message MinTime in Validation Summary
      */
     @Input() public validationmessagesummarymaxtime: string = this.validationKeyService.ValidationErrorSummaryMaxTime;
 
     /**
-     * Resource Key für Validation Message MinTime in Validation Summary
+     * Resource Key for Validation Message MinTime in Validation Summary
      */
     @Input() public validationmessagesummarymintime: string = this.validationKeyService.ValidationErrorSummaryMinTime;
 
@@ -145,14 +145,14 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
     // #region Public Methods
 
     /**
-     * Methode ergibt Datum-Format vom String
+     * Method returns date format from string
      */
     public GetDateTimeFormatString(): string {
         return this.TIMEFORMAT;
     }
 
     /**
-     * Methode ergibt Datum - Moment
+     * Method returns date - moment
      */
     public ModifyParsedDateTimeValue(v: moment_.Moment): moment_.Moment {
         v.date(1);
@@ -181,10 +181,10 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
     }
 
     /**
-     * Zeigt Date Selector an
+     * Shows time selector
      */
     public showTimeSelector(): void {
-        // Touch Event auslösen
+        // Trigger a touch event
         this.onTouch();
 
         if (this._showselector) {

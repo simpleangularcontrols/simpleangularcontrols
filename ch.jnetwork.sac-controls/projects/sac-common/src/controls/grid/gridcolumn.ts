@@ -11,7 +11,7 @@ export class SacGridColumnCommon extends SacGridColumnBaseCommon {
     // #region Properties
 
     /**
-     *  Defines whether the CSS class ellipsis is set.
+     * Defines whether the CSS class ellipsis is set.
      */
     private _ellipsis = false;
 

@@ -13,13 +13,13 @@ import {
 import { ApplicationRef, ComponentFactory, ComponentRef, EventEmitter, Injector } from '@angular/core';
 
 /**
- * Basis Klasse für Confirm Service implementation
+ * Base class for confirm service implementation
  */
 export abstract class ServiceConfirmCommon {
     // #region Properties
 
     /**
-     * Referenz auf IConfirm Instanz.
+     * Reference to the IConfirm instance.
      */
     protected component: ComponentRef<IConfirmComponent> = null;
 
@@ -29,7 +29,7 @@ export abstract class ServiceConfirmCommon {
     protected iconService: ISacIconService;
 
     /**
-     * service for tranlsate default text
+     * Service for translating default text
      */
     protected localisationService: ISacLocalisationService;
 
@@ -43,9 +43,9 @@ export abstract class ServiceConfirmCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param appRef ApplicationRef zum Anhängen des Dialogs an den Content
-     * @param injector Injector um die Instanz zu erzeuge
+     * Constructor
+     * @param appRef ApplicationRef to attach the dialog to the content
+     * @param injector Injector to create the instance
      */
     constructor(
         private appRef: ApplicationRef,
@@ -65,7 +65,7 @@ export abstract class ServiceConfirmCommon {
     // #region Protected Methods
 
     /**
-     * Blendet den Dialog aus
+     * Hides the dialog
      */
     protected CloseDialog(): void {
         const dialog = this.component.instance;
@@ -73,32 +73,32 @@ export abstract class ServiceConfirmCommon {
     }
 
     /**
-     * Methode zur Konfiguration der Confirm Dialog Komponente
-     * @param instance Instanz auf IConfirmComponent Komponente
+     * Method to configure the confirm dialog component
+     * @param instance Instance of the IConfirmComponent component
      */
     protected abstract ConfigureDialog(instance: IConfirmComponent);
 
     /**
-     * Interne Methode für die Implementation des Confirm Dialogs. Steuert die Feedbacks, die Erzeugung und Anzeige des Dialogs
+     * Internal method for the implementation of the confirm dialog. Controls feedback, creation, and display of the dialog
      */
     protected Confirm(): EventEmitter<string> {
-        // Dialog erzeugen
+        // Create dialog
         this.CreateInstance();
         const instance: IConfirmComponent = this.OpenDialog();
 
-        // Konfiguration der Dialog Instanz durch Service Implementation zulassen
+        // Allow service implementation to configure the dialog instance
         this.ConfigureDialog(instance);
 
-        // Event Emitter für Confirmation im Service. Event Emitter Asynchron initialiseren
+        // Event emitter for confirmation in the service. Initialize asynchronously
         const confirmTask: EventEmitter<string> = new EventEmitter<string>(true);
 
-        // Callback wenn Dialog bestätigt wurde
+        // Callback when the dialog is confirmed
         instance.onconfirm.subscribe(
             (value) => {
-                // Dialog entfernen
+                // Remove dialog
                 this.CloseDialog();
 
-                // Emit auf Service auslösen
+                // Emit on service
                 confirmTask.emit(value);
             },
             (err) => {
@@ -109,38 +109,38 @@ export abstract class ServiceConfirmCommon {
             }
         );
 
-        // Confirm Emitter für Result zurückgeben
+        // Return confirm emitter for result
         return confirmTask;
     }
 
     /**
-     * Erzeugt eine Instanz für den Dialog
+     * Creates an instance for the dialog
      */
     protected CreateInstance(): void {
-        // ComponentFactory aus Service laden
+        // Load component factory from service
         const factory: ComponentFactory<IConfirmComponent> = this.GetComponentFactory();
 
-        // Instanz der Komponente erzeugen und an die View anhängen
+        // Create component instance and attach it to the view
         this.component = factory.create(this.injector);
         this.appRef.attachView(this.component.hostView);
     }
 
     /**
-     * Entfernt die Instanz des Dialogs
+     * Removes the dialog instance
      */
     protected DestroyInstance(): void {
-        // Dialog aus View entfernen und Komponenten löschen
+        // Detach dialog from the view and destroy the component
         this.appRef.detachView(this.component.hostView);
         this.component.destroy();
     }
 
     /**
-     * Abstrakte Methode zum erzeugen der Komponent Factory für den Dialog
+     * Abstract method to create the component factory for the dialog
      */
     protected abstract GetComponentFactory(): ComponentFactory<IConfirmComponent>;
 
     /**
-     * Zeigt den Dialog an
+     * Shows the dialog
      */
     protected OpenDialog(): IConfirmComponent {
         const dialog = this.component.instance;

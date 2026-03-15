@@ -11,19 +11,19 @@ import { IMaskDirective } from 'angular-imask';
 import * as moment_ from 'moment';
 
 /**
- * Base Klasse für Date/Time Controls
+ * Base class for Date/Time controls
  */
 @Directive()
 export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> implements OnInit, OnDestroy {
     // #region Properties
 
     /**
-     * Helper class to display tooltip on correct position
+     * Helper class to display tooltips in the correct position
      */
     private readonly popupHelper: PopUpHelper = new PopUpHelper();
 
     /**
-     * das property enthielt das Value als string. Default ist ''
+     * This property contains the value as a string. Default is ''
      */
     protected _valueAsString = '';
 
@@ -38,7 +38,7 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
     public TooltipPosition = TooltipPosition;
 
     /**
-     * Definiert ob der Date Selector angezeigt wird
+     * Defines whether the date selector is displayed
      */
     public _showselector = false;
 
@@ -49,7 +49,7 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
     public iMask: IMaskDirective<any>;
 
     /**
-     * Definiert das Control als Required
+     * Defines the control as required
      */
     @Input() public isrequired = false;
 
@@ -149,7 +149,7 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
     // #region Public Getters And Setters
 
     /**
-     * Setter for the name of the container for the tooltip. Is required as the tooltip can be hidden via ngIf.
+     * Setter for the name of the container for the tooltip. Required because the tooltip can be hidden via ngIf.
      */
     @ViewChild('picker', { static: false })
     public set picker(picker: ElementRef) {
@@ -167,7 +167,7 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
     }
 
     /**
-     * getter für valuestring
+     * Getter for valuestring
      */
     public get valuestring(): string {
         if (this.value === null) {
@@ -179,7 +179,7 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
     }
 
     /**
-     * Das Input bekommt das value von typ string
+     * The input receives the value of type string
      */
     @Input()
     public set valuestring(v: string) {
@@ -204,7 +204,7 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
     // #region Public Methods
 
     /**
-     * Die methode returns dateTime in string
+     * The method returns dateTime as a string
      */
     public abstract GetDateTimeFormatString(): string;
 
@@ -223,12 +223,12 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
     }
 
     /**
-     * Die methode modifiziert das eingegebene Value von typ Moment
+     * The method modifies the entered value of type Moment
      */
     public abstract ModifyParsedDateTimeValue(v: moment_.Moment): moment_.Moment;
 
     /**
-     * JSON Date String in ein UTC DateTime Object konvertieren, welches vom Control verwendete werden kann
+     * Converts a JSON date string into a UTC DateTime object that can be used by the control
      */
     public getDate(timestamp): moment.Moment {
         const date = new Date(timestamp);
@@ -280,7 +280,7 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
     }
 
     /**
-     * setzt das value von typ string zu property valuestring
+     * Sets the value of type string to the property valuestring
      */
     public setValueString(v: string) {
         this.valuestring = v;
@@ -321,7 +321,7 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
      */
     public writeValue(value: Date | string) {
         if (value === '' || value === null || value === undefined) {
-            // Reset Value String, damit beim Update des Models auch das Input Feld geleert wird.
+            // Reset value string so that when the model is updated the input field is also cleared.
             this._valueAsString = '';
             // Set Internal Property
             this._value = null;

@@ -3,7 +3,7 @@
  */
 export enum ControlHeight {
     /**
-     * Default Componnent Height
+     * Default Component Height
      */
     Default = 0,
     /**

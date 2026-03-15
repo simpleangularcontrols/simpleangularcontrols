@@ -3,20 +3,20 @@ import { Directive, Input } from '@angular/core';
 import { UploadState } from 'ngx-uploadx';
 
 /**
- * Upload Komponente für ein einzelnes File
+ * Upload component for a single file
  */
 @Directive()
 export class SacUploadSingleCommon extends SacUploadBase<string> {
     // #region Properties
 
     /**
-     * Label für Browse Button
+     * Label for Browse Button
      */
     @Input()
     public buttonbrowse = '';
 
     /**
-     * Label für Upload Button
+     * Label for Upload Button
      */
     @Input()
     public buttonupload = '';
@@ -26,18 +26,18 @@ export class SacUploadSingleCommon extends SacUploadBase<string> {
     // #region Public Methods
 
     /**
-     * Macht keine Validierung in diesem Control
+     * Does no validation in this control
      *
-     * @param file File das hinzugefügt wurde
+     * @param file File that was added
      */
     public CustomAddValidation(file: UploadState): boolean {
         return true;
     }
 
     /**
-     * Setzt die File ID des hochgeladen Files in das Model
+     * Sets the file ID of the uploaded file into the model
      *
-     * @param file ID des Files
+     * @param file ID of the file
      */
     public SetUploadValue(file: UploadState) {
         if (file === null) {

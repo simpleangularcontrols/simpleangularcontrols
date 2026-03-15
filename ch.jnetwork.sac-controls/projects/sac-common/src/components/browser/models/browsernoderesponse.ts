@@ -1,7 +1,7 @@
 import { IBrowserNode } from './browsernode';
 
 /**
- * Interface für Antworten an den Browser Service
+ * Interface for responses to the browser service
  */
 export interface IBrowserNodeResponse {
     // #region Properties

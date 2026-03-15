@@ -108,9 +108,9 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
 
     /**
      * Constructor
-     * @param grid  reference to grid component
-     * @param injector di injector to resolve icon service
-     * @param el reference to html element
+     * @param grid Reference to grid component
+     * @param injector DI injector to resolve icon service
+     * @param el Reference to HTML element
      */
     constructor(
         private grid: SacGridCommon,

@@ -1,13 +1,13 @@
 import { SacTinyMceCommon } from './tinymce';
 
 /**
- * Interace für den Zugriff von TinyMCE auf die Angular Component
+ * Interface for TinyMCE access to the Angular component
  */
 export interface TinyMceInstance {
     // #region Properties
 
     /**
-     * Instanz von Angular Component
+     * Instance of Angular component
      */
     angular: SacTinyMceCommon;
 

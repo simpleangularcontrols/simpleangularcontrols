@@ -31,14 +31,14 @@ import {
 import { Observable } from 'rxjs';
 
 /**
- * Abstract Klasse für SacBaseModelControl. Implements ControlValueAccessor, Validator, OnInit
+ * Abstract class for SacBaseModelControl. Implements ControlValueAccessor, Validator, OnInit
  */
 @Directive()
 export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor, Validator, OnInit {
     // #region Properties
 
     /**
-     * Inline Errors für das Control
+     * Inline errors for the control
      */
     private _inlineerrorenabled: boolean | null = null;
 
@@ -53,12 +53,12 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     protected readonly configurationService: ISacConfigurationService;
 
     /**
-     * Boolean Property dirty; default Wert - false
+     * Boolean property dirty; default value - false
      */
     protected _dirty = false;
 
     /**
-     * SacModel Form ist disabled
+     * SacModel form is disabled
      */
     protected _disabledForm = false;
 
@@ -68,12 +68,12 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     protected _onChange: () => void;
 
     /**
-     * Boolean Property touched; default Wert - false
+     * Boolean property touched; default value - false
      */
     protected _touched = false;
 
     /**
-     * Interne Variable, die den Wert des Controls hält
+     * Internal variable that holds the value of the control
      */
     protected _value: VALUE = null;
 
@@ -88,7 +88,7 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     protected iconService: ISacIconService;
 
     /**
-     * Service für Error Localisation
+     * Service for error localisation
      */
     protected lngResourceService: ISacLocalisationService;
 
@@ -109,12 +109,12 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     public componentHeight: ControlHeight | null = null;
 
     /**
-     * Deaktiviert das Input Control
+     * Disables the input control
      */
     @Input() public disabled = false;
 
     /**
-     * Deaktiviert das Label im Template
+     * Disables the label in the template
      */
     @Input() public disablelabel = false;
 
@@ -183,18 +183,18 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     public labelSizeXxl: number | null = null;
 
     /**
-     * Name des Controls
+     * Name of the control
      */
     @Input()
     public name: string = createGuid();
 
     /**
-     * Leere Implementation von "propagateChange". Muss gemacht werden, damit kein Fehler entsteht
+     * Empty implementation of "propagateChange". Must be done to avoid errors
      */
     public propagateChange: any = () => {};
 
     /**
-     * Leere Implementation von "propagateTouch". Muss gemacht werden, damit kein Fehler entsteht
+     * Empty implementation of "propagateTouch". Must be done to avoid errors
      */
     public propagateTouch: any = () => {};
 
@@ -246,7 +246,7 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     }
 
     /**
-     * Methode ergibt Boolean Wert für dirty
+     * Method returns boolean value for dirty
      */
     public get dirty(): boolean {
         if (this.ngControl !== null && this.ngControl !== undefined) {
@@ -264,7 +264,7 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     }
 
     /**
-     * Aktiviert oder Deaktiviert die Inline Errors für das Control
+     * Enables or disables the inline errors for the control
      */
     @Input()
     public set inlineerrorenabled(value: boolean | null) {
@@ -276,14 +276,14 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     }
 
     /**
-     * Methode ergibt boolean Wert wenn Form invalid oder nicht invalid ist
+     * Method returns a boolean value indicating whether the form is invalid
      */
     public get invalid(): boolean {
         return this.ngControl !== undefined && this.ngControl !== null && this.ngControl.invalid;
     }
 
     /**
-     * Definiert ob das Control disabled ist
+     * Defines whether the control is disabled
      */
     public get isdisabled(): boolean {
         return this._disabledForm || this.disabled;
@@ -309,14 +309,14 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     }
 
     /**
-     * Definiert den Label Text
+     * Defines the label text
      */
     public get label(): string {
         return this._label;
     }
 
     /**
-     * Definiert den Label Text
+     * Sets the label text
      */
     @Input() public set label(v: string) {
         this._label = v;
@@ -324,7 +324,7 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     }
 
     /**
-     * returns an object with all label sizes. These values can then be transferred to corresponding CSS classes using a pipe
+     * Returns an object with all label sizes. These values can then be transferred to corresponding CSS classes using a pipe
      */
     public get labelSizes(): ISacLabelSizes {
         return {
@@ -338,7 +338,7 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     }
 
     /**
-     * Methode ergibt Boolean Wert für touched
+     * Method returns boolean value for touched
      */
     public get touched(): boolean {
         if (this.ngControl !== null && this.ngControl !== undefined) {
@@ -349,15 +349,15 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     }
 
     /**
-     * Get Methode für NgModel Binding in Html Markup
+     * Get method for NgModel binding in HTML markup
      */
     public get value(): VALUE {
         return this._value;
     }
 
     /**
-     * Set Methode für NgModel Binding in Html Markup
-     * Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.
+     * Set method for NgModel binding in HTML markup
+     * Input is required so that the value can also be set via the markup.
      */
     @Input()
     public set value(v: VALUE) {
@@ -374,7 +374,7 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     // #region Public Methods
 
     /**
-     * Methode ergibt Error anhand von gegebenen Kriterien
+     * Method returns error based on given criteria
      */
     public GetErrorMessage(): Observable<string> {
         if (this.ngControl.errors === undefined || this.ngControl.errors === null) {
@@ -449,7 +449,7 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     }
 
     /**
-     * Methode ergibt boolean touched = true
+     * Method sets touched = true
      */
     public onTouch(): void {
         this._touched = true;
@@ -457,43 +457,43 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     }
 
     /**
-     * Methode, damit andere Controls änderungen im Control mitbekommen können
-     * Zur Änderungsinfo die Methode propagateChange aufrufen.
+     * Method so that other controls can be notified of changes in the control
+     * For change notification, call the propagateChange method.
      */
     public registerOnChange(fn: any): void {
         this.propagateChange = (obj) => fn(obj);
     }
 
     /**
-     * Methode, damit andere Controls änderungen mitbekommen, wenn das Control aktiviert (Focus) wird.
+     * Method so that other controls can be notified of changes when the control is activated (focus).
      */
     public registerOnTouched(fn: any): void {
         this.propagateTouch = (obj) => fn(obj);
     }
 
     /**
-     * Methode registriert Änderungen bei der Validierung
+     * Method registers changes in validation
      */
     public registerOnValidatorChange(fn: () => void): void {
         this._onChange = fn;
     }
 
     /**
-     * Setzt das Control auf Disabled
+     * Sets the control to disabled
      */
     public setDisabledState(isDisabled: boolean): void {
         this._disabledForm = isDisabled;
     }
 
     /**
-     * Methode die den Wert des Inputs setzt
+     * Method that sets the value of the input
      */
     public setValue(v: VALUE): void {
         this.value = v;
     }
 
     /**
-     * Validator Methode
+     * Validator method
      */
     public validate(c: AbstractControl): ValidationErrors | null {
         const error: ValidationErrors | null = this.validateData(c);
@@ -501,12 +501,12 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     }
 
     /**
-     * Abstrakte Validator Methode
+     * Abstract validator method
      */
     public abstract validateData(c: AbstractControl): ValidationErrors | null;
 
     /**
-     * Methode zum schreiben von Werten aus dem Model in das Control
+     * Method for writing values from the model into the control
      */
     public writeValue(value: VALUE) {
         this._value = value;
@@ -517,16 +517,16 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     // #region Protected Methods
 
     /**
-     * Method can Overwriten in Parent Classes
-     * @param value Wert welcher in den korrekten Typ konvertiert werden soll
-     * @returns Wert im korrekten Typ
+     * Method can be overridden in parent classes
+     * @param value Value that should be converted to the correct type
+     * @returns Value in the correct type
      */
     protected ConvertInputValue(value: VALUE): VALUE {
         return value;
     }
 
     /**
-     * Methode ergibt Decimal Symbol
+     * Method returns the decimal symbol
      */
     protected GetDecimalSymbol(): string {
         return '.';
@@ -538,7 +538,7 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     protected OnClassInit(): void {}
 
     /**
-     * Aktualisiert den NgModel Wert und die Gültigkeit des Validators des Controls
+     * Updates the NgModel value and the validity of the control's validator
      */
     protected UpdateValueAndValidity(): void {
         if (this.ngControl) {

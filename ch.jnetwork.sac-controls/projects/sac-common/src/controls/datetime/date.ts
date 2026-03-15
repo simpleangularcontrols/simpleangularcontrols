@@ -7,19 +7,19 @@ import * as IMask from 'imask';
 import * as moment_ from 'moment';
 
 /**
- * Komponente für SacDateCommon. Extends SacBaseDateTimeControl
+ * Component for SacDateCommon. Extends SacBaseDateTimeControl
  */
 @Directive()
 export abstract class SacDateCommon extends SacBaseDateTimeControl {
     // #region Properties
 
     /**
-     * Format des Datums
+     * Date format
      */
     public readonly DATEFORMAT: string = 'DD.MM.YYYY';
 
     /**
-     * Maske
+     * Mask
      */
     public readonly imaskDate = {
         mask: this.DATEFORMAT,
@@ -64,22 +64,22 @@ export abstract class SacDateCommon extends SacBaseDateTimeControl {
     public moment = moment_['default'];
 
     /**
-     * Resource Key für Validation Message MaxDate bei Control
+     * Resource key for validation message MaxDate at control
      */
     @Input() public validationmessagemaxdate: string = this.validationKeyService.ValidationErrorMaxDate;
 
     /**
-     * Resource Key für Validation Message MinDate bei Control
+     * Resource key for validation message MinDate at control
      */
     @Input() public validationmessagemindate: string = this.validationKeyService.ValidationErrorMinDate;
 
     /**
-     * Resource Key für Validation Message MaxDate in Validation Summary
+     * Resource key for validation message MaxDate in validation summary
      */
     @Input() public validationmessagesummarymaxdate: string = this.validationKeyService.ValidationErrorSummaryMaxDate;
 
     /**
-     * Resource Key für Validation Message MinDate in Validation Summary
+     * Resource key for validation message MinDate in validation summary
      */
     @Input() public validationmessagesummarymindate: string = this.validationKeyService.ValidationErrorSummaryMinDate;
 
@@ -92,7 +92,7 @@ export abstract class SacDateCommon extends SacBaseDateTimeControl {
      * @param formlayout SacFormLayoutCommon to define scoped layout settings
      * @param injector Injector for injecting services
      * @param elementRef reference to html element
-     * @param cdRef  Change Dectection Servie
+     * @param cdRef Change Detection Service
      */
     constructor(
         formlayout: SacFormLayoutCommon,
@@ -147,14 +147,14 @@ export abstract class SacDateCommon extends SacBaseDateTimeControl {
     // #region Public Methods
 
     /**
-     * Methode ergibt Datum-Format vom String
+     * Method returns date format from string
      */
     public GetDateTimeFormatString(): string {
         return this.DATEFORMAT;
     }
 
     /**
-     * Methode ergibt Datum - Moment
+     * Method returns date - moment
      */
     public ModifyParsedDateTimeValue(v: moment_.Moment): moment_.Moment {
         return v;
@@ -193,10 +193,10 @@ export abstract class SacDateCommon extends SacBaseDateTimeControl {
     }
 
     /**
-     * Zeigt Date Selector an
+     * Shows date selector
      */
     public showDateSelector(): void {
-        // Touch Event auslösen
+        // Trigger a touch event
         this.onTouch();
 
         if (this._showselector) {

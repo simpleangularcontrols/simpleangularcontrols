@@ -2,7 +2,7 @@ export interface ISacLabelSizes {
     // #region Properties
 
     /**
-     * default labe size for large devices
+     * Default label size for large devices
      */
     labelSizeLg: number;
 

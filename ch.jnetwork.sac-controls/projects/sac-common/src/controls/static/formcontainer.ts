@@ -4,14 +4,14 @@ import { Directive, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 /**
- * Common Control für Form Item Container.
+ * Common control for form item container.
  **/
 @Directive()
 export class SacStaticFormContainerCommon extends SacBaseModelControl<string> {
     // #region Properties
 
     /**
-     * Definiert den Container als Required Form Item
+     * Defines the container as a required form item
      */
     private _isrequired = false;
 
@@ -32,14 +32,14 @@ export class SacStaticFormContainerCommon extends SacBaseModelControl<string> {
     // #region Public Getters And Setters
 
     /**
-     * Definiert den Container als Required Form Item
+     * Defines the container as a required form item
      */
     public get isrequired(): boolean {
         return this._isrequired;
     }
 
     /**
-     * Definiert den Container als Required Form Item
+     * Defines the container as a required form item
      */
     @Input()
     public set isrequired(v: boolean) {
@@ -51,14 +51,14 @@ export class SacStaticFormContainerCommon extends SacBaseModelControl<string> {
     // #region Public Methods
 
     /**
-     * Validierung des Controls
+     * Validation of the control
      *
-     * @description Validierung wird auf dem Form Container nicht gemacht, da kein Model Binding vorhanden.
-     * @param c Control das Validiert werden soll
-     * @returns Fehlermeldung aus Validation oder NULL
+     * @description Validation is not performed on the form container because there is no model binding.
+     * @param c Control to be validated
+     * @returns Error message from validation or null
      */
     public validateData(c: AbstractControl): ValidationErrors | null {
-        // Keine Validierung, daher immer NULL
+        // No validation, therefore always null
         return null;
     }
 

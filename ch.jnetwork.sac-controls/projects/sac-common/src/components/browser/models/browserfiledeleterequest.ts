@@ -1,16 +1,16 @@
 /**
- * Klasse für API Request zum löschen eines Files
+ * Class for API request to delete a file
  */
 export class BrowserFileDeleteRequest {
     // #region Properties
 
     /**
-     * Erlaubte Dateitypen
+     * Allowed file types
      */
     public AllowedTypes: string;
 
     /**
-     * Pfad
+     * Path
      */
     public Path: string;
 
@@ -19,8 +19,8 @@ export class BrowserFileDeleteRequest {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param init Initale Werte der Klasse
+     * Constructor
+     * @param init Initial values for the class
      */
     constructor(init?: Partial<BrowserFileDeleteRequest>) {
         Object.assign(this, init);

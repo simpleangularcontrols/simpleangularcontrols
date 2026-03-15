@@ -1,13 +1,13 @@
 import { IBrowserFile } from './browserfile';
 
 /**
- * Interface für API Response von Files
+ * Interface for API response of files
  */
 export interface IBrowserFileResponse {
     // #region Properties
 
     /**
-     * Array von Files in einem Node
+     * Array of files in a node
      */
     Files: IBrowserFile[];
 

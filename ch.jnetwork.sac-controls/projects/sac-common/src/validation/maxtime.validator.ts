@@ -14,7 +14,7 @@ export function maxTimeValidator(
     return (control: AbstractControl): ValidationErrors | null => {
         const ctl = control as unknown as IDateTimeControl;
 
-        // Check abbrechen, wenn kein gültiges Datum
+        // Cancel check if no valid date
         if (!isDateValid(ctl.value, ctl.datetimeformatstring) || maxTime === null) {
             return null;
         }

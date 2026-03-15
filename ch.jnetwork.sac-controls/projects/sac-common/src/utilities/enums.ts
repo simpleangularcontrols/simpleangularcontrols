@@ -1,5 +1,5 @@
 /**
- * Enum für Tooltip Positionen
+ * Enum for tooltip positions
  */
 export enum TooltipPosition {
     none = 0,

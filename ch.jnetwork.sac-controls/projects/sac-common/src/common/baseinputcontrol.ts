@@ -2,24 +2,24 @@ import { SacBaseModelControl } from './basemodelcontrol';
 import { Directive, Input } from '@angular/core';
 
 /**
- * Abstract Klasse für SacInputBase. Extendes SacBaseModelControl
+ * Abstract class for SacInputBase. Extends SacBaseModelControl
  */
 @Directive()
 export abstract class SacInputBase<VALUE> extends SacBaseModelControl<VALUE> {
     // #region Properties
 
     /**
-     * Erlaubte Zeichen bei der Eingabe
+     * Allowed characters for input
      */
     @Input() public allowedchars = '';
 
     /**
-     * Autofill aktivieren oder deaktivieren
+     * Enable or disable autofill
      */
     @Input() public disableautocomplete = false;
 
     /**
-     * Definiert das Control als Required
+     * Defines the control as required
      */
     @Input() public isrequired = false;
 
@@ -29,12 +29,12 @@ export abstract class SacInputBase<VALUE> extends SacBaseModelControl<VALUE> {
     @Input() public placeholder: string = null;
 
     /**
-     * Macht das Input readonly
+     * Makes the input readonly
      */
     @Input() public readonly = false;
 
     /**
-     * Definiert das Feld als valid/invalid von eingegebenen regex-pattern
+     * Defines the field as valid/invalid by entered regex pattern
      */
     @Input() public regexvalidation: string;
 
@@ -43,17 +43,17 @@ export abstract class SacInputBase<VALUE> extends SacBaseModelControl<VALUE> {
     // #region Public Methods
 
     /**
-     * Methode validiert Input wenn KeyPress-Event passiert
+     * Method validates input when keypress event occurs
      */
     public onKeyPress(event: KeyboardEvent): Boolean {
-        // Cancel wenn _allowedChars leer ist.
+        // Cancel if _allowedChars is empty.
         if (this.allowedchars.length === 0) {
             return true;
         }
 
         // Validate Input
         const character = event.key;
-        // Zeichen in Allowed Chars nicht gefunden, Event nicht weitergeben
+        // Character not found in allowed chars, do not propagate event
         if (this.allowedchars.indexOf(character) < 0) {
             event.preventDefault();
         }
@@ -70,7 +70,7 @@ export abstract class SacInputBase<VALUE> extends SacBaseModelControl<VALUE> {
     // #region Protected Methods
 
     /**
-     * Methode validiert wenn ein Drück-Event passiert
+     * Method validates when a keypress event occurs
      */
     protected OnKeyPressValidation(position: number, character: string): boolean {
         return true;

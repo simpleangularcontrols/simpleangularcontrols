@@ -49,8 +49,8 @@ export class SacInheritFormDirective extends SacFormCommon {
     // #region Constructors
 
     /**
-     * Construtor
-     * @param injector: injector to receive the NgForm instance
+     * Constructor
+     * @param injector Injector to receive the NgForm instance
      */
     constructor(injector: Injector) {
         super(injector.get(NgForm));

@@ -53,8 +53,8 @@ export class SacMultilanguagemenuComponent extends SacContextmenuCommon {
      * @param document Reference to HTML document
      * @param ngZone Angular Zone Service
      * @param elementRef Reference to HTML element of the current component
-     * @param renderer Render Service von Angular
-     * @param injector injector to resolve services in base component
+     * @param renderer Angular render service
+     * @param injector Injector to resolve services in base component
      */
     constructor(
         @Inject(DOCUMENT) document: any,

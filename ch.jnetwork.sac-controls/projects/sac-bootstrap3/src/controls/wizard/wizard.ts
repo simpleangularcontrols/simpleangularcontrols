@@ -22,6 +22,10 @@ export class SacWizardComponent extends SacWizardCommon {
 
     // #region Public Methods
 
+    /**
+     * Returns the wizard items
+     * @returns Collection of wizard items
+     */
     public wizardItems(): QueryList<SacWizardItemCommon> {
         return this._wizardItems as QueryList<SacWizardItemCommon>;
     }

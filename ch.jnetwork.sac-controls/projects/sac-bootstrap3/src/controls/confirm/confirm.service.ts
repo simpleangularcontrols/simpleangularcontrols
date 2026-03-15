@@ -70,7 +70,9 @@ export class ServiceConfirm extends ServiceConfirmCommon {
 
     /**
      * Show confirm dialog
-     * @param message Message to be displayed
+     * @param title Title to be displayed in dialog
+     * @param message Message to be displayed in dialog
+     * @param buttons Array of custom buttons or null for default buttons
      * @returns EventEmitter with key of the button that was clicked
      */
     public ConfirmMessage(title: string, message: string, buttons: SacConfirmButton[] = null): EventEmitter<string> {
@@ -98,6 +100,7 @@ export class ServiceConfirm extends ServiceConfirmCommon {
 
     /**
      * Generate component factory for a dialog
+     * @returns ComponentFactory for SacConfirmComponent
      */
     public GetComponentFactory(): ComponentFactory<SacConfirmComponent> {
         return this.componentFactoryResolver.resolveComponentFactory(SacConfirmComponent);

@@ -27,6 +27,7 @@ export class SacPagingComponent extends SacPagingCommon {
 
     /**
      * Constructor
+     * @param injector Angular dependency injection service
      */
     constructor(injector: Injector) {
         super(injector);

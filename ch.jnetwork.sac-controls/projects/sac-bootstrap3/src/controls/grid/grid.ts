@@ -18,7 +18,14 @@ import { SacGridCommon, SacTestingAttributePipe } from '@simpleangularcontrols/s
 export class SacGridComponent extends SacGridCommon {
     // #region Properties
 
+    /**
+     * Whether to enable text ellipsis for grid cells
+     */
     public ellipsis = false;
+
+    /**
+     * Template reference for custom grid template
+     */
     @ContentChild(TemplateRef, { static: true })
     public template: TemplateRef<any>;
 

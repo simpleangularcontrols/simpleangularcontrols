@@ -50,7 +50,7 @@ export class SacDateTimeComponent extends SacDateTimeCommon {
      * @param formLayout SacFormLayout to define scoped layout settings
      * @param injector Injector for injecting services
      * @param elementRef Reference to html dom element
-     * @param cdRef  Change Dectection Servie
+     * @param cdRef  Change Detection Service
      */
     constructor(
         @Host() @Optional() formLayout: SacFormLayoutDirective,

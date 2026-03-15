@@ -4,6 +4,7 @@
     "singleQuote": true,
     "tabWidth": 4,
     "useTabs": false,
+    "trailingComma": "es5",
     "overrides": [
         {
             "files": "projects/**/*.html",

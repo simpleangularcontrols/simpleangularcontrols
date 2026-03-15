@@ -37,8 +37,9 @@ export class SacGridComponent extends SacGridCommon {
     // #region Constructors
 
     /**
-     * Konstrukor
+     * Constructor
      * @param cdRef Change Detection Reference
+     * @param injector Angular dependency injection service
      */
     constructor(cdRef: ChangeDetectorRef, injector: Injector) {
         super(cdRef, injector);

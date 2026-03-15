@@ -21,6 +21,7 @@ export class SacGridColumnComponent extends SacGridColumnCommon {
     /**
      * Constructor
      * @param grid Grid reference
+     * @param injector Angular dependency injection service
      * @param el HTML DOM element
      */
     constructor(grid: SacGridComponent, injector: Injector, el: ElementRef) {

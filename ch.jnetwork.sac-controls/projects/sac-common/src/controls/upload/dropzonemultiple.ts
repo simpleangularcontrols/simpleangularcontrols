@@ -20,13 +20,13 @@ export class SacDropzoneMultipleCommon extends SacUploadBase<string[]> implement
      * Max. Anzahl Files die hochgeladen werden können
      */
     @Input()
-    public maxfiles: number = 0;
+    public maxfiles = 0;
 
     /**
      * Min. Anzahl Files die hochgeladen werden müssen
      */
     @Input()
-    public minfiles: number = 0;
+    public minfiles = 0;
 
     /**
      * Höhe des Upload Controls

@@ -11,17 +11,17 @@ export abstract class SacInputBase<VALUE> extends SacBaseModelControl<VALUE> {
     /**
      * Erlaubte Zeichen bei der Eingabe
      */
-    @Input() public allowedchars: string = '';
+    @Input() public allowedchars = '';
 
     /**
      * Autofill aktivieren oder deaktivieren
      */
-    @Input() public disableautocomplete: boolean = false;
+    @Input() public disableautocomplete = false;
 
     /**
      * Definiert das Control als Required
      */
-    @Input() public isrequired: boolean = false;
+    @Input() public isrequired = false;
 
     /**
      * TextBox Placeholder
@@ -31,7 +31,7 @@ export abstract class SacInputBase<VALUE> extends SacBaseModelControl<VALUE> {
     /**
      * Macht das Input readonly
      */
-    @Input() public readonly: boolean = false;
+    @Input() public readonly = false;
 
     /**
      * Definiert das Feld als valid/invalid von eingegebenen regex-pattern

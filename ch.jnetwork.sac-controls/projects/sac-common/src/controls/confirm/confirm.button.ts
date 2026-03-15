@@ -9,7 +9,7 @@ export class SacConfirmButton {
     /**
      * Key of the button. Is returned as a result when confirming
      */
-    public key: string = '';
+    public key = '';
 
     /**
      * Layout of the button
@@ -19,7 +19,7 @@ export class SacConfirmButton {
     /**
      * Display text of the buttonAnzeigetext des Buttons
      */
-    public text: string = '';
+    public text = '';
 
     // #endregion Properties
 

@@ -17,7 +17,7 @@ export class SacInputSearchCommon extends SacInputCommon implements OnInit {
     /**
      * Text welcher auf dem Button angezeigt wird
      */
-    @Input() public buttontext: string = '';
+    @Input() public buttontext = '';
 
     /**
      * Event wenn auf das Such-Icon geclickt wird
@@ -28,7 +28,7 @@ export class SacInputSearchCommon extends SacInputCommon implements OnInit {
     /**
      * Name des Such-Icons
      */
-    @Input() public iconname: string = '';
+    @Input() public iconname = '';
 
     // #endregion Properties
 

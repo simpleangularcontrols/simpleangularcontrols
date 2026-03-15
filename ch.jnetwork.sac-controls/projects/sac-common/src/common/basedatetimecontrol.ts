@@ -40,7 +40,7 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
     /**
      * Definiert ob der Date Selector angezeigt wird
      */
-    public _showselector: boolean = false;
+    public _showselector = false;
 
     /**
      * Reference to imask directive in any datetime controls
@@ -51,7 +51,7 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
     /**
      * Definiert das Control als Required
      */
-    @Input() public isrequired: boolean = false;
+    @Input() public isrequired = false;
 
     /**
      * Moment JS Instance
@@ -89,12 +89,12 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
     /**
      * Position of the picker at the left
      */
-    public posPopupLeft: number = 0;
+    public posPopupLeft = 0;
 
     /**
      * Position of the picker at the top
      */
-    public posPopupTop: number = 0;
+    public posPopupTop = 0;
 
     /**
      * Position of the datetime picker. Values: left|top|right|bottom|auto
@@ -102,7 +102,7 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
      * Value 'auto' can be combined with another value.
      */
     @Input()
-    public position: string = 'bottomend|topend';
+    public position = 'bottomend|topend';
 
     /**
      * Resource Key für Validation Message DateTimeFormat bei Control

@@ -19,18 +19,18 @@ export class SacConfirmCommon implements IConfirmComponent {
      * Icon welches auf dem Dialog angezeigt wird
      */
     @Input()
-    public image: string = '';
+    public image = '';
 
     /**
      * Definiert ob der Dialog sichtbar ist
      */
-    public isvisible: boolean = false;
+    public isvisible = false;
 
     /**
      * Nachricht die auf dem Dialog angezeigt wird
      */
     @Input()
-    public message: string = '';
+    public message = '';
 
     /**
      * Event wenn Dialog geschlossen wird
@@ -42,7 +42,7 @@ export class SacConfirmCommon implements IConfirmComponent {
      * Dialog Titel für Confirm Dialog
      */
     @Input()
-    public title: string = '';
+    public title = '';
 
     // #endregion Properties
 

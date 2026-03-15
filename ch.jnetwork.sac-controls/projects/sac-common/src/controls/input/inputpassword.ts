@@ -13,7 +13,7 @@ export class SacInputPasswordCommon extends SacInputCommon {
     /**
      * Checks the minimum length of the password
      */
-    @Input() public mintextlength: number = 5;
+    @Input() public mintextlength = 5;
 
     /**
      * Password Eye Button is enabled

@@ -20,27 +20,27 @@ class DateSelectorItem {
     /**
      * DisplayText Property; default Wert - ''
      */
-    public displaytext: string = '';
+    public displaytext = '';
 
     /**
      * Boolean Property, die zeigt, ob das Element aktuell ist; default Wert - false
      */
-    public iscurrent: boolean = false;
+    public iscurrent = false;
 
     /**
      * Boolean Property, die zeigt, ob das Control enabled ist; default Wert - false
      */
-    public isenabled: boolean = false;
+    public isenabled = false;
 
     /**
      * Boolean Property, die zeigt, ob das Element neu ist; default Wert - false
      */
-    public isnew: boolean = false;
+    public isnew = false;
 
     /**
      * Boolean Property, die zeigt, ob das Element selektiert ist; default Wert - false
      */
-    public isselected: boolean = false;
+    public isselected = false;
 
     // #endregion Properties
 
@@ -98,7 +98,7 @@ export class SacDateSelectorCommon implements OnInit {
     /**
      * Anfang des Kalenders
      */
-    private beginOfCalendar: number = 1;
+    private beginOfCalendar = 1;
 
     /**
      * icon service to resolve icons
@@ -120,7 +120,7 @@ export class SacDateSelectorCommon implements OnInit {
      * Datum Selector
      */
     @Input()
-    public dateselection: boolean = false;
+    public dateselection = false;
 
     /**
      * Identifier used for the E2E data attribute.
@@ -132,7 +132,7 @@ export class SacDateSelectorCommon implements OnInit {
      * Monat
      */
     @Input()
-    public month: number = 4;
+    public month = 4;
 
     /**
      * name of control
@@ -150,13 +150,13 @@ export class SacDateSelectorCommon implements OnInit {
      * Time Selector
      */
     @Input()
-    public timeselection: boolean = false;
+    public timeselection = false;
 
     /**
      * Jahr
      */
     @Input()
-    public year: number = 2018;
+    public year = 2018;
 
     // #endregion Properties
 
@@ -506,8 +506,8 @@ export class SacDateSelectorCommon implements OnInit {
 
         // Add all Days in Month
         for (let dayinmonth = 1; dayinmonth <= currentMonth.daysInMonth(); dayinmonth++) {
-            let isSelectedDate: boolean = false;
-            let isNewDate: boolean = false;
+            let isSelectedDate = false;
+            let isNewDate = false;
             const isCurrentDate: boolean =
                 moment().month() === this.month && moment().year() === this.year && moment().date() === dayinmonth;
 

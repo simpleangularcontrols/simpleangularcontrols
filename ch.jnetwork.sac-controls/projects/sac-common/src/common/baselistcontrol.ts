@@ -16,17 +16,17 @@ export abstract class SacBaseListControl<VALUE> extends SacBaseModelControl<VALU
     /**
      * Definiert das Control als Required
      */
-    @Input() public isrequired: boolean = false;
+    @Input() public isrequired = false;
 
     /**
      * Definiert, ob das Option Element aktiv ist
      */
-    @Input() public optionenabled: string = '';
+    @Input() public optionenabled = '';
 
     /**
      * Definiert das Label für das Option Element
      */
-    @Input() public optionlabel: string = 'label';
+    @Input() public optionlabel = 'label';
 
     /**
      * Template für Value Element
@@ -37,7 +37,7 @@ export abstract class SacBaseListControl<VALUE> extends SacBaseModelControl<VALU
     /**
      * Definiert den Wert für das Option Element
      */
-    @Input() public optionvalue: string = 'value';
+    @Input() public optionvalue = 'value';
 
     /**
      * Style Breite für List Control Element

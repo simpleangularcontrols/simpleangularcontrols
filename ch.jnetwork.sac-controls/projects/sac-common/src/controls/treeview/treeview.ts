@@ -105,13 +105,13 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
      * A node must be selected
      */
     @Input()
-    public isrequired: boolean = false;
+    public isrequired = false;
 
     /**
      * Name of the TreeView control
      */
     @Input()
-    public name: string = '';
+    public name = '';
 
     /**
      * Event when a node is selected. Returns the id attribute as a parameter. The event is not triggered if 'attrid' is not set.

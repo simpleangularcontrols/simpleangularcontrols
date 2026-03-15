@@ -27,12 +27,12 @@ export abstract class SacPagingCommon {
     /**
      * Total number of rows
      */
-    protected totalRowCount: number = 0;
+    protected totalRowCount = 0;
 
     /**
      * Active page index
      */
-    public activePageIndex: number = 0;
+    public activePageIndex = 0;
 
     /**
      * Identifier used for the E2E data attribute.
@@ -43,12 +43,12 @@ export abstract class SacPagingCommon {
     /**
      * First page index
      */
-    public firstPageIndex: number = 0;
+    public firstPageIndex = 0;
 
     /**
      * Last page index
      */
-    public lastPageIndex: number = 0;
+    public lastPageIndex = 0;
 
     /**
      * name of control
@@ -59,13 +59,13 @@ export abstract class SacPagingCommon {
     /**
      * Number of elements per page
      */
-    public pageSize: number = 20;
+    public pageSize = 20;
 
     /**
      * Deactivate page size selection
      */
     @Input()
-    public pagesizedisabled: boolean = false;
+    public pagesizedisabled = false;
 
     /**
      * Text in Page for number of page elements per page. The following interpolation texts are available:
@@ -73,7 +73,7 @@ export abstract class SacPagingCommon {
      * {{PAGESIZE}}: Number of elements per page
      */
     @Input()
-    public pagesizes: string = '20|50|100';
+    public pagesizes = '20|50|100';
 
     /**
      * Text in Page for number of page elements per page. The following interpolation texts are available:
@@ -81,7 +81,7 @@ export abstract class SacPagingCommon {
      * {{PAGESIZE}}: Number of elements per page
      */
     @Input()
-    public pagesizetext: string = '';
+    public pagesizetext = '';
 
     /**
      * Item for each paging element (page number)
@@ -100,7 +100,7 @@ export abstract class SacPagingCommon {
      * {{TOTALPAGES}}: Number of pages
      */
     @Input()
-    public pagingtext: string = '';
+    public pagingtext = '';
 
     // #endregion Properties
 
@@ -296,7 +296,7 @@ export abstract class SacPagingCommon {
      * @param totalPageCount Total number of pages
      */
     protected getStartPageIndex(totalPageCount: number): number {
-        let startingPageToDisplay: number = 0;
+        let startingPageToDisplay = 0;
         startingPageToDisplay = this.activePageIndex - 2;
 
         if (totalPageCount - this.activePageIndex - 1 < 2) {

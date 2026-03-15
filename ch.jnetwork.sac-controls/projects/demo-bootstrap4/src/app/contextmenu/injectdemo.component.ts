@@ -1,7 +1,7 @@
 import { Component, ContentChild, TemplateRef } from '@angular/core';
 
 @Component({
-    selector: 'injectdemo-component',
+    selector: 'app-injectdemo-component',
     templateUrl: './injectdemo.component.html',
 })
 export class InjectDemoComponent {

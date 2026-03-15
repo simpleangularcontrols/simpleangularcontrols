@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'contextmenu-repeat',
+    selector: 'app-contextmenu-repeat',
     templateUrl: './repeat.component.html',
 })
 export class RepeatComponent {

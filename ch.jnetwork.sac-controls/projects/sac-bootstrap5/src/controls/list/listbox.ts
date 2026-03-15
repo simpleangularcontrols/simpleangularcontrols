@@ -32,12 +32,12 @@ export class SacListboxOptionDirective extends SacListboxOptionCommon {
 }
 
 /**
- * Listbox Komponente
+ * Listbox component
  */
 @Component({
     selector: 'sac-listbox',
     templateUrl: './listbox.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register value access provider so that value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

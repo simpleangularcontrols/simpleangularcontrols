@@ -10,7 +10,7 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacDropzoneMultipleCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 /**
- * Dropzone Komponente für mehrere Uploads
+ * Dropzone component for multiple uploads
  * @see https://github.com/kukhariev/ngx-uploadx/
  */
 @Component({

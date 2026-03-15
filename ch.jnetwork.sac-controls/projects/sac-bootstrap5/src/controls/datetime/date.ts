@@ -16,7 +16,7 @@ import * as moment_ from 'moment';
 // #region Variables
 
 /**
- * Referenz auf Moment.JS
+ * Reference to Moment.JS
  */
 const moment = moment_['default'];
 
@@ -25,12 +25,12 @@ const moment = moment_['default'];
 // #region Exported Classes
 
 /**
- * Komponente für Datumauswahl
+ * Component for date selection
  */
 @Component({
     selector: 'sac-date',
     templateUrl: './date.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register value access provider so that value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

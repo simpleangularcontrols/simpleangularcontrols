@@ -12,12 +12,12 @@ import { SacDateTimeCommon, SacTestingAttributePipe } from '@simpleangularcontro
 import { IMaskDirective } from 'angular-imask';
 
 /**
- * Date und Time Komponente
+ * Date and time component
  */
 @Component({
     selector: 'sac-datetime',
     templateUrl: './datetime.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register value access provider so that value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

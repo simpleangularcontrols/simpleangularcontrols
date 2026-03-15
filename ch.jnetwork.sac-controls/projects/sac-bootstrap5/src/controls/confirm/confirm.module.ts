@@ -3,9 +3,9 @@ import { ServiceConfirm } from './confirm.service';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 
 /**
- *  Module für Confirm Messages
+ *  Module for confirm messages
  *
- *  In NgModule der Applikation folgenden Eintrag bei Imports einfügen: SACBootstrap5ConfirmModule.forRoot()
+ *  Add the following entry to the imports in NgModule of the application: SACBootstrap5ConfirmModule.forRoot()
  *
  */
 @NgModule({

@@ -10,12 +10,12 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacInputCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 /**
- * Input Komponente
+ * Input component
  */
 @Component({
     selector: 'sac-input',
     templateUrl: './input.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register value access provider so that value can be written and read via model
     providers: [
         { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacInputComponent },
         {

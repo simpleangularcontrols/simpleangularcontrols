@@ -1,3 +1,7 @@
+import { PositionCalculator } from './positioncalculator';
+
+// #region Exported Functions
+
 /**
  * Accept the placement array and applies the appropriate placement dependent on the viewport.
  * Returns the applied placement.
@@ -8,10 +12,6 @@
  * 'left-top', 'left-bottom',
  * 'right-top', 'right-bottom'.
  */
-import { PositionCalculator } from './positioncalculator';
-
-// #region Exported Functions
-
 export function positionElements(
     hostElement: HTMLElement,
     targetElement: HTMLElement,

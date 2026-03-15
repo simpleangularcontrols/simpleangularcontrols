@@ -50,6 +50,7 @@ export class SacFormCommon {
 
     /**
      * Returns the NgForm instance
+     * @returns The NgForm instance
      */
     public getForm(): NgForm {
         return this.form;

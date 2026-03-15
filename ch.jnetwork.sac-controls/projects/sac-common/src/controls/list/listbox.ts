@@ -46,8 +46,9 @@ export class SacListboxOptionCommon implements OnDestroy {
 
     /**
      * Constructor
-     * @param _element: ElementRef
-     * @param _renderer: Renderer2
+     * @param _element Reference to host element
+     * @param _renderer Renderer for DOM manipulation
+     * @param _listbox Reference to parent listbox component
      */
     constructor(
         private _element: ElementRef,

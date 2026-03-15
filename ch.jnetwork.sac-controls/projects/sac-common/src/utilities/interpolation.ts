@@ -18,7 +18,8 @@ export class Interpolation {
     /**
      * Replace placeholders in string
      * @param text Text in which placeholders are replaced
-     * @param params Object with parameters.
+     * @param params Object with parameters
+     * @returns The interpolated string with placeholders replaced
      */
     public interpolateString(text: string, params?: any) {
         if (!params) {

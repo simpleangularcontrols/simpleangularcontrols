@@ -459,6 +459,7 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     /**
      * Method so that other controls can be notified of changes in the control
      * For change notification, call the propagateChange method.
+     * @param fn Callback function for change notification
      */
     public registerOnChange(fn: any): void {
         this.propagateChange = (obj) => fn(obj);
@@ -466,6 +467,7 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
 
     /**
      * Method so that other controls can be notified of changes when the control is activated (focus).
+     * @param fn Callback function for touch notification
      */
     public registerOnTouched(fn: any): void {
         this.propagateTouch = (obj) => fn(obj);
@@ -473,6 +475,7 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
 
     /**
      * Method registers changes in validation
+     * @param fn Callback function for validator change notification
      */
     public registerOnValidatorChange(fn: () => void): void {
         this._onChange = fn;
@@ -480,6 +483,7 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
 
     /**
      * Sets the control to disabled
+     * @param isDisabled True to disable the control, false to enable it
      */
     public setDisabledState(isDisabled: boolean): void {
         this._disabledForm = isDisabled;
@@ -487,6 +491,7 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
 
     /**
      * Method that sets the value of the input
+     * @param v The value to set
      */
     public setValue(v: VALUE): void {
         this.value = v;
@@ -494,6 +499,8 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
 
     /**
      * Validator method
+     * @param c Form control to validate
+     * @returns Validation errors or null if valid
      */
     public validate(c: AbstractControl): ValidationErrors | null {
         const error: ValidationErrors | null = this.validateData(c);
@@ -507,6 +514,7 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
 
     /**
      * Method for writing values from the model into the control
+     * @param value The value to write to the control
      */
     public writeValue(value: VALUE) {
         this._value = value;
@@ -584,6 +592,9 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
         }
     }
 
+    /**
+     * Sets the label display mode from property or parent layout control
+     */
     private setLabelMode(): void {
         if (!this.labelMode) {
             if (this.formlayout?.labelMode) {
@@ -670,6 +681,9 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
         }
     }
 
+    /**
+     * Sets the label split mode from property or parent layout control\n
+     **/
     private setLabelSplitMode() {
         if (!this.splitlabelandhelptext) {
             if (this.formlayout?.splitlabelandhelptext) {

@@ -11,15 +11,15 @@ declare namespace Cypress {
     }
 }
 
-Cypress.Commands.add('shouldBeReadonly', (tagName: string = 'input') => {
+Cypress.Commands.add('shouldBeReadonly', (tagName = 'input') => {
     cy.get(tagName).should('have.attr', 'readonly', 'readonly');
 });
 
-Cypress.Commands.add('shouldBeDisabled', (tagName: string = 'input') => {
+Cypress.Commands.add('shouldBeDisabled', (tagName = 'input') => {
     cy.get(tagName).should('have.attr', 'disabled');
 });
 
-Cypress.Commands.add('shouldHavePlaceholder', (text: string, tagName: string = 'input') => {
+Cypress.Commands.add('shouldHavePlaceholder', (text: string, tagName = 'input') => {
     cy.get(tagName).should('have.attr', 'placeholder', text);
 });
 

@@ -121,7 +121,7 @@ export class SacListboxCommon extends SacBaseSelectControl<Array<string>> {
     /**
      * Anzahl der Zeilen
      */
-    @Input() public rowsize: number = 5;
+    @Input() public rowsize = 5;
     /**
      * Resource Key für Validation Message Required bei Control
      */

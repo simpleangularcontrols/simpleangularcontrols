@@ -38,12 +38,12 @@ export class ServiceConfirm extends ServiceConfirmCommon {
     /**
      * Message die in Dialog angezeigt werden soll.
      */
-    private message: string = '';
+    private message = '';
 
     /**
      * Titel der im Dialog angezeigt werden soll.
      */
-    private title: string = '';
+    private title = '';
 
     // #endregion Properties
 

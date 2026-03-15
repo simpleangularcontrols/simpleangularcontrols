@@ -50,7 +50,7 @@ Cypress.Commands.add('registerUploadController', (filesize: number) => {
 Cypress.Commands.add(
     'createFile',
     { prevSubject: ['element'] },
-    (subject, filesize: number, extension: string = 'txt') => {
+    (subject, filesize: number, extension = 'txt') => {
         const bigFile = Cypress.Buffer.alloc(filesize, 'a');
         cy.wrap(subject).selectFile([
             { contents: bigFile, fileName: `upload.file1.${extension}`, lastModified: Date.now() },

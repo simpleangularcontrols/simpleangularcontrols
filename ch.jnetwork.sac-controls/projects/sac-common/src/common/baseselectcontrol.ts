@@ -11,12 +11,12 @@ export abstract class SacBaseSelectControl<VALUE> extends SacBaseListControl<VAL
     /**
      * Definiert die Collection der Items im Group Element
      */
-    @Input() public groupitems: string = '';
+    @Input() public groupitems = '';
 
     /**
      * Definiert das Label für das Group Element
      */
-    @Input() public grouplabel: string = 'label';
+    @Input() public grouplabel = 'label';
 
     // #endregion Properties
 }

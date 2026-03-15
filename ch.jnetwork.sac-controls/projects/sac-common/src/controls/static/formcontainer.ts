@@ -13,19 +13,19 @@ export class SacStaticFormContainerCommon extends SacBaseModelControl<string> {
     /**
      * Definiert den Container als Required Form Item
      */
-    private _isrequired: boolean = false;
+    private _isrequired = false;
 
     /**
      * Error message to be displayed
      */
     @Input()
-    public errormessage: string = '';
+    public errormessage = '';
 
     /**
      * Activates the error message on the container control
      */
     @Input()
-    public isinvalid: boolean = false;
+    public isinvalid = false;
 
     // #endregion Properties
 

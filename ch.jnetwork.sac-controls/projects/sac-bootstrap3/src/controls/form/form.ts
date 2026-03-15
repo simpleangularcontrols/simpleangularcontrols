@@ -26,13 +26,13 @@ export class SacFormDirective extends SacFormCommon {
      * Sets the standard CSS class for forms on the form container
      */
     @HostBinding('class.form')
-    public cssClassForm: boolean = true;
+    public cssClassForm = true;
 
     /**
      * Sets the default CSS class for horizontal forms on the form container
      */
     @HostBinding('class.form-horizontal')
-    public cssClassHorizontal: boolean = true;
+    public cssClassHorizontal = true;
 
     // #endregion Properties
 

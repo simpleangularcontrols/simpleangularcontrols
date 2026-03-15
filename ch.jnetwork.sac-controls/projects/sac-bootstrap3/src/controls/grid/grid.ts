@@ -18,7 +18,7 @@ import { SacGridCommon, SacTestingAttributePipe } from '@simpleangularcontrols/s
 export class SacGridComponent extends SacGridCommon {
     // #region Properties
 
-    public ellipsis: boolean = false;
+    public ellipsis = false;
     @ContentChild(TemplateRef, { static: true })
     public template: TemplateRef<any>;
 

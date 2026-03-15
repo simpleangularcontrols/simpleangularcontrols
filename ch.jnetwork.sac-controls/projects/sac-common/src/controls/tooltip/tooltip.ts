@@ -42,7 +42,7 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
     /**
      * Defines whether the tooltip is visible
      */
-    private _isTooltipVisible: boolean = false;
+    private _isTooltipVisible = false;
 
     /**
      * Containers for the tooltip
@@ -52,12 +52,12 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
     /**
      * Position of the tooltip on the left
      */
-    public IsTooltipContentVisible: boolean = false;
+    public IsTooltipContentVisible = false;
 
     /**
      * Position des Tooltips links
      */
-    public LeftPos: number = 0;
+    public LeftPos = 0;
 
     /**
      * Property for enum in Angular HTML template
@@ -67,7 +67,7 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
     /**
      * Position of the tooltip at the top
      */
-    public TopPos: number = 0;
+    public TopPos = 0;
 
     /**
      * Name of the container for content (e.g. icon) on which the tooltip is displayed.
@@ -103,7 +103,7 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
      * Value 'auto' can be combined with another value.
      */
     @Input()
-    public position: string = 'right|auto';
+    public position = 'right|auto';
 
     /**
      * Text for ToolTip

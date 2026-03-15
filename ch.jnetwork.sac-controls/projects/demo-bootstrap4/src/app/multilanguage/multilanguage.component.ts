@@ -49,8 +49,8 @@ export class DemoMultilanguageComponent {
 export class MultiLanguageDataModel {
     // #region Properties
 
-    public de: string = '';
-    public en: string = '';
+    public de = '';
+    public en = '';
 
     // #endregion Properties
 }

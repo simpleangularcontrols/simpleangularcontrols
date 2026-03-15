@@ -43,7 +43,7 @@ export class SacMultilanguageInputCommon extends SacInputBase<any> {
     /**
      * Aktiviert den Validator, das min. eine Sprache erfasst sein muss
      */
-    @Input() public requiredany: boolean = false;
+    @Input() public requiredany = false;
 
     /**
      * Resource Key für Validation Message Required bei Control

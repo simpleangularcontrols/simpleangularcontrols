@@ -17,7 +17,7 @@ export class SacGridButtonCommon {
     /**
      * Button is deactivated
      */
-    protected _isdisabledvalue: boolean = false;
+    protected _isdisabledvalue = false;
 
     /**
      * Event when the button is clicked
@@ -35,7 +35,7 @@ export class SacGridButtonCommon {
      * Input property for styling the button. Defines the CSS classes of the button
      */
     @Input()
-    public iconstyle: string = '';
+    public iconstyle = '';
 
     /**
      * Name of Button inside Grid

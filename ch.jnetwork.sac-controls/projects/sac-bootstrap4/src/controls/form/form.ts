@@ -26,7 +26,7 @@ export class SacFormDirective extends SacFormCommon {
      * Setzt die Standard CSS Klasse für auf dem Form Container
      */
     @HostBinding('class.form')
-    public cssClassForm: boolean = true;
+    public cssClassForm = true;
 
     // #endregion Properties
 

@@ -14,12 +14,12 @@ export abstract class SacGridCommon {
     /**
      * Page number of the active page.
      */
-    protected activePage: number = 1;
+    protected activePage = 1;
 
     /**
      * Contains the number of the first page displayed in Pager.
      */
-    protected firstPageNumber: number = 1;
+    protected firstPageNumber = 1;
 
     /**
      * Contains the number of the last page in Pager. The value is calculated automatically.
@@ -34,7 +34,7 @@ export abstract class SacGridCommon {
     /**
      * Number of columns in the grid
      */
-    public ColumnCount: number = 0;
+    public ColumnCount = 0;
 
     /**
      * Input property for Body.
@@ -79,13 +79,13 @@ export abstract class SacGridCommon {
      * Deactivates the selection of the PageSize in the pager
      */
     @Input()
-    public pagesizedisabled: boolean = false;
+    public pagesizedisabled = false;
 
     /**
      * Defines the number of elements per page that can be selected. The default is 20, 50 and 100. The values must be separated with a `|`.
      */
     @Input()
-    public pagesizes: string = '20|50|100';
+    public pagesizes = '20|50|100';
 
     /**
      * Text in Page for number of page elements per page. The following interpolation texts are available:
@@ -113,7 +113,7 @@ export abstract class SacGridCommon {
     /**
      * Column by which currently sorted.
      */
-    public sortColumn: string = '';
+    public sortColumn = '';
 
     /**
      * Current direction of sorting

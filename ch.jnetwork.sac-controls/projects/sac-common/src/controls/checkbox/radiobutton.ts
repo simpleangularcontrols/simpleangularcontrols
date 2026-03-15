@@ -17,7 +17,7 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     /**
      * Boolean Property zum Ausblenden des Controls; default Wert - false
      */
-    private _hidden: boolean = false;
+    private _hidden = false;
 
     /**
      * Service for loading default settings for the controls
@@ -59,7 +59,7 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     /**
      * Text to support the user during input.
      */
-    @Input() public helptext: string = '';
+    @Input() public helptext = '';
 
     /**
      * Mode for display helptext

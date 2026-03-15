@@ -13,7 +13,7 @@ export class SacInputIntegerCommon extends SacInputBase<number> {
     /**
      * Definiert das Negative Werte erlaubt sind
      */
-    @Input() public allownegativ: boolean = false;
+    @Input() public allownegativ = false;
 
     /**
      * Definiert den maximalen Wert

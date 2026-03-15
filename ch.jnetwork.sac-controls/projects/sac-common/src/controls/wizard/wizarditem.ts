@@ -17,7 +17,7 @@ export class SacWizardItemCommon {
      * Prüft ob der Schritt disabled ist.
      */
     @Input()
-    public disabled: boolean = true;
+    public disabled = true;
 
     /**
      * ID-String
@@ -29,7 +29,7 @@ export class SacWizardItemCommon {
      * Prüft ob der Schritt abgeschlossen wurde.
      */
     @Input()
-    public iscomplete: boolean = false;
+    public iscomplete = false;
 
     /**
      * Label-Property, das angezeigt wird

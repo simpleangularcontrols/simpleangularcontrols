@@ -40,7 +40,7 @@
         "cypress:open": "cypress open",
         "cypress:run": "cypress run",
         "instrument-common": "npx nyc instrument ./dist/sac-common --in-place",
-        "format": "npm install --prefix tools/tsco && node tools/tsco/node_modules/tsco-cli/out/src/index.js -o -c ./tsco.json -s ./projects && node tools/tsco/node_modules/tsco-cli/out/src/index.js -o -c ./tsco.json -s ./src && npx prettier --write projects/**/*.{ts,html} && npx prettier --write src/**/*.{ts,html}"
+        "format": "npm install --prefix tools/tsco && node tools/tsco/node_modules/tsco-cli/out/src/index.js -o -c ./tsco.json -s ./projects && node tools/tsco/node_modules/tsco-cli/out/src/index.js -o -c ./tsco.json -s ./src && npx prettier --write projects/**/*.{ts,html,scss} && npx prettier --write src/**/*.{ts,html,scss}"
     },
     "private": true,
     "dependencies": {

@@ -108,8 +108,7 @@ export abstract class SacPagingCommon {
 
     /**
      * Constructor
-     * @parent SacFormCommon
-     * @injector Injector
+     * @param injector Service injector for dependency resolution
      */
     constructor(injector: Injector) {
         this.validationKeyService = injector.get(SACVALIDATIONKEY_SERVICE, new SacDefaultValidationKeyService());

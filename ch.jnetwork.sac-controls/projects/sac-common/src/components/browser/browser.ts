@@ -317,7 +317,8 @@ export abstract class SacFileBrowserCommon implements OnInit {
      */
     @HostListener('document:click', ['$event.target'])
     /**
-     * Click Event
+     * Click Event - Exits edit mode for files and nodes
+     * @param targetElement The target element from the click event
      */
     public exitEditMode(targetElement): void {
         if (this.selectedNode) {

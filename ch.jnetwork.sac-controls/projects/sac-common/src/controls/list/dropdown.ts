@@ -89,6 +89,7 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
 
     /**
      * Registers the option ID counter as string
+     * @returns The option ID as string
      */
     public registerOption(): string {
         return (this._optionIdCounter++).toString();

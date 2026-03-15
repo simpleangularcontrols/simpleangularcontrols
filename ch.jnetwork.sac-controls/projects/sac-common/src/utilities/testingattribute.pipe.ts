@@ -18,7 +18,8 @@ export class SacTestingAttributePipe implements PipeTransform {
     // #region Constructors
 
     /**
-     *
+     * Constructor
+     * @param injector Service injector for dependency resolution
      */
     constructor(injector: Injector) {
         // get attribute state from config
@@ -30,6 +31,12 @@ export class SacTestingAttributePipe implements PipeTransform {
 
     // #region Public Methods
 
+    /**
+     * Transform control name and e2e attribute for testing purposes
+     * @param controlname Name of the control
+     * @param e2eattribute E2E testing attribute value
+     * @returns The e2e attribute or null if not enabled
+     */
     public transform(controlname: string, e2eattribute: string) {
         // return null to disable attribute if disabled
         if (!this.isEnabled) {

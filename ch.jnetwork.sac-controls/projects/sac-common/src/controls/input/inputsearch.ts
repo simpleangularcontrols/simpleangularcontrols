@@ -58,6 +58,9 @@ export class SacInputSearchCommon extends SacInputCommon implements OnInit {
 
     // #region Private Methods
 
+    /**
+     * Sets the button mode for the search input
+     */
     private setButtonMode(): void {
         // set mode for search button
         if (!this.buttonmode) {

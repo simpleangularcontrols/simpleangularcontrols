@@ -51,6 +51,7 @@ export abstract class SacRadiobuttonsCommon extends SacBaseModelControl<any> imp
 
     /**
      * Getter for radio button index
+     * @returns Index of the current radio button
      */
     public GetRadionButtonIndex(): number {
         this.radioButtonIndex++;
@@ -59,6 +60,7 @@ export abstract class SacRadiobuttonsCommon extends SacBaseModelControl<any> imp
 
     /**
      * Method checks if an item is checked
+     * @returns Boolean indicating if an item is checked
      */
     public HasCheckedItem(): boolean {
         const radioButtons: SacRadiobuttonCommon[] = this.contentRadiobuttons;

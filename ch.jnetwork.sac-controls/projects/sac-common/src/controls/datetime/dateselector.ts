@@ -162,6 +162,10 @@ export class SacDateSelectorCommon implements OnInit {
 
     // #region Constructors
 
+    /**
+     * Constructor
+     * @param injector Service injector for dependency resolution
+     */
     constructor(injector: Injector) {
         this.iconService = injector.get(SACICON_SERVICE, new SacDefaultIconService());
     }
@@ -580,6 +584,9 @@ export class SacDateSelectorCommon implements OnInit {
         }
     }
 
+    /**
+     * Initializes the selected date value with initial or current date
+     */
     private initSelectedValue() {
         /**
          * Set select value if empty

@@ -103,7 +103,8 @@ export abstract class SacDateTimeCommon extends SacBaseDateTimeControl {
      * Constructor
      * @param formlayout SacFormLayoutCommon to define scoped layout settings
      * @param injector Injector for injecting services
-     * @param elementRef reference to html element
+     * @param elementRef Reference to html element
+     * @param cdRef Change detector reference for updating component view
      */
     constructor(
         formlayout: SacFormLayoutCommon,
@@ -190,6 +191,7 @@ export abstract class SacDateTimeCommon extends SacBaseDateTimeControl {
     @HostListener('document:click', ['$event.target'])
     /**
      * Click Event
+     * @param targetElement The target element from the click event
      */
     public onClick(targetElement) {
         if (!this.pickercontainer) {

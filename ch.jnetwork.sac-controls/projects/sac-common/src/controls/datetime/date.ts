@@ -179,6 +179,7 @@ export abstract class SacDateCommon extends SacBaseDateTimeControl {
     @HostListener('document:click', ['$event.target'])
     /**
      * Click Event
+     * @param targetElement The target element from the click event
      */
     public onClick(targetElement) {
         if (!this.pickercontainer) {

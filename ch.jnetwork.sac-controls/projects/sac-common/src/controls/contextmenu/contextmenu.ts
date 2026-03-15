@@ -193,6 +193,7 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     @HostListener('document:click', ['$event.target'])
     /**
      * Click Event
+     * @param targetElement The target element from the click event
      */
     public onClick(targetElement) {
         const anchor: SacContextmenuAnchorCommon = this._anchor || this._anchorTemplate;

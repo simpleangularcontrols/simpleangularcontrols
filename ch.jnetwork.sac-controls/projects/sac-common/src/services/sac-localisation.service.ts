@@ -147,6 +147,7 @@ export class SacDefaultLocalisationService extends SacAbstractLocalisationServic
 
     /**
      * Constructor
+     * @param validationKeyService Service for validation key localization
      */
     constructor(
         @Inject(SACVALIDATIONKEY_SERVICE)
@@ -484,6 +485,9 @@ export class SacDefaultLocalisationService extends SacAbstractLocalisationServic
 
     /**
      * The method returns the selected language (string) based on key and params
+     * @param key The resource key to retrieve
+     * @param params Optional parameters for string interpolation
+     * @returns Observable string with the localized resource
      */
     public GetString(key: string, params?: any): Observable<string> {
         return new Observable<string>((observer) => {

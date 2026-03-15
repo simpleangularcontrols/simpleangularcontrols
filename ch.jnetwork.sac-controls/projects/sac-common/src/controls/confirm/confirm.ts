@@ -59,6 +59,7 @@ export class SacConfirmCommon implements IConfirmComponent {
 
     /**
      * Defines whether an image is set for the dialog
+     * @returns Boolean indicating whether an image is set
      */
     public hasImage(): boolean {
         return this.image !== '';

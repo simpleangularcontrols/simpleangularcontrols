@@ -44,6 +44,8 @@ export abstract class SacInputBase<VALUE> extends SacBaseModelControl<VALUE> {
 
     /**
      * Method validates input when keypress event occurs
+     * @param event Keyboard event object
+     * @returns Boolean indicating whether the event should propagate
      */
     public onKeyPress(event: KeyboardEvent): Boolean {
         // Cancel if _allowedChars is empty.

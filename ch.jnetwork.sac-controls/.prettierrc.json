@@ -14,7 +14,8 @@
                 "bracketSameLine": true,
                 "bracketSpacing": true,
                 "htmlWhitespaceSensitivity": "strict",
-                "singleAttributePerLine": true
+                "singleAttributePerLine": true,
+                "trailingComma": "none"
             }
         }
     ]

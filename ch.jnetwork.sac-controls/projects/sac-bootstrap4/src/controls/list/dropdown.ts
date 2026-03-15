@@ -5,12 +5,12 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacDropdownCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Dropdown Komponente
+ * Dropdown component
  */
 @Component({
     selector: 'sac-dropdown',
     templateUrl: './dropdown.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         { provide: DROPDOWN_TOKEN, useExisting: forwardRef(() => SacDropdownComponent) },
         {

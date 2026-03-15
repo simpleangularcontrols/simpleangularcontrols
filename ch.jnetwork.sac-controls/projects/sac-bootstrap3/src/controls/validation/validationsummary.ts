@@ -6,7 +6,7 @@ import { SacValidationSummaryCommon } from '@simpleangularcontrols/sac-common';
 @Component({
     selector: 'sac-validationsummary',
     templateUrl: './validationsummary.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register value access provider so that value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

@@ -6,9 +6,9 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 
 /**
- *  Module für Confirm Messages
+ *  Module for Confirm Messages
  *
- *  In NgModule der Applikation folgenden Eintrag bei Imports einfügen: ExanicBootstrap4ConfirmModule.forRoot()
+ *  Add the following entry in the NgModule of the application in Imports: ExanicBootstrap4ConfirmModule.forRoot()
  *
  */
 @NgModule({

@@ -3,12 +3,12 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacGridCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Grid Komponente
+ * Grid component
  */
 @Component({
     selector: 'sac-grid',
     templateUrl: './grid.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacGridComponent },
         {
@@ -22,12 +22,12 @@ export class SacGridComponent extends SacGridCommon {
     // #region Properties
 
     /**
-     * Setzt die Ellipsis Funktion auf der Column
+     * Enables ellipsis function on the column
      */
     public ellipsis: boolean = false;
 
     /**
-     * Referenz auf Column Template
+     * Reference to column template
      */
     @ContentChild(TemplateRef, { static: false })
     public template: TemplateRef<any>;

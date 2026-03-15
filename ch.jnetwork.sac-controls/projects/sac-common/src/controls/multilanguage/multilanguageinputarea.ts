@@ -110,7 +110,7 @@ export class SacMultilanguageInputAreaCommon extends SacInputBase<any> {
         if (this.value) {
             const currentIsoCode: string = this.selectedLanguage ? this.selectedLanguage.IsoCode : null;
 
-            // Fallback falls keine Selektierte Sprache
+            // Fallback if no selected language
             if (currentIsoCode === null) {
                 return '';
             }
@@ -188,7 +188,7 @@ export class SacMultilanguageInputAreaCommon extends SacInputBase<any> {
      */
     public IsEmpty(sprache: LanguageModel): boolean {
         if (this.value) {
-            // Fallback falls keine Selektierte Sprache
+            // Fallback if no selected language
             if (sprache === null) {
                 return true;
             }
@@ -219,7 +219,7 @@ export class SacMultilanguageInputAreaCommon extends SacInputBase<any> {
         if (this.value) {
             const currentIsoCode: string = this.selectedLanguage ? this.selectedLanguage.IsoCode : null;
 
-            // Fallback falls keine Selektierte Sprache
+            // Fallback if no selected language
             if (currentIsoCode === null) {
                 return;
             }

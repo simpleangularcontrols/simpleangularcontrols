@@ -30,16 +30,16 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
 
     // #region Public Getters And Setters
 
-    // Margin Top für Center Position des Dialogs berechnen
+    // Calculate margin top for centered position of dialog
     public get dialogMarginTop(): number {
         let result: number = 0;
 
-        // ContentPlaceholder kann NULL/UNDEFINED sein wenn Dialog nicht angezeigt wird
+        // ContentPlaceholder can be NULL/UNDEFINED when dialog is not displayed
         if (this.dialogElement !== null && this.dialogElement !== undefined) {
             result = (this.dialogElement.nativeElement.clientHeight / 2) * -1;
         }
 
-        // Change Detection ausführen, falls Wert nach Rendering noch geändert hat. Kann durch HTML Content / Zeilenumbrüche usw. ausgelöst werden.
+        // Execute Change Detection if value has changed after rendering. Can be triggered by HTML content / line breaks etc.
         if (this._lastDialogMarginTop !== result) {
             this._lastDialogMarginTop = result;
             this.ChangeDetector.detectChanges();
@@ -61,7 +61,7 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
     }
 
     public ngOnInit() {
-        // Element an Body für korrektes Styling unter Bootstrap 3 verschieben
+        // Move element to body for correct styling under Bootstrap 3
         document.body.appendChild(this.element);
     }
 

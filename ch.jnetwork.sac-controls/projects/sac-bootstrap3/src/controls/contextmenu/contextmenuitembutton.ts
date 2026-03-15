@@ -25,7 +25,7 @@ export class SacContextmenuItemButtonComponent extends SacContextmenuItemButtonC
 
     /**
      * Constructor
-     * @param contextmenu Instance von Context Menü
+     * @param contextmenu Instance of context menu
      */
     constructor(private readonly el: ElementRef) {
         super();

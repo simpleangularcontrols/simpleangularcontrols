@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit } from '@an
 import { SacDialogCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Dialog Komponente
+ * Dialog component
  */
 @Component({
     selector: 'sac-dialog',
@@ -12,7 +12,7 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
     // #region Properties
 
     /**
-     * Referenz auf DOM Element
+     * Reference to DOM element
      */
     private element: any;
 
@@ -21,8 +21,8 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param el DOM Element Referenz
+     * Constructor
+     * @param el DOM element reference
      * @param cdRef Change Detection Service
      */
     constructor(el: ElementRef, cdRef: ChangeDetectorRef) {
@@ -36,7 +36,7 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
     // #region Public Methods
 
     /**
-     * Event wenn Element entfernt wird
+     * Event when element is removed
      */
     public ngOnDestroy() {
         this.hide();
@@ -47,10 +47,10 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
     }
 
     /**
-     * Event wenn Komponente initialisiert wird
+     * Event when component is initialized
      */
     public ngOnInit() {
-        // Element an Body für korrektes Styling unter Bootstrap 3 verschieben
+        // Move element to body for correct styling under Bootstrap 3
         document.body.appendChild(this.element);
     }
 

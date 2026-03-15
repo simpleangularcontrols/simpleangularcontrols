@@ -19,9 +19,9 @@ export class SacGridColumnActionComponent extends SacGridColumnActionCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param grid Referenz auf Grid
-     * @param el HTML Element Referenz
+     * Constructor
+     * @param grid Reference to grid
+     * @param el HTML element reference
      */
     constructor(grid: SacGridComponent, injector: Injector, el: ElementRef) {
         super(grid, injector, el);

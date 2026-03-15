@@ -6,7 +6,7 @@ import { SacDateTimeCommon } from '@simpleangularcontrols/sac-common';
 @Component({
     selector: 'sac-datetime',
     templateUrl: './datetime.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

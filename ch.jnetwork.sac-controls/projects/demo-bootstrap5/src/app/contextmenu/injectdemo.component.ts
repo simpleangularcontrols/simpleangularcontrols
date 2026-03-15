@@ -3,7 +3,7 @@ import { Component, ContentChild, TemplateRef } from '@angular/core';
 import { SACBootstrap5ContextmenuModule } from '@simpleangularcontrols/sac-bootstrap5';
 
 @Component({
-    selector: 'injectdemo-component',
+    selector: 'app-injectdemo-component',
     templateUrl: './injectdemo.component.html',
     standalone: true,
     imports: [SACBootstrap5ContextmenuModule, NgTemplateOutlet],

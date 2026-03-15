@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { SACBootstrap5ContextmenuModule } from '@simpleangularcontrols/sac-bootstrap5';
 
 @Component({
-    selector: 'contextmenu-repeat',
+    selector: 'app-contextmenu-repeat',
     standalone: true,
     templateUrl: './repeat.component.html',
     imports: [SACBootstrap5ContextmenuModule, NgIf],

@@ -143,9 +143,9 @@
 
     <p>For Loop</p>
     <div *ngFor="let index of numbers; index as i">
-        <contextmenu-repeat
+        <app-contextmenu-repeat
             [name]="index"
-            [index]="i"></contextmenu-repeat>
+            [index]="i"></app-contextmenu-repeat>
     </div>
     <a (click)="switchItems()">Switch Items</a>
 </form>

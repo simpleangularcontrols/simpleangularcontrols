@@ -83,8 +83,8 @@ export class SacDialogCommon implements OnDestroy {
     // #region Constructors
 
     /**
-     * Constructor
-     * Injects the form
+     * Creates the dialog control.
+     * @param cdRef Change detector used to trigger updates.
      */
     constructor(private cdRef: ChangeDetectorRef) {}
 

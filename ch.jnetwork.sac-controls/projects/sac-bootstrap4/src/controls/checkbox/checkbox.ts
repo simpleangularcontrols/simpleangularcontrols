@@ -43,7 +43,7 @@ export class SacCheckboxComponent extends SacCheckboxCommon {
     // #region Constructors
 
     /**
-     *
+     * Initializes the checkbox control with layout context and dependency injector.
      * @param formLayout SacFormLayout to define scoped layout settings
      * @param injector Injector for injecting services
      */

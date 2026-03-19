@@ -43,6 +43,9 @@ export class DemoCheckboxComponent {
 
     // #region Public Methods
 
+    /**
+     * Marks all fields in the demo form as touched.
+     */
     public debugAction(): void {
         this.myForm.markAsTouched();
         alert('Action');

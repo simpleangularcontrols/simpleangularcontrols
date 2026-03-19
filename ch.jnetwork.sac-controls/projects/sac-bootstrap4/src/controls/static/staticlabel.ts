@@ -44,7 +44,7 @@ export class SacStaticLabelComponent extends SacStaticLabelCommon {
     // #region Constructors
 
     /**
-     *
+     * Initializes the static label control with form layout context.
      * @param formLayout SacFormLayout to define scoped layout settings
      * @param injector Injector for injecting services
      */

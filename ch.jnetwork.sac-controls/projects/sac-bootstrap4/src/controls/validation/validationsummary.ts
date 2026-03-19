@@ -26,7 +26,7 @@ export class SacValidationSummaryComponent extends SacValidationSummaryCommon {
 
     /**
      * Constructor
-     * @param formControl Instance of Form Component to receive invalid form controls
+     * @param parentForm Instance of Form Component to receive invalid form controls
      * @param injector Injector for injecting services
      */
     constructor(@Host() @Optional() parentForm: SacFormDirective, injector: Injector) {

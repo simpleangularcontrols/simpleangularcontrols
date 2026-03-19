@@ -66,6 +66,9 @@ export class SacButtonCommon {
         return this._isdisabledvalue;
     }
 
+    /**
+     * Returns whether the button is disabled.
+     */
     public get isdisabled(): boolean | string {
         return this._isdisabledvalue;
     }
@@ -84,6 +87,9 @@ export class SacButtonCommon {
         }
     }
 
+    /**
+     * Returns whether the loading spinner is active.
+     */
     public get isloading(): boolean | string {
         return this._isloadingvalue;
     }

@@ -41,7 +41,9 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
 
     // #region Public Getters And Setters
 
-    // Calculate margin top for centered position of dialog
+    /**
+     * Calculates the top margin required to vertically center the dialog.
+     */
     public get dialogMarginTop(): number {
         let result = 0;
 

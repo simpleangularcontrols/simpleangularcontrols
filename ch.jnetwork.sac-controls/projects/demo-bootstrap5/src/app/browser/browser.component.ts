@@ -10,6 +10,9 @@ import { SACBootstrap5BrowserModule } from '@simpleangularcontrols/sac-bootstrap
 export class DemoBrowserComponent {
     // #region Public Methods
 
+    /**
+     * Executes the first demo browser action.
+     */
     public debugAction1(): void {
         alert('Action 1');
     }

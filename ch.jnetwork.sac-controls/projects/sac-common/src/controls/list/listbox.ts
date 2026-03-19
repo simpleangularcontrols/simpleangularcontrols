@@ -207,6 +207,7 @@ export class SacListboxCommon extends SacBaseSelectControl<Array<string>> {
 
     /**
      * Method writes new value
+     * @param value Selected values that should be set on the options.
      */
     public writeValue(value: Array<string>) {
         if (this.optionlist && value) {

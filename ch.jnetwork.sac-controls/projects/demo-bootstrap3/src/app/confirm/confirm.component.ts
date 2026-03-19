@@ -25,25 +25,33 @@ import { take } from 'rxjs/operators';
 export class DemoConfirmComponent {
     // #region Constructors
 
+    /**
+     * Creates the confirm demo component.
+     * @param confirmService Service used to open confirm dialogs.
+     */
     constructor(private confirmService: ServiceConfirm) {}
 
     // #endregion Constructors
 
     // #region Public Methods
 
+    /**
+     * Opens a confirmation dialog with default buttons.
+     */
     public confirmExample(): void {
-        this.confirmService
-            .ConfirmMessage('Delete user', 'Do you want to delete the user?')
-            .subscribe((result) => {
-                console.log('Action called');
-                if (result === 'yes') {
-                    alert('True');
-                } else {
-                    alert('False');
-                }
-            });
+        this.confirmService.ConfirmMessage('Delete user', 'Do you want to delete the user?').subscribe((result) => {
+            console.log('Action called');
+            if (result === 'yes') {
+                alert('True');
+            } else {
+                alert('False');
+            }
+        });
     }
 
+    /**
+     * Opens a confirmation dialog with custom buttons.
+     */
     public confirmExample2(): void {
         this.confirmService
             .ConfirmMessage('Delete user', 'Do you want to delete the user?', [

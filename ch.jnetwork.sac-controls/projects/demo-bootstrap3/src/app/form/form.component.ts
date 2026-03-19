@@ -32,6 +32,9 @@ export class DemoFormComponent {
 
     // #region Public Methods
 
+    /**
+     * Shows the current model content as JSON.
+     */
     public onAction(): void {
         alert(JSON.stringify(this.model));
     }

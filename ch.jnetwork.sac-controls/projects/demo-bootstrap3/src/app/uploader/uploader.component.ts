@@ -79,11 +79,18 @@ export class DemoUploaderComponent {
 
     // #region Public Methods
 
+    /**
+     * Marks all fields in the demo form as touched.
+     */
     public debugAction(): void {
         this.myForm.markAsTouched();
         alert('Action');
     }
 
+    /**
+     * Displays the given message as dialog.
+     * @param message Message text to display.
+     */
     public showmessage(message: string): void {
         alert(message);
     }

@@ -27,7 +27,7 @@ export class SacRadiobuttonsComponent extends SacRadiobuttonsCommon {
     // #region Constructors
 
     /**
-     *
+     * Initializes the radiobutton group control with layout context and dependency injector.
      * @param formLayout SacFormLayout to define scoped layout settings
      * @param injector Injector for injecting services
      */

@@ -46,12 +46,20 @@ export class DemoGridComponent implements OnInit {
 
     // #region Constructors
 
+    /**
+     * Creates the grid demo component.
+     * @param gridService Service used to load grid data.
+     */
     constructor(private gridService: GridService) {}
 
     // #endregion Constructors
 
     // #region Public Methods
 
+    /**
+     * Handles an action triggered from a grid row.
+     * @param value Action payload from the grid.
+     */
     public action(value: any) {
         console.log('ExampleGrid: action -> ' + JSON.stringify(value));
 
@@ -59,6 +67,9 @@ export class DemoGridComponent implements OnInit {
         // this.dataDefault = this.dataDefault;
     }
 
+    /**
+     * Initializes all grid examples with their first data load.
+     */
     public ngOnInit(): void {
         const request: PagerRequest = new PagerRequest(20, 0);
         this.loadDefault(request);
@@ -68,26 +79,50 @@ export class DemoGridComponent implements OnInit {
         this.loadPageSizeDisabled({ ...request, PageSize: 10 });
     }
 
+    /**
+     * Handles paging changes for the default grid.
+     * @param pageRequest Paging request from the pager.
+     */
     public pagingDefault(pageRequest: PagerRequest) {
         this.loadDefault(pageRequest);
     }
 
+    /**
+     * Handles paging changes for the grid with disabled pager.
+     * @param pageRequest Paging request from the pager.
+     */
     public pagingDisabled(pageRequest: PagerRequest) {
         this.loadPagingDisabled(pageRequest);
     }
 
+    /**
+     * Handles paging changes for the page-size demo grid.
+     * @param pageRequest Paging request from the pager.
+     */
     public pagingPageSize(pageRequest: PagerRequest) {
         this.loadPageSize(pageRequest);
     }
 
+    /**
+     * Handles paging changes for the disabled page-size selector demo.
+     * @param pageRequest Paging request from the pager.
+     */
     public pagingPageSizeDisabled(pageRequest: PagerRequest) {
         this.loadPageSizeDisabled(pageRequest);
     }
 
+    /**
+     * Handles paging changes for the sorting demo grid.
+     * @param pageRequest Paging request from the pager.
+     */
     public pagingSorting(pageRequest: PagerRequest) {
         this.loadSorting(pageRequest, this.sortSorting);
     }
 
+    /**
+     * Handles sorting changes for the sorting demo grid.
+     * @param sortRequest New sort descriptor from the grid header.
+     */
     public sortingSort(sortRequest: SortDescriptor) {
         this.loadSorting(new PagerRequest(this.pagerSorting.PageSize, this.pagerSorting.CurrentPageIndex), sortRequest);
     }
@@ -96,6 +131,10 @@ export class DemoGridComponent implements OnInit {
 
     // #region Private Methods
 
+    /**
+     * Loads data for the default paging grid.
+     * @param pageRequest Paging request with index and size.
+     */
     private loadDefault(pageRequest: PagerRequest) {
         const request: GridRequestDto = new GridRequestDto();
         request.NewPageIndex = pageRequest.NewPageIndex;
@@ -112,6 +151,10 @@ export class DemoGridComponent implements OnInit {
         });
     }
 
+    /**
+     * Loads data for the page-size selector grid.
+     * @param pageRequest Paging request with index and size.
+     */
     private loadPageSize(pageRequest: PagerRequest) {
         const request: GridRequestDto = new GridRequestDto();
         request.NewPageIndex = pageRequest.NewPageIndex;
@@ -128,6 +171,10 @@ export class DemoGridComponent implements OnInit {
         });
     }
 
+    /**
+     * Loads data for the grid with disabled page-size selector.
+     * @param pageRequest Paging request with index and size.
+     */
     private loadPageSizeDisabled(pageRequest: PagerRequest) {
         const request: GridRequestDto = new GridRequestDto();
         request.NewPageIndex = pageRequest.NewPageIndex;
@@ -144,6 +191,10 @@ export class DemoGridComponent implements OnInit {
         });
     }
 
+    /**
+     * Loads all rows for the paging-disabled grid.
+     * @param pageRequest Paging request input (not used for this demo).
+     */
     private loadPagingDisabled(pageRequest: PagerRequest) {
         const request: GridRequestDto = new GridRequestDto();
         request.NewPageIndex = 1;
@@ -154,6 +205,11 @@ export class DemoGridComponent implements OnInit {
         });
     }
 
+    /**
+     * Loads data for the sorting grid using paging and sort settings.
+     * @param pageRequest Paging request with index and size.
+     * @param sortRequest Sort descriptor with column and direction.
+     */
     private loadSorting(pageRequest: PagerRequest, sortRequest: SortDescriptor) {
         const request: GridRequestDto = new GridRequestDto();
         request.NewPageIndex = pageRequest.NewPageIndex;

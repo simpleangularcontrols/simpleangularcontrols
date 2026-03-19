@@ -31,6 +31,9 @@ export class SacFormCommon {
 
     // #region Public Getters And Setters
 
+    /**
+     * Returns the update strategy used by the form.
+     */
     public get updateon(): FormHooks {
         return this._updateon;
     }
@@ -67,6 +70,7 @@ export class SacFormCommon {
 
     /**
      * Updates the values and validity status of the form
+     * @param markAsTouched If true, all controls are marked as touched after validation update.
      */
     public updateValueAndValidity(markAsTouched: boolean = true): void {
         // Update all Controls

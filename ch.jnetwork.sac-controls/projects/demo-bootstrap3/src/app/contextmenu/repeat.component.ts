@@ -16,6 +16,10 @@ export class RepeatComponent {
 
     // #region Public Methods
 
+    /**
+     * Displays the given message as dialog.
+     * @param message Message text to display.
+     */
     public showdialog(message: string): void {
         alert(message);
     }

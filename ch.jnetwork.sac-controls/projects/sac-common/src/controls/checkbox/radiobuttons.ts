@@ -119,6 +119,7 @@ export abstract class SacRadiobuttonsCommon extends SacBaseModelControl<any> imp
 
     /**
      * Write value
+     * @param value Value to apply to the selected radio item.
      */
     public writeValue(value: any) {
         super.writeValue(value);

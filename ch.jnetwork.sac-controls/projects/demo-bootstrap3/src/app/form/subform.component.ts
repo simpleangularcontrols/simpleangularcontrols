@@ -16,6 +16,9 @@ export class DemoSubFormComponent implements DoCheck {
 
     // #region Public Methods
 
+    /**
+     * Synchronizes model changes and logs the nested form state during change detection.
+     */
     public ngDoCheck() {
         if (this.form) {
             console.log(this.form.getForm().dirty);

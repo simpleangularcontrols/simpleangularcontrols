@@ -38,7 +38,7 @@ export class SacStaticFormContainerComponent extends SacStaticFormContainerCommo
     // #region Constructors
 
     /**
-     *
+     * Initializes the static form container with form layout context.
      * @param formLayout SacFormLayout to define scoped layout settings
      * @param injector Injector for injecting services
      */

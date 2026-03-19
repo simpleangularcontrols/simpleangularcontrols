@@ -524,7 +524,8 @@ export abstract class SacFileBrowserCommon implements OnInit {
 
     /**
      * Method that must be called when an upload is completed.
-     * @param param Parameters of the uploaded file
+     * @param node Node where uploaded files should be attached.
+     * @param uploadIdList List of upload IDs that finished uploading.
      */
     public uploadComplete(node: IBrowserNode, uploadIdList: string[]): void {
         if (uploadIdList !== null) {

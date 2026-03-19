@@ -35,11 +35,17 @@ export class DemoDatetimeComponent {
 
     // #region Public Methods
 
+    /**
+     * Marks all fields in the demo form as touched.
+     */
     public debugAction(): void {
         this.myForm.markAsTouched();
         alert('Action');
     }
 
+    /**
+     * Hides the seventh date-time example control.
+     */
     public hideDatumzeit7(): void {
         this.values.datumzeit7visible = false;
     }

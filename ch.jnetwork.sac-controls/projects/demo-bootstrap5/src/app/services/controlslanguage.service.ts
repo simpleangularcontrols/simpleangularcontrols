@@ -12,6 +12,9 @@ export class ControlsLanguageService extends SacAbstractLanguageService {
 
     // #region Constructors
 
+    /**
+     * Initializes the language service.
+     */
     constructor() {
         super();
     }
@@ -20,6 +23,10 @@ export class ControlsLanguageService extends SacAbstractLanguageService {
 
     // #region Public Methods
 
+    /**
+     * Returns the static list of available UI languages.
+     * @returns Observable containing available languages.
+     */
     public GetLanguages(): Observable<LanguageModel[]> {
         const lang: LanguageModel[] = [];
 

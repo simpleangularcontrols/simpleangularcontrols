@@ -112,6 +112,7 @@ export abstract class SacWizardCommon implements AfterContentInit, ControlValueA
     /**
      * Method so that other controls can get changes in the control
      * To change info call the propagateChange method.
+     * @param fn Callback to invoke when the value changes.
      */
     public registerOnChange(fn: any): void {
         this.propagateChange = (obj) => fn(obj);
@@ -119,6 +120,7 @@ export abstract class SacWizardCommon implements AfterContentInit, ControlValueA
 
     /**
      * Method so that other controls get changes when the control is activated (Focus).
+     * @param fn Callback to invoke when the control is touched.
      */
     public registerOnTouched(fn: any): void {
         this.propagateTouch = (obj) => fn(obj);
@@ -144,6 +146,7 @@ export abstract class SacWizardCommon implements AfterContentInit, ControlValueA
 
     /**
      * Method to write values from the model into the control
+     * @param value Step ID from the bound model.
      */
     public writeValue(value: string | null) {
         if (value) {

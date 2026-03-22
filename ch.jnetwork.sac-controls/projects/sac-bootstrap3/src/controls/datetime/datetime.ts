@@ -11,6 +11,9 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacDateTimeCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 import { IMaskDirective } from 'angular-imask';
 
+/**
+ * DateTime component for selecting date and time values.
+ */
 @Component({
     selector: 'sac-datetime',
     templateUrl: './datetime.html',

@@ -26,16 +26,19 @@ export enum SortOrder {
 
 // #region Exported Classes
 
+/**
+ * Carries grid data payload along with total record count for pagination.
+ */
 export class GridResponse<T> {
     // #region Properties
 
     /**
-     * Data
+     * Data array for the current page.
      */
     public Data: T[];
 
     /**
-     * Total number of data records
+     * Total number of records available from the data source.
      */
     public TotalRowCount: number;
 

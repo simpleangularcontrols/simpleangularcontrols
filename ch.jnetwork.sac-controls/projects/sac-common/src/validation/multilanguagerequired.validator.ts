@@ -4,6 +4,14 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 // #region Exported Functions
 
+/**
+ * Returns a validator that checks all language values are provided.
+ *
+ * @param languages Languages to validate in the form value object.
+ * @param validationMessage Message shown when required language fields are missing.
+ * @param validationMessageSummary Summary message shown when required language fields are missing.
+ * @returns Validator function for multilanguage required validation.
+ */
 export function multilanguageRequiredValidator(
     languages: LanguageModel[],
     validationMessage: string,

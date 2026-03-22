@@ -9,6 +9,9 @@ import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacInputIntegerCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Integer input component with numeric validation.
+ */
 @Component({
     selector: 'sac-inputinteger',
     templateUrl: './inputinteger.html',

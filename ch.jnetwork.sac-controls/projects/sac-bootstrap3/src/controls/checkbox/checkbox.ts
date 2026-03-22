@@ -8,6 +8,9 @@ import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacCheckboxCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Checkbox component for binary true/false selection.
+ */
 @Component({
     selector: 'sac-checkbox',
     templateUrl: './checkbox.html',

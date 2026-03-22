@@ -11,6 +11,9 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacTestingAttributePipe, SacTimeCommon } from '@simpleangularcontrols/sac-common';
 import { IMaskDirective } from 'angular-imask';
 
+/**
+ * Time picker component for entering or selecting time values.
+ */
 @Component({
     selector: 'sac-time',
     templateUrl: './time.html',

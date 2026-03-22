@@ -9,6 +9,9 @@ import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacInputDecimalCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Decimal input component with number formatting.
+ */
 @Component({
     selector: 'sac-inputdecimal',
     templateUrl: './inputdecimal.html',

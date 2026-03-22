@@ -2,6 +2,9 @@ import { NgIf, NgStyle } from '@angular/common';
 import { ChangeDetectorRef, Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { SacDialogCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Modal dialog component used for overlay dialogs.
+ */
 @Component({
     selector: 'sac-dialog',
     templateUrl: './dialog.html',

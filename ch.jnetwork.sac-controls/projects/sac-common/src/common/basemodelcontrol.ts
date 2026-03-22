@@ -507,7 +507,12 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     }
 
     /**
-     * Abstract validator method
+     * Abstract validator method for form control value.
+     *
+     * Derived classes should check control value and return validation errors or null.
+     *
+     * @param c Form control being validated
+     * @returns ValidationErrors if invalid, otherwise null
      */
     public abstract validateData(c: AbstractControl): ValidationErrors | null;
 

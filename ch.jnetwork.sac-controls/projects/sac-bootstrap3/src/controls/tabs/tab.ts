@@ -3,6 +3,9 @@ import { NgClass, NgFor, NgStyle, NgTemplateOutlet } from '@angular/common';
 import { Component, ContentChildren, QueryList } from '@angular/core';
 import { SacTabCommon, SacTabItemCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Bootstrap 3 tab container component that renders tab headers and manages selected tab state.
+ */
 @Component({
     selector: 'sac-tab',
     templateUrl: './tab.html',

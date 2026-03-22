@@ -9,6 +9,9 @@ import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacInputCurrencyCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Currency input component with value formatting and symbol handling.
+ */
 @Component({
     selector: 'sac-inputcurrency',
     templateUrl: './inputcurrency.html',

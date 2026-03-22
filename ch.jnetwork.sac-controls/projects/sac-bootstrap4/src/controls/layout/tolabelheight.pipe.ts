@@ -1,6 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { ControlHeight } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Converts ControlHeight values into bootstrap label height CSS classes.
+ */
 @Pipe({
     name: 'toLabelHeight',
     standalone: true,

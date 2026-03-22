@@ -153,7 +153,10 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
     }
 
     /**
-     * Method returns date - moment
+     * Normalizes a parsed moment date to a base timeline context (year 1900, month January, day 1).
+     *
+     * @param v Parsed moment object.
+     * @returns Normalized moment object for internal comparison and validation.
      */
     public ModifyParsedDateTimeValue(v: moment_.Moment): moment_.Moment {
         v.date(1);
@@ -211,7 +214,12 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
     }
 
     /**
-     * Validator
+     * Validates the input control value against min/max time constraints.
+     *
+     * Delegates to base validation and applies minTime/maxTime validations when applicable.
+     *
+     * @param c AbstractControl instance to validate.
+     * @returns ValidationErrors object when invalid, otherwise null.
      */
     public validateData(c: AbstractControl): ValidationErrors | null {
         let error: ValidationErrors | null = null;

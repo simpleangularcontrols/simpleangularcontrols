@@ -15,12 +15,19 @@ import * as moment_ from 'moment';
 
 // #region Variables
 
+/**
+ * Moment.js instance used for date parsing/formatting with UTC/local conversion.
+ */
 const moment = moment_['default'];
 
 // #endregion Variables
 
 // #region Exported Classes
 
+/**
+ * Date input component for Bootstrap 3.
+ * Provides date picker integration and validation through SacDateCommon base class.
+ */
 @Component({
     selector: 'sac-date',
     templateUrl: './date.html',

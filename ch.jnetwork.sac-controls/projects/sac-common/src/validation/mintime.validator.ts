@@ -6,6 +6,14 @@ import moment from 'moment';
 
 // #region Exported Functions
 
+/**
+ * Returns a validator that checks if the control time is >= minTime.
+ *
+ * @param minTime Minimum allowed time.
+ * @param validationMessage Message shown when time is too early.
+ * @param validationMessageSummary Summary message shown when time is too early.
+ * @returns Validator function for minimum time validation.
+ */
 export function minTimeValidator(
     minTime: Date,
     validationMessage: string,

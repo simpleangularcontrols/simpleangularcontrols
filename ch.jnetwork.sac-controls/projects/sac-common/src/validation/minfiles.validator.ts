@@ -4,6 +4,14 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 // #region Exported Functions
 
+/**
+ * Returns a validator that checks if the number of uploaded files is >= minFiles.
+ *
+ * @param minFiles Minimum number of files required.
+ * @param validationMessage Message shown when too few files are uploaded.
+ * @param validationMessageSummary Summary message shown when too few files are uploaded.
+ * @returns Validator function for minimum files validation.
+ */
 export function minFilesValidator(
     minFiles: number,
     validationMessage: string,

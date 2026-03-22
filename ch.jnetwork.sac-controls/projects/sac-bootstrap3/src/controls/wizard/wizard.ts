@@ -3,6 +3,9 @@ import { Component, ContentChildren, QueryList } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacWizardCommon, SacWizardItemCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Wizard component for multi-step forms.
+ */
 @Component({
     selector: 'sac-wizard',
     templateUrl: './wizard.html',

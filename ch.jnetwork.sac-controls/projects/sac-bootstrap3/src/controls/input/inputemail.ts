@@ -3,6 +3,9 @@ import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacInputEmailCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Email input component with built-in email validation.
+ */
 @Component({
     selector: 'sac-inputemail',
     templateUrl: './inputemail.html',

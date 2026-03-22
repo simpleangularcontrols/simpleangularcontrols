@@ -2,6 +2,9 @@ import { SacGridComponent } from './grid';
 import { Component, ElementRef, Injector, forwardRef } from '@angular/core';
 import { SacGridColumnActionCommon, SacGridColumnBaseCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Grid column action component for row actions in the grid.
+ */
 @Component({
     selector: 'sac-gridcolumnaction',
     templateUrl: './gridcolumnaction.html',

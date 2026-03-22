@@ -3,6 +3,14 @@ import { AbstractControl, ValidationErrors, ValidatorFn, Validators } from '@ang
 
 // #region Exported Functions
 
+/**
+ * Returns a validator that checks if the text length is >= mintextlength.
+ *
+ * @param mintextlength Minimum text length required.
+ * @param validationMessage Message shown when text is too short.
+ * @param validationMessageSummary Summary message shown when text is too short.
+ * @returns Validator function for minimum text length validation.
+ */
 export function minTextLengthValidator(
     mintextlength: number,
     validationMessage: string,

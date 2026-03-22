@@ -8,6 +8,9 @@ import { Directive, Input } from '@angular/core';
 export class SacInputCurrencyCommon extends SacInputDecimalCommon {
     // #region Properties
 
+    /**
+     * Currency symbol or code used by the input control. If empty, it falls back to configured default.
+     */
     @Input()
     public currency = '';
 

@@ -172,6 +172,12 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
         this.isopen = false;
     }
 
+    /**
+     * Lifecycle hook that is called after content projection is completed.
+     *
+     * Associates each menu item with this context menu instance so that item
+     * events can delegate to the parent menu.
+     */
     public ngAfterContentInit(): void {
         this.menuitems.forEach((button) => (button.contextmenu = this));
     }

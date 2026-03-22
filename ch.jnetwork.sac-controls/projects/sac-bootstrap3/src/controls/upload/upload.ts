@@ -3,6 +3,10 @@ import { Component, Host, Injector, NgZone, Optional, Renderer2, forwardRef } fr
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacUploadSingleCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * File upload component supporting single file upload.
+ * @see https://github.com/kukhariev/ngx-uploadx/
+ */
 // https://github.com/kukhariev/ngx-uploadx/
 @Component({
     selector: 'sac-upload',

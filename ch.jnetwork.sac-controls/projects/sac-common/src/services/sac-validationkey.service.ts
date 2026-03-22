@@ -12,6 +12,12 @@ export const SACVALIDATIONKEY_SERVICE = new InjectionToken<ISacValidationKeyServ
 
 // #region Exported Classes
 
+/**
+ * Default implementation for validation key resolution.
+ *
+ * Provides predefined resource keys for many standard validation messages and
+ * action labels used throughout the control library.
+ */
 @Injectable({ providedIn: 'root' })
 export class SacDefaultValidationKeyService implements ISacValidationKeyService {
     // #region Public Getters And Setters

@@ -2,6 +2,9 @@ import { SacGridComponent } from './grid';
 import { Component, ElementRef, Injector, forwardRef } from '@angular/core';
 import { SacGridColumnBaseCommon, SacGridColumnCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Grid column definition component for grid layout.
+ */
 @Component({
     selector: 'sac-gridcolumn',
     templateUrl: './gridcolumn.html',

@@ -3,6 +3,9 @@ import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacStaticLabelCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Static label component, renders a read-only text label in form layout.
+ */
 @Component({
     selector: 'sac-staticlabel',
     templateUrl: './staticlabel.html',

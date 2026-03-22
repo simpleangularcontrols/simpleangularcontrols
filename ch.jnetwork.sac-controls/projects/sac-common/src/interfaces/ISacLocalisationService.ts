@@ -1,13 +1,13 @@
 import { Observable } from 'rxjs';
 
 /**
- * Interface für Language Resource Service implementation
+ * Interface for Language Resource Service implementation
  */
 export interface ISacLocalisationService {
     // #region Methods
 
     /**
-     * Get String anhand von Key und Params
+     * Get String based on Key and Params
      */
     GetString(key: string, params?: any): Observable<string>;
 

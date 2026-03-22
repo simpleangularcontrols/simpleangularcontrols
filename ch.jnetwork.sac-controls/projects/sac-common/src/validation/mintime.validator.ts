@@ -6,6 +6,14 @@ import moment from 'moment';
 
 // #region Exported Functions
 
+/**
+ * Returns a validator that checks if the control time is >= minTime.
+ *
+ * @param minTime Minimum allowed time.
+ * @param validationMessage Message shown when time is too early.
+ * @param validationMessageSummary Summary message shown when time is too early.
+ * @returns Validator function for minimum time validation.
+ */
 export function minTimeValidator(
     minTime: Date,
     validationMessage: string,
@@ -14,7 +22,7 @@ export function minTimeValidator(
     return (control: AbstractControl): ValidationErrors | null => {
         const ctl = control as unknown as IDateTimeControl;
 
-        // Check abbrechen, wenn kein gültiges Datum
+        // Cancel check if no valid date
         if (!isDateValid(ctl.value, ctl.datetimeformatstring) || minTime === null) {
             return null;
         }

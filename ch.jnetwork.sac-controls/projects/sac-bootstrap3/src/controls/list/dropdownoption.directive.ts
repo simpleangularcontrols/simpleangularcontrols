@@ -2,15 +2,18 @@ import { DROPDOWN_TOKEN } from './list.token';
 import { Directive, ElementRef, Inject, Optional, Renderer2 } from '@angular/core';
 import { SacDropdownOptionCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Directive for dropdown option elements within sac-dropdown.
+ */
 @Directive({ selector: 'option,[sacOption]' })
 export class SacDropdownOptionDirective extends SacDropdownOptionCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param elementRef Referenz auf HTML DOM Element
+     * Constructor
+     * @param elementRef Reference to HTML DOM element
      * @param renderer Angular Rendering Engine
-     * @param dropdownComponent Referenz auf DropDown Komponente
+     * @param dropdownComponent Reference to Dropdown component
      */
     constructor(
         elementRef: ElementRef,

@@ -13,35 +13,35 @@ import { forkJoin } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 /**
- * Service für Confirm Messages in TypeScript Code
+ * Service for confirm messages in TypeScript code
  *
  * @example
- * // Beispiel für ConfirmMessage mit Standard Buttons (Ja / Nein).
- * confirmService.ConfirmMessage('titel', 'frage').subscribe(action => { // Action Code });
+ * // Example for confirm message with standard buttons (Yes / No).
+ * confirmService.ConfirmMessage('title', 'question').subscribe(action => { // Action code });
  *
  * @example
- * // Beispiel für ConfirmMessage mit eigenen Buttons
+ * // Example for confirm message with custom buttons
  * let buttons: SacConfirmButton[] = [];
  * buttons.push(new SacConfirmButton('ActionKey','Text Primary'));
  * buttons.push(new SacConfirmButton('ActionKey2','Text Button 2'));
- * confirmService.ConfirmMessage('titel', 'frage', buttons).subscribe(action => { // Action Code });
+ * confirmService.ConfirmMessage('title', 'question', buttons).subscribe(action => { // Action code });
  */
 @Injectable()
 export class ServiceConfirm extends ServiceConfirmCommon {
     // #region Properties
 
     /**
-     * Collection von Buttons die angezeigt werden müssen.
+     * Collection of buttons that must be displayed
      */
     private buttons: SacConfirmButton[] = [];
 
     /**
-     * Message die in Dialog angezeigt werden soll.
+     * Message to be displayed in dialog
      */
     private message: string = '';
 
     /**
-     * Titel der im Dialog angezeigt werden soll.
+     * Title to be displayed in dialog
      */
     private title: string = '';
 
@@ -50,10 +50,10 @@ export class ServiceConfirm extends ServiceConfirmCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param componentFactoryResolver Component Factory Resolver Instanz
-     * @param appRef Application Referenz. Wird benötigt um den Dialog am Body anzuhängen
-     * @param injector Injector. Wird benötigt um den Dialog dynamisch zu erzeugen
+     * Constructor
+     * @param componentFactoryResolver Component Factory Resolver instance
+     * @param appRef Application reference. Required to attach the dialog to the body
+     * @param injector Injector. Required to dynamically create the dialog
      */
     constructor(
         @Inject(ComponentFactoryResolver)
@@ -69,15 +69,17 @@ export class ServiceConfirm extends ServiceConfirmCommon {
     // #region Public Methods
 
     /**
-     * Confirm Dialog anzeigen
-     * @param message Nachricht die angezeigt werden soll.
-     * @returns EventEmitter mit Key des Buttons, welcher geklickt wurde.
+     * Show confirm dialog
+     * @param title Title to be displayed in dialog
+     * @param message Message to be displayed in dialog
+     * @param buttons Array of custom buttons or null for default buttons
+     * @returns EventEmitter with key of the button that was clicked
      */
     public ConfirmMessage(title: string, message: string, buttons: SacConfirmButton[] = null): EventEmitter<string> {
         this.title = title;
         this.message = message;
 
-        // Default Buttons setzen, wenn keine Buttons angegeben sind
+        // Set default buttons if no buttons are specified
         if (!isDefined(buttons)) {
             this.buttons = [];
 
@@ -97,7 +99,8 @@ export class ServiceConfirm extends ServiceConfirmCommon {
     }
 
     /**
-     * Erzeugen einer Component Factory für einen Dialog
+     * Generate component factory for a dialog
+     * @returns ComponentFactory for SacConfirmComponent
      */
     public GetComponentFactory(): ComponentFactory<SacConfirmComponent> {
         return this.componentFactoryResolver.resolveComponentFactory(SacConfirmComponent);
@@ -108,11 +111,11 @@ export class ServiceConfirm extends ServiceConfirmCommon {
     // #region Protected Methods
 
     /**
-     * Konfiguration des Dialogs
-     * @param instance Instanz eines SacConfirm Dialogs
+     * Configure dialog
+     * @param instance Instance of a SacConfirm dialog
      */
     protected ConfigureDialog(instance: SacConfirmComponent) {
-        // Text in Dialog setzen
+        // Set text in dialog
         instance.title = this.title;
         instance.message = this.message;
         instance.buttons = this.buttons;

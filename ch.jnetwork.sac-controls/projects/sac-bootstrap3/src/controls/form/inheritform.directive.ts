@@ -6,7 +6,7 @@ import { SacFormCommon } from '@simpleangularcontrols/sac-common';
 // #region Exported Functions
 
 /**
- * Factory Methode für NgForm
+ * Factory method for NgForm
  * @param form NgForm
  */
 export function NGFORM_FACTORY(form: NgForm) {
@@ -14,8 +14,8 @@ export function NGFORM_FACTORY(form: NgForm) {
 }
 
 /**
- * Factory Methode für SacForm
- * @param form NgFormular
+ * Factory method for SacForm
+ * @param form NgForm
  */
 export function SACFORM_FACTORY(form: SacFormDirective) {
     return form;
@@ -48,8 +48,8 @@ export class SacInheritFormDirective extends SacFormCommon {
     // #region Constructors
 
     /**
-     * Construtor
-     * @param injector: injector to receive the NgForm instance
+     * Constructor
+     * @param injector Injector to receive the NgForm instance
      */
     constructor(injector: Injector) {
         super(injector.get(NgForm));

@@ -1,11 +1,11 @@
 /**
- * Interface für TinyMceDialog Meta Daten
+ * Interface for TinyMceDialog meta data
  */
 export interface TinyMceDialogSettingsMeta {
     // #region Properties
 
     /**
-     * File Type der Meta Daten
+     * File type of the meta data
      */
     filetype: string;
 

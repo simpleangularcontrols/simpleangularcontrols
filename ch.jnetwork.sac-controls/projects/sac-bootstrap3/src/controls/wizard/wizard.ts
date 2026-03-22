@@ -3,10 +3,13 @@ import { Component, ContentChildren, QueryList } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacWizardCommon, SacWizardItemCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Wizard component for multi-step forms.
+ */
 @Component({
     selector: 'sac-wizard',
     templateUrl: './wizard.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register value access provider so that value can be written and read via model
     providers: [{ provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacWizardComponent }],
 })
 export class SacWizardComponent extends SacWizardCommon {
@@ -19,6 +22,10 @@ export class SacWizardComponent extends SacWizardCommon {
 
     // #region Public Methods
 
+    /**
+     * Returns the wizard items
+     * @returns Collection of wizard items
+     */
     public wizardItems(): QueryList<SacWizardItemCommon> {
         return this._wizardItems as QueryList<SacWizardItemCommon>;
     }

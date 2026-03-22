@@ -6,16 +6,23 @@ import * as moment_ from 'moment';
 
 // #region Variables
 
+/**
+ * Moment.js instance used for date parsing/formatting with UTC/local conversion.
+ */
 const moment = moment_['default'];
 
 // #endregion Variables
 
 // #region Exported Classes
 
+/**
+ * Date input component for Bootstrap 3.
+ * Provides date picker integration and validation through SacDateCommon base class.
+ */
 @Component({
     selector: 'sac-date',
     templateUrl: './date.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -37,7 +44,7 @@ export class SacDateComponent extends SacDateCommon {
      * @param formLayout SacFormLayout to define scoped layout settings
      * @param injector Injector for injecting services
      * @param elementRef Reference to html dom element
-     * @param cdRef  Change Dectection Servie
+     * @param cdRef  Change Detection Service
      */
     constructor(
         @Host() @Optional() formLayout: SacFormLayoutDirective,

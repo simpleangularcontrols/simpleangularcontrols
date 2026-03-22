@@ -1,18 +1,25 @@
 /**
- * Enum für Tooltip Positionen
+ * Enum for tooltip positions.
  */
 export enum TooltipPosition {
+    /** No position / not displayed. */
     none = 0,
-    // eslint-disable-next-line no-bitwise
+
+    /** Positioned above the reference element. */
     top = 1 << 0,
-    // eslint-disable-next-line no-bitwise
+
+    /** Positioned to the right of the reference element. */
     right = 1 << 1,
-    // eslint-disable-next-line no-bitwise
+
+    /** Positioned below the reference element. */
     bottom = 1 << 2,
-    // eslint-disable-next-line no-bitwise
+
+    /** Positioned to the left of the reference element. */
     left = 1 << 3,
-    // eslint-disable-next-line no-bitwise
+
+    /** Positioned at top-end (top aligned with end/RTL-aware). */
     topend = 1 << 4,
-    // eslint-disable-next-line no-bitwise
+
+    /** Positioned at bottom-end (bottom aligned with end/RTL-aware). */
     bottomend = 1 << 5,
 }

@@ -4,12 +4,12 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacInputDecimalCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Input Komponente für Zahlen
+ * Input component for decimal numbers
  */
 @Component({
     selector: 'sac-inputdecimal',
     templateUrl: './inputdecimal.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

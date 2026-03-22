@@ -6,7 +6,7 @@ import { Directive, EventEmitter, Host, Injector, Input, Output, TemplateRef } f
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 /**
- * Basis Komponente für SacTreeView
+ * Base component for SacTreeView
  */
 @Directive()
 export class SacTreeviewCommon extends SacBaseModelControl<any> {
@@ -78,7 +78,7 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
     public data: any[] = [];
 
     /**
-     * Activates the 'expand' and 'collabse' event even if a node has no children. This is helpful if node elements are to be reloaded at runtime.
+     * Activates the 'expand' and 'collapse' event even if a node has no children. This is helpful if node elements are to be reloaded at runtime.
      */
     @Input()
     public enableasynchload: boolean | string = false;
@@ -150,12 +150,12 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
     public templatelabel: TemplateRef<any>;
 
     /**
-     * Resource Key für Validation Message Required bei Control
+     * Resource key required for validation message at control
      */
     @Input() public validationmessagerequired: string = this.validationKeyService.ValidationErrorRequired;
 
     /**
-     * Resource Key für Validation Message Required in Validation Summary
+     * Resource key required for validation message in the validation summary
      */
     @Input()
     public validationmessagesummaryrequired: string = this.validationKeyService.ValidationErrorSummaryRequired;
@@ -166,6 +166,7 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
 
     /**
      * Constructor
+     * @param formlayout Form layout directive for scoped layout settings
      * @param injector Service Injector
      */
     constructor(@Host() formlayout: SacFormLayoutCommon, injector: Injector) {
@@ -181,7 +182,7 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
     }
 
     /**
-     * CSS icon for folders in tree there are collabsed
+     * CSS icon for folders in tree that are collapsed
      * @returns css class with icon
      */
     public get iconFolderCollabsed(): string {
@@ -217,6 +218,11 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
         return new Array(size);
     }
 
+    /**
+     * Get the child nodes of a node
+     * @param node Parent node
+     * @returns Array of child nodes
+     */
     public getChildren(node: any): any[] {
         if (!node || !this.attrchildren) {
             return [];
@@ -231,6 +237,12 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
         return children;
     }
 
+    /**
+     * Get string field value from node
+     * @param node Node object
+     * @param fieldname Field name to retrieve
+     * @returns The field value as string or empty string
+     */
     public getStringField(node: any, fieldname: string): any {
         if (!node) {
             return '';
@@ -249,10 +261,20 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
         return value;
     }
 
+    /**
+     * Check if node has children
+     * @param node Node to check
+     * @returns Boolean indicating if node has child nodes
+     */
     public hasChildren(node: any): boolean {
         return this.getChildren(node).length > 0;
     }
 
+    /**
+     * Check if node is in disabled state
+     * @param node Node to check
+     * @returns Boolean indicating if node is disabled
+     */
     public isDisabledState(node: any): boolean {
         if (!node || !this.attrdisableaction) {
             return false;
@@ -262,6 +284,11 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
         return value === true || value === 'true';
     }
 
+    /**
+     * Check if node is in expanded state
+     * @param node Node to check
+     * @returns Boolean indicating if node is expanded
+     */
     public isExpandedState(node: any): boolean {
         if (!node || !this.attrexpanded) {
             return false;
@@ -271,6 +298,11 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
         return value === true || value === 'true';
     }
 
+    /**
+     * Check if node is in hover state
+     * @param node Node to check
+     * @returns Boolean indicating if node is hovered
+     */
     public isHoverState(node: any): boolean {
         if (!node || !this.attrhoverstate) {
             return false;
@@ -280,6 +312,11 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
         return value === true || value === 'true';
     }
 
+    /**
+     * Check if node is in selected state
+     * @param node Node to check
+     * @returns Boolean indicating if node is selected
+     */
     public isSelectedState(node: any): boolean {
         if (!node || !this.attrselected) {
             return false;
@@ -429,12 +466,16 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
         return null;
     }
 
+    /**
+     * Inverts the expanded state of a tree node
+     * @param node The node whose expanded state should be inverted
+     */
     private invertExpandedState(node: any) {
         if (!node || !this.attrexpanded) {
             return;
         }
 
-        // Items with no children cannot be collabsed
+        // Items with no children cannot be collapsed
         if (!this.hasChildren(node) && !(this.enableasynchload === true || this.enableasynchload === 'true')) {
             return;
         }
@@ -450,6 +491,10 @@ export class SacTreeviewCommon extends SacBaseModelControl<any> {
         }
     }
 
+    /**
+     * Recursively resets the selected state of a node and its children
+     * @param node The node whose selected state should be reset
+     */
     private resetSelectedState(node: any) {
         if (!node || !this.attrselected) {
             return;

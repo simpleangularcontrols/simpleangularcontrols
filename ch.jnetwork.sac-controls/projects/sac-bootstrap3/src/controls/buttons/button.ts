@@ -1,6 +1,9 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { SacButtonCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Bootstrap 3 button component with support for icons, loading state, and styling.
+ */
 @Component({
     selector: 'sac-button',
     templateUrl: './button.html',

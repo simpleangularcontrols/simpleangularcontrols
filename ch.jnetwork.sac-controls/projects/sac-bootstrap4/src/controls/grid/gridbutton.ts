@@ -12,9 +12,9 @@ export class SacGridButtonComponent extends SacGridButtonCommon {
     // #region Constructors
 
     /**
-     * Construtor
+     * Constructor
      *
-     * @param injector Injector to resolve  icons
+     * @param injector Injector to resolve icons
      */
     constructor(injector: Injector) {
         super(injector);

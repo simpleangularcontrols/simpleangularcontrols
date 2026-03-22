@@ -9,17 +9,17 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
     // #region Properties
 
     /**
-     * Menu Item ist deaktiviert
+     * Menu item is disabled
      */
     protected _isdisabled = false;
 
     /**
-     * Icon Column in Menü ist deaktiviert
+     * Icon column in menu is disabled
      */
     protected _isicondisabled = false;
 
     /**
-     * Event wenn auf den Button geklickt wird
+     * Event when the button is clicked
      */
     @Output()
     public clicked: EventEmitter<void> = new EventEmitter<void>();
@@ -31,19 +31,19 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
     public cssclass = '';
 
     /**
-     * Icon für Menü
+     * Icon for menu
      */
     @Input()
     public icon: string;
 
     /**
-     * Input Property für Styling des Buttons. Definiert die Css Klassen des Buttons
+     * Input property for button styling. Defines the CSS classes of the button
      */
     @Input()
     public iconstyle = '';
 
     /**
-     * Image für Menü. Wird benötigt wenn das Icon für den Button ein File und nicht ein Icon Font ist.
+     * Image for menu. Required if the icon for the button is a file and not an icon font.
      */
     @Input()
     public image: string;
@@ -55,7 +55,7 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
     public name = '';
 
     /**
-     * Text für Menü Item.
+     * Text for menu item.
      */
     @Input()
     public text: string;
@@ -76,14 +76,14 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
     // #region Public Getters And Setters
 
     /**
-     * Menu Item ist deaktiviert
+     * Menu item is disabled
      */
     public get isdisabled(): boolean | string {
         return this._isdisabled;
     }
 
     /**
-     * Menu Item ist deaktiviert
+     * Menu item is disabled
      */
     @Input()
     public set isdisabled(v: boolean | string) {
@@ -95,14 +95,14 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
     }
 
     /**
-     * Icon Column in Menü ist deaktiviert
+     * Icon column in menu is disabled
      */
     public get isicondisabled(): boolean | string {
         return this._isicondisabled;
     }
 
     /**
-     * Icon Column in Menü ist deaktiviert
+     * Icon column in menu is disabled
      */
     @Input()
     public set isicondisabled(v: boolean | string) {
@@ -118,7 +118,7 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
     // #region Public Methods
 
     /**
-     * Die Methode wird das cklickaction Emitter aktivieren
+     * This method will trigger the click action emitter
      */
     public callaction(event: MouseEvent) {
         if (!this._isdisabled) {

@@ -1,9 +1,21 @@
 import { TooltipPosition } from './enums';
 import { ElementRef } from '@angular/core';
 
+/**
+ * Utility for positioning popup elements relative to anchor elements.
+ *
+ * Provides functions for measuring container dimensions, validating available positions,
+ * and computing translated positions for tooltip/popups in various placements.
+ */
 export class PopUpHelper {
     // #region Public Methods
 
+    /**
+     * Get the height of the reference container element
+     * @param referenceContainer Element Reference to HTML Element
+     * @param referenceIsContainer Boolean indicating if reference is the container itself
+     * @returns The height in pixels
+     */
     public getContainerHeight(referenceContainer: ElementRef<HTMLElement>, referenceIsContainer: boolean): number {
         if (referenceContainer) {
             return referenceIsContainer
@@ -14,6 +26,12 @@ export class PopUpHelper {
         }
     }
 
+    /**
+     * Get the width of the reference container element
+     * @param referenceContainer Element Reference to HTML Element
+     * @param referenceIsContainer Boolean indicating if reference is the container itself
+     * @returns The width in pixels
+     */
     public getContainerWidth(referenceContainer: ElementRef<HTMLElement>, referenceIsContainer: boolean): number {
         if (referenceContainer) {
             return referenceIsContainer
@@ -25,12 +43,14 @@ export class PopUpHelper {
     }
 
     /**
-     * Get Position who the popup would be positioned
+     * Get Position where the popup would be positioned
      *
      * @param referenceContainer Element Reference to HTML Element which is the reference to positioning the popup
      * @param popupcontentcontainer Element Reference to container of popup
-     * @param popupOffset Offset for popup positioning
+     * @param arrowWidth Width of the arrow element
+     * @param arrowHeight Height of the arrow element
      * @param allowedPositions Allowed Positions for the popup
+     * @param referenceIsContainer Boolean indicating if reference is the container itself
      * @returns Returns the position where the popup should be displayed
      */
     public getDisplayPosition(
@@ -112,6 +132,7 @@ export class PopUpHelper {
      * Calculates the height of the popup
      *
      * @param container Element Reference to container of popup
+     * @returns The height of the popup in pixels
      */
     public getPopupHeight(container: ElementRef<HTMLElement>): number {
         if (container) {
@@ -125,6 +146,7 @@ export class PopUpHelper {
      * Calculates the width of the popup
      *
      * @param container Element Reference to container of popup
+     * @returns The width of the popup in pixels
      */
     public getPopupWidth(container: ElementRef<HTMLElement>): number {
         if (container) {
@@ -138,6 +160,7 @@ export class PopUpHelper {
      * Returns the defined position for the tooltip
      *
      * @param allowedPositions Allowed positions defined in markup for popup
+     * @returns The calculated tooltip position
      */
     public getPosition(allowedPositions: string): TooltipPosition {
         if (this.hasPosition(allowedPositions, TooltipPosition.left)) {
@@ -169,13 +192,16 @@ export class PopUpHelper {
     }
 
     /**
-     * Calculates the position of the tooltip from links
+     * Calculates the left position of the tooltip/popup
      *
-     * @param controlReference Element Reference to angular component
-     * @param popupContainer Element Reference to container of popup
      * @param referenceContainer Element Reference to HTML Element which is the reference to positioning the popup
-     * @param popupOffset Offset for popup positioning
+     * @param popupContainer Element Reference to container of popup
+     * @param controlReference Element Reference to the control element
+     * @param arrowWidth Width of the arrow element
+     * @param arrowHeight Height of the arrow element
      * @param requestedPosition Requested Position by Control
+     * @param referenceIsContainer Boolean indicating if reference is the container itself
+     * @returns The left position in pixels
      */
     public getPositionLeft(
         referenceContainer: ElementRef<HTMLElement>,
@@ -227,13 +253,16 @@ export class PopUpHelper {
     }
 
     /**
-     * Calculates the position of the tooltip from the top
+     * Calculates the top position of the tooltip/popup
      *
-     * @param controlReference Element Reference to angular component
-     * @param popupContainer Element Reference to container of popup
      * @param referenceContainer Element Reference to HTML Element which is the reference to positioning the popup
-     * @param popupOffset Offset for popup positioning
+     * @param popupContainer Element Reference to container of popup
+     * @param controlReference Element Reference to the control element
+     * @param arrowWidth Width of the arrow element
+     * @param arrowHeight Height of the arrow element
      * @param requestedPosition Requested Position by Control
+     * @param referenceIsContainer Boolean indicating if reference is the container itself
+     * @returns The top position in pixels
      */
     public getPositionTop(
         referenceContainer: ElementRef<HTMLElement>,
@@ -297,6 +326,7 @@ export class PopUpHelper {
      *
      * @param allowedPositions Positions that allowed by control
      * @param requestedPosition Position to be checked
+     * @returns Boolean indicating if the requested position is configured
      */
     public hasPosition(allowedPositions: string, requestedPosition: TooltipPosition): boolean {
         const positions = allowedPositions.split('|');
@@ -330,6 +360,7 @@ export class PopUpHelper {
     /**
      * Defines whether AutoPosition is active
      * @param positionProperty List of allowed positions
+     * @returns Boolean indicating if auto positioning is enabled
      */
     public isAutoPosition(positionProperty: string): boolean {
         const positions = positionProperty.split('|');
@@ -338,6 +369,12 @@ export class PopUpHelper {
 
     /**
      * Checks whether the position is valid or whether the tooltip on the position has space
+     * @param referenceContainer Element Reference to HTML Element which is the reference
+     * @param popupcontentcontainer Element Reference to container of popup
+     * @param arrowWidth Width of the arrow element
+     * @param arrowHeight Height of the arrow element
+     * @param referenceIsContainer Boolean indicating if reference is the container itself
+     * @returns The valid tooltip position
      */
     public validatePositions(
         referenceContainer: ElementRef<HTMLElement>,

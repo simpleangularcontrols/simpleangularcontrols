@@ -4,7 +4,7 @@ import { Directive, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 /**
- * Basis Komponente für SacInputPassword
+ * Base component for SacInputPassword
  */
 @Directive()
 export class SacInputPasswordCommon extends SacInputCommon {
@@ -41,7 +41,7 @@ export class SacInputPasswordCommon extends SacInputCommon {
     // #region Public Getters And Setters
 
     /**
-     *Icon used by InputPassword to hide the password in the input field
+     * Icon used by InputPassword to hide the password in the input field
      */
     public get PasswordEyeHiddenIcon(): string {
         return this.iconService.InputPasswordEyeVisibleIcon;
@@ -70,7 +70,7 @@ export class SacInputPasswordCommon extends SacInputCommon {
     }
 
     /**
-     * Methode validiert, ob der Wert den gegebenen Kriteriten entspricht
+     * Method validates whether the value meets the given criteria
      */
     public validateData(c: AbstractControl): ValidationErrors | null {
         let error: ValidationErrors | null = super.validateData(c);

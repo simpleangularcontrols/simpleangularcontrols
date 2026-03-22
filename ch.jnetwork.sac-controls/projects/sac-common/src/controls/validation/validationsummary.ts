@@ -11,19 +11,19 @@ import { AbstractControl, FormArray, FormGroup, NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 /**
- * Basis Komponente für SacValidationSummary
+ * Base component for SacValidationSummary
  */
 @Directive()
 export class SacValidationSummaryCommon {
     // #region Properties
 
     /**
-     * Service für Error Localisation
+     * Service for Error Localisation
      */
     protected lngResourceService: ISacLocalisationService;
 
     /**
-     * Parent Formular
+     * Parent Form
      */
     protected parent: SacFormCommon;
 
@@ -63,8 +63,9 @@ export class SacValidationSummaryCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * Inject des Formulars
+     * Constructor
+     * @param parent Parent form control component
+     * @param injector Service injector for dependency resolution
      */
     constructor(parent: SacFormCommon, injector: Injector) {
         this.parent = parent;
@@ -81,7 +82,7 @@ export class SacValidationSummaryCommon {
     // #region Public Getters And Setters
 
     /**
-     * Validation Methode
+     * Validation method
      */
     public get formErrors(): Observable<string>[] {
         const collection: Array<Observable<string>> = new Array<Observable<string>>();
@@ -110,7 +111,7 @@ export class SacValidationSummaryCommon {
     }
 
     /**
-     * Getter wenn Errors entstehen
+     * Getter when errors occur
      */
     public get hasErrors() {
         return this.formErrors.length > 0;
@@ -121,9 +122,9 @@ export class SacValidationSummaryCommon {
     // #region Private Methods
 
     /**
-     * Fügt einen Validation Error in die Error Collection hinzu
-     * @param ctl Fehlerhaftes Control
-     * @param collection Collection aller Fehlermeldungen
+     * Adds a validation error to the error collection
+     * @param ctl Faulty control
+     * @param collection Collection of all error messages
      */
     private addErrorToCollection(ctl: AbstractControl, collection: Array<Observable<string>>): void {
         if (ctl.errors === null || ctl.touched === false || ctl.valid === true) {
@@ -156,7 +157,7 @@ export class SacValidationSummaryCommon {
     }
 
     /**
-     * Die Methode gibt Collection von Errors. Verlangt controls: Array<NgForm | FormArray> und  collection: Array<Observable<string>>
+     * The method returns collection of errors. Requires controls: Array<NgForm | FormArray> and collection: Array<Observable<string>>
      */
     private getErrorCollection(controls: Array<NgForm | FormArray>, collection: Array<Observable<string>>): void {
         controls.forEach((ctl) => {
@@ -166,16 +167,16 @@ export class SacValidationSummaryCommon {
                 Object.keys(ctl.controls).map((controlKey) => {
                     const control = ctl.controls[controlKey];
 
-                    // Cancel Analyse wenn Item not Touched oder Valid
+                    // Cancel analysis if item was not touched or is valid
                     if (control.touched === false || control.valid === true) {
                         return;
                     }
 
-                    // Handle wenn Control kein Container ist
+                    // Handle if control is not a container
                     if (control.controls === undefined || control.controls === null) {
                         this.addErrorToCollection(control, collection);
                     } else {
-                        // Handling eines Control Containers
+                        // Handling of a control container
                         const items: Array<NgForm | FormArray> = Object.keys(control.controls).map((formKey) => {
                             return <NgForm | FormArray>control.controls[formKey];
                         });

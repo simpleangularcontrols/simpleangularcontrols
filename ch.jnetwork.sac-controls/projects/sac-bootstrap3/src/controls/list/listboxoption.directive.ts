@@ -7,10 +7,10 @@ export class SacListboxOptionDirective extends SacListboxOptionCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param elementRef Referenz auf HTML DOM Element
-     * @param renderer Angular Rendering Engine
-     * @param listboxComponent Referenz auf DropDown Komponente
+     * Constructor
+     * @param elementRef Reference to HTML DOM element
+     * @param renderer Angular rendering engine
+     * @param listboxComponent Reference to dropdown component
      */
     constructor(elementRef: ElementRef, renderer: Renderer2, @Optional() @Inject(LISTBOX_TOKEN) listboxComponent: any) {
         super(elementRef, renderer, listboxComponent);

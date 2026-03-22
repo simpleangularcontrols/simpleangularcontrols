@@ -113,6 +113,10 @@ export class DemoTreeviewComponent {
 
     // #region Public Methods
 
+    /**
+     * Appends a new child node to the provided node.
+     * @param node Target node to extend.
+     */
     public appendNode(node: any) {
         node.children.push({
             id: 9,
@@ -128,30 +132,56 @@ export class DemoTreeviewComponent {
         console.log('node added');
     }
 
+    /**
+     * Displays the selected action and node label.
+     * @param data Action payload emitted by the tree view.
+     */
     public debugAction(data: TreeviewAction): void {
         alert(data.action + ' - ' + data.node.label);
     }
 
+    /**
+     * Handles a node collapse event.
+     * @param node Collapsed node.
+     */
     public onCollabse(node: any) {
         console.log('Collabse: ' + node.label);
     }
 
+    /**
+     * Handles a node expand event.
+     * @param node Expanded node.
+     */
     public onExpand(node: any) {
         console.log('Expand: ' + node.label);
     }
 
+    /**
+     * Selects a predefined node id.
+     */
     public onSelectNewId(): void {
         this.selectedNode2 = 2;
     }
 
+    /**
+     * Handles selection by node id.
+     * @param id Selected node id.
+     */
     public onSelected(id: number) {
         console.log('Select Id: ' + id);
     }
 
+    /**
+     * Handles selection by node object.
+     * @param node Selected node.
+     */
     public onSelectedNode(node: any) {
         console.log('Select Node: ' + node.label);
     }
 
+    /**
+     * Marks all controls in the demo form as touched.
+     */
     public validateForm(): void {
         this.myForm.markAsTouched();
     }

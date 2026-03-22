@@ -2,24 +2,24 @@ import { SacInputCommon } from './input';
 import { Directive, Input } from '@angular/core';
 
 /**
- * Basis Komponente für SacInputArea
+ * Base component for SacInputArea
  */
 @Directive()
 export class SacInputAreaCommon extends SacInputCommon {
     // #region Properties
 
     /**
-     * Property mit dem Custom CSS Klassen auf dem Form-Control definiert werden können.
+     * Property where custom CSS classes can be defined on the form control.
      */
     @Input() public customcssclass = '';
 
     /**
-     * Definiert die Höhe der TextArea Box. Ist normalfall leer, da Höhe auch über Rows gesetzt werden kann.
+     * Defines the height of the textarea box. Normally empty, as height can also be set via rows.
      */
     @Input() public height: string = null;
 
     /**
-     * Definiert die Höhe der TextArea Box.
+     * Defines the number of rows for the textarea box.
      */
     @Input() public rows = 5;
 
@@ -28,7 +28,7 @@ export class SacInputAreaCommon extends SacInputCommon {
     // #region Public Getters And Setters
 
     /**
-     * Getter für die Länge des Inputs
+     * Getter for the length of the input
      */
     public get _currentLength(): number {
         if (this.value === null || this.value === undefined) {
@@ -43,7 +43,9 @@ export class SacInputAreaCommon extends SacInputCommon {
     // #region Public Methods
 
     /**
-     * Methode wird 'true' ergeben wenn ein Key gedrückt wird und maxtextlength ist nicht definiert
+     * Method returns 'true' when a key is pressed and maxtextlength is not defined
+     * @param event The keyboard event
+     * @returns Boolean indicating whether the key press is allowed (undefined if maxtextlength is not defined)
      */
     public onKeyPress(event: KeyboardEvent): Boolean {
         // Exist if MaxTextLength not defined

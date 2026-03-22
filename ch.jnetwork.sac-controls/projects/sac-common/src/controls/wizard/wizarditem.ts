@@ -1,20 +1,20 @@
 import { Directive, Input } from '@angular/core';
 
 /**
- * Basis Komponente für SacWizardItem
+ * Base component for SacWizardItem
  */
 @Directive()
 export class SacWizardItemCommon {
     // #region Properties
 
     /**
-     * Prüft ob der aktuelle Schritt aktiv ist.
+     * Checks if the current step is active.
      */
     @Input()
     public active: boolean;
 
     /**
-     * Prüft ob der Schritt disabled ist.
+     * Checks if the step is disabled.
      */
     @Input()
     public disabled = true;
@@ -26,13 +26,13 @@ export class SacWizardItemCommon {
     public id: string;
 
     /**
-     * Prüft ob der Schritt abgeschlossen wurde.
+     * Checks if the step was completed.
      */
     @Input()
     public iscomplete = false;
 
     /**
-     * Label-Property, das angezeigt wird
+     * Label property that is displayed
      */
     @Input()
     public label: string;

@@ -51,7 +51,7 @@ export interface ISacConfigurationService {
     LabelMode: 'standard' | 'floating';
 
     /**
-     * default labe size for large devices
+     * Default label size for large devices
      */
     LabelSizeLg: number | null;
 

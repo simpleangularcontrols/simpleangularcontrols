@@ -25,7 +25,7 @@ export class SacContextmenuItemButtonComponent extends SacContextmenuItemButtonC
 
     /**
      * Constructor
-     * @param contextmenu Instance von Context Menü
+     * @param el HTML DOM element reference
      */
     constructor(private readonly el: ElementRef) {
         super();
@@ -35,12 +35,18 @@ export class SacContextmenuItemButtonComponent extends SacContextmenuItemButtonC
 
     // #region Public Methods
 
+    /**
+     * Cleanup lifecycle hook - removes menu items from DOM
+     */
     public ngOnDestroy(): void {
         for (let i = 0; i < this.ref.length; i++) {
             this.ref[i].parentElement.removeChild(this.ref[i]);
         }
     }
 
+    /**
+     * Initialization lifecycle hook - repositions menu items in DOM hierarchy
+     */
     public ngOnInit(): void {
         const rootElement: HTMLElement = this.el.nativeElement;
         const parentElement: HTMLElement = rootElement.parentElement;

@@ -3,6 +3,14 @@ import { AbstractControl, ValidationErrors, ValidatorFn, Validators } from '@ang
 
 // #region Exported Functions
 
+/**
+ * Returns a validator that checks if the control value is >= minvalue.
+ *
+ * @param minvalue Minimum allowed numeric value.
+ * @param validationMessage Message shown when value is too small.
+ * @param validationMessageSummary Summary message shown when value is too small.
+ * @returns Validator function for minimum value validation.
+ */
 export function minValueValidator(
     minvalue: number,
     validationMessage: string,

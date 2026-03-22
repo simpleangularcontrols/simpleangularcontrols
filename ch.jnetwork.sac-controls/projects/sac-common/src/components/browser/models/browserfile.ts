@@ -1,21 +1,21 @@
 /**
- * Interface für Datei Items in File Browser Component
+ * Interface for file items in the file browser component
  */
 export interface IBrowserFile {
     // #region Properties
 
     /**
-     * Dateiname
+     * File name
      */
     Filename: string;
 
     /**
-     * Item wird bearbeitet
+     * Item is being edited
      */
     IsEditMode: boolean;
 
     /**
-     * Grösse der Datei
+     * File size
      */
     Size: number;
 

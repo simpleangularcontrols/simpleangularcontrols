@@ -4,12 +4,12 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacDateTimeCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Date und Time Komponente
+ * Date and time component
  */
 @Component({
     selector: 'sac-datetime',
     templateUrl: './datetime.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -31,7 +31,7 @@ export class SacDateTimeComponent extends SacDateTimeCommon {
      * @param formLayout SacFormLayout to define scoped layout settings
      * @param injector Injector for injecting services
      * @param elementRef Reference to html dom element
-     * @param cdRef  Change Dectection Servie
+     * @param cdRef  Change Detection Service
      */
     constructor(
         @Host() @Optional() formLayout: SacFormLayoutDirective,

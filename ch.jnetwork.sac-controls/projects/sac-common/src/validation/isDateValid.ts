@@ -2,8 +2,15 @@ import moment, { Moment } from 'moment';
 
 // #region Exported Functions
 
+/**
+ * Checks whether a value is a valid date for a given format or ISO 8601.
+ *
+ * @param value Input value to validate.
+ * @param format Date format string for the validator.
+ * @returns True if value is valid date, otherwise false.
+ */
 export function isDateValid(value: any, format: string) {
-    // NULL ist gültig
+    // NULL is valid
     if (value === null || value === undefined || value === '') {
         return true;
     }

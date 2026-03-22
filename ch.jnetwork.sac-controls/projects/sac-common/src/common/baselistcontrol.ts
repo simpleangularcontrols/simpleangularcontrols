@@ -2,7 +2,7 @@ import { SacBaseModelControl } from './basemodelcontrol';
 import { Directive, Input, TemplateRef } from '@angular/core';
 
 /**
- * Abstract Klasse für SacBaseListControl. Extendes SacBaseModelControl
+ * Abstract class for SacBaseListControl. Extends SacBaseModelControl
  */
 @Directive()
 export abstract class SacBaseListControl<VALUE> extends SacBaseModelControl<VALUE> {
@@ -14,33 +14,33 @@ export abstract class SacBaseListControl<VALUE> extends SacBaseModelControl<VALU
     public _options: any[];
 
     /**
-     * Definiert das Control als Required
+     * Defines the control as required
      */
     @Input() public isrequired = false;
 
     /**
-     * Definiert, ob das Option Element aktiv ist
+     * Defines whether the option element is active
      */
     @Input() public optionenabled = '';
 
     /**
-     * Definiert das Label für das Option Element
+     * Defines the label for the option element
      */
     @Input() public optionlabel = 'label';
 
     /**
-     * Template für Value Element
+     * Template for value element
      */
     @Input()
     public optionlabeltemplate: TemplateRef<any>;
 
     /**
-     * Definiert den Wert für das Option Element
+     * Defines the value for the option element
      */
     @Input() public optionvalue = 'value';
 
     /**
-     * Style Breite für List Control Element
+     * Style width for list control element
      */
     @Input() public width: string = null;
 
@@ -49,14 +49,14 @@ export abstract class SacBaseListControl<VALUE> extends SacBaseModelControl<VALU
     // #region Public Getters And Setters
 
     /**
-     * Input property für options
+     * Input property for options
      */
     @Input() public get options(): any[] {
         return this._options;
     }
 
     /**
-     * setter für options
+     * Setter for options
      */
     public set options(val: any[]) {
         this._options = val;

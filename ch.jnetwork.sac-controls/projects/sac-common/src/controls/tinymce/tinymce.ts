@@ -11,14 +11,14 @@ import { Directive, EventEmitter, Host, Injector, Input, NgZone, Output } from '
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 /**
- * Basis Komponente für TinyMCE Editor
+ * Base component for TinyMCE Editor
  */
 @Directive()
 export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
     // #region Properties
 
     /**
-     * Default Config mit Standardwerten für TinyMCE
+     * Default config with standard values for TinyMCE
      */
     private baseConfig: any = {
         base_url: '/tinymce',
@@ -31,115 +31,115 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
     };
 
     /**
-     * TinyMCE Config
+     * TinyMCE config
      */
     public _config: any = {};
 
     /**
-     * Erlaubt im Filebrowser das löschen von Dateien
+     * Allows deleting files in the file browser
      */
     @Input()
     public allowfiledelete = false;
 
     /**
-     * Erlaubt im Filebrowser das umbennen von Dateien
+     * Allows renaming files in the file browser
      */
     @Input()
     public allowfilerename = false;
 
     /**
-     * Erlaubt im Filebrowser das hochladen von Files
+     * Allows uploading files in the file browser
      */
     @Input()
     public allowfileupload = false;
 
     /**
-     * Erlaubt im Filebrowser das anlegen eines Ordners
+     * Allows creating a folder in the file browser
      */
     @Input()
     public allowfoldercreate = false;
 
     /**
-     * Erlaubt im Filebrowser das löschen eines Ordners
+     * Allows deleting a folder in the file browser
      */
     @Input()
     public allowfolderdelete = false;
 
     /**
-     * Erlaubt im Filebrowser das umbennen eines Ordners
+     * Allows renaming a folder in the file browser
      */
     @Input()
     public allowfolderrename = false;
 
     /**
-     * URL zu Filebrowser Backend
+     * URL to file browser backend
      */
     @Input()
     public filebrowserapiurl: string = null;
 
     /**
-     * File Extensions für Links (Format: .xxx,.yyy,.eee)
+     * File extensions for links (Format: .xxx,.yyy,.eee)
      */
     @Input()
     public filetypesfiles = '';
 
     /**
-     * File Extensions für Images (Format: .xxx,.yyy,.eee)
+     * File extensions for images (Format: .xxx,.yyy,.eee)
      */
     @Input()
     public filetypesimages = '.gif,.jpeg,.jpg,.png,.tif,.tiff,.bmp';
 
     /**
-     * File Extensions für Media (Format: .xxx,.yyy,.eee)
+     * File extensions for media (Format: .xxx,.yyy,.eee)
      */
     @Input()
     public filetypesvideo = '.mp4,.m4v,.ogv,.webm,.mov';
 
     /**
-     * Höhe des Editors
+     * Height of the editor
      */
     @Input()
     public height: string = undefined;
 
     /**
-     * Definiert das Control als Required
+     * Defines the control as required
      */
     @Input()
     public isrequired = false;
 
     /**
-     * Service für Error Localisation
+     * Service for error localisation
      */
     public lngResourceService: ISacLocalisationService;
 
     /**
-     * Event wenn Save Action in TinyMCE ausgelöst wird
+     * Event when save action is triggered in TinyMCE
      */
     @Output()
     public onsave: EventEmitter<string> = new EventEmitter<string>();
 
     /**
-     * Settings Instanz für Dialog
+     * Settings instance for dialog
      */
     public selectDialogSettings: TinyMceDialogSettings;
 
     /**
-     * Der Select Dialog wird angezeigt
+     * The select dialog is displayed
      */
     public selectdialogvisible = false;
 
     /**
-     * Instanz auf TinyMCE Settings. Wird durch TinyMCE gesetzt und wird für den Callback des Dialog benötigt
+     * Instance on TinyMCE settings. Set by TinyMCE and needed for the dialog callback
      */
     public settings: TinyMceInstance;
 
     /**
-     * Resource Key für Validation Message Required bei Control
+     * Resource key for validation message required at control
      */
     @Input() public validationmessagerequired: string = this.validationKeyService.ValidationErrorRequired;
 
     /**
-     * Resource Key für Validation Message Required in Validation Summary
+     * Resource key for validation message required in validation summary
      */
     @Input()
     public validationmessagesummaryrequired: string = this.validationKeyService.ValidationErrorSummaryRequired;
@@ -176,14 +176,14 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
     // #region Public Getters And Setters
 
     /**
-     * TinyMCE Konfiguration
+     * TinyMCE configuration
      */
     public get config(): any {
         return this._config;
     }
 
     /**
-     * TinyMCE Konfiguration
+     * TinyMCE configuration
      * @link https://www.tiny.cloud/docs/configure/
      */
     @Input()
@@ -208,7 +208,7 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
     }
 
     /**
-     * Schliesst den Dateiauswahl Dialog
+     * Closes the file selection dialog
      */
     public closeSelectDialog(): void {
         this.selectdialogvisible = false;
@@ -220,15 +220,15 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
     public abstract overwriteDefaultSettings(): any;
 
     /**
-     * Löst die Speichern Action aus
-     * @param content Content als String
+     * Triggers the save action
+     * @param content Content as string
      */
     public save(content: any): void {
         this.onsave.emit(content);
     }
 
     /**
-     * Setzt das Resultat aus dem Dateiauswahl Dialog
+     * Sets the result from the file selection dialog
      */
     public setSelectDialogResult(): void {
         if (this.selectDialogSettings.value) {
@@ -243,10 +243,10 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
     }
 
     /**
-     * Zeigt den Dateiauswahl Dialog an
-     * @param callback Callback Methode welche aufgerufen wird, wenn der Dialog geschlossen wird
-     * @param value Wert aus dem Datei Dialog
-     * @param meta Meta Daten zur Datei
+     * Shows the file selection dialog
+     * @param callback Callback method which is called when the dialog is closed
+     * @param value Value from the file dialog
+     * @param meta Meta data for the file
      */
     public showSelectDialog(callback, value: string, meta: TinyMceDialogSettingsMeta): void {
         this.settings.angular.ngZone.runOutsideAngular(() => {
@@ -277,9 +277,9 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
     }
 
     /**
-     * Validiert das Control
-     * @param c Control Instanz die valdidiert wird
-     * @returns Gibt eine Fehlermeldung oder NULL zurück
+     * Validates the control
+     * @param c Control instance that is validated
+     * @returns Returns an error message or NULL
      */
     public validateData(c: AbstractControl): ValidationErrors {
         let error: ValidationErrors | null = null;
@@ -296,8 +296,8 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
     // #region Private Methods
 
     /**
-     * Gibt die TinyMCE Settings zurück, die aus den Properties der Angular Komponenten erzeugt werden
-     * @returns Objekt mit Settings
+     * Returns the TinyMCE settings that are generated from the properties of the Angular components
+     * @returns Object with settings
      */
     private getDynamicSettings(): any {
         let settings = {

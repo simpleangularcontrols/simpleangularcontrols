@@ -1,6 +1,9 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { SacDialogCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Modal dialog component used for overlay dialogs.
+ */
 @Component({
     selector: 'sac-dialog',
     templateUrl: './dialog.html',

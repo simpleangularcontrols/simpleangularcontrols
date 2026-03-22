@@ -4,6 +4,9 @@ import { Component, ElementRef, Host, Injector, Optional, Renderer2, forwardRef 
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacDropdownCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Dropdown component with support for value binding and option templates.
+ */
 @Component({
     selector: 'sac-dropdown',
     templateUrl: './dropdown.html',

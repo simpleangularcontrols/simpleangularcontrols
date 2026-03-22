@@ -3,6 +3,9 @@ import { ChangeDetectorRef, Component, ElementRef, Host, Injector, Optional, for
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacTimeCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Time picker component for entering or selecting time values.
+ */
 @Component({
     selector: 'sac-time',
     templateUrl: './time.html',

@@ -3,6 +3,9 @@ import { Component, Host, Injector, NgZone, Optional, forwardRef } from '@angula
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacTinyMceCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * TinyMCE rich text editor component.
+ */
 @Component({
     selector: 'sac-tinymce',
     templateUrl: './tinymce.html',

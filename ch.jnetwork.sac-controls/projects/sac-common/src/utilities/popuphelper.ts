@@ -1,6 +1,12 @@
 import { TooltipPosition } from './enums';
 import { ElementRef } from '@angular/core';
 
+/**
+ * Utility for positioning popup elements relative to anchor elements.
+ *
+ * Provides functions for measuring container dimensions, validating available positions,
+ * and computing translated positions for tooltip/popups in various placements.
+ */
 export class PopUpHelper {
     // #region Public Methods
 

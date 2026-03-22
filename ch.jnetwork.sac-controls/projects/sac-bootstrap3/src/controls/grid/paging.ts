@@ -2,6 +2,9 @@ import { Component, Injector, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacPagingCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Paging component for navigating paged grid data.
+ */
 @Component({
     selector: 'sac-paging',
     templateUrl: './paging.html',

@@ -3,6 +3,9 @@ import { Component, Host, Injector, Optional } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacValidationSummaryCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Validation summary component to display form validation errors.
+ */
 @Component({
     selector: 'sac-validationsummary',
     templateUrl: './validationsummary.html',

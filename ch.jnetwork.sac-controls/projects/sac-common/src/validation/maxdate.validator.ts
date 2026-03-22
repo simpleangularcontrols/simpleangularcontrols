@@ -6,6 +6,14 @@ import moment from 'moment';
 
 // #region Exported Functions
 
+/**
+ * Returns a validator that checks if the control date is <= maxDate.
+ *
+ * @param maxDate Maximum allowed date.
+ * @param validationMessage Message shown when date is too late.
+ * @param validationMessageSummary Summary message shown when date is too late.
+ * @returns Validator function for maximum date validation.
+ */
 export function maxDateValidator(
     maxDate: Date,
     validationMessage: string,

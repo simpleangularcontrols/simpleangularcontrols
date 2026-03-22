@@ -62,6 +62,10 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
      * Arrow Item of Picker Element. Required to set the position of arrow correctly
      */
     public pickerPosition = TooltipPosition;
+
+    /**
+     * Reference to the picker arrow element used for calculating tooltip arrow position.
+     */
     @ViewChild('pickerarrow', { static: false })
     public pickerarrow: ElementRef<HTMLElement> | null;
 
@@ -259,6 +263,11 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
         return this.popupHelper.getPopupWidth(this.pickercontainer);
     }
 
+    /**
+     * Clean up resources when the control is destroyed.
+     *
+     * Removes the picker element from the DOM if visible and unregisters global resize/scroll listeners.
+     */
     public ngOnDestroy(): void {
         // Remove Picker if is visible
         if (this._showselector && this.pickercontainer?.nativeElement) {
@@ -291,7 +300,10 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
     }
 
     /**
-     * Validator
+     * Validates the datetime control value format and required status.
+     *
+     * @param c AbstractControl instance to validate.
+     * @returns ValidationErrors if invalid, otherwise null.
      */
     public validateData(c: AbstractControl): ValidationErrors | null {
         let error: ValidationErrors | null = null;

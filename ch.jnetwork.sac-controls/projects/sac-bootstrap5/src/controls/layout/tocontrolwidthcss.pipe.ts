@@ -1,6 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { ISacLabelSizes } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Converts responsive label width configuration into bootstrap control width classes.
+ */
 @Pipe({
     name: 'toControlWidthCss',
 })

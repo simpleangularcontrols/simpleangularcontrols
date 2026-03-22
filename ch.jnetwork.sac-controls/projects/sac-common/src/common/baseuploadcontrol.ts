@@ -253,12 +253,17 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
         this.setAllowedTypes(types);
     }
 
+    /**
+     * Indicates whether files should be uploaded automatically after selection.
+     * @returns true when auto-upload is enabled.
+     */
     public get autoupload(): boolean {
         return this._autoupload;
     }
 
     /**
-     * Automatically uploads files after selection
+     * Automatically uploads files after selection.
+     * @param v true to enable automatic upload.
      */
     @Input()
     public set autoupload(v: boolean) {
@@ -267,24 +272,34 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
         this.uploadService.connect(this.options);
     }
 
+    /**
+     * Indicates whether upload pause is allowed.
+     * @returns true when pause support is active.
+     */
     public get enablepause(): boolean {
         return this._enablepause;
     }
 
     /**
-     * Uploads can be paused
+     * Uploads can be paused.
+     * @param v true to allow pausing uploads.
      */
     @Input()
     public set enablepause(v: boolean) {
         this._enablepause = v;
     }
 
+    /**
+     * API endpoint for upload registration.
+     * @returns configured endpoint URL.
+     */
     public get endpoint(): string {
         return this._endpoint;
     }
 
     /**
      * Defines the registration endpoint for uploads.
+     * @param v upload endpoint URL.
      */
     @Input()
     public set endpoint(v: string) {
@@ -293,14 +308,16 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     }
 
     /**
-     * Token for Bearer Authentication
+     * Bearer authentication token used by upload service.
+     * @returns current auth token or null.
      */
     public get token(): string | null {
         return this._token;
     }
 
     /**
-     * Token for Bearer Authentication
+     * Sets Bearer authentication token for service requests.
+     * @param v token string or null to clear token.
      */
     @Input()
     public set token(v: string | null) {

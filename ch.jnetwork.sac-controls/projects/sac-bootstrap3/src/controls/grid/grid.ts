@@ -2,6 +2,9 @@ import { Component, ContentChild, TemplateRef, forwardRef } from '@angular/core'
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacGridCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Grid component for displaying tabular data and handling selection/sorting.
+ */
 @Component({
     selector: 'sac-grid',
     templateUrl: './grid.html',

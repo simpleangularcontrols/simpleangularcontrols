@@ -3,6 +3,9 @@ import { ChangeDetectorRef, Component, ElementRef, Host, Injector, Optional, for
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacDateTimeCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * DateTime component for selecting date and time values.
+ */
 @Component({
     selector: 'sac-datetime',
     templateUrl: './datetime.html',

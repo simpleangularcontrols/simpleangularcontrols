@@ -2,6 +2,15 @@ import { ValidationErrorItem } from './validationerroritem';
 
 // #region Exported Functions
 
+/**
+ * Creates a structured validation error object for validation result reporting.
+ *
+ * @param errorType Identifier for the validation error type (e.g. 'required', 'invalid').
+ * @param errorMessageKey Resource key used for the control-level error text.
+ * @param errorMessageValidationSummaryKey Resource key used for summary-level error text.
+ * @param parameters Optional placeholder parameters to replace in error messages.
+ * @returns The generated validation error object.
+ */
 export function CreateValidationError(
     errorType: string,
     errorMessageKey: string,

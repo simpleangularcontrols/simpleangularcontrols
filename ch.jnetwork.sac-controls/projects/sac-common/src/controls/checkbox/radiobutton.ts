@@ -202,6 +202,12 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
         this.sacRadioButtons.UnregisterRadioButton(this);
     }
 
+    /**
+     * Component initialization lifecycle hook.
+     *
+     * Initializes helptext mode, and marks the radio button as checked when the value matches
+     * the container's selected value.
+     */
     public ngOnInit(): void {
         // Set method to display helptext
         this.setHelpTextMode();

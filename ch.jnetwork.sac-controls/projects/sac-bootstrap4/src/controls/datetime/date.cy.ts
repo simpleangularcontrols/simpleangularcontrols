@@ -1,7 +1,7 @@
 import { SacFormDirective } from '../form';
 import { SACBootstrap4LayoutModule } from '../layout/layout.module';
 import { SACBootstrap4DateTimeModule } from './datetime.module';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SACCONFIGURATION_SERVICE, SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
@@ -349,6 +349,91 @@ describe('SacDateComponent', () => {
         });
     });
 
+    it('should reset date via selector with focus', () => {
+        cy.mount(
+            `<form>
+                <sac-date name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-date>
+            </form>`,
+            {
+                declarations: [SacFormDirective],
+                imports: [FormsModule, SACBootstrap4DateTimeModule, SACBootstrap4LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: new Date(2025, 12 - 1, 5), // Month is Index and not Month Value
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+        const _now = new Date();
+        cy.get('input').should('have.value', '05.12.2025');
+
+        cy.get('input').click();
+
+        cy.resetSpy('@valueSpy');
+
+        cy.get('button').click();
+        cy.contains('.calendar-selector button', 'Reset').click();
+        cy.get('input').should('have.value', '__.__.____');
+
+        cy.get('@valueSpy').then((spy: any) => {
+            const calls = spy.getCalls ? spy.getCalls() : spy.calls && spy.calls.all ? spy.calls.all() : [];
+            const nullCount = calls.filter((c: any) => c.args && c.args.length > 0 && c.args[0] === null).length;
+            const dateCount = calls.filter((c: any) => {
+                const a = c.args && c.args.length > 0 ? c.args[0] : undefined;
+                return (
+                    a instanceof Date && a.getTime() === new Date(0, 0, 1, _now.getHours(), _now.getMinutes()).getTime()
+                );
+            }).length;
+
+            expect(nullCount).to.equal(2);
+            expect(dateCount).to.equal(0);
+        });
+    });
+
+    it('should reset date via selector with reactive forms', () => {
+        const form = new FormGroup({
+            date: new FormControl(new Date(2025, 12 - 1, 5)), // Month is Index and not Month Value
+        });
+
+        cy.mount(
+            `<form [formGroup]="value">
+                <sac-date name="field" [label]="label" formControlName="date" (ngModelChange)="valueChange.emit($event)">
+                </sac-date>
+            </form>`,
+            {
+                declarations: [SacFormDirective],
+                imports: [ReactiveFormsModule, SACBootstrap4DateTimeModule, SACBootstrap4LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: form,
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+        const _now = new Date();
+        cy.get('input').should('have.value', '05.12.2025');
+
+        cy.resetSpy('@valueSpy');
+
+        cy.get('button').click();
+        cy.contains('.calendar-selector button', 'Reset').click();
+        cy.get('input').should('have.value', '__.__.____');
+
+        cy.get('@valueSpy').then((spy: any) => {
+            const calls = spy.getCalls ? spy.getCalls() : spy.calls && spy.calls.all ? spy.calls.all() : [];
+            const nullCount = calls.filter((c: any) => c.args && c.args.length > 0 && c.args[0] === null).length;
+            const dateCount = calls.filter((c: any) => {
+                const a = c.args && c.args.length > 0 ? c.args[0] : undefined;
+                return (
+                    a instanceof Date && a.getTime() === new Date(0, 0, 1, _now.getHours(), _now.getMinutes()).getTime()
+                );
+            }).length;
+
+            expect(nullCount).to.equal(2);
+            expect(dateCount).to.equal(0);
+        });
+    });
     it('should set date via selector', () => {
         cy.mount(
             `<form>

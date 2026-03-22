@@ -196,6 +196,7 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
 
         // update imaks reference
         this.cdRef.detectChanges();
+        this.iMask.maskRef.updateValue();
         this.iMask.maskRef.updateControl();
     }
 
@@ -330,6 +331,10 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
         }
 
         super.writeValue(this._value);
+
+        // force detect changes and update imask directive
+        this.cdRef.detectChanges();
+        this.iMask.maskRef.updateValue();
     }
 
     // #endregion Public Methods

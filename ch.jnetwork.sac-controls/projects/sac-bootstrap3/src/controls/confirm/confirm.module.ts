@@ -7,9 +7,9 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 
 /**
- *  Module für Confirm Messages
+ *  Module for Confirm Messages
  *
- *  In NgModule der Applikation folgenden Eintrag bei Imports einfügen: ExanicBootstrap3ConfirmModule.forRoot()
+ *  Add the following entry in the NgModule of the application in Imports: ExanicBootstrap3ConfirmModule.forRoot()
  *
  */
 @NgModule({

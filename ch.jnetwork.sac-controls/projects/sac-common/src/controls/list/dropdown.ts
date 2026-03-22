@@ -6,44 +6,44 @@ import { Directive, ElementRef, Host, Injector, Input, Renderer2 } from '@angula
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 /**
- * Base Dropdown Komponente
+ * Base dropdown component
  */
 @Directive()
 export class SacDropdownCommon extends SacBaseSelectControl<any> {
     // #region Properties
 
     /**
-     * compareWith-Funktion
+     * compareWith function
      */
     private _compareWith: (o1: any, o2: any) => boolean = Object.is;
 
     /**
-     * Counter vom OptionID; default Wert = 0
+     * Counter for option ID; default value = 0
      */
     public _optionIdCounter = 0;
 
     /**
-     * OptionMap
+     * Option map
      */
     public _optionMap: Map<string, any> = new Map<string, any>();
 
     /**
-     * Label Text für Empty Item
+     * Label text for empty item
      */
     @Input() public emptylabel = '';
 
     /**
-     * Option Value für Empty Item
+     * Option value for empty item
      */
     @Input() public emptyvalue: string | null | number = null;
 
     /**
-     * Resource Key für Validation Message Required bei Control
+     * Resource key for validation message required at control
      */
     @Input() public validationmessagerequired: string = this.validationKeyService.ValidationErrorRequired;
 
     /**
-     * Resource Key für Validation Message Required in Validation Summary
+     * Resource key for validation message required in validation summary
      */
     @Input()
     public validationmessagesummaryrequired: string = this.validationKeyService.ValidationErrorSummaryRequired;
@@ -73,7 +73,7 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
     // #region Public Getters And Setters
 
     /**
-     * compareWith-Funktion
+     * compareWith function
      */
     @Input()
     public set comparewith(fn: (o1: any, o2: any) => boolean) {
@@ -88,29 +88,30 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
     // #region Public Methods
 
     /**
-     * Registriert das OptionID-Counter als String
+     * Registers the option ID counter as string
+     * @returns The option ID as string
      */
     public registerOption(): string {
         return (this._optionIdCounter++).toString();
     }
 
     /**
-     * Methode die von Options aufgerufen wird, um das Mapping zwischen Dropdown Value und Value herzustellen.
-     * @param id: Id aus Options
+     * Method called by options to establish the mapping between dropdown value and value.
+     * @param id: Id from options
      * @param value: Value
      */
     public setOptionMap(id: string, value: any): void {
         this._optionMap.set(id, value);
 
-        // Selected Value auf Control aktualisieren, wenn Value dem SelectedValue entspricht
+        // Update selected value on control if value matches selected value
         if (this.value === value) {
             this.setSelectedValue(value);
         }
     }
 
     /**
-     * Wert einstellen
-     * @param value - Wert
+     * Set value
+     * @param value - Value
      */
     public setValue(value: string) {
         super.setValue(this.getOptionValue(value));
@@ -118,7 +119,7 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
 
     /**
      * Validator
-     * @param c Control Instanz
+     * @param c Control instance
      */
     public validateData(c: AbstractControl): ValidationErrors | null {
         let error: ValidationErrors | null = null;
@@ -143,8 +144,8 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
     }
 
     /**
-     * Wert schreiben
-     * @param value - Wert
+     * Write value
+     * @param value - Value
      */
     public writeValue(value: any) {
         this.setSelectedValue(value);
@@ -156,15 +157,15 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
     // #region Private Methods
 
     /**
-     * ID extrahieren
-     * @param valueString String bei welchem die ID Extrahiert werden soll
+     * Extract ID
+     * @param valueString String from which the ID should be extracted
      */
     private extractId(valueString: string): string {
         return valueString.split(':')[0];
     }
 
     /**
-     * Nimmt das ID vom Option
+     * Takes the ID from the option
      * @param value
      */
     private getOptionId(value: any): string | null {
@@ -177,7 +178,7 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
     }
 
     /**
-     * Nimmt den String-Wert vom Option
+     * Takes the string value from the option
      * @param valueString
      */
     private getOptionValue(valueString: string): any {
@@ -186,18 +187,18 @@ export class SacDropdownCommon extends SacBaseSelectControl<any> {
     }
 
     /**
-     * Setzt den Selected Value auf dem Control
+     * Sets the selected value on the control
      * @param value Value
      */
     private setSelectedValue(value: any): void {
-        // Select Item aus Control lesen
+        // Read select item from control
         const selectItem: any = this.elementRef.nativeElement.getElementsByTagName('select')[0];
         /**
-         * Id vom Select Item
+         * Id of the select item
          */
         const id: string | null = this.getOptionId(value);
         /**
-         * Value String
+         * Value string
          */
         const valueString = _buildValueString(id, value);
 

@@ -1,5 +1,5 @@
 /**
- * Erzeugt ein Boolean
+ * Creates a boolean
  * @param value
  */
 // #region Exported Functions
@@ -13,7 +13,7 @@ export function convertToBoolean(value: any): boolean {
 }
 
 /**
- * Erzeugt ein Number
+ * Creates a number
  * @param value
  */
 export function convertToNumber(value: any): number {
@@ -25,8 +25,8 @@ export function convertToNumber(value: any): number {
 }
 
 /**
- * Erzeugt aus einer Map ein Objekt
- * @param map Map mit Key und Values. Key ist ein String. Value kann ein Objekt sein.
+ * Creates an object from a Map
+ * @param map Map with keys and values. Key is a string. Value can be an object.
  */
 export function mapToObject(map: Map<string, any>): any {
     const obj = {};

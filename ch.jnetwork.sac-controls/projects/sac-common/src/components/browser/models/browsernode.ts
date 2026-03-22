@@ -1,7 +1,7 @@
 import { IBrowserFile } from './browserfile';
 
 /**
- * Interface für Node in File Browser Component
+ * Interface for node in file browser component
  */
 export interface IBrowserNode {
     // #region Properties
@@ -12,32 +12,32 @@ export interface IBrowserNode {
     ChildNodes: IBrowserNode[];
 
     /**
-     * File Items in diesem Node
+     * File items in this node
      */
     Files: IBrowserFile[];
 
     /**
-     * Node wird bearbeitet
+     * Node is being edited
      */
     IsEditMode: boolean;
 
     /**
-     * Node ist ausgeklappt
+     * Node is expanded
      */
     IsExpanded: boolean;
 
     /**
-     * Node wurde erzeugt aber noch nicht gespeichert
+     * Node was created but not yet saved
      */
     IsNewNode: boolean;
 
     /**
-     * Name des Nodes
+     * Name of the node
      */
     Name: string;
 
     /**
-     * Pfad für diesen Node
+     * Path for this node
      */
     Path: string;
 

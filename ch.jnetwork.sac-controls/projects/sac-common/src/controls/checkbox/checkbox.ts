@@ -3,7 +3,7 @@ import { Directive, Input, OnInit } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 /**
- * Basis Komponente für SacCheckboxCommon. Extends SacBaseModelControl
+ * Base component for SacCheckboxCommon. Extends SacBaseModelControl
  */
 @Directive()
 export class SacCheckboxCommon extends SacBaseModelControl<boolean> implements OnInit {
@@ -16,7 +16,7 @@ export class SacCheckboxCommon extends SacBaseModelControl<boolean> implements O
     public checkboxstyle: 'checkbox' | 'switch' | null;
 
     /**
-     * Text vom Checkbox-Control. Der Text wird rechts von der Checkbox angezeigt.
+     * Text of the checkbox control. The text is displayed to the right of the checkbox.
      */
     @Input() public checkboxtext;
 
@@ -39,7 +39,7 @@ export class SacCheckboxCommon extends SacBaseModelControl<boolean> implements O
     }
 
     /**
-     * Control hat keinen Validator
+     * Control has no validator
      */
     public validateData(c: AbstractControl): ValidationErrors | null {
         return null;

@@ -55,7 +55,7 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
     public IsTooltipContentVisible = false;
 
     /**
-     * Position des Tooltips links
+     * Position of the tooltip on the left
      */
     public LeftPos = 0;
 
@@ -116,8 +116,9 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param ref Element Referenz
+     * Constructor
+     * @param cdRef Change detector reference for updating component view
+     * @param ref Element reference
      */
     constructor(
         private readonly cdRef: ChangeDetectorRef,
@@ -167,6 +168,7 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
 
     /**
      * Returns the position of the tooltip
+     * @returns TooltipPosition The calculated position for the tooltip
      */
     public GetTooltipPosition(): TooltipPosition {
         return this.popupHelper.getDisplayPosition(
@@ -189,6 +191,7 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
 
     /**
      * Defines whether the tooltip is present in the markup
+     * @returns Boolean indicating whether the tooltip is visible
      */
     public IsTooltipVisible(): boolean {
         return this._isTooltipVisible;
@@ -210,6 +213,7 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
 
     /**
      * Calculates the height of the tooltip
+     * @returns The height of the tooltip in pixels
      */
     public getToolTipHeight(): number {
         return this.popupHelper.getPopupHeight(this.tooltipcontainer);
@@ -217,16 +221,17 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
 
     /**
      * Calculates the width of the tooltips
+     * @returns The width of the tooltip in pixels
      */
     public getToolTipWidth(): number {
         return this.popupHelper.getPopupWidth(this.tooltipcontainer);
     }
 
     /**
-     * Detect Changes after view checked. Prevent ExpressionChangedAfterItHasBeenCheckedError error
+     * Detect changes after view checked. Prevent ExpressionChangedAfterItHasBeenCheckedError error
      */
     public ngAfterViewChecked(): void {
-        // Do nothing if is not visibile
+        // Do nothing if is not visible
         if (!this._isTooltipVisible) {
             return;
         }
@@ -235,10 +240,10 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
     }
 
     /**
-     * Detect UI Changes to Calculate Tooltip correct
+     * Detect UI changes to calculate tooltip correctly
      */
     public ngDoCheck(): void {
-        // Do nothing if is not visibile
+        // Do nothing if is not visible
         if (!this._isTooltipVisible) {
             return;
         }

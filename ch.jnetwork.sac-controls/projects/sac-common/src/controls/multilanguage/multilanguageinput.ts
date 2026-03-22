@@ -9,29 +9,29 @@ import { Directive, Host, Injector, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 /**
- * Base Klasse für Multi Language Input Control
+ * Base class for multi-language input control
  */
 @Directive()
 export class SacMultilanguageInputCommon extends SacInputBase<any> {
     // #region Properties
 
     /**
-     * Sprache für das Control
+     * Languages for the control
      */
     private languages: LanguageModel[] = [];
 
     /**
-     * Selektierte Sprace des Controls
+     * Selected language of the control
      */
     private selectedLanguage: LanguageModel = null;
 
     /**
-     * Service für Error Localisation
+     * Service for error localisation
      */
     protected lngLanguageService: ISacLanguageService;
 
     /**
-     * Fix breite für das Control definieren.
+     * Define fixed width for the control.
      */
     @Input() public controlwidth: string = null;
 
@@ -41,30 +41,30 @@ export class SacMultilanguageInputCommon extends SacInputBase<any> {
     @Input() public maxtextlength: number = null;
 
     /**
-     * Aktiviert den Validator, das min. eine Sprache erfasst sein muss
+     * Activates validator that at least one language must be present
      */
     @Input() public requiredany = false;
 
     /**
-     * Resource Key für Validation Message Required bei Control
+     * Resource key for validation message required at control
      */
     @Input() public validationmessagerequired: string = this.validationKeyService.ValidationErrorMultilanguageRequired;
 
     /**
-     * Resource Key für Validation Message Pattern bei Control
+     * Resource key for validation message required any language at control
      */
     @Input() public validationmessagerequiredany: string =
         this.validationKeyService.ValidationErrorMultilanguageRequiredAny;
 
     /**
-     * Resource Key für Validation Message Required in Validation Summary
+     * Resource key for validation message required in validation summary
      */
     @Input()
     public validationmessagesummaryrequired: string =
         this.validationKeyService.ValidationErrorSummaryMultilanguageRequired;
 
     /**
-     * Resource Key für Validation Message Pattern in Validation Summary
+     * Resource key for validation message required any language in validation summary
      */
     @Input()
     public validationmessagesummaryrequiredany: string =
@@ -89,7 +89,7 @@ export class SacMultilanguageInputCommon extends SacInputBase<any> {
 
             if (this.languages.length > 0) {
                 this.selectedLanguage = this.languages[0];
-                // Control Validierung ausführen, da Wert potentiell bereits gesetzt sein kann
+                // Execute control validation, since the value may already be set
                 this.UpdateValueAndValidity();
             }
         });
@@ -100,13 +100,13 @@ export class SacMultilanguageInputCommon extends SacInputBase<any> {
     // #region Public Getters And Setters
 
     /**
-     * Gibt den Wert der aktuell ausgewählten Sprache zurück
+     * Returns the value for the currently selected language
      */
     public get LanguageValue(): string {
         if (this.value) {
             const currentIsoCode: string = this.selectedLanguage ? this.selectedLanguage.IsoCode : null;
 
-            // Fallback falls keine Selektierte Sprache
+            // Fallback if no selected language
             if (currentIsoCode === null) {
                 return '';
             }
@@ -122,14 +122,14 @@ export class SacMultilanguageInputCommon extends SacInputBase<any> {
     }
 
     /**
-     * Collection der Sprachen
+     * Collection of languages
      */
     public get Languages(): LanguageModel[] {
         return this.languages;
     }
 
     /**
-     * Gibt das Icon der selektierten Sprache zurück
+     * Returns the icon of the selected language
      */
     public get SelectedIcon(): string {
         if (this.selectedLanguage) {
@@ -140,7 +140,7 @@ export class SacMultilanguageInputCommon extends SacInputBase<any> {
     }
 
     /**
-     * Gibt den Type des Icons für die selektierte Sprache zurück
+     * Returns the icon type for the selected language
      */
     public get SelectedIconType(): IconType {
         if (this.selectedLanguage) {
@@ -155,8 +155,8 @@ export class SacMultilanguageInputCommon extends SacInputBase<any> {
     // #region Public Methods
 
     /**
-     * Prüft ob in irgendeiner Sprache kein Wert definiert wurde
-     * @returns Leerwert ist vorhanden
+     * Checks whether no value is defined in any language
+     * @returns True if an empty value is present
      */
     public IsAnyEmpty(): boolean {
         let found = false;
@@ -182,13 +182,13 @@ export class SacMultilanguageInputCommon extends SacInputBase<any> {
     }
 
     /**
-     * Prüft ob in einer bestimmten Sprache ein Wert vorhanden ist.
-     * @param sprache Sprache in welcher der Wert geprüft werden soll
-     * @returns Wert ist vorhanden
+     * Checks whether a value exists for a specific language.
+     * @param sprache Language in which the value should be checked
+     * @returns True if the value is present
      */
     public IsEmpty(sprache: LanguageModel): boolean {
         if (this.value) {
-            // Fallback falls keine Selektierte Sprache
+            // Fallback if no selected language
             if (sprache === null) {
                 return true;
             }
@@ -204,22 +204,22 @@ export class SacMultilanguageInputCommon extends SacInputBase<any> {
     }
 
     /**
-     * Selektiert die Sprache
-     * @param language Sprache die selektiert werden soll
+     * Selects the language
+     * @param language Language to select
      */
     public SelectLanguage(language: LanguageModel) {
         this.selectedLanguage = language;
     }
 
     /**
-     * Setzt den Wert für die aktuell gewählte Sprache
-     * @param value Wert welcher gesetzt werden soll
+     * Sets the value for the currently selected language
+     * @param value Value to set
      */
     public SetLanguageValue(value: string): void {
         if (this.value) {
             const currentIsoCode: string = this.selectedLanguage ? this.selectedLanguage.IsoCode : null;
 
-            // Fallback falls keine Selektierte Sprache
+            // Fallback if no selected language
             if (currentIsoCode === null) {
                 return;
             }
@@ -230,8 +230,8 @@ export class SacMultilanguageInputCommon extends SacInputBase<any> {
     }
 
     /**
-     * Methode validiert, ob der Wert den gegebenen Kriterien entspricht
-     * @param c Control das validiert wird
+     * Method validates whether the value meets the given criteria
+     * @param c Control that is validated
      */
     public validateData(c: AbstractControl): { [key: string]: any } {
         let error: ValidationErrors | null = null;

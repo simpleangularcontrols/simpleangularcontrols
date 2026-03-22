@@ -27,32 +27,32 @@ import {
 import { Subscription } from 'rxjs';
 
 /**
- * Base Context Menü Element. Die Logik wurde aus NG-BOOTSTRAP übernommen.
+ * Base context menu element. The logic was taken from NG-BOOTSTRAP.
  */
 @Directive()
 export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContentInit, OnDestroy {
     // #region Properties
 
     /**
-     * Button für Open/Close Event
+     * Button for open/close event
      */
     @ViewChild(SacContextmenuAnchorCommon, { static: false })
     private readonly _anchor: SacContextmenuAnchorCommon;
 
     /**
-     * Button für Open/Close Event aus Template
+     * Button for open/close event from template
      */
     @ContentChild(SacContextmenuAnchorCommon, { static: false })
     private readonly _anchorTemplate: SacContextmenuAnchorCommon;
 
     /**
-     * Container Element für Dropdown
+     * Container element for dropdown
      */
     @ViewChild(SacContextMenuContrainerCommon, { static: false })
     private readonly _menu: SacContextMenuContrainerCommon;
 
     /**
-     * Zone Subscription für Postitonierung des Elements
+     * Zone subscription for positioning the element
      */
     private readonly zoneSubscription: Subscription;
 
@@ -67,19 +67,19 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     protected iconService: ISacIconService;
 
     /**
-     * Custom HTML Template für Dropdown Button. Button muss den Marker "ngContextmenuAnchor" beinhalten, damit das Control korrekt funktioniert.
+     * Custom HTML template for dropdown button. Button must contain the marker "ngContextmenuAnchor" for the control to work correctly.
      */
     @Input()
     public buttontemplate: TemplateRef<any>;
 
     /**
-     * Container an welchem die Position ausgerichtet wird. Aktuell wird nun Body Supported
+     * Container to which the position is aligned. Currently only body is supported.
      */
     @Input()
     public container: null | 'body' = 'body';
 
     /**
-     * Extra CSS Klassen für das Control
+     * Extra CSS classes for the control
      */
     @Input()
     public cssclass = '';
@@ -91,7 +91,7 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     public e2eidentifier: string | null = null;
 
     /**
-     * Definiert ob das Dropdown offen ist.
+     * Defines whether the dropdown is open.
      */
     @Input()
     public isopen = false;
@@ -128,12 +128,12 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param document HTML Document Element
-     * @param ngZone Angular Zone Service
-     * @param elementRef HTML Element des aktuellen Controls
-     * @param renderer Angular Rendering Service
-     * @param injector injector to resolve the icon service
+     * Constructor
+     * @param document HTML document element
+     * @param ngZone Angular zone service
+     * @param elementRef HTML element of the current control
+     * @param renderer Angular rendering service
+     * @param injector Injector to resolve the icon service
      */
     constructor(
         @Inject(DOCUMENT) private readonly document: any,
@@ -154,7 +154,7 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     // #region Public Getters And Setters
 
     /**
-     * icon for default context menü button
+     * Icon for default context menu button
      */
     public get IconContextMenu(): string {
         return this.iconService.ContextMenuOpenIcon;
@@ -165,19 +165,25 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     // #region Public Methods
 
     /**
-     * Schliesst das Dropdown
+     * Closes the dropdown
      */
     public close(): void {
         this._resetContainer();
         this.isopen = false;
     }
 
+    /**
+     * Lifecycle hook that is called after content projection is completed.
+     *
+     * Associates each menu item with this context menu instance so that item
+     * events can delegate to the parent menu.
+     */
     public ngAfterContentInit(): void {
         this.menuitems.forEach((button) => (button.contextmenu = this));
     }
 
     /**
-     * Event wenn Component entfernt wird.
+     * Event when component is destroyed.
      */
     public ngOnDestroy(): void {
         if (this.isopen) {
@@ -188,11 +194,12 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     }
 
     /**
-     * HostListener um das Dropdown zu schliessen wenn nicht auf das Element geklickt wird.
+     * HostListener to close the dropdown when clicking outside the element.
      */
     @HostListener('document:click', ['$event.target'])
     /**
      * Click Event
+     * @param targetElement The target element from the click event
      */
     public onClick(targetElement) {
         const anchor: SacContextmenuAnchorCommon = this._anchor || this._anchorTemplate;
@@ -207,7 +214,7 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     }
 
     /**
-     * Öffnet das Dropdown / Zeigt das Menü an.
+     * Opens the dropdown / shows the menu.
      */
     public open(): void {
         this._applyContainer(this.container);
@@ -215,7 +222,7 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     }
 
     /**
-     * Toggle von Dropdown
+     * Toggle dropdown
      */
     public toggle(): void {
         if (this.isopen) {
@@ -230,7 +237,7 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     // #region Protected Methods
 
     /**
-     * Setzt die Position des Menüs im Markup
+     * Sets the position of the menu in the markup
      */
     protected _positionMenu() {
         const anchor: SacContextmenuAnchorCommon = this._anchor || this._anchorTemplate;
@@ -250,9 +257,9 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     // #region Private Methods
 
     /**
-     * Setzt die Position des Menüs innerhalb der Seite. Die Ausrichtung passiert innerhalb der Seite
-     * damit das Menü innerhalb eines Dialogs sauber funktionioniert.
-     * @param container Definiert wo das Menü ausgerichtet wird. Im Moment nur BODY Supported
+     * Sets the position of the menu within the page. The alignment happens within the page
+     * so that the menu works correctly inside a dialog.
+     * @param container Defines where the menu is aligned. Currently only BODY is supported
      */
     private _applyContainer(container: null | 'body' = null) {
         // Reset Classes on Container
@@ -274,7 +281,7 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     }
 
     /**
-     * Setzt die CSS Klassen auf dem Menü Container auf den Standard zurück
+     * Resets the CSS classes on the menu container to default
      */
     private _resetContainer() {
         const renderer = this.renderer;

@@ -4,12 +4,12 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacInputPasswordCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Input Box für Passwörter
+ * Input box for passwords
  */
 @Component({
     selector: 'sac-inputpassword',
     templateUrl: './inputpassword.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register value access provider so that value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

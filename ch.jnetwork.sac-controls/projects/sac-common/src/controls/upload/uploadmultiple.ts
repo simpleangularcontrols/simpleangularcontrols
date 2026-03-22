@@ -5,43 +5,43 @@ import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { UploadState } from 'ngx-uploadx';
 
 /**
- * Upload Componente für mehrere Files
+ * Upload component for multiple files
  */
 @Directive()
 export class SacUploadMultipleCommon extends SacUploadBase<string[]> {
     // #region Properties
 
     /**
-     * Label für Browse Button
+     * Label for Browse Button
      */
     @Input()
     public buttonbrowse = '';
 
     /**
-     * Label für Upload Button
+     * Label for Upload Button
      */
     @Input()
     public buttonupload = '';
 
     /**
-     * Max. Files die hochgeladen werden können. 0 deaktiviert das Limit
+     * Max. files that can be uploaded. 0 disables the limit
      */
     @Input()
     public maxfiles = 0;
 
     /**
-     * Min. Files die hochgeladen werden müssen. 0 deaktiviert das Limit
+     * Min. files that must be uploaded. 0 disables the limit
      */
     @Input()
     public minfiles = 0;
 
     /**
-     * Resource Key für Validation Message Required bei Control
+     * Resource Key for Validation Message Required at Control
      */
     @Input() public validationmessageminfiles: string = this.validationKeyService.ValidationErrorFilesMin;
 
     /**
-     * Resource Key für Validation Message Required in Validation Summary
+     * Resource Key for Validation Message Required in Validation Summary
      */
     @Input()
     public validationmessagesummaryminfiles: string = this.validationKeyService.ValidationErrorSummaryFilesMin;
@@ -51,9 +51,9 @@ export class SacUploadMultipleCommon extends SacUploadBase<string[]> {
     // #region Public Methods
 
     /**
-     * Prüft ob die max. Files in der Queue nicht überschritten werden
+     * Checks if the max. files in the queue are not exceeded
      *
-     * @param file File das hinzugefügt wurde
+     * @param file File that was added
      */
     public CustomAddValidation(file: UploadState): boolean {
         if (this.maxfiles > 0 && this.uploads.length >= this.maxfiles) {
@@ -65,9 +65,9 @@ export class SacUploadMultipleCommon extends SacUploadBase<string[]> {
     }
 
     /**
-     * Setzt die File ID's der hochgeladen Files in das Model
+     * Sets the file IDs of the uploaded files into the model
      *
-     * @param file ID des Files welches hochgeladen wurde.
+     * @param file ID of the file that was uploaded.
      */
     public SetUploadValue(file: UploadState) {
         let documentid: string = null;
@@ -85,7 +85,7 @@ export class SacUploadMultipleCommon extends SacUploadBase<string[]> {
                 documentid = file.uploadId;
             }
 
-            // Document ID aktualisieren, damit Wert von Server in Model gesetzt werden kann.
+            // Update document ID so that value from server can be set in model.
             this.uploads
                 .filter((itm) => itm !== null && itm.uploadId === file.uploadId)
                 .forEach((itm) => {
@@ -113,7 +113,7 @@ export class SacUploadMultipleCommon extends SacUploadBase<string[]> {
     }
 
     /**
-     * Validiert das Control
+     * Validates the control
      *
      * @param c Control
      */

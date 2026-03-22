@@ -1,13 +1,27 @@
 // #region Exported Interfaces
 
+/**
+ * Represents geometry of a rectangular area in client coordinates.
+ */
 export interface ClientRect {
     // #region Properties
 
+    /** Distance from top of viewport to bottom edge in pixels. */
     bottom: number;
+
+    /** Height of rectangle in pixels. */
     height: number;
+
+    /** Distance from left of viewport to left edge in pixels. */
     left: number;
+
+    /** Distance from left of viewport to right edge in pixels. */
     right: number;
+
+    /** Distance from top of viewport to top edge in pixels. */
     top: number;
+
+    /** Width of rectangle in pixels. */
     width: number;
 
     // #endregion Properties
@@ -18,17 +32,22 @@ export interface ClientRect {
 // #region Exported Classes
 
 /**
- * Position Utility Klasse
+ * Utility class for element positioning and offset calculations.
+ *
+ * Provides helpers to compute absolute offset, relative position and placement
+ * of one element relative to another, including viewport clipping checks.
+ *
  * @see https://github.com/ng-bootstrap/ng-bootstrap/blob/master/src/util/positioning.ts
  */
 export class PositionCalculator {
     // #region Public Methods
 
     /**
-     * Get Offset of Item
-     * @param element HTML Element for Offset
-     * @param round Round the Values
-     * @returns Return Offset Position
+     * Computes the offset of an element relative to the document.
+     *
+     * @param element Element to measure.
+     * @param round If true, the computed values are rounded to integers.
+     * @returns ClientRect with top/left/right/bottom/width/height position values.
      */
     public offset(element: HTMLElement, round = true): ClientRect {
         const elBcr = element.getBoundingClientRect();
@@ -59,10 +78,11 @@ export class PositionCalculator {
     }
 
     /**
-     * Get Element Position
-     * @param element HTML Element for Position
-     * @param round Round Values
-     * @returns Position Values
+     * Computes the position of an element relative to its offset parent.
+     *
+     * @param element Element to measure.
+     * @param round If true, the computed position values are rounded.
+     * @returns ClientRect with relative top/left/right/bottom/width/height values.
      */
     public position(element: HTMLElement, round = true): ClientRect {
         let elPosition: ClientRect;
@@ -114,8 +134,13 @@ export class PositionCalculator {
     }
 
     /**
-     * Return false if the element to position is outside the viewport
-     * @returns position is inside viewport
+     * Positions targetElement relative to hostElement based on placement and optionally appends to body.
+     *
+     * @param hostElement Reference element used as anchor.
+     * @param targetElement Element being positioned.
+     * @param placement Positioning string like 'top', 'bottom-right'.
+     * @param appendToBody If true, hostElement coords are based on document body.
+     * @returns True when target element stays within viewport after positioning.
      */
     public positionElements(
         hostElement: HTMLElement,
@@ -173,7 +198,7 @@ export class PositionCalculator {
                 break;
         }
 
-        /// The translate3d/gpu acceleration render a blurry text on chrome, the next line is commented until a browser fix
+        // The translate3d/gpu acceleration render a blurry text on chrome, the next line is commented until a browser fix
         // targetElement.style.transform = `translate3d(${Math.round(leftPosition)}px, ${Math.floor(topPosition)}px, 0px)`;
         targetElement.style.transform = `translate(${Math.round(leftPosition)}px, ${Math.round(topPosition)}px)`;
 
@@ -196,37 +221,41 @@ export class PositionCalculator {
     // #region Private Methods
 
     /**
-     * Get all Styles of Element
-     * @param element HTML Element
-     * @returns All Styles of element
+     * Returns the computed style declarations for the given element.
+     *
+     * @param element Element to retrieve styles from.
+     * @returns CSSStyleDeclaration of computed styles.
      */
     private getAllStyles(element: HTMLElement) {
         return window.getComputedStyle(element);
     }
 
     /**
-     * Get Style value of element
-     * @param element HTML Element
-     * @param prop Style
-     * @returns Value of Style
+     * Returns the computed value of a CSS property for an element.
+     *
+     * @param element Element to query.
+     * @param prop Name of CSS property.
+     * @returns Property value string.
      */
     private getStyle(element: HTMLElement, prop: string): string {
         return this.getAllStyles(element)[prop];
     }
 
     /**
-     * Check if the element has an static position
-     * @param element HTML Element
-     * @returns Item has a static position
+     * Checks whether an element is statically positioned in CSS.
+     *
+     * @param element Element to inspect.
+     * @returns True when the position is 'static'.
      */
     private isStaticPositioned(element: HTMLElement): boolean {
         return (this.getStyle(element, 'position') || 'static') === 'static';
     }
 
     /**
-     * Get the Offset of the parent element
-     * @param element HTML Element
-     * @returns HTML ELement
+     * Gets the closest positioned ancestor element (offset parent) for a given element.
+     *
+     * @param element Element to find offset parent for.
+     * @returns Offset parent HTMLElement, or document.documentElement fallback.
      */
     private offsetParent(element: HTMLElement): HTMLElement {
         let offsetParentEl = <HTMLElement>element.offsetParent || document.documentElement;

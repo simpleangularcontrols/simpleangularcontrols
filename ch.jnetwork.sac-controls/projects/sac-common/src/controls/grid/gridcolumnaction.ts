@@ -12,7 +12,7 @@ export class SacGridColumnActionCommon extends SacGridColumnBaseCommon {
     /**
      * Constructor
      * @param el Element reference
-     * @param injector di inector to resolve icon service
+     * @param injector DI injector to resolve icon service
      * @param grid SacGridCommon
      */
     constructor(grid: SacGridCommon, injector: Injector, el: ElementRef) {

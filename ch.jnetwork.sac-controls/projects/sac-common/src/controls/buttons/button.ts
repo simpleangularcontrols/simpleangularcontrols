@@ -2,24 +2,24 @@ import { BUTTONROLETYPE } from '../../enums/ButtonRoleType';
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
 
 /**
- * Base Komponente für das Button
+ * Base component for the button
  */
 @Directive()
 export class SacButtonCommon {
     // #region Properties
 
     /**
-     * Boolean Property definiert, ob das Button 'disabled' ist; default - false
+     * Boolean property defines whether the button is 'disabled'; default - false
      */
     private _isdisabledvalue = false;
 
     /**
-     * Das Property definiert die Rolle des Buttons. Standardwert ist 'default'.
+     * This property defines the role of the button. Default value is 'default'.
      */
     private _role: BUTTONROLETYPE = 'default';
 
     /**
-     * Das boolean property ist benutzt für Aktivation des Spinner des Button. Default ist false.
+     * This boolean property is used for activating the spinner of the button. Default is false.
      */
     public _isloadingvalue = false;
 
@@ -36,22 +36,22 @@ export class SacButtonCommon {
     public e2eidentifier: string | null = null;
 
     /**
-     * Boolean Property für Error; default Wert - false
+     * Boolean property for error; default value - false
      */
     public hasError = false;
 
     /**
-     * Input Property für Icon Style Klasse; default Wert - ''
+     * Input property for icon style class; default value - ''
      */
     @Input() public icon = '';
 
     /**
-     * Input Property für Name; default Wert - ''
+     * Input property for name; default value - ''
      */
     @Input() public name = '';
 
     /**
-     * Input Property für Text des Buttons; default Wert - ''
+     * Input property for button text; default value - ''
      */
     @Input() public text = '';
 
@@ -60,20 +60,23 @@ export class SacButtonCommon {
     // #region Public Getters And Setters
 
     /**
-     * Getter Methode. Ergibt boolean Wert. Definiert, ob das Button desabled ist.
+     * Getter method. Returns boolean value. Defines whether the button is disabled.
      */
     public get _isdisabled(): boolean {
         return this._isdisabledvalue;
     }
 
+    /**
+     * Returns whether the button is disabled.
+     */
     public get isdisabled(): boolean | string {
         return this._isdisabledvalue;
     }
 
     /**
-     * Deaktivieren von Buttons
-     * @param v Deaktiviert den Button
-     * @return Definiert ob der Button deaktiviert ist
+     * Disables buttons
+     * @param v Disables the button
+     * @return Defines whether the button is disabled
      */
     @Input()
     public set isdisabled(v: boolean | string) {
@@ -84,12 +87,15 @@ export class SacButtonCommon {
         }
     }
 
+    /**
+     * Returns whether the loading spinner is active.
+     */
     public get isloading(): boolean | string {
         return this._isloadingvalue;
     }
 
     /**
-     * Das Input property. Definiert der Status des islaoding property. Es ist benutzt für Aktivation des Spinner des Button.
+     * This input property defines the status of the isloading property. It is used for activating the spinner of the button.
      */
     @Input()
     public set isloading(v: boolean | string) {
@@ -101,17 +107,17 @@ export class SacButtonCommon {
     }
 
     /**
-     * Die Methode returns die definierte Style-Rolle des Buttons
+     * This method returns the defined style role of the button
      */
     public get role(): BUTTONROLETYPE {
         return this._role;
     }
 
     /**
-     * Definiert den Style des Buttons
-     * @param  v Definiert den Style des Buttons.
-     * Folgende Typen sind Supported: primary, secondary, success, danger, warning, info, light, dark, link, default
-     * @returns  Type des Buttons
+     * Defines the style of the button
+     * @param  v Defines the style of the button.
+     * The following types are supported: primary, secondary, success, danger, warning, info, light, dark, link, default
+     * @returns  Type of the button
      */
     @Input()
     public set role(v: BUTTONROLETYPE) {
@@ -145,7 +151,7 @@ export class SacButtonCommon {
     // #region Public Methods
 
     /**
-     * Die Methode wird ein Event aufrufen, wenn das Button geklickt wird UND das Button nicht disabled ODER isloading ist.
+     * This method will trigger an event when the button is clicked AND the button is not disabled OR isloading.
      */
     public buttonClick() {
         if (this._isdisabled === false && this._isloadingvalue === false) {

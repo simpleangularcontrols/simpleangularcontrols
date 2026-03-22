@@ -3,10 +3,13 @@ import { Component, Host, Injector, Optional, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacInputIntegerCommon } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Integer input component with numeric validation.
+ */
 @Component({
     selector: 'sac-inputinteger',
     templateUrl: './inputinteger.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

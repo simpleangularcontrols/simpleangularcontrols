@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
 export class DemoBrowserComponent {
     // #region Public Methods
 
+    /**
+     * Executes the first demo browser action.
+     */
     public debugAction1(): void {
         alert('Action 1');
     }

@@ -4,12 +4,12 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IconType, SacMultilanguageInputCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Componente für Mehrsprache Texte
+ * Component for multilingual text
  */
 @Component({
     selector: 'sac-multilanguageinput',
     templateUrl: './multilanguageinput.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register value access provider so that value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -27,7 +27,7 @@ export class SacMultilanguageInputComponent extends SacMultilanguageInputCommon 
     // #region Properties
 
     /**
-     * Enum für IconType in HTML Template
+     * Enum for IconType in HTML template
      */
     public IconType = IconType;
 

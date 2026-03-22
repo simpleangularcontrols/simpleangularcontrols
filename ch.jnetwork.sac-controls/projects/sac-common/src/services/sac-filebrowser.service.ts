@@ -15,7 +15,7 @@ import { Observable } from 'rxjs';
 // #region Variables
 
 /**
- * Injection Token für Language Service
+ * Injection Token for Language Service
  */
 export const SACFILEBROWSER_SERVICE = new InjectionToken<ISacFileBrowserService>('FileBrowserService');
 
@@ -24,7 +24,7 @@ export const SACFILEBROWSER_SERVICE = new InjectionToken<ISacFileBrowserService>
 // #region Exported Classes
 
 /**
- * Abstrakte Implementierung des File Service für die Browser Component
+ * Abstract implementation of the file service for the browser component
  */
 @Injectable({
     providedIn: 'root',
@@ -33,10 +33,10 @@ export abstract class SacAbstractFileBrowserService implements ISacFileBrowserSe
     // #region Public Methods
 
     /**
-     * Löscht eine Datei
-     * @param apiurl URL zu API Service
-     * @param path Pfad des Files welches gelöscht werden soll
-     * @param allowedextensions Erlaubte Extensions für Files
+     * Deletes a file
+     * @param apiurl URL to API Service
+     * @param path Path of the file to be deleted
+     * @param allowedextensions Allowed extensions for files
      */
     public abstract DeleteFile(
         apiurl: string,
@@ -45,34 +45,34 @@ export abstract class SacAbstractFileBrowserService implements ISacFileBrowserSe
     ): Observable<IBrowserFileResponse>;
 
     /**
-     * Löscht einen Node
-     * @param apiurl URL zu API Service
-     * @param path Pfad des Nodes welcher gelöscht werden soll
+     * Deletes a node
+     * @param apiurl URL to API Service
+     * @param path Path of the node to be deleted
      */
     public abstract DeleteNode(apiurl: string, path: string): Observable<IBrowserNodeResponse>;
 
     /**
-     * Methode welche die Dateien eines Nodes ausliest
-     * @param apiurl URL zu API Service
-     * @param path Pfad des Nodes in welchem die Files gelesen werden sollen
-     * @param allowedextensions Erlaubte File Extensions
+     * Method that reads the files of a node
+     * @param apiurl URL to API Service
+     * @param path Path of the node from which the files should be read
+     * @param allowedextensions Allowed file extensions
      */
     public abstract GetFiles(apiurl: string, path: string, allowedextensions: string): Observable<IBrowserFileResponse>;
 
     /**
-     * Gibt einen Node zurück
-     * @param apiurl URL zu API Service
-     * @param path Pfad des Node welcher angefordert wird
-     * @param allowedextensions Erlaubte Extensions die angezeigt werden dürfen
+     * Returns a node
+     * @param apiurl URL to API Service
+     * @param path Path of the node being requested
+     * @param allowedextensions Allowed extensions that may be displayed
      */
     public abstract GetNode(apiurl: string, path: string, allowedextensions: string): Observable<IBrowserNodeResponse>;
 
     /**
-     * Methode welche eine Datei umbenannt
-     * @param apiurl URL zu API Service
-     * @param path Pfad zum File welches umbenannt werden soll
-     * @param newFilename Neuer Dateiname
-     * @param allowedextensions Erlaubte Extension für Files
+     * Method that renames a file
+     * @param apiurl URL to API Service
+     * @param path Path to the file to be renamed
+     * @param newFilename New filename
+     * @param allowedextensions Allowed extension for files
      */
     public abstract RenameFile(
         apiurl: string,
@@ -82,19 +82,19 @@ export abstract class SacAbstractFileBrowserService implements ISacFileBrowserSe
     ): Observable<IBrowserFileResponse>;
 
     /**
-     * Rename eines Nodes
-     * @param apiurl URL zu API Service
-     * @param path Pfad des Nodes welcher umbenannt werden soll
-     * @param newFoldername Neuer Name des Nodes
+     * Rename a node
+     * @param apiurl URL to API Service
+     * @param path Path of the node to be renamed
+     * @param newFoldername New name of the node
      */
     public abstract RenameNode(apiurl: string, path: string, newFoldername: string): Observable<IBrowserNodeResponse>;
 
     /**
-     * Speichert eine Hochgeladene Datei in der Struktur
-     * @param apiurl URL zu API Service
-     * @param path Pfad in welchem das neue File gespeichert werden soll
-     * @param id ID des Uploads
-     * @param allowedextensions Erlaubte Extensions für den Upload
+     * Saves an uploaded file in the structure
+     * @param apiurl URL to API Service
+     * @param path Path where the new file should be saved
+     * @param id ID of the upload
+     * @param allowedextensions Allowed extensions for the upload
      */
     public abstract SaveFile(
         apiurl: string,
@@ -104,10 +104,10 @@ export abstract class SacAbstractFileBrowserService implements ISacFileBrowserSe
     ): Observable<IBrowserFileResponse>;
 
     /**
-     * Speichert einen Node
-     * @param apiurl URL zu API Service
-     * @param path Pfad in welchem der Node gespeichert werden soll
-     * @param newFoldername Name des neuen Nodes
+     * Saves a node
+     * @param apiurl URL to API Service
+     * @param path Path where the node should be saved
+     * @param newFoldername Name of the new node
      */
     public abstract SaveNode(apiurl: string, path: string, newFoldername: string): Observable<IBrowserNodeResponse>;
 
@@ -115,7 +115,7 @@ export abstract class SacAbstractFileBrowserService implements ISacFileBrowserSe
 }
 
 /**
- * Standardimplementierung des Backend Service für die File Browser Component
+ * Standard implementation of the backend service for the file browser component
  */
 @Injectable({
     providedIn: 'root',
@@ -124,7 +124,7 @@ export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService 
     // #region Constructors
 
     /**
-     * Konstruktor
+     * Constructor
      * @param httpclient HTTP Client Service
      */
     constructor(private httpclient: HttpClient) {
@@ -136,10 +136,11 @@ export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService 
     // #region Public Methods
 
     /**
-     * Löscht eine Datei
-     * @param apiurl URL zu API Service
-     * @param path Pfad des Files welches gelöscht werden soll
-     * @param allowedextensions Erlaubte Extensions für Files
+     * Deletes a file
+     * @param apiurl URL to API Service
+     * @param path Path of the file to be deleted
+     * @param allowedextensions Allowed extensions for files
+     * @returns Observable containing the file response after deletion
      */
     public DeleteFile(apiurl: string, path: string, allowedextensions: string): Observable<IBrowserFileResponse> {
         const url = `${apiurl}/deletefile`;
@@ -159,9 +160,10 @@ export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService 
     }
 
     /**
-     * Löscht einen Node
-     * @param apiurl URL zu API Service
-     * @param path Pfad des Nodes welcher gelöscht werden soll
+     * Deletes a node
+     * @param apiurl URL to API Service
+     * @param path Path of the node to be deleted
+     * @returns Observable containing the node response after deletion
      */
     public DeleteNode(apiurl: string, path: string): Observable<IBrowserNodeResponse> {
         const url = `${apiurl}/deletenode`;
@@ -180,10 +182,11 @@ export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService 
     }
 
     /**
-     * Methode welche die Dateien eines Nodes ausliest
-     * @param apiurl URL zu API Service
-     * @param path Pfad des Nodes in welchem die Files gelesen werden sollen
-     * @param allowedextensions Erlaubte File Extensions
+     * Method that reads the files of a node
+     * @param apiurl URL to API Service
+     * @param path Path of the node from which the files should be read
+     * @param allowedextensions Allowed file extensions
+     * @returns Observable containing the file response
      */
     public GetFiles(apiurl: string, path: string, allowedextensions: string): Observable<IBrowserFileResponse> {
         const url = `${apiurl}/getfiles`;
@@ -203,10 +206,11 @@ export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService 
     }
 
     /**
-     * Gibt einen Node zurück
-     * @param apiurl URL zu API Service
-     * @param path Pfad des Node welcher angefordert wird
-     * @param allowedextensions Erlaubte Extensions die angezeigt werden dürfen
+     * Returns a node
+     * @param apiurl URL to API Service
+     * @param path Path of the node being requested
+     * @param allowedextensions Allowed extensions that may be displayed
+     * @returns Observable containing the node response
      */
     public GetNode(apiurl: string, path: string, allowedextensions: string): Observable<IBrowserNodeResponse> {
         const url = `${apiurl}/getnodes`;
@@ -226,11 +230,12 @@ export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService 
     }
 
     /**
-     * Methode welche eine Datei umbenannt
-     * @param apiurl URL zu API Service
-     * @param path Pfad zum File welches umbenannt werden soll
-     * @param newFilename Neuer Dateiname
-     * @param allowedextensions Erlaubte Extension für Files
+     * Method that renames a file
+     * @param apiurl URL to API Service
+     * @param path Path to the file to be renamed
+     * @param newFilename New filename
+     * @param allowedextensions Allowed extension for files
+     * @returns Observable containing the file response after rename
      */
     public RenameFile(
         apiurl: string,
@@ -256,10 +261,11 @@ export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService 
     }
 
     /**
-     * Rename eines Nodes
-     * @param apiurl URL zu API Service
-     * @param path Pfad des Nodes welcher umbenannt werden soll
-     * @param newFoldername Neuer Name des Nodes
+     * Rename a node
+     * @param apiurl URL to API Service
+     * @param path Path of the node to be renamed
+     * @param newFoldername New name of the node
+     * @returns Observable containing the node response after rename
      */
     public RenameNode(apiurl: string, path: string, newFoldername: string): Observable<IBrowserNodeResponse> {
         const url = `${apiurl}/renamenode`;
@@ -279,11 +285,12 @@ export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService 
     }
 
     /**
-     * Speichert eine Hochgeladene Datei in der Struktur
-     * @param apiurl URL zu API Service
-     * @param path Pfad in welchem das neue File gespeichert werden soll
-     * @param id ID des Uploads
-     * @param allowedextensions Erlaubte Extensions für den Upload
+     * Saves an uploaded file in the structure
+     * @param apiurl URL to API Service
+     * @param path Path where the new file should be saved
+     * @param id ID of the upload
+     * @param allowedextensions Allowed extensions for the upload
+     * @returns Observable containing the file response after save
      */
     public SaveFile(
         apiurl: string,
@@ -309,10 +316,11 @@ export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService 
     }
 
     /**
-     * Speichert einen Node
-     * @param apiurl URL zu API Service
-     * @param path Pfad in welchem der Node gespeichert werden soll
-     * @param newFoldername Name des neuen Nodes
+     * Saves a node
+     * @param apiurl URL to API Service
+     * @param path Path where the node should be saved
+     * @param newFoldername Name of the new node
+     * @returns Observable containing the node response after save
      */
     public SaveNode(apiurl: string, path: string, newFoldername: string): Observable<IBrowserNodeResponse> {
         const url = `${apiurl}/newnode`;

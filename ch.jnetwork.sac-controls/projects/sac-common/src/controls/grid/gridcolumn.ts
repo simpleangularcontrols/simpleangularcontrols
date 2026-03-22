@@ -11,7 +11,7 @@ export class SacGridColumnCommon extends SacGridColumnBaseCommon {
     // #region Properties
 
     /**
-     *  Defines whether the CSS class ellipsis is set.
+     * Defines whether the CSS class ellipsis is set.
      */
     private _ellipsis = false;
 
@@ -21,6 +21,9 @@ export class SacGridColumnCommon extends SacGridColumnBaseCommon {
 
     /**
      * Constructor
+     * @param grid Reference to parent grid component
+     * @param injector Service injector for dependency resolution
+     * @param el Reference to host element
      */
     constructor(grid: SacGridCommon, injector: Injector, el: ElementRef) {
         super(grid, injector, el);
@@ -51,6 +54,7 @@ export class SacGridColumnCommon extends SacGridColumnBaseCommon {
 
     /**
      * Checks whether ellipsis is set
+     * @returns Boolean indicating whether ellipsis is set
      */
     public IsEllipsis(): boolean {
         return this._ellipsis;

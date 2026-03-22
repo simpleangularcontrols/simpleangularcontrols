@@ -7,19 +7,19 @@ import * as IMask from 'imask';
 import * as moment_ from 'moment';
 
 /**
- * Komponente für SacTimeCommon. Extends SacBaseDateTimeControl
+ * Component for SacTimeCommon. Extends SacBaseDateTimeControl
  */
 @Directive()
 export class SacTimeCommon extends SacBaseDateTimeControl {
     // #region Properties
 
     /**
-     * Format des Datums
+     * Date format
      */
     public readonly TIMEFORMAT: string = 'HH:mm';
 
     /**
-     * Maske
+     * Mask
      */
     public readonly imaskDate = {
         mask: this.TIMEFORMAT,
@@ -59,22 +59,22 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
     public moment = moment_['default'];
 
     /**
-     * Resource Key für Validation Message MinTime bei Control
+     * Resource Key for Validation Message MinTime at Control
      */
     @Input() public validationmessagemaxtime: string = this.validationKeyService.ValidationErrorMaxTime;
 
     /**
-     * Resource Key für Validation Message MinTime bei Control
+     * Resource Key for Validation Message MinTime at Control
      */
     @Input() public validationmessagemintime: string = this.validationKeyService.ValidationErrorMinTime;
 
     /**
-     * Resource Key für Validation Message MinTime in Validation Summary
+     * Resource Key for Validation Message MinTime in Validation Summary
      */
     @Input() public validationmessagesummarymaxtime: string = this.validationKeyService.ValidationErrorSummaryMaxTime;
 
     /**
-     * Resource Key für Validation Message MinTime in Validation Summary
+     * Resource Key for Validation Message MinTime in Validation Summary
      */
     @Input() public validationmessagesummarymintime: string = this.validationKeyService.ValidationErrorSummaryMinTime;
 
@@ -86,7 +86,8 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
      * Constructor
      * @param formlayout SacFormLayoutCommon to define scoped layout settings
      * @param injector Injector for injecting services
-     * @param elementRef reference to html element
+     * @param elementRef Reference to html element
+     * @param cdRef Change detector reference for updating component view
      */
     constructor(
         formlayout: SacFormLayoutCommon,
@@ -145,14 +146,17 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
     // #region Public Methods
 
     /**
-     * Methode ergibt Datum-Format vom String
+     * Method returns date format from string
      */
     public GetDateTimeFormatString(): string {
         return this.TIMEFORMAT;
     }
 
     /**
-     * Methode ergibt Datum - Moment
+     * Normalizes a parsed moment date to a base timeline context (year 1900, month January, day 1).
+     *
+     * @param v Parsed moment object.
+     * @returns Normalized moment object for internal comparison and validation.
      */
     public ModifyParsedDateTimeValue(v: moment_.Moment): moment_.Moment {
         v.date(1);
@@ -167,6 +171,7 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
     @HostListener('document:click', ['$event.target'])
     /**
      * Click Event
+     * @param targetElement The target element from the click event
      */
     public onClick(targetElement) {
         if (!this.pickercontainer) {
@@ -181,10 +186,10 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
     }
 
     /**
-     * Zeigt Date Selector an
+     * Shows time selector
      */
     public showTimeSelector(): void {
-        // Touch Event auslösen
+        // Trigger a touch event
         this.onTouch();
 
         if (this._showselector) {
@@ -196,6 +201,7 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
 
     /**
      * Time Selector
+     * @param v Selected time value object
      */
     public timeselect(v: any) {
         if (v.date === null) {
@@ -208,7 +214,12 @@ export class SacTimeCommon extends SacBaseDateTimeControl {
     }
 
     /**
-     * Validator
+     * Validates the input control value against min/max time constraints.
+     *
+     * Delegates to base validation and applies minTime/maxTime validations when applicable.
+     *
+     * @param c AbstractControl instance to validate.
+     * @returns ValidationErrors object when invalid, otherwise null.
      */
     public validateData(c: AbstractControl): ValidationErrors | null {
         let error: ValidationErrors | null = null;

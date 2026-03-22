@@ -1,6 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { ControlHeight } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Converts ControlHeight values into bootstrap height CSS classes.
+ */
 @Pipe({
     name: 'toControlHeight',
 })

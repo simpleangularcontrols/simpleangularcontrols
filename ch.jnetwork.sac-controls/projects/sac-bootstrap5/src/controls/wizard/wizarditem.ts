@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SacWizardItemCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Wizard Komponente Item
+ * Wizard component item
  */
 @Component({
     selector: 'sac-wizarditem',

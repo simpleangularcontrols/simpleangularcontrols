@@ -4,7 +4,7 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacDropzoneSingleCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Dropzone Komponente für den Upload eines Files
+ * Dropzone component for uploading a single file
  * @see https://github.com/kukhariev/ngx-uploadx/
  */
 @Component({
@@ -48,7 +48,7 @@ export class SacDropzoneSingleComponent extends SacDropzoneSingleCommon implemen
     // #region Public Methods
 
     /**
-     * Initialisiert das Control
+     * Initialize the control
      */
     public ngOnInit() {
         super.ngOnInit();

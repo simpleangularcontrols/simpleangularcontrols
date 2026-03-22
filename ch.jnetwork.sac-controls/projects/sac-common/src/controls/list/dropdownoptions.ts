@@ -3,14 +3,14 @@ import { SacDropdownCommon } from './dropdown';
 import { Directive, ElementRef, Input, OnDestroy, Renderer2 } from '@angular/core';
 
 /**
- * SacDropdownOption-Klasse
+ * SacDropdownOption class
  */
 @Directive()
 export class SacDropdownOptionCommon implements OnDestroy {
     // #region Properties
 
     /**
-     * ID-String
+     * ID string
      */
     private id: string = null;
 
@@ -19,10 +19,10 @@ export class SacDropdownOptionCommon implements OnDestroy {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param _element Referenz auf HTML Element
-     * @param _renderer Render Engine
-     * @param _dropdown Dropdown Instanz
+     * Constructor
+     * @param _element Reference to HTML element
+     * @param _renderer Render engine
+     * @param _dropdown Dropdown instance
      */
     constructor(
         private _element: ElementRef,
@@ -43,7 +43,7 @@ export class SacDropdownOptionCommon implements OnDestroy {
      */
     @Input()
     public set ngValue(value: any) {
-        // Cancel wenn kein Parent Dropdown vorhanden
+        // Cancel if no parent dropdown available
         if (this._dropdown == null) {
             return;
         }
@@ -55,7 +55,7 @@ export class SacDropdownOptionCommon implements OnDestroy {
     }
 
     /**
-     * Wert-Setter
+     * Value setter
      */
     @Input()
     public set value(value: any) {
@@ -67,15 +67,15 @@ export class SacDropdownOptionCommon implements OnDestroy {
     // #region Public Methods
 
     /**
-     * Den Wert vom Option-Element einstellen
-     * @param value Wert
+     * Set the value of the option element
+     * @param value Value
      */
     public _setElementValue(value: string): void {
         this._renderer.setProperty(this._element.nativeElement, 'value', value);
     }
 
     /**
-     * OnDestroy Event
+     * OnDestroy event
      */
     public ngOnDestroy(): void {
         if (this._dropdown) {

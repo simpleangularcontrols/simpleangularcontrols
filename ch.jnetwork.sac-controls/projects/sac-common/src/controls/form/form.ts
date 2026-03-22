@@ -4,14 +4,14 @@ import { AbstractControl, FormGroup, NgForm } from '@angular/forms';
 // #region Exported Classes
 
 /**
- * Base Komponente für SacFormular
+ * Base component for SacForm
  */
 @Directive()
 export class SacFormCommon {
     // #region Properties
 
     /**
-     * Standardwert wann die Werte via NgModel aktualisiert werden
+     * Default value for when values are updated via NgModel
      */
     private _updateon: FormHooks = 'change';
 
@@ -20,8 +20,8 @@ export class SacFormCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param form Instanz von NgForm
+     * Constructor
+     * @param form Instance of NgForm
      */
     constructor(private form: NgForm) {
         this.form.options = { updateOn: this._updateon };
@@ -31,12 +31,15 @@ export class SacFormCommon {
 
     // #region Public Getters And Setters
 
+    /**
+     * Returns the update strategy used by the form.
+     */
     public get updateon(): FormHooks {
         return this._updateon;
     }
 
     /**
-     * Definiert, wenn das Model geupdatet wird
+     * Defines when the model is updated
      */
     @Input()
     public set updateon(v: FormHooks) {
@@ -49,14 +52,15 @@ export class SacFormCommon {
     // #region Public Methods
 
     /**
-     * Gibt die NgForm Instanz zurück
+     * Returns the NgForm instance
+     * @returns The NgForm instance
      */
     public getForm(): NgForm {
         return this.form;
     }
 
     /**
-     * Markiert alle Controls innerhalb des Formulares als Touched
+     * Marks all controls within the form as touched
      */
     public markAsTouched(): void {
         if (this.form && this.form.invalid) {
@@ -65,7 +69,8 @@ export class SacFormCommon {
     }
 
     /**
-     * Aktualisiert die Werte und den Gültigkeitsstatus des Formulars
+     * Updates the values and validity status of the form
+     * @param markAsTouched If true, all controls are marked as touched after validation update.
      */
     public updateValueAndValidity(markAsTouched = true): void {
         // Update all Controls
@@ -84,8 +89,8 @@ export class SacFormCommon {
     // #region Private Methods
 
     /**
-     * Markiert alle Controls inkl. dem Tree als Touched
-     * @param controls Controls Collection
+     * Marks all controls including the tree as touched
+     * @param controls Controls collection
      */
     private markAsTouchedInternal(controls: { [key: string]: AbstractControl }) {
         const keyList: string[] = Object.keys(controls);
@@ -101,8 +106,8 @@ export class SacFormCommon {
     }
 
     /**
-     * Aktualisiert die Werte und die gültigkeit des Formulars
-     * @param controls Controls Collection
+     * Updates the values and validity of the form
+     * @param controls Controls collection
      */
     private updateValueAndValidityInternal(controls: { [key: string]: AbstractControl }) {
         const keyList: string[] = Object.keys(controls);

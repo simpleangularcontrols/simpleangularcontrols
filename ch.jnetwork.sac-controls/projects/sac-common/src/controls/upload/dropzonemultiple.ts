@@ -5,42 +5,42 @@ import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { UploadState } from 'ngx-uploadx';
 
 /**
- * Upload Komponente für ein einzelnes File
+ * Upload component for multiple files
  */
 @Directive()
 export class SacDropzoneMultipleCommon extends SacUploadBase<string[]> implements OnInit {
     // #region Properties
 
     /**
-     * Property wenn Drag Event aktiv ist (Maus über Zone)
+     * Property when drag event is active (mouse over zone)
      */
     public active = false;
 
     /**
-     * Max. Anzahl Files die hochgeladen werden können
+     * Max. number of files that can be uploaded
      */
     @Input()
     public maxfiles = 0;
 
     /**
-     * Min. Anzahl Files die hochgeladen werden müssen
+     * Min. number of files that must be uploaded
      */
     @Input()
     public minfiles = 0;
 
     /**
-     * Höhe des Upload Controls
+     * Height of the upload control
      */
     @Input()
     public uploadheight: string = null;
 
     /**
-     * Resource Key für Validation Message Required bei Control
+     * Resource Key for Validation Message Required at Control
      */
     @Input() public validationmessageminfiles: string = this.validationKeyService.ValidationErrorFilesMin;
 
     /**
-     * Resource Key für Validation Message Required in Validation Summary
+     * Resource Key for Validation Message Required in Validation Summary
      */
     @Input()
     public validationmessagesummaryminfiles: string = this.validationKeyService.ValidationErrorSummaryFilesMin;
@@ -50,9 +50,9 @@ export class SacDropzoneMultipleCommon extends SacUploadBase<string[]> implement
     // #region Public Methods
 
     /**
-     * Prüft ob die max. Files in der Queue nicht überschritten werden
+     * Checks if the max. files in the queue are not exceeded
      *
-     * @param file File das hinzugefügt wurde
+     * @param file File that was added
      */
     public CustomAddValidation(file: UploadState): boolean {
         if (this.maxfiles > 0 && this.uploads.length >= this.maxfiles) {
@@ -64,9 +64,9 @@ export class SacDropzoneMultipleCommon extends SacUploadBase<string[]> implement
     }
 
     /**
-     * Setzt die File ID's der hochgeladen Files in das Model
+     * Sets the file IDs of the uploaded files into the model
      *
-     * @param file ID des Files welches hochgeladen wurde.
+     * @param file ID of the file that was uploaded.
      */
     public SetUploadValue(file: UploadState) {
         let documentid: string = null;
@@ -84,7 +84,7 @@ export class SacDropzoneMultipleCommon extends SacUploadBase<string[]> implement
                 documentid = file.uploadId;
             }
 
-            // Document ID aktualisieren, damit Wert von Server in Model gesetzt werden kann.
+            // Update document ID so that value from server can be set in model.
             this.uploads
                 .filter((itm) => itm !== null && itm.uploadId === file.uploadId)
                 .forEach((itm) => {
@@ -112,7 +112,7 @@ export class SacDropzoneMultipleCommon extends SacUploadBase<string[]> implement
     }
 
     /**
-     * Methode für Drag and Drop von Files
+     * Method for drag and drop of files
      * @param event Drag Event
      */
     public dropHandler(event: DragEvent): void {
@@ -125,7 +125,7 @@ export class SacDropzoneMultipleCommon extends SacUploadBase<string[]> implement
     }
 
     /**
-     * Ervent wenn das Control initialisert wird
+     * Event when the control is initialized
      */
     public ngOnInit() {
         super.ngOnInit();
@@ -134,7 +134,7 @@ export class SacDropzoneMultipleCommon extends SacUploadBase<string[]> implement
     }
 
     /**
-     * Methode wenn Drag die Zone verlässt
+     * Method when drag leaves the zone
      * @param event DragLeave Event
      */
     public onDragLeave(event: DragEvent): void {
@@ -142,7 +142,7 @@ export class SacDropzoneMultipleCommon extends SacUploadBase<string[]> implement
     }
 
     /**
-     * Methode wenn Drag in die Zone eintritt
+     * Method when drag enters the zone
      * @param event DragEnter Event
      */
     public onDragOver(event: DragEvent): void {
@@ -160,7 +160,7 @@ export class SacDropzoneMultipleCommon extends SacUploadBase<string[]> implement
     }
 
     /**
-     * Validiert das Control
+     * Validates the control
      *
      * @param c Control
      */

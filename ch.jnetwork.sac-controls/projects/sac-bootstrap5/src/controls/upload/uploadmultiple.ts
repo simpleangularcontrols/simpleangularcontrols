@@ -4,7 +4,7 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacUploadMultipleCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Upload Komponente für den Upload mehrer Files
+ * Upload component for uploading multiple files
  * @see https://github.com/kukhariev/ngx-uploadx/
  */
 @Component({

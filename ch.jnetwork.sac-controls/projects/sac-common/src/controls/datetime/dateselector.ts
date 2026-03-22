@@ -7,38 +7,38 @@ import moment, { Moment } from 'moment';
 // #region Classes
 
 /**
- *Basis Komponente für DateSelectorItem
+ * Base component for DateSelectorItem
  */
 class DateSelectorItem {
     // #region Properties
 
     /**
-     * Datum
+     * Date
      */
     public date: Date = undefined;
 
     /**
-     * DisplayText Property; default Wert - ''
+     * DisplayText property; default value - ''
      */
     public displaytext = '';
 
     /**
-     * Boolean Property, die zeigt, ob das Element aktuell ist; default Wert - false
+     * Boolean property indicating if the element is current; default value - false
      */
     public iscurrent = false;
 
     /**
-     * Boolean Property, die zeigt, ob das Control enabled ist; default Wert - false
+     * Boolean property indicating if the control is enabled; default value - false
      */
     public isenabled = false;
 
     /**
-     * Boolean Property, die zeigt, ob das Element neu ist; default Wert - false
+     * Boolean property indicating if the element is new; default value - false
      */
     public isnew = false;
 
     /**
-     * Boolean Property, die zeigt, ob das Element selektiert ist; default Wert - false
+     * Boolean property indicating if the element is selected; default value - false
      */
     public isselected = false;
 
@@ -47,13 +47,13 @@ class DateSelectorItem {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param displaytext Anzeigetext
-     * @param date Datum
-     * @param isenabled Element ist aktiv
-     * @param isselected Element ist selektiert
-     * @param iscurrent Element ist aktuelles Element
-     * @param isnew Element ist neu
+     * Constructor
+     * @param displaytext Display text
+     * @param date Date
+     * @param isenabled Element is active
+     * @param isselected Element is selected
+     * @param iscurrent Element is current
+     * @param isnew Element is new
      */
     constructor(
         displaytext: string,
@@ -79,24 +79,24 @@ class DateSelectorItem {
 // #region Exported Classes
 
 /**
- *Basis Komponente für SacDateSelector
+ * Base component for SacDateSelector
  */
 @Directive()
 export class SacDateSelectorCommon implements OnInit {
     // #region Properties
 
     /**
-     * Ursprüngliches Datum
+     * Initial date
      */
     private _initialValue: Moment | null;
 
     /**
-     * Aktuell gewähltes Datum
+     * Currently selected date
      */
     private _selectedValue: Moment | null;
 
     /**
-     * Anfang des Kalenders
+     * Beginning of the calendar
      */
     private beginOfCalendar = 1;
 
@@ -106,18 +106,18 @@ export class SacDateSelectorCommon implements OnInit {
     private iconService: ISacIconService;
 
     /**
-     * Boolean Property für automatische Selektierung; default Wert - false
+     * Boolean property for automatic selection; default value - false
      */
     @Input()
     public autoapplyselection = false;
 
     /**
-     * Array von Daten
+     * Array of dates
      */
     public dates: DateSelectorItem[][] = [];
 
     /**
-     * Datum Selector
+     * Date selector
      */
     @Input()
     public dateselection = false;
@@ -129,7 +129,7 @@ export class SacDateSelectorCommon implements OnInit {
     public e2eidentifier: string | null = null;
 
     /**
-     * Monat
+     * Month
      */
     @Input()
     public month = 4;
@@ -141,19 +141,19 @@ export class SacDateSelectorCommon implements OnInit {
     public name: string = createGuid();
 
     /**
-     * Output Event beim Datum Selektieren
+     * Output event when date is selected
      */
     @Output()
     public selectdate = new EventEmitter<any>();
 
     /**
-     * Time Selector
+     * Time selector
      */
     @Input()
     public timeselection = false;
 
     /**
-     * Jahr
+     * Year
      */
     @Input()
     public year = 2018;
@@ -162,6 +162,10 @@ export class SacDateSelectorCommon implements OnInit {
 
     // #region Constructors
 
+    /**
+     * Constructor
+     * @param injector Service injector for dependency resolution
+     */
     constructor(injector: Injector) {
         this.iconService = injector.get(SACICON_SERVICE, new SacDefaultIconService());
     }
@@ -185,7 +189,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Input für ursprüngliches Datum
+     * Input for initial date
      */
     @Input()
     public get initialvalue(): Date {
@@ -213,7 +217,7 @@ export class SacDateSelectorCommon implements OnInit {
     // #region Public Methods
 
     /**
-     * Selektierung übernehmen
+     * Apply selection
      */
     public applySelection(): void {
         if (this.timeselection === false && this._selectedValue !== null) {
@@ -242,7 +246,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Modus ändern
+     * Change mode
      */
     public changeMode(): void {
         if (this.beginOfCalendar === 0) {
@@ -255,7 +259,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Getter für Stunden Uhrzeit
+     * Getter for hour of time
      */
     public getHours(): number {
         if (this._selectedValue === null) {
@@ -273,7 +277,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Getter für Minuten Uhrzeit
+     * Getter for minute of time
      */
     public getMinutes(): number {
         if (this._selectedValue === null) {
@@ -291,7 +295,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Vorheriger Monat
+     * Previous month
      */
     public monthBack(): void {
         this.month = this.month - 1;
@@ -305,7 +309,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Nächster Monat
+     * Next month
      */
     public monthNext(): void {
         this.month = this.month + 1;
@@ -319,7 +323,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Init Event
+     * Init event
      */
     public ngOnInit() {
         /**
@@ -333,7 +337,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Selektierung resetten
+     * Reset selection
      */
     public resetSelection(): void {
         this.selectdate.emit({
@@ -342,7 +346,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Methode ergibt das selektierte Datum
+     * Method returns the selected date
      */
     public selectDate(v: DateSelectorItem): void {
         if (v.isenabled) {
@@ -355,7 +359,7 @@ export class SacDateSelectorCommon implements OnInit {
 
             const dateValue: Moment = moment(v.date);
 
-            // Übernehmen der Zeit aus dem bestehenden Wert
+            // Transfer the time from the existing value
             if (this._selectedValue === null) {
                 if (this._initialValue !== null) {
                     dateValue.hour(this._initialValue.hour());
@@ -378,7 +382,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Setter für Stunden Uhrzeit
+     * Setter for hour of time
      */
     public setHours(v: number | null): void {
         if (v >= 24) {
@@ -397,7 +401,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Setter für Minuten Uhrzeit
+     * Setter for minute of time
      */
     public setMinutes(v: number | null): void {
         if (v >= 60) {
@@ -417,7 +421,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Auswahl auf aktuelle Zeit stellen
+     * Set selection to current time
      */
     public setToday(): void {
         this._selectedValue = moment();
@@ -445,23 +449,23 @@ export class SacDateSelectorCommon implements OnInit {
     // #region Private Methods
 
     /**
-     * Ursprünglicher Kalender
+     * Initial calendar
      */
     private initCalendar(v: Moment) {
         /**
-         * Monat und Jahr setzen
+         * Set month and year
          */
         this.month = v.month();
         this.year = v.year();
 
         /**
-         * Daten für Kalender initialiseren
+         * Initialize data for calendar
          */
         this.initDates();
     }
 
     /**
-     * Initial Datum
+     * Initial date
      */
     private initDates(): void {
         const currentMonth = moment(new Date(this.year, this.month, 1));
@@ -504,14 +508,14 @@ export class SacDateSelectorCommon implements OnInit {
             }
         }
 
-        // Add all Days in Month
+        // Add all days in month
         for (let dayinmonth = 1; dayinmonth <= currentMonth.daysInMonth(); dayinmonth++) {
             let isSelectedDate = false;
             let isNewDate = false;
             const isCurrentDate: boolean =
                 moment().month() === this.month && moment().year() === this.year && moment().date() === dayinmonth;
 
-            // Initial Wert setzen, falls vorhanden
+            // Set initial value if present
             if (this._initialValue !== null) {
                 isSelectedDate =
                     this._initialValue.month() === this.month &&
@@ -519,7 +523,7 @@ export class SacDateSelectorCommon implements OnInit {
                     this._initialValue.date() === dayinmonth;
             }
 
-            // Selected Date Wert setzen, falls Wert gesetzt
+            // Set selected date value if set
             if (this._selectedValue !== null) {
                 isNewDate =
                     this._selectedValue.month() === this.month &&
@@ -580,15 +584,18 @@ export class SacDateSelectorCommon implements OnInit {
         }
     }
 
+    /**
+     * Initializes the selected date value with initial or current date
+     */
     private initSelectedValue() {
         /**
-         * Select Value setzen falls leer
+         * Set select value if empty
          */
         if (this._selectedValue === null) {
             if (this._initialValue === null) {
                 this._selectedValue = moment();
                 /**
-                 * clean seconds and miliseconds for initial values
+                 * Clean seconds and milliseconds for initial values
                  */
                 this._selectedValue.second(0);
                 this._selectedValue.millisecond(0);

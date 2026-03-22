@@ -3,6 +3,14 @@ import { AbstractControl, ValidationErrors, ValidatorFn, Validators } from '@ang
 
 // #region Exported Functions
 
+/**
+ * Returns a validator that checks if the control value is <= maxvalue.
+ *
+ * @param maxvalue Maximum allowed numeric value.
+ * @param validationMessage Message shown when value is too large.
+ * @param validationMessageSummary Summary message shown when value is too large.
+ * @returns Validator function for maximum value validation.
+ */
 export function maxValueValidator(
     maxvalue: number,
     validationMessage: string,

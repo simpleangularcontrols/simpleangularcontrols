@@ -6,6 +6,14 @@ import moment from 'moment';
 
 // #region Exported Functions
 
+/**
+ * Returns a validator that checks if the control time is <= maxTime.
+ *
+ * @param maxTime Maximum allowed time.
+ * @param validationMessage Message shown when time is too late.
+ * @param validationMessageSummary Summary message shown when time is too late.
+ * @returns Validator function for maximum time validation.
+ */
 export function maxTimeValidator(
     maxTime: Date,
     validationMessage: string,
@@ -14,7 +22,7 @@ export function maxTimeValidator(
     return (control: AbstractControl): ValidationErrors | null => {
         const ctl = control as unknown as IDateTimeControl;
 
-        // Check abbrechen, wenn kein gültiges Datum
+        // Cancel check if no valid date
         if (!isDateValid(ctl.value, ctl.datetimeformatstring) || maxTime === null) {
             return null;
         }

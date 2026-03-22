@@ -15,18 +15,30 @@ export class DemoDialogComponent {
 
     // #region Public Methods
 
+    /**
+     * Hides the first dialog.
+     */
     public hideVisibile1() {
         this.isvisible1 = false;
     }
 
+    /**
+     * Hides the second dialog.
+     */
     public hideVisibile2() {
         this.isvisible2 = false;
     }
 
+    /**
+     * Shows the first dialog.
+     */
     public showVisibile1(): void {
         this.isvisible1 = true;
     }
 
+    /**
+     * Shows the second dialog.
+     */
     public showVisibile2(): void {
         this.isvisible2 = true;
     }

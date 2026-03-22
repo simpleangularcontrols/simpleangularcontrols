@@ -1,11 +1,11 @@
 /**
- * Klasse für API Request zum löschen eines Nodes
+ * Class for API request to delete a node
  */
 export class BrowserNodeDeleteRequest {
     // #region Properties
 
     /**
-     * Pfad
+     * Path
      */
     public Path: string;
 
@@ -14,8 +14,8 @@ export class BrowserNodeDeleteRequest {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param init Initiale Werte
+     * Constructor
+     * @param init Initial values
      */
     constructor(init?: Partial<BrowserNodeDeleteRequest>) {
         Object.assign(this, init);

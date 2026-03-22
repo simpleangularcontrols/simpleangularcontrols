@@ -122,7 +122,7 @@ export abstract class SacAbstractLocalisationService implements ISacLocalisation
     // #region Public Methods
 
     /**
-     * Die Methode übersetzt den eingegebenen Wort/Begriff. Verlangt key und optionell params
+     * The method translates the provided word/term. Requires a key and optional params
      */
     public abstract GetString(key: string, params?: any): Observable<string>;
 
@@ -137,7 +137,7 @@ export class SacDefaultLocalisationService extends SacAbstractLocalisationServic
     // #region Properties
 
     /**
-     * Language Resources für Controls Library
+     * Language resources for the controls library
      */
     public data: Map<string, Map<string, string>> = new Map<string, Map<string, string>>();
 
@@ -146,8 +146,9 @@ export class SacDefaultLocalisationService extends SacAbstractLocalisationServic
     // #region Constructors
 
     /**
-     * Konstruktor
-     * */
+     * Constructor
+     * @param validationKeyService Service for validation key localization
+     */
     constructor(
         @Inject(SACVALIDATIONKEY_SERVICE)
         private validationKeyService: ISacValidationKeyService
@@ -483,7 +484,10 @@ export class SacDefaultLocalisationService extends SacAbstractLocalisationServic
     // #region Public Methods
 
     /**
-     * Die Methode ergibt die selecte Sprache (string)  anhand von Key und Params
+     * The method returns the selected language (string) based on key and params
+     * @param key The resource key to retrieve
+     * @param params Optional parameters for string interpolation
+     * @returns Observable string with the localized resource
      */
     public GetString(key: string, params?: any): Observable<string> {
         return new Observable<string>((observer) => {
@@ -525,14 +529,14 @@ export class SacDefaultLocalisationService extends SacAbstractLocalisationServic
     // #region Private Methods
 
     /**
-     * Die Funktion setzt die default Sprache auf DE, falls die Sprach-Setzung nicht möglich ist.
+     * The function sets the default language to DE if language setting is not possible.
      */
     private GetFallbackLanguage(): string {
         return 'de';
     }
 
     /**
-     * Die Funktion ergibt die ausgewählte Sprache.
+     * The function returns the selected language.
      */
     private GetLanguage(): string {
         const language: string = navigator.language;

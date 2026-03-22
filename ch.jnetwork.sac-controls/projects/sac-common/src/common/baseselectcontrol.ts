@@ -2,19 +2,19 @@ import { SacBaseListControl } from './baselistcontrol';
 import { Directive, Input } from '@angular/core';
 
 /**
- * Abstract Klasse für SacBaseSelectControl. Extendes SacBaseListControl
+ * Abstract class for SacBaseSelectControl. Extends SacBaseListControl
  */
 @Directive()
 export abstract class SacBaseSelectControl<VALUE> extends SacBaseListControl<VALUE> {
     // #region Properties
 
     /**
-     * Definiert die Collection der Items im Group Element
+     * Defines the collection of items in the group element
      */
     @Input() public groupitems = '';
 
     /**
-     * Definiert das Label für das Group Element
+     * Defines the label for the group element
      */
     @Input() public grouplabel = 'label';
 

@@ -1,13 +1,13 @@
 import { isDefined } from './datatypes';
 
 /**
- *  Klasse zum ersetzen von Platzhaltern in Strings
+ * Class for replacing placeholders in strings
  */
 export class Interpolation {
     // #region Properties
 
     /**
-     *  Template zum Parsen der Platzhalter
+     * Template for parsing placeholders
      */
     private templateMatcher = /{{\s?([^{}\s]*)\s?}}/g;
 
@@ -16,9 +16,10 @@ export class Interpolation {
     // #region Public Methods
 
     /**
-     * Platzhalter in String ersetzen
-     * @param text Text in welchem die Platzhalter ersetzt werden
-     * @param params Objekt mit Parameter.
+     * Replace placeholders in string
+     * @param text Text in which placeholders are replaced
+     * @param params Object with parameters
+     * @returns The interpolated string with placeholders replaced
      */
     public interpolateString(text: string, params?: any) {
         if (!params) {
@@ -36,9 +37,9 @@ export class Interpolation {
     // #region Private Methods
 
     /**
-     * Wert aus Objekt in Objekt oder Objektstruktur lesen
-     * @param target Objekt das zu parsen ist.
-     * @param key Key nach welchem gesucht wird. Navigation in Properties des Objekt mit einem Punkt.
+     * Read value from object in object or object structure
+     * @param target Object to be parsed.
+     * @param key Key to search for. Navigation in object properties with a dot.
      */
     private getValue(target: any, key: string): any {
         const keys = key.split('.');

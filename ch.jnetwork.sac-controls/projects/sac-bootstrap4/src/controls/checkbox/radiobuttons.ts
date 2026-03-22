@@ -9,12 +9,12 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacRadiobuttonsCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 /**
- * Radiobuttons Group Komponente
+ * Radiobuttons Group component
  */
 @Component({
     selector: 'sac-radiobuttons',
     templateUrl: './radiobuttons.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register value access provider so that value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -42,7 +42,7 @@ export class SacRadiobuttonsComponent extends SacRadiobuttonsCommon {
     // #region Constructors
 
     /**
-     *
+     * Initializes the radiobutton group control with layout context and dependency injector.
      * @param formLayout SacFormLayout to define scoped layout settings
      * @param injector Injector for injecting services
      */

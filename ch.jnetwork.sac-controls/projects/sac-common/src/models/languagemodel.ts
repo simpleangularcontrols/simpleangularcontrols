@@ -1,28 +1,28 @@
 import { IconType } from '../enums/IconType';
 
 /**
- * Model für Sprachen
+ * Model for languages
  */
 export class LanguageModel {
     // #region Properties
 
     /**
-     * Icon für Sprache
+     * Icon for language
      */
     public Icon: string;
 
     /**
-     * Typ des Icons. Default ist Image
+     * Type of the icon. Default is Image
      */
     public IconType: IconType = IconType.Image;
 
     /**
-     * ISO Code zu Sprache
+     * ISO Code for language
      */
     public IsoCode: string;
 
     /**
-     * Bezeichnung für Sprache
+     * Designation for language
      */
     public Text: string;
 

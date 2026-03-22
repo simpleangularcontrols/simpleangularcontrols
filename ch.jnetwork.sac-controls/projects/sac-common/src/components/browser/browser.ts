@@ -20,14 +20,14 @@ import { Directive, EventEmitter, HostListener, Injector, Input, OnInit, Output 
 import { Observable } from 'rxjs';
 
 /**
- * Base Component für File Browser
+ * Base component for file browser
  */
 @Directive()
 export abstract class SacFileBrowserCommon implements OnInit {
     // #region Properties
 
     /**
-     * Service für File Browser Zugriff (Backend)
+     * Service for file browser access (backend)
      */
     private browserService: ISacFileBrowserService;
 
@@ -37,72 +37,71 @@ export abstract class SacFileBrowserCommon implements OnInit {
     private iconService: ISacIconService;
 
     /**
-     * File welches beim starten des Browsers bereits selektiert ist
+     * File that is already selected when the browser starts
      */
     private preselecedfile: string | null = null;
 
     /**
-     * Erlaubte Dateierweiterungen für Fileauswahl und Upload. Dateierweiterung mit Punkt und
-     * getrennt durch Komma für mehr als eine Erweiterung (Example: ".jpg,.gif")
+     * Allowed file extensions for file selection and upload. Use dot notation, separated by commas for multiple extensions (Example: ".jpg,.gif")
      */
     @Input()
     public allowedtypes = '';
 
     /**
-     * Erlaubt das löschen einer Datei
+     * Allows deleting a file
      */
     @Input()
     public allowfiledelete = true;
 
     /**
-     * Erlaubt das umbenennen einer Datei
+     * Allows renaming a file
      */
     @Input()
     public allowfilerename = true;
 
     /**
-     * Erlaubt den Upload von Dateien
+     * Allows uploading files
      */
     @Input()
     public allowfileupload = true;
 
     /**
-     * Erlaubt das erstellen eines neuen Ordners
+     * Allows creating a new folder
      */
     @Input()
     public allowfoldercreate = true;
 
     /**
-     * Erlaubt das löschen eines Ordners
+     * Allows deleting a folder
      */
     @Input()
     public allowfolderdelete = true;
 
     /**
-     * Erlaubt das Umbenennen eines Ordners
+     * Allows renaming a folder
      */
     @Input()
     public allowfolderrename = true;
 
     /**
-     * URL für Backend API
+     * URL for the backend API
      */
     @Input()
     public apiurl: string;
 
     /**
-     * Output Emitter wenn File selektiert wird.
+     * Output emitter when a file is selected.
      */
     @Output()
     public file: EventEmitter<string> = new EventEmitter<string>();
 
     /**
-     * Service für Error Localisation
+     * Service for error localisation
      */
     public lngResourceService: ISacLocalisationService;
 
     /**
-     * Root Node Item für Tree
+     * Root node item for the tree
      */
     public rootNode: IBrowserNode = {
         Name: '',
@@ -144,7 +143,7 @@ export abstract class SacFileBrowserCommon implements OnInit {
     // #region Constructors
 
     /**
-     * Konstruktor
+     * Constructor
      * @param httpclient Angular HTTP Client
      * @param injector Service Injector
      */
@@ -180,7 +179,7 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * CSS icon for folders in tree there are collabsed
+     * CSS icon for folders in tree that are collapsed
      * @returns css class with icon
      */
     public get iconFolderCollabsed(): string {
@@ -220,7 +219,7 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Getter für Selected File. Ist an Input Property gebunden
+     * Getter for selected file. Bound to an input property
      */
     public get selectedfile(): string | null {
         if (this.selectFile && this.selectFile.length > 0) {
@@ -231,7 +230,7 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Setzt den Seleced Node über den Pfad
+     * Sets the selected node by the path
      */
     @Input()
     public set selectedfile(v: string | null) {
@@ -249,22 +248,20 @@ export abstract class SacFileBrowserCommon implements OnInit {
     // #region Public Methods
 
     /**
-     * Abstrakte Confirm Methode welche implementiert werden muss. Methode wird aufgerufen, wenn eine
-     * Datei gelöscht werden soll.
-     * @param file File für welches ein Delete Confirm eingefordert werden soll
+     * Abstract confirm method that must be implemented. Called when a file should be deleted.
+     * @param file File for which a delete confirmation should be requested
      */
     public abstract confirmDeleteFile(file: IBrowserFile): Observable<boolean>;
 
     /**
-     * Abstrakte Confirm Methode welche implementiert werden muss. Methode wird aufgerufen, wenn ein
-     * Ordner gelöscht werden soll.
-     * @param folder Ordern für welchen ein Delete Confirm eingefordert werden soll.
+     * Abstract confirm method that must be implemented. Called when a folder should be deleted.
+     * @param folder Folder for which a delete confirmation should be requested.
      */
     public abstract confirmDeleteNode(folder: IBrowserNode): Observable<boolean>;
 
     /**
-     * Löscht ein File
-     * @param file File welches gelöscht werden soll
+     * Deletes a file
+     * @param file File to be deleted
      */
     public deleteFile(file: IBrowserFile): void {
         this.confirmDeleteFile(file).subscribe((confirm) => {
@@ -279,8 +276,8 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Löscht einen Node
-     * @param node Node welcher gelöscht werden soll
+     * Deletes a node
+     * @param node Node to be deleted
      */
     public deleteNode(node: IBrowserNode): void {
         this.confirmDeleteNode(node).subscribe((confirm) => {
@@ -300,27 +297,28 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Setzt ein File in den Edit Mode
-     * @param file File welches in den Edit Mode gesetzt werden soll
+     * Sets a file into edit mode
+     * @param file File that should be placed into edit mode
      */
     public editFile(file: IBrowserFile): void {
         file.IsEditMode = true;
     }
 
     /**
-     * Setzt einen Node in den Edit Mode
-     * @param node Node welcher bearbeitet werden soll
+     * Sets a node into edit mode
+     * @param node Node to be edited
      */
     public editNode(node: IBrowserNode): void {
         node.IsEditMode = true;
     }
 
     /**
-     * HostListener welcher den Edit Mode bei allen Files und Nodes beendet.
+     * HostListener that ends edit mode for all files and nodes.
      */
     @HostListener('document:click', ['$event.target'])
     /**
-     * Click Event
+     * Click Event - Exits edit mode for files and nodes
+     * @param targetElement The target element from the click event
      */
     public exitEditMode(targetElement): void {
         if (this.selectedNode) {
@@ -335,8 +333,8 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Erzeugt einen neuen Node im Tree
-     * @param node Node unter welchem ein neuer Node erstellt werden soll
+     * Creates a new node in the tree
+     * @param node Node under which a new node should be created
      */
     public newNode(node: IBrowserNode) {
         const item: IBrowserNode = {
@@ -355,7 +353,7 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Init Event der Komponente
+     * Init event of the component
      */
     public ngOnInit(): void {
         this.browserService.GetNode(this.apiurl, '', this.allowedtypes).subscribe((result: IBrowserNodeResponse) => {
@@ -372,7 +370,7 @@ export abstract class SacFileBrowserCommon implements OnInit {
             this.setPathToAllNodes();
             this.selectedNode = this.rootNode;
 
-            // Selected File erneut setzen, wenn Property gesetzt wurde bevor Daten vom Service geladen wurden.
+            // Re-set the selected file if the property was set before data was loaded from the service.
             if (this.preselecedfile !== null && this.preselecedfile.length > 0) {
                 this.selectedfile = this.preselecedfile;
             }
@@ -380,7 +378,7 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Aktualisiert den Node
+     * Updates the node
      */
     public refreshNode(node: IBrowserNode): void {
         if (!node.IsExpanded) {
@@ -398,9 +396,9 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Methode wenn eine Datei umbenannt werden soll
-     * @param file File welches umbenannt werden soll
-     * @param newFilename Neuer Dateiname
+     * Method called when a file should be renamed
+     * @param file File to be renamed
+     * @param newFilename New filename
      */
     public renameFile(file: IBrowserFile, newFilename: string): void {
         file.IsEditMode = false;
@@ -420,9 +418,9 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Methode wenn ein Node umbenannt werden soll
-     * @param node Node welcher umbenannt werden soll
-     * @param newFoldername Neuer Ordnername
+     * Method called when a node should be renamed
+     * @param node Node to be renamed
+     * @param newFoldername New folder name
      */
     public renameNode(node: IBrowserNode, newFoldername: string): void {
         node.IsEditMode = false;
@@ -462,8 +460,8 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Methode wenn ein File selektiert wird
-     * @param file File welches selektiert wird
+     * Method called when a file is selected
+     * @param file File that is selected
      */
     public selectFile(file: IBrowserFile) {
         if (!file.IsEditMode) {
@@ -481,8 +479,8 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Methode wenn ein Node selektiert wird
-     * @param node Node welcher selektiert werden soll
+     * Method called when a node is selected
+     * @param node Node that should be selected
      */
     public selectNode(node: IBrowserNode): void {
         if (!node.IsExpanded) {
@@ -513,8 +511,8 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Expand/Collabse Methode für Nodes
-     * @param node Node welcher geöffnet oder geschlossen werden soll
+     * Expand/collapse method for nodes
+     * @param node Node that should be opened or closed
      */
     public switchExpandNode(node: IBrowserNode): void {
         if (node.IsExpanded) {
@@ -525,8 +523,9 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Methode die Aufgerufen werden muss, wenn ein Upload beendet ist.
-     * @param param Parameter des hochgeladenen Files
+     * Method that must be called when an upload is completed.
+     * @param node Node where uploaded files should be attached.
+     * @param uploadIdList List of upload IDs that finished uploading.
      */
     public uploadComplete(node: IBrowserNode, uploadIdList: string[]): void {
         if (uploadIdList !== null) {
@@ -549,9 +548,8 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Abstrakte Methode die Aufgerufen wird, wenn das Hochgeladene File aus dem Temp Folder in die
-     * Struktur verschoben wurde.
-     * @param uploadid ID des Uploads
+     * Abstract method invoked when the uploaded file has been moved from the temp folder into the structure.
+     * @param uploadid Upload ID
      */
     public abstract uploadedFileMoved(uploadid: string): void;
 
@@ -560,8 +558,8 @@ export abstract class SacFileBrowserCommon implements OnInit {
     // #region Private Methods
 
     /**
-     * Rekursive Methode welche beim Node und all seinen Childs neue Nodes entfernt
-     * @param node Node bei welchem alle neuen Nodes entfernt werden soll.
+     * Recursive method that removes new nodes from the given node and all its children
+     * @param node Node from which all new nodes should be removed.
      */
     private clearNewChildNodes(node: IBrowserNode) {
         node.ChildNodes.forEach((itm) => {
@@ -574,9 +572,9 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Methode welche den Pfad für einen Node erzeugt
-     * @param node Node für welchen der Pfad erzeugt werden soll
-     * @param parentPath Übergeordneter Pfad
+     * Method that generates the path for a node
+     * @param node Node for which the path should be generated
+     * @param parentPath Parent path
      */
     private fillPath(node: IBrowserNode, parentPath: string) {
         node.Path = parentPath + '/' + node.Name;
@@ -586,10 +584,10 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Sucht den übergeordneten Node im Tree
-     * @param node Aktueller Node
-     * @param nodeToFind Node welcher gefunden werden soll
-     * @returns Node wenn er gefunden wurde, ansonsten wird NULL zurückgegeben
+     * Finds the parent node in the tree
+     * @param node Current node
+     * @param nodeToFind Node to find
+     * @returns The node if found, otherwise NULL
      */
     private findParentNode(node: IBrowserNode, nodeToFind: IBrowserNode): IBrowserNode {
         if (node.ChildNodes.indexOf(nodeToFind) >= 0) {
@@ -607,18 +605,18 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Sucht einen Node gem. einem URL Pfad
-     * @param node Node in welchem gesucht werden soll
-     * @param path Pfad nach welchem gesucht wird
-     * @returns Node welcher zum gesuchten Pfad passt. Wenn kein Node gefunden wird, wird NULL zurückgegeben
+     * Finds a node according to a URL path
+     * @param node Node in which to search
+     * @param path Path to search for
+     * @returns Node matching the path. Returns NULL if not found
      */
     private findSelectedNodeByPath(node: IBrowserNode, path: string): IBrowserNode {
-        // Cancel wenn Pfad nicht definiert
+        // Cancel if path is not defined
         if (path === undefined || path === null) {
             return null;
         }
 
-        // Pfad in Array splitten und Root Foldername setzen
+        // Split path into array and set the root folder name
         const pathArray = path.split('/');
         pathArray[0] = this.rootNode.Name;
 
@@ -626,14 +624,14 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Sucht einen Node gem. einem Array von Node Namen
-     * @param node Node in welchem gesucht werden soll
-     * @param path Array von Node Namen, welche die Hirarchy des Pfades abbilden
-     * @param index Aktueller Index im PATH Array
-     * @returns Node wenn einer gefunden wurde, ansonsten NULL
+     * Finds a node based on an array of node names
+     * @param node Node in which to search
+     * @param path Array of node names representing the hierarchy of the path
+     * @param index Current index in the path array
+     * @returns Node if found, otherwise NULL
      */
     private findSelectedNodeByPathArray(node: IBrowserNode, path: string[], index: number): IBrowserNode {
-        // Check ob Ordner korrekt. Letzer Ordner zurückgeben. Path Last Index ist der Filename
+        // Check if folder is correct. Return the last folder. The last index in path is the filename
         if (node.Name === path[index] && path.length - 2 === index) {
             return node;
         } else if (node.Name === path[index]) {
@@ -651,8 +649,8 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Rekursive Methode welche beim Node und all seinen Childs den Edit Mode beendet.
-     * @param node Node bei welchem der Edit Mode beendet werden soll
+     * Recursive method that ends edit mode for the node and all its children.
+     * @param node Node for which edit mode should be ended
      */
     private resetNodeEditMode(node: IBrowserNode): void {
         if (node === null) {
@@ -667,7 +665,7 @@ export abstract class SacFileBrowserCommon implements OnInit {
     }
 
     /**
-     * Setzt den Pfad in allen Nodes
+     * Sets the path in all nodes
      */
     private setPathToAllNodes() {
         this.rootNode.ChildNodes.forEach((itm) => {

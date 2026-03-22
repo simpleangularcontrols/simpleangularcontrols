@@ -11,6 +11,9 @@ import { SACBootstrap4ButtonModule, SACBootstrap4FormModule } from '@simpleangul
 export class DemoButtonComponent {
     // #region Public Methods
 
+    /**
+     * Executes the first demo button action.
+     */
     public debugAction1(): void {
         alert('Action 1');
     }

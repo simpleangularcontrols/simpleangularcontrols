@@ -11,10 +11,13 @@ import { FormsModule, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacTestingAttributePipe, SacTinyMceCommon } from '@simpleangularcontrols/sac-common';
 import { EditorComponent } from '@tinymce/tinymce-angular';
 
+/**
+ * TinyMCE rich text editor component.
+ */
 @Component({
     selector: 'sac-tinymce',
     templateUrl: './tinymce.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

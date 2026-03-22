@@ -185,6 +185,7 @@ export abstract class SacGridCommon {
 
     /**
      * Method for sorting the data.
+      * @param command Column key used to toggle sorting.
      */
     public SortBy(command) {
         let direction: SortOrder;

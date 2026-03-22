@@ -3,43 +3,43 @@ import { SacConfirmButton } from './confirm.button';
 import { Directive, EventEmitter, Input, Output } from '@angular/core';
 
 /**
- * Basis Klasse für Confirm Dialog
+ * Base class for Confirm Dialog
  */
 @Directive()
 export class SacConfirmCommon implements IConfirmComponent {
     // #region Properties
 
     /**
-     * Map mit Buttons die in Dialog angezeigt werden.
+     * Array with buttons displayed in the dialog.
      */
     @Input()
     public buttons: SacConfirmButton[] = [];
 
     /**
-     * Icon welches auf dem Dialog angezeigt wird
+     * Icon displayed on the dialog
      */
     @Input()
     public image = '';
 
     /**
-     * Definiert ob der Dialog sichtbar ist
+     * Defines whether the dialog is visible
      */
     public isvisible = false;
 
     /**
-     * Nachricht die auf dem Dialog angezeigt wird
+     * Message displayed on the dialog
      */
     @Input()
     public message = '';
 
     /**
-     * Event wenn Dialog geschlossen wird
+     * Event when dialog is closed
      */
     @Output()
     public onconfirm: EventEmitter<string> = new EventEmitter<string>();
 
     /**
-     * Dialog Titel für Confirm Dialog
+     * Dialog title for Confirm Dialog
      */
     @Input()
     public title = '';
@@ -49,7 +49,7 @@ export class SacConfirmCommon implements IConfirmComponent {
     // #region Public Methods
 
     /**
-     * Action wenn Button auf Dialog geklickt wurde. Löst den EventEmitter aus und blendet den Dialog aus.
+     * Action when a button on the dialog is clicked. Triggers the EventEmitter and hides the dialog.
      * @param action
      */
     public confirm(action: string): void {
@@ -58,21 +58,22 @@ export class SacConfirmCommon implements IConfirmComponent {
     }
 
     /**
-     * Definiert, ob für den Dialog ein Image definiert wurde
+     * Defines whether an image is set for the dialog
+     * @returns Boolean indicating whether an image is set
      */
     public hasImage(): boolean {
         return this.image !== '';
     }
 
     /**
-     * Blendet den Dialog aus
+     * Hides the dialog
      */
     public hide(): void {
         this.isvisible = false;
     }
 
     /**
-     * Zeigt den Dialog an
+     * Shows the dialog
      */
     public show(): void {
         this.isvisible = true;

@@ -2,6 +2,9 @@ import { NgIf, NgStyle } from '@angular/common';
 import { ChangeDetectorRef, Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { SacDialogCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Modal dialog component used for overlay dialogs.
+ */
 @Component({
     selector: 'sac-dialog',
     templateUrl: './dialog.html',
@@ -16,6 +19,9 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
     // DOM Element
     private element: any;
 
+    /**
+     * Z-index positioning for the dialog overlay
+     */
     @Input()
     public zindex = 20002;
 
@@ -23,6 +29,11 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
 
     // #region Constructors
 
+    /**
+     * Constructor
+     * @param el DOM element reference
+     * @param cdRef Change Detection Service
+     */
     constructor(el: ElementRef, cdRef: ChangeDetectorRef) {
         super(cdRef);
 
@@ -33,16 +44,18 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
 
     // #region Public Getters And Setters
 
-    // Margin Top für Center Position des Dialogs berechnen
+    /**
+     * Calculates the top margin required to vertically center the dialog.
+     */
     public get dialogMarginTop(): number {
         let result = 0;
 
-        // ContentPlaceholder kann NULL/UNDEFINED sein wenn Dialog nicht angezeigt wird
+        // ContentPlaceholder can be NULL/UNDEFINED when dialog is not displayed
         if (this.dialogElement !== null && this.dialogElement !== undefined) {
             result = (this.dialogElement.nativeElement.clientHeight / 2) * -1;
         }
 
-        // Change Detection ausführen, falls Wert nach Rendering noch geändert hat. Kann durch HTML Content / Zeilenumbrüche usw. ausgelöst werden.
+        // Execute Change Detection if value has changed after rendering. Can be triggered by HTML content / line breaks etc.
         if (this._lastDialogMarginTop !== result) {
             this._lastDialogMarginTop = result;
             this.ChangeDetector.detectChanges();
@@ -55,6 +68,9 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
 
     // #region Public Methods
 
+    /**
+     * Cleanup lifecycle hook - removes dialog from DOM
+     */
     public ngOnDestroy() {
         this.hide();
         if (document.body.contains(this.element)) {
@@ -63,8 +79,11 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
         super.ngOnDestroy();
     }
 
+    /**
+     * Initialization lifecycle hook - appends dialog to body for correct styling under Bootstrap 3
+     */
     public ngOnInit() {
-        // Element an Body für korrektes Styling unter Bootstrap 3 verschieben
+        // Move element to body for correct styling under Bootstrap 3
         document.body.appendChild(this.element);
     }
 

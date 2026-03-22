@@ -3,19 +3,19 @@ import { Directive, Input, OnInit } from '@angular/core';
 import { UploadState } from 'ngx-uploadx';
 
 /**
- * Upload Komponente für ein einzelnes File
+ * Upload component for a single file
  */
 @Directive()
 export class SacDropzoneSingleCommon extends SacUploadBase<string> implements OnInit {
     // #region Properties
 
     /**
-     * Property wenn Drag Event aktiv ist (Maus über Zone)
+     * Property when drag event is active (mouse over zone)
      */
     public active = false;
 
     /**
-     * Höhe der Dropzone. Wert wird mit Einheit angegeben.
+     * Height of the dropzone. Value is given with unit.
      */
     @Input()
     public uploadheight: string = null;
@@ -25,18 +25,18 @@ export class SacDropzoneSingleCommon extends SacUploadBase<string> implements On
     // #region Public Methods
 
     /**
-     * Macht keine Validierung in diesem Control
+     * Does no validation in this control
      *
-     * @param file File das hinzugefügt wurde
+     * @param file File that was added
      */
     public CustomAddValidation(file: UploadState): boolean {
         return true;
     }
 
     /**
-     * Setzt die File ID des hochgeladen Files in das Model
+     * Sets the file ID of the uploaded file into the model
      *
-     * @param file ID des Files
+     * @param file ID of the file
      */
     public SetUploadValue(file: UploadState) {
         if (file === null) {
@@ -56,7 +56,7 @@ export class SacDropzoneSingleCommon extends SacUploadBase<string> implements On
     }
 
     /**
-     * Methode für Drag and Drop von Files
+     * Method for drag and drop of files
      * @param event Drag Event
      */
     public dropHandler(event: DragEvent): void {
@@ -79,7 +79,7 @@ export class SacDropzoneSingleCommon extends SacUploadBase<string> implements On
     }
 
     /**
-     * Ervent wenn das Control initialisert wird
+     * Event when the control is initialized
      */
     public ngOnInit() {
         super.ngOnInit();
@@ -88,7 +88,7 @@ export class SacDropzoneSingleCommon extends SacUploadBase<string> implements On
     }
 
     /**
-     * Methode wenn Drag die Zone verlässt
+     * Method when drag leaves the zone
      * @param event DragLeave Event
      */
     public onDragLeave(event: DragEvent): void {
@@ -96,7 +96,7 @@ export class SacDropzoneSingleCommon extends SacUploadBase<string> implements On
     }
 
     /**
-     * Methode wenn Drag in die Zone eintritt
+     * Method when drag enters the zone
      * @param event DragEnter Event
      */
     public onDragOver(event: DragEvent): void {

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { SacDateSelectorCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 /**
- * DateTime Selektor Komponente
+ * DateTime selector component
  */
 @Component({
     selector: 'sac-dateselector',

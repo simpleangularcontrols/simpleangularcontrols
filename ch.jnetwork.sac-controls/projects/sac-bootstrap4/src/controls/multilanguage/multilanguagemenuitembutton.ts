@@ -22,7 +22,6 @@ export class SacMultilanguagemenuItemButtonComponent extends SacContextmenuItemB
 
     /**
      * Constructor
-     * @param contextmenu Instance von Context Menü
      */
     constructor() {
         super();

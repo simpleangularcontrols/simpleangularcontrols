@@ -17,7 +17,7 @@ export class SacConfirmButton {
     public role?: BUTTONROLETYPE | null = 'secondary';
 
     /**
-     * Display text of the buttonAnzeigetext des Buttons
+     * Display text of the button
      */
     public text = '';
 
@@ -26,10 +26,10 @@ export class SacConfirmButton {
     // #region Constructors
 
     /**
-     * Konstruktor
+     * Constructor
      * @param key Key for button
      * @param text Text for button
-     * @param role Role type for the button. Default is ‘secondary’
+     * @param role Role type for the button. Default is 'default'
      */
     constructor(key = '', text = '', role: BUTTONROLETYPE = 'default') {
         this.key = key;

@@ -10,12 +10,12 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacInputIntegerCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 /**
- * Input Komponten für Ganzzahlen
+ * Input component for integers
  */
 @Component({
     selector: 'sac-inputinteger',
     templateUrl: './inputinteger.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

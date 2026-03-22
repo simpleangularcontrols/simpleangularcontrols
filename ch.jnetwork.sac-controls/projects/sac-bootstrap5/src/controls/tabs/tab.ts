@@ -4,7 +4,7 @@ import { Component, ContentChildren, QueryList } from '@angular/core';
 import { SacTabCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 /**
- * Komponente für Tabs
+ * Component for tabs
  */
 @Component({
     selector: 'sac-tab',
@@ -16,7 +16,7 @@ export class SacTabComponent extends SacTabCommon {
     // #region Properties
 
     /**
-     * Collection von TabItems
+     * Collection of tab items
      */
     @ContentChildren(SacTabItemComponent)
     public _tabItems: QueryList<SacTabItemComponent>;
@@ -26,8 +26,8 @@ export class SacTabComponent extends SacTabCommon {
     // #region Public Methods
 
     /**
-     * Gibt die TabItems zurück
-     * @returns Array von TabItems
+     * Returns the TabItems
+     * @returns Array of TabItems
      */
     public tabItems(): SacTabItemComponent[] {
         return this._tabItems.toArray() as Array<SacTabItemComponent>;

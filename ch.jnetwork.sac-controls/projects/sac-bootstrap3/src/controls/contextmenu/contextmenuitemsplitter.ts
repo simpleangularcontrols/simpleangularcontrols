@@ -2,7 +2,7 @@ import { Component, forwardRef } from '@angular/core';
 import { SacContextmenuItemCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Splitter Komponente in Context Menü
+ * Splitter component in context menu
  */
 @Component({
     selector: 'sac-contextmenusplitter',

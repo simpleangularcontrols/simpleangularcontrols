@@ -11,7 +11,7 @@ import { IBrowserFile, IBrowserNode, SacFileBrowserCommon } from '@simpleangular
 import { Observable, forkJoin } from 'rxjs';
 
 /**
- * Server File Browser Komponente
+ * Server file browser component
  */
 @Component({
     selector: 'sac-filebrowser',
@@ -36,7 +36,7 @@ export class SacBrowserComponent extends SacFileBrowserCommon {
     // #region Properties
 
     /**
-     * Referenz auf Upload Component
+     * Reference to upload component
      */
     @ViewChild(SacDropzoneMultipleComponent, { static: false })
     private uploadComponent: SacDropzoneMultipleComponent;
@@ -46,10 +46,10 @@ export class SacBrowserComponent extends SacFileBrowserCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param httpClient HTTP Client
-     * @param injector Angular Dependency Injection Service
-     * @param confirmService Confirm Service
+     * Constructor
+     * @param httpClient HTTP client
+     * @param injector Angular dependency injection service
+     * @param confirmService Confirm service
      */
     constructor(
         httpClient: HttpClient,
@@ -64,9 +64,9 @@ export class SacBrowserComponent extends SacFileBrowserCommon {
     // #region Public Methods
 
     /**
-     * Confirm Action wenn ein File gelöscht werden soll
-     * @param file File das gelöscht werden soll.
-     * @returns Observable ob File gelöscht werden kann.
+     * Confirm action when a file should be deleted
+     * @param file File to be deleted
+     * @returns Observable whether file can be deleted
      */
     public confirmDeleteFile(file: IBrowserFile): Observable<boolean> {
         return new Observable<boolean>((observer) => {
@@ -87,9 +87,9 @@ export class SacBrowserComponent extends SacFileBrowserCommon {
     }
 
     /**
-     * Confirm Action wenn ein Ordner gelöscht werden soll
-     * @param node Ordner der gelöscht werden soll
-     * @returns Observable ob Ordner gelöscht kann.
+     * Confirm action when a folder should be deleted
+     * @param node Folder to be deleted
+     * @returns Observable whether folder can be deleted
      */
     public confirmDeleteNode(node: IBrowserNode): Observable<boolean> {
         return new Observable<boolean>((observer) => {
@@ -112,8 +112,8 @@ export class SacBrowserComponent extends SacFileBrowserCommon {
     }
 
     /**
-     * Erzeugt ein Array von einer bestimmten grösse
-     * @param anzahl Grösse des Array
+     * Creates an array of a certain size
+     * @param anzahl Size of the array
      * @returns Array
      */
     public count(anzahl: number): Array<void> {
@@ -121,7 +121,7 @@ export class SacBrowserComponent extends SacFileBrowserCommon {
     }
 
     /**
-     * Methode wird aufgerufen, wenn eine Datei verschoben wird
+     * Method called when a file is moved
      * @param uploadid Upload ID
      */
     public uploadedFileMoved(uploadid: string): void {

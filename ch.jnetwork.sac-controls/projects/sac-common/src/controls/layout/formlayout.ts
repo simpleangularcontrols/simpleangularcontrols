@@ -1,8 +1,8 @@
 import { ControlHeight } from '../../enums/ControlHeight';
 import { Directive, Input } from '@angular/core';
 
-/***
- * base component for form options
+/**
+ * Base component for form options
  */
 @Directive()
 export class SacFormLayoutCommon {
@@ -46,7 +46,7 @@ export class SacFormLayoutCommon {
     public labelMode: 'standard' | 'floating' | null = null;
 
     /**
-     * default labe size for large devices
+     * default label size for large devices
      */
     @Input()
     public labelSizeLg: number | null = null;

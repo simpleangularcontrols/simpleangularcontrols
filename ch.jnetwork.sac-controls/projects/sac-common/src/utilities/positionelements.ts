@@ -11,6 +11,12 @@ import { PositionCalculator } from './positioncalculator';
  * 'bottom-left', 'bottom-right',
  * 'left-top', 'left-bottom',
  * 'right-top', 'right-bottom'.
+ * @param hostElement The host element
+ * @param targetElement The target element to be positioned
+ * @param placement The placement option(s)
+ * @param appendToBody Whether to append to body
+ * @param baseClass The base CSS class
+ * @returns The applied placement or null if not positioned
  */
 export function positionElements(
     hostElement: HTMLElement,

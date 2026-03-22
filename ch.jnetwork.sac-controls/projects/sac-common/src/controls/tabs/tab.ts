@@ -74,7 +74,7 @@ export abstract class SacTabCommon implements AfterContentInit {
     }
 
     /**
-     * Array von TabItems
+     * Array of TabItems
      */
     public abstract tabItems(): SacTabItemCommon[];
 
@@ -83,7 +83,7 @@ export abstract class SacTabCommon implements AfterContentInit {
     // #region Private Methods
 
     /**
-     * Initialisiert die Tabs
+     * Initialises the tabs
      */
     private initTabs(): void {
         const activeTab = this.tabItems().filter((tab) => tab.active);

@@ -3,10 +3,13 @@ import { Component, Injector, forwardRef } from '@angular/core';
 import { FormsModule, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacPagingCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Paging component for navigating paged grid data.
+ */
 @Component({
     selector: 'sac-paging',
     templateUrl: './paging.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -26,7 +29,8 @@ export class SacPagingComponent extends SacPagingCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
+     * Constructor
+     * @param injector Angular dependency injection service
      */
     constructor(injector: Injector) {
         super(injector);

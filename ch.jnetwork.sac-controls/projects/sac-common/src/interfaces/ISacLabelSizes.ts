@@ -1,33 +1,36 @@
+/**
+ * Interface defining responsive label column sizes for various device breakpoints.
+ */
 export interface ISacLabelSizes {
     // #region Getters And Setters
 
     /**
-     * default labe size for large devices
+     * Default label size for large devices (lg breakpoint).
      */
     get labelSizeLg(): number;
 
     /**
-     * default label size for medium devices
+     * Default label size for medium devices (md breakpoint).
      */
     get labelSizeMd(): number;
 
     /**
-     * default label size for small devices
+     * Default label size for small devices (sm breakpoint).
      */
     get labelSizeSm(): number;
 
     /**
-     * default label size for extra large devices
+     * Default label size for extra large devices (xl breakpoint).
      */
     get labelSizeXl(): number;
 
     /**
-     * default label column size
+     * Default label size for extra small devices (xs breakpoint).
      */
     get labelSizeXs(): number;
 
     /**
-     * default label size for extra extra large devices
+     * Default label size for extra extra large devices (xxl breakpoint).
      */
     get labelSizeXxl(): number;
 

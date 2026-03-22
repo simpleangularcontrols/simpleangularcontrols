@@ -4,10 +4,13 @@ import { Component, ContentChild, TemplateRef, forwardRef } from '@angular/core'
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacGridCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Grid component for displaying tabular data and handling selection/sorting.
+ */
 @Component({
     selector: 'sac-grid',
     templateUrl: './grid.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacGridComponent },
         { provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() => SacGridComponent) },
@@ -18,7 +21,14 @@ import { SacGridCommon, SacTestingAttributePipe } from '@simpleangularcontrols/s
 export class SacGridComponent extends SacGridCommon {
     // #region Properties
 
+    /**
+     * Whether to enable text ellipsis for grid cells
+     */
     public ellipsis = false;
+
+    /**
+     * Template reference for custom grid template
+     */
     @ContentChild(TemplateRef, { static: true })
     public template: TemplateRef<any>;
 

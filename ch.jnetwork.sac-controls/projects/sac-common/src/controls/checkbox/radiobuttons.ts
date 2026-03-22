@@ -6,7 +6,7 @@ import { Directive, Host, Injector, Input } from '@angular/core';
 import { AbstractControl, ValidationErrors, Validator } from '@angular/forms';
 
 /**
- * Basis Komponente für SacRadiobuttonsCommon. Extends SacBaseModelControl
+ * Base component for SacRadiobuttonsCommon. Extends SacBaseModelControl
  */
 @Directive()
 export abstract class SacRadiobuttonsCommon extends SacBaseModelControl<any> implements Validator {
@@ -18,17 +18,17 @@ export abstract class SacRadiobuttonsCommon extends SacBaseModelControl<any> imp
     private contentRadiobuttons: SacRadiobuttonCommon[] = [];
 
     /**
-     * Radio Button Index
+     * Radio button index
      */
     private radioButtonIndex = 0;
 
     /**
-     * Resource Key für Validation Message Required bei Control
+     * Resource key for validation message Required at control
      */
     @Input() public validationmessagerequired: string = this.validationKeyService.ValidationErrorRequired;
 
     /**
-     * Resource Key für Validation Message Required in Validation Summary
+     * Resource key for validation message Required in validation summary
      */
     @Input() public validationmessagesummaryrequired: string = this.validationKeyService.ValidationErrorSummaryRequired;
 
@@ -50,7 +50,8 @@ export abstract class SacRadiobuttonsCommon extends SacBaseModelControl<any> imp
     // #region Public Methods
 
     /**
-     * Getter für Radio Button Index
+     * Getter for radio button index
+     * @returns Index of the current radio button
      */
     public GetRadionButtonIndex(): number {
         this.radioButtonIndex++;
@@ -58,7 +59,8 @@ export abstract class SacRadiobuttonsCommon extends SacBaseModelControl<any> imp
     }
 
     /**
-     * Methode prüft ob Item checked ist
+     * Method checks if an item is checked
+     * @returns Boolean indicating if an item is checked
      */
     public HasCheckedItem(): boolean {
         const radioButtons: SacRadiobuttonCommon[] = this.contentRadiobuttons;
@@ -71,14 +73,14 @@ export abstract class SacRadiobuttonsCommon extends SacBaseModelControl<any> imp
     }
 
     /**
-     * Erstellung des RadioButton
+     * Register the radio button
      */
     public RegisterRadioButton(radioButton: SacRadiobuttonCommon) {
         this.contentRadiobuttons.push(radioButton);
     }
 
     /**
-     * Item selektieren
+     * Select item
      */
     public SelectItem(value: any) {
         this.contentRadiobuttons.forEach((itm) => {
@@ -89,7 +91,7 @@ export abstract class SacRadiobuttonsCommon extends SacBaseModelControl<any> imp
     }
 
     /**
-     * Löschen des Radio Button
+     * Unregister the radio button
      */
     public UnregisterRadioButton(radioButton: SacRadiobuttonCommon) {
         const index: number = this.contentRadiobuttons.indexOf(radioButton);
@@ -116,7 +118,8 @@ export abstract class SacRadiobuttonsCommon extends SacBaseModelControl<any> imp
     }
 
     /**
-     * Wert schreiben
+     * Write value
+     * @param value Value to apply to the selected radio item.
      */
     public writeValue(value: any) {
         super.writeValue(value);

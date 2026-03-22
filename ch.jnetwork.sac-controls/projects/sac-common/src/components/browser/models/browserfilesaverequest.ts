@@ -1,16 +1,16 @@
 /**
- * Request zum speichern einer hochgeladenen Datei
+ * Request to save an uploaded file
  */
 export class BrowserFileSaveRequest {
     // #region Properties
 
     /**
-     * Erlaubte Dateitypen
+     * Allowed file types
      */
     public AllowedTypes: string;
 
     /**
-     * Pfad in welchem der Upload gespeichert werden soll
+     * Path where the upload should be saved
      */
     public Path: string;
 
@@ -25,7 +25,7 @@ export class BrowserFileSaveRequest {
 
     /**
      * Constructor
-     * @param init Initale Parameter
+     * @param init Initial parameters
      */
     constructor(init?: Partial<BrowserFileSaveRequest>) {
         Object.assign(this, init);

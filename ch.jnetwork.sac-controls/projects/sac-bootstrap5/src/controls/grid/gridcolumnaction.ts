@@ -4,7 +4,7 @@ import { Component, ElementRef, Injector, forwardRef } from '@angular/core';
 import { SacGridColumnActionCommon, SacGridColumnBaseCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Grid Action Komponent
+ * Grid action component
  */
 @Component({
     selector: 'sac-gridcolumnaction',
@@ -22,9 +22,10 @@ export class SacGridColumnActionComponent extends SacGridColumnActionCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param grid Referenz auf Grid
-     * @param el HTML Element Referenz
+     * Constructor
+     * @param grid Reference to grid
+     * @param injector Angular dependency injection service
+     * @param el HTML element reference
      */
     constructor(grid: SacGridComponent, injector: Injector, el: ElementRef) {
         super(grid, injector, el);

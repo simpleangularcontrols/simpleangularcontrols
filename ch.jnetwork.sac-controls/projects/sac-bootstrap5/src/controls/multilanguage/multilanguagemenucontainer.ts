@@ -2,7 +2,7 @@ import { Directive, ElementRef, forwardRef } from '@angular/core';
 import { SacContextMenuContrainerCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Marker Komponente für Context Menü
+ * Marker component for context menu
  */
 @Directive({
     selector: '[sacMultilanguageMenuContainer]',
@@ -18,8 +18,8 @@ export class SacMultilanguagemenuContainerDirective extends SacContextMenuContra
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param elementRef Referenz auf DOM Element
+     * Constructor
+     * @param elementRef Reference to DOM element
      */
     constructor(elementRef: ElementRef<HTMLElement>) {
         super(elementRef);

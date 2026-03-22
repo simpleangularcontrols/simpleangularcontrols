@@ -2,7 +2,7 @@ import { Directive, ElementRef, forwardRef } from '@angular/core';
 import { SacContextmenuAnchorCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Anker Komponente für Context Menü. Wird zum positionieren des Context Menü in der Page benötigt.
+ * Anchor component for context menu. Required to position the context menu on the page.
  */
 @Directive({
     selector: '[sacContextMenuAnchor]',
@@ -18,8 +18,8 @@ export class SacContextmenuAnchorDirective extends SacContextmenuAnchorCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param elementRef HTML DOM Referenz
+     * Constructor
+     * @param elementRef HTML DOM reference
      */
     constructor(elementRef: ElementRef<HTMLElement>) {
         super(elementRef);

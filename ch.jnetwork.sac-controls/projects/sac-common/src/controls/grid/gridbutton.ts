@@ -93,6 +93,7 @@ export class SacGridButtonCommon {
 
     /**
      * Defines the CSS class for the icon on the button
+     * @returns The CSS class name for the icon
      */
     public getIconClass(): string {
         let cssclass;

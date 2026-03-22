@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { SacGridImageCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Image Item für Grid
+ * Image item for grid
  */
 @Component({
     selector: 'sac-gridimage',

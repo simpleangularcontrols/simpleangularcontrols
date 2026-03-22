@@ -6,7 +6,7 @@ import { Component, Host, Injector, Optional } from '@angular/core';
 import { SacRadiobuttonCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Radiobutton Komponente
+ * Radiobutton component
  */
 @Component({
     selector: 'sac-radiobutton',
@@ -19,8 +19,8 @@ export class SacRadiobuttonComponent extends SacRadiobuttonCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param SacRadioButtons Radio Buttons Group Komponente
+     * Constructor
+     * @param sacRadioButtons Radio buttons group component
      * @param formlayout SacFormLayoutCommon to define scoped layout settings
      * @param injector Injector for injecting services
      */

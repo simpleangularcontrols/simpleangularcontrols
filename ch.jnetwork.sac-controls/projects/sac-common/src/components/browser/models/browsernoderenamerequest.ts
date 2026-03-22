@@ -1,16 +1,16 @@
 /**
- * Klasse für API Request zum umbenennen eines Nodes
+ * Class for API request to rename a node
  */
 export class BrowserNodeRenameRequest {
     // #region Properties
 
     /**
-     * Neuer Name des Nodes
+     * New name of the node
      */
     public NewFoldername: string;
 
     /**
-     * Pfad
+     * Path
      */
     public Path: string;
 
@@ -19,8 +19,8 @@ export class BrowserNodeRenameRequest {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param init Initiale Werte
+     * Constructor
+     * @param init Initial values
      */
     constructor(init?: Partial<BrowserNodeRenameRequest>) {
         Object.assign(this, init);

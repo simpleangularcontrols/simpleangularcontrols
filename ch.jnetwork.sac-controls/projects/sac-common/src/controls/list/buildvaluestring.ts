@@ -1,22 +1,22 @@
 /**
- * Function um ein Key Value Pair für das Dropdown zu erzeugen
+ * Function to generate a key value pair for the dropdown
  * @param id ID
- * @param value Wert der an das Element gebunden werden soll
+ * @param value Value that should be bound to the element
  */
 // #region Exported Functions
 
 export function _buildValueString(id: string | null, value: any): string {
-    // Wenn ID null ist Object zurückgeben
+    // If ID is null return object
     if (id == null) {
         return `${value}`;
     }
 
-    // Mapping Objekt zu String
+    // Mapping object to string
     if (value && typeof value === 'object') {
         value = 'Object';
     }
 
-    // String als ID
+    // String as ID
     return `${id}: ${value}`.slice(0, 50);
 }
 

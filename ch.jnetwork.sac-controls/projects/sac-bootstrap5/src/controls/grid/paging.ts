@@ -4,12 +4,12 @@ import { FormsModule, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacPagingCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 /**
- * Paging Komponente
+ * Paging component
  */
 @Component({
     selector: 'sac-paging',
     templateUrl: './paging.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register value access provider so that value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -29,7 +29,7 @@ export class SacPagingComponent extends SacPagingCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
+     * Constructor
      * @param injector Angular Dependency Injection Service
      */
     constructor(injector: Injector) {

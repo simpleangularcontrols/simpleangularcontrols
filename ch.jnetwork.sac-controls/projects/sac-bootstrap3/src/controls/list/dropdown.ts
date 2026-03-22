@@ -11,10 +11,13 @@ import { Component, ElementRef, Host, Injector, Optional, Renderer2, forwardRef 
 import { FormsModule, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacDropdownCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
+/**
+ * Dropdown component with support for value binding and option templates.
+ */
 @Component({
     selector: 'sac-dropdown',
     templateUrl: './dropdown.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         { provide: DROPDOWN_TOKEN, useExisting: forwardRef(() => SacDropdownComponent) },
         {

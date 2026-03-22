@@ -26,24 +26,24 @@ import { Observable, of } from 'rxjs';
 // #region Exported Classes
 
 /**
- * Base Klasse für Uploader Control
+ * Base class for uploader control
  */
 @Directive()
 export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> implements OnInit, OnDestroy {
     // #region Properties
 
     /**
-     * Erlaubte Dateitypen
+     * Allowed file types
      */
     private _allowedtypes = '*';
 
     /**
-     * Files automatisch hochladen
+     * Automatically uploads files
      */
     private _autoupload = false;
 
     /**
-     * Pausieren von Uploads erlauben
+     * Allow pausing of uploads
      */
     private _enablepause = true;
 
@@ -74,7 +74,7 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     protected uploadService: UploadxService;
 
     /**
-     * Handling von neuen Files im Input Control
+     * Handling of new files in the input control
      */
     public fileListener = () => {
         // exit if files is null or undefined
@@ -105,12 +105,12 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     };
 
     /**
-     * Definiert das Control als Required
+     * Defines the control as required
      */
     @Input() public isrequired = false;
 
     /**
-     * Listener für Files
+     * Listener for files
      */
     public listenerFn: () => void;
 
@@ -120,7 +120,7 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     public lngResourceService: ISacLocalisationService;
 
     /**
-     * Max. Dateigrösse für Files die hochgeladen werden können. 0 deaktiviert den Filter
+     * Max. file size for files that can be uploaded. 0 disables the filter
      */
     @Input() public maxfilesize = 0;
 
@@ -136,17 +136,17 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     public onuploadcomplete = new EventEmitter<ISacUploadEventCompleteState>();
 
     /**
-     * Array von Uploads
+     * Array of uploads
      */
     public uploads: SacUploadFile[];
 
     /**
-     * Resource Key für Validation Message Required bei Control
+     * Resource key for validation message 'required' at control
      */
     @Input() public validationmessagerequired: string = this.validationKeyService.ValidationErrorRequired;
 
     /**
-     * Resource Key für Validation Message Required in Validation Summary
+     * Resource key for validation message 'required' in validation summary
      */
     @Input()
     public validationmessagesummaryrequired: string = this.validationKeyService.ValidationErrorSummaryRequired;
@@ -241,7 +241,7 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     }
 
     /**
-     * Erlaubte Dateitypen für den Upload. Format: ".xxx,.yyy,.zzz"
+     * Allowed file types for upload. Format: ".xxx,.yyy,.zzz"
      */
     @Input()
     public set allowedtypes(types: string) {
@@ -249,12 +249,17 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
         this.setAllowedTypes(types);
     }
 
+    /**
+     * Indicates whether files should be uploaded automatically after selection.
+     * @returns true when auto-upload is enabled.
+     */
     public get autoupload(): boolean {
         return this._autoupload;
     }
 
     /**
-     * Files nach der Auswahl automatisch hochladen
+     * Automatically uploads files after selection.
+     * @param v true to enable automatic upload.
      */
     @Input()
     public set autoupload(v: boolean) {
@@ -263,24 +268,34 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
         this.uploadService.connect(this.options);
     }
 
+    /**
+     * Indicates whether upload pause is allowed.
+     * @returns true when pause support is active.
+     */
     public get enablepause(): boolean {
         return this._enablepause;
     }
 
     /**
-     * Uploads können unterbrochen werden
+     * Uploads can be paused.
+     * @param v true to allow pausing uploads.
      */
     @Input()
     public set enablepause(v: boolean) {
         this._enablepause = v;
     }
 
+    /**
+     * API endpoint for upload registration.
+     * @returns configured endpoint URL.
+     */
     public get endpoint(): string {
         return this._endpoint;
     }
 
     /**
-     * Definiert den Registration Endpoint für Uploads.
+     * Defines the registration endpoint for uploads.
+     * @param v upload endpoint URL.
      */
     @Input()
     public set endpoint(v: string) {
@@ -289,14 +304,16 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     }
 
     /**
-     * Token for Bearer Authentication
+     * Bearer authentication token used by upload service.
+     * @returns current auth token or null.
      */
     public get token(): string | null {
         return this._token;
     }
 
     /**
-     * Token for Bearer Authentication
+     * Sets Bearer authentication token for service requests.
+     * @param v token string or null to clear token.
      */
     @Input()
     public set token(v: string | null) {
@@ -309,16 +326,16 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     // #region Public Methods
 
     /**
-     * Methode kann für Controls verwendet werden, zusätzliche Validierungen bei hinzufügen der Files zu machen
+     * Method can be used for controls to perform additional validations when adding files
      *
-     * @param file File das hinzugefügt wurde.
-     * @returns Valdierung ist erfolgreich
+     * @param file File that was added.
+     * @returns Validation is successful
      */
     public abstract CustomAddValidation(file: UploadState): boolean;
 
     /**
-     * Name der Datei die Hochgeladen wird
-     * @returns Observable des Dateinamens.
+     * Name of the file being uploaded
+     * @returns Observable of the file name.
      */
     public Filename(): Observable<string> {
         if (this.uploads.length > 0) {
@@ -329,16 +346,16 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     }
 
     /**
-     * Gibt an ob Queue Elemente beinhaltet
-     * @returns Elemente in der Queue
+     * Indicates whether the queue contains elements
+     * @returns Elements in the queue
      */
     public HasQueueItem(): boolean {
         return this.uploads.length > 0;
     }
 
     /**
-     * Gibt an ob ein Upload abgeschlossen ist
-     * @returns Upload erfolgreich
+     * Indicates whether an upload is complete
+     * @returns Upload successful
      */
     public HasSuccessUpload(): boolean {
         if (this.uploads.length > 0) {
@@ -349,32 +366,32 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     }
 
     /**
-     * Prüft ob ein Upload pausiert
-     * @returns Pausierter Upload ist vorhanden
+     * Checks if an upload is paused
+     * @returns Paused upload is present
      */
     public IsPaused(): boolean {
         return this.uploads.filter((itm) => itm.status === 'paused').length > 0;
     }
 
     /**
-     * Prüft ob in der Queue Elemente die zum Upload bereit sind vorhanden sind.
-     * @returns Elemente für Upload vorhanden
+     * Checks if there are elements in the queue ready for upload.
+     * @returns Elements available for upload
      */
     public IsStateToUpload(): boolean {
         return this.uploads.filter((itm) => itm.status === 'added' || itm.status === 'paused').length > 0;
     }
 
     /**
-     * Prüft ob ein Upload eines Files am laufen ist
-     * @returns Upload ist am laufen
+     * Checks if a file upload is in progress
+     * @returns Upload is in progress
      */
     public IsUploading(): boolean {
         return this.uploads.filter((itm) => itm.status === 'uploading').length > 0;
     }
 
     /**
-     * Gibt den Uploadfortschritt zurück
-     * @returns Upload Fortschritt. Wert von 0-100
+     * Returns the upload progress
+     * @returns Upload progress. Value from 0-100
      */
     public Progress(): number {
         if (this.uploads.length > 0) {
@@ -385,9 +402,9 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     }
 
     /**
-     * Methode welche die Upload ID's in das Model setzt oder löscht
+     * Method that sets or deletes the upload IDs in the model
      *
-     * @param file Type von File ID's
+     * @param file Type of file IDs
      */
     public abstract SetUploadValue(file: UploadState): void;
 
@@ -409,7 +426,7 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     }
 
     /**
-     * Destroy des Controls
+     * Destroy the control
      */
     public ngOnDestroy() {
         if (this.listenerFn) {
@@ -418,7 +435,7 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     }
 
     /**
-     * Initialisiert das Control
+     * Initializes the control
      */
     public ngOnInit() {
         super.ngOnInit();
@@ -437,9 +454,9 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     }
 
     /**
-     * Upload Event
+     * Upload event
      *
-     * @param uploadsOutStream Upload Item
+     * @param uploadsOutStream Upload item
      */
     public onUpload(ufile: UploadState) {
         const index = this.uploads.findIndex((f) => f.uploadId === ufile.uploadId);
@@ -489,15 +506,15 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     }
 
     /**
-     * Cancel Single File
-     * @param uploadId ID of File to Cancel
+     * Cancel single file
+     * @param uploadId ID of file to cancel
      */
     public pause(uploadId) {
         this.uploadService.control({ action: 'pause', uploadId });
     }
 
     /**
-     * Pause all Uploads
+     * Pause all uploads
      */
     public pauseAll() {
         if (this.IsUploading() === true) {
@@ -531,8 +548,8 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     }
 
     /**
-     * Validiert das Upload Control
-     * @param c Control das validiert werden soll
+     * Validates the upload control
+     * @param c Control to be validated
      */
     public validateData(c: AbstractControl): ValidationErrors | null {
         let error: ValidationErrors | null = null;
@@ -557,6 +574,9 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
 
     // #region Private Methods
 
+    /**
+     * Updates the file count on the form control
+     */
     private UpdateFileCount(): void {
         // HACK: Add addition property to FormControl. Can be fixed if solution for ticket: https://github.com/angular/angular/issues/19686
         if (this.ngControl) {
@@ -572,9 +592,9 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     }
 
     /**
-     * Prüft ob die Dateierweiterung gültig ist
+     * Checks whether the file extension is valid
      *
-     * @param filename Dateiname
+     * @param filename File name
      */
     private isExtensionValid(filename: string): boolean {
         if (this._allowedtypes === '*') {
@@ -594,9 +614,9 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     }
 
     /**
-     * Prüft ob das File nicht zu gross ist.
+     * Checks if the file is not too large.
      *
-     * @param filesize Max File Size in Bytes
+     * @param filesize Max file size in bytes
      */
     private isFileSizeValid(filesize: number): boolean {
         if (this.maxfilesize === 0) {
@@ -607,12 +627,12 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     }
 
     /**
-     * Setzt die erlaubten Datentypen für den Upload
+     * Sets the allowed data types for upload
      *
-     * @param types Erlaubte File Extensions
+     * @param types Allowed file extensions
      */
     private setAllowedTypes(types: string) {
-        // Prüfen UploadInput bereits geladen, ist NULL wenn Extension im Markup nach NgModel gesetzt wird.
+        // Check if uploadInput is already loaded; is NULL when the directive is set after NgModel in the markup.
         if (this.uploadInput && this.uploadInput.nativeElement) {
             this.renderer.setAttribute(this.uploadInput.nativeElement, 'accept', types);
         }
@@ -621,7 +641,7 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     }
 
     /**
-     * Setzt den Upload Endpoit
+     * Sets the upload endpoint
      * @param url Register URI
      */
     private setEndpoint(url: string) {
@@ -632,7 +652,7 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
 }
 
 /**
- * Klasse für den Upload einer Datei in der Upload Component
+ * Class for uploading a file in the upload component
  */
 export class SacUploadFile {
     // #region Properties
@@ -643,17 +663,17 @@ export class SacUploadFile {
     public documentid: string;
 
     /**
-     * Dateiname
+     * File name
      */
     public name: string;
 
     /**
-     * Upload Fortschritt
+     * Upload progress
      */
     public progress: number;
 
     /**
-     * Upload Status
+     * Upload status
      */
     public status: string;
 
@@ -667,8 +687,8 @@ export class SacUploadFile {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param ufile Upload Status
+     * Constructor
+     * @param ufile Upload state
      */
     constructor(ufile: UploadState) {
         this.uploadId = ufile.uploadId;

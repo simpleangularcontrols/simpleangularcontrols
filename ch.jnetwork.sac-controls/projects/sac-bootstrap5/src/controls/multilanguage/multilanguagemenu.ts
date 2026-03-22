@@ -15,7 +15,7 @@ import {
 import { SacContextmenuCommon } from '@simpleangularcontrols/sac-common';
 
 /**
- * Component für Contextmenü
+ * Component for context menu
  */
 @Component({
     selector: '[sac-multilanguagemenu]', // eslint-disable-line @angular-eslint/component-selector -- bootstrap requires append-items direct behind the previews element
@@ -50,11 +50,11 @@ export class SacMultilanguagemenuComponent extends SacContextmenuCommon {
 
     /**
      * Constructor
-     * @param document Referenz auf HTML Document
+     * @param document Reference to HTML document
      * @param ngZone Angular Zone Service
-     * @param elementRef Referenz auf HTML Element der aktuellen Komponente
-     * @param renderer Render Service von Angular
-     * @param injector injector to resolve services in base component
+     * @param elementRef Reference to HTML element of the current component
+     * @param renderer Angular render service
+     * @param injector Injector to resolve services in base component
      */
     constructor(
         @Inject(DOCUMENT) document: any,

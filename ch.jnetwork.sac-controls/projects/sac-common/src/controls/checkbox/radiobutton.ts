@@ -8,14 +8,14 @@ import { SacRadiobuttonsCommon } from './radiobuttons';
 import { Directive, EventEmitter, Host, Injector, Input, OnDestroy, OnInit, Output, TemplateRef } from '@angular/core';
 
 /**
- * Basis Komponente für SacRadiobutton.
+ * Base component for SacRadiobutton.
  */
 @Directive()
 export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     // #region Properties
 
     /**
-     * Boolean Property zum Ausblenden des Controls; default Wert - false
+     * Boolean property to hide the control; default value - false
      */
     private _hidden = false;
 
@@ -35,23 +35,23 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     protected iconService: ISacIconService;
 
     /**
-     * public public public public public public public public public public public public ControlHeight enum for use in HTML markup
+     * ControlHeight enum for use in HTML markup
      */
     public ControlHeight: typeof ControlHeight = ControlHeight;
 
     /**
-     * Unique Index für RadioButton
+     * Unique index for radio button
      */
     public _index: number = null;
 
     /**
-     * Boolean Property, ob Radiobutton checked ist
+     * Boolean property whether the radio button is checked
      */
     @Input()
     public checked: boolean;
 
     /**
-     * Boolean Property, ob Radiobutton disabled ist
+     * Boolean property whether the radio button is disabled
      */
     @Input()
     public disabled: boolean;
@@ -74,7 +74,7 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     public label: string;
 
     /**
-     * Template für Value Element
+     * Template for value element
      */
     @Input()
     public labeltemplate: TemplateRef<any>;
@@ -96,7 +96,7 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     // #region Constructors
 
     /**
-     * Konstruktor
+     * Constructor
      * @param SacRadioButtons
      * @param formlayout SacFormLayoutCommon to define scoped layout settings
      * @param injector Injector for injecting services
@@ -112,7 +112,7 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
 
         this.iconService = injector.get(SACICON_SERVICE, new SacDefaultIconService());
 
-        // Registration des Controls in SacRadioButtons Container
+        // Registration of the control in SacRadioButtons container
         this.sacRadioButtons.RegisterRadioButton(this);
     }
 
@@ -135,7 +135,7 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     }
 
     /**
-     * Getter für Unique Index
+     * Getter for unique index
      */
     public get getIndex(): number {
         if (this._index === null && this.sacRadioButtons !== null && this.sacRadioButtons !== undefined) {
@@ -157,7 +157,7 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     }
 
     /**
-     * Setter für hidden Property
+     * Setter for hidden property
      */
     @Input()
     public set hidden(v: boolean | string) {
@@ -167,14 +167,14 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
             this._hidden = v === 'true';
         }
 
-        // Model Reset falls RadioButton selektiert war
+        // Model reset if radio button was selected
         if (this._hidden && this.checked) {
             this.sacRadioButtons.SelectItem(null);
         }
     }
 
     /**
-     * Methode ergibt Boolean, ob Control disabled ist
+     * Method returns boolean whether control is disabled
      */
     public get isDisabled(): boolean {
         return this.disabled || this.sacRadioButtons.disabled;
@@ -185,7 +185,7 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     // #region Public Methods
 
     /**
-     * Event bei Änderungen
+     * Event on changes
      */
     public ChangeEvent(): void {
         if (!this.disabled) {
@@ -195,15 +195,21 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     }
 
     /**
-     * Event wenn die Komponente zerstört wird
+     * Event when the component is destroyed
      */
     public ngOnDestroy(): void {
-        // De-Registration des Controls in SacRadioButtons Container
+        // De-registration of the control in SacRadioButtons container
         this.sacRadioButtons.UnregisterRadioButton(this);
     }
 
+    /**
+     * Component initialization lifecycle hook.
+     *
+     * Initializes helptext mode, and marks the radio button as checked when the value matches
+     * the container's selected value.
+     */
     public ngOnInit(): void {
-        // set method to display helptext
+        // Set method to display helptext
         this.setHelpTextMode();
 
         if (this.value === this.sacRadioButtons.value) {

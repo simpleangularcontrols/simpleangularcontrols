@@ -3,6 +3,14 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 // #region Exported Functions
 
+/**
+ * Returns a validator that checks the control value is different from invalidValue.
+ *
+ * @param invalidValue Value that is not allowed.
+ * @param validationMessage Message shown when control value matches invalid value.
+ * @param validationMessageSummary Summary message shown when control value matches invalid value.
+ * @returns Validator function for not-equals validation.
+ */
 export function notEqualsValueValidator(
     invalidValue: any,
     validationMessage: string,

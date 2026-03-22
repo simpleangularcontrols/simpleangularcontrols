@@ -10,12 +10,12 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacStaticLabelCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 /**
- * Komponente für statischen Text in einem Formular
+ * Component for static text in a form
  */
 @Component({
     selector: 'sac-staticlabel',
     templateUrl: './staticlabel.html',
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -44,7 +44,7 @@ export class SacStaticLabelComponent extends SacStaticLabelCommon {
     // #region Constructors
 
     /**
-     *
+     * Initializes the static label control with form layout context.
      * @param formLayout SacFormLayout to define scoped layout settings
      * @param injector Injector for injecting services
      */

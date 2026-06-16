@@ -43,6 +43,26 @@
     </div>
 
     <div>
+        <h2>Dialog mit Backdrop und OutOfDialog</h2>
+        <sac-button
+            name="modalOpen2a"
+            text="Modal öffnen"
+            (clicked)="modal2dialoga.show()"></sac-button>
+        <sac-dialog
+            #modal2dialoga
+            title="Dialog mit Backdrop und OutOfDialog"
+            [hideoutofdialog]="true">
+            <div dialogbody><p>Hello World</p></div>
+            <div dialogfooter>
+                <sac-button
+                    name="modalClose2a"
+                    text="Schliessen"
+                    (clicked)="modal2dialoga.hide()"></sac-button>
+            </div>
+        </sac-dialog>
+    </div>
+
+    <div>
         <h2>Dialog in Dialog mit Backdrop und ESC</h2>
         <sac-button
             name="modalOpen3"

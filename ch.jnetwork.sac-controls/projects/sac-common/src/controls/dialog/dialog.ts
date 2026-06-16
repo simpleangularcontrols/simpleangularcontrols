@@ -61,6 +61,12 @@ export class SacDialogCommon implements OnDestroy {
     public e2eidentifier: string | null = null;
 
     /**
+     * If enabled dialog is closed if user click outside of the dialog
+     */
+    @Input()
+    public hideoutofdialog = false;
+
+    /**
      * Output emitter. Called when the value of the _show property changes - so the dialog is opened/closed.
      */
     @Output()
@@ -181,7 +187,7 @@ export class SacDialogCommon implements OnDestroy {
     @HostListener('click', ['$event'])
     public onClick(event: any): void {
         if (
-            this.allowesc === false ||
+            this.hideoutofdialog === false ||
             (this.dialogElement !== null &&
                 this.dialogElement !== undefined &&
                 event.target !== this.dialogElement.nativeElement)

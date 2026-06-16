@@ -235,7 +235,7 @@ describe('SacDialogComponent', () => {
         cy.mount(
             `<form>
                 <div id="clicktarget"></div>
-                <sac-dialog #modaldialog [isvisible]="true">
+                <sac-dialog #modaldialog [isvisible]="true" [hideoutofdialog]="true">
                     <div dialogbody>Dialog Header</div>
                     <div dialogfooter>
                         <sac-button
@@ -265,11 +265,11 @@ describe('SacDialogComponent', () => {
         cy.get('div.modal').should('not.exist');
     });
 
-    it('should not close when click outside window and allowesc disabled', () => {
+    it('should not close when click outside window and hideoutofdialog disabled', () => {
         cy.mount(
             `<form>
                 <div id="clicktarget"></div>
-                <sac-dialog #modaldialog [isvisible]="true" [allowesc]="false">
+                <sac-dialog #modaldialog [isvisible]="true">
                     <div dialogbody>Dialog Header</div>
                     <div dialogfooter>
                         <sac-button
@@ -384,7 +384,7 @@ describe('SacDialogComponent', () => {
         cy.mount(
             `<form>
                 <div id="clicktarget"></div>
-                <sac-dialog #modaldialog [isvisible]="value" (isvisibleChange)="valueChange.emit($event)">
+                <sac-dialog #modaldialog [isvisible]="value" (isvisibleChange)="valueChange.emit($event)" [hideoutofdialog]="true">
                     <div dialogbody>Dialog Header</div>
                     <div dialogfooter>
                         <sac-button

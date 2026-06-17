@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content component">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -127,6 +138,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Modal dialog component used for overlay dialogs.</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -166,7 +184,7 @@
             </tr>
 
             <tr>
-                <td class="col-md-3">Standalone</td>
+                <td class="col-md-3">standalone</td>
                 <td class="col-md-9"><code>true</code></td>
             </tr>
 
@@ -288,6 +306,9 @@
                                 <a href="#e2eidentifier" >e2eidentifier</a>
                             </li>
                             <li>
+                                <a href="#hideoutofdialog" >hideoutofdialog</a>
+                            </li>
+                            <li>
                                 <a href="#isvisible" >isvisible</a>
                             </li>
                             <li>
@@ -366,12 +387,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/sac-bootstrap3/src/controls/dialog/dialog.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/sac-bootstrap3/src/controls/dialog/dialog.ts:26</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -380,6 +403,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -394,6 +418,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>DOM element reference</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>cdRef</td>
@@ -406,6 +434,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Change Detection Service</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -439,9 +471,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/sac-bootstrap3/src/controls/dialog/dialog.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/sac-bootstrap3/src/controls/dialog/dialog.ts:26</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Z-index positioning for the dialog overlay</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -477,7 +515,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch ESC geschlossen werden. Default ist true.</p>
+                        <div class="io-description"><p>The input property accepts a boolean value. Defines whether the dialog can be closed by ESC. Default is true.</p>
 </div>
                     </td>
                 </tr>
@@ -516,7 +554,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch click außerhalb des Dialog-Fenster geschlossen werden. Default ist true.</p>
+                        <div class="io-description"><p>The input property accepts a boolean value. Defines whether the dialog can be closed by clicking outside the dialog window. Default is true.</p>
 </div>
                     </td>
                 </tr>
@@ -555,7 +593,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Steuert ob im Header des Dialogs ein Button angezeigt wird.</p>
+                        <div class="io-description"><p>Controls whether a button is displayed in the header of the dialog.</p>
 </div>
                     </td>
                 </tr>
@@ -604,6 +642,45 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="hideoutofdialog"></a>
+                        <b>hideoutofdialog</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/SacDialogCommon.html" target="_self" >SacDialogCommon</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:67</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>If enabled dialog is closed if user click outside of the dialog</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="isvisible"></a>
                         <b>isvisible</b>
                     </td>
@@ -622,13 +699,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:114</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:120</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Setter. Erhält das boolen Wert des _show property</p>
+                        <div class="io-description"><p>Setter. Receives the boolean value of the _show property</p>
 </div>
                     </td>
                 </tr>
@@ -661,7 +738,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:73</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:79</a></code>
 </div>
                             </td>
                         </tr>
@@ -695,16 +772,16 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:135</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:141</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Das Input akzeptiert sowohl default size-css-Klassen als auch custom Klassen.
-case insensitive.
-Die akzeptabel default-size-Klassen sind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#39;, &#39;medium&#39;, &#39;&#39;.
-Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist in medium size: max-width 500px.</p>
+                        <div class="io-description"><p>The input accepts both default size CSS classes and custom classes.
+Case insensitive.
+The acceptable default size classes are: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#39;, &#39;medium&#39;, &#39;&#39;.
+If size is NOT set (or &#39;medium&#39; or &#39;&#39;), default is medium size: max-width 500px.</p>
 </div>
                     </td>
                 </tr>
@@ -737,13 +814,13 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:79</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:85</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Input Property. Erhält den Title des Dialog. Default Value: &#39;Dialog&#39;.</p>
+                        <div class="io-description"><p>Input property. Receives the title of the dialog. Default value: &#39;Dialog&#39;.</p>
 </div>
                     </td>
                 </tr>
@@ -774,13 +851,13 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:67</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:73</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Output Emitter. Wird aufgerufen, wenn das Wert des _show property geändert ist - damait das Dialog geöfnet/geschlossen wird.</p>
+                        <div class="io-description"><p>Output emitter. Called when the value of the _show property changes - so the dialog is opened/closed.</p>
 </div>
                     </td>
                 </tr>
@@ -820,7 +897,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:181</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:188</a></code>
 </div>
                         </td>
                     </tr>
@@ -831,6 +908,34 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                         <div class="io-description"><p>Allow Close by Click outside Dialog</p>
 </div>
 
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Click event object</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -866,7 +971,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:197</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:205</a></code>
 </div>
                         </td>
                     </tr>
@@ -877,6 +982,34 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                         <div class="io-description"><p>Allow Close by ESC</p>
 </div>
 
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Keyboard event object</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -915,7 +1048,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:58</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:74</a></code>
 </div>
                         </td>
                     </tr>
@@ -923,6 +1056,8 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Cleanup lifecycle hook - removes dialog from DOM</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -954,14 +1089,16 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="66"
-                                    class="link-to-prism">projects/sac-bootstrap3/src/controls/dialog/dialog.ts:66</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">projects/sac-bootstrap3/src/controls/dialog/dialog.ts:85</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Initialization lifecycle hook - appends dialog to body for correct styling under Bootstrap 3</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -999,7 +1136,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:157</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:163</a></code>
 </div>
                         </td>
                     </tr>
@@ -1007,7 +1144,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Die Methode setz den Wert des _show property auf false</p>
+                        <div class="io-description"><p>The method sets the value of the _show property to false</p>
 </div>
 
                         <div class="io-description">
@@ -1054,7 +1191,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:181</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:188</a></code>
 </div>
                         </td>
                     </tr>
@@ -1074,6 +1211,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1088,6 +1226,10 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                                             </td>
 
 
+                                            <td>
+                                                    <p>Click event object</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1139,7 +1281,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:197</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:205</a></code>
 </div>
                         </td>
                     </tr>
@@ -1159,6 +1301,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1173,6 +1316,10 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                                             </td>
 
 
+                                            <td>
+                                                    <p>Keyboard event object</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1216,7 +1363,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:208</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDialogCommon.html#source" target="_self" >SacDialogCommon:216</a></code>
 </div>
                         </td>
                     </tr>
@@ -1224,7 +1371,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Die Methode setz den Wert des _show property auf true</p>
+                        <div class="io-description"><p>The method sets the value of the _show property to true</p>
 </div>
 
                         <div class="io-description">
@@ -1255,7 +1402,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <i>Type : </i>    <code>unknown</code>
 
                     </td>
                 </tr>
@@ -1279,7 +1426,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Boolean Property definiert ob das Dialog angezeigt wird</p>
+                    <div class="io-description"><p>Boolean property defines whether the dialog is shown</p>
 </div>
                 </td>
             </tr>
@@ -1324,8 +1471,8 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Das property enthielt (wenn überhaupt gesetzt) entweder keywords für sizing oder custom css Klassen.
-Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#39;, &#39;medium&#39;, &#39;&#39;.</p>
+                    <div class="io-description"><p>This property contains (if set) either keywords for sizing or custom CSS classes.
+The acceptable keywords are: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#39;, &#39;medium&#39;, &#39;&#39;.</p>
 </div>
                 </td>
             </tr>
@@ -1365,7 +1512,7 @@ Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Name des Containers für den Dialog</p>
+                    <div class="io-description"><p>Name of the container for the dialog</p>
 </div>
                 </td>
             </tr>
@@ -1394,9 +1541,20 @@ Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/sac-bootstrap3/src/controls/dialog/dialog.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">projects/sac-bootstrap3/src/controls/dialog/dialog.ts:50</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Calculates the top margin required to vertically center the dialog.</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
             </tbody>
         </table>
@@ -1409,6 +1567,9 @@ Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#
 import { ChangeDetectorRef, Component, ElementRef, Input, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
 import { SacDialogCommon, SacTestingAttributePipe } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
+/**
+ * Modal dialog component used for overlay dialogs.
+ */
 @Component({
     selector: &#x27;sac-dialog&#x27;,
     templateUrl: &#x27;./dialog.html&#x27;,
@@ -1418,18 +1579,26 @@ import { SacDialogCommon, SacTestingAttributePipe } from &#x27;@simpleangularcon
 export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDestroy {
     // #region Properties
 
-    private _lastDialogMarginTop: number &#x3D; 0;
+    private _lastDialogMarginTop &#x3D; 0;
 
     // DOM Element
     private element: any;
 
+    /**
+     * Z-index positioning for the dialog overlay
+     */
     @Input()
-    public zindex: number &#x3D; 20002;
+    public zindex &#x3D; 20002;
 
     // #endregion Properties
 
     // #region Constructors
 
+    /**
+     * Constructor
+     * @param el DOM element reference
+     * @param cdRef Change Detection Service
+     */
     constructor(el: ElementRef, cdRef: ChangeDetectorRef) {
         super(cdRef);
 
@@ -1440,16 +1609,18 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
 
     // #region Public Getters And Setters
 
-    // Margin Top für Center Position des Dialogs berechnen
+    /**
+     * Calculates the top margin required to vertically center the dialog.
+     */
     public get dialogMarginTop(): number {
-        let result: number &#x3D; 0;
+        let result &#x3D; 0;
 
-        // ContentPlaceholder kann NULL/UNDEFINED sein wenn Dialog nicht angezeigt wird
+        // ContentPlaceholder can be NULL/UNDEFINED when dialog is not displayed
         if (this.dialogElement !&#x3D;&#x3D; null &amp;&amp; this.dialogElement !&#x3D;&#x3D; undefined) {
             result &#x3D; (this.dialogElement.nativeElement.clientHeight / 2) * -1;
         }
 
-        // Change Detection ausführen, falls Wert nach Rendering noch geändert hat. Kann durch HTML Content / Zeilenumbrüche usw. ausgelöst werden.
+        // Execute Change Detection if value has changed after rendering. Can be triggered by HTML content / line breaks etc.
         if (this._lastDialogMarginTop !&#x3D;&#x3D; result) {
             this._lastDialogMarginTop &#x3D; result;
             this.ChangeDetector.detectChanges();
@@ -1462,6 +1633,9 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
 
     // #region Public Methods
 
+    /**
+     * Cleanup lifecycle hook - removes dialog from DOM
+     */
     public ngOnDestroy() {
         this.hide();
         if (document.body.contains(this.element)) {
@@ -1470,8 +1644,11 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
         super.ngOnDestroy();
     }
 
+    /**
+     * Initialization lifecycle hook - appends dialog to body for correct styling under Bootstrap 3
+     */
     public ngOnInit() {
-        // Element an Body für korrektes Styling unter Bootstrap 3 verschieben
+        // Move element to body for correct styling under Bootstrap 3
         document.body.appendChild(this.element);
     }
 
@@ -1485,7 +1662,7 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
     [id]&#x3D;&quot;name&quot;
     *ngIf&#x3D;&quot;_show&quot;
     [ngStyle]&#x3D;&quot;{ &#x27;z-index&#x27;: zindex }&quot;
-    [attr.data-e2e-key]&#x3D;&quot;name | testingattribute : e2eidentifier&quot;&gt;
+    [attr.data-e2e-key]&#x3D;&quot;name | testingattribute: e2eidentifier&quot;&gt;
     &lt;div
         class&#x3D;&quot;modal in&quot;
         style&#x3D;&quot;display: block&quot;
@@ -1552,11 +1729,11 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
     
 </div>
 
-<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/vis-network.min.js"></script>
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div    [id]="name"    *ngIf="_show"    [ngStyle]="{ \'z-index\': zindex }"    [attr.data-e2e-key]="name | testingattribute : e2eidentifier">    <div        class="modal in"        style="display: block"        tabindex="-1"        role="dialog"        #dialog>        <div            class="modal-dialog"            [class.modal-sm]="_size === \'small\'"            [class.modal-lg]="_size === \'large\' || _size === \'extralarge\'"            role="document">            <div class="modal-content">                <div class="modal-header">                    <button                        type="button"                        class="close"                        data-dismiss="modal"                        aria-label="Close"                        (click)="hide()"                        *ngIf="closebutton">                        <span aria-hidden="true">&times;</span>                    </button>                    <span class="modal-title">{{ title }}</span>                </div>                <div class="modal-body">                    <ng-content select="[dialogbody]"></ng-content>                </div>                <div class="modal-footer">                    <ng-content select="[dialogfooter]"></ng-content>                </div>            </div>            <!-- /.modal-content -->        </div>        <!-- /.modal-dialog -->    </div>    <!-- /.modal --></div><div    class="modal-backdrop in"    *ngIf="_show && backdrop"    #backdrop></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div    [id]="name"    *ngIf="_show"    [ngStyle]="{ \'z-index\': zindex }"    [attr.data-e2e-key]="name | testingattribute: e2eidentifier">    <div        class="modal in"        style="display: block"        tabindex="-1"        role="dialog"        #dialog>        <div            class="modal-dialog"            [class.modal-sm]="_size === \'small\'"            [class.modal-lg]="_size === \'large\' || _size === \'extralarge\'"            role="document">            <div class="modal-content">                <div class="modal-header">                    <button                        type="button"                        class="close"                        data-dismiss="modal"                        aria-label="Close"                        (click)="hide()"                        *ngIf="closebutton">                        <span aria-hidden="true">&times;</span>                    </button>                    <span class="modal-title">{{ title }}</span>                </div>                <div class="modal-body">                    <ng-content select="[dialogbody]"></ng-content>                </div>                <div class="modal-footer">                    <ng-content select="[dialogfooter]"></ng-content>                </div>            </div>            <!-- /.modal-content -->        </div>        <!-- /.modal-dialog -->    </div>    <!-- /.modal --></div><div    class="modal-backdrop in"    *ngIf="_show && backdrop"    #backdrop></div></div>'
     var COMPONENTS = [{'name': 'SacButtonComponent', 'selector': 'sac-button'},{'name': 'SacCheckboxComponent', 'selector': 'sac-checkbox'},{'name': 'SacConfirmComponent', 'selector': 'sac-confirm'},{'name': 'SacContextmenuComponent', 'selector': 'sac-contextmenu'},{'name': 'SacContextmenuItemButtonComponent', 'selector': 'sac-contextmenubutton'},{'name': 'SacContextmenuItemSplitterComponent', 'selector': 'sac-contextmenusplitter'},{'name': 'SacDateComponent', 'selector': 'sac-date'},{'name': 'SacDateSelectorComponent', 'selector': 'sac-dateselector'},{'name': 'SacDateTimeComponent', 'selector': 'sac-datetime'},{'name': 'SacDialogComponent', 'selector': 'sac-dialog'},{'name': 'SacDropdownComponent', 'selector': 'sac-dropdown'},{'name': 'SacDropzoneMultipleComponent', 'selector': 'sac-dropzonemultiple'},{'name': 'SacDropzoneSingleComponent', 'selector': 'sac-dropzonesingle'},{'name': 'SacGridButtonComponent', 'selector': 'sac-gridbutton'},{'name': 'SacGridColumnActionComponent', 'selector': 'sac-gridcolumnaction'},{'name': 'SacGridColumnComponent', 'selector': 'sac-gridcolumn'},{'name': 'SacGridComponent', 'selector': 'sac-grid'},{'name': 'SacGridImageComponent', 'selector': 'sac-gridimage'},{'name': 'SacInputAreaComponent', 'selector': 'sac-inputarea'},{'name': 'SacInputComponent', 'selector': 'sac-input'},{'name': 'SacInputCurrencyComponent', 'selector': 'sac-inputcurrency'},{'name': 'SacInputDecimalComponent', 'selector': 'sac-inputdecimal'},{'name': 'SacInputEmailComponent', 'selector': 'sac-inputemail'},{'name': 'SacInputIntegerComponent', 'selector': 'sac-inputinteger'},{'name': 'SacInputPasswordComponent', 'selector': 'sac-inputpassword'},{'name': 'SacInputSearchComponent', 'selector': 'sac-inputsearch'},{'name': 'SacListboxComponent', 'selector': 'sac-listbox'},{'name': 'SacPagingComponent', 'selector': 'sac-paging'},{'name': 'SacRadiobuttonComponent', 'selector': 'sac-radiobutton'},{'name': 'SacRadiobuttonsComponent', 'selector': 'sac-radiobuttons'},{'name': 'SacStaticFormContainerComponent', 'selector': 'sac-staticformcontainer'},{'name': 'SacStaticLabelComponent', 'selector': 'sac-staticlabel'},{'name': 'SacTabComponent', 'selector': 'sac-tab'},{'name': 'SacTabItemComponent', 'selector': 'sac-tabitem'},{'name': 'SacTimeComponent', 'selector': 'sac-time'},{'name': 'SacTinyMceComponent', 'selector': 'sac-tinymce'},{'name': 'SacTooltipComponent', 'selector': 'sac-tooltip'},{'name': 'SacTreeviewComponent', 'selector': 'sac-treeview'},{'name': 'SacUploadComponent', 'selector': 'sac-upload'},{'name': 'SacUploadMultipleComponent', 'selector': 'sac-uploadmultiple'},{'name': 'SacValidationSummaryComponent', 'selector': 'sac-validationsummary'},{'name': 'SacWizardComponent', 'selector': 'sac-wizard'},{'name': 'SacWizardItemComponent', 'selector': 'sac-wizarditem'}];
     var DIRECTIVES = [{'name': 'SacBaseDateTimeControl', 'selector': ''},{'name': 'SacBaseListControl', 'selector': ''},{'name': 'SacBaseModelControl', 'selector': ''},{'name': 'SacBaseSelectControl', 'selector': ''},{'name': 'SacButtonCommon', 'selector': ''},{'name': 'SacCheckboxCommon', 'selector': ''},{'name': 'SacConfirmCommon', 'selector': ''},{'name': 'SacContextmenuAnchorCommon', 'selector': ''},{'name': 'SacContextmenuAnchorDirective', 'selector': '[sacContextMenuAnchor]'},{'name': 'SacContextmenuCommon', 'selector': ''},{'name': 'SacContextmenuContainerDirective', 'selector': '[sacContextMenuContainer]'},{'name': 'SacContextMenuContrainerCommon', 'selector': ''},{'name': 'SacContextmenuItemButtonCommon', 'selector': ''},{'name': 'SacContextmenuItemCommon', 'selector': ''},{'name': 'SacDateCommon', 'selector': ''},{'name': 'SacDateSelectorCommon', 'selector': ''},{'name': 'SacDateTimeCommon', 'selector': ''},{'name': 'SacDialogCommon', 'selector': ''},{'name': 'SacDropdownCommon', 'selector': ''},{'name': 'SacDropdownOptionCommon', 'selector': ''},{'name': 'SacDropdownOptionDirective', 'selector': 'option,[sacOption]'},{'name': 'SacDropzoneMultipleCommon', 'selector': ''},{'name': 'SacDropzoneSingleCommon', 'selector': ''},{'name': 'SacFileBrowserCommon', 'selector': ''},{'name': 'SacFormCommon', 'selector': ''},{'name': 'SacFormDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'SacFormLayoutCommon', 'selector': ''},{'name': 'SacFormLayoutDirective', 'selector': '[sacFormLayout]'},{'name': 'SacGridButtonCommon', 'selector': ''},{'name': 'SacGridColumnActionCommon', 'selector': ''},{'name': 'SacGridColumnBaseCommon', 'selector': ''},{'name': 'SacGridColumnCommon', 'selector': ''},{'name': 'SacGridCommon', 'selector': ''},{'name': 'SacGridImageCommon', 'selector': ''},{'name': 'SacInheritFormDirective', 'selector': '[sacInheritForm]'},{'name': 'SacInputAreaCommon', 'selector': ''},{'name': 'SacInputBase', 'selector': ''},{'name': 'SacInputCommon', 'selector': ''},{'name': 'SacInputCurrencyCommon', 'selector': ''},{'name': 'SacInputDecimalCommon', 'selector': ''},{'name': 'SacInputEmailCommon', 'selector': ''},{'name': 'SacInputIntegerCommon', 'selector': ''},{'name': 'SacInputPasswordCommon', 'selector': ''},{'name': 'SacInputSearchCommon', 'selector': ''},{'name': 'SacListboxCommon', 'selector': ''},{'name': 'SacListboxOptionCommon', 'selector': ''},{'name': 'SacListboxOptionDirective', 'selector': '[sacOption],option'},{'name': 'SacMultilanguageInputAreaCommon', 'selector': ''},{'name': 'SacMultilanguageInputCommon', 'selector': ''},{'name': 'SacPagingCommon', 'selector': ''},{'name': 'SacRadiobuttonCommon', 'selector': ''},{'name': 'SacRadiobuttonsCommon', 'selector': ''},{'name': 'SacStaticFormContainerCommon', 'selector': ''},{'name': 'SacStaticLabelCommon', 'selector': ''},{'name': 'SacTabCommon', 'selector': ''},{'name': 'SacTabItemCommon', 'selector': ''},{'name': 'SacTimeCommon', 'selector': ''},{'name': 'SacTinyMceCommon', 'selector': ''},{'name': 'SacTooltipCommon', 'selector': ''},{'name': 'SacTreeviewCommon', 'selector': ''},{'name': 'SacUploadBase', 'selector': ''},{'name': 'SacUploadMultipleCommon', 'selector': ''},{'name': 'SacUploadSingleCommon', 'selector': ''},{'name': 'SacValidationSummaryCommon', 'selector': ''},{'name': 'SacWizardCommon', 'selector': ''},{'name': 'SacWizardItemCommon', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'SacDialogComponent'};
@@ -1609,6 +1786,19 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -1620,7 +1810,6 @@ export class SacDialogComponent extends SacDialogCommon implements OnInit, OnDes
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content injectable">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -130,7 +141,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Abstrakte Implementierung des File Service für die Browser Component</p>
+                <p>Abstract implementation of the file service for the browser component</p>
 
             </p>
 
@@ -150,34 +161,42 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Abstract</span>
                                 <a href="#DeleteFile" >DeleteFile</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Abstract</span>
                                 <a href="#DeleteNode" >DeleteNode</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Abstract</span>
                                 <a href="#GetFiles" >GetFiles</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Abstract</span>
                                 <a href="#GetNode" >GetNode</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Abstract</span>
                                 <a href="#RenameFile" >RenameFile</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Abstract</span>
                                 <a href="#RenameNode" >RenameNode</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Abstract</span>
                                 <a href="#SaveFile" >SaveFile</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Abstract</span>
                                 <a href="#SaveNode" >SaveNode</a>
                             </li>
@@ -205,6 +224,7 @@
                 <td class="col-md-4">
                     <a name="DeleteFile"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                             <span class="modifier">Abstract</span>
                         <span ><b>DeleteFile</b></span>
                         <a href="#DeleteFile"><span class="icon ion-ios-link"></span></a>
@@ -221,15 +241,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="122"
-                                    class="link-to-prism">projects/sac-common/src/services/sac-filebrowser.service.ts:122</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">projects/sac-common/src/services/sac-filebrowser.service.ts:41</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Löscht eine Datei</p>
+                        <div class="io-description"><p>Deletes a file</p>
 </div>
 
                             <div class="io-description">
@@ -257,7 +277,7 @@
 
 
                                             <td>
-                                                    <p>URL zu API Service</p>
+                                                    <p>URL to API Service</p>
 
                                             </td>
                                         </tr>
@@ -273,7 +293,7 @@
 
 
                                             <td>
-                                                    <p>Pfad des Files welches gelöscht werden soll</p>
+                                                    <p>Path of the file to be deleted</p>
 
                                             </td>
                                         </tr>
@@ -289,7 +309,7 @@
 
 
                                             <td>
-                                                    <p>Erlaubte Extensions für Files</p>
+                                                    <p>Allowed extensions for files</p>
 
                                             </td>
                                         </tr>
@@ -313,6 +333,7 @@
                 <td class="col-md-4">
                     <a name="DeleteNode"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                             <span class="modifier">Abstract</span>
                         <span ><b>DeleteNode</b></span>
                         <a href="#DeleteNode"><span class="icon ion-ios-link"></span></a>
@@ -329,15 +350,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="71"
-                                    class="link-to-prism">projects/sac-common/src/services/sac-filebrowser.service.ts:71</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">projects/sac-common/src/services/sac-filebrowser.service.ts:52</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Löscht einen Node</p>
+                        <div class="io-description"><p>Deletes a node</p>
 </div>
 
                             <div class="io-description">
@@ -365,7 +386,7 @@
 
 
                                             <td>
-                                                    <p>URL zu API Service</p>
+                                                    <p>URL to API Service</p>
 
                                             </td>
                                         </tr>
@@ -381,7 +402,7 @@
 
 
                                             <td>
-                                                    <p>Pfad des Nodes welcher gelöscht werden soll</p>
+                                                    <p>Path of the node to be deleted</p>
 
                                             </td>
                                         </tr>
@@ -405,6 +426,7 @@
                 <td class="col-md-4">
                     <a name="GetFiles"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                             <span class="modifier">Abstract</span>
                         <span ><b>GetFiles</b></span>
                         <a href="#GetFiles"><span class="icon ion-ios-link"></span></a>
@@ -421,15 +443,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="82"
-                                    class="link-to-prism">projects/sac-common/src/services/sac-filebrowser.service.ts:82</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">projects/sac-common/src/services/sac-filebrowser.service.ts:60</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode welche die Dateien eines Nodes ausliest</p>
+                        <div class="io-description"><p>Method that reads the files of a node</p>
 </div>
 
                             <div class="io-description">
@@ -457,7 +479,7 @@
 
 
                                             <td>
-                                                    <p>URL zu API Service</p>
+                                                    <p>URL to API Service</p>
 
                                             </td>
                                         </tr>
@@ -473,7 +495,7 @@
 
 
                                             <td>
-                                                    <p>Pfad des Nodes in welchem die Files gelesen werden sollen</p>
+                                                    <p>Path of the node from which the files should be read</p>
 
                                             </td>
                                         </tr>
@@ -489,7 +511,7 @@
 
 
                                             <td>
-                                                    <p>Erlaubte File Extensions</p>
+                                                    <p>Allowed file extensions</p>
 
                                             </td>
                                         </tr>
@@ -513,6 +535,7 @@
                 <td class="col-md-4">
                     <a name="GetNode"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                             <span class="modifier">Abstract</span>
                         <span ><b>GetNode</b></span>
                         <a href="#GetNode"><span class="icon ion-ios-link"></span></a>
@@ -529,15 +552,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="36"
-                                    class="link-to-prism">projects/sac-common/src/services/sac-filebrowser.service.ts:36</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="68"
+                                    class="link-to-prism">projects/sac-common/src/services/sac-filebrowser.service.ts:68</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Gibt einen Node zurück</p>
+                        <div class="io-description"><p>Returns a node</p>
 </div>
 
                             <div class="io-description">
@@ -565,7 +588,7 @@
 
 
                                             <td>
-                                                    <p>URL zu API Service</p>
+                                                    <p>URL to API Service</p>
 
                                             </td>
                                         </tr>
@@ -581,7 +604,7 @@
 
 
                                             <td>
-                                                    <p>Pfad des Node welcher angefordert wird</p>
+                                                    <p>Path of the node being requested</p>
 
                                             </td>
                                         </tr>
@@ -597,7 +620,7 @@
 
 
                                             <td>
-                                                    <p>Erlaubte Extensions die angezeigt werden dürfen</p>
+                                                    <p>Allowed extensions that may be displayed</p>
 
                                             </td>
                                         </tr>
@@ -621,6 +644,7 @@
                 <td class="col-md-4">
                     <a name="RenameFile"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                             <span class="modifier">Abstract</span>
                         <span ><b>RenameFile</b></span>
                         <a href="#RenameFile"><span class="icon ion-ios-link"></span></a>
@@ -637,15 +661,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="109"
-                                    class="link-to-prism">projects/sac-common/src/services/sac-filebrowser.service.ts:109</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="77"
+                                    class="link-to-prism">projects/sac-common/src/services/sac-filebrowser.service.ts:77</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode welche eine Datei umbenannt</p>
+                        <div class="io-description"><p>Method that renames a file</p>
 </div>
 
                             <div class="io-description">
@@ -673,7 +697,7 @@
 
 
                                             <td>
-                                                    <p>URL zu API Service</p>
+                                                    <p>URL to API Service</p>
 
                                             </td>
                                         </tr>
@@ -689,7 +713,7 @@
 
 
                                             <td>
-                                                    <p>Pfad zum File welches umbenannt werden soll</p>
+                                                    <p>Path to the file to be renamed</p>
 
                                             </td>
                                         </tr>
@@ -705,7 +729,7 @@
 
 
                                             <td>
-                                                    <p>Neuer Dateiname</p>
+                                                    <p>New filename</p>
 
                                             </td>
                                         </tr>
@@ -721,7 +745,7 @@
 
 
                                             <td>
-                                                    <p>Erlaubte Extension für Files</p>
+                                                    <p>Allowed extension for files</p>
 
                                             </td>
                                         </tr>
@@ -745,6 +769,7 @@
                 <td class="col-md-4">
                     <a name="RenameNode"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                             <span class="modifier">Abstract</span>
                         <span ><b>RenameNode</b></span>
                         <a href="#RenameNode"><span class="icon ion-ios-link"></span></a>
@@ -761,15 +786,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="60"
-                                    class="link-to-prism">projects/sac-common/src/services/sac-filebrowser.service.ts:60</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="90"
+                                    class="link-to-prism">projects/sac-common/src/services/sac-filebrowser.service.ts:90</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Rename eines Nodes</p>
+                        <div class="io-description"><p>Rename a node</p>
 </div>
 
                             <div class="io-description">
@@ -797,7 +822,7 @@
 
 
                                             <td>
-                                                    <p>URL zu API Service</p>
+                                                    <p>URL to API Service</p>
 
                                             </td>
                                         </tr>
@@ -813,7 +838,7 @@
 
 
                                             <td>
-                                                    <p>Pfad des Nodes welcher umbenannt werden soll</p>
+                                                    <p>Path of the node to be renamed</p>
 
                                             </td>
                                         </tr>
@@ -829,7 +854,7 @@
 
 
                                             <td>
-                                                    <p>Neuer Name des Nodes</p>
+                                                    <p>New name of the node</p>
 
                                             </td>
                                         </tr>
@@ -853,6 +878,7 @@
                 <td class="col-md-4">
                     <a name="SaveFile"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                             <span class="modifier">Abstract</span>
                         <span ><b>SaveFile</b></span>
                         <a href="#SaveFile"><span class="icon ion-ios-link"></span></a>
@@ -869,15 +895,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="95"
-                                    class="link-to-prism">projects/sac-common/src/services/sac-filebrowser.service.ts:95</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="99"
+                                    class="link-to-prism">projects/sac-common/src/services/sac-filebrowser.service.ts:99</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Speichert eine Hochgeladene Datei in der Struktur</p>
+                        <div class="io-description"><p>Saves an uploaded file in the structure</p>
 </div>
 
                             <div class="io-description">
@@ -905,7 +931,7 @@
 
 
                                             <td>
-                                                    <p>URL zu API Service</p>
+                                                    <p>URL to API Service</p>
 
                                             </td>
                                         </tr>
@@ -921,7 +947,7 @@
 
 
                                             <td>
-                                                    <p>Pfad in welchem das neue File gespeichert werden soll</p>
+                                                    <p>Path where the new file should be saved</p>
 
                                             </td>
                                         </tr>
@@ -937,7 +963,7 @@
 
 
                                             <td>
-                                                    <p>ID des Uploads</p>
+                                                    <p>ID of the upload</p>
 
                                             </td>
                                         </tr>
@@ -953,7 +979,7 @@
 
 
                                             <td>
-                                                    <p>Erlaubte Extensions für den Upload</p>
+                                                    <p>Allowed extensions for the upload</p>
 
                                             </td>
                                         </tr>
@@ -977,6 +1003,7 @@
                 <td class="col-md-4">
                     <a name="SaveNode"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                             <span class="modifier">Abstract</span>
                         <span ><b>SaveNode</b></span>
                         <a href="#SaveNode"><span class="icon ion-ios-link"></span></a>
@@ -993,15 +1020,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="48"
-                                    class="link-to-prism">projects/sac-common/src/services/sac-filebrowser.service.ts:48</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="112"
+                                    class="link-to-prism">projects/sac-common/src/services/sac-filebrowser.service.ts:112</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Speichert einen Node</p>
+                        <div class="io-description"><p>Saves a node</p>
 </div>
 
                             <div class="io-description">
@@ -1029,7 +1056,7 @@
 
 
                                             <td>
-                                                    <p>URL zu API Service</p>
+                                                    <p>URL to API Service</p>
 
                                             </td>
                                         </tr>
@@ -1045,7 +1072,7 @@
 
 
                                             <td>
-                                                    <p>Pfad in welchem der Node gespeichert werden soll</p>
+                                                    <p>Path where the node should be saved</p>
 
                                             </td>
                                         </tr>
@@ -1061,7 +1088,7 @@
 
 
                                             <td>
-                                                    <p>Name des neuen Nodes</p>
+                                                    <p>Name of the new node</p>
 
                                             </td>
                                         </tr>
@@ -1085,10 +1112,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &#x27;@angular/common/http&#x27;;
-import { Injectable, InjectionToken } from &#x27;@angular/core&#x27;;
-import { Observable } from &#x27;rxjs&#x27;;
-import { BrowserFileDeleteRequest } from &#x27;../components/browser/models/browserfiledeleterequest&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BrowserFileDeleteRequest } from &#x27;../components/browser/models/browserfiledeleterequest&#x27;;
 import { BrowserFileRenameRequest } from &#x27;../components/browser/models/browserfilerenamerequest&#x27;;
 import { IBrowserFileResponse } from &#x27;../components/browser/models/browserfileresponse&#x27;;
 import { BrowserFileSaveRequest } from &#x27;../components/browser/models/browserfilesaverequest&#x27;;
@@ -1098,355 +1122,341 @@ import { BrowserNodeRenameRequest } from &#x27;../components/browser/models/brow
 import { BrowserNodeRequest } from &#x27;../components/browser/models/browsernoderequest&#x27;;
 import { IBrowserNodeResponse } from &#x27;../components/browser/models/browsernoderesponse&#x27;;
 import { ISacFileBrowserService } from &#x27;../interfaces/ISacFileBrowserService&#x27;;
+import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { Injectable, InjectionToken } from &#x27;@angular/core&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+
+// #region Variables
 
 /**
- * Injection Token für Language Service
+ * Injection Token for Language Service
  */
-export const SACFILEBROWSER_SERVICE &#x3D;
-  new InjectionToken&lt;ISacFileBrowserService&gt;(&#x27;FileBrowserService&#x27;);
+export const SACFILEBROWSER_SERVICE &#x3D; new InjectionToken&lt;ISacFileBrowserService&gt;(&#x27;FileBrowserService&#x27;);
+
+// #endregion Variables
+
+// #region Exported Classes
 
 /**
- * Abstrakte Implementierung des File Service für die Browser Component
+ * Abstract implementation of the file service for the browser component
  */
 @Injectable({
-  providedIn: &#x27;root&#x27;,
+    providedIn: &#x27;root&#x27;,
 })
-export abstract class SacAbstractFileBrowserService
-  implements ISacFileBrowserService
-{
-  /**
-   * Gibt einen Node zurück
-   * @param apiurl URL zu API Service
-   * @param path Pfad des Node welcher angefordert wird
-   * @param allowedextensions Erlaubte Extensions die angezeigt werden dürfen
-   */
-  abstract GetNode(
-    apiurl: string,
-    path: string,
-    allowedextensions: string
-  ): Observable&lt;IBrowserNodeResponse&gt;;
+export abstract class SacAbstractFileBrowserService implements ISacFileBrowserService {
+    // #region Public Methods
 
-  /**
-   * Speichert einen Node
-   * @param apiurl URL zu API Service
-   * @param path Pfad in welchem der Node gespeichert werden soll
-   * @param newFoldername Name des neuen Nodes
-   */
-  abstract SaveNode(
-    apiurl: string,
-    path: string,
-    newFoldername: string
-  ): Observable&lt;IBrowserNodeResponse&gt;;
+    /**
+     * Deletes a file
+     * @param apiurl URL to API Service
+     * @param path Path of the file to be deleted
+     * @param allowedextensions Allowed extensions for files
+     */
+    public abstract DeleteFile(
+        apiurl: string,
+        path: string,
+        allowedextensions: string
+    ): Observable&lt;IBrowserFileResponse&gt;;
 
-  /**
-   * Rename eines Nodes
-   * @param apiurl URL zu API Service
-   * @param path Pfad des Nodes welcher umbenannt werden soll
-   * @param newFoldername Neuer Name des Nodes
-   */
-  abstract RenameNode(
-    apiurl: string,
-    path: string,
-    newFoldername: string
-  ): Observable&lt;IBrowserNodeResponse&gt;;
+    /**
+     * Deletes a node
+     * @param apiurl URL to API Service
+     * @param path Path of the node to be deleted
+     */
+    public abstract DeleteNode(apiurl: string, path: string): Observable&lt;IBrowserNodeResponse&gt;;
 
-  /**
-   * Löscht einen Node
-   * @param apiurl URL zu API Service
-   * @param path Pfad des Nodes welcher gelöscht werden soll
-   */
-  abstract DeleteNode(
-    apiurl: string,
-    path: string
-  ): Observable&lt;IBrowserNodeResponse&gt;;
+    /**
+     * Method that reads the files of a node
+     * @param apiurl URL to API Service
+     * @param path Path of the node from which the files should be read
+     * @param allowedextensions Allowed file extensions
+     */
+    public abstract GetFiles(apiurl: string, path: string, allowedextensions: string): Observable&lt;IBrowserFileResponse&gt;;
 
-  /**
-   * Methode welche die Dateien eines Nodes ausliest
-   * @param apiurl URL zu API Service
-   * @param path Pfad des Nodes in welchem die Files gelesen werden sollen
-   * @param allowedextensions Erlaubte File Extensions
-   */
-  abstract GetFiles(
-    apiurl: string,
-    path: string,
-    allowedextensions: string
-  ): Observable&lt;IBrowserFileResponse&gt;;
+    /**
+     * Returns a node
+     * @param apiurl URL to API Service
+     * @param path Path of the node being requested
+     * @param allowedextensions Allowed extensions that may be displayed
+     */
+    public abstract GetNode(apiurl: string, path: string, allowedextensions: string): Observable&lt;IBrowserNodeResponse&gt;;
 
-  /**
-   * Speichert eine Hochgeladene Datei in der Struktur
-   * @param apiurl URL zu API Service
-   * @param path Pfad in welchem das neue File gespeichert werden soll
-   * @param id ID des Uploads
-   * @param allowedextensions Erlaubte Extensions für den Upload
-   */
-  abstract SaveFile(
-    apiurl: string,
-    path: string,
-    id: string,
-    allowedextensions: string
-  ): Observable&lt;IBrowserFileResponse&gt;;
+    /**
+     * Method that renames a file
+     * @param apiurl URL to API Service
+     * @param path Path to the file to be renamed
+     * @param newFilename New filename
+     * @param allowedextensions Allowed extension for files
+     */
+    public abstract RenameFile(
+        apiurl: string,
+        path: string,
+        newFilename: string,
+        allowedextensions: string
+    ): Observable&lt;IBrowserFileResponse&gt;;
 
-  /**
-   * Methode welche eine Datei umbenannt
-   * @param apiurl URL zu API Service
-   * @param path Pfad zum File welches umbenannt werden soll
-   * @param newFilename Neuer Dateiname
-   * @param allowedextensions Erlaubte Extension für Files
-   */
-  abstract RenameFile(
-    apiurl: string,
-    path: string,
-    newFilename: string,
-    allowedextensions: string
-  ): Observable&lt;IBrowserFileResponse&gt;;
+    /**
+     * Rename a node
+     * @param apiurl URL to API Service
+     * @param path Path of the node to be renamed
+     * @param newFoldername New name of the node
+     */
+    public abstract RenameNode(apiurl: string, path: string, newFoldername: string): Observable&lt;IBrowserNodeResponse&gt;;
 
-  /**
-   * Löscht eine Datei
-   * @param apiurl URL zu API Service
-   * @param path Pfad des Files welches gelöscht werden soll
-   * @param allowedextensions Erlaubte Extensions für Files
-   */
-  abstract DeleteFile(
-    apiurl: string,
-    path: string,
-    allowedextensions: string
-  ): Observable&lt;IBrowserFileResponse&gt;;
+    /**
+     * Saves an uploaded file in the structure
+     * @param apiurl URL to API Service
+     * @param path Path where the new file should be saved
+     * @param id ID of the upload
+     * @param allowedextensions Allowed extensions for the upload
+     */
+    public abstract SaveFile(
+        apiurl: string,
+        path: string,
+        id: string,
+        allowedextensions: string
+    ): Observable&lt;IBrowserFileResponse&gt;;
+
+    /**
+     * Saves a node
+     * @param apiurl URL to API Service
+     * @param path Path where the node should be saved
+     * @param newFoldername Name of the new node
+     */
+    public abstract SaveNode(apiurl: string, path: string, newFoldername: string): Observable&lt;IBrowserNodeResponse&gt;;
+
+    // #endregion Public Methods
 }
 
 /**
- * Standardimplementierung des Backend Service für die File Browser Component
+ * Standard implementation of the backend service for the file browser component
  */
 @Injectable({
-  providedIn: &#x27;root&#x27;,
+    providedIn: &#x27;root&#x27;,
 })
 export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService {
-  /**
-   * Konstruktor
-   * @param httpclient HTTP Client Service
-   */
-  constructor(private httpclient: HttpClient) {
-    super();
-  }
+    // #region Constructors
 
-  /**
-   * Gibt einen Node zurück
-   * @param apiurl URL zu API Service
-   * @param path Pfad des Node welcher angefordert wird
-   * @param allowedextensions Erlaubte Extensions die angezeigt werden dürfen
-   */
-  public GetNode(
-    apiurl: string,
-    path: string,
-    allowedextensions: string
-  ): Observable&lt;IBrowserNodeResponse&gt; {
-    const url &#x3D; &#x60;${apiurl}/getnodes&#x60;;
-
-    if (!path) {
-      path &#x3D; &#x27;&#x27;;
+    /**
+     * Constructor
+     * @param httpclient HTTP Client Service
+     */
+    constructor(private httpclient: HttpClient) {
+        super();
     }
 
-    const request &#x3D; new BrowserNodeRequest({
-      Path: path,
-      AllowedTypes: allowedextensions,
-    });
+    // #endregion Constructors
 
-    return this.httpclient.post&lt;IBrowserNodeResponse&gt;(url, request, {
-      withCredentials: true,
-    });
-  }
+    // #region Public Methods
 
-  /**
-   * Speichert einen Node
-   * @param apiurl URL zu API Service
-   * @param path Pfad in welchem der Node gespeichert werden soll
-   * @param newFoldername Name des neuen Nodes
-   */
-  public SaveNode(
-    apiurl: string,
-    path: string,
-    newFoldername: string
-  ): Observable&lt;IBrowserNodeResponse&gt; {
-    const url &#x3D; &#x60;${apiurl}/newnode&#x60;;
+    /**
+     * Deletes a file
+     * @param apiurl URL to API Service
+     * @param path Path of the file to be deleted
+     * @param allowedextensions Allowed extensions for files
+     * @returns Observable containing the file response after deletion
+     */
+    public DeleteFile(apiurl: string, path: string, allowedextensions: string): Observable&lt;IBrowserFileResponse&gt; {
+        const url &#x3D; &#x60;${apiurl}/deletefile&#x60;;
 
-    if (!path) {
-      path &#x3D; &#x27;&#x27;;
+        if (!path) {
+            path &#x3D; &#x27;&#x27;;
+        }
+
+        const request &#x3D; new BrowserFileDeleteRequest({
+            Path: path,
+            AllowedTypes: allowedextensions,
+        });
+
+        return this.httpclient.post&lt;IBrowserFileResponse&gt;(url, request, {
+            withCredentials: true,
+        });
     }
 
-    const request &#x3D; new BrowserNodeNewRequest({
-      Path: path,
-      NewFoldername: newFoldername,
-    });
+    /**
+     * Deletes a node
+     * @param apiurl URL to API Service
+     * @param path Path of the node to be deleted
+     * @returns Observable containing the node response after deletion
+     */
+    public DeleteNode(apiurl: string, path: string): Observable&lt;IBrowserNodeResponse&gt; {
+        const url &#x3D; &#x60;${apiurl}/deletenode&#x60;;
 
-    return this.httpclient.post&lt;IBrowserNodeResponse&gt;(url, request, {
-      withCredentials: true,
-    });
-  }
+        if (!path) {
+            path &#x3D; &#x27;&#x27;;
+        }
 
-  /**
-   * Rename eines Nodes
-   * @param apiurl URL zu API Service
-   * @param path Pfad des Nodes welcher umbenannt werden soll
-   * @param newFoldername Neuer Name des Nodes
-   */
-  public RenameNode(
-    apiurl: string,
-    path: string,
-    newFoldername: string
-  ): Observable&lt;IBrowserNodeResponse&gt; {
-    const url &#x3D; &#x60;${apiurl}/renamenode&#x60;;
+        const request &#x3D; new BrowserNodeDeleteRequest({
+            Path: path,
+        });
 
-    if (!path) {
-      path &#x3D; &#x27;&#x27;;
+        return this.httpclient.post&lt;IBrowserNodeResponse&gt;(url, request, {
+            withCredentials: true,
+        });
     }
 
-    const request &#x3D; new BrowserNodeRenameRequest({
-      Path: path,
-      NewFoldername: newFoldername,
-    });
+    /**
+     * Method that reads the files of a node
+     * @param apiurl URL to API Service
+     * @param path Path of the node from which the files should be read
+     * @param allowedextensions Allowed file extensions
+     * @returns Observable containing the file response
+     */
+    public GetFiles(apiurl: string, path: string, allowedextensions: string): Observable&lt;IBrowserFileResponse&gt; {
+        const url &#x3D; &#x60;${apiurl}/getfiles&#x60;;
 
-    return this.httpclient.put&lt;IBrowserNodeResponse&gt;(url, request, {
-      withCredentials: true,
-    });
-  }
+        if (!path) {
+            path &#x3D; &#x27;&#x27;;
+        }
 
-  /**
-   * Löscht einen Node
-   * @param apiurl URL zu API Service
-   * @param path Pfad des Nodes welcher gelöscht werden soll
-   */
-  public DeleteNode(
-    apiurl: string,
-    path: string
-  ): Observable&lt;IBrowserNodeResponse&gt; {
-    const url &#x3D; &#x60;${apiurl}/deletenode&#x60;;
+        const request &#x3D; new BrowserNodeRequest({
+            Path: path,
+            AllowedTypes: allowedextensions,
+        });
 
-    if (!path) {
-      path &#x3D; &#x27;&#x27;;
+        return this.httpclient.post&lt;IBrowserFileResponse&gt;(url, request, {
+            withCredentials: true,
+        });
     }
 
-    const request &#x3D; new BrowserNodeDeleteRequest({
-      Path: path,
-    });
+    /**
+     * Returns a node
+     * @param apiurl URL to API Service
+     * @param path Path of the node being requested
+     * @param allowedextensions Allowed extensions that may be displayed
+     * @returns Observable containing the node response
+     */
+    public GetNode(apiurl: string, path: string, allowedextensions: string): Observable&lt;IBrowserNodeResponse&gt; {
+        const url &#x3D; &#x60;${apiurl}/getnodes&#x60;;
 
-    return this.httpclient.post&lt;IBrowserNodeResponse&gt;(url, request, {
-      withCredentials: true,
-    });
-  }
+        if (!path) {
+            path &#x3D; &#x27;&#x27;;
+        }
 
-  /**
-   * Methode welche die Dateien eines Nodes ausliest
-   * @param apiurl URL zu API Service
-   * @param path Pfad des Nodes in welchem die Files gelesen werden sollen
-   * @param allowedextensions Erlaubte File Extensions
-   */
-  public GetFiles(
-    apiurl: string,
-    path: string,
-    allowedextensions: string
-  ): Observable&lt;IBrowserFileResponse&gt; {
-    const url &#x3D; &#x60;${apiurl}/getfiles&#x60;;
+        const request &#x3D; new BrowserNodeRequest({
+            Path: path,
+            AllowedTypes: allowedextensions,
+        });
 
-    if (!path) {
-      path &#x3D; &#x27;&#x27;;
+        return this.httpclient.post&lt;IBrowserNodeResponse&gt;(url, request, {
+            withCredentials: true,
+        });
     }
 
-    const request &#x3D; new BrowserNodeRequest({
-      Path: path,
-      AllowedTypes: allowedextensions,
-    });
+    /**
+     * Method that renames a file
+     * @param apiurl URL to API Service
+     * @param path Path to the file to be renamed
+     * @param newFilename New filename
+     * @param allowedextensions Allowed extension for files
+     * @returns Observable containing the file response after rename
+     */
+    public RenameFile(
+        apiurl: string,
+        path: string,
+        newFilename: string,
+        allowedextensions: string
+    ): Observable&lt;IBrowserFileResponse&gt; {
+        const url &#x3D; &#x60;${apiurl}/renamefile&#x60;;
 
-    return this.httpclient.post&lt;IBrowserFileResponse&gt;(url, request, {
-      withCredentials: true,
-    });
-  }
+        if (!path) {
+            path &#x3D; &#x27;&#x27;;
+        }
 
-  /**
-   * Speichert eine Hochgeladene Datei in der Struktur
-   * @param apiurl URL zu API Service
-   * @param path Pfad in welchem das neue File gespeichert werden soll
-   * @param id ID des Uploads
-   * @param allowedextensions Erlaubte Extensions für den Upload
-   */
-  public SaveFile(
-    apiurl: string,
-    path: string,
-    id: string,
-    allowedextensions: string
-  ): Observable&lt;IBrowserFileResponse&gt; {
-    const url &#x3D; &#x60;${apiurl}/uploadfile&#x60;;
+        const request &#x3D; new BrowserFileRenameRequest({
+            Path: path,
+            NewFilename: newFilename,
+            AllowedTypes: allowedextensions,
+        });
 
-    if (!path) {
-      path &#x3D; &#x27;&#x27;;
+        return this.httpclient.put&lt;IBrowserFileResponse&gt;(url, request, {
+            withCredentials: true,
+        });
     }
 
-    const request &#x3D; new BrowserFileSaveRequest({
-      Path: path,
-      UploadId: id,
-      AllowedTypes: allowedextensions,
-    });
+    /**
+     * Rename a node
+     * @param apiurl URL to API Service
+     * @param path Path of the node to be renamed
+     * @param newFoldername New name of the node
+     * @returns Observable containing the node response after rename
+     */
+    public RenameNode(apiurl: string, path: string, newFoldername: string): Observable&lt;IBrowserNodeResponse&gt; {
+        const url &#x3D; &#x60;${apiurl}/renamenode&#x60;;
 
-    return this.httpclient.post&lt;IBrowserFileResponse&gt;(url, request, {
-      withCredentials: true,
-    });
-  }
+        if (!path) {
+            path &#x3D; &#x27;&#x27;;
+        }
 
-  /**
-   * Löscht eine Datei
-   * @param apiurl URL zu API Service
-   * @param path Pfad des Files welches gelöscht werden soll
-   * @param allowedextensions Erlaubte Extensions für Files
-   */
-  public DeleteFile(
-    apiurl: string,
-    path: string,
-    allowedextensions: string
-  ): Observable&lt;IBrowserFileResponse&gt; {
-    const url &#x3D; &#x60;${apiurl}/deletefile&#x60;;
+        const request &#x3D; new BrowserNodeRenameRequest({
+            Path: path,
+            NewFoldername: newFoldername,
+        });
 
-    if (!path) {
-      path &#x3D; &#x27;&#x27;;
+        return this.httpclient.put&lt;IBrowserNodeResponse&gt;(url, request, {
+            withCredentials: true,
+        });
     }
 
-    const request &#x3D; new BrowserFileDeleteRequest({
-      Path: path,
-      AllowedTypes: allowedextensions,
-    });
+    /**
+     * Saves an uploaded file in the structure
+     * @param apiurl URL to API Service
+     * @param path Path where the new file should be saved
+     * @param id ID of the upload
+     * @param allowedextensions Allowed extensions for the upload
+     * @returns Observable containing the file response after save
+     */
+    public SaveFile(
+        apiurl: string,
+        path: string,
+        id: string,
+        allowedextensions: string
+    ): Observable&lt;IBrowserFileResponse&gt; {
+        const url &#x3D; &#x60;${apiurl}/uploadfile&#x60;;
 
-    return this.httpclient.post&lt;IBrowserFileResponse&gt;(url, request, {
-      withCredentials: true,
-    });
-  }
+        if (!path) {
+            path &#x3D; &#x27;&#x27;;
+        }
 
-  /**
-   * Methode welche eine Datei umbenannt
-   * @param apiurl URL zu API Service
-   * @param path Pfad zum File welches umbenannt werden soll
-   * @param newFilename Neuer Dateiname
-   * @param allowedextensions Erlaubte Extension für Files
-   */
-  public RenameFile(
-    apiurl: string,
-    path: string,
-    newFilename: string,
-    allowedextensions: string
-  ): Observable&lt;IBrowserFileResponse&gt; {
-    const url &#x3D; &#x60;${apiurl}/renamefile&#x60;;
+        const request &#x3D; new BrowserFileSaveRequest({
+            Path: path,
+            UploadId: id,
+            AllowedTypes: allowedextensions,
+        });
 
-    if (!path) {
-      path &#x3D; &#x27;&#x27;;
+        return this.httpclient.post&lt;IBrowserFileResponse&gt;(url, request, {
+            withCredentials: true,
+        });
     }
 
-    const request &#x3D; new BrowserFileRenameRequest({
-      Path: path,
-      NewFilename: newFilename,
-      AllowedTypes: allowedextensions,
-    });
+    /**
+     * Saves a node
+     * @param apiurl URL to API Service
+     * @param path Path where the node should be saved
+     * @param newFoldername Name of the new node
+     * @returns Observable containing the node response after save
+     */
+    public SaveNode(apiurl: string, path: string, newFoldername: string): Observable&lt;IBrowserNodeResponse&gt; {
+        const url &#x3D; &#x60;${apiurl}/newnode&#x60;;
 
-    return this.httpclient.put&lt;IBrowserFileResponse&gt;(url, request, {
-      withCredentials: true,
-    });
-  }
+        if (!path) {
+            path &#x3D; &#x27;&#x27;;
+        }
+
+        const request &#x3D; new BrowserNodeNewRequest({
+            Path: path,
+            NewFoldername: newFoldername,
+        });
+
+        return this.httpclient.post&lt;IBrowserNodeResponse&gt;(url, request, {
+            withCredentials: true,
+        });
+    }
+
+    // #endregion Public Methods
 }
+
+// #endregion Exported Classes
 </code></pre>
     </div>
 
@@ -1494,6 +1504,19 @@ export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService 
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -1505,7 +1528,6 @@ export class SacDefaultFileBrowserService extends SacAbstractFileBrowserService 
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

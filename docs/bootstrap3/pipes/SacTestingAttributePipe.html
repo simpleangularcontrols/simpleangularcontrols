@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content pipe">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -130,6 +141,18 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Pipe to return E2E attribute values based on configuration.</p>
+<ul>
+<li>If E2E attributes are disabled, it returns null.</li>
+<li>If explicit e2e attribute is provided, it is returned.</li>
+<li>Otherwise, fallback to control name.</li>
+</ul>
+
+            </p>
 
 
         <section data-compodoc="block-metadata">
@@ -175,14 +198,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="33"
-                                    class="link-to-prism">projects/sac-common/src/utilities/testingattribute.pipe.ts:33</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="48"
+                                    class="link-to-prism">projects/sac-common/src/utilities/testingattribute.pipe.ts:48</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Transforms input to final E2E attribute value when enabled.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -193,6 +218,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -207,6 +233,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Optional control name for fallback attribute value.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>e2eattribute</td>
@@ -219,6 +249,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Optional explicit e2e attribute value.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -228,7 +262,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Returned value is either <code>e2eattribute</code> or <code>controlname</code> when enabled, otherwise null.</p>
+
                             </div>
                 </td>
             </tr>
@@ -243,6 +278,13 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SACCONFIGURATION_SERVICE, SacDefaultConfigurationService } from &#x27;../services&#x27;;
 import { Injector, Pipe, PipeTransform } from &#x27;@angular/core&#x27;;
 
+/**
+ * Pipe to return E2E attribute values based on configuration.
+ *
+ * - If E2E attributes are disabled, it returns null.
+ * - If explicit e2e attribute is provided, it is returned.
+ * - Otherwise, fallback to control name.
+ */
 @Pipe({
     name: &#x27;testingattribute&#x27;,
     standalone: true,
@@ -260,7 +302,8 @@ export class SacTestingAttributePipe implements PipeTransform {
     // #region Constructors
 
     /**
-     *
+     * Constructor
+     * @param injector Service injector for dependency resolution
      */
     constructor(injector: Injector) {
         // get attribute state from config
@@ -272,6 +315,13 @@ export class SacTestingAttributePipe implements PipeTransform {
 
     // #region Public Methods
 
+    /**
+     * Transforms input to final E2E attribute value when enabled.
+     *
+     * @param controlname Optional control name for fallback attribute value.
+     * @param e2eattribute Optional explicit e2e attribute value.
+     * @returns Returned value is either &#x60;e2eattribute&#x60; or &#x60;controlname&#x60; when enabled, otherwise null.
+     */
     public transform(controlname: string, e2eattribute: string) {
         // return null to disable attribute if disabled
         if (!this.isEnabled) {
@@ -336,6 +386,19 @@ export class SacTestingAttributePipe implements PipeTransform {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -347,7 +410,6 @@ export class SacTestingAttributePipe implements PipeTransform {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

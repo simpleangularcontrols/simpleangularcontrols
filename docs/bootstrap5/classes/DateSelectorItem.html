@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content class">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -134,7 +145,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Basis Komponente für DateSelectorItem</p>
+                <p>Base component for DateSelectorItem</p>
 
             </p>
 
@@ -201,13 +212,13 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:43</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -233,7 +244,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Anzeigetext</p>
+                                                                <p>Display text</p>
 
                                                         </td>
                                                 </tr>
@@ -249,7 +260,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Datum</p>
+                                                                <p>Date</p>
 
                                                         </td>
                                                 </tr>
@@ -265,7 +276,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Element ist aktiv</p>
+                                                                <p>Element is active</p>
 
                                                         </td>
                                                 </tr>
@@ -281,7 +292,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Element ist selektiert</p>
+                                                                <p>Element is selected</p>
 
                                                         </td>
                                                 </tr>
@@ -297,7 +308,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Element ist aktuelles Element</p>
+                                                                <p>Element is current</p>
 
                                                         </td>
                                                 </tr>
@@ -313,7 +324,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Element ist neu</p>
+                                                                <p>Element is new</p>
 
                                                         </td>
                                                 </tr>
@@ -356,13 +367,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:18</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Datum</p>
+                    <div class="io-description"><p>Date</p>
 </div>
                 </td>
             </tr>
@@ -394,13 +405,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:23</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>DisplayText Property; default Wert - &#39;&#39;</p>
+                    <div class="io-description"><p>DisplayText property; default value - &#39;&#39;</p>
 </div>
                 </td>
             </tr>
@@ -421,7 +432,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <i>Type : </i>    <code>unknown</code>
 
                     </td>
                 </tr>
@@ -432,13 +443,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:28</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Boolean Property, die zeigt, ob das Element aktuell ist; default Wert - false</p>
+                    <div class="io-description"><p>Boolean property indicating if the element is current; default value - false</p>
 </div>
                 </td>
             </tr>
@@ -459,7 +470,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <i>Type : </i>    <code>unknown</code>
 
                     </td>
                 </tr>
@@ -470,13 +481,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:33</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Boolean Property, die zeigt, ob das Control enabled ist; default Wert - false</p>
+                    <div class="io-description"><p>Boolean property indicating if the control is enabled; default value - false</p>
 </div>
                 </td>
             </tr>
@@ -497,7 +508,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <i>Type : </i>    <code>unknown</code>
 
                     </td>
                 </tr>
@@ -508,13 +519,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:39</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:38</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Boolean Property, die zeigt, ob das Element neu ist; default Wert - false</p>
+                    <div class="io-description"><p>Boolean property indicating if the element is new; default value - false</p>
 </div>
                 </td>
             </tr>
@@ -535,7 +546,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <i>Type : </i>    <code>unknown</code>
 
                     </td>
                 </tr>
@@ -546,13 +557,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:43</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Boolean Property, die zeigt, ob das Element selektiert ist; default Wert - false</p>
+                    <div class="io-description"><p>Boolean property indicating if the element is selected; default value - false</p>
 </div>
                 </td>
             </tr>
@@ -571,63 +582,62 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Moment } from &#x27;moment&#x27;;
-import { ISacIconService } from &#x27;../../interfaces/ISacIconService&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ISacIconService } from &#x27;../../interfaces/ISacIconService&#x27;;
 import { SACICON_SERVICE, SacDefaultIconService } from &#x27;../../services&#x27;;
 import { createGuid } from &#x27;../../utilities/guid&#x27;;
 import { Directive, EventEmitter, Injector, Input, OnInit, Output } from &#x27;@angular/core&#x27;;
-import * as moment_ from &#x27;moment&#x27;;
+import moment, { Moment } from &#x27;moment&#x27;;
 
 // #region Classes
 
 /**
- *Basis Komponente für DateSelectorItem
+ * Base component for DateSelectorItem
  */
 class DateSelectorItem {
     // #region Properties
 
     /**
-     * Datum
+     * Date
      */
     public date: Date &#x3D; undefined;
 
     /**
-     * DisplayText Property; default Wert - &#x27;&#x27;
+     * DisplayText property; default value - &#x27;&#x27;
      */
-    public displaytext: string &#x3D; &#x27;&#x27;;
+    public displaytext &#x3D; &#x27;&#x27;;
 
     /**
-     * Boolean Property, die zeigt, ob das Element aktuell ist; default Wert - false
+     * Boolean property indicating if the element is current; default value - false
      */
-    public iscurrent: boolean &#x3D; false;
+    public iscurrent &#x3D; false;
 
     /**
-     * Boolean Property, die zeigt, ob das Control enabled ist; default Wert - false
+     * Boolean property indicating if the control is enabled; default value - false
      */
-    public isenabled: boolean &#x3D; false;
+    public isenabled &#x3D; false;
 
     /**
-     * Boolean Property, die zeigt, ob das Element neu ist; default Wert - false
+     * Boolean property indicating if the element is new; default value - false
      */
-    public isnew: boolean &#x3D; false;
+    public isnew &#x3D; false;
 
     /**
-     * Boolean Property, die zeigt, ob das Element selektiert ist; default Wert - false
+     * Boolean property indicating if the element is selected; default value - false
      */
-    public isselected: boolean &#x3D; false;
+    public isselected &#x3D; false;
 
     // #endregion Properties
 
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param displaytext Anzeigetext
-     * @param date Datum
-     * @param isenabled Element ist aktiv
-     * @param isselected Element ist selektiert
-     * @param iscurrent Element ist aktuelles Element
-     * @param isnew Element ist neu
+     * Constructor
+     * @param displaytext Display text
+     * @param date Date
+     * @param isenabled Element is active
+     * @param isselected Element is selected
+     * @param iscurrent Element is current
+     * @param isnew Element is new
      */
     constructor(
         displaytext: string,
@@ -650,38 +660,29 @@ class DateSelectorItem {
 
 // #endregion Classes
 
-// #region Variables
-
-/**
- * Moment
- */
-const moment &#x3D; moment_[&#x27;default&#x27;];
-
-// #endregion Variables
-
 // #region Exported Classes
 
 /**
- *Basis Komponente für SacDateSelector
+ * Base component for SacDateSelector
  */
 @Directive()
 export class SacDateSelectorCommon implements OnInit {
     // #region Properties
 
     /**
-     * Ursprüngliches Datum
+     * Initial date
      */
     private _initialValue: Moment | null;
 
     /**
-     * Aktuell gewähltes Datum
+     * Currently selected date
      */
     private _selectedValue: Moment | null;
 
     /**
-     * Anfang des Kalenders
+     * Beginning of the calendar
      */
-    private beginOfCalendar: number &#x3D; 1;
+    private beginOfCalendar &#x3D; 1;
 
     /**
      * icon service to resolve icons
@@ -689,21 +690,21 @@ export class SacDateSelectorCommon implements OnInit {
     private iconService: ISacIconService;
 
     /**
-     * Boolean Property für automatische Selektierung; default Wert - false
+     * Boolean property for automatic selection; default value - false
      */
     @Input()
     public autoapplyselection &#x3D; false;
 
     /**
-     * Array von Daten
+     * Array of dates
      */
     public dates: DateSelectorItem[][] &#x3D; [];
 
     /**
-     * Datum Selector
+     * Date selector
      */
     @Input()
-    public dateselection: boolean &#x3D; false;
+    public dateselection &#x3D; false;
 
     /**
      * Identifier used for the E2E data attribute.
@@ -712,10 +713,10 @@ export class SacDateSelectorCommon implements OnInit {
     public e2eidentifier: string | null &#x3D; null;
 
     /**
-     * Monat
+     * Month
      */
     @Input()
-    public month: number &#x3D; 4;
+    public month &#x3D; 4;
 
     /**
      * name of control
@@ -724,27 +725,31 @@ export class SacDateSelectorCommon implements OnInit {
     public name: string &#x3D; createGuid();
 
     /**
-     * Output Event beim Datum Selektieren
+     * Output event when date is selected
      */
     @Output()
     public selectdate &#x3D; new EventEmitter&lt;any&gt;();
 
     /**
-     * Time Selector
+     * Time selector
      */
     @Input()
-    public timeselection: boolean &#x3D; false;
+    public timeselection &#x3D; false;
 
     /**
-     * Jahr
+     * Year
      */
     @Input()
-    public year: number &#x3D; 2018;
+    public year &#x3D; 2018;
 
     // #endregion Properties
 
     // #region Constructors
 
+    /**
+     * Constructor
+     * @param injector Service injector for dependency resolution
+     */
     constructor(injector: Injector) {
         this.iconService &#x3D; injector.get(SACICON_SERVICE, new SacDefaultIconService());
     }
@@ -768,7 +773,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Input für ursprüngliches Datum
+     * Input for initial date
      */
     @Input()
     public get initialvalue(): Date {
@@ -796,7 +801,7 @@ export class SacDateSelectorCommon implements OnInit {
     // #region Public Methods
 
     /**
-     * Selektierung übernehmen
+     * Apply selection
      */
     public applySelection(): void {
         if (this.timeselection &#x3D;&#x3D;&#x3D; false &amp;&amp; this._selectedValue !&#x3D;&#x3D; null) {
@@ -807,7 +812,7 @@ export class SacDateSelectorCommon implements OnInit {
         }
 
         if (this.dateselection &#x3D;&#x3D;&#x3D; false &amp;&amp; this._selectedValue !&#x3D;&#x3D; null) {
-            const tempValue: moment_.Moment &#x3D; this._selectedValue.local();
+            const tempValue: Moment &#x3D; this._selectedValue.local();
             tempValue.date(1);
             tempValue.month(0);
             tempValue.year(1900);
@@ -825,7 +830,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Modus ändern
+     * Change mode
      */
     public changeMode(): void {
         if (this.beginOfCalendar &#x3D;&#x3D;&#x3D; 0) {
@@ -838,7 +843,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Getter für Stunden Uhrzeit
+     * Getter for hour of time
      */
     public getHours(): number {
         if (this._selectedValue &#x3D;&#x3D;&#x3D; null) {
@@ -856,7 +861,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Getter für Minuten Uhrzeit
+     * Getter for minute of time
      */
     public getMinutes(): number {
         if (this._selectedValue &#x3D;&#x3D;&#x3D; null) {
@@ -874,7 +879,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Vorheriger Monat
+     * Previous month
      */
     public monthBack(): void {
         this.month &#x3D; this.month - 1;
@@ -888,7 +893,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Nächster Monat
+     * Next month
      */
     public monthNext(): void {
         this.month &#x3D; this.month + 1;
@@ -902,7 +907,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Init Event
+     * Init event
      */
     public ngOnInit() {
         /**
@@ -916,7 +921,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Selektierung resetten
+     * Reset selection
      */
     public resetSelection(): void {
         this.selectdate.emit({
@@ -925,7 +930,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Methode ergibt das selektierte Datum
+     * Method returns the selected date
      */
     public selectDate(v: DateSelectorItem): void {
         if (v.isenabled) {
@@ -938,7 +943,7 @@ export class SacDateSelectorCommon implements OnInit {
 
             const dateValue: Moment &#x3D; moment(v.date);
 
-            // Übernehmen der Zeit aus dem bestehenden Wert
+            // Transfer the time from the existing value
             if (this._selectedValue &#x3D;&#x3D;&#x3D; null) {
                 if (this._initialValue !&#x3D;&#x3D; null) {
                     dateValue.hour(this._initialValue.hour());
@@ -961,7 +966,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Setter für Stunden Uhrzeit
+     * Setter for hour of time
      */
     public setHours(v: number | null): void {
         if (v &gt;&#x3D; 24) {
@@ -980,7 +985,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Setter für Minuten Uhrzeit
+     * Setter for minute of time
      */
     public setMinutes(v: number | null): void {
         if (v &gt;&#x3D; 60) {
@@ -1000,7 +1005,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Auswahl auf aktuelle Zeit stellen
+     * Set selection to current time
      */
     public setToday(): void {
         this._selectedValue &#x3D; moment();
@@ -1028,23 +1033,23 @@ export class SacDateSelectorCommon implements OnInit {
     // #region Private Methods
 
     /**
-     * Ursprünglicher Kalender
+     * Initial calendar
      */
     private initCalendar(v: Moment) {
         /**
-         * Monat und Jahr setzen
+         * Set month and year
          */
         this.month &#x3D; v.month();
         this.year &#x3D; v.year();
 
         /**
-         * Daten für Kalender initialiseren
+         * Initialize data for calendar
          */
         this.initDates();
     }
 
     /**
-     * Initial Datum
+     * Initial date
      */
     private initDates(): void {
         const currentMonth &#x3D; moment(new Date(this.year, this.month, 1));
@@ -1087,14 +1092,14 @@ export class SacDateSelectorCommon implements OnInit {
             }
         }
 
-        // Add all Days in Month
+        // Add all days in month
         for (let dayinmonth &#x3D; 1; dayinmonth &lt;&#x3D; currentMonth.daysInMonth(); dayinmonth++) {
-            let isSelectedDate: boolean &#x3D; false;
-            let isNewDate: boolean &#x3D; false;
+            let isSelectedDate &#x3D; false;
+            let isNewDate &#x3D; false;
             const isCurrentDate: boolean &#x3D;
                 moment().month() &#x3D;&#x3D;&#x3D; this.month &amp;&amp; moment().year() &#x3D;&#x3D;&#x3D; this.year &amp;&amp; moment().date() &#x3D;&#x3D;&#x3D; dayinmonth;
 
-            // Initial Wert setzen, falls vorhanden
+            // Set initial value if present
             if (this._initialValue !&#x3D;&#x3D; null) {
                 isSelectedDate &#x3D;
                     this._initialValue.month() &#x3D;&#x3D;&#x3D; this.month &amp;&amp;
@@ -1102,7 +1107,7 @@ export class SacDateSelectorCommon implements OnInit {
                     this._initialValue.date() &#x3D;&#x3D;&#x3D; dayinmonth;
             }
 
-            // Selected Date Wert setzen, falls Wert gesetzt
+            // Set selected date value if set
             if (this._selectedValue !&#x3D;&#x3D; null) {
                 isNewDate &#x3D;
                     this._selectedValue.month() &#x3D;&#x3D;&#x3D; this.month &amp;&amp;
@@ -1163,15 +1168,18 @@ export class SacDateSelectorCommon implements OnInit {
         }
     }
 
+    /**
+     * Initializes the selected date value with initial or current date
+     */
     private initSelectedValue() {
         /**
-         * Select Value setzen falls leer
+         * Set select value if empty
          */
         if (this._selectedValue &#x3D;&#x3D;&#x3D; null) {
             if (this._initialValue &#x3D;&#x3D;&#x3D; null) {
                 this._selectedValue &#x3D; moment();
                 /**
-                 * clean seconds and miliseconds for initial values
+                 * Clean seconds and milliseconds for initial values
                  */
                 this._selectedValue.second(0);
                 this._selectedValue.millisecond(0);
@@ -1227,6 +1235,19 @@ export class SacDateSelectorCommon implements OnInit {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -1238,7 +1259,6 @@ export class SacDateSelectorCommon implements OnInit {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

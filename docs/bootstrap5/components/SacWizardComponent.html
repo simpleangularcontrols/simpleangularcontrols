@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content component">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -131,7 +142,7 @@
         <h3>Description</h3>
     </p>
     <p class="comment">
-        <p>Wizard Komponente</p>
+        <p>Wizard component</p>
 
     </p>
 
@@ -161,7 +172,7 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                                <code><a href="../components/SacWizardComponent.html" target="_self" >{ provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacWizardComponent }</a></code>
+                                <code><a href="../components/SacWizardComponent.html" target="_self" >SacWizardComponent</a></code>
                 </td>
             </tr>
 
@@ -172,7 +183,7 @@
             </tr>
 
             <tr>
-                <td class="col-md-3">Standalone</td>
+                <td class="col-md-3">standalone</td>
                 <td class="col-md-9"><code>true</code></td>
             </tr>
 
@@ -218,12 +229,15 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier"></span>
+                                    <span class="modifier">Public</span>
                                 <a href="#_wizardItems" >_wizardItems</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#propagateChange" >propagateChange</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#propagateTouch" >propagateTouch</a>
                             </li>
                         </ul>
@@ -239,24 +253,31 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#wizardItems" >wizardItems</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#changeStep" >changeStep</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#ngAfterContentInit" >ngAfterContentInit</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#registerOnChange" >registerOnChange</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#registerOnTouched" >registerOnTouched</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#selectStep" >selectStep</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#writeValue" >writeValue</a>
                             </li>
                         </ul>
@@ -330,13 +351,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:32</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:57</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Setter und Getter für aktueller Schritt</p>
+                        <div class="io-description"><p>Setter and getter for current step</p>
 </div>
                     </td>
                 </tr>
@@ -369,13 +390,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:26</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:21</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Boolean Property prüft ob Navigation im Wizard disabled ist; default Wert - false</p>
+                        <div class="io-description"><p>Boolean property checks if navigation in wizard is disabled; default value - false</p>
 </div>
                     </td>
                 </tr>
@@ -408,13 +429,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:20</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:27</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Name des Controls</p>
+                        <div class="io-description"><p>Name of the control</p>
 </div>
                     </td>
                 </tr>
@@ -451,7 +472,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>EventEmitter wenn der Schritt geändert wird</p>
+                        <div class="io-description"><p>EventEmitter when the step is changed</p>
 </div>
                     </td>
                 </tr>
@@ -471,6 +492,7 @@
                 <td class="col-md-4">
                     <a name="wizardItems"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>wizardItems</b></span>
                         <a href="#wizardItems"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -478,7 +500,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>wizardItems()</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>wizardItems()</code>
                 </td>
             </tr>
 
@@ -491,7 +514,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:38</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:35</a></code>
 </div>
                         </td>
                     </tr>
@@ -499,7 +522,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Gibt die Wizard Items zurück</p>
+                        <div class="io-description"><p>Returns the wizard items</p>
 </div>
 
                         <div class="io-description">
@@ -507,7 +530,7 @@
 
                         </div>
                             <div class="io-description">
-                                <p>Collection von WizardItems</p>
+                                <p>Collection of wizard items</p>
 
                             </div>
                 </td>
@@ -520,6 +543,7 @@
                 <td class="col-md-4">
                     <a name="changeStep"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>changeStep</b></span>
                         <a href="#changeStep"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -527,7 +551,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>changeStep(step: string | null)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changeStep(step: string | null)</code>
                 </td>
             </tr>
 
@@ -540,7 +565,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:98</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:70</a></code>
 </div>
                         </td>
                     </tr>
@@ -548,7 +573,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Auf nächsten/vorherigen Schritt gehen</p>
+                        <div class="io-description"><p>Go to next/previous step</p>
 </div>
 
                             <div class="io-description">
@@ -576,7 +601,7 @@
 
 
                                             <td>
-                                                    <p>Step auf welchen gewechselt werden soll</p>
+                                                    <p>Step to which should be switched</p>
 
                                             </td>
                                         </tr>
@@ -600,6 +625,7 @@
                 <td class="col-md-4">
                     <a name="ngAfterContentInit"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>ngAfterContentInit</b></span>
                         <a href="#ngAfterContentInit"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -607,7 +633,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>ngAfterContentInit()</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngAfterContentInit()</code>
                 </td>
             </tr>
 
@@ -620,7 +647,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:61</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:108</a></code>
 </div>
                         </td>
                     </tr>
@@ -645,6 +672,7 @@
                 <td class="col-md-4">
                     <a name="registerOnChange"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>registerOnChange</b></span>
                         <a href="#registerOnChange"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -652,7 +680,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>registerOnChange(fn: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>registerOnChange(fn: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                 </td>
             </tr>
 
@@ -665,7 +694,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:147</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:117</a></code>
 </div>
                         </td>
                     </tr>
@@ -673,8 +702,8 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode, damit andere Controls änderungen im Control mitbekommen können
-Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
+                        <div class="io-description"><p>Method so that other controls can get changes in the control
+To change info call the propagateChange method.</p>
 </div>
 
                             <div class="io-description">
@@ -686,6 +715,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -700,6 +730,10 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <p>Callback to invoke when the value changes.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -721,6 +755,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                 <td class="col-md-4">
                     <a name="registerOnTouched"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>registerOnTouched</b></span>
                         <a href="#registerOnTouched"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -728,7 +763,8 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>registerOnTouched(fn: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>registerOnTouched(fn: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                 </td>
             </tr>
 
@@ -741,7 +777,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:154</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:125</a></code>
 </div>
                         </td>
                     </tr>
@@ -749,7 +785,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode, damit andere Controls änderungen mitbekommen, wenn das Control aktiviert (Focus) wird.</p>
+                        <div class="io-description"><p>Method so that other controls get changes when the control is activated (Focus).</p>
 </div>
 
                             <div class="io-description">
@@ -761,6 +797,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -775,6 +812,10 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <p>Callback to invoke when the control is touched.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -796,6 +837,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                 <td class="col-md-4">
                     <a name="selectStep"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>selectStep</b></span>
                         <a href="#selectStep"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -803,7 +845,8 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>selectStep(step: <a href="../directives/SacWizardItemCommon.html" target="_self">SacWizardItemCommon</a>)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>selectStep(step: <a href="../directives/SacWizardItemCommon.html" target="_self">SacWizardItemCommon</a>)</code>
                 </td>
             </tr>
 
@@ -816,7 +859,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:84</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:133</a></code>
 </div>
                         </td>
                     </tr>
@@ -824,7 +867,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Schritt selektieren</p>
+                        <div class="io-description"><p>Select step</p>
 </div>
 
                             <div class="io-description">
@@ -852,7 +895,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
 
                                             <td>
-                                                    <p>Step welcher selektiert werden soll</p>
+                                                    <p>Step which should be selected</p>
 
                                             </td>
                                         </tr>
@@ -876,6 +919,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                 <td class="col-md-4">
                     <a name="writeValue"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>writeValue</b></span>
                         <a href="#writeValue"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -883,7 +927,8 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>writeValue(value: string | null)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>writeValue(value: string | null)</code>
                 </td>
             </tr>
 
@@ -896,7 +941,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:161</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:151</a></code>
 </div>
                         </td>
                     </tr>
@@ -904,7 +949,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode zum schreiben von Werten aus dem Model in das Control</p>
+                        <div class="io-description"><p>Method to write values from the model into the control</p>
 </div>
 
                             <div class="io-description">
@@ -916,6 +961,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -930,6 +976,10 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <p>Step ID from the bound model.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -958,6 +1008,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     <a name="_wizardItems"></a>
                     <span class="name">
                             <span class="modifier"></span>
+                            <span class="modifier">Public</span>
                         <span ><b>_wizardItems</b></span>
                         <a href="#_wizardItems"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -980,7 +1031,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/sac-bootstrap5/src/controls/wizard/wizard.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/sac-bootstrap5/src/controls/wizard/wizard.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -999,6 +1050,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                 <td class="col-md-4">
                     <a name="propagateChange"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>propagateChange</b></span>
                         <a href="#propagateChange"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -1023,14 +1075,14 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:136</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:32</a></code>
 </div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Leere Implementation von &#39;propagateChange&#39;. Muss gemacht werden, damit kein Fehler entsteht</p>
+                    <div class="io-description"><p>Empty implementation of &#39;propagateChange&#39;. Must be done so that no error occurs</p>
 </div>
                 </td>
             </tr>
@@ -1043,6 +1095,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                 <td class="col-md-4">
                     <a name="propagateTouch"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>propagateTouch</b></span>
                         <a href="#propagateTouch"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -1067,14 +1120,14 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:140</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:37</a></code>
 </div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Leere Implementation von &#39;propagateTouch&#39;. Muss gemacht werden, damit kein Fehler entsteht</p>
+                    <div class="io-description"><p>Empty implementation of &#39;propagateTouch&#39;. Must be done so that no error occurs</p>
 </div>
                 </td>
             </tr>
@@ -1087,46 +1140,45 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ContentChildren, QueryList } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacWizardItemComponent } from &#x27;./wizarditem&#x27;;
+import { NgClass, NgFor, NgStyle } from &#x27;@angular/common&#x27;;
+import { Component, ContentChildren, QueryList } from &#x27;@angular/core&#x27;;
 import { NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
-import {
-  SacWizardCommon,
-  SacWizardItemCommon,
-} from &#x27;@simpleangularcontrols/sac-common&#x27;;
-import { SacWizardItemComponent } from &#x27;./wizarditem&#x27;;
-import { NgFor, NgClass, NgStyle } from &#x27;@angular/common&#x27;;
+import { SacWizardCommon, SacWizardItemCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 /**
- * Wizard Komponente
+ * Wizard component
  */
 @Component({
     selector: &#x27;sac-wizard&#x27;,
     templateUrl: &#x27;./wizard.html&#x27;,
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-    providers: [
-        { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacWizardComponent },
-    ],
+    // Register value access provider so that value can be written and read via model
+    providers: [{ provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacWizardComponent }],
     standalone: true,
-    imports: [
-        NgFor,
-        NgClass,
-        NgStyle,
-    ],
+    imports: [NgFor, NgClass, NgStyle],
 })
 export class SacWizardComponent extends SacWizardCommon {
-  /**
-   * Wizard Items
-   */
-  @ContentChildren(SacWizardItemComponent)
-  _wizardItems: QueryList&lt;SacWizardItemComponent&gt;;
+    // #region Properties
 
-  /**
-   * Gibt die Wizard Items zurück
-   * @returns Collection von WizardItems
-   */
-  wizardItems(): QueryList&lt;SacWizardItemCommon&gt; {
-    return this._wizardItems as QueryList&lt;SacWizardItemCommon&gt;;
-  }
+    /**
+     * Wizard Items
+     */
+    @ContentChildren(SacWizardItemComponent)
+    public _wizardItems: QueryList&lt;SacWizardItemComponent&gt;;
+
+    // #endregion Properties
+
+    // #region Public Methods
+
+    /**
+     * Returns the wizard items
+     * @returns Collection of wizard items
+     */
+    public wizardItems(): QueryList&lt;SacWizardItemCommon&gt; {
+        return this._wizardItems as QueryList&lt;SacWizardItemCommon&gt;;
+    }
+
+    // #endregion Public Methods
 }
 </code></pre>
     </div>
@@ -1177,7 +1229,7 @@ export class SacWizardComponent extends SacWizardCommon {
     
 </div>
 
-<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/vis-network.min.js"></script>
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
@@ -1234,6 +1286,19 @@ export class SacWizardComponent extends SacWizardCommon {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -1245,7 +1310,6 @@ export class SacWizardComponent extends SacWizardCommon {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content class">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -189,7 +200,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:67</a></div>
                             </td>
                         </tr>
 
@@ -296,7 +307,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:57</a></div>
                         </td>
                     </tr>
 
@@ -334,7 +345,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:62</a></div>
                         </td>
                     </tr>
 
@@ -372,7 +383,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:67</a></div>
                         </td>
                     </tr>
 
@@ -397,150 +408,151 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class GridResponse&lt;T&gt; {
-  // #region Properties
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export enum SortOrder {
+    /**
+     * No sorting
+     */
+    None &#x3D; 0,
+    /**
+     * Ascending
+     */
+    Ascending &#x3D; 1,
+    /**
+     * Descending
+     */
+    Descending &#x3D; 2,
+}
 
-  /**
-   * Data
-   */
-  public Data: T[];
-  /**
-   * Total number of data records
-   */
-  public TotalRowCount: number;
+// #endregion Exported Enums
 
-  // #endregion Properties
+// #region Exported Classes
+
+/**
+ * Carries grid data payload along with total record count for pagination.
+ */
+export class GridResponse&lt;T&gt; {
+    // #region Properties
+
+    /**
+     * Data array for the current page.
+     */
+    public Data: T[];
+
+    /**
+     * Total number of records available from the data source.
+     */
+    public TotalRowCount: number;
+
+    // #endregion Properties
 }
 
 /**
  * Model for pager settings
  */
 export class PagerData {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Current index of the page
-   */
-  public CurrentPageIndex &#x3D; 0;
-  /**
-   * Number of elements on the page
-   */
-  public PageSize &#x3D; 20;
-  /**
-   * Total number of data records
-   */
-  public TotalRowCount &#x3D; 0;
+    /**
+     * Current index of the page
+     */
+    public CurrentPageIndex &#x3D; 0;
 
-  // #endregion Properties
+    /**
+     * Number of elements on the page
+     */
+    public PageSize &#x3D; 20;
 
-  // #region Constructors
+    /**
+     * Total number of data records
+     */
+    public TotalRowCount &#x3D; 0;
 
-  /**
-   * Constructor
-   * @param PageSize Number of elements per page
-   * @param CurrentPageIndex Current page
-   * @param TotalRowCount Total Rows in database
-   */
-  constructor(
-    PageSize: number,
-    CurrentPageIndex: number,
-    TotalRowCount: number
-  ) {
-    this.PageSize &#x3D; PageSize;
-    this.CurrentPageIndex &#x3D; CurrentPageIndex;
-    this.TotalRowCount &#x3D; TotalRowCount;
-  }
+    // #endregion Properties
 
-  // #endregion Constructors
+    // #region Constructors
+
+    /**
+     * Constructor
+     * @param PageSize Number of elements per page
+     * @param CurrentPageIndex Current page
+     * @param TotalRowCount Total Rows in database
+     */
+    constructor(PageSize: number, CurrentPageIndex: number, TotalRowCount: number) {
+        this.PageSize &#x3D; PageSize;
+        this.CurrentPageIndex &#x3D; CurrentPageIndex;
+        this.TotalRowCount &#x3D; TotalRowCount;
+    }
+
+    // #endregion Constructors
 }
 
 /**
  * Model if page is to be changed
  */
 export class PagerRequest {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Index of the page to which you want to switch
-   */
-  public NewPageIndex: number &#x3D; 0;
-  /**
-   * Number of elements on the page
-   */
-  public PageSize: number &#x3D; 0;
+    /**
+     * Index of the page to which you want to switch
+     */
+    public NewPageIndex &#x3D; 0;
 
-  // #endregion Properties
+    /**
+     * Number of elements on the page
+     */
+    public PageSize &#x3D; 0;
 
-  // #region Constructors
+    // #endregion Properties
 
-  /**
-   * Constructor
-   * @param PageSize Page size / number of elements per page
-   * @param NewPageIndex New page index
-   */
-  constructor(PageSize: number, NewPageIndex: number) {
-    this.PageSize &#x3D; PageSize;
-    this.NewPageIndex &#x3D; NewPageIndex;
-  }
+    // #region Constructors
 
-  // #endregion Constructors
+    /**
+     * Constructor
+     * @param PageSize Page size / number of elements per page
+     * @param NewPageIndex New page index
+     */
+    constructor(PageSize: number, NewPageIndex: number) {
+        this.PageSize &#x3D; PageSize;
+        this.NewPageIndex &#x3D; NewPageIndex;
+    }
+
+    // #endregion Constructors
 }
 
 /**
  * Model for sorting
  */
 export class SortDescriptor {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Description / Key for sorting
-   */
-  public SortColumn: string;
-  /**
-   * Sort order
-   */
-  public SortOrder: SortOrder;
+    /**
+     * Description / Key for sorting
+     */
+    public SortColumn: string;
 
-  // #endregion Properties
+    /**
+     * Sort order
+     */
+    public SortOrder: SortOrder;
 
-  // #region Constructors
+    // #endregion Properties
 
-  /**
-   * Constructor
-   * @param sortcolumn Column by which to sort
-   * @param sortorder Type of sorting
-   */
-  constructor(sortcolumn?: string, sortorder?: SortOrder) {
-    this.SortColumn &#x3D; sortcolumn;
-    this.SortOrder &#x3D; sortorder;
-  }
+    // #region Constructors
 
-  // #endregion Constructors
+    /**
+     * Constructor
+     * @param sortcolumn Column by which to sort
+     * @param sortorder Type of sorting
+     */
+    constructor(sortcolumn?: string, sortorder?: SortOrder) {
+        this.SortColumn &#x3D; sortcolumn;
+        this.SortOrder &#x3D; sortorder;
+    }
+
+    // #endregion Constructors
 }
 
-// #endregion Classes
-
-// #region Enums
-
-/**
- * Enum for sorting
- */
-export enum SortOrder {
-  /**
-   * No sorting
-   */
-  None &#x3D; 0,
-  /**
-   * Ascending
-   */
-  Ascending &#x3D; 1,
-  /**
-   * Descending
-   */
-  Descending &#x3D; 2,
-}
-
-// #endregion Enums
+// #endregion Exported Classes
 </code></pre>
     </div>
 </div>
@@ -583,6 +595,19 @@ export enum SortOrder {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -594,7 +619,6 @@ export enum SortOrder {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

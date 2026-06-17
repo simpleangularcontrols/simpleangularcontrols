@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -129,7 +140,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Common Marker Klasse für den Menü Container</p>
+                <p>Common marker class for the menu container</p>
 
             </p>
 
@@ -183,7 +194,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -209,7 +220,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Referenz auf das HTML Element mit der Marker Direktive</p>
+                                                                <p>Reference to the HTML element with the marker directive</p>
 
                                                         </td>
                                                 </tr>
@@ -258,7 +269,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Referenz auf das HTML Element des Menü Containers</p>
+                    <div class="io-description"><p>Reference to the HTML element of the menu container</p>
 </div>
                 </td>
             </tr>
@@ -275,30 +286,30 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, ElementRef } from &#x27;@angular/core&#x27;;
 
 /**
- * Common Marker Klasse für den Menü Container
+ * Common marker class for the menu container
  */
 @Directive()
 export class SacContextMenuContrainerCommon {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Referenz auf das HTML Element des Menü Containers
-   */
-  public nativeElement: HTMLElement;
+    /**
+     * Reference to the HTML element of the menu container
+     */
+    public nativeElement: HTMLElement;
 
-  // #endregion Properties
+    // #endregion Properties
 
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Konstruktor
-   * @param elementRef Referenz auf das HTML Element mit der Marker Direktive
-   */
-  constructor(elementRef: ElementRef&lt;HTMLElement&gt;) {
-    this.nativeElement &#x3D; elementRef.nativeElement;
-  }
+    /**
+     * Constructor
+     * @param elementRef Reference to the HTML element with the marker directive
+     */
+    constructor(elementRef: ElementRef&lt;HTMLElement&gt;) {
+        this.nativeElement &#x3D; elementRef.nativeElement;
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 }
 </code></pre>
     </div>
@@ -348,6 +359,19 @@ export class SacContextMenuContrainerCommon {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -359,7 +383,6 @@ export class SacContextMenuContrainerCommon {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

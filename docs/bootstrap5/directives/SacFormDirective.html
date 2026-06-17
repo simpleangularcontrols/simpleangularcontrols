@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -129,7 +140,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Erweiterung / Hooking für automatismen in Formular. Wird als Container für alle Controls benötigt.</p>
+                <p>Extension / hooking for automatisms in the form. Required as container for all controls.</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-html"></code></pre></div><div ngForm></div>
 
 <b>Example :</b><div><pre class="line-numbers"><code class="language-html"></code></pre></div><form></form>
@@ -269,7 +280,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -295,7 +306,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Instanz von NgForm für eigene automatische Formular Logik</p>
+                                                                <p>Instance of NgForm for own automatic form logic</p>
 
                                                         </td>
                                                 </tr>
@@ -332,13 +343,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:48</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:45</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Definiert, wenn das Model geupdatet wird</p>
+                        <div class="io-description"><p>Defines when the model is updated</p>
 </div>
                     </td>
                 </tr>
@@ -377,7 +388,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Setzt die Standard CSS Klasse für auf dem Form Container</p>
+                    <div class="io-description"><p>Sets the standard CSS class on the form container</p>
 </div>
                 </td>
             </tr>
@@ -420,7 +431,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:64</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:58</a></code>
 </div>
                         </td>
                     </tr>
@@ -428,13 +439,17 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Gibt die NgForm Instanz zurück</p>
+                        <div class="io-description"><p>Returns the NgForm instance</p>
 </div>
 
                         <div class="io-description">
                             <b>Returns : </b>    <code>NgForm</code>
 
                         </div>
+                            <div class="io-description">
+                                <p>The NgForm instance</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -467,7 +482,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:71</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:65</a></code>
 </div>
                         </td>
                     </tr>
@@ -475,7 +490,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Markiert alle Controls innerhalb des Formulares als Touched</p>
+                        <div class="io-description"><p>Marks all controls within the form as touched</p>
 </div>
 
                         <div class="io-description">
@@ -501,7 +516,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateValueAndValidity(markAsTouched: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    <code>updateValueAndValidity(markAsTouched: unknown)</code>
                 </td>
             </tr>
 
@@ -514,7 +529,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:80</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:75</a></code>
 </div>
                         </td>
                     </tr>
@@ -522,7 +537,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Aktualisiert die Werte und den Gültigkeitsstatus des Formulars</p>
+                        <div class="io-description"><p>Updates the values and validity status of the form</p>
 </div>
 
                             <div class="io-description">
@@ -535,13 +550,14 @@
                                                 <td>Type</td>
                                             <td>Optional</td>
                                                 <td>Default value</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                                 <td>markAsTouched</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -552,6 +568,10 @@
                                                     <code>true</code>
                                             </td>
 
+                                            <td>
+                                                    <p>If true, all controls are marked as touched after validation update.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -588,7 +608,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <i>Type : </i>    <code>unknown</code>
 
                     </td>
                 </tr>
@@ -614,7 +634,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Setzt die Standard CSS Klasse für auf dem Form Container</p>
+                    <div class="io-description"><p>Sets the standard CSS class on the form container</p>
 </div>
                 </td>
             </tr>
@@ -633,44 +653,44 @@ import { NgForm } from &#x27;@angular/forms&#x27;;
 import { SacFormCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 /**
- * Erweiterung / Hooking für automatismen in Formular. Wird als Container für alle Controls benötigt.
+ * Extension / hooking for automatisms in the form. Required as container for all controls.
  *
- * @example Beispiel über Div Container
+ * @example Example using div container
  *
  * &lt;div ngForm&gt;&lt;/div&gt;
  *
- * @example Beispiel über Form Tag
+ * @example Example using form tag
  *
  * &lt;form&gt;&lt;/form&gt;
  *
  */
 @Directive({
-  selector: &#x27;form:not([ngNoForm]):not([formGroup]),[ngForm]&#x27;, // eslint-disable-line @angular-eslint/directive-selector -- required as extension to form
-  exportAs: &#x27;sacform&#x27;,
-  standalone: true,
+    selector: &#x27;form:not([ngNoForm]):not([formGroup]),[ngForm]&#x27;, // eslint-disable-line @angular-eslint/directive-selector -- required as extension to form
+    exportAs: &#x27;sacform&#x27;,
+    standalone: true,
 })
 export class SacFormDirective extends SacFormCommon {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Setzt die Standard CSS Klasse für auf dem Form Container
-   */
-  @HostBinding(&#x27;class.form&#x27;)
-  public cssClassForm: boolean &#x3D; true;
+    /**
+     * Sets the standard CSS class on the form container
+     */
+    @HostBinding(&#x27;class.form&#x27;)
+    public cssClassForm &#x3D; true;
 
-  // #endregion Properties
+    // #endregion Properties
 
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Konstruktor
-   * @param form Instanz von NgForm für eigene automatische Formular Logik
-   */
-  constructor(form: NgForm) {
-    super(form);
-  }
+    /**
+     * Constructor
+     * @param form Instance of NgForm for own automatic form logic
+     */
+    constructor(form: NgForm) {
+        super(form);
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 }
 </code></pre>
     </div>
@@ -720,6 +740,19 @@ export class SacFormDirective extends SacFormCommon {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -731,7 +764,6 @@ export class SacFormDirective extends SacFormCommon {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

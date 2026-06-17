@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content component">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -131,7 +142,7 @@
         <h3>Description</h3>
     </p>
     <p class="comment">
-        <p>Component für Contextmenü</p>
+        <p>Component for context menu</p>
 
     </p>
 
@@ -161,9 +172,7 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                                <code><a href="../components/SacMultilanguagemenuComponent.html" target="_self" >{
-    provide: SacContextmenuCommon, useExisting: forwardRef(() &#x3D;&gt; SacMultilanguagemenuComponent),
-}</a></code>
+                            <code>)</code>
                 </td>
             </tr>
 
@@ -174,7 +183,7 @@
             </tr>
 
             <tr>
-                <td class="col-md-3">Standalone</td>
+                <td class="col-md-3">standalone</td>
                 <td class="col-md-9"><code>true</code></td>
             </tr>
 
@@ -337,7 +346,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/sac-bootstrap4/src/controls/multilanguage/multilanguagemenu.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/sac-bootstrap4/src/controls/multilanguage/multilanguagemenu.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -369,7 +378,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Referenz auf HTML Document</p>
+                                                                <p>Reference to HTML document</p>
 
                                                         </td>
                                                 </tr>
@@ -401,7 +410,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Referenz auf HTML Element der aktuellen Komponente</p>
+                                                                <p>Reference to HTML element of the current component</p>
 
                                                         </td>
                                                 </tr>
@@ -417,7 +426,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Render Service von Angular</p>
+                                                                <p>Angular Render Service</p>
 
                                                         </td>
                                                 </tr>
@@ -476,7 +485,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Custom HTML Template für Dropdown Button. Button muss den Marker &quot;ngContextmenuAnchor&quot; beinhalten, damit das Control korrekt funktioniert.</p>
+                        <div class="io-description"><p>Custom HTML template for dropdown button. Button must contain the marker &quot;ngContextmenuAnchor&quot; for the control to work correctly.</p>
 </div>
                     </td>
                 </tr>
@@ -515,7 +524,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Container an welchem die Position ausgerichtet wird. Aktuell wird nun Body Supported</p>
+                        <div class="io-description"><p>Container to which the position is aligned. Currently only body is supported.</p>
 </div>
                     </td>
                 </tr>
@@ -554,7 +563,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Extra CSS Klassen für das Control</p>
+                        <div class="io-description"><p>Extra CSS classes for the control</p>
 </div>
                     </td>
                 </tr>
@@ -632,7 +641,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Definiert ob das Dropdown offen ist.</p>
+                        <div class="io-description"><p>Defines whether the dropdown is open.</p>
 </div>
                     </td>
                 </tr>
@@ -744,7 +753,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>document:click(targetElement)</code>
+<code>document:click(targetElement: unknown)</code>
                 </td>
             </tr>
 
@@ -757,7 +766,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:197</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:204</a></code>
 </div>
                         </td>
                     </tr>
@@ -765,7 +774,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>HostListener um das Dropdown zu schliessen wenn nicht auf das Element geklickt wird.</p>
+                        <div class="io-description"><p>HostListener to close the dropdown when clicking outside the element.</p>
 </div>
 
                 </td>
@@ -806,7 +815,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:235</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:242</a></code>
 </div>
                         </td>
                     </tr>
@@ -814,7 +823,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Setzt die Position des Menüs im Markup</p>
+                        <div class="io-description"><p>Sets the position of the menu in the markup</p>
 </div>
 
                         <div class="io-description">
@@ -861,7 +870,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Schliesst das Dropdown</p>
+                        <div class="io-description"><p>Closes the dropdown</p>
 </div>
 
                         <div class="io-description">
@@ -900,7 +909,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:175</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:181</a></code>
 </div>
                         </td>
                     </tr>
@@ -908,6 +917,10 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Lifecycle hook that is called after content projection is completed.</p>
+<p>Associates each menu item with this context menu instance so that item
+events can delegate to the parent menu.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -945,7 +958,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:182</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:188</a></code>
 </div>
                         </td>
                     </tr>
@@ -953,7 +966,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Event wenn Component entfernt wird.</p>
+                        <div class="io-description"><p>Event when component is destroyed.</p>
 </div>
 
                         <div class="io-description">
@@ -980,7 +993,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onClick(targetElement)</code>
+                    <code>onClick(targetElement: unknown)</code>
                 </td>
             </tr>
 
@@ -1000,7 +1013,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:197</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:204</a></code>
 </div>
                         </td>
                     </tr>
@@ -1008,7 +1021,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>HostListener um das Dropdown zu schliessen wenn nicht auf das Element geklickt wird.</p>
+                        <div class="io-description"><p>HostListener to close the dropdown when clicking outside the element.</p>
 </div>
 
                             <div class="io-description">
@@ -1018,12 +1031,16 @@
                                     <thead>
                                         <tr>
                                             <td>Name</td>
+                                                <td>Type</td>
                                             <td>Optional</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                                 <td>targetElement</td>
+                                            <td>
+                                                        <code>unknown</code>
+                                            </td>
 
                                             <td>
                                                     No
@@ -1073,7 +1090,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:212</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:219</a></code>
 </div>
                         </td>
                     </tr>
@@ -1081,7 +1098,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Öffnet das Dropdown / Zeigt das Menü an.</p>
+                        <div class="io-description"><p>Opens the dropdown / shows the menu.</p>
 </div>
 
                         <div class="io-description">
@@ -1120,7 +1137,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:220</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:227</a></code>
 </div>
                         </td>
                     </tr>
@@ -1128,7 +1145,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Toggle von Dropdown</p>
+                        <div class="io-description"><p>Toggle dropdown</p>
 </div>
 
                         <div class="io-description">
@@ -1241,85 +1258,69 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DOCUMENT, NgTemplateOutlet } from &#x27;@angular/common&#x27;;
-import {
-  Component,
-  ElementRef,
-  Inject,
-  Injector,
-  NgZone,
-  Renderer2,
-  forwardRef,
-} from &#x27;@angular/core&#x27;;
-import { SacContextmenuCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
-import { SacMultilanguagemenuAnchorDirective } from &#x27;./multilanguagemenuanchor&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacMultilanguagemenuAnchorDirective } from &#x27;./multilanguagemenuanchor&#x27;;
 import { SacMultilanguagemenuContainerDirective } from &#x27;./multilanguagemenucontainer&#x27;;
+import { DOCUMENT, NgTemplateOutlet } from &#x27;@angular/common&#x27;;
+import { Component, ElementRef, Inject, Injector, NgZone, Renderer2, forwardRef } from &#x27;@angular/core&#x27;;
+import { SacContextmenuCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 /**
- * Component für Contextmenü
+ * Component for context menu
  */
 @Component({
-  selector: &#x27;[sac-multilanguagemenu]&#x27;, // eslint-disable-line @angular-eslint/component-selector -- bootstrap requires append-items direct behind the previews element
-  templateUrl: &#x27;./multilanguagemenu.html&#x27;,
-  providers: [
-    {
-      provide: SacContextmenuCommon,
-      useExisting: forwardRef(() &#x3D;&gt; SacMultilanguagemenuComponent),
-    },
-  ],
-  standalone: true,
-  imports: [
-    NgTemplateOutlet,
-    SacMultilanguagemenuContainerDirective,
-    SacMultilanguagemenuAnchorDirective,
-  ],
+    selector: &#x27;[sac-multilanguagemenu]&#x27;, // eslint-disable-line @angular-eslint/component-selector -- bootstrap requires append-items direct behind the previews element
+    templateUrl: &#x27;./multilanguagemenu.html&#x27;,
+    providers: [
+        {
+            provide: SacContextmenuCommon,
+            useExisting: forwardRef(() &#x3D;&gt; SacMultilanguagemenuComponent),
+        },
+    ],
+    standalone: true,
+    imports: [NgTemplateOutlet, SacMultilanguagemenuContainerDirective, SacMultilanguagemenuAnchorDirective],
 })
 export class SacMultilanguagemenuComponent extends SacContextmenuCommon {
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Constructor
-   * @param document Referenz auf HTML Document
-   * @param ngZone Angular Zone Service
-   * @param elementRef Referenz auf HTML Element der aktuellen Komponente
-   * @param renderer Render Service von Angular
-   * @param injector injector to resolve services in base component
-   */
-  constructor(
-    @Inject(DOCUMENT) document: any,
-    ngZone: NgZone,
-    elementRef: ElementRef&lt;HTMLElement&gt;,
-    renderer: Renderer2,
-    injector: Injector
-  ) {
-    super(document, ngZone, elementRef, renderer, injector);
-  }
+    /**
+     * Constructor
+     * @param document Reference to HTML document
+     * @param ngZone Angular Zone Service
+     * @param elementRef Reference to HTML element of the current component
+     * @param renderer Angular Render Service
+     * @param injector injector to resolve services in base component
+     */
+    constructor(
+        @Inject(DOCUMENT) document: any,
+        ngZone: NgZone,
+        elementRef: ElementRef&lt;HTMLElement&gt;,
+        renderer: Renderer2,
+        injector: Injector
+    ) {
+        super(document, ngZone, elementRef, renderer, injector);
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;ng-container
-  [ngTemplateOutlet]&#x3D;&quot;buttontemplate || defaultButtonTemplate&quot;
-&gt;&lt;/ng-container&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;ng-container [ngTemplateOutlet]&#x3D;&quot;buttontemplate || defaultButtonTemplate&quot;&gt;&lt;/ng-container&gt;
 
 &lt;div
-  class&#x3D;&quot;dropdown-menu dropdown-menu-right&quot;
-  sacMultilanguageMenuContainer
-  [class.show]&#x3D;&quot;isopen&quot;
-&gt;
-  &lt;ng-content&gt;&lt;/ng-content&gt;
+    class&#x3D;&quot;dropdown-menu dropdown-menu-right&quot;
+    sacMultilanguageMenuContainer
+    [class.show]&#x3D;&quot;isopen&quot;&gt;
+    &lt;ng-content&gt;&lt;/ng-content&gt;
 &lt;/div&gt;
 
 &lt;ng-template #defaultButtonTemplate&gt;
-  &lt;button
-    sacMultilanguageMenuAnchor
-    class&#x3D;&quot;btn btn-secondary dropdown-toggle&quot;
-    type&#x3D;&quot;button&quot;
-    (click)&#x3D;&quot;toggle()&quot;
-  &gt;&lt;/button&gt;
+    &lt;button
+        sacMultilanguageMenuAnchor
+        class&#x3D;&quot;btn btn-secondary dropdown-toggle&quot;
+        type&#x3D;&quot;button&quot;
+        (click)&#x3D;&quot;toggle()&quot;&gt;&lt;/button&gt;
 &lt;/ng-template&gt;
 </code></pre>
     </div>
@@ -1346,11 +1347,11 @@ export class SacMultilanguagemenuComponent extends SacContextmenuCommon {
     
 </div>
 
-<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/vis-network.min.js"></script>
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ng-container  [ngTemplateOutlet]="buttontemplate || defaultButtonTemplate"></ng-container><div  class="dropdown-menu dropdown-menu-right"  sacMultilanguageMenuContainer  [class.show]="isopen">  <ng-content></ng-content></div><ng-template #defaultButtonTemplate>  <button    sacMultilanguageMenuAnchor    class="btn btn-secondary dropdown-toggle"    type="button"    (click)="toggle()"  ></button></ng-template></div>'
+        var COMPONENT_TEMPLATE = '<div><ng-container [ngTemplateOutlet]="buttontemplate || defaultButtonTemplate"></ng-container><div    class="dropdown-menu dropdown-menu-right"    sacMultilanguageMenuContainer    [class.show]="isopen">    <ng-content></ng-content></div><ng-template #defaultButtonTemplate>    <button        sacMultilanguageMenuAnchor        class="btn btn-secondary dropdown-toggle"        type="button"        (click)="toggle()"></button></ng-template></div>'
     var COMPONENTS = [{'name': 'SacBrowserComponent', 'selector': 'sac-filebrowser'},{'name': 'SacButtonComponent', 'selector': 'sac-button'},{'name': 'SacCheckboxComponent', 'selector': 'sac-checkbox'},{'name': 'SacConfirmComponent', 'selector': 'sac-confirm'},{'name': 'SacContextmenuComponent', 'selector': 'sac-contextmenu'},{'name': 'SacContextmenuItemButtonComponent', 'selector': 'sac-contextmenubutton'},{'name': 'SacContextmenuItemSplitterComponent', 'selector': 'sac-contextmenusplitter'},{'name': 'SacDateComponent', 'selector': 'sac-date'},{'name': 'SacDateSelectorComponent', 'selector': 'sac-dateselector'},{'name': 'SacDateTimeComponent', 'selector': 'sac-datetime'},{'name': 'SacDialogComponent', 'selector': 'sac-dialog'},{'name': 'SacDropdownComponent', 'selector': 'sac-dropdown'},{'name': 'SacDropzoneMultipleComponent', 'selector': 'sac-dropzonemultiple'},{'name': 'SacDropzoneSingleComponent', 'selector': 'sac-dropzonesingle'},{'name': 'SacGridButtonComponent', 'selector': 'sac-gridbutton'},{'name': 'SacGridColumnActionComponent', 'selector': 'sac-gridcolumnaction'},{'name': 'SacGridColumnComponent', 'selector': 'sac-gridcolumn'},{'name': 'SacGridComponent', 'selector': 'sac-grid'},{'name': 'SacGridImageComponent', 'selector': 'sac-gridimage'},{'name': 'SacInputAreaComponent', 'selector': 'sac-inputarea'},{'name': 'SacInputComponent', 'selector': 'sac-input'},{'name': 'SacInputCurrencyComponent', 'selector': 'sac-inputcurrency'},{'name': 'SacInputDecimalComponent', 'selector': 'sac-inputdecimal'},{'name': 'SacInputEmailComponent', 'selector': 'sac-inputemail'},{'name': 'SacInputIntegerComponent', 'selector': 'sac-inputinteger'},{'name': 'SacInputPasswordComponent', 'selector': 'sac-inputpassword'},{'name': 'SacInputSearchComponent', 'selector': 'sac-inputsearch'},{'name': 'SacListboxComponent', 'selector': 'sac-listbox'},{'name': 'SacMultilanguageInputAreaComponent', 'selector': 'sac-multilanguageinputarea'},{'name': 'SacMultilanguageInputComponent', 'selector': 'sac-multilanguageinput'},{'name': 'SacMultilanguagemenuComponent', 'selector': '[sac-multilanguagemenu]'},{'name': 'SacMultilanguagemenuItemButtonComponent', 'selector': 'sac-multilanguagemenubutton'},{'name': 'SacPagingComponent', 'selector': 'sac-paging'},{'name': 'SacRadiobuttonComponent', 'selector': 'sac-radiobutton'},{'name': 'SacRadiobuttonsComponent', 'selector': 'sac-radiobuttons'},{'name': 'SacStaticFormContainerComponent', 'selector': 'sac-staticformcontainer'},{'name': 'SacStaticLabelComponent', 'selector': 'sac-staticlabel'},{'name': 'SacTabComponent', 'selector': 'sac-tab'},{'name': 'SacTabItemComponent', 'selector': 'sac-tabitem'},{'name': 'SacTimeComponent', 'selector': 'sac-time'},{'name': 'SacTinyMceComponent', 'selector': 'sac-tinymce'},{'name': 'SacTooltipComponent', 'selector': 'sac-tooltip'},{'name': 'SacTreeviewComponent', 'selector': 'sac-treeview'},{'name': 'SacUploadComponent', 'selector': 'sac-upload'},{'name': 'SacUploadMultipleComponent', 'selector': 'sac-uploadmultiple'},{'name': 'SacValidationSummaryComponent', 'selector': 'sac-validationsummary'},{'name': 'SacWizardComponent', 'selector': 'sac-wizard'},{'name': 'SacWizardItemComponent', 'selector': 'sac-wizarditem'}];
     var DIRECTIVES = [{'name': 'SacBaseDateTimeControl', 'selector': ''},{'name': 'SacBaseListControl', 'selector': ''},{'name': 'SacBaseModelControl', 'selector': ''},{'name': 'SacBaseSelectControl', 'selector': ''},{'name': 'SacButtonCommon', 'selector': ''},{'name': 'SacCheckboxCommon', 'selector': ''},{'name': 'SacConfirmCommon', 'selector': ''},{'name': 'SacContextmenuAnchorCommon', 'selector': ''},{'name': 'SacContextmenuAnchorDirective', 'selector': '[sacContextMenuAnchor]'},{'name': 'SacContextmenuCommon', 'selector': ''},{'name': 'SacContextmenuContainerDirective', 'selector': '[sacContextMenuContainer]'},{'name': 'SacContextMenuContrainerCommon', 'selector': ''},{'name': 'SacContextmenuItemButtonCommon', 'selector': ''},{'name': 'SacContextmenuItemCommon', 'selector': ''},{'name': 'SacDateCommon', 'selector': ''},{'name': 'SacDateSelectorCommon', 'selector': ''},{'name': 'SacDateTimeCommon', 'selector': ''},{'name': 'SacDialogCommon', 'selector': ''},{'name': 'SacDropdownCommon', 'selector': ''},{'name': 'SacDropdownOptionCommon', 'selector': ''},{'name': 'SacDropdownOptionDirective', 'selector': '[sacOption],option'},{'name': 'SacDropzoneMultipleCommon', 'selector': ''},{'name': 'SacDropzoneSingleCommon', 'selector': ''},{'name': 'SacFileBrowserCommon', 'selector': ''},{'name': 'SacFormCommon', 'selector': ''},{'name': 'SacFormDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'SacFormLayoutCommon', 'selector': ''},{'name': 'SacFormLayoutDirective', 'selector': '[sacFormLayout]'},{'name': 'SacGridButtonCommon', 'selector': ''},{'name': 'SacGridColumnActionCommon', 'selector': ''},{'name': 'SacGridColumnBaseCommon', 'selector': ''},{'name': 'SacGridColumnCommon', 'selector': ''},{'name': 'SacGridCommon', 'selector': ''},{'name': 'SacGridImageCommon', 'selector': ''},{'name': 'SacInheritFormDirective', 'selector': '[sacInheritForm]'},{'name': 'SacInputAreaCommon', 'selector': ''},{'name': 'SacInputBase', 'selector': ''},{'name': 'SacInputCommon', 'selector': ''},{'name': 'SacInputCurrencyCommon', 'selector': ''},{'name': 'SacInputDecimalCommon', 'selector': ''},{'name': 'SacInputEmailCommon', 'selector': ''},{'name': 'SacInputIntegerCommon', 'selector': ''},{'name': 'SacInputPasswordCommon', 'selector': ''},{'name': 'SacInputSearchCommon', 'selector': ''},{'name': 'SacListboxCommon', 'selector': ''},{'name': 'SacListboxOptionCommon', 'selector': ''},{'name': 'SacListboxOptionDirective', 'selector': '[sacOption],option'},{'name': 'SacMultilanguageInputAreaCommon', 'selector': ''},{'name': 'SacMultilanguageInputCommon', 'selector': ''},{'name': 'SacMultilanguagemenuAnchorDirective', 'selector': '[sacMultilanguageMenuAnchor]'},{'name': 'SacMultilanguagemenuContainerDirective', 'selector': '[sacMultilanguageMenuContainer]'},{'name': 'SacPagingCommon', 'selector': ''},{'name': 'SacRadiobuttonCommon', 'selector': ''},{'name': 'SacRadiobuttonsCommon', 'selector': ''},{'name': 'SacStaticFormContainerCommon', 'selector': ''},{'name': 'SacStaticLabelCommon', 'selector': ''},{'name': 'SacTabCommon', 'selector': ''},{'name': 'SacTabItemCommon', 'selector': ''},{'name': 'SacTimeCommon', 'selector': ''},{'name': 'SacTinyMceCommon', 'selector': ''},{'name': 'SacTooltipCommon', 'selector': ''},{'name': 'SacTreeviewCommon', 'selector': ''},{'name': 'SacUploadBase', 'selector': ''},{'name': 'SacUploadMultipleCommon', 'selector': ''},{'name': 'SacUploadSingleCommon', 'selector': ''},{'name': 'SacValidationSummaryCommon', 'selector': ''},{'name': 'SacWizardCommon', 'selector': ''},{'name': 'SacWizardItemCommon', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'SacMultilanguagemenuComponent'};
@@ -1403,6 +1404,19 @@ export class SacMultilanguagemenuComponent extends SacContextmenuCommon {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -1414,7 +1428,6 @@ export class SacMultilanguagemenuComponent extends SacContextmenuCommon {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

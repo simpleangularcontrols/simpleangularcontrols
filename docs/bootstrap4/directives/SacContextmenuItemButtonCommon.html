@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -340,7 +351,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Icon für Menü</p>
+                        <div class="io-description"><p>Icon for menu</p>
 </div>
                     </td>
                 </tr>
@@ -372,7 +383,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Input Property für Styling des Buttons. Definiert die Css Klassen des Buttons</p>
+                        <div class="io-description"><p>Input property for button styling. Defines the CSS classes of the button</p>
 </div>
                     </td>
                 </tr>
@@ -399,7 +410,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Image für Menü. Wird benötigt wenn das Icon für den Button ein File und nicht ein Icon Font ist.</p>
+                        <div class="io-description"><p>Image for menu. Required if the icon for the button is a file and not an icon font.</p>
 </div>
                     </td>
                 </tr>
@@ -426,7 +437,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Menu Item ist deaktiviert</p>
+                        <div class="io-description"><p>Menu item is disabled</p>
 </div>
                     </td>
                 </tr>
@@ -453,7 +464,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Icon Column in Menü ist deaktiviert</p>
+                        <div class="io-description"><p>Icon column in menu is disabled</p>
 </div>
                     </td>
                 </tr>
@@ -512,7 +523,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Text für Menü Item.</p>
+                        <div class="io-description"><p>Text for menu item.</p>
 </div>
                     </td>
                 </tr>
@@ -581,7 +592,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Event wenn auf den Button geklickt wird</p>
+                        <div class="io-description"><p>Event when the button is clicked</p>
 </div>
                     </td>
                 </tr>
@@ -625,7 +636,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Die Methode wird das cklickaction Emitter aktivieren</p>
+                        <div class="io-description"><p>This method will trigger the click action emitter</p>
 </div>
 
                             <div class="io-description">
@@ -686,7 +697,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <i>Type : </i>    <code>unknown</code>
 
                     </td>
                 </tr>
@@ -703,7 +714,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Menu Item ist deaktiviert</p>
+                    <div class="io-description"><p>Menu item is disabled</p>
 </div>
                 </td>
             </tr>
@@ -724,7 +735,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <i>Type : </i>    <code>unknown</code>
 
                     </td>
                 </tr>
@@ -741,7 +752,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Icon Column in Menü ist deaktiviert</p>
+                    <div class="io-description"><p>Icon column in menu is disabled</p>
 </div>
                 </td>
             </tr>
@@ -775,7 +786,7 @@
                             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>Menu Item ist deaktiviert</p>
+                                <div class="io-description"><p>Menu item is disabled</p>
 </div>
 
                                 <div class="io-description">
@@ -797,7 +808,7 @@
                             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>Menu Item ist deaktiviert</p>
+                                <div class="io-description"><p>Menu item is disabled</p>
 </div>
 
                                 <div class="io-description">
@@ -825,8 +836,6 @@
                                                     </tr>
                                             </tbody>
                                         </table>
-                                </div>
-                                <div>
                                 </div>
                                 <div class="io-description">
                                     <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -857,7 +866,7 @@
                             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>Icon Column in Menü ist deaktiviert</p>
+                                <div class="io-description"><p>Icon column in menu is disabled</p>
 </div>
 
                                 <div class="io-description">
@@ -879,7 +888,7 @@
                             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>Icon Column in Menü ist deaktiviert</p>
+                                <div class="io-description"><p>Icon column in menu is disabled</p>
 </div>
 
                                 <div class="io-description">
@@ -908,8 +917,6 @@
                                             </tbody>
                                         </table>
                                 </div>
-                                <div>
-                                </div>
                                 <div class="io-description">
                                     <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
@@ -935,17 +942,17 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
     // #region Properties
 
     /**
-     * Menu Item ist deaktiviert
+     * Menu item is disabled
      */
-    protected _isdisabled: boolean &#x3D; false;
+    protected _isdisabled &#x3D; false;
 
     /**
-     * Icon Column in Menü ist deaktiviert
+     * Icon column in menu is disabled
      */
-    protected _isicondisabled: boolean &#x3D; false;
+    protected _isicondisabled &#x3D; false;
 
     /**
-     * Event wenn auf den Button geklickt wird
+     * Event when the button is clicked
      */
     @Output()
     public clicked: EventEmitter&lt;void&gt; &#x3D; new EventEmitter&lt;void&gt;();
@@ -954,22 +961,22 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
      * css class for button styling
      */
     @Input()
-    public cssclass: string &#x3D; &#x27;&#x27;;
+    public cssclass &#x3D; &#x27;&#x27;;
 
     /**
-     * Icon für Menü
+     * Icon for menu
      */
     @Input()
     public icon: string;
 
     /**
-     * Input Property für Styling des Buttons. Definiert die Css Klassen des Buttons
+     * Input property for button styling. Defines the CSS classes of the button
      */
     @Input()
-    public iconstyle: string &#x3D; &#x27;&#x27;;
+    public iconstyle &#x3D; &#x27;&#x27;;
 
     /**
-     * Image für Menü. Wird benötigt wenn das Icon für den Button ein File und nicht ein Icon Font ist.
+     * Image for menu. Required if the icon for the button is a file and not an icon font.
      */
     @Input()
     public image: string;
@@ -978,10 +985,10 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
      * name of button. used for generate id and name
      */
     @Input()
-    public name: string &#x3D; &#x27;&#x27;;
+    public name &#x3D; &#x27;&#x27;;
 
     /**
-     * Text für Menü Item.
+     * Text for menu item.
      */
     @Input()
     public text: string;
@@ -1002,14 +1009,14 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
     // #region Public Getters And Setters
 
     /**
-     * Menu Item ist deaktiviert
+     * Menu item is disabled
      */
     public get isdisabled(): boolean | string {
         return this._isdisabled;
     }
 
     /**
-     * Menu Item ist deaktiviert
+     * Menu item is disabled
      */
     @Input()
     public set isdisabled(v: boolean | string) {
@@ -1021,14 +1028,14 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
     }
 
     /**
-     * Icon Column in Menü ist deaktiviert
+     * Icon column in menu is disabled
      */
     public get isicondisabled(): boolean | string {
         return this._isicondisabled;
     }
 
     /**
-     * Icon Column in Menü ist deaktiviert
+     * Icon column in menu is disabled
      */
     @Input()
     public set isicondisabled(v: boolean | string) {
@@ -1044,7 +1051,7 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
     // #region Public Methods
 
     /**
-     * Die Methode wird das cklickaction Emitter aktivieren
+     * This method will trigger the click action emitter
      */
     public callaction(event: MouseEvent) {
         if (!this._isdisabled) {
@@ -1107,6 +1114,19 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -1118,7 +1138,6 @@ export class SacContextmenuItemButtonCommon extends SacContextmenuItemCommon {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

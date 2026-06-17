@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -325,7 +336,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:41</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:45</a></code>
 </div>
                             </td>
                         </tr>
@@ -359,13 +370,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:57</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:61</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Wert-Setter</p>
+                        <div class="io-description"><p>Value setter</p>
 </div>
                     </td>
                 </tr>
@@ -408,7 +419,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:65</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:73</a></code>
 </div>
                         </td>
                     </tr>
@@ -416,7 +427,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Den Wert vom Option-Element einstellen</p>
+                        <div class="io-description"><p>Set the value of the option element</p>
 </div>
 
                             <div class="io-description">
@@ -444,7 +455,7 @@
 
 
                                             <td>
-                                                    <p>Wert</p>
+                                                    <p>Value</p>
 
                                             </td>
                                         </tr>
@@ -490,7 +501,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:72</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:80</a></code>
 </div>
                         </td>
                     </tr>
@@ -498,7 +509,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>OnDestroy Event</p>
+                        <div class="io-description"><p>OnDestroy event</p>
 </div>
 
                         <div class="io-description">
@@ -550,12 +561,12 @@ export class SacDropdownOptionDirective extends SacDropdownOptionCommon {
 }
 
 /**
- * Dropdown Komponente
+ * Dropdown component
  */
 @Component({
     selector: &#x27;sac-dropdown&#x27;,
     templateUrl: &#x27;./dropdown.html&#x27;,
-    // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
+    // Register Value Access Provider so the value can be written and read via model
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
@@ -655,6 +666,19 @@ export class SacDropdownComponent extends SacDropdownCommon {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -666,7 +690,6 @@ export class SacDropdownComponent extends SacDropdownCommon {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

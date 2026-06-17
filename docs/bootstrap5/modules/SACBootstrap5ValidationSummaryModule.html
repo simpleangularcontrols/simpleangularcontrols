@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content module">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -124,13 +135,13 @@
 <title>cluster_SACBootstrap5ValidationSummaryModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="109,-70 109,-268 387,-268 387,-70 109,-70"/>
 </g>
-<g id="clust4" class="cluster">
-<title>cluster_SACBootstrap5ValidationSummaryModule_exports</title>
-<polygon fill="none" stroke="black" points="131,-208 131,-260 365,-260 365,-208 131,-208"/>
-</g>
 <g id="clust3" class="cluster">
 <title>cluster_SACBootstrap5ValidationSummaryModule_imports</title>
 <polygon fill="none" stroke="black" points="132,-78 132,-130 364,-130 364,-78 132,-78"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_SACBootstrap5ValidationSummaryModule_exports</title>
+<polygon fill="none" stroke="black" points="131,-208 131,-260 365,-260 365,-208 131,-208"/>
 </g>
 <!-- SacValidationSummaryComponent -->
 <g id="node1" class="node">
@@ -235,18 +246,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { SacValidationSummaryComponent } from &#x27;./validationsummary&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacValidationSummaryComponent } from &#x27;./validationsummary&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 
 @NgModule({
-    imports: [
-        CommonModule,
-        SacValidationSummaryComponent
-    ],
-    exports: [SacValidationSummaryComponent]
+    imports: [CommonModule, SacValidationSummaryComponent],
+    exports: [SacValidationSummaryComponent],
 })
-export class SACBootstrap5ValidationSummaryModule { }
+export class SACBootstrap5ValidationSummaryModule {}
 </code></pre>
     </div>
 </div>
@@ -297,6 +305,19 @@ export class SACBootstrap5ValidationSummaryModule { }
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -308,7 +329,6 @@ export class SACBootstrap5ValidationSummaryModule { }
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

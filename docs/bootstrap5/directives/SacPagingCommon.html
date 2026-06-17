@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -345,6 +356,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -359,6 +371,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Service injector for dependency resolution</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -451,7 +467,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:162</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="158" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:158</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -654,8 +670,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="180"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:180</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="176"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:176</a></div>
                         </td>
                     </tr>
 
@@ -730,8 +746,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="190"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:190</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="186"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:186</a></div>
                         </td>
                     </tr>
 
@@ -806,8 +822,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="255"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:255</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="248"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:248</a></div>
                         </td>
                     </tr>
 
@@ -847,8 +863,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="201"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:201</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="194"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:194</a></div>
                         </td>
                     </tr>
 
@@ -888,8 +904,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="210"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:210</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="203"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:203</a></div>
                         </td>
                     </tr>
 
@@ -929,8 +945,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="288"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:288</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="281"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:281</a></div>
                         </td>
                     </tr>
 
@@ -1005,8 +1021,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="304"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:304</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="297"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:297</a></div>
                         </td>
                     </tr>
 
@@ -1081,8 +1097,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="217"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:217</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="210"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:210</a></div>
                         </td>
                     </tr>
 
@@ -1122,8 +1138,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="224"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:224</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="217"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:217</a></div>
                         </td>
                     </tr>
 
@@ -1163,8 +1179,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="233"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:233</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="226"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:226</a></div>
                         </td>
                     </tr>
 
@@ -1204,8 +1220,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="321"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:321</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="314"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:314</a></div>
                         </td>
                     </tr>
 
@@ -1275,8 +1291,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="242"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:242</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="235"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:235</a></div>
                         </td>
                     </tr>
 
@@ -1583,7 +1599,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:137</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:133</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1616,7 +1632,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="144" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:144</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="140" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:140</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1649,7 +1665,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="154" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:154</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="150" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:150</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1683,7 +1699,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:162</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="158" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:158</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1717,8 +1733,6 @@
                                             </tbody>
                                         </table>
                                 </div>
-                                <div>
-                                </div>
                                 <div class="io-description">
                                     <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
@@ -1747,27 +1761,27 @@ import { Observable } from &#x27;rxjs&#x27;;
  */
 @Directive()
 export abstract class SacPagingCommon {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Service to receive standard validation message keys and texts
-   */
-  private validationKeyService: ISacValidationKeyService;
+    /**
+     * Service to receive standard validation message keys and texts
+     */
+    private validationKeyService: ISacValidationKeyService;
 
-  /**
-   * Service for error localization
-   */
-  protected lngResourceService: ISacLocalisationService;
+    /**
+     * Service for error localization
+     */
+    protected lngResourceService: ISacLocalisationService;
 
-  /**
-   * Total number of rows
-   */
-  protected totalRowCount: number &#x3D; 0;
+    /**
+     * Total number of rows
+     */
+    protected totalRowCount &#x3D; 0;
 
-  /**
-   * Active page index
-   */
-  public activePageIndex: number &#x3D; 0;
+    /**
+     * Active page index
+     */
+    public activePageIndex &#x3D; 0;
 
     /**
      * Identifier used for the E2E data attribute.
@@ -1775,15 +1789,15 @@ export abstract class SacPagingCommon {
     @Input()
     public e2eidentifier: string | null &#x3D; null;
 
-  /**
-   * First page index
-   */
-  public firstPageIndex: number &#x3D; 0;
+    /**
+     * First page index
+     */
+    public firstPageIndex &#x3D; 0;
 
-  /**
-   * Last page index
-   */
-  public lastPageIndex: number &#x3D; 0;
+    /**
+     * Last page index
+     */
+    public lastPageIndex &#x3D; 0;
 
     /**
      * name of control
@@ -1791,277 +1805,267 @@ export abstract class SacPagingCommon {
     @Input()
     public name: string &#x3D; createGuid();
 
-  /**
-   * Number of elements per page
-   */
-  public pageSize: number &#x3D; 20;
+    /**
+     * Number of elements per page
+     */
+    public pageSize &#x3D; 20;
 
-  /**
-   * Deactivate page size selection
-   */
-  @Input()
-  public pagesizedisabled: boolean &#x3D; false;
+    /**
+     * Deactivate page size selection
+     */
+    @Input()
+    public pagesizedisabled &#x3D; false;
 
-  /**
-   * Text in Page for number of page elements per page. The following interpolation texts are available:
-   *
-   * {{PAGESIZE}}: Number of elements per page
-   */
-  @Input()
-  public pagesizes: string &#x3D; &#x27;20|50|100&#x27;;
+    /**
+     * Text in Page for number of page elements per page. The following interpolation texts are available:
+     *
+     * {{PAGESIZE}}: Number of elements per page
+     */
+    @Input()
+    public pagesizes &#x3D; &#x27;20|50|100&#x27;;
 
-  /**
-   * Text in Page for number of page elements per page. The following interpolation texts are available:
-   *
-   * {{PAGESIZE}}: Number of elements per page
-   */
-  @Input()
-  public pagesizetext: string &#x3D; &#x27;&#x27;;
+    /**
+     * Text in Page for number of page elements per page. The following interpolation texts are available:
+     *
+     * {{PAGESIZE}}: Number of elements per page
+     */
+    @Input()
+    public pagesizetext &#x3D; &#x27;&#x27;;
 
-  /**
-   * Item for each paging element (page number)
-   */
-  public paginators: Array&lt;any&gt; &#x3D; [];
+    /**
+     * Item for each paging element (page number)
+     */
+    public paginators: Array&lt;any&gt; &#x3D; [];
 
-  /**
-   * Event when the page is changed in the grid. The new PageIndex is given as a parameter.
-   */
-  @Output()
-  public paging: EventEmitter&lt;PagerRequest&gt; &#x3D; new EventEmitter&lt;PagerRequest&gt;();
+    /**
+     * Event when the page is changed in the grid. The new PageIndex is given as a parameter.
+     */
+    @Output()
+    public paging: EventEmitter&lt;PagerRequest&gt; &#x3D; new EventEmitter&lt;PagerRequest&gt;();
 
-  /**
-   * Text in pager for &#x27;Page x of y&#x27;. The following interpolation texts are available:
-   * {{CURRENTPAGE}}: Current page
-   * {{TOTALPAGES}}: Number of pages
-   */
-  @Input()
-  public pagingtext: string &#x3D; &#x27;&#x27;;
+    /**
+     * Text in pager for &#x27;Page x of y&#x27;. The following interpolation texts are available:
+     * {{CURRENTPAGE}}: Current page
+     * {{TOTALPAGES}}: Number of pages
+     */
+    @Input()
+    public pagingtext &#x3D; &#x27;&#x27;;
 
-  // #endregion Properties
+    // #endregion Properties
 
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Constructor
-   * @parent SacFormCommon
-   * @injector Injector
-   */
-  constructor(injector: Injector) {
-    this.validationKeyService &#x3D; injector.get(
-      SACVALIDATIONKEY_SERVICE,
-      new SacDefaultValidationKeyService()
-    );
+    /**
+     * Constructor
+     * @param injector Service injector for dependency resolution
+     */
+    constructor(injector: Injector) {
+        this.validationKeyService &#x3D; injector.get(SACVALIDATIONKEY_SERVICE, new SacDefaultValidationKeyService());
 
-    // Set Default Values from Injector
-    this.pagesizetext &#x3D; this.validationKeyService.PagingEntries;
-    this.pagingtext &#x3D; this.validationKeyService.PagingPageOf;
+        // Set Default Values from Injector
+        this.pagesizetext &#x3D; this.validationKeyService.PagingEntries;
+        this.pagingtext &#x3D; this.validationKeyService.PagingPageOf;
 
-    this.lngResourceService &#x3D; injector.get(
-      SACLOCALISATION_SERVICE,
-      new SacDefaultLocalisationService(this.validationKeyService)
-    );
-  }
-
-  // #endregion Constructors
-
-  // #region Public Getters And Setters
-
-  /**
-   * Property with text for total entries in page
-   */
-  public get PageSizeText(): Observable&lt;string&gt; {
-    return this.lngResourceService.GetString(this.pagesizetext);
-  }
-
-  /**
-   * Text with current page and total pages
-   */
-  public get PagingText(): Observable&lt;string&gt; {
-    return this.lngResourceService.GetString(this.pagingtext, {
-      CURRENTPAGE: this.getCurrentPageNumber(),
-      TOTALPAGES: this.getTotalPageNumber(),
-    });
-  }
-
-  /**
-   * Returns the page sizes as a number array
-   */
-  public get getPageSizes(): number[] {
-    return this.pagesizes.split(&#x27;|&#x27;).map((itm) &#x3D;&gt; Number(itm));
-  }
-
-  /**
-   * Property for Pager Data
-   */
-  @Input()
-  public set pagerdata(p: PagerData) {
-    if (p !&#x3D; null) {
-      this.totalRowCount &#x3D; p.TotalRowCount;
-      this.activePageIndex &#x3D; p.CurrentPageIndex;
-      this.pageSize &#x3D; p.PageSize;
+        this.lngResourceService &#x3D; injector.get(
+            SACLOCALISATION_SERVICE,
+            new SacDefaultLocalisationService(this.validationKeyService)
+        );
     }
 
-    this.createPager();
-  }
+    // #endregion Constructors
 
-  // #endregion Public Getters And Setters
+    // #region Public Getters And Setters
 
-  // #region Public Methods
-
-  /**
-   * Changes the page to the new index
-   * @param newPageIndex Page index. This corresponds to the page number - 1.
-   */
-  public changePage(newPageIndex: number) {
-    if (this.activePageIndex !&#x3D;&#x3D; newPageIndex) {
-      this.paged(newPageIndex);
-    }
-  }
-
-  /**
-   * Changes the page size in the pager
-   * @param newSize New number of elements per page
-   */
-  public changePageSize(newSize: number) {
-    const pagerData: PagerRequest &#x3D; new PagerRequest(
-      newSize,
-      this.activePageIndex
-    );
-    this.paging.emit(pagerData);
-  }
-
-  /**
-   *Switch to 1st page
-   */
-  public firstPage() {
-    if (this.activePageIndex !&#x3D;&#x3D; this.firstPageIndex) {
-      this.paged(0);
-    }
-  }
-
-  /**
-   * Returns the current page number
-   */
-  public getCurrentPageNumber(): number {
-    return this.activePageIndex + 1;
-  }
-
-  /**
-   * Returns the total number of pages
-   */
-  public getTotalPageNumber(): number {
-    return this.lastPageIndex + 1;
-  }
-
-  /**
-   * Paging on last page
-   */
-  public lastPage() {
-    if (this.activePageIndex !&#x3D;&#x3D; this.lastPageIndex) {
-      this.paged(this.lastPageIndex);
-    }
-  }
-
-  /**
-   * Paging to next page
-   */
-  public nextPage() {
-    if (this.activePageIndex !&#x3D;&#x3D; this.lastPageIndex) {
-      this.paged(this.activePageIndex + 1);
-    }
-  }
-
-  /**
-   * Paging one page back
-   */
-  public previousPage() {
-    if (this.activePageIndex !&#x3D;&#x3D; this.firstPageIndex) {
-      this.paged(this.activePageIndex - 1);
-    }
-  }
-
-  // #endregion Public Methods
-
-  // #region Protected Methods
-
-  /**
-   * Generates the pager data
-   */
-  protected createPager() {
-    this.paginators &#x3D; [];
-
-    if (this.totalRowCount &gt; 0) {
-      let totalPageCount &#x3D; Math.ceil(this.totalRowCount / this.pageSize);
-
-      // PageCount auf 1 stellen, wenn keine Records vorhanden sind.
-      if (totalPageCount &#x3D;&#x3D;&#x3D; 0) {
-        totalPageCount &#x3D; 1;
-      }
-
-      // PageIndex berechnen
-      this.lastPageIndex &#x3D; totalPageCount - 1;
-      const startPageIndex &#x3D; this.getStartPageIndex(totalPageCount);
-      const endPageIndex &#x3D; this.getEndPageIndex(totalPageCount);
-
-      // Index Fix wenn Aktive Seite grösser als letze Seite
-      if (this.activePageIndex &gt; this.lastPageIndex) {
-        this.activePageIndex &#x3D; this.lastPageIndex;
-      }
-
-      for (let i &#x3D; startPageIndex; i &lt;&#x3D; endPageIndex; i++) {
-        this.paginators.push(i);
-      }
-    } else {
-      this.paginators.push(0);
-    }
-  }
-
-  /**
-   * Returns the last page index.
-   * @param totalPageCount Total number of pages
-   */
-  protected getEndPageIndex(totalPageCount: number): number {
-    let endingPageToDisplay &#x3D; this.activePageIndex + 2;
-    const maxEndingPageIndex &#x3D; 4 &gt; totalPageCount - 1 ? totalPageCount - 1 : 4;
-
-    if (endingPageToDisplay &gt; totalPageCount - 1) {
-      endingPageToDisplay &#x3D; totalPageCount - 1;
-    } else if (this.activePageIndex &lt; 2) {
-      endingPageToDisplay &#x3D; maxEndingPageIndex;
-    }
-    return endingPageToDisplay;
-  }
-
-  /**
-   * Returns the start index
-   * @param totalPageCount Total number of pages
-   */
-  protected getStartPageIndex(totalPageCount: number): number {
-    let startingPageToDisplay: number &#x3D; 0;
-    startingPageToDisplay &#x3D; this.activePageIndex - 2;
-
-    if (totalPageCount - this.activePageIndex - 1 &lt; 2) {
-      startingPageToDisplay &#x3D; totalPageCount - 5;
+    /**
+     * Property with text for total entries in page
+     */
+    public get PageSizeText(): Observable&lt;string&gt; {
+        return this.lngResourceService.GetString(this.pagesizetext);
     }
 
-    if (startingPageToDisplay &lt; 0) {
-      startingPageToDisplay &#x3D; 0;
+    /**
+     * Text with current page and total pages
+     */
+    public get PagingText(): Observable&lt;string&gt; {
+        return this.lngResourceService.GetString(this.pagingtext, {
+            CURRENTPAGE: this.getCurrentPageNumber(),
+            TOTALPAGES: this.getTotalPageNumber(),
+        });
     }
-    return startingPageToDisplay;
-  }
 
-  /**
-   * method triggers the event that paging has taken place
-   */
-  protected paged(newPageIndex: number) {
-    const pagerData: PagerRequest &#x3D; new PagerRequest(
-      this.pageSize,
-      newPageIndex
-    );
-    this.paging.emit(pagerData);
-  }
+    /**
+     * Returns the page sizes as a number array
+     */
+    public get getPageSizes(): number[] {
+        return this.pagesizes.split(&#x27;|&#x27;).map((itm) &#x3D;&gt; Number(itm));
+    }
 
-  // #endregion Protected Methods
+    /**
+     * Property for Pager Data
+     */
+    @Input()
+    public set pagerdata(p: PagerData) {
+        if (p !&#x3D; null) {
+            this.totalRowCount &#x3D; p.TotalRowCount;
+            this.activePageIndex &#x3D; p.CurrentPageIndex;
+            this.pageSize &#x3D; p.PageSize;
+        }
+
+        this.createPager();
+    }
+
+    // #endregion Public Getters And Setters
+
+    // #region Public Methods
+
+    /**
+     * Changes the page to the new index
+     * @param newPageIndex Page index. This corresponds to the page number - 1.
+     */
+    public changePage(newPageIndex: number) {
+        if (this.activePageIndex !&#x3D;&#x3D; newPageIndex) {
+            this.paged(newPageIndex);
+        }
+    }
+
+    /**
+     * Changes the page size in the pager
+     * @param newSize New number of elements per page
+     */
+    public changePageSize(newSize: number) {
+        const pagerData: PagerRequest &#x3D; new PagerRequest(newSize, this.activePageIndex);
+        this.paging.emit(pagerData);
+    }
+
+    /**
+     * Switch to 1st page
+     */
+    public firstPage() {
+        if (this.activePageIndex !&#x3D;&#x3D; this.firstPageIndex) {
+            this.paged(0);
+        }
+    }
+
+    /**
+     * Returns the current page number
+     */
+    public getCurrentPageNumber(): number {
+        return this.activePageIndex + 1;
+    }
+
+    /**
+     * Returns the total number of pages
+     */
+    public getTotalPageNumber(): number {
+        return this.lastPageIndex + 1;
+    }
+
+    /**
+     * Paging on last page
+     */
+    public lastPage() {
+        if (this.activePageIndex !&#x3D;&#x3D; this.lastPageIndex) {
+            this.paged(this.lastPageIndex);
+        }
+    }
+
+    /**
+     * Paging to next page
+     */
+    public nextPage() {
+        if (this.activePageIndex !&#x3D;&#x3D; this.lastPageIndex) {
+            this.paged(this.activePageIndex + 1);
+        }
+    }
+
+    /**
+     * Paging one page back
+     */
+    public previousPage() {
+        if (this.activePageIndex !&#x3D;&#x3D; this.firstPageIndex) {
+            this.paged(this.activePageIndex - 1);
+        }
+    }
+
+    // #endregion Public Methods
+
+    // #region Protected Methods
+
+    /**
+     * Generates the pager data
+     */
+    protected createPager() {
+        this.paginators &#x3D; [];
+
+        if (this.totalRowCount &gt; 0) {
+            let totalPageCount &#x3D; Math.ceil(this.totalRowCount / this.pageSize);
+
+            // Set PageCount to 1 if there are no records.
+            if (totalPageCount &#x3D;&#x3D;&#x3D; 0) {
+                totalPageCount &#x3D; 1;
+            }
+
+            // Calculate PageIndex
+            this.lastPageIndex &#x3D; totalPageCount - 1;
+            const startPageIndex &#x3D; this.getStartPageIndex(totalPageCount);
+            const endPageIndex &#x3D; this.getEndPageIndex(totalPageCount);
+
+            // Set index if current page is greater than last page
+            if (this.activePageIndex &gt; this.lastPageIndex) {
+                this.activePageIndex &#x3D; this.lastPageIndex;
+            }
+
+            for (let i &#x3D; startPageIndex; i &lt;&#x3D; endPageIndex; i++) {
+                this.paginators.push(i);
+            }
+        } else {
+            this.paginators.push(0);
+        }
+    }
+
+    /**
+     * Returns the last page index.
+     * @param totalPageCount Total number of pages
+     */
+    protected getEndPageIndex(totalPageCount: number): number {
+        let endingPageToDisplay &#x3D; this.activePageIndex + 2;
+        const maxEndingPageIndex &#x3D; 4 &gt; totalPageCount - 1 ? totalPageCount - 1 : 4;
+
+        if (endingPageToDisplay &gt; totalPageCount - 1) {
+            endingPageToDisplay &#x3D; totalPageCount - 1;
+        } else if (this.activePageIndex &lt; 2) {
+            endingPageToDisplay &#x3D; maxEndingPageIndex;
+        }
+        return endingPageToDisplay;
+    }
+
+    /**
+     * Returns the start index
+     * @param totalPageCount Total number of pages
+     */
+    protected getStartPageIndex(totalPageCount: number): number {
+        let startingPageToDisplay &#x3D; 0;
+        startingPageToDisplay &#x3D; this.activePageIndex - 2;
+
+        if (totalPageCount - this.activePageIndex - 1 &lt; 2) {
+            startingPageToDisplay &#x3D; totalPageCount - 5;
+        }
+
+        if (startingPageToDisplay &lt; 0) {
+            startingPageToDisplay &#x3D; 0;
+        }
+        return startingPageToDisplay;
+    }
+
+    /**
+     * method triggers the event that paging has taken place
+     */
+    protected paged(newPageIndex: number) {
+        const pagerData: PagerRequest &#x3D; new PagerRequest(this.pageSize, newPageIndex);
+        this.paging.emit(pagerData);
+    }
+
+    // #endregion Protected Methods
 }
 </code></pre>
     </div>
@@ -2111,6 +2115,19 @@ export abstract class SacPagingCommon {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -2122,7 +2139,6 @@ export abstract class SacPagingCommon {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content injectable">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -188,6 +199,9 @@
                                     <a href="#InputSearchIconMode" >InputSearchIconMode</a>
                                 </li>
                                 <li>
+                                    <a href="#LabelMode" >LabelMode</a>
+                                </li>
+                                <li>
                                     <a href="#LabelSizeLg" >LabelSizeLg</a>
                                 </li>
                                 <li>
@@ -238,7 +252,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:106</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:111</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -271,7 +285,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:113</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:118</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -304,7 +318,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="120" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:120</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:125</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -337,7 +351,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:127</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:132</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -370,7 +384,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:134</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:139</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -403,7 +417,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:141</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="146" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:146</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -436,7 +450,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="148" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:148</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:153</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -446,6 +460,39 @@
                                 </div>
                                 <div class="io-description">
                                     <b>Returns : </b>    <code>&quot;text&quot; | &quot;icon&quot; | &quot;mixed&quot;</code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="LabelMode"></a>
+                        <span class="name"><b>LabelMode</b><a href="#LabelMode"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>LabelMode()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="160" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:160</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>&quot;standard&quot; | &quot;floating&quot;</code>
 
                                 </div>
                         </td>
@@ -469,7 +516,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="155" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:155</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="167" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:167</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -502,7 +549,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:162</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="174" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:174</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -535,7 +582,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:169</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="181" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:181</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -568,7 +615,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="176" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:176</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="188" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:188</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -601,7 +648,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="183" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:183</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="195" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:195</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -634,7 +681,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="190" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:190</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="202" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:202</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -667,7 +714,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="197" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:197</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="209" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:209</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -695,36 +742,36 @@
 <b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">import { SacAbstractConfigurationService } from &#39;&#64;simpleangularcontrols/sac-common&#39;;
 
 &#64;Injectable({
-  providedIn: &#39;root&#39;,
+    providedIn: &#39;root&#39;,
 })
 export class CustomConfigurationService extends SacAbstractConfigurationService {
-  get ComponentHeight(): ControlHeight | null {
-    return ControlHeight.Default;
-  }
-  get CurrencyText(): string {
-    return &#39;CHF&#39;;
-  }
-  get InlineErrorEnabled(): boolean {
-    return true;
-  }
-  get LabelSizeLg(): number | null {
-    return 3;
-  }
-  get LabelSizeMd(): number | null {
-    return 4;
-  }
-  get LabelSizeSm(): number | null {
-    return 4;
-  }
-  get LabelSizeXl(): number | null {
-    return 2;
-  }
-  get LabelSizeXs(): number | null {
-    return 12;
-  }
-  get LabelSizeXxl(): number | null {
-    return 2;
-  }
+    get ComponentHeight(): ControlHeight | null {
+        return ControlHeight.Default;
+    }
+    get CurrencyText(): string {
+        return &#39;CHF&#39;;
+    }
+    get InlineErrorEnabled(): boolean {
+        return true;
+    }
+    get LabelSizeLg(): number | null {
+        return 3;
+    }
+    get LabelSizeMd(): number | null {
+        return 4;
+    }
+    get LabelSizeSm(): number | null {
+        return 4;
+    }
+    get LabelSizeXl(): number | null {
+        return 2;
+    }
+    get LabelSizeXs(): number | null {
+        return 12;
+    }
+    get LabelSizeXxl(): number | null {
+        return 2;
+    }
 }</code></pre></div><p>The service must be defined in the application via the injection token <code>SACCONFIGURATION_SERVICE</code> in the NgModule.</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">&#64;NgModule({
   ...
@@ -794,6 +841,11 @@ export abstract class SacAbstractConfigurationService implements ISacConfigurati
      * @inheritdoc
      */
     public abstract get InputSearchIconMode(): &#x27;text&#x27; | &#x27;icon&#x27; | &#x27;mixed&#x27;;
+
+    /**
+     * @inheritdoc
+     */
+    public abstract get LabelMode(): &#x27;standard&#x27; | &#x27;floating&#x27;;
 
     /**
      * @inheritdoc
@@ -887,6 +939,13 @@ export class SacDefaultConfigurationService extends SacAbstractConfigurationServ
      */
     public get InputSearchIconMode(): &#x27;text&#x27; | &#x27;icon&#x27; | &#x27;mixed&#x27; {
         return &#x27;text&#x27;;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public get LabelMode(): &#x27;standard&#x27; | &#x27;floating&#x27; {
+        return &#x27;standard&#x27;;
     }
 
     /**
@@ -989,6 +1048,19 @@ export class SacDefaultConfigurationService extends SacAbstractConfigurationServ
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -1000,7 +1072,6 @@ export class SacDefaultConfigurationService extends SacAbstractConfigurationServ
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

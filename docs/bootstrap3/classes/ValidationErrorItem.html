@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content class">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -134,7 +145,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Klasse für Validierungsfehler</p>
+                <p>Class for validation errors</p>
 
             </p>
 
@@ -197,13 +208,13 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">projects/sac-common/src/validation/validationerroritem.ts:4</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/sac-common/src/validation/validationerroritem.ts:30</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -229,7 +240,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Type des Fehlers</p>
+                                                                <p>Type of the error</p>
 
                                                         </td>
                                                 </tr>
@@ -245,7 +256,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Key für Fehlermeldung</p>
+                                                                <p>Key for error message</p>
 
                                                         </td>
                                                 </tr>
@@ -261,7 +272,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Key für Fehlermeldung in Validation Summary</p>
+                                                                <p>Key for error message in Validation Summary</p>
 
                                                         </td>
                                                 </tr>
@@ -277,7 +288,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Name des Labels oder Bezeichnung des Feldes</p>
+                                                                <p>Name of the label or designation of the field</p>
 
                                                         </td>
                                                 </tr>
@@ -315,7 +326,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/sac-common/src/validation/validationerroritem.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/sac-common/src/validation/validationerroritem.ts:10</a></div>
                         </td>
                     </tr>
 
@@ -348,13 +359,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/sac-common/src/validation/validationerroritem.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/sac-common/src/validation/validationerroritem.ts:15</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Error Message Key für Validation Summary</p>
+                    <div class="io-description"><p>Error Message Key for Validation Summary</p>
 </div>
                 </td>
             </tr>
@@ -381,13 +392,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/sac-common/src/validation/validationerroritem.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/sac-common/src/validation/validationerroritem.ts:20</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Typ den Fehler</p>
+                    <div class="io-description"><p>Type of the error</p>
 </div>
                 </td>
             </tr>
@@ -419,13 +430,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/sac-common/src/validation/validationerroritem.ts:42</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/sac-common/src/validation/validationerroritem.ts:25</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Label oder Name des Feldes</p>
+                    <div class="io-description"><p>Label or name of the field</p>
 </div>
                 </td>
             </tr>
@@ -457,13 +468,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">projects/sac-common/src/validation/validationerroritem.ts:47</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">projects/sac-common/src/validation/validationerroritem.ts:30</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Map mit Parametern die in den Meldungen als Platzhalter verwendet werden können</p>
+                    <div class="io-description"><p>Map with parameters that can be used as placeholders in messages</p>
 </div>
                 </td>
             </tr>
@@ -483,49 +494,52 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class ValidationErrorItem {
-  /**
-   * Konstruktor
-   * @param errorType Type des Fehlers
-   * @param errorMessageKey Key für Fehlermeldung
-   * @param errorMessageSummaryKey Key für Fehlermeldung in Validation Summary
-   * @param fieldName Name des Labels oder Bezeichnung des Feldes
-   */
-  constructor(
-    errorType: string,
-    errorMessageKey: string,
-    errorMessageSummaryKey: string,
-    fieldName: string &#x3D; null
-  ) {
-    this.errorType &#x3D; errorType;
-    this.errorMessageKey &#x3D; errorMessageKey;
-    this.errorMessageValidationSummaryKey &#x3D; errorMessageSummaryKey;
-    this.fieldName &#x3D; fieldName;
-  }
+    // #region Properties
 
-  /**
-   * Typ den Fehler
-   */
-  public errorType: string;
+    /**
+     * Error Message Key
+     */
+    public errorMessageKey: string;
 
-  /**
-   * Error Message Key
-   */
-  public errorMessageKey: string;
+    /**
+     * Error Message Key for Validation Summary
+     */
+    public errorMessageValidationSummaryKey: string;
 
-  /**
-   * Error Message Key für Validation Summary
-   */
-  public errorMessageValidationSummaryKey: string;
+    /**
+     * Type of the error
+     */
+    public errorType: string;
 
-  /**
-   * Label oder Name des Feldes
-   */
-  public fieldName: string &#x3D; null;
+    /**
+     * Label or name of the field
+     */
+    public fieldName: string &#x3D; null;
 
-  /**
-   * Map mit Parametern die in den Meldungen als Platzhalter verwendet werden können
-   */
-  public parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+    /**
+     * Map with parameters that can be used as placeholders in messages
+     */
+    public parameters: Map&lt;string, any&gt; &#x3D; new Map&lt;string, any&gt;();
+
+    // #endregion Properties
+
+    // #region Constructors
+
+    /**
+     * Constructor
+     * @param errorType Type of the error
+     * @param errorMessageKey Key for error message
+     * @param errorMessageSummaryKey Key for error message in Validation Summary
+     * @param fieldName Name of the label or designation of the field
+     */
+    constructor(errorType: string, errorMessageKey: string, errorMessageSummaryKey: string, fieldName: string &#x3D; null) {
+        this.errorType &#x3D; errorType;
+        this.errorMessageKey &#x3D; errorMessageKey;
+        this.errorMessageValidationSummaryKey &#x3D; errorMessageSummaryKey;
+        this.fieldName &#x3D; fieldName;
+    }
+
+    // #endregion Constructors
 }
 </code></pre>
     </div>
@@ -569,6 +583,19 @@
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -580,7 +607,6 @@
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

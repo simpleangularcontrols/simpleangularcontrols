@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -135,7 +146,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Directive to inherit an NgForm/NgForm from a parent component</p>
+                <p>Directive to inherit an NgForm from a parent component</p>
 
             </p>
 
@@ -156,12 +167,8 @@
                         <td class="col-md-3">Providers</td>
                         <td class="col-md-9">
                             <code>
-                                {
-    provide: SacFormDirective, useFactory: SACFORM_FACTORY, deps: [[new SkipSelf(), SacFormDirective]],
-}
-                                {
-    provide: ControlContainer, useFactory: NGFORM_FACTORY, deps: [NgForm],
-}
+                                SACFORM_FACTORY
+                                NGFORM_FACTORY
                             </code>
                         </td>
                     </tr>
@@ -248,13 +255,13 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/sac-bootstrap5/src/controls/form/inheritform.directive.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">projects/sac-bootstrap5/src/controls/form/inheritform.directive.ts:48</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Construtor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -280,7 +287,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>: injector to receive the NgForm instance</p>
+                                                                <p>Injector to receive the NgForm instance</p>
 
                                                         </td>
                                                 </tr>
@@ -317,13 +324,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:48</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:45</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Definiert, wenn das Model geupdatet wird</p>
+                        <div class="io-description"><p>Defines when the model is updated</p>
 </div>
                     </td>
                 </tr>
@@ -366,7 +373,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:64</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:58</a></code>
 </div>
                         </td>
                     </tr>
@@ -374,13 +381,17 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Gibt die NgForm Instanz zurück</p>
+                        <div class="io-description"><p>Returns the NgForm instance</p>
 </div>
 
                         <div class="io-description">
                             <b>Returns : </b>    <code>NgForm</code>
 
                         </div>
+                            <div class="io-description">
+                                <p>The NgForm instance</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -413,7 +424,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:71</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:65</a></code>
 </div>
                         </td>
                     </tr>
@@ -421,7 +432,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Markiert alle Controls innerhalb des Formulares als Touched</p>
+                        <div class="io-description"><p>Marks all controls within the form as touched</p>
 </div>
 
                         <div class="io-description">
@@ -447,7 +458,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateValueAndValidity(markAsTouched: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    <code>updateValueAndValidity(markAsTouched: unknown)</code>
                 </td>
             </tr>
 
@@ -460,7 +471,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:80</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:75</a></code>
 </div>
                         </td>
                     </tr>
@@ -468,7 +479,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Aktualisiert die Werte und den Gültigkeitsstatus des Formulars</p>
+                        <div class="io-description"><p>Updates the values and validity status of the form</p>
 </div>
 
                             <div class="io-description">
@@ -481,13 +492,14 @@
                                                 <td>Type</td>
                                             <td>Optional</td>
                                                 <td>Default value</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                                 <td>markAsTouched</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -498,6 +510,10 @@
                                                     <code>true</code>
                                             </td>
 
+                                            <td>
+                                                    <p>If true, all controls are marked as touched after validation update.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -522,99 +538,99 @@
         <p><h1>Examples</h1>
 <h2>Inherit Form</h2>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;div sacInheritForm&gt;
-  &lt;div&gt;SubForm&lt;/div&gt;
-  &lt;div&gt;
-    &lt;ngInput [(ngModel)]=&quot;mymodel.fieldarea2&quot; name=&quot;subformField3&quot; label=&quot;field 3&quot; [isrequired]=&quot;true&quot;&gt;&lt;/ngInput&gt;
-  &lt;/div&gt;
+    &lt;div&gt;SubForm&lt;/div&gt;
+    &lt;div&gt;
+        &lt;ngInput [(ngModel)]=&quot;mymodel.fieldarea2&quot; name=&quot;subformField3&quot; label=&quot;field 3&quot; [isrequired]=&quot;true&quot;&gt;&lt;/ngInput&gt;
+    &lt;/div&gt;
 &lt;/div&gt;</code></pre></div><h2>Inherit Form with access to Form</h2>
 <p>HTML Template with access to form.</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;div sacInheritForm #formaccess=&quot;sacinheritform&quot;&gt;
-  &lt;div&gt;SubForm&lt;/div&gt;
-  &lt;div&gt;
-    &lt;ngInput [(ngModel)]=&quot;mymodel.fieldarea2&quot; name=&quot;subformField3&quot; label=&quot;field 3&quot; [isrequired]=&quot;true&quot;&gt;&lt;/ngInput&gt;
-  &lt;/div&gt;
+    &lt;div&gt;SubForm&lt;/div&gt;
+    &lt;div&gt;
+        &lt;ngInput [(ngModel)]=&quot;mymodel.fieldarea2&quot; name=&quot;subformField3&quot; label=&quot;field 3&quot; [isrequired]=&quot;true&quot;&gt;&lt;/ngInput&gt;
+    &lt;/div&gt;
 &lt;/div&gt;</code></pre></div><p>Code behind file with access to form.</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Component, Input, Output, ViewChild } from &#39;&#64;angular/core&#39;;
 import { SacInheritFormDirective } from &#39;&#64;simpleangularcontrols/sac-bootstrap5&#39;;
 
 &#64;Component({
-  selector: &#39;app-subform&#39;,
-  templateUrl: &#39;./subform.component.html&#39;,
+    selector: &#39;app-subform&#39;,
+    templateUrl: &#39;./subform.component.html&#39;,
 })
 export class DemoSubFormComponent {
-  &#64;Input() mymodel;
-  &#64;Output() mymodelChange = new EventEmitter();
-  &#64;ViewChild(&#39;formaccess&#39;) public form: SacInheritFormDirective;
+    &#64;Input() mymodel;
+    &#64;Output() mymodelChange = new EventEmitter();
+    &#64;ViewChild(&#39;formaccess&#39;) public form: SacInheritFormDirective;
 
-  public accessToForm() {
-    console.log(this.form.getForm().dirty);
-  }
+    public accessToForm() {
+        console.log(this.form.getForm().dirty);
+    }
 }</code></pre></div></p>
     </div>
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, Injector, SkipSelf } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacFormDirective } from &#x27;./form&#x27;;
+import { Directive, Injector, SkipSelf } from &#x27;@angular/core&#x27;;
 import { ControlContainer, NgForm } from &#x27;@angular/forms&#x27;;
 import { SacFormCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
-import { SacFormDirective } from &#x27;./form&#x27;;
 
-// #region Classes
-
-/**
- * Directive to inherit an NgForm/NgForm from a parent component
- */
-@Directive({
-  selector: &#x27;[sacInheritForm]&#x27;,
-  exportAs: &#x27;sacinheritform&#x27;,
-  standalone: true,
-  providers: [
-    {
-      provide: SacFormDirective,
-      useFactory: SACFORM_FACTORY,
-      deps: [[new SkipSelf(), SacFormDirective]],
-    },
-    {
-      provide: ControlContainer,
-      useFactory: NGFORM_FACTORY,
-      deps: [NgForm],
-    },
-  ],
-})
-export class SacInheritFormDirective extends SacFormCommon {
-  // #region Constructors
-
-  /**
-   * Construtor
-   * @param injector: injector to receive the NgForm instance
-   */
-  constructor(injector: Injector) {
-    super(injector.get(NgForm));
-  }
-
-  // #endregion Constructors
-}
-
-// #endregion Classes
-
-// #region Functions
+// #region Exported Functions
 
 /**
- * Factory Methode für NgForm
+ * Factory method for NgForm
  * @param form NgForm
  */
 export function NGFORM_FACTORY(form: NgForm) {
-  return form;
+    return form;
 }
 
 /**
- * Factory Methode für SacForm
- * @param form SacFormular
+ * Factory method for SacForm
+ * @param form SacForm
  */
 export function SACFORM_FACTORY(form: SacFormDirective) {
-  return form;
+    return form;
 }
 
-// #endregion Functions
+// #endregion Exported Functions
+
+// #region Exported Classes
+
+/**
+ * Directive to inherit an NgForm from a parent component
+ */
+@Directive({
+    selector: &#x27;[sacInheritForm]&#x27;,
+    exportAs: &#x27;sacinheritform&#x27;,
+    standalone: true,
+    providers: [
+        {
+            provide: SacFormDirective,
+            useFactory: SACFORM_FACTORY,
+            deps: [[new SkipSelf(), SacFormDirective]],
+        },
+        {
+            provide: ControlContainer,
+            useFactory: NGFORM_FACTORY,
+            deps: [NgForm],
+        },
+    ],
+})
+export class SacInheritFormDirective extends SacFormCommon {
+    // #region Constructors
+
+    /**
+     * Constructor
+     * @param injector Injector to receive the NgForm instance
+     */
+    constructor(injector: Injector) {
+        super(injector.get(NgForm));
+    }
+
+    // #endregion Constructors
+}
+
+// #endregion Exported Classes
 </code></pre>
     </div>
 
@@ -663,6 +679,19 @@ export function SACFORM_FACTORY(form: SacFormDirective) {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -674,7 +703,6 @@ export function SACFORM_FACTORY(form: SacFormDirective) {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

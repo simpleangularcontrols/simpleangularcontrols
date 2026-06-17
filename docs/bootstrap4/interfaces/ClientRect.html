@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content interface">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -129,10 +140,17 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>projects/sac-common/src/utilities/positioning.ts</code>
+            <code>projects/sac-common/src/utilities/positioncalculator.ts</code>
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Represents geometry of a rectangular area in client coordinates.</p>
+
+            </p>
 
 
         <section data-compodoc="block-index">
@@ -225,6 +243,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Distance from top of viewport to bottom edge in pixels.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -258,6 +282,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Height of rectangle in pixels.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -291,6 +321,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Distance from left of viewport to left edge in pixels.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -324,6 +360,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Distance from left of viewport to right edge in pixels.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -357,6 +399,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Distance from top of viewport to top edge in pixels.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -390,6 +438,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Width of rectangle in pixels.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -397,407 +451,278 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">interface ClientRect {
-  top: number;
-  bottom: number;
-  left: number;
-  right: number;
-  height: number;
-  width: number;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface ClientRect {
+    // #region Properties
+
+    /** Distance from top of viewport to bottom edge in pixels. */
+    bottom: number;
+
+    /** Height of rectangle in pixels. */
+    height: number;
+
+    /** Distance from left of viewport to left edge in pixels. */
+    left: number;
+
+    /** Distance from left of viewport to right edge in pixels. */
+    right: number;
+
+    /** Distance from top of viewport to top edge in pixels. */
+    top: number;
+
+    /** Width of rectangle in pixels. */
+    width: number;
+
+    // #endregion Properties
 }
 
+// #endregion Exported Interfaces
+
+// #region Exported Classes
+
 /**
- * Position Utility Klasse
+ * Utility class for element positioning and offset calculations.
+ *
+ * Provides helpers to compute absolute offset, relative position and placement
+ * of one element relative to another, including viewport clipping checks.
+ *
  * @see https://github.com/ng-bootstrap/ng-bootstrap/blob/master/src/util/positioning.ts
  */
-export class Positioning {
-  /**
-   * Get all Styles of Element
-   * @param element HTML Element
-   * @returns All Styles of element
-   */
-  private getAllStyles(element: HTMLElement) {
-    return window.getComputedStyle(element);
-  }
+export class PositionCalculator {
+    // #region Public Methods
 
-  /**
-   * Get Style value of element
-   * @param element HTML Element
-   * @param prop Style
-   * @returns Value of Style
-   */
-  private getStyle(element: HTMLElement, prop: string): string {
-    return this.getAllStyles(element)[prop];
-  }
+    /**
+     * Computes the offset of an element relative to the document.
+     *
+     * @param element Element to measure.
+     * @param round If true, the computed values are rounded to integers.
+     * @returns ClientRect with top/left/right/bottom/width/height position values.
+     */
+    public offset(element: HTMLElement, round &#x3D; true): ClientRect {
+        const elBcr &#x3D; element.getBoundingClientRect();
+        const viewportOffset &#x3D; {
+            top: window.pageYOffset - document.documentElement.clientTop,
+            left: window.pageXOffset - document.documentElement.clientLeft,
+        };
 
-  /**
-   * Check if the element has an static position
-   * @param element HTML Element
-   * @returns Item has a static position
-   */
-  private isStaticPositioned(element: HTMLElement): boolean {
-    return (this.getStyle(element, &#x27;position&#x27;) || &#x27;static&#x27;) &#x3D;&#x3D;&#x3D; &#x27;static&#x27;;
-  }
+        const elOffset &#x3D; {
+            height: elBcr.height || element.offsetHeight,
+            width: elBcr.width || element.offsetWidth,
+            top: elBcr.top + viewportOffset.top,
+            bottom: elBcr.bottom + viewportOffset.top,
+            left: elBcr.left + viewportOffset.left,
+            right: elBcr.right + viewportOffset.left,
+        };
 
-  /**
-   * Get the Offset of the parent element
-   * @param element HTML Element
-   * @returns HTML ELement
-   */
-  private offsetParent(element: HTMLElement): HTMLElement {
-    let offsetParentEl &#x3D;
-      &lt;HTMLElement&gt;element.offsetParent || document.documentElement;
-
-    while (
-      offsetParentEl &amp;&amp;
-      offsetParentEl !&#x3D;&#x3D; document.documentElement &amp;&amp;
-      this.isStaticPositioned(offsetParentEl)
-    ) {
-      offsetParentEl &#x3D; &lt;HTMLElement&gt;offsetParentEl.offsetParent;
-    }
-
-    return offsetParentEl || document.documentElement;
-  }
-
-  /**
-   * Get Element Position
-   * @param element HTML Element for Position
-   * @param round Round Values
-   * @returns Position Values
-   */
-  position(element: HTMLElement, round &#x3D; true): ClientRect {
-    let elPosition: ClientRect;
-    let parentOffset: ClientRect &#x3D; {
-      width: 0,
-      height: 0,
-      top: 0,
-      bottom: 0,
-      left: 0,
-      right: 0,
-    };
-
-    if (this.getStyle(element, &#x27;position&#x27;) &#x3D;&#x3D;&#x3D; &#x27;fixed&#x27;) {
-      elPosition &#x3D; element.getBoundingClientRect();
-      elPosition &#x3D; {
-        top: elPosition.top,
-        bottom: elPosition.bottom,
-        left: elPosition.left,
-        right: elPosition.right,
-        height: elPosition.height,
-        width: elPosition.width,
-      };
-    } else {
-      const offsetParentEl &#x3D; this.offsetParent(element);
-
-      elPosition &#x3D; this.offset(element, false);
-
-      if (offsetParentEl !&#x3D;&#x3D; document.documentElement) {
-        parentOffset &#x3D; this.offset(offsetParentEl, false);
-      }
-
-      parentOffset.top +&#x3D; offsetParentEl.clientTop;
-      parentOffset.left +&#x3D; offsetParentEl.clientLeft;
-    }
-
-    elPosition.top -&#x3D; parentOffset.top;
-    elPosition.bottom -&#x3D; parentOffset.top;
-    elPosition.left -&#x3D; parentOffset.left;
-    elPosition.right -&#x3D; parentOffset.left;
-
-    if (round) {
-      elPosition.top &#x3D; Math.round(elPosition.top);
-      elPosition.bottom &#x3D; Math.round(elPosition.bottom);
-      elPosition.left &#x3D; Math.round(elPosition.left);
-      elPosition.right &#x3D; Math.round(elPosition.right);
-    }
-
-    return elPosition;
-  }
-
-  /**
-   * Get Offset of Item
-   * @param element HTML Element for Offset
-   * @param round Round the Values
-   * @returns Return Offset Position
-   */
-  offset(element: HTMLElement, round &#x3D; true): ClientRect {
-    const elBcr &#x3D; element.getBoundingClientRect();
-    const viewportOffset &#x3D; {
-      top: window.pageYOffset - document.documentElement.clientTop,
-      left: window.pageXOffset - document.documentElement.clientLeft,
-    };
-
-    const elOffset &#x3D; {
-      height: elBcr.height || element.offsetHeight,
-      width: elBcr.width || element.offsetWidth,
-      top: elBcr.top + viewportOffset.top,
-      bottom: elBcr.bottom + viewportOffset.top,
-      left: elBcr.left + viewportOffset.left,
-      right: elBcr.right + viewportOffset.left,
-    };
-
-    if (round) {
-      elOffset.height &#x3D; Math.round(elOffset.height);
-      elOffset.width &#x3D; Math.round(elOffset.width);
-      elOffset.top &#x3D; Math.round(elOffset.top);
-      elOffset.bottom &#x3D; Math.round(elOffset.bottom);
-      elOffset.left &#x3D; Math.round(elOffset.left);
-      elOffset.right &#x3D; Math.round(elOffset.right);
-    }
-
-    return elOffset;
-  }
-
-  /**
-   * Return false if the element to position is outside the viewport
-   * @returns position is inside viewport
-   */
-  positionElements(
-    hostElement: HTMLElement,
-    targetElement: HTMLElement,
-    placement: string,
-    appendToBody?: boolean
-  ): boolean {
-    const [placementPrimary &#x3D; &#x27;top&#x27;, placementSecondary &#x3D; &#x27;center&#x27;] &#x3D;
-      placement.split(&#x27;-&#x27;);
-
-    const hostElPosition &#x3D; appendToBody
-      ? this.offset(hostElement, false)
-      : this.position(hostElement, false);
-    const targetElStyles &#x3D; this.getAllStyles(targetElement);
-
-    const marginTop &#x3D; parseFloat(targetElStyles.marginTop);
-    const marginBottom &#x3D; parseFloat(targetElStyles.marginBottom);
-    const marginLeft &#x3D; parseFloat(targetElStyles.marginLeft);
-    const marginRight &#x3D; parseFloat(targetElStyles.marginRight);
-
-    let topPosition &#x3D; 0;
-    let leftPosition &#x3D; 0;
-
-    switch (placementPrimary) {
-      case &#x27;top&#x27;:
-        topPosition &#x3D;
-          hostElPosition.top -
-          (targetElement.offsetHeight + marginTop + marginBottom);
-        break;
-      case &#x27;bottom&#x27;:
-        topPosition &#x3D; hostElPosition.top + hostElPosition.height;
-        break;
-      case &#x27;left&#x27;:
-        leftPosition &#x3D;
-          hostElPosition.left -
-          (targetElement.offsetWidth + marginLeft + marginRight);
-        break;
-      case &#x27;right&#x27;:
-        leftPosition &#x3D; hostElPosition.left + hostElPosition.width;
-        break;
-    }
-
-    switch (placementSecondary) {
-      case &#x27;top&#x27;:
-        topPosition &#x3D; hostElPosition.top;
-        break;
-      case &#x27;bottom&#x27;:
-        topPosition &#x3D;
-          hostElPosition.top +
-          hostElPosition.height -
-          targetElement.offsetHeight;
-        break;
-      case &#x27;left&#x27;:
-        leftPosition &#x3D; hostElPosition.left;
-        break;
-      case &#x27;right&#x27;:
-        leftPosition &#x3D;
-          hostElPosition.left +
-          hostElPosition.width -
-          targetElement.offsetWidth;
-        break;
-      case &#x27;center&#x27;:
-        if (placementPrimary &#x3D;&#x3D;&#x3D; &#x27;top&#x27; || placementPrimary &#x3D;&#x3D;&#x3D; &#x27;bottom&#x27;) {
-          leftPosition &#x3D;
-            hostElPosition.left +
-            hostElPosition.width / 2 -
-            targetElement.offsetWidth / 2;
-        } else {
-          topPosition &#x3D;
-            hostElPosition.top +
-            hostElPosition.height / 2 -
-            targetElement.offsetHeight / 2;
+        if (round) {
+            elOffset.height &#x3D; Math.round(elOffset.height);
+            elOffset.width &#x3D; Math.round(elOffset.width);
+            elOffset.top &#x3D; Math.round(elOffset.top);
+            elOffset.bottom &#x3D; Math.round(elOffset.bottom);
+            elOffset.left &#x3D; Math.round(elOffset.left);
+            elOffset.right &#x3D; Math.round(elOffset.right);
         }
-        break;
+
+        return elOffset;
     }
 
-    /// The translate3d/gpu acceleration render a blurry text on chrome, the next line is commented until a browser fix
-    // targetElement.style.transform &#x3D; &#x60;translate3d(${Math.round(leftPosition)}px, ${Math.floor(topPosition)}px, 0px)&#x60;;
-    targetElement.style.transform &#x3D; &#x60;translate(${Math.round(
-      leftPosition
-    )}px, ${Math.round(topPosition)}px)&#x60;;
+    /**
+     * Computes the position of an element relative to its offset parent.
+     *
+     * @param element Element to measure.
+     * @param round If true, the computed position values are rounded.
+     * @returns ClientRect with relative top/left/right/bottom/width/height values.
+     */
+    public position(element: HTMLElement, round &#x3D; true): ClientRect {
+        let elPosition: ClientRect;
+        let parentOffset: ClientRect &#x3D; {
+            width: 0,
+            height: 0,
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+        };
 
-    // Check if the targetElement is inside the viewport
-    const targetElBCR &#x3D; targetElement.getBoundingClientRect();
-    const html &#x3D; document.documentElement;
-    const windowHeight &#x3D; window.innerHeight || html.clientHeight;
-    const windowWidth &#x3D; window.innerWidth || html.clientWidth;
+        if (this.getStyle(element, &#x27;position&#x27;) &#x3D;&#x3D;&#x3D; &#x27;fixed&#x27;) {
+            elPosition &#x3D; element.getBoundingClientRect();
+            elPosition &#x3D; {
+                top: elPosition.top,
+                bottom: elPosition.bottom,
+                left: elPosition.left,
+                right: elPosition.right,
+                height: elPosition.height,
+                width: elPosition.width,
+            };
+        } else {
+            const offsetParentEl &#x3D; this.offsetParent(element);
 
-    return (
-      targetElBCR.left &gt;&#x3D; 0 &amp;&amp;
-      targetElBCR.top &gt;&#x3D; 0 &amp;&amp;
-      targetElBCR.right &lt;&#x3D; windowWidth &amp;&amp;
-      targetElBCR.bottom &lt;&#x3D; windowHeight
-    );
-  }
+            elPosition &#x3D; this.offset(element, false);
+
+            if (offsetParentEl !&#x3D;&#x3D; document.documentElement) {
+                parentOffset &#x3D; this.offset(offsetParentEl, false);
+            }
+
+            parentOffset.top +&#x3D; offsetParentEl.clientTop;
+            parentOffset.left +&#x3D; offsetParentEl.clientLeft;
+        }
+
+        elPosition.top -&#x3D; parentOffset.top;
+        elPosition.bottom -&#x3D; parentOffset.top;
+        elPosition.left -&#x3D; parentOffset.left;
+        elPosition.right -&#x3D; parentOffset.left;
+
+        if (round) {
+            elPosition.top &#x3D; Math.round(elPosition.top);
+            elPosition.bottom &#x3D; Math.round(elPosition.bottom);
+            elPosition.left &#x3D; Math.round(elPosition.left);
+            elPosition.right &#x3D; Math.round(elPosition.right);
+        }
+
+        return elPosition;
+    }
+
+    /**
+     * Positions targetElement relative to hostElement based on placement and optionally appends to body.
+     *
+     * @param hostElement Reference element used as anchor.
+     * @param targetElement Element being positioned.
+     * @param placement Positioning string like &#x27;top&#x27;, &#x27;bottom-right&#x27;.
+     * @param appendToBody If true, hostElement coords are based on document body.
+     * @returns True when target element stays within viewport after positioning.
+     */
+    public positionElements(
+        hostElement: HTMLElement,
+        targetElement: HTMLElement,
+        placement: string,
+        appendToBody?: boolean
+    ): boolean {
+        const [placementPrimary &#x3D; &#x27;top&#x27;, placementSecondary &#x3D; &#x27;center&#x27;] &#x3D; placement.split(&#x27;-&#x27;);
+
+        const hostElPosition &#x3D; appendToBody ? this.offset(hostElement, false) : this.position(hostElement, false);
+        const targetElStyles &#x3D; this.getAllStyles(targetElement);
+
+        const marginTop &#x3D; parseFloat(targetElStyles.marginTop);
+        const marginBottom &#x3D; parseFloat(targetElStyles.marginBottom);
+        const marginLeft &#x3D; parseFloat(targetElStyles.marginLeft);
+        const marginRight &#x3D; parseFloat(targetElStyles.marginRight);
+
+        let topPosition &#x3D; 0;
+        let leftPosition &#x3D; 0;
+
+        switch (placementPrimary) {
+            case &#x27;top&#x27;:
+                topPosition &#x3D; hostElPosition.top - (targetElement.offsetHeight + marginTop + marginBottom);
+                break;
+            case &#x27;bottom&#x27;:
+                topPosition &#x3D; hostElPosition.top + hostElPosition.height;
+                break;
+            case &#x27;left&#x27;:
+                leftPosition &#x3D; hostElPosition.left - (targetElement.offsetWidth + marginLeft + marginRight);
+                break;
+            case &#x27;right&#x27;:
+                leftPosition &#x3D; hostElPosition.left + hostElPosition.width;
+                break;
+        }
+
+        switch (placementSecondary) {
+            case &#x27;top&#x27;:
+                topPosition &#x3D; hostElPosition.top;
+                break;
+            case &#x27;bottom&#x27;:
+                topPosition &#x3D; hostElPosition.top + hostElPosition.height - targetElement.offsetHeight;
+                break;
+            case &#x27;left&#x27;:
+                leftPosition &#x3D; hostElPosition.left;
+                break;
+            case &#x27;right&#x27;:
+                leftPosition &#x3D; hostElPosition.left + hostElPosition.width - targetElement.offsetWidth;
+                break;
+            case &#x27;center&#x27;:
+                if (placementPrimary &#x3D;&#x3D;&#x3D; &#x27;top&#x27; || placementPrimary &#x3D;&#x3D;&#x3D; &#x27;bottom&#x27;) {
+                    leftPosition &#x3D; hostElPosition.left + hostElPosition.width / 2 - targetElement.offsetWidth / 2;
+                } else {
+                    topPosition &#x3D; hostElPosition.top + hostElPosition.height / 2 - targetElement.offsetHeight / 2;
+                }
+                break;
+        }
+
+        // The translate3d/gpu acceleration render a blurry text on chrome, the next line is commented until a browser fix
+        // targetElement.style.transform &#x3D; &#x60;translate3d(${Math.round(leftPosition)}px, ${Math.floor(topPosition)}px, 0px)&#x60;;
+        targetElement.style.transform &#x3D; &#x60;translate(${Math.round(leftPosition)}px, ${Math.round(topPosition)}px)&#x60;;
+
+        // Check if the targetElement is inside the viewport
+        const targetElBCR &#x3D; targetElement.getBoundingClientRect();
+        const html &#x3D; document.documentElement;
+        const windowHeight &#x3D; window.innerHeight || html.clientHeight;
+        const windowWidth &#x3D; window.innerWidth || html.clientWidth;
+
+        return (
+            targetElBCR.left &gt;&#x3D; 0 &amp;&amp;
+            targetElBCR.top &gt;&#x3D; 0 &amp;&amp;
+            targetElBCR.right &lt;&#x3D; windowWidth &amp;&amp;
+            targetElBCR.bottom &lt;&#x3D; windowHeight
+        );
+    }
+
+    // #endregion Public Methods
+
+    // #region Private Methods
+
+    /**
+     * Returns the computed style declarations for the given element.
+     *
+     * @param element Element to retrieve styles from.
+     * @returns CSSStyleDeclaration of computed styles.
+     */
+    private getAllStyles(element: HTMLElement) {
+        return window.getComputedStyle(element);
+    }
+
+    /**
+     * Returns the computed value of a CSS property for an element.
+     *
+     * @param element Element to query.
+     * @param prop Name of CSS property.
+     * @returns Property value string.
+     */
+    private getStyle(element: HTMLElement, prop: string): string {
+        return this.getAllStyles(element)[prop];
+    }
+
+    /**
+     * Checks whether an element is statically positioned in CSS.
+     *
+     * @param element Element to inspect.
+     * @returns True when the position is &#x27;static&#x27;.
+     */
+    private isStaticPositioned(element: HTMLElement): boolean {
+        return (this.getStyle(element, &#x27;position&#x27;) || &#x27;static&#x27;) &#x3D;&#x3D;&#x3D; &#x27;static&#x27;;
+    }
+
+    /**
+     * Gets the closest positioned ancestor element (offset parent) for a given element.
+     *
+     * @param element Element to find offset parent for.
+     * @returns Offset parent HTMLElement, or document.documentElement fallback.
+     */
+    private offsetParent(element: HTMLElement): HTMLElement {
+        let offsetParentEl &#x3D; &lt;HTMLElement&gt;element.offsetParent || document.documentElement;
+
+        while (
+            offsetParentEl &amp;&amp;
+            offsetParentEl !&#x3D;&#x3D; document.documentElement &amp;&amp;
+            this.isStaticPositioned(offsetParentEl)
+        ) {
+            offsetParentEl &#x3D; &lt;HTMLElement&gt;offsetParentEl.offsetParent;
+        }
+
+        return offsetParentEl || document.documentElement;
+    }
+
+    // #endregion Private Methods
 }
 
-/**
- * Placement Separator Regex
- */
-const placementSeparator &#x3D; /\s+/;
-/**
- * Global Position Service
- */
-export const positionService &#x3D; new Positioning();
-
-/**
- * Accept the placement array and applies the appropriate placement dependent on the viewport.
- * Returns the applied placement.
- * In case of auto placement, placements are selected in order
- *   &#x27;top&#x27;, &#x27;bottom&#x27;, &#x27;left&#x27;, &#x27;right&#x27;,
- *   &#x27;top-left&#x27;, &#x27;top-right&#x27;,
- *   &#x27;bottom-left&#x27;, &#x27;bottom-right&#x27;,
- *   &#x27;left-top&#x27;, &#x27;left-bottom&#x27;,
- *   &#x27;right-top&#x27;, &#x27;right-bottom&#x27;.
- */
-export function positionElements(
-  hostElement: HTMLElement,
-  targetElement: HTMLElement,
-  placement: string | Placement | PlacementArray,
-  appendToBody?: boolean,
-  baseClass?: string
-): Placement | null {
-  const placementVals: Array&lt;Placement&gt; &#x3D; Array.isArray(placement)
-    ? placement
-    : (placement.split(placementSeparator) as Array&lt;Placement&gt;);
-
-  const allowedPlacements &#x3D; [
-    &#x27;top&#x27;,
-    &#x27;bottom&#x27;,
-    &#x27;left&#x27;,
-    &#x27;right&#x27;,
-    &#x27;top-left&#x27;,
-    &#x27;top-right&#x27;,
-    &#x27;bottom-left&#x27;,
-    &#x27;bottom-right&#x27;,
-    &#x27;left-top&#x27;,
-    &#x27;left-bottom&#x27;,
-    &#x27;right-top&#x27;,
-    &#x27;right-bottom&#x27;,
-  ];
-
-  const classList &#x3D; targetElement.classList;
-  const addClassesToTarget &#x3D; (targetPlacement: Placement): Array&lt;string&gt; &#x3D;&gt; {
-    const [primary, secondary] &#x3D; targetPlacement.split(&#x27;-&#x27;);
-    const classes: string[] &#x3D; [];
-    if (baseClass) {
-      classes.push(&#x60;${baseClass}-${primary}&#x60;);
-      if (secondary) {
-        classes.push(&#x60;${baseClass}-${primary}-${secondary}&#x60;);
-      }
-
-      classes.forEach((classname) &#x3D;&gt; {
-        classList.add(classname);
-      });
-    }
-    return classes;
-  };
-
-  // Remove old placement classes to avoid issues
-  if (baseClass) {
-    allowedPlacements.forEach((placementToRemove) &#x3D;&gt; {
-      classList.remove(&#x60;${baseClass}-${placementToRemove}&#x60;);
-    });
-  }
-
-  // replace auto placement with other placements
-  let hasAuto &#x3D; placementVals.findIndex((val) &#x3D;&gt; val &#x3D;&#x3D;&#x3D; &#x27;auto&#x27;);
-  if (hasAuto &gt;&#x3D; 0) {
-    allowedPlacements.forEach(function (obj) {
-      if (placementVals.find((val) &#x3D;&gt; val.search(&#x27;^&#x27; + obj) !&#x3D;&#x3D; -1) &#x3D;&#x3D; null) {
-        placementVals.splice(hasAuto++, 1, obj as Placement);
-      }
-    });
-  }
-
-  // coordinates where to position
-
-  // Required for transform:
-  const style &#x3D; targetElement.style;
-  style.position &#x3D; &#x27;absolute&#x27;;
-  style.top &#x3D; &#x27;0&#x27;;
-  style.left &#x3D; &#x27;0&#x27;;
-  style[&#x27;will-change&#x27;] &#x3D; &#x27;transform&#x27;;
-
-  let testPlacement: Placement | null &#x3D; null;
-  let isInViewport &#x3D; false;
-  for (testPlacement of placementVals) {
-    const addedClasses &#x3D; addClassesToTarget(testPlacement);
-
-    if (
-      positionService.positionElements(
-        hostElement,
-        targetElement,
-        testPlacement,
-        appendToBody
-      )
-    ) {
-      isInViewport &#x3D; true;
-      break;
-    }
-
-    // Remove the baseClasses for further calculation
-    if (baseClass) {
-      addedClasses.forEach((classname) &#x3D;&gt; {
-        classList.remove(classname);
-      });
-    }
-  }
-
-  if (!isInViewport) {
-    // If nothing match, the first placement is the default one
-    testPlacement &#x3D; placementVals[0];
-    addClassesToTarget(testPlacement);
-    positionService.positionElements(
-      hostElement,
-      targetElement,
-      testPlacement,
-      appendToBody
-    );
-  }
-
-  return testPlacement;
-}
-
-/**
- * Placement Typen
- */
-export type Placement &#x3D;
-  | &#x27;auto&#x27;
-  | &#x27;top&#x27;
-  | &#x27;bottom&#x27;
-  | &#x27;left&#x27;
-  | &#x27;right&#x27;
-  | &#x27;top-left&#x27;
-  | &#x27;top-right&#x27;
-  | &#x27;bottom-left&#x27;
-  | &#x27;bottom-right&#x27;
-  | &#x27;left-top&#x27;
-  | &#x27;left-bottom&#x27;
-  | &#x27;right-top&#x27;
-  | &#x27;right-bottom&#x27;;
-
-/**
- * Placement Array
- */
-export type PlacementArray &#x3D; Placement | Array&lt;Placement&gt; | string;
+// #endregion Exported Classes
 </code></pre>
     </div>
 </div>
@@ -839,6 +764,19 @@ export type PlacementArray &#x3D; Placement | Array&lt;Placement&gt; | string;
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -850,7 +788,6 @@ export type PlacementArray &#x3D; Placement | Array&lt;Placement&gt; | string;
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content component">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -135,7 +146,7 @@
         <h3>Description</h3>
     </p>
     <p class="comment">
-        <p>Dropzone Komponente für den Upload eines Files
+        <p>Dropzone component for uploading a single file
 See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukhariev/ngx-uploadx/</a></p>
 
     </p>
@@ -172,12 +183,8 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                                <code><a href="../components/SacDropzoneSingleComponent.html" target="_self" >{
-    provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacDropzoneSingleComponent,
-}</a></code>
-                                <code><a href="../components/SacDropzoneSingleComponent.html" target="_self" >{
-    provide: NG_VALIDATORS, multi: true, useExisting: forwardRef(() &#x3D;&gt; SacDropzoneSingleComponent),
-}</a></code>
+                                <code><a href="../components/SacDropzoneSingleComponent.html" target="_self" >SacDropzoneSingleComponent</a></code>
+                            <code>)</code>
                 </td>
             </tr>
 
@@ -188,7 +195,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
             </tr>
 
             <tr>
-                <td class="col-md-3">Standalone</td>
+                <td class="col-md-3">standalone</td>
                 <td class="col-md-9"><code>true</code></td>
             </tr>
 
@@ -546,10 +553,10 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                                 <a href="#inlineerrorenabled" >inlineerrorenabled</a>
                             </li>
                             <li>
-                                <a href="#isAdaptiveLabel" >isAdaptiveLabel</a>
+                                <a href="#label" >label</a>
                             </li>
                             <li>
-                                <a href="#label" >label</a>
+                                <a href="#labelMode" >labelMode</a>
                             </li>
                             <li>
                                 <a href="#labelSizeLg" >labelSizeLg</a>
@@ -745,7 +752,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Höhe der Dropzone. Wert wird mit Einheit angegeben.</p>
+                        <div class="io-description"><p>Height of the dropzone. Value is given with unit.</p>
 </div>
                     </td>
                 </tr>
@@ -779,7 +786,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Erlaubte Dateitypen für den Upload. Format: &quot;.xxx,.yyy,.zzz&quot;</p>
+                        <div class="io-description"><p>Allowed file types for upload. Format: &quot;.xxx,.yyy,.zzz&quot;</p>
 </div>
                     </td>
                 </tr>
@@ -807,13 +814,13 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:260</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:265</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Files nach der Auswahl automatisch hochladen</p>
+                        <div class="io-description"><p>Automatically uploads files after selection.</p>
 </div>
                     </td>
                 </tr>
@@ -841,13 +848,13 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:274</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:284</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Uploads können unterbrochen werden</p>
+                        <div class="io-description"><p>Uploads can be paused.</p>
 </div>
                     </td>
                 </tr>
@@ -875,13 +882,13 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:286</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:301</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Definiert den Registration Endpoint für Uploads.</p>
+                        <div class="io-description"><p>Defines the registration endpoint for uploads.</p>
 </div>
                     </td>
                 </tr>
@@ -920,7 +927,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Definiert das Control als Required</p>
+                        <div class="io-description"><p>Defines the control as required</p>
 </div>
                     </td>
                 </tr>
@@ -959,7 +966,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Max. Dateigrösse für Files die hochgeladen werden können. 0 deaktiviert den Filter</p>
+                        <div class="io-description"><p>Max. file size for files that can be uploaded. 0 disables the filter</p>
 </div>
                     </td>
                 </tr>
@@ -987,13 +994,13 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:302</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:319</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Token for Bearer Authentication</p>
+                        <div class="io-description"><p>Sets Bearer authentication token for service requests.</p>
 </div>
                     </td>
                 </tr>
@@ -1032,7 +1039,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Resource Key für Validation Message Required bei Control</p>
+                        <div class="io-description"><p>Resource key for validation message &#39;required&#39; at control</p>
 </div>
                     </td>
                 </tr>
@@ -1071,7 +1078,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Resource Key für Validation Message Required in Validation Summary</p>
+                        <div class="io-description"><p>Resource key for validation message &#39;required&#39; in validation summary</p>
 </div>
                     </td>
                 </tr>
@@ -1149,7 +1156,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Deaktiviert das Input Control</p>
+                        <div class="io-description"><p>Disables the input control</p>
 </div>
                     </td>
                 </tr>
@@ -1188,7 +1195,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Deaktiviert das Label im Template</p>
+                        <div class="io-description"><p>Disables the label in the template</p>
 </div>
                     </td>
                 </tr>
@@ -1367,52 +1374,13 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:265</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:269</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Aktiviert oder Deaktiviert die Inline Errors für das Control</p>
-</div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="isAdaptiveLabel"></a>
-                        <b>isAdaptiveLabel</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>false</code>
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4" colspan="2">
-                                    <div class="io-line">Inherited from         <code><a href="../directives/SacBaseModelControl.html" target="_self" >SacBaseModelControl</a></code>
-</div>
-                                </td>
-                            </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:146</a></code>
-</div>
-                            </td>
-                        </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>defines that the labels are displayed as adaptive labels</p>
+                        <div class="io-description"><p>Enables or disables the inline errors for the control</p>
 </div>
                     </td>
                 </tr>
@@ -1440,13 +1408,52 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:316</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:320</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Definiert den Label Text</p>
+                        <div class="io-description"><p>Sets the label text</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="labelMode"></a>
+                        <b>labelMode</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;standard&quot; | &quot;floating&quot; | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/SacBaseModelControl.html" target="_self" >SacBaseModelControl</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:147</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Label Mode &#39;standard&#39; | &#39;floating&#39; or null (null = use global configuration)</p>
 </div>
                     </td>
                 </tr>
@@ -1479,7 +1486,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:152</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:153</a></code>
 </div>
                             </td>
                         </tr>
@@ -1518,7 +1525,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:158</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:159</a></code>
 </div>
                             </td>
                         </tr>
@@ -1557,7 +1564,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:164</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:165</a></code>
 </div>
                             </td>
                         </tr>
@@ -1596,7 +1603,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:170</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:171</a></code>
 </div>
                             </td>
                         </tr>
@@ -1635,7 +1642,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:176</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:177</a></code>
 </div>
                             </td>
                         </tr>
@@ -1674,7 +1681,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:182</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:183</a></code>
 </div>
                             </td>
                         </tr>
@@ -1713,13 +1720,13 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:187</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:188</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Name des Controls</p>
+                        <div class="io-description"><p>Name of the control</p>
 </div>
                     </td>
                 </tr>
@@ -1752,7 +1759,7 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:203</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:204</a></code>
 </div>
                             </td>
                         </tr>
@@ -1786,14 +1793,14 @@ See <a href="https://github.com/kukhariev/ngx-uploadx/">https://github.com/kukha
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:358</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:362</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Set Methode für NgModel Binding in Html Markup
-Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.</p>
+                        <div class="io-description"><p>Set method for NgModel binding in HTML markup
+Input is required so that the value can also be set via the markup.</p>
 </div>
                     </td>
                 </tr>
@@ -1914,7 +1921,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Initialisiert das Control</p>
+                        <div class="io-description"><p>Initialize the control</p>
 </div>
 
                         <div class="io-description">
@@ -1961,7 +1968,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Macht keine Validierung in diesem Control</p>
+                        <div class="io-description"><p>Does no validation in this control</p>
 </div>
 
                             <div class="io-description">
@@ -1989,7 +1996,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
 
                                             <td>
-                                                    <p>File das hinzugefügt wurde</p>
+                                                    <p>File that was added</p>
 
                                             </td>
                                         </tr>
@@ -2043,7 +2050,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode für Drag and Drop von Files</p>
+                        <div class="io-description"><p>Method for drag and drop of files</p>
 </div>
 
                             <div class="io-description">
@@ -2170,7 +2177,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode wenn Drag die Zone verlässt</p>
+                        <div class="io-description"><p>Method when drag leaves the zone</p>
 </div>
 
                             <div class="io-description">
@@ -2252,7 +2259,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode wenn Drag in die Zone eintritt</p>
+                        <div class="io-description"><p>Method when drag enters the zone</p>
 </div>
 
                             <div class="io-description">
@@ -2334,7 +2341,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Setzt die File ID des hochgeladen Files in das Model</p>
+                        <div class="io-description"><p>Sets the file ID of the uploaded file into the model</p>
 </div>
 
                             <div class="io-description">
@@ -2362,7 +2369,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
 
                                             <td>
-                                                    <p>ID des Files</p>
+                                                    <p>ID of the file</p>
 
                                             </td>
                                         </tr>
@@ -2395,7 +2402,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>cancel(uploadId)</code>
+                    <code>cancel(uploadId: unknown)</code>
                 </td>
             </tr>
 
@@ -2408,7 +2415,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:398</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:415</a></code>
 </div>
                         </td>
                     </tr>
@@ -2426,6 +2433,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                                     <thead>
                                         <tr>
                                             <td>Name</td>
+                                                <td>Type</td>
                                             <td>Optional</td>
                                                 <td>Description</td>
                                         </tr>
@@ -2433,6 +2441,9 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                                     <tbody>
                                         <tr>
                                                 <td>uploadId</td>
+                                            <td>
+                                                        <code>unknown</code>
+                                            </td>
 
                                             <td>
                                                     No
@@ -2486,7 +2497,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:405</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:422</a></code>
 </div>
                         </td>
                     </tr>
@@ -2533,7 +2544,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:323</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:340</a></code>
 </div>
                         </td>
                     </tr>
@@ -2541,7 +2552,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Name der Datei die Hochgeladen wird</p>
+                        <div class="io-description"><p>Name of the file being uploaded</p>
 </div>
 
                         <div class="io-description">
@@ -2549,7 +2560,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                         </div>
                             <div class="io-description">
-                                <p>Observable des Dateinamens.</p>
+                                <p>Observable of the file name.</p>
 
                             </div>
                 </td>
@@ -2584,7 +2595,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:335</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:352</a></code>
 </div>
                         </td>
                     </tr>
@@ -2592,7 +2603,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Gibt an ob Queue Elemente beinhaltet</p>
+                        <div class="io-description"><p>Indicates whether the queue contains elements</p>
 </div>
 
                         <div class="io-description">
@@ -2600,7 +2611,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                         </div>
                             <div class="io-description">
-                                <p>Elemente in der Queue</p>
+                                <p>Elements in the queue</p>
 
                             </div>
                 </td>
@@ -2635,7 +2646,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:343</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:360</a></code>
 </div>
                         </td>
                     </tr>
@@ -2643,7 +2654,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Gibt an ob ein Upload abgeschlossen ist</p>
+                        <div class="io-description"><p>Indicates whether an upload is complete</p>
 </div>
 
                         <div class="io-description">
@@ -2651,7 +2662,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                         </div>
                             <div class="io-description">
-                                <p>Upload erfolgreich</p>
+                                <p>Upload successful</p>
 
                             </div>
                 </td>
@@ -2686,7 +2697,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:355</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:372</a></code>
 </div>
                         </td>
                     </tr>
@@ -2694,7 +2705,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Prüft ob ein Upload pausiert</p>
+                        <div class="io-description"><p>Checks if an upload is paused</p>
 </div>
 
                         <div class="io-description">
@@ -2702,7 +2713,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                         </div>
                             <div class="io-description">
-                                <p>Pausierter Upload ist vorhanden</p>
+                                <p>Paused upload is present</p>
 
                             </div>
                 </td>
@@ -2737,7 +2748,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:363</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:380</a></code>
 </div>
                         </td>
                     </tr>
@@ -2745,7 +2756,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Prüft ob in der Queue Elemente die zum Upload bereit sind vorhanden sind.</p>
+                        <div class="io-description"><p>Checks if there are elements in the queue ready for upload.</p>
 </div>
 
                         <div class="io-description">
@@ -2753,7 +2764,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                         </div>
                             <div class="io-description">
-                                <p>Elemente für Upload vorhanden</p>
+                                <p>Elements available for upload</p>
 
                             </div>
                 </td>
@@ -2788,7 +2799,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:371</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:388</a></code>
 </div>
                         </td>
                     </tr>
@@ -2796,7 +2807,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Prüft ob ein Upload eines Files am laufen ist</p>
+                        <div class="io-description"><p>Checks if a file upload is in progress</p>
 </div>
 
                         <div class="io-description">
@@ -2804,7 +2815,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                         </div>
                             <div class="io-description">
-                                <p>Upload ist am laufen</p>
+                                <p>Upload is in progress</p>
 
                             </div>
                 </td>
@@ -2839,7 +2850,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:414</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:431</a></code>
 </div>
                         </td>
                     </tr>
@@ -2847,7 +2858,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Destroy des Controls</p>
+                        <div class="io-description"><p>Destroy the control</p>
 </div>
 
                         <div class="io-description">
@@ -2886,7 +2897,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:444</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:461</a></code>
 </div>
                         </td>
                     </tr>
@@ -2894,7 +2905,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Upload Event</p>
+                        <div class="io-description"><p>Upload event</p>
 </div>
 
                             <div class="io-description">
@@ -2950,7 +2961,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>pause(uploadId)</code>
+                    <code>pause(uploadId: unknown)</code>
                 </td>
             </tr>
 
@@ -2963,7 +2974,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:495</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:512</a></code>
 </div>
                         </td>
                     </tr>
@@ -2971,7 +2982,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Cancel Single File</p>
+                        <div class="io-description"><p>Cancel single file</p>
 </div>
 
                             <div class="io-description">
@@ -2981,6 +2992,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                                     <thead>
                                         <tr>
                                             <td>Name</td>
+                                                <td>Type</td>
                                             <td>Optional</td>
                                                 <td>Description</td>
                                         </tr>
@@ -2988,6 +3000,9 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                                     <tbody>
                                         <tr>
                                                 <td>uploadId</td>
+                                            <td>
+                                                        <code>unknown</code>
+                                            </td>
 
                                             <td>
                                                     No
@@ -2995,7 +3010,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
 
                                             <td>
-                                                    <p>ID of File to Cancel</p>
+                                                    <p>ID of file to cancel</p>
 
                                             </td>
                                         </tr>
@@ -3041,7 +3056,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:502</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:519</a></code>
 </div>
                         </td>
                     </tr>
@@ -3049,7 +3064,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Pause all Uploads</p>
+                        <div class="io-description"><p>Pause all uploads</p>
 </div>
 
                         <div class="io-description">
@@ -3088,7 +3103,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:379</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:396</a></code>
 </div>
                         </td>
                     </tr>
@@ -3096,7 +3111,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Gibt den Uploadfortschritt zurück</p>
+                        <div class="io-description"><p>Returns the upload progress</p>
 </div>
 
                         <div class="io-description">
@@ -3104,7 +3119,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                         </div>
                             <div class="io-description">
-                                <p>Upload Fortschritt. Wert von 0-100</p>
+                                <p>Upload progress. Value from 0-100</p>
 
                             </div>
                 </td>
@@ -3139,7 +3154,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:511</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:528</a></code>
 </div>
                         </td>
                     </tr>
@@ -3203,7 +3218,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>upload(uploadId)</code>
+                    <code>upload(uploadId: unknown)</code>
                 </td>
             </tr>
 
@@ -3216,7 +3231,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:520</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:537</a></code>
 </div>
                         </td>
                     </tr>
@@ -3234,6 +3249,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                                     <thead>
                                         <tr>
                                             <td>Name</td>
+                                                <td>Type</td>
                                             <td>Optional</td>
                                                 <td>Description</td>
                                         </tr>
@@ -3241,6 +3257,9 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                                     <tbody>
                                         <tr>
                                                 <td>uploadId</td>
+                                            <td>
+                                                        <code>unknown</code>
+                                            </td>
 
                                             <td>
                                                     No
@@ -3294,7 +3313,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:527</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacUploadBase.html#source" target="_self" >SacUploadBase:544</a></code>
 </div>
                         </td>
                     </tr>
@@ -3341,7 +3360,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:537</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:554</a></code>
 </div>
                         </td>
                     </tr>
@@ -3349,7 +3368,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Validiert das Upload Control</p>
+                        <div class="io-description"><p>Validates the upload control</p>
 </div>
 
                             <div class="io-description">
@@ -3377,7 +3396,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
 
                                             <td>
-                                                    <p>Control das validiert werden soll</p>
+                                                    <p>Control to be validated</p>
 
                                             </td>
                                         </tr>
@@ -3423,7 +3442,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:522</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:536</a></code>
 </div>
                         </td>
                     </tr>
@@ -3431,7 +3450,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Method can Overwriten in Parent Classes</p>
+                        <div class="io-description"><p>Method can be overridden in parent classes</p>
 </div>
 
                             <div class="io-description">
@@ -3459,7 +3478,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
 
                                             <td>
-                                                    <p>Wert welcher in den korrekten Typ konvertiert werden soll</p>
+                                                    <p>Value that should be converted to the correct type</p>
 
                                             </td>
                                         </tr>
@@ -3471,7 +3490,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                         </div>
                             <div class="io-description">
-                                <p>Wert im korrekten Typ</p>
+                                <p>Value in the correct type</p>
 
                             </div>
                 </td>
@@ -3506,7 +3525,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:529</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:543</a></code>
 </div>
                         </td>
                     </tr>
@@ -3514,7 +3533,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode ergibt Decimal Symbol</p>
+                        <div class="io-description"><p>Method returns the decimal symbol</p>
 </div>
 
                         <div class="io-description">
@@ -3553,7 +3572,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:374</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:378</a></code>
 </div>
                         </td>
                     </tr>
@@ -3561,7 +3580,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode ergibt Error anhand von gegebenen Kriterien</p>
+                        <div class="io-description"><p>Method returns error based on given criteria</p>
 </div>
 
                         <div class="io-description">
@@ -3600,7 +3619,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:536</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:550</a></code>
 </div>
                         </td>
                     </tr>
@@ -3647,7 +3666,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:452</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:453</a></code>
 </div>
                         </td>
                     </tr>
@@ -3655,7 +3674,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode ergibt boolean touched = true</p>
+                        <div class="io-description"><p>Method sets touched = true</p>
 </div>
 
                         <div class="io-description">
@@ -3694,7 +3713,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:461</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:463</a></code>
 </div>
                         </td>
                     </tr>
@@ -3702,8 +3721,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode, damit andere Controls änderungen im Control mitbekommen können
-Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
+                        <div class="io-description"><p>Method so that other controls can be notified of changes in the control
+For change notification, call the propagateChange method.</p>
 </div>
 
                             <div class="io-description">
@@ -3715,6 +3734,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -3729,6 +3749,10 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <p>Callback function for change notification</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -3772,7 +3796,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:468</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:471</a></code>
 </div>
                         </td>
                     </tr>
@@ -3780,7 +3804,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode, damit andere Controls änderungen mitbekommen, wenn das Control aktiviert (Focus) wird.</p>
+                        <div class="io-description"><p>Method so that other controls can be notified of changes when the control is activated (focus).</p>
 </div>
 
                             <div class="io-description">
@@ -3792,6 +3816,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -3806,6 +3831,10 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <p>Callback function for touch notification</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -3849,7 +3878,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:475</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:479</a></code>
 </div>
                         </td>
                     </tr>
@@ -3857,7 +3886,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode registriert Änderungen bei der Validierung</p>
+                        <div class="io-description"><p>Method registers changes in validation</p>
 </div>
 
                             <div class="io-description">
@@ -3869,6 +3898,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -3883,6 +3913,10 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <p>Callback function for validator change notification</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -3926,7 +3960,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:482</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:487</a></code>
 </div>
                         </td>
                     </tr>
@@ -3934,7 +3968,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Setzt das Control auf Disabled</p>
+                        <div class="io-description"><p>Sets the control to disabled</p>
 </div>
 
                             <div class="io-description">
@@ -3946,6 +3980,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -3960,6 +3995,10 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <p>True to disable the control, false to enable it</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -4003,7 +4042,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:489</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:495</a></code>
 </div>
                         </td>
                     </tr>
@@ -4011,7 +4050,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode die den Wert des Inputs setzt</p>
+                        <div class="io-description"><p>Method that sets the value of the input</p>
 </div>
 
                             <div class="io-description">
@@ -4023,6 +4062,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -4037,6 +4077,10 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <p>The value to set</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -4080,7 +4124,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:541</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:555</a></code>
 </div>
                         </td>
                     </tr>
@@ -4088,7 +4132,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Aktualisiert den NgModel Wert und die Gültigkeit des Validators des Controls</p>
+                        <div class="io-description"><p>Updates the NgModel value and the validity of the control&#39;s validator</p>
 </div>
 
                         <div class="io-description">
@@ -4127,7 +4171,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:496</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:504</a></code>
 </div>
                         </td>
                     </tr>
@@ -4135,7 +4179,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Validator Methode</p>
+                        <div class="io-description"><p>Validator method</p>
 </div>
 
                             <div class="io-description">
@@ -4147,6 +4191,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -4161,6 +4206,10 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <p>Form control to validate</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -4170,7 +4219,8 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Validation errors or null if valid</p>
+
                             </div>
                 </td>
             </tr>
@@ -4204,7 +4254,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:509</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:523</a></code>
 </div>
                         </td>
                     </tr>
@@ -4212,7 +4262,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode zum schreiben von Werten aus dem Model in das Control</p>
+                        <div class="io-description"><p>Method for writing values from the model into the control</p>
 </div>
 
                             <div class="io-description">
@@ -4224,6 +4274,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -4238,6 +4289,10 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <p>The value to write to the control</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -4273,6 +4328,12 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>false</code>
                     </td>
                 </tr>
@@ -4291,7 +4352,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Property wenn Drag Event aktiv ist (Maus über Zone)</p>
+                    <div class="io-description"><p>Property when drag event is active (mouse over zone)</p>
 </div>
                 </td>
             </tr>
@@ -4312,6 +4373,12 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
                     </td>
                 </tr>
@@ -4330,7 +4397,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Handling von neuen Files im Input Control</p>
+                    <div class="io-description"><p>Handling of new files in the input control</p>
 </div>
                 </td>
             </tr>
@@ -4370,7 +4437,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Listener für Files</p>
+                    <div class="io-description"><p>Listener for files</p>
 </div>
                 </td>
             </tr>
@@ -4450,7 +4517,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Array von Uploads</p>
+                    <div class="io-description"><p>Array of uploads</p>
 </div>
                 </td>
             </tr>
@@ -4511,7 +4578,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <i>Type : </i>    <code>unknown</code>
 
                     </td>
                 </tr>
@@ -4535,7 +4602,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Boolean Property dirty; default Wert - false</p>
+                    <div class="io-description"><p>Boolean property dirty; default value - false</p>
 </div>
                 </td>
             </tr>
@@ -4556,7 +4623,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <i>Type : </i>    <code>unknown</code>
 
                     </td>
                 </tr>
@@ -4580,7 +4647,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>SacModel Form ist disabled</p>
+                    <div class="io-description"><p>SacModel form is disabled</p>
 </div>
                 </td>
             </tr>
@@ -4641,7 +4708,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <i>Type : </i>    <code>unknown</code>
 
                     </td>
                 </tr>
@@ -4665,7 +4732,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Boolean Property touched; default Wert - false</p>
+                    <div class="io-description"><p>Boolean property touched; default value - false</p>
 </div>
                 </td>
             </tr>
@@ -4710,7 +4777,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Interne Variable, die den Wert des Controls hält</p>
+                    <div class="io-description"><p>Internal variable that holds the value of the control</p>
 </div>
                 </td>
             </tr>
@@ -4770,6 +4837,12 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </span>
                 </td>
             </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>ControlHeight</code>
@@ -4953,14 +5026,14 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:192</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:193</a></code>
 </div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Leere Implementation von &quot;propagateChange&quot;. Muss gemacht werden, damit kein Fehler entsteht</p>
+                    <div class="io-description"><p>Empty implementation of &quot;propagateChange&quot;. Must be done to avoid errors</p>
 </div>
                 </td>
             </tr>
@@ -4998,14 +5071,14 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:197</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:198</a></code>
 </div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Leere Implementation von &quot;propagateTouch&quot;. Muss gemacht werden, damit kein Fehler entsteht</p>
+                    <div class="io-description"><p>Empty implementation of &quot;propagateTouch&quot;. Must be done to avoid errors</p>
 </div>
                 </td>
             </tr>
@@ -5038,7 +5111,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:208</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:209</a></code>
 </div>
                         </td>
                     </tr>
@@ -5080,7 +5153,7 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
 import { SacDropzoneSingleCommon, SacTestingAttributePipe } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 /**
- * Dropzone Komponente für den Upload eines Files
+ * Dropzone component for uploading a single file
  * @see https://github.com/kukhariev/ngx-uploadx/
  */
 @Component({
@@ -5136,7 +5209,7 @@ export class SacDropzoneSingleComponent extends SacDropzoneSingleCommon implemen
     // #region Public Methods
 
     /**
-     * Initialisiert das Control
+     * Initialize the control
      */
     public ngOnInit() {
         super.ngOnInit();
@@ -5153,9 +5226,9 @@ export class SacDropzoneSingleComponent extends SacDropzoneSingleCommon implemen
     class&#x3D;&quot;row form-group&quot;
     [class.has-error]&#x3D;&quot;invalid &amp;&amp; (dirty || touched)&quot;
     [ngClass]&#x3D;&quot;componentHeight | toLabelHeight&quot;
-    [attr.data-e2e-key]&#x3D;&quot;name | testingattribute : e2eidentifier&quot;&gt;
+    [attr.data-e2e-key]&#x3D;&quot;name | testingattribute: e2eidentifier&quot;&gt;
     &lt;label
-        *ngIf&#x3D;&quot;disablelabel &#x3D;&#x3D;&#x3D; false &amp;&amp; !isAdaptiveLabel&quot;
+        *ngIf&#x3D;&quot;disablelabel &#x3D;&#x3D;&#x3D; false&quot;
         id&#x3D;&quot;{{ name }}label&quot;
         for&#x3D;&quot;{{ name }}_uploadinput&quot;
         class&#x3D;&quot;col-xs-12 control-label&quot;
@@ -5293,11 +5366,11 @@ export class SacDropzoneSingleComponent extends SacDropzoneSingleCommon implemen
     
 </div>
 
-<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/vis-network.min.js"></script>
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div    id="{{ name }}"    class="row form-group"    [class.has-error]="invalid && (dirty || touched)"    [ngClass]="componentHeight | toLabelHeight"    [attr.data-e2e-key]="name | testingattribute : e2eidentifier">    <label        *ngIf="disablelabel === false && !isAdaptiveLabel"        id="{{ name }}label"        for="{{ name }}_uploadinput"        class="col-xs-12 control-label"        [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : \'sr-only\']"        [class.required]="isrequired">        <span class="text">{{ label }}</span>        <sac-tooltip            *ngIf="helptextmode === \'tooltip\' && helptext"            [tooltiptext]="helptext"            [inlinemode]="true">            <span                [class]="HelptextTooltipIcon"                style="margin-left: 5px">            </span>        </sac-tooltip>    </label>    <div        class="col-xs-12"        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : \'\']"        [style.display]="helptextmode === \'tooltip\' && helptext && disablelabel ? \'flex\' : null">        <div [style.flex-grow]="helptextmode === \'tooltip\' && helptext && disablelabel ? 1 : null">            <div                class="img-rounded dropzone control-label"                (drop)="dropHandler($event)"                (dragover)="onDragOver($event)"                (dragleave)="onDragLeave($event)"                [style.min-height]="uploadheight"                [class.active]="active"                [class.is-invalid]="invalid && (dirty || touched)">                <div                    class="content"                    *ngIf="uploads.length === 0">                    <div>                        <div [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)">                            <ng-content></ng-content>                        </div>                    </div>                </div>                <div *ngIf="uploads.length > 0">                    <div>                        <div                            class="dropzone-uploadstates"                            *ngFor="let file of uploads">                            <div                                class="input-group upload-component upload-component-multiple"                                [class.input-group-sm]="componentHeight === ControlHeight.Small"                                [class.input-group-lg]="componentHeight === ControlHeight.Large">                                <div class="form-control upload-progress">                                    <div class="progress">                                        <div                                            class="progress-bar"                                            [class.progress-bar-success]="file.progress === 100"                                            role="progressbar"                                            [attr.aria-valuenow]="file.progress"                                            aria-valuemin="0"                                            aria-valuemax="100"                                            [style.width.%]="file.progress">                                            <span class="progress-text">{{ file.name }}</span>                                        </div>                                    </div>                                </div>                                <div class="input-group-btn">                                    <!-- image-preview-clear button -->                                    <a                                        class="btn"                                        (click)="cancel(file.uploadId)"                                        [class.btn-default]="!(invalid && (dirty || touched))"                                        [class.btn-danger]="invalid && (dirty || touched)">                                        <span [class]="IconDelete"></span>                                    </a>                                </div>                            </div>                        </div>                    </div>                </div>                <input                    #files                    id="{{ name }}_uploadinput"                    type="file"                    class="custom-file-input"                    (click)="files.value = \'\'"                    (uploadxState)="onUpload($event)"                    [disabled]="HasQueueItem()" />            </div>            <small                *ngIf="helptextmode === \'text\' && helptext"                class="help-block">                {{ helptext }}            </small>            <div                *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"                class="help-block help-block-error">                {{ GetErrorMessage() | async }}            </div>        </div>        <div            *ngIf="helptextmode === \'tooltip\' && helptext && disablelabel"            class="form-control-static"            style="margin-left: 5px">            <sac-tooltip                *ngIf="helptextmode === \'tooltip\' && helptext"                [tooltiptext]="helptext"                [inlinemode]="true">                <span                    [class]="HelptextTooltipIcon"                    style="margin-left: 5px; margin-right: 5px">                </span>            </sac-tooltip>        </div>    </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div    id="{{ name }}"    class="row form-group"    [class.has-error]="invalid && (dirty || touched)"    [ngClass]="componentHeight | toLabelHeight"    [attr.data-e2e-key]="name | testingattribute: e2eidentifier">    <label        *ngIf="disablelabel === false"        id="{{ name }}label"        for="{{ name }}_uploadinput"        class="col-xs-12 control-label"        [ngClass]="[disablelabel === false ? (this.labelSizes | toLabelWidthCss) : \'sr-only\']"        [class.required]="isrequired">        <span class="text">{{ label }}</span>        <sac-tooltip            *ngIf="helptextmode === \'tooltip\' && helptext"            [tooltiptext]="helptext"            [inlinemode]="true">            <span                [class]="HelptextTooltipIcon"                style="margin-left: 5px">            </span>        </sac-tooltip>    </label>    <div        class="col-xs-12"        [ngClass]="[disablelabel === false ? (this.labelSizes | toControlWidthCss) : \'\']"        [style.display]="helptextmode === \'tooltip\' && helptext && disablelabel ? \'flex\' : null">        <div [style.flex-grow]="helptextmode === \'tooltip\' && helptext && disablelabel ? 1 : null">            <div                class="img-rounded dropzone control-label"                (drop)="dropHandler($event)"                (dragover)="onDragOver($event)"                (dragleave)="onDragLeave($event)"                [style.min-height]="uploadheight"                [class.active]="active"                [class.is-invalid]="invalid && (dirty || touched)">                <div                    class="content"                    *ngIf="uploads.length === 0">                    <div>                        <div [class.is-invalid]="isinlineerrorenabled && invalid && (dirty || touched)">                            <ng-content></ng-content>                        </div>                    </div>                </div>                <div *ngIf="uploads.length > 0">                    <div>                        <div                            class="dropzone-uploadstates"                            *ngFor="let file of uploads">                            <div                                class="input-group upload-component upload-component-multiple"                                [class.input-group-sm]="componentHeight === ControlHeight.Small"                                [class.input-group-lg]="componentHeight === ControlHeight.Large">                                <div class="form-control upload-progress">                                    <div class="progress">                                        <div                                            class="progress-bar"                                            [class.progress-bar-success]="file.progress === 100"                                            role="progressbar"                                            [attr.aria-valuenow]="file.progress"                                            aria-valuemin="0"                                            aria-valuemax="100"                                            [style.width.%]="file.progress">                                            <span class="progress-text">{{ file.name }}</span>                                        </div>                                    </div>                                </div>                                <div class="input-group-btn">                                    <!-- image-preview-clear button -->                                    <a                                        class="btn"                                        (click)="cancel(file.uploadId)"                                        [class.btn-default]="!(invalid && (dirty || touched))"                                        [class.btn-danger]="invalid && (dirty || touched)">                                        <span [class]="IconDelete"></span>                                    </a>                                </div>                            </div>                        </div>                    </div>                </div>                <input                    #files                    id="{{ name }}_uploadinput"                    type="file"                    class="custom-file-input"                    (click)="files.value = \'\'"                    (uploadxState)="onUpload($event)"                    [disabled]="HasQueueItem()" />            </div>            <small                *ngIf="helptextmode === \'text\' && helptext"                class="help-block">                {{ helptext }}            </small>            <div                *ngIf="isinlineerrorenabled && invalid && (dirty || touched)"                class="help-block help-block-error">                {{ GetErrorMessage() | async }}            </div>        </div>        <div            *ngIf="helptextmode === \'tooltip\' && helptext && disablelabel"            class="form-control-static"            style="margin-left: 5px">            <sac-tooltip                *ngIf="helptextmode === \'tooltip\' && helptext"                [tooltiptext]="helptext"                [inlinemode]="true">                <span                    [class]="HelptextTooltipIcon"                    style="margin-left: 5px; margin-right: 5px">                </span>            </sac-tooltip>        </div>    </div></div></div>'
     var COMPONENTS = [{'name': 'SacButtonComponent', 'selector': 'sac-button'},{'name': 'SacCheckboxComponent', 'selector': 'sac-checkbox'},{'name': 'SacConfirmComponent', 'selector': 'sac-confirm'},{'name': 'SacContextmenuComponent', 'selector': 'sac-contextmenu'},{'name': 'SacContextmenuItemButtonComponent', 'selector': 'sac-contextmenubutton'},{'name': 'SacContextmenuItemSplitterComponent', 'selector': 'sac-contextmenusplitter'},{'name': 'SacDateComponent', 'selector': 'sac-date'},{'name': 'SacDateSelectorComponent', 'selector': 'sac-dateselector'},{'name': 'SacDateTimeComponent', 'selector': 'sac-datetime'},{'name': 'SacDialogComponent', 'selector': 'sac-dialog'},{'name': 'SacDropdownComponent', 'selector': 'sac-dropdown'},{'name': 'SacDropzoneMultipleComponent', 'selector': 'sac-dropzonemultiple'},{'name': 'SacDropzoneSingleComponent', 'selector': 'sac-dropzonesingle'},{'name': 'SacGridButtonComponent', 'selector': 'sac-gridbutton'},{'name': 'SacGridColumnActionComponent', 'selector': 'sac-gridcolumnaction'},{'name': 'SacGridColumnComponent', 'selector': 'sac-gridcolumn'},{'name': 'SacGridComponent', 'selector': 'sac-grid'},{'name': 'SacGridImageComponent', 'selector': 'sac-gridimage'},{'name': 'SacInputAreaComponent', 'selector': 'sac-inputarea'},{'name': 'SacInputComponent', 'selector': 'sac-input'},{'name': 'SacInputCurrencyComponent', 'selector': 'sac-inputcurrency'},{'name': 'SacInputDecimalComponent', 'selector': 'sac-inputdecimal'},{'name': 'SacInputEmailComponent', 'selector': 'sac-inputemail'},{'name': 'SacInputIntegerComponent', 'selector': 'sac-inputinteger'},{'name': 'SacInputPasswordComponent', 'selector': 'sac-inputpassword'},{'name': 'SacInputSearchComponent', 'selector': 'sac-inputsearch'},{'name': 'SacListboxComponent', 'selector': 'sac-listbox'},{'name': 'SacPagingComponent', 'selector': 'sac-paging'},{'name': 'SacRadiobuttonComponent', 'selector': 'sac-radiobutton'},{'name': 'SacRadiobuttonsComponent', 'selector': 'sac-radiobuttons'},{'name': 'SacStaticFormContainerComponent', 'selector': 'sac-staticformcontainer'},{'name': 'SacStaticLabelComponent', 'selector': 'sac-staticlabel'},{'name': 'SacTabComponent', 'selector': 'sac-tab'},{'name': 'SacTabItemComponent', 'selector': 'sac-tabitem'},{'name': 'SacTimeComponent', 'selector': 'sac-time'},{'name': 'SacTinyMceComponent', 'selector': 'sac-tinymce'},{'name': 'SacTooltipComponent', 'selector': 'sac-tooltip'},{'name': 'SacTreeviewComponent', 'selector': 'sac-treeview'},{'name': 'SacUploadComponent', 'selector': 'sac-upload'},{'name': 'SacUploadMultipleComponent', 'selector': 'sac-uploadmultiple'},{'name': 'SacValidationSummaryComponent', 'selector': 'sac-validationsummary'},{'name': 'SacWizardComponent', 'selector': 'sac-wizard'},{'name': 'SacWizardItemComponent', 'selector': 'sac-wizarditem'}];
     var DIRECTIVES = [{'name': 'SacBaseDateTimeControl', 'selector': ''},{'name': 'SacBaseListControl', 'selector': ''},{'name': 'SacBaseModelControl', 'selector': ''},{'name': 'SacBaseSelectControl', 'selector': ''},{'name': 'SacButtonCommon', 'selector': ''},{'name': 'SacCheckboxCommon', 'selector': ''},{'name': 'SacConfirmCommon', 'selector': ''},{'name': 'SacContextmenuAnchorCommon', 'selector': ''},{'name': 'SacContextmenuAnchorDirective', 'selector': '[sacContextMenuAnchor]'},{'name': 'SacContextmenuCommon', 'selector': ''},{'name': 'SacContextmenuContainerDirective', 'selector': '[sacContextMenuContainer]'},{'name': 'SacContextMenuContrainerCommon', 'selector': ''},{'name': 'SacContextmenuItemButtonCommon', 'selector': ''},{'name': 'SacContextmenuItemCommon', 'selector': ''},{'name': 'SacDateCommon', 'selector': ''},{'name': 'SacDateSelectorCommon', 'selector': ''},{'name': 'SacDateTimeCommon', 'selector': ''},{'name': 'SacDialogCommon', 'selector': ''},{'name': 'SacDropdownCommon', 'selector': ''},{'name': 'SacDropdownOptionCommon', 'selector': ''},{'name': 'SacDropdownOptionDirective', 'selector': 'option,[sacOption]'},{'name': 'SacDropzoneMultipleCommon', 'selector': ''},{'name': 'SacDropzoneSingleCommon', 'selector': ''},{'name': 'SacFileBrowserCommon', 'selector': ''},{'name': 'SacFormCommon', 'selector': ''},{'name': 'SacFormDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'SacFormLayoutCommon', 'selector': ''},{'name': 'SacFormLayoutDirective', 'selector': '[sacFormLayout]'},{'name': 'SacGridButtonCommon', 'selector': ''},{'name': 'SacGridColumnActionCommon', 'selector': ''},{'name': 'SacGridColumnBaseCommon', 'selector': ''},{'name': 'SacGridColumnCommon', 'selector': ''},{'name': 'SacGridCommon', 'selector': ''},{'name': 'SacGridImageCommon', 'selector': ''},{'name': 'SacInheritFormDirective', 'selector': '[sacInheritForm]'},{'name': 'SacInputAreaCommon', 'selector': ''},{'name': 'SacInputBase', 'selector': ''},{'name': 'SacInputCommon', 'selector': ''},{'name': 'SacInputCurrencyCommon', 'selector': ''},{'name': 'SacInputDecimalCommon', 'selector': ''},{'name': 'SacInputEmailCommon', 'selector': ''},{'name': 'SacInputIntegerCommon', 'selector': ''},{'name': 'SacInputPasswordCommon', 'selector': ''},{'name': 'SacInputSearchCommon', 'selector': ''},{'name': 'SacListboxCommon', 'selector': ''},{'name': 'SacListboxOptionCommon', 'selector': ''},{'name': 'SacListboxOptionDirective', 'selector': '[sacOption],option'},{'name': 'SacMultilanguageInputAreaCommon', 'selector': ''},{'name': 'SacMultilanguageInputCommon', 'selector': ''},{'name': 'SacPagingCommon', 'selector': ''},{'name': 'SacRadiobuttonCommon', 'selector': ''},{'name': 'SacRadiobuttonsCommon', 'selector': ''},{'name': 'SacStaticFormContainerCommon', 'selector': ''},{'name': 'SacStaticLabelCommon', 'selector': ''},{'name': 'SacTabCommon', 'selector': ''},{'name': 'SacTabItemCommon', 'selector': ''},{'name': 'SacTimeCommon', 'selector': ''},{'name': 'SacTinyMceCommon', 'selector': ''},{'name': 'SacTooltipCommon', 'selector': ''},{'name': 'SacTreeviewCommon', 'selector': ''},{'name': 'SacUploadBase', 'selector': ''},{'name': 'SacUploadMultipleCommon', 'selector': ''},{'name': 'SacUploadSingleCommon', 'selector': ''},{'name': 'SacValidationSummaryCommon', 'selector': ''},{'name': 'SacWizardCommon', 'selector': ''},{'name': 'SacWizardItemCommon', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'SacDropzoneSingleComponent'};
@@ -5350,6 +5423,19 @@ export class SacDropzoneSingleComponent extends SacDropzoneSingleCommon implemen
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -5361,7 +5447,6 @@ export class SacDropzoneSingleComponent extends SacDropzoneSingleCommon implemen
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -326,7 +337,7 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -352,6 +363,8 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
                                                     </td>
                                                     
                                                         <td>
+                                                                <p>Change detector reference for updating component view</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -366,7 +379,7 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Element Referenz</p>
+                                                                <p>Element reference</p>
 
                                                         </td>
                                                 </tr>
@@ -429,7 +442,7 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:139</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="143" class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:143</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -563,8 +576,8 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="211"
-                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:211</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="218"
+                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:218</a></div>
                         </td>
                     </tr>
 
@@ -578,6 +591,10 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>The height of the tooltip in pixels</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -605,8 +622,8 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="280"
-                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:280</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="288"
+                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:288</a></div>
                         </td>
                     </tr>
 
@@ -646,8 +663,8 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="168"
-                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:168</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:173</a></div>
                         </td>
                     </tr>
 
@@ -661,6 +678,10 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
                             <b>Returns : </b>        <code><a href="../miscellaneous/enumerations.html#TooltipPosition" target="_self" >TooltipPosition</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>TooltipPosition The calculated position for the tooltip</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -687,8 +708,8 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="218"
-                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:218</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="226"
+                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:226</a></div>
                         </td>
                     </tr>
 
@@ -702,6 +723,10 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>The width of the tooltip in pixels</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -728,8 +753,8 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="182"
-                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:182</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="187"
+                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:187</a></div>
                         </td>
                     </tr>
 
@@ -769,8 +794,8 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="190"
-                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:190</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="196"
+                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:196</a></div>
                         </td>
                     </tr>
 
@@ -784,6 +809,10 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>Boolean indicating whether the tooltip is visible</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -810,15 +839,15 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="225"
-                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:225</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="233"
+                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:233</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Detect Changes after view checked. Prevent ExpressionChangedAfterItHasBeenCheckedError error</p>
+                        <div class="io-description"><p>Detect changes after view checked. Prevent ExpressionChangedAfterItHasBeenCheckedError error</p>
 </div>
 
                         <div class="io-description">
@@ -851,15 +880,15 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="237"
-                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:237</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="245"
+                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:245</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Detect UI Changes to Calculate Tooltip correct</p>
+                        <div class="io-description"><p>Detect UI changes to calculate tooltip correctly</p>
 </div>
 
                         <div class="io-description">
@@ -892,8 +921,8 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="250"
-                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:250</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="258"
+                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:258</a></div>
                         </td>
                     </tr>
 
@@ -933,8 +962,8 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="263"
-                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:263</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="271"
+                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:271</a></div>
                         </td>
                     </tr>
 
@@ -974,8 +1003,8 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="197"
-                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:197</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="203"
+                                    class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:203</a></div>
                         </td>
                     </tr>
 
@@ -1056,7 +1085,7 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <i>Type : </i>    <code>unknown</code>
 
                     </td>
                 </tr>
@@ -1111,7 +1140,7 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Position des Tooltips links</p>
+                    <div class="io-description"><p>Position of the tooltip on the left</p>
 </div>
                 </td>
             </tr>
@@ -1208,6 +1237,12 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
             </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>TooltipPosition</code>
                     </td>
                 </tr>
@@ -1286,7 +1321,7 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:131</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:135</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1308,7 +1343,7 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:139</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="143" class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:143</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1342,8 +1377,6 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
                                             </tbody>
                                         </table>
                                 </div>
-                                <div>
-                                </div>
                                 <div class="io-description">
                                     <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
@@ -1369,7 +1402,7 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="147" class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:147</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="151" class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:151</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1403,8 +1436,6 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
                                             </tbody>
                                         </table>
                                 </div>
-                                <div>
-                                </div>
                                 <div class="io-description">
                                     <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
@@ -1429,7 +1460,7 @@ the tooltip can then be displayed via the CSS visibility. If this is not done, i
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:157</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="161" class="link-to-prism">projects/sac-common/src/controls/tooltip/tooltip.ts:161</a></div>
                                 </td>
                             </tr>
 
@@ -1485,7 +1516,7 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
     /**
      * Defines whether the tooltip is visible
      */
-    private _isTooltipVisible: boolean &#x3D; false;
+    private _isTooltipVisible &#x3D; false;
 
     /**
      * Containers for the tooltip
@@ -1495,12 +1526,12 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
     /**
      * Position of the tooltip on the left
      */
-    public IsTooltipContentVisible: boolean &#x3D; false;
+    public IsTooltipContentVisible &#x3D; false;
 
     /**
-     * Position des Tooltips links
+     * Position of the tooltip on the left
      */
-    public LeftPos: number &#x3D; 0;
+    public LeftPos &#x3D; 0;
 
     /**
      * Property for enum in Angular HTML template
@@ -1510,7 +1541,7 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
     /**
      * Position of the tooltip at the top
      */
-    public TopPos: number &#x3D; 0;
+    public TopPos &#x3D; 0;
 
     /**
      * Name of the container for content (e.g. icon) on which the tooltip is displayed.
@@ -1546,7 +1577,7 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
      * Value &#x27;auto&#x27; can be combined with another value.
      */
     @Input()
-    public position: string &#x3D; &#x27;right|auto&#x27;;
+    public position &#x3D; &#x27;right|auto&#x27;;
 
     /**
      * Text for ToolTip
@@ -1559,10 +1590,14 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param ref Element Referenz
+     * Constructor
+     * @param cdRef Change detector reference for updating component view
+     * @param ref Element reference
      */
-    constructor(private readonly cdRef: ChangeDetectorRef, private readonly ref: ElementRef) {}
+    constructor(
+        private readonly cdRef: ChangeDetectorRef,
+        private readonly ref: ElementRef
+    ) {}
 
     // #endregion Constructors
 
@@ -1607,6 +1642,7 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
 
     /**
      * Returns the position of the tooltip
+     * @returns TooltipPosition The calculated position for the tooltip
      */
     public GetTooltipPosition(): TooltipPosition {
         return this.popupHelper.getDisplayPosition(
@@ -1629,6 +1665,7 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
 
     /**
      * Defines whether the tooltip is present in the markup
+     * @returns Boolean indicating whether the tooltip is visible
      */
     public IsTooltipVisible(): boolean {
         return this._isTooltipVisible;
@@ -1650,6 +1687,7 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
 
     /**
      * Calculates the height of the tooltip
+     * @returns The height of the tooltip in pixels
      */
     public getToolTipHeight(): number {
         return this.popupHelper.getPopupHeight(this.tooltipcontainer);
@@ -1657,16 +1695,17 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
 
     /**
      * Calculates the width of the tooltips
+     * @returns The width of the tooltip in pixels
      */
     public getToolTipWidth(): number {
         return this.popupHelper.getPopupWidth(this.tooltipcontainer);
     }
 
     /**
-     * Detect Changes after view checked. Prevent ExpressionChangedAfterItHasBeenCheckedError error
+     * Detect changes after view checked. Prevent ExpressionChangedAfterItHasBeenCheckedError error
      */
     public ngAfterViewChecked(): void {
-        // Do nothing if is not visibile
+        // Do nothing if is not visible
         if (!this._isTooltipVisible) {
             return;
         }
@@ -1675,10 +1714,10 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
     }
 
     /**
-     * Detect UI Changes to Calculate Tooltip correct
+     * Detect UI changes to calculate tooltip correctly
      */
     public ngDoCheck(): void {
-        // Do nothing if is not visibile
+        // Do nothing if is not visible
         if (!this._isTooltipVisible) {
             return;
         }
@@ -1841,6 +1880,19 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -1852,7 +1904,6 @@ export abstract class SacTooltipCommon implements OnInit, OnDestroy, AfterViewCh
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="./" class="navbar-brand">Bootstrap 5 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">Bootstrap 5 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content coverage">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -128,7 +139,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacBrowserComponent.html">projects/sac-bootstrap5/src/components/browser/browser.ts</a>
+                        <a href="./components/SacBrowserComponent.html">projects/sac-bootstrap5/src/components/browser/browser.ts</a>
             </td>
             <td>component</td>
             <td>SacBrowserComponent</td>
@@ -140,7 +151,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacButtonComponent.html">projects/sac-bootstrap5/src/controls/buttons/button.ts</a>
+                        <a href="./components/SacButtonComponent.html">projects/sac-bootstrap5/src/controls/buttons/button.ts</a>
             </td>
             <td>component</td>
             <td>SacButtonComponent</td>
@@ -152,7 +163,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacCheckboxComponent.html">projects/sac-bootstrap5/src/controls/checkbox/checkbox.ts</a>
+                        <a href="./components/SacCheckboxComponent.html">projects/sac-bootstrap5/src/controls/checkbox/checkbox.ts</a>
             </td>
             <td>component</td>
             <td>SacCheckboxComponent</td>
@@ -164,19 +175,19 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacRadiobuttonComponent.html">projects/sac-bootstrap5/src/controls/checkbox/radiobutton.ts</a>
+                        <a href="./components/SacRadiobuttonComponent.html">projects/sac-bootstrap5/src/controls/checkbox/radiobutton.ts</a>
             </td>
             <td>component</td>
             <td>SacRadiobuttonComponent</td>
-            <td align="right" data-sort="94">
-                <span class="coverage-percent">94 %</span>
-                <span class="coverage-count">(18/19)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(19/19)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacRadiobuttonsComponent.html">projects/sac-bootstrap5/src/controls/checkbox/radiobuttons.ts</a>
+                        <a href="./components/SacRadiobuttonsComponent.html">projects/sac-bootstrap5/src/controls/checkbox/radiobuttons.ts</a>
             </td>
             <td>component</td>
             <td>SacRadiobuttonsComponent</td>
@@ -188,7 +199,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./injectables/ServiceConfirm.html">projects/sac-bootstrap5/src/controls/confirm/confirm.service.ts</a>
+                        <a href="./injectables/ServiceConfirm.html">projects/sac-bootstrap5/src/controls/confirm/confirm.service.ts</a>
             </td>
             <td>injectable</td>
             <td>ServiceConfirm</td>
@@ -200,7 +211,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacConfirmComponent.html">projects/sac-bootstrap5/src/controls/confirm/confirm.ts</a>
+                        <a href="./components/SacConfirmComponent.html">projects/sac-bootstrap5/src/controls/confirm/confirm.ts</a>
             </td>
             <td>component</td>
             <td>SacConfirmComponent</td>
@@ -212,19 +223,19 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacContextmenuComponent.html">projects/sac-bootstrap5/src/controls/contextmenu/contextmenu.ts</a>
+                        <a href="./components/SacContextmenuComponent.html">projects/sac-bootstrap5/src/controls/contextmenu/contextmenu.ts</a>
             </td>
             <td>component</td>
             <td>SacContextmenuComponent</td>
-            <td align="right" data-sort="94">
-                <span class="coverage-percent">94 %</span>
-                <span class="coverage-count">(18/19)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(19/19)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacContextmenuAnchorDirective.html">projects/sac-bootstrap5/src/controls/contextmenu/contextmenuanchor.ts</a>
+                        <a href="./directives/SacContextmenuAnchorDirective.html">projects/sac-bootstrap5/src/controls/contextmenu/contextmenuanchor.ts</a>
             </td>
             <td>directive</td>
             <td>SacContextmenuAnchorDirective</td>
@@ -236,7 +247,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacContextmenuContainerDirective.html">projects/sac-bootstrap5/src/controls/contextmenu/contextmenucontainer.ts</a>
+                        <a href="./directives/SacContextmenuContainerDirective.html">projects/sac-bootstrap5/src/controls/contextmenu/contextmenucontainer.ts</a>
             </td>
             <td>directive</td>
             <td>SacContextmenuContainerDirective</td>
@@ -248,7 +259,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacContextmenuItemButtonComponent.html">projects/sac-bootstrap5/src/controls/contextmenu/contextmenuitembutton.ts</a>
+                        <a href="./components/SacContextmenuItemButtonComponent.html">projects/sac-bootstrap5/src/controls/contextmenu/contextmenuitembutton.ts</a>
             </td>
             <td>component</td>
             <td>SacContextmenuItemButtonComponent</td>
@@ -260,7 +271,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacContextmenuItemSplitterComponent.html">projects/sac-bootstrap5/src/controls/contextmenu/contextmenuitemsplitter.ts</a>
+                        <a href="./components/SacContextmenuItemSplitterComponent.html">projects/sac-bootstrap5/src/controls/contextmenu/contextmenuitemsplitter.ts</a>
             </td>
             <td>component</td>
             <td>SacContextmenuItemSplitterComponent</td>
@@ -272,19 +283,19 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacDateComponent.html">projects/sac-bootstrap5/src/controls/datetime/date.ts</a>
+                        <a href="./components/SacDateComponent.html">projects/sac-bootstrap5/src/controls/datetime/date.ts</a>
             </td>
             <td>component</td>
             <td>SacDateComponent</td>
-            <td align="right" data-sort="95">
-                <span class="coverage-percent">95 %</span>
-                <span class="coverage-count">(93/97)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(97/97)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#moment">projects/sac-bootstrap5/src/controls/datetime/date.ts</a>
+                        <a href="./miscellaneous/variables.html#moment">projects/sac-bootstrap5/src/controls/datetime/date.ts</a>
             </td>
             <td>variable</td>
             <td>moment</td>
@@ -296,7 +307,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacDateSelectorComponent.html">projects/sac-bootstrap5/src/controls/datetime/dateselector.ts</a>
+                        <a href="./components/SacDateSelectorComponent.html">projects/sac-bootstrap5/src/controls/datetime/dateselector.ts</a>
             </td>
             <td>component</td>
             <td>SacDateSelectorComponent</td>
@@ -308,43 +319,43 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacDateTimeComponent.html">projects/sac-bootstrap5/src/controls/datetime/datetime.ts</a>
+                        <a href="./components/SacDateTimeComponent.html">projects/sac-bootstrap5/src/controls/datetime/datetime.ts</a>
             </td>
             <td>component</td>
             <td>SacDateTimeComponent</td>
-            <td align="right" data-sort="95">
-                <span class="coverage-percent">95 %</span>
-                <span class="coverage-count">(93/97)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(97/97)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacTimeComponent.html">projects/sac-bootstrap5/src/controls/datetime/time.ts</a>
+                        <a href="./components/SacTimeComponent.html">projects/sac-bootstrap5/src/controls/datetime/time.ts</a>
             </td>
             <td>component</td>
             <td>SacTimeComponent</td>
-            <td align="right" data-sort="95">
-                <span class="coverage-percent">95 %</span>
-                <span class="coverage-count">(93/97)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(97/97)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacDialogComponent.html">projects/sac-bootstrap5/src/controls/dialog/dialog.ts</a>
+                        <a href="./components/SacDialogComponent.html">projects/sac-bootstrap5/src/controls/dialog/dialog.ts</a>
             </td>
             <td>component</td>
             <td>SacDialogComponent</td>
             <td align="right" data-sort="100">
                 <span class="coverage-percent">100 %</span>
-                <span class="coverage-count">(22/22)</span>
+                <span class="coverage-count">(23/23)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacFormDirective.html">projects/sac-bootstrap5/src/controls/form/form.ts</a>
+                        <a href="./directives/SacFormDirective.html">projects/sac-bootstrap5/src/controls/form/form.ts</a>
             </td>
             <td>directive</td>
             <td>SacFormDirective</td>
@@ -356,7 +367,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacInheritFormDirective.html">projects/sac-bootstrap5/src/controls/form/inheritform.directive.ts</a>
+                        <a href="./directives/SacInheritFormDirective.html">projects/sac-bootstrap5/src/controls/form/inheritform.directive.ts</a>
             </td>
             <td>directive</td>
             <td>SacInheritFormDirective</td>
@@ -368,7 +379,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#NGFORM_FACTORY">projects/sac-bootstrap5/src/controls/form/inheritform.directive.ts</a>
+                        <a href="./miscellaneous/functions.html#NGFORM_FACTORY">projects/sac-bootstrap5/src/controls/form/inheritform.directive.ts</a>
             </td>
             <td>function</td>
             <td>NGFORM_FACTORY</td>
@@ -380,7 +391,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#SACFORM_FACTORY">projects/sac-bootstrap5/src/controls/form/inheritform.directive.ts</a>
+                        <a href="./miscellaneous/functions.html#SACFORM_FACTORY">projects/sac-bootstrap5/src/controls/form/inheritform.directive.ts</a>
             </td>
             <td>function</td>
             <td>SACFORM_FACTORY</td>
@@ -392,7 +403,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacGridComponent.html">projects/sac-bootstrap5/src/controls/grid/grid.ts</a>
+                        <a href="./components/SacGridComponent.html">projects/sac-bootstrap5/src/controls/grid/grid.ts</a>
             </td>
             <td>component</td>
             <td>SacGridComponent</td>
@@ -404,7 +415,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacGridButtonComponent.html">projects/sac-bootstrap5/src/controls/grid/gridbutton.ts</a>
+                        <a href="./components/SacGridButtonComponent.html">projects/sac-bootstrap5/src/controls/grid/gridbutton.ts</a>
             </td>
             <td>component</td>
             <td>SacGridButtonComponent</td>
@@ -416,7 +427,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacGridColumnComponent.html">projects/sac-bootstrap5/src/controls/grid/gridcolumn.ts</a>
+                        <a href="./components/SacGridColumnComponent.html">projects/sac-bootstrap5/src/controls/grid/gridcolumn.ts</a>
             </td>
             <td>component</td>
             <td>SacGridColumnComponent</td>
@@ -428,7 +439,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacGridColumnActionComponent.html">projects/sac-bootstrap5/src/controls/grid/gridcolumnaction.ts</a>
+                        <a href="./components/SacGridColumnActionComponent.html">projects/sac-bootstrap5/src/controls/grid/gridcolumnaction.ts</a>
             </td>
             <td>component</td>
             <td>SacGridColumnActionComponent</td>
@@ -440,7 +451,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacGridImageComponent.html">projects/sac-bootstrap5/src/controls/grid/gridimage.ts</a>
+                        <a href="./components/SacGridImageComponent.html">projects/sac-bootstrap5/src/controls/grid/gridimage.ts</a>
             </td>
             <td>component</td>
             <td>SacGridImageComponent</td>
@@ -452,7 +463,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacPagingComponent.html">projects/sac-bootstrap5/src/controls/grid/paging.ts</a>
+                        <a href="./components/SacPagingComponent.html">projects/sac-bootstrap5/src/controls/grid/paging.ts</a>
             </td>
             <td>component</td>
             <td>SacPagingComponent</td>
@@ -464,7 +475,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacInputComponent.html">projects/sac-bootstrap5/src/controls/input/input.ts</a>
+                        <a href="./components/SacInputComponent.html">projects/sac-bootstrap5/src/controls/input/input.ts</a>
             </td>
             <td>component</td>
             <td>SacInputComponent</td>
@@ -476,7 +487,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacInputAreaComponent.html">projects/sac-bootstrap5/src/controls/input/inputarea.ts</a>
+                        <a href="./components/SacInputAreaComponent.html">projects/sac-bootstrap5/src/controls/input/inputarea.ts</a>
             </td>
             <td>component</td>
             <td>SacInputAreaComponent</td>
@@ -488,19 +499,19 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacInputCurrencyComponent.html">projects/sac-bootstrap5/src/controls/input/inputcurrency.ts</a>
+                        <a href="./components/SacInputCurrencyComponent.html">projects/sac-bootstrap5/src/controls/input/inputcurrency.ts</a>
             </td>
             <td>component</td>
             <td>SacInputCurrencyComponent</td>
-            <td align="right" data-sort="98">
-                <span class="coverage-percent">98 %</span>
-                <span class="coverage-count">(67/68)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(68/68)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacInputDecimalComponent.html">projects/sac-bootstrap5/src/controls/input/inputdecimal.ts</a>
+                        <a href="./components/SacInputDecimalComponent.html">projects/sac-bootstrap5/src/controls/input/inputdecimal.ts</a>
             </td>
             <td>component</td>
             <td>SacInputDecimalComponent</td>
@@ -512,7 +523,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacInputEmailComponent.html">projects/sac-bootstrap5/src/controls/input/inputemail.ts</a>
+                        <a href="./components/SacInputEmailComponent.html">projects/sac-bootstrap5/src/controls/input/inputemail.ts</a>
             </td>
             <td>component</td>
             <td>SacInputEmailComponent</td>
@@ -524,7 +535,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacInputIntegerComponent.html">projects/sac-bootstrap5/src/controls/input/inputinteger.ts</a>
+                        <a href="./components/SacInputIntegerComponent.html">projects/sac-bootstrap5/src/controls/input/inputinteger.ts</a>
             </td>
             <td>component</td>
             <td>SacInputIntegerComponent</td>
@@ -536,7 +547,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacInputPasswordComponent.html">projects/sac-bootstrap5/src/controls/input/inputpassword.ts</a>
+                        <a href="./components/SacInputPasswordComponent.html">projects/sac-bootstrap5/src/controls/input/inputpassword.ts</a>
             </td>
             <td>component</td>
             <td>SacInputPasswordComponent</td>
@@ -548,7 +559,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacInputSearchComponent.html">projects/sac-bootstrap5/src/controls/input/inputsearch.ts</a>
+                        <a href="./components/SacInputSearchComponent.html">projects/sac-bootstrap5/src/controls/input/inputsearch.ts</a>
             </td>
             <td>component</td>
             <td>SacInputSearchComponent</td>
@@ -560,67 +571,67 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacFormLayoutDirective.html">projects/sac-bootstrap5/src/controls/layout/formlayout.directive.ts</a>
+                        <a href="./directives/SacFormLayoutDirective.html">projects/sac-bootstrap5/src/controls/layout/formlayout.directive.ts</a>
             </td>
             <td>directive</td>
             <td>SacFormLayoutDirective</td>
-            <td align="right" data-sort="92">
-                <span class="coverage-percent">92 %</span>
-                <span class="coverage-count">(13/14)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./pipes/SacToControlHeightPipe.html">projects/sac-bootstrap5/src/controls/layout/tocontrolheight.pipe.ts</a>
-            </td>
-            <td>pipe</td>
-            <td>SacToControlHeightPipe</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./pipes/SacToControlWidthCssPipe.html">projects/sac-bootstrap5/src/controls/layout/tocontrolwidthcss.pipe.ts</a>
-            </td>
-            <td>pipe</td>
-            <td>SacToControlWidthCssPipe</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./pipes/SacToLabelHeightPipe.html">projects/sac-bootstrap5/src/controls/layout/tolabelheight.pipe.ts</a>
-            </td>
-            <td>pipe</td>
-            <td>SacToLabelHeightPipe</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./pipes/SacToLabelWidthCssPipe.html">projects/sac-bootstrap5/src/controls/layout/tolabelwidthcss.pipe.ts</a>
-            </td>
-            <td>pipe</td>
-            <td>SacToLabelWidthCssPipe</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(14/14)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacDropdownComponent.html">projects/sac-bootstrap5/src/controls/list/dropdown.ts</a>
+                        <a href="./pipes/SacToControlHeightPipe.html">projects/sac-bootstrap5/src/controls/layout/tocontrolheight.pipe.ts</a>
+            </td>
+            <td>pipe</td>
+            <td>SacToControlHeightPipe</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./pipes/SacToControlWidthCssPipe.html">projects/sac-bootstrap5/src/controls/layout/tocontrolwidthcss.pipe.ts</a>
+            </td>
+            <td>pipe</td>
+            <td>SacToControlWidthCssPipe</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./pipes/SacToLabelHeightPipe.html">projects/sac-bootstrap5/src/controls/layout/tolabelheight.pipe.ts</a>
+            </td>
+            <td>pipe</td>
+            <td>SacToLabelHeightPipe</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./pipes/SacToLabelWidthCssPipe.html">projects/sac-bootstrap5/src/controls/layout/tolabelwidthcss.pipe.ts</a>
+            </td>
+            <td>pipe</td>
+            <td>SacToLabelWidthCssPipe</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/SacDropdownComponent.html">projects/sac-bootstrap5/src/controls/list/dropdown.ts</a>
             </td>
             <td>component</td>
             <td>SacDropdownComponent</td>
@@ -632,7 +643,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacDropdownOptionDirective.html">projects/sac-bootstrap5/src/controls/list/dropdownoption.directive.ts</a>
+                        <a href="./directives/SacDropdownOptionDirective.html">projects/sac-bootstrap5/src/controls/list/dropdownoption.directive.ts</a>
             </td>
             <td>directive</td>
             <td>SacDropdownOptionDirective</td>
@@ -644,7 +655,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#DROPDOWN_TOKEN">projects/sac-bootstrap5/src/controls/list/list.token.ts</a>
+                        <a href="./miscellaneous/variables.html#DROPDOWN_TOKEN">projects/sac-bootstrap5/src/controls/list/list.token.ts</a>
             </td>
             <td>variable</td>
             <td>DROPDOWN_TOKEN</td>
@@ -656,7 +667,7 @@
         <tr class="low">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#LISTBOX_TOKEN">projects/sac-bootstrap5/src/controls/list/list.token.ts</a>
+                        <a href="./miscellaneous/variables.html#LISTBOX_TOKEN">projects/sac-bootstrap5/src/controls/list/list.token.ts</a>
             </td>
             <td>variable</td>
             <td>LISTBOX_TOKEN</td>
@@ -668,7 +679,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacListboxComponent.html">projects/sac-bootstrap5/src/controls/list/listbox.ts</a>
+                        <a href="./components/SacListboxComponent.html">projects/sac-bootstrap5/src/controls/list/listbox.ts</a>
             </td>
             <td>component</td>
             <td>SacListboxComponent</td>
@@ -680,7 +691,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacListboxOptionDirective.html">projects/sac-bootstrap5/src/controls/list/listboxoption.directive.ts</a>
+                        <a href="./directives/SacListboxOptionDirective.html">projects/sac-bootstrap5/src/controls/list/listboxoption.directive.ts</a>
             </td>
             <td>directive</td>
             <td>SacListboxOptionDirective</td>
@@ -692,7 +703,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacMultilanguageInputComponent.html">projects/sac-bootstrap5/src/controls/multilanguage/multilanguageinput.ts</a>
+                        <a href="./components/SacMultilanguageInputComponent.html">projects/sac-bootstrap5/src/controls/multilanguage/multilanguageinput.ts</a>
             </td>
             <td>component</td>
             <td>SacMultilanguageInputComponent</td>
@@ -704,7 +715,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacMultilanguageInputAreaComponent.html">projects/sac-bootstrap5/src/controls/multilanguage/multilanguageinputarea.ts</a>
+                        <a href="./components/SacMultilanguageInputAreaComponent.html">projects/sac-bootstrap5/src/controls/multilanguage/multilanguageinputarea.ts</a>
             </td>
             <td>component</td>
             <td>SacMultilanguageInputAreaComponent</td>
@@ -716,19 +727,19 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacMultilanguagemenuComponent.html">projects/sac-bootstrap5/src/controls/multilanguage/multilanguagemenu.ts</a>
+                        <a href="./components/SacMultilanguagemenuComponent.html">projects/sac-bootstrap5/src/controls/multilanguage/multilanguagemenu.ts</a>
             </td>
             <td>component</td>
             <td>SacMultilanguagemenuComponent</td>
-            <td align="right" data-sort="95">
-                <span class="coverage-percent">95 %</span>
-                <span class="coverage-count">(20/21)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(21/21)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacMultilanguagemenuAnchorDirective.html">projects/sac-bootstrap5/src/controls/multilanguage/multilanguagemenuanchor.ts</a>
+                        <a href="./directives/SacMultilanguagemenuAnchorDirective.html">projects/sac-bootstrap5/src/controls/multilanguage/multilanguagemenuanchor.ts</a>
             </td>
             <td>directive</td>
             <td>SacMultilanguagemenuAnchorDirective</td>
@@ -740,7 +751,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacMultilanguagemenuContainerDirective.html">projects/sac-bootstrap5/src/controls/multilanguage/multilanguagemenucontainer.ts</a>
+                        <a href="./directives/SacMultilanguagemenuContainerDirective.html">projects/sac-bootstrap5/src/controls/multilanguage/multilanguagemenucontainer.ts</a>
             </td>
             <td>directive</td>
             <td>SacMultilanguagemenuContainerDirective</td>
@@ -752,7 +763,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacMultilanguagemenuItemButtonComponent.html">projects/sac-bootstrap5/src/controls/multilanguage/multilanguagemenuitembutton.ts</a>
+                        <a href="./components/SacMultilanguagemenuItemButtonComponent.html">projects/sac-bootstrap5/src/controls/multilanguage/multilanguagemenuitembutton.ts</a>
             </td>
             <td>component</td>
             <td>SacMultilanguagemenuItemButtonComponent</td>
@@ -764,7 +775,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacStaticFormContainerComponent.html">projects/sac-bootstrap5/src/controls/static/formcontainer.ts</a>
+                        <a href="./components/SacStaticFormContainerComponent.html">projects/sac-bootstrap5/src/controls/static/formcontainer.ts</a>
             </td>
             <td>component</td>
             <td>SacStaticFormContainerComponent</td>
@@ -776,7 +787,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacStaticLabelComponent.html">projects/sac-bootstrap5/src/controls/static/staticlabel.ts</a>
+                        <a href="./components/SacStaticLabelComponent.html">projects/sac-bootstrap5/src/controls/static/staticlabel.ts</a>
             </td>
             <td>component</td>
             <td>SacStaticLabelComponent</td>
@@ -788,7 +799,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacTabComponent.html">projects/sac-bootstrap5/src/controls/tabs/tab.ts</a>
+                        <a href="./components/SacTabComponent.html">projects/sac-bootstrap5/src/controls/tabs/tab.ts</a>
             </td>
             <td>component</td>
             <td>SacTabComponent</td>
@@ -800,7 +811,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacTabItemComponent.html">projects/sac-bootstrap5/src/controls/tabs/tabitem.ts</a>
+                        <a href="./components/SacTabItemComponent.html">projects/sac-bootstrap5/src/controls/tabs/tabitem.ts</a>
             </td>
             <td>component</td>
             <td>SacTabItemComponent</td>
@@ -812,7 +823,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacTinyMceComponent.html">projects/sac-bootstrap5/src/controls/tinymce/tinymce.ts</a>
+                        <a href="./components/SacTinyMceComponent.html">projects/sac-bootstrap5/src/controls/tinymce/tinymce.ts</a>
             </td>
             <td>component</td>
             <td>SacTinyMceComponent</td>
@@ -824,7 +835,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacTooltipComponent.html">projects/sac-bootstrap5/src/controls/tooltip/tooltip.ts</a>
+                        <a href="./components/SacTooltipComponent.html">projects/sac-bootstrap5/src/controls/tooltip/tooltip.ts</a>
             </td>
             <td>component</td>
             <td>SacTooltipComponent</td>
@@ -836,19 +847,19 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacTreeviewComponent.html">projects/sac-bootstrap5/src/controls/treeview/treeview.ts</a>
+                        <a href="./components/SacTreeviewComponent.html">projects/sac-bootstrap5/src/controls/treeview/treeview.ts</a>
             </td>
             <td>component</td>
             <td>SacTreeviewComponent</td>
-            <td align="right" data-sort="91">
-                <span class="coverage-percent">91 %</span>
-                <span class="coverage-count">(79/86)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(86/86)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacDropzoneMultipleComponent.html">projects/sac-bootstrap5/src/controls/upload/dropzonemultiple.ts</a>
+                        <a href="./components/SacDropzoneMultipleComponent.html">projects/sac-bootstrap5/src/controls/upload/dropzonemultiple.ts</a>
             </td>
             <td>component</td>
             <td>SacDropzoneMultipleComponent</td>
@@ -860,7 +871,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacDropzoneSingleComponent.html">projects/sac-bootstrap5/src/controls/upload/dropzonesingle.ts</a>
+                        <a href="./components/SacDropzoneSingleComponent.html">projects/sac-bootstrap5/src/controls/upload/dropzonesingle.ts</a>
             </td>
             <td>component</td>
             <td>SacDropzoneSingleComponent</td>
@@ -872,7 +883,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacUploadComponent.html">projects/sac-bootstrap5/src/controls/upload/upload.ts</a>
+                        <a href="./components/SacUploadComponent.html">projects/sac-bootstrap5/src/controls/upload/upload.ts</a>
             </td>
             <td>component</td>
             <td>SacUploadComponent</td>
@@ -884,7 +895,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacUploadMultipleComponent.html">projects/sac-bootstrap5/src/controls/upload/uploadmultiple.ts</a>
+                        <a href="./components/SacUploadMultipleComponent.html">projects/sac-bootstrap5/src/controls/upload/uploadmultiple.ts</a>
             </td>
             <td>component</td>
             <td>SacUploadMultipleComponent</td>
@@ -896,7 +907,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacValidationSummaryComponent.html">projects/sac-bootstrap5/src/controls/validation/validationsummary.ts</a>
+                        <a href="./components/SacValidationSummaryComponent.html">projects/sac-bootstrap5/src/controls/validation/validationsummary.ts</a>
             </td>
             <td>component</td>
             <td>SacValidationSummaryComponent</td>
@@ -908,7 +919,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacWizardComponent.html">projects/sac-bootstrap5/src/controls/wizard/wizard.ts</a>
+                        <a href="./components/SacWizardComponent.html">projects/sac-bootstrap5/src/controls/wizard/wizard.ts</a>
             </td>
             <td>component</td>
             <td>SacWizardComponent</td>
@@ -920,7 +931,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./components/SacWizardItemComponent.html">projects/sac-bootstrap5/src/controls/wizard/wizarditem.ts</a>
+                        <a href="./components/SacWizardItemComponent.html">projects/sac-bootstrap5/src/controls/wizard/wizarditem.ts</a>
             </td>
             <td>component</td>
             <td>SacWizardItemComponent</td>
@@ -932,19 +943,19 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacBaseDateTimeControl.html">projects/sac-common/src/common/basedatetimecontrol.ts</a>
+                        <a href="./directives/SacBaseDateTimeControl.html">projects/sac-common/src/common/basedatetimecontrol.ts</a>
             </td>
             <td>directive</td>
             <td>SacBaseDateTimeControl</td>
-            <td align="right" data-sort="95">
-                <span class="coverage-percent">95 %</span>
-                <span class="coverage-count">(79/83)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(83/83)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacInputBase.html">projects/sac-common/src/common/baseinputcontrol.ts</a>
+                        <a href="./directives/SacInputBase.html">projects/sac-common/src/common/baseinputcontrol.ts</a>
             </td>
             <td>directive</td>
             <td>SacInputBase</td>
@@ -956,7 +967,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacBaseListControl.html">projects/sac-common/src/common/baselistcontrol.ts</a>
+                        <a href="./directives/SacBaseListControl.html">projects/sac-common/src/common/baselistcontrol.ts</a>
             </td>
             <td>directive</td>
             <td>SacBaseListControl</td>
@@ -968,7 +979,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacBaseModelControl.html">projects/sac-common/src/common/basemodelcontrol.ts</a>
+                        <a href="./directives/SacBaseModelControl.html">projects/sac-common/src/common/basemodelcontrol.ts</a>
             </td>
             <td>directive</td>
             <td>SacBaseModelControl</td>
@@ -980,7 +991,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacBaseSelectControl.html">projects/sac-common/src/common/baseselectcontrol.ts</a>
+                        <a href="./directives/SacBaseSelectControl.html">projects/sac-common/src/common/baseselectcontrol.ts</a>
             </td>
             <td>directive</td>
             <td>SacBaseSelectControl</td>
@@ -992,7 +1003,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacUploadBase.html">projects/sac-common/src/common/baseuploadcontrol.ts</a>
+                        <a href="./directives/SacUploadBase.html">projects/sac-common/src/common/baseuploadcontrol.ts</a>
             </td>
             <td>directive</td>
             <td>SacUploadBase</td>
@@ -1004,7 +1015,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/SacUploadFile.html">projects/sac-common/src/common/baseuploadcontrol.ts</a>
+                        <a href="./classes/SacUploadFile.html">projects/sac-common/src/common/baseuploadcontrol.ts</a>
             </td>
             <td>class</td>
             <td>SacUploadFile</td>
@@ -1016,7 +1027,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacFileBrowserCommon.html">projects/sac-common/src/components/browser/browser.ts</a>
+                        <a href="./directives/SacFileBrowserCommon.html">projects/sac-common/src/components/browser/browser.ts</a>
             </td>
             <td>directive</td>
             <td>SacFileBrowserCommon</td>
@@ -1028,7 +1039,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/IBrowserFile.html">projects/sac-common/src/components/browser/models/browserfile.ts</a>
+                        <a href="./interfaces/IBrowserFile.html">projects/sac-common/src/components/browser/models/browserfile.ts</a>
             </td>
             <td>interface</td>
             <td>IBrowserFile</td>
@@ -1040,7 +1051,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/BrowserFileDeleteRequest.html">projects/sac-common/src/components/browser/models/browserfiledeleterequest.ts</a>
+                        <a href="./classes/BrowserFileDeleteRequest.html">projects/sac-common/src/components/browser/models/browserfiledeleterequest.ts</a>
             </td>
             <td>class</td>
             <td>BrowserFileDeleteRequest</td>
@@ -1052,7 +1063,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/BrowserFileRenameRequest.html">projects/sac-common/src/components/browser/models/browserfilerenamerequest.ts</a>
+                        <a href="./classes/BrowserFileRenameRequest.html">projects/sac-common/src/components/browser/models/browserfilerenamerequest.ts</a>
             </td>
             <td>class</td>
             <td>BrowserFileRenameRequest</td>
@@ -1064,7 +1075,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/IBrowserFileResponse.html">projects/sac-common/src/components/browser/models/browserfileresponse.ts</a>
+                        <a href="./interfaces/IBrowserFileResponse.html">projects/sac-common/src/components/browser/models/browserfileresponse.ts</a>
             </td>
             <td>interface</td>
             <td>IBrowserFileResponse</td>
@@ -1076,7 +1087,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/BrowserFileSaveRequest.html">projects/sac-common/src/components/browser/models/browserfilesaverequest.ts</a>
+                        <a href="./classes/BrowserFileSaveRequest.html">projects/sac-common/src/components/browser/models/browserfilesaverequest.ts</a>
             </td>
             <td>class</td>
             <td>BrowserFileSaveRequest</td>
@@ -1088,7 +1099,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/IBrowserNode.html">projects/sac-common/src/components/browser/models/browsernode.ts</a>
+                        <a href="./interfaces/IBrowserNode.html">projects/sac-common/src/components/browser/models/browsernode.ts</a>
             </td>
             <td>interface</td>
             <td>IBrowserNode</td>
@@ -1100,7 +1111,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/BrowserNodeDeleteRequest.html">projects/sac-common/src/components/browser/models/browsernodedeleterequest.ts</a>
+                        <a href="./classes/BrowserNodeDeleteRequest.html">projects/sac-common/src/components/browser/models/browsernodedeleterequest.ts</a>
             </td>
             <td>class</td>
             <td>BrowserNodeDeleteRequest</td>
@@ -1112,7 +1123,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/BrowserNodeNewRequest.html">projects/sac-common/src/components/browser/models/browsernodenewrequest.ts</a>
+                        <a href="./classes/BrowserNodeNewRequest.html">projects/sac-common/src/components/browser/models/browsernodenewrequest.ts</a>
             </td>
             <td>class</td>
             <td>BrowserNodeNewRequest</td>
@@ -1124,7 +1135,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/BrowserNodeRenameRequest.html">projects/sac-common/src/components/browser/models/browsernoderenamerequest.ts</a>
+                        <a href="./classes/BrowserNodeRenameRequest.html">projects/sac-common/src/components/browser/models/browsernoderenamerequest.ts</a>
             </td>
             <td>class</td>
             <td>BrowserNodeRenameRequest</td>
@@ -1136,7 +1147,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/BrowserNodeRequest.html">projects/sac-common/src/components/browser/models/browsernoderequest.ts</a>
+                        <a href="./classes/BrowserNodeRequest.html">projects/sac-common/src/components/browser/models/browsernoderequest.ts</a>
             </td>
             <td>class</td>
             <td>BrowserNodeRequest</td>
@@ -1148,7 +1159,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/IBrowserNodeResponse.html">projects/sac-common/src/components/browser/models/browsernoderesponse.ts</a>
+                        <a href="./interfaces/IBrowserNodeResponse.html">projects/sac-common/src/components/browser/models/browsernoderesponse.ts</a>
             </td>
             <td>interface</td>
             <td>IBrowserNodeResponse</td>
@@ -1160,7 +1171,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacButtonCommon.html">projects/sac-common/src/controls/buttons/button.ts</a>
+                        <a href="./directives/SacButtonCommon.html">projects/sac-common/src/controls/buttons/button.ts</a>
             </td>
             <td>directive</td>
             <td>SacButtonCommon</td>
@@ -1172,7 +1183,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacCheckboxCommon.html">projects/sac-common/src/controls/checkbox/checkbox.ts</a>
+                        <a href="./directives/SacCheckboxCommon.html">projects/sac-common/src/controls/checkbox/checkbox.ts</a>
             </td>
             <td>directive</td>
             <td>SacCheckboxCommon</td>
@@ -1184,19 +1195,19 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacRadiobuttonCommon.html">projects/sac-common/src/controls/checkbox/radiobutton.ts</a>
+                        <a href="./directives/SacRadiobuttonCommon.html">projects/sac-common/src/controls/checkbox/radiobutton.ts</a>
             </td>
             <td>directive</td>
             <td>SacRadiobuttonCommon</td>
-            <td align="right" data-sort="94">
-                <span class="coverage-percent">94 %</span>
-                <span class="coverage-count">(18/19)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(19/19)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacRadiobuttonsCommon.html">projects/sac-common/src/controls/checkbox/radiobuttons.ts</a>
+                        <a href="./directives/SacRadiobuttonsCommon.html">projects/sac-common/src/controls/checkbox/radiobuttons.ts</a>
             </td>
             <td>directive</td>
             <td>SacRadiobuttonsCommon</td>
@@ -1208,7 +1219,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/SacConfirmButton.html">projects/sac-common/src/controls/confirm/confirm.button.ts</a>
+                        <a href="./classes/SacConfirmButton.html">projects/sac-common/src/controls/confirm/confirm.button.ts</a>
             </td>
             <td>class</td>
             <td>SacConfirmButton</td>
@@ -1220,7 +1231,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/ServiceConfirmCommon.html">projects/sac-common/src/controls/confirm/confirm.service.ts</a>
+                        <a href="./classes/ServiceConfirmCommon.html">projects/sac-common/src/controls/confirm/confirm.service.ts</a>
             </td>
             <td>class</td>
             <td>ServiceConfirmCommon</td>
@@ -1232,7 +1243,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacConfirmCommon.html">projects/sac-common/src/controls/confirm/confirm.ts</a>
+                        <a href="./directives/SacConfirmCommon.html">projects/sac-common/src/controls/confirm/confirm.ts</a>
             </td>
             <td>directive</td>
             <td>SacConfirmCommon</td>
@@ -1241,34 +1252,34 @@
                 <span class="coverage-count">(11/11)</span>
             </td>
         </tr>
-        <tr class="low">
+        <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/ISacContextmenuCommon.html">projects/sac-common/src/controls/contextmenu/contextmenu.interface.ts</a>
+                        <a href="./interfaces/ISacContextmenuCommon.html">projects/sac-common/src/controls/contextmenu/contextmenu.interface.ts</a>
             </td>
             <td>interface</td>
             <td>ISacContextmenuCommon</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/2)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacContextmenuCommon.html">projects/sac-common/src/controls/contextmenu/contextmenu.ts</a>
+                        <a href="./directives/SacContextmenuCommon.html">projects/sac-common/src/controls/contextmenu/contextmenu.ts</a>
             </td>
             <td>directive</td>
             <td>SacContextmenuCommon</td>
-            <td align="right" data-sort="94">
-                <span class="coverage-percent">94 %</span>
-                <span class="coverage-count">(18/19)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(19/19)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacContextmenuAnchorCommon.html">projects/sac-common/src/controls/contextmenu/contextmenuanchor.ts</a>
+                        <a href="./directives/SacContextmenuAnchorCommon.html">projects/sac-common/src/controls/contextmenu/contextmenuanchor.ts</a>
             </td>
             <td>directive</td>
             <td>SacContextmenuAnchorCommon</td>
@@ -1280,7 +1291,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacContextMenuContrainerCommon.html">projects/sac-common/src/controls/contextmenu/contextmenucontainer.ts</a>
+                        <a href="./directives/SacContextMenuContrainerCommon.html">projects/sac-common/src/controls/contextmenu/contextmenucontainer.ts</a>
             </td>
             <td>directive</td>
             <td>SacContextMenuContrainerCommon</td>
@@ -1292,7 +1303,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacContextmenuItemCommon.html">projects/sac-common/src/controls/contextmenu/contextmenuitem.ts</a>
+                        <a href="./directives/SacContextmenuItemCommon.html">projects/sac-common/src/controls/contextmenu/contextmenuitem.ts</a>
             </td>
             <td>directive</td>
             <td>SacContextmenuItemCommon</td>
@@ -1304,7 +1315,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacContextmenuItemButtonCommon.html">projects/sac-common/src/controls/contextmenu/contextmenuitembutton.ts</a>
+                        <a href="./directives/SacContextmenuItemButtonCommon.html">projects/sac-common/src/controls/contextmenu/contextmenuitembutton.ts</a>
             </td>
             <td>directive</td>
             <td>SacContextmenuItemButtonCommon</td>
@@ -1316,31 +1327,31 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacDateCommon.html">projects/sac-common/src/controls/datetime/date.ts</a>
+                        <a href="./directives/SacDateCommon.html">projects/sac-common/src/controls/datetime/date.ts</a>
             </td>
             <td>directive</td>
             <td>SacDateCommon</td>
-            <td align="right" data-sort="95">
-                <span class="coverage-percent">95 %</span>
-                <span class="coverage-count">(93/97)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(97/97)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacDateSelectorCommon.html">projects/sac-common/src/controls/datetime/dateselector.ts</a>
+                        <a href="./directives/SacDateSelectorCommon.html">projects/sac-common/src/controls/datetime/dateselector.ts</a>
             </td>
             <td>directive</td>
             <td>SacDateSelectorCommon</td>
-            <td align="right" data-sort="95">
-                <span class="coverage-percent">95 %</span>
-                <span class="coverage-count">(23/24)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(24/24)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/DateSelectorItem.html">projects/sac-common/src/controls/datetime/dateselector.ts</a>
+                        <a href="./classes/DateSelectorItem.html">projects/sac-common/src/controls/datetime/dateselector.ts</a>
             </td>
             <td>class</td>
             <td>DateSelectorItem</td>
@@ -1352,55 +1363,43 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#moment">projects/sac-common/src/controls/datetime/dateselector.ts</a>
-            </td>
-            <td>variable</td>
-            <td>moment</td>
-            <td align="right" data-sort="100">
-                <span class="coverage-percent">100 %</span>
-                <span class="coverage-count">(1/1)</span>
-            </td>
-        </tr>
-        <tr class="very-good">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./directives/SacDateTimeCommon.html">projects/sac-common/src/controls/datetime/datetime.ts</a>
+                        <a href="./directives/SacDateTimeCommon.html">projects/sac-common/src/controls/datetime/datetime.ts</a>
             </td>
             <td>directive</td>
             <td>SacDateTimeCommon</td>
-            <td align="right" data-sort="95">
-                <span class="coverage-percent">95 %</span>
-                <span class="coverage-count">(93/97)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(97/97)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacTimeCommon.html">projects/sac-common/src/controls/datetime/time.ts</a>
+                        <a href="./directives/SacTimeCommon.html">projects/sac-common/src/controls/datetime/time.ts</a>
             </td>
             <td>directive</td>
             <td>SacTimeCommon</td>
-            <td align="right" data-sort="95">
-                <span class="coverage-percent">95 %</span>
-                <span class="coverage-count">(93/97)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(97/97)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacDialogCommon.html">projects/sac-common/src/controls/dialog/dialog.ts</a>
+                        <a href="./directives/SacDialogCommon.html">projects/sac-common/src/controls/dialog/dialog.ts</a>
             </td>
             <td>directive</td>
             <td>SacDialogCommon</td>
             <td align="right" data-sort="100">
                 <span class="coverage-percent">100 %</span>
-                <span class="coverage-count">(21/21)</span>
+                <span class="coverage-count">(22/22)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacFormCommon.html">projects/sac-common/src/controls/form/form.ts</a>
+                        <a href="./directives/SacFormCommon.html">projects/sac-common/src/controls/form/form.ts</a>
             </td>
             <td>directive</td>
             <td>SacFormCommon</td>
@@ -1412,7 +1411,19 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacGridCommon.html">projects/sac-common/src/controls/grid/grid.ts</a>
+                        <a href="./miscellaneous/typealiases.html#FormHooks">projects/sac-common/src/controls/form/form.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>FormHooks</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./directives/SacGridCommon.html">projects/sac-common/src/controls/grid/grid.ts</a>
             </td>
             <td>directive</td>
             <td>SacGridCommon</td>
@@ -1424,7 +1435,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacGridButtonCommon.html">projects/sac-common/src/controls/grid/gridbutton.ts</a>
+                        <a href="./directives/SacGridButtonCommon.html">projects/sac-common/src/controls/grid/gridbutton.ts</a>
             </td>
             <td>directive</td>
             <td>SacGridButtonCommon</td>
@@ -1436,7 +1447,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacGridColumnCommon.html">projects/sac-common/src/controls/grid/gridcolumn.ts</a>
+                        <a href="./directives/SacGridColumnCommon.html">projects/sac-common/src/controls/grid/gridcolumn.ts</a>
             </td>
             <td>directive</td>
             <td>SacGridColumnCommon</td>
@@ -1448,7 +1459,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacGridColumnActionCommon.html">projects/sac-common/src/controls/grid/gridcolumnaction.ts</a>
+                        <a href="./directives/SacGridColumnActionCommon.html">projects/sac-common/src/controls/grid/gridcolumnaction.ts</a>
             </td>
             <td>directive</td>
             <td>SacGridColumnActionCommon</td>
@@ -1460,7 +1471,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacGridColumnBaseCommon.html">projects/sac-common/src/controls/grid/gridcolumnbase.ts</a>
+                        <a href="./directives/SacGridColumnBaseCommon.html">projects/sac-common/src/controls/grid/gridcolumnbase.ts</a>
             </td>
             <td>directive</td>
             <td>SacGridColumnBaseCommon</td>
@@ -1472,7 +1483,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacGridImageCommon.html">projects/sac-common/src/controls/grid/gridimage.ts</a>
+                        <a href="./directives/SacGridImageCommon.html">projects/sac-common/src/controls/grid/gridimage.ts</a>
             </td>
             <td>directive</td>
             <td>SacGridImageCommon</td>
@@ -1481,22 +1492,22 @@
                 <span class="coverage-count">(2/2)</span>
             </td>
         </tr>
-        <tr class="good">
+        <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/GridResponse.html">projects/sac-common/src/controls/grid/model.ts</a>
+                        <a href="./classes/GridResponse.html">projects/sac-common/src/controls/grid/model.ts</a>
             </td>
             <td>class</td>
             <td>GridResponse</td>
-            <td align="right" data-sort="66">
-                <span class="coverage-percent">66 %</span>
-                <span class="coverage-count">(2/3)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/PagerData.html">projects/sac-common/src/controls/grid/model.ts</a>
+                        <a href="./classes/PagerData.html">projects/sac-common/src/controls/grid/model.ts</a>
             </td>
             <td>class</td>
             <td>PagerData</td>
@@ -1508,7 +1519,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/PagerRequest.html">projects/sac-common/src/controls/grid/model.ts</a>
+                        <a href="./classes/PagerRequest.html">projects/sac-common/src/controls/grid/model.ts</a>
             </td>
             <td>class</td>
             <td>PagerRequest</td>
@@ -1520,7 +1531,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/SortDescriptor.html">projects/sac-common/src/controls/grid/model.ts</a>
+                        <a href="./classes/SortDescriptor.html">projects/sac-common/src/controls/grid/model.ts</a>
             </td>
             <td>class</td>
             <td>SortDescriptor</td>
@@ -1532,7 +1543,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacPagingCommon.html">projects/sac-common/src/controls/grid/paging.ts</a>
+                        <a href="./directives/SacPagingCommon.html">projects/sac-common/src/controls/grid/paging.ts</a>
             </td>
             <td>directive</td>
             <td>SacPagingCommon</td>
@@ -1544,7 +1555,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacInputCommon.html">projects/sac-common/src/controls/input/input.ts</a>
+                        <a href="./directives/SacInputCommon.html">projects/sac-common/src/controls/input/input.ts</a>
             </td>
             <td>directive</td>
             <td>SacInputCommon</td>
@@ -1556,7 +1567,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacInputAreaCommon.html">projects/sac-common/src/controls/input/inputarea.ts</a>
+                        <a href="./directives/SacInputAreaCommon.html">projects/sac-common/src/controls/input/inputarea.ts</a>
             </td>
             <td>directive</td>
             <td>SacInputAreaCommon</td>
@@ -1568,19 +1579,19 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacInputCurrencyCommon.html">projects/sac-common/src/controls/input/inputcurrency.ts</a>
+                        <a href="./directives/SacInputCurrencyCommon.html">projects/sac-common/src/controls/input/inputcurrency.ts</a>
             </td>
             <td>directive</td>
             <td>SacInputCurrencyCommon</td>
-            <td align="right" data-sort="98">
-                <span class="coverage-percent">98 %</span>
-                <span class="coverage-count">(66/67)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(67/67)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacInputDecimalCommon.html">projects/sac-common/src/controls/input/inputdecimal.ts</a>
+                        <a href="./directives/SacInputDecimalCommon.html">projects/sac-common/src/controls/input/inputdecimal.ts</a>
             </td>
             <td>directive</td>
             <td>SacInputDecimalCommon</td>
@@ -1592,7 +1603,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacInputEmailCommon.html">projects/sac-common/src/controls/input/inputemail.ts</a>
+                        <a href="./directives/SacInputEmailCommon.html">projects/sac-common/src/controls/input/inputemail.ts</a>
             </td>
             <td>directive</td>
             <td>SacInputEmailCommon</td>
@@ -1604,7 +1615,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacInputIntegerCommon.html">projects/sac-common/src/controls/input/inputinteger.ts</a>
+                        <a href="./directives/SacInputIntegerCommon.html">projects/sac-common/src/controls/input/inputinteger.ts</a>
             </td>
             <td>directive</td>
             <td>SacInputIntegerCommon</td>
@@ -1616,7 +1627,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacInputPasswordCommon.html">projects/sac-common/src/controls/input/inputpassword.ts</a>
+                        <a href="./directives/SacInputPasswordCommon.html">projects/sac-common/src/controls/input/inputpassword.ts</a>
             </td>
             <td>directive</td>
             <td>SacInputPasswordCommon</td>
@@ -1628,7 +1639,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacInputSearchCommon.html">projects/sac-common/src/controls/input/inputsearch.ts</a>
+                        <a href="./directives/SacInputSearchCommon.html">projects/sac-common/src/controls/input/inputsearch.ts</a>
             </td>
             <td>directive</td>
             <td>SacInputSearchCommon</td>
@@ -1640,7 +1651,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacFormLayoutCommon.html">projects/sac-common/src/controls/layout/formlayout.ts</a>
+                        <a href="./directives/SacFormLayoutCommon.html">projects/sac-common/src/controls/layout/formlayout.ts</a>
             </td>
             <td>directive</td>
             <td>SacFormLayoutCommon</td>
@@ -1652,7 +1663,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#_buildValueString">projects/sac-common/src/controls/list/buildvaluestring.ts</a>
+                        <a href="./miscellaneous/functions.html#_buildValueString">projects/sac-common/src/controls/list/buildvaluestring.ts</a>
             </td>
             <td>function</td>
             <td>_buildValueString</td>
@@ -1664,7 +1675,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacDropdownCommon.html">projects/sac-common/src/controls/list/dropdown.ts</a>
+                        <a href="./directives/SacDropdownCommon.html">projects/sac-common/src/controls/list/dropdown.ts</a>
             </td>
             <td>directive</td>
             <td>SacDropdownCommon</td>
@@ -1676,7 +1687,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacDropdownOptionCommon.html">projects/sac-common/src/controls/list/dropdownoptions.ts</a>
+                        <a href="./directives/SacDropdownOptionCommon.html">projects/sac-common/src/controls/list/dropdownoptions.ts</a>
             </td>
             <td>directive</td>
             <td>SacDropdownOptionCommon</td>
@@ -1688,7 +1699,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacListboxCommon.html">projects/sac-common/src/controls/list/listbox.ts</a>
+                        <a href="./directives/SacListboxCommon.html">projects/sac-common/src/controls/list/listbox.ts</a>
             </td>
             <td>directive</td>
             <td>SacListboxCommon</td>
@@ -1700,7 +1711,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacListboxOptionCommon.html">projects/sac-common/src/controls/list/listbox.ts</a>
+                        <a href="./directives/SacListboxOptionCommon.html">projects/sac-common/src/controls/list/listbox.ts</a>
             </td>
             <td>directive</td>
             <td>SacListboxOptionCommon</td>
@@ -1712,7 +1723,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/HTMLCollection.html">projects/sac-common/src/controls/list/listbox.ts</a>
+                        <a href="./classes/HTMLCollection.html">projects/sac-common/src/controls/list/listbox.ts</a>
             </td>
             <td>class</td>
             <td>HTMLCollection</td>
@@ -1724,7 +1735,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/HTMLOption.html">projects/sac-common/src/controls/list/listbox.ts</a>
+                        <a href="./interfaces/HTMLOption.html">projects/sac-common/src/controls/list/listbox.ts</a>
             </td>
             <td>interface</td>
             <td>HTMLOption</td>
@@ -1736,7 +1747,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacMultilanguageInputCommon.html">projects/sac-common/src/controls/multilanguage/multilanguageinput.ts</a>
+                        <a href="./directives/SacMultilanguageInputCommon.html">projects/sac-common/src/controls/multilanguage/multilanguageinput.ts</a>
             </td>
             <td>directive</td>
             <td>SacMultilanguageInputCommon</td>
@@ -1748,7 +1759,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacMultilanguageInputAreaCommon.html">projects/sac-common/src/controls/multilanguage/multilanguageinputarea.ts</a>
+                        <a href="./directives/SacMultilanguageInputAreaCommon.html">projects/sac-common/src/controls/multilanguage/multilanguageinputarea.ts</a>
             </td>
             <td>directive</td>
             <td>SacMultilanguageInputAreaCommon</td>
@@ -1760,7 +1771,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacStaticFormContainerCommon.html">projects/sac-common/src/controls/static/formcontainer.ts</a>
+                        <a href="./directives/SacStaticFormContainerCommon.html">projects/sac-common/src/controls/static/formcontainer.ts</a>
             </td>
             <td>directive</td>
             <td>SacStaticFormContainerCommon</td>
@@ -1772,7 +1783,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacStaticLabelCommon.html">projects/sac-common/src/controls/static/staticlabel.ts</a>
+                        <a href="./directives/SacStaticLabelCommon.html">projects/sac-common/src/controls/static/staticlabel.ts</a>
             </td>
             <td>directive</td>
             <td>SacStaticLabelCommon</td>
@@ -1784,7 +1795,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacTabCommon.html">projects/sac-common/src/controls/tabs/tab.ts</a>
+                        <a href="./directives/SacTabCommon.html">projects/sac-common/src/controls/tabs/tab.ts</a>
             </td>
             <td>directive</td>
             <td>SacTabCommon</td>
@@ -1796,7 +1807,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacTabItemCommon.html">projects/sac-common/src/controls/tabs/tabitem.ts</a>
+                        <a href="./directives/SacTabItemCommon.html">projects/sac-common/src/controls/tabs/tabitem.ts</a>
             </td>
             <td>directive</td>
             <td>SacTabItemCommon</td>
@@ -1808,7 +1819,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacTinyMceCommon.html">projects/sac-common/src/controls/tinymce/tinymce.ts</a>
+                        <a href="./directives/SacTinyMceCommon.html">projects/sac-common/src/controls/tinymce/tinymce.ts</a>
             </td>
             <td>directive</td>
             <td>SacTinyMceCommon</td>
@@ -1820,7 +1831,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/TinyMceDialogSettings.html">projects/sac-common/src/controls/tinymce/tinymcedialogsettings.ts</a>
+                        <a href="./classes/TinyMceDialogSettings.html">projects/sac-common/src/controls/tinymce/tinymcedialogsettings.ts</a>
             </td>
             <td>class</td>
             <td>TinyMceDialogSettings</td>
@@ -1832,7 +1843,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/TinyMceDialogSettingsMeta.html">projects/sac-common/src/controls/tinymce/tinymcedialogsettingsmeta.ts</a>
+                        <a href="./interfaces/TinyMceDialogSettingsMeta.html">projects/sac-common/src/controls/tinymce/tinymcedialogsettingsmeta.ts</a>
             </td>
             <td>interface</td>
             <td>TinyMceDialogSettingsMeta</td>
@@ -1844,7 +1855,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/TinyMceInstance.html">projects/sac-common/src/controls/tinymce/tinymceinstance.ts</a>
+                        <a href="./interfaces/TinyMceInstance.html">projects/sac-common/src/controls/tinymce/tinymceinstance.ts</a>
             </td>
             <td>interface</td>
             <td>TinyMceInstance</td>
@@ -1856,7 +1867,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacTooltipCommon.html">projects/sac-common/src/controls/tooltip/tooltip.ts</a>
+                        <a href="./directives/SacTooltipCommon.html">projects/sac-common/src/controls/tooltip/tooltip.ts</a>
             </td>
             <td>directive</td>
             <td>SacTooltipCommon</td>
@@ -1868,19 +1879,19 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacTreeviewCommon.html">projects/sac-common/src/controls/treeview/treeview.ts</a>
+                        <a href="./directives/SacTreeviewCommon.html">projects/sac-common/src/controls/treeview/treeview.ts</a>
             </td>
             <td>directive</td>
             <td>SacTreeviewCommon</td>
-            <td align="right" data-sort="91">
-                <span class="coverage-percent">91 %</span>
-                <span class="coverage-count">(79/86)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(86/86)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacDropzoneMultipleCommon.html">projects/sac-common/src/controls/upload/dropzonemultiple.ts</a>
+                        <a href="./directives/SacDropzoneMultipleCommon.html">projects/sac-common/src/controls/upload/dropzonemultiple.ts</a>
             </td>
             <td>directive</td>
             <td>SacDropzoneMultipleCommon</td>
@@ -1892,7 +1903,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacDropzoneSingleCommon.html">projects/sac-common/src/controls/upload/dropzonesingle.ts</a>
+                        <a href="./directives/SacDropzoneSingleCommon.html">projects/sac-common/src/controls/upload/dropzonesingle.ts</a>
             </td>
             <td>directive</td>
             <td>SacDropzoneSingleCommon</td>
@@ -1904,7 +1915,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacUploadMultipleCommon.html">projects/sac-common/src/controls/upload/uploadmultiple.ts</a>
+                        <a href="./directives/SacUploadMultipleCommon.html">projects/sac-common/src/controls/upload/uploadmultiple.ts</a>
             </td>
             <td>directive</td>
             <td>SacUploadMultipleCommon</td>
@@ -1916,7 +1927,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacUploadSingleCommon.html">projects/sac-common/src/controls/upload/uploadsingle.ts</a>
+                        <a href="./directives/SacUploadSingleCommon.html">projects/sac-common/src/controls/upload/uploadsingle.ts</a>
             </td>
             <td>directive</td>
             <td>SacUploadSingleCommon</td>
@@ -1928,7 +1939,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacValidationSummaryCommon.html">projects/sac-common/src/controls/validation/validationsummary.ts</a>
+                        <a href="./directives/SacValidationSummaryCommon.html">projects/sac-common/src/controls/validation/validationsummary.ts</a>
             </td>
             <td>directive</td>
             <td>SacValidationSummaryCommon</td>
@@ -1940,7 +1951,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacWizardCommon.html">projects/sac-common/src/controls/wizard/wizard.ts</a>
+                        <a href="./directives/SacWizardCommon.html">projects/sac-common/src/controls/wizard/wizard.ts</a>
             </td>
             <td>directive</td>
             <td>SacWizardCommon</td>
@@ -1952,7 +1963,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./directives/SacWizardItemCommon.html">projects/sac-common/src/controls/wizard/wizarditem.ts</a>
+                        <a href="./directives/SacWizardItemCommon.html">projects/sac-common/src/controls/wizard/wizarditem.ts</a>
             </td>
             <td>directive</td>
             <td>SacWizardItemCommon</td>
@@ -1964,7 +1975,19 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/ISacConfigurationService.html">projects/sac-common/src/interfaces/ISacConfigurationService.ts</a>
+                        <a href="./miscellaneous/typealiases.html#BUTTONROLETYPE">projects/sac-common/src/enums/ButtonRoleType.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>BUTTONROLETYPE</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/ISacConfigurationService.html">projects/sac-common/src/interfaces/ISacConfigurationService.ts</a>
             </td>
             <td>interface</td>
             <td>ISacConfigurationService</td>
@@ -1976,7 +1999,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/ISacFileBrowserService.html">projects/sac-common/src/interfaces/ISacFileBrowserService.ts</a>
+                        <a href="./interfaces/ISacFileBrowserService.html">projects/sac-common/src/interfaces/ISacFileBrowserService.ts</a>
             </td>
             <td>interface</td>
             <td>ISacFileBrowserService</td>
@@ -1988,7 +2011,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/ISacIconService.html">projects/sac-common/src/interfaces/ISacIconService.ts</a>
+                        <a href="./interfaces/ISacIconService.html">projects/sac-common/src/interfaces/ISacIconService.ts</a>
             </td>
             <td>interface</td>
             <td>ISacIconService</td>
@@ -1997,22 +2020,22 @@
                 <span class="coverage-count">(8/8)</span>
             </td>
         </tr>
-        <tr class="low">
+        <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/ISacLabelSizes.html">projects/sac-common/src/interfaces/ISacLabelSizes.ts</a>
+                        <a href="./interfaces/ISacLabelSizes.html">projects/sac-common/src/interfaces/ISacLabelSizes.ts</a>
             </td>
             <td>interface</td>
             <td>ISacLabelSizes</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/ISacLanguageService.html">projects/sac-common/src/interfaces/ISacLanguageService.ts</a>
+                        <a href="./interfaces/ISacLanguageService.html">projects/sac-common/src/interfaces/ISacLanguageService.ts</a>
             </td>
             <td>interface</td>
             <td>ISacLanguageService</td>
@@ -2024,7 +2047,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/ISacLocalisationService.html">projects/sac-common/src/interfaces/ISacLocalisationService.ts</a>
+                        <a href="./interfaces/ISacLocalisationService.html">projects/sac-common/src/interfaces/ISacLocalisationService.ts</a>
             </td>
             <td>interface</td>
             <td>ISacLocalisationService</td>
@@ -2033,22 +2056,22 @@
                 <span class="coverage-count">(2/2)</span>
             </td>
         </tr>
-        <tr class="low">
+        <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/ISacUploadEventCompleteState.html">projects/sac-common/src/interfaces/ISacUploadEventCompleteState.ts</a>
+                        <a href="./interfaces/ISacUploadEventCompleteState.html">projects/sac-common/src/interfaces/ISacUploadEventCompleteState.ts</a>
             </td>
             <td>interface</td>
             <td>ISacUploadEventCompleteState</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/4)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(4/4)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/ISacValidationKeyService.html">projects/sac-common/src/interfaces/ISacValidationKeyService.ts</a>
+                        <a href="./interfaces/ISacValidationKeyService.html">projects/sac-common/src/interfaces/ISacValidationKeyService.ts</a>
             </td>
             <td>interface</td>
             <td>ISacValidationKeyService</td>
@@ -2057,22 +2080,22 @@
                 <span class="coverage-count">(1/1)</span>
             </td>
         </tr>
-        <tr class="medium">
+        <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/IAbstractControlLabelExtension.html">projects/sac-common/src/interfaces/iabstractcontrollabel.ts</a>
+                        <a href="./interfaces/IAbstractControlLabelExtension.html">projects/sac-common/src/interfaces/iabstractcontrollabel.ts</a>
             </td>
             <td>interface</td>
             <td>IAbstractControlLabelExtension</td>
-            <td align="right" data-sort="50">
-                <span class="coverage-percent">50 %</span>
-                <span class="coverage-count">(1/2)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(2/2)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/IConfirmComponent.html">projects/sac-common/src/interfaces/iconfirmcomponent.ts</a>
+                        <a href="./interfaces/IConfirmComponent.html">projects/sac-common/src/interfaces/iconfirmcomponent.ts</a>
             </td>
             <td>interface</td>
             <td>IConfirmComponent</td>
@@ -2081,22 +2104,22 @@
                 <span class="coverage-count">(4/4)</span>
             </td>
         </tr>
-        <tr class="medium">
+        <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/IDateTimeControl.html">projects/sac-common/src/interfaces/idatetimecontrol.ts</a>
+                        <a href="./interfaces/IDateTimeControl.html">projects/sac-common/src/interfaces/idatetimecontrol.ts</a>
             </td>
             <td>interface</td>
             <td>IDateTimeControl</td>
-            <td align="right" data-sort="33">
-                <span class="coverage-percent">33 %</span>
-                <span class="coverage-count">(1/3)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/IUploadControl.html">projects/sac-common/src/interfaces/iuploadcontrol.ts</a>
+                        <a href="./interfaces/IUploadControl.html">projects/sac-common/src/interfaces/iuploadcontrol.ts</a>
             </td>
             <td>interface</td>
             <td>IUploadControl</td>
@@ -2105,22 +2128,22 @@
                 <span class="coverage-count">(2/2)</span>
             </td>
         </tr>
-        <tr class="low">
+        <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/TreeviewAction.html">projects/sac-common/src/interfaces/treeviewaction.interface.ts</a>
+                        <a href="./interfaces/TreeviewAction.html">projects/sac-common/src/interfaces/treeviewaction.interface.ts</a>
             </td>
             <td>interface</td>
             <td>TreeviewAction</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/3)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(3/3)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/LanguageModel.html">projects/sac-common/src/models/languagemodel.ts</a>
+                        <a href="./classes/LanguageModel.html">projects/sac-common/src/models/languagemodel.ts</a>
             </td>
             <td>class</td>
             <td>LanguageModel</td>
@@ -2132,7 +2155,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./injectables/SacAbstractConfigurationService.html">projects/sac-common/src/services/sac-configuration.service.ts</a>
+                        <a href="./injectables/SacAbstractConfigurationService.html">projects/sac-common/src/services/sac-configuration.service.ts</a>
             </td>
             <td>injectable</td>
             <td>SacAbstractConfigurationService</td>
@@ -2144,7 +2167,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./injectables/SacDefaultConfigurationService.html">projects/sac-common/src/services/sac-configuration.service.ts</a>
+                        <a href="./injectables/SacDefaultConfigurationService.html">projects/sac-common/src/services/sac-configuration.service.ts</a>
             </td>
             <td>injectable</td>
             <td>SacDefaultConfigurationService</td>
@@ -2156,7 +2179,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#SACCONFIGURATION_SERVICE">projects/sac-common/src/services/sac-configuration.service.ts</a>
+                        <a href="./miscellaneous/variables.html#SACCONFIGURATION_SERVICE">projects/sac-common/src/services/sac-configuration.service.ts</a>
             </td>
             <td>variable</td>
             <td>SACCONFIGURATION_SERVICE</td>
@@ -2168,7 +2191,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./injectables/SacAbstractFileBrowserService.html">projects/sac-common/src/services/sac-filebrowser.service.ts</a>
+                        <a href="./injectables/SacAbstractFileBrowserService.html">projects/sac-common/src/services/sac-filebrowser.service.ts</a>
             </td>
             <td>injectable</td>
             <td>SacAbstractFileBrowserService</td>
@@ -2180,7 +2203,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./injectables/SacDefaultFileBrowserService.html">projects/sac-common/src/services/sac-filebrowser.service.ts</a>
+                        <a href="./injectables/SacDefaultFileBrowserService.html">projects/sac-common/src/services/sac-filebrowser.service.ts</a>
             </td>
             <td>injectable</td>
             <td>SacDefaultFileBrowserService</td>
@@ -2192,7 +2215,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#SACFILEBROWSER_SERVICE">projects/sac-common/src/services/sac-filebrowser.service.ts</a>
+                        <a href="./miscellaneous/variables.html#SACFILEBROWSER_SERVICE">projects/sac-common/src/services/sac-filebrowser.service.ts</a>
             </td>
             <td>variable</td>
             <td>SACFILEBROWSER_SERVICE</td>
@@ -2204,7 +2227,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./injectables/SacAbstractIconService.html">projects/sac-common/src/services/sac-icon.service.ts</a>
+                        <a href="./injectables/SacAbstractIconService.html">projects/sac-common/src/services/sac-icon.service.ts</a>
             </td>
             <td>injectable</td>
             <td>SacAbstractIconService</td>
@@ -2216,7 +2239,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./injectables/SacDefaultIconService.html">projects/sac-common/src/services/sac-icon.service.ts</a>
+                        <a href="./injectables/SacDefaultIconService.html">projects/sac-common/src/services/sac-icon.service.ts</a>
             </td>
             <td>injectable</td>
             <td>SacDefaultIconService</td>
@@ -2228,7 +2251,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#SACICON_SERVICE">projects/sac-common/src/services/sac-icon.service.ts</a>
+                        <a href="./miscellaneous/variables.html#SACICON_SERVICE">projects/sac-common/src/services/sac-icon.service.ts</a>
             </td>
             <td>variable</td>
             <td>SACICON_SERVICE</td>
@@ -2240,7 +2263,7 @@
         <tr class="medium">
             <td>
                 <!-- miscellaneous -->
-                <a href="./injectables/SacAbstractLanguageService.html">projects/sac-common/src/services/sac-language.service.ts</a>
+                        <a href="./injectables/SacAbstractLanguageService.html">projects/sac-common/src/services/sac-language.service.ts</a>
             </td>
             <td>injectable</td>
             <td>SacAbstractLanguageService</td>
@@ -2252,7 +2275,7 @@
         <tr class="medium">
             <td>
                 <!-- miscellaneous -->
-                <a href="./injectables/SacDefaultLanguageService.html">projects/sac-common/src/services/sac-language.service.ts</a>
+                        <a href="./injectables/SacDefaultLanguageService.html">projects/sac-common/src/services/sac-language.service.ts</a>
             </td>
             <td>injectable</td>
             <td>SacDefaultLanguageService</td>
@@ -2264,7 +2287,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#SACLANGUAGE_SERVICE">projects/sac-common/src/services/sac-language.service.ts</a>
+                        <a href="./miscellaneous/variables.html#SACLANGUAGE_SERVICE">projects/sac-common/src/services/sac-language.service.ts</a>
             </td>
             <td>variable</td>
             <td>SACLANGUAGE_SERVICE</td>
@@ -2276,7 +2299,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./injectables/SacAbstractLocalisationService.html">projects/sac-common/src/services/sac-localisation.service.ts</a>
+                        <a href="./injectables/SacAbstractLocalisationService.html">projects/sac-common/src/services/sac-localisation.service.ts</a>
             </td>
             <td>injectable</td>
             <td>SacAbstractLocalisationService</td>
@@ -2288,7 +2311,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./injectables/SacDefaultLocalisationService.html">projects/sac-common/src/services/sac-localisation.service.ts</a>
+                        <a href="./injectables/SacDefaultLocalisationService.html">projects/sac-common/src/services/sac-localisation.service.ts</a>
             </td>
             <td>injectable</td>
             <td>SacDefaultLocalisationService</td>
@@ -2300,7 +2323,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#SACLOCALISATION_SERVICE">projects/sac-common/src/services/sac-localisation.service.ts</a>
+                        <a href="./miscellaneous/variables.html#SACLOCALISATION_SERVICE">projects/sac-common/src/services/sac-localisation.service.ts</a>
             </td>
             <td>variable</td>
             <td>SACLOCALISATION_SERVICE</td>
@@ -2309,22 +2332,22 @@
                 <span class="coverage-count">(1/1)</span>
             </td>
         </tr>
-        <tr class="low">
+        <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./injectables/SacDefaultValidationKeyService.html">projects/sac-common/src/services/sac-validationkey.service.ts</a>
+                        <a href="./injectables/SacDefaultValidationKeyService.html">projects/sac-common/src/services/sac-validationkey.service.ts</a>
             </td>
             <td>injectable</td>
             <td>SacDefaultValidationKeyService</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#SACVALIDATIONKEY_SERVICE">projects/sac-common/src/services/sac-validationkey.service.ts</a>
+                        <a href="./miscellaneous/variables.html#SACVALIDATIONKEY_SERVICE">projects/sac-common/src/services/sac-validationkey.service.ts</a>
             </td>
             <td>variable</td>
             <td>SACVALIDATIONKEY_SERVICE</td>
@@ -2336,7 +2359,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#context">projects/sac-common/src/test.ts</a>
+                        <a href="./miscellaneous/variables.html#context">projects/sac-common/src/test.ts</a>
             </td>
             <td>variable</td>
             <td>context</td>
@@ -2348,7 +2371,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#require">projects/sac-common/src/test.ts</a>
+                        <a href="./miscellaneous/variables.html#require">projects/sac-common/src/test.ts</a>
             </td>
             <td>variable</td>
             <td>require</td>
@@ -2360,7 +2383,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#convertToBoolean">projects/sac-common/src/utilities/convertion.ts</a>
+                        <a href="./miscellaneous/functions.html#convertToBoolean">projects/sac-common/src/utilities/convertion.ts</a>
             </td>
             <td>function</td>
             <td>convertToBoolean</td>
@@ -2372,7 +2395,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#convertToNumber">projects/sac-common/src/utilities/convertion.ts</a>
+                        <a href="./miscellaneous/functions.html#convertToNumber">projects/sac-common/src/utilities/convertion.ts</a>
             </td>
             <td>function</td>
             <td>convertToNumber</td>
@@ -2384,7 +2407,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#mapToObject">projects/sac-common/src/utilities/convertion.ts</a>
+                        <a href="./miscellaneous/functions.html#mapToObject">projects/sac-common/src/utilities/convertion.ts</a>
             </td>
             <td>function</td>
             <td>mapToObject</td>
@@ -2396,7 +2419,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#isDefined">projects/sac-common/src/utilities/datatypes.ts</a>
+                        <a href="./miscellaneous/functions.html#isDefined">projects/sac-common/src/utilities/datatypes.ts</a>
             </td>
             <td>function</td>
             <td>isDefined</td>
@@ -2408,7 +2431,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#createGuid">projects/sac-common/src/utilities/guid.ts</a>
+                        <a href="./miscellaneous/functions.html#createGuid">projects/sac-common/src/utilities/guid.ts</a>
             </td>
             <td>function</td>
             <td>createGuid</td>
@@ -2420,7 +2443,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/Interpolation.html">projects/sac-common/src/utilities/interpolation.ts</a>
+                        <a href="./classes/Interpolation.html">projects/sac-common/src/utilities/interpolation.ts</a>
             </td>
             <td>class</td>
             <td>Interpolation</td>
@@ -2429,46 +2452,46 @@
                 <span class="coverage-count">(2/2)</span>
             </td>
         </tr>
-        <tr class="good">
+        <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/PopUpHelper.html">projects/sac-common/src/utilities/popuphelper.ts</a>
+                        <a href="./classes/PopUpHelper.html">projects/sac-common/src/utilities/popuphelper.ts</a>
             </td>
             <td>class</td>
             <td>PopUpHelper</td>
-            <td align="right" data-sort="75">
-                <span class="coverage-percent">75 %</span>
-                <span class="coverage-count">(9/12)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(12/12)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/Positioning.html">projects/sac-common/src/utilities/positioning.ts</a>
+                        <a href="./classes/PositionCalculator.html">projects/sac-common/src/utilities/positioncalculator.ts</a>
             </td>
             <td>class</td>
-            <td>Positioning</td>
+            <td>PositionCalculator</td>
             <td align="right" data-sort="100">
                 <span class="coverage-percent">100 %</span>
                 <span class="coverage-count">(4/4)</span>
             </td>
         </tr>
-        <tr class="low">
+        <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./interfaces/ClientRect.html">projects/sac-common/src/utilities/positioning.ts</a>
+                        <a href="./interfaces/ClientRect.html">projects/sac-common/src/utilities/positioncalculator.ts</a>
             </td>
             <td>interface</td>
             <td>ClientRect</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/7)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(7/7)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#positionElements">projects/sac-common/src/utilities/positioning.ts</a>
+                        <a href="./miscellaneous/functions.html#positionElements">projects/sac-common/src/utilities/positionelements.ts</a>
             </td>
             <td>function</td>
             <td>positionElements</td>
@@ -2480,7 +2503,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#placementSeparator">projects/sac-common/src/utilities/positioning.ts</a>
+                        <a href="./miscellaneous/variables.html#placementSeparator">projects/sac-common/src/utilities/positionelements.ts</a>
             </td>
             <td>variable</td>
             <td>placementSeparator</td>
@@ -2492,7 +2515,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#positionService">projects/sac-common/src/utilities/positioning.ts</a>
+                        <a href="./miscellaneous/variables.html#positionService">projects/sac-common/src/utilities/positionelements.ts</a>
             </td>
             <td>variable</td>
             <td>positionService</td>
@@ -2501,238 +2524,250 @@
                 <span class="coverage-count">(1/1)</span>
             </td>
         </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./pipes/SacTestingAttributePipe.html">projects/sac-common/src/utilities/testingattribute.pipe.ts</a>
-            </td>
-            <td>pipe</td>
-            <td>SacTestingAttributePipe</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#emailValidator">projects/sac-common/src/validation/email.validator.ts</a>
-            </td>
-            <td>function</td>
-            <td>emailValidator</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#equalsValueValidator">projects/sac-common/src/validation/equals.validator.ts</a>
-            </td>
-            <td>function</td>
-            <td>equalsValueValidator</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#isValidDateValidator">projects/sac-common/src/validation/invaliddate.validator.ts</a>
-            </td>
-            <td>function</td>
-            <td>isValidDateValidator</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#isDateValid">projects/sac-common/src/validation/isDateValid.ts</a>
-            </td>
-            <td>function</td>
-            <td>isDateValid</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#moment">projects/sac-common/src/validation/isDateValid.ts</a>
+                        <a href="./miscellaneous/typealiases.html#Placement">projects/sac-common/src/utilities/positionelements.ts</a>
             </td>
-            <td>variable</td>
-            <td>moment</td>
+            <td>type alias</td>
+            <td>Placement</td>
             <td align="right" data-sort="100">
                 <span class="coverage-percent">100 %</span>
                 <span class="coverage-count">(1/1)</span>
             </td>
         </tr>
-        <tr class="low">
+        <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#maxDateValidator">projects/sac-common/src/validation/maxdate.validator.ts</a>
+                        <a href="./miscellaneous/typealiases.html#PlacementArray">projects/sac-common/src/utilities/positionelements.ts</a>
             </td>
-            <td>function</td>
-            <td>maxDateValidator</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#maxTimeValidator">projects/sac-common/src/validation/maxtime.validator.ts</a>
-            </td>
-            <td>function</td>
-            <td>maxTimeValidator</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#maxValueValidator">projects/sac-common/src/validation/maxvalue.validator.ts</a>
-            </td>
-            <td>function</td>
-            <td>maxValueValidator</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#minDateValidator">projects/sac-common/src/validation/mindate.validator.ts</a>
-            </td>
-            <td>function</td>
-            <td>minDateValidator</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#minFilesValidator">projects/sac-common/src/validation/minfiles.validator.ts</a>
-            </td>
-            <td>function</td>
-            <td>minFilesValidator</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#minTextLengthValidator">projects/sac-common/src/validation/mintextlength.validator.ts</a>
-            </td>
-            <td>function</td>
-            <td>minTextLengthValidator</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#minTimeValidator">projects/sac-common/src/validation/mintime.validator.ts</a>
-            </td>
-            <td>function</td>
-            <td>minTimeValidator</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#minValueValidator">projects/sac-common/src/validation/minvalue.validator.ts</a>
-            </td>
-            <td>function</td>
-            <td>minValueValidator</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#multilanguageRequiredValidator">projects/sac-common/src/validation/multilanguagerequired.validator.ts</a>
-            </td>
-            <td>function</td>
-            <td>multilanguageRequiredValidator</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#multilanguageRequiredAnyValidator">projects/sac-common/src/validation/multilanguagerequiredany.validator.ts</a>
-            </td>
-            <td>function</td>
-            <td>multilanguageRequiredAnyValidator</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#notEqualsValueValidator">projects/sac-common/src/validation/notequals.validator.ts</a>
-            </td>
-            <td>function</td>
-            <td>notEqualsValueValidator</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#patternValidator">projects/sac-common/src/validation/pattern.validator.ts</a>
-            </td>
-            <td>function</td>
-            <td>patternValidator</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
-            </td>
-        </tr>
-        <tr class="low">
-            <td>
-                <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#requiredValidator">projects/sac-common/src/validation/required.validator.ts</a>
-            </td>
-            <td>function</td>
-            <td>requiredValidator</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
+            <td>type alias</td>
+            <td>PlacementArray</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/Validation.html">projects/sac-common/src/validation/validation.ts</a>
+                        <a href="./pipes/SacTestingAttributePipe.html">projects/sac-common/src/utilities/testingattribute.pipe.ts</a>
+            </td>
+            <td>pipe</td>
+            <td>SacTestingAttributePipe</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#emailValidator">projects/sac-common/src/validation/email.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>emailValidator</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#equalsValueValidator">projects/sac-common/src/validation/equals.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>equalsValueValidator</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#isValidDateValidator">projects/sac-common/src/validation/invaliddate.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>isValidDateValidator</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#isDateValid">projects/sac-common/src/validation/isDateValid.ts</a>
+            </td>
+            <td>function</td>
+            <td>isDateValid</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#maxDateValidator">projects/sac-common/src/validation/maxdate.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>maxDateValidator</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#maxTimeValidator">projects/sac-common/src/validation/maxtime.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>maxTimeValidator</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#maxValueValidator">projects/sac-common/src/validation/maxvalue.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>maxValueValidator</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#minDateValidator">projects/sac-common/src/validation/mindate.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>minDateValidator</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#minFilesValidator">projects/sac-common/src/validation/minfiles.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>minFilesValidator</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#minTextLengthValidator">projects/sac-common/src/validation/mintextlength.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>minTextLengthValidator</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#minTimeValidator">projects/sac-common/src/validation/mintime.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>minTimeValidator</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#minValueValidator">projects/sac-common/src/validation/minvalue.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>minValueValidator</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#multilanguageRequiredValidator">projects/sac-common/src/validation/multilanguagerequired.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>multilanguageRequiredValidator</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#multilanguageRequiredAnyValidator">projects/sac-common/src/validation/multilanguagerequiredany.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>multilanguageRequiredAnyValidator</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#notEqualsValueValidator">projects/sac-common/src/validation/notequals.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>notEqualsValueValidator</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#patternValidator">projects/sac-common/src/validation/pattern.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>patternValidator</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#requiredValidator">projects/sac-common/src/validation/required.validator.ts</a>
+            </td>
+            <td>function</td>
+            <td>requiredValidator</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./classes/Validation.html">projects/sac-common/src/validation/validation.ts</a>
             </td>
             <td>class</td>
             <td>Validation</td>
@@ -2744,7 +2779,7 @@
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/variables.html#moment">projects/sac-common/src/validation/validation.ts</a>
+                        <a href="./miscellaneous/variables.html#moment">projects/sac-common/src/validation/validation.ts</a>
             </td>
             <td>variable</td>
             <td>moment</td>
@@ -2753,22 +2788,22 @@
                 <span class="coverage-count">(1/1)</span>
             </td>
         </tr>
-        <tr class="low">
+        <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./miscellaneous/functions.html#CreateValidationError">projects/sac-common/src/validation/validationerrorcreator.ts</a>
+                        <a href="./miscellaneous/functions.html#CreateValidationError">projects/sac-common/src/validation/validationerrorcreator.ts</a>
             </td>
             <td>function</td>
             <td>CreateValidationError</td>
-            <td align="right" data-sort="0">
-                <span class="coverage-percent">0 %</span>
-                <span class="coverage-count">(0/1)</span>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
             </td>
         </tr>
         <tr class="very-good">
             <td>
                 <!-- miscellaneous -->
-                <a href="./classes/ValidationErrorItem.html">projects/sac-common/src/validation/validationerroritem.ts</a>
+                        <a href="./classes/ValidationErrorItem.html">projects/sac-common/src/validation/validationerroritem.ts</a>
             </td>
             <td>class</td>
             <td>ValidationErrorItem</td>
@@ -2816,6 +2851,19 @@
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
 
@@ -2827,7 +2875,6 @@
        <script src="./js/libs/es6-shim.min.js"></script>
        <script src="./js/libs/EventDispatcher.js"></script>
        <script src="./js/libs/promise.min.js"></script>
-       <script src="./js/libs/zepto.min.js"></script>
 
        <script src="./js/compodoc.js"></script>
 

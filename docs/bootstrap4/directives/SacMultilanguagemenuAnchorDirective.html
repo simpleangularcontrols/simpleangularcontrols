@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -129,7 +140,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Anker Komponente für Context Menü. Wird zum positionieren des Context Menü in der Page benötigt.</p>
+                <p>Anchor component for context menu. Required to position the context menu on the page.</p>
 
             </p>
 
@@ -150,9 +161,7 @@
                         <td class="col-md-3">Providers</td>
                         <td class="col-md-9">
                             <code>
-                                {
-    provide: SacContextmenuAnchorCommon, useExisting: forwardRef(() &#x3D;&gt; SacMultilanguagemenuAnchorDirective),
-}
+                                )
                             </code>
                         </td>
                     </tr>
@@ -215,7 +224,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -241,7 +250,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>HTML DOM Referenz</p>
+                                                                <p>HTML DOM reference</p>
 
                                                         </td>
                                                 </tr>
@@ -297,7 +306,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Referenz auf das Native HTML Element</p>
+                    <div class="io-description"><p>Reference to the native HTML element</p>
 </div>
                 </td>
             </tr>
@@ -315,29 +324,29 @@
 import { SacContextmenuAnchorCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 /**
- * Anker Komponente für Context Menü. Wird zum positionieren des Context Menü in der Page benötigt.
+ * Anchor component for context menu. Required to position the context menu on the page.
  */
 @Directive({
-  selector: &#x27;[sacMultilanguageMenuAnchor]&#x27;,
-  providers: [
-    {
-      provide: SacContextmenuAnchorCommon,
-      useExisting: forwardRef(() &#x3D;&gt; SacMultilanguagemenuAnchorDirective),
-    },
-  ],
+    selector: &#x27;[sacMultilanguageMenuAnchor]&#x27;,
+    providers: [
+        {
+            provide: SacContextmenuAnchorCommon,
+            useExisting: forwardRef(() &#x3D;&gt; SacMultilanguagemenuAnchorDirective),
+        },
+    ],
 })
 export class SacMultilanguagemenuAnchorDirective extends SacContextmenuAnchorCommon {
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Konstruktor
-   * @param elementRef HTML DOM Referenz
-   */
-  constructor(elementRef: ElementRef&lt;HTMLElement&gt;) {
-    super(elementRef);
-  }
+    /**
+     * Constructor
+     * @param elementRef HTML DOM reference
+     */
+    constructor(elementRef: ElementRef&lt;HTMLElement&gt;) {
+        super(elementRef);
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 }
 </code></pre>
     </div>
@@ -387,6 +396,19 @@ export class SacMultilanguagemenuAnchorDirective extends SacContextmenuAnchorCom
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -398,7 +420,6 @@ export class SacMultilanguagemenuAnchorDirective extends SacContextmenuAnchorCom
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

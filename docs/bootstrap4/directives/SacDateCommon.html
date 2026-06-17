@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -129,7 +140,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Komponente für SacDateCommon. Extends SacBaseDateTimeControl</p>
+                <p>Component for SacDateCommon. Extends SacBaseDateTimeControl</p>
 
             </p>
 
@@ -497,10 +508,10 @@
                                 <a href="#inlineerrorenabled" >inlineerrorenabled</a>
                             </li>
                             <li>
-                                <a href="#isAdaptiveLabel" >isAdaptiveLabel</a>
+                                <a href="#label" >label</a>
                             </li>
                             <li>
-                                <a href="#label" >label</a>
+                                <a href="#labelMode" >labelMode</a>
                             </li>
                             <li>
                                 <a href="#labelSizeLg" >labelSizeLg</a>
@@ -665,7 +676,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Change Dectection Servie</p>
+                                                                <p>Change Detection Service</p>
 
                                                         </td>
                                                 </tr>
@@ -760,7 +771,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Resource Key für Validation Message MaxDate bei Control</p>
+                        <div class="io-description"><p>Resource key for validation message MaxDate at control</p>
 </div>
                     </td>
                 </tr>
@@ -792,7 +803,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Resource Key für Validation Message MinDate bei Control</p>
+                        <div class="io-description"><p>Resource key for validation message MinDate at control</p>
 </div>
                     </td>
                 </tr>
@@ -824,7 +835,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Resource Key für Validation Message MaxDate in Validation Summary</p>
+                        <div class="io-description"><p>Resource key for validation message MaxDate in validation summary</p>
 </div>
                     </td>
                 </tr>
@@ -856,7 +867,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Resource Key für Validation Message MinDate in Validation Summary</p>
+                        <div class="io-description"><p>Resource key for validation message MinDate in validation summary</p>
 </div>
                     </td>
                 </tr>
@@ -895,7 +906,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Definiert das Control als Required</p>
+                        <div class="io-description"><p>Defines the control as required</p>
 </div>
                     </td>
                 </tr>
@@ -928,7 +939,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:77</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:81</a></code>
 </div>
                             </td>
                         </tr>
@@ -967,7 +978,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:105</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:109</a></code>
 </div>
                             </td>
                         </tr>
@@ -1007,13 +1018,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:110</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:114</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Resource Key für Validation Message DateTimeFormat bei Control</p>
+                        <div class="io-description"><p>Resource Key for Validation Message DateTimeFormat at Control</p>
 </div>
                     </td>
                 </tr>
@@ -1046,13 +1057,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:115</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:119</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Resource Key für Validation Message DateTimeFormat in Validation Summary</p>
+                        <div class="io-description"><p>Resource Key for Validation Message DateTimeFormat in Validation Summary</p>
 </div>
                     </td>
                 </tr>
@@ -1085,13 +1096,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:121</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:125</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Resource Key für Validation Message Required bei Control</p>
+                        <div class="io-description"><p>Resource Key for Validation Message Required at Control</p>
 </div>
                     </td>
                 </tr>
@@ -1124,13 +1135,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:126</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:130</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Resource Key für Validation Message Required in Validation Summary</p>
+                        <div class="io-description"><p>Resource Key for Validation Message Required in Validation Summary</p>
 </div>
                     </td>
                 </tr>
@@ -1158,13 +1169,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:185</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:190</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Das Input bekommt das value von typ string</p>
+                        <div class="io-description"><p>The input receives the value of type string</p>
 </div>
                     </td>
                 </tr>
@@ -1242,7 +1253,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Deaktiviert das Input Control</p>
+                        <div class="io-description"><p>Disables the input control</p>
 </div>
                     </td>
                 </tr>
@@ -1281,7 +1292,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Deaktiviert das Label im Template</p>
+                        <div class="io-description"><p>Disables the label in the template</p>
 </div>
                     </td>
                 </tr>
@@ -1460,52 +1471,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:265</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:269</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Aktiviert oder Deaktiviert die Inline Errors für das Control</p>
-</div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="isAdaptiveLabel"></a>
-                        <b>isAdaptiveLabel</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>false</code>
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4" colspan="2">
-                                    <div class="io-line">Inherited from         <code><a href="../directives/SacBaseModelControl.html" target="_self" >SacBaseModelControl</a></code>
-</div>
-                                </td>
-                            </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:146</a></code>
-</div>
-                            </td>
-                        </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>defines that the labels are displayed as adaptive labels</p>
+                        <div class="io-description"><p>Enables or disables the inline errors for the control</p>
 </div>
                     </td>
                 </tr>
@@ -1533,13 +1505,52 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:316</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:320</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Definiert den Label Text</p>
+                        <div class="io-description"><p>Sets the label text</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="labelMode"></a>
+                        <b>labelMode</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;standard&quot; | &quot;floating&quot; | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4" colspan="2">
+                                    <div class="io-line">Inherited from         <code><a href="../directives/SacBaseModelControl.html" target="_self" >SacBaseModelControl</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:147</a></code>
+</div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Label Mode &#39;standard&#39; | &#39;floating&#39; or null (null = use global configuration)</p>
 </div>
                     </td>
                 </tr>
@@ -1572,7 +1583,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:152</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:153</a></code>
 </div>
                             </td>
                         </tr>
@@ -1611,7 +1622,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:158</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:159</a></code>
 </div>
                             </td>
                         </tr>
@@ -1650,7 +1661,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:164</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:165</a></code>
 </div>
                             </td>
                         </tr>
@@ -1689,7 +1700,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:170</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:171</a></code>
 </div>
                             </td>
                         </tr>
@@ -1728,7 +1739,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:176</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:177</a></code>
 </div>
                             </td>
                         </tr>
@@ -1767,7 +1778,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:182</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:183</a></code>
 </div>
                             </td>
                         </tr>
@@ -1806,13 +1817,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:187</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:188</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Name des Controls</p>
+                        <div class="io-description"><p>Name of the control</p>
 </div>
                     </td>
                 </tr>
@@ -1845,7 +1856,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:203</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:204</a></code>
 </div>
                             </td>
                         </tr>
@@ -1879,14 +1890,14 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:358</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:362</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Set Methode für NgModel Binding in Html Markup
-Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.</p>
+                        <div class="io-description"><p>Set method for NgModel binding in HTML markup
+Input is required so that the value can also be set via the markup.</p>
 </div>
                     </td>
                 </tr>
@@ -1918,8 +1929,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="183"
-                            class="link-to-prism">projects/sac-common/src/controls/datetime/date.ts:183</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="184"
+                            class="link-to-prism">projects/sac-common/src/controls/datetime/date.ts:184</a></div>
                 </td>
             </tr>
 
@@ -2046,7 +2057,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode ergibt Datum-Format vom String</p>
+                        <div class="io-description"><p>Method returns date format from string</p>
 </div>
 
                         <div class="io-description">
@@ -2093,7 +2104,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode ergibt Datum - Moment</p>
+                        <div class="io-description"><p>Method returns date - moment</p>
 </div>
 
                             <div class="io-description">
@@ -2150,7 +2161,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onClick(targetElement)</code>
+                    <code>onClick(targetElement: unknown)</code>
                 </td>
             </tr>
 
@@ -2164,8 +2175,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="183"
-                                    class="link-to-prism">projects/sac-common/src/controls/datetime/date.ts:183</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="184"
+                                    class="link-to-prism">projects/sac-common/src/controls/datetime/date.ts:184</a></div>
                         </td>
                     </tr>
 
@@ -2182,12 +2193,16 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                                     <thead>
                                         <tr>
                                             <td>Name</td>
+                                                <td>Type</td>
                                             <td>Optional</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                                 <td>targetElement</td>
+                                            <td>
+                                                        <code>unknown</code>
+                                            </td>
 
                                             <td>
                                                     No
@@ -2231,15 +2246,15 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="198"
-                                    class="link-to-prism">projects/sac-common/src/controls/datetime/date.ts:198</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="199"
+                                    class="link-to-prism">projects/sac-common/src/controls/datetime/date.ts:199</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Zeigt Date Selector an</p>
+                        <div class="io-description"><p>Shows date selector</p>
 </div>
 
                         <div class="io-description">
@@ -2278,7 +2293,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:212</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:213</a></code>
 </div>
                         </td>
                     </tr>
@@ -2355,7 +2370,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:339</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:365</a></code>
 </div>
                         </td>
                     </tr>
@@ -2363,11 +2378,17 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Gets the height of the arrow element</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>The height in pixels of the arrow element, or 0 if not present</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2400,7 +2421,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:343</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:373</a></code>
 </div>
                         </td>
                     </tr>
@@ -2408,11 +2429,17 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Gets the width of the arrow element</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>The width in pixels of the arrow element, or 0 if not present</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -2432,7 +2459,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getDate(timestamp)</code>
+                    <code>getDate(timestamp: unknown)</code>
                 </td>
             </tr>
 
@@ -2445,7 +2472,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:233</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:241</a></code>
 </div>
                         </td>
                     </tr>
@@ -2453,7 +2480,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>JSON Date String in ein UTC DateTime Object konvertieren, welches vom Control verwendete werden kann</p>
+                        <div class="io-description"><p>Converts a JSON date string into a UTC DateTime object that can be used by the control</p>
 </div>
 
                             <div class="io-description">
@@ -2463,18 +2490,27 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                                     <thead>
                                         <tr>
                                             <td>Name</td>
+                                                <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                                 <td>timestamp</td>
+                                            <td>
+                                                        <code>unknown</code>
+                                            </td>
 
                                             <td>
                                                     No
                                             </td>
 
 
+                                            <td>
+                                                    <p>Date timestamp to convert</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -2484,7 +2520,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Moment object in UTC</p>
+
                             </div>
                 </td>
             </tr>
@@ -2518,7 +2555,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:248</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:256</a></code>
 </div>
                         </td>
                     </tr>
@@ -2565,7 +2602,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:214</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:220</a></code>
 </div>
                         </td>
                     </tr>
@@ -2612,7 +2649,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:255</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:263</a></code>
 </div>
                         </td>
                     </tr>
@@ -2659,7 +2696,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:350</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:380</a></code>
 </div>
                         </td>
                     </tr>
@@ -2706,7 +2743,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:396</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:426</a></code>
 </div>
                         </td>
                     </tr>
@@ -2753,7 +2790,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:259</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:272</a></code>
 </div>
                         </td>
                     </tr>
@@ -2761,6 +2798,9 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Clean up resources when the control is destroyed.</p>
+<p>Removes the picker element from the DOM if visible and unregisters global resize/scroll listeners.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -2798,7 +2838,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:273</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:286</a></code>
 </div>
                         </td>
                     </tr>
@@ -2845,7 +2885,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:285</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:299</a></code>
 </div>
                         </td>
                     </tr>
@@ -2853,7 +2893,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>setzt das value von typ string zu property valuestring</p>
+                        <div class="io-description"><p>Sets the value of type string to the property valuestring</p>
 </div>
 
                             <div class="io-description">
@@ -2865,6 +2905,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -2879,6 +2920,10 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                                             </td>
 
 
+                                            <td>
+                                                    <p>String value to set</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -2922,7 +2967,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:322</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:340</a></code>
 </div>
                         </td>
                     </tr>
@@ -2942,6 +2987,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -2956,6 +3002,10 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                                             </td>
 
 
+                                            <td>
+                                                    <p>Date or string value to write to the control</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -2999,7 +3049,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:522</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:536</a></code>
 </div>
                         </td>
                     </tr>
@@ -3007,7 +3057,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Method can Overwriten in Parent Classes</p>
+                        <div class="io-description"><p>Method can be overridden in parent classes</p>
 </div>
 
                             <div class="io-description">
@@ -3035,7 +3085,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
 
                                             <td>
-                                                    <p>Wert welcher in den korrekten Typ konvertiert werden soll</p>
+                                                    <p>Value that should be converted to the correct type</p>
 
                                             </td>
                                         </tr>
@@ -3047,7 +3097,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
                         </div>
                             <div class="io-description">
-                                <p>Wert im korrekten Typ</p>
+                                <p>Value in the correct type</p>
 
                             </div>
                 </td>
@@ -3082,7 +3132,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:529</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:543</a></code>
 </div>
                         </td>
                     </tr>
@@ -3090,7 +3140,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode ergibt Decimal Symbol</p>
+                        <div class="io-description"><p>Method returns the decimal symbol</p>
 </div>
 
                         <div class="io-description">
@@ -3129,7 +3179,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:374</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:378</a></code>
 </div>
                         </td>
                     </tr>
@@ -3137,7 +3187,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode ergibt Error anhand von gegebenen Kriterien</p>
+                        <div class="io-description"><p>Method returns error based on given criteria</p>
 </div>
 
                         <div class="io-description">
@@ -3176,7 +3226,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:536</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:550</a></code>
 </div>
                         </td>
                     </tr>
@@ -3223,7 +3273,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:452</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:453</a></code>
 </div>
                         </td>
                     </tr>
@@ -3231,7 +3281,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode ergibt boolean touched = true</p>
+                        <div class="io-description"><p>Method sets touched = true</p>
 </div>
 
                         <div class="io-description">
@@ -3270,7 +3320,7 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:461</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:463</a></code>
 </div>
                         </td>
                     </tr>
@@ -3278,8 +3328,8 @@ Input wird benötigt, damit der Wert auch über das Markup gesetzt werden kann.<
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode, damit andere Controls änderungen im Control mitbekommen können
-Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
+                        <div class="io-description"><p>Method so that other controls can be notified of changes in the control
+For change notification, call the propagateChange method.</p>
 </div>
 
                             <div class="io-description">
@@ -3291,6 +3341,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -3305,6 +3356,10 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <p>Callback function for change notification</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -3348,7 +3403,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:468</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:471</a></code>
 </div>
                         </td>
                     </tr>
@@ -3356,7 +3411,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode, damit andere Controls änderungen mitbekommen, wenn das Control aktiviert (Focus) wird.</p>
+                        <div class="io-description"><p>Method so that other controls can be notified of changes when the control is activated (focus).</p>
 </div>
 
                             <div class="io-description">
@@ -3368,6 +3423,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -3382,6 +3438,10 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <p>Callback function for touch notification</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -3425,7 +3485,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:475</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:479</a></code>
 </div>
                         </td>
                     </tr>
@@ -3433,7 +3493,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode registriert Änderungen bei der Validierung</p>
+                        <div class="io-description"><p>Method registers changes in validation</p>
 </div>
 
                             <div class="io-description">
@@ -3445,6 +3505,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -3459,6 +3520,10 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <p>Callback function for validator change notification</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -3502,7 +3567,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:482</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:487</a></code>
 </div>
                         </td>
                     </tr>
@@ -3510,7 +3575,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Setzt das Control auf Disabled</p>
+                        <div class="io-description"><p>Sets the control to disabled</p>
 </div>
 
                             <div class="io-description">
@@ -3522,6 +3587,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -3536,6 +3602,10 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <p>True to disable the control, false to enable it</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -3579,7 +3649,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:489</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:495</a></code>
 </div>
                         </td>
                     </tr>
@@ -3587,7 +3657,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode die den Wert des Inputs setzt</p>
+                        <div class="io-description"><p>Method that sets the value of the input</p>
 </div>
 
                             <div class="io-description">
@@ -3599,6 +3669,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -3613,6 +3684,10 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <p>The value to set</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -3656,7 +3731,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:541</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:555</a></code>
 </div>
                         </td>
                     </tr>
@@ -3664,7 +3739,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Aktualisiert den NgModel Wert und die Gültigkeit des Validators des Controls</p>
+                        <div class="io-description"><p>Updates the NgModel value and the validity of the control&#39;s validator</p>
 </div>
 
                         <div class="io-description">
@@ -3703,7 +3778,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:496</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:504</a></code>
 </div>
                         </td>
                     </tr>
@@ -3711,7 +3786,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Validator Methode</p>
+                        <div class="io-description"><p>Validator method</p>
 </div>
 
                             <div class="io-description">
@@ -3723,6 +3798,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -3737,6 +3813,10 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <p>Form control to validate</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -3746,7 +3826,8 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Validation errors or null if valid</p>
+
                             </div>
                 </td>
             </tr>
@@ -3866,7 +3947,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Format des Datums</p>
+                    <div class="io-description"><p>Date format</p>
 </div>
                 </td>
             </tr>
@@ -3930,7 +4011,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Maske</p>
+                    <div class="io-description"><p>Mask</p>
 </div>
                 </td>
             </tr>
@@ -3949,6 +4030,12 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </span>
                 </td>
             </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>moment_[&#x27;default&#x27;]</code>
@@ -3990,7 +4077,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <i>Type : </i>    <code>unknown</code>
 
                     </td>
                 </tr>
@@ -4014,7 +4101,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Definiert ob der Date Selector angezeigt wird</p>
+                    <div class="io-description"><p>Defines whether the date selector is displayed</p>
 </div>
                 </td>
             </tr>
@@ -4059,7 +4146,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>das property enthielt das Value als string. Default ist &#39;&#39;</p>
+                    <div class="io-description"><p>This property contains the value as a string. Default is &#39;&#39;</p>
 </div>
                 </td>
             </tr>
@@ -4152,11 +4239,17 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:66</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:70</a></code>
 </div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Reference to the picker arrow element used for calculating tooltip arrow position.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -4196,7 +4289,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:72</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:76</a></code>
 </div>
                         </td>
                     </tr>
@@ -4264,6 +4357,12 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
                         <i>Default value : </i><code>TooltipPosition</code>
                     </td>
                 </tr>
@@ -4320,7 +4419,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:82</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:86</a></code>
 </div>
                         </td>
                     </tr>
@@ -4365,7 +4464,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:87</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:91</a></code>
 </div>
                         </td>
                     </tr>
@@ -4410,7 +4509,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:92</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:96</a></code>
 </div>
                         </td>
                     </tr>
@@ -4455,7 +4554,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:97</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseDateTimeControl.html#source" target="_self" >SacBaseDateTimeControl:101</a></code>
 </div>
                         </td>
                     </tr>
@@ -4481,6 +4580,12 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </span>
                 </td>
             </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>TooltipPosition</code>
@@ -4522,7 +4627,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <i>Type : </i>    <code>unknown</code>
 
                     </td>
                 </tr>
@@ -4546,7 +4651,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Boolean Property dirty; default Wert - false</p>
+                    <div class="io-description"><p>Boolean property dirty; default value - false</p>
 </div>
                 </td>
             </tr>
@@ -4567,7 +4672,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <i>Type : </i>    <code>unknown</code>
 
                     </td>
                 </tr>
@@ -4591,7 +4696,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>SacModel Form ist disabled</p>
+                    <div class="io-description"><p>SacModel form is disabled</p>
 </div>
                 </td>
             </tr>
@@ -4652,7 +4757,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <i>Type : </i>    <code>unknown</code>
 
                     </td>
                 </tr>
@@ -4676,7 +4781,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Boolean Property touched; default Wert - false</p>
+                    <div class="io-description"><p>Boolean property touched; default value - false</p>
 </div>
                 </td>
             </tr>
@@ -4721,7 +4826,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Interne Variable, die den Wert des Controls hält</p>
+                    <div class="io-description"><p>Internal variable that holds the value of the control</p>
 </div>
                 </td>
             </tr>
@@ -4781,6 +4886,12 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </span>
                 </td>
             </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>ControlHeight</code>
@@ -4926,7 +5037,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Service für Error Localisation</p>
+                    <div class="io-description"><p>Service for error localisation</p>
 </div>
                 </td>
             </tr>
@@ -5004,14 +5115,14 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:192</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:193</a></code>
 </div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Leere Implementation von &quot;propagateChange&quot;. Muss gemacht werden, damit kein Fehler entsteht</p>
+                    <div class="io-description"><p>Empty implementation of &quot;propagateChange&quot;. Must be done to avoid errors</p>
 </div>
                 </td>
             </tr>
@@ -5049,14 +5160,14 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:197</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:198</a></code>
 </div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Leere Implementation von &quot;propagateTouch&quot;. Muss gemacht werden, damit kein Fehler entsteht</p>
+                    <div class="io-description"><p>Empty implementation of &quot;propagateTouch&quot;. Must be done to avoid errors</p>
 </div>
                 </td>
             </tr>
@@ -5089,7 +5200,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:208</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacBaseModelControl.html#source" target="_self" >SacBaseModelControl:209</a></code>
 </div>
                         </td>
                     </tr>
@@ -5193,8 +5304,6 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </tbody>
                                         </table>
                                 </div>
-                                <div>
-                                </div>
                                 <div class="io-description">
                                     <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
@@ -5254,8 +5363,6 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </tbody>
                                         </table>
                                 </div>
-                                <div>
-                                </div>
                                 <div class="io-description">
                                     <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
@@ -5279,19 +5386,19 @@ import * as IMask from &#x27;imask&#x27;;
 import * as moment_ from &#x27;moment&#x27;;
 
 /**
- * Komponente für SacDateCommon. Extends SacBaseDateTimeControl
+ * Component for SacDateCommon. Extends SacBaseDateTimeControl
  */
 @Directive()
 export abstract class SacDateCommon extends SacBaseDateTimeControl {
     // #region Properties
 
     /**
-     * Format des Datums
+     * Date format
      */
     public readonly DATEFORMAT: string &#x3D; &#x27;DD.MM.YYYY&#x27;;
 
     /**
-     * Maske
+     * Mask
      */
     public readonly imaskDate &#x3D; {
         mask: this.DATEFORMAT,
@@ -5336,22 +5443,22 @@ export abstract class SacDateCommon extends SacBaseDateTimeControl {
     public moment &#x3D; moment_[&#x27;default&#x27;];
 
     /**
-     * Resource Key für Validation Message MaxDate bei Control
+     * Resource key for validation message MaxDate at control
      */
     @Input() public validationmessagemaxdate: string &#x3D; this.validationKeyService.ValidationErrorMaxDate;
 
     /**
-     * Resource Key für Validation Message MinDate bei Control
+     * Resource key for validation message MinDate at control
      */
     @Input() public validationmessagemindate: string &#x3D; this.validationKeyService.ValidationErrorMinDate;
 
     /**
-     * Resource Key für Validation Message MaxDate in Validation Summary
+     * Resource key for validation message MaxDate in validation summary
      */
     @Input() public validationmessagesummarymaxdate: string &#x3D; this.validationKeyService.ValidationErrorSummaryMaxDate;
 
     /**
-     * Resource Key für Validation Message MinDate in Validation Summary
+     * Resource key for validation message MinDate in validation summary
      */
     @Input() public validationmessagesummarymindate: string &#x3D; this.validationKeyService.ValidationErrorSummaryMinDate;
 
@@ -5364,7 +5471,7 @@ export abstract class SacDateCommon extends SacBaseDateTimeControl {
      * @param formlayout SacFormLayoutCommon to define scoped layout settings
      * @param injector Injector for injecting services
      * @param elementRef reference to html element
-     * @param cdRef  Change Dectection Servie
+     * @param cdRef Change Detection Service
      */
     constructor(
         formlayout: SacFormLayoutCommon,
@@ -5419,14 +5526,14 @@ export abstract class SacDateCommon extends SacBaseDateTimeControl {
     // #region Public Methods
 
     /**
-     * Methode ergibt Datum-Format vom String
+     * Method returns date format from string
      */
     public GetDateTimeFormatString(): string {
         return this.DATEFORMAT;
     }
 
     /**
-     * Methode ergibt Datum - Moment
+     * Method returns date - moment
      */
     public ModifyParsedDateTimeValue(v: moment_.Moment): moment_.Moment {
         return v;
@@ -5451,6 +5558,7 @@ export abstract class SacDateCommon extends SacBaseDateTimeControl {
     @HostListener(&#x27;document:click&#x27;, [&#x27;$event.target&#x27;])
     /**
      * Click Event
+     * @param targetElement The target element from the click event
      */
     public onClick(targetElement) {
         if (!this.pickercontainer) {
@@ -5465,10 +5573,10 @@ export abstract class SacDateCommon extends SacBaseDateTimeControl {
     }
 
     /**
-     * Zeigt Date Selector an
+     * Shows date selector
      */
     public showDateSelector(): void {
-        // Touch Event auslösen
+        // Trigger a touch event
         this.onTouch();
 
         if (this._showselector) {
@@ -5569,6 +5677,19 @@ export abstract class SacDateCommon extends SacBaseDateTimeControl {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -5580,7 +5701,6 @@ export abstract class SacDateCommon extends SacBaseDateTimeControl {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

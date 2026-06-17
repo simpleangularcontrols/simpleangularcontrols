@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content pipe">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -130,6 +141,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Converts responsive label width configuration into bootstrap label width classes.</p>
+
+            </p>
 
 
         <section data-compodoc="block-metadata">
@@ -171,8 +189,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="15"
-                                    class="link-to-prism">projects/sac-bootstrap4/src/controls/layout/tolabelwidthcss.pipe.ts:15</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="18"
+                                    class="link-to-prism">projects/sac-bootstrap4/src/controls/layout/tolabelwidthcss.pipe.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -235,44 +253,47 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Pipe, PipeTransform } from &#x27;@angular/core&#x27;;
 import { ISacLabelSizes } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
+/**
+ * Converts responsive label width configuration into bootstrap label width classes.
+ */
 @Pipe({
-  name: &#x27;toLabelWidthCss&#x27;,
+    name: &#x27;toLabelWidthCss&#x27;,
 })
 export class SacToLabelWidthCssPipe implements PipeTransform {
-  // #region Public Methods
+    // #region Public Methods
 
-  /**
-   * Get CSS classes from label width configuration to set label size
-   * @param value Configuration with grid columns for different viewports
-   * @returns string with css classe for bootstrap3
-   */
-  public transform(value: ISacLabelSizes): string {
-    const classes: string[] &#x3D; [];
+    /**
+     * Get CSS classes from label width configuration to set label size
+     * @param value Configuration with grid columns for different viewports
+     * @returns string with css classe for bootstrap3
+     */
+    public transform(value: ISacLabelSizes): string {
+        const classes: string[] &#x3D; [];
 
-    if (value.labelSizeXs) {
-      classes.push(&#x27;col-&#x27; + value.labelSizeXs);
+        if (value.labelSizeXs) {
+            classes.push(&#x27;col-&#x27; + value.labelSizeXs);
+        }
+
+        if (value.labelSizeSm) {
+            classes.push(&#x27;col-sm-&#x27; + value.labelSizeSm);
+        }
+
+        if (value.labelSizeMd) {
+            classes.push(&#x27;col-md-&#x27; + value.labelSizeMd);
+        }
+
+        if (value.labelSizeLg) {
+            classes.push(&#x27;col-lg-&#x27; + value.labelSizeLg);
+        }
+
+        if (value.labelSizeXl) {
+            classes.push(&#x27;col-xl-&#x27; + value.labelSizeXl);
+        }
+
+        return classes.join(&#x27; &#x27;);
     }
 
-    if (value.labelSizeSm) {
-      classes.push(&#x27;col-sm-&#x27; + value.labelSizeSm);
-    }
-
-    if (value.labelSizeMd) {
-      classes.push(&#x27;col-md-&#x27; + value.labelSizeMd);
-    }
-
-    if (value.labelSizeLg) {
-      classes.push(&#x27;col-lg-&#x27; + value.labelSizeLg);
-    }
-
-    if (value.labelSizeXl) {
-      classes.push(&#x27;col-xl-&#x27; + value.labelSizeXl);
-    }
-
-    return classes.join(&#x27; &#x27;);
-  }
-
-  // #endregion Public Methods
+    // #endregion Public Methods
 }
 </code></pre>
     </div>
@@ -318,6 +339,19 @@ export class SacToLabelWidthCssPipe implements PipeTransform {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -329,7 +363,6 @@ export class SacToLabelWidthCssPipe implements PipeTransform {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

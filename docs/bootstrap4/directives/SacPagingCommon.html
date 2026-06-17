@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -345,6 +356,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -359,6 +371,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Service injector for dependency resolution</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -451,7 +467,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="159" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:159</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="158" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:158</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -654,8 +670,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="177"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:177</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="176"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:176</a></div>
                         </td>
                     </tr>
 
@@ -730,8 +746,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="187"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:187</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="186"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:186</a></div>
                         </td>
                     </tr>
 
@@ -806,8 +822,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="249"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:249</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="248"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:248</a></div>
                         </td>
                     </tr>
 
@@ -847,8 +863,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="195"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:195</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="194"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:194</a></div>
                         </td>
                     </tr>
 
@@ -888,8 +904,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="204"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:204</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="203"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:203</a></div>
                         </td>
                     </tr>
 
@@ -929,8 +945,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="282"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:282</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="281"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:281</a></div>
                         </td>
                     </tr>
 
@@ -1005,8 +1021,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="298"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:298</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="297"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:297</a></div>
                         </td>
                     </tr>
 
@@ -1081,8 +1097,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="211"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:211</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="210"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:210</a></div>
                         </td>
                     </tr>
 
@@ -1122,8 +1138,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="218"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:218</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="217"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:217</a></div>
                         </td>
                     </tr>
 
@@ -1163,8 +1179,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="227"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:227</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="226"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:226</a></div>
                         </td>
                     </tr>
 
@@ -1204,8 +1220,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="315"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:315</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="314"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:314</a></div>
                         </td>
                     </tr>
 
@@ -1275,8 +1291,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="236"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:236</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="235"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:235</a></div>
                         </td>
                     </tr>
 
@@ -1583,7 +1599,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:134</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:133</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1616,7 +1632,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:141</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="140" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:140</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1649,7 +1665,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="151" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:151</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="150" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:150</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1683,7 +1699,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="159" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:159</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="158" class="link-to-prism">projects/sac-common/src/controls/grid/paging.ts:158</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1716,8 +1732,6 @@
                                                     </tr>
                                             </tbody>
                                         </table>
-                                </div>
-                                <div>
                                 </div>
                                 <div class="io-description">
                                     <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -1762,12 +1776,12 @@ export abstract class SacPagingCommon {
     /**
      * Total number of rows
      */
-    protected totalRowCount: number &#x3D; 0;
+    protected totalRowCount &#x3D; 0;
 
     /**
      * Active page index
      */
-    public activePageIndex: number &#x3D; 0;
+    public activePageIndex &#x3D; 0;
 
     /**
      * Identifier used for the E2E data attribute.
@@ -1778,12 +1792,12 @@ export abstract class SacPagingCommon {
     /**
      * First page index
      */
-    public firstPageIndex: number &#x3D; 0;
+    public firstPageIndex &#x3D; 0;
 
     /**
      * Last page index
      */
-    public lastPageIndex: number &#x3D; 0;
+    public lastPageIndex &#x3D; 0;
 
     /**
      * name of control
@@ -1794,13 +1808,13 @@ export abstract class SacPagingCommon {
     /**
      * Number of elements per page
      */
-    public pageSize: number &#x3D; 20;
+    public pageSize &#x3D; 20;
 
     /**
      * Deactivate page size selection
      */
     @Input()
-    public pagesizedisabled: boolean &#x3D; false;
+    public pagesizedisabled &#x3D; false;
 
     /**
      * Text in Page for number of page elements per page. The following interpolation texts are available:
@@ -1808,7 +1822,7 @@ export abstract class SacPagingCommon {
      * {{PAGESIZE}}: Number of elements per page
      */
     @Input()
-    public pagesizes: string &#x3D; &#x27;20|50|100&#x27;;
+    public pagesizes &#x3D; &#x27;20|50|100&#x27;;
 
     /**
      * Text in Page for number of page elements per page. The following interpolation texts are available:
@@ -1816,7 +1830,7 @@ export abstract class SacPagingCommon {
      * {{PAGESIZE}}: Number of elements per page
      */
     @Input()
-    public pagesizetext: string &#x3D; &#x27;&#x27;;
+    public pagesizetext &#x3D; &#x27;&#x27;;
 
     /**
      * Item for each paging element (page number)
@@ -1835,7 +1849,7 @@ export abstract class SacPagingCommon {
      * {{TOTALPAGES}}: Number of pages
      */
     @Input()
-    public pagingtext: string &#x3D; &#x27;&#x27;;
+    public pagingtext &#x3D; &#x27;&#x27;;
 
     // #endregion Properties
 
@@ -1843,8 +1857,7 @@ export abstract class SacPagingCommon {
 
     /**
      * Constructor
-     * @parent SacFormCommon
-     * @injector Injector
+     * @param injector Service injector for dependency resolution
      */
     constructor(injector: Injector) {
         this.validationKeyService &#x3D; injector.get(SACVALIDATIONKEY_SERVICE, new SacDefaultValidationKeyService());
@@ -1925,7 +1938,7 @@ export abstract class SacPagingCommon {
     }
 
     /**
-     *Switch to 1st page
+     * Switch to 1st page
      */
     public firstPage() {
         if (this.activePageIndex !&#x3D;&#x3D; this.firstPageIndex) {
@@ -1987,17 +2000,17 @@ export abstract class SacPagingCommon {
         if (this.totalRowCount &gt; 0) {
             let totalPageCount &#x3D; Math.ceil(this.totalRowCount / this.pageSize);
 
-            // PageCount auf 1 stellen, wenn keine Records vorhanden sind.
+            // Set PageCount to 1 if there are no records.
             if (totalPageCount &#x3D;&#x3D;&#x3D; 0) {
                 totalPageCount &#x3D; 1;
             }
 
-            // PageIndex berechnen
+            // Calculate PageIndex
             this.lastPageIndex &#x3D; totalPageCount - 1;
             const startPageIndex &#x3D; this.getStartPageIndex(totalPageCount);
             const endPageIndex &#x3D; this.getEndPageIndex(totalPageCount);
 
-            // Index Fix wenn Aktive Seite grösser als letze Seite
+            // Set index if current page is greater than last page
             if (this.activePageIndex &gt; this.lastPageIndex) {
                 this.activePageIndex &#x3D; this.lastPageIndex;
             }
@@ -2031,7 +2044,7 @@ export abstract class SacPagingCommon {
      * @param totalPageCount Total number of pages
      */
     protected getStartPageIndex(totalPageCount: number): number {
-        let startingPageToDisplay: number &#x3D; 0;
+        let startingPageToDisplay &#x3D; 0;
         startingPageToDisplay &#x3D; this.activePageIndex - 2;
 
         if (totalPageCount - this.activePageIndex - 1 &lt; 2) {
@@ -2102,6 +2115,19 @@ export abstract class SacPagingCommon {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -2113,7 +2139,6 @@ export abstract class SacPagingCommon {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

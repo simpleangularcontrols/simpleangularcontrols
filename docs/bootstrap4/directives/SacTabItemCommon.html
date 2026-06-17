@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -129,7 +140,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Die Basis Komponente für SacTabItem</p>
+                <p>The base component for SacTabItem</p>
 
             </p>
 
@@ -222,7 +233,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Boolean Property prüft ob das Tab aktiv ist</p>
+                        <div class="io-description"><p>Boolean property checks if the tab is active</p>
 </div>
                     </td>
                 </tr>
@@ -254,7 +265,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Boolean Property prüft ob das Tab disabled ist</p>
+                        <div class="io-description"><p>Boolean property checks if the tab is disabled</p>
 </div>
                     </td>
                 </tr>
@@ -281,7 +292,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>ID-String</p>
+                        <div class="io-description"><p>ID string</p>
 </div>
                     </td>
                 </tr>
@@ -308,7 +319,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Label Text vom Control</p>
+                        <div class="io-description"><p>Label text of the control</p>
 </div>
                     </td>
                 </tr>
@@ -340,7 +351,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Das Input property ekzeptiert boolen Wert. Default ist true. Definiert, ob die Komponente hidden sein sollte.</p>
+                        <div class="io-description"><p>The input property accepts a boolean value. Default is true. Defines whether the component should be hidden.</p>
 </div>
                     </td>
                 </tr>
@@ -392,7 +403,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>ContentChild Decorator</p>
+                    <div class="io-description"><p>ContentChild decorator</p>
 </div>
                 </td>
             </tr>
@@ -409,47 +420,47 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ContentChild, Directive, Input, TemplateRef } from &#x27;@angular/core&#x27;;
 
 /**
- * Die Basis Komponente für SacTabItem
+ * The base component for SacTabItem
  */
 @Directive()
 export class SacTabItemCommon {
     // #region Properties
 
     /**
-     * Boolean Property prüft ob das Tab aktiv ist
+     * Boolean property checks if the tab is active
      */
     @Input()
-    public active: boolean &#x3D; false;
+    public active &#x3D; false;
 
     /**
-     * Boolean Property prüft ob das Tab disabled ist
+     * Boolean property checks if the tab is disabled
      */
     @Input()
-    public disabled: boolean &#x3D; false;
+    public disabled &#x3D; false;
 
     /**
-     * ID-String
+     * ID string
      */
     @Input()
     public id: string;
 
     /**
-     * Label Text vom Control
+     * Label text of the control
      */
     @Input()
     public label: string;
 
     /**
-     * ContentChild Decorator
+     * ContentChild decorator
      */
     @ContentChild(TemplateRef, { static: true })
     public templateRef: TemplateRef&lt;any&gt;;
 
     /**
-     * Das Input property ekzeptiert boolen Wert. Default ist true. Definiert, ob die Komponente hidden sein sollte.
+     * The input property accepts a boolean value. Default is true. Defines whether the component should be hidden.
      */
     @Input()
-    public unloadwhenhidden: boolean &#x3D; true;
+    public unloadwhenhidden &#x3D; true;
 
     // #endregion Properties
 }
@@ -501,6 +512,19 @@ export class SacTabItemCommon {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -512,7 +536,6 @@ export class SacTabItemCommon {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

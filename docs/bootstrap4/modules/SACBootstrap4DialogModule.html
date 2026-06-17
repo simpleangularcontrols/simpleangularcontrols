@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content module">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -124,59 +135,59 @@
 <title>cluster_SACBootstrap4DialogModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="58,-70 58,-268 438,-268 438,-70 58,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap4DialogModule_declarations</title>
-<polygon fill="none" stroke="black" points="274,-78 274,-130 430,-130 430,-78 274,-78"/>
+<g id="clust5" class="cluster">
+<title>cluster_SACBootstrap4DialogModule_exports</title>
+<polygon fill="none" stroke="black" points="164,-208 164,-260 324,-260 324,-208 164,-208"/>
 </g>
 <g id="clust4" class="cluster">
 <title>cluster_SACBootstrap4DialogModule_imports</title>
-<polygon fill="none" stroke="black" points="66,-78 66,-130 266,-130 266,-78 66,-78"/>
+<polygon fill="none" stroke="black" points="230,-78 230,-130 430,-130 430,-78 230,-78"/>
 </g>
-<g id="clust5" class="cluster">
-<title>cluster_SACBootstrap4DialogModule_exports</title>
-<polygon fill="none" stroke="black" points="171,-208 171,-260 331,-260 331,-208 171,-208"/>
+<g id="clust2" class="cluster">
+<title>cluster_SACBootstrap4DialogModule_declarations</title>
+<polygon fill="none" stroke="black" points="66,-78 66,-130 222,-130 222,-78 66,-78"/>
 </g>
 <!-- SacDialogComponent -->
 <g id="node1" class="node">
 <title>SacDialogComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="421.65,-122 282.35,-122 282.35,-86 421.65,-86 421.65,-122"/>
-<text text-anchor="middle" x="352" y="-99.8" font-family="Times,serif" font-size="14.00">SacDialogComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="213.65,-122 74.35,-122 74.35,-86 213.65,-86 213.65,-122"/>
+<text text-anchor="middle" x="144" y="-99.8" font-family="Times,serif" font-size="14.00">SacDialogComponent</text>
 </g>
 <!-- SACBootstrap4DialogModule -->
 <g id="node2" class="node">
 <title>SACBootstrap4DialogModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="344.32,-187 341.32,-191 320.32,-191 317.32,-187 157.68,-187 157.68,-151 344.32,-151 344.32,-187"/>
-<text text-anchor="middle" x="251" y="-164.8" font-family="Times,serif" font-size="14.00">SACBootstrap4DialogModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="337.32,-187 334.32,-191 313.32,-191 310.32,-187 150.68,-187 150.68,-151 337.32,-151 337.32,-187"/>
+<text text-anchor="middle" x="244" y="-164.8" font-family="Times,serif" font-size="14.00">SACBootstrap4DialogModule</text>
 </g>
 <!-- SacDialogComponent&#45;&gt;SACBootstrap4DialogModule -->
 <g id="edge1" class="edge">
 <title>SacDialogComponent&#45;&gt;SACBootstrap4DialogModule</title>
-<path fill="none" stroke="black" d="M313.17,-122.11C313.17,-122.11 313.17,-140.99 313.17,-140.99"/>
-<polygon fill="black" stroke="black" points="309.67,-140.99 313.17,-150.99 316.67,-140.99 309.67,-140.99"/>
+<path fill="none" stroke="black" d="M182.33,-122.11C182.33,-122.11 182.33,-140.99 182.33,-140.99"/>
+<polygon fill="black" stroke="black" points="178.83,-140.99 182.33,-150.99 185.83,-140.99 178.83,-140.99"/>
 </g>
 <!-- SacDialogComponent  -->
 <g id="node4" class="node">
 <title>SacDialogComponent </title>
-<polygon fill="#fb8072" stroke="black" points="322.65,-252 179.35,-252 179.35,-216 322.65,-216 322.65,-252"/>
-<text text-anchor="middle" x="251" y="-229.8" font-family="Times,serif" font-size="14.00">SacDialogComponent </text>
+<polygon fill="#fb8072" stroke="black" points="315.65,-252 172.35,-252 172.35,-216 315.65,-216 315.65,-252"/>
+<text text-anchor="middle" x="244" y="-229.8" font-family="Times,serif" font-size="14.00">SacDialogComponent </text>
 </g>
 <!-- SACBootstrap4DialogModule&#45;&gt;SacDialogComponent  -->
 <g id="edge3" class="edge">
 <title>SACBootstrap4DialogModule&#45;&gt;SacDialogComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M251,-187.11C251,-187.11 251,-205.99 251,-205.99"/>
-<polygon fill="black" stroke="black" points="247.5,-205.99 251,-215.99 254.5,-205.99 247.5,-205.99"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M244,-187.11C244,-187.11 244,-205.99 244,-205.99"/>
+<polygon fill="black" stroke="black" points="240.5,-205.99 244,-215.99 247.5,-205.99 240.5,-205.99"/>
 </g>
 <!-- SACCommonUtliltiesModule -->
 <g id="node3" class="node">
 <title>SACCommonUtliltiesModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="258,-122 255,-126 234,-126 231,-122 74,-122 74,-86 258,-86 258,-122"/>
-<text text-anchor="middle" x="166" y="-99.8" font-family="Times,serif" font-size="14.00">SACCommonUtliltiesModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="422,-122 419,-126 398,-126 395,-122 238,-122 238,-86 422,-86 422,-122"/>
+<text text-anchor="middle" x="330" y="-99.8" font-family="Times,serif" font-size="14.00">SACCommonUtliltiesModule</text>
 </g>
 <!-- SACCommonUtliltiesModule&#45;&gt;SACBootstrap4DialogModule -->
 <g id="edge2" class="edge">
 <title>SACCommonUtliltiesModule&#45;&gt;SACBootstrap4DialogModule</title>
-<path fill="none" stroke="black" d="M207.92,-122.11C207.92,-122.11 207.92,-140.99 207.92,-140.99"/>
-<polygon fill="black" stroke="black" points="204.42,-140.99 207.92,-150.99 211.42,-140.99 204.42,-140.99"/>
+<path fill="none" stroke="black" d="M287.58,-122.11C287.58,-122.11 287.58,-140.99 287.58,-140.99"/>
+<polygon fill="black" stroke="black" points="284.08,-140.99 287.58,-150.99 291.08,-140.99 284.08,-140.99"/>
 </g>
 </g>
 </svg>
@@ -266,13 +277,11 @@ import { NgModule } from &#x27;@angular/core&#x27;;
 import { SACCommonUtliltiesModule } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 @NgModule({
-  declarations: [SacDialogComponent],
-  imports: [
-    CommonModule, SACCommonUtliltiesModule
-  ],
-  exports: [SacDialogComponent]
+    declarations: [SacDialogComponent],
+    imports: [CommonModule, SACCommonUtliltiesModule],
+    exports: [SacDialogComponent],
 })
-export class SACBootstrap4DialogModule { }
+export class SACBootstrap4DialogModule {}
 </code></pre>
     </div>
 </div>
@@ -323,6 +332,19 @@ export class SACBootstrap4DialogModule { }
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -334,7 +356,6 @@ export class SACBootstrap4DialogModule { }
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

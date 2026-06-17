@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -129,7 +140,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Basis Komponente für SacValidationSummary</p>
+                <p>Base component for SacValidationSummary</p>
 
             </p>
 
@@ -231,8 +242,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor
-Inject des Formulars</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -242,6 +252,7 @@ Inject des Formulars</p>
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -256,6 +267,10 @@ Inject des Formulars</p>
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Parent form control component</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>injector</td>
@@ -268,6 +283,10 @@ Inject des Formulars</p>
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Service injector for dependency resolution</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -435,7 +454,7 @@ Inject des Formulars</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Service für Error Localisation</p>
+                    <div class="io-description"><p>Service for Error Localisation</p>
 </div>
                 </td>
             </tr>
@@ -468,7 +487,7 @@ Inject des Formulars</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Parent Formular</p>
+                    <div class="io-description"><p>Parent Form</p>
 </div>
                 </td>
             </tr>
@@ -530,12 +549,12 @@ Inject des Formulars</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">projects/sac-common/src/controls/validation/validationsummary.ts:86</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">projects/sac-common/src/controls/validation/validationsummary.ts:87</a></div>
                                 </td>
                             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>Validation Methode</p>
+                                <div class="io-description"><p>Validation method</p>
 </div>
 
                                 <div class="io-description">
@@ -563,12 +582,12 @@ Inject des Formulars</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="115" class="link-to-prism">projects/sac-common/src/controls/validation/validationsummary.ts:115</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">projects/sac-common/src/controls/validation/validationsummary.ts:116</a></div>
                                 </td>
                             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>Getter wenn Errors entstehen</p>
+                                <div class="io-description"><p>Getter when errors occur</p>
 </div>
 
                         </td>
@@ -595,19 +614,19 @@ import { AbstractControl, FormArray, FormGroup, NgForm } from &#x27;@angular/for
 import { Observable } from &#x27;rxjs&#x27;;
 
 /**
- * Basis Komponente für SacValidationSummary
+ * Base component for SacValidationSummary
  */
 @Directive()
 export class SacValidationSummaryCommon {
     // #region Properties
 
     /**
-     * Service für Error Localisation
+     * Service for Error Localisation
      */
     protected lngResourceService: ISacLocalisationService;
 
     /**
-     * Parent Formular
+     * Parent Form
      */
     protected parent: SacFormCommon;
 
@@ -647,8 +666,9 @@ export class SacValidationSummaryCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * Inject des Formulars
+     * Constructor
+     * @param parent Parent form control component
+     * @param injector Service injector for dependency resolution
      */
     constructor(parent: SacFormCommon, injector: Injector) {
         this.parent &#x3D; parent;
@@ -665,7 +685,7 @@ export class SacValidationSummaryCommon {
     // #region Public Getters And Setters
 
     /**
-     * Validation Methode
+     * Validation method
      */
     public get formErrors(): Observable&lt;string&gt;[] {
         const collection: Array&lt;Observable&lt;string&gt;&gt; &#x3D; new Array&lt;Observable&lt;string&gt;&gt;();
@@ -694,7 +714,7 @@ export class SacValidationSummaryCommon {
     }
 
     /**
-     * Getter wenn Errors entstehen
+     * Getter when errors occur
      */
     public get hasErrors() {
         return this.formErrors.length &gt; 0;
@@ -705,9 +725,9 @@ export class SacValidationSummaryCommon {
     // #region Private Methods
 
     /**
-     * Fügt einen Validation Error in die Error Collection hinzu
-     * @param ctl Fehlerhaftes Control
-     * @param collection Collection aller Fehlermeldungen
+     * Adds a validation error to the error collection
+     * @param ctl Faulty control
+     * @param collection Collection of all error messages
      */
     private addErrorToCollection(ctl: AbstractControl, collection: Array&lt;Observable&lt;string&gt;&gt;): void {
         if (ctl.errors &#x3D;&#x3D;&#x3D; null || ctl.touched &#x3D;&#x3D;&#x3D; false || ctl.valid &#x3D;&#x3D;&#x3D; true) {
@@ -740,7 +760,7 @@ export class SacValidationSummaryCommon {
     }
 
     /**
-     * Die Methode gibt Collection von Errors. Verlangt controls: Array&lt;NgForm | FormArray&gt; und  collection: Array&lt;Observable&lt;string&gt;&gt;
+     * The method returns collection of errors. Requires controls: Array&lt;NgForm | FormArray&gt; and collection: Array&lt;Observable&lt;string&gt;&gt;
      */
     private getErrorCollection(controls: Array&lt;NgForm | FormArray&gt;, collection: Array&lt;Observable&lt;string&gt;&gt;): void {
         controls.forEach((ctl) &#x3D;&gt; {
@@ -750,16 +770,16 @@ export class SacValidationSummaryCommon {
                 Object.keys(ctl.controls).map((controlKey) &#x3D;&gt; {
                     const control &#x3D; ctl.controls[controlKey];
 
-                    // Cancel Analyse wenn Item not Touched oder Valid
+                    // Cancel analysis if item was not touched or is valid
                     if (control.touched &#x3D;&#x3D;&#x3D; false || control.valid &#x3D;&#x3D;&#x3D; true) {
                         return;
                     }
 
-                    // Handle wenn Control kein Container ist
+                    // Handle if control is not a container
                     if (control.controls &#x3D;&#x3D;&#x3D; undefined || control.controls &#x3D;&#x3D;&#x3D; null) {
                         this.addErrorToCollection(control, collection);
                     } else {
-                        // Handling eines Control Containers
+                        // Handling of a control container
                         const items: Array&lt;NgForm | FormArray&gt; &#x3D; Object.keys(control.controls).map((formKey) &#x3D;&gt; {
                             return &lt;NgForm | FormArray&gt;control.controls[formKey];
                         });
@@ -821,6 +841,19 @@ export class SacValidationSummaryCommon {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -832,7 +865,6 @@ export class SacValidationSummaryCommon {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

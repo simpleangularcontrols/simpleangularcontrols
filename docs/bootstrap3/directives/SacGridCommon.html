@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -712,7 +723,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:165</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="168" class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:168</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -830,15 +841,15 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>pageChange(newStartIndex)</code>
+                    <code>pageChange(newStartIndex: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="221"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:221</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="225"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:225</a></div>
                         </td>
                     </tr>
 
@@ -855,6 +866,7 @@
                                     <thead>
                                         <tr>
                                             <td>Name</td>
+                                                <td>Type</td>
                                             <td>Optional</td>
                                                 <td>Description</td>
                                         </tr>
@@ -862,6 +874,9 @@
                                     <tbody>
                                         <tr>
                                                 <td>newStartIndex</td>
+                                            <td>
+                                                        <code>unknown</code>
+                                            </td>
 
                                             <td>
                                                     No
@@ -909,8 +924,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="177"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:177</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="180"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:180</a></div>
                         </td>
                     </tr>
 
@@ -943,15 +958,15 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>SortBy(command)</code>
+                    <code>SortBy(command: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="186"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:186</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="190"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:190</a></div>
                         </td>
                     </tr>
 
@@ -968,18 +983,27 @@
                                     <thead>
                                         <tr>
                                             <td>Name</td>
+                                                <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                                 <td>command</td>
+                                            <td>
+                                                        <code>unknown</code>
+                                            </td>
 
                                             <td>
                                                     No
                                             </td>
 
 
+                                            <td>
+                                                    <p>Column key used to toggle sorting.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1017,8 +1041,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="213"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:213</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="217"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:217</a></div>
                         </td>
                     </tr>
 
@@ -1359,7 +1383,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:165</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="168" class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:168</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1398,8 +1422,6 @@
                                             </tbody>
                                         </table>
                                 </div>
-                                <div>
-                                </div>
                                 <div class="io-description">
                                     <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
@@ -1430,12 +1452,12 @@ export abstract class SacGridCommon {
     /**
      * Page number of the active page.
      */
-    protected activePage: number &#x3D; 1;
+    protected activePage &#x3D; 1;
 
     /**
      * Contains the number of the first page displayed in Pager.
      */
-    protected firstPageNumber: number &#x3D; 1;
+    protected firstPageNumber &#x3D; 1;
 
     /**
      * Contains the number of the last page in Pager. The value is calculated automatically.
@@ -1450,7 +1472,7 @@ export abstract class SacGridCommon {
     /**
      * Number of columns in the grid
      */
-    public ColumnCount: number &#x3D; 0;
+    public ColumnCount &#x3D; 0;
 
     /**
      * Input property for Body.
@@ -1495,13 +1517,13 @@ export abstract class SacGridCommon {
      * Deactivates the selection of the PageSize in the pager
      */
     @Input()
-    public pagesizedisabled: boolean &#x3D; false;
+    public pagesizedisabled &#x3D; false;
 
     /**
      * Defines the number of elements per page that can be selected. The default is 20, 50 and 100. The values must be separated with a &#x60;|&#x60;.
      */
     @Input()
-    public pagesizes: string &#x3D; &#x27;20|50|100&#x27;;
+    public pagesizes &#x3D; &#x27;20|50|100&#x27;;
 
     /**
      * Text in Page for number of page elements per page. The following interpolation texts are available:
@@ -1529,7 +1551,7 @@ export abstract class SacGridCommon {
     /**
      * Column by which currently sorted.
      */
-    public sortColumn: string &#x3D; &#x27;&#x27;;
+    public sortColumn &#x3D; &#x27;&#x27;;
 
     /**
      * Current direction of sorting
@@ -1561,7 +1583,10 @@ export abstract class SacGridCommon {
      * @param cd Change Detection Service
      * @param injector DI Injector
      */
-    constructor(private cd: ChangeDetectorRef, injector: Injector) {
+    constructor(
+        private cd: ChangeDetectorRef,
+        injector: Injector
+    ) {
         this.validationKeyService &#x3D; injector.get(SACVALIDATIONKEY_SERVICE, new SacDefaultValidationKeyService());
 
         // Set Default Values from Injector
@@ -1598,6 +1623,7 @@ export abstract class SacGridCommon {
 
     /**
      * Method for sorting the data.
+      * @param command Column key used to toggle sorting.
      */
     public SortBy(command) {
         let direction: SortOrder;
@@ -1688,6 +1714,19 @@ export abstract class SacGridCommon {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -1699,7 +1738,6 @@ export abstract class SacGridCommon {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

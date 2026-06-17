@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -129,7 +140,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Base Komponente für SacFormular</p>
+                <p>Base component for SacForm</p>
 
             </p>
 
@@ -219,7 +230,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -245,7 +256,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Instanz von NgForm</p>
+                                                                <p>Instance of NgForm</p>
 
                                                         </td>
                                                 </tr>
@@ -276,12 +287,12 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/sac-common/src/controls/form/form.ts:42</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/sac-common/src/controls/form/form.ts:45</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Definiert, wenn das Model geupdatet wird</p>
+                        <div class="io-description"><p>Defines when the model is updated</p>
 </div>
                     </td>
                 </tr>
@@ -318,21 +329,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="54"
-                                    class="link-to-prism">projects/sac-common/src/controls/form/form.ts:54</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="58"
+                                    class="link-to-prism">projects/sac-common/src/controls/form/form.ts:58</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Gibt die NgForm Instanz zurück</p>
+                        <div class="io-description"><p>Returns the NgForm instance</p>
 </div>
 
                         <div class="io-description">
                             <b>Returns : </b>    <code>NgForm</code>
 
                         </div>
+                            <div class="io-description">
+                                <p>The NgForm instance</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -359,15 +374,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="61"
-                                    class="link-to-prism">projects/sac-common/src/controls/form/form.ts:61</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">projects/sac-common/src/controls/form/form.ts:65</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Markiert alle Controls innerhalb des Formulares als Touched</p>
+                        <div class="io-description"><p>Marks all controls within the form as touched</p>
 </div>
 
                         <div class="io-description">
@@ -393,22 +408,22 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateValueAndValidity(markAsTouched: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    <code>updateValueAndValidity(markAsTouched: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="70"
-                                    class="link-to-prism">projects/sac-common/src/controls/form/form.ts:70</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">projects/sac-common/src/controls/form/form.ts:75</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Aktualisiert die Werte und den Gültigkeitsstatus des Formulars</p>
+                        <div class="io-description"><p>Updates the values and validity status of the form</p>
 </div>
 
                             <div class="io-description">
@@ -421,13 +436,14 @@
                                                 <td>Type</td>
                                             <td>Optional</td>
                                                 <td>Default value</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                                 <td>markAsTouched</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -438,6 +454,10 @@
                                                     <code>true</code>
                                             </td>
 
+                                            <td>
+                                                    <p>If true, all controls are marked as touched after validation update.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -475,9 +495,20 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/sac-common/src/controls/form/form.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/sac-common/src/controls/form/form.ts:37</a></div>
                                 </td>
                             </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Returns the update strategy used by the form.</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#FormHooks" target="_self" >FormHooks</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -486,12 +517,12 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">projects/sac-common/src/controls/form/form.ts:42</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/sac-common/src/controls/form/form.ts:45</a></div>
                                 </td>
                             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>Definiert, wenn das Model geupdatet wird</p>
+                                <div class="io-description"><p>Defines when the model is updated</p>
 </div>
 
                                 <div class="io-description">
@@ -520,8 +551,6 @@
                                             </tbody>
                                         </table>
                                 </div>
-                                <div>
-                                </div>
                                 <div class="io-description">
                                     <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
@@ -542,14 +571,14 @@ import { AbstractControl, FormGroup, NgForm } from &#x27;@angular/forms&#x27;;
 // #region Exported Classes
 
 /**
- * Base Komponente für SacFormular
+ * Base component for SacForm
  */
 @Directive()
 export class SacFormCommon {
     // #region Properties
 
     /**
-     * Standardwert wann die Werte via NgModel aktualisiert werden
+     * Default value for when values are updated via NgModel
      */
     private _updateon: FormHooks &#x3D; &#x27;change&#x27;;
 
@@ -558,8 +587,8 @@ export class SacFormCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param form Instanz von NgForm
+     * Constructor
+     * @param form Instance of NgForm
      */
     constructor(private form: NgForm) {
         this.form.options &#x3D; { updateOn: this._updateon };
@@ -569,12 +598,15 @@ export class SacFormCommon {
 
     // #region Public Getters And Setters
 
+    /**
+     * Returns the update strategy used by the form.
+     */
     public get updateon(): FormHooks {
         return this._updateon;
     }
 
     /**
-     * Definiert, wenn das Model geupdatet wird
+     * Defines when the model is updated
      */
     @Input()
     public set updateon(v: FormHooks) {
@@ -587,14 +619,15 @@ export class SacFormCommon {
     // #region Public Methods
 
     /**
-     * Gibt die NgForm Instanz zurück
+     * Returns the NgForm instance
+     * @returns The NgForm instance
      */
     public getForm(): NgForm {
         return this.form;
     }
 
     /**
-     * Markiert alle Controls innerhalb des Formulares als Touched
+     * Marks all controls within the form as touched
      */
     public markAsTouched(): void {
         if (this.form &amp;&amp; this.form.invalid) {
@@ -603,9 +636,10 @@ export class SacFormCommon {
     }
 
     /**
-     * Aktualisiert die Werte und den Gültigkeitsstatus des Formulars
+     * Updates the values and validity status of the form
+     * @param markAsTouched If true, all controls are marked as touched after validation update.
      */
-    public updateValueAndValidity(markAsTouched: boolean &#x3D; true): void {
+    public updateValueAndValidity(markAsTouched &#x3D; true): void {
         // Update all Controls
         this.updateValueAndValidityInternal(this.form.controls);
         // Update Main Form
@@ -622,8 +656,8 @@ export class SacFormCommon {
     // #region Private Methods
 
     /**
-     * Markiert alle Controls inkl. dem Tree als Touched
-     * @param controls Controls Collection
+     * Marks all controls including the tree as touched
+     * @param controls Controls collection
      */
     private markAsTouchedInternal(controls: { [key: string]: AbstractControl }) {
         const keyList: string[] &#x3D; Object.keys(controls);
@@ -639,8 +673,8 @@ export class SacFormCommon {
     }
 
     /**
-     * Aktualisiert die Werte und die gültigkeit des Formulars
-     * @param controls Controls Collection
+     * Updates the values and validity of the form
+     * @param controls Controls collection
      */
     private updateValueAndValidityInternal(controls: { [key: string]: AbstractControl }) {
         const keyList: string[] &#x3D; Object.keys(controls);
@@ -716,6 +750,19 @@ export type FormHooks &#x3D; &#x27;change&#x27; | &#x27;blur&#x27; | &#x27;submi
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -727,7 +774,6 @@ export type FormHooks &#x3D; &#x27;change&#x27; | &#x27;blur&#x27; | &#x27;submi
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

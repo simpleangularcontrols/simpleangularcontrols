@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -129,7 +140,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Base Context Menü Element. Die Logik wurde aus NG-BOOTSTRAP übernommen.</p>
+                <p>Base context menu element. The logic was taken from NG-BOOTSTRAP.</p>
 
             </p>
 
@@ -296,7 +307,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -322,7 +333,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>HTML Document Element</p>
+                                                                <p>HTML document element</p>
 
                                                         </td>
                                                 </tr>
@@ -338,7 +349,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Angular Zone Service</p>
+                                                                <p>Angular zone service</p>
 
                                                         </td>
                                                 </tr>
@@ -354,7 +365,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>HTML Element des aktuellen Controls</p>
+                                                                <p>HTML element of the current control</p>
 
                                                         </td>
                                                 </tr>
@@ -370,7 +381,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Angular Rendering Service</p>
+                                                                <p>Angular rendering service</p>
 
                                                         </td>
                                                 </tr>
@@ -386,7 +397,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>injector to resolve the icon service</p>
+                                                                <p>Injector to resolve the icon service</p>
 
                                                         </td>
                                                 </tr>
@@ -422,7 +433,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Custom HTML Template für Dropdown Button. Button muss den Marker &quot;ngContextmenuAnchor&quot; beinhalten, damit das Control korrekt funktioniert.</p>
+                        <div class="io-description"><p>Custom HTML template for dropdown button. Button must contain the marker &quot;ngContextmenuAnchor&quot; for the control to work correctly.</p>
 </div>
                     </td>
                 </tr>
@@ -454,7 +465,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Container an welchem die Position ausgerichtet wird. Aktuell wird nun Body Supported</p>
+                        <div class="io-description"><p>Container to which the position is aligned. Currently only body is supported.</p>
 </div>
                     </td>
                 </tr>
@@ -486,7 +497,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Extra CSS Klassen für das Control</p>
+                        <div class="io-description"><p>Extra CSS classes for the control</p>
 </div>
                     </td>
                 </tr>
@@ -550,7 +561,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Definiert ob das Dropdown offen ist.</p>
+                        <div class="io-description"><p>Defines whether the dropdown is open.</p>
 </div>
                     </td>
                 </tr>
@@ -652,15 +663,15 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="197"
-                            class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:197</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="204"
+                            class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:204</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>HostListener um das Dropdown zu schliessen wenn nicht auf das Element geklickt wird.</p>
+                    <div class="io-description"><p>HostListener to close the dropdown when clicking outside the element.</p>
 </div>
 
                 </td>
@@ -695,15 +706,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="235"
-                                    class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:235</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="242"
+                                    class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:242</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Setzt die Position des Menüs im Markup</p>
+                        <div class="io-description"><p>Sets the position of the menu in the markup</p>
 </div>
 
                         <div class="io-description">
@@ -744,7 +755,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Schliesst das Dropdown</p>
+                        <div class="io-description"><p>Closes the dropdown</p>
 </div>
 
                         <div class="io-description">
@@ -777,14 +788,18 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="175"
-                                    class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:175</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="181"
+                                    class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:181</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Lifecycle hook that is called after content projection is completed.</p>
+<p>Associates each menu item with this context menu instance so that item
+events can delegate to the parent menu.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -816,15 +831,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="182"
-                                    class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:182</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="188"
+                                    class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:188</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Event wenn Component entfernt wird.</p>
+                        <div class="io-description"><p>Event when component is destroyed.</p>
 </div>
 
                         <div class="io-description">
@@ -851,7 +866,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onClick(targetElement)</code>
+                    <code>onClick(targetElement: unknown)</code>
                 </td>
             </tr>
 
@@ -865,15 +880,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="197"
-                                    class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:197</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="204"
+                                    class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:204</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>HostListener um das Dropdown zu schliessen wenn nicht auf das Element geklickt wird.</p>
+                        <div class="io-description"><p>HostListener to close the dropdown when clicking outside the element.</p>
 </div>
 
                             <div class="io-description">
@@ -883,12 +898,16 @@
                                     <thead>
                                         <tr>
                                             <td>Name</td>
+                                                <td>Type</td>
                                             <td>Optional</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                                 <td>targetElement</td>
+                                            <td>
+                                                        <code>unknown</code>
+                                            </td>
 
                                             <td>
                                                     No
@@ -932,15 +951,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="212"
-                                    class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:212</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="219"
+                                    class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:219</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Öffnet das Dropdown / Zeigt das Menü an.</p>
+                        <div class="io-description"><p>Opens the dropdown / shows the menu.</p>
 </div>
 
                         <div class="io-description">
@@ -973,15 +992,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="220"
-                                    class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:220</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="227"
+                                    class="link-to-prism">projects/sac-common/src/controls/contextmenu/contextmenu.ts:227</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Toggle von Dropdown</p>
+                        <div class="io-description"><p>Toggle dropdown</p>
 </div>
 
                         <div class="io-description">
@@ -1101,7 +1120,7 @@
                             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>icon for default context menü button</p>
+                                <div class="io-description"><p>Icon for default context menu button</p>
 </div>
 
                                 <div class="io-description">
@@ -1122,7 +1141,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ISacIconService } from &#x27;../../interfaces/ISacIconService&#x27;;
 import { SACICON_SERVICE, SacDefaultIconService } from &#x27;../../services&#x27;;
 import { createGuid } from &#x27;../../utilities/guid&#x27;;
-import { PlacementArray, positionElements } from &#x27;../../utilities/positioning&#x27;;
+import { PlacementArray, positionElements } from &#x27;../../utilities/positionelements&#x27;;
 import { ISacContextmenuCommon } from &#x27;./contextmenu.interface&#x27;;
 import { SacContextmenuAnchorCommon } from &#x27;./contextmenuanchor&#x27;;
 import { SacContextMenuContrainerCommon } from &#x27;./contextmenucontainer&#x27;;
@@ -1148,32 +1167,32 @@ import {
 import { Subscription } from &#x27;rxjs&#x27;;
 
 /**
- * Base Context Menü Element. Die Logik wurde aus NG-BOOTSTRAP übernommen.
+ * Base context menu element. The logic was taken from NG-BOOTSTRAP.
  */
 @Directive()
 export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContentInit, OnDestroy {
     // #region Properties
 
     /**
-     * Button für Open/Close Event
+     * Button for open/close event
      */
     @ViewChild(SacContextmenuAnchorCommon, { static: false })
     private readonly _anchor: SacContextmenuAnchorCommon;
 
     /**
-     * Button für Open/Close Event aus Template
+     * Button for open/close event from template
      */
     @ContentChild(SacContextmenuAnchorCommon, { static: false })
     private readonly _anchorTemplate: SacContextmenuAnchorCommon;
 
     /**
-     * Container Element für Dropdown
+     * Container element for dropdown
      */
     @ViewChild(SacContextMenuContrainerCommon, { static: false })
     private readonly _menu: SacContextMenuContrainerCommon;
 
     /**
-     * Zone Subscription für Postitonierung des Elements
+     * Zone subscription for positioning the element
      */
     private readonly zoneSubscription: Subscription;
 
@@ -1188,22 +1207,22 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     protected iconService: ISacIconService;
 
     /**
-     * Custom HTML Template für Dropdown Button. Button muss den Marker &quot;ngContextmenuAnchor&quot; beinhalten, damit das Control korrekt funktioniert.
+     * Custom HTML template for dropdown button. Button must contain the marker &quot;ngContextmenuAnchor&quot; for the control to work correctly.
      */
     @Input()
     public buttontemplate: TemplateRef&lt;any&gt;;
 
     /**
-     * Container an welchem die Position ausgerichtet wird. Aktuell wird nun Body Supported
+     * Container to which the position is aligned. Currently only body is supported.
      */
     @Input()
     public container: null | &#x27;body&#x27; &#x3D; &#x27;body&#x27;;
 
     /**
-     * Extra CSS Klassen für das Control
+     * Extra CSS classes for the control
      */
     @Input()
-    public cssclass: string &#x3D; &#x27;&#x27;;
+    public cssclass &#x3D; &#x27;&#x27;;
 
     /**
      * Identifier used for the E2E data attribute.
@@ -1212,10 +1231,10 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     public e2eidentifier: string | null &#x3D; null;
 
     /**
-     * Definiert ob das Dropdown offen ist.
+     * Defines whether the dropdown is open.
      */
     @Input()
-    public isopen: boolean &#x3D; false;
+    public isopen &#x3D; false;
 
     /**
      * All directly assigned context menu elements that are defined in the direct template for the context menu.
@@ -1249,12 +1268,12 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param document HTML Document Element
-     * @param ngZone Angular Zone Service
-     * @param elementRef HTML Element des aktuellen Controls
-     * @param renderer Angular Rendering Service
-     * @param injector injector to resolve the icon service
+     * Constructor
+     * @param document HTML document element
+     * @param ngZone Angular zone service
+     * @param elementRef HTML element of the current control
+     * @param renderer Angular rendering service
+     * @param injector Injector to resolve the icon service
      */
     constructor(
         @Inject(DOCUMENT) private readonly document: any,
@@ -1275,7 +1294,7 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     // #region Public Getters And Setters
 
     /**
-     * icon for default context menü button
+     * Icon for default context menu button
      */
     public get IconContextMenu(): string {
         return this.iconService.ContextMenuOpenIcon;
@@ -1286,19 +1305,25 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     // #region Public Methods
 
     /**
-     * Schliesst das Dropdown
+     * Closes the dropdown
      */
     public close(): void {
         this._resetContainer();
         this.isopen &#x3D; false;
     }
 
+    /**
+     * Lifecycle hook that is called after content projection is completed.
+     *
+     * Associates each menu item with this context menu instance so that item
+     * events can delegate to the parent menu.
+     */
     public ngAfterContentInit(): void {
         this.menuitems.forEach((button) &#x3D;&gt; (button.contextmenu &#x3D; this));
     }
 
     /**
-     * Event wenn Component entfernt wird.
+     * Event when component is destroyed.
      */
     public ngOnDestroy(): void {
         if (this.isopen) {
@@ -1309,11 +1334,12 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     }
 
     /**
-     * HostListener um das Dropdown zu schliessen wenn nicht auf das Element geklickt wird.
+     * HostListener to close the dropdown when clicking outside the element.
      */
     @HostListener(&#x27;document:click&#x27;, [&#x27;$event.target&#x27;])
     /**
      * Click Event
+     * @param targetElement The target element from the click event
      */
     public onClick(targetElement) {
         const anchor: SacContextmenuAnchorCommon &#x3D; this._anchor || this._anchorTemplate;
@@ -1328,7 +1354,7 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     }
 
     /**
-     * Öffnet das Dropdown / Zeigt das Menü an.
+     * Opens the dropdown / shows the menu.
      */
     public open(): void {
         this._applyContainer(this.container);
@@ -1336,7 +1362,7 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     }
 
     /**
-     * Toggle von Dropdown
+     * Toggle dropdown
      */
     public toggle(): void {
         if (this.isopen) {
@@ -1351,7 +1377,7 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     // #region Protected Methods
 
     /**
-     * Setzt die Position des Menüs im Markup
+     * Sets the position of the menu in the markup
      */
     protected _positionMenu() {
         const anchor: SacContextmenuAnchorCommon &#x3D; this._anchor || this._anchorTemplate;
@@ -1371,9 +1397,9 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     // #region Private Methods
 
     /**
-     * Setzt die Position des Menüs innerhalb der Seite. Die Ausrichtung passiert innerhalb der Seite
-     * damit das Menü innerhalb eines Dialogs sauber funktionioniert.
-     * @param container Definiert wo das Menü ausgerichtet wird. Im Moment nur BODY Supported
+     * Sets the position of the menu within the page. The alignment happens within the page
+     * so that the menu works correctly inside a dialog.
+     * @param container Defines where the menu is aligned. Currently only BODY is supported
      */
     private _applyContainer(container: null | &#x27;body&#x27; &#x3D; null) {
         // Reset Classes on Container
@@ -1395,7 +1421,7 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
     }
 
     /**
-     * Setzt die CSS Klassen auf dem Menü Container auf den Standard zurück
+     * Resets the CSS classes on the menu container to default
      */
     private _resetContainer() {
         const renderer &#x3D; this.renderer;
@@ -1463,6 +1489,19 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -1474,7 +1513,6 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

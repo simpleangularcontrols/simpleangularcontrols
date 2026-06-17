@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content module">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -124,143 +135,143 @@
 <title>cluster_SACBootstrap5ContextmenuModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 1406,-268 1406,-70 8,-70"/>
 </g>
-<g id="clust8" class="cluster">
-<title>cluster_SACBootstrap5ContextmenuModule_imports</title>
-<polygon fill="none" stroke="black" points="1198,-78 1198,-130 1398,-130 1398,-78 1198,-78"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap5ContextmenuModule_declarations</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-130 1190,-130 1190,-78 16,-78"/>
+<polygon fill="none" stroke="black" points="224,-78 224,-130 1398,-130 1398,-78 224,-78"/>
 </g>
 <g id="clust9" class="cluster">
 <title>cluster_SACBootstrap5ContextmenuModule_exports</title>
-<polygon fill="none" stroke="black" points="237,-208 237,-260 1189,-260 1189,-208 237,-208"/>
+<polygon fill="none" stroke="black" points="217,-208 217,-260 1169,-260 1169,-208 217,-208"/>
+</g>
+<g id="clust8" class="cluster">
+<title>cluster_SACBootstrap5ContextmenuModule_imports</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 216,-130 216,-78 16,-78"/>
 </g>
 <!-- SacContextmenuAnchorDirective -->
 <g id="node1" class="node">
 <title>SacContextmenuAnchorDirective</title>
-<polygon fill="#ffffb3" stroke="black" points="1181.71,-122 976.29,-122 976.29,-86 1181.71,-86 1181.71,-122"/>
-<text text-anchor="middle" x="1079" y="-99.8" font-family="Times,serif" font-size="14.00">SacContextmenuAnchorDirective</text>
+<polygon fill="#ffffb3" stroke="black" points="1389.71,-122 1184.29,-122 1184.29,-86 1389.71,-86 1389.71,-122"/>
+<text text-anchor="middle" x="1287" y="-99.8" font-family="Times,serif" font-size="14.00">SacContextmenuAnchorDirective</text>
 </g>
 <!-- SACBootstrap5ContextmenuModule -->
 <g id="node6" class="node">
 <title>SACBootstrap5ContextmenuModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="859.65,-187 856.65,-191 835.65,-191 832.65,-187 636.35,-187 636.35,-151 859.65,-151 859.65,-187"/>
-<text text-anchor="middle" x="748" y="-164.8" font-family="Times,serif" font-size="14.00">SACBootstrap5ContextmenuModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="839.65,-187 836.65,-191 815.65,-191 812.65,-187 616.35,-187 616.35,-151 839.65,-151 839.65,-187"/>
+<text text-anchor="middle" x="728" y="-164.8" font-family="Times,serif" font-size="14.00">SACBootstrap5ContextmenuModule</text>
 </g>
 <!-- SacContextmenuAnchorDirective&#45;&gt;SACBootstrap5ContextmenuModule -->
 <g id="edge1" class="edge">
 <title>SacContextmenuAnchorDirective&#45;&gt;SACBootstrap5ContextmenuModule</title>
-<path fill="none" stroke="black" d="M1044.3,-122.03C1044.3,-138.4 1044.3,-160 1044.3,-160 1044.3,-160 870.02,-160 870.02,-160"/>
-<polygon fill="black" stroke="black" points="870.02,-156.5 860.02,-160 870.02,-163.5 870.02,-156.5"/>
+<path fill="none" stroke="black" d="M1287,-122.11C1287,-141.34 1287,-169 1287,-169 1287,-169 849.78,-169 849.78,-169"/>
+<polygon fill="black" stroke="black" points="849.78,-165.5 839.78,-169 849.78,-172.5 849.78,-165.5"/>
 </g>
 <!-- SacContextmenuComponent -->
 <g id="node2" class="node">
 <title>SacContextmenuComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="958.48,-122 781.52,-122 781.52,-86 958.48,-86 958.48,-122"/>
-<text text-anchor="middle" x="870" y="-99.8" font-family="Times,serif" font-size="14.00">SacContextmenuComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="1166.48,-122 989.52,-122 989.52,-86 1166.48,-86 1166.48,-122"/>
+<text text-anchor="middle" x="1078" y="-99.8" font-family="Times,serif" font-size="14.00">SacContextmenuComponent</text>
 </g>
 <!-- SacContextmenuComponent&#45;&gt;SACBootstrap5ContextmenuModule -->
 <g id="edge2" class="edge">
 <title>SacContextmenuComponent&#45;&gt;SACBootstrap5ContextmenuModule</title>
-<path fill="none" stroke="black" d="M820.67,-122.11C820.67,-122.11 820.67,-140.99 820.67,-140.99"/>
-<polygon fill="black" stroke="black" points="817.17,-140.99 820.67,-150.99 824.17,-140.99 817.17,-140.99"/>
+<path fill="none" stroke="black" d="M1075.06,-122.03C1075.06,-138.4 1075.06,-160 1075.06,-160 1075.06,-160 849.72,-160 849.72,-160"/>
+<polygon fill="black" stroke="black" points="849.72,-156.5 839.72,-160 849.72,-163.5 849.72,-156.5"/>
 </g>
 <!-- SacContextmenuContainerDirective -->
 <g id="node3" class="node">
 <title>SacContextmenuContainerDirective</title>
-<polygon fill="#ffffb3" stroke="black" points="763.44,-122 544.56,-122 544.56,-86 763.44,-86 763.44,-122"/>
-<text text-anchor="middle" x="654" y="-99.8" font-family="Times,serif" font-size="14.00">SacContextmenuContainerDirective</text>
+<polygon fill="#ffffb3" stroke="black" points="971.44,-122 752.56,-122 752.56,-86 971.44,-86 971.44,-122"/>
+<text text-anchor="middle" x="862" y="-99.8" font-family="Times,serif" font-size="14.00">SacContextmenuContainerDirective</text>
 </g>
 <!-- SacContextmenuContainerDirective&#45;&gt;SACBootstrap5ContextmenuModule -->
 <g id="edge3" class="edge">
 <title>SacContextmenuContainerDirective&#45;&gt;SACBootstrap5ContextmenuModule</title>
-<path fill="none" stroke="black" d="M699.82,-122.11C699.82,-122.11 699.82,-140.99 699.82,-140.99"/>
-<polygon fill="black" stroke="black" points="696.32,-140.99 699.82,-150.99 703.32,-140.99 696.32,-140.99"/>
+<path fill="none" stroke="black" d="M796.18,-122.11C796.18,-122.11 796.18,-140.99 796.18,-140.99"/>
+<polygon fill="black" stroke="black" points="792.68,-140.99 796.18,-150.99 799.68,-140.99 792.68,-140.99"/>
 </g>
 <!-- SacContextmenuItemButtonComponent -->
 <g id="node4" class="node">
 <title>SacContextmenuItemButtonComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="526.26,-122 285.74,-122 285.74,-86 526.26,-86 526.26,-122"/>
-<text text-anchor="middle" x="406" y="-99.8" font-family="Times,serif" font-size="14.00">SacContextmenuItemButtonComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="734.26,-122 493.74,-122 493.74,-86 734.26,-86 734.26,-122"/>
+<text text-anchor="middle" x="614" y="-99.8" font-family="Times,serif" font-size="14.00">SacContextmenuItemButtonComponent</text>
 </g>
 <!-- SacContextmenuItemButtonComponent&#45;&gt;SACBootstrap5ContextmenuModule -->
 <g id="edge4" class="edge">
 <title>SacContextmenuItemButtonComponent&#45;&gt;SACBootstrap5ContextmenuModule</title>
-<path fill="none" stroke="black" d="M518.62,-122.03C518.62,-138.4 518.62,-160 518.62,-160 518.62,-160 626.34,-160 626.34,-160"/>
-<polygon fill="black" stroke="black" points="626.34,-163.5 636.34,-160 626.34,-156.5 626.34,-163.5"/>
+<path fill="none" stroke="black" d="M675.28,-122.11C675.28,-122.11 675.28,-140.99 675.28,-140.99"/>
+<polygon fill="black" stroke="black" points="671.78,-140.99 675.28,-150.99 678.78,-140.99 671.78,-140.99"/>
 </g>
 <!-- SacContextmenuItemSplitterComponent -->
 <g id="node5" class="node">
 <title>SacContextmenuItemSplitterComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="267.86,-122 24.14,-122 24.14,-86 267.86,-86 267.86,-122"/>
-<text text-anchor="middle" x="146" y="-99.8" font-family="Times,serif" font-size="14.00">SacContextmenuItemSplitterComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="475.86,-122 232.14,-122 232.14,-86 475.86,-86 475.86,-122"/>
+<text text-anchor="middle" x="354" y="-99.8" font-family="Times,serif" font-size="14.00">SacContextmenuItemSplitterComponent</text>
 </g>
 <!-- SacContextmenuItemSplitterComponent&#45;&gt;SACBootstrap5ContextmenuModule -->
 <g id="edge5" class="edge">
 <title>SacContextmenuItemSplitterComponent&#45;&gt;SACBootstrap5ContextmenuModule</title>
-<path fill="none" stroke="black" d="M256.62,-122.11C256.62,-141.34 256.62,-169 256.62,-169 256.62,-169 626.19,-169 626.19,-169"/>
-<polygon fill="black" stroke="black" points="626.19,-172.5 636.19,-169 626.19,-165.5 626.19,-172.5"/>
+<path fill="none" stroke="black" d="M392.48,-122.03C392.48,-138.4 392.48,-160 392.48,-160 392.48,-160 606.28,-160 606.28,-160"/>
+<polygon fill="black" stroke="black" points="606.28,-163.5 616.28,-160 606.28,-156.5 606.28,-163.5"/>
 </g>
 <!-- SacContextmenuAnchorDirective  -->
 <g id="node8" class="node">
 <title>SacContextmenuAnchorDirective </title>
-<polygon fill="#fb8072" stroke="black" points="1180.71,-252 971.29,-252 971.29,-216 1180.71,-216 1180.71,-252"/>
-<text text-anchor="middle" x="1076" y="-229.8" font-family="Times,serif" font-size="14.00">SacContextmenuAnchorDirective </text>
+<polygon fill="#fb8072" stroke="black" points="1160.71,-252 951.29,-252 951.29,-216 1160.71,-216 1160.71,-252"/>
+<text text-anchor="middle" x="1056" y="-229.8" font-family="Times,serif" font-size="14.00">SacContextmenuAnchorDirective </text>
 </g>
 <!-- SACBootstrap5ContextmenuModule&#45;&gt;SacContextmenuAnchorDirective  -->
 <g id="edge7" class="edge">
 <title>SACBootstrap5ContextmenuModule&#45;&gt;SacContextmenuAnchorDirective </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M859.82,-178C966.96,-178 1112.45,-178 1112.45,-178 1112.45,-178 1112.45,-205.97 1112.45,-205.97"/>
-<polygon fill="black" stroke="black" points="1108.95,-205.97 1112.45,-215.97 1115.95,-205.97 1108.95,-205.97"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M839.93,-178C899.84,-178 961.43,-178 961.43,-178 961.43,-178 961.43,-205.97 961.43,-205.97"/>
+<polygon fill="black" stroke="black" points="957.93,-205.97 961.43,-215.97 964.93,-205.97 957.93,-205.97"/>
 </g>
 <!-- SacContextmenuComponent  -->
 <g id="node9" class="node">
 <title>SacContextmenuComponent </title>
-<polygon fill="#fb8072" stroke="black" points="953.48,-252 772.52,-252 772.52,-216 953.48,-216 953.48,-252"/>
-<text text-anchor="middle" x="863" y="-229.8" font-family="Times,serif" font-size="14.00">SacContextmenuComponent </text>
+<polygon fill="#fb8072" stroke="black" points="933.48,-252 752.52,-252 752.52,-216 933.48,-216 933.48,-252"/>
+<text text-anchor="middle" x="843" y="-229.8" font-family="Times,serif" font-size="14.00">SacContextmenuComponent </text>
 </g>
 <!-- SACBootstrap5ContextmenuModule&#45;&gt;SacContextmenuComponent  -->
 <g id="edge8" class="edge">
 <title>SACBootstrap5ContextmenuModule&#45;&gt;SacContextmenuComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M816.29,-187.11C816.29,-187.11 816.29,-205.99 816.29,-205.99"/>
-<polygon fill="black" stroke="black" points="812.79,-205.99 816.29,-215.99 819.79,-205.99 812.79,-205.99"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M796.29,-187.11C796.29,-187.11 796.29,-205.99 796.29,-205.99"/>
+<polygon fill="black" stroke="black" points="792.79,-205.99 796.29,-215.99 799.79,-205.99 792.79,-205.99"/>
 </g>
 <!-- SacContextmenuItemButtonComponent  -->
 <g id="node10" class="node">
 <title>SacContextmenuItemButtonComponent </title>
-<polygon fill="#fb8072" stroke="black" points="755.26,-252 510.74,-252 510.74,-216 755.26,-216 755.26,-252"/>
-<text text-anchor="middle" x="633" y="-229.8" font-family="Times,serif" font-size="14.00">SacContextmenuItemButtonComponent </text>
+<polygon fill="#fb8072" stroke="black" points="735.26,-252 490.74,-252 490.74,-216 735.26,-216 735.26,-252"/>
+<text text-anchor="middle" x="613" y="-229.8" font-family="Times,serif" font-size="14.00">SacContextmenuItemButtonComponent </text>
 </g>
 <!-- SACBootstrap5ContextmenuModule&#45;&gt;SacContextmenuItemButtonComponent  -->
 <g id="edge9" class="edge">
 <title>SACBootstrap5ContextmenuModule&#45;&gt;SacContextmenuItemButtonComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M695.65,-187.11C695.65,-187.11 695.65,-205.99 695.65,-205.99"/>
-<polygon fill="black" stroke="black" points="692.15,-205.99 695.65,-215.99 699.15,-205.99 692.15,-205.99"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M675.65,-187.11C675.65,-187.11 675.65,-205.99 675.65,-205.99"/>
+<polygon fill="black" stroke="black" points="672.15,-205.99 675.65,-215.99 679.15,-205.99 672.15,-205.99"/>
 </g>
 <!-- SacContextmenuItemSplitterComponent  -->
 <g id="node11" class="node">
 <title>SacContextmenuItemSplitterComponent </title>
-<polygon fill="#fb8072" stroke="black" points="492.86,-252 245.14,-252 245.14,-216 492.86,-216 492.86,-252"/>
-<text text-anchor="middle" x="369" y="-229.8" font-family="Times,serif" font-size="14.00">SacContextmenuItemSplitterComponent </text>
+<polygon fill="#fb8072" stroke="black" points="472.86,-252 225.14,-252 225.14,-216 472.86,-216 472.86,-252"/>
+<text text-anchor="middle" x="349" y="-229.8" font-family="Times,serif" font-size="14.00">SacContextmenuItemSplitterComponent </text>
 </g>
 <!-- SACBootstrap5ContextmenuModule&#45;&gt;SacContextmenuItemSplitterComponent  -->
 <g id="edge10" class="edge">
 <title>SACBootstrap5ContextmenuModule&#45;&gt;SacContextmenuItemSplitterComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M635.93,-178C530.64,-178 389.15,-178 389.15,-178 389.15,-178 389.15,-205.97 389.15,-205.97"/>
-<polygon fill="black" stroke="black" points="385.65,-205.97 389.15,-215.97 392.65,-205.97 385.65,-205.97"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M616.32,-178C493.18,-178 312.27,-178 312.27,-178 312.27,-178 312.27,-205.97 312.27,-205.97"/>
+<polygon fill="black" stroke="black" points="308.77,-205.97 312.27,-215.97 315.77,-205.97 308.77,-205.97"/>
 </g>
 <!-- SACCommonUtliltiesModule -->
 <g id="node7" class="node">
 <title>SACCommonUtliltiesModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="1390,-122 1387,-126 1366,-126 1363,-122 1206,-122 1206,-86 1390,-86 1390,-122"/>
-<text text-anchor="middle" x="1298" y="-99.8" font-family="Times,serif" font-size="14.00">SACCommonUtliltiesModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="208,-122 205,-126 184,-126 181,-122 24,-122 24,-86 208,-86 208,-122"/>
+<text text-anchor="middle" x="116" y="-99.8" font-family="Times,serif" font-size="14.00">SACCommonUtliltiesModule</text>
 </g>
 <!-- SACCommonUtliltiesModule&#45;&gt;SACBootstrap5ContextmenuModule -->
 <g id="edge6" class="edge">
 <title>SACCommonUtliltiesModule&#45;&gt;SACBootstrap5ContextmenuModule</title>
-<path fill="none" stroke="black" d="M1298,-122.11C1298,-141.34 1298,-169 1298,-169 1298,-169 869.96,-169 869.96,-169"/>
-<polygon fill="black" stroke="black" points="869.96,-165.5 859.96,-169 869.96,-172.5 869.96,-165.5"/>
+<path fill="none" stroke="black" d="M116,-122.11C116,-141.34 116,-169 116,-169 116,-169 606.11,-169 606.11,-169"/>
+<polygon fill="black" stroke="black" points="606.11,-172.5 616.11,-169 606.11,-165.5 606.11,-172.5"/>
 </g>
 </g>
 </svg>
@@ -441,6 +452,19 @@ export class SACBootstrap5ContextmenuModule {}
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -452,7 +476,6 @@ export class SACBootstrap5ContextmenuModule {}
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

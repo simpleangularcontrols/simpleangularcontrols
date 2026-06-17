@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content class">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -134,7 +145,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Model für Sprachen</p>
+                <p>Model for languages</p>
 
             </p>
 
@@ -208,13 +219,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/sac-common/src/models/languagemodel.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">projects/sac-common/src/models/languagemodel.ts:12</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Icon für Sprache</p>
+                    <div class="io-description"><p>Icon for language</p>
 </div>
                 </td>
             </tr>
@@ -246,13 +257,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/sac-common/src/models/languagemodel.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/sac-common/src/models/languagemodel.ts:17</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Typ des Icons. Default ist Image</p>
+                    <div class="io-description"><p>Type of the icon. Default is Image</p>
 </div>
                 </td>
             </tr>
@@ -279,13 +290,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/sac-common/src/models/languagemodel.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/sac-common/src/models/languagemodel.ts:22</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>ISO Code zu Sprache</p>
+                    <div class="io-description"><p>ISO Code for language</p>
 </div>
                 </td>
             </tr>
@@ -312,13 +323,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/sac-common/src/models/languagemodel.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">projects/sac-common/src/models/languagemodel.ts:27</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Bezeichnung für Sprache</p>
+                    <div class="io-description"><p>Designation for language</p>
 </div>
                 </td>
             </tr>
@@ -340,25 +351,32 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IconType } from &#x27;../enums/IconType&#x27;;
 
 /**
- * Model für Sprachen
+ * Model for languages
  */
 export class LanguageModel {
-  /**
-   * ISO Code zu Sprache
-   */
-  public IsoCode: string;
-  /**
-   * Icon für Sprache
-   */
-  public Icon: string;
-  /**
-   * Bezeichnung für Sprache
-   */
-  public Text: string;
-  /**
-   * Typ des Icons. Default ist Image
-   */
-  public IconType: IconType &#x3D; IconType.Image;
+    // #region Properties
+
+    /**
+     * Icon for language
+     */
+    public Icon: string;
+
+    /**
+     * Type of the icon. Default is Image
+     */
+    public IconType: IconType &#x3D; IconType.Image;
+
+    /**
+     * ISO Code for language
+     */
+    public IsoCode: string;
+
+    /**
+     * Designation for language
+     */
+    public Text: string;
+
+    // #endregion Properties
 }
 </code></pre>
     </div>
@@ -402,6 +420,19 @@ export class LanguageModel {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -413,7 +444,6 @@ export class LanguageModel {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

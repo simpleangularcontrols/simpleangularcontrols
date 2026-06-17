@@ -23,16 +23,18 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                 <li class="chapter">
                     <a data-type="chapter-link" href="index.html"><span class="icon ion-ios-home"></span>Getting started</a>
                     <ul class="links">
-                        <li class="link">
-                            <a href="overview.html" data-type="chapter-link">
-                                <span class="icon ion-ios-keypad"></span>Overview
-                            </a>
-                        </li>
-                        <li class="link">
-                            <a href="index.html" data-type="chapter-link">
-                                <span class="icon ion-ios-paper"></span>README
-                            </a>
-                        </li>
+                                <li class="link">
+                                    <a href="overview.html" data-type="chapter-link">
+                                        <span class="icon ion-ios-keypad"></span>Overview
+                                    </a>
+                                </li>
+
+                            <li class="link">
+                                <a href="index.html" data-type="chapter-link">
+                                    <span class="icon ion-ios-paper"></span>
+                                        README
+                                </a>
+                            </li>
                         <li class="link">
                             <a href="changelog.html"  data-type="chapter-link">
                                 <span class="icon ion-ios-paper"></span>CHANGELOG
@@ -63,6 +65,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <span class="icon ion-ios-apps"></span>Properties
                                     </a>
                                 </li>
+
                     </ul>
                 </li>
                     <li class="chapter additional">
@@ -92,13 +95,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SACBootstrap5BrowserModule.html" data-type="entity-link" >SACBootstrap5BrowserModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                            'data-bs-target="#components-links-module-SACBootstrap5BrowserModule-8b9e988c5d42676fb655157f606a5eeabe0c9d572fdd722d5c988314a660bad6948722b0e5bf650d0f6187b7fce886300827a46fabfb9958af11db2e08747049"' : 'data-bs-target="#xs-components-links-module-SACBootstrap5BrowserModule-8b9e988c5d42676fb655157f606a5eeabe0c9d572fdd722d5c988314a660bad6948722b0e5bf650d0f6187b7fce886300827a46fabfb9958af11db2e08747049"' }>
+                                            'data-bs-target="#components-links-module-SACBootstrap5BrowserModule-2e0b77d5aebfe6f529dbe5d194bb29cc7f1e3394fcd241072414bf89c61ef106e408a0e8cd7f680f5638fef9f7e028c4d9d78c33d66e98f87271af472ef33a04"' : 'data-bs-target="#xs-components-links-module-SACBootstrap5BrowserModule-2e0b77d5aebfe6f529dbe5d194bb29cc7f1e3394fcd241072414bf89c61ef106e408a0e8cd7f680f5638fef9f7e028c4d9d78c33d66e98f87271af472ef33a04"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SACBootstrap5BrowserModule-8b9e988c5d42676fb655157f606a5eeabe0c9d572fdd722d5c988314a660bad6948722b0e5bf650d0f6187b7fce886300827a46fabfb9958af11db2e08747049"' :
-                                            'id="xs-components-links-module-SACBootstrap5BrowserModule-8b9e988c5d42676fb655157f606a5eeabe0c9d572fdd722d5c988314a660bad6948722b0e5bf650d0f6187b7fce886300827a46fabfb9958af11db2e08747049"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SACBootstrap5BrowserModule-2e0b77d5aebfe6f529dbe5d194bb29cc7f1e3394fcd241072414bf89c61ef106e408a0e8cd7f680f5638fef9f7e028c4d9d78c33d66e98f87271af472ef33a04"' :
+                                            'id="xs-components-links-module-SACBootstrap5BrowserModule-2e0b77d5aebfe6f529dbe5d194bb29cc7f1e3394fcd241072414bf89c61ef106e408a0e8cd7f680f5638fef9f7e028c4d9d78c33d66e98f87271af472ef33a04"' }>
                                             <li class="link">
                                                 <a href="components/SacBrowserComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacBrowserComponent</a>
                                             </li>
@@ -149,13 +152,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SACBootstrap5ConfirmModule.html" data-type="entity-link" >SACBootstrap5ConfirmModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                            'data-bs-target="#components-links-module-SACBootstrap5ConfirmModule-4e30f36e7376e4ea17ba376076067bc3506bc67442371de54fcf8525c0c5724ff44bc1408a4f2a4bb9dbcf8a5bc8bed015692da43b25d6cea0191b6f83992f6c"' : 'data-bs-target="#xs-components-links-module-SACBootstrap5ConfirmModule-4e30f36e7376e4ea17ba376076067bc3506bc67442371de54fcf8525c0c5724ff44bc1408a4f2a4bb9dbcf8a5bc8bed015692da43b25d6cea0191b6f83992f6c"' }>
+                                            'data-bs-target="#components-links-module-SACBootstrap5ConfirmModule-931677427d8f1506ce362c4a8b889b97c8cc7e7bc30460cd892bb0f42aae74ed165bb2635e96ae8960aae1d2dfab2ebff8d2f141af5f6c258ce58c2503b12aa2"' : 'data-bs-target="#xs-components-links-module-SACBootstrap5ConfirmModule-931677427d8f1506ce362c4a8b889b97c8cc7e7bc30460cd892bb0f42aae74ed165bb2635e96ae8960aae1d2dfab2ebff8d2f141af5f6c258ce58c2503b12aa2"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SACBootstrap5ConfirmModule-4e30f36e7376e4ea17ba376076067bc3506bc67442371de54fcf8525c0c5724ff44bc1408a4f2a4bb9dbcf8a5bc8bed015692da43b25d6cea0191b6f83992f6c"' :
-                                            'id="xs-components-links-module-SACBootstrap5ConfirmModule-4e30f36e7376e4ea17ba376076067bc3506bc67442371de54fcf8525c0c5724ff44bc1408a4f2a4bb9dbcf8a5bc8bed015692da43b25d6cea0191b6f83992f6c"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-SACBootstrap5ConfirmModule-931677427d8f1506ce362c4a8b889b97c8cc7e7bc30460cd892bb0f42aae74ed165bb2635e96ae8960aae1d2dfab2ebff8d2f141af5f6c258ce58c2503b12aa2"' :
+                                            'id="xs-components-links-module-SACBootstrap5ConfirmModule-931677427d8f1506ce362c4a8b889b97c8cc7e7bc30460cd892bb0f42aae74ed165bb2635e96ae8960aae1d2dfab2ebff8d2f141af5f6c258ce58c2503b12aa2"' }>
                                             <li class="link">
                                                 <a href="components/SacConfirmComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SacConfirmComponent</a>
                                             </li>
@@ -897,7 +900,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/PopUpHelper.html" data-type="entity-link" >PopUpHelper</a>
                             </li>
                             <li class="link">
-                                <a href="classes/Positioning.html" data-type="entity-link" >Positioning</a>
+                                <a href="classes/PositionCalculator.html" data-type="entity-link" >PositionCalculator</a>
                             </li>
                             <li class="link">
                                 <a href="classes/SacConfirmButton.html" data-type="entity-link" >SacConfirmButton</a>

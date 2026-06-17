@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content class">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -134,7 +145,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Klasse für den Upload einer Datei in der Upload Component</p>
+                <p>Class for uploading a file in the upload component</p>
 
             </p>
 
@@ -197,13 +208,13 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="677" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:677</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="697" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:697</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -229,7 +240,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Upload Status</p>
+                                                                <p>Upload state</p>
 
                                                         </td>
                                                 </tr>
@@ -267,7 +278,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="657" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:657</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="677" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:677</a></div>
                         </td>
                     </tr>
 
@@ -300,13 +311,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="662" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:662</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="682" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:682</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Dateiname</p>
+                    <div class="io-description"><p>File name</p>
 </div>
                 </td>
             </tr>
@@ -333,13 +344,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="667" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:667</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="687" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:687</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Upload Fortschritt</p>
+                    <div class="io-description"><p>Upload progress</p>
 </div>
                 </td>
             </tr>
@@ -366,13 +377,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="672" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:672</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="692" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:692</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Upload Status</p>
+                    <div class="io-description"><p>Upload status</p>
 </div>
                 </td>
             </tr>
@@ -399,7 +410,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="677" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:677</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="697" class="link-to-prism">projects/sac-common/src/common/baseuploadcontrol.ts:697</a></div>
                         </td>
                     </tr>
 
@@ -460,26 +471,26 @@ import { Observable, of } from &#x27;rxjs&#x27;;
 // #region Exported Classes
 
 /**
- * Base Klasse für Uploader Control
+ * Base class for uploader control
  */
 @Directive()
 export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;VALUE&gt; implements OnInit, OnDestroy {
     // #region Properties
 
     /**
-     * Erlaubte Dateitypen
+     * Allowed file types
      */
-    private _allowedtypes: string &#x3D; &#x27;*&#x27;;
+    private _allowedtypes &#x3D; &#x27;*&#x27;;
 
     /**
-     * Files automatisch hochladen
+     * Automatically uploads files
      */
-    private _autoupload: boolean &#x3D; false;
+    private _autoupload &#x3D; false;
 
     /**
-     * Pausieren von Uploads erlauben
+     * Allow pausing of uploads
      */
-    private _enablepause: boolean &#x3D; true;
+    private _enablepause &#x3D; true;
 
     /**
      * API Endpoint
@@ -508,7 +519,7 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     protected uploadService: UploadxService;
 
     /**
-     * Handling von neuen Files im Input Control
+     * Handling of new files in the input control
      */
     public fileListener &#x3D; () &#x3D;&gt; {
         // exit if files is null or undefined
@@ -539,12 +550,12 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     };
 
     /**
-     * Definiert das Control als Required
+     * Defines the control as required
      */
-    @Input() public isrequired: boolean &#x3D; false;
+    @Input() public isrequired &#x3D; false;
 
     /**
-     * Listener für Files
+     * Listener for files
      */
     public listenerFn: () &#x3D;&gt; void;
 
@@ -554,9 +565,9 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     public lngResourceService: ISacLocalisationService;
 
     /**
-     * Max. Dateigrösse für Files die hochgeladen werden können. 0 deaktiviert den Filter
+     * Max. file size for files that can be uploaded. 0 disables the filter
      */
-    @Input() public maxfilesize: number &#x3D; 0;
+    @Input() public maxfilesize &#x3D; 0;
 
     /**
      * Event when an error is triggered in the component.
@@ -570,17 +581,17 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     public onuploadcomplete &#x3D; new EventEmitter&lt;ISacUploadEventCompleteState&gt;();
 
     /**
-     * Array von Uploads
+     * Array of uploads
      */
     public uploads: SacUploadFile[];
 
     /**
-     * Resource Key für Validation Message Required bei Control
+     * Resource key for validation message &#x27;required&#x27; at control
      */
     @Input() public validationmessagerequired: string &#x3D; this.validationKeyService.ValidationErrorRequired;
 
     /**
-     * Resource Key für Validation Message Required in Validation Summary
+     * Resource key for validation message &#x27;required&#x27; in validation summary
      */
     @Input()
     public validationmessagesummaryrequired: string &#x3D; this.validationKeyService.ValidationErrorSummaryRequired;
@@ -681,7 +692,7 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     }
 
     /**
-     * Erlaubte Dateitypen für den Upload. Format: &quot;.xxx,.yyy,.zzz&quot;
+     * Allowed file types for upload. Format: &quot;.xxx,.yyy,.zzz&quot;
      */
     @Input()
     public set allowedtypes(types: string) {
@@ -689,12 +700,17 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
         this.setAllowedTypes(types);
     }
 
+    /**
+     * Indicates whether files should be uploaded automatically after selection.
+     * @returns true when auto-upload is enabled.
+     */
     public get autoupload(): boolean {
         return this._autoupload;
     }
 
     /**
-     * Files nach der Auswahl automatisch hochladen
+     * Automatically uploads files after selection.
+     * @param v true to enable automatic upload.
      */
     @Input()
     public set autoupload(v: boolean) {
@@ -703,24 +719,34 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
         this.uploadService.connect(this.options);
     }
 
+    /**
+     * Indicates whether upload pause is allowed.
+     * @returns true when pause support is active.
+     */
     public get enablepause(): boolean {
         return this._enablepause;
     }
 
     /**
-     * Uploads können unterbrochen werden
+     * Uploads can be paused.
+     * @param v true to allow pausing uploads.
      */
     @Input()
     public set enablepause(v: boolean) {
         this._enablepause &#x3D; v;
     }
 
+    /**
+     * API endpoint for upload registration.
+     * @returns configured endpoint URL.
+     */
     public get endpoint(): string {
         return this._endpoint;
     }
 
     /**
-     * Definiert den Registration Endpoint für Uploads.
+     * Defines the registration endpoint for uploads.
+     * @param v upload endpoint URL.
      */
     @Input()
     public set endpoint(v: string) {
@@ -729,14 +755,16 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     }
 
     /**
-     * Token for Bearer Authentication
+     * Bearer authentication token used by upload service.
+     * @returns current auth token or null.
      */
     public get token(): string | null {
         return this._token;
     }
 
     /**
-     * Token for Bearer Authentication
+     * Sets Bearer authentication token for service requests.
+     * @param v token string or null to clear token.
      */
     @Input()
     public set token(v: string | null) {
@@ -749,16 +777,16 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     // #region Public Methods
 
     /**
-     * Methode kann für Controls verwendet werden, zusätzliche Validierungen bei hinzufügen der Files zu machen
+     * Method can be used for controls to perform additional validations when adding files
      *
-     * @param file File das hinzugefügt wurde.
-     * @returns Valdierung ist erfolgreich
+     * @param file File that was added.
+     * @returns Validation is successful
      */
     public abstract CustomAddValidation(file: UploadState): boolean;
 
     /**
-     * Name der Datei die Hochgeladen wird
-     * @returns Observable des Dateinamens.
+     * Name of the file being uploaded
+     * @returns Observable of the file name.
      */
     public Filename(): Observable&lt;string&gt; {
         if (this.uploads.length &gt; 0) {
@@ -769,16 +797,16 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     }
 
     /**
-     * Gibt an ob Queue Elemente beinhaltet
-     * @returns Elemente in der Queue
+     * Indicates whether the queue contains elements
+     * @returns Elements in the queue
      */
     public HasQueueItem(): boolean {
         return this.uploads.length &gt; 0;
     }
 
     /**
-     * Gibt an ob ein Upload abgeschlossen ist
-     * @returns Upload erfolgreich
+     * Indicates whether an upload is complete
+     * @returns Upload successful
      */
     public HasSuccessUpload(): boolean {
         if (this.uploads.length &gt; 0) {
@@ -789,32 +817,32 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     }
 
     /**
-     * Prüft ob ein Upload pausiert
-     * @returns Pausierter Upload ist vorhanden
+     * Checks if an upload is paused
+     * @returns Paused upload is present
      */
     public IsPaused(): boolean {
         return this.uploads.filter((itm) &#x3D;&gt; itm.status &#x3D;&#x3D;&#x3D; &#x27;paused&#x27;).length &gt; 0;
     }
 
     /**
-     * Prüft ob in der Queue Elemente die zum Upload bereit sind vorhanden sind.
-     * @returns Elemente für Upload vorhanden
+     * Checks if there are elements in the queue ready for upload.
+     * @returns Elements available for upload
      */
     public IsStateToUpload(): boolean {
         return this.uploads.filter((itm) &#x3D;&gt; itm.status &#x3D;&#x3D;&#x3D; &#x27;added&#x27; || itm.status &#x3D;&#x3D;&#x3D; &#x27;paused&#x27;).length &gt; 0;
     }
 
     /**
-     * Prüft ob ein Upload eines Files am laufen ist
-     * @returns Upload ist am laufen
+     * Checks if a file upload is in progress
+     * @returns Upload is in progress
      */
     public IsUploading(): boolean {
         return this.uploads.filter((itm) &#x3D;&gt; itm.status &#x3D;&#x3D;&#x3D; &#x27;uploading&#x27;).length &gt; 0;
     }
 
     /**
-     * Gibt den Uploadfortschritt zurück
-     * @returns Upload Fortschritt. Wert von 0-100
+     * Returns the upload progress
+     * @returns Upload progress. Value from 0-100
      */
     public Progress(): number {
         if (this.uploads.length &gt; 0) {
@@ -825,9 +853,9 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     }
 
     /**
-     * Methode welche die Upload ID&#x27;s in das Model setzt oder löscht
+     * Method that sets or deletes the upload IDs in the model
      *
-     * @param file Type von File ID&#x27;s
+     * @param file Type of file IDs
      */
     public abstract SetUploadValue(file: UploadState): void;
 
@@ -849,7 +877,7 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     }
 
     /**
-     * Destroy des Controls
+     * Destroy the control
      */
     public ngOnDestroy() {
         if (this.listenerFn) {
@@ -858,7 +886,7 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     }
 
     /**
-     * Initialisiert das Control
+     * Initializes the control
      */
     public ngOnInit() {
         super.ngOnInit();
@@ -877,9 +905,9 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     }
 
     /**
-     * Upload Event
+     * Upload event
      *
-     * @param uploadsOutStream Upload Item
+     * @param uploadsOutStream Upload item
      */
     public onUpload(ufile: UploadState) {
         const index &#x3D; this.uploads.findIndex((f) &#x3D;&gt; f.uploadId &#x3D;&#x3D;&#x3D; ufile.uploadId);
@@ -929,15 +957,15 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     }
 
     /**
-     * Cancel Single File
-     * @param uploadId ID of File to Cancel
+     * Cancel single file
+     * @param uploadId ID of file to cancel
      */
     public pause(uploadId) {
         this.uploadService.control({ action: &#x27;pause&#x27;, uploadId });
     }
 
     /**
-     * Pause all Uploads
+     * Pause all uploads
      */
     public pauseAll() {
         if (this.IsUploading() &#x3D;&#x3D;&#x3D; true) {
@@ -971,8 +999,8 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     }
 
     /**
-     * Validiert das Upload Control
-     * @param c Control das validiert werden soll
+     * Validates the upload control
+     * @param c Control to be validated
      */
     public validateData(c: AbstractControl): ValidationErrors | null {
         let error: ValidationErrors | null &#x3D; null;
@@ -997,6 +1025,9 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
 
     // #region Private Methods
 
+    /**
+     * Updates the file count on the form control
+     */
     private UpdateFileCount(): void {
         // HACK: Add addition property to FormControl. Can be fixed if solution for ticket: https://github.com/angular/angular/issues/19686
         if (this.ngControl) {
@@ -1012,16 +1043,16 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     }
 
     /**
-     * Prüft ob die Dateierweiterung gültig ist
+     * Checks whether the file extension is valid
      *
-     * @param filename Dateiname
+     * @param filename File name
      */
     private isExtensionValid(filename: string): boolean {
         if (this._allowedtypes &#x3D;&#x3D;&#x3D; &#x27;*&#x27;) {
             return true;
         }
 
-        let isValid: boolean &#x3D; false;
+        let isValid &#x3D; false;
         const extensions: string[] &#x3D; this._allowedtypes.split(&#x27;,&#x27;);
 
         extensions.forEach((itm) &#x3D;&gt; {
@@ -1034,9 +1065,9 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     }
 
     /**
-     * Prüft ob das File nicht zu gross ist.
+     * Checks if the file is not too large.
      *
-     * @param filesize Max File Size in Bytes
+     * @param filesize Max file size in bytes
      */
     private isFileSizeValid(filesize: number): boolean {
         if (this.maxfilesize &#x3D;&#x3D;&#x3D; 0) {
@@ -1047,12 +1078,12 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     }
 
     /**
-     * Setzt die erlaubten Datentypen für den Upload
+     * Sets the allowed data types for upload
      *
-     * @param types Erlaubte File Extensions
+     * @param types Allowed file extensions
      */
     private setAllowedTypes(types: string) {
-        // Prüfen UploadInput bereits geladen, ist NULL wenn Extension im Markup nach NgModel gesetzt wird.
+        // Check if uploadInput is already loaded; is NULL when the directive is set after NgModel in the markup.
         if (this.uploadInput &amp;&amp; this.uploadInput.nativeElement) {
             this.renderer.setAttribute(this.uploadInput.nativeElement, &#x27;accept&#x27;, types);
         }
@@ -1061,7 +1092,7 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     }
 
     /**
-     * Setzt den Upload Endpoit
+     * Sets the upload endpoint
      * @param url Register URI
      */
     private setEndpoint(url: string) {
@@ -1072,7 +1103,7 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
 }
 
 /**
- * Klasse für den Upload einer Datei in der Upload Component
+ * Class for uploading a file in the upload component
  */
 export class SacUploadFile {
     // #region Properties
@@ -1083,17 +1114,17 @@ export class SacUploadFile {
     public documentid: string;
 
     /**
-     * Dateiname
+     * File name
      */
     public name: string;
 
     /**
-     * Upload Fortschritt
+     * Upload progress
      */
     public progress: number;
 
     /**
-     * Upload Status
+     * Upload status
      */
     public status: string;
 
@@ -1107,8 +1138,8 @@ export class SacUploadFile {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param ufile Upload Status
+     * Constructor
+     * @param ufile Upload state
      */
     constructor(ufile: UploadState) {
         this.uploadId &#x3D; ufile.uploadId;
@@ -1164,6 +1195,19 @@ export class SacUploadFile {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -1175,7 +1219,6 @@ export class SacUploadFile {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

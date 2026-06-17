@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content class">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -130,6 +141,15 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Utility for positioning popup elements relative to anchor elements.</p>
+<p>Provides functions for measuring container dimensions, validating available positions,
+and computing translated positions for tooltip/popups in various placements.</p>
+
+            </p>
 
 
 
@@ -232,14 +252,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="7"
-                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:7</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="19"
+                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:19</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Get the height of the reference container element</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -250,6 +272,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -264,6 +287,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Element Reference to HTML Element</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>referenceIsContainer</td>
@@ -276,6 +303,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Boolean indicating if reference is the container itself</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -285,7 +316,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The height in pixels</p>
+
                             </div>
                 </td>
             </tr>
@@ -313,14 +345,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="17"
-                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:17</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:35</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Get the width of the reference container element</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -331,6 +365,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -345,6 +380,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Element Reference to HTML Element</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>referenceIsContainer</td>
@@ -357,6 +396,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Boolean indicating if reference is the container itself</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -366,7 +409,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The width in pixels</p>
+
                             </div>
                 </td>
             </tr>
@@ -394,15 +438,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="36"
-                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:36</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:56</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Get Position who the popup would be positioned</p>
+                        <div class="io-description"><p>Get Position where the popup would be positioned</p>
 </div>
 
                             <div class="io-description">
@@ -462,6 +506,8 @@
 
 
                                             <td>
+                                                    <p>Width of the arrow element</p>
+
                                             </td>
                                         </tr>
                                         <tr>
@@ -476,6 +522,8 @@
 
 
                                             <td>
+                                                    <p>Height of the arrow element</p>
+
                                             </td>
                                         </tr>
                                         <tr>
@@ -506,6 +554,8 @@
 
 
                                             <td>
+                                                    <p>Boolean indicating if reference is the container itself</p>
+
                                             </td>
                                         </tr>
                                     </tbody>
@@ -545,8 +595,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="116"
-                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:116</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="129"
+                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:129</a></div>
                         </td>
                     </tr>
 
@@ -593,7 +643,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The height of the popup in pixels</p>
+
                             </div>
                 </td>
             </tr>
@@ -621,8 +672,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="129"
-                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:129</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="143"
+                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:143</a></div>
                         </td>
                     </tr>
 
@@ -669,7 +720,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The width of the popup in pixels</p>
+
                             </div>
                 </td>
             </tr>
@@ -697,8 +749,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="142"
-                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:142</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="157"
+                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:157</a></div>
                         </td>
                     </tr>
 
@@ -745,7 +797,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The calculated tooltip position</p>
+
                             </div>
                 </td>
             </tr>
@@ -773,15 +826,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="180"
-                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:180</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="198"
+                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:198</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Calculates the position of the tooltip from links</p>
+                        <div class="io-description"><p>Calculates the left position of the tooltip/popup</p>
 </div>
 
                             <div class="io-description">
@@ -841,7 +894,7 @@
 
 
                                             <td>
-                                                    <p>Element Reference to angular component</p>
+                                                    <p>Element Reference to the control element</p>
 
                                             </td>
                                         </tr>
@@ -857,6 +910,8 @@
 
 
                                             <td>
+                                                    <p>Width of the arrow element</p>
+
                                             </td>
                                         </tr>
                                         <tr>
@@ -871,6 +926,8 @@
 
 
                                             <td>
+                                                    <p>Height of the arrow element</p>
+
                                             </td>
                                         </tr>
                                         <tr>
@@ -901,6 +958,8 @@
 
 
                                             <td>
+                                                    <p>Boolean indicating if reference is the container itself</p>
+
                                             </td>
                                         </tr>
                                     </tbody>
@@ -911,7 +970,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The left position in pixels</p>
+
                             </div>
                 </td>
             </tr>
@@ -939,15 +999,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="238"
-                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:238</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="259"
+                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:259</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Calculates the position of the tooltip from the top</p>
+                        <div class="io-description"><p>Calculates the top position of the tooltip/popup</p>
 </div>
 
                             <div class="io-description">
@@ -1007,7 +1067,7 @@
 
 
                                             <td>
-                                                    <p>Element Reference to angular component</p>
+                                                    <p>Element Reference to the control element</p>
 
                                             </td>
                                         </tr>
@@ -1023,6 +1083,8 @@
 
 
                                             <td>
+                                                    <p>Width of the arrow element</p>
+
                                             </td>
                                         </tr>
                                         <tr>
@@ -1037,6 +1099,8 @@
 
 
                                             <td>
+                                                    <p>Height of the arrow element</p>
+
                                             </td>
                                         </tr>
                                         <tr>
@@ -1067,6 +1131,8 @@
 
 
                                             <td>
+                                                    <p>Boolean indicating if reference is the container itself</p>
+
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1077,7 +1143,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The top position in pixels</p>
+
                             </div>
                 </td>
             </tr>
@@ -1105,8 +1172,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="301"
-                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:301</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="323"
+                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:323</a></div>
                         </td>
                     </tr>
 
@@ -1169,7 +1236,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Boolean indicating if the requested position is configured</p>
+
                             </div>
                 </td>
             </tr>
@@ -1197,8 +1265,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="334"
-                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:334</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="357"
+                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:357</a></div>
                         </td>
                     </tr>
 
@@ -1245,7 +1313,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Boolean indicating if auto positioning is enabled</p>
+
                             </div>
                 </td>
             </tr>
@@ -1273,8 +1342,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="342"
-                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:342</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="371"
+                                    class="link-to-prism">projects/sac-common/src/utilities/popuphelper.ts:371</a></div>
                         </td>
                     </tr>
 
@@ -1293,6 +1362,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1307,6 +1377,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Element Reference to HTML Element which is the reference</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>popupcontentcontainer</td>
@@ -1319,6 +1393,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Element Reference to container of popup</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>arrowWidth</td>
@@ -1331,6 +1409,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Width of the arrow element</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>arrowHeight</td>
@@ -1343,6 +1425,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Height of the arrow element</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>referenceIsContainer</td>
@@ -1355,6 +1441,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Boolean indicating if reference is the container itself</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1364,7 +1454,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The valid tooltip position</p>
+
                             </div>
                 </td>
             </tr>
@@ -1383,9 +1474,21 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TooltipPosition } from &#x27;./enums&#x27;;
 import { ElementRef } from &#x27;@angular/core&#x27;;
 
+/**
+ * Utility for positioning popup elements relative to anchor elements.
+ *
+ * Provides functions for measuring container dimensions, validating available positions,
+ * and computing translated positions for tooltip/popups in various placements.
+ */
 export class PopUpHelper {
     // #region Public Methods
 
+    /**
+     * Get the height of the reference container element
+     * @param referenceContainer Element Reference to HTML Element
+     * @param referenceIsContainer Boolean indicating if reference is the container itself
+     * @returns The height in pixels
+     */
     public getContainerHeight(referenceContainer: ElementRef&lt;HTMLElement&gt;, referenceIsContainer: boolean): number {
         if (referenceContainer) {
             return referenceIsContainer
@@ -1396,6 +1499,12 @@ export class PopUpHelper {
         }
     }
 
+    /**
+     * Get the width of the reference container element
+     * @param referenceContainer Element Reference to HTML Element
+     * @param referenceIsContainer Boolean indicating if reference is the container itself
+     * @returns The width in pixels
+     */
     public getContainerWidth(referenceContainer: ElementRef&lt;HTMLElement&gt;, referenceIsContainer: boolean): number {
         if (referenceContainer) {
             return referenceIsContainer
@@ -1407,12 +1516,14 @@ export class PopUpHelper {
     }
 
     /**
-     * Get Position who the popup would be positioned
+     * Get Position where the popup would be positioned
      *
      * @param referenceContainer Element Reference to HTML Element which is the reference to positioning the popup
      * @param popupcontentcontainer Element Reference to container of popup
-     * @param popupOffset Offset for popup positioning
+     * @param arrowWidth Width of the arrow element
+     * @param arrowHeight Height of the arrow element
      * @param allowedPositions Allowed Positions for the popup
+     * @param referenceIsContainer Boolean indicating if reference is the container itself
      * @returns Returns the position where the popup should be displayed
      */
     public getDisplayPosition(
@@ -1431,22 +1542,18 @@ export class PopUpHelper {
             referenceIsContainer
         );
 
-        // tslint:disable-next-line:no-bitwise
         if (this.hasPosition(allowedPositions, TooltipPosition.right) &amp;&amp; validPositions &amp; TooltipPosition.right) {
             return TooltipPosition.right;
         }
 
-        // tslint:disable-next-line:no-bitwise
         if (this.hasPosition(allowedPositions, TooltipPosition.top) &amp;&amp; validPositions &amp; TooltipPosition.top) {
             return TooltipPosition.top;
         }
 
-        // tslint:disable-next-line:no-bitwise
         if (this.hasPosition(allowedPositions, TooltipPosition.left) &amp;&amp; validPositions &amp; TooltipPosition.left) {
             return TooltipPosition.left;
         }
 
-        // tslint:disable-next-line:no-bitwise
         if (this.hasPosition(allowedPositions, TooltipPosition.bottom) &amp;&amp; validPositions &amp; TooltipPosition.bottom) {
             return TooltipPosition.bottom;
         }
@@ -1464,22 +1571,18 @@ export class PopUpHelper {
 
         // Get Auto Position or Default
         if (this.isAutoPosition(allowedPositions)) {
-            // tslint:disable-next-line:no-bitwise
             if (validPositions &amp; TooltipPosition.right) {
                 return TooltipPosition.right;
             }
 
-            // tslint:disable-next-line:no-bitwise
             if (validPositions &amp; TooltipPosition.top) {
                 return TooltipPosition.top;
             }
 
-            // tslint:disable-next-line:no-bitwise
             if (validPositions &amp; TooltipPosition.left) {
                 return TooltipPosition.left;
             }
 
-            // tslint:disable-next-line:no-bitwise
             if (validPositions &amp; TooltipPosition.bottom) {
                 return TooltipPosition.bottom;
             }
@@ -1494,6 +1597,7 @@ export class PopUpHelper {
      * Calculates the height of the popup
      *
      * @param container Element Reference to container of popup
+     * @returns The height of the popup in pixels
      */
     public getPopupHeight(container: ElementRef&lt;HTMLElement&gt;): number {
         if (container) {
@@ -1507,6 +1611,7 @@ export class PopUpHelper {
      * Calculates the width of the popup
      *
      * @param container Element Reference to container of popup
+     * @returns The width of the popup in pixels
      */
     public getPopupWidth(container: ElementRef&lt;HTMLElement&gt;): number {
         if (container) {
@@ -1520,6 +1625,7 @@ export class PopUpHelper {
      * Returns the defined position for the tooltip
      *
      * @param allowedPositions Allowed positions defined in markup for popup
+     * @returns The calculated tooltip position
      */
     public getPosition(allowedPositions: string): TooltipPosition {
         if (this.hasPosition(allowedPositions, TooltipPosition.left)) {
@@ -1551,13 +1657,16 @@ export class PopUpHelper {
     }
 
     /**
-     * Calculates the position of the tooltip from links
+     * Calculates the left position of the tooltip/popup
      *
-     * @param controlReference Element Reference to angular component
-     * @param popupContainer Element Reference to container of popup
      * @param referenceContainer Element Reference to HTML Element which is the reference to positioning the popup
-     * @param popupOffset Offset for popup positioning
+     * @param popupContainer Element Reference to container of popup
+     * @param controlReference Element Reference to the control element
+     * @param arrowWidth Width of the arrow element
+     * @param arrowHeight Height of the arrow element
      * @param requestedPosition Requested Position by Control
+     * @param referenceIsContainer Boolean indicating if reference is the container itself
+     * @returns The left position in pixels
      */
     public getPositionLeft(
         referenceContainer: ElementRef&lt;HTMLElement&gt;,
@@ -1609,13 +1718,16 @@ export class PopUpHelper {
     }
 
     /**
-     * Calculates the position of the tooltip from the top
+     * Calculates the top position of the tooltip/popup
      *
-     * @param controlReference Element Reference to angular component
-     * @param popupContainer Element Reference to container of popup
      * @param referenceContainer Element Reference to HTML Element which is the reference to positioning the popup
-     * @param popupOffset Offset for popup positioning
+     * @param popupContainer Element Reference to container of popup
+     * @param controlReference Element Reference to the control element
+     * @param arrowWidth Width of the arrow element
+     * @param arrowHeight Height of the arrow element
      * @param requestedPosition Requested Position by Control
+     * @param referenceIsContainer Boolean indicating if reference is the container itself
+     * @returns The top position in pixels
      */
     public getPositionTop(
         referenceContainer: ElementRef&lt;HTMLElement&gt;,
@@ -1679,6 +1791,7 @@ export class PopUpHelper {
      *
      * @param allowedPositions Positions that allowed by control
      * @param requestedPosition Position to be checked
+     * @returns Boolean indicating if the requested position is configured
      */
     public hasPosition(allowedPositions: string, requestedPosition: TooltipPosition): boolean {
         const positions &#x3D; allowedPositions.split(&#x27;|&#x27;);
@@ -1712,6 +1825,7 @@ export class PopUpHelper {
     /**
      * Defines whether AutoPosition is active
      * @param positionProperty List of allowed positions
+     * @returns Boolean indicating if auto positioning is enabled
      */
     public isAutoPosition(positionProperty: string): boolean {
         const positions &#x3D; positionProperty.split(&#x27;|&#x27;);
@@ -1720,6 +1834,12 @@ export class PopUpHelper {
 
     /**
      * Checks whether the position is valid or whether the tooltip on the position has space
+     * @param referenceContainer Element Reference to HTML Element which is the reference
+     * @param popupcontentcontainer Element Reference to container of popup
+     * @param arrowWidth Width of the arrow element
+     * @param arrowHeight Height of the arrow element
+     * @param referenceIsContainer Boolean indicating if reference is the container itself
+     * @returns The valid tooltip position
      */
     public validatePositions(
         referenceContainer: ElementRef&lt;HTMLElement&gt;,
@@ -1750,32 +1870,26 @@ export class PopUpHelper {
         const bottomHalfPosOk: boolean &#x3D; basePosition.bottom + tooltipRect.height / 2 &lt; window.innerHeight;
 
         if (topPosOk) {
-            // tslint:disable-next-line:no-bitwise
             allowedPositions &#x3D; allowedPositions | TooltipPosition.topend;
         }
 
         if (bottomPosOk) {
-            // tslint:disable-next-line:no-bitwise
             allowedPositions &#x3D; allowedPositions | TooltipPosition.bottomend;
         }
 
         if (leftPosOk &amp;&amp; topHalfPosOk &amp;&amp; bottomHalfPosOk) {
-            // tslint:disable-next-line:no-bitwise
             allowedPositions &#x3D; allowedPositions | TooltipPosition.left;
         }
 
         if (rightPosOk &amp;&amp; topHalfPosOk &amp;&amp; bottomHalfPosOk) {
-            // tslint:disable-next-line:no-bitwise
             allowedPositions &#x3D; allowedPositions | TooltipPosition.right;
         }
 
         if (topPosOk &amp;&amp; leftHalfPosOk &amp;&amp; rightHalfPosOk) {
-            // tslint:disable-next-line:no-bitwise
             allowedPositions &#x3D; allowedPositions | TooltipPosition.top;
         }
 
         if (bottomPosOk &amp;&amp; leftHalfPosOk &amp;&amp; rightHalfPosOk) {
-            // tslint:disable-next-line:no-bitwise
             allowedPositions &#x3D; allowedPositions | TooltipPosition.bottom;
         }
 
@@ -1879,6 +1993,19 @@ export class PopUpHelper {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -1890,7 +2017,6 @@ export class PopUpHelper {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

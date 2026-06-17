@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content component">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -127,6 +138,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Bootstrap 3 tab container component that renders tab headers and manages selected tab state.</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -500,7 +518,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacTabCommon.html#source" target="_self" >SacTabCommon:19</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacTabCommon.html#source" target="_self" >SacTabCommon:26</a></code>
 </div>
                         </td>
                     </tr>
@@ -508,11 +526,17 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns the TabItems</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="../directives/SacTabItemCommon.html" target="_self" >SacTabItemCommon[]</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>Array of TabItems</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -764,7 +788,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">projects/sac-bootstrap3/src/controls/tabs/tab.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/sac-bootstrap3/src/controls/tabs/tab.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -781,6 +805,9 @@
 import { Component, ContentChildren, QueryList } from &#x27;@angular/core&#x27;;
 import { SacTabCommon, SacTabItemCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
+/**
+ * Bootstrap 3 tab container component that renders tab headers and manages selected tab state.
+ */
 @Component({
     selector: &#x27;sac-tab&#x27;,
     templateUrl: &#x27;./tab.html&#x27;,
@@ -795,6 +822,10 @@ export class SacTabComponent extends SacTabCommon {
 
     // #region Public Methods
 
+    /**
+     * Returns the TabItems
+     * @returns Array of TabItems
+     */
     public tabItems(): SacTabItemCommon[] {
         return this._tabItems.toArray() as Array&lt;SacTabItemCommon&gt;;
     }
@@ -809,7 +840,7 @@ export class SacTabComponent extends SacTabCommon {
 &lt;div
     [id]&#x3D;&quot;name&quot;
     class&#x3D;&quot;content-nav-tabs&quot;
-    [attr.data-e2e-key]&#x3D;&quot;name | testingattribute : e2eidentifier&quot;&gt;
+    [attr.data-e2e-key]&#x3D;&quot;name | testingattribute: e2eidentifier&quot;&gt;
     &lt;ul
         class&#x3D;&quot;nav nav-tabs&quot;
         role&#x3D;&quot;tablist&quot;&gt;
@@ -865,11 +896,11 @@ export class SacTabComponent extends SacTabCommon {
     
 </div>
 
-<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/vis-network.min.js"></script>
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- Nav tabs --><div    [id]="name"    class="content-nav-tabs"    [attr.data-e2e-key]="name | testingattribute : e2eidentifier">    <ul        class="nav nav-tabs"        role="tablist">        <li            *ngFor="let item of _tabItems"            [ngClass]="{ \'active show\': item.active, disabled: item.disabled }"            (click)="selectTab(item)"            [ngStyle]="{ cursor: item._disabled ? \'not-allowed\' : \'pointer\' }"            [id]="GetTabItemButtonId(item.id)">            <a                [id]="GetTabItemButtonId(item.id)"                role="tab">                <ng-template *ngTemplateOutlet="tablabeltemplate || defaultTabLabelTemplate; context: { label: item.label }"> </ng-template>            </a>        </li>    </ul></div><!-- Tab panes --><div    class="tab-content"    style="margin-top: 15px">    <ng-content></ng-content></div><ng-template    #defaultTabLabelTemplate    let-label="label">    {{ label }}</ng-template></div>'
+        var COMPONENT_TEMPLATE = '<div><!-- Nav tabs --><div    [id]="name"    class="content-nav-tabs"    [attr.data-e2e-key]="name | testingattribute: e2eidentifier">    <ul        class="nav nav-tabs"        role="tablist">        <li            *ngFor="let item of _tabItems"            [ngClass]="{ \'active show\': item.active, disabled: item.disabled }"            (click)="selectTab(item)"            [ngStyle]="{ cursor: item._disabled ? \'not-allowed\' : \'pointer\' }"            [id]="GetTabItemButtonId(item.id)">            <a                [id]="GetTabItemButtonId(item.id)"                role="tab">                <ng-template *ngTemplateOutlet="tablabeltemplate || defaultTabLabelTemplate; context: { label: item.label }"> </ng-template>            </a>        </li>    </ul></div><!-- Tab panes --><div    class="tab-content"    style="margin-top: 15px">    <ng-content></ng-content></div><ng-template    #defaultTabLabelTemplate    let-label="label">    {{ label }}</ng-template></div>'
     var COMPONENTS = [{'name': 'SacButtonComponent', 'selector': 'sac-button'},{'name': 'SacCheckboxComponent', 'selector': 'sac-checkbox'},{'name': 'SacConfirmComponent', 'selector': 'sac-confirm'},{'name': 'SacContextmenuComponent', 'selector': 'sac-contextmenu'},{'name': 'SacContextmenuItemButtonComponent', 'selector': 'sac-contextmenubutton'},{'name': 'SacContextmenuItemSplitterComponent', 'selector': 'sac-contextmenusplitter'},{'name': 'SacDateComponent', 'selector': 'sac-date'},{'name': 'SacDateSelectorComponent', 'selector': 'sac-dateselector'},{'name': 'SacDateTimeComponent', 'selector': 'sac-datetime'},{'name': 'SacDialogComponent', 'selector': 'sac-dialog'},{'name': 'SacDropdownComponent', 'selector': 'sac-dropdown'},{'name': 'SacDropzoneMultipleComponent', 'selector': 'sac-dropzonemultiple'},{'name': 'SacDropzoneSingleComponent', 'selector': 'sac-dropzonesingle'},{'name': 'SacGridButtonComponent', 'selector': 'sac-gridbutton'},{'name': 'SacGridColumnActionComponent', 'selector': 'sac-gridcolumnaction'},{'name': 'SacGridColumnComponent', 'selector': 'sac-gridcolumn'},{'name': 'SacGridComponent', 'selector': 'sac-grid'},{'name': 'SacGridImageComponent', 'selector': 'sac-gridimage'},{'name': 'SacInputAreaComponent', 'selector': 'sac-inputarea'},{'name': 'SacInputComponent', 'selector': 'sac-input'},{'name': 'SacInputCurrencyComponent', 'selector': 'sac-inputcurrency'},{'name': 'SacInputDecimalComponent', 'selector': 'sac-inputdecimal'},{'name': 'SacInputEmailComponent', 'selector': 'sac-inputemail'},{'name': 'SacInputIntegerComponent', 'selector': 'sac-inputinteger'},{'name': 'SacInputPasswordComponent', 'selector': 'sac-inputpassword'},{'name': 'SacInputSearchComponent', 'selector': 'sac-inputsearch'},{'name': 'SacListboxComponent', 'selector': 'sac-listbox'},{'name': 'SacPagingComponent', 'selector': 'sac-paging'},{'name': 'SacRadiobuttonComponent', 'selector': 'sac-radiobutton'},{'name': 'SacRadiobuttonsComponent', 'selector': 'sac-radiobuttons'},{'name': 'SacStaticFormContainerComponent', 'selector': 'sac-staticformcontainer'},{'name': 'SacStaticLabelComponent', 'selector': 'sac-staticlabel'},{'name': 'SacTabComponent', 'selector': 'sac-tab'},{'name': 'SacTabItemComponent', 'selector': 'sac-tabitem'},{'name': 'SacTimeComponent', 'selector': 'sac-time'},{'name': 'SacTinyMceComponent', 'selector': 'sac-tinymce'},{'name': 'SacTooltipComponent', 'selector': 'sac-tooltip'},{'name': 'SacTreeviewComponent', 'selector': 'sac-treeview'},{'name': 'SacUploadComponent', 'selector': 'sac-upload'},{'name': 'SacUploadMultipleComponent', 'selector': 'sac-uploadmultiple'},{'name': 'SacValidationSummaryComponent', 'selector': 'sac-validationsummary'},{'name': 'SacWizardComponent', 'selector': 'sac-wizard'},{'name': 'SacWizardItemComponent', 'selector': 'sac-wizarditem'}];
     var DIRECTIVES = [{'name': 'SacBaseDateTimeControl', 'selector': ''},{'name': 'SacBaseListControl', 'selector': ''},{'name': 'SacBaseModelControl', 'selector': ''},{'name': 'SacBaseSelectControl', 'selector': ''},{'name': 'SacButtonCommon', 'selector': ''},{'name': 'SacCheckboxCommon', 'selector': ''},{'name': 'SacConfirmCommon', 'selector': ''},{'name': 'SacContextmenuAnchorCommon', 'selector': ''},{'name': 'SacContextmenuAnchorDirective', 'selector': '[sacContextMenuAnchor]'},{'name': 'SacContextmenuCommon', 'selector': ''},{'name': 'SacContextmenuContainerDirective', 'selector': '[sacContextMenuContainer]'},{'name': 'SacContextMenuContrainerCommon', 'selector': ''},{'name': 'SacContextmenuItemButtonCommon', 'selector': ''},{'name': 'SacContextmenuItemCommon', 'selector': ''},{'name': 'SacDateCommon', 'selector': ''},{'name': 'SacDateSelectorCommon', 'selector': ''},{'name': 'SacDateTimeCommon', 'selector': ''},{'name': 'SacDialogCommon', 'selector': ''},{'name': 'SacDropdownCommon', 'selector': ''},{'name': 'SacDropdownOptionCommon', 'selector': ''},{'name': 'SacDropdownOptionDirective', 'selector': 'option,[sacOption]'},{'name': 'SacDropzoneMultipleCommon', 'selector': ''},{'name': 'SacDropzoneSingleCommon', 'selector': ''},{'name': 'SacFileBrowserCommon', 'selector': ''},{'name': 'SacFormCommon', 'selector': ''},{'name': 'SacFormDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'SacFormLayoutCommon', 'selector': ''},{'name': 'SacFormLayoutDirective', 'selector': '[sacFormLayout]'},{'name': 'SacGridButtonCommon', 'selector': ''},{'name': 'SacGridColumnActionCommon', 'selector': ''},{'name': 'SacGridColumnBaseCommon', 'selector': ''},{'name': 'SacGridColumnCommon', 'selector': ''},{'name': 'SacGridCommon', 'selector': ''},{'name': 'SacGridImageCommon', 'selector': ''},{'name': 'SacInheritFormDirective', 'selector': '[sacInheritForm]'},{'name': 'SacInputAreaCommon', 'selector': ''},{'name': 'SacInputBase', 'selector': ''},{'name': 'SacInputCommon', 'selector': ''},{'name': 'SacInputCurrencyCommon', 'selector': ''},{'name': 'SacInputDecimalCommon', 'selector': ''},{'name': 'SacInputEmailCommon', 'selector': ''},{'name': 'SacInputIntegerCommon', 'selector': ''},{'name': 'SacInputPasswordCommon', 'selector': ''},{'name': 'SacInputSearchCommon', 'selector': ''},{'name': 'SacListboxCommon', 'selector': ''},{'name': 'SacListboxOptionCommon', 'selector': ''},{'name': 'SacListboxOptionDirective', 'selector': 'option,[sacOption]'},{'name': 'SacMultilanguageInputAreaCommon', 'selector': ''},{'name': 'SacMultilanguageInputCommon', 'selector': ''},{'name': 'SacPagingCommon', 'selector': ''},{'name': 'SacRadiobuttonCommon', 'selector': ''},{'name': 'SacRadiobuttonsCommon', 'selector': ''},{'name': 'SacStaticFormContainerCommon', 'selector': ''},{'name': 'SacStaticLabelCommon', 'selector': ''},{'name': 'SacTabCommon', 'selector': ''},{'name': 'SacTabItemCommon', 'selector': ''},{'name': 'SacTimeCommon', 'selector': ''},{'name': 'SacTinyMceCommon', 'selector': ''},{'name': 'SacTooltipCommon', 'selector': ''},{'name': 'SacTreeviewCommon', 'selector': ''},{'name': 'SacUploadBase', 'selector': ''},{'name': 'SacUploadMultipleCommon', 'selector': ''},{'name': 'SacUploadSingleCommon', 'selector': ''},{'name': 'SacValidationSummaryCommon', 'selector': ''},{'name': 'SacWizardCommon', 'selector': ''},{'name': 'SacWizardItemCommon', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'SacTabComponent'};
@@ -922,6 +953,19 @@ export class SacTabComponent extends SacTabCommon {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -933,7 +977,6 @@ export class SacTabComponent extends SacTabCommon {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

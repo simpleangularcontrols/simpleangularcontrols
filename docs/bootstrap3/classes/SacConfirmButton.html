@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content class">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -196,7 +207,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -254,7 +265,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Role type for the button. Default is ‘secondary’</p>
+                                                                <p>Role type for the button. Default is &#39;default&#39;</p>
 
                                                         </td>
                                                 </tr>
@@ -380,7 +391,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Display text of the buttonAnzeigetext des Buttons</p>
+                    <div class="io-description"><p>Display text of the button</p>
 </div>
                 </td>
             </tr>
@@ -410,7 +421,7 @@ export class SacConfirmButton {
     /**
      * Key of the button. Is returned as a result when confirming
      */
-    public key: string &#x3D; &#x27;&#x27;;
+    public key &#x3D; &#x27;&#x27;;
 
     /**
      * Layout of the button
@@ -418,21 +429,21 @@ export class SacConfirmButton {
     public role?: BUTTONROLETYPE | null &#x3D; &#x27;secondary&#x27;;
 
     /**
-     * Display text of the buttonAnzeigetext des Buttons
+     * Display text of the button
      */
-    public text: string &#x3D; &#x27;&#x27;;
+    public text &#x3D; &#x27;&#x27;;
 
     // #endregion Properties
 
     // #region Constructors
 
     /**
-     * Konstruktor
+     * Constructor
      * @param key Key for button
      * @param text Text for button
-     * @param role Role type for the button. Default is ‘secondary’
+     * @param role Role type for the button. Default is &#x27;default&#x27;
      */
-    constructor(key: string &#x3D; &#x27;&#x27;, text: string &#x3D; &#x27;&#x27;, role: BUTTONROLETYPE &#x3D; &#x27;default&#x27;) {
+    constructor(key &#x3D; &#x27;&#x27;, text &#x3D; &#x27;&#x27;, role: BUTTONROLETYPE &#x3D; &#x27;default&#x27;) {
         this.key &#x3D; key;
         this.text &#x3D; text;
         this.role &#x3D; role;
@@ -482,6 +493,19 @@ export class SacConfirmButton {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -493,7 +517,6 @@ export class SacConfirmButton {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

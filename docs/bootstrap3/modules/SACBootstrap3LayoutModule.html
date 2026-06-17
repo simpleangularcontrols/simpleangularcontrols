@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content module">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -124,13 +135,13 @@
 <title>cluster_SACBootstrap3LayoutModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 931,-268 931,-70 8,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap3LayoutModule_declarations</title>
-<polygon fill="none" stroke="black" points="25,-78 25,-130 914,-130 914,-78 25,-78"/>
-</g>
 <g id="clust9" class="cluster">
 <title>cluster_SACBootstrap3LayoutModule_exports</title>
 <polygon fill="none" stroke="black" points="16,-208 16,-260 923,-260 923,-208 16,-208"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_SACBootstrap3LayoutModule_declarations</title>
+<polygon fill="none" stroke="black" points="25,-78 25,-130 914,-130 914,-78 25,-78"/>
 </g>
 <!-- SacFormLayoutDirective -->
 <g id="node1" class="node">
@@ -354,30 +365,30 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { NgModule } from &#x27;@angular/core&#x27;;
-import { SacFormLayoutDirective } from &#x27;./formlayout.directive&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacFormLayoutDirective } from &#x27;./formlayout.directive&#x27;;
 import { SacToControlHeightPipe } from &#x27;./tocontrolheight.pipe&#x27;;
 import { SacToControlWidthCssPipe } from &#x27;./tocontrolwidthcss.pipe&#x27;;
 import { SacToLabelHeightPipe } from &#x27;./tolabelheight.pipe&#x27;;
 import { SacToLabelWidthCssPipe } from &#x27;./tolabelwidthcss.pipe&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 
 @NgModule({
-  declarations: [
-    SacFormLayoutDirective,
-    SacToControlHeightPipe,
-    SacToControlWidthCssPipe,
-    SacToLabelHeightPipe,
-    SacToLabelWidthCssPipe,
-  ],
-  imports: [CommonModule],
-  exports: [
-    SacFormLayoutDirective,
-    SacToControlHeightPipe,
-    SacToControlWidthCssPipe,
-    SacToLabelHeightPipe,
-    SacToLabelWidthCssPipe,
-  ],
+    declarations: [
+        SacFormLayoutDirective,
+        SacToControlHeightPipe,
+        SacToControlWidthCssPipe,
+        SacToLabelHeightPipe,
+        SacToLabelWidthCssPipe,
+    ],
+    imports: [CommonModule],
+    exports: [
+        SacFormLayoutDirective,
+        SacToControlHeightPipe,
+        SacToControlWidthCssPipe,
+        SacToLabelHeightPipe,
+        SacToLabelWidthCssPipe,
+    ],
 })
 export class SACBootstrap3LayoutModule {}
 </code></pre>
@@ -430,6 +441,19 @@ export class SACBootstrap3LayoutModule {}
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -441,7 +465,6 @@ export class SACBootstrap3LayoutModule {}
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

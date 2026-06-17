@@ -24,10 +24,6 @@
 <title>cluster_SACBootstrap5DialogModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="58,-70 58,-268 438,-268 438,-70 58,-70"/>
 </g>
-<g id="clust5" class="cluster">
-<title>cluster_SACBootstrap5DialogModule_exports</title>
-<polygon fill="none" stroke="black" points="171,-208 171,-260 331,-260 331,-208 171,-208"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap5DialogModule_declarations</title>
 <polygon fill="none" stroke="black" points="274,-78 274,-130 430,-130 430,-78 274,-78"/>
@@ -35,6 +31,10 @@
 <g id="clust4" class="cluster">
 <title>cluster_SACBootstrap5DialogModule_imports</title>
 <polygon fill="none" stroke="black" points="66,-78 66,-130 266,-130 266,-78 66,-78"/>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_SACBootstrap5DialogModule_exports</title>
+<polygon fill="none" stroke="black" points="171,-208 171,-260 331,-260 331,-208 171,-208"/>
 </g>
 <!-- SacDialogComponent -->
 <g id="node1" class="node">

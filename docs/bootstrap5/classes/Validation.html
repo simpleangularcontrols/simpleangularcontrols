@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content class">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -134,7 +145,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Klasse mit Standard Validatoren</p>
+                <p>Class with standard validators</p>
 
             </p>
 
@@ -256,22 +267,22 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>email(validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                    <code>email(validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="64"
-                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:64</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="63"
+                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:63</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Validiert Feld auf E-Mail Adresse</p>
+                        <div class="io-description"><p>Validates field for email address</p>
 </div>
 
                             <div class="io-description">
@@ -299,13 +310,14 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die</p>
+                                                    <p>Validation message displayed at the control</p>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
                                             <td>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -314,7 +326,7 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+                                                    <p>Validation message displayed in the Validation Summary</p>
 
                                             </td>
                                         </tr>
@@ -326,7 +338,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>ValidatorFn validator function</p>
+
                             </div>
                 </td>
             </tr>
@@ -347,15 +360,15 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>equals(requiredValue: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                    <code>equals(requiredValue: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="77"
-                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:77</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:74</a></div>
                         </td>
                     </tr>
 
@@ -406,13 +419,14 @@
 
 
                                             <td>
-                                                    <p>validation message near the control</p>
+                                                    <p>Validation message near the control</p>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
                                             <td>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -421,7 +435,7 @@
 
 
                                             <td>
-                                                    <p>validation inside the validation summary</p>
+                                                    <p>Validation message inside the validation summary</p>
 
                                             </td>
                                         </tr>
@@ -433,7 +447,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>ValidatorFn validator function</p>
+
                             </div>
                 </td>
             </tr>
@@ -469,7 +484,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Die Methode ist von jedem Validator aufgerufen. Die setzt sowohl den errorType des gerpüfte Item, als auch die ErrorMessage (gemäss von errorType, FieldName und Parameters).</p>
+                        <div class="io-description"><p>This method is called by every validator. It sets both the errorType of the validated item and the ErrorMessage (according to errorType, FieldName and Parameters).</p>
 </div>
 
                             <div class="io-description">
@@ -500,7 +515,7 @@
                                             </td>
 
                                             <td>
-                                                    <p>Typ den Fehler</p>
+                                                    <p>Type of the error</p>
 
                                             </td>
                                         </tr>
@@ -536,7 +551,7 @@
                                             </td>
 
                                             <td>
-                                                    <p>Error Message Key für Validation Summary</p>
+                                                    <p>Error Message Key for Validation Summary</p>
 
                                             </td>
                                         </tr>
@@ -555,7 +570,7 @@
                                             </td>
 
                                             <td>
-                                                    <p>Label oder Name des Feldes</p>
+                                                    <p>Label or name of the field</p>
 
                                             </td>
                                         </tr>
@@ -574,7 +589,7 @@
                                             </td>
 
                                             <td>
-                                                    <p>Parametern die in den Meldungen als Platzhalter verwendet werden können</p>
+                                                    <p>Parameters that can be used as placeholders in messages</p>
 
                                             </td>
                                         </tr>
@@ -607,22 +622,22 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>isValidDate(validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                    <code>isValidDate(validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="88"
-                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:88</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:84</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Validator der prüft ob der Wert ein Datum ist.</p>
+                        <div class="io-description"><p>Validator that checks if the value is a date.</p>
 </div>
 
                             <div class="io-description">
@@ -650,13 +665,14 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die beim Control angezeigt wird</p>
+                                                    <p>Validation message displayed at the control</p>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
                                             <td>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -665,7 +681,7 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+                                                    <p>Validation message displayed in the Validation Summary</p>
 
                                             </td>
                                         </tr>
@@ -677,7 +693,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>ValidatorFn validator function</p>
+
                             </div>
                 </td>
             </tr>
@@ -698,22 +715,22 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>maxDate(maxDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                    <code>maxDate(maxDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="100"
-                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:100</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="95"
+                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:95</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Validiert ob das Datum älter als maxDate ist</p>
+                        <div class="io-description"><p>Validates if the date is older than maxDate</p>
 </div>
 
                             <div class="io-description">
@@ -741,7 +758,7 @@
 
 
                                             <td>
-                                                    <p>max. Datum</p>
+                                                    <p>Maximum date allowed</p>
 
                                             </td>
                                         </tr>
@@ -757,13 +774,14 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die</p>
+                                                    <p>Validation message displayed at the control</p>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
                                             <td>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -772,7 +790,7 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+                                                    <p>Validation message displayed in the Validation Summary</p>
 
                                             </td>
                                         </tr>
@@ -784,7 +802,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>ValidatorFn validator function</p>
+
                             </div>
                 </td>
             </tr>
@@ -805,22 +824,22 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>maxTime(maxTime: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                    <code>maxTime(maxTime: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="112"
-                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:112</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="106"
+                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:106</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Validiert ob die Zeit früher als maxTime ist.</p>
+                        <div class="io-description"><p>Validates if the time is earlier than maxTime.</p>
 </div>
 
                             <div class="io-description">
@@ -848,7 +867,7 @@
 
 
                                             <td>
-                                                    <p>Min. Zeit</p>
+                                                    <p>Maximum time allowed</p>
 
                                             </td>
                                         </tr>
@@ -864,13 +883,14 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die</p>
+                                                    <p>Validation message displayed at the control</p>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
                                             <td>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -879,7 +899,7 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+                                                    <p>Validation message displayed in the Validation Summary</p>
 
                                             </td>
                                         </tr>
@@ -891,7 +911,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>ValidatorFn validator function</p>
+
                             </div>
                 </td>
             </tr>
@@ -912,22 +933,22 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>maxValue(maxvalue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                    <code>maxValue(maxvalue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="124"
-                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:124</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="117"
+                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:117</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Validator für Max Value</p>
+                        <div class="io-description"><p>Validator for Max Value</p>
 </div>
 
                             <div class="io-description">
@@ -955,7 +976,7 @@
 
 
                                             <td>
-                                                    <p>Max. Wert</p>
+                                                    <p>Maximum value allowed</p>
 
                                             </td>
                                         </tr>
@@ -971,13 +992,14 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die</p>
+                                                    <p>Validation message displayed at the control</p>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
                                             <td>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -986,7 +1008,7 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+                                                    <p>Validation message displayed in the Validation Summary</p>
 
                                             </td>
                                         </tr>
@@ -998,7 +1020,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>ValidatorFn validator function</p>
+
                             </div>
                 </td>
             </tr>
@@ -1019,22 +1042,22 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>minDate(minDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                    <code>minDate(minDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="136"
-                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:136</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="128"
+                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:128</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Validiert ob das Datum neuer als minDate ist</p>
+                        <div class="io-description"><p>Validates if the date is newer than minDate</p>
 </div>
 
                             <div class="io-description">
@@ -1062,7 +1085,7 @@
 
 
                                             <td>
-                                                    <p>Min. Datum</p>
+                                                    <p>Minimum date allowed</p>
 
                                             </td>
                                         </tr>
@@ -1078,13 +1101,14 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die</p>
+                                                    <p>Validation message displayed at the control</p>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
                                             <td>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -1093,7 +1117,7 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+                                                    <p>Validation message displayed in the Validation Summary</p>
 
                                             </td>
                                         </tr>
@@ -1105,7 +1129,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>ValidatorFn validator function</p>
+
                             </div>
                 </td>
             </tr>
@@ -1126,22 +1151,22 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>minFiles(minFiles: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                    <code>minFiles(minFiles: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="148"
-                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:148</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="139"
+                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:139</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Validator für min. Anzahl von Uploads</p>
+                        <div class="io-description"><p>Validator for min. number of uploads</p>
 </div>
 
                             <div class="io-description">
@@ -1169,7 +1194,7 @@
 
 
                                             <td>
-                                                    <p>Min. Anzahl Files die hochgeladen werden müssen</p>
+                                                    <p>Minimum number of files that must be uploaded</p>
 
                                             </td>
                                         </tr>
@@ -1185,13 +1210,14 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die unterhalb des Controls angezeigt wird</p>
+                                                    <p>Validation message displayed below the control</p>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
                                             <td>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -1200,7 +1226,7 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+                                                    <p>Validation message displayed in the Validation Summary</p>
 
                                             </td>
                                         </tr>
@@ -1212,7 +1238,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>ValidatorFn validator function</p>
+
                             </div>
                 </td>
             </tr>
@@ -1233,22 +1260,22 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>minTextLength(mintextlength: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                    <code>minTextLength(mintextlength: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="160"
-                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:160</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="150"
+                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:150</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Validiert auf die Länge des Wertes im Control</p>
+                        <div class="io-description"><p>Validates the length of the value in the control</p>
 </div>
 
                             <div class="io-description">
@@ -1276,7 +1303,7 @@
 
 
                                             <td>
-                                                    <p>Min. Länge des Wertes</p>
+                                                    <p>Minimum length of the value</p>
 
                                             </td>
                                         </tr>
@@ -1292,13 +1319,14 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die</p>
+                                                    <p>Validation message displayed at the control</p>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
                                             <td>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -1307,7 +1335,7 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+                                                    <p>Validation message displayed in the Validation Summary</p>
 
                                             </td>
                                         </tr>
@@ -1319,7 +1347,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>ValidatorFn validator function</p>
+
                             </div>
                 </td>
             </tr>
@@ -1347,15 +1376,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="172"
-                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:172</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="165"
+                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:165</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Validiert ob die Zeit später als minTime ist.</p>
+                        <div class="io-description"><p>Validates if the time is later than minTime.</p>
 </div>
 
                             <div class="io-description">
@@ -1383,7 +1412,7 @@
 
 
                                             <td>
-                                                    <p>Min. Zeit</p>
+                                                    <p>Minimum time allowed</p>
 
                                             </td>
                                         </tr>
@@ -1399,7 +1428,7 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die</p>
+                                                    <p>Validation message displayed at the control</p>
 
                                             </td>
                                         </tr>
@@ -1415,7 +1444,7 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+                                                    <p>Validation message displayed in the Validation Summary</p>
 
                                             </td>
                                         </tr>
@@ -1427,7 +1456,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>ValidatorFn validator function</p>
+
                             </div>
                 </td>
             </tr>
@@ -1448,22 +1478,22 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>minValue(minvalue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                    <code>minValue(minvalue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="183"
-                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:183</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="176"
+                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:176</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Validator der prüft ob der Wert ein Datum ist.</p>
+                        <div class="io-description"><p>Validator that checks if the value is greater than minValue.</p>
 </div>
 
                             <div class="io-description">
@@ -1491,6 +1521,8 @@
 
 
                                             <td>
+                                                    <p>Minimum value allowed</p>
+
                                             </td>
                                         </tr>
                                         <tr>
@@ -1505,13 +1537,14 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die</p>
+                                                    <p>Validation message displayed at the control</p>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
                                             <td>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -1520,7 +1553,7 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+                                                    <p>Validation message displayed in the Validation Summary</p>
 
                                             </td>
                                         </tr>
@@ -1532,7 +1565,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>ValidatorFn validator function</p>
+
                             </div>
                 </td>
             </tr>
@@ -1553,22 +1587,22 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>multilanguageRequired(languages: <a href="../classes/LanguageModel.html" target="_self">LanguageModel[]</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                    <code>multilanguageRequired(languages: <a href="../classes/LanguageModel.html" target="_self">LanguageModel[]</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="195"
-                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:195</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="187"
+                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:187</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Validierung mit einem RegEx Pattern</p>
+                        <div class="io-description"><p>Validator for MultiLanguage Control that checks if a value has been entered in all languages</p>
 </div>
 
                             <div class="io-description">
@@ -1596,6 +1630,8 @@
 
 
                                             <td>
+                                                    <p>Languages that can be captured in the control</p>
+
                                             </td>
                                         </tr>
                                         <tr>
@@ -1610,13 +1646,14 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die unterhalb des Controls angezeigt wird</p>
+                                                    <p>Validation message displayed below the control</p>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
                                             <td>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -1625,7 +1662,7 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+                                                    <p>Validation message displayed in the Validation Summary</p>
 
                                             </td>
                                         </tr>
@@ -1637,7 +1674,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>ValidatorFn validator function</p>
+
                             </div>
                 </td>
             </tr>
@@ -1658,22 +1696,22 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>multilanguageRequiredAny(languages: <a href="../classes/LanguageModel.html" target="_self">LanguageModel[]</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                    <code>multilanguageRequiredAny(languages: <a href="../classes/LanguageModel.html" target="_self">LanguageModel[]</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="211"
-                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:211</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="202"
+                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:202</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Validator für MultiLanguage Control, welcher überprüft ob min. ein Wert erfasst wurde</p>
+                        <div class="io-description"><p>Validator for MultiLanguage Control that checks if at least one value has been entered</p>
 </div>
 
                             <div class="io-description">
@@ -1701,7 +1739,7 @@
 
 
                                             <td>
-                                                    <p>Sprachen die im Control erfasst werden können.</p>
+                                                    <p>Languages that can be captured in the control</p>
 
                                             </td>
                                         </tr>
@@ -1717,13 +1755,14 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die unterhalb des Controls angezeigt wird</p>
+                                                    <p>Validation message displayed below the control</p>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
                                             <td>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -1732,7 +1771,7 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+                                                    <p>Validation message displayed in the Validation Summary</p>
 
                                             </td>
                                         </tr>
@@ -1744,7 +1783,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>ValidatorFn validator function</p>
+
                             </div>
                 </td>
             </tr>
@@ -1765,15 +1805,15 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>notequals(invalidValue: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                    <code>notequals(invalidValue: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="227"
-                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:227</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="217"
+                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:217</a></div>
                         </td>
                     </tr>
 
@@ -1808,7 +1848,7 @@
 
 
                                             <td>
-                                                    <p>Value that control doesn&#39;t should have</p>
+                                                    <p>Value that control should not have</p>
 
                                             </td>
                                         </tr>
@@ -1824,13 +1864,14 @@
 
 
                                             <td>
-                                                    <p>validation message near the control</p>
+                                                    <p>Validation message near the control</p>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
                                             <td>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -1839,7 +1880,7 @@
 
 
                                             <td>
-                                                    <p>validation inside the validation summary</p>
+                                                    <p>Validation message inside the validation summary</p>
 
                                             </td>
                                         </tr>
@@ -1851,7 +1892,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>ValidatorFn validator function</p>
+
                             </div>
                 </td>
             </tr>
@@ -1872,22 +1914,22 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>pattern(pattern: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                    <code>pattern(pattern: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="239"
-                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:239</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="228"
+                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:228</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Validierung mit einem RegEx Pattern</p>
+                        <div class="io-description"><p>Validation with a RegEx pattern</p>
 </div>
 
                             <div class="io-description">
@@ -1915,7 +1957,7 @@
 
 
                                             <td>
-                                                    <p>RegEx Pattern</p>
+                                                    <p>RegEx pattern that the value must match</p>
 
                                             </td>
                                         </tr>
@@ -1931,13 +1973,14 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die</p>
+                                                    <p>Validation message displayed below the control</p>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
                                             <td>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -1946,7 +1989,7 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+                                                    <p>Validation message displayed in the Validation Summary</p>
 
                                             </td>
                                         </tr>
@@ -1958,7 +2001,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>ValidatorFn validator function</p>
+
                             </div>
                 </td>
             </tr>
@@ -1979,22 +2023,22 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>required(validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary)</code>
+                    <code>required(validationMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, validationMessageSummary: unknown)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="250"
-                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:250</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="238"
+                                    class="link-to-prism">projects/sac-common/src/validation/validation.ts:238</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Validator für Required State</p>
+                        <div class="io-description"><p>Validator for Required State</p>
 </div>
 
                             <div class="io-description">
@@ -2022,13 +2066,14 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die</p>
+                                                    <p>Validation message that</p>
 
                                             </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
                                             <td>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -2037,7 +2082,7 @@
 
 
                                             <td>
-                                                    <p>Validierungsmeldung die im Validation Summary angezeigt wird</p>
+                                                    <p>Validation message that is displayed in the Validation Summary</p>
 
                                             </td>
                                         </tr>
@@ -2049,7 +2094,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>ValidatorFn validator function</p>
+
                             </div>
                 </td>
             </tr>
@@ -2098,18 +2144,18 @@ const moment &#x3D; moment_[&#x27;default&#x27;];
 // #region Exported Classes
 
 /**
- * Klasse mit Standard Validatoren
+ * Class with standard validators
  */
 export class Validation {
     // #region Public Static Methods
 
     /**
-     * Die Methode ist von jedem Validator aufgerufen. Die setzt sowohl den errorType des gerpüfte Item, als auch die ErrorMessage (gemäss von errorType, FieldName und Parameters).
-     * @param errorType Typ den Fehler
+     * This method is called by every validator. It sets both the errorType of the validated item and the ErrorMessage (according to errorType, FieldName and Parameters).
+     * @param errorType Type of the error
      * @param errorMessageKey Error Message Key
-     * @param errorMessageValidationSummaryKey Error Message Key für Validation Summary
-     * @param fieldName  Label oder Name des Feldes
-     * @param parameters Parametern die in den Meldungen als Platzhalter verwendet werden können
+     * @param errorMessageValidationSummaryKey Error Message Key for Validation Summary
+     * @param fieldName Label or name of the field
+     * @param parameters Parameters that can be used as placeholders in messages
      */
     public static GetValidationErrorItem(
         errorType: string,
@@ -2122,142 +2168,134 @@ export class Validation {
     }
 
     /**
-     * Validiert Feld auf E-Mail Adresse
-     * @param control Control das Valdiert werden soll
-     * @param fieldName Label des Controls
-     * @param validationMessage Validierungsmeldung die
-     * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+     * Validates field for email address
+     * @param validationMessage Validation message displayed at the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static email(validationMessage: string, validationMessageSummary): ValidatorFn {
         return emailValidator(validationMessage, validationMessageSummary);
     }
 
     /**
-   * Validator validate if value is the requiredValue
-   * @param requiredValue Value that control should have
-   * @param control Control to be validate
-   * @param fieldName Label of control
-   * @param validationMessage validation message near the control
-   * @param validationMessageSummary validation inside the validation summary
-
-   */
+     * Validator validate if value is the requiredValue
+     * @param requiredValue Value that control should have
+     * @param validationMessage Validation message near the control
+     * @param validationMessageSummary Validation message inside the validation summary
+     * @returns ValidatorFn validator function
+     */
     public static equals(requiredValue: any, validationMessage: string, validationMessageSummary): ValidatorFn {
         return equalsValueValidator(requiredValue, validationMessage, validationMessageSummary);
     }
 
     /**
-     * Validator der prüft ob der Wert ein Datum ist.
-     * @param control Control mit IDateTimeControl Interface implementierung
-     * @param fieldName Label des Controls
-     * @param validationMessage Validierungsmeldung die beim Control angezeigt wird
-     * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+     * Validator that checks if the value is a date.
+     * @param validationMessage Validation message displayed at the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static isValidDate(validationMessage: string, validationMessageSummary): ValidatorFn {
         return isValidDateValidator(validationMessage, validationMessageSummary);
     }
 
     /**
-     * Validiert ob das Datum älter als maxDate ist
-     * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
-     * @param maxDate max. Datum
-     * @param fieldName Label des Controls
-     * @param validationMessage Validierungsmeldung die
-     * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+     * Validates if the date is older than maxDate
+     * @param maxDate Maximum date allowed
+     * @param validationMessage Validation message displayed at the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static maxDate(maxDate: Date, validationMessage: string, validationMessageSummary): ValidatorFn {
         return maxDateValidator(maxDate, validationMessage, validationMessageSummary);
     }
 
     /**
-     * Validiert ob die Zeit früher als maxTime ist.
-     * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
-     * @param maxTime Min. Zeit
-     * @param fieldName Label des Controls
-     * @param validationMessage Validierungsmeldung die
-     * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+     * Validates if the time is earlier than maxTime.
+     * @param maxTime Maximum time allowed
+     * @param validationMessage Validation message displayed at the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static maxTime(maxTime: Date, validationMessage: string, validationMessageSummary): ValidatorFn {
         return maxTimeValidator(maxTime, validationMessage, validationMessageSummary);
     }
 
     /**
-     * Validator für Max Value
-     * @param control Control das Validiert werden soll
-     * @param maxvalue Max. Wert
-     * @param fieldName Label des Controls
-     * @param validationMessage Validierungsmeldung die
-     * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+     * Validator for Max Value
+     * @param maxvalue Maximum value allowed
+     * @param validationMessage Validation message displayed at the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static maxValue(maxvalue: number, validationMessage: string, validationMessageSummary): ValidatorFn {
         return maxValueValidator(maxvalue, validationMessage, validationMessageSummary);
     }
 
     /**
-     * Validiert ob das Datum neuer als minDate ist
-     * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
-     * @param minDate Min. Datum
-     * @param fieldName Label des Controls
-     * @param validationMessage Validierungsmeldung die
-     * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+     * Validates if the date is newer than minDate
+     * @param minDate Minimum date allowed
+     * @param validationMessage Validation message displayed at the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static minDate(minDate: Date, validationMessage: string, validationMessageSummary): ValidatorFn {
         return minDateValidator(minDate, validationMessage, validationMessageSummary);
     }
 
     /**
-     * Validator für min. Anzahl von Uploads
-     * @param control Control das Validatiert werden soll. Control muss IUploadControl implementiert haben
-     * @param minFiles Min. Anzahl Files die hochgeladen werden müssen
-     * @param fieldName Label des Controls
-     * @param validationMessage Validierungsmeldung die unterhalb des Controls angezeigt wird
-     * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+     * Validator for min. number of uploads
+     * @param minFiles Minimum number of files that must be uploaded
+     * @param validationMessage Validation message displayed below the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static minFiles(minFiles: number, validationMessage: string, validationMessageSummary): ValidatorFn {
         return minFilesValidator(minFiles, validationMessage, validationMessageSummary);
     }
 
     /**
-     * Validiert auf die Länge des Wertes im Control
-     * @param control Control das Validiert werden soll
-     * @param mintextlength Min. Länge des Wertes
-     * @param fieldName Label des Controls
-     * @param validationMessage Validierungsmeldung die
-     * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+     * Validates the length of the value in the control
+     * @param mintextlength Minimum length of the value
+     * @param validationMessage Validation message displayed at the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
-    public static minTextLength(mintextlength: number, validationMessage: string, validationMessageSummary): ValidatorFn {
+    public static minTextLength(
+        mintextlength: number,
+        validationMessage: string,
+        validationMessageSummary
+    ): ValidatorFn {
         return minTextLengthValidator(mintextlength, validationMessage, validationMessageSummary);
     }
 
     /**
-     * Validiert ob die Zeit später als minTime ist.
-     * @param control Control das Validiert werden soll. Muss IDateTimeControl implementiert haben
-     * @param minTime Min. Zeit
-     * @param fieldName Label des Controls
-     * @param validationMessage Validierungsmeldung die
-     * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+     * Validates if the time is later than minTime.
+     * @param minTime Minimum time allowed
+     * @param validationMessage Validation message displayed at the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static minTime(minTime: Date, validationMessage: string, validationMessageSummary: string): ValidatorFn {
         return minTimeValidator(minTime, validationMessage, validationMessageSummary);
     }
 
     /**
-     * Validator der prüft ob der Wert ein Datum ist.
-     * @param control Control mit IDateTimeControl Interface implementierung
-     * @param fieldName Label des Controls
-     * @param validationMessage Validierungsmeldung die
-     * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+     * Validator that checks if the value is greater than minValue.
+     * @param minvalue Minimum value allowed
+     * @param validationMessage Validation message displayed at the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static minValue(minvalue: number, validationMessage: string, validationMessageSummary): ValidatorFn {
         return minValueValidator(minvalue, validationMessage, validationMessageSummary);
     }
 
     /**
-     * Validierung mit einem RegEx Pattern
-     * @param control Control das validiert werden soll.
-     * @param pattern RegEx Pattern
-     * @param fieldName Label des Controls
-     * @param validationMessage Validierungsmeldung die unterhalb des Controls angezeigt wird
-     * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+     * Validator for MultiLanguage Control that checks if a value has been entered in all languages
+     * @param languages Languages that can be captured in the control
+     * @param validationMessage Validation message displayed below the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static multilanguageRequired(
         languages: LanguageModel[],
@@ -2268,12 +2306,11 @@ export class Validation {
     }
 
     /**
-     * Validator für MultiLanguage Control, welcher überprüft ob min. ein Wert erfasst wurde
-     * @param control Control das Validatiert werden soll
-     * @param languages Sprachen die im Control erfasst werden können.
-     * @param fieldName Label des Controls
-     * @param validationMessage Validierungsmeldung die unterhalb des Controls angezeigt wird
-     * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+     * Validator for MultiLanguage Control that checks if at least one value has been entered
+     * @param languages Languages that can be captured in the control
+     * @param validationMessage Validation message displayed below the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static multilanguageRequiredAny(
         languages: LanguageModel[],
@@ -2285,34 +2322,31 @@ export class Validation {
 
     /**
      * Validator validate if value is not the invalidValue
-     * @param invalidValue Value that control doesn&#x27;t should have
-     * @param control Control to be validate
-     * @param fieldName Label of control
-     * @param validationMessage validation message near the control
-     * @param validationMessageSummary validation inside the validation summary
+     * @param invalidValue Value that control should not have
+     * @param validationMessage Validation message near the control
+     * @param validationMessageSummary Validation message inside the validation summary
+     * @returns ValidatorFn validator function
      */
     public static notequals(invalidValue: any, validationMessage: string, validationMessageSummary): ValidatorFn {
         return notEqualsValueValidator(invalidValue, validationMessage, validationMessageSummary);
     }
 
     /**
-     * Validierung mit einem RegEx Pattern
-     * @param control Control das validiert werden soll.
-     * @param pattern RegEx Pattern
-     * @param fieldName Label des Controls
-     * @param validationMessage Validierungsmeldung die
-     * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+     * Validation with a RegEx pattern
+     * @param pattern RegEx pattern that the value must match
+     * @param validationMessage Validation message displayed below the control
+     * @param validationMessageSummary Validation message displayed in the Validation Summary
+     * @returns ValidatorFn validator function
      */
     public static pattern(pattern: string, validationMessage: string, validationMessageSummary): ValidatorFn {
         return patternValidator(pattern, validationMessage, validationMessageSummary);
     }
 
     /**
-     * Validator für Required State
-     * @param control Control das Validiert wird
-     * @param fieldName Label des Controls
-     * @param validationMessage Validierungsmeldung die
-     * @param validationMessageSummary Validierungsmeldung die im Validation Summary angezeigt wird
+     * Validator for Required State
+     * @returns ValidatorFn validator function
+     * @param validationMessage Validation message that
+     * @param validationMessageSummary Validation message that is displayed in the Validation Summary
      */
     public static required(validationMessage: string, validationMessageSummary): ValidatorFn {
         return requiredValidator(validationMessage, validationMessageSummary);
@@ -2364,6 +2398,19 @@ export class Validation {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -2375,7 +2422,6 @@ export class Validation {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

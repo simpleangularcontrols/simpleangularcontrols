@@ -28,13 +28,13 @@
 <title>cluster_SACBootstrap4TreeviewModule_imports</title>
 <polygon fill="none" stroke="black" points="194,-78 194,-130 1050,-130 1050,-78 194,-78"/>
 </g>
-<g id="clust5" class="cluster">
-<title>cluster_SACBootstrap4TreeviewModule_exports</title>
-<polygon fill="none" stroke="black" points="412,-208 412,-260 586,-260 586,-208 412,-208"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap4TreeviewModule_declarations</title>
 <polygon fill="none" stroke="black" points="16,-78 16,-130 186,-130 186,-78 16,-78"/>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_SACBootstrap4TreeviewModule_exports</title>
+<polygon fill="none" stroke="black" points="412,-208 412,-260 586,-260 586,-208 412,-208"/>
 </g>
 <!-- SacTreeviewComponent -->
 <g id="node1" class="node">

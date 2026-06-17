@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -156,12 +167,8 @@
                         <td class="col-md-3">Providers</td>
                         <td class="col-md-9">
                             <code>
-                                {
-    provide: SacFormDirective, useFactory: SACFORM_FACTORY, deps: [[new SkipSelf(), SacFormDirective]],
-}
-                                {
-    provide: ControlContainer, useFactory: NGFORM_FACTORY, deps: [NgForm],
-}
+                                SACFORM_FACTORY
+                                NGFORM_FACTORY
                             </code>
                         </td>
                     </tr>
@@ -250,7 +257,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Construtor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -276,7 +283,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>: injector to receive the NgForm instance</p>
+                                                                <p>Injector to receive the NgForm instance</p>
 
                                                         </td>
                                                 </tr>
@@ -313,13 +320,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:42</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:45</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Definiert, wenn das Model geupdatet wird</p>
+                        <div class="io-description"><p>Defines when the model is updated</p>
 </div>
                     </td>
                 </tr>
@@ -362,7 +369,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:54</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:58</a></code>
 </div>
                         </td>
                     </tr>
@@ -370,13 +377,17 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Gibt die NgForm Instanz zurück</p>
+                        <div class="io-description"><p>Returns the NgForm instance</p>
 </div>
 
                         <div class="io-description">
                             <b>Returns : </b>    <code>NgForm</code>
 
                         </div>
+                            <div class="io-description">
+                                <p>The NgForm instance</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -409,7 +420,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:61</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:65</a></code>
 </div>
                         </td>
                     </tr>
@@ -417,7 +428,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Markiert alle Controls innerhalb des Formulares als Touched</p>
+                        <div class="io-description"><p>Marks all controls within the form as touched</p>
 </div>
 
                         <div class="io-description">
@@ -443,7 +454,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateValueAndValidity(markAsTouched: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    <code>updateValueAndValidity(markAsTouched: unknown)</code>
                 </td>
             </tr>
 
@@ -456,7 +467,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:70</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:75</a></code>
 </div>
                         </td>
                     </tr>
@@ -464,7 +475,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Aktualisiert die Werte und den Gültigkeitsstatus des Formulars</p>
+                        <div class="io-description"><p>Updates the values and validity status of the form</p>
 </div>
 
                             <div class="io-description">
@@ -477,13 +488,14 @@
                                                 <td>Type</td>
                                             <td>Optional</td>
                                                 <td>Default value</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                                 <td>markAsTouched</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        <code>unknown</code>
                                             </td>
 
                                             <td>
@@ -494,6 +506,10 @@
                                                     <code>true</code>
                                             </td>
 
+                                            <td>
+                                                    <p>If true, all controls are marked as touched after validation update.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -557,19 +573,19 @@ import { SacFormCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 // #region Exported Functions
 
 /**
- * Factory Methode für NgForm
+ * Factory method for NgForm
  * @param form NgForm
  */
 export function NGFORM_FACTORY(form: NgForm) {
-  return form;
+    return form;
 }
 
 /**
- * Factory Methode für SacForm
- * @param form SacFormular
+ * Factory method for SacForm
+ * @param form SacForm
  */
 export function SACFORM_FACTORY(form: SacFormDirective) {
-  return form;
+    return form;
 }
 
 // #endregion Exported Functions
@@ -580,33 +596,33 @@ export function SACFORM_FACTORY(form: SacFormDirective) {
  * Directive to inherit an NgForm/NgForm from a parent component
  */
 @Directive({
-  selector: &#x27;[sacInheritForm]&#x27;,
-  exportAs: &#x27;sacinheritform&#x27;,
-  providers: [
-    {
-      provide: SacFormDirective,
-      useFactory: SACFORM_FACTORY,
-      deps: [[new SkipSelf(), SacFormDirective]],
-    },
-    {
-      provide: ControlContainer,
-      useFactory: NGFORM_FACTORY,
-      deps: [NgForm],
-    },
-  ],
+    selector: &#x27;[sacInheritForm]&#x27;,
+    exportAs: &#x27;sacinheritform&#x27;,
+    providers: [
+        {
+            provide: SacFormDirective,
+            useFactory: SACFORM_FACTORY,
+            deps: [[new SkipSelf(), SacFormDirective]],
+        },
+        {
+            provide: ControlContainer,
+            useFactory: NGFORM_FACTORY,
+            deps: [NgForm],
+        },
+    ],
 })
 export class SacInheritFormDirective extends SacFormCommon {
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Construtor
-   * @param injector: injector to receive the NgForm instance
-   */
-  constructor(injector: Injector) {
-    super(injector.get(NgForm));
-  }
+    /**
+     * Constructor
+     * @param injector Injector to receive the NgForm instance
+     */
+    constructor(injector: Injector) {
+        super(injector.get(NgForm));
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 }
 
 // #endregion Exported Classes
@@ -658,6 +674,19 @@ export class SacInheritFormDirective extends SacFormCommon {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -669,7 +698,6 @@ export class SacInheritFormDirective extends SacFormCommon {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

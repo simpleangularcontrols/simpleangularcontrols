@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content module">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -124,95 +135,95 @@
 <title>cluster_SACBootstrap3TreeviewModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 1058,-268 1058,-70 8,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap3TreeviewModule_declarations</title>
-<polygon fill="none" stroke="black" points="880,-78 880,-130 1050,-130 1050,-78 880,-78"/>
-</g>
 <g id="clust5" class="cluster">
 <title>cluster_SACBootstrap3TreeviewModule_exports</title>
-<polygon fill="none" stroke="black" points="441,-208 441,-260 615,-260 615,-208 441,-208"/>
+<polygon fill="none" stroke="black" points="412,-208 412,-260 586,-260 586,-208 412,-208"/>
 </g>
 <g id="clust4" class="cluster">
 <title>cluster_SACBootstrap3TreeviewModule_imports</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-130 872,-130 872,-78 16,-78"/>
+<polygon fill="none" stroke="black" points="194,-78 194,-130 1050,-130 1050,-78 194,-78"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_SACBootstrap3TreeviewModule_declarations</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 186,-130 186,-78 16,-78"/>
 </g>
 <!-- SacTreeviewComponent -->
 <g id="node1" class="node">
 <title>SacTreeviewComponent</title>
-<polygon fill="#ffffb3" stroke="black" points="1042.4,-122 887.6,-122 887.6,-86 1042.4,-86 1042.4,-122"/>
-<text text-anchor="middle" x="965" y="-99.8" font-family="Times,serif" font-size="14.00">SacTreeviewComponent</text>
+<polygon fill="#ffffb3" stroke="black" points="178.4,-122 23.6,-122 23.6,-86 178.4,-86 178.4,-122"/>
+<text text-anchor="middle" x="101" y="-99.8" font-family="Times,serif" font-size="14.00">SacTreeviewComponent</text>
 </g>
 <!-- SACBootstrap3TreeviewModule -->
 <g id="node2" class="node">
 <title>SACBootstrap3TreeviewModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="628.57,-187 625.57,-191 604.57,-191 601.57,-187 427.43,-187 427.43,-151 628.57,-151 628.57,-187"/>
-<text text-anchor="middle" x="528" y="-164.8" font-family="Times,serif" font-size="14.00">SACBootstrap3TreeviewModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="599.57,-187 596.57,-191 575.57,-191 572.57,-187 398.43,-187 398.43,-151 599.57,-151 599.57,-187"/>
+<text text-anchor="middle" x="499" y="-164.8" font-family="Times,serif" font-size="14.00">SACBootstrap3TreeviewModule</text>
 </g>
 <!-- SacTreeviewComponent&#45;&gt;SACBootstrap3TreeviewModule -->
 <g id="edge1" class="edge">
 <title>SacTreeviewComponent&#45;&gt;SACBootstrap3TreeviewModule</title>
-<path fill="none" stroke="black" d="M965,-122.28C965,-143.32 965,-175 965,-175 965,-175 638.81,-175 638.81,-175"/>
-<polygon fill="black" stroke="black" points="638.81,-171.5 628.81,-175 638.81,-178.5 638.81,-171.5"/>
+<path fill="none" stroke="black" d="M101,-122.28C101,-143.32 101,-175 101,-175 101,-175 388.31,-175 388.31,-175"/>
+<polygon fill="black" stroke="black" points="388.31,-178.5 398.31,-175 388.31,-171.5 388.31,-178.5"/>
 </g>
 <!-- SacTreeviewComponent  -->
 <g id="node7" class="node">
 <title>SacTreeviewComponent </title>
-<polygon fill="#fb8072" stroke="black" points="606.9,-252 449.1,-252 449.1,-216 606.9,-216 606.9,-252"/>
-<text text-anchor="middle" x="528" y="-229.8" font-family="Times,serif" font-size="14.00">SacTreeviewComponent </text>
+<polygon fill="#fb8072" stroke="black" points="577.9,-252 420.1,-252 420.1,-216 577.9,-216 577.9,-252"/>
+<text text-anchor="middle" x="499" y="-229.8" font-family="Times,serif" font-size="14.00">SacTreeviewComponent </text>
 </g>
 <!-- SACBootstrap3TreeviewModule&#45;&gt;SacTreeviewComponent  -->
 <g id="edge6" class="edge">
 <title>SACBootstrap3TreeviewModule&#45;&gt;SacTreeviewComponent </title>
-<path fill="none" stroke="black" stroke-dasharray="5,2" d="M528,-187.11C528,-187.11 528,-205.99 528,-205.99"/>
-<polygon fill="black" stroke="black" points="524.5,-205.99 528,-215.99 531.5,-205.99 524.5,-205.99"/>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M499,-187.11C499,-187.11 499,-205.99 499,-205.99"/>
+<polygon fill="black" stroke="black" points="495.5,-205.99 499,-215.99 502.5,-205.99 495.5,-205.99"/>
 </g>
 <!-- SACBootstrap3ContextmenuModule -->
 <g id="node3" class="node">
 <title>SACBootstrap3ContextmenuModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="863.65,-122 860.65,-126 839.65,-126 836.65,-122 640.35,-122 640.35,-86 863.65,-86 863.65,-122"/>
-<text text-anchor="middle" x="752" y="-99.8" font-family="Times,serif" font-size="14.00">SACBootstrap3ContextmenuModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="1041.65,-122 1038.65,-126 1017.65,-126 1014.65,-122 818.35,-122 818.35,-86 1041.65,-86 1041.65,-122"/>
+<text text-anchor="middle" x="930" y="-99.8" font-family="Times,serif" font-size="14.00">SACBootstrap3ContextmenuModule</text>
 </g>
 <!-- SACBootstrap3ContextmenuModule&#45;&gt;SACBootstrap3TreeviewModule -->
 <g id="edge2" class="edge">
 <title>SACBootstrap3ContextmenuModule&#45;&gt;SACBootstrap3TreeviewModule</title>
-<path fill="none" stroke="black" d="M752,-122.02C752,-139.37 752,-163 752,-163 752,-163 638.86,-163 638.86,-163"/>
-<polygon fill="black" stroke="black" points="638.86,-159.5 628.86,-163 638.86,-166.5 638.86,-159.5"/>
+<path fill="none" stroke="black" d="M930,-122.28C930,-143.32 930,-175 930,-175 930,-175 609.78,-175 609.78,-175"/>
+<polygon fill="black" stroke="black" points="609.78,-171.5 599.78,-175 609.78,-178.5 609.78,-171.5"/>
 </g>
 <!-- SACBootstrap3LayoutModule -->
 <g id="node4" class="node">
 <title>SACBootstrap3LayoutModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="621.87,-122 618.87,-126 597.87,-126 594.87,-122 434.13,-122 434.13,-86 621.87,-86 621.87,-122"/>
-<text text-anchor="middle" x="528" y="-99.8" font-family="Times,serif" font-size="14.00">SACBootstrap3LayoutModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="799.87,-122 796.87,-126 775.87,-126 772.87,-122 612.13,-122 612.13,-86 799.87,-86 799.87,-122"/>
+<text text-anchor="middle" x="706" y="-99.8" font-family="Times,serif" font-size="14.00">SACBootstrap3LayoutModule</text>
 </g>
 <!-- SACBootstrap3LayoutModule&#45;&gt;SACBootstrap3TreeviewModule -->
 <g id="edge3" class="edge">
 <title>SACBootstrap3LayoutModule&#45;&gt;SACBootstrap3TreeviewModule</title>
-<path fill="none" stroke="black" d="M528,-122.11C528,-122.11 528,-140.99 528,-140.99"/>
-<polygon fill="black" stroke="black" points="524.5,-140.99 528,-150.99 531.5,-140.99 524.5,-140.99"/>
+<path fill="none" stroke="black" d="M706,-122.02C706,-139.37 706,-163 706,-163 706,-163 609.77,-163 609.77,-163"/>
+<polygon fill="black" stroke="black" points="609.77,-159.5 599.77,-163 609.77,-166.5 609.77,-159.5"/>
 </g>
 <!-- SACBootstrap3TooltipModule -->
 <g id="node5" class="node">
 <title>SACBootstrap3TooltipModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="415.94,-122 412.94,-126 391.94,-126 388.94,-122 226.06,-122 226.06,-86 415.94,-86 415.94,-122"/>
-<text text-anchor="middle" x="321" y="-99.8" font-family="Times,serif" font-size="14.00">SACBootstrap3TooltipModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="593.94,-122 590.94,-126 569.94,-126 566.94,-122 404.06,-122 404.06,-86 593.94,-86 593.94,-122"/>
+<text text-anchor="middle" x="499" y="-99.8" font-family="Times,serif" font-size="14.00">SACBootstrap3TooltipModule</text>
 </g>
 <!-- SACBootstrap3TooltipModule&#45;&gt;SACBootstrap3TreeviewModule -->
 <g id="edge4" class="edge">
 <title>SACBootstrap3TooltipModule&#45;&gt;SACBootstrap3TreeviewModule</title>
-<path fill="none" stroke="black" d="M321,-122.02C321,-139.37 321,-163 321,-163 321,-163 417.23,-163 417.23,-163"/>
-<polygon fill="black" stroke="black" points="417.23,-166.5 427.23,-163 417.23,-159.5 417.23,-166.5"/>
+<path fill="none" stroke="black" d="M499,-122.11C499,-122.11 499,-140.99 499,-140.99"/>
+<polygon fill="black" stroke="black" points="495.5,-140.99 499,-150.99 502.5,-140.99 495.5,-140.99"/>
 </g>
 <!-- SACCommonUtliltiesModule -->
 <g id="node6" class="node">
 <title>SACCommonUtliltiesModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="208,-122 205,-126 184,-126 181,-122 24,-122 24,-86 208,-86 208,-122"/>
-<text text-anchor="middle" x="116" y="-99.8" font-family="Times,serif" font-size="14.00">SACCommonUtliltiesModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="386,-122 383,-126 362,-126 359,-122 202,-122 202,-86 386,-86 386,-122"/>
+<text text-anchor="middle" x="294" y="-99.8" font-family="Times,serif" font-size="14.00">SACCommonUtliltiesModule</text>
 </g>
 <!-- SACCommonUtliltiesModule&#45;&gt;SACBootstrap3TreeviewModule -->
 <g id="edge5" class="edge">
 <title>SACCommonUtliltiesModule&#45;&gt;SACBootstrap3TreeviewModule</title>
-<path fill="none" stroke="black" d="M116,-122.28C116,-143.32 116,-175 116,-175 116,-175 417.21,-175 417.21,-175"/>
-<polygon fill="black" stroke="black" points="417.21,-178.5 427.21,-175 417.21,-171.5 417.21,-178.5"/>
+<path fill="none" stroke="black" d="M294,-122.02C294,-139.37 294,-163 294,-163 294,-163 388.3,-163 388.3,-163"/>
+<polygon fill="black" stroke="black" points="388.3,-166.5 398.3,-163 388.3,-159.5 388.3,-166.5"/>
 </g>
 </g>
 </svg>
@@ -375,6 +386,19 @@ export class SACBootstrap3TreeviewModule {}
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -386,7 +410,6 @@ export class SACBootstrap3TreeviewModule {}
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

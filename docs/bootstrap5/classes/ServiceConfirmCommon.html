@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content class">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -134,7 +145,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Basis Klasse für Confirm Service implementation</p>
+                <p>Base class for confirm service implementation</p>
 
             </p>
 
@@ -240,7 +251,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -266,7 +277,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>ApplicationRef zum Anhängen des Dialogs an den Content</p>
+                                                                <p>ApplicationRef to attach the dialog to the content</p>
 
                                                         </td>
                                                 </tr>
@@ -282,7 +293,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Injector um die Instanz zu erzeuge</p>
+                                                                <p>Injector to create the instance</p>
 
                                                         </td>
                                                 </tr>
@@ -331,7 +342,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Referenz auf IConfirm Instanz.</p>
+                    <div class="io-description"><p>Reference to the IConfirm instance.</p>
 </div>
                 </td>
             </tr>
@@ -397,7 +408,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>service for tranlsate default text</p>
+                    <div class="io-description"><p>Service for translating default text</p>
 </div>
                 </td>
             </tr>
@@ -466,15 +477,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="67"
-                                    class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.service.ts:67</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="70"
+                                    class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.service.ts:70</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Blendet den Dialog aus</p>
+                        <div class="io-description"><p>Hides the dialog</p>
 </div>
 
                         <div class="io-description">
@@ -508,15 +519,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="76"
-                                    class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.service.ts:76</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="79"
+                                    class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.service.ts:79</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode zur Konfiguration der Confirm Dialog Komponente</p>
+                        <div class="io-description"><p>Method to configure the confirm dialog component</p>
 </div>
 
                             <div class="io-description">
@@ -544,7 +555,7 @@
 
 
                                             <td>
-                                                    <p>Instanz auf IConfirmComponent Komponente</p>
+                                                    <p>Instance of the IConfirmComponent component</p>
 
                                             </td>
                                         </tr>
@@ -584,15 +595,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="81"
-                                    class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.service.ts:81</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.service.ts:84</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Interne Methode für die Implementation des Confirm Dialogs. Steuert die Feedbacks, die Erzeugung und Anzeige des Dialogs</p>
+                        <div class="io-description"><p>Internal method for the implementation of the confirm dialog. Controls feedback, creation, and display of the dialog</p>
 </div>
 
                         <div class="io-description">
@@ -625,15 +636,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="116"
-                                    class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.service.ts:116</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="119"
+                                    class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.service.ts:119</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Erzeugt eine Instanz für den Dialog</p>
+                        <div class="io-description"><p>Creates an instance for the dialog</p>
 </div>
 
                         <div class="io-description">
@@ -666,15 +677,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="128"
-                                    class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.service.ts:128</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="131"
+                                    class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.service.ts:131</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Entfernt die Instanz des Dialogs</p>
+                        <div class="io-description"><p>Removes the dialog instance</p>
 </div>
 
                         <div class="io-description">
@@ -708,15 +719,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="137"
-                                    class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.service.ts:137</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="140"
+                                    class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.service.ts:140</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Abstrakte Methode zum erzeugen der Komponent Factory für den Dialog</p>
+                        <div class="io-description"><p>Abstract method to create the component factory for the dialog</p>
 </div>
 
                         <div class="io-description">
@@ -749,15 +760,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="142"
-                                    class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.service.ts:142</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="145"
+                                    class="link-to-prism">projects/sac-common/src/controls/confirm/confirm.service.ts:145</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Zeigt den Dialog an</p>
+                        <div class="io-description"><p>Shows the dialog</p>
 </div>
 
                         <div class="io-description">
@@ -793,13 +804,13 @@ import {
 import { ApplicationRef, ComponentFactory, ComponentRef, EventEmitter, Injector } from &#x27;@angular/core&#x27;;
 
 /**
- * Basis Klasse für Confirm Service implementation
+ * Base class for confirm service implementation
  */
 export abstract class ServiceConfirmCommon {
     // #region Properties
 
     /**
-     * Referenz auf IConfirm Instanz.
+     * Reference to the IConfirm instance.
      */
     protected component: ComponentRef&lt;IConfirmComponent&gt; &#x3D; null;
 
@@ -809,7 +820,7 @@ export abstract class ServiceConfirmCommon {
     protected iconService: ISacIconService;
 
     /**
-     * service for tranlsate default text
+     * Service for translating default text
      */
     protected localisationService: ISacLocalisationService;
 
@@ -823,11 +834,14 @@ export abstract class ServiceConfirmCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param appRef ApplicationRef zum Anhängen des Dialogs an den Content
-     * @param injector Injector um die Instanz zu erzeuge
+     * Constructor
+     * @param appRef ApplicationRef to attach the dialog to the content
+     * @param injector Injector to create the instance
      */
-    constructor(private appRef: ApplicationRef, private injector: Injector) {
+    constructor(
+        private appRef: ApplicationRef,
+        private injector: Injector
+    ) {
         this.validationKeyService &#x3D; injector.get(SACVALIDATIONKEY_SERVICE, new SacDefaultValidationKeyService());
         this.localisationService &#x3D; injector.get(
             SACLOCALISATION_SERVICE,
@@ -842,7 +856,7 @@ export abstract class ServiceConfirmCommon {
     // #region Protected Methods
 
     /**
-     * Blendet den Dialog aus
+     * Hides the dialog
      */
     protected CloseDialog(): void {
         const dialog &#x3D; this.component.instance;
@@ -850,32 +864,32 @@ export abstract class ServiceConfirmCommon {
     }
 
     /**
-     * Methode zur Konfiguration der Confirm Dialog Komponente
-     * @param instance Instanz auf IConfirmComponent Komponente
+     * Method to configure the confirm dialog component
+     * @param instance Instance of the IConfirmComponent component
      */
     protected abstract ConfigureDialog(instance: IConfirmComponent);
 
     /**
-     * Interne Methode für die Implementation des Confirm Dialogs. Steuert die Feedbacks, die Erzeugung und Anzeige des Dialogs
+     * Internal method for the implementation of the confirm dialog. Controls feedback, creation, and display of the dialog
      */
     protected Confirm(): EventEmitter&lt;string&gt; {
-        // Dialog erzeugen
+        // Create dialog
         this.CreateInstance();
         const instance: IConfirmComponent &#x3D; this.OpenDialog();
 
-        // Konfiguration der Dialog Instanz durch Service Implementation zulassen
+        // Allow service implementation to configure the dialog instance
         this.ConfigureDialog(instance);
 
-        // Event Emitter für Confirmation im Service. Event Emitter Asynchron initialiseren
+        // Event emitter for confirmation in the service. Initialize asynchronously
         const confirmTask: EventEmitter&lt;string&gt; &#x3D; new EventEmitter&lt;string&gt;(true);
 
-        // Callback wenn Dialog bestätigt wurde
+        // Callback when the dialog is confirmed
         instance.onconfirm.subscribe(
             (value) &#x3D;&gt; {
-                // Dialog entfernen
+                // Remove dialog
                 this.CloseDialog();
 
-                // Emit auf Service auslösen
+                // Emit on service
                 confirmTask.emit(value);
             },
             (err) &#x3D;&gt; {
@@ -886,38 +900,38 @@ export abstract class ServiceConfirmCommon {
             }
         );
 
-        // Confirm Emitter für Result zurückgeben
+        // Return confirm emitter for result
         return confirmTask;
     }
 
     /**
-     * Erzeugt eine Instanz für den Dialog
+     * Creates an instance for the dialog
      */
     protected CreateInstance(): void {
-        // ComponentFactory aus Service laden
+        // Load component factory from service
         const factory: ComponentFactory&lt;IConfirmComponent&gt; &#x3D; this.GetComponentFactory();
 
-        // Instanz der Komponente erzeugen und an die View anhängen
+        // Create component instance and attach it to the view
         this.component &#x3D; factory.create(this.injector);
         this.appRef.attachView(this.component.hostView);
     }
 
     /**
-     * Entfernt die Instanz des Dialogs
+     * Removes the dialog instance
      */
     protected DestroyInstance(): void {
-        // Dialog aus View entfernen und Komponenten löschen
+        // Detach dialog from the view and destroy the component
         this.appRef.detachView(this.component.hostView);
         this.component.destroy();
     }
 
     /**
-     * Abstrakte Methode zum erzeugen der Komponent Factory für den Dialog
+     * Abstract method to create the component factory for the dialog
      */
     protected abstract GetComponentFactory(): ComponentFactory&lt;IConfirmComponent&gt;;
 
     /**
-     * Zeigt den Dialog an
+     * Shows the dialog
      */
     protected OpenDialog(): IConfirmComponent {
         const dialog &#x3D; this.component.instance;
@@ -969,6 +983,19 @@ export abstract class ServiceConfirmCommon {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -980,7 +1007,6 @@ export abstract class ServiceConfirmCommon {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

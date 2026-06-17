@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -339,7 +350,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>reference to grid component</p>
+                                                                <p>Reference to grid component</p>
 
                                                         </td>
                                                 </tr>
@@ -355,7 +366,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>di injector to resolve icon service</p>
+                                                                <p>DI injector to resolve icon service</p>
 
                                                         </td>
                                                 </tr>
@@ -371,7 +382,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>reference to html element</p>
+                                                                <p>Reference to HTML element</p>
 
                                                         </td>
                                                 </tr>
@@ -713,8 +724,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="155"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/gridcolumnbase.ts:155</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="156"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/gridcolumnbase.ts:156</a></div>
                         </td>
                     </tr>
 
@@ -728,6 +739,10 @@
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>The sort direction as string (none, asc, or desc)</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -754,8 +769,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="171"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/gridcolumnbase.ts:171</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/gridcolumnbase.ts:173</a></div>
                         </td>
                     </tr>
 
@@ -769,6 +784,10 @@
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>Boolean indicating if element is in table body</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -795,8 +814,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="178"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/gridcolumnbase.ts:178</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="181"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/gridcolumnbase.ts:181</a></div>
                         </td>
                     </tr>
 
@@ -810,6 +829,10 @@
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>Boolean indicating if element is in table footer</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -836,8 +859,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="185"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/gridcolumnbase.ts:185</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="189"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/gridcolumnbase.ts:189</a></div>
                         </td>
                     </tr>
 
@@ -851,6 +874,10 @@
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>Boolean indicating if element is in table header</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -877,8 +904,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="192"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/gridcolumnbase.ts:192</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="197"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/gridcolumnbase.ts:197</a></div>
                         </td>
                     </tr>
 
@@ -892,6 +919,10 @@
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>Boolean indicating if column is sorted</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -918,8 +949,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="208"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/gridcolumnbase.ts:208</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="213"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/gridcolumnbase.ts:213</a></div>
                         </td>
                     </tr>
 
@@ -959,8 +990,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="225"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/gridcolumnbase.ts:225</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="230"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/gridcolumnbase.ts:230</a></div>
                         </td>
                     </tr>
 
@@ -1000,8 +1031,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="199"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/gridcolumnbase.ts:199</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="204"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/gridcolumnbase.ts:204</a></div>
                         </td>
                     </tr>
 
@@ -1332,14 +1363,14 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
 
     /**
      * Constructor
-     * @param grid  reference to grid component
-     * @param injector di injector to resolve icon service
-     * @param el reference to html element
+     * @param grid Reference to grid component
+     * @param injector DI injector to resolve icon service
+     * @param el Reference to HTML element
      */
     constructor(
         private grid: SacGridCommon,
         protected injector: Injector,
-        private el: ElementRef,
+        private el: ElementRef
     ) {
         this.iconService &#x3D; injector.get(SACICON_SERVICE, new SacDefaultIconService());
     }
@@ -1375,6 +1406,7 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
 
     /**
      * Indicates the direction of sorting. The possible values are &#x60;none&#x60;,&#x60;asc&#x60;,&#x60;desc&#x60;
+     * @returns The sort direction as string (none, asc, or desc)
      */
     public GetSortDirection(): string {
         switch (this.grid.sortDirection) {
@@ -1391,6 +1423,7 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
 
     /**
      * Defines whether the element is a cell in the table.
+     * @returns Boolean indicating if element is in table body
      */
     public IsBody(): boolean {
         return this.type &#x3D;&#x3D;&#x3D; &#x27;body&#x27;;
@@ -1398,6 +1431,7 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
 
     /**
      * Defines whether the element is a cell in the footer of the table
+     * @returns Boolean indicating if element is in table footer
      */
     public IsFooter(): boolean {
         return this.type &#x3D;&#x3D;&#x3D; &#x27;footer&#x27;;
@@ -1405,6 +1439,7 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
 
     /**
      * Defines whether the element is a cell in the table header
+     * @returns Boolean indicating if element is in table header
      */
     public IsHeader(): boolean {
         return this.type &#x3D;&#x3D;&#x3D; &#x27;header&#x27;;
@@ -1412,6 +1447,7 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
 
     /**
      * Defines whether this column is sorted.
+     * @returns Boolean indicating if column is sorted
      */
     public IsSortedColumn(): boolean {
         return this.grid.sortColumn &#x3D;&#x3D;&#x3D; this.sortkey;
@@ -1511,6 +1547,19 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -1522,7 +1571,6 @@ export class SacGridColumnBaseCommon implements OnInit, OnDestroy {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

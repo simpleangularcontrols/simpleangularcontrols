@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 3 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -337,7 +348,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>di inector to resolve icon service</p>
+                                                                <p>DI injector to resolve icon service</p>
 
                                                         </td>
                                                 </tr>
@@ -770,7 +781,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacGridColumnBaseCommon.html#source" target="_self" >SacGridColumnBaseCommon:155</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacGridColumnBaseCommon.html#source" target="_self" >SacGridColumnBaseCommon:156</a></code>
 </div>
                         </td>
                     </tr>
@@ -785,6 +796,10 @@
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>The sort direction as string (none, asc, or desc)</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -817,7 +832,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacGridColumnBaseCommon.html#source" target="_self" >SacGridColumnBaseCommon:171</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacGridColumnBaseCommon.html#source" target="_self" >SacGridColumnBaseCommon:173</a></code>
 </div>
                         </td>
                     </tr>
@@ -832,6 +847,10 @@
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>Boolean indicating if element is in table body</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -864,7 +883,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacGridColumnBaseCommon.html#source" target="_self" >SacGridColumnBaseCommon:178</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacGridColumnBaseCommon.html#source" target="_self" >SacGridColumnBaseCommon:181</a></code>
 </div>
                         </td>
                     </tr>
@@ -879,6 +898,10 @@
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>Boolean indicating if element is in table footer</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -911,7 +934,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacGridColumnBaseCommon.html#source" target="_self" >SacGridColumnBaseCommon:185</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacGridColumnBaseCommon.html#source" target="_self" >SacGridColumnBaseCommon:189</a></code>
 </div>
                         </td>
                     </tr>
@@ -926,6 +949,10 @@
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>Boolean indicating if element is in table header</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -958,7 +985,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacGridColumnBaseCommon.html#source" target="_self" >SacGridColumnBaseCommon:192</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacGridColumnBaseCommon.html#source" target="_self" >SacGridColumnBaseCommon:197</a></code>
 </div>
                         </td>
                     </tr>
@@ -973,6 +1000,10 @@
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>Boolean indicating if column is sorted</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -1005,7 +1036,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacGridColumnBaseCommon.html#source" target="_self" >SacGridColumnBaseCommon:208</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacGridColumnBaseCommon.html#source" target="_self" >SacGridColumnBaseCommon:213</a></code>
 </div>
                         </td>
                     </tr>
@@ -1052,7 +1083,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacGridColumnBaseCommon.html#source" target="_self" >SacGridColumnBaseCommon:225</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacGridColumnBaseCommon.html#source" target="_self" >SacGridColumnBaseCommon:230</a></code>
 </div>
                         </td>
                     </tr>
@@ -1099,7 +1130,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacGridColumnBaseCommon.html#source" target="_self" >SacGridColumnBaseCommon:199</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacGridColumnBaseCommon.html#source" target="_self" >SacGridColumnBaseCommon:204</a></code>
 </div>
                         </td>
                     </tr>
@@ -1285,7 +1316,7 @@ export class SacGridColumnActionCommon extends SacGridColumnBaseCommon {
     /**
      * Constructor
      * @param el Element reference
-     * @param injector di inector to resolve icon service
+     * @param injector DI injector to resolve icon service
      * @param grid SacGridCommon
      */
     constructor(grid: SacGridCommon, injector: Injector, el: ElementRef) {
@@ -1342,6 +1373,19 @@ export class SacGridColumnActionCommon extends SacGridColumnBaseCommon {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -1353,7 +1397,6 @@ export class SacGridColumnActionCommon extends SacGridColumnBaseCommon {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

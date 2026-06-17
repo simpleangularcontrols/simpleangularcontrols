@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content directive">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -129,7 +140,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Basis Komponente für SacDateSelector</p>
+                <p>Base component for SacDateSelector</p>
 
             </p>
 
@@ -311,12 +322,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:169</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="159" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:159</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -325,6 +338,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -339,6 +353,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Service injector for dependency resolution</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -372,12 +390,12 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:122</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:112</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Boolean Property für automatische Selektierung; default Wert - false</p>
+                        <div class="io-description"><p>Boolean property for automatic selection; default value - false</p>
 </div>
                     </td>
                 </tr>
@@ -404,12 +422,12 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:133</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:123</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Datum Selector</p>
+                        <div class="io-description"><p>Date selector</p>
 </div>
                     </td>
                 </tr>
@@ -436,7 +454,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:139</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:129</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -463,12 +481,12 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="201" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:201</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="195" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:195</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Input für ursprüngliches Datum</p>
+                        <div class="io-description"><p>Input for initial date</p>
 </div>
                     </td>
                 </tr>
@@ -495,12 +513,12 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:145</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:135</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Monat</p>
+                        <div class="io-description"><p>Month</p>
 </div>
                     </td>
                 </tr>
@@ -527,7 +545,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="151" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:151</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:141</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -559,12 +577,12 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="163" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:163</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:153</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Time Selector</p>
+                        <div class="io-description"><p>Time selector</p>
 </div>
                     </td>
                 </tr>
@@ -591,12 +609,12 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:169</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="159" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:159</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Jahr</p>
+                        <div class="io-description"><p>Year</p>
 </div>
                     </td>
                 </tr>
@@ -621,12 +639,12 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:157</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="147" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:147</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Output Event beim Datum Selektieren</p>
+                        <div class="io-description"><p>Output event when date is selected</p>
 </div>
                     </td>
                 </tr>
@@ -662,15 +680,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="228"
-                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:228</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="222"
+                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:222</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Selektierung übernehmen</p>
+                        <div class="io-description"><p>Apply selection</p>
 </div>
 
                         <div class="io-description">
@@ -703,15 +721,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="257"
-                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:257</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="251"
+                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:251</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Modus ändern</p>
+                        <div class="io-description"><p>Change mode</p>
 </div>
 
                         <div class="io-description">
@@ -744,15 +762,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="270"
-                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:270</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="264"
+                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:264</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Getter für Stunden Uhrzeit</p>
+                        <div class="io-description"><p>Getter for hour of time</p>
 </div>
 
                         <div class="io-description">
@@ -785,15 +803,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="288"
-                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:288</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="282"
+                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:282</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Getter für Minuten Uhrzeit</p>
+                        <div class="io-description"><p>Getter for minute of time</p>
 </div>
 
                         <div class="io-description">
@@ -826,15 +844,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="306"
-                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:306</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="300"
+                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:300</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Vorheriger Monat</p>
+                        <div class="io-description"><p>Previous month</p>
 </div>
 
                         <div class="io-description">
@@ -867,15 +885,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="320"
-                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:320</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="314"
+                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:314</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Nächster Monat</p>
+                        <div class="io-description"><p>Next month</p>
 </div>
 
                         <div class="io-description">
@@ -908,15 +926,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="334"
-                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:334</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="328"
+                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:328</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Init Event</p>
+                        <div class="io-description"><p>Init event</p>
 </div>
 
                         <div class="io-description">
@@ -949,15 +967,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="348"
-                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:348</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="342"
+                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:342</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Selektierung resetten</p>
+                        <div class="io-description"><p>Reset selection</p>
 </div>
 
                         <div class="io-description">
@@ -990,15 +1008,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="357"
-                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:357</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="351"
+                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:351</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode ergibt das selektierte Datum</p>
+                        <div class="io-description"><p>Method returns the selected date</p>
 </div>
 
                             <div class="io-description">
@@ -1061,15 +1079,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="393"
-                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:393</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="387"
+                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:387</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Setter für Stunden Uhrzeit</p>
+                        <div class="io-description"><p>Setter for hour of time</p>
 </div>
 
                             <div class="io-description">
@@ -1132,15 +1150,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="412"
-                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:412</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="406"
+                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:406</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Setter für Minuten Uhrzeit</p>
+                        <div class="io-description"><p>Setter for minute of time</p>
 </div>
 
                             <div class="io-description">
@@ -1203,15 +1221,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="432"
-                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:432</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="426"
+                                    class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:426</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Auswahl auf aktuelle Zeit stellen</p>
+                        <div class="io-description"><p>Set selection to current time</p>
 </div>
 
                         <div class="io-description">
@@ -1253,13 +1271,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:127</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:117</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Array von Daten</p>
+                    <div class="io-description"><p>Array of dates</p>
 </div>
                 </td>
             </tr>
@@ -1288,7 +1306,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="186" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:186</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="180" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:180</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1321,7 +1339,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="193" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:193</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="187" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:187</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1354,12 +1372,12 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="201" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:201</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="195" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:195</a></div>
                                 </td>
                             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>Input für ursprüngliches Datum</p>
+                                <div class="io-description"><p>Input for initial date</p>
 </div>
 
                                 <div class="io-description">
@@ -1376,7 +1394,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="205" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:205</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="199" class="link-to-prism">projects/sac-common/src/controls/datetime/dateselector.ts:199</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1408,8 +1426,6 @@
                                             </tbody>
                                         </table>
                                 </div>
-                                <div>
-                                </div>
                                 <div class="io-description">
                                     <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
@@ -1424,63 +1440,62 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Moment } from &#x27;moment&#x27;;
-import { ISacIconService } from &#x27;../../interfaces/ISacIconService&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ISacIconService } from &#x27;../../interfaces/ISacIconService&#x27;;
 import { SACICON_SERVICE, SacDefaultIconService } from &#x27;../../services&#x27;;
 import { createGuid } from &#x27;../../utilities/guid&#x27;;
 import { Directive, EventEmitter, Injector, Input, OnInit, Output } from &#x27;@angular/core&#x27;;
-import * as moment_ from &#x27;moment&#x27;;
+import moment, { Moment } from &#x27;moment&#x27;;
 
 // #region Classes
 
 /**
- *Basis Komponente für DateSelectorItem
+ * Base component for DateSelectorItem
  */
 class DateSelectorItem {
     // #region Properties
 
     /**
-     * Datum
+     * Date
      */
     public date: Date &#x3D; undefined;
 
     /**
-     * DisplayText Property; default Wert - &#x27;&#x27;
+     * DisplayText property; default value - &#x27;&#x27;
      */
-    public displaytext: string &#x3D; &#x27;&#x27;;
+    public displaytext &#x3D; &#x27;&#x27;;
 
     /**
-     * Boolean Property, die zeigt, ob das Element aktuell ist; default Wert - false
+     * Boolean property indicating if the element is current; default value - false
      */
-    public iscurrent: boolean &#x3D; false;
+    public iscurrent &#x3D; false;
 
     /**
-     * Boolean Property, die zeigt, ob das Control enabled ist; default Wert - false
+     * Boolean property indicating if the control is enabled; default value - false
      */
-    public isenabled: boolean &#x3D; false;
+    public isenabled &#x3D; false;
 
     /**
-     * Boolean Property, die zeigt, ob das Element neu ist; default Wert - false
+     * Boolean property indicating if the element is new; default value - false
      */
-    public isnew: boolean &#x3D; false;
+    public isnew &#x3D; false;
 
     /**
-     * Boolean Property, die zeigt, ob das Element selektiert ist; default Wert - false
+     * Boolean property indicating if the element is selected; default value - false
      */
-    public isselected: boolean &#x3D; false;
+    public isselected &#x3D; false;
 
     // #endregion Properties
 
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param displaytext Anzeigetext
-     * @param date Datum
-     * @param isenabled Element ist aktiv
-     * @param isselected Element ist selektiert
-     * @param iscurrent Element ist aktuelles Element
-     * @param isnew Element ist neu
+     * Constructor
+     * @param displaytext Display text
+     * @param date Date
+     * @param isenabled Element is active
+     * @param isselected Element is selected
+     * @param iscurrent Element is current
+     * @param isnew Element is new
      */
     constructor(
         displaytext: string,
@@ -1503,38 +1518,29 @@ class DateSelectorItem {
 
 // #endregion Classes
 
-// #region Variables
-
-/**
- * Moment
- */
-const moment &#x3D; moment_[&#x27;default&#x27;];
-
-// #endregion Variables
-
 // #region Exported Classes
 
 /**
- *Basis Komponente für SacDateSelector
+ * Base component for SacDateSelector
  */
 @Directive()
 export class SacDateSelectorCommon implements OnInit {
     // #region Properties
 
     /**
-     * Ursprüngliches Datum
+     * Initial date
      */
     private _initialValue: Moment | null;
 
     /**
-     * Aktuell gewähltes Datum
+     * Currently selected date
      */
     private _selectedValue: Moment | null;
 
     /**
-     * Anfang des Kalenders
+     * Beginning of the calendar
      */
-    private beginOfCalendar: number &#x3D; 1;
+    private beginOfCalendar &#x3D; 1;
 
     /**
      * icon service to resolve icons
@@ -1542,21 +1548,21 @@ export class SacDateSelectorCommon implements OnInit {
     private iconService: ISacIconService;
 
     /**
-     * Boolean Property für automatische Selektierung; default Wert - false
+     * Boolean property for automatic selection; default value - false
      */
     @Input()
     public autoapplyselection &#x3D; false;
 
     /**
-     * Array von Daten
+     * Array of dates
      */
     public dates: DateSelectorItem[][] &#x3D; [];
 
     /**
-     * Datum Selector
+     * Date selector
      */
     @Input()
-    public dateselection: boolean &#x3D; false;
+    public dateselection &#x3D; false;
 
     /**
      * Identifier used for the E2E data attribute.
@@ -1565,10 +1571,10 @@ export class SacDateSelectorCommon implements OnInit {
     public e2eidentifier: string | null &#x3D; null;
 
     /**
-     * Monat
+     * Month
      */
     @Input()
-    public month: number &#x3D; 4;
+    public month &#x3D; 4;
 
     /**
      * name of control
@@ -1577,27 +1583,31 @@ export class SacDateSelectorCommon implements OnInit {
     public name: string &#x3D; createGuid();
 
     /**
-     * Output Event beim Datum Selektieren
+     * Output event when date is selected
      */
     @Output()
     public selectdate &#x3D; new EventEmitter&lt;any&gt;();
 
     /**
-     * Time Selector
+     * Time selector
      */
     @Input()
-    public timeselection: boolean &#x3D; false;
+    public timeselection &#x3D; false;
 
     /**
-     * Jahr
+     * Year
      */
     @Input()
-    public year: number &#x3D; 2018;
+    public year &#x3D; 2018;
 
     // #endregion Properties
 
     // #region Constructors
 
+    /**
+     * Constructor
+     * @param injector Service injector for dependency resolution
+     */
     constructor(injector: Injector) {
         this.iconService &#x3D; injector.get(SACICON_SERVICE, new SacDefaultIconService());
     }
@@ -1621,7 +1631,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Input für ursprüngliches Datum
+     * Input for initial date
      */
     @Input()
     public get initialvalue(): Date {
@@ -1649,7 +1659,7 @@ export class SacDateSelectorCommon implements OnInit {
     // #region Public Methods
 
     /**
-     * Selektierung übernehmen
+     * Apply selection
      */
     public applySelection(): void {
         if (this.timeselection &#x3D;&#x3D;&#x3D; false &amp;&amp; this._selectedValue !&#x3D;&#x3D; null) {
@@ -1660,7 +1670,7 @@ export class SacDateSelectorCommon implements OnInit {
         }
 
         if (this.dateselection &#x3D;&#x3D;&#x3D; false &amp;&amp; this._selectedValue !&#x3D;&#x3D; null) {
-            const tempValue: moment_.Moment &#x3D; this._selectedValue.local();
+            const tempValue: moment.Moment &#x3D; this._selectedValue.local();
             tempValue.date(1);
             tempValue.month(0);
             tempValue.year(1900);
@@ -1678,7 +1688,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Modus ändern
+     * Change mode
      */
     public changeMode(): void {
         if (this.beginOfCalendar &#x3D;&#x3D;&#x3D; 0) {
@@ -1691,7 +1701,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Getter für Stunden Uhrzeit
+     * Getter for hour of time
      */
     public getHours(): number {
         if (this._selectedValue &#x3D;&#x3D;&#x3D; null) {
@@ -1709,7 +1719,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Getter für Minuten Uhrzeit
+     * Getter for minute of time
      */
     public getMinutes(): number {
         if (this._selectedValue &#x3D;&#x3D;&#x3D; null) {
@@ -1727,7 +1737,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Vorheriger Monat
+     * Previous month
      */
     public monthBack(): void {
         this.month &#x3D; this.month - 1;
@@ -1741,7 +1751,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Nächster Monat
+     * Next month
      */
     public monthNext(): void {
         this.month &#x3D; this.month + 1;
@@ -1755,7 +1765,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Init Event
+     * Init event
      */
     public ngOnInit() {
         /**
@@ -1769,7 +1779,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Selektierung resetten
+     * Reset selection
      */
     public resetSelection(): void {
         this.selectdate.emit({
@@ -1778,7 +1788,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Methode ergibt das selektierte Datum
+     * Method returns the selected date
      */
     public selectDate(v: DateSelectorItem): void {
         if (v.isenabled) {
@@ -1791,7 +1801,7 @@ export class SacDateSelectorCommon implements OnInit {
 
             const dateValue: Moment &#x3D; moment(v.date);
 
-            // Übernehmen der Zeit aus dem bestehenden Wert
+            // Transfer the time from the existing value
             if (this._selectedValue &#x3D;&#x3D;&#x3D; null) {
                 if (this._initialValue !&#x3D;&#x3D; null) {
                     dateValue.hour(this._initialValue.hour());
@@ -1814,7 +1824,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Setter für Stunden Uhrzeit
+     * Setter for hour of time
      */
     public setHours(v: number | null): void {
         if (v &gt;&#x3D; 24) {
@@ -1833,7 +1843,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Setter für Minuten Uhrzeit
+     * Setter for minute of time
      */
     public setMinutes(v: number | null): void {
         if (v &gt;&#x3D; 60) {
@@ -1853,7 +1863,7 @@ export class SacDateSelectorCommon implements OnInit {
     }
 
     /**
-     * Auswahl auf aktuelle Zeit stellen
+     * Set selection to current time
      */
     public setToday(): void {
         this._selectedValue &#x3D; moment();
@@ -1881,23 +1891,23 @@ export class SacDateSelectorCommon implements OnInit {
     // #region Private Methods
 
     /**
-     * Ursprünglicher Kalender
+     * Initial calendar
      */
     private initCalendar(v: Moment) {
         /**
-         * Monat und Jahr setzen
+         * Set month and year
          */
         this.month &#x3D; v.month();
         this.year &#x3D; v.year();
 
         /**
-         * Daten für Kalender initialiseren
+         * Initialize data for calendar
          */
         this.initDates();
     }
 
     /**
-     * Initial Datum
+     * Initial date
      */
     private initDates(): void {
         const currentMonth &#x3D; moment(new Date(this.year, this.month, 1));
@@ -1940,14 +1950,14 @@ export class SacDateSelectorCommon implements OnInit {
             }
         }
 
-        // Add all Days in Month
+        // Add all days in month
         for (let dayinmonth &#x3D; 1; dayinmonth &lt;&#x3D; currentMonth.daysInMonth(); dayinmonth++) {
-            let isSelectedDate: boolean &#x3D; false;
-            let isNewDate: boolean &#x3D; false;
+            let isSelectedDate &#x3D; false;
+            let isNewDate &#x3D; false;
             const isCurrentDate: boolean &#x3D;
                 moment().month() &#x3D;&#x3D;&#x3D; this.month &amp;&amp; moment().year() &#x3D;&#x3D;&#x3D; this.year &amp;&amp; moment().date() &#x3D;&#x3D;&#x3D; dayinmonth;
 
-            // Initial Wert setzen, falls vorhanden
+            // Set initial value if present
             if (this._initialValue !&#x3D;&#x3D; null) {
                 isSelectedDate &#x3D;
                     this._initialValue.month() &#x3D;&#x3D;&#x3D; this.month &amp;&amp;
@@ -1955,7 +1965,7 @@ export class SacDateSelectorCommon implements OnInit {
                     this._initialValue.date() &#x3D;&#x3D;&#x3D; dayinmonth;
             }
 
-            // Selected Date Wert setzen, falls Wert gesetzt
+            // Set selected date value if set
             if (this._selectedValue !&#x3D;&#x3D; null) {
                 isNewDate &#x3D;
                     this._selectedValue.month() &#x3D;&#x3D;&#x3D; this.month &amp;&amp;
@@ -2016,15 +2026,18 @@ export class SacDateSelectorCommon implements OnInit {
         }
     }
 
+    /**
+     * Initializes the selected date value with initial or current date
+     */
     private initSelectedValue() {
         /**
-         * Select Value setzen falls leer
+         * Set select value if empty
          */
         if (this._selectedValue &#x3D;&#x3D;&#x3D; null) {
             if (this._initialValue &#x3D;&#x3D;&#x3D; null) {
                 this._selectedValue &#x3D; moment();
                 /**
-                 * clean seconds and miliseconds for initial values
+                 * Clean seconds and milliseconds for initial values
                  */
                 this._selectedValue.second(0);
                 this._selectedValue.millisecond(0);
@@ -2086,6 +2099,19 @@ export class SacDateSelectorCommon implements OnInit {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -2097,7 +2123,6 @@ export class SacDateSelectorCommon implements OnInit {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

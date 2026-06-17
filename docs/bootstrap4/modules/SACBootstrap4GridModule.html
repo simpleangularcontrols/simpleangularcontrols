@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content module">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -124,6 +135,10 @@
 <title>cluster_SACBootstrap4GridModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 1316,-268 1316,-70 8,-70"/>
 </g>
+<g id="clust10" class="cluster">
+<title>cluster_SACBootstrap4GridModule_exports</title>
+<polygon fill="none" stroke="black" points="124,-208 124,-260 1228,-260 1228,-208 124,-208"/>
+</g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap4GridModule_declarations</title>
 <polygon fill="none" stroke="black" points="224,-78 224,-130 1308,-130 1308,-78 224,-78"/>
@@ -131,10 +146,6 @@
 <g id="clust9" class="cluster">
 <title>cluster_SACBootstrap4GridModule_imports</title>
 <polygon fill="none" stroke="black" points="16,-78 16,-130 216,-130 216,-78 16,-78"/>
-</g>
-<g id="clust10" class="cluster">
-<title>cluster_SACBootstrap4GridModule_exports</title>
-<polygon fill="none" stroke="black" points="124,-208 124,-260 1228,-260 1228,-208 124,-208"/>
 </g>
 <!-- SacGridButtonComponent -->
 <g id="node1" class="node">
@@ -422,23 +433,23 @@ import { FormsModule } from &#x27;@angular/forms&#x27;;
 import { SACCommonUtliltiesModule } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 @NgModule({
-  declarations: [
-    SacGridComponent,
-    SacGridColumnComponent,
-    SacGridColumnActionComponent,
-    SacPagingComponent,
-    SacGridButtonComponent,
-    SacGridImageComponent,
-  ],
-  imports: [CommonModule, FormsModule, SACCommonUtliltiesModule],
-  exports: [
-    SacGridComponent,
-    SacGridColumnComponent,
-    SacGridColumnActionComponent,
-    SacPagingComponent,
-    SacGridButtonComponent,
-    SacGridImageComponent,
-  ],
+    declarations: [
+        SacGridComponent,
+        SacGridColumnComponent,
+        SacGridColumnActionComponent,
+        SacPagingComponent,
+        SacGridButtonComponent,
+        SacGridImageComponent,
+    ],
+    imports: [CommonModule, FormsModule, SACCommonUtliltiesModule],
+    exports: [
+        SacGridComponent,
+        SacGridColumnComponent,
+        SacGridColumnActionComponent,
+        SacPagingComponent,
+        SacGridButtonComponent,
+        SacGridImageComponent,
+    ],
 })
 export class SACBootstrap4GridModule {}
 </code></pre>
@@ -491,6 +502,19 @@ export class SACBootstrap4GridModule {}
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -502,7 +526,6 @@ export class SACBootstrap4GridModule {}
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

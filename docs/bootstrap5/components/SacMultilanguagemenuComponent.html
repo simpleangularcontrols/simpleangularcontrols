@@ -13,7 +13,7 @@
     </head>
     <body>
           <script>
-               // Blocking script to avaoid flickering dark mode
+               // Blocking script to avoid flickering dark mode
                // Dark mode toggle button
                var useDark = window.matchMedia('(prefers-color-scheme: dark)');
                var darkModeState = useDark.matches;
@@ -60,20 +60,27 @@
                     darkModeState = darkModeStateLocal === 'true';
                }
                toggleDarkMode(darkModeState);
-
-               if ($darkModeToggles.length > 0) {
-                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                              darkModeState = !darkModeState;
-                              toggleDarkMode(darkModeState);
-                         });
-                    }
-               }
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
           </script>
 
-        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 5 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
@@ -82,12 +89,16 @@
 
         <div class="container-fluid main">
            <div class="row main">
-               <div class="hidden-xs menu">
+               <div class="d-none d-md-block menu">
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
                <div class="content component">
                    <div class="content-data">
+
+
+
+
 
 
 
@@ -131,7 +142,7 @@
         <h3>Description</h3>
     </p>
     <p class="comment">
-        <p>Component für Contextmenü</p>
+        <p>Component for context menu</p>
 
     </p>
 
@@ -161,9 +172,7 @@
             <tr>
                 <td class="col-md-3">providers</td>
                 <td class="col-md-9">
-                                <code><a href="../components/SacMultilanguagemenuComponent.html" target="_self" >{
-    provide: SacContextmenuCommon, useExisting: forwardRef(() &#x3D;&gt; SacMultilanguagemenuComponent),
-}</a></code>
+                            <code>)</code>
                 </td>
             </tr>
 
@@ -363,7 +372,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Referenz auf HTML Document</p>
+                                                                <p>Reference to HTML document</p>
 
                                                         </td>
                                                 </tr>
@@ -395,7 +404,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Referenz auf HTML Element der aktuellen Komponente</p>
+                                                                <p>Reference to HTML element of the current component</p>
 
                                                         </td>
                                                 </tr>
@@ -411,7 +420,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Render Service von Angular</p>
+                                                                <p>Angular render service</p>
 
                                                         </td>
                                                 </tr>
@@ -427,7 +436,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>injector to resolve services in base component</p>
+                                                                <p>Injector to resolve services in base component</p>
 
                                                         </td>
                                                 </tr>
@@ -524,7 +533,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Custom HTML Template für Dropdown Button. Button muss den Marker &quot;ngContextmenuAnchor&quot; beinhalten, damit das Control korrekt funktioniert.</p>
+                        <div class="io-description"><p>Custom HTML template for dropdown button. Button must contain the marker &quot;ngContextmenuAnchor&quot; for the control to work correctly.</p>
 </div>
                     </td>
                 </tr>
@@ -563,7 +572,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Container an welchem die Position ausgerichtet wird. Aktuell wird nun Body Supported</p>
+                        <div class="io-description"><p>Container to which the position is aligned. Currently only body is supported.</p>
 </div>
                     </td>
                 </tr>
@@ -602,7 +611,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Extra CSS Klassen für das Control</p>
+                        <div class="io-description"><p>Extra CSS classes for the control</p>
 </div>
                     </td>
                 </tr>
@@ -680,7 +689,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Definiert ob das Dropdown offen ist.</p>
+                        <div class="io-description"><p>Defines whether the dropdown is open.</p>
 </div>
                     </td>
                 </tr>
@@ -792,7 +801,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>document:click(targetElement)</code>
+<code>document:click(targetElement: unknown)</code>
                 </td>
             </tr>
 
@@ -805,7 +814,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:197</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:204</a></code>
 </div>
                         </td>
                     </tr>
@@ -813,7 +822,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>HostListener um das Dropdown zu schliessen wenn nicht auf das Element geklickt wird.</p>
+                        <div class="io-description"><p>HostListener to close the dropdown when clicking outside the element.</p>
 </div>
 
                 </td>
@@ -854,7 +863,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:235</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:242</a></code>
 </div>
                         </td>
                     </tr>
@@ -862,7 +871,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Setzt die Position des Menüs im Markup</p>
+                        <div class="io-description"><p>Sets the position of the menu in the markup</p>
 </div>
 
                         <div class="io-description">
@@ -909,7 +918,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Schliesst das Dropdown</p>
+                        <div class="io-description"><p>Closes the dropdown</p>
 </div>
 
                         <div class="io-description">
@@ -948,7 +957,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:175</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:181</a></code>
 </div>
                         </td>
                     </tr>
@@ -956,6 +965,10 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Lifecycle hook that is called after content projection is completed.</p>
+<p>Associates each menu item with this context menu instance so that item
+events can delegate to the parent menu.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -993,7 +1006,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:182</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:188</a></code>
 </div>
                         </td>
                     </tr>
@@ -1001,7 +1014,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Event wenn Component entfernt wird.</p>
+                        <div class="io-description"><p>Event when component is destroyed.</p>
 </div>
 
                         <div class="io-description">
@@ -1028,7 +1041,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onClick(targetElement)</code>
+                    <code>onClick(targetElement: unknown)</code>
                 </td>
             </tr>
 
@@ -1048,7 +1061,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:197</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:204</a></code>
 </div>
                         </td>
                     </tr>
@@ -1056,7 +1069,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>HostListener um das Dropdown zu schliessen wenn nicht auf das Element geklickt wird.</p>
+                        <div class="io-description"><p>HostListener to close the dropdown when clicking outside the element.</p>
 </div>
 
                             <div class="io-description">
@@ -1066,12 +1079,16 @@
                                     <thead>
                                         <tr>
                                             <td>Name</td>
+                                                <td>Type</td>
                                             <td>Optional</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                                 <td>targetElement</td>
+                                            <td>
+                                                        <code>unknown</code>
+                                            </td>
 
                                             <td>
                                                     No
@@ -1121,7 +1138,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:212</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:219</a></code>
 </div>
                         </td>
                     </tr>
@@ -1129,7 +1146,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Öffnet das Dropdown / Zeigt das Menü an.</p>
+                        <div class="io-description"><p>Opens the dropdown / shows the menu.</p>
 </div>
 
                         <div class="io-description">
@@ -1168,7 +1185,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:220</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacContextmenuCommon.html#source" target="_self" >SacContextmenuCommon:227</a></code>
 </div>
                         </td>
                     </tr>
@@ -1176,7 +1193,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Toggle von Dropdown</p>
+                        <div class="io-description"><p>Toggle dropdown</p>
 </div>
 
                         <div class="io-description">
@@ -1304,7 +1321,7 @@ import {
 import { SacContextmenuCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 /**
- * Component für Contextmenü
+ * Component for context menu
  */
 @Component({
     selector: &#x27;[sac-multilanguagemenu]&#x27;, // eslint-disable-line @angular-eslint/component-selector -- bootstrap requires append-items direct behind the previews element
@@ -1337,11 +1354,11 @@ export class SacMultilanguagemenuComponent extends SacContextmenuCommon {
 
     /**
      * Constructor
-     * @param document Referenz auf HTML Document
+     * @param document Reference to HTML document
      * @param ngZone Angular Zone Service
-     * @param elementRef Referenz auf HTML Element der aktuellen Komponente
-     * @param renderer Render Service von Angular
-     * @param injector injector to resolve services in base component
+     * @param elementRef Reference to HTML element of the current component
+     * @param renderer Angular render service
+     * @param injector Injector to resolve services in base component
      */
     constructor(
         @Inject(DOCUMENT) document: any,
@@ -1410,7 +1427,7 @@ export class SacMultilanguagemenuComponent extends SacContextmenuCommon {
     
 </div>
 
-<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/vis-network.min.js"></script>
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
@@ -1467,6 +1484,19 @@ export class SacMultilanguagemenuComponent extends SacContextmenuCommon {
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
 
@@ -1478,7 +1508,6 @@ export class SacMultilanguagemenuComponent extends SacContextmenuCommon {
        <script src="../js/libs/es6-shim.min.js"></script>
        <script src="../js/libs/EventDispatcher.js"></script>
        <script src="../js/libs/promise.min.js"></script>
-       <script src="../js/libs/zepto.min.js"></script>
 
        <script src="../js/compodoc.js"></script>
 

@@ -367,18 +367,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "module-base:build"
+            "buildTarget": "module-base:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "module-base:build:production"
+              "buildTarget": "module-base:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "module-base:build"
+            "buildTarget": "module-base:build"
           }
         },
         "cypress-run": {
@@ -585,11 +585,11 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "demo-bootstrap3:build:production"
+              "buildTarget": "demo-bootstrap3:build:production"
             },
             "development": {
-              "browserTarget": "demo-bootstrap3:build:development",
-              "proxyConfig": "proxy.conf.bs3.json"
+              "proxyConfig": "proxy.conf.bs3.json",
+              "buildTarget": "demo-bootstrap3:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -597,7 +597,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "demo-bootstrap3:build"
+            "buildTarget": "demo-bootstrap3:build"
           }
         }
       }
@@ -702,19 +702,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "demo-bootstrap4:build",
-            "proxyConfig": "proxy.conf.bs4.json"
+            "proxyConfig": "proxy.conf.bs4.json",
+            "buildTarget": "demo-bootstrap4:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "demo-bootstrap4:build:production"
+              "buildTarget": "demo-bootstrap4:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "demo-bootstrap4:build"
+            "buildTarget": "demo-bootstrap4:build"
           }
         },
         "lint": {
@@ -831,11 +831,11 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "demo-bootstrap5:build:production"
+              "buildTarget": "demo-bootstrap5:build:production"
             },
             "development": {
-              "browserTarget": "demo-bootstrap5:build:development",
-              "proxyConfig": "proxy.conf.bs5.json"
+              "proxyConfig": "proxy.conf.bs5.json",
+              "buildTarget": "demo-bootstrap5:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -843,7 +843,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "demo-bootstrap5:build"
+            "buildTarget": "demo-bootstrap5:build"
           }
         }
       }

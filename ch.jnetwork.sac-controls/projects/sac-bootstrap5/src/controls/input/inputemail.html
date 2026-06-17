@@ -33,7 +33,7 @@
                 [class.input-group-sm]="componentHeight === ControlHeight.Small"
                 [class.input-group-lg]="componentHeight === ControlHeight.Large"
                 [class.has-validation]="isinlineerrorenabled && invalid && (dirty || touched)">
-                <span class="input-group-text">@</span>
+                <span class="input-group-text">&#64;</span>
                 <ng-container *ngIf="labelMode === 'floating' && !disablelabel; then floatingWrapper; else inputBlock"></ng-container>
 
                 <div

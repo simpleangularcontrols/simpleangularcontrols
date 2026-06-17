@@ -136,6 +136,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Directive for dropdown option elements within sac-dropdown.</p>
+
+            </p>
 
             <p class="comment">
                 <h3>Extends</h3>
@@ -224,13 +231,13 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">projects/sac-bootstrap3/src/controls/list/dropdownoption.directive.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">projects/sac-bootstrap3/src/controls/list/dropdownoption.directive.ts:9</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -256,7 +263,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Referenz auf HTML DOM Element</p>
+                                                                <p>Reference to HTML DOM element</p>
 
                                                         </td>
                                                 </tr>
@@ -288,7 +295,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Referenz auf DropDown Komponente</p>
+                                                                <p>Reference to Dropdown component</p>
 
                                                         </td>
                                                 </tr>
@@ -325,7 +332,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:41</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:45</a></code>
 </div>
                             </td>
                         </tr>
@@ -359,13 +366,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:57</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:61</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Wert-Setter</p>
+                        <div class="io-description"><p>Value setter</p>
 </div>
                     </td>
                 </tr>
@@ -408,7 +415,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:69</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:73</a></code>
 </div>
                         </td>
                     </tr>
@@ -416,7 +423,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Den Wert vom Option-Element einstellen</p>
+                        <div class="io-description"><p>Set the value of the option element</p>
 </div>
 
                             <div class="io-description">
@@ -444,7 +451,7 @@
 
 
                                             <td>
-                                                    <p>Wert</p>
+                                                    <p>Value</p>
 
                                             </td>
                                         </tr>
@@ -490,7 +497,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:76</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacDropdownOptionCommon.html#source" target="_self" >SacDropdownOptionCommon:80</a></code>
 </div>
                         </td>
                     </tr>
@@ -498,7 +505,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>OnDestroy Event</p>
+                        <div class="io-description"><p>OnDestroy event</p>
 </div>
 
                         <div class="io-description">
@@ -520,15 +527,18 @@
 import { Directive, ElementRef, Inject, Optional, Renderer2 } from &#x27;@angular/core&#x27;;
 import { SacDropdownOptionCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
+/**
+ * Directive for dropdown option elements within sac-dropdown.
+ */
 @Directive({ selector: &#x27;option,[sacOption]&#x27; })
 export class SacDropdownOptionDirective extends SacDropdownOptionCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param elementRef Referenz auf HTML DOM Element
+     * Constructor
+     * @param elementRef Reference to HTML DOM element
      * @param renderer Angular Rendering Engine
-     * @param dropdownComponent Referenz auf DropDown Komponente
+     * @param dropdownComponent Reference to Dropdown component
      */
     constructor(
         elementRef: ElementRef,

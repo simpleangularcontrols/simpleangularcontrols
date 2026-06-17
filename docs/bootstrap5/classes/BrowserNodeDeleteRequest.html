@@ -145,7 +145,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Klasse für API Request zum löschen eines Nodes</p>
+                <p>Class for API request to delete a node</p>
 
             </p>
 
@@ -165,6 +165,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#Path" >Path</a>
                             </li>
                         </ul>
@@ -191,13 +192,13 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">projects/sac-common/src/components/browser/models/browsernodedeleterequest.ts:4</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/sac-common/src/components/browser/models/browsernodedeleterequest.ts:10</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -223,7 +224,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Initiale Werte</p>
+                                                                <p>Initial values</p>
 
                                                         </td>
                                                 </tr>
@@ -247,6 +248,7 @@
                 <td class="col-md-4">
                     <a name="Path"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>Path</b></span>
                         <a href="#Path"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -260,13 +262,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/sac-common/src/components/browser/models/browsernodedeleterequest.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/sac-common/src/components/browser/models/browsernodedeleterequest.ts:10</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Pfad</p>
+                    <div class="io-description"><p>Path</p>
 </div>
                 </td>
             </tr>
@@ -286,18 +288,26 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class BrowserNodeDeleteRequest {
-  /**
-   * Konstruktor
-   * @param init Initiale Werte
-   */
-  constructor(init?: Partial&lt;BrowserNodeDeleteRequest&gt;) {
-    Object.assign(this, init);
-  }
+    // #region Properties
 
-  /**
-   * Pfad
-   */
-  Path: string;
+    /**
+     * Path
+     */
+    public Path: string;
+
+    // #endregion Properties
+
+    // #region Constructors
+
+    /**
+     * Constructor
+     * @param init Initial values
+     */
+    constructor(init?: Partial&lt;BrowserNodeDeleteRequest&gt;) {
+        Object.assign(this, init);
+    }
+
+    // #endregion Constructors
 }
 </code></pre>
     </div>

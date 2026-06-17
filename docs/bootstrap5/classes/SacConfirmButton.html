@@ -207,7 +207,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -265,7 +265,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Role type for the button. Default is ‘secondary’</p>
+                                                                <p>Role type for the button. Default is &#39;default&#39;</p>
 
                                                         </td>
                                                 </tr>
@@ -391,7 +391,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Display text of the buttonAnzeigetext des Buttons</p>
+                    <div class="io-description"><p>Display text of the button</p>
 </div>
                 </td>
             </tr>
@@ -421,7 +421,7 @@ export class SacConfirmButton {
     /**
      * Key of the button. Is returned as a result when confirming
      */
-    public key: string &#x3D; &#x27;&#x27;;
+    public key &#x3D; &#x27;&#x27;;
 
     /**
      * Layout of the button
@@ -429,19 +429,19 @@ export class SacConfirmButton {
     public role?: BUTTONROLETYPE | null &#x3D; &#x27;secondary&#x27;;
 
     /**
-     * Display text of the buttonAnzeigetext des Buttons
+     * Display text of the button
      */
-    public text: string &#x3D; &#x27;&#x27;;
+    public text &#x3D; &#x27;&#x27;;
 
     // #endregion Properties
 
     // #region Constructors
 
     /**
-     * Konstruktor
+     * Constructor
      * @param key Key for button
      * @param text Text for button
-     * @param role Role type for the button. Default is ‘secondary’
+     * @param role Role type for the button. Default is &#x27;default&#x27;
      */
     constructor(key: string &#x3D; &#x27;&#x27;, text: string &#x3D; &#x27;&#x27;, role: BUTTONROLETYPE &#x3D; &#x27;default&#x27;) {
         this.key &#x3D; key;

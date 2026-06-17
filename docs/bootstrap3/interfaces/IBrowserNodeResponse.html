@@ -148,7 +148,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Interface für Antworten an den Browser Service</p>
+                <p>Interface for responses to the browser service</p>
 
             </p>
 
@@ -229,13 +229,17 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IBrowserNode } from &#x27;./browsernode&#x27;;
 
 /**
- * Interface für Antworten an den Browser Service
+ * Interface for responses to the browser service
  */
 export interface IBrowserNodeResponse {
-  /**
-   * Node
-   */
-  Node: IBrowserNode;
+    // #region Properties
+
+    /**
+     * Node
+     */
+    Node: IBrowserNode;
+
+    // #endregion Properties
 }
 </code></pre>
     </div>

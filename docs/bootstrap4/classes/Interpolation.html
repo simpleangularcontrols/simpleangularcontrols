@@ -145,7 +145,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p> Klasse zum ersetzen von Platzhaltern in Strings</p>
+                <p>Class for replacing placeholders in strings</p>
 
             </p>
 
@@ -210,15 +210,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="18"
-                                    class="link-to-prism">projects/sac-common/src/utilities/interpolation.ts:18</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="24"
+                                    class="link-to-prism">projects/sac-common/src/utilities/interpolation.ts:24</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Platzhalter in String ersetzen</p>
+                        <div class="io-description"><p>Replace placeholders in string</p>
 </div>
 
                             <div class="io-description">
@@ -246,7 +246,7 @@
 
 
                                             <td>
-                                                    <p>Text in welchem die Platzhalter ersetzt werden</p>
+                                                    <p>Text in which placeholders are replaced</p>
 
                                             </td>
                                         </tr>
@@ -262,7 +262,7 @@
 
 
                                             <td>
-                                                    <p>Objekt mit Parameter.</p>
+                                                    <p>Object with parameters</p>
 
                                             </td>
                                         </tr>
@@ -274,7 +274,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The interpolated string with placeholders replaced</p>
+
                             </div>
                 </td>
             </tr>
@@ -293,54 +294,65 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { isDefined } from &#x27;./datatypes&#x27;;
 
 /**
- *  Klasse zum ersetzen von Platzhaltern in Strings
+ * Class for replacing placeholders in strings
  */
 export class Interpolation {
+    // #region Properties
 
-  /**
-   *  Template zum Parsen der Platzhalter
-   */
-  private templateMatcher: RegExp &#x3D; /{{\s?([^{}\s]*)\s?}}/g;
+    /**
+     * Template for parsing placeholders
+     */
+    private templateMatcher &#x3D; /{{\s?([^{}\s]*)\s?}}/g;
 
-  /**
-   * Platzhalter in String ersetzen
-   * @param text Text in welchem die Platzhalter ersetzt werden
-   * @param params Objekt mit Parameter.
-   */
-  public interpolateString(text: string, params?: any) {
-    if (!params) {
-      return text;
+    // #endregion Properties
+
+    // #region Public Methods
+
+    /**
+     * Replace placeholders in string
+     * @param text Text in which placeholders are replaced
+     * @param params Object with parameters
+     * @returns The interpolated string with placeholders replaced
+     */
+    public interpolateString(text: string, params?: any) {
+        if (!params) {
+            return text;
+        }
+
+        return text.replace(this.templateMatcher, (substring: string, b: string) &#x3D;&gt; {
+            const r &#x3D; this.getValue(params, b);
+            return isDefined(r) ? r : substring;
+        });
     }
 
-    return text.replace(this.templateMatcher, (substring: string, b: string) &#x3D;&gt; {
-      const r &#x3D; this.getValue(params, b);
-      return isDefined(r) ? r : substring;
-    });
-  }
+    // #endregion Public Methods
 
-  /**
-   * Wert aus Objekt in Objekt oder Objektstruktur lesen
-   * @param target Objekt das zu parsen ist.
-   * @param key Key nach welchem gesucht wird. Navigation in Properties des Objekt mit einem Punkt.
-   */
-  private getValue(target: any, key: string): any {
-    const keys &#x3D; key.split(&#x27;.&#x27;);
-    key &#x3D; &#x27;&#x27;;
-    do {
-      key +&#x3D; keys.shift();
-      if (isDefined(target) &amp;&amp; isDefined(target[key]) &amp;&amp; (typeof target[key] &#x3D;&#x3D;&#x3D; &#x27;object&#x27; || !keys.length)) {
-        target &#x3D; target[key];
+    // #region Private Methods
+
+    /**
+     * Read value from object in object or object structure
+     * @param target Object to be parsed.
+     * @param key Key to search for. Navigation in object properties with a dot.
+     */
+    private getValue(target: any, key: string): any {
+        const keys &#x3D; key.split(&#x27;.&#x27;);
         key &#x3D; &#x27;&#x27;;
-      } else if (!keys.length) {
-        target &#x3D; undefined;
-      } else {
-        key +&#x3D; &#x27;.&#x27;;
-      }
-    } while (keys.length);
+        do {
+            key +&#x3D; keys.shift();
+            if (isDefined(target) &amp;&amp; isDefined(target[key]) &amp;&amp; (typeof target[key] &#x3D;&#x3D;&#x3D; &#x27;object&#x27; || !keys.length)) {
+                target &#x3D; target[key];
+                key &#x3D; &#x27;&#x27;;
+            } else if (!keys.length) {
+                target &#x3D; undefined;
+            } else {
+                key +&#x3D; &#x27;.&#x27;;
+            }
+        } while (keys.length);
 
-    return target;
-  }
+        return target;
+    }
 
+    // #endregion Private Methods
 }
 </code></pre>
     </div>

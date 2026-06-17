@@ -141,13 +141,13 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Service für Confirm Messages in TypeScript Code</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-html">// Beispiel für ConfirmMessage mit Standard Buttons (Ja / Nein).
-confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;).subscribe(action =&gt; { // Action Code });</code></pre></div><b>Example :</b><div><pre class="line-numbers"><code class="language-html">// Beispiel für ConfirmMessage mit eigenen Buttons
+                <p>Service for confirm messages in TypeScript code</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">// Example for ConfirmMessage with standard buttons (Yes / No).
+confirmService.ConfirmMessage(&#39;title&#39;, &#39;question&#39;).subscribe(action =&gt; { // Action code });</code></pre></div><b>Example :</b><div><pre class="line-numbers"><code class="language-html">// Example for ConfirmMessage with custom buttons
 let buttons: SacConfirmButton[] = [];
 buttons.push(new SacConfirmButton(&#39;ActionKey&#39;,&#39;Text Primary&#39;));
 buttons.push(new SacConfirmButton(&#39;ActionKey2&#39;,&#39;Text Button 2&#39;));
-confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscribe(action =&gt; { // Action Code });</code></pre></div>
+confirmService.ConfirmMessage(&#39;title&#39;, &#39;question&#39;, buttons).subscribe(action =&gt; { // Action code });</code></pre></div>
             </p>
 
             <p class="comment">
@@ -253,13 +253,13 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/sac-bootstrap4/src/controls/confirm/confirm.service.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">projects/sac-bootstrap4/src/controls/confirm/confirm.service.ts:46</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -285,7 +285,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Component Factory Resolver Instanz</p>
+                                                                <p>Component Factory Resolver instance</p>
 
                                                         </td>
                                                 </tr>
@@ -301,7 +301,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Application Referenz. Wird benötigt um den Dialog am Body anzuhängen</p>
+                                                                <p>Application Reference. Required to attach the dialog to the body</p>
 
                                                         </td>
                                                 </tr>
@@ -317,7 +317,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Injector. Wird benötigt um den Dialog dynamisch zu erzeugen</p>
+                                                                <p>Injector. Required to dynamically create the dialog</p>
 
                                                         </td>
                                                 </tr>
@@ -363,7 +363,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:118</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:117</a></code>
 </div>
                         </td>
                     </tr>
@@ -371,7 +371,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Konfiguration des Dialogs</p>
+                        <div class="io-description"><p>Configure dialog</p>
 </div>
 
                             <div class="io-description">
@@ -399,7 +399,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
 
 
                                             <td>
-                                                    <p>Instanz eines SacConfirm Dialogs</p>
+                                                    <p>Instance of a SacConfirm dialog</p>
 
                                             </td>
                                         </tr>
@@ -439,15 +439,15 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="68"
-                                    class="link-to-prism">projects/sac-bootstrap4/src/controls/confirm/confirm.service.ts:68</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">projects/sac-bootstrap4/src/controls/confirm/confirm.service.ts:78</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Confirm Dialog anzeigen</p>
+                        <div class="io-description"><p>Show confirm dialog</p>
 </div>
 
                             <div class="io-description">
@@ -478,6 +478,8 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                                             </td>
 
                                             <td>
+                                                    <p>Title to be displayed in dialog</p>
+
                                             </td>
                                         </tr>
                                         <tr>
@@ -494,7 +496,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                                             </td>
 
                                             <td>
-                                                    <p>Nachricht die angezeigt werden soll.</p>
+                                                    <p>Message to be displayed in dialog</p>
 
                                             </td>
                                         </tr>
@@ -513,6 +515,8 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                                             </td>
 
                                             <td>
+                                                    <p>Array of custom buttons or null for default buttons</p>
+
                                             </td>
                                         </tr>
                                     </tbody>
@@ -523,7 +527,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
 
                         </div>
                             <div class="io-description">
-                                <p>EventEmitter mit Key des Buttons, welcher geklickt wurde.</p>
+                                <p>EventEmitter with key of the button that was clicked</p>
 
                             </div>
                 </td>
@@ -558,7 +562,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:104</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:105</a></code>
 </div>
                         </td>
                     </tr>
@@ -566,13 +570,17 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Erzeugen einer Component Factory für einen Dialog</p>
+                        <div class="io-description"><p>Generate component factory for a dialog</p>
 </div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="../components/SacConfirmComponent.html" target="_self" >ComponentFactory&lt;SacConfirmComponent&gt;</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>ComponentFactory for SacConfirmComponent</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -605,7 +613,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:67</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:70</a></code>
 </div>
                         </td>
                     </tr>
@@ -613,7 +621,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Blendet den Dialog aus</p>
+                        <div class="io-description"><p>Hides the dialog</p>
 </div>
 
                         <div class="io-description">
@@ -652,7 +660,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:81</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:84</a></code>
 </div>
                         </td>
                     </tr>
@@ -660,7 +668,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Interne Methode für die Implementation des Confirm Dialogs. Steuert die Feedbacks, die Erzeugung und Anzeige des Dialogs</p>
+                        <div class="io-description"><p>Internal method for the implementation of the confirm dialog. Controls feedback, creation, and display of the dialog</p>
 </div>
 
                         <div class="io-description">
@@ -699,7 +707,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:116</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:119</a></code>
 </div>
                         </td>
                     </tr>
@@ -707,7 +715,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Erzeugt eine Instanz für den Dialog</p>
+                        <div class="io-description"><p>Creates an instance for the dialog</p>
 </div>
 
                         <div class="io-description">
@@ -746,7 +754,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:128</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:131</a></code>
 </div>
                         </td>
                     </tr>
@@ -754,7 +762,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Entfernt die Instanz des Dialogs</p>
+                        <div class="io-description"><p>Removes the dialog instance</p>
 </div>
 
                         <div class="io-description">
@@ -793,7 +801,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:142</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/ServiceConfirmCommon.html#source" target="_self" >ServiceConfirmCommon:145</a></code>
 </div>
                         </td>
                     </tr>
@@ -801,7 +809,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Zeigt den Dialog an</p>
+                        <div class="io-description"><p>Shows the dialog</p>
 </div>
 
                         <div class="io-description">
@@ -856,7 +864,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Referenz auf IConfirm Instanz.</p>
+                    <div class="io-description"><p>Reference to the IConfirm instance.</p>
 </div>
                 </td>
             </tr>
@@ -936,7 +944,7 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>service for tranlsate default text</p>
+                    <div class="io-description"><p>Service for translating default text</p>
 </div>
                 </td>
             </tr>
@@ -990,131 +998,130 @@ confirmService.ConfirmMessage(&#39;titel&#39;, &#39;frage&#39;, buttons).subscri
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacConfirmComponent } from &#x27;./confirm&#x27;;
-import { ApplicationRef, ComponentFactory, ComponentFactoryResolver, EventEmitter, Inject, Injectable, Injector } from &#x27;@angular/core&#x27;;
+import {
+    ApplicationRef,
+    ComponentFactory,
+    ComponentFactoryResolver,
+    EventEmitter,
+    Inject,
+    Injectable,
+    Injector,
+} from &#x27;@angular/core&#x27;;
 import { SacConfirmButton, ServiceConfirmCommon, isDefined } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 import { forkJoin } from &#x27;rxjs&#x27;;
 import { take } from &#x27;rxjs/operators&#x27;;
 
 /**
- * Service für Confirm Messages in TypeScript Code
+ * Service for confirm messages in TypeScript code
  *
  * @example
- * // Beispiel für ConfirmMessage mit Standard Buttons (Ja / Nein).
- * confirmService.ConfirmMessage(&#x27;titel&#x27;, &#x27;frage&#x27;).subscribe(action &#x3D;&gt; { // Action Code });
+ * // Example for ConfirmMessage with standard buttons (Yes / No).
+ * confirmService.ConfirmMessage(&#x27;title&#x27;, &#x27;question&#x27;).subscribe(action &#x3D;&gt; { // Action code });
  *
  * @example
- * // Beispiel für ConfirmMessage mit eigenen Buttons
+ * // Example for ConfirmMessage with custom buttons
  * let buttons: SacConfirmButton[] &#x3D; [];
  * buttons.push(new SacConfirmButton(&#x27;ActionKey&#x27;,&#x27;Text Primary&#x27;));
  * buttons.push(new SacConfirmButton(&#x27;ActionKey2&#x27;,&#x27;Text Button 2&#x27;));
- * confirmService.ConfirmMessage(&#x27;titel&#x27;, &#x27;frage&#x27;, buttons).subscribe(action &#x3D;&gt; { // Action Code });
+ * confirmService.ConfirmMessage(&#x27;title&#x27;, &#x27;question&#x27;, buttons).subscribe(action &#x3D;&gt; { // Action code });
  */
 @Injectable()
 export class ServiceConfirm extends ServiceConfirmCommon {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Collection von Buttons die angezeigt werden müssen.
-   */
-  private buttons: SacConfirmButton[] &#x3D; [];
+    /**
+     * Collection of buttons that need to be displayed
+     */
+    private buttons: SacConfirmButton[] &#x3D; [];
 
-  /**
-   * Message die in Dialog angezeigt werden soll.
-   */
-  private message: string &#x3D; &#x27;&#x27;;
+    /**
+     * Message to be displayed in the dialog.
+     */
+    private message: string &#x3D; &#x27;&#x27;;
 
-  /**
-   * Titel der im Dialog angezeigt werden soll.
-   */
-  private title: string &#x3D; &#x27;&#x27;;
+    /**
+     * Title to be displayed in the dialog.
+     */
+    private title: string &#x3D; &#x27;&#x27;;
 
-  // #endregion Properties
+    // #endregion Properties
 
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Konstruktor
-   * @param componentFactoryResolver Component Factory Resolver Instanz
-   * @param appRef Application Referenz. Wird benötigt um den Dialog am Body anzuhängen
-   * @param injector Injector. Wird benötigt um den Dialog dynamisch zu erzeugen
-   */
-  constructor(
-    @Inject(ComponentFactoryResolver)
-    private componentFactoryResolver: ComponentFactoryResolver,
-    appRef: ApplicationRef,
-    injector: Injector
-  ) {
-    super(appRef, injector);
-  }
-
-  // #endregion Constructors
-
-  // #region Public Methods
-
-  /**
-   * Confirm Dialog anzeigen
-   * @param message Nachricht die angezeigt werden soll.
-   * @returns EventEmitter mit Key des Buttons, welcher geklickt wurde.
-   */
-  public ConfirmMessage(
-    title: string,
-    message: string,
-    buttons: SacConfirmButton[] &#x3D; null
-  ): EventEmitter&lt;string&gt; {
-    this.title &#x3D; title;
-    this.message &#x3D; message;
-
-    // Default Buttons setzen, wenn keine Buttons angegeben sind
-    if (!isDefined(buttons)) {
-      this.buttons &#x3D; [];
-
-      forkJoin({
-        button_yes: this.localisationService.GetString(
-          this.validationKeyService.ConfirmDefaultButtonYes
-        ),
-        button_no: this.localisationService.GetString(
-          this.validationKeyService.ConfirmDefaultButtonNo
-        ),
-      })
-        .pipe(take(1))
-        .subscribe((texte) &#x3D;&gt; {
-          this.buttons.push(
-            new SacConfirmButton(&#x27;yes&#x27;, texte.button_yes, &#x27;primary&#x27;)
-          );
-          this.buttons.push(new SacConfirmButton(&#x27;no&#x27;, texte.button_no));
-        });
-    } else {
-      this.buttons &#x3D; buttons;
+    /**
+     * Constructor
+     * @param componentFactoryResolver Component Factory Resolver instance
+     * @param appRef Application Reference. Required to attach the dialog to the body
+     * @param injector Injector. Required to dynamically create the dialog
+     */
+    constructor(
+        @Inject(ComponentFactoryResolver)
+        private componentFactoryResolver: ComponentFactoryResolver,
+        appRef: ApplicationRef,
+        injector: Injector
+    ) {
+        super(appRef, injector);
     }
-    return super.Confirm();
-  }
 
-  /**
-   * Erzeugen einer Component Factory für einen Dialog
-   */
-  public GetComponentFactory(): ComponentFactory&lt;SacConfirmComponent&gt; {
-    return this.componentFactoryResolver.resolveComponentFactory(
-      SacConfirmComponent
-    );
-  }
+    // #endregion Constructors
 
-  // #endregion Public Methods
+    // #region Public Methods
 
-  // #region Protected Methods
+    /**
+     * Show confirm dialog
+     * @param title Title to be displayed in dialog
+     * @param message Message to be displayed in dialog
+     * @param buttons Array of custom buttons or null for default buttons
+     * @returns EventEmitter with key of the button that was clicked
+     */
+    public ConfirmMessage(title: string, message: string, buttons: SacConfirmButton[] &#x3D; null): EventEmitter&lt;string&gt; {
+        this.title &#x3D; title;
+        this.message &#x3D; message;
 
-  /**
-   * Konfiguration des Dialogs
-   * @param instance Instanz eines SacConfirm Dialogs
-   */
-  protected ConfigureDialog(instance: SacConfirmComponent) {
-    // Text in Dialog setzen
-    instance.title &#x3D; this.title;
-    instance.message &#x3D; this.message;
-    instance.buttons &#x3D; this.buttons;
-    instance.image &#x3D; this.iconService.ConfirmDefaultImage;
-  }
+        // Set default buttons if no buttons are specified
+        if (!isDefined(buttons)) {
+            this.buttons &#x3D; [];
 
-  // #endregion Protected Methods
+            forkJoin({
+                button_yes: this.localisationService.GetString(this.validationKeyService.ConfirmDefaultButtonYes),
+                button_no: this.localisationService.GetString(this.validationKeyService.ConfirmDefaultButtonNo),
+            })
+                .pipe(take(1))
+                .subscribe((texte) &#x3D;&gt; {
+                    this.buttons.push(new SacConfirmButton(&#x27;yes&#x27;, texte.button_yes, &#x27;primary&#x27;));
+                    this.buttons.push(new SacConfirmButton(&#x27;no&#x27;, texte.button_no));
+                });
+        } else {
+            this.buttons &#x3D; buttons;
+        }
+        return super.Confirm();
+    }
+
+    /**
+     * Generate component factory for a dialog
+     * @returns ComponentFactory for SacConfirmComponent
+     */
+    public GetComponentFactory(): ComponentFactory&lt;SacConfirmComponent&gt; {
+        return this.componentFactoryResolver.resolveComponentFactory(SacConfirmComponent);
+    }
+
+    // #endregion Public Methods
+
+    // #region Protected Methods
+
+    /**
+     * Configure dialog
+     * @param instance Instance of a SacConfirm dialog
+     */
+    protected ConfigureDialog(instance: SacConfirmComponent) {
+        // Set text in dialog
+        instance.title &#x3D; this.title;
+        instance.message &#x3D; this.message;
+        instance.buttons &#x3D; this.buttons;
+        instance.image &#x3D; this.iconService.ConfirmDefaultImage;
+    }
+
+    // #endregion Protected Methods
 }
 </code></pre>
     </div>

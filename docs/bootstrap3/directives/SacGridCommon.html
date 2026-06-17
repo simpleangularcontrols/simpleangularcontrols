@@ -723,7 +723,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:165</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="168" class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:168</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -848,8 +848,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="221"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:221</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="225"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:225</a></div>
                         </td>
                     </tr>
 
@@ -924,8 +924,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="177"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:177</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="180"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:180</a></div>
                         </td>
                     </tr>
 
@@ -965,8 +965,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="186"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:186</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="190"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:190</a></div>
                         </td>
                     </tr>
 
@@ -985,6 +985,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -999,6 +1000,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Column key used to toggle sorting.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1036,8 +1041,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="213"
-                                    class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:213</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="217"
+                                    class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:217</a></div>
                         </td>
                     </tr>
 
@@ -1378,7 +1383,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:165</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="168" class="link-to-prism">projects/sac-common/src/controls/grid/grid.ts:168</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1447,12 +1452,12 @@ export abstract class SacGridCommon {
     /**
      * Page number of the active page.
      */
-    protected activePage: number &#x3D; 1;
+    protected activePage &#x3D; 1;
 
     /**
      * Contains the number of the first page displayed in Pager.
      */
-    protected firstPageNumber: number &#x3D; 1;
+    protected firstPageNumber &#x3D; 1;
 
     /**
      * Contains the number of the last page in Pager. The value is calculated automatically.
@@ -1467,7 +1472,7 @@ export abstract class SacGridCommon {
     /**
      * Number of columns in the grid
      */
-    public ColumnCount: number &#x3D; 0;
+    public ColumnCount &#x3D; 0;
 
     /**
      * Input property for Body.
@@ -1512,13 +1517,13 @@ export abstract class SacGridCommon {
      * Deactivates the selection of the PageSize in the pager
      */
     @Input()
-    public pagesizedisabled: boolean &#x3D; false;
+    public pagesizedisabled &#x3D; false;
 
     /**
      * Defines the number of elements per page that can be selected. The default is 20, 50 and 100. The values must be separated with a &#x60;|&#x60;.
      */
     @Input()
-    public pagesizes: string &#x3D; &#x27;20|50|100&#x27;;
+    public pagesizes &#x3D; &#x27;20|50|100&#x27;;
 
     /**
      * Text in Page for number of page elements per page. The following interpolation texts are available:
@@ -1546,7 +1551,7 @@ export abstract class SacGridCommon {
     /**
      * Column by which currently sorted.
      */
-    public sortColumn: string &#x3D; &#x27;&#x27;;
+    public sortColumn &#x3D; &#x27;&#x27;;
 
     /**
      * Current direction of sorting
@@ -1578,7 +1583,10 @@ export abstract class SacGridCommon {
      * @param cd Change Detection Service
      * @param injector DI Injector
      */
-    constructor(private cd: ChangeDetectorRef, injector: Injector) {
+    constructor(
+        private cd: ChangeDetectorRef,
+        injector: Injector
+    ) {
         this.validationKeyService &#x3D; injector.get(SACVALIDATIONKEY_SERVICE, new SacDefaultValidationKeyService());
 
         // Set Default Values from Injector
@@ -1615,6 +1623,7 @@ export abstract class SacGridCommon {
 
     /**
      * Method for sorting the data.
+      * @param command Column key used to toggle sorting.
      */
     public SortBy(command) {
         let direction: SortOrder;

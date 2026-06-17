@@ -138,6 +138,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Wizard component for multi-step forms.</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -210,6 +217,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier"></span>
+                                    <span class="modifier">Public</span>
                                 <a href="#_wizardItems" >_wizardItems</a>
                             </li>
                             <li>
@@ -233,6 +241,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#wizardItems" >wizardItems</a>
                             </li>
                             <li>
@@ -336,7 +345,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Setter und Getter für aktueller Schritt</p>
+                        <div class="io-description"><p>Setter and getter for current step</p>
 </div>
                     </td>
                 </tr>
@@ -375,7 +384,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Boolean Property prüft ob Navigation im Wizard disabled ist; default Wert - false</p>
+                        <div class="io-description"><p>Boolean property checks if navigation in wizard is disabled; default value - false</p>
 </div>
                     </td>
                 </tr>
@@ -414,7 +423,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Name des Controls</p>
+                        <div class="io-description"><p>Name of the control</p>
 </div>
                     </td>
                 </tr>
@@ -451,7 +460,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>EventEmitter wenn der Schritt geändert wird</p>
+                        <div class="io-description"><p>EventEmitter when the step is changed</p>
 </div>
                     </td>
                 </tr>
@@ -471,6 +480,7 @@
                 <td class="col-md-4">
                     <a name="wizardItems"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                         <span ><b>wizardItems</b></span>
                         <a href="#wizardItems"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -478,7 +488,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>wizardItems()</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>wizardItems()</code>
                 </td>
             </tr>
 
@@ -491,7 +502,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:20</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:29</a></code>
 </div>
                         </td>
                     </tr>
@@ -499,11 +510,17 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns the wizard items</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="../directives/SacWizardItemCommon.html" target="_self" >QueryList&lt;SacWizardItemCommon&gt;</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>Collection of wizard items</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -544,7 +561,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Auf nächsten/vorherigen Schritt gehen</p>
+                        <div class="io-description"><p>Go to next/previous step</p>
 </div>
 
                             <div class="io-description">
@@ -572,7 +589,7 @@
 
 
                                             <td>
-                                                    <p>Step auf welchen gewechselt werden soll</p>
+                                                    <p>Step to which should be switched</p>
 
                                             </td>
                                         </tr>
@@ -665,7 +682,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:116</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:117</a></code>
 </div>
                         </td>
                     </tr>
@@ -673,8 +690,8 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode, damit andere Controls änderungen im Control mitbekommen können
-Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
+                        <div class="io-description"><p>Method so that other controls can get changes in the control
+To change info call the propagateChange method.</p>
 </div>
 
                             <div class="io-description">
@@ -686,6 +703,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -700,6 +718,10 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <p>Callback to invoke when the value changes.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -743,7 +765,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:123</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:125</a></code>
 </div>
                         </td>
                     </tr>
@@ -751,7 +773,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode, damit andere Controls änderungen mitbekommen, wenn das Control aktiviert (Focus) wird.</p>
+                        <div class="io-description"><p>Method so that other controls get changes when the control is activated (Focus).</p>
 </div>
 
                             <div class="io-description">
@@ -763,6 +785,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -777,6 +800,10 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <p>Callback to invoke when the control is touched.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -820,7 +847,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:131</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:133</a></code>
 </div>
                         </td>
                     </tr>
@@ -828,7 +855,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Schritt selektieren</p>
+                        <div class="io-description"><p>Select step</p>
 </div>
 
                             <div class="io-description">
@@ -856,7 +883,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
 
                                             <td>
-                                                    <p>Step welcher selektiert werden soll</p>
+                                                    <p>Step which should be selected</p>
 
                                             </td>
                                         </tr>
@@ -902,7 +929,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:148</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacWizardCommon.html#source" target="_self" >SacWizardCommon:151</a></code>
 </div>
                         </td>
                     </tr>
@@ -910,7 +937,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode zum schreiben von Werten aus dem Model in das Control</p>
+                        <div class="io-description"><p>Method to write values from the model into the control</p>
 </div>
 
                             <div class="io-description">
@@ -922,6 +949,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -936,6 +964,10 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                                             </td>
 
 
+                                            <td>
+                                                    <p>Step ID from the bound model.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -964,6 +996,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                     <a name="_wizardItems"></a>
                     <span class="name">
                             <span class="modifier"></span>
+                            <span class="modifier">Public</span>
                         <span ><b>_wizardItems</b></span>
                         <a href="#_wizardItems"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -986,7 +1019,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/sac-bootstrap3/src/controls/wizard/wizard.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">projects/sac-bootstrap3/src/controls/wizard/wizard.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -1031,7 +1064,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Leere Implementation von &#39;propagateChange&#39;. Muss gemacht werden, damit kein Fehler entsteht</p>
+                    <div class="io-description"><p>Empty implementation of &#39;propagateChange&#39;. Must be done so that no error occurs</p>
 </div>
                 </td>
             </tr>
@@ -1076,7 +1109,7 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Leere Implementation von &#39;propagateTouch&#39;. Muss gemacht werden, damit kein Fehler entsteht</p>
+                    <div class="io-description"><p>Empty implementation of &#39;propagateTouch&#39;. Must be done so that no error occurs</p>
 </div>
                 </td>
             </tr>
@@ -1089,46 +1122,64 @@ Zur Änderungsinfo die Methode propagateChange aufrufen.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ContentChildren, QueryList } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacWizardItemComponent } from &#x27;./wizarditem&#x27;;
+import { Component, ContentChildren, QueryList } from &#x27;@angular/core&#x27;;
 import { NG_VALUE_ACCESSOR } from &#x27;@angular/forms&#x27;;
-import { SacWizardItemComponent } from &#x27;./wizarditem&#x27;;
 import { SacWizardCommon, SacWizardItemCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
+/**
+ * Wizard component for multi-step forms.
+ */
 @Component({
-  selector: &#x27;sac-wizard&#x27;,
-  templateUrl: &#x27;./wizard.html&#x27;,
-  // Value Access Provider registrieren, damit Wert via Model geschrieben und gelesen werden kann
-  providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacWizardComponent }
-  ],
+    selector: &#x27;sac-wizard&#x27;,
+    templateUrl: &#x27;./wizard.html&#x27;,
+    // Register value access provider so that value can be written and read via model
+    providers: [{ provide: NG_VALUE_ACCESSOR, multi: true, useExisting: SacWizardComponent }],
 })
-
 export class SacWizardComponent extends SacWizardCommon {
+    // #region Properties
 
-  @ContentChildren(SacWizardItemComponent)
-  _wizardItems: QueryList&lt;SacWizardItemComponent&gt;;
+    @ContentChildren(SacWizardItemComponent)
+    public _wizardItems: QueryList&lt;SacWizardItemComponent&gt;;
 
-  wizardItems(): QueryList&lt;SacWizardItemCommon&gt; {
-    return this._wizardItems as QueryList&lt;SacWizardItemCommon&gt;;
-  }
+    // #endregion Properties
 
+    // #region Public Methods
+
+    /**
+     * Returns the wizard items
+     * @returns Collection of wizard items
+     */
+    public wizardItems(): QueryList&lt;SacWizardItemCommon&gt; {
+        return this._wizardItems as QueryList&lt;SacWizardItemCommon&gt;;
+    }
+
+    // #endregion Public Methods
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;ul [id]&#x3D;&quot;name&quot; class&#x3D;&quot;nav nav-wizard&quot; role&#x3D;&quot;tablist&quot;&gt;
-  &lt;li *ngFor&#x3D;&quot;let item of _wizardItems&quot; class&#x3D;&quot;nav-item&quot; [ngClass]&#x3D;&quot;{ &#x27;active&#x27;: item._active, &#x27;disabled&#x27;: item._disabled, &#x27;success&#x27;: item._iscomplete }&quot;
-      [ngStyle]&#x3D;&quot;{&#x27;cursor&#x27;: item._disabled ? &#x27;not-allowed&#x27; : &#x27;pointer&#x27;}&quot;&gt;
-    &lt;a role&#x3D;&quot;tab&quot; (click)&#x3D;&quot;selectStep(item)&quot;&gt;
-      &lt;div class&#x3D;&quot;circle&quot;&gt;
-        &lt;span class&#x3D;&quot;step&quot;&gt;&lt;/span&gt;
-      &lt;/div&gt;
-    &lt;/a&gt;
-    &lt;div class&#x3D;&quot;info&quot;&gt;
-      &lt;a (click)&#x3D;&quot;selectStep(item)&quot;&gt;{{item.label}}&lt;/a&gt;
-    &lt;/div&gt;
-  &lt;/li&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;ul
+    [id]&#x3D;&quot;name&quot;
+    class&#x3D;&quot;nav nav-wizard&quot;
+    role&#x3D;&quot;tablist&quot;&gt;
+    &lt;li
+        *ngFor&#x3D;&quot;let item of _wizardItems&quot;
+        class&#x3D;&quot;nav-item&quot;
+        [ngClass]&#x3D;&quot;{ active: item._active, disabled: item._disabled, success: item._iscomplete }&quot;
+        [ngStyle]&#x3D;&quot;{ cursor: item._disabled ? &#x27;not-allowed&#x27; : &#x27;pointer&#x27; }&quot;&gt;
+        &lt;a
+            role&#x3D;&quot;tab&quot;
+            (click)&#x3D;&quot;selectStep(item)&quot;&gt;
+            &lt;div class&#x3D;&quot;circle&quot;&gt;
+                &lt;span class&#x3D;&quot;step&quot;&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/a&gt;
+        &lt;div class&#x3D;&quot;info&quot;&gt;
+            &lt;a (click)&#x3D;&quot;selectStep(item)&quot;&gt;{{ item.label }}&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/li&gt;
 &lt;/ul&gt;
 </code></pre>
     </div>
@@ -1159,7 +1210,7 @@ export class SacWizardComponent extends SacWizardCommon {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ul [id]="name" class="nav nav-wizard" role="tablist">  <li *ngFor="let item of _wizardItems" class="nav-item" [ngClass]="{ \'active\': item._active, \'disabled\': item._disabled, \'success\': item._iscomplete }"      [ngStyle]="{\'cursor\': item._disabled ? \'not-allowed\' : \'pointer\'}">    <a role="tab" (click)="selectStep(item)">      <div class="circle">        <span class="step"></span>      </div>    </a>    <div class="info">      <a (click)="selectStep(item)">{{item.label}}</a>    </div>  </li></ul></div>'
+        var COMPONENT_TEMPLATE = '<div><ul    [id]="name"    class="nav nav-wizard"    role="tablist">    <li        *ngFor="let item of _wizardItems"        class="nav-item"        [ngClass]="{ active: item._active, disabled: item._disabled, success: item._iscomplete }"        [ngStyle]="{ cursor: item._disabled ? \'not-allowed\' : \'pointer\' }">        <a            role="tab"            (click)="selectStep(item)">            <div class="circle">                <span class="step"></span>            </div>        </a>        <div class="info">            <a (click)="selectStep(item)">{{ item.label }}</a>        </div>    </li></ul></div>'
     var COMPONENTS = [{'name': 'SacButtonComponent', 'selector': 'sac-button'},{'name': 'SacCheckboxComponent', 'selector': 'sac-checkbox'},{'name': 'SacConfirmComponent', 'selector': 'sac-confirm'},{'name': 'SacContextmenuComponent', 'selector': 'sac-contextmenu'},{'name': 'SacContextmenuItemButtonComponent', 'selector': 'sac-contextmenubutton'},{'name': 'SacContextmenuItemSplitterComponent', 'selector': 'sac-contextmenusplitter'},{'name': 'SacDateComponent', 'selector': 'sac-date'},{'name': 'SacDateSelectorComponent', 'selector': 'sac-dateselector'},{'name': 'SacDateTimeComponent', 'selector': 'sac-datetime'},{'name': 'SacDialogComponent', 'selector': 'sac-dialog'},{'name': 'SacDropdownComponent', 'selector': 'sac-dropdown'},{'name': 'SacDropzoneMultipleComponent', 'selector': 'sac-dropzonemultiple'},{'name': 'SacDropzoneSingleComponent', 'selector': 'sac-dropzonesingle'},{'name': 'SacGridButtonComponent', 'selector': 'sac-gridbutton'},{'name': 'SacGridColumnActionComponent', 'selector': 'sac-gridcolumnaction'},{'name': 'SacGridColumnComponent', 'selector': 'sac-gridcolumn'},{'name': 'SacGridComponent', 'selector': 'sac-grid'},{'name': 'SacGridImageComponent', 'selector': 'sac-gridimage'},{'name': 'SacInputAreaComponent', 'selector': 'sac-inputarea'},{'name': 'SacInputComponent', 'selector': 'sac-input'},{'name': 'SacInputCurrencyComponent', 'selector': 'sac-inputcurrency'},{'name': 'SacInputDecimalComponent', 'selector': 'sac-inputdecimal'},{'name': 'SacInputEmailComponent', 'selector': 'sac-inputemail'},{'name': 'SacInputIntegerComponent', 'selector': 'sac-inputinteger'},{'name': 'SacInputPasswordComponent', 'selector': 'sac-inputpassword'},{'name': 'SacInputSearchComponent', 'selector': 'sac-inputsearch'},{'name': 'SacListboxComponent', 'selector': 'sac-listbox'},{'name': 'SacPagingComponent', 'selector': 'sac-paging'},{'name': 'SacRadiobuttonComponent', 'selector': 'sac-radiobutton'},{'name': 'SacRadiobuttonsComponent', 'selector': 'sac-radiobuttons'},{'name': 'SacStaticFormContainerComponent', 'selector': 'sac-staticformcontainer'},{'name': 'SacStaticLabelComponent', 'selector': 'sac-staticlabel'},{'name': 'SacTabComponent', 'selector': 'sac-tab'},{'name': 'SacTabItemComponent', 'selector': 'sac-tabitem'},{'name': 'SacTimeComponent', 'selector': 'sac-time'},{'name': 'SacTinyMceComponent', 'selector': 'sac-tinymce'},{'name': 'SacTooltipComponent', 'selector': 'sac-tooltip'},{'name': 'SacTreeviewComponent', 'selector': 'sac-treeview'},{'name': 'SacUploadComponent', 'selector': 'sac-upload'},{'name': 'SacUploadMultipleComponent', 'selector': 'sac-uploadmultiple'},{'name': 'SacValidationSummaryComponent', 'selector': 'sac-validationsummary'},{'name': 'SacWizardComponent', 'selector': 'sac-wizard'},{'name': 'SacWizardItemComponent', 'selector': 'sac-wizarditem'}];
     var DIRECTIVES = [{'name': 'SacBaseDateTimeControl', 'selector': ''},{'name': 'SacBaseListControl', 'selector': ''},{'name': 'SacBaseModelControl', 'selector': ''},{'name': 'SacBaseSelectControl', 'selector': ''},{'name': 'SacButtonCommon', 'selector': ''},{'name': 'SacCheckboxCommon', 'selector': ''},{'name': 'SacConfirmCommon', 'selector': ''},{'name': 'SacContextmenuAnchorCommon', 'selector': ''},{'name': 'SacContextmenuAnchorDirective', 'selector': '[sacContextMenuAnchor]'},{'name': 'SacContextmenuCommon', 'selector': ''},{'name': 'SacContextmenuContainerDirective', 'selector': '[sacContextMenuContainer]'},{'name': 'SacContextMenuContrainerCommon', 'selector': ''},{'name': 'SacContextmenuItemButtonCommon', 'selector': ''},{'name': 'SacContextmenuItemCommon', 'selector': ''},{'name': 'SacDateCommon', 'selector': ''},{'name': 'SacDateSelectorCommon', 'selector': ''},{'name': 'SacDateTimeCommon', 'selector': ''},{'name': 'SacDialogCommon', 'selector': ''},{'name': 'SacDropdownCommon', 'selector': ''},{'name': 'SacDropdownOptionCommon', 'selector': ''},{'name': 'SacDropdownOptionDirective', 'selector': 'option,[sacOption]'},{'name': 'SacDropzoneMultipleCommon', 'selector': ''},{'name': 'SacDropzoneSingleCommon', 'selector': ''},{'name': 'SacFileBrowserCommon', 'selector': ''},{'name': 'SacFormCommon', 'selector': ''},{'name': 'SacFormDirective', 'selector': 'form:not([ngNoForm]):not([formGroup]),[ngForm]'},{'name': 'SacFormLayoutCommon', 'selector': ''},{'name': 'SacFormLayoutDirective', 'selector': '[sacFormLayout]'},{'name': 'SacGridButtonCommon', 'selector': ''},{'name': 'SacGridColumnActionCommon', 'selector': ''},{'name': 'SacGridColumnBaseCommon', 'selector': ''},{'name': 'SacGridColumnCommon', 'selector': ''},{'name': 'SacGridCommon', 'selector': ''},{'name': 'SacGridImageCommon', 'selector': ''},{'name': 'SacInheritFormDirective', 'selector': '[sacInheritForm]'},{'name': 'SacInputAreaCommon', 'selector': ''},{'name': 'SacInputBase', 'selector': ''},{'name': 'SacInputCommon', 'selector': ''},{'name': 'SacInputCurrencyCommon', 'selector': ''},{'name': 'SacInputDecimalCommon', 'selector': ''},{'name': 'SacInputEmailCommon', 'selector': ''},{'name': 'SacInputIntegerCommon', 'selector': ''},{'name': 'SacInputPasswordCommon', 'selector': ''},{'name': 'SacInputSearchCommon', 'selector': ''},{'name': 'SacListboxCommon', 'selector': ''},{'name': 'SacListboxOptionCommon', 'selector': ''},{'name': 'SacListboxOptionDirective', 'selector': 'option,[sacOption]'},{'name': 'SacMultilanguageInputAreaCommon', 'selector': ''},{'name': 'SacMultilanguageInputCommon', 'selector': ''},{'name': 'SacPagingCommon', 'selector': ''},{'name': 'SacRadiobuttonCommon', 'selector': ''},{'name': 'SacRadiobuttonsCommon', 'selector': ''},{'name': 'SacStaticFormContainerCommon', 'selector': ''},{'name': 'SacStaticLabelCommon', 'selector': ''},{'name': 'SacTabCommon', 'selector': ''},{'name': 'SacTabItemCommon', 'selector': ''},{'name': 'SacTimeCommon', 'selector': ''},{'name': 'SacTinyMceCommon', 'selector': ''},{'name': 'SacTooltipCommon', 'selector': ''},{'name': 'SacTreeviewCommon', 'selector': ''},{'name': 'SacUploadBase', 'selector': ''},{'name': 'SacUploadMultipleCommon', 'selector': ''},{'name': 'SacUploadSingleCommon', 'selector': ''},{'name': 'SacValidationSummaryCommon', 'selector': ''},{'name': 'SacWizardCommon', 'selector': ''},{'name': 'SacWizardItemCommon', 'selector': ''}];
     var ACTUAL_COMPONENT = {'name': 'SacWizardComponent'};

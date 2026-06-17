@@ -148,7 +148,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Interface für Language Resource Service implementation</p>
+                <p>Interface for Language Resource Service implementation</p>
 
             </p>
 
@@ -203,15 +203,15 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="10"
-                                    class="link-to-prism">projects/sac-common/src/interfaces/ISacLocalisationService.ts:10</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="12"
+                                    class="link-to-prism">projects/sac-common/src/interfaces/ISacLocalisationService.ts:12</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Get String anhand von Key und Params</p>
+                        <div class="io-description"><p>Get String based on Key and Params</p>
 </div>
 
                             <div class="io-description">
@@ -273,13 +273,17 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Observable } from &#x27;rxjs&#x27;;
 
 /**
- * Interface für Language Resource Service implementation
+ * Interface for Language Resource Service implementation
  */
 export interface ISacLocalisationService {
-  /**
-   * Get String anhand von Key und Params
-   */
-  GetString(key: string, params?: any): Observable&lt;string&gt;;
+    // #region Methods
+
+    /**
+     * Get String based on Key and Params
+     */
+    GetString(key: string, params?: any): Observable&lt;string&gt;;
+
+    // #endregion Methods
 }
 </code></pre>
     </div>

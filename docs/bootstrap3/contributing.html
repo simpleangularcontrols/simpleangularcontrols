@@ -99,9 +99,77 @@
 
 
 
-<p>﻿These packages are maintained and updated by exanic AG and jNetwork GmbH.</p>
+<p>﻿# Project Maintenance</p>
+<p>These packages are maintained and updated by <strong>exanic AG</strong> and <strong>jNetwork GmbH</strong>.</p>
 <p>The packages may be used freely. Any licence conditions regarding dependencies must be observed in each case.</p>
-<p>Errors may be reported at any time or corrected with a pull request. We reserve the right to reject pull requests if they do not fit in with the concept and idea of the library.</p>
+<h1>How to contribute</h1>
+<p>Errors may be reported at any time by creating an issue or corrected directly with a pull request.
+We reserve the right to reject pull requests if they do not fit in with the concept and idea of the library.</p>
+<p>Before starting larger changes, please consider opening an issue first to discuss the proposed improvement.</p>
+<h2>Angular Version Strategy</h2>
+<p>This repository supports multiple Angular major versions.</p>
+<ul>
+<li>For <strong>each Angular major version</strong>, there is a dedicated <code>main</code> branch.</li>
+<li>These branches follow the naming convention:</li>
+</ul>
+<p><code>angular/&lt;major&gt;.x.x</code></p>
+<p>Examples:</p>
+<ul>
+<li><code>angular/16.x.x</code></li>
+<li><code>angular/17.x.x</code></li>
+<li><code>angular/18.x.x</code></li>
+</ul>
+<p>All <strong>changes must always be implemented in the newest available Angular version branch first</strong>.</p>
+<p>If necessary, maintainers may later port the changes to older supported versions.</p>
+<h2>Testing</h2>
+<p>All changes must be properly tested before submitting a pull request.</p>
+<p>The following rules apply:</p>
+<ul>
+<li>For <strong>every use case</strong>, a corresponding <strong>Cypress test must be created or updated</strong>.</li>
+<li>All existing tests must run successfully.</li>
+<li>The project must build successfully without errors.</li>
+</ul>
+<p>Pull requests without proper test coverage may be rejected.</p>
+<h2>Submitting changes</h2>
+<p>When submitting a pull request, please follow these guidelines:</p>
+<ol>
+<li>Fork the repository and create your branch from the <strong>latest Angular version branch</strong>.</li>
+<li>Use a clear and descriptive branch name.</li>
+<li>Make focused commits that address a single issue or feature.</li>
+<li>Write clear commit messages describing the purpose of the change.</li>
+<li>Ensure all tests, linting, and formatting checks pass before submitting the pull request.</li>
+</ol>
+<p>Pull requests should include:</p>
+<ul>
+<li>A clear description of the changes</li>
+<li>The motivation for the change</li>
+<li>References to related issues (if applicable)</li>
+</ul>
+<h2>Coding conventions</h2>
+<p>To keep the project consistent and maintainable, please follow these conventions:</p>
+<ul>
+<li>Use <strong>TypeScript</strong> and follow Angular best practices.</li>
+<li>Code must pass the configured <strong>linting rules</strong> without errors.</li>
+<li>All files must be formatted using <strong>Prettier</strong>.</li>
+<li>Imports and TypeScript structure should be organized using <strong>TypeScript Code Organizer</strong>.</li>
+<li>Follow the existing project structure and naming conventions.</li>
+<li>Use meaningful and consistent naming for variables, components, and services.</li>
+<li>Keep components focused on a single responsibility.</li>
+</ul>
+<h2>Branch naming conventions</h2>
+<p>Branches for <strong>features, improvements, or fixes</strong> must include the <strong>Angular version prefix</strong>.</p>
+<p>Prefix format:</p>
+<p><code>ng&lt;AngularMajorVersion&gt;/</code></p>
+<p>Examples:</p>
+<ul>
+<li><code>ng16/feature-new-control</code></li>
+<li><code>ng17/fix-button-alignment</code></li>
+<li><code>ng20/improve-form-validation</code></li>
+</ul>
+<p>This prefix ensures that changes can be clearly associated with the corresponding Angular version.</p>
+<h2>Code of conduct</h2>
+<p>Please be respectful and constructive when contributing.
+Feedback and discussions should remain professional and focused on improving the project.</p>
 
 
 

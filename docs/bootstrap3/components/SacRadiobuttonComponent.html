@@ -138,6 +138,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Radio button component for selecting a single option from a list.</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -323,12 +330,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">projects/sac-bootstrap3/src/controls/checkbox/radiobutton.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">projects/sac-bootstrap3/src/controls/checkbox/radiobutton.ts:14</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -337,6 +346,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -351,6 +361,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Radio buttons group component</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>formLayout</td>
@@ -363,6 +377,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>SacFormLayoutCommon to define scoped layout settings</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>injector</td>
@@ -375,6 +393,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Injector for injecting services</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -415,7 +437,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Boolean Property, ob Radiobutton checked ist</p>
+                        <div class="io-description"><p>Boolean property whether the radio button is checked</p>
 </div>
                     </td>
                 </tr>
@@ -449,7 +471,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Boolean Property, ob Radiobutton disabled ist</p>
+                        <div class="io-description"><p>Boolean property whether the radio button is disabled</p>
 </div>
                     </td>
                 </tr>
@@ -556,7 +578,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Setter für hidden Property</p>
+                        <div class="io-description"><p>Setter for hidden property</p>
 </div>
                     </td>
                 </tr>
@@ -624,7 +646,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Template für Value Element</p>
+                        <div class="io-description"><p>Template for value element</p>
 </div>
                     </td>
                 </tr>
@@ -745,7 +767,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Event bei Änderungen</p>
+                        <div class="io-description"><p>Event on changes</p>
 </div>
 
                         <div class="io-description">
@@ -792,7 +814,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Event wenn die Komponente zerstört wird</p>
+                        <div class="io-description"><p>Event when the component is destroyed</p>
 </div>
 
                         <div class="io-description">
@@ -831,7 +853,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacRadiobuttonCommon.html#source" target="_self" >SacRadiobuttonCommon:205</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacRadiobuttonCommon.html#source" target="_self" >SacRadiobuttonCommon:211</a></code>
 </div>
                         </td>
                     </tr>
@@ -839,6 +861,10 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Component initialization lifecycle hook.</p>
+<p>Initializes helptext mode, and marks the radio button as checked when the value matches
+the container&#39;s selected value.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -892,7 +918,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Unique Index für RadioButton</p>
+                    <div class="io-description"><p>Unique index for radio button</p>
 </div>
                 </td>
             </tr>
@@ -978,7 +1004,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>public public public public public public public public public public public public public ControlHeight enum for use in HTML markup</p>
+                    <div class="io-description"><p>ControlHeight enum for use in HTML markup</p>
 </div>
                 </td>
             </tr>
@@ -1081,6 +1107,9 @@ import { SacRadiobuttonsComponent } from &#x27;./radiobuttons&#x27;;
 import { Component, Host, Injector, Optional } from &#x27;@angular/core&#x27;;
 import { SacRadiobuttonCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
+/**
+ * Radio button component for selecting a single option from a list.
+ */
 @Component({
     selector: &#x27;sac-radiobutton&#x27;,
     templateUrl: &#x27;./radiobutton.html&#x27;,
@@ -1089,6 +1118,12 @@ import { SacRadiobuttonCommon } from &#x27;@simpleangularcontrols/sac-common&#x2
 export class SacRadiobuttonComponent extends SacRadiobuttonCommon {
     // #region Constructors
 
+    /**
+     * Constructor
+     * @param sacRadioButtons Radio buttons group component
+     * @param formLayout SacFormLayoutCommon to define scoped layout settings
+     * @param injector Injector for injecting services
+     */
     constructor(
         @Host() sacRadioButtons: SacRadiobuttonsComponent,
         @Host() @Optional() formLayout: SacFormLayoutDirective,

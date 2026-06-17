@@ -144,6 +144,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Payload structure for upload-complete events emitted by the uploader control.</p>
+
+            </p>
 
 
         <section data-compodoc="block-index">
@@ -218,6 +225,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>File name of the uploaded file.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -251,6 +264,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>File size in bytes of the uploaded file.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -284,6 +303,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Identifier of the uploaded file.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -294,8 +319,13 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface ISacUploadEventCompleteState {
     // #region Properties
 
+    /** File name of the uploaded file. */
     name: string;
+
+    /** File size in bytes of the uploaded file. */
     size: number;
+
+    /** Identifier of the uploaded file. */
     uploadid: string;
 
     // #endregion Properties

@@ -202,7 +202,7 @@
                             <a href="#patternValidator" title="projects/sac-common/src/validation/pattern.validator.ts" ><b>patternValidator</b>&nbsp;&nbsp;&nbsp;(projects/.../pattern.validator.ts)</a>
                         </li>
                         <li>
-                            <a href="#positionElements" title="projects/sac-common/src/utilities/positioning.ts" ><b>positionElements</b>&nbsp;&nbsp;&nbsp;(projects/.../positioning.ts)</a>
+                            <a href="#positionElements" title="projects/sac-common/src/utilities/positionelements.ts" ><b>positionElements</b>&nbsp;&nbsp;&nbsp;(projects/.../positionelements.ts)</a>
                         </li>
                         <li>
                             <a href="#requiredValidator" title="projects/sac-common/src/validation/required.validator.ts" ><b>requiredValidator</b>&nbsp;&nbsp;&nbsp;(projects/.../required.validator.ts)</a>
@@ -241,7 +241,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Function um ein Key Value Pair für das Dropdown zu erzeugen</p>
+                        <div class="io-description"><p>Function to generate a key value pair for the dropdown</p>
 </div>
 
                             <div class="io-description">
@@ -284,7 +284,7 @@
 
 
                                             <td>
-                                                    <p>Wert der an das Element gebunden werden soll</p>
+                                                    <p>Value that should be bound to the element</p>
 
                                             </td>
                                         </tr>
@@ -326,7 +326,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Erzeugt ein Boolean</p>
+                        <div class="io-description"><p>Creates a boolean</p>
 </div>
 
                             <div class="io-description">
@@ -389,7 +389,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Erzeugt ein Number</p>
+                        <div class="io-description"><p>Creates a number</p>
 </div>
 
                             <div class="io-description">
@@ -452,7 +452,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Erzeugt aus einer Map ein Objekt</p>
+                        <div class="io-description"><p>Creates an object from a Map</p>
 </div>
 
                             <div class="io-description">
@@ -480,7 +480,7 @@
 
 
                                             <td>
-                                                    <p>Map mit Key und Values. Key ist ein String. Value kann ein Objekt sein.</p>
+                                                    <p>Map with keys and values. Key is a string. Value can be an object.</p>
 
                                             </td>
                                         </tr>
@@ -522,7 +522,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>create a guid with crypto library if availabe and a fallback to Math.Random implementation</p>
+                        <div class="io-description"><p>Create a GUID with crypto library if available and a fallback to Math.Random implementation</p>
 </div>
 
                         <div class="io-description">
@@ -557,6 +557,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Creates a structured validation error object for validation result reporting.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -568,6 +570,7 @@
                                                 <td>Type</td>
                                             <td>Optional</td>
                                                 <td>Default value</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -584,6 +587,10 @@
                                             <td>
                                             </td>
 
+                                            <td>
+                                                    <p>Identifier for the validation error type (e.g. &#39;required&#39;, &#39;invalid&#39;).</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>errorMessageKey</td>
@@ -598,6 +605,10 @@
                                             <td>
                                             </td>
 
+                                            <td>
+                                                    <p>Resource key used for the control-level error text.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>errorMessageValidationSummaryKey</td>
@@ -612,6 +623,10 @@
                                             <td>
                                             </td>
 
+                                            <td>
+                                                    <p>Resource key used for summary-level error text.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>parameters</td>
@@ -627,6 +642,10 @@
                                                     <code>new Map&lt;string, any&gt;()</code>
                                             </td>
 
+                                            <td>
+                                                    <p>Optional placeholder parameters to replace in error messages.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -636,7 +655,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The generated validation error object.</p>
+
                             </div>
                 </td>
             </tr>
@@ -666,6 +686,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns a validator that checks if the control value is a valid email.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -676,6 +698,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -690,6 +713,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Message shown for the field when validation fails.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
@@ -702,6 +729,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Message shown in summary when validation fails.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -711,7 +742,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Validator function to validate email format.</p>
+
                             </div>
                 </td>
             </tr>
@@ -741,6 +773,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns a validator that checks if the control value equals a required value.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -751,6 +785,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -765,6 +800,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Value that control must equal.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessage</td>
@@ -777,6 +816,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Message shown when validation fails.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
@@ -789,6 +832,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Summary message shown when validation fails.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -798,7 +845,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Validator function to validate equality.</p>
+
                             </div>
                 </td>
             </tr>
@@ -828,6 +876,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Checks whether a value is a valid date for a given format or ISO 8601.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -838,6 +888,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -852,6 +903,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Input value to validate.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>format</td>
@@ -864,6 +919,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Date format string for the validator.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -896,7 +955,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Prüft ob ein Objekt Defined ist</p>
+                        <div class="io-description"><p>Checks if an object is defined</p>
 </div>
 
                             <div class="io-description">
@@ -924,7 +983,7 @@
 
 
                                             <td>
-                                                    <p>Objekt</p>
+                                                    <p>Object</p>
 
                                             </td>
                                         </tr>
@@ -936,7 +995,7 @@
 
                         </div>
                             <div class="io-description">
-                                <p>Objekt ist definied. TRUE wenn Objekt definied. FALSE wenn Objekt NULL oder UNDEFINED.</p>
+                                <p>Object is defined. TRUE if object is defined. FALSE if object is NULL or UNDEFINED.</p>
 
                             </div>
                 </td>
@@ -967,6 +1026,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns a validator that checks if the control value is a valid date.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -977,6 +1038,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -991,6 +1053,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Message shown when date format is invalid.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
@@ -1003,6 +1069,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Summary message shown when date format is invalid.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1012,7 +1082,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Validator function for date format validation.</p>
+
                             </div>
                 </td>
             </tr>
@@ -1042,6 +1113,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns a validator that checks if the control date is &lt;= maxDate.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1052,6 +1125,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1066,6 +1140,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Maximum allowed date.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessage</td>
@@ -1078,6 +1156,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Message shown when date is too late.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
@@ -1090,6 +1172,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Summary message shown when date is too late.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1099,7 +1185,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Validator function for maximum date validation.</p>
+
                             </div>
                 </td>
             </tr>
@@ -1129,6 +1216,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns a validator that checks if the control time is &lt;= maxTime.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1139,6 +1228,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1153,6 +1243,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Maximum allowed time.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessage</td>
@@ -1165,6 +1259,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Message shown when time is too late.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
@@ -1177,6 +1275,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Summary message shown when time is too late.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1186,7 +1288,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Validator function for maximum time validation.</p>
+
                             </div>
                 </td>
             </tr>
@@ -1216,6 +1319,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns a validator that checks if the control value is &lt;= maxvalue.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1226,6 +1331,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1240,6 +1346,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Maximum allowed numeric value.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessage</td>
@@ -1252,6 +1362,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Message shown when value is too large.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
@@ -1264,6 +1378,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Summary message shown when value is too large.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1273,7 +1391,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Validator function for maximum value validation.</p>
+
                             </div>
                 </td>
             </tr>
@@ -1303,6 +1422,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns a validator that checks if the control date is &gt;= minDate.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1313,6 +1434,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1327,6 +1449,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Minimum allowed date.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessage</td>
@@ -1339,6 +1465,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Message shown when date is too early.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
@@ -1351,6 +1481,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Summary message shown when date is too early.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1360,7 +1494,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Validator function for minimum date validation.</p>
+
                             </div>
                 </td>
             </tr>
@@ -1390,6 +1525,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns a validator that checks if the number of uploaded files is &gt;= minFiles.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1400,6 +1537,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1414,6 +1552,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Minimum number of files required.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessage</td>
@@ -1426,6 +1568,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Message shown when too few files are uploaded.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
@@ -1438,6 +1584,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Summary message shown when too few files are uploaded.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1447,7 +1597,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Validator function for minimum files validation.</p>
+
                             </div>
                 </td>
             </tr>
@@ -1477,6 +1628,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns a validator that checks if the text length is &gt;= mintextlength.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1487,6 +1640,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1501,6 +1655,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Minimum text length required.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessage</td>
@@ -1513,6 +1671,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Message shown when text is too short.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
@@ -1525,6 +1687,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Summary message shown when text is too short.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1534,7 +1700,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Validator function for minimum text length validation.</p>
+
                             </div>
                 </td>
             </tr>
@@ -1564,6 +1731,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns a validator that checks if the control time is &gt;= minTime.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1574,6 +1743,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1588,6 +1758,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Minimum allowed time.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessage</td>
@@ -1600,6 +1774,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Message shown when time is too early.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
@@ -1612,6 +1790,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Summary message shown when time is too early.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1621,7 +1803,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Validator function for minimum time validation.</p>
+
                             </div>
                 </td>
             </tr>
@@ -1651,6 +1834,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns a validator that checks if the control value is &gt;= minvalue.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1661,6 +1846,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1675,6 +1861,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Minimum allowed numeric value.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessage</td>
@@ -1687,6 +1877,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Message shown when value is too small.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
@@ -1699,6 +1893,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Summary message shown when value is too small.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1708,7 +1906,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Validator function for minimum value validation.</p>
+
                             </div>
                 </td>
             </tr>
@@ -1738,6 +1937,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns a validator that checks at least one language value is provided.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1748,6 +1949,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1761,6 +1963,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Languages to validate in the form value object.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessage</td>
@@ -1773,6 +1979,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Message shown when no language value is provided.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
@@ -1785,6 +1995,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Summary message shown when no language value is provided.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1794,7 +2008,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Validator function for multilanguage-any required validation.</p>
+
                             </div>
                 </td>
             </tr>
@@ -1824,6 +2039,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns a validator that checks all language values are provided.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -1834,6 +2051,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1847,6 +2065,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Languages to validate in the form value object.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessage</td>
@@ -1859,6 +2081,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Message shown when required language fields are missing.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
@@ -1871,6 +2097,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Summary message shown when required language fields are missing.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -1880,7 +2110,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Validator function for multilanguage required validation.</p>
+
                             </div>
                 </td>
             </tr>
@@ -1910,7 +2141,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Factory Methode für NgForm</p>
+                        <div class="io-description"><p>Factory method for NgForm</p>
 </div>
 
                             <div class="io-description">
@@ -1971,7 +2202,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Factory Methode für SacForm</p>
+                        <div class="io-description"><p>Factory method for SacForm</p>
 </div>
 
                             <div class="io-description">
@@ -1999,7 +2230,7 @@
 
 
                                             <td>
-                                                    <p>NgFormular</p>
+                                                    <p>NgForm</p>
 
                                             </td>
                                         </tr>
@@ -2034,6 +2265,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns a validator that checks the control value is different from invalidValue.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -2044,6 +2277,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -2058,6 +2292,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Value that is not allowed.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessage</td>
@@ -2070,6 +2308,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Message shown when control value matches invalid value.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
@@ -2082,6 +2324,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Summary message shown when control value matches invalid value.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -2091,7 +2337,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Validator function for not-equals validation.</p>
+
                             </div>
                 </td>
             </tr>
@@ -2121,6 +2368,8 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns a validator that checks if the control value matches a RegExp pattern.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -2131,6 +2380,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -2145,6 +2395,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Regular expression string that the value must match.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessage</td>
@@ -2157,6 +2411,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Message shown when pattern validation fails.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
@@ -2169,6 +2427,10 @@
                                             </td>
 
 
+                                            <td>
+                                                    <p>Summary message shown when pattern validation fails.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -2178,13 +2440,14 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Validator function for pattern validation.</p>
+
                             </div>
                 </td>
             </tr>
         </tbody>
     </table>
-</section>    <h3>projects/sac-common/src/utilities/positioning.ts</h3>
+</section>    <h3>projects/sac-common/src/utilities/positionelements.ts</h3>
     <section data-compodoc="block-methods">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
@@ -2211,11 +2474,11 @@
                         <div class="io-description"><p>Accept the placement array and applies the appropriate placement dependent on the viewport.
 Returns the applied placement.
 In case of auto placement, placements are selected in order
-  &#39;top&#39;, &#39;bottom&#39;, &#39;left&#39;, &#39;right&#39;,
-  &#39;top-left&#39;, &#39;top-right&#39;,
-  &#39;bottom-left&#39;, &#39;bottom-right&#39;,
-  &#39;left-top&#39;, &#39;left-bottom&#39;,
-  &#39;right-top&#39;, &#39;right-bottom&#39;.</p>
+&#39;top&#39;, &#39;bottom&#39;, &#39;left&#39;, &#39;right&#39;,
+&#39;top-left&#39;, &#39;top-right&#39;,
+&#39;bottom-left&#39;, &#39;bottom-right&#39;,
+&#39;left-top&#39;, &#39;left-bottom&#39;,
+&#39;right-top&#39;, &#39;right-bottom&#39;.</p>
 </div>
 
                             <div class="io-description">
@@ -2227,6 +2490,7 @@ In case of auto placement, placements are selected in order
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -2241,6 +2505,10 @@ In case of auto placement, placements are selected in order
                                             </td>
 
 
+                                            <td>
+                                                    <p>The host element</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>targetElement</td>
@@ -2253,6 +2521,10 @@ In case of auto placement, placements are selected in order
                                             </td>
 
 
+                                            <td>
+                                                    <p>The target element to be positioned</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>placement</td>
@@ -2264,6 +2536,10 @@ In case of auto placement, placements are selected in order
                                             </td>
 
 
+                                            <td>
+                                                    <p>The placement option(s)</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>appendToBody</td>
@@ -2276,6 +2552,10 @@ In case of auto placement, placements are selected in order
                                             </td>
 
 
+                                            <td>
+                                                    <p>Whether to append to body</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>baseClass</td>
@@ -2288,6 +2568,10 @@ In case of auto placement, placements are selected in order
                                             </td>
 
 
+                                            <td>
+                                                    <p>The base CSS class</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -2297,7 +2581,8 @@ In case of auto placement, placements are selected in order
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The applied placement or null if not positioned</p>
+
                             </div>
                 </td>
             </tr>
@@ -2327,6 +2612,8 @@ In case of auto placement, placements are selected in order
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns a validator that ensures the control value is present.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -2337,6 +2624,7 @@ In case of auto placement, placements are selected in order
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -2351,6 +2639,10 @@ In case of auto placement, placements are selected in order
                                             </td>
 
 
+                                            <td>
+                                                    <p>Message shown for the field when validation fails.</p>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>validationMessageSummary</td>
@@ -2363,6 +2655,10 @@ In case of auto placement, placements are selected in order
                                             </td>
 
 
+                                            <td>
+                                                    <p>Message shown in summary for the field when validation fails.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -2372,7 +2668,8 @@ In case of auto placement, placements are selected in order
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>Validator function to validate required values.</p>
+
                             </div>
                 </td>
             </tr>

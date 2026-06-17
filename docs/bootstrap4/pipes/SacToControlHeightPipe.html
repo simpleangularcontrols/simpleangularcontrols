@@ -141,6 +141,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Converts ControlHeight values into bootstrap height CSS classes.</p>
+
+            </p>
 
 
         <section data-compodoc="block-metadata">
@@ -182,8 +189,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="14"
-                                    class="link-to-prism">projects/sac-bootstrap4/src/controls/layout/tocontrolheight.pipe.ts:14</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="17"
+                                    class="link-to-prism">projects/sac-bootstrap4/src/controls/layout/tocontrolheight.pipe.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -245,33 +252,36 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Pipe, PipeTransform } from &#x27;@angular/core&#x27;;
 import { ControlHeight } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
+/**
+ * Converts ControlHeight values into bootstrap height CSS classes.
+ */
 @Pipe({
-  name: &#x27;toControlHeight&#x27;,
+    name: &#x27;toControlHeight&#x27;,
 })
 export class SacToControlHeightPipe implements PipeTransform {
-  // #region Public Methods
+    // #region Public Methods
 
-  /**
-   * Returns the CSS class that defines the height for the control
-   * @param value ControlHeight value or null
-   */
-  public transform(value: ControlHeight | null): string {
-    // Return default value
-    if (!value) {
-      return &#x27;&#x27;;
+    /**
+     * Returns the CSS class that defines the height for the control
+     * @param value ControlHeight value or null
+     */
+    public transform(value: ControlHeight | null): string {
+        // Return default value
+        if (!value) {
+            return &#x27;&#x27;;
+        }
+
+        switch (value) {
+            case ControlHeight.Small:
+                return &#x27;form-control-sm&#x27;;
+            case ControlHeight.Large:
+                return &#x27;form-control-lg&#x27;;
+            default:
+                return &#x27;&#x27;;
+        }
     }
 
-    switch (value) {
-      case ControlHeight.Small:
-        return &#x27;form-control-sm&#x27;;
-      case ControlHeight.Large:
-        return &#x27;form-control-lg&#x27;;
-      default:
-        return &#x27;&#x27;;
-    }
-  }
-
-  // #endregion Public Methods
+    // #endregion Public Methods
 }
 </code></pre>
     </div>

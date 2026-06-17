@@ -148,7 +148,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Interface to extend FormControl with label of control</p>
+                <p>Interface to extend FormControl with a label property used for form field labeling.</p>
 
             </p>
 
@@ -213,6 +213,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Label text of the control, used for aria-labels and display labels.</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -221,7 +227,14 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface IAbstractControlLabelExtension {
-  controllabel: string;
+    // #region Properties
+
+    /**
+     * Label text of the control, used for aria-labels and display labels.
+     */
+    controllabel: string;
+
+    // #endregion Properties
 }
 </code></pre>
     </div>

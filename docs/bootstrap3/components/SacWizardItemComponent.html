@@ -138,6 +138,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Bootstrap 3 wizard step component, representing one item in a multi-step wizard flow.</p>
+
+    </p>
 
     <p class="comment">
         <h3>Extends</h3>
@@ -261,7 +268,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Prüft ob der aktuelle Schritt aktiv ist.</p>
+                        <div class="io-description"><p>Checks if the current step is active.</p>
 </div>
                     </td>
                 </tr>
@@ -300,7 +307,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Prüft ob der Schritt disabled ist.</p>
+                        <div class="io-description"><p>Checks if the step is disabled.</p>
 </div>
                     </td>
                 </tr>
@@ -373,7 +380,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Prüft ob der Schritt abgeschlossen wurde.</p>
+                        <div class="io-description"><p>Checks if the step was completed.</p>
 </div>
                     </td>
                 </tr>
@@ -407,7 +414,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Label-Property, das angezeigt wird</p>
+                        <div class="io-description"><p>Label property that is displayed</p>
 </div>
                     </td>
                 </tr>
@@ -423,17 +430,17 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
 import { SacWizardItemCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
+/**
+ * Bootstrap 3 wizard step component, representing one item in a multi-step wizard flow.
+ */
 @Component({
-  selector: &#x27;sac-wizarditem&#x27;,
-  templateUrl: &#x27;./wizarditem.html&#x27;
+    selector: &#x27;sac-wizarditem&#x27;,
+    templateUrl: &#x27;./wizarditem.html&#x27;,
 })
-export class SacWizardItemComponent extends SacWizardItemCommon {
-
-}
-
+export class SacWizardItemComponent extends SacWizardItemCommon {}
 </code></pre>
     </div>
 

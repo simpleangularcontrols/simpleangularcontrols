@@ -140,7 +140,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Die Basis Komponente für SacTabItem</p>
+                <p>The base component for SacTabItem</p>
 
             </p>
 
@@ -233,7 +233,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Boolean Property prüft ob das Tab aktiv ist</p>
+                        <div class="io-description"><p>Boolean property checks if the tab is active</p>
 </div>
                     </td>
                 </tr>
@@ -265,7 +265,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Boolean Property prüft ob das Tab disabled ist</p>
+                        <div class="io-description"><p>Boolean property checks if the tab is disabled</p>
 </div>
                     </td>
                 </tr>
@@ -292,7 +292,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>ID-String</p>
+                        <div class="io-description"><p>ID string</p>
 </div>
                     </td>
                 </tr>
@@ -319,7 +319,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Label Text vom Control</p>
+                        <div class="io-description"><p>Label text of the control</p>
 </div>
                     </td>
                 </tr>
@@ -351,7 +351,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Das Input property ekzeptiert boolen Wert. Default ist true. Definiert, ob die Komponente hidden sein sollte.</p>
+                        <div class="io-description"><p>The input property accepts a boolean value. Default is true. Defines whether the component should be hidden.</p>
 </div>
                     </td>
                 </tr>
@@ -403,7 +403,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>ContentChild Decorator</p>
+                    <div class="io-description"><p>ContentChild decorator</p>
 </div>
                 </td>
             </tr>
@@ -420,47 +420,47 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ContentChild, Directive, Input, TemplateRef } from &#x27;@angular/core&#x27;;
 
 /**
- * Die Basis Komponente für SacTabItem
+ * The base component for SacTabItem
  */
 @Directive()
 export class SacTabItemCommon {
     // #region Properties
 
     /**
-     * Boolean Property prüft ob das Tab aktiv ist
+     * Boolean property checks if the tab is active
      */
     @Input()
-    public active: boolean &#x3D; false;
+    public active &#x3D; false;
 
     /**
-     * Boolean Property prüft ob das Tab disabled ist
+     * Boolean property checks if the tab is disabled
      */
     @Input()
-    public disabled: boolean &#x3D; false;
+    public disabled &#x3D; false;
 
     /**
-     * ID-String
+     * ID string
      */
     @Input()
     public id: string;
 
     /**
-     * Label Text vom Control
+     * Label text of the control
      */
     @Input()
     public label: string;
 
     /**
-     * ContentChild Decorator
+     * ContentChild decorator
      */
     @ContentChild(TemplateRef, { static: true })
     public templateRef: TemplateRef&lt;any&gt;;
 
     /**
-     * Das Input property ekzeptiert boolen Wert. Default ist true. Definiert, ob die Komponente hidden sein sollte.
+     * The input property accepts a boolean value. Default is true. Defines whether the component should be hidden.
      */
     @Input()
-    public unloadwhenhidden: boolean &#x3D; true;
+    public unloadwhenhidden &#x3D; true;
 
     // #endregion Properties
 }

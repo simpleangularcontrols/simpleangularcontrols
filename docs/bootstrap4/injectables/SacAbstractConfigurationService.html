@@ -193,6 +193,9 @@
                                     <a href="#InputSearchIconMode" >InputSearchIconMode</a>
                                 </li>
                                 <li>
+                                    <a href="#LabelMode" >LabelMode</a>
+                                </li>
+                                <li>
                                     <a href="#LabelSizeLg" >LabelSizeLg</a>
                                 </li>
                                 <li>
@@ -462,6 +465,39 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="LabelMode"></a>
+                        <span class="name"><b>LabelMode</b><a href="#LabelMode"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>LabelMode()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:61</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>&quot;standard&quot; | &quot;floating&quot;</code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="LabelSizeLg"></a>
                         <span class="name"><b>LabelSizeLg</b><a href="#LabelSizeLg"><span class="icon ion-ios-link"></span></a></span>
                     </td>
@@ -474,7 +510,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:61</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:66</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -507,7 +543,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:66</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:71</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -540,7 +576,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:71</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:76</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -573,7 +609,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:76</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:81</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -606,7 +642,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:81</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:86</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -639,7 +675,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:86</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:91</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -672,7 +708,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:91</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">projects/sac-common/src/services/sac-configuration.service.ts:96</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -803,6 +839,11 @@ export abstract class SacAbstractConfigurationService implements ISacConfigurati
     /**
      * @inheritdoc
      */
+    public abstract get LabelMode(): &#x27;standard&#x27; | &#x27;floating&#x27;;
+
+    /**
+     * @inheritdoc
+     */
     public abstract get LabelSizeLg(): number | null;
 
     /**
@@ -892,6 +933,13 @@ export class SacDefaultConfigurationService extends SacAbstractConfigurationServ
      */
     public get InputSearchIconMode(): &#x27;text&#x27; | &#x27;icon&#x27; | &#x27;mixed&#x27; {
         return &#x27;text&#x27;;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public get LabelMode(): &#x27;standard&#x27; | &#x27;floating&#x27; {
+        return &#x27;standard&#x27;;
     }
 
     /**

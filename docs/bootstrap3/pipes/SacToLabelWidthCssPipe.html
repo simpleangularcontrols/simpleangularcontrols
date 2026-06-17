@@ -141,6 +141,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Converts responsive label width configuration into bootstrap v3 label width classes.</p>
+
+            </p>
 
 
         <section data-compodoc="block-metadata">
@@ -182,8 +189,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="15"
-                                    class="link-to-prism">projects/sac-bootstrap3/src/controls/layout/tolabelwidthcss.pipe.ts:15</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="18"
+                                    class="link-to-prism">projects/sac-bootstrap3/src/controls/layout/tolabelwidthcss.pipe.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -246,40 +253,43 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Pipe, PipeTransform } from &#x27;@angular/core&#x27;;
 import { ISacLabelSizes } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
+/**
+ * Converts responsive label width configuration into bootstrap v3 label width classes.
+ */
 @Pipe({
-  name: &#x27;toLabelWidthCss&#x27;,
+    name: &#x27;toLabelWidthCss&#x27;,
 })
 export class SacToLabelWidthCssPipe implements PipeTransform {
-  // #region Public Methods
+    // #region Public Methods
 
-  /**
-   * Get CSS classes from label width configuration to set label size
-   * @param value Configuration with grid columns for different viewports
-   * @returns string with css classe for bootstrap3
-   */
-  public transform(value: ISacLabelSizes): string {
-    const classes: string[] &#x3D; [];
+    /**
+     * Get CSS classes from label width configuration to set label size
+     * @param value Configuration with grid columns for different viewports
+     * @returns string with css classe for bootstrap3
+     */
+    public transform(value: ISacLabelSizes): string {
+        const classes: string[] &#x3D; [];
 
-    if (value.labelSizeXs) {
-      classes.push(&#x27;col-xs-&#x27; + value.labelSizeXs);
+        if (value.labelSizeXs) {
+            classes.push(&#x27;col-xs-&#x27; + value.labelSizeXs);
+        }
+
+        if (value.labelSizeSm) {
+            classes.push(&#x27;col-sm-&#x27; + value.labelSizeSm);
+        }
+
+        if (value.labelSizeMd) {
+            classes.push(&#x27;col-md-&#x27; + value.labelSizeMd);
+        }
+
+        if (value.labelSizeLg) {
+            classes.push(&#x27;col-lg-&#x27; + value.labelSizeLg);
+        }
+
+        return classes.join(&#x27; &#x27;);
     }
 
-    if (value.labelSizeSm) {
-      classes.push(&#x27;col-sm-&#x27; + value.labelSizeSm);
-    }
-
-    if (value.labelSizeMd) {
-      classes.push(&#x27;col-md-&#x27; + value.labelSizeMd);
-    }
-
-    if (value.labelSizeLg) {
-      classes.push(&#x27;col-lg-&#x27; + value.labelSizeLg);
-    }
-
-    return classes.join(&#x27; &#x27;);
-  }
-
-  // #endregion Public Methods
+    // #endregion Public Methods
 }
 </code></pre>
     </div>

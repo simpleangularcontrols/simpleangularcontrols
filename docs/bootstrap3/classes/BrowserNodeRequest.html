@@ -145,7 +145,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Klasse für den Request eines Nodes</p>
+                <p>Class for the request of a node</p>
 
             </p>
 
@@ -196,13 +196,13 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">projects/sac-common/src/components/browser/models/browsernoderequest.ts:4</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/sac-common/src/components/browser/models/browsernoderequest.ts:15</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -228,7 +228,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Initale Werte für die Instanz</p>
+                                                                <p>Initial values for the instance</p>
 
                                                         </td>
                                                 </tr>
@@ -266,13 +266,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/sac-common/src/components/browser/models/browsernoderequest.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/sac-common/src/components/browser/models/browsernoderequest.ts:10</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Erlaubte Dateitypen</p>
+                    <div class="io-description"><p>Allowed file types</p>
 </div>
                 </td>
             </tr>
@@ -299,13 +299,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/sac-common/src/components/browser/models/browsernoderequest.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/sac-common/src/components/browser/models/browsernoderequest.ts:15</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Pfad des Nodes</p>
+                    <div class="io-description"><p>Path of the node</p>
 </div>
                 </td>
             </tr>
@@ -325,22 +325,31 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class BrowserNodeRequest {
-  /**
-   * Konstruktor
-   * @param init Initale Werte für die Instanz
-   */
-  constructor(init?: Partial&lt;BrowserNodeRequest&gt;) {
-    Object.assign(this, init);
-  }
+    // #region Properties
 
-  /**
-   * Pfad des Nodes
-   */
-  public Path: string;
-  /**
-   * Erlaubte Dateitypen
-   */
-  public AllowedTypes: string;
+    /**
+     * Allowed file types
+     */
+    public AllowedTypes: string;
+
+    /**
+     * Path of the node
+     */
+    public Path: string;
+
+    // #endregion Properties
+
+    // #region Constructors
+
+    /**
+     * Constructor
+     * @param init Initial values for the instance
+     */
+    constructor(init?: Partial&lt;BrowserNodeRequest&gt;) {
+        Object.assign(this, init);
+    }
+
+    // #endregion Constructors
 }
 </code></pre>
     </div>

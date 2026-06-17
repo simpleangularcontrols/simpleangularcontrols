@@ -142,7 +142,7 @@
         <h3>Description</h3>
     </p>
     <p class="comment">
-        <p>Radiobutton Komponente</p>
+        <p>Radiobutton component</p>
 
     </p>
 
@@ -336,7 +336,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -362,6 +362,8 @@
                                                     </td>
                                                     
                                                         <td>
+                                                                <p>Radio Buttons group component</p>
+
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -433,7 +435,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Boolean Property, ob Radiobutton checked ist</p>
+                        <div class="io-description"><p>Boolean property whether the radio button is checked</p>
 </div>
                     </td>
                 </tr>
@@ -467,7 +469,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Boolean Property, ob Radiobutton disabled ist</p>
+                        <div class="io-description"><p>Boolean property whether the radio button is disabled</p>
 </div>
                     </td>
                 </tr>
@@ -574,7 +576,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Setter für hidden Property</p>
+                        <div class="io-description"><p>Setter for hidden property</p>
 </div>
                     </td>
                 </tr>
@@ -642,7 +644,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Template für Value Element</p>
+                        <div class="io-description"><p>Template for value element</p>
 </div>
                     </td>
                 </tr>
@@ -763,7 +765,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Event bei Änderungen</p>
+                        <div class="io-description"><p>Event on changes</p>
 </div>
 
                         <div class="io-description">
@@ -810,7 +812,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Event wenn die Komponente zerstört wird</p>
+                        <div class="io-description"><p>Event when the component is destroyed</p>
 </div>
 
                         <div class="io-description">
@@ -849,7 +851,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacRadiobuttonCommon.html#source" target="_self" >SacRadiobuttonCommon:205</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacRadiobuttonCommon.html#source" target="_self" >SacRadiobuttonCommon:211</a></code>
 </div>
                         </td>
                     </tr>
@@ -857,6 +859,10 @@
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Component initialization lifecycle hook.</p>
+<p>Initializes helptext mode, and marks the radio button as checked when the value matches
+the container&#39;s selected value.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -910,7 +916,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Unique Index für RadioButton</p>
+                    <div class="io-description"><p>Unique index for radio button</p>
 </div>
                 </td>
             </tr>
@@ -996,7 +1002,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>public public public public public public public public public public public public public ControlHeight enum for use in HTML markup</p>
+                    <div class="io-description"><p>ControlHeight enum for use in HTML markup</p>
 </div>
                 </td>
             </tr>
@@ -1100,7 +1106,7 @@ import { Component, Host, Injector, Optional } from &#x27;@angular/core&#x27;;
 import { SacRadiobuttonCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 /**
- * Radiobutton Komponente
+ * Radiobutton component
  */
 @Component({
     selector: &#x27;sac-radiobutton&#x27;,
@@ -1111,8 +1117,8 @@ export class SacRadiobuttonComponent extends SacRadiobuttonCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param SacRadioButtons Radio Buttons Group Komponente
+     * Constructor
+     * @param sacRadioButtons Radio Buttons group component
      * @param formlayout SacFormLayoutCommon to define scoped layout settings
      * @param injector Injector for injecting services
      */

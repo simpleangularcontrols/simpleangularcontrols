@@ -144,6 +144,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interface defining responsive label column sizes for various device breakpoints.</p>
+
+            </p>
 
 
         <section data-compodoc="block-index">
@@ -238,7 +245,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>default labe size for large devices</p>
+                                    <div class="io-description"><p>Default label size for large devices (lg breakpoint).</p>
 </div>
                                 </td>
                             </tr>
@@ -277,7 +284,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>default label size for medium devices</p>
+                                    <div class="io-description"><p>Default label size for medium devices (md breakpoint).</p>
 </div>
                                 </td>
                             </tr>
@@ -316,7 +323,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>default label size for small devices</p>
+                                    <div class="io-description"><p>Default label size for small devices (sm breakpoint).</p>
 </div>
                                 </td>
                             </tr>
@@ -355,7 +362,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>default label size for extra large devices</p>
+                                    <div class="io-description"><p>Default label size for extra large devices (xl breakpoint).</p>
 </div>
                                 </td>
                             </tr>
@@ -394,7 +401,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>default label column size</p>
+                                    <div class="io-description"><p>Default label size for extra small devices (xs breakpoint).</p>
 </div>
                                 </td>
                             </tr>
@@ -433,7 +440,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>default label size for extra extra large devices</p>
+                                    <div class="io-description"><p>Default label size for extra extra large devices (xxl breakpoint).</p>
 </div>
                                 </td>
                             </tr>
@@ -445,34 +452,39 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface ISacLabelSizes {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * default label size for medium devices
-   */
-  labelSizeMd: number;
-  /**
-   * default label size for small devices
-   */
-  labelSizeSm: number;
-  /**
-   * default label column size
-   */
-  labelSizeXs: number;
-  /**
-   * default label size for extra extra large devices
-   */
-  labelSizeXxl: number;
-  /**
-   * default labe size for large devices
-   */
-  labelSizeLg: number;
-  /**
-   * default label size for extra large devices
-   */
-  labelSizeXl: number;
+    /**
+     * Default label size for large devices (lg breakpoint).
+     */
+    labelSizeLg: number;
 
-  // #endregion Properties
+    /**
+     * Default label size for medium devices (md breakpoint).
+     */
+    labelSizeMd: number;
+
+    /**
+     * Default label size for small devices (sm breakpoint).
+     */
+    labelSizeSm: number;
+
+    /**
+     * Default label size for extra large devices (xl breakpoint).
+     */
+    labelSizeXl: number;
+
+    /**
+     * Default label size for extra small devices (xs breakpoint).
+     */
+    labelSizeXs: number;
+
+    /**
+     * Default label size for extra extra large devices (xxl breakpoint).
+     */
+    labelSizeXxl: number;
+
+    // #endregion Properties
 }
 </code></pre>
     </div>

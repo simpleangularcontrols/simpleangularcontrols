@@ -140,7 +140,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Basis Komponente für SacRadiobutton.</p>
+                <p>Base component for SacRadiobutton.</p>
 
             </p>
 
@@ -319,7 +319,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -411,7 +411,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Boolean Property, ob Radiobutton checked ist</p>
+                        <div class="io-description"><p>Boolean property whether the radio button is checked</p>
 </div>
                     </td>
                 </tr>
@@ -438,7 +438,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Boolean Property, ob Radiobutton disabled ist</p>
+                        <div class="io-description"><p>Boolean property whether the radio button is disabled</p>
 </div>
                     </td>
                 </tr>
@@ -524,7 +524,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Setter für hidden Property</p>
+                        <div class="io-description"><p>Setter for hidden property</p>
 </div>
                     </td>
                 </tr>
@@ -578,7 +578,7 @@
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Template für Value Element</p>
+                        <div class="io-description"><p>Template for value element</p>
 </div>
                     </td>
                 </tr>
@@ -679,7 +679,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Event bei Änderungen</p>
+                        <div class="io-description"><p>Event on changes</p>
 </div>
 
                         <div class="io-description">
@@ -720,7 +720,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Event wenn die Komponente zerstört wird</p>
+                        <div class="io-description"><p>Event when the component is destroyed</p>
 </div>
 
                         <div class="io-description">
@@ -753,14 +753,18 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="205"
-                                    class="link-to-prism">projects/sac-common/src/controls/checkbox/radiobutton.ts:205</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="211"
+                                    class="link-to-prism">projects/sac-common/src/controls/checkbox/radiobutton.ts:211</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Component initialization lifecycle hook.</p>
+<p>Initializes helptext mode, and marks the radio button as checked when the value matches
+the container&#39;s selected value.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -807,7 +811,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Unique Index für RadioButton</p>
+                    <div class="io-description"><p>Unique index for radio button</p>
 </div>
                 </td>
             </tr>
@@ -879,7 +883,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>public public public public public public public public public public public public public ControlHeight enum for use in HTML markup</p>
+                    <div class="io-description"><p>ControlHeight enum for use in HTML markup</p>
 </div>
                 </td>
             </tr>
@@ -1050,7 +1054,7 @@
                             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>Getter für Unique Index</p>
+                                <div class="io-description"><p>Getter for unique index</p>
 </div>
 
                                 <div class="io-description">
@@ -1127,7 +1131,7 @@
                             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>Setter für hidden Property</p>
+                                <div class="io-description"><p>Setter for hidden property</p>
 </div>
 
                                 <div class="io-description">
@@ -1185,7 +1189,7 @@
                             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>Methode ergibt Boolean, ob Control disabled ist</p>
+                                <div class="io-description"><p>Method returns boolean whether control is disabled</p>
 </div>
 
                                 <div class="io-description">
@@ -1213,16 +1217,16 @@ import { SacRadiobuttonsCommon } from &#x27;./radiobuttons&#x27;;
 import { Directive, EventEmitter, Host, Injector, Input, OnDestroy, OnInit, Output, TemplateRef } from &#x27;@angular/core&#x27;;
 
 /**
- * Basis Komponente für SacRadiobutton.
+ * Base component for SacRadiobutton.
  */
 @Directive()
 export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     // #region Properties
 
     /**
-     * Boolean Property zum Ausblenden des Controls; default Wert - false
+     * Boolean property to hide the control; default value - false
      */
-    private _hidden: boolean &#x3D; false;
+    private _hidden &#x3D; false;
 
     /**
      * Service for loading default settings for the controls
@@ -1240,23 +1244,23 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     protected iconService: ISacIconService;
 
     /**
-     * public public public public public public public public public public public public public ControlHeight enum for use in HTML markup
+     * ControlHeight enum for use in HTML markup
      */
     public ControlHeight: typeof ControlHeight &#x3D; ControlHeight;
 
     /**
-     * Unique Index für RadioButton
+     * Unique index for radio button
      */
     public _index: number &#x3D; null;
 
     /**
-     * Boolean Property, ob Radiobutton checked ist
+     * Boolean property whether the radio button is checked
      */
     @Input()
     public checked: boolean;
 
     /**
-     * Boolean Property, ob Radiobutton disabled ist
+     * Boolean property whether the radio button is disabled
      */
     @Input()
     public disabled: boolean;
@@ -1264,7 +1268,7 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     /**
      * Text to support the user during input.
      */
-    @Input() public helptext: string &#x3D; &#x27;&#x27;;
+    @Input() public helptext &#x3D; &#x27;&#x27;;
 
     /**
      * Mode for display helptext
@@ -1279,7 +1283,7 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     public label: string;
 
     /**
-     * Template für Value Element
+     * Template for value element
      */
     @Input()
     public labeltemplate: TemplateRef&lt;any&gt;;
@@ -1301,7 +1305,7 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     // #region Constructors
 
     /**
-     * Konstruktor
+     * Constructor
      * @param SacRadioButtons
      * @param formlayout SacFormLayoutCommon to define scoped layout settings
      * @param injector Injector for injecting services
@@ -1317,7 +1321,7 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
 
         this.iconService &#x3D; injector.get(SACICON_SERVICE, new SacDefaultIconService());
 
-        // Registration des Controls in SacRadioButtons Container
+        // Registration of the control in SacRadioButtons container
         this.sacRadioButtons.RegisterRadioButton(this);
     }
 
@@ -1340,7 +1344,7 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     }
 
     /**
-     * Getter für Unique Index
+     * Getter for unique index
      */
     public get getIndex(): number {
         if (this._index &#x3D;&#x3D;&#x3D; null &amp;&amp; this.sacRadioButtons !&#x3D;&#x3D; null &amp;&amp; this.sacRadioButtons !&#x3D;&#x3D; undefined) {
@@ -1362,7 +1366,7 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     }
 
     /**
-     * Setter für hidden Property
+     * Setter for hidden property
      */
     @Input()
     public set hidden(v: boolean | string) {
@@ -1372,14 +1376,14 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
             this._hidden &#x3D; v &#x3D;&#x3D;&#x3D; &#x27;true&#x27;;
         }
 
-        // Model Reset falls RadioButton selektiert war
+        // Model reset if radio button was selected
         if (this._hidden &amp;&amp; this.checked) {
             this.sacRadioButtons.SelectItem(null);
         }
     }
 
     /**
-     * Methode ergibt Boolean, ob Control disabled ist
+     * Method returns boolean whether control is disabled
      */
     public get isDisabled(): boolean {
         return this.disabled || this.sacRadioButtons.disabled;
@@ -1390,7 +1394,7 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     // #region Public Methods
 
     /**
-     * Event bei Änderungen
+     * Event on changes
      */
     public ChangeEvent(): void {
         if (!this.disabled) {
@@ -1400,15 +1404,21 @@ export abstract class SacRadiobuttonCommon implements OnInit, OnDestroy {
     }
 
     /**
-     * Event wenn die Komponente zerstört wird
+     * Event when the component is destroyed
      */
     public ngOnDestroy(): void {
-        // De-Registration des Controls in SacRadioButtons Container
+        // De-registration of the control in SacRadioButtons container
         this.sacRadioButtons.UnregisterRadioButton(this);
     }
 
+    /**
+     * Component initialization lifecycle hook.
+     *
+     * Initializes helptext mode, and marks the radio button as checked when the value matches
+     * the container&#x27;s selected value.
+     */
     public ngOnInit(): void {
-        // set method to display helptext
+        // Set method to display helptext
         this.setHelpTextMode();
 
         if (this.value &#x3D;&#x3D;&#x3D; this.sacRadioButtons.value) {

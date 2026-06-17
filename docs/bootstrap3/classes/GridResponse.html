@@ -141,6 +141,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Carries grid data payload along with total record count for pagination.</p>
+
+            </p>
 
 
 
@@ -204,13 +211,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:38</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Data</p>
+                    <div class="io-description"><p>Data array for the current page.</p>
 </div>
                 </td>
             </tr>
@@ -237,13 +244,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:39</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:43</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Total number of data records</p>
+                    <div class="io-description"><p>Total number of records available from the data source.</p>
 </div>
                 </td>
             </tr>
@@ -281,16 +288,19 @@
 
 // #region Exported Classes
 
+/**
+ * Carries grid data payload along with total record count for pagination.
+ */
 export class GridResponse&lt;T&gt; {
     // #region Properties
 
     /**
-     * Data
+     * Data array for the current page.
      */
     public Data: T[];
 
     /**
-     * Total number of data records
+     * Total number of records available from the data source.
      */
     public TotalRowCount: number;
 
@@ -346,12 +356,12 @@ export class PagerRequest {
     /**
      * Index of the page to which you want to switch
      */
-    public NewPageIndex: number &#x3D; 0;
+    public NewPageIndex &#x3D; 0;
 
     /**
      * Number of elements on the page
      */
-    public PageSize: number &#x3D; 0;
+    public PageSize &#x3D; 0;
 
     // #endregion Properties
 

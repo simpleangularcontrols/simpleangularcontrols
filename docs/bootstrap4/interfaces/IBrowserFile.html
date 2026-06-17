@@ -148,7 +148,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Interface für Datei Items in File Browser Component</p>
+                <p>Interface for file items in the file browser component</p>
 
             </p>
 
@@ -227,7 +227,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>Dateiname</p>
+                                    <div class="io-description"><p>File name</p>
 </div>
                                 </td>
                             </tr>
@@ -266,7 +266,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>Item wird bearbeitet</p>
+                                    <div class="io-description"><p>Item is being edited</p>
 </div>
                                 </td>
                             </tr>
@@ -305,7 +305,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>Grösse der Datei</p>
+                                    <div class="io-description"><p>File size</p>
 </div>
                                 </td>
                             </tr>
@@ -317,18 +317,24 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface IBrowserFile {
-  /**
-   * Dateiname
-   */
-  Filename: string;
-  /**
-   * Grösse der Datei
-   */
-  Size: number;
-  /**
-   * Item wird bearbeitet
-   */
-  IsEditMode: boolean;
+    // #region Properties
+
+    /**
+     * File name
+     */
+    Filename: string;
+
+    /**
+     * Item is being edited
+     */
+    IsEditMode: boolean;
+
+    /**
+     * File size
+     */
+    Size: number;
+
+    // #endregion Properties
 }
 </code></pre>
     </div>

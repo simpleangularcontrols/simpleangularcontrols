@@ -139,13 +139,13 @@
 <title>cluster_SACBootstrap4DialogModule_imports</title>
 <polygon fill="none" stroke="black" points="230,-78 230,-130 430,-130 430,-78 230,-78"/>
 </g>
-<g id="clust5" class="cluster">
-<title>cluster_SACBootstrap4DialogModule_exports</title>
-<polygon fill="none" stroke="black" points="164,-208 164,-260 324,-260 324,-208 164,-208"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap4DialogModule_declarations</title>
 <polygon fill="none" stroke="black" points="66,-78 66,-130 222,-130 222,-78 66,-78"/>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_SACBootstrap4DialogModule_exports</title>
+<polygon fill="none" stroke="black" points="164,-208 164,-260 324,-260 324,-208 164,-208"/>
 </g>
 <!-- SacDialogComponent -->
 <g id="node1" class="node">
@@ -277,13 +277,11 @@ import { NgModule } from &#x27;@angular/core&#x27;;
 import { SACCommonUtliltiesModule } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 @NgModule({
-  declarations: [SacDialogComponent],
-  imports: [
-    CommonModule, SACCommonUtliltiesModule
-  ],
-  exports: [SacDialogComponent]
+    declarations: [SacDialogComponent],
+    imports: [CommonModule, SACCommonUtliltiesModule],
+    exports: [SacDialogComponent],
 })
-export class SACBootstrap4DialogModule { }
+export class SACBootstrap4DialogModule {}
 </code></pre>
     </div>
 </div>

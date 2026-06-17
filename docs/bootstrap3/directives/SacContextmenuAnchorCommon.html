@@ -140,7 +140,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Base Context Menu Anchor Component für Open/Close Event</p>
+                <p>Base context menu anchor component for open/close event</p>
 
             </p>
 
@@ -194,7 +194,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -220,7 +220,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Refernz auf das HTML welcher als Anker für das Context Menü verwendet wird</p>
+                                                                <p>Reference to the HTML element used as anchor for the context menu</p>
 
                                                         </td>
                                                 </tr>
@@ -269,7 +269,7 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Referenz auf das Native HTML Element</p>
+                    <div class="io-description"><p>Reference to the native HTML element</p>
 </div>
                 </td>
             </tr>
@@ -286,14 +286,14 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, ElementRef } from &#x27;@angular/core&#x27;;
 
 /**
- * Base Context Menu Anchor Component für Open/Close Event
+ * Base context menu anchor component for open/close event
  */
 @Directive()
 export class SacContextmenuAnchorCommon {
     // #region Properties
 
     /**
-     * Referenz auf das Native HTML Element
+     * Reference to the native HTML element
      */
     public nativeElement: HTMLElement;
 
@@ -302,8 +302,8 @@ export class SacContextmenuAnchorCommon {
     // #region Constructors
 
     /**
-     * Konstruktor
-     * @param elementRef Refernz auf das HTML welcher als Anker für das Context Menü verwendet wird
+     * Constructor
+     * @param elementRef Reference to the HTML element used as anchor for the context menu
      */
     constructor(elementRef: ElementRef&lt;HTMLElement&gt;) {
         this.nativeElement &#x3D; elementRef.nativeElement;

@@ -275,19 +275,17 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
-import { SacWizardComponent } from &#x27;./wizard&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacWizardComponent } from &#x27;./wizard&#x27;;
 import { SacWizardItemComponent } from &#x27;./wizarditem&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 
 @NgModule({
-  declarations: [SacWizardComponent, SacWizardItemComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [SacWizardComponent, SacWizardItemComponent]
+    declarations: [SacWizardComponent, SacWizardItemComponent],
+    imports: [CommonModule],
+    exports: [SacWizardComponent, SacWizardItemComponent],
 })
-export class SACBootstrap4WizardModule { }
+export class SACBootstrap4WizardModule {}
 </code></pre>
     </div>
 </div>

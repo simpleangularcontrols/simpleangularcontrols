@@ -140,7 +140,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Erweiterung / Hooking für automatismen in Formular. Wird als Container für alle Controls benötigt.</p>
+                <p>Extension / hooking for automatisms in the form. Required as container for all controls.</p>
 <b>Example :</b><div><pre class="line-numbers"><code class="language-html"></code></pre></div><div ngForm></div>
 
 <b>Example :</b><div><pre class="line-numbers"><code class="language-html"></code></pre></div><form></form>
@@ -283,7 +283,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor</p>
+                            <div class="io-description"><p>Constructor</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -309,7 +309,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Instanz von NgForm für eigene automatische Formular Logik</p>
+                                                                <p>Instance of NgForm for own automatic form logic</p>
 
                                                         </td>
                                                 </tr>
@@ -346,13 +346,13 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:42</a></code>
+                                    <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:45</a></code>
 </div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Definiert, wenn das Model geupdatet wird</p>
+                        <div class="io-description"><p>Defines when the model is updated</p>
 </div>
                     </td>
                 </tr>
@@ -471,7 +471,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:54</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:58</a></code>
 </div>
                         </td>
                     </tr>
@@ -479,13 +479,17 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Gibt die NgForm Instanz zurück</p>
+                        <div class="io-description"><p>Returns the NgForm instance</p>
 </div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://angular.io/api/forms/NgForm" target="_blank" >NgForm</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>The NgForm instance</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -518,7 +522,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:61</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:65</a></code>
 </div>
                         </td>
                     </tr>
@@ -526,7 +530,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Markiert alle Controls innerhalb des Formulares als Touched</p>
+                        <div class="io-description"><p>Marks all controls within the form as touched</p>
 </div>
 
                         <div class="io-description">
@@ -565,7 +569,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:70</a></code>
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:75</a></code>
 </div>
                         </td>
                     </tr>
@@ -573,7 +577,7 @@
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Aktualisiert die Werte und den Gültigkeitsstatus des Formulars</p>
+                        <div class="io-description"><p>Updates the values and validity status of the form</p>
 </div>
 
                             <div class="io-description">
@@ -586,6 +590,7 @@
                                                 <td>Type</td>
                                             <td>Optional</td>
                                                 <td>Default value</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -603,6 +608,10 @@
                                                     <code>true</code>
                                             </td>
 
+                                            <td>
+                                                    <p>If true, all controls are marked as touched after validation update.</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -732,49 +741,49 @@ import { NgForm } from &#x27;@angular/forms&#x27;;
 import { SacFormCommon } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 /**
- * Erweiterung / Hooking für automatismen in Formular. Wird als Container für alle Controls benötigt.
+ * Extension / hooking for automatisms in the form. Required as container for all controls.
  *
- * @example Beispiel über Div Container
+ * @example Example using div container
  *
  * &lt;div ngForm&gt;&lt;/div&gt;
  *
- * @example Beispiel über Form Tag
+ * @example Example using form tag
  *
  * &lt;form&gt;&lt;/form&gt;
  */
 /* eslint @angular-eslint/directive-selector: 0 */
 @Directive({
-  selector: &#x27;form:not([ngNoForm]):not([formGroup]),[ngForm]&#x27;,
-  exportAs: &#x27;sacform&#x27;,
+    selector: &#x27;form:not([ngNoForm]):not([formGroup]),[ngForm]&#x27;,
+    exportAs: &#x27;sacform&#x27;,
 })
 export class SacFormDirective extends SacFormCommon {
-  // #region Properties
+    // #region Properties
 
-  /**
-   * Sets the standard CSS class for forms on the form container
-   */
-  @HostBinding(&#x27;class.form&#x27;)
-  public cssClassForm: boolean &#x3D; true;
+    /**
+     * Sets the standard CSS class for forms on the form container
+     */
+    @HostBinding(&#x27;class.form&#x27;)
+    public cssClassForm: boolean &#x3D; true;
 
-  /**
-   * Sets the default CSS class for horizontal forms on the form container
-   */
-  @HostBinding(&#x27;class.form-horizontal&#x27;)
-  public cssClassHorizontal: boolean &#x3D; true;
+    /**
+     * Sets the default CSS class for horizontal forms on the form container
+     */
+    @HostBinding(&#x27;class.form-horizontal&#x27;)
+    public cssClassHorizontal: boolean &#x3D; true;
 
-  // #endregion Properties
+    // #endregion Properties
 
-  // #region Constructors
+    // #region Constructors
 
-  /**
-   * Konstruktor
-   * @param form Instanz von NgForm für eigene automatische Formular Logik
-   */
-  constructor(form: NgForm) {
-    super(form);
-  }
+    /**
+     * Constructor
+     * @param form Instance of NgForm for own automatic form logic
+     */
+    constructor(form: NgForm) {
+        super(form);
+    }
 
-  // #endregion Constructors
+    // #endregion Constructors
 }
 </code></pre>
     </div>

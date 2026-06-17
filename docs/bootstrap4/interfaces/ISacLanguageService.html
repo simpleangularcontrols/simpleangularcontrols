@@ -203,16 +203,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="13"
-                                    class="link-to-prism">projects/sac-common/src/interfaces/ISacLanguageService.ts:13</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="14"
+                                    class="link-to-prism">projects/sac-common/src/interfaces/ISacLanguageService.ts:14</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Returns any language, that the application supports. This Languages are populated to
-Multilanguage Control.</p>
+                        <div class="io-description"><p>Returns any language that the application supports. These languages are populated to the
+Multilanguage control.</p>
 </div>
 
                         <div class="io-description">
@@ -229,19 +229,22 @@ Multilanguage Control.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Observable } from &#x27;rxjs&#x27;;
-import { LanguageModel } from &#x27;../models/languagemodel&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { LanguageModel } from &#x27;../models/languagemodel&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
 
 /**
  * Interface for language service
  */
 export interface ISacLanguageService {
-  /**
-   * Returns any language, that the application supports. This Languages are populated to
-   * Multilanguage Control.
-   */
+    // #region Methods
 
-  GetLanguages(): Observable&lt;LanguageModel[]&gt;;
+    /**
+     * Returns any language that the application supports. These languages are populated to the
+     * Multilanguage control.
+     */
+    GetLanguages(): Observable&lt;LanguageModel[]&gt;;
+
+    // #endregion Methods
 }
 </code></pre>
     </div>

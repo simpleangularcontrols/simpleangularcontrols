@@ -140,7 +140,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Base Komponente für Dialog</p>
+                <p>Base component for Dialog</p>
 
             </p>
 
@@ -237,6 +237,9 @@
                                 <a href="#e2eidentifier" >e2eidentifier</a>
                             </li>
                             <li>
+                                <a href="#hideoutofdialog" >hideoutofdialog</a>
+                            </li>
+                            <li>
                                 <a href="#isvisible" >isvisible</a>
                             </li>
                             <li>
@@ -324,14 +327,13 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:69</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:85</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Konstruktor
-Inject des Formulars</p>
+                            <div class="io-description"><p>Creates the dialog control.</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -341,6 +343,7 @@ Inject des Formulars</p>
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -355,6 +358,10 @@ Inject des Formulars</p>
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Change detector used to trigger updates.</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -388,12 +395,12 @@ Inject des Formulars</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:38</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch ESC geschlossen werden. Default ist true.</p>
+                        <div class="io-description"><p>The input property accepts a boolean value. Defines whether the dialog can be closed by ESC. Default is true.</p>
 </div>
                     </td>
                 </tr>
@@ -420,12 +427,12 @@ Inject des Formulars</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:44</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch click außerhalb des Dialog-Fenster geschlossen werden. Default ist true.</p>
+                        <div class="io-description"><p>The input property accepts a boolean value. Defines whether the dialog can be closed by clicking outside the dialog window. Default is true.</p>
 </div>
                     </td>
                 </tr>
@@ -452,12 +459,12 @@ Inject des Formulars</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:50</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Steuert ob im Header des Dialogs ein Button angezeigt wird.</p>
+                        <div class="io-description"><p>Controls whether a button is displayed in the header of the dialog.</p>
 </div>
                     </td>
                 </tr>
@@ -484,12 +491,44 @@ Inject des Formulars</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:51</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:61</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Identifier used for the E2E data attribute.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hideoutofdialog"></a>
+                        <b>hideoutofdialog</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:67</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>If enabled dialog is closed if user click outside of the dialog</p>
 </div>
                     </td>
                 </tr>
@@ -511,12 +550,12 @@ Inject des Formulars</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:104</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="120" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:120</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Setter. Erhält das boolen Wert des _show property</p>
+                        <div class="io-description"><p>Setter. Receives the boolean value of the _show property</p>
 </div>
                     </td>
                 </tr>
@@ -543,7 +582,7 @@ Inject des Formulars</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:63</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:79</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -570,15 +609,15 @@ Inject des Formulars</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:125</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:141</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Das Input akzeptiert sowohl default size-css-Klassen als auch custom Klassen.
-case insensitive.
-Die akzeptabel default-size-Klassen sind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#39;, &#39;medium&#39;, &#39;&#39;.
-Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist in medium size: max-width 500px.</p>
+                        <div class="io-description"><p>The input accepts both default size CSS classes and custom classes.
+Case insensitive.
+The acceptable default size classes are: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#39;, &#39;medium&#39;, &#39;&#39;.
+If size is NOT set (or &#39;medium&#39; or &#39;&#39;), default is medium size: max-width 500px.</p>
 </div>
                     </td>
                 </tr>
@@ -605,12 +644,12 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:69</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:85</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Input Property. Erhält den Title des Dialog. Default Value: &#39;Dialog&#39;.</p>
+                        <div class="io-description"><p>Input property. Receives the title of the dialog. Default value: &#39;Dialog&#39;.</p>
 </div>
                     </td>
                 </tr>
@@ -635,12 +674,12 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:57</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:73</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Output Emitter. Wird aufgerufen, wenn das Wert des _show property geändert ist - damait das Dialog geöfnet/geschlossen wird.</p>
+                        <div class="io-description"><p>Output emitter. Called when the value of the _show property changes - so the dialog is opened/closed.</p>
 </div>
                     </td>
                 </tr>
@@ -671,8 +710,8 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="171"
-                            class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:171</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="188"
+                            class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:188</a></div>
                 </td>
             </tr>
 
@@ -682,6 +721,35 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                     <div class="io-description"><p>Allow Close by Click outside Dialog</p>
 </div>
 
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Click event object</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
                 </td>
             </tr>
         </tbody>
@@ -708,8 +776,8 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="187"
-                            class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:187</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="205"
+                            class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:205</a></div>
                 </td>
             </tr>
 
@@ -719,6 +787,35 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                     <div class="io-description"><p>Allow Close by ESC</p>
 </div>
 
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Keyboard event object</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
                 </td>
             </tr>
         </tbody>
@@ -751,15 +848,15 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="147"
-                                    class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:147</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="163"
+                                    class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:163</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Die Methode setz den Wert des _show property auf false</p>
+                        <div class="io-description"><p>The method sets the value of the _show property to false</p>
 </div>
 
                         <div class="io-description">
@@ -792,15 +889,15 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="160"
-                                    class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:160</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="176"
+                                    class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:176</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Methode wenn Componente entfernt wird</p>
+                        <div class="io-description"><p>Method called when the component is destroyed</p>
 </div>
 
                         <div class="io-description">
@@ -841,8 +938,8 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="171"
-                                    class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:171</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="188"
+                                    class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:188</a></div>
                         </td>
                     </tr>
 
@@ -861,6 +958,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -875,6 +973,10 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                                             </td>
 
 
+                                            <td>
+                                                    <p>Click event object</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -920,8 +1022,8 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="187"
-                                    class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:187</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="205"
+                                    class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:205</a></div>
                         </td>
                     </tr>
 
@@ -940,6 +1042,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -954,6 +1057,10 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                                             </td>
 
 
+                                            <td>
+                                                    <p>Keyboard event object</p>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -991,15 +1098,15 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="198"
-                                    class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:198</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="216"
+                                    class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:216</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Die Methode setz den Wert des _show property auf true</p>
+                        <div class="io-description"><p>The method sets the value of the _show property to true</p>
 </div>
 
                         <div class="io-description">
@@ -1030,7 +1137,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <i>Type : </i>    <code>unknown</code>
 
                     </td>
                 </tr>
@@ -1041,13 +1148,13 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:26</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Boolean Property definiert ob das Dialog angezeigt wird</p>
+                    <div class="io-description"><p>Boolean property defines whether the dialog is shown</p>
 </div>
                 </td>
             </tr>
@@ -1079,14 +1186,14 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:32</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Das property enthielt (wenn überhaupt gesetzt) entweder keywords für sizing oder custom css Klassen.
-Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#39;, &#39;medium&#39;, &#39;&#39;.</p>
+                    <div class="io-description"><p>This property contains (if set) either keywords for sizing or custom CSS classes.
+The acceptable keywords are: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#39;, &#39;medium&#39;, &#39;&#39;.</p>
 </div>
                 </td>
             </tr>
@@ -1113,13 +1220,13 @@ Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:45</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:55</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Name des Containers für den Dialog</p>
+                    <div class="io-description"><p>Name of the container for the dialog</p>
 </div>
                 </td>
             </tr>
@@ -1149,12 +1256,12 @@ Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:89</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:105</a></div>
                                 </td>
                             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>Implementation als Setter, da mit ngIf das Element bei Unsichtbarkeit UNDEFINED ist.</p>
+                                <div class="io-description"><p>Implementation as setter, because with ngIf the element is UNDEFINED when invisible.</p>
 </div>
 
                                 <div class="io-description">
@@ -1207,12 +1314,12 @@ Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:96</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:112</a></div>
                                 </td>
                             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>Getter. Ergibt das boolen Wert des _show property</p>
+                                <div class="io-description"><p>Getter. Returns the boolean value of the _show property</p>
 </div>
 
                                 <div class="io-description">
@@ -1229,12 +1336,12 @@ Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:104</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="120" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:120</a></div>
                                 </td>
                             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>Setter. Erhält das boolen Wert des _show property</p>
+                                <div class="io-description"><p>Setter. Receives the boolean value of the _show property</p>
 </div>
 
                                 <div class="io-description">
@@ -1288,15 +1395,15 @@ Die akzeptabel keywordssind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:125</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:141</a></div>
                                 </td>
                             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-description"><p>Das Input akzeptiert sowohl default size-css-Klassen als auch custom Klassen.
-case insensitive.
-Die akzeptabel default-size-Klassen sind: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#39;, &#39;medium&#39;, &#39;&#39;.
-Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist in medium size: max-width 500px.</p>
+                                <div class="io-description"><p>The input accepts both default size CSS classes and custom classes.
+Case insensitive.
+The acceptable default size classes are: &#39;small&#39;, &#39;large&#39;, &#39;extralarge&#39;, &#39;medium&#39;, &#39;&#39;.
+If size is NOT set (or &#39;medium&#39; or &#39;&#39;), default is medium size: max-width 500px.</p>
 </div>
 
                                 <div class="io-description">
@@ -1349,7 +1456,7 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:136</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="152" class="link-to-prism">projects/sac-common/src/controls/dialog/dialog.ts:152</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1373,10 +1480,20 @@ Wenn size ist NICHT gesetzt (oder &#39;medium&#39; oder &#39;&#39;), default ist
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { createGuid } from &#x27;../../utilities/guid&#x27;;
-import { ChangeDetectorRef, Directive, ElementRef, EventEmitter, HostListener, Input, OnDestroy, Output, ViewChild } from &#x27;@angular/core&#x27;;
+import {
+    ChangeDetectorRef,
+    Directive,
+    ElementRef,
+    EventEmitter,
+    HostListener,
+    Input,
+    OnDestroy,
+    Output,
+    ViewChild,
+} from &#x27;@angular/core&#x27;;
 
 /**
- * Base Komponente für Dialog
+ * Base component for Dialog
  */
 @Directive()
 export class SacDialogCommon implements OnDestroy {
@@ -1385,36 +1502,36 @@ export class SacDialogCommon implements OnDestroy {
     private hasSetBodyTag &#x3D; false;
 
     /**
-     * Boolean Property definiert ob das Dialog angezeigt wird
+     * Boolean property defines whether the dialog is shown
      */
-    public _show: boolean &#x3D; false;
+    public _show &#x3D; false;
 
     /**
-     * Das property enthielt (wenn überhaupt gesetzt) entweder keywords für sizing oder custom css Klassen.
-     * Die akzeptabel keywordssind: &#x27;small&#x27;, &#x27;large&#x27;, &#x27;extralarge&#x27;, &#x27;medium&#x27;, &#x27;&#x27;.
+     * This property contains (if set) either keywords for sizing or custom CSS classes.
+     * The acceptable keywords are: &#x27;small&#x27;, &#x27;large&#x27;, &#x27;extralarge&#x27;, &#x27;medium&#x27;, &#x27;&#x27;.
      */
     public _size: &#x27;small&#x27; | &#x27;large&#x27; | &#x27;extralarge&#x27; | &#x27;medium&#x27; | &#x27;&#x27; &#x3D; &#x27;&#x27;;
 
     /**
-     * Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch ESC geschlossen werden. Default ist true.
+     * The input property accepts a boolean value. Defines whether the dialog can be closed by ESC. Default is true.
      */
     @Input()
-    public allowesc: boolean &#x3D; true;
+    public allowesc &#x3D; true;
 
     /**
-     * Das input property akzeptiert boolen Wert. Definiert ob das Dialog darf durch click außerhalb des Dialog-Fenster geschlossen werden. Default ist true.
+     * The input property accepts a boolean value. Defines whether the dialog can be closed by clicking outside the dialog window. Default is true.
      */
     @Input()
-    public backdrop: boolean &#x3D; true;
+    public backdrop &#x3D; true;
 
     /**
-     * Steuert ob im Header des Dialogs ein Button angezeigt wird.
+     * Controls whether a button is displayed in the header of the dialog.
      */
     @Input()
-    public closebutton: boolean &#x3D; true;
+    public closebutton &#x3D; true;
 
     /**
-     * Name des Containers für den Dialog
+     * Name of the container for the dialog
      */
     public dialogElement: ElementRef;
 
@@ -1425,7 +1542,13 @@ export class SacDialogCommon implements OnDestroy {
     public e2eidentifier: string | null &#x3D; null;
 
     /**
-     * Output Emitter. Wird aufgerufen, wenn das Wert des _show property geändert ist - damait das Dialog geöfnet/geschlossen wird.
+     * If enabled dialog is closed if user click outside of the dialog
+     */
+    @Input()
+    public hideoutofdialog &#x3D; false;
+
+    /**
+     * Output emitter. Called when the value of the _show property changes - so the dialog is opened/closed.
      */
     @Output()
     public isvisibleChange: EventEmitter&lt;boolean&gt; &#x3D; new EventEmitter&lt;boolean&gt;();
@@ -1437,18 +1560,18 @@ export class SacDialogCommon implements OnDestroy {
     public name: string &#x3D; createGuid();
 
     /**
-     * Input Property. Erhält den Title des Dialog. Default Value: &#x27;Dialog&#x27;.
+     * Input property. Receives the title of the dialog. Default value: &#x27;Dialog&#x27;.
      */
     @Input()
-    public title: string &#x3D; &#x27;Dialog&#x27;;
+    public title &#x3D; &#x27;Dialog&#x27;;
 
     // #endregion Properties
 
     // #region Constructors
 
     /**
-     * Konstruktor
-     * Inject des Formulars
+     * Creates the dialog control.
+     * @param cdRef Change detector used to trigger updates.
      */
     constructor(private cdRef: ChangeDetectorRef) {}
 
@@ -1457,7 +1580,7 @@ export class SacDialogCommon implements OnDestroy {
     // #region Public Getters And Setters
 
     /**
-     * Implementation als Setter, da mit ngIf das Element bei Unsichtbarkeit UNDEFINED ist.
+     * Implementation as setter, because with ngIf the element is UNDEFINED when invisible.
      */
     @ViewChild(&#x27;dialog&#x27;, { static: false })
     public set dialogElementSetter(content: ElementRef) {
@@ -1465,14 +1588,14 @@ export class SacDialogCommon implements OnDestroy {
     }
 
     /**
-     * Getter. Ergibt das boolen Wert des _show property
+     * Getter. Returns the boolean value of the _show property
      */
     public get isvisible(): boolean {
         return this._show;
     }
 
     /**
-     * Setter. Erhält das boolen Wert des _show property
+     * Setter. Receives the boolean value of the _show property
      */
     @Input()
     public set isvisible(v: boolean) {
@@ -1490,10 +1613,10 @@ export class SacDialogCommon implements OnDestroy {
     }
 
     /**
-     * Das Input akzeptiert sowohl default size-css-Klassen als auch custom Klassen.
-     * case insensitive.
-     * Die akzeptabel default-size-Klassen sind: &#x27;small&#x27;, &#x27;large&#x27;, &#x27;extralarge&#x27;, &#x27;medium&#x27;, &#x27;&#x27;.
-     * Wenn size ist NICHT gesetzt (oder &#x27;medium&#x27; oder &#x27;&#x27;), default ist in medium size: max-width 500px.
+     * The input accepts both default size CSS classes and custom classes.
+     * Case insensitive.
+     * The acceptable default size classes are: &#x27;small&#x27;, &#x27;large&#x27;, &#x27;extralarge&#x27;, &#x27;medium&#x27;, &#x27;&#x27;.
+     * If size is NOT set (or &#x27;medium&#x27; or &#x27;&#x27;), default is medium size: max-width 500px.
      */
     @Input()
     public set size(v: &#x27;small&#x27; | &#x27;large&#x27; | &#x27;extralarge&#x27; | &#x27;medium&#x27; | &#x27;&#x27;) {
@@ -1516,7 +1639,7 @@ export class SacDialogCommon implements OnDestroy {
     // #region Public Methods
 
     /**
-     * Die Methode setz den Wert des _show property auf false
+     * The method sets the value of the _show property to false
      */
     public hide(): void {
         if (this.hasSetBodyTag &amp;&amp; document.body.classList.contains(&#x27;modal-open&#x27;)) {
@@ -1529,7 +1652,7 @@ export class SacDialogCommon implements OnDestroy {
     }
 
     /**
-     * Methode wenn Componente entfernt wird
+     * Method called when the component is destroyed
      */
     public ngOnDestroy(): void {
         if (this.hasSetBodyTag &amp;&amp; document.body.classList.contains(&#x27;modal-open&#x27;)) {
@@ -1540,11 +1663,12 @@ export class SacDialogCommon implements OnDestroy {
 
     /**
      * Allow Close by Click outside Dialog
+     * @param event Click event object
      */
     @HostListener(&#x27;click&#x27;, [&#x27;$event&#x27;])
     public onClick(event: any): void {
         if (
-            this.allowesc &#x3D;&#x3D;&#x3D; false ||
+            this.hideoutofdialog &#x3D;&#x3D;&#x3D; false ||
             (this.dialogElement !&#x3D;&#x3D; null &amp;&amp;
                 this.dialogElement !&#x3D;&#x3D; undefined &amp;&amp;
                 event.target !&#x3D;&#x3D; this.dialogElement.nativeElement)
@@ -1556,6 +1680,7 @@ export class SacDialogCommon implements OnDestroy {
 
     /**
      * Allow Close by ESC
+     * @param event Keyboard event object
      */
     @HostListener(&#x27;document:keydown&#x27;, [&#x27;$event&#x27;])
     public onKeydownHandler(event: KeyboardEvent) {
@@ -1567,7 +1692,7 @@ export class SacDialogCommon implements OnDestroy {
     }
 
     /**
-     * Die Methode setz den Wert des _show property auf true
+     * The method sets the value of the _show property to true
      */
     public show(): void {
         this._show &#x3D; true;

@@ -145,7 +145,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Request zum speichern einer hochgeladenen Datei</p>
+                <p>Request to save an uploaded file</p>
 
             </p>
 
@@ -200,7 +200,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">projects/sac-common/src/components/browser/models/browserfilesaverequest.ts:4</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">projects/sac-common/src/components/browser/models/browserfilesaverequest.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -232,7 +232,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <p>Initale Parameter</p>
+                                                                <p>Initial parameters</p>
 
                                                         </td>
                                                 </tr>
@@ -270,13 +270,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">projects/sac-common/src/components/browser/models/browserfilesaverequest.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">projects/sac-common/src/components/browser/models/browserfilesaverequest.ts:10</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Erlaubte Dateitypen</p>
+                    <div class="io-description"><p>Allowed file types</p>
 </div>
                 </td>
             </tr>
@@ -303,13 +303,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/sac-common/src/components/browser/models/browserfilesaverequest.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">projects/sac-common/src/components/browser/models/browserfilesaverequest.ts:15</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Pfad in welchem der Upload gespeichert werden soll</p>
+                    <div class="io-description"><p>Path where the upload should be saved</p>
 </div>
                 </td>
             </tr>
@@ -362,26 +362,36 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class BrowserFileSaveRequest {
-  /**
-   * Constructor
-   * @param init Initale Parameter
-   */
-  constructor(init?: Partial&lt;BrowserFileSaveRequest&gt;) {
-    Object.assign(this, init);
-  }
+    // #region Properties
 
-  /**
-   * Pfad in welchem der Upload gespeichert werden soll
-   */
-  public Path: string;
-  /**
-   * Upload ID
-   */
-  public UploadId: string;
-  /**
-   * Erlaubte Dateitypen
-   */
-  public AllowedTypes: string;
+    /**
+     * Allowed file types
+     */
+    public AllowedTypes: string;
+
+    /**
+     * Path where the upload should be saved
+     */
+    public Path: string;
+
+    /**
+     * Upload ID
+     */
+    public UploadId: string;
+
+    // #endregion Properties
+
+    // #region Constructors
+
+    /**
+     * Constructor
+     * @param init Initial parameters
+     */
+    constructor(init?: Partial&lt;BrowserFileSaveRequest&gt;) {
+        Object.assign(this, init);
+    }
+
+    // #endregion Constructors
 }
 </code></pre>
     </div>

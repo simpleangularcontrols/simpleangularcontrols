@@ -148,7 +148,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Interface für API Response von Files</p>
+                <p>Interface for API response of files</p>
 
             </p>
 
@@ -215,7 +215,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>Array von Files in einem Node</p>
+                                    <div class="io-description"><p>Array of files in a node</p>
 </div>
                                 </td>
                             </tr>
@@ -229,13 +229,17 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IBrowserFile } from &#x27;./browserfile&#x27;;
 
 /**
- * Interface für API Response von Files
+ * Interface for API response of files
  */
 export interface IBrowserFileResponse {
-  /**
-   * Array von Files in einem Node
-   */
-  Files: IBrowserFile[];
+    // #region Properties
+
+    /**
+     * Array of files in a node
+     */
+    Files: IBrowserFile[];
+
+    // #endregion Properties
 }
 </code></pre>
     </div>

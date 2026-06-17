@@ -331,29 +331,29 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { HttpClientModule } from &#x27;@angular/common/http&#x27;;
-import { NgModule } from &#x27;@angular/core&#x27;;
-import { FormsModule } from &#x27;@angular/forms&#x27;;
-import { SACBootstrap4ConfirmModule } from &#x27;../../controls/confirm/confirm.module&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SACBootstrap4ConfirmModule } from &#x27;../../controls/confirm/confirm.module&#x27;;
 import { SACBootstrap4ContextmenuModule } from &#x27;../../controls/contextmenu/contextmenu.module&#x27;;
 import { SACBootstrap4FormModule } from &#x27;../../controls/form/form.module&#x27;;
 import { SACBootstrap4UploadModule } from &#x27;../../controls/upload/upload.module&#x27;;
 import { SacBrowserComponent } from &#x27;./browser&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { HttpClientModule } from &#x27;@angular/common/http&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
 
 @NgModule({
-  declarations: [SacBrowserComponent],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    SACBootstrap4ConfirmModule,
-    SACBootstrap4ContextmenuModule,
-    SACBootstrap4UploadModule,
-    SACBootstrap4FormModule,
-    FormsModule,
-  ],
-  exports: [SacBrowserComponent],
-  bootstrap: [SacBrowserComponent],
+    declarations: [SacBrowserComponent],
+    imports: [
+        CommonModule,
+        HttpClientModule,
+        SACBootstrap4ConfirmModule,
+        SACBootstrap4ContextmenuModule,
+        SACBootstrap4UploadModule,
+        SACBootstrap4FormModule,
+        FormsModule,
+    ],
+    exports: [SacBrowserComponent],
+    bootstrap: [SacBrowserComponent],
 })
 export class SACBootstrap4BrowserModule {}
 </code></pre>

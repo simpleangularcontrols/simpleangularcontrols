@@ -139,8 +139,8 @@
 <title>cluster_SACBootstrap5BrowserModule_declarations</title>
 <polygon fill="none" stroke="black" points="882,-78 882,-130 1046,-130 1046,-78 882,-78"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_SACBootstrap5BrowserModule_bootstrap</title>
+<g id="clust5" class="cluster">
+<title>cluster_SACBootstrap5BrowserModule_exports</title>
 <polygon fill="none" stroke="black" points="456,-208 456,-260 624,-260 624,-208 456,-208"/>
 </g>
 <g id="clust4" class="cluster">
@@ -331,29 +331,29 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { HttpClientModule } from &#x27;@angular/common/http&#x27;;
-import { NgModule } from &#x27;@angular/core&#x27;;
-import { FormsModule } from &#x27;@angular/forms&#x27;;
-import { SACBootstrap5ConfirmModule } from &#x27;../../controls/confirm/confirm.module&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SACBootstrap5ConfirmModule } from &#x27;../../controls/confirm/confirm.module&#x27;;
 import { SACBootstrap5ContextmenuModule } from &#x27;../../controls/contextmenu/contextmenu.module&#x27;;
 import { SACBootstrap5FormModule } from &#x27;../../controls/form/form.module&#x27;;
 import { SACBootstrap5UploadModule } from &#x27;../../controls/upload/upload.module&#x27;;
 import { SacBrowserComponent } from &#x27;./browser&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { HttpClientModule } from &#x27;@angular/common/http&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
 
 @NgModule({
-  declarations: [SacBrowserComponent],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    SACBootstrap5ConfirmModule,
-    SACBootstrap5ContextmenuModule,
-    SACBootstrap5UploadModule,
-    SACBootstrap5FormModule,
-    FormsModule,
-  ],
-  exports: [SacBrowserComponent],
-  bootstrap: [SacBrowserComponent],
+    declarations: [SacBrowserComponent],
+    imports: [
+        CommonModule,
+        HttpClientModule,
+        SACBootstrap5ConfirmModule,
+        SACBootstrap5ContextmenuModule,
+        SACBootstrap5UploadModule,
+        SACBootstrap5FormModule,
+        FormsModule,
+    ],
+    exports: [SacBrowserComponent],
+    bootstrap: [SacBrowserComponent],
 })
 export class SACBootstrap5BrowserModule {}
 </code></pre>

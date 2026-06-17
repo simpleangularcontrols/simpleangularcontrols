@@ -139,13 +139,13 @@
 <title>cluster_SACBootstrap4InputModule_declarations</title>
 <polygon fill="none" stroke="black" points="638,-78 638,-130 2122,-130 2122,-78 638,-78"/>
 </g>
-<g id="clust11" class="cluster">
-<title>cluster_SACBootstrap4InputModule_imports</title>
-<polygon fill="none" stroke="black" points="16,-78 16,-130 630,-130 630,-78 16,-78"/>
-</g>
 <g id="clust12" class="cluster">
 <title>cluster_SACBootstrap4InputModule_exports</title>
 <polygon fill="none" stroke="black" points="346,-208 346,-260 1855,-260 1855,-208 346,-208"/>
+</g>
+<g id="clust11" class="cluster">
+<title>cluster_SACBootstrap4InputModule_imports</title>
+<polygon fill="none" stroke="black" points="16,-78 16,-130 630,-130 630,-78 16,-78"/>
 </g>
 <!-- SacInputAreaComponent -->
 <g id="node1" class="node">
@@ -526,31 +526,27 @@ import { NgModule } from &#x27;@angular/core&#x27;;
 import { SACCommonUtliltiesModule } from &#x27;@simpleangularcontrols/sac-common&#x27;;
 
 @NgModule({
-  declarations: [
-    SacInputComponent,
-    SacInputAreaComponent,
-    SacInputCurrencyComponent,
-    SacInputDecimalComponent,
-    SacInputEmailComponent,
-    SacInputIntegerComponent,
-    SacInputPasswordComponent,
-    SacInputSearchComponent,
-  ],
-  imports: [
-    CommonModule,
-    SACBootstrap4LayoutModule,
-    SACBootstrap4TooltipModule, SACCommonUtliltiesModule
-  ],
-  exports: [
-    SacInputComponent,
-    SacInputAreaComponent,
-    SacInputCurrencyComponent,
-    SacInputDecimalComponent,
-    SacInputEmailComponent,
-    SacInputIntegerComponent,
-    SacInputPasswordComponent,
-    SacInputSearchComponent,
-  ],
+    declarations: [
+        SacInputComponent,
+        SacInputAreaComponent,
+        SacInputCurrencyComponent,
+        SacInputDecimalComponent,
+        SacInputEmailComponent,
+        SacInputIntegerComponent,
+        SacInputPasswordComponent,
+        SacInputSearchComponent,
+    ],
+    imports: [CommonModule, SACBootstrap4LayoutModule, SACBootstrap4TooltipModule, SACCommonUtliltiesModule],
+    exports: [
+        SacInputComponent,
+        SacInputAreaComponent,
+        SacInputCurrencyComponent,
+        SacInputDecimalComponent,
+        SacInputEmailComponent,
+        SacInputIntegerComponent,
+        SacInputPasswordComponent,
+        SacInputSearchComponent,
+    ],
 })
 export class SACBootstrap4InputModule {}
 </code></pre>

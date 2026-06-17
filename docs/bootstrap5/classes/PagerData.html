@@ -200,7 +200,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:63</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:67</a></div>
                             </td>
                         </tr>
 
@@ -307,7 +307,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:53</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:57</a></div>
                         </td>
                     </tr>
 
@@ -345,7 +345,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:58</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:62</a></div>
                         </td>
                     </tr>
 
@@ -383,7 +383,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:63</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">projects/sac-common/src/controls/grid/model.ts:67</a></div>
                         </td>
                     </tr>
 
@@ -427,16 +427,19 @@
 
 // #region Exported Classes
 
+/**
+ * Carries grid data payload along with total record count for pagination.
+ */
 export class GridResponse&lt;T&gt; {
     // #region Properties
 
     /**
-     * Data
+     * Data array for the current page.
      */
     public Data: T[];
 
     /**
-     * Total number of data records
+     * Total number of records available from the data source.
      */
     public TotalRowCount: number;
 
@@ -492,12 +495,12 @@ export class PagerRequest {
     /**
      * Index of the page to which you want to switch
      */
-    public NewPageIndex: number &#x3D; 0;
+    public NewPageIndex &#x3D; 0;
 
     /**
      * Number of elements on the page
      */
-    public PageSize: number &#x3D; 0;
+    public PageSize &#x3D; 0;
 
     // #endregion Properties
 

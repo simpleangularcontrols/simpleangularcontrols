@@ -5,6 +5,10 @@
 // required because default z-index in bootstrap is lower than in tinymce
 ::ng-deep {
     .tox {
+        &.tox-tinymce {
+            border-radius: 0;
+        }
+
         &.tox-tinymce-aux {
             z-index: 900;
             .tox-dialog-wrap {

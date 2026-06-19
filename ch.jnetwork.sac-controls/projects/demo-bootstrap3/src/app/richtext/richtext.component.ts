@@ -28,7 +28,7 @@ export class DemoRichtextComponent {
 
     public config1 = {};
     public config2 = {
-        plugins: 'image,code,link,media',
+        plugins: 'image code link media',
         toolbar: 'image media link | code',
         document_base_url: '/upload/browser/',
     };

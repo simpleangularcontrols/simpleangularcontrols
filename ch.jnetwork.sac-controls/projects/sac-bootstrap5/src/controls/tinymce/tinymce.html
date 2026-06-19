@@ -66,10 +66,11 @@
     </div>
 
     <sac-dialog
-        *ngIf="selectdialogvisible"
+        *ngIf="selectdialogvisible()"
         [allowesc]="false"
         [backdrop]="true"
-        [(isvisible)]="selectdialogvisible"
+        [isvisible]="selectdialogvisible()"
+        (isvisibleChange)="selectdialogvisible.set($event)"
         title="{{ lngResourceService.GetString(validationKeyService.TinyMceFileselectDialogtitle) | async }}"
         size="large"
         height="500px">

@@ -6,8 +6,7 @@ import { Validation } from '../../validation';
 import { SacFormLayoutCommon } from '../layout/formlayout';
 import { TinyMceDialogSettings } from './tinymcedialogsettings';
 import { TinyMceDialogSettingsMeta } from './tinymcedialogsettingsmeta';
-import { TinyMceInstance } from './tinymceinstance';
-import { Directive, EventEmitter, Host, Injector, Input, NgZone, Output } from '@angular/core';
+import { Directive, EventEmitter, Host, Injector, Input, NgZone, Output, signal } from '@angular/core';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 /**
@@ -23,10 +22,15 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
     private baseConfig: any = {
         base_url: '/tinymce',
         suffix: '.min',
+        selector: '',
+        license_key: 'gpl',
+        promotion: false,
         branding: false,
         angular: this,
         file_picker_types: 'file media image',
-        file_picker_callback: this.showSelectDialog,
+        file_picker_callback: (callback: any, value: any, meta: any) => {
+            this.showSelectDialog(callback, value, meta);
+        },
         save_onsavecallback: () => {},
     };
 
@@ -126,12 +130,7 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
     /**
      * The select dialog is displayed
      */
-    public selectdialogvisible = false;
-
-    /**
-     * Instance on TinyMCE settings. Set by TinyMCE and needed for the dialog callback
-     */
-    public settings: TinyMceInstance;
+    public selectdialogvisible = signal(false);
 
     /**
      * Resource key for validation message required at control
@@ -211,7 +210,7 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
      * Closes the file selection dialog
      */
     public closeSelectDialog(): void {
-        this.selectdialogvisible = false;
+        this.selectdialogvisible.set(false);
     }
 
     /**
@@ -248,31 +247,28 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
      * @param value Value from the file dialog
      * @param meta Meta data for the file
      */
-    public showSelectDialog(callback, value: string, meta: TinyMceDialogSettingsMeta): void {
-        this.settings.angular.ngZone.runOutsideAngular(() => {
-            this.settings.angular.ngZone.run(() => {
-                this.settings.angular.selectdialogvisible = true;
+    public showSelectDialog(callback: any, value: string, meta: TinyMceDialogSettingsMeta): void {
+        this.ngZone.run(() => {
+            this.selectdialogvisible.set(true);
 
-                // Set Dialog Settings
-                this.settings.angular.selectDialogSettings = new TinyMceDialogSettings({
-                    callback: callback,
-                    value: value,
-                    meta: meta,
-                    allowedtypes: '',
-                });
-
-                switch (meta.filetype) {
-                    case 'image':
-                        this.settings.angular.selectDialogSettings.allowedtypes = this.settings.angular.filetypesimages;
-                        break;
-                    case 'media':
-                        this.settings.angular.selectDialogSettings.allowedtypes = this.settings.angular.filetypesvideo;
-                        break;
-                    default:
-                        this.settings.angular.selectDialogSettings.allowedtypes = this.settings.angular.filetypesfiles;
-                        break;
-                }
+            this.selectDialogSettings = new TinyMceDialogSettings({
+                callback: callback,
+                value: value,
+                meta: meta,
+                allowedtypes: '',
             });
+
+            switch (meta.filetype) {
+                case 'image':
+                    this.selectDialogSettings.allowedtypes = this.filetypesimages;
+                    break;
+                case 'media':
+                    this.selectDialogSettings.allowedtypes = this.filetypesvideo;
+                    break;
+                default:
+                    this.selectDialogSettings.allowedtypes = this.filetypesfiles;
+                    break;
+            }
         });
     }
 

@@ -1,18 +1,18 @@
 {
   "name": "@simpleangularcontrols/sac-common",
-  "version": "16.0.0-rc.23",
+  "version": "17.0.0-rc.1",
   "homepage": "https://github.com/simpleangularcontrols/simpleangularcontrols",
   "peerDependencies": {
-    "@angular/common": "^16.0.0",
-    "@angular/core": "^16.0.0",
+    "@angular/common": "^17.0.0",
+    "@angular/core": "^17.0.0",
     "moment": "2.29.1",
     "imask": "7.0.1",
     "ngx-uploadx": "6.0.1"
   },
   "devDependencies": {
-    "moment": "2.29.1",
-    "imask": "7.0.1",
-    "ngx-uploadx": "6.0.1"
+    "moment": "2.30.1",
+    "imask": "7.4.0",
+    "ngx-uploadx": "6.2.1"
   },
   "author": {
     "name": "jNetwork GmbH",

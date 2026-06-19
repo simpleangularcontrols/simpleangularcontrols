@@ -1,17 +1,17 @@
 {
     "name": "@simpleangularcontrols/sac-bootstrap3",
-    "version": "16.0.0-rc.23",
+    "version": "17.0.0-rc.1",
     "peerDependencies": {
-        "@angular/common": "^16.0.0",
-        "@angular/core": "^16.0.0",
+        "@angular/common": "^17.0.0",
+        "@angular/core": "^17.0.0",
         "@simpleangularcontrols/sac-common": "file:../../dist/sac-common",
-        "@tinymce/tinymce-angular": "7.0.0",
-        "angular-imask": "7.0.0"
+        "@tinymce/tinymce-angular": "9.1.1",
+        "angular-imask": "7.6.1"
     },
     "devDependencies": {
         "@simpleangularcontrols/sac-common": "file:../../dist/sac-common",
-        "@tinymce/tinymce-angular": "7.0.0",
-        "angular-imask": "7.0.0"
+        "@tinymce/tinymce-angular": "9.1.1",
+        "angular-imask": "7.6.1"
     },
     "repository": {
         "type": "git",

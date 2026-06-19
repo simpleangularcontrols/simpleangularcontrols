@@ -29,6 +29,13 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout ng17
+        uses: actions/checkout@v4
+        with:
+          ref: angular/17.x.x
+          path: ng16
+          sparse-checkout: |
+            docs
       - name: Checkout ng16
         uses: actions/checkout@v4
         with:
@@ -53,7 +60,9 @@ jobs:
       - name: Build Documentation Structure
         run: |
           mkdir "docs"
-          cp "ng16/docs/index.html" "docs/index.html"
+          cp "ng17/docs/index.html" "docs/index.html"
+          mkdir "docs/ng17"
+          cp -R ng17/docs/bootstrap* "docs/ng17/"
           mkdir "docs/ng16"
           cp -R ng16/docs/bootstrap* "docs/ng16/"
           mkdir "docs/ng13"

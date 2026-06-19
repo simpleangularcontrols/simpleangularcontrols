@@ -351,7 +351,7 @@ export abstract class SacBaseDateTimeControl extends SacBaseModelControl<Date> i
 
         // force detect changes and update imask directive
         this.cdRef.detectChanges();
-        this.iMask.maskRef.updateValue();
+        this.iMask.maskRef?.updateValue();
     }
 
     // #endregion Public Methods

@@ -25,8 +25,6 @@ namespace Build.tasks
             ConvertCoverageReport(context, "bootstrap3");
             ConvertCoverageReport(context, "bootstrap4");
             ConvertCoverageReport(context, "bootstrap5");
-
-            CopyToCodeCov(context, ["bootstrap3", "bootstrap4", "bootstrap5"]);
         }
 
         public override bool ShouldRun(BuildContext context)

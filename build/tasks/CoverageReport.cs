@@ -2,12 +2,10 @@
 using Build.extensions;
 using Cake.Codecov;
 using Cake.Common;
-using Cake.Common.IO;
 using Cake.Common.Tools.ReportGenerator;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 using Cake.Frosting;
-using NuGet.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,23 +55,17 @@ namespace Build.tasks
             context.ReportGenerator(coverageReports, context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath())
                                                                                          .Combine("reports")
                                                                                          .Combine($"coverage-{bootstrapVersion}"), setting);
+
+            CopyToCodeCov(context, bootstrapVersion, coverageReports);
         }
 
-        private static void CopyToCodeCov(BuildContext context, string[] bootstrapVersions)
+        private static void CopyToCodeCov(BuildContext context, string bootstrapVersion, List<FilePath> coverageFiles)
         {
             if (string.IsNullOrEmpty(context.EnvironmentVariable<string>("CODECOV_TOKEN", string.Empty)))
             {
                 context.Log.Warning("CODECOV_TOKEN environment variable is not set. Skipping Codecov upload.");
                 return;
             }
-
-            // Alle lcov.info-Dateien im Verzeichnis suchen
-            var coverageFiles = bootstrapVersions.Select(bsVersion => context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath())
-                                                                                                          .Combine("coverage")
-                                                                                                          .Combine(bsVersion)
-                                                                                                          .GetFilePath("lcov.info"))
-                                                  .Where(file => context.FileExists(file))
-                                                  .ToList();
 
             if (!coverageFiles.Any())
             {
@@ -87,7 +79,8 @@ namespace Build.tasks
             {
                 Files = coverageFiles.Select(x => x.FullPath),
                 Token = context.EnvironmentVariable<string>("CODECOV_TOKEN", string.Empty),
-                Slug = "simpleangularcontrols/simpleangularcontrols"
+                Slug = "simpleangularcontrols/simpleangularcontrols",
+                Flags = bootstrapVersion,
             };
 
             context.Codecov(settings);

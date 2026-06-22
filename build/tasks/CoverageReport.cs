@@ -7,6 +7,7 @@ using Cake.Common.Tools.ReportGenerator;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 using Cake.Frosting;
+using NuGet.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,8 +83,14 @@ namespace Build.tasks
 
             context.Log.Information($"Uploading {coverageFiles.Count()} reports to Codecov...");
 
-            // Direktaufruf über den Context (sucht automatisch nach der CODECOV_TOKEN Umgebungsvariable)
-            context.Codecov(coverageFiles.Select(x => x.FullPath), context.EnvironmentVariable<string>("CODECOV_TOKEN", string.Empty));
+            var settings = new CodecovSettings
+            {
+                Files = coverageFiles.Select(x => x.FullPath),
+                Token = context.EnvironmentVariable<string>("CODECOV_TOKEN", string.Empty),
+                Slug = "simpleangularcontrols/simpleangularcontrols"
+            };
+
+            context.Codecov(settings);
         }
     }
 }

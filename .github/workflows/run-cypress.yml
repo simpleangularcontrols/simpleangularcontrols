@@ -5,7 +5,7 @@ name: Run Cypress Tests
 
 on:
   pull_request:
-    branches: ['angular/*']
+    branches: ["angular/*"]
 
 # Sets permissions of the GITHUB_TOKEN to allow create comments
 permissions:
@@ -26,6 +26,8 @@ jobs:
 
       - name: Test
         run: dotnet run --project build/Build.csproj --target=test
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Summary
         run: |

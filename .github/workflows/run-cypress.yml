@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Get Source
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0 # Prevents the SHA detection error
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v5

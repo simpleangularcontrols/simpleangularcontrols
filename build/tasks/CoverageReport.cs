@@ -79,6 +79,8 @@ namespace Build.tasks
                 Token = context.EnvironmentVariable<string>("CODECOV_TOKEN", string.Empty),
                 Slug = "simpleangularcontrols/simpleangularcontrols",
                 Flags = bootstrapVersion,
+                Name = $"coverage-{bootstrapVersion}",
+                Verbose = true
             };
 
             context.Codecov(settings);

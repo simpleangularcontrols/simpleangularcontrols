@@ -30,6 +30,7 @@
         "tslib": "^2.0.0"
     },
     "nyc": {
+        "cwd": "./..",
         "report-dir": "../../coverage/bootstrap4",
         "exclude": [
             "cypress/**",

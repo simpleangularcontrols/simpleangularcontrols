@@ -25,6 +25,7 @@ namespace Build.tasks
             ConvertCoverageReport(context, "bootstrap3");
             ConvertCoverageReport(context, "bootstrap4");
             ConvertCoverageReport(context, "bootstrap5");
+            CreateCodeCovReport(context, "bootstrap3", "bootstrap4", "bootstrap5");
         }
 
         public override bool ShouldRun(BuildContext context)
@@ -53,11 +54,9 @@ namespace Build.tasks
             context.ReportGenerator(coverageReports, context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath())
                                                                                          .Combine("reports")
                                                                                          .Combine($"coverage-{bootstrapVersion}"), setting);
-
-            CopyToCodeCov(context, bootstrapVersion, coverageReports);
         }
 
-        private static void CopyToCodeCov(BuildContext context, string bootstrapVersion, List<FilePath> coverageFiles)
+        private static void CreateCodeCovReport(BuildContext context, params string[] bootstrapVersions)
         {
             if (string.IsNullOrEmpty(context.EnvironmentVariable<string>("CODECOV_TOKEN", string.Empty)))
             {
@@ -65,22 +64,29 @@ namespace Build.tasks
                 return;
             }
 
-            if (!coverageFiles.Any())
+            List<FilePath> coverageReports = bootstrapVersions.Select(version => context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath())
+                                                                                                                     .Combine("coverage")
+                                                                                                                     .Combine(version)
+                                                                                                                     .CombineWithFilePath("lcov.info")
+                                                                                                                     .Collapse()).ToList();
+
+            if (!coverageReports.Any())
             {
                 context.Log.Warning("No lcov.info reports were found for this upload.");
                 return;
             }
 
-            context.Log.Information($"Uploading {coverageFiles.Count()} reports to Codecov...");
+            context.Log.Information($"Uploading {coverageReports.Count()} reports to Codecov...");
 
             var settings = new CodecovSettings
             {
-                Files = coverageFiles.Select(x => x.FullPath),
+                WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath())
+                                                                       .Combine("projects")
+                                                                       .Collapse(),
+                Files = coverageReports.Select(x => x.FullPath),
                 Token = context.EnvironmentVariable<string>("CODECOV_TOKEN", string.Empty),
                 Slug = "simpleangularcontrols/simpleangularcontrols",
-                Flags = bootstrapVersion,
-                Name = $"coverage-{bootstrapVersion}",
-                Verbose = true
+                Verbose = true,
             };
 
             context.Codecov(settings);

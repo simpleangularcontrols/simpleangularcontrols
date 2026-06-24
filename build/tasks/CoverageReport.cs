@@ -86,7 +86,7 @@ namespace Build.tasks
                 Files = coverageReports.Select(x => x.FullPath),
                 Token = context.EnvironmentVariable<string>("CODECOV_TOKEN", string.Empty),
                 Slug = "simpleangularcontrols/simpleangularcontrols",
-                Verbose = true,
+                Flags = "angular-17"
             };
 
             context.Codecov(settings);

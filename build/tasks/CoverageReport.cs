@@ -45,7 +45,7 @@ namespace Build.tasks
 
             ReportGeneratorSettings setting = new ReportGeneratorSettings
             {
-                ReportTypes = new List<ReportGeneratorReportType> { ReportGeneratorReportType.MarkdownSummaryGithub, ReportGeneratorReportType.Html, ReportGeneratorReportType.Cobertura },
+                ReportTypes = new List<ReportGeneratorReportType> { ReportGeneratorReportType.MarkdownSummaryGithub, ReportGeneratorReportType.Html },
                 WorkingDirectory = context.Environment.WorkingDirectory.Combine(context.DirectoryProject.ToDirectoryPath())
                                                                        .Combine("projects")
                                                                        .Combine($"sac-{bootstrapVersion}"),
@@ -86,7 +86,7 @@ namespace Build.tasks
                 Files = coverageReports.Select(x => x.FullPath),
                 Token = context.EnvironmentVariable<string>("CODECOV_TOKEN", string.Empty),
                 Slug = "simpleangularcontrols/simpleangularcontrols",
-                Flags = "angular-17"
+                Flags = "angular-17",
             };
 
             context.Codecov(settings);

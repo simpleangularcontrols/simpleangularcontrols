@@ -24,10 +24,6 @@
 <title>cluster_SACBootstrap3CheckboxModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 1203,-268 1203,-70 8,-70"/>
 </g>
-<g id="clust7" class="cluster">
-<title>cluster_SACBootstrap3CheckboxModule_exports</title>
-<polygon fill="none" stroke="black" points="338,-208 338,-260 906,-260 906,-208 338,-208"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap3CheckboxModule_declarations</title>
 <polygon fill="none" stroke="black" points="638,-78 638,-130 1195,-130 1195,-78 638,-78"/>
@@ -35,6 +31,10 @@
 <g id="clust6" class="cluster">
 <title>cluster_SACBootstrap3CheckboxModule_imports</title>
 <polygon fill="none" stroke="black" points="16,-78 16,-130 630,-130 630,-78 16,-78"/>
+</g>
+<g id="clust7" class="cluster">
+<title>cluster_SACBootstrap3CheckboxModule_exports</title>
+<polygon fill="none" stroke="black" points="338,-208 338,-260 906,-260 906,-208 338,-208"/>
 </g>
 <!-- SacCheckboxComponent -->
 <g id="node1" class="node">

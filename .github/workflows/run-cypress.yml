@@ -5,7 +5,7 @@ name: Run Cypress Tests
 
 on:
   pull_request:
-    branches: ['angular/*']
+    branches: ["angular/*"]
 
 # Sets permissions of the GITHUB_TOKEN to allow create comments
 permissions:
@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Get Source
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0 # Prevents the SHA detection error
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
@@ -26,6 +28,8 @@ jobs:
 
       - name: Test
         run: dotnet run --project build/Build.csproj --target=test
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Summary
         run: |

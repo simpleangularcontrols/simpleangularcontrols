@@ -110,9 +110,9 @@ describe('SACBootstrap4TinyMceModule', () => {
         cy.get('.tox-tinymce').should('be.visible');
         cy.get('editor').tinyMceWaitForInit();
 
-        cy.get('editor').get('button.tox-tbtn[title="Insert/edit image"]').click();
+        cy.get('editor').get('button[data-mce-name="image"]').click();
 
-        cy.get('.tox-dialog__body').get('button.tox-button[title="Source"]').click();
+        cy.get('.tox-dialog__body').get('button[data-mce-name="Browse files"]').click();
 
         cy.wait('@getNodes');
 
@@ -122,7 +122,7 @@ describe('SACBootstrap4TinyMceModule', () => {
         // wait for image to set correct size
         cy.wait('@getImage');
 
-        cy.get('.tox-dialog__body').get('button.tox-button[title="Save"]').click();
+        cy.get('.tox-dialog__body').get('button[data-mce-name="Save"]').click();
 
         cy.get('editor').tinyMceTouch();
         cy.get('@valueChange').should(
@@ -183,16 +183,16 @@ describe('SACBootstrap4TinyMceModule', () => {
         cy.get('.tox-tinymce').should('be.visible');
         cy.get('editor').tinyMceWaitForInit();
 
-        cy.get('editor').get('button.tox-tbtn[title="Insert/edit media"]').click();
+        cy.get('editor').get('button[data-mce-name="media"]').click();
 
-        cy.get('.tox-dialog__body').get('button.tox-button[title="Source"]').click();
+        cy.get('.tox-dialog__body').get('button[data-mce-name="Browse files"]').click();
 
         cy.wait('@getNodes');
 
         cy.get('.modal-dialog table.table td').contains('video.mov').click();
         cy.get('.modal-dialog .modal-footer button.btn-primary').click();
 
-        cy.get('.tox-dialog__body').get('button.tox-button[title="Save"]').click();
+        cy.get('.tox-dialog__body').get('button[data-mce-name="Save"]').click();
 
         cy.wait('@getMovie');
 
@@ -251,9 +251,9 @@ describe('SACBootstrap4TinyMceModule', () => {
         cy.get('.tox-tinymce').should('be.visible');
         cy.get('editor').tinyMceWaitForInit();
 
-        cy.get('editor').get('button.tox-tbtn[title="Insert/edit link"]').click();
+        cy.get('editor').get('button[data-mce-name="link"]').click();
 
-        cy.get('.tox-dialog__body').get('button.tox-button[title="URL"]').click();
+        cy.get('.tox-dialog__body').get('button[data-mce-name="Browse links"]').click();
 
         cy.wait('@getNodes');
 
@@ -273,7 +273,7 @@ describe('SACBootstrap4TinyMceModule', () => {
             .clear()
             .type('Click to download csv');
 
-        cy.get('.tox-dialog__body').get('button.tox-button[title="Save"]').click();
+        cy.get('.tox-dialog__body').get('button[data-mce-name="Save"]').click();
 
         cy.get('editor').tinyMceTouch();
         cy.get('@valueChange').should(
@@ -334,16 +334,16 @@ describe('SACBootstrap4TinyMceModule', () => {
         cy.get('.tox-tinymce').should('be.visible');
         cy.get('editor').tinyMceWaitForInit();
 
-        cy.get('editor').get('button.tox-tbtn[title="Insert/edit image"]').click();
+        cy.get('editor').get('button[data-mce-name="image"]').click();
 
-        cy.get('.tox-dialog__body').get('button.tox-button[title="Source"]').click();
+        cy.get('.tox-dialog__body').get('button[data-mce-name="Browse files"]').click();
 
         cy.wait('@getNodes');
 
         cy.get('.modal-dialog table.table td').contains('Image_250x250.jpg').click();
         cy.get('.modal-dialog .modal-footer button.btn-secondary').click();
 
-        cy.get('.tox-dialog__body').get('button.tox-button[title="Save"]').click();
+        cy.get('.tox-dialog__body').get('button[data-mce-name="Save"]').click();
 
         cy.get('editor').tinyMceTouch();
         cy.get('@valueChange').should('be.calledWith', '<div>&nbsp;</div>');
@@ -375,7 +375,7 @@ describe('SACBootstrap4TinyMceModule', () => {
         cy.get('.tox-tinymce').should('be.visible');
 
         cy.get('editor').tinyMceType('Enter a new Text');
-        cy.get('editor').get('button.tox-tbtn[title="Save"]').click();
+        cy.get('editor').get('button[data-mce-name="save"]').click();
 
         cy.get('@valueChange').should('be.calledWith', '<p>Enter a new Text</p>');
         cy.get('@saveAction').should('be.calledWith', '<p>Enter a new Text</p>');

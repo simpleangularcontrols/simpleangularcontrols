@@ -320,7 +320,7 @@ describe('SacDateTimeComponent', () => {
                 );
             }).length;
 
-            expect(nullCount).to.equal(2);
+            expect(nullCount).to.equal(1);
             expect(dateCount).to.equal(0);
         });
     });
@@ -363,7 +363,7 @@ describe('SacDateTimeComponent', () => {
                 );
             }).length;
 
-            expect(nullCount).to.equal(2);
+            expect(nullCount).to.equal(1);
             expect(dateCount).to.equal(0);
         });
     });

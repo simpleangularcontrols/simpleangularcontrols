@@ -26,7 +26,7 @@ export abstract class SacTinyMceCommon extends SacBaseModelControl<string> {
         license_key: 'gpl',
         promotion: false,
         branding: false,
-        angular: this,
+        element_format: 'xhtml',
         file_picker_types: 'file media image',
         file_picker_callback: (callback: any, value: any, meta: any) => {
             this.showSelectDialog(callback, value, meta);

@@ -45,5 +45,10 @@ namespace Build.tasks
                 }
             }
         }
+
+        public override bool ShouldRun(BuildContext context)
+        {
+            return !string.IsNullOrEmpty(context.GithubToken) && !context.HasArgument("nopublish");
+        }
     }
 }

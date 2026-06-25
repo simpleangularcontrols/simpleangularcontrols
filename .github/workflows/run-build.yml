@@ -26,4 +26,4 @@ jobs:
         run: dotnet run --project build/Build.csproj --target=build
 
       - name: Build Doc
-        run: dotnet run --project build/Build.csproj --target=doc
+        run: dotnet run --project build/Build.csproj --target=doc --nopublish

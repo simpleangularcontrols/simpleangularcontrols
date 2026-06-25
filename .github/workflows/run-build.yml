@@ -5,9 +5,9 @@ name: Run Build
 
 on:
   push:
-    branches-ignore: ["angular/*"]
+    branches-ignore: ['angular/*']
   pull_request:
-    branches: ["angular/*"]
+    branches: ['angular/*']
 
 jobs:
   build:
@@ -26,4 +26,4 @@ jobs:
         run: dotnet run --project build/Build.csproj --target=build
 
       - name: Build Doc
-        run: dotnet run --project build/Build.csproj --target=doc
+        run: dotnet run --project build/Build.csproj --target=doc --nopublish

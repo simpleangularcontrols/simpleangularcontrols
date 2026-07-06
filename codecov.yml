@@ -1,6 +1,6 @@
 # Dateiname: codecov.yml (muss im Root-Verzeichnis des Repos liegen)
 
 comment:
-  layout: "condensed_header, diff, condensed_files" # Definiert das kompakte Aussehen im PR
+  layout: "header, diff, files" # Definiert das kompakte Aussehen im PR
   behavior: default # Aktualisiert den bestehenden Kommentar im PR (verhindert Spam)
   require_changes: false # Zeigt den Kommentar bei jedem PR-Lauf an

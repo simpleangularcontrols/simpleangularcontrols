@@ -72,12 +72,6 @@ export class SacListboxOptionCommon implements OnDestroy {
         if (this._listbox) {
             this._value = value;
         }
-
-        if (!this._listbox) {
-            return;
-        }
-
-        this.setElementValue(this.buildValueString(this._listbox.optionlist.indexOf(this).toString(), value));
     }
 
     /**
@@ -125,6 +119,12 @@ export class SacListboxOptionCommon implements OnDestroy {
 
     private buildValueString(id: string, value: any): string {
         if (id == null) {
+            return `${value}`;
+        }
+
+        // fix: Ensuring compatibility with the old FormsModule implementation
+        // todo: Will be removed in newer versions of Angular
+        if (typeof value === 'number') {
             return `${value}`;
         }
 

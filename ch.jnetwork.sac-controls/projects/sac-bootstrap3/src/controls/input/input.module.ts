@@ -10,7 +10,6 @@ import { SacInputPasswordComponent } from './inputpassword';
 import { SacInputSearchComponent } from './inputsearch';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 
 @NgModule({
@@ -24,14 +23,7 @@ import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
         SacInputPasswordComponent,
         SacInputSearchComponent,
     ],
-    imports: [
-        CommonModule,
-        CommonModule,
-        FormsModule,
-        SACBootstrap3TooltipModule,
-        SACBootstrap3LayoutModule,
-        SACCommonUtliltiesModule,
-    ],
+    imports: [CommonModule, SACBootstrap3TooltipModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
     exports: [
         SacInputComponent,
         SacInputAreaComponent,

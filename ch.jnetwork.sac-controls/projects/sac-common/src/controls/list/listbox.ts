@@ -72,6 +72,12 @@ export class SacListboxOptionCommon implements OnDestroy {
         if (this._listbox) {
             this._value = value;
         }
+
+        if (!this._listbox) {
+            return;
+        }
+
+        this.setElementValue(this.buildValueString(this._listbox.optionlist.indexOf(this).toString(), value));
     }
 
     /**
@@ -82,6 +88,12 @@ export class SacListboxOptionCommon implements OnDestroy {
         if (this._listbox) {
             this._value = value;
         }
+
+        if (!this._listbox) {
+            return;
+        }
+
+        this.setElementValue(this.buildValueString(this._listbox.optionlist.indexOf(this).toString(), value));
     }
 
     public get value(): any {
@@ -110,6 +122,26 @@ export class SacListboxOptionCommon implements OnDestroy {
     }
 
     // #endregion Public Methods
+
+    private buildValueString(id: string, value: any): string {
+        if (id == null) {
+            return `${value}`;
+        }
+
+        if (typeof value === 'string') {
+            value = `'${value}'`;
+        }
+
+        if (value && typeof value === 'object') {
+            value = 'Object';
+        }
+
+        return `${id}: ${value}`.slice(0, 50);
+    }
+
+    private setElementValue(value: string): void {
+        this._renderer.setProperty(this._element.nativeElement, 'value', value);
+    }
 }
 
 /**

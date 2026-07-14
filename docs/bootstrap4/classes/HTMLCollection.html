@@ -223,7 +223,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="236" class="link-to-prism">projects/sac-common/src/controls/list/listbox.ts:236</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="268" class="link-to-prism">projects/sac-common/src/controls/list/listbox.ts:268</a></div>
                         </td>
                     </tr>
 
@@ -266,8 +266,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="245"
-                                    class="link-to-prism">projects/sac-common/src/controls/list/listbox.ts:245</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="277"
+                                    class="link-to-prism">projects/sac-common/src/controls/list/listbox.ts:277</a></div>
                         </td>
                     </tr>
 
@@ -408,6 +408,12 @@ export class SacListboxOptionCommon implements OnDestroy {
         if (this._listbox) {
             this._value &#x3D; value;
         }
+
+        if (!this._listbox) {
+            return;
+        }
+
+        this.setElementValue(this.buildValueString(this._listbox.optionlist.indexOf(this).toString(), value));
     }
 
     public get value(): any {
@@ -436,6 +442,32 @@ export class SacListboxOptionCommon implements OnDestroy {
     }
 
     // #endregion Public Methods
+
+    private buildValueString(id: string, value: any): string {
+        if (id &#x3D;&#x3D; null) {
+            return &#x60;${value}&#x60;;
+        }
+
+        // fix: Ensuring compatibility with the old FormsModule implementation
+        // todo: Will be removed in newer versions of Angular
+        if (typeof value &#x3D;&#x3D;&#x3D; &#x27;number&#x27;) {
+            return &#x60;${value}&#x60;;
+        }
+
+        if (typeof value &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+            value &#x3D; &#x60;&#x27;${value}&#x27;&#x60;;
+        }
+
+        if (value &amp;&amp; typeof value &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
+            value &#x3D; &#x27;Object&#x27;;
+        }
+
+        return &#x60;${id}: ${value}&#x60;.slice(0, 50);
+    }
+
+    private setElementValue(value: string): void {
+        this._renderer.setProperty(this._element.nativeElement, &#x27;value&#x27;, value);
+    }
 }
 
 /**

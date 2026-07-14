@@ -6,7 +6,6 @@ import { SacListboxComponent } from './listbox';
 import { SacListboxOptionDirective } from './listboxoption.directive';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { SACCommonListboxOptionModule, SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 
 @NgModule({
@@ -15,7 +14,6 @@ import { SACCommonListboxOptionModule, SACCommonUtliltiesModule } from '@simplea
         CommonModule,
         SACCommonListboxOptionModule,
         SACBootstrap3TooltipModule,
-        FormsModule,
         SACBootstrap3LayoutModule,
         SACCommonUtliltiesModule,
     ],

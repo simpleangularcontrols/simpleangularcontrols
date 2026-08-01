@@ -8,7 +8,7 @@ import { SacDropdownOptionDirective } from './dropdownoption.directive';
 import { DROPDOWN_TOKEN } from './list.token';
 import { AsyncPipe, NgClass, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 import { Component, ElementRef, Host, Injector, Optional, Renderer2, forwardRef } from '@angular/core';
-import { FormsModule, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { SacDropdownCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 /**
@@ -35,7 +35,6 @@ import { SacDropdownCommon, SacTestingAttributePipe } from '@simpleangularcontro
     imports: [
         NgClass,
         NgIf,
-        FormsModule,
         NgFor,
         NgTemplateOutlet,
         AsyncPipe,

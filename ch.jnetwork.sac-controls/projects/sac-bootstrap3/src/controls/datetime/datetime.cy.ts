@@ -398,7 +398,7 @@ describe('SacDateTimeComponent', () => {
         const minutes = _now.getMinutes().toString().padStart(2, '0');
 
         cy.get('button').click();
-        cy.get('.calendar-selector tbody td').filterByText(dayWithoutLeadingZero.toString()).click();
+        cy.get('.calendar-selector tbody td').filterByText(dayWithoutLeadingZero.toString()).first().click();
 
         // set minutes
         cy.get('input[max="23"]').clear().type(`${hours[0]}{del}${hours[1]}{del}`);

@@ -389,7 +389,7 @@ describe('SacDateComponent', () => {
 
         cy.get('button').click();
 
-        cy.get('.calendar-selector div').filterByText(dayWithoutLeadingZero.toString()).click();
+        cy.get('.calendar-selector div').filterByText(dayWithoutLeadingZero.toString()).first().click();
 
         cy.get('.calendar-selector button.btn-primary').click();
 

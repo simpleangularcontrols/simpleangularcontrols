@@ -13,6 +13,7 @@ namespace Build.pipelines
     [TaskDescription("Create a new Release")]
     [IsDependentOn(typeof(NpmBuild))]
     [IsDependentOn(typeof(CypressRun))]
+    [IsDependentOn(typeof(CoverageReport))]
     [IsDependentOn(typeof(GitUpdateVersion))]
     [IsDependentOn(typeof(NpmPublish))]
     [IsDependentOn(typeof(GithubRelease))]

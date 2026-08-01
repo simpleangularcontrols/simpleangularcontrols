@@ -1,6 +1,16 @@
 # Dateiname: codecov.yml (muss im Root-Verzeichnis des Repos liegen)
+codecov:
+  branch: angular/16.x.x # Definiert deinen primären Hauptbranch (Fallback)
+  
+  comment:
+    layout: "header, diff, files" # Definiert das kompakte Aussehen im PR
+    behavior: default # Aktualisiert den bestehenden Kommentar im PR (verhindert Spam)
+    require_changes: false # Zeigt den Kommentar bei jedem PR-Lauf an
 
-comment:
-  layout: "condensed_header, diff, condensed_files" # Definiert das kompakte Aussehen im PR
-  behavior: default # Aktualisiert den bestehenden Kommentar im PR (verhindert Spam)
-  require_changes: false # Zeigt den Kommentar bei jedem PR-Lauf an
+# Erzwingt, dass Codecov die Abdeckung für alle deine "Master"-Branches trackt
+coverage:
+  status:
+    project:
+      default:
+        # Erlaubt den Vergleich gegen den jeweiligen Ziel-Branch des PRs
+        against: parent

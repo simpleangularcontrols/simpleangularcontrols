@@ -3,7 +3,7 @@
     scope="col"
     *ngIf="IsHeader()"
     [style.width]="width"
-    [class.text-right]="alignment === 'right'"
+    [class.text-end]="alignment === 'right'"
     [class.text-center]="alignment === 'center'">
     <span></span>
 </th>
@@ -11,7 +11,7 @@
     #bodyElement
     scope="col"
     class="px-2"
-    [class.text-right]="alignment === 'right'"
+    [class.text-end]="alignment === 'right'"
     [class.text-center]="alignment === 'center'"
     *ngIf="IsBody()"
     [class.table-primary]="contextstyle === 'active' || contextstyle === 'primary'"

@@ -36,7 +36,7 @@ describe('NgInputComponent', () => {
               </form>`,
             {
                 declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -59,7 +59,7 @@ describe('NgInputComponent', () => {
               </form>`,
             {
                 declarations: [SacFormDirective, SacInputComponent, SacTooltipComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -233,7 +233,7 @@ describe('NgInputComponent', () => {
                 </form>`,
             {
                 declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -270,34 +270,6 @@ describe('NgInputComponent', () => {
             </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
-                componentProperties: {
-                    label: 'My Label',
-                    value: '',
-                    valueChange: createOutputSpy('valueSpy'),
-                },
-            }
-        );
-
-        cy.shouldHaveLabel('My Label');
-        cy.shouldBeInvalid();
-
-        cy.get('input').should('have.value', '');
-        cy.get('input').type('My Text');
-
-        cy.shouldBeValid();
-
-        cy.get('input').should('have.value', 'My Text');
-    });
-
-    it('should show required', () => {
-        cy.mount(
-            `<form>
-                <sac-input name="field" [label]="label" [isrequired]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
-                </sac-input>
-            </form>`,
-            {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -742,7 +714,7 @@ describe('NgInputComponent', () => {
             </form>`,
             {
                 declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -769,7 +741,7 @@ describe('NgInputComponent', () => {
             </form>`,
             {
                 declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -796,7 +768,7 @@ describe('NgInputComponent', () => {
             </form>`,
             {
                 declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',

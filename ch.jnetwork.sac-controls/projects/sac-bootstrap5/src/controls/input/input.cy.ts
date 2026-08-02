@@ -36,7 +36,7 @@ describe('NgInputComponent', () => {
                   </form>`,
             {
                 declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SACBootstrap5LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -59,7 +59,7 @@ describe('NgInputComponent', () => {
                   </form>`,
             {
                 declarations: [SacFormDirective, SacInputComponent, SacTooltipComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SACBootstrap5LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -72,6 +72,86 @@ describe('NgInputComponent', () => {
         cy.get('input').should('have.value', 'My Text');
         cy.get('div.form-text').should('not.exist');
         cy.get('label sac-tooltip').should('exist');
+    });
+
+    it('should show helptext as tooltip with splitview by control', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [splitlabelandhelptext]="true" helptextmode="tooltip" helptext="This is a Helptext" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent, SacTooltipComponent],
+                imports: [FormsModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Text',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('input').should('have.value', 'My Text');
+        cy.get('.help-block').should('not.exist');
+        cy.get('label sac-tooltip').should('exist');
+        cy.get('label .flex-sm-grow-1').should('exist');
+    });
+
+    it('should show helptext as tooltip with splitview by formcontrol', () => {
+        cy.mount(
+            `<form sacFormLayout [splitlabelandhelptext]="true">
+                <sac-input name="field" helptextmode="tooltip" helptext="This is a Helptext" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent, SacTooltipComponent],
+                imports: [FormsModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Text',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('input').should('have.value', 'My Text');
+        cy.get('.help-block').should('not.exist');
+        cy.get('label sac-tooltip').should('exist');
+        cy.get('label .flex-sm-grow-1').should('exist');
+    });
+
+    it('should show helptext as tooltip with splitview by configuration service', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" helptextmode="tooltip" helptext="This is a Helptext" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent, SacTooltipComponent],
+                imports: [FormsModule, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Text',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            SplitLabelAndHelptext: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('input').should('have.value', 'My Text');
+        cy.get('.help-block').should('not.exist');
+        cy.get('label sac-tooltip').should('exist');
+        cy.get('label .flex-sm-grow-1').should('exist');
     });
 
     it('should show label and text with large height by control', () => {
@@ -450,7 +530,7 @@ describe('NgInputComponent', () => {
             </form>`,
             {
                 declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SACBootstrap5LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -804,7 +884,7 @@ describe('NgInputComponent', () => {
               </form>`,
             {
                 declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SACBootstrap5LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -831,7 +911,7 @@ describe('NgInputComponent', () => {
               </form>`,
             {
                 declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SACBootstrap5LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -858,7 +938,7 @@ describe('NgInputComponent', () => {
               </form>`,
             {
                 declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SACBootstrap5LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',

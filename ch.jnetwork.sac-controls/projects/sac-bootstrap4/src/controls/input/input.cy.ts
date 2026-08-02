@@ -2,11 +2,124 @@ import { SacFormDirective } from '../form';
 import { SACBootstrap4LayoutModule } from '../layout/layout.module';
 import { SacInputComponent } from './input';
 import { FormsModule } from '@angular/forms';
-import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
+import { ControlHeight, SACCONFIGURATION_SERVICE, SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('NgInputComponent', () => {
     it('should show label and text', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+              </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Text',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('input').should('have.value', 'My Text');
+    });
+
+    it('should show label and text with large height by control', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [componentHeight]="size" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+              </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Text',
+                    valueChange: createOutputSpy('valueSpy'),
+                    size: ControlHeight.Large,
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('input').should('have.value', 'My Text');
+        cy.get('.form-control').should('have.class', 'form-control-lg');
+    });
+
+    it('should show label and text with small height by control', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [componentHeight]="size" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+              </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Text',
+                    valueChange: createOutputSpy('valueSpy'),
+                    size: ControlHeight.Small,
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('input').should('have.value', 'My Text');
+        cy.get('.form-control').should('have.class', 'form-control-sm');
+    });
+
+    it('should show label and text with large height by formlayout', () => {
+        cy.mount(
+            `<form [sacFormLayout] [componentHeight]="size">
+                <sac-input name="field"  [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+              </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Text',
+                    valueChange: createOutputSpy('valueSpy'),
+                    size: ControlHeight.Large,
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('input').should('have.value', 'My Text');
+        cy.get('.form-control').should('have.class', 'form-control-lg');
+    });
+
+    it('should show label and text with small height by formlayout', () => {
+        cy.mount(
+            `<form [sacFormLayout] [componentHeight]="size">
+                <sac-input name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+              </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Text',
+                    valueChange: createOutputSpy('valueSpy'),
+                    size: ControlHeight.Small,
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('input').should('have.value', 'My Text');
+        cy.get('.form-control').should('have.class', 'form-control-sm');
+    });
+
+    it('should show label and text with large height in configuration service', () => {
         cy.mount(
             `<form>
                 <sac-input name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
@@ -19,11 +132,50 @@ describe('NgInputComponent', () => {
                     value: 'My Text',
                     valueChange: createOutputSpy('valueSpy'),
                 },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            ComponentHeight: ControlHeight.Large,
+                        },
+                    },
+                ],
             }
         );
 
         cy.shouldHaveLabel('My Label');
         cy.get('input').should('have.value', 'My Text');
+        cy.get('.form-control').should('have.class', 'form-control-lg');
+    });
+
+    it('should show label and text with small height in configuration service', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+              </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Text',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            ComponentHeight: ControlHeight.Small,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('input').should('have.value', 'My Text');
+        cy.get('.form-control').should('have.class', 'form-control-sm');
     });
 
     it('should show required', () => {

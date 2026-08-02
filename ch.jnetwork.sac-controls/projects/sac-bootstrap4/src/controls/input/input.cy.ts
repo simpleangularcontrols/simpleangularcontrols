@@ -1,5 +1,6 @@
 import { SacFormDirective } from '../form';
 import { SACBootstrap4LayoutModule } from '../layout/layout.module';
+import { SacTooltipComponent } from '../tooltip/tooltip';
 import { SacInputComponent } from './input';
 import { FormsModule } from '@angular/forms';
 import { ControlHeight, SACCONFIGURATION_SERVICE, SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
@@ -10,6 +11,73 @@ describe('NgInputComponent', () => {
         cy.mount(
             `<form>
                 <sac-input name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+              </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Text',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('input').should('have.value', 'My Text');
+    });
+
+    it('should show helptext as text by control', () => {
+        cy.mount(
+            `<form>
+                    <sac-input name="field" helptextmode="text" helptext="This is a Helptext" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                    </sac-input>
+                  </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Text',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('input').should('have.value', 'My Text');
+        cy.get('small.form-text').should('exist');
+        cy.get('label sac-tooltip').should('not.exist');
+    });
+
+    it('should show helptext as tooltip by control', () => {
+        cy.mount(
+            `<form>
+                    <sac-input name="field" helptextmode="tooltip" helptext="This is a Helptext" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                    </sac-input>
+                  </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent, SacTooltipComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Text',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('input').should('have.value', 'My Text');
+        cy.get('small.form-text').should('not.exist');
+        cy.get('label sac-tooltip').should('exist');
+    });
+
+    it('should show helptext as text by control', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" helptextmode="text" helptext="This is a Helptext" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
                 </sac-input>
               </form>`,
             {

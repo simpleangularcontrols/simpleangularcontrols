@@ -28,13 +28,13 @@
 <title>cluster_SACBootstrap3TabsModule_imports</title>
 <polygon fill="none" stroke="black" points="330,-78 330,-130 530,-130 530,-78 330,-78"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_SACBootstrap3TabsModule_exports</title>
-<polygon fill="none" stroke="black" points="92,-208 92,-260 405,-260 405,-208 92,-208"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap3TabsModule_declarations</title>
 <polygon fill="none" stroke="black" points="16,-78 16,-130 322,-130 322,-78 16,-78"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_SACBootstrap3TabsModule_exports</title>
+<polygon fill="none" stroke="black" points="92,-208 92,-260 405,-260 405,-208 92,-208"/>
 </g>
 <!-- SacTabComponent -->
 <g id="node1" class="node">

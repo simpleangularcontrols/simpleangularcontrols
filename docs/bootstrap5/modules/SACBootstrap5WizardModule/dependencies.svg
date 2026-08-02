@@ -24,13 +24,13 @@
 <title>cluster_SACBootstrap5WizardModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-70 8,-268 783,-268 783,-70 8,-70"/>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_SACBootstrap5WizardModule_declarations</title>
-<polygon fill="none" stroke="black" points="430,-78 430,-130 775,-130 775,-78 430,-78"/>
-</g>
 <g id="clust6" class="cluster">
 <title>cluster_SACBootstrap5WizardModule_exports</title>
 <polygon fill="none" stroke="black" points="238,-208 238,-260 590,-260 590,-208 238,-208"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_SACBootstrap5WizardModule_declarations</title>
+<polygon fill="none" stroke="black" points="430,-78 430,-130 775,-130 775,-78 430,-78"/>
 </g>
 <g id="clust5" class="cluster">
 <title>cluster_SACBootstrap5WizardModule_imports</title>

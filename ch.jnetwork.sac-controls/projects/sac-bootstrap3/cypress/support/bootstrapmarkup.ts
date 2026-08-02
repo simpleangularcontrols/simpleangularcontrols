@@ -1,9 +1,11 @@
 declare namespace Cypress {
     interface Chainable {
         shouldNotHaveLabel(): Chainable;
+        shouldNotHaveInlineErrorMessage(): Chainable;
         shouldHaveLabel(label: string): Chainable;
         shouldBeValid(tagName?: string): Chainable;
         shouldBeInvalid(tagName?: string): Chainable;
+        shouldHaveInlineErrorMessage(): Chainable;
         shouldHaveErrorMessage(errorMessage: string): Chainable;
         shouldHaveTestAttributeWithName(tagName: string, testkey: string): Chainable;
         shouldHaveDisabledTestAttribute(tagName: string): Chainable;
@@ -12,6 +14,10 @@ declare namespace Cypress {
 
 Cypress.Commands.add('shouldNotHaveLabel', () => {
     cy.get('label').should('not.exist');
+});
+
+Cypress.Commands.add('shouldNotHaveInlineErrorMessage', () => {
+    cy.get('.help-block-error').should('not.exist');
 });
 
 Cypress.Commands.add('shouldHaveLabel', (label: string) => {
@@ -32,6 +38,10 @@ Cypress.Commands.add('shouldBeInvalid', (tagName = 'input') => {
 
 Cypress.Commands.add('shouldHaveErrorMessage', (errorMessage: string) => {
     cy.get('.help-block-error').contains(errorMessage);
+});
+
+Cypress.Commands.add('shouldHaveInlineErrorMessage', () => {
+    cy.get('.help-block-error').should('be.visible');
 });
 
 Cypress.Commands.add('shouldHaveTestAttributeWithName', (tagName: string, testkey: string) => {

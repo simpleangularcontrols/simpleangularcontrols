@@ -2,6 +2,8 @@ import { defineConfig } from 'cypress';
 import coverageWebpack from 'projects/sac-bootstrap3/cypress/coverage.webpack';
 
 export default defineConfig({
+    video: false,
+    screenshotOnRunFailure: true,
     viewportWidth: 1024,
     viewportHeight: 768,
     reporter: './node_modules/mochawesome/src/mochawesome.js',

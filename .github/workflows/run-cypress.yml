@@ -4,8 +4,10 @@
 name: Run Cypress Tests
 
 on:
+  push:
+    branches: ['angular/*']
   pull_request:
-    branches: ["angular/*"]
+    branches: ['angular/*']
 
 # Sets permissions of the GITHUB_TOKEN to allow create comments
 permissions:

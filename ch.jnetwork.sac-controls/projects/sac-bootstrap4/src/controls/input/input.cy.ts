@@ -702,4 +702,98 @@ describe('NgInputComponent', () => {
 
         cy.shouldHaveDisabledTestAttribute('sac-input > div');
     });
+
+    it('should show label and text with col size by control', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [labelSizeXs]="12" [labelSizeSm]="12"  [labelSizeMd]="12" [labelSizeLg]="12" [labelSizeXl]="12" [labelSizeXxl]="12" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Text',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('input').should('have.value', 'My Text');
+        cy.get('label').should('have.class', 'col-12');
+        cy.get('label').should('have.class', 'col-sm-12');
+        cy.get('label').should('have.class', 'col-md-12');
+        cy.get('label').should('have.class', 'col-lg-12');
+        cy.get('label').should('have.class', 'col-xl-12');
+        cy.get('label').should('not.have.class', 'col-xxl-12');
+    });
+
+    it('should show label and text with col size by formlayout', () => {
+        cy.mount(
+            `<form sacFormLayout [labelSizeXs]="12" [labelSizeSm]="12"  [labelSizeMd]="12" [labelSizeLg]="12" [labelSizeXl]="12" [labelSizeXxl]="12">
+                <sac-input name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Text',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('input').should('have.value', 'My Text');
+        cy.get('label').should('have.class', 'col-12');
+        cy.get('label').should('have.class', 'col-sm-12');
+        cy.get('label').should('have.class', 'col-md-12');
+        cy.get('label').should('have.class', 'col-lg-12');
+        cy.get('label').should('have.class', 'col-xl-12');
+        cy.get('label').should('not.have.class', 'col-xxl-12');
+    });
+
+    it('should show label and text with col size by configuration service', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'My Text',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            LabelSizeXs: 12,
+                            LabelSizeSm: 12,
+                            LabelSizeMd: 12,
+                            LabelSizeLg: 12,
+                            LabelSizeXl: 12,
+                            LabelSizeXxl: 12,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('input').should('have.value', 'My Text');
+        cy.get('label').should('have.class', 'col-12');
+        cy.get('label').should('have.class', 'col-sm-12');
+        cy.get('label').should('have.class', 'col-md-12');
+        cy.get('label').should('have.class', 'col-lg-12');
+        cy.get('label').should('have.class', 'col-xl-12');
+        cy.get('label').should('not.have.class', 'col-xxl-12');
+    });
 });

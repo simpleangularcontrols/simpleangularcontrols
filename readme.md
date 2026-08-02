@@ -10,6 +10,13 @@ See [https://simpleangularcontrols.github.io/simpleangularcontrols](https://simp
 
 This library is contributed by [jNetwork GmbH](https://www.jnetwork.ch) and [exanic AG](https://www.exanic.ch). The development of the library is not yet complete. Feature requests and bugs can be reported via GitHub Issues.
 
+## Status
+
+[![Run Build](https://github.com/simpleangularcontrols/simpleangularcontrols/actions/workflows/run-build.yml/badge.svg?branch=angular%2F13.2.x)](https://github.com/simpleangularcontrols/simpleangularcontrols/actions/workflows/run-build.yml)
+
+[![Run Cypress Tests](https://github.com/simpleangularcontrols/simpleangularcontrols/actions/workflows/run-cypress.yml/badge.svg?branch=angular%2F13.2.x)](https://github.com/simpleangularcontrols/simpleangularcontrols/actions/workflows/run-cypress.yml)
+
+[![Code Coverage](https://codecov.io/gh/simpleangularcontrols/simpleangularcontrols/branch/angular%2F13.2.x/graph/badge.svg?token=H4OXLZGR3S)](https://codecov.io/gh/simpleangularcontrols/simpleangularcontrols)
 
 ## Reason for the development
 

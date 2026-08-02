@@ -5,7 +5,7 @@ name: Run Build
 
 on:
   push:
-    branches-ignore: ['angular/*']
+    branches: ['angular/*', 'ng*/*']
   pull_request:
     branches: ['angular/*']
 

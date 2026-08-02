@@ -84,6 +84,71 @@ describe('SacListboxComponent', () => {
         cy.get('select').should('exist');
     });
 
+    it('should preselect options with options - string value', () => {
+        cy.mount(
+            `<form>
+                <sac-listbox 
+                    name="listbox"
+                    [label]="label"
+                    [(ngModel)]="value" 
+                    [options]="options"
+                    optionvalue="id"
+                    optionlabel="value">    
+                </sac-listbox>
+            </form>`,
+            {
+                declarations: [SacFormDirective],
+                imports: [FormsModule, SACBootstrap4ListModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: ['1'],
+                    options: [
+                        { id: '1', value: 'Element 1' },
+                        { id: '2', value: 'Element 2' },
+                        { id: '3', value: 'Element 3' },
+                    ],
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('select').find('option:selected').should('have.value', "0: '1'");
+        cy.get('select').should('exist');
+    });
+
+    it('should preselect options with options - object value', () => {
+        const item = { key: '1' };
+        cy.mount(
+            `<form>
+                <sac-listbox 
+                    name="listbox"
+                    [label]="label"
+                    [(ngModel)]="value" 
+                    [options]="options"
+                    optionvalue="id"
+                    optionlabel="value">    
+                </sac-listbox>
+            </form>`,
+            {
+                declarations: [SacFormDirective],
+                imports: [FormsModule, SACBootstrap4ListModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: [item],
+                    options: [
+                        { id: item, value: 'Element 1' },
+                        { id: { key: '2' }, value: 'Element 2' },
+                        { id: { key: '3' }, value: 'Element 3' },
+                    ],
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('select').find('option:selected').should('have.value', '0: Object');
+        cy.get('select').should('exist');
+    });
+
     it('should disable options', () => {
         cy.mount(
             `<form>

@@ -52,6 +52,31 @@ describe('SACBootstrap3ValidationSummaryModule', () => {
         cy.get('div.alert ul li').eq(0).should('have.text', 'Feld "Invalid Input" ist erforderlich.');
     });
 
+    it('should not show error message when control is valid', () => {
+        cy.mount(
+            `<form>
+                <sac-validationsummary name="uploadControl"></sac-validationsummary>
+                <sac-input name="txtinput" label="Invalid Input" [(ngModel)]="value"></sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [
+                    FormsModule,
+                    SACBootstrap3ValidationSummaryModule,
+                    SACBootstrap3LayoutModule,
+                    SACCommonUtliltiesModule,
+                ],
+                componentProperties: {
+                    value: '',
+                },
+            }
+        );
+
+        cy.get('sac-validationsummary').should('exist');
+        cy.get('#txtinput').shouldBeValid();
+        cy.get('div.alert').should('not.exist');
+    });
+
     it('should show custom summary error message when control is invalid', () => {
         cy.mount(
             `<form>

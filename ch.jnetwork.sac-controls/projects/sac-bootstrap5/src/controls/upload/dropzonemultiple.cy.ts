@@ -92,7 +92,7 @@ describe('SacDropzoneMultipleComponent', () => {
         cy.registerUploadController(filesize).then((_) => {
             cy.mount(
                 `<form>
-                    <sac-dropzonemultiple name="uploadControl" allowedtypes=".txt|.csv" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
+                    <sac-dropzonemultiple name="uploadControl" allowedtypes=".txt,.csv" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
                 </form>`,
                 {
                     imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],

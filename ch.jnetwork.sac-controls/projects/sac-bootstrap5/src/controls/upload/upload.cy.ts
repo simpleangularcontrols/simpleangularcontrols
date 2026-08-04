@@ -89,6 +89,40 @@ describe('SacUploadComponent', () => {
         });
     });
 
+    it('should not have pause button', () => {
+        const filesize = 2000000;
+        cy.registerUploadController(filesize).then((chunks) => {
+            cy.mount(
+                `<form>
+                    <sac-upload name="uploadControl" [enablepause]="false" endpoint="/api/upload/register" [label]="label"></sac-upload>
+                </form>`,
+                {
+                    declarations: [SacFormDirective],
+                    imports: [
+                        FormsModule,
+                        SACBootstrap5UploadModule,
+                        SACBootstrap5LayoutModule,
+                        SACCommonUtliltiesModule,
+                    ],
+                    componentProperties: {
+                        label: 'My Label',
+                    },
+                }
+            );
+
+            cy.get('.upload-component button span.fa-pause').should('not.exist');
+            cy.get('input[type="file"]').createFile(filesize);
+            cy.get('button').filterByText('Upload').click();
+
+            cy.get('.upload-component button span.fa-pause').should('not.exist');
+            cy.waitForUploadComplete(chunks);
+
+            cy.get('.progress-bar').eq(0).should('have.text', 'upload.file1.txt');
+            cy.get('.progress-bar').eq(0).should('not.have.attr', 'style', 'width: 100%');
+            cy.get('.upload-component button span.fa-pause').should('not.exist');
+        });
+    });
+
     it('should can auto upload file', () => {
         const filesize = 2000000;
         cy.registerUploadController(filesize).then((chunks) => {
@@ -302,9 +336,12 @@ describe('SacUploadComponent', () => {
                     cy.get('.progress-bar').eq(0).should('not.have.attr', 'style', 'width: 100%;');
 
                     // resume upload
-                    cy.get('button').filterByText('Upload').click();
+                    cy.get('.upload-component button span.fa-pause').should('not.exist');
+                    cy.get('button').filterByText('Upload').should('be.disabled');
+                    cy.get('.upload-component button span.fa-play').click();
                     cy.get('.progress-bar').eq(0).should('have.text', 'upload.file1.txt');
                     cy.get('.progress-bar').eq(0).should('have.attr', 'style', 'width: 100%;');
+                    cy.get('.upload-component button span.fa-pause').should('exist');
                 });
         });
     });

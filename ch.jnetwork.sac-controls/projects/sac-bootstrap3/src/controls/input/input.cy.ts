@@ -320,6 +320,35 @@ describe('NgInputComponent', () => {
         cy.get('input').should('have.value', 'My Text');
     });
 
+    it('should show required with inline error is null in control', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [inlineerrorenabled]="null" [label]="label" [isrequired]="true" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.shouldBeInvalid();
+        cy.shouldHaveInlineErrorMessage();
+
+        cy.get('input').should('have.value', '');
+        cy.get('input').type('My Text');
+
+        cy.shouldBeValid();
+
+        cy.get('input').should('have.value', 'My Text');
+    });
+
     it('should show required without inline error in control', () => {
         cy.mount(
             `<form>

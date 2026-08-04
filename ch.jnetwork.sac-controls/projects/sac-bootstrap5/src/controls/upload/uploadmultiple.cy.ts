@@ -172,7 +172,7 @@ describe('SacUploadMultipleComponent', () => {
         cy.registerUploadController(filesize).then((_) => {
             cy.mount(
                 `<form>
-                    <sac-uploadmultiple name="uploadControl" allowedtypes=".txt|.csv" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
+                    <sac-uploadmultiple name="uploadControl" allowedtypes=".txt,.csv" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
                 </form>`,
                 {
                     declarations: [SacFormDirective],

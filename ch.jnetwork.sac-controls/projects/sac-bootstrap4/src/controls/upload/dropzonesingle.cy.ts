@@ -92,7 +92,7 @@ describe('SacDropzoneSingleComponent', () => {
         cy.registerUploadController(filesize).then((_) => {
             cy.mount(
                 `<form>
-                    <sac-dropzonesingle name="uploadControl" allowedtypes=".txt|.csv" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonesingle>
+                    <sac-dropzonesingle name="uploadControl" allowedtypes=".txt,.csv" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonesingle>
                 </form>`,
                 {
                     imports: [FormsModule, SacFormDirective, SACBootstrap4UploadModule, SACBootstrap4LayoutModule],

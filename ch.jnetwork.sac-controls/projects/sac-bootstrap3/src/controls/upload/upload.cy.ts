@@ -167,7 +167,7 @@ describe('SacUploadComponent', () => {
         });
     });
 
-    it('should validate file extension', () => {
+    it('should validate file extension when invalid', () => {
         const filesize = 2000000;
         cy.registerUploadController(filesize).then((_) => {
             cy.mount(
@@ -192,6 +192,34 @@ describe('SacUploadComponent', () => {
             cy.get('input[type="file"]').createFile(filesize, 'mov');
             cy.get('.progress-text').should('have.text', 'Keine Datei ausgewählt');
             cy.get('@fileerrorAction').should('be.calledWith', 'INVALID_EXTENSION');
+        });
+    });
+
+    it('should validate file extension when valid', () => {
+        const filesize = 2000000;
+        cy.registerUploadController(filesize).then((_) => {
+            cy.mount(
+                `<form>
+                    <sac-upload name="uploadControl" allowedtypes=".txt,.csv,mov" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-upload>
+                </form>`,
+                {
+                    declarations: [SacFormDirective],
+                    imports: [
+                        FormsModule,
+                        SACBootstrap3UploadModule,
+                        SACBootstrap3LayoutModule,
+                        SACCommonUtliltiesModule,
+                    ],
+                    componentProperties: {
+                        label: 'My Label',
+                        fileerrorAction: createOutputSpy('fileerrorAction'),
+                    },
+                }
+            );
+
+            cy.get('input[type="file"]').createFile(filesize, 'mov');
+            cy.get('.progress-text').should('have.text', 'upload.file1.mov');
+            cy.get('@fileerrorAction').should('not.be.calledWith', 'INVALID_EXTENSION');
         });
     });
 

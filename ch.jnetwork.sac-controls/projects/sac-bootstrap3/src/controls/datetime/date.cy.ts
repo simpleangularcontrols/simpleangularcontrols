@@ -412,6 +412,66 @@ describe('SacDateComponent', () => {
         });
     });
 
+    it('should set date via selector when item is at bottom', () => {
+        cy.mount(
+            `<div id="topelement" style="height: 500px;">big element</div>
+            <form>
+                <sac-date name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-date>
+            </form>`,
+            {
+                declarations: [SacFormDirective],
+                imports: [
+                    FormsModule,
+                    SACBootstrap3DateTimeModule,
+                    SACBootstrap3LayoutModule,
+                    SACCommonUtliltiesModule,
+                ],
+                componentProperties: {
+                    label: 'My Label',
+                    value: null,
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.get('input').should('have.value', '__.__.____');
+
+        cy.resetSpy('@valueSpy');
+
+        // Current daily values (day, month, year) with formatting
+        const _now = new Date();
+        const day = ('0' + _now.getDate()).slice(-2);
+        const dayWithoutLeadingZero = _now.getDate();
+        const month = ('0' + (_now.getMonth() + 1)).slice(-2);
+        const year = _now.getFullYear().toString().padStart(4, '0');
+
+        cy.get('button').click();
+
+        cy.get('.calendar-selector tbody td').filterByText(dayWithoutLeadingZero.toString()).first().click();
+
+        cy.get('.calendar-selector').parents('.popover').should('have.class', 'top');
+
+        cy.get('.calendar-selector button.btn-primary').click();
+
+        cy.get('input').should('have.value', `${day}.${month}.${year}`);
+
+        cy.get('@valueSpy').then((spy: any) => {
+            const calls = spy.getCalls ? spy.getCalls() : spy.calls && spy.calls.all ? spy.calls.all() : [];
+            const nullCount = calls.filter((c: any) => c.args && c.args.length > 0 && c.args[0] === null).length;
+            const dateCount = calls.filter((c: any) => {
+                const a = c.args && c.args.length > 0 ? c.args[0] : undefined;
+                return (
+                    a instanceof Date &&
+                    a.getTime() === new Date(_now.getFullYear(), _now.getMonth(), _now.getDate()).getTime()
+                );
+            }).length;
+
+            expect(nullCount).to.equal(0);
+            expect(dateCount).to.equal(1);
+        });
+    });
+
     it('cancel via selector should not change value', () => {
         cy.mount(
             `<form>

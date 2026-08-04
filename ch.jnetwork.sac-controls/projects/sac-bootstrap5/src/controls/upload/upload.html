@@ -83,7 +83,7 @@
                     <span [class]="IconDelete"></span>
                 </button>
                 <button
-                    *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && IsPaused() === false)"
+                    *ngIf="enablepause && IsPaused() === false"
                     class="btn"
                     (click)="pauseAll()"
                     [attr.disabled]="IsUploading() === false ? 'disabled' : null"
@@ -93,9 +93,9 @@
                     <span [class]="IconPause"></span>
                 </button>
                 <button
-                    *ngIf="autoupload && enablepause && IsPaused()"
+                    *ngIf="enablepause && IsPaused()"
                     class="btn"
-                    (click)="uploadAll()"
+                    (click)="uploadAll(true)"
                     [class.btn-secondary]="!(invalid && (dirty || touched))"
                     [class.btn-danger]="invalid && (dirty || touched)">
                     <span [class]="IconContinue"></span>
@@ -104,8 +104,8 @@
                     *ngIf="autoupload === false"
                     class="btn text-nowrap"
                     (click)="uploadAll()"
-                    [attr.disabled]="IsStateToUpload() === false ? 'disabled' : null"
-                    [class.disabled]="IsStateToUpload() === false ? 'disabled' : null"
+                    [attr.disabled]="IsStateToUpload() === false || IsPaused() ? 'disabled' : null"
+                    [class.disabled]="IsStateToUpload() === false || IsPaused() ? 'disabled' : null"
                     [class.btn-secondary]="!(invalid && (dirty || touched))"
                     [class.btn-danger]="invalid && (dirty || touched)">
                     <span
@@ -125,7 +125,6 @@
                 {{ helptext }}
             </div>
         </div>
-
         <div
             *ngIf="helptextmode === 'tooltip' && helptext && disablelabel"
             class="form-control-plaintext align-self-top ms-2 me-1 w-auto"

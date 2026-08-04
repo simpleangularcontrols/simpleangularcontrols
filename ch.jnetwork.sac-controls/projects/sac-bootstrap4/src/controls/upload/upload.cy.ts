@@ -346,6 +346,67 @@ describe('SacUploadComponent', () => {
         });
     });
 
+    it('should not can resume with upload', () => {
+        const filesize = 2000000;
+        cy.registerUploadController(filesize).then((chunks) => {
+            cy.mount(
+                `<form>
+                    <sac-upload name="uploadControl" [enablepause]="true" endpoint="/api/upload/register" [label]="label"></sac-upload>
+                </form>`,
+                {
+                    declarations: [SacFormDirective],
+                    imports: [
+                        FormsModule,
+                        SACBootstrap4UploadModule,
+                        SACBootstrap4LayoutModule,
+                        SACCommonUtliltiesModule,
+                    ],
+                    componentProperties: {
+                        label: 'My Label',
+                    },
+                }
+            );
+
+            cy.get('input[type="file"]').createFile(filesize);
+            cy.get('button').filterByText('Upload').click();
+
+            cy.wait('@uploadRegister');
+
+            for (let i = 0; i < chunks - 4; i++) {
+                cy.wait('@uploadChunk').then((interception) => {
+                    if (i < chunks - 1) {
+                        expect(interception.response.body).to.have.property('status', 'incomplete');
+                        cy.get('.progress-bar').eq(0).should('not.have.attr', 'style', 'width: 100%;');
+                    } else {
+                        expect(interception.response.body).to.have.property('status', 'done');
+                        cy.get('.progress-bar').eq(0).should('have.attr', 'style', 'width: 100%;');
+                    }
+                });
+            }
+
+            cy.get('.upload-component button span.fa-pause').click();
+            cy.wait(1000); // wait for BS5 animation complete
+
+            cy.get('.progress-bar')
+                .eq(0)
+                .then(($el) => {
+                    const setupProgress = $el.css('width');
+                    cy.wait(5000); // wait if more chunks are uploaded
+
+                    cy.get('.progress-bar').should(($elAfter) => {
+                        const currentProgress = $elAfter.css('width');
+                        expect(currentProgress).to.equal(setupProgress);
+                    });
+                    cy.get('.progress-bar').eq(0).should('not.have.attr', 'style', 'width: 100%;');
+
+                    // resume upload
+                    cy.get('.upload-component button span.fa-pause').should('not.exist');
+                    cy.get('button').filterByText('Upload').click();
+                    cy.get('.upload-component button span.fa-pause').should('exist');
+                });
+        });
+    });
+
     it('should can pause and cancel upload', () => {
         const filesize = 2000000;
         let totalChunksExpected = 0;

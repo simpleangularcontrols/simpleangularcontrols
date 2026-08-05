@@ -41,7 +41,7 @@ describe('SacFormDirective', () => {
               </form>`,
             {
                 declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
                 componentProperties: {
                     valueChange: createOutputSpy('valueSpy'),
                 },

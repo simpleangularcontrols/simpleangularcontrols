@@ -512,7 +512,7 @@ describe('SacUploadComponent', () => {
                 }
             );
 
-            cy.get('.upload-component button span.fa-upload').click({ force: true });
+            cy.get('.upload-component a span.fa-upload').click({ force: true });
 
             // validate if no registration called
             cy.get('@uploadRegister.all').should('have.length', 0);

@@ -491,6 +491,34 @@ describe('SacUploadComponent', () => {
         });
     });
 
+    it('should not call upload with empty queue', () => {
+        const filesize = 2000000;
+        cy.registerUploadController(filesize).then((chunks) => {
+            cy.mount(
+                `<form>
+                    <sac-upload name="uploadControl" [enablepause]="true" endpoint="/api/upload/register" [label]="label"></sac-upload>
+                </form>`,
+                {
+                    declarations: [SacFormDirective],
+                    imports: [
+                        FormsModule,
+                        SACBootstrap3UploadModule,
+                        SACBootstrap3LayoutModule,
+                        SACCommonUtliltiesModule,
+                    ],
+                    componentProperties: {
+                        label: 'My Label',
+                    },
+                }
+            );
+
+            cy.get('.upload-component button span.fa-upload').click({ force: true });
+
+            // validate if no registration called
+            cy.get('@uploadRegister.all').should('have.length', 0);
+        });
+    });
+
     it('should can pause and cancel upload', () => {
         const filesize = 2000000;
         let totalChunksExpected = 0;

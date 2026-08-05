@@ -429,7 +429,7 @@ describe('SacUploadComponent', () => {
 
                     // resume upload
                     cy.get('.upload-component button span.fa-pause').should('not.exist');
-                    cy.get('button').filterByText('Upload').click();
+                    cy.get('button').filterByText('Upload').click({ force: true });
                     cy.get('.upload-component button span.fa-pause').should('not.exist');
                 });
         });

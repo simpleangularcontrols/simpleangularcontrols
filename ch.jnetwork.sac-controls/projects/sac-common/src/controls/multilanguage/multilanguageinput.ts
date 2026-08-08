@@ -132,7 +132,7 @@ export class SacMultilanguageInputCommon extends SacInputBase<any> {
      * Returns the icon of the selected language
      */
     public get SelectedIcon(): string {
-        if (this.selectedLanguage) {
+        if (this.selectedLanguage && this.selectedLanguage.Icon) {
             return this.selectedLanguage.Icon;
         } else {
             return '';
@@ -143,7 +143,7 @@ export class SacMultilanguageInputCommon extends SacInputBase<any> {
      * Returns the icon type for the selected language
      */
     public get SelectedIconType(): IconType {
-        if (this.selectedLanguage) {
+        if (this.selectedLanguage && this.selectedLanguage.IconType) {
             return this.selectedLanguage.IconType;
         } else {
             return IconType.Image;

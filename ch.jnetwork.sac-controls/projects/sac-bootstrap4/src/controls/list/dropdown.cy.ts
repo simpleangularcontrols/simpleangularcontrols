@@ -337,6 +337,51 @@ describe('SacDropdownComponent', () => {
         cy.get('select').shouldBeInvalid('select');
     });
 
+    it('should check valid required property with custom emptyvalue', () => {
+        cy.mount(
+            `<form>
+                <sac-dropdown 
+                    name="dropdown" 
+                    [label]="label"
+                    emptylabel="Please select"
+                    emptyvalue="empty"
+                    [options]="options"
+                    optionvalue="id"
+                    optionlabel="value"
+                    [(ngModel)]="value"
+                    [isrequired]="true">
+                </sac-dropdown>
+            </form>`,
+            {
+                declarations: [SacFormDirective],
+                imports: [
+                    FormsModule,
+                    SACBootstrap4DropdownModule,
+                    SACBootstrap4LayoutModule,
+                    SACCommonUtliltiesModule,
+                ],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'empty',
+                    options: [
+                        { id: 'value1', value: 'Element 1' },
+                        { id: 'value2', value: 'Element 2' },
+                        { id: 'value3', value: 'Element 3' },
+                    ],
+                },
+            }
+        );
+
+        cy.shouldHaveLabel('My Label');
+        cy.get('select').find('option:selected').should('have.text', 'Please select');
+        cy.get('select').find('option:selected').should('have.value', '0: empty');
+
+        cy.get('select').select('Element 1');
+
+        cy.get('select').shouldBeValid('select');
+        cy.get('select').find('option:selected').should('have.value', '1: value1');
+    });
+
     it('option should work with value attribute', () => {
         cy.mount(
             `<form>

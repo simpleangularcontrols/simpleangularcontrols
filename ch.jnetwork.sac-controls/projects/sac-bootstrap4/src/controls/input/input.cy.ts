@@ -738,7 +738,29 @@ describe('NgInputComponent', () => {
         cy.validateValueChanged('abc'.length);
     });
 
-    it('should validate with regex', () => {});
+    it('should validate with regex', () => {
+        cy.mount(
+            `<form>
+                <sac-input name="field" [label]="label" regexvalidation="[a-zA-Z]" validationmessagepattern="Only Characters allowed" validationmessagesummarypattern="XX" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-input>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: '',
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.get('input').should('have.value', '');
+        cy.get('input').type('My Text');
+
+        cy.get('input').shouldBeInvalid();
+        cy.get('.invalid-feedback').should('include.text', 'Only Characters allowed');
+    });
 
     it('should has e2 testkey with name', () => {
         cy.mount(

@@ -41,7 +41,7 @@ describe('SacDropzoneSingleComponent', () => {
 
     it('should handle model binding', () => {
         const filesize = 1000000;
-        cy.registerUploadController(filesize).then((chunks) => {
+        cy.registerUploadController(filesize, '64f206db-1b40-42e7-859e-d0d792464dbc').then((chunks) => {
             cy.mount(
                 `<form>
                     <sac-dropzonesingle name="uploadControl" [ngModel]="value" (ngModelChange)="valueAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonesingle>

@@ -76,6 +76,56 @@ describe('SacDateComponent', () => {
         cy.shouldBeInvalid();
     });
 
+    it('should be valid when value is after mindate', () => {
+        cy.mount(
+            `<form>
+                <sac-date name="field" [label]="label" [mindate]="mindate" [ngModel]="value">
+                </sac-date>
+            </form>`,
+            {
+                declarations: [SacFormDirective],
+                imports: [
+                    FormsModule,
+                    SACBootstrap4DateTimeModule,
+                    SACBootstrap4LayoutModule,
+                    SACCommonUtliltiesModule,
+                ],
+                componentProperties: {
+                    label: 'My Label',
+                    mindate: '01.01.2000',
+                    value: new Date(2000, 1, 2),
+                },
+            }
+        );
+
+        cy.shouldBeValid();
+    });
+
+    it('should be invalid when value is not a date', () => {
+        cy.mount(
+            `<form>
+                <sac-date name="field" [label]="label" [ngModel]="value">
+                </sac-date>
+            </form>`,
+            {
+                declarations: [SacFormDirective],
+                imports: [
+                    FormsModule,
+                    SACBootstrap4DateTimeModule,
+                    SACBootstrap4LayoutModule,
+                    SACCommonUtliltiesModule,
+                ],
+                componentProperties: {
+                    label: 'My Label',
+                    mindate: '01.01.2000',
+                    value: 'invalidvalue',
+                },
+            }
+        );
+
+        cy.shouldBeInvalid();
+    });
+
     it('should be invalid when value is after maxdate', () => {
         cy.mount(
             `<form>
@@ -93,6 +143,31 @@ describe('SacDateComponent', () => {
         );
 
         cy.shouldBeInvalid();
+    });
+
+    it('should be valid when value is before maxdate', () => {
+        cy.mount(
+            `<form>
+                <sac-date name="field" [label]="label" [maxdate]="maxdate" [ngModel]="value">
+                </sac-date>
+            </form>`,
+            {
+                declarations: [SacFormDirective],
+                imports: [
+                    FormsModule,
+                    SACBootstrap4DateTimeModule,
+                    SACBootstrap4LayoutModule,
+                    SACCommonUtliltiesModule,
+                ],
+                componentProperties: {
+                    label: 'My Label',
+                    maxdate: '01.01.2001',
+                    value: new Date(2000, 0, 2),
+                },
+            }
+        );
+
+        cy.shouldBeValid();
     });
 
     it('should accept validation message inputs (MinDate)', () => {

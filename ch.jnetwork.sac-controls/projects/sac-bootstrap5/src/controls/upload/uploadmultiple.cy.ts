@@ -42,7 +42,7 @@ describe('SacUploadMultipleComponent', () => {
 
     it('should handle model binding', () => {
         const filesize = 1000000;
-        cy.registerUploadController(filesize).then((chunks) => {
+        cy.registerUploadController(filesize, '64f206db-1b40-42e7-859e-d0d792464dbc').then((chunks) => {
             cy.mount(
                 `<form>
                     <sac-uploadmultiple name="uploadControl" [ngModel]="value" (ngModelChange)="valueAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
@@ -166,6 +166,106 @@ describe('SacUploadMultipleComponent', () => {
             cy.get('input[type="file"]').createFile(filesize, 'mov');
             cy.get('.progress-text').should('not.exist');
             cy.get('@fileerrorAction').should('be.calledWith', 'INVALID_EXTENSION');
+        });
+    });
+
+    it('should require min files if valid', () => {
+        const filesize = 2000000;
+        cy.registerUploadController(filesize).then((chunks) => {
+            cy.mount(
+                `<form #form="sacform">
+                    <sac-uploadmultiple name="uploadControl" [minfiles]="2" (onfileerror)="fileerrorAction.emit($event)"
+                    [(ngModel)]="files" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
+                    <button type="button" id="save" (click)="form.updateValueAndValidity()">Validate</button>
+                </form>`,
+                {
+                    declarations: [SacFormDirective],
+                    imports: [
+                        FormsModule,
+                        SACBootstrap5UploadModule,
+                        SACBootstrap5LayoutModule,
+                        SACCommonUtliltiesModule,
+                    ],
+                    componentProperties: {
+                        label: 'My Label',
+                        fileerrorAction: createOutputSpy('fileerrorAction'),
+                        files: null,
+                    },
+                }
+            );
+
+            cy.get('input[type="file"]').createFile(filesize, 'mov');
+            cy.get('input[type="file"]').createFile(filesize, 'txt');
+            cy.get('button').filterByText('Upload').eq(0).click();
+            cy.waitForUploadComplete(chunks, 1);
+
+            cy.get('#save').click();
+            cy.get('form').should('have.class', 'ng-valid');
+        });
+    });
+
+    it('should require min files if invalîd', () => {
+        const filesize = 2000000;
+        cy.registerUploadController(filesize).then((chunks) => {
+            cy.mount(
+                `<form #form="sacform">
+                    <sac-uploadmultiple name="uploadControl" [minfiles]="2" (onfileerror)="fileerrorAction.emit($event)"
+                    [(ngModel)]="files" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
+                    <button type="button" id="save" (click)="form.markAsTouched()">Validate</button>
+                </form>`,
+                {
+                    declarations: [SacFormDirective],
+                    imports: [
+                        FormsModule,
+                        SACBootstrap5UploadModule,
+                        SACBootstrap5LayoutModule,
+                        SACCommonUtliltiesModule,
+                    ],
+                    componentProperties: {
+                        label: 'My Label',
+                        fileerrorAction: createOutputSpy('fileerrorAction'),
+                        files: null,
+                    },
+                }
+            );
+
+            cy.get('input[type="file"]').createFile(filesize, 'mov');
+            cy.get('button').filterByText('Upload').eq(0).click();
+            cy.waitForUploadComplete(chunks);
+
+            cy.get('#save').click();
+            cy.get('form').should('have.class', 'ng-invalid');
+        });
+    });
+
+    it('should disable browse on maxfiles reached', () => {
+        const filesize = 2000000;
+        cy.registerUploadController(filesize).then((chunks) => {
+            cy.mount(
+                `<form #form="sacform">
+                    <sac-uploadmultiple name="uploadControl" [maxfiles]="2" (onfileerror)="fileerrorAction.emit($event)"
+                    [(ngModel)]="files" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
+                    <button type="button" id="save" (click)="form.updateValueAndValidity()">Validate</button>
+                </form>`,
+                {
+                    declarations: [SacFormDirective],
+                    imports: [
+                        FormsModule,
+                        SACBootstrap5UploadModule,
+                        SACBootstrap5LayoutModule,
+                        SACCommonUtliltiesModule,
+                    ],
+                    componentProperties: {
+                        label: 'My Label',
+                        fileerrorAction: createOutputSpy('fileerrorAction'),
+                        files: null,
+                    },
+                }
+            );
+
+            cy.get('input[type="file"]').createFile(filesize, 'mov');
+            cy.get('input[type="file"]').createFile(filesize, 'txt');
+            cy.get('input[type="file"]').should('be.disabled');
         });
     });
 

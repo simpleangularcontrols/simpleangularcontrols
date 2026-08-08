@@ -1,9 +1,8 @@
 import { SacFormDirective } from '../form';
 import { SACBootstrap3LayoutModule } from '../layout/layout.module';
-import { SacTooltipComponent } from '../tooltip/tooltip';
 import { SacInputComponent } from './input';
 import { FormsModule } from '@angular/forms';
-import { ControlHeight, SACCONFIGURATION_SERVICE, SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
+import { ControlHeight, SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('NgInputComponent', () => {
@@ -14,8 +13,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
               </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -35,8 +33,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
               </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -58,8 +55,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
               </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent, SacTooltipComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -81,8 +77,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
               </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -104,8 +99,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
               </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -127,8 +121,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
               </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -150,8 +143,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
               </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -202,8 +194,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
               </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -232,8 +223,7 @@ describe('NgInputComponent', () => {
                     </sac-input>
                 </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -296,8 +286,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -325,8 +314,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -354,8 +342,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -383,8 +370,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -412,8 +398,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -441,8 +426,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -478,8 +462,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -656,8 +639,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: '',
@@ -764,8 +746,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -791,8 +772,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',
@@ -818,8 +798,7 @@ describe('NgInputComponent', () => {
                 </sac-input>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'My Text',

@@ -97,13 +97,7 @@ describe('SacUploadMultipleComponent', () => {
                     <sac-uploadmultiple name="uploadControl" [enablepause]="false" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
                 </form>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [
-                        FormsModule,
-                        SACBootstrap5UploadModule,
-                        SACBootstrap5LayoutModule,
-                        SACCommonUtliltiesModule,
-                    ],
+                    imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
                         label: 'My Label',
                     },
@@ -179,13 +173,7 @@ describe('SacUploadMultipleComponent', () => {
                     <button type="button" id="save" (click)="form.updateValueAndValidity()">Validate</button>
                 </form>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [
-                        FormsModule,
-                        SACBootstrap5UploadModule,
-                        SACBootstrap5LayoutModule,
-                        SACCommonUtliltiesModule,
-                    ],
+                    imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
                         label: 'My Label',
                         fileerrorAction: createOutputSpy('fileerrorAction'),
@@ -214,13 +202,7 @@ describe('SacUploadMultipleComponent', () => {
                     <button type="button" id="save" (click)="form.markAsTouched()">Validate</button>
                 </form>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [
-                        FormsModule,
-                        SACBootstrap5UploadModule,
-                        SACBootstrap5LayoutModule,
-                        SACCommonUtliltiesModule,
-                    ],
+                    imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
                         label: 'My Label',
                         fileerrorAction: createOutputSpy('fileerrorAction'),
@@ -248,13 +230,7 @@ describe('SacUploadMultipleComponent', () => {
                     <button type="button" id="save" (click)="form.updateValueAndValidity()">Validate</button>
                 </form>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [
-                        FormsModule,
-                        SACBootstrap5UploadModule,
-                        SACBootstrap5LayoutModule,
-                        SACCommonUtliltiesModule,
-                    ],
+                    imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
                         label: 'My Label',
                         fileerrorAction: createOutputSpy('fileerrorAction'),
@@ -454,13 +430,7 @@ describe('SacUploadMultipleComponent', () => {
                     <sac-uploadmultiple name="uploadControl" [enablepause]="true" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
                 </form>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [
-                        FormsModule,
-                        SACBootstrap5UploadModule,
-                        SACBootstrap5LayoutModule,
-                        SACCommonUtliltiesModule,
-                    ],
+                    imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
                         label: 'My Label',
                     },
@@ -582,13 +552,7 @@ describe('SacUploadMultipleComponent', () => {
                     <sac-uploadmultiple name="uploadControl" [enablepause]="true" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
                 </form>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [
-                        FormsModule,
-                        SACBootstrap5UploadModule,
-                        SACBootstrap5LayoutModule,
-                        SACCommonUtliltiesModule,
-                    ],
+                    imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
                         label: 'My Label',
                     },
@@ -647,13 +611,7 @@ describe('SacUploadMultipleComponent', () => {
                     <sac-uploadmultiple name="uploadControl" [enablepause]="true" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
                 </form>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [
-                        FormsModule,
-                        SACBootstrap5UploadModule,
-                        SACBootstrap5LayoutModule,
-                        SACCommonUtliltiesModule,
-                    ],
+                    imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
                         label: 'My Label',
                     },

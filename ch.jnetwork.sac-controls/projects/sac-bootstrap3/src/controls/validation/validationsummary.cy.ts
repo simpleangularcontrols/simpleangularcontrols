@@ -2,7 +2,7 @@ import { SacFormDirective } from '../form';
 import { SacInputComponent } from '../input';
 import { SACBootstrap3LayoutModule } from '../layout/layout.module';
 import { SACBootstrap3ValidationSummaryModule } from './validationsummary.module';
-import { FormsModule, ReactiveFormsModule, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { SACCONFIGURATION_SERVICE, Validation } from '@simpleangularcontrols/sac-common';
 
 describe('SACBootstrap3ValidationSummaryModule', () => {
@@ -58,12 +58,12 @@ describe('SACBootstrap3ValidationSummaryModule', () => {
                 <sac-input name="txtinput" label="Invalid Input" [(ngModel)]="value"></sac-input>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
                 imports: [
                     FormsModule,
+                    SacFormDirective,
                     SACBootstrap3ValidationSummaryModule,
+                    SacInputComponent,
                     SACBootstrap3LayoutModule,
-                    SACCommonUtliltiesModule,
                 ],
                 componentProperties: {
                     value: '',
@@ -141,12 +141,12 @@ describe('SACBootstrap3ValidationSummaryModule', () => {
                 </div>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
                 imports: [
                     FormsModule,
+                    SacFormDirective,
+                    SacInputComponent,
                     SACBootstrap3ValidationSummaryModule,
                     SACBootstrap3LayoutModule,
-                    SACCommonUtliltiesModule,
                 ],
                 componentProperties: {
                     value1: '',
@@ -173,12 +173,12 @@ describe('SACBootstrap3ValidationSummaryModule', () => {
                 </div>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
                 imports: [
                     FormsModule,
-                    SACBootstrap3ValidationSummaryModule,
+                    SacFormDirective,
+                    SacInputComponent,
+                    SACBootstrap3ValidationSummaryModule,                    
                     SACBootstrap3LayoutModule,
-                    SACCommonUtliltiesModule,
                 ],
                 componentProperties: {
                     value1: '',
@@ -202,10 +202,9 @@ describe('SACBootstrap3ValidationSummaryModule', () => {
             </div>`,
             {
                 imports: [
-                    FormsModule,
                     ReactiveFormsModule,
-                    SACBootstrap3ValidationSummaryModule,
                     SacInputComponent,
+                    SACBootstrap3ValidationSummaryModule,
                     SACBootstrap3LayoutModule,
                 ],
                 componentProperties: {
@@ -241,12 +240,11 @@ describe('SACBootstrap3ValidationSummaryModule', () => {
                 </div>
             </div>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
                 imports: [
                     ReactiveFormsModule,
+                    SacInputComponent,
                     SACBootstrap3ValidationSummaryModule,
                     SACBootstrap3LayoutModule,
-                    SACCommonUtliltiesModule,
                 ],
                 componentProperties: {
                     value: new FormGroup({
@@ -282,10 +280,9 @@ describe('SACBootstrap3ValidationSummaryModule', () => {
             </div>`,
             {
                 imports: [
-                    FormsModule,
                     ReactiveFormsModule,
-                    SACBootstrap3ValidationSummaryModule,
                     SacInputComponent,
+                    SACBootstrap3ValidationSummaryModule,
                     SACBootstrap3LayoutModule,
                 ],
                 componentProperties: {

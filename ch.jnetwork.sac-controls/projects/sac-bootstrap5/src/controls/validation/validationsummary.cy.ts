@@ -2,7 +2,7 @@ import { SacFormDirective } from '../form';
 import { SacInputComponent } from '../input';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SACBootstrap5ValidationSummaryModule } from './validationsummary.module';
-import { FormsModule, ReactiveFormsModule, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { SACCONFIGURATION_SERVICE, Validation } from '@simpleangularcontrols/sac-common';
 
 describe('SACBootstrap5ValidationSummaryModule', () => {
@@ -35,8 +35,8 @@ describe('SACBootstrap5ValidationSummaryModule', () => {
                 imports: [
                     FormsModule,
                     SacFormDirective,
-                    SACBootstrap5ValidationSummaryModule,
                     SacInputComponent,
+                    SACBootstrap5ValidationSummaryModule,
                     SACBootstrap5LayoutModule,
                 ],
                 componentProperties: {
@@ -58,12 +58,12 @@ describe('SACBootstrap5ValidationSummaryModule', () => {
                 <sac-input name="txtinput" label="Invalid Input" [(ngModel)]="value"></sac-input>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
                 imports: [
                     FormsModule,
+                    SacFormDirective,
+                    SacInputComponent,
                     SACBootstrap5ValidationSummaryModule,
                     SACBootstrap5LayoutModule,
-                    SACCommonUtliltiesModule,
                 ],
                 componentProperties: {
                     value: '',
@@ -86,8 +86,8 @@ describe('SACBootstrap5ValidationSummaryModule', () => {
                 imports: [
                     FormsModule,
                     SacFormDirective,
-                    SACBootstrap5ValidationSummaryModule,
                     SacInputComponent,
+                    SACBootstrap5ValidationSummaryModule,
                     SACBootstrap5LayoutModule,
                 ],
                 componentProperties: {
@@ -113,8 +113,8 @@ describe('SACBootstrap5ValidationSummaryModule', () => {
                 imports: [
                     FormsModule,
                     SacFormDirective,
-                    SACBootstrap5ValidationSummaryModule,
                     SacInputComponent,
+                    SACBootstrap5ValidationSummaryModule,
                     SACBootstrap5LayoutModule,
                 ],
                 componentProperties: {
@@ -141,12 +141,12 @@ describe('SACBootstrap5ValidationSummaryModule', () => {
                 </div>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
                 imports: [
                     FormsModule,
+                    SacFormDirective,
+                    SacInputComponent,
                     SACBootstrap5ValidationSummaryModule,
                     SACBootstrap5LayoutModule,
-                    SACCommonUtliltiesModule,
                 ],
                 componentProperties: {
                     value1: '',
@@ -173,12 +173,12 @@ describe('SACBootstrap5ValidationSummaryModule', () => {
                 </div>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
                 imports: [
                     FormsModule,
+                    SacFormDirective,
+                    SacInputComponent,
                     SACBootstrap5ValidationSummaryModule,
                     SACBootstrap5LayoutModule,
-                    SACCommonUtliltiesModule,
                 ],
                 componentProperties: {
                     value1: '',
@@ -202,10 +202,10 @@ describe('SACBootstrap5ValidationSummaryModule', () => {
             </div>`,
             {
                 imports: [
-                    FormsModule,
                     ReactiveFormsModule,
-                    SACBootstrap5ValidationSummaryModule,
+                    SacFormDirective,
                     SacInputComponent,
+                    SACBootstrap5ValidationSummaryModule,
                     SACBootstrap5LayoutModule,
                 ],
                 componentProperties: {
@@ -241,12 +241,12 @@ describe('SACBootstrap5ValidationSummaryModule', () => {
                 </div>
             </div>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
                 imports: [
                     ReactiveFormsModule,
+                    SacFormDirective,
+                    SacInputComponent,
                     SACBootstrap5ValidationSummaryModule,
                     SACBootstrap5LayoutModule,
-                    SACCommonUtliltiesModule,
                 ],
                 componentProperties: {
                     value: new FormGroup({
@@ -282,10 +282,10 @@ describe('SACBootstrap5ValidationSummaryModule', () => {
             </div>`,
             {
                 imports: [
-                    FormsModule,
                     ReactiveFormsModule,
-                    SACBootstrap5ValidationSummaryModule,
+                    SacFormDirective,
                     SacInputComponent,
+                    SACBootstrap5ValidationSummaryModule,
                     SACBootstrap5LayoutModule,
                 ],
                 componentProperties: {
@@ -316,8 +316,8 @@ describe('SACBootstrap5ValidationSummaryModule', () => {
                 imports: [
                     FormsModule,
                     SacFormDirective,
-                    SACBootstrap5ValidationSummaryModule,
                     SacInputComponent,
+                    SACBootstrap5ValidationSummaryModule,
                     SACBootstrap5LayoutModule,
                 ],
                 componentProperties: { value: '' },

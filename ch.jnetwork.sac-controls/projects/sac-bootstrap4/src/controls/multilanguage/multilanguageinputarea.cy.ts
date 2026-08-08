@@ -194,13 +194,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                 <sac-multilanguageinputarea name="multilngcontrol" [label]="label" [isrequired]="true" [(ngModel)]="initValue"></sac-multilanguageinputarea>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [
-                    FormsModule,
-                    SACBootstrap4MultilanguageModule,
-                    SACBootstrap4LayoutModule,
-                    SACCommonUtliltiesModule,
-                ],
+                imports: [FormsModule, SacFormDirective, SacMultilanguageInputAreaComponent, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     initValue: { de: 'German Text' },
@@ -256,13 +250,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                 <sac-multilanguageinputarea name="multilngcontrol" [label]="label" [(ngModel)]="initValue"></sac-multilanguageinputarea>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [
-                    FormsModule,
-                    SACBootstrap4MultilanguageModule,
-                    SACBootstrap4LayoutModule,
-                    SACCommonUtliltiesModule,
-                ],
+                imports: [FormsModule, SacFormDirective, SacMultilanguageInputAreaComponent, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     initValue: { de: 'German Text' },
@@ -313,13 +301,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                 <sac-multilanguageinputarea name="multilngcontrol" [label]="label" [(ngModel)]="initValue"></sac-multilanguageinputarea>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [
-                    FormsModule,
-                    SACBootstrap4MultilanguageModule,
-                    SACBootstrap4LayoutModule,
-                    SACCommonUtliltiesModule,
-                ],
+                imports: [FormsModule, SacFormDirective, SacMultilanguageInputAreaComponent, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     initValue: { de: 'German Text' },
@@ -372,13 +354,7 @@ describe('SacMultilanguageInputAreaComponent', () => {
                 <sac-multilanguageinputarea name="multilngcontrol" [label]="label" [requiredany]="true" [(ngModel)]="initValue"></sac-multilanguageinputarea>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [
-                    FormsModule,
-                    SACBootstrap4MultilanguageModule,
-                    SACBootstrap4LayoutModule,
-                    SACCommonUtliltiesModule,
-                ],
+                imports: [FormsModule, SacFormDirective, SacMultilanguageInputAreaComponent, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     initValue: {},

@@ -83,13 +83,7 @@ describe('SacDateComponent', () => {
                 </sac-date>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [
-                    FormsModule,
-                    SACBootstrap5DateTimeModule,
-                    SACBootstrap5LayoutModule,
-                    SACCommonUtliltiesModule,
-                ],
+                imports: [FormsModule, SacFormDirective, SacDateComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     mindate: '01.01.2000',
@@ -108,13 +102,7 @@ describe('SacDateComponent', () => {
                 </sac-date>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [
-                    FormsModule,
-                    SACBootstrap5DateTimeModule,
-                    SACBootstrap5LayoutModule,
-                    SACCommonUtliltiesModule,
-                ],
+                imports: [FormsModule, SacFormDirective, SacDateComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     mindate: '01.01.2000',
@@ -470,13 +458,7 @@ describe('SacDateComponent', () => {
                 </sac-date>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [
-                    FormsModule,
-                    SACBootstrap5DateTimeModule,
-                    SACBootstrap5LayoutModule,
-                    SACCommonUtliltiesModule,
-                ],
+                imports: [FormsModule, SacFormDirective, SacDateComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: null,

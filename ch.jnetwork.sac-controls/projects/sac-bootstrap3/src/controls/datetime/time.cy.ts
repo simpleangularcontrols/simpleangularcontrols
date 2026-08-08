@@ -83,13 +83,7 @@ describe('SacTimeComponent', () => {
                 </sac-time>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [
-                    FormsModule,
-                    SACBootstrap3DateTimeModule,
-                    SACBootstrap3LayoutModule,
-                    SACCommonUtliltiesModule,
-                ],
+                imports: [FormsModule, SacFormDirective, SacTimeComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     mintime: '18:15',
@@ -127,13 +121,7 @@ describe('SacTimeComponent', () => {
                 </sac-time>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [
-                    FormsModule,
-                    SACBootstrap3DateTimeModule,
-                    SACBootstrap3LayoutModule,
-                    SACCommonUtliltiesModule,
-                ],
+                imports: [FormsModule, SacFormDirective, SacTimeComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     maxtime: '11:20',
@@ -152,13 +140,7 @@ describe('SacTimeComponent', () => {
                 </sac-time>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [
-                    FormsModule,
-                    SACBootstrap3DateTimeModule,
-                    SACBootstrap3LayoutModule,
-                    SACCommonUtliltiesModule,
-                ],
+                imports: [FormsModule, SacFormDirective, SacTimeComponent, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     maxtime: '11:20',

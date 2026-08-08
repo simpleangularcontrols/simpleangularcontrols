@@ -12,11 +12,11 @@ This library is contributed by [jNetwork GmbH](https://www.jnetwork.ch) and [exa
 
 ## Status
 
-[![Run Build](https://github.com/simpleangularcontrols/simpleangularcontrols/actions/workflows/run-build.yml/badge.svg?branch=angular%2F16.x.x)](https://github.com/simpleangularcontrols/simpleangularcontrols/actions/workflows/run-build.yml)
+[![Run Build](https://github.com/simpleangularcontrols/simpleangularcontrols/actions/workflows/run-build.yml/badge.svg?branch=angular%2F17.x.x)](https://github.com/simpleangularcontrols/simpleangularcontrols/actions/workflows/run-build.yml)
 
-[![Run Cypress Tests](https://github.com/simpleangularcontrols/simpleangularcontrols/actions/workflows/run-cypress.yml/badge.svg?branch=angular%2F16.x.x)](https://github.com/simpleangularcontrols/simpleangularcontrols/actions/workflows/run-cypress.yml)
+[![Run Cypress Tests](https://github.com/simpleangularcontrols/simpleangularcontrols/actions/workflows/run-cypress.yml/badge.svg?branch=angular%2F17.x.x)](https://github.com/simpleangularcontrols/simpleangularcontrols/actions/workflows/run-cypress.yml)
 
-[![Code Coverage](https://codecov.io/gh/simpleangularcontrols/simpleangularcontrols/branch/angular%2F16.x.x/graph/badge.svg?token=H4OXLZGR3S)](https://codecov.io/gh/simpleangularcontrols/simpleangularcontrols)
+[![Code Coverage](https://codecov.io/gh/simpleangularcontrols/simpleangularcontrols/branch/angular%2F17.x.x/graph/badge.svg?token=H4OXLZGR3S)](https://codecov.io/gh/simpleangularcontrols/simpleangularcontrols)
 
 ## Reason for the development
 

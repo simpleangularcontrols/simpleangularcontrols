@@ -50,9 +50,9 @@ describe('SacStaticLabelComponent', () => {
     it('should has e2 testkey with name', () => {
         cy.mount(
             `<form>
-                    <sac-staticlabel label="my Label" name="myControl" value="Label Value">
-                    </sac-staticlabel>
-                </form>`,
+                <sac-staticlabel label="my Label" name="myControl" value="Label Value">
+                </sac-staticlabel>
+            </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacStaticLabelComponent, SACBootstrap4LayoutModule],
                 componentProperties: {},
@@ -73,9 +73,9 @@ describe('SacStaticLabelComponent', () => {
     it('should has e2 testkey with testidentifier when name exists', () => {
         cy.mount(
             `<form>
-                    <sac-staticlabel label="my Label" name="myControl" e2eidentifier="myTestidentifier" value="Label Value">
-                    </sac-staticlabel>
-                </form>`,
+                <sac-staticlabel label="my Label" name="myControl" e2eidentifier="myTestidentifier" value="Label Value">
+                </sac-staticlabel>
+            </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacStaticLabelComponent, SACBootstrap4LayoutModule],
                 componentProperties: {},
@@ -96,9 +96,9 @@ describe('SacStaticLabelComponent', () => {
     it('should has e2 testkey with testidentifier when name not exists', () => {
         cy.mount(
             `<form>
-                    <sac-staticlabel label="my Label" e2eidentifier="myTestidentifier" value="Label Value">
-                    </sac-staticlabel>
-                </form>`,
+                <sac-staticlabel label="my Label" e2eidentifier="myTestidentifier" value="Label Value">
+                </sac-staticlabel>
+            </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacStaticLabelComponent, SACBootstrap4LayoutModule],
                 componentProperties: {},
@@ -119,9 +119,9 @@ describe('SacStaticLabelComponent', () => {
     it('should not has e2 testkey with name', () => {
         cy.mount(
             `<form>
-                    <sac-staticlabel label="my Label" value="Label Value">
-                    </sac-staticlabel>
-                </form>`,
+                <sac-staticlabel label="my Label" value="Label Value">
+                </sac-staticlabel>
+            </form>`,
             {
                 imports: [FormsModule, SacFormDirective, SacStaticLabelComponent, SACBootstrap4LayoutModule],
                 componentProperties: {},
@@ -129,5 +129,29 @@ describe('SacStaticLabelComponent', () => {
         );
 
         cy.shouldHaveDisabledTestAttribute('sac-staticlabel > div');
+    });
+
+    it('should not create validation error', () => {
+        cy.mount(
+            `<form #form="sacform">
+                <sac-staticlabel label="my Label" name="field" [ngModel]="value">
+                </sac-staticlabel>
+                <button type="button" (click)="form.updateValueAndValidity()">Validate</button>
+            </form>`,
+            {
+                declarations: [SacFormDirective, SacStaticLabelComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: 'This is a Text',
+                },
+            }
+        );
+
+        // Click to mark as touched
+        cy.get('button').click();
+        // Error not should be visible after marking as touched
+        cy.get('form').should('not.have.class', 'ng-invalid');
+        cy.get('form').should('have.class', 'ng-valid');
     });
 });

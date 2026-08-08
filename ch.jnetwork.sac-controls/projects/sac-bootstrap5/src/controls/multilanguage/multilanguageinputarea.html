@@ -83,6 +83,12 @@
                         icon="{{ sprache.Icon }}"
                         [cssclass]="IsEmpty(sprache) ? 'text-danger border-left border-danger' : ''"
                         (clicked)="SelectLanguage(sprache)"></sac-multilanguagemenubutton>
+                    <sac-multilanguagemenubutton
+                        *ngIf="!sprache.IconType"
+                        text="{{ sprache.Text }}"
+                        image="{{ sprache.Icon }}"
+                        [cssclass]="IsEmpty(sprache) ? 'text-danger border-left border-danger' : ''"
+                        (clicked)="SelectLanguage(sprache)"></sac-multilanguagemenubutton>
                 </ng-container>
             </div>
             <div

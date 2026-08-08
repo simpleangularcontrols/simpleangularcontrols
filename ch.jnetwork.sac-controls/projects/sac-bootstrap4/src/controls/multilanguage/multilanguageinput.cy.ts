@@ -199,6 +199,229 @@ describe('SacMultilanguageInputComponent', () => {
         cy.get('input').should('have.value', 'English Text');
     });
 
+    it('should have empty value if language in model not exist', () => {
+        cy.intercept('GET', 'icons/de.png', {
+            fixture: 'de.png',
+        }).as('getIconDe');
+
+        cy.intercept('GET', 'icons/en.png', {
+            fixture: 'en.png',
+        }).as('getIconEn');
+
+        cy.intercept('GET', 'icons/fr.png', {
+            fixture: 'fr.png',
+        }).as('getIconEn');
+
+        cy.mount(
+            `<form>
+                <sac-multilanguageinput name="multilngcontrol" [label]="label" [isrequired]="true" [(ngModel)]="initValue"></sac-multilanguageinput>
+            </form>`,
+            {
+                declarations: [SacFormDirective],
+                imports: [
+                    FormsModule,
+                    SACBootstrap4MultilanguageModule,
+                    SACBootstrap4LayoutModule,
+                    SACCommonUtliltiesModule,
+                ],
+                componentProperties: {
+                    label: 'My Label',
+                    initValue: { de: 'German Text' },
+                },
+                providers: [
+                    {
+                        provide: SACLANGUAGE_SERVICE,
+                        useValue: {
+                            GetLanguages() {
+                                return of([
+                                    {
+                                        IsoCode: 'de',
+                                        Text: 'Deutsch',
+                                        Icon: '/icons/de.png',
+                                        IconType: IconType.Image,
+                                    },
+                                    {
+                                        IsoCode: 'en',
+                                        Text: 'English',
+                                        Icon: '/icons/en.png',
+                                        IconType: IconType.Image,
+                                    },
+                                ]);
+                            },
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.get('input').should('have.value', 'German Text');
+        cy.get('button.dropdown-toggle').click();
+
+        cy.get('button.dropdown-item').contains('English').click();
+        cy.get('input').should('have.value', '');
+    });
+
+    it('should use image type of not set in languagemodel', () => {
+        cy.intercept('GET', 'icons/de.png', {
+            fixture: 'de.png',
+        }).as('getIconDe');
+
+        cy.intercept('GET', 'icons/en.png', {
+            fixture: 'en.png',
+        }).as('getIconEn');
+
+        cy.intercept('GET', 'icons/fr.png', {
+            fixture: 'fr.png',
+        }).as('getIconEn');
+
+        cy.mount(
+            `<form>
+                <sac-multilanguageinput name="multilngcontrol" [label]="label" [(ngModel)]="initValue"></sac-multilanguageinput>
+            </form>`,
+            {
+                declarations: [SacFormDirective],
+                imports: [
+                    FormsModule,
+                    SACBootstrap4MultilanguageModule,
+                    SACBootstrap4LayoutModule,
+                    SACCommonUtliltiesModule,
+                ],
+                componentProperties: {
+                    label: 'My Label',
+                    initValue: { de: 'German Text' },
+                },
+                providers: [
+                    {
+                        provide: SACLANGUAGE_SERVICE,
+                        useValue: {
+                            GetLanguages() {
+                                return of([
+                                    {
+                                        IsoCode: 'de',
+                                        Text: 'Deutsch',
+                                        Icon: '/icons/de.png',
+                                    },
+                                    {
+                                        IsoCode: 'en',
+                                        Text: 'English',
+                                        Icon: '/icons/en.png',
+                                    },
+                                ]);
+                            },
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.get('button.dropdown-toggle').click();
+        cy.get('button.dropdown-item img').should('exist');
+    });
+
+    it('should not show icon if not set in languagemodel', () => {
+        cy.intercept('GET', 'icons/de.png', {
+            fixture: 'de.png',
+        }).as('getIconDe');
+
+        cy.intercept('GET', 'icons/en.png', {
+            fixture: 'en.png',
+        }).as('getIconEn');
+
+        cy.intercept('GET', 'icons/fr.png', {
+            fixture: 'fr.png',
+        }).as('getIconEn');
+
+        cy.mount(
+            `<form>
+                <sac-multilanguageinput name="multilngcontrol" [label]="label" [(ngModel)]="initValue"></sac-multilanguageinput>
+            </form>`,
+            {
+                declarations: [SacFormDirective],
+                imports: [
+                    FormsModule,
+                    SACBootstrap4MultilanguageModule,
+                    SACBootstrap4LayoutModule,
+                    SACCommonUtliltiesModule,
+                ],
+                componentProperties: {
+                    label: 'My Label',
+                    initValue: { de: 'German Text' },
+                },
+                providers: [
+                    {
+                        provide: SACLANGUAGE_SERVICE,
+                        useValue: {
+                            GetLanguages() {
+                                return of([
+                                    {
+                                        IsoCode: 'de',
+                                        Text: 'Deutsch',
+                                        IconType: IconType.CssSprite,
+                                    },
+                                    {
+                                        IsoCode: 'en',
+                                        Text: 'English',
+                                        Icon: '',
+                                        IconType: IconType.Image,
+                                    },
+                                ]);
+                            },
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.get('button.dropdown-toggle').click();
+        cy.get('button.dropdown-item img').should('not.exist');
+        cy.get('button.dropdown-item span').should('not.exist');
+    });
+
+    it('should can have empty language collection', () => {
+        cy.intercept('GET', 'icons/de.png', {
+            fixture: 'de.png',
+        }).as('getIconDe');
+
+        cy.intercept('GET', 'icons/en.png', {
+            fixture: 'en.png',
+        }).as('getIconEn');
+
+        cy.intercept('GET', 'icons/fr.png', {
+            fixture: 'fr.png',
+        }).as('getIconEn');
+
+        cy.mount(
+            `<form>
+                <sac-multilanguageinput name="multilngcontrol" [label]="label" [requiredany]="true" [(ngModel)]="initValue"></sac-multilanguageinput>
+            </form>`,
+            {
+                declarations: [SacFormDirective],
+                imports: [
+                    FormsModule,
+                    SACBootstrap4MultilanguageModule,
+                    SACBootstrap4LayoutModule,
+                    SACCommonUtliltiesModule,
+                ],
+                componentProperties: {
+                    label: 'My Label',
+                    initValue: {},
+                },
+                providers: [
+                    {
+                        provide: SACLANGUAGE_SERVICE,
+                        useValue: {
+                            GetLanguages() {
+                                return of([]);
+                            },
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.get('button.dropdown-toggle').click();
+    });
+
     it('should be invalid when all values must be required', () => {
         cy.intercept('GET', 'icons/de.png', {
             fixture: 'de.png',

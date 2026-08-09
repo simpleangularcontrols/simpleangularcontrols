@@ -2,6 +2,7 @@ import { SacMultilanguagemenuAnchorDirective } from './multilanguagemenuanchor';
 import { SacMultilanguagemenuContainerDirective } from './multilanguagemenucontainer';
 import { DOCUMENT, NgTemplateOutlet } from '@angular/common';
 import {
+    ChangeDetectorRef,
     Component,
     ElementRef,
     Inject,
@@ -54,6 +55,7 @@ export class SacMultilanguagemenuComponent extends SacContextmenuCommon {
      * @param ngZone Angular Zone Service
      * @param elementRef Reference to HTML element of the current component
      * @param renderer Angular render service
+     * @param cdr Change Detection service
      * @param injector Injector to resolve services in base component
      */
     constructor(
@@ -61,9 +63,10 @@ export class SacMultilanguagemenuComponent extends SacContextmenuCommon {
         ngZone: NgZone,
         elementRef: ElementRef<HTMLElement>,
         renderer: Renderer2,
+        cdr: ChangeDetectorRef,
         injector: Injector
     ) {
-        super(document, ngZone, elementRef, renderer, injector);
+        super(document, ngZone, elementRef, renderer, cdr, injector);
     }
 
     // #endregion Constructors

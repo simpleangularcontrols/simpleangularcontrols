@@ -1,6 +1,6 @@
 import { SacFormDirective } from '../../controls/form';
 import { SACBootstrap4LayoutModule } from '../../controls/layout/layout.module';
-import { SACBootstrap4BrowserModule } from './browser.module';
+import { SacBrowserComponent } from './browser';
 import { FormsModule } from '@angular/forms';
 import { createOutputSpy } from 'cypress/angular';
 
@@ -11,8 +11,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -28,8 +27,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -48,8 +46,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -69,8 +66,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -92,8 +88,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                     </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -119,8 +114,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser" allowedtypes=".txt,.csv">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {
                         fileerrorAction: createOutputSpy('fileerrorAction'),
                     },
@@ -146,8 +140,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser" selectedfile="Files/SubFolder 2/File 2.jpg">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -165,8 +158,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser" >
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -189,8 +181,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser" selectedfile="Files/SubFolder 1/Null Files Folder/Serverfile 2.jpg">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -213,8 +204,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser" (file)="fileAction.emit($event)">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {
                         fileAction: createOutputSpy('fileAction'),
                     },
@@ -236,8 +226,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -258,8 +247,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -281,8 +269,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -304,8 +291,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -329,8 +315,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -355,8 +340,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -380,8 +364,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -402,8 +385,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -425,8 +407,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -448,8 +429,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -470,8 +450,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -493,8 +472,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -517,8 +495,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -542,8 +519,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -567,8 +543,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );
@@ -592,8 +567,7 @@ describe('SacBrowserComponent', () => {
                 `<sac-filebrowser apiurl="/api/browser">
                 </sac-filebrowser>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [FormsModule, SACBootstrap4BrowserModule, SACBootstrap4LayoutModule],
+                    imports: [FormsModule, SacFormDirective, SacBrowserComponent, SACBootstrap4LayoutModule],
                     componentProperties: {},
                 }
             );

@@ -44,6 +44,7 @@
 
 // Custom Commands
 import './bootstrapmarkup';
+import './browsercomponenthelper';
 import './htmlattributes';
 import './modelchanged';
 import './uploadhelper';

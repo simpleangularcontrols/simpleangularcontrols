@@ -8,7 +8,7 @@
         class="dropdown-menu dropdown-menu-right"
         sacContextMenuContainer
         [class.show]="isopen">
-        <ng-content></ng-content>
+        <ng-content *ngIf="isopen"></ng-content>
     </div>
 </div>
 

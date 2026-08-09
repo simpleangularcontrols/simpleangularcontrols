@@ -1,6 +1,7 @@
 import { SacFormDirective } from '../form';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { SacDateComponent } from './date';
+import { SacDateComponent } from './datetime.module';
 import { FormsModule, ReactiveFormsModule, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
@@ -83,13 +84,7 @@ describe('SacDateComponent', () => {
                 </sac-date>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [
-                    FormsModule,
-                    SACBootstrap5DateTimeModule,
-                    SACBootstrap5LayoutModule,
-                    SACCommonUtliltiesModule,
-                ],
+                imports: [FormsModule, SacFormDirective, SacDateComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     mindate: '01.01.2000',
@@ -108,13 +103,7 @@ describe('SacDateComponent', () => {
                 </sac-date>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [
-                    FormsModule,
-                    SACBootstrap5DateTimeModule,
-                    SACBootstrap5LayoutModule,
-                    SACCommonUtliltiesModule,
-                ],
+                imports: [FormsModule, SacFormDirective, SacDateComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     mindate: '01.01.2000',
@@ -470,13 +459,7 @@ describe('SacDateComponent', () => {
                 </sac-date>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [
-                    FormsModule,
-                    SACBootstrap5DateTimeModule,
-                    SACBootstrap5LayoutModule,
-                    SACCommonUtliltiesModule,
-                ],
+                imports: [FormsModule, SacFormDirective, SacDateComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: null,

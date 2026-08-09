@@ -1,6 +1,6 @@
 import { SacContextmenuAnchorDirective } from './contextmenuanchor';
 import { SacContextmenuContainerDirective } from './contextmenucontainer';
-import { DOCUMENT, NgClass, NgTemplateOutlet } from '@angular/common';
+import { DOCUMENT, NgClass, NgIf, NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectorRef, Component, ElementRef, Inject, Injector, NgZone, Renderer2 } from '@angular/core';
 import { SacContextmenuCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
@@ -12,6 +12,7 @@ import { SacContextmenuCommon, SacTestingAttributePipe } from '@simpleangularcon
     templateUrl: './contextmenu.html',
     standalone: true,
     imports: [
+        NgIf,
         NgClass,
         NgTemplateOutlet,
         SacContextmenuContainerDirective,

@@ -1,5 +1,6 @@
 import { SacFormDirective } from '../form';
 import { SACBootstrap3LayoutModule } from '../layout/layout.module';
+import { SACBootstrap3DateTimeModule } from './datetime.module';
 import { SacTimeComponent } from './time';
 import { FormsModule, ReactiveFormsModule, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { SACCONFIGURATION_SERVICE } from '@simpleangularcontrols/sac-common';
@@ -83,13 +84,7 @@ describe('SacTimeComponent', () => {
                 </sac-time>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [
-                    FormsModule,
-                    SACBootstrap3DateTimeModule,
-                    SACBootstrap3LayoutModule,
-                    SACCommonUtliltiesModule,
-                ],
+                imports: [FormsModule, SacFormDirective, SACBootstrap3DateTimeModule, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     mintime: '18:15',
@@ -127,13 +122,7 @@ describe('SacTimeComponent', () => {
                 </sac-time>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [
-                    FormsModule,
-                    SACBootstrap3DateTimeModule,
-                    SACBootstrap3LayoutModule,
-                    SACCommonUtliltiesModule,
-                ],
+                imports: [FormsModule, SacFormDirective, SACBootstrap3DateTimeModule, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     maxtime: '11:20',
@@ -152,13 +141,7 @@ describe('SacTimeComponent', () => {
                 </sac-time>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [
-                    FormsModule,
-                    SACBootstrap3DateTimeModule,
-                    SACBootstrap3LayoutModule,
-                    SACCommonUtliltiesModule,
-                ],
+                imports: [FormsModule, SacFormDirective, SACBootstrap3DateTimeModule, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     maxtime: '11:20',

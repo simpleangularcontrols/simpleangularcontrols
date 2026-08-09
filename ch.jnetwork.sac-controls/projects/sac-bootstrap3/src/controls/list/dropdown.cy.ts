@@ -233,8 +233,7 @@ describe('SacDropdownComponent', () => {
                 </sac-dropdown>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [FormsModule, SACBootstrap3ListModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap3ListModule, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'empty',
@@ -270,8 +269,7 @@ describe('SacDropdownComponent', () => {
                 </sac-dropdown>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [FormsModule, SACBootstrap3ListModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap3ListModule, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 0,
@@ -307,8 +305,7 @@ describe('SacDropdownComponent', () => {
                 </sac-dropdown>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [FormsModule, SACBootstrap3ListModule, SACBootstrap3LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap3ListModule, SACBootstrap3LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: 'empty',

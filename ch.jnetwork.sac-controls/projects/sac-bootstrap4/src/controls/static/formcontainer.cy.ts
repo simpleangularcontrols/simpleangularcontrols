@@ -146,8 +146,7 @@ describe('SacStaticFormContainerComponent', () => {
                 <button type="button" (click)="form.updateValueAndValidity()">Validate</button>
             </form>`,
             {
-                declarations: [SacFormDirective, SacStaticFormContainerComponent],
-                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacStaticFormContainerComponent, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                 },

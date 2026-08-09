@@ -94,8 +94,7 @@ describe('SacListboxComponent', () => {
                 </sac-listbox>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [FormsModule, SACBootstrap4ListModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap4ListModule, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: ['1'],
@@ -127,8 +126,7 @@ describe('SacListboxComponent', () => {
                 </sac-listbox>
             </form>`,
             {
-                declarations: [SacFormDirective],
-                imports: [FormsModule, SACBootstrap4ListModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap4ListModule, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     value: [item],

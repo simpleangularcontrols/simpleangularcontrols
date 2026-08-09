@@ -2,7 +2,6 @@ import { SacFormDirective } from '../form';
 import { SacInputComponent } from '../input/input';
 import { SACBootstrap5LayoutModule } from '../layout/layout.module';
 import { FormsModule } from '@angular/forms';
-import { SACCommonUtliltiesModule } from '@simpleangularcontrols/sac-common';
 import { createOutputSpy } from 'cypress/angular';
 
 describe('SacFormDirective', () => {
@@ -14,8 +13,7 @@ describe('SacFormDirective', () => {
                 <button type="button" (click)="form.markAsTouched()">Validate</button>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
                     valueChange: createOutputSpy('valueSpy'),
                 },
@@ -43,8 +41,7 @@ describe('SacFormDirective', () => {
                 <button type="button" (click)="form.markAsTouched()">Validate</button>
                 </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
                     valueChange: createOutputSpy('valueSpy'),
                 },
@@ -70,8 +67,7 @@ describe('SacFormDirective', () => {
                 </sac-input>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
                     valueChange: createOutputSpy('valueSpy'),
                 },
@@ -98,8 +94,7 @@ describe('SacFormDirective', () => {
                 </sac-input>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
                     valueChange: createOutputSpy('valueSpy'),
                 },
@@ -126,8 +121,7 @@ describe('SacFormDirective', () => {
                 </sac-input>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
                     valueChange: createOutputSpy('valueSpy'),
                 },
@@ -153,8 +147,7 @@ describe('SacFormDirective', () => {
                 <button type="button" (click)="form.updateValueAndValidity()">Validate</button>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
                     valueChange: createOutputSpy('valueSpy'),
                 },
@@ -182,8 +175,7 @@ describe('SacFormDirective', () => {
                 <button type="button" (click)="form.updateValueAndValidity()">Validate</button>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
-                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                imports: [FormsModule, SacFormDirective, SacInputComponent, SACBootstrap5LayoutModule],
                 componentProperties: {
                     valueChange: createOutputSpy('valueSpy'),
                 },

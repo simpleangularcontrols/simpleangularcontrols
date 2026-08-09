@@ -2,7 +2,14 @@ import { SacFormDirective } from '../form';
 import { SacInputComponent } from '../input';
 import { SACBootstrap4LayoutModule } from '../layout/layout.module';
 import { SACBootstrap4ValidationSummaryModule } from './validationsummary.module';
-import { FormsModule, ReactiveFormsModule, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import {
+    FormControl,
+    FormGroup,
+    FormsModule,
+    ReactiveFormsModule,
+    UntypedFormControl,
+    UntypedFormGroup,
+} from '@angular/forms';
 import { SACCONFIGURATION_SERVICE, Validation } from '@simpleangularcontrols/sac-common';
 
 describe('SACBootstrap4ValidationSummaryModule', () => {
@@ -58,12 +65,12 @@ describe('SACBootstrap4ValidationSummaryModule', () => {
                 <sac-input name="txtinput" label="Invalid Input" [(ngModel)]="value"></sac-input>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
                 imports: [
                     FormsModule,
+                    SacFormDirective,
+                    SacInputComponent,
                     SACBootstrap4ValidationSummaryModule,
                     SACBootstrap4LayoutModule,
-                    SACCommonUtliltiesModule,
                 ],
                 componentProperties: {
                     value: '',
@@ -141,12 +148,12 @@ describe('SACBootstrap4ValidationSummaryModule', () => {
                 </div>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
                 imports: [
                     FormsModule,
+                    SacFormDirective,
+                    SacInputComponent,
                     SACBootstrap4ValidationSummaryModule,
                     SACBootstrap4LayoutModule,
-                    SACCommonUtliltiesModule,
                 ],
                 componentProperties: {
                     value1: '',
@@ -173,12 +180,12 @@ describe('SACBootstrap4ValidationSummaryModule', () => {
                 </div>
             </form>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
                 imports: [
                     FormsModule,
+                    SacFormDirective,
+                    SacInputComponent,
                     SACBootstrap4ValidationSummaryModule,
                     SACBootstrap4LayoutModule,
-                    SACCommonUtliltiesModule,
                 ],
                 componentProperties: {
                     value1: '',
@@ -241,12 +248,12 @@ describe('SACBootstrap4ValidationSummaryModule', () => {
                 </div>
             </div>`,
             {
-                declarations: [SacFormDirective, SacInputComponent],
                 imports: [
                     ReactiveFormsModule,
+                    SacFormDirective,
+                    SacInputComponent,
                     SACBootstrap4ValidationSummaryModule,
                     SACBootstrap4LayoutModule,
-                    SACCommonUtliltiesModule,
                 ],
                 componentProperties: {
                     value: new FormGroup({

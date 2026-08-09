@@ -97,13 +97,7 @@ describe('SacUploadComponent', () => {
                     <sac-upload name="uploadControl" [enablepause]="false" endpoint="/api/upload/register" [label]="label"></sac-upload>
                 </form>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [
-                        FormsModule,
-                        SACBootstrap5UploadModule,
-                        SACBootstrap5LayoutModule,
-                        SACCommonUtliltiesModule,
-                    ],
+                    imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
                         label: 'My Label',
                     },
@@ -177,13 +171,7 @@ describe('SacUploadComponent', () => {
                     <sac-upload name="uploadControl" allowedtypes=".txt,.csv,.mov" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-upload>
                 </form>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [
-                        FormsModule,
-                        SACBootstrap5UploadModule,
-                        SACBootstrap5LayoutModule,
-                        SACCommonUtliltiesModule,
-                    ],
+                    imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
                         label: 'My Label',
                         fileerrorAction: createOutputSpy('fileerrorAction'),
@@ -382,13 +370,7 @@ describe('SacUploadComponent', () => {
                     <sac-upload name="uploadControl" [enablepause]="true" endpoint="/api/upload/register" [label]="label"></sac-upload>
                 </form>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [
-                        FormsModule,
-                        SACBootstrap5UploadModule,
-                        SACBootstrap5LayoutModule,
-                        SACCommonUtliltiesModule,
-                    ],
+                    imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
                         label: 'My Label',
                     },
@@ -443,13 +425,7 @@ describe('SacUploadComponent', () => {
                     <sac-upload name="uploadControl" [enablepause]="true" endpoint="/api/upload/register" [label]="label"></sac-upload>
                 </form>`,
                 {
-                    declarations: [SacFormDirective],
-                    imports: [
-                        FormsModule,
-                        SACBootstrap5UploadModule,
-                        SACBootstrap5LayoutModule,
-                        SACCommonUtliltiesModule,
-                    ],
+                    imports: [FormsModule, SacFormDirective, SACBootstrap5UploadModule, SACBootstrap5LayoutModule],
                     componentProperties: {
                         label: 'My Label',
                     },

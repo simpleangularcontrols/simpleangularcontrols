@@ -1,18 +1,6 @@
 /**
  * Generates a random GUID in UUID v4 format
  */
-// #region Functions
-
-function generateGUID(): string {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-        const r = (Math.random() * 16) | 0;
-        const v = c === 'x' ? r : (r & 0x3) | 0x8;
-        return v.toString(16);
-    });
-}
-
-// #endregion Functions
-
 declare namespace Cypress {
     interface Chainable {
         registerUploadController(filesize: number, fixedguid?: string): Chainable<number>;
@@ -23,6 +11,14 @@ declare namespace Cypress {
 }
 
 Cypress.Commands.add('registerUploadController', (filesize: number, fixedguid: string | null = null) => {
+    function generateGUID(): string {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            const r = (Math.random() * 16) | 0;
+            const v = c === 'x' ? r : (r & 0x3) | 0x8;
+            return v.toString(16);
+        });
+    }
+
     let chunkCount = 0;
     const rangeSize = 131071;
 

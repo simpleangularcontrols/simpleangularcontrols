@@ -5,10 +5,11 @@
     <ng-container [ngTemplateOutlet]="buttontemplate || defaultButtonTemplate"></ng-container>
 
     <div
+        *ngIf="isopen"
         class="dropdown-menu dropdown-menu-right"
         sacContextMenuContainer
         [class.show]="isopen">
-        <ng-content *ngIf="isopen"></ng-content>
+        <ng-content></ng-content>
     </div>
 </div>
 

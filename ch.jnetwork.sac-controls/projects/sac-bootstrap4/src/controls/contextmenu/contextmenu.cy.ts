@@ -26,8 +26,8 @@ describe('SacContextmenuComponent', () => {
 
         cy.get('sac-contextmenu').should('exist');
 
-        cy.get('div.dropdown-menu').should('not.be.visible');
-        cy.contains('div.dropdown-menu button.dropdown-item', 'Action 1').should('exist').should('not.be.visible');
+        cy.get('div.dropdown-menu').should('not.exist');
+        cy.contains('div.dropdown-menu button.dropdown-item', 'Action 1').should('not.exist');
 
         cy.get('div.dropdown > button').click();
         cy.get('div.dropdown-menu').should('be.visible');
@@ -56,8 +56,8 @@ describe('SacContextmenuComponent', () => {
 
         cy.get('sac-contextmenu').should('exist');
 
-        cy.get('div.dropdown-menu').should('not.be.visible');
-        cy.contains('div.dropdown-menu button.dropdown-item', 'Action 1').should('exist').should('not.be.visible');
+        cy.get('div.dropdown-menu').should('not.exist');
+        cy.contains('div.dropdown-menu button.dropdown-item', 'Action 1').should('not.exist');
 
         cy.get('div.dropdown > button').click();
         cy.get('div.dropdown-menu').should('be.visible');
@@ -98,8 +98,8 @@ describe('SacContextmenuComponent', () => {
 
         cy.get('sac-contextmenu').should('exist');
 
-        cy.get('div.dropdown-menu').should('not.be.visible');
-        cy.contains('div.dropdown-menu button.dropdown-item', 'Action 1').should('exist').should('not.be.visible');
+        cy.get('div.dropdown-menu').should('not.exist');
+        cy.contains('div.dropdown-menu button.dropdown-item', 'Action 1').should('not.exist');
 
         cy.get('div.dropdown > button').click();
         cy.get('div.dropdown-menu').should('be.visible');
@@ -140,8 +140,8 @@ describe('SacContextmenuComponent', () => {
 
         cy.get('sac-contextmenu').should('exist');
 
-        cy.get('div.dropdown-menu').should('not.be.visible');
-        cy.contains('div.dropdown-menu button.dropdown-item', 'Action 1').should('exist').should('not.be.visible');
+        cy.get('div.dropdown-menu').should('not.exist');
+        cy.contains('div.dropdown-menu button.dropdown-item', 'Action 1').should('not.exist');
 
         cy.get('div.dropdown > button').click();
         cy.get('div.dropdown-menu').should('be.visible');
@@ -175,13 +175,17 @@ describe('SacContextmenuComponent', () => {
 
         cy.get('sac-contextmenu').should('exist');
 
-        cy.get('div.dropdown-menu').should('not.be.visible');
-        cy.contains('div.dropdown-menu button.dropdown-item', 'Action 1').should('exist').should('not.be.visible');
+        cy.get('div.dropdown-menu').should('not.exist');
+        cy.contains('div.dropdown-menu button.dropdown-item', 'Action 1').should('not.exist');
 
         cy.get('div.dropdown > button').click();
         cy.get('div.dropdown-menu').should('be.visible');
 
         cy.contains('div.dropdown-menu button.dropdown-item', 'Action 1').click();
+        cy.contains('div.dropdown-menu button.dropdown-item', 'Action 1').should('not.exist');
+
+        cy.get('div.dropdown > button').click();
+        cy.get('div.dropdown-menu').should('be.visible');
         cy.contains('div.dropdown-menu button.dropdown-item', 'Action 2').click({ force: true });
 
         cy.get('@clickEnabledSpy').should('be.calledOnce');
@@ -215,8 +219,8 @@ describe('SacContextmenuComponent', () => {
 
         cy.get('#contextmenubutton').should('exist');
 
-        cy.get('div.dropdown-menu').should('not.be.visible');
-        cy.contains('div.dropdown-menu button.dropdown-item', 'Action 1').should('exist').should('not.be.visible');
+        cy.get('div.dropdown-menu').should('not.exist');
+        cy.contains('div.dropdown-menu button.dropdown-item', 'Action 1').should('not.exist');
 
         cy.get('#contextmenubutton').click();
         cy.get('div.dropdown-menu').should('be.visible');

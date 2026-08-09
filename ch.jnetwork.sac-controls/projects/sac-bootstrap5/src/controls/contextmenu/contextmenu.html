@@ -5,6 +5,7 @@
     <ng-container [ngTemplateOutlet]="buttontemplate || defaultButtonTemplate"></ng-container>
 
     <ul
+        *ngIf="isopen"
         class="dropdown-menu dropdown-menu-end"
         sacContextMenuContainer
         [class.show]="isopen">

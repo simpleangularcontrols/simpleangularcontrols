@@ -9,6 +9,7 @@ import { SacContextmenuItemCommon } from './contextmenuitem';
 import { DOCUMENT } from '@angular/common';
 import {
     AfterContentInit,
+    ChangeDetectorRef,
     ContentChild,
     ContentChildren,
     Directive,
@@ -133,6 +134,7 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
      * @param ngZone Angular zone service
      * @param elementRef HTML element of the current control
      * @param renderer Angular rendering service
+     * @param cdr Change Detection Service
      * @param injector Injector to resolve the icon service
      */
     constructor(
@@ -140,6 +142,7 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
         private readonly ngZone: NgZone,
         private readonly elementRef: ElementRef<HTMLElement>,
         private readonly renderer: Renderer2,
+        private readonly cdr: ChangeDetectorRef,
         injector: Injector
     ) {
         this.zoneSubscription = this.ngZone.onStable.subscribe(() => {
@@ -217,8 +220,9 @@ export class SacContextmenuCommon implements ISacContextmenuCommon, AfterContent
      * Opens the dropdown / shows the menu.
      */
     public open(): void {
-        this._applyContainer(this.container);
         this.isopen = true;
+        this.cdr.detectChanges();
+        this._applyContainer(this.container);
     }
 
     /**

@@ -131,7 +131,7 @@ describe('SacTreeviewComponent', () => {
                 <sac-treeview name="treeviewControl" [label]="label" [data]="data" attrdisableaction="disableaction"></sac-treeview>
             </form>`,
             {
-                imports: [FormsModule, , SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     data: [
@@ -366,7 +366,7 @@ describe('SacTreeviewComponent', () => {
                 <sac-treeview name="treeviewControl" [label]="label" [data]="data" attrdisableaction=""></sac-treeview>
             </form>`,
             {
-                imports: [FormsModule, , SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     data: [
@@ -724,7 +724,7 @@ describe('SacTreeviewComponent', () => {
                 <sac-treeview name="treeviewControl" [label]="label" [data]="data"></sac-treeview>
             </form>`,
             {
-                imports: [FormsModule, , SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     data: [
@@ -763,7 +763,7 @@ describe('SacTreeviewComponent', () => {
                 <sac-treeview name="treeviewControl" [label]="label" [data]="data" attrchildren=""></sac-treeview>
             </form>`,
             {
-                imports: [FormsModule, , SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     data: [
@@ -801,7 +801,7 @@ describe('SacTreeviewComponent', () => {
                 <sac-treeview name="treeviewControl" [label]="label" [data]="data"></sac-treeview>
             </form>`,
             {
-                imports: [FormsModule, , SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     data: [
@@ -844,7 +844,7 @@ describe('SacTreeviewComponent', () => {
                 <sac-treeview name="treeviewControl" [label]="label" [data]="data" attrlabel=""></sac-treeview>
             </form>`,
             {
-                imports: [FormsModule, , SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     data: [
@@ -887,7 +887,7 @@ describe('SacTreeviewComponent', () => {
                 <sac-treeview name="treeviewControl" [label]="label" [data]="data" attrdisableaction=""></sac-treeview>
             </form>`,
             {
-                imports: [FormsModule, , SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     data: [
@@ -929,7 +929,7 @@ describe('SacTreeviewComponent', () => {
                 <sac-treeview name="treeviewControl" [label]="label" [data]="data" attrexpanded=""></sac-treeview>
             </form>`,
             {
-                imports: [FormsModule, , SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     data: [
@@ -969,7 +969,7 @@ describe('SacTreeviewComponent', () => {
                 <sac-treeview name="treeviewControl" [label]="label" [data]="data" attrselected=""></sac-treeview>
             </form>`,
             {
-                imports: [FormsModule, , SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     data: [
@@ -1013,7 +1013,7 @@ describe('SacTreeviewComponent', () => {
                 <sac-treeview name="treeviewControl" [label]="label" [data]="data" attrhoverstate=""></sac-treeview>
             </form>`,
             {
-                imports: [FormsModule, , SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     data: [
@@ -1085,7 +1085,7 @@ describe('SacTreeviewComponent', () => {
                 <sac-treeview name="treeviewControl" [label]="label" [data]="data" attrhoverstate="hover"></sac-treeview>
             </form>`,
             {
-                imports: [FormsModule, , SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     data,
@@ -1128,7 +1128,7 @@ describe('SacTreeviewComponent', () => {
                 <sac-treeview name="treeviewControl" [label]="label" [data]="data" [(ngModel)]="value" attrhoverstate=""></sac-treeview>
             </form>`,
             {
-                imports: [FormsModule, , SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     data: null,
@@ -1147,7 +1147,7 @@ describe('SacTreeviewComponent', () => {
                 <sac-treeview name="treeviewControl" [label]="label" [data]="data" [(ngModel)]="value" attrid=""></sac-treeview>
             </form>`,
             {
-                imports: [FormsModule, , SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
+                imports: [FormsModule, SacFormDirective, SACBootstrap4TreeviewModule, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'My Label',
                     data: [

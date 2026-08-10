@@ -34,6 +34,7 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Summary
+        if: always()
         run: |
           echo "# Bootstrap 3 Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
@@ -53,7 +54,7 @@ jobs:
           cat ch.jnetwork.sac-controls/reports/coverage-bootstrap5/SummaryGithub.md  >> $GITHUB_STEP_SUMMARY
 
       - name: Add comment to PR # Only applicable if 'MarkdownSummaryGithub' or one of the other Markdown report types is generated
-        if: github.event_name == 'pull_request'
+        if: always() && github.event_name == 'pull_request'
         run: |
           echo "# Bootstrap 3 Summary" >> ch.jnetwork.sac-controls/reports/prcomment-bs3.md
           echo "" >> ch.jnetwork.sac-controls/reports/prcomment-bs3.md
@@ -75,7 +76,7 @@ jobs:
           cat ch.jnetwork.sac-controls/reports/coverage-bootstrap5/SummaryGithub.md  >> ch.jnetwork.sac-controls/reports/prcomment-bs5.md
 
       - name: Post Sticky PR Comments
-        if: github.event_name == 'pull_request'
+        if: always() && github.event_name == 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |

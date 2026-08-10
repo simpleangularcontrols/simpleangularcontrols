@@ -209,10 +209,9 @@ describe('SACBootstrap3ValidationSummaryModule', () => {
             </div>`,
             {
                 imports: [
-                    FormsModule,
                     ReactiveFormsModule,
-                    SACBootstrap3ValidationSummaryModule,
                     SacInputComponent,
+                    SACBootstrap3ValidationSummaryModule,
                     SACBootstrap3LayoutModule,
                 ],
                 componentProperties: {
@@ -250,7 +249,6 @@ describe('SACBootstrap3ValidationSummaryModule', () => {
             {
                 imports: [
                     ReactiveFormsModule,
-                    SacFormDirective,
                     SacInputComponent,
                     SACBootstrap3ValidationSummaryModule,
                     SACBootstrap3LayoutModule,
@@ -289,10 +287,9 @@ describe('SACBootstrap3ValidationSummaryModule', () => {
             </div>`,
             {
                 imports: [
-                    FormsModule,
                     ReactiveFormsModule,
-                    SACBootstrap3ValidationSummaryModule,
                     SacInputComponent,
+                    SACBootstrap3ValidationSummaryModule,
                     SACBootstrap3LayoutModule,
                 ],
                 componentProperties: {

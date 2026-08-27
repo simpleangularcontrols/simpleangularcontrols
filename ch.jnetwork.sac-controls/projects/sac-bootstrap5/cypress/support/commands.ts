@@ -42,8 +42,10 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
+// Helper Methods
 // Custom Commands
 import './bootstrapmarkup';
+import './browsercomponenthelper';
 import './htmlattributes';
 import './modelchanged';
 import './uploadhelper';

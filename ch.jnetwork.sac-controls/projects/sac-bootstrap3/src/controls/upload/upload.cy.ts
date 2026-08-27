@@ -41,7 +41,7 @@ describe('SacUploadComponent', () => {
 
     it('should handle model binding', () => {
         const filesize = 1000000;
-        cy.registerUploadController(filesize).then((chunks) => {
+        cy.registerUploadController(filesize, '64f206db-1b40-42e7-859e-d0d792464dbc').then((chunks) => {
             cy.mount(
                 `<form>
                     <sac-upload name="uploadControl" [ngModel]="value" (ngModelChange)="valueAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-upload>
@@ -89,6 +89,34 @@ describe('SacUploadComponent', () => {
         });
     });
 
+    it('should not have pause button', () => {
+        const filesize = 2000000;
+        cy.registerUploadController(filesize).then((chunks) => {
+            cy.mount(
+                `<form>
+                    <sac-upload name="uploadControl" [enablepause]="false" endpoint="/api/upload/register" [label]="label"></sac-upload>
+                </form>`,
+                {
+                    imports: [FormsModule, SacFormDirective, SACBootstrap3UploadModule, SACBootstrap3LayoutModule],
+                    componentProperties: {
+                        label: 'My Label',
+                    },
+                }
+            );
+
+            cy.get('.upload-component a span.fa-pause').should('not.exist');
+            cy.get('input[type="file"]').createFile(filesize);
+            cy.get('div').filterByText('Upload').click();
+
+            cy.get('.upload-component a span.fa-pause').should('not.exist');
+            cy.waitForUploadComplete(chunks);
+
+            cy.get('.progress-bar').eq(0).should('have.text', 'upload.file1.txt');
+            cy.get('.progress-bar').eq(0).should('not.have.attr', 'style', 'width: 100%');
+            cy.get('.upload-component a span.fa-pause').should('not.exist');
+        });
+    });
+
     it('should can auto upload file', () => {
         const filesize = 2000000;
         cy.registerUploadController(filesize).then((chunks) => {
@@ -113,12 +141,12 @@ describe('SacUploadComponent', () => {
         });
     });
 
-    it('should validate file extension', () => {
+    it('should validate file extension when invalid', () => {
         const filesize = 2000000;
         cy.registerUploadController(filesize).then((_) => {
             cy.mount(
                 `<form>
-                    <sac-upload name="uploadControl" allowedtypes=".txt|.csv" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-upload>
+                    <sac-upload name="uploadControl" allowedtypes=".txt,.csv" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-upload>
                 </form>`,
                 {
                     imports: [FormsModule, SacFormDirective, SACBootstrap3UploadModule, SACBootstrap3LayoutModule],
@@ -132,6 +160,28 @@ describe('SacUploadComponent', () => {
             cy.get('input[type="file"]').createFile(filesize, 'mov');
             cy.get('.progress-text').should('have.text', 'Keine Datei ausgewählt');
             cy.get('@fileerrorAction').should('be.calledWith', 'INVALID_EXTENSION');
+        });
+    });
+
+    it('should validate file extension when valid', () => {
+        const filesize = 2000000;
+        cy.registerUploadController(filesize).then((_) => {
+            cy.mount(
+                `<form>
+                    <sac-upload name="uploadControl" allowedtypes=".txt,.csv,mov" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-upload>
+                </form>`,
+                {
+                    imports: [FormsModule, SacFormDirective, SACBootstrap3UploadModule, SACBootstrap3LayoutModule],
+                    componentProperties: {
+                        label: 'My Label',
+                        fileerrorAction: createOutputSpy('fileerrorAction'),
+                    },
+                }
+            );
+
+            cy.get('input[type="file"]').createFile(filesize, 'mov');
+            cy.get('.progress-text').should('have.text', 'upload.file1.mov');
+            cy.get('@fileerrorAction').should('not.be.calledWith', 'INVALID_EXTENSION');
         });
     });
 
@@ -302,10 +352,90 @@ describe('SacUploadComponent', () => {
                     cy.get('.progress-bar').eq(0).should('not.have.attr', 'style', 'width: 100%;');
 
                     // resume upload
-                    cy.get('div').filterByText('Upload').click();
+                    cy.get('.upload-component a span.fa-pause').should('not.exist');
+                    cy.get('div a').filterByText('Upload').should('have.attr', 'disabled');
+                    cy.get('.upload-component a span.fa-play').click();
                     cy.get('.progress-bar').eq(0).should('have.text', 'upload.file1.txt');
                     cy.get('.progress-bar').eq(0).should('have.attr', 'style', 'width: 100%;');
+                    cy.get('.upload-component a span.fa-pause').should('exist');
                 });
+        });
+    });
+
+    it('should not can resume with upload', () => {
+        const filesize = 2000000;
+        cy.registerUploadController(filesize).then((chunks) => {
+            cy.mount(
+                `<form>
+                    <sac-upload name="uploadControl" [enablepause]="true" endpoint="/api/upload/register" [label]="label"></sac-upload>
+                </form>`,
+                {
+                    imports: [FormsModule, SacFormDirective, SACBootstrap3UploadModule, SACBootstrap3LayoutModule],
+                    componentProperties: {
+                        label: 'My Label',
+                    },
+                }
+            );
+
+            cy.get('input[type="file"]').createFile(filesize);
+            cy.get('div').filterByText('Upload').click();
+
+            cy.wait('@uploadRegister');
+
+            for (let i = 0; i < chunks - 4; i++) {
+                cy.wait('@uploadChunk').then((interception) => {
+                    if (i < chunks - 1) {
+                        expect(interception.response.body).to.have.property('status', 'incomplete');
+                        cy.get('.progress-bar').eq(0).should('not.have.attr', 'style', 'width: 100%;');
+                    } else {
+                        expect(interception.response.body).to.have.property('status', 'done');
+                        cy.get('.progress-bar').eq(0).should('have.attr', 'style', 'width: 100%;');
+                    }
+                });
+            }
+
+            cy.get('.upload-component a span.fa-pause').click();
+            cy.wait(1500); // wait for BS5 animation complete
+
+            cy.get('.progress-bar')
+                .eq(0)
+                .then(($el) => {
+                    const setupProgress = $el.css('width');
+                    cy.wait(5000); // wait if more chunks are uploaded
+
+                    cy.get('.progress-bar').should(($elAfter) => {
+                        const currentProgress = $elAfter.css('width');
+                        expect(currentProgress).to.equal(setupProgress);
+                    });
+                    cy.get('.progress-bar').eq(0).should('not.have.attr', 'style', 'width: 100%;');
+
+                    // resume upload
+                    cy.get('.upload-component a span.fa-pause').should('not.exist');
+                    cy.get('div a').filterByText('Upload').click({ force: true });
+                    cy.get('.upload-component a span.fa-pause').should('not.exist');
+                });
+        });
+    });
+
+    it('should not call upload with empty queue', () => {
+        const filesize = 2000000;
+        cy.registerUploadController(filesize).then((chunks) => {
+            cy.mount(
+                `<form>
+                    <sac-upload name="uploadControl" [enablepause]="true" endpoint="/api/upload/register" [label]="label"></sac-upload>
+                </form>`,
+                {
+                    imports: [FormsModule, SacFormDirective, SACBootstrap3UploadModule, SACBootstrap3LayoutModule],
+                    componentProperties: {
+                        label: 'My Label',
+                    },
+                }
+            );
+
+            cy.get('.upload-component a span.fa-upload').click({ force: true });
+
+            // validate if no registration called
+            cy.get('@uploadRegister.all').should('have.length', 0);
         });
     });
 

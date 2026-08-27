@@ -41,7 +41,7 @@ describe('SacDropzoneMultipleComponent', () => {
 
     it('should handle model binding', () => {
         const filesize = 1000000;
-        cy.registerUploadController(filesize).then((chunks) => {
+        cy.registerUploadController(filesize, '64f206db-1b40-42e7-859e-d0d792464dbc').then((chunks) => {
             cy.mount(
                 `<form>
                     <sac-dropzonemultiple name="uploadControl" [ngModel]="value" (ngModelChange)="valueAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
@@ -92,7 +92,7 @@ describe('SacDropzoneMultipleComponent', () => {
         cy.registerUploadController(filesize).then((_) => {
             cy.mount(
                 `<form>
-                    <sac-dropzonemultiple name="uploadControl" allowedtypes=".txt|.csv" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
+                    <sac-dropzonemultiple name="uploadControl" allowedtypes=".txt,.csv" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-dropzonemultiple>
                 </form>`,
                 {
                     imports: [FormsModule, SacFormDirective, SACBootstrap3UploadModule, SACBootstrap3LayoutModule],

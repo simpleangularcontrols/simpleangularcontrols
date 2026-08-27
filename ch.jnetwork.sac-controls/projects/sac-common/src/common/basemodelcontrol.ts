@@ -256,13 +256,6 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
     }
 
     /**
-     * Show error messages inline
-     */
-    public get inlineerrorenabled(): boolean | null {
-        return this._inlineerrorenabled;
-    }
-
-    /**
      * Enables or disables the inline errors for the control
      */
     @Input()
@@ -297,7 +290,7 @@ export abstract class SacBaseModelControl<VALUE> implements ControlValueAccessor
         }
 
         if (this.formlayout !== null && this.formlayout.IsInlineErrorEnabled !== null) {
-            return this.formlayout?.IsInlineErrorEnabled;
+            return this.formlayout.IsInlineErrorEnabled;
         }
 
         if (this.configurationService.InlineErrorEnabled !== null) {

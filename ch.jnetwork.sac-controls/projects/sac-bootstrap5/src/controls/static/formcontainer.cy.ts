@@ -136,4 +136,27 @@ describe('SacStaticFormContainerComponent', () => {
 
         cy.shouldHaveDisabledTestAttribute('sac-staticformcontainer > div');
     });
+
+    it('should create validation error', () => {
+        cy.mount(
+            `<form #form="sacform">
+                <sac-staticformcontainer [label]="label" name="formfield" [ngModel]="label">
+                  <input  type="range" class="form-range" />
+                </sac-staticformcontainer>
+                <button type="button" (click)="form.updateValueAndValidity()">Validate</button>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacStaticFormContainerComponent, SACBootstrap5LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                },
+            }
+        );
+
+        // Click to mark as touched
+        cy.get('button').click();
+        // Error not should be visible after marking as touched
+        cy.get('form').should('not.have.class', 'ng-invalid');
+        cy.get('form').should('have.class', 'ng-valid');
+    });
 });

@@ -448,7 +448,10 @@ describe('SacDateComponent', () => {
 
         cy.get('button').click();
 
-        cy.get('.calendar-selector div').filterByText(dayWithoutLeadingZero.toString()).first().click();
+        cy.get('.calendar-selector div:not(.day-disabled)')
+            .filterByText(dayWithoutLeadingZero.toString())
+            .first()
+            .click();
 
         cy.get('.calendar-selector button.btn-primary').click();
 
@@ -500,7 +503,10 @@ describe('SacDateComponent', () => {
 
         cy.get('button').click();
 
-        cy.get('.calendar-selector div').filterByText(dayWithoutLeadingZero.toString()).first().click();
+        cy.get('.calendar-selector div:not(.day-disabled)')
+            .filterByText(dayWithoutLeadingZero.toString())
+            .first()
+            .click();
 
         cy.get('.calendar-selector').parents('.popover').should('have.class', 'bs-popover-top');
 
@@ -549,7 +555,7 @@ describe('SacDateComponent', () => {
         const dayWithoutLeadingZero = _now.getDate();
 
         cy.get('button').click();
-        cy.contains('.calendar-selector div', dayWithoutLeadingZero).click();
+        cy.contains('.calendar-selector div:not(.day-disabled)', dayWithoutLeadingZero).click();
         cy.get('#field').click();
 
         cy.get('.calendar-selector').should('not.exist');

@@ -978,8 +978,8 @@ export abstract class SacUploadBase&lt;VALUE&gt; extends SacBaseModelControl&lt;
     /**
      * Upload all queued Files
      */
-    public uploadAll() {
-        if (this.IsStateToUpload() &#x3D;&#x3D;&#x3D; true) {
+    public uploadAll(force &#x3D; false) {
+        if (this.IsStateToUpload() &#x3D;&#x3D;&#x3D; true &amp;&amp; (!this.IsPaused() || force)) {
             this.uploadService.control({ action: &#x27;upload&#x27; });
         }
     }

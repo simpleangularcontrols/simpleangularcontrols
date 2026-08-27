@@ -97,6 +97,62 @@ describe('sac-checkboxComponent', () => {
         cy.get('input').should('be.checked');
     });
 
+    it('should have tooltip with disablelabel', () => {
+        cy.mount(
+            `<form>
+                <sac-checkbox [name]="name" [disablelabel]="true" [checkboxtext]="checkboxtext" 
+                helptext="This is a Helptext" helptextmode="tooltip">
+                </sac-checkbox>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacCheckboxComponent, SACBootstrap3LayoutModule],
+                componentProperties: {
+                    name: 'myCheckbox',
+                    label: 'Control Label',
+                    checkboxtext: 'Checkbox Test',
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.get('sac-tooltip').should('exist');
+    });
+
+    it('should have tooltip', () => {
+        cy.mount(
+            `<form>
+                <sac-checkbox [name]="name" label="Label" [checkboxtext]="checkboxtext" 
+                helptext="This is a Helptext" helptextmode="tooltip">
+                </sac-checkbox>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacCheckboxComponent, SACBootstrap3LayoutModule],
+                componentProperties: {
+                    name: 'myCheckbox',
+                    label: 'Control Label',
+                    checkboxtext: 'Checkbox Test',
+                },
+                providers: [
+                    {
+                        provide: SACCONFIGURATION_SERVICE,
+                        useValue: {
+                            EnableE2EAttributes: true,
+                        },
+                    },
+                ],
+            }
+        );
+
+        cy.get('sac-tooltip').should('exist');
+    });
+
     it('should has e2 testkey with name', () => {
         cy.mount(
             `<form>

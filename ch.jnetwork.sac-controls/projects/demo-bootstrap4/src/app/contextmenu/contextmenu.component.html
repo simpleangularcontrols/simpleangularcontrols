@@ -119,7 +119,7 @@
     </div>
 
     <p>Menu with Injected Button</p>
-    <injectdemo-component>
+    <app-injectdemo-component>
         <ng-template
             #externalActions
             let-contextmenu="contextmenu">
@@ -139,7 +139,7 @@
                 [contextmenu]="contextmenu">
             </sac-contextmenubutton>
         </ng-template>
-    </injectdemo-component>
+    </app-injectdemo-component>
 
     <p>For Loop</p>
     <div *ngFor="let index of numbers; index as i">

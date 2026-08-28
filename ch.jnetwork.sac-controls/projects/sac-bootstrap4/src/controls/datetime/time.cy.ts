@@ -75,7 +75,7 @@ describe('SacTimeComponent', () => {
         cy.get('input').should('exist');
     });
 
-    it('should be invalid when value is before mindate', () => {
+    it('should be invalid when value is before mintime', () => {
         cy.mount(
             `<form>
                 <sac-time name="field" [label]="label" [mintime]="mintime" [ngModel]="value">
@@ -100,7 +100,32 @@ describe('SacTimeComponent', () => {
         cy.shouldBeInvalid();
     });
 
-    it('should be invalid when value is after maxdate', () => {
+    it('should be valid when value is after mintime', () => {
+        cy.mount(
+            `<form>
+                <sac-time name="field" [label]="label" [mintime]="mintime" [ngModel]="value">
+                </sac-time>
+            </form>`,
+            {
+                declarations: [SacFormDirective],
+                imports: [
+                    FormsModule,
+                    SACBootstrap4DateTimeModule,
+                    SACBootstrap4LayoutModule,
+                    SACCommonUtliltiesModule,
+                ],
+                componentProperties: {
+                    label: 'My Label',
+                    mintime: '18:15',
+                    value: new Date(0, 0, 1, 18, 20, 0),
+                },
+            }
+        );
+
+        cy.shouldBeValid();
+    });
+
+    it('should be invalid when value is after maxtime', () => {
         cy.mount(
             `<form>
                 <sac-time name="field" [label]="label" [maxtime]="maxtime" [ngModel]="value">
@@ -118,6 +143,56 @@ describe('SacTimeComponent', () => {
                     label: 'My Label',
                     maxtime: '11:20',
                     value: new Date(0, 0, 1, 14, 53),
+                },
+            }
+        );
+
+        cy.shouldBeInvalid();
+    });
+
+    it('should be valid when value is after maxtime', () => {
+        cy.mount(
+            `<form>
+                <sac-time name="field" [label]="label" [maxtime]="maxtime" [ngModel]="value">
+                </sac-time>
+            </form>`,
+            {
+                declarations: [SacFormDirective],
+                imports: [
+                    FormsModule,
+                    SACBootstrap4DateTimeModule,
+                    SACBootstrap4LayoutModule,
+                    SACCommonUtliltiesModule,
+                ],
+                componentProperties: {
+                    label: 'My Label',
+                    maxtime: '11:20',
+                    value: new Date(0, 0, 1, 10, 53),
+                },
+            }
+        );
+
+        cy.shouldBeValid();
+    });
+
+    it('should be invalid when value is not a time', () => {
+        cy.mount(
+            `<form>
+                <sac-time name="field" [label]="label" [maxtime]="maxtime" [ngModel]="value">
+                </sac-time>
+            </form>`,
+            {
+                declarations: [SacFormDirective],
+                imports: [
+                    FormsModule,
+                    SACBootstrap4DateTimeModule,
+                    SACBootstrap4LayoutModule,
+                    SACCommonUtliltiesModule,
+                ],
+                componentProperties: {
+                    label: 'My Label',
+                    maxtime: '11:20',
+                    value: 'invalidvalue',
                 },
             }
         );

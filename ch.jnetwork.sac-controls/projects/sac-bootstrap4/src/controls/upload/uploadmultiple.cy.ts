@@ -44,7 +44,7 @@ describe('SacUploadMultipleComponent', () => {
 
     it('should handle model binding', () => {
         const filesize = 1000000;
-        cy.registerUploadController(filesize).then((chunks) => {
+        cy.registerUploadController(filesize, '64f206db-1b40-42e7-859e-d0d792464dbc').then((chunks) => {
             cy.mount(
                 `<form>
                     <sac-uploadmultiple name="uploadControl" [ngModel]="value" (ngModelChange)="valueAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
@@ -103,6 +103,70 @@ describe('SacUploadMultipleComponent', () => {
         });
     });
 
+    it('should not have pause button', () => {
+        const filesize = 2000000;
+        cy.registerUploadController(filesize).then((chunks) => {
+            cy.mount(
+                `<form>
+                    <sac-uploadmultiple name="uploadControl" [enablepause]="false" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
+                </form>`,
+                {
+                    declarations: [SacFormDirective],
+                    imports: [
+                        FormsModule,
+                        SACBootstrap4UploadModule,
+                        SACBootstrap4LayoutModule,
+                        SACCommonUtliltiesModule,
+                    ],
+                    componentProperties: {
+                        label: 'My Label',
+                    },
+                }
+            );
+
+            cy.get('.upload-component button span.fa-pause').should('not.exist');
+            cy.get('input[type="file"]').createFile(filesize);
+            cy.get('button').filterByText('Upload').eq(0).click();
+
+            cy.get('.upload-component button span.fa-pause').should('not.exist');
+            cy.waitForUploadComplete(chunks);
+
+            cy.get('.progress-bar').eq(0).should('have.text', 'upload.file1.txt');
+            cy.get('.progress-bar').eq(0).should('not.have.attr', 'style', 'width: 100%');
+            cy.get('.upload-component button span.fa-pause').should('not.exist');
+        });
+    });
+
+    it('should can auto upload file', () => {
+        const filesize = 2000000;
+        cy.registerUploadController(filesize).then((chunks) => {
+            cy.mount(
+                `<form>
+                    <sac-uploadmultiple name="uploadControl" [autoupload]="true" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
+                </form>`,
+                {
+                    declarations: [SacFormDirective],
+                    imports: [
+                        FormsModule,
+                        SACBootstrap4UploadModule,
+                        SACBootstrap4LayoutModule,
+                        SACCommonUtliltiesModule,
+                    ],
+                    componentProperties: {
+                        label: 'My Label',
+                    },
+                }
+            );
+
+            cy.get('input[type="file"]').createFile(filesize);
+
+            cy.waitForUploadComplete(chunks);
+
+            cy.get('.progress-bar').eq(0).should('have.text', 'upload.file1.txt');
+            cy.get('.progress-bar').eq(0).should('not.have.attr', 'style', 'width: 100%');
+        });
+    });
+
     it('should can auto upload file', () => {
         const filesize = 2000000;
         cy.registerUploadController(filesize).then((chunks) => {
@@ -138,7 +202,7 @@ describe('SacUploadMultipleComponent', () => {
         cy.registerUploadController(filesize).then((_) => {
             cy.mount(
                 `<form>
-                    <sac-uploadmultiple name="uploadControl" allowedtypes=".txt|.csv" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
+                    <sac-uploadmultiple name="uploadControl" allowedtypes=".txt,.csv" (onfileerror)="fileerrorAction.emit($event)" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
                 </form>`,
                 {
                     declarations: [SacFormDirective],
@@ -158,6 +222,106 @@ describe('SacUploadMultipleComponent', () => {
             cy.get('input[type="file"]').createFile(filesize, 'mov');
             cy.get('.progress-text').should('not.exist');
             cy.get('@fileerrorAction').should('be.calledWith', 'INVALID_EXTENSION');
+        });
+    });
+
+    it('should require min files if valid', () => {
+        const filesize = 2000000;
+        cy.registerUploadController(filesize).then((chunks) => {
+            cy.mount(
+                `<form #form="sacform">
+                    <sac-uploadmultiple name="uploadControl" [minfiles]="2" (onfileerror)="fileerrorAction.emit($event)"
+                    [(ngModel)]="files" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
+                    <button type="button" id="save" (click)="form.updateValueAndValidity()">Validate</button>
+                </form>`,
+                {
+                    declarations: [SacFormDirective],
+                    imports: [
+                        FormsModule,
+                        SACBootstrap4UploadModule,
+                        SACBootstrap4LayoutModule,
+                        SACCommonUtliltiesModule,
+                    ],
+                    componentProperties: {
+                        label: 'My Label',
+                        fileerrorAction: createOutputSpy('fileerrorAction'),
+                        files: null,
+                    },
+                }
+            );
+
+            cy.get('input[type="file"]').createFile(filesize, 'mov');
+            cy.get('input[type="file"]').createFile(filesize, 'txt');
+            cy.get('button').filterByText('Upload').eq(0).click();
+            cy.waitForUploadComplete(chunks, 1);
+
+            cy.get('#save').click();
+            cy.get('form').should('have.class', 'ng-valid');
+        });
+    });
+
+    it('should require min files if invalîd', () => {
+        const filesize = 2000000;
+        cy.registerUploadController(filesize).then((chunks) => {
+            cy.mount(
+                `<form #form="sacform">
+                    <sac-uploadmultiple name="uploadControl" [minfiles]="2" (onfileerror)="fileerrorAction.emit($event)"
+                    [(ngModel)]="files" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
+                    <button type="button" id="save" (click)="form.markAsTouched()">Validate</button>
+                </form>`,
+                {
+                    declarations: [SacFormDirective],
+                    imports: [
+                        FormsModule,
+                        SACBootstrap4UploadModule,
+                        SACBootstrap4LayoutModule,
+                        SACCommonUtliltiesModule,
+                    ],
+                    componentProperties: {
+                        label: 'My Label',
+                        fileerrorAction: createOutputSpy('fileerrorAction'),
+                        files: null,
+                    },
+                }
+            );
+
+            cy.get('input[type="file"]').createFile(filesize, 'mov');
+            cy.get('button').filterByText('Upload').eq(0).click();
+            cy.waitForUploadComplete(chunks);
+
+            cy.get('#save').click();
+            cy.get('form').should('have.class', 'ng-invalid');
+        });
+    });
+
+    it('should disable browse on maxfiles reached', () => {
+        const filesize = 2000000;
+        cy.registerUploadController(filesize).then((chunks) => {
+            cy.mount(
+                `<form #form="sacform">
+                    <sac-uploadmultiple name="uploadControl" [maxfiles]="2" (onfileerror)="fileerrorAction.emit($event)"
+                    [(ngModel)]="files" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
+                    <button type="button" id="save" (click)="form.updateValueAndValidity()">Validate</button>
+                </form>`,
+                {
+                    declarations: [SacFormDirective],
+                    imports: [
+                        FormsModule,
+                        SACBootstrap4UploadModule,
+                        SACBootstrap4LayoutModule,
+                        SACCommonUtliltiesModule,
+                    ],
+                    componentProperties: {
+                        label: 'My Label',
+                        fileerrorAction: createOutputSpy('fileerrorAction'),
+                        files: null,
+                    },
+                }
+            );
+
+            cy.get('input[type="file"]').createFile(filesize, 'mov');
+            cy.get('input[type="file"]').createFile(filesize, 'txt');
+            cy.get('input[type="file"]').should('be.disabled');
         });
     });
 
@@ -304,7 +468,7 @@ describe('SacUploadMultipleComponent', () => {
         });
     });
 
-    it('should can pause and continue upload', () => {
+    it('should can pause and continue upload global', () => {
         const filesize = 2000000;
         cy.registerUploadController(filesize).then((chunks) => {
             cy.mount(
@@ -358,14 +522,81 @@ describe('SacUploadMultipleComponent', () => {
                     cy.get('.progress-bar').eq(0).should('not.have.attr', 'style', 'width: 100%;');
 
                     // resume upload
-                    cy.get('button').filterByText('Upload').eq(0).click();
+                    cy.get('.upload-component button span.fa-pause').should('not.exist');
+                    cy.get('button').filterByText('Upload').eq(0).should('be.disabled');
+                    cy.get('.upload-component button span.fa-play').eq(0).click();
                     cy.get('.progress-bar').eq(0).should('have.text', 'upload.file1.txt');
                     cy.get('.progress-bar').eq(0).should('have.attr', 'style', 'width: 100%;');
+                    cy.get('.upload-component button span.fa-pause').should('exist');
                 });
         });
     });
 
-    it('should can pause and cancel upload', () => {
+    it('should can pause and continue upload specific', () => {
+        const filesize = 2000000;
+        cy.registerUploadController(filesize).then((chunks) => {
+            cy.mount(
+                `<form>
+                    <sac-uploadmultiple name="uploadControl" [enablepause]="true" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
+                </form>`,
+                {
+                    declarations: [SacFormDirective],
+                    imports: [
+                        FormsModule,
+                        SACBootstrap4UploadModule,
+                        SACBootstrap4LayoutModule,
+                        SACCommonUtliltiesModule,
+                    ],
+                    componentProperties: {
+                        label: 'My Label',
+                    },
+                }
+            );
+
+            cy.get('input[type="file"]').createFile(filesize);
+            cy.get('button').filterByText('Upload').eq(0).click();
+
+            cy.wait('@uploadRegister');
+
+            for (let i = 0; i < chunks - 4; i++) {
+                cy.wait('@uploadChunk').then((interception) => {
+                    if (i < chunks - 1) {
+                        expect(interception.response.body).to.have.property('status', 'incomplete');
+                        cy.get('.progress-bar').eq(0).should('not.have.attr', 'style', 'width: 100%;');
+                    } else {
+                        expect(interception.response.body).to.have.property('status', 'done');
+                        cy.get('.progress-bar').eq(0).should('have.attr', 'style', 'width: 100%;');
+                    }
+                });
+            }
+
+            cy.get('.upload-component button span.fa-pause').eq(1).click();
+            cy.wait(1000); // wait for BS5 animation complete
+
+            cy.get('.progress-bar')
+                .eq(0)
+                .then(($el) => {
+                    const setupProgress = $el.css('width');
+                    cy.wait(5000); // wait if more chunks are uploaded
+
+                    cy.get('.progress-bar').should(($elAfter) => {
+                        const currentProgress = $elAfter.css('width');
+                        expect(currentProgress).to.equal(setupProgress);
+                    });
+                    cy.get('.progress-bar').eq(0).should('not.have.attr', 'style', 'width: 100%;');
+
+                    // resume upload
+                    cy.get('.upload-component button span.fa-pause').should('not.exist');
+                    cy.get('button').filterByText('Upload').eq(1).should('be.disabled');
+                    cy.get('.upload-component button span.fa-play').eq(1).click();
+                    cy.get('.progress-bar').eq(0).should('have.text', 'upload.file1.txt');
+                    cy.get('.progress-bar').eq(0).should('have.attr', 'style', 'width: 100%;');
+                    cy.get('.upload-component button span.fa-pause').should('exist');
+                });
+        });
+    });
+
+    it('should can pause and cancel upload global', () => {
         const filesize = 2000000;
         let totalChunksExpected = 0;
         cy.registerDeleteController();
@@ -425,7 +656,139 @@ describe('SacUploadMultipleComponent', () => {
 
                     // resume upload
                     cy.get('.upload-component button span.fa-times').eq(0).click();
-                    cy.get('.progress-text').should('not.exist');
+                    cy.get('.progress-bar').should('not.exist');
+                });
+        });
+    });
+
+    it('should can pause and cancel upload specific', () => {
+        const filesize = 2000000;
+        let totalChunksExpected = 0;
+        cy.registerDeleteController();
+
+        cy.registerUploadController(filesize).then((chunks) => {
+            totalChunksExpected = chunks;
+
+            cy.mount(
+                `<form>
+                    <sac-uploadmultiple name="uploadControl" [enablepause]="true" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
+                </form>`,
+                {
+                    declarations: [SacFormDirective],
+                    imports: [
+                        FormsModule,
+                        SACBootstrap4UploadModule,
+                        SACBootstrap4LayoutModule,
+                        SACCommonUtliltiesModule,
+                    ],
+                    componentProperties: {
+                        label: 'My Label',
+                    },
+                }
+            );
+
+            cy.get('input[type="file"]').createFile(filesize);
+            cy.get('button').filterByText('Upload').eq(0).click();
+
+            cy.wait('@uploadRegister');
+
+            for (let i = 0; i < totalChunksExpected - 4; i++) {
+                cy.wait('@uploadChunk').then((interception) => {
+                    if (i < totalChunksExpected - 1) {
+                        expect(interception.response.body).to.have.property('status', 'incomplete');
+                        cy.get('.progress-bar').eq(0).should('not.have.attr', 'style', 'width: 100%;');
+                    } else {
+                        expect(interception.response.body).to.have.property('status', 'done');
+                        cy.get('.progress-bar').eq(0).should('have.attr', 'style', 'width: 100%;');
+                    }
+                });
+            }
+
+            cy.get('.upload-component button span.fa-pause').eq(1).click();
+            cy.wait(1000); // wait for BS5 animation complete
+
+            cy.get('.progress-bar')
+                .eq(0)
+                .then(($el) => {
+                    const setupProgress = $el.css('width');
+                    cy.wait(5000); // wait if more chunks are uploaded
+
+                    cy.get('.progress-bar').should(($elAfter) => {
+                        const currentProgress = $elAfter.css('width');
+                        expect(currentProgress).to.equal(setupProgress);
+                    });
+                    cy.get('.progress-bar').eq(0).should('not.have.attr', 'style', 'width: 100%;');
+
+                    // resume upload
+                    cy.get('.upload-component button span.fa-times').eq(1).click();
+                    cy.get('.progress-bar').should('not.exist');
+                });
+        });
+    });
+
+    it('should can pause and cancel upload specific multiple files', () => {
+        const filesize = 2000000;
+        let totalChunksExpected = 0;
+        cy.registerDeleteController();
+
+        cy.registerUploadController(filesize).then((chunks) => {
+            totalChunksExpected = chunks;
+
+            cy.mount(
+                `<form>
+                    <sac-uploadmultiple name="uploadControl" [enablepause]="true" endpoint="/api/upload/register" [label]="label"></sac-uploadmultiple>
+                </form>`,
+                {
+                    declarations: [SacFormDirective],
+                    imports: [
+                        FormsModule,
+                        SACBootstrap4UploadModule,
+                        SACBootstrap4LayoutModule,
+                        SACCommonUtliltiesModule,
+                    ],
+                    componentProperties: {
+                        label: 'My Label',
+                    },
+                }
+            );
+
+            cy.get('input[type="file"]').createFile(filesize);
+            cy.get('input[type="file"]').createFile(filesize);
+            cy.get('button').filterByText('Upload').eq(0).click();
+
+            cy.wait('@uploadRegister');
+
+            for (let i = 0; i < totalChunksExpected - 4; i++) {
+                cy.wait('@uploadChunk').then((interception) => {
+                    if (i < totalChunksExpected - 1) {
+                        expect(interception.response.body).to.have.property('status', 'incomplete');
+                        cy.get('.progress-bar').eq(0).should('not.have.attr', 'style', 'width: 100%;');
+                    } else {
+                        expect(interception.response.body).to.have.property('status', 'done');
+                        cy.get('.progress-bar').eq(0).should('have.attr', 'style', 'width: 100%;');
+                    }
+                });
+            }
+
+            cy.get('.progress-bar').should('have.length', 2);
+            cy.get('.upload-component button span.fa-pause').eq(1).click();
+            cy.wait(1000); // wait for BS5 animation complete
+
+            cy.get('.progress-bar')
+                .eq(0)
+                .then(($el) => {
+                    const setupProgress = $el.css('width');
+                    cy.wait(5000); // wait if more chunks are uploaded
+
+                    cy.get('.progress-bar').should(($elAfter) => {
+                        const currentProgress = $elAfter.css('width');
+                        expect(currentProgress).to.equal(setupProgress);
+                    });
+                    cy.get('.progress-bar').eq(0).should('not.have.attr', 'style', 'width: 100%;');
+
+                    // resume upload
+                    cy.get('.upload-component button span.fa-times').eq(1).click();
+                    cy.get('.progress-bar').should('have.length', 1);
                 });
         });
     });

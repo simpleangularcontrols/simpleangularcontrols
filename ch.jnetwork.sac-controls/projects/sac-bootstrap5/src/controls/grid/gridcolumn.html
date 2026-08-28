@@ -4,7 +4,7 @@
     *ngIf="IsHeader()"
     [style.width]="width"
     (click)="SortByColumn()"
-    [class.text-right]="alignment === 'right'"
+    [class.text-end]="alignment === 'right'"
     [class.text-center]="alignment === 'center'">
     <span>{{ header }}</span>
     <span
@@ -27,7 +27,7 @@
     [style.overflow]="IsEllipsis() ? 'hidden' : null"
     [style.text-overflow]="IsEllipsis() ? 'ellipsis' : null"
     [style.white-space]="IsEllipsis() ? 'nowrap' : null"
-    [class.text-right]="alignment === 'right'"
+    [class.text-end]="alignment === 'right'"
     [class.text-center]="alignment === 'center'"
     [class.table-primary]="contextstyle === 'active' || contextstyle === 'primary'"
     [class.table-secondary]="contextstyle === 'secondary'"

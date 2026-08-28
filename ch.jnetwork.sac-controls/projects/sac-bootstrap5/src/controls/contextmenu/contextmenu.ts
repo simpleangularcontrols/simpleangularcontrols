@@ -1,7 +1,7 @@
 import { SacContextmenuAnchorDirective } from './contextmenuanchor';
 import { SacContextmenuContainerDirective } from './contextmenucontainer';
-import { DOCUMENT, NgClass, NgTemplateOutlet } from '@angular/common';
-import { Component, ElementRef, Inject, Injector, NgZone, Renderer2 } from '@angular/core';
+import { DOCUMENT, NgClass, NgIf, NgTemplateOutlet } from '@angular/common';
+import { ChangeDetectorRef, Component, ElementRef, Inject, Injector, NgZone, Renderer2 } from '@angular/core';
 import { SacContextmenuCommon, SacTestingAttributePipe } from '@simpleangularcontrols/sac-common';
 
 /**
@@ -12,6 +12,7 @@ import { SacContextmenuCommon, SacTestingAttributePipe } from '@simpleangularcon
     templateUrl: './contextmenu.html',
     standalone: true,
     imports: [
+        NgIf,
         NgClass,
         NgTemplateOutlet,
         SacContextmenuContainerDirective,
@@ -28,6 +29,7 @@ export class SacContextmenuComponent extends SacContextmenuCommon {
      * @param ngZone Angular zone service
      * @param elementRef Reference to HTML element of the current component
      * @param renderer Angular render service
+     * @param cdr Change Detection service
      * @param injector Injector to resolve services
      */
     constructor(
@@ -35,9 +37,10 @@ export class SacContextmenuComponent extends SacContextmenuCommon {
         ngZone: NgZone,
         elementRef: ElementRef<HTMLElement>,
         renderer: Renderer2,
+        cdr: ChangeDetectorRef,
         injector: Injector
     ) {
-        super(document, ngZone, elementRef, renderer, injector);
+        super(document, ngZone, elementRef, renderer, cdr, injector);
     }
 
     // #endregion Constructors

@@ -76,6 +76,44 @@ describe('SacDateComponent', () => {
         cy.shouldBeInvalid();
     });
 
+    it('should be valid when value is after mindate', () => {
+        cy.mount(
+            `<form>
+                <sac-date name="field" [label]="label" [mindate]="mindate" [ngModel]="value">
+                </sac-date>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacDateComponent, SACBootstrap3LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    mindate: '01.01.2000',
+                    value: new Date(2000, 1, 2),
+                },
+            }
+        );
+
+        cy.shouldBeValid();
+    });
+
+    it('should be invalid when value is not a date', () => {
+        cy.mount(
+            `<form>
+                <sac-date name="field" [label]="label" [ngModel]="value">
+                </sac-date>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacDateComponent, SACBootstrap3LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    mindate: '01.01.2000',
+                    value: 'invalidvalue',
+                },
+            }
+        );
+
+        cy.shouldBeInvalid();
+    });
+
     it('should be invalid when value is after maxdate', () => {
         cy.mount(
             `<form>
@@ -93,6 +131,25 @@ describe('SacDateComponent', () => {
         );
 
         cy.shouldBeInvalid();
+    });
+
+    it('should be valid when value is before maxdate', () => {
+        cy.mount(
+            `<form>
+                <sac-date name="field" [label]="label" [maxdate]="maxdate" [ngModel]="value">
+                </sac-date>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacDateComponent, SACBootstrap3LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    maxdate: '01.01.2001',
+                    value: new Date(2000, 0, 2),
+                },
+            }
+        );
+
+        cy.shouldBeValid();
     });
 
     it('should accept validation message inputs (MinDate)', () => {
@@ -391,6 +448,60 @@ describe('SacDateComponent', () => {
         cy.get('button').click();
 
         cy.get('.calendar-selector tbody td').filterByText(dayWithoutLeadingZero.toString()).first().click();
+
+        cy.get('.calendar-selector button.btn-primary').click();
+
+        cy.get('input').should('have.value', `${day}.${month}.${year}`);
+
+        cy.get('@valueSpy').then((spy: any) => {
+            const calls = spy.getCalls ? spy.getCalls() : spy.calls && spy.calls.all ? spy.calls.all() : [];
+            const nullCount = calls.filter((c: any) => c.args && c.args.length > 0 && c.args[0] === null).length;
+            const dateCount = calls.filter((c: any) => {
+                const a = c.args && c.args.length > 0 ? c.args[0] : undefined;
+                return (
+                    a instanceof Date &&
+                    a.getTime() === new Date(_now.getFullYear(), _now.getMonth(), _now.getDate()).getTime()
+                );
+            }).length;
+
+            expect(nullCount).to.equal(0);
+            expect(dateCount).to.equal(1);
+        });
+    });
+
+    it('should set date via selector when item is at bottom', () => {
+        cy.mount(
+            `<div id="topelement" style="height: 500px;">big element</div>
+            <form>
+                <sac-date name="field" [label]="label" [ngModel]="value" (ngModelChange)="valueChange.emit($event)">
+                </sac-date>
+            </form>`,
+            {
+                imports: [FormsModule, SacFormDirective, SacDateComponent, SACBootstrap3LayoutModule],
+                componentProperties: {
+                    label: 'My Label',
+                    value: null,
+                    valueChange: createOutputSpy('valueSpy'),
+                },
+            }
+        );
+
+        cy.get('input').should('have.value', '__.__.____');
+
+        cy.resetSpy('@valueSpy');
+
+        // Current daily values (day, month, year) with formatting
+        const _now = new Date();
+        const day = ('0' + _now.getDate()).slice(-2);
+        const dayWithoutLeadingZero = _now.getDate();
+        const month = ('0' + (_now.getMonth() + 1)).slice(-2);
+        const year = _now.getFullYear().toString().padStart(4, '0');
+
+        cy.get('button').click();
+
+        cy.get('.calendar-selector tbody td').filterByText(dayWithoutLeadingZero.toString()).first().click();
+
+        cy.get('.calendar-selector').parents('.popover').should('have.class', 'top');
 
         cy.get('.calendar-selector button.btn-primary').click();
 

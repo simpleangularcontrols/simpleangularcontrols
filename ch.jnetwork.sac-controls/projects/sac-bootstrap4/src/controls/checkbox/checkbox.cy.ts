@@ -13,7 +13,6 @@ describe('sac-checkboxComponent', () => {
                 </sac-checkbox>
             </form>`,
             {
-                declarations: [],
                 imports: [FormsModule, SacCheckboxComponent, SacFormDirective, SACBootstrap4LayoutModule],
                 componentProperties: {
                     label: 'Control Label',

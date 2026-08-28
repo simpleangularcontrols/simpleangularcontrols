@@ -66,7 +66,7 @@
                                 <span [class]="IconDelete"></span>
                             </a>
                             <a
-                                *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && IsPaused() === false)"
+                                *ngIf="enablepause && IsPaused() === false"
                                 class="btn"
                                 (click)="pauseAll()"
                                 [attr.disabled]="IsUploading() === false ? 'disabled' : null"
@@ -75,9 +75,9 @@
                                 <span [class]="IconPause"></span>
                             </a>
                             <a
-                                *ngIf="autoupload && enablepause && IsPaused() === true"
+                                *ngIf="enablepause && IsPaused() === true"
                                 class="btn"
-                                (click)="uploadAll()"
+                                (click)="uploadAll(true)"
                                 [class.btn-default]="!(invalid && (dirty || touched))"
                                 [class.btn-danger]="invalid && (dirty || touched)">
                                 <span [class]="IconContinue"></span>
@@ -86,7 +86,7 @@
                                 *ngIf="autoupload === false"
                                 class="btn"
                                 (click)="uploadAll()"
-                                [attr.disabled]="IsStateToUpload() === false ? 'disabled' : null"
+                                [attr.disabled]="IsStateToUpload() === false || IsPaused() ? 'disabled' : null"
                                 [class.btn-default]="!(invalid && (dirty || touched))"
                                 [class.btn-danger]="invalid && (dirty || touched)">
                                 <span [class]="IconUpload"></span>
@@ -146,7 +146,7 @@
                             <span [class]="IconDelete"></span>
                         </a>
                         <a
-                            *ngIf="(autoupload === false && enablepause) || (autoupload && enablepause && file.status !== 'paused')"
+                            *ngIf="enablepause && file.status !== 'paused'"
                             class="btn"
                             (click)="pause(file.uploadId)"
                             [attr.disabled]="file.status !== 'uploading' ? 'disabled' : null"
@@ -155,7 +155,7 @@
                             <span [class]="IconPause"></span>
                         </a>
                         <a
-                            *ngIf="autoupload && enablepause && file.status === 'paused'"
+                            *ngIf="enablepause && file.status === 'paused'"
                             class="btn"
                             (click)="upload(file.uploadId)"
                             [class.btn-default]="!(invalid && (dirty || touched))"
@@ -166,7 +166,7 @@
                             *ngIf="autoupload === false"
                             class="btn"
                             (click)="upload(file.uploadId)"
-                            [attr.disabled]="file.status !== 'added' && file.status !== 'paused' ? 'disabled' : null"
+                            [attr.disabled]="file.status !== 'added' ? 'disabled' : null"
                             [class.btn-default]="!(invalid && (dirty || touched))"
                             [class.btn-danger]="invalid && (dirty || touched)">
                             <span [class]="IconUpload"></span> {{ buttonupload ? buttonupload : (lngResourceService.GetString(validationKeyService.UploadButtonUpload) | async) }}

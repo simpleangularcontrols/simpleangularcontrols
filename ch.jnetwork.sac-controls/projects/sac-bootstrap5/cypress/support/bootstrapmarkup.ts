@@ -1,10 +1,12 @@
 declare namespace Cypress {
     interface Chainable {
+        shouldNotHaveLabel(): Chainable;
+        shouldNotHaveInlineErrorMessage(): Chainable;
         shouldBeInvalid(tagName?: string): Chainable;
         shouldHaveFloatingClass(tagName?: string): Chainable;
         shouldBeValid(tagName?: string): Chainable;
+        shouldHaveInlineErrorMessage(): Chainable;
         shouldHaveLabel(label: string): Chainable;
-        shouldNotHaveLabel(): Chainable;
         shouldHaveErrorMessage(errorMessage: string): Chainable;
         shouldHaveTestAttributeWithName(tagName: string, testkey: string): Chainable;
         shouldHaveDisabledTestAttribute(tagName: string): Chainable;
@@ -13,6 +15,10 @@ declare namespace Cypress {
 
 Cypress.Commands.add('shouldNotHaveLabel', () => {
     cy.get('label').should('have.class', 'visually-hidden');
+});
+
+Cypress.Commands.add('shouldNotHaveInlineErrorMessage', () => {
+    cy.get('.invalid-feedback').should('not.exist');
 });
 
 Cypress.Commands.add('shouldHaveFloatingClass', (tagName: string = '.form-control') => {
@@ -37,6 +43,10 @@ Cypress.Commands.add('shouldBeInvalid', (tagName: string = 'input') => {
 
 Cypress.Commands.add('shouldHaveErrorMessage', (errorMessage: string) => {
     cy.get('.invalid-feedback').contains(errorMessage);
+});
+
+Cypress.Commands.add('shouldHaveInlineErrorMessage', () => {
+    cy.get('.invalid-feedback').should('be.visible');
 });
 
 Cypress.Commands.add('shouldHaveTestAttributeWithName', (tagName: string, testkey: string) => {

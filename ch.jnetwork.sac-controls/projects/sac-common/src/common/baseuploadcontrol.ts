@@ -555,8 +555,8 @@ export abstract class SacUploadBase<VALUE> extends SacBaseModelControl<VALUE> im
     /**
      * Upload all queued Files
      */
-    public uploadAll() {
-        if (this.IsStateToUpload() === true) {
+    public uploadAll(force = false) {
+        if (this.IsStateToUpload() === true && (!this.IsPaused() || force)) {
             this.uploadService.control({ action: 'upload' });
         }
     }

@@ -583,6 +583,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <li class="link">
                                     <a href="directives/SacWizardItemCommon.html" data-type="entity-link" >SacWizardItemCommon</a>
                                 </li>
+                                <li class="link">
+                                    <a href="directives/TestDelayValidDirective.html" data-type="entity-link" >TestDelayValidDirective</a>
+                                </li>
                             </ul>
                         </li>
                     <li class="chapter">

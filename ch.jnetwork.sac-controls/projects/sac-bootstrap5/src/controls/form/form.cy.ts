@@ -333,4 +333,39 @@ describe('SacFormDirective', () => {
         cy.get('@onInValidSpy').should('have.been.calledOnce');
         cy.get('@onCompleteSpy').should('have.been.calledOnce');
     });
+
+    it('should work without loading indicator', () => {
+        const onValidSpy = cy.spy().as('onValidSpy');
+
+        cy.mount(
+            `<form #form="sacform">
+                        <sac-input name="field" [label]="'Required Field'" testDelayValidator [ngModel]="''" (ngModelChange)="valueChange.emit($event)">
+                        </sac-input>
+                        <sac-button type="button" [isloading]="isloading" (clicked)="save(form)" text="Validate"></sac-button >
+                    </form>`,
+            {
+                declarations: [SacFormDirective, SacInputComponent, SacButtonComponent, TestDelayValidDirective],
+                imports: [FormsModule, SACBootstrap5LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    isloading: false,
+                    valueChange: createOutputSpy('valueSpy'),
+                    save: function (form: SacFormCommon) {
+                        form.validateForm({
+                            onValidFn: () => {
+                                onValidSpy();
+                            },
+                        });
+                    },
+                },
+            }
+        );
+
+        // Error should not be visible initially
+        cy.get('.invalid-feedback, .help-block').should('not.exist');
+
+        // Click to mark as touched
+        cy.get('a.btn.btn-default').click();
+
+        cy.get('@onValidSpy').should('have.been.calledOnce');
+    });
 });

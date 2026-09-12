@@ -1,5 +1,5 @@
-import { defineConfig } from "cypress";
-import coverageWebpack from "projects/sac-bootstrap4/cypress/coverage.webpack";
+import { defineConfig } from 'cypress';
+import coverageWebpack from 'projects/sac-bootstrap4/cypress/coverage.webpack';
 
 export default defineConfig({
   viewportWidth: 1024,
@@ -45,12 +45,6 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       require("@cypress/code-coverage/task")(on, config);
       return config;
-    },
-  },
-
-  e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
     },
   },
 });

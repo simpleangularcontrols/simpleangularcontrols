@@ -84,6 +84,53 @@ export class SacFormCommon {
         }
     }
 
+    /**
+     * A method for validating a form and triggering an action if the form is valid. This method waits for asynchronous validators to complete before triggering the onValid function.
+     * @param Method Parameters for Valid, Invalid, and Complete States
+     */
+    public validateForm({
+        onValidFn,
+        onInvalidFn,
+        onCompleteFn,
+    }: {
+        onValidFn: () => void;
+        onInvalidFn?: () => void;
+        onCompleteFn?: (valid: boolean) => void;
+    }): void {
+        const ngform = this.getForm();
+
+        if ((ngform === null || ngform === undefined) && onCompleteFn) {
+            onCompleteFn(false);
+            return;
+        }
+
+        // Wait until all async validators are finished
+        const sub = ngform.statusChanges.subscribe((status) => {
+            if (status === 'PENDING') {
+                return;
+            }
+
+            const validState = this.getForm().valid;
+
+            if (validState) {
+                onValidFn();
+            }
+
+            if (onInvalidFn && !validState) {
+                onInvalidFn();
+            }
+
+            if (onCompleteFn) {
+                onCompleteFn(validState ?? false);
+            }
+
+            sub.unsubscribe();
+        });
+
+        ngform.form.markAllAsTouched();
+        this.updateValueAndValidity();
+    }
+
     // #endregion Public Methods
 
     // #region Private Methods

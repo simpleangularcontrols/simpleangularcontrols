@@ -364,7 +364,7 @@ describe('SacFormDirective', () => {
         cy.get('.invalid-feedback, .help-block').should('not.exist');
 
         // Click to mark as touched
-        cy.get('a.btn.btn-default').click();
+        cy.get('button').click();
 
         cy.get('@onValidSpy').should('have.been.calledOnce');
     });

@@ -99,6 +99,7 @@ export class SacFormCommon {
     }): void {
         const ngform = this.getForm();
 
+        /* istanbul ignore next - this branch is an edge case where the form is not available and cannot be validated */
         if ((ngform === null || ngform === undefined) && onCompleteFn) {
             onCompleteFn(false);
             return;

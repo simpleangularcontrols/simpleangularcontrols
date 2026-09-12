@@ -10,7 +10,7 @@ import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 @Directive({
-    selector: '[testDelayValidator]',
+    selector: '[sacTestDelayValidator]',
     providers: [
         {
             provide: NG_ASYNC_VALIDATORS,
@@ -22,8 +22,8 @@ import { delay } from 'rxjs/operators';
 export class TestDelayValidDirective implements AsyncValidator {
     // #region Properties
 
-    @Input('delayresult')
-    public resultstate = true;
+    @Input()
+    public delayresult = true;
 
     // #endregion Properties
 
@@ -31,7 +31,7 @@ export class TestDelayValidDirective implements AsyncValidator {
 
     public validate(control: AbstractControl): Observable<ValidationErrorItem | null> {
         // Returns ‘null’ after 500 ms (= valid)
-        if (this.resultstate) {
+        if (this.delayresult) {
             return of(null).pipe(delay(500));
         } else {
             return of(new ValidationErrorItem('delayederror', 'ERR.MESSAGE', 'ERR.MESSAGE', 'inputname')).pipe(
@@ -245,7 +245,7 @@ describe('SacFormDirective', () => {
 
         cy.mount(
             `<form #form="sacform">
-                    <sac-input name="field" [label]="'Required Field'" testDelayValidator [ngModel]="''" (ngModelChange)="valueChange.emit($event)">
+                    <sac-input name="field" [label]="'Required Field'" sacTestDelayValidator [ngModel]="''" (ngModelChange)="valueChange.emit($event)">
                     </sac-input>
                     <sac-button type="button" [isloading]="isloading" (clicked)="save(form)" text="Validate"></sac-button >
                 </form>`,
@@ -291,7 +291,7 @@ describe('SacFormDirective', () => {
 
         cy.mount(
             `<form #form="sacform">
-                    <sac-input name="field" [label]="'Required Field'" testDelayValidator 
+                    <sac-input name="field" [label]="'Required Field'" sacTestDelayValidator 
                         [delayresult]="false" [ngModel]="''" (ngModelChange)="valueChange.emit($event)">
                     </sac-input>
                     <sac-button type="button" [isloading]="isloading" (clicked)="save(form)" text="Validate"></sac-button >
@@ -339,7 +339,7 @@ describe('SacFormDirective', () => {
 
         cy.mount(
             `<form #form="sacform">
-                    <sac-input name="field" [label]="'Required Field'" testDelayValidator [ngModel]="''" (ngModelChange)="valueChange.emit($event)">
+                    <sac-input name="field" [label]="'Required Field'" sacTestDelayValidator [ngModel]="''" (ngModelChange)="valueChange.emit($event)">
                     </sac-input>
                     <sac-button type="button" [isloading]="isloading" (clicked)="save(form)" text="Validate"></sac-button >
                 </form>`,

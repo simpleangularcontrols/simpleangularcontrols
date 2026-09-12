@@ -173,6 +173,10 @@
                                     <span class="modifier">Public</span>
                                 <a href="#updateValueAndValidity" >updateValueAndValidity</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#validateForm" >validateForm</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -473,6 +477,76 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateForm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>validateForm</b></span>
+                        <a href="#validateForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validateForm(: literal type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">projects/sac-common/src/controls/form/form.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>A method for validating a form and triggering an action if the form is valid. This method waits for asynchronous validators to complete before triggering the onValid function.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
             <section data-compodoc="block-accessors">
@@ -649,6 +723,54 @@ export class SacFormCommon {
         if (markAsTouched) {
             this.markAsTouched();
         }
+    }
+
+    /**
+     * A method for validating a form and triggering an action if the form is valid. This method waits for asynchronous validators to complete before triggering the onValid function.
+     * @param Method Parameters for Valid, Invalid, and Complete States
+     */
+    public validateForm({
+        onValidFn,
+        onInvalidFn,
+        onCompleteFn,
+    }: {
+        onValidFn: () &#x3D;&gt; void;
+        onInvalidFn?: () &#x3D;&gt; void;
+        onCompleteFn?: (valid: boolean) &#x3D;&gt; void;
+    }): void {
+        const ngform &#x3D; this.getForm();
+
+        /* istanbul ignore next - this branch is an edge case where the form is not available and cannot be validated */
+        if ((ngform &#x3D;&#x3D;&#x3D; null || ngform &#x3D;&#x3D;&#x3D; undefined) &amp;&amp; onCompleteFn) {
+            onCompleteFn(false);
+            return;
+        }
+
+        // Wait until all async validators are finished
+        const sub &#x3D; ngform.statusChanges.subscribe((status) &#x3D;&gt; {
+            if (status &#x3D;&#x3D;&#x3D; &#x27;PENDING&#x27;) {
+                return;
+            }
+
+            const validState &#x3D; this.getForm().valid;
+
+            if (validState) {
+                onValidFn();
+            }
+
+            if (onInvalidFn &amp;&amp; !validState) {
+                onInvalidFn();
+            }
+
+            if (onCompleteFn) {
+                onCompleteFn(validState ?? false);
+            }
+
+            sub.unsubscribe();
+        });
+
+        ngform.form.markAllAsTouched();
+        this.updateValueAndValidity();
     }
 
     // #endregion Public Methods

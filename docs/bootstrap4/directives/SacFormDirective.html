@@ -119,6 +119,12 @@
                 role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
         <li class="nav-item">
+            <a href="#readme" 
+                class="nav-link"
+                
+                role="tab" id="readme-tab" data-bs-toggle="tab" data-link="readme">Example</a>
+        </li>
+        <li class="nav-item">
             <a href="#source" 
                 class="nav-link"
                 
@@ -218,6 +224,10 @@
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#updateValueAndValidity" >updateValueAndValidity</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#validateForm" >validateForm</a>
                             </li>
                         </ul>
                     </td>
@@ -583,6 +593,82 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateForm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>validateForm</b></span>
+                        <a href="#validateForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validateForm(undefined: literal type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../directives/SacFormCommon.html" target="_self" >SacFormCommon</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../directives/SacFormCommon.html#source" target="_self" >SacFormCommon:91</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>A method for validating a form and triggering an action if the form is valid. This method waits for asynchronous validators to complete before triggering the onValid function.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
             <section data-compodoc="block-properties">
     
@@ -642,6 +728,79 @@
 
     </div>
 
+    <div class="tab-pane fade " id="readme">
+        <p><h1>Examples</h1>
+<h2>Use validateForm for async action in onValidFn</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;div #validationForm=&quot;sacform&quot; ngForm&gt;
+    &lt;div&gt;Form&lt;/div&gt;
+    &lt;div&gt;
+        &lt;ngInput [(ngModel)]=&quot;mymodel.field&quot; name=&quot;fieldname&quot; label=&quot;field&quot; [isrequired]=&quot;true&quot;&gt;&lt;/ngInput&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;sac-button (clicked)=&quot;onSave()&quot; text=&quot;Save&quot; [isloading]=&quot;isloading&quot;&gt; &lt;/sac-button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre></div><p>Code behind file with access to form.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Component, Input, Output, ViewChild } from &#39;&#64;angular/core&#39;;
+import { SacInheritFormDirective } from &#39;&#64;simpleangularcontrols/sac-bootstrap5&#39;;
+
+&#64;Component({
+    selector: &#39;app-form&#39;,
+    templateUrl: &#39;./form.component.html&#39;,
+})
+export class DemoFormComponent {
+    public isloadingaction = false;
+    public mymodel = { field: &#39;&#39; };
+    &#64;ViewChild(&#39;validationForm&#39;, { static: true }) public validationForm: SacInheritFormDirective;
+
+    public onSave() {
+        this.isloadingaction = true;
+        const form = this.validationForm.validateForm({
+            onValidFn: () =&gt; {
+                setTimeout(() =&gt; {
+                    console.log(&#39;clicked&#39;);
+                    this.isloadingaction = false;
+                }, 3000);
+            },
+            onInvalidFn: (valid: boolean) =&gt; {
+                this.isloadingaction = false;
+            },
+        });
+    }
+}</code></pre></div><h2>Use validateForm for sync action in onValidFn</h2>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;div #validationForm=&quot;sacform&quot; ngForm&gt;
+    &lt;div&gt;Form&lt;/div&gt;
+    &lt;div&gt;
+        &lt;ngInput [(ngModel)]=&quot;mymodel.field&quot; name=&quot;fieldname&quot; label=&quot;field&quot; [isrequired]=&quot;true&quot;&gt;&lt;/ngInput&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;sac-button (clicked)=&quot;onSave()&quot; text=&quot;Save&quot; [isloading]=&quot;isloading&quot;&gt; &lt;/sac-button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre></div><p>Code behind file with access to form.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-ts">import { Component, Input, Output, ViewChild } from &#39;&#64;angular/core&#39;;
+import { SacInheritFormDirective } from &#39;&#64;simpleangularcontrols/sac-bootstrap5&#39;;
+
+&#64;Component({
+    selector: &#39;app-form&#39;,
+    templateUrl: &#39;./form.component.html&#39;,
+})
+export class DemoFormComponent {
+    public isloadingaction = false;
+    public mymodel = { field: &#39;&#39; };
+    &#64;ViewChild(&#39;validationForm&#39;, { static: true }) public validationForm: SacInheritFormDirective;
+
+    public onSave() {
+        this.isloadingaction = true;
+        const form = this.validationForm.validateForm({
+            onValidFn: () =&gt; {
+                console.log(&#39;clicked&#39;);
+            },
+            onCompleteFn: (valid: boolean) =&gt; {
+                this.isloadingaction = false;
+            },
+        });
+    }
+}</code></pre></div></p>
+    </div>
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Directive, HostBinding } from &#x27;@angular/core&#x27;;

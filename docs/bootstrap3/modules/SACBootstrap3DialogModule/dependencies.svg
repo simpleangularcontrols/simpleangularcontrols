@@ -24,13 +24,13 @@
 <title>cluster_SACBootstrap3DialogModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="58,-70 58,-268 438,-268 438,-70 58,-70"/>
 </g>
-<g id="clust5" class="cluster">
-<title>cluster_SACBootstrap3DialogModule_exports</title>
-<polygon fill="none" stroke="black" points="164,-208 164,-260 324,-260 324,-208 164,-208"/>
-</g>
 <g id="clust4" class="cluster">
 <title>cluster_SACBootstrap3DialogModule_imports</title>
 <polygon fill="none" stroke="black" points="230,-78 230,-130 430,-130 430,-78 230,-78"/>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_SACBootstrap3DialogModule_exports</title>
+<polygon fill="none" stroke="black" points="164,-208 164,-260 324,-260 324,-208 164,-208"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_SACBootstrap3DialogModule_declarations</title>

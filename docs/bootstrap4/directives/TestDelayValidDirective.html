@@ -1,0 +1,790 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Bootstrap 4 Angular Controls</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">Bootstrap 4 Angular Controls</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content directive">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Directives</li>
+  <li class="breadcrumb-item" >TestDelayValidDirective</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/sac-bootstrap4/src/controls/form/form.cy.ts</code>
+        </p>
+
+
+
+
+            <p class="comment">
+                <h3>Implements</h3>
+            </p>
+            <p class="comment">
+                        <code>AsyncValidator</code>
+            </p>
+
+
+        <section data-compodoc="block-metadata">
+            <h3>Metadata</h3>
+            <table class="table table-sm table-hover metadata">
+                <tbody>
+                    <tr>
+                        <td class="col-md-3">Providers</td>
+                        <td class="col-md-9">
+                            <code>
+                                TestDelayValidDirective
+                            </code>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-3">Selector</td>
+                        <td class="col-md-9"><code>[sacTestDelayValidator]</code></td>
+                    </tr>
+
+
+
+
+                </tbody>
+            </table>
+        </section>
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#validate" >validate</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#delayresult" >delayresult</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="delayresult"></a>
+                        <b>delayresult</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">projects/sac-bootstrap4/src/controls/form/form.cy.ts:26</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validate"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>validate</b></span>
+                        <a href="#validate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validate(control: AbstractControl)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="32"
+                                    class="link-to-prism">projects/sac-bootstrap4/src/controls/form/form.cy.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>control</td>
+                                            <td>
+                                                        <code>AbstractControl</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;ValidationErrorItem | null&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SacButtonComponent } from &#x27;../buttons&#x27;;
+import { SacFormDirective } from &#x27;../form&#x27;;
+import { SacInputComponent } from &#x27;../input/input&#x27;;
+import { SACBootstrap4LayoutModule } from &#x27;../layout/layout.module&#x27;;
+import { Directive, Input } from &#x27;@angular/core&#x27;;
+import { AbstractControl, AsyncValidator, FormsModule, NG_ASYNC_VALIDATORS } from &#x27;@angular/forms&#x27;;
+import { SACCommonUtliltiesModule, SacFormCommon, ValidationErrorItem } from &#x27;@simpleangularcontrols/sac-common&#x27;;
+import { createOutputSpy } from &#x27;cypress/angular&#x27;;
+import { Observable, of } from &#x27;rxjs&#x27;;
+import { delay } from &#x27;rxjs/operators&#x27;;
+
+@Directive({
+    selector: &#x27;[sacTestDelayValidator]&#x27;,
+    providers: [
+        {
+            provide: NG_ASYNC_VALIDATORS,
+            useExisting: TestDelayValidDirective,
+            multi: true,
+        },
+    ],
+})
+export class TestDelayValidDirective implements AsyncValidator {
+    // #region Properties
+
+    @Input()
+    public delayresult &#x3D; true;
+
+    // #endregion Properties
+
+    // #region Public Methods
+
+    public validate(control: AbstractControl): Observable&lt;ValidationErrorItem | null&gt; {
+        // Returns ‘null’ after 500 ms (&#x3D; valid)
+        if (this.delayresult) {
+            return of(null).pipe(delay(500));
+        } else {
+            return of(new ValidationErrorItem(&#x27;delayederror&#x27;, &#x27;ERR.MESSAGE&#x27;, &#x27;ERR.MESSAGE&#x27;, &#x27;inputname&#x27;)).pipe(
+                delay(500)
+            );
+        }
+    }
+
+    // #endregion Public Methods
+}
+
+describe(&#x27;SacFormDirective&#x27;, () &#x3D;&gt; {
+    it(&#x27;should display validation errors after markAsTouched on invalid form&#x27;, () &#x3D;&gt; {
+        cy.mount(
+            &#x60;&lt;form #form&#x3D;&quot;sacform&quot;&gt;
+                &lt;sac-input name&#x3D;&quot;field&quot; [label]&#x3D;&quot;&#x27;Required Field&#x27;&quot; [required]&#x3D;&quot;true&quot; [ngModel]&#x3D;&quot;&#x27;&#x27;&quot; (ngModelChange)&#x3D;&quot;valueChange.emit($event)&quot;&gt;
+                &lt;/sac-input&gt;
+                &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;form.markAsTouched()&quot;&gt;Validate&lt;/button&gt;
+              &lt;/form&gt;&#x60;,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    valueChange: createOutputSpy(&#x27;valueSpy&#x27;),
+                },
+            }
+        );
+
+        // Error should not be visible initially
+        cy.get(&#x27;.invalid-feedback, .help-block&#x27;).should(&#x27;not.exist&#x27;);
+
+        // Click to mark as touched
+        cy.get(&#x27;button&#x27;).click();
+
+        // Error should be visible after marking as touched
+        cy.get(&#x27;input&#x27;).should(&#x27;have.class&#x27;, &#x27;is-invalid&#x27;);
+    });
+
+    it(&#x27;should display validation errors after markAsTouched on invalid form and formgroup&#x27;, () &#x3D;&gt; {
+        cy.mount(
+            &#x60;&lt;form #form&#x3D;&quot;sacform&quot;&gt;
+                &lt;sac-input name&#x3D;&quot;field&quot; [label]&#x3D;&quot;&#x27;Required Field&#x27;&quot; [required]&#x3D;&quot;true&quot; [ngModel]&#x3D;&quot;&#x27;&#x27;&quot; (ngModelChange)&#x3D;&quot;valueChange.emit($event)&quot;&gt;
+                &lt;/sac-input&gt;
+                &lt;div ngModelGroup&#x3D;&quot;fieldingroup&quot;&gt;
+                    &lt;sac-input name&#x3D;&quot;txtinput2&quot; label&#x3D;&quot;Invalid Input 2&quot; [(ngModel)]&#x3D;&quot;value2&quot; [isrequired]&#x3D;&quot;true&quot;&gt;&lt;/sac-input&gt;
+                &lt;/div&gt;
+                &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;form.markAsTouched()&quot;&gt;Validate&lt;/button&gt;
+              &lt;/form&gt;&#x60;,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    valueChange: createOutputSpy(&#x27;valueSpy&#x27;),
+                },
+            }
+        );
+
+        // Error should not be visible initially
+        cy.get(&#x27;.invalid-feedback, .help-block&#x27;).should(&#x27;not.exist&#x27;);
+
+        // Click to mark as touched
+        cy.get(&#x27;button&#x27;).click();
+
+        // Error should be visible after marking as touched
+        cy.get(&#x27;input&#x27;).should(&#x27;have.class&#x27;, &#x27;is-invalid&#x27;);
+    });
+
+    it(&#x27;should not display validation errors after touch with submit mode invalid form&#x27;, () &#x3D;&gt; {
+        cy.mount(
+            &#x60;&lt;form #form&#x3D;&quot;sacform&quot; updateon&#x3D;&quot;submit&quot;&gt;
+                &lt;sac-input name&#x3D;&quot;field&quot; [label]&#x3D;&quot;&#x27;Required Field&#x27;&quot; [required]&#x3D;&quot;true&quot; [ngModel]&#x3D;&quot;&#x27;&#x27;&quot; (ngModelChange)&#x3D;&quot;valueChange.emit($event)&quot;&gt;
+                &lt;/sac-input&gt;
+                &lt;sac-input name&#x3D;&quot;field2&quot; [label]&#x3D;&quot;&#x27;Required Field&#x27;&quot; [required]&#x3D;&quot;true&quot; [ngModel]&#x3D;&quot;&#x27;&#x27;&quot; (ngModelChange)&#x3D;&quot;valueChange.emit($event)&quot;&gt;
+                &lt;/sac-input&gt;
+            &lt;/form&gt;&#x60;,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    valueChange: createOutputSpy(&#x27;valueSpy&#x27;),
+                },
+            }
+        );
+
+        // Error should not be visible initially
+        cy.get(&#x27;.invalid-feedback, .help-block&#x27;).should(&#x27;not.exist&#x27;);
+
+        // Click to mark as touched
+        cy.get(&#x27;#field&#x27;).click();
+        cy.get(&#x27;#field2&#x27;).click();
+
+        // Error should be visible after marking as touched
+        cy.get(&#x27;#field&#x27;).should(&#x27;not.have.class&#x27;, &#x27;is-invalid&#x27;);
+    });
+
+    it(&#x27;should display validation errors after touch with change mode invalid form&#x27;, () &#x3D;&gt; {
+        cy.mount(
+            &#x60;&lt;form #form&#x3D;&quot;sacform&quot; updateon&#x3D;&quot;change&quot;&gt;
+                &lt;sac-input name&#x3D;&quot;field&quot; [label]&#x3D;&quot;&#x27;Required Field&#x27;&quot; [required]&#x3D;&quot;true&quot; [ngModel]&#x3D;&quot;&#x27;&#x27;&quot; (ngModelChange)&#x3D;&quot;valueChange.emit($event)&quot;&gt;
+                &lt;/sac-input&gt;
+                &lt;sac-input name&#x3D;&quot;field2&quot; [label]&#x3D;&quot;&#x27;Required Field&#x27;&quot; [required]&#x3D;&quot;true&quot; [ngModel]&#x3D;&quot;&#x27;&#x27;&quot; (ngModelChange)&#x3D;&quot;valueChange.emit($event)&quot;&gt;
+                &lt;/sac-input&gt;
+            &lt;/form&gt;&#x60;,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    valueChange: createOutputSpy(&#x27;valueSpy&#x27;),
+                },
+            }
+        );
+
+        // Error should not be visible initially
+        cy.get(&#x27;.invalid-feedback, .help-block&#x27;).should(&#x27;not.exist&#x27;);
+
+        // Click to mark as touched
+        cy.get(&#x27;#field&#x27;).click();
+        cy.get(&#x27;#field2&#x27;).click();
+
+        // Error should be visible after marking as touched
+        cy.get(&#x27;#field&#x27;).should(&#x27;have.class&#x27;, &#x27;is-invalid&#x27;);
+    });
+
+    it(&#x27;should display validation errors after touch with blur mode invalid form&#x27;, () &#x3D;&gt; {
+        cy.mount(
+            &#x60;&lt;form #form&#x3D;&quot;sacform&quot; updateon&#x3D;&quot;blur&quot;&gt;
+                &lt;sac-input name&#x3D;&quot;field&quot; [label]&#x3D;&quot;&#x27;Required Field&#x27;&quot; [required]&#x3D;&quot;true&quot; [ngModel]&#x3D;&quot;&#x27;&#x27;&quot; (ngModelChange)&#x3D;&quot;valueChange.emit($event)&quot;&gt;
+                &lt;/sac-input&gt;
+                &lt;sac-input name&#x3D;&quot;field2&quot; [label]&#x3D;&quot;&#x27;Required Field&#x27;&quot; [required]&#x3D;&quot;true&quot; [ngModel]&#x3D;&quot;&#x27;&#x27;&quot; (ngModelChange)&#x3D;&quot;valueChange.emit($event)&quot;&gt;
+                &lt;/sac-input&gt;
+            &lt;/form&gt;&#x60;,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    valueChange: createOutputSpy(&#x27;valueSpy&#x27;),
+                },
+            }
+        );
+
+        // Error should not be visible initially
+        cy.get(&#x27;.invalid-feedback, .help-block&#x27;).should(&#x27;not.exist&#x27;);
+
+        // Click to mark as touched
+        cy.get(&#x27;#field&#x27;).click();
+        cy.get(&#x27;#field2&#x27;).click();
+
+        // Error should be visible after marking as touched
+        cy.get(&#x27;#field&#x27;).should(&#x27;have.class&#x27;, &#x27;is-invalid&#x27;);
+    });
+
+    it(&#x27;should validate if call updateValueAndValitity without mark as touched&#x27;, () &#x3D;&gt; {
+        cy.mount(
+            &#x60;&lt;form #form&#x3D;&quot;sacform&quot;&gt;
+                &lt;sac-input name&#x3D;&quot;field&quot; [label]&#x3D;&quot;&#x27;Required Field&#x27;&quot; [required]&#x3D;&quot;true&quot; [ngModel]&#x3D;&quot;&#x27;&#x27;&quot; (ngModelChange)&#x3D;&quot;valueChange.emit($event)&quot;&gt;
+                &lt;/sac-input&gt;
+                &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;form.updateValueAndValidity()&quot;&gt;Validate&lt;/button&gt;
+              &lt;/form&gt;&#x60;,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    valueChange: createOutputSpy(&#x27;valueSpy&#x27;),
+                },
+            }
+        );
+
+        // Error should not be visible initially
+        cy.get(&#x27;.invalid-feedback, .help-block&#x27;).should(&#x27;not.exist&#x27;);
+
+        // Click to mark as touched
+        cy.get(&#x27;button&#x27;).click();
+
+        // Error should be visible after marking as touched
+        cy.get(&#x27;input&#x27;).should(&#x27;have.class&#x27;, &#x27;is-invalid&#x27;);
+    });
+
+    it(&#x27;should validate if call updateValueAndValitity without mark as touched and fromgroup&#x27;, () &#x3D;&gt; {
+        cy.mount(
+            &#x60;&lt;form #form&#x3D;&quot;sacform&quot;&gt;
+                &lt;sac-input name&#x3D;&quot;field&quot; [label]&#x3D;&quot;&#x27;Required Field&#x27;&quot; [required]&#x3D;&quot;true&quot; [ngModel]&#x3D;&quot;&#x27;&#x27;&quot; (ngModelChange)&#x3D;&quot;valueChange.emit($event)&quot;&gt;
+                &lt;/sac-input&gt;
+                &lt;div ngModelGroup&#x3D;&quot;fieldingroup&quot;&gt;
+                    &lt;sac-input name&#x3D;&quot;txtinput2&quot; label&#x3D;&quot;Invalid Input 2&quot; [(ngModel)]&#x3D;&quot;value2&quot; [isrequired]&#x3D;&quot;true&quot;&gt;&lt;/sac-input&gt;
+                &lt;/div&gt;                
+                &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;form.updateValueAndValidity()&quot;&gt;Validate&lt;/button&gt;
+              &lt;/form&gt;&#x60;,
+            {
+                declarations: [SacFormDirective, SacInputComponent],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    valueChange: createOutputSpy(&#x27;valueSpy&#x27;),
+                },
+            }
+        );
+
+        // Error should not be visible initially
+        cy.get(&#x27;.invalid-feedback, .help-block&#x27;).should(&#x27;not.exist&#x27;);
+
+        // Click to mark as touched
+        cy.get(&#x27;button&#x27;).click();
+
+        // Error should be visible after marking as touched
+        cy.get(&#x27;input&#x27;).should(&#x27;have.class&#x27;, &#x27;is-invalid&#x27;);
+    });
+
+    it(&#x27;should call inValidFn only one times if async validator is valid&#x27;, () &#x3D;&gt; {
+        const onValidSpy &#x3D; cy.spy().as(&#x27;onValidSpy&#x27;);
+        const onInValidSpy &#x3D; cy.spy().as(&#x27;onInValidSpy&#x27;);
+        const onCompleteSpy &#x3D; cy.spy().as(&#x27;onCompleteSpy&#x27;);
+
+        cy.mount(
+            &#x60;&lt;form #form&#x3D;&quot;sacform&quot;&gt;
+                    &lt;sac-input name&#x3D;&quot;field&quot; [label]&#x3D;&quot;&#x27;Required Field&#x27;&quot; sacTestDelayValidator [ngModel]&#x3D;&quot;&#x27;&#x27;&quot; (ngModelChange)&#x3D;&quot;valueChange.emit($event)&quot;&gt;
+                    &lt;/sac-input&gt;
+                    &lt;sac-button type&#x3D;&quot;button&quot; [isloading]&#x3D;&quot;isloading&quot; (clicked)&#x3D;&quot;save(form)&quot; text&#x3D;&quot;Validate&quot;&gt;&lt;/sac-button &gt;
+                &lt;/form&gt;&#x60;,
+            {
+                declarations: [SacFormDirective, SacInputComponent, SacButtonComponent, TestDelayValidDirective],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    isloading: false,
+                    valueChange: createOutputSpy(&#x27;valueSpy&#x27;),
+                    save: function (form: SacFormCommon) {
+                        this.isloading &#x3D; true;
+                        form.validateForm({
+                            onValidFn: () &#x3D;&gt; {
+                                onValidSpy();
+                            },
+                            onInvalidFn: () &#x3D;&gt; onInValidSpy(),
+                            onCompleteFn: (isvalid: boolean) &#x3D;&gt; {
+                                onCompleteSpy();
+                                this.isloading &#x3D; false;
+                            },
+                        });
+                    },
+                },
+            }
+        );
+
+        // Error should not be visible initially
+        cy.get(&#x27;.invalid-feedback, .help-block&#x27;).should(&#x27;not.exist&#x27;);
+
+        // Click to mark as touched
+        cy.get(&#x27;button&#x27;).click();
+        cy.get(&#x27;button&#x27;).click();
+
+        cy.get(&#x27;@onValidSpy&#x27;).should(&#x27;have.been.calledOnce&#x27;);
+        cy.get(&#x27;@onInValidSpy&#x27;).should(&#x27;not.have.been.called&#x27;);
+        cy.get(&#x27;@onCompleteSpy&#x27;).should(&#x27;have.been.calledOnce&#x27;);
+    });
+
+    it(&#x27;should call onInvalidFn only validator is invalid&#x27;, () &#x3D;&gt; {
+        const onValidSpy &#x3D; cy.spy().as(&#x27;onValidSpy&#x27;);
+        const onInValidSpy &#x3D; cy.spy().as(&#x27;onInValidSpy&#x27;);
+        const onCompleteSpy &#x3D; cy.spy().as(&#x27;onCompleteSpy&#x27;);
+
+        cy.mount(
+            &#x60;&lt;form #form&#x3D;&quot;sacform&quot;&gt;
+                    &lt;sac-input name&#x3D;&quot;field&quot; [label]&#x3D;&quot;&#x27;Required Field&#x27;&quot; sacTestDelayValidator 
+                        [delayresult]&#x3D;&quot;false&quot; [ngModel]&#x3D;&quot;&#x27;&#x27;&quot; (ngModelChange)&#x3D;&quot;valueChange.emit($event)&quot;&gt;
+                    &lt;/sac-input&gt;
+                    &lt;sac-button type&#x3D;&quot;button&quot; [isloading]&#x3D;&quot;isloading&quot; (clicked)&#x3D;&quot;save(form)&quot; text&#x3D;&quot;Validate&quot;&gt;&lt;/sac-button &gt;
+                &lt;/form&gt;&#x60;,
+            {
+                declarations: [SacFormDirective, SacInputComponent, SacButtonComponent, TestDelayValidDirective],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    isloading: false,
+                    valueChange: createOutputSpy(&#x27;valueSpy&#x27;),
+                    save: function (form: SacFormCommon) {
+                        this.isloading &#x3D; true;
+                        form.validateForm({
+                            onValidFn: () &#x3D;&gt; {
+                                onValidSpy();
+                            },
+                            onInvalidFn: () &#x3D;&gt; {
+                                this.isloading &#x3D; false;
+                                onInValidSpy();
+                            },
+                            onCompleteFn: (isvalid: boolean) &#x3D;&gt; {
+                                onCompleteSpy();
+                                this.isloading &#x3D; false;
+                            },
+                        });
+                    },
+                },
+            }
+        );
+
+        // Error should not be visible initially
+        cy.get(&#x27;.invalid-feedback, .help-block&#x27;).should(&#x27;not.exist&#x27;);
+
+        // Click to mark as touched
+        cy.get(&#x27;button&#x27;).click();
+        cy.get(&#x27;button&#x27;).click();
+
+        cy.get(&#x27;@onValidSpy&#x27;).should(&#x27;not.have.been.called&#x27;);
+        cy.get(&#x27;@onInValidSpy&#x27;).should(&#x27;have.been.calledOnce&#x27;);
+        cy.get(&#x27;@onCompleteSpy&#x27;).should(&#x27;have.been.calledOnce&#x27;);
+    });
+
+    it(&#x27;should work without loading indicator&#x27;, () &#x3D;&gt; {
+        const onValidSpy &#x3D; cy.spy().as(&#x27;onValidSpy&#x27;);
+
+        cy.mount(
+            &#x60;&lt;form #form&#x3D;&quot;sacform&quot;&gt;
+                        &lt;sac-input name&#x3D;&quot;field&quot; [label]&#x3D;&quot;&#x27;Required Field&#x27;&quot; sacTestDelayValidator [ngModel]&#x3D;&quot;&#x27;&#x27;&quot; (ngModelChange)&#x3D;&quot;valueChange.emit($event)&quot;&gt;
+                        &lt;/sac-input&gt;
+                        &lt;sac-button type&#x3D;&quot;button&quot; [isloading]&#x3D;&quot;isloading&quot; (clicked)&#x3D;&quot;save(form)&quot; text&#x3D;&quot;Validate&quot;&gt;&lt;/sac-button &gt;
+                    &lt;/form&gt;&#x60;,
+            {
+                declarations: [SacFormDirective, SacInputComponent, SacButtonComponent, TestDelayValidDirective],
+                imports: [FormsModule, SACBootstrap4LayoutModule, SACCommonUtliltiesModule],
+                componentProperties: {
+                    isloading: false,
+                    valueChange: createOutputSpy(&#x27;valueSpy&#x27;),
+                    save: function (form: SacFormCommon) {
+                        form.validateForm({
+                            onValidFn: () &#x3D;&gt; {
+                                onValidSpy();
+                            },
+                        });
+                    },
+                },
+            }
+        );
+
+        // Error should not be visible initially
+        cy.get(&#x27;.invalid-feedback, .help-block&#x27;).should(&#x27;not.exist&#x27;);
+
+        // Click to mark as touched
+        cy.get(&#x27;button&#x27;).click();
+
+        cy.get(&#x27;@onValidSpy&#x27;).should(&#x27;have.been.calledOnce&#x27;);
+    });
+});
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'directive';
+            var COMPODOC_CURRENT_PAGE_URL = 'TestDelayValidDirective.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

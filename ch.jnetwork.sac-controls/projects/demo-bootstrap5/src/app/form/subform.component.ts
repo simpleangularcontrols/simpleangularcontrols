@@ -29,7 +29,7 @@ export class DemoSubFormComponent implements DoCheck {
      */
     public ngDoCheck() {
         if (this.form) {
-            console.log(this.form.getForm().dirty);
+            console.log('Subform has state: ' + this.form.getForm().dirty);
         }
         this.mymodelChange.next(this.mymodel);
     }

@@ -10,6 +10,10 @@ codecov:
 # Erzwingt, dass Codecov die Abdeckung für alle deine "Master"-Branches trackt
 coverage:
   status:
+    patch:
+      default:
+        target: auto
+        threshold: 5%  # Erlaubt, dass der neue Code um bis zu 5% vom Ziel abweicht  
     project:
       default:
         # Erlaubt den Vergleich gegen den jeweiligen Ziel-Branch des PRs

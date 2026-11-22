@@ -53,7 +53,7 @@ export class SacInputDecimalCommon extends SacInputBase<number> {
     /**
      * Resource key for validation message Required in validation summary
      */
-    @Input() public validationmessagesummaryrequired: string = this.validationKeyService.ValidationErrorRequired;
+    @Input() public validationmessagesummaryrequired: string = this.validationKeyService.ValidationErrorSummaryRequired;
 
     // #endregion Properties
 

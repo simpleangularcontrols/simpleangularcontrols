@@ -28,13 +28,13 @@
 <title>cluster_SACBootstrap4ListModule_declarations</title>
 <polygon fill="none" stroke="black" points="638,-78 638,-130 986,-130 986,-78 638,-78"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_SACBootstrap4ListModule_exports</title>
-<polygon fill="none" stroke="black" points="344,-208 344,-260 700,-260 700,-208 344,-208"/>
-</g>
 <g id="clust5" class="cluster">
 <title>cluster_SACBootstrap4ListModule_imports</title>
 <polygon fill="none" stroke="black" points="16,-78 16,-130 630,-130 630,-78 16,-78"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_SACBootstrap4ListModule_exports</title>
+<polygon fill="none" stroke="black" points="344,-208 344,-260 700,-260 700,-208 344,-208"/>
 </g>
 <!-- SacListboxComponent -->
 <g id="node1" class="node">
